@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Wildfire Carbon Feedbacks in GIVE</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <span class="eyebrow">GIVE wildfire-carbon extension</span>
+        <h1>How climate-sensitive wildfire CO2 can move the social cost of carbon</h1>
+      </div>
+      <nav aria-label="Page sections">
+        <a href="#audit">Audit</a>
+        <a href="#sandbox">Sandbox</a>
+        <a href="#evidence">Evidence</a>
+        <a href="#maps">Maps</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="lede">
+            We audited the Rennert et al. GIVE replication package, found that GIVE runs on exogenous CO2,
+            GDP and population pathways, and built a transparent first-pass extension for a warming-driven
+            wildfire CO2 feedback.
+          </p>
+          <div class="metric-row" aria-label="Key results">
+            <div class="metric">
+              <strong id="heroBaseline">$198.35</strong>
+              <span>baseline mean SCC, 2.0% case</span>
+            </div>
+            <div class="metric">
+              <strong id="heroResidual">+5.65%</strong>
+              <span>residual-high mean SCC shift</span>
+            </div>
+            <div class="metric">
+              <strong id="heroStress">+74.62%</strong>
+              <span>gross stress-test mean SCC shift</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-note">
+          <h2>Core claim</h2>
+          <p>
+            Conservative residual wildfire-carbon feedbacks are modest in the 100-draw validation run.
+            Gross missing fire-carbon assumptions can be large, but are not double-counting safe.
+          </p>
+        </div>
+      </section>
+
+      <section id="audit" class="section band">
+        <div class="section-heading">
+          <span class="eyebrow">Model audit</span>
+          <h2>What we think GIVE already does, and what it does not do internally</h2>
+          <p>
+            The audit does not prove every wildfire-related carbon flow is absent from baseline scenarios.
+            It does show that the released GIVE run does not create an endogenous loop from warming to
+            additional wildfire CO2 during the SCC pulse calculation.
+          </p>
+        </div>
+        <div class="audit-grid">
+          <article>
+            <h3>Aggregate CO2 path</h3>
+            <p>RFF-SP enters as an aggregate global CO2 emissions path, without fossil, AFOLU, LULUCF or fire decomposition.</p>
+          </article>
+          <article>
+            <h3>FaIR connection</h3>
+            <p>GIVE passes the aggregate CO2 path to FaIR, which handles carbon cycle, forcing and temperature response.</p>
+          </article>
+          <article>
+            <h3>Missing feedback</h3>
+            <p>Warming does not internally trigger additional wildfire CO2 emissions unless that process is already embedded exogenously.</p>
+          </article>
+          <article>
+            <h3>Double-counting boundary</h3>
+            <p>The defensible experiment is residual, net-persistent, not-already-embedded wildfire CO2, not gross fire emissions.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="sandbox" class="section">
+        <div class="section-heading">
+          <span class="eyebrow">Interactive emulator</span>
+          <h2>Adjust assumptions and see the estimated SCC response</h2>
+          <p>
+            This panel is calibrated to the paired 100-draw GIVE outputs. It is a fast approximation for
+            intuition, not a substitute for rerunning Julia.
+          </p>
+        </div>
+
+        <div class="sandbox-layout">
+          <aside class="controls" aria-label="Wildfire feedback controls">
+            <label>
+              Discount case
+              <select id="discountSelect">
+                <option value="1.5%">1.5%</option>
+                <option value="2.0%" selected>2.0%</option>
+                <option value="2.5%">2.5%</option>
+                <option value="3.0%">3.0%</option>
+              </select>
+            </label>
+
+            <label>
+              Scenario anchor
+              <select id="scenarioSelect">
+                <option value="feedback-residual-medium">Residual medium</option>
+                <option value="feedback-residual-high" selected>Residual high</option>
+                <option value="feedback-resfire-half-gross">High-end half-gross stress</option>
+                <option value="feedback-resfire-gross">High-end gross stress</option>
+              </select>
+            </label>
+
+            <div class="slider-row">
+              <label for="fireScale">Fire response multiplier <output id="fireScaleOut">1.00x</output></label>
+              <input id="fireScale" type="range" min="0" max="2.5" step="0.05" value="1" />
+            </div>
+
+            <div class="slider-row">
+              <label for="netPersistence">Net persistent share <output id="netPersistenceOut">0.35</output></label>
+              <input id="netPersistence" type="range" min="0.02" max="1" step="0.01" value="0.35" />
+            </div>
+
+            <div class="slider-row">
+              <label for="missingShare">Not-already-embedded share <output id="missingShareOut">0.35</output></label>
+              <input id="missingShare" type="range" min="0.02" max="1" step="0.01" value="0.35" />
+            </div>
+
+            <div class="slider-row">
+              <label for="damageAmplifier">Damage-response amplifier <output id="damageAmplifierOut">1.00x</output></label>
+              <input id="damageAmplifier" type="range" min="0.5" max="1.8" step="0.05" value="1" />
+            </div>
+
+            <button id="resetButton" type="button">Reset to anchor</button>
+            <p class="control-note" id="riskNote"></p>
+          </aside>
+
+          <div class="results">
+            <div class="result-metrics">
+              <div class="metric">
+                <strong id="estimateMean">$0</strong>
+                <span>estimated mean SCC</span>
+              </div>
+              <div class="metric">
+                <strong id="estimateDelta">$0</strong>
+                <span>change vs baseline</span>
+              </div>
+              <div class="metric">
+                <strong id="estimatePct">0%</strong>
+                <span>percent change</span>
+              </div>
+              <div class="metric">
+                <strong id="fire2100">0</strong>
+                <span>added fire CO2 in 2100</span>
+              </div>
+            </div>
+
+            <div class="chart-grid">
+              <section class="chart-panel">
+                <div class="chart-heading">
+                  <h3>SCC distribution emulator</h3>
+                  <p>Baseline samples shifted by the estimated wildfire increment.</p>
+                </div>
+                <canvas id="distributionChart" width="760" height="360"></canvas>
+              </section>
+              <section class="chart-panel">
+                <div class="chart-heading">
+                  <h3>Added fire CO2 pathway</h3>
+                  <p>Calibrated deterministic path scaled by the controls.</p>
+                </div>
+                <canvas id="firePathChart" width="760" height="360"></canvas>
+              </section>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section band">
+        <div class="section-heading">
+          <span class="eyebrow">Paired GIVE outputs</span>
+          <h2>Scenario comparison from the 100-draw validation run</h2>
+          <p>Means and percent changes are computed from paired samples. These are validation-scale results.</p>
+        </div>
+        <div class="table-wrap">
+          <table id="scenarioTable">
+            <thead>
+              <tr>
+                <th>Scenario</th>
+                <th>Mean SCC</th>
+                <th>Median</th>
+                <th>5th</th>
+                <th>95th</th>
+                <th>Change</th>
+                <th>Percent</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="evidence" class="section">
+        <div class="section-heading">
+          <span class="eyebrow">Evidence and diagnostics</span>
+          <h2>What the model says, and what the diagnostic figures are for</h2>
+        </div>
+        <div class="evidence-grid">
+          <figure>
+            <img src="assets/figures/scc_distribution.png" alt="Truncated SCC distributions for baseline and wildfire feedback scenarios" />
+            <figcaption>Right-tail-truncated SCC distribution. Means are calculated on the full samples.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/figures/fire_scale_shares.png" alt="Added wildfire CO2 scale relative to emissions and atmospheric stock" />
+            <figcaption>Fire CO2 can be a visible annual flow without dominating the atmospheric stock.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/figures/sectoral_marginal_damages.png" alt="Sectoral marginal damage paths under baseline and wildfire feedback" />
+            <figcaption>Sectoral marginal damage diagnostics show where the effect is muted or delayed.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="maps" class="section band">
+        <div class="section-heading">
+          <span class="eyebrow">Spatial interpretation</span>
+          <h2>Source geography and damage geography are different objects</h2>
+          <p>
+            The source map is an assumption ledger for where added fire-carbon feedbacks plausibly originate.
+            The damage maps show diagnostic incidence from the model outputs and do not include smoke mortality,
+            non-CO2 fire forcing, sea-level rise or within-country inequality.
+          </p>
+        </div>
+        <div class="map-grid">
+          <figure>
+            <img src="assets/figures/source_proxy_map.png" alt="Country-level source proxy for additional wildfire CO2" />
+            <figcaption>Source proxy: plausible climate-sensitive fire-carbon regions.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/figures/incremental_damage_map.png" alt="Incremental damage country map" />
+            <figcaption>Diagnostic incremental core damages.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/figures/incremental_scc_map.png" alt="Incremental core SCC country map" />
+            <figcaption>Diagnostic incremental core-sector SCC contribution.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section caveats">
+        <div class="section-heading">
+          <span class="eyebrow">Caveats</span>
+          <h2>What this site should not let users forget</h2>
+        </div>
+        <ul>
+          <li>Gross wildfire emissions are not the same as net persistent atmospheric CO2.</li>
+          <li>Some wildfire or biomass-burning carbon may already be embedded in historical inventories or AFOLU/LULUCF expectations.</li>
+          <li>The interactive controls scale a calibrated emulator; they do not rerun GIVE or FaIR.</li>
+          <li>The SCC is marginal damage from an extra tonne, not total damage from all wildfire carbon.</li>
+          <li>Smoke mortality and non-CO2 fire forcers are important separate channels and are not included here.</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        Built from local outputs in <code>wildfire_extension</code>. Results are preliminary and intended for research design, teaching and diagnostics.
+      </p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

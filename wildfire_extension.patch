@@ -1,0 +1,2030 @@
+diff --git a/wildfire_extension/WildfireGIVE.jl b/wildfire_extension/WildfireGIVE.jl
+new file mode 100644
+index 0000000..da57c0f
+--- /dev/null
++++ b/wildfire_extension/WildfireGIVE.jl
+@@ -0,0 +1,547 @@
++module WildfireGIVE
++
++using CSVFiles
++using DataFrames
++using Mimi
++using MimiGIVE
++using Random
++
++export GTCO2_TO_GTC,
++       GTC_TO_GTCO2,
++       wildfire_co2_path,
++       climate_response_wildfire_path,
++       canada_2023_excess_wildfire_path,
++       source_informed_wildfire_draws,
++       write_wildfire_path,
++       apply_wildfire_co2!,
++       get_model
++
++const GTCO2_TO_GTC = 12.0 / 44.0
++const GTC_TO_GTCO2 = 44.0 / 12.0
++
++const DEFAULT_MODEL_YEARS = collect(1750:2300)
++const CANADA_2023_EXCESS_GTCO2 = ((647.0 - 121.0) / 1000.0) * GTC_TO_GTCO2
++
++"""
++    wildfire_co2_path(; scenario=:medium, years=1750:2300, start_year=2020,
++        custom_gtco2=nothing)
++
++Construct a stylized *net additional* wildfire CO2 emissions path in GtCO2/yr and
++GtC/yr. The path is intended to represent emissions above whatever fire-related
++net land-carbon flux is already implicit in the baseline emissions scenario.
++
++Scenarios:
++- `:low`: 0.10 GtCO2/yr from `start_year` onward.
++- `:medium`: 0.25 GtCO2/yr in `start_year`, growing 0.5%/yr.
++- `:high`: 0.50 GtCO2/yr in `start_year`, growing 1.0%/yr, capped at 5.0 GtCO2/yr.
++- `:stress`: 2.00 GtCO2/yr in `start_year`, growing 1.5%/yr, capped at 20.0 GtCO2/yr.
++- `:custom`: use `custom_gtco2`, which must have one value for each year.
++"""
++function wildfire_co2_path(;
++    scenario::Union{Symbol,String} = :medium,
++    years = DEFAULT_MODEL_YEARS,
++    start_year::Int = 2020,
++    custom_gtco2::Union{Nothing,AbstractVector{<:Real}} = nothing,
++)
++    scenario = Symbol(scenario)
++    years = collect(years)
++    gtco2 = zeros(Float64, length(years))
++
++    if scenario in (:none, :off, :baseline)
++        # Leave the model unchanged.
++    elseif scenario == :low
++        gtco2 .= [year >= start_year ? 0.10 : 0.0 for year in years]
++    elseif scenario == :medium
++        gtco2 .= [year >= start_year ? 0.25 * 1.005^(year - start_year) : 0.0 for year in years]
++    elseif scenario == :high
++        gtco2 .= [year >= start_year ? min(0.50 * 1.01^(year - start_year), 5.0) : 0.0 for year in years]
++    elseif scenario == :stress
++        gtco2 .= [year >= start_year ? min(2.00 * 1.015^(year - start_year), 20.0) : 0.0 for year in years]
++    elseif scenario == :custom
++        custom_gtco2 === nothing && error("scenario=:custom requires custom_gtco2.")
++        length(custom_gtco2) == length(years) ||
++            error("custom_gtco2 must have one value for each year.")
++        gtco2 .= Float64.(custom_gtco2)
++    else
++        error("Unknown wildfire_scenario $scenario.")
++    end
++
++    return DataFrame(
++        year = years,
++        wildfire_scenario = fill(string(scenario), length(years)),
++        wildfire_gtco2 = gtco2,
++        wildfire_gtc = gtco2 .* GTCO2_TO_GTC,
++    )
++end
++
++function _triangular(rng::AbstractRNG, low::Real, mode::Real, high::Real)
++    low = Float64(low)
++    mode = Float64(mode)
++    high = Float64(high)
++    low <= mode <= high || error("Triangular parameters must satisfy low <= mode <= high.")
++    u = rand(rng)
++    c = (mode - low) / (high - low)
++    if u < c
++        return low + sqrt(u * (high - low) * (mode - low))
++    else
++        return high - sqrt((1 - u) * (high - low) * (high - mode))
++    end
++end
++
++function _temperature_scaled_path(years, temperature_c, target_2050_gtco2, ratio_2100)
++    start_year = 2020
++    mid_year = 2050
++    late_year = 2100
++
++    start_index = findfirst(isequal(start_year), years)
++    mid_index = findfirst(isequal(mid_year), years)
++    late_index = findfirst(isequal(late_year), years)
++
++    start_index === nothing && error("years must include $start_year.")
++    mid_index === nothing && error("years must include $mid_year.")
++    late_index === nothing && error("years must include $late_year.")
++
++    t_start = temperature_c[start_index]
++    t_mid = temperature_c[mid_index]
++    t_late = temperature_c[late_index]
++
++    target_2100_gtco2 = target_2050_gtco2 * ratio_2100
++    pre_slope = target_2050_gtco2 / max(t_mid - t_start, eps(Float64))
++    post_slope = (target_2100_gtco2 - target_2050_gtco2) / max(t_late - t_mid, eps(Float64))
++
++    return [
++        if year < start_year
++            0.0
++        elseif year <= mid_year
++            max((temperature_c[i] - t_start) * pre_slope, 0.0)
++        else
++            max(target_2050_gtco2 + (temperature_c[i] - t_mid) * post_slope, 0.0)
++        end
++        for (i, year) in enumerate(years)
++    ]
++end
++
++"""
++    source_informed_wildfire_draws(; n, years, temperature_c, seed=20260502)
++
++Generate source-informed wildfire CO2 pathway draws. Magnitudes are anchored on
++the Byrne et al. 2024 Canada-2023 excess fire carbon estimate
++(`647 - 121 = 526 TgC = 1.93 GtCO2/yr`). Post-2050 growth uses a triangular
++draw bounded by the Val Martin et al. USDA projected fire-emissions and burned
++area late-century/mid-century ratios. Net persistence and not-already-embedded
++fractions are explicit uncertainty parameters to reduce double counting.
++"""
++function source_informed_wildfire_draws(;
++    n::Int,
++    years = DEFAULT_MODEL_YEARS,
++    temperature_c::AbstractVector,
++    seed::Int = 20260502,
++)
++    years = collect(years)
++    length(temperature_c) == length(years) ||
++        error("temperature_c must have one value for each year.")
++    any(ismissing, temperature_c) &&
++        error("temperature_c contains missing values.")
++    temperature_c = Float64.(temperature_c)
++
++    rng = MersenneTwister(seed)
++    emissions_rows = DataFrame()
++    parameter_rows = DataFrame(
++        draw = Int[],
++        canada_excess_gtco2 = Float64[],
++        gross_target_fraction_2050 = Float64[],
++        net_persistence_fraction = Float64[],
++        not_embedded_fraction = Float64[],
++        net_target_2050_gtco2 = Float64[],
++        ratio_2100_to_2050 = Float64[],
++        source_note = String[],
++    )
++
++    for draw in 1:n
++        gross_target_fraction_2050 = _triangular(rng, 0.25, 1.00, 2.00)
++        net_persistence_fraction = _triangular(rng, 0.25, 0.60, 1.00)
++        not_embedded_fraction = _triangular(rng, 0.50, 0.80, 1.00)
++        ratio_2100_to_2050 = _triangular(rng, 1.06, 1.20, 1.32)
++
++        net_target_2050_gtco2 =
++            CANADA_2023_EXCESS_GTCO2 *
++            gross_target_fraction_2050 *
++            net_persistence_fraction *
++            not_embedded_fraction
++
++        path_gtco2 = _temperature_scaled_path(
++            years,
++            temperature_c,
++            net_target_2050_gtco2,
++            ratio_2100_to_2050,
++        )
++
++        append!(
++            emissions_rows,
++            DataFrame(
++                draw = fill(draw, length(years)),
++                year = years,
++                wildfire_gtco2 = path_gtco2,
++                wildfire_gtc = path_gtco2 .* GTCO2_TO_GTC,
++            ),
++            cols = :union,
++        )
++
++        push!(
++            parameter_rows,
++            (
++                draw,
++                CANADA_2023_EXCESS_GTCO2,
++                gross_target_fraction_2050,
++                net_persistence_fraction,
++                not_embedded_fraction,
++                net_target_2050_gtco2,
++                ratio_2100_to_2050,
++                "Canada2023 excess magnitude; ValMartin2018 USDA late/mid-century fire scaling; explicit net/not-embedded fractions",
++            ),
++        )
++    end
++
++    return parameter_rows, emissions_rows
++end
++
++function _canada_2023_target_fraction(scenario::Symbol)
++    if scenario in (:low, :canada2023_low, :boreal_low)
++        return 0.25
++    elseif scenario in (:medium, :canada2023_medium, :boreal_medium)
++        return 0.50
++    elseif scenario in (:high, :canada2023_high, :boreal_high)
++        return 1.00
++    elseif scenario in (:stress, :canada2023_stress, :boreal_stress)
++        return 2.00
++    else
++        error("Unknown Canada-2023 wildfire scenario $scenario.")
++    end
++end
++
++"""
++    canada_2023_excess_wildfire_path(; scenario=:medium, years=1750:2300,
++        start_year=2020, target_year=2050)
++
++Construct a Canada-2023-calibrated added fire CO2 pathway.
++
++The default target is the 2023 Canadian fire-carbon estimate from Byrne et al.
++minus their cited 2010-2022 top-down Canadian average:
++
++- 647 TgC in 2023
++- 121 TgC/yr recent average
++- excess = 526 TgC/yr = 0.526 GtC/yr = 1.93 GtCO2/yr
++
++    Low/medium/high reach 25%, 50%, and 100% of that excess by 2050 and continue
++increasing after 2050. If a baseline temperature path is provided, emissions are
++scaled to warming above 2020, normalized so the selected target is reached at
++2050. Without a temperature path, the function linearly extrapolates the
++2020-2050 ramp. The default `net_persistence_fraction` and
++`not_embedded_fraction` are 1.0 for this stress-style diagnostic; set them below
++1.0 when interpreting the path as persistent net CO2 or as already partly
++embedded in RFF-SP aggregate CO2.
++"""
++function canada_2023_excess_wildfire_path(;
++    scenario::Union{Symbol,String} = :medium,
++    years = DEFAULT_MODEL_YEARS,
++    temperature_c::Union{Nothing,AbstractVector} = nothing,
++    start_year::Int = 2020,
++    target_year::Int = 2050,
++    canada_2023_tgc::Real = 647.0,
++    canada_recent_average_tgc::Real = 121.0,
++    target_fraction::Union{Nothing,Real} = nothing,
++    net_persistence_fraction::Real = 1.0,
++    not_embedded_fraction::Real = 1.0,
++)
++    scenario = Symbol(scenario)
++    years = collect(years)
++    if !isnothing(temperature_c)
++        length(temperature_c) == length(years) ||
++            error("temperature_c must have one value for each year.")
++        any(ismissing, temperature_c) &&
++            error("temperature_c contains missing values; run the baseline model before constructing this path.")
++        temperature_c = Float64.(temperature_c)
++    end
++
++    target_fraction =
++        isnothing(target_fraction) ? _canada_2023_target_fraction(scenario) : Float64(target_fraction)
++
++    excess_tgc = Float64(canada_2023_tgc - canada_recent_average_tgc)
++    excess_gtc = excess_tgc / 1000.0
++    excess_gtco2 = excess_gtc * GTC_TO_GTCO2
++    target_gtco2 =
++        excess_gtco2 *
++        target_fraction *
++        Float64(net_persistence_fraction) *
++        Float64(not_embedded_fraction)
++
++    ramp_denominator = max(target_year - start_year, 1)
++    scale =
++        if isnothing(temperature_c)
++            [year < start_year ? 0.0 : (year - start_year) / ramp_denominator for year in years]
++        else
++            start_index = findfirst(isequal(start_year), years)
++            target_index = findfirst(isequal(target_year), years)
++            start_index === nothing && error("start_year $start_year is not in years.")
++            target_index === nothing && error("target_year $target_year is not in years.")
++            temp_delta_to_target = temperature_c[target_index] - temperature_c[start_index]
++            abs(temp_delta_to_target) < eps(Float64) &&
++                error("Temperature change between start_year and target_year is too small to scale the path.")
++            [
++                year < start_year ? 0.0 :
++                max((temperature_c[i] - temperature_c[start_index]) / temp_delta_to_target, 0.0)
++                for (i, year) in enumerate(years)
++            ]
++        end
++
++    gtco2 = target_gtco2 .* scale
++
++    return DataFrame(
++        year = years,
++        wildfire_scenario = fill("canada-2023-excess-$(scenario)", length(years)),
++        temperature_scaled = fill(!isnothing(temperature_c), length(years)),
++        temperature_c = isnothing(temperature_c) ? fill(missing, length(years)) : temperature_c,
++        scaling_to_2050_target = scale,
++        canada_2023_tgc = fill(Float64(canada_2023_tgc), length(years)),
++        canada_recent_average_tgc = fill(Float64(canada_recent_average_tgc), length(years)),
++        canada_excess_tgc = fill(excess_tgc, length(years)),
++        canada_excess_gtco2 = fill(excess_gtco2, length(years)),
++        target_fraction = fill(target_fraction, length(years)),
++        target_year = fill(target_year, length(years)),
++        net_persistence_fraction = fill(Float64(net_persistence_fraction), length(years)),
++        not_embedded_fraction = fill(Float64(not_embedded_fraction), length(years)),
++        wildfire_gtco2 = gtco2,
++        wildfire_gtc = gtco2 .* GTCO2_TO_GTC,
++    )
++end
++
++function _climate_response_assumptions(
++    scenario::Symbol;
++    sensitivity_per_c::Union{Nothing,Real},
++    net_persistence_fraction::Union{Nothing,Real},
++    not_embedded_fraction::Union{Nothing,Real},
++)
++    defaults =
++        if scenario in (:low, :climate_low, :climate_fire_low)
++            (sensitivity_per_c = 0.07, net_persistence_fraction = 0.05, not_embedded_fraction = 0.25)
++        elseif scenario in (:medium, :climate_medium, :climate_fire_medium)
++            (sensitivity_per_c = 0.10, net_persistence_fraction = 0.10, not_embedded_fraction = 0.50)
++        elseif scenario in (:high, :climate_high, :climate_fire_high)
++            (sensitivity_per_c = 0.15, net_persistence_fraction = 0.20, not_embedded_fraction = 0.75)
++        elseif scenario in (:stress, :climate_stress, :climate_fire_stress)
++            (sensitivity_per_c = 0.25, net_persistence_fraction = 0.35, not_embedded_fraction = 1.00)
++        else
++            error("Unknown climate-response wildfire scenario $scenario.")
++        end
++
++    return (
++        sensitivity_per_c = isnothing(sensitivity_per_c) ? defaults.sensitivity_per_c : Float64(sensitivity_per_c),
++        net_persistence_fraction = isnothing(net_persistence_fraction) ? defaults.net_persistence_fraction : Float64(net_persistence_fraction),
++        not_embedded_fraction = isnothing(not_embedded_fraction) ? defaults.not_embedded_fraction : Float64(not_embedded_fraction),
++    )
++end
++
++"""
++    climate_response_wildfire_path(; scenario=:medium, years, temperature_c,
++        start_year=2020, reference_temperature_year=2020,
++        gross_reference_fire_carbon_pgc=2.2)
++
++Build a transparent first-pass climate-response wildfire CO2 path.
++
++The calculation starts from a gross reference global fire carbon flux and applies:
++
++1. a fractional gross fire-emissions response per degree C of warming above the
++   reference year,
++2. a net-persistence fraction, because much gross biomass-burning carbon can be
++   reabsorbed through regrowth, and
++3. a not-embedded fraction, because RFF-SP aggregate CO2 already includes broad
++   AFOLU / natural-stock expert judgments.
++
++The returned `wildfire_gtco2` is therefore intended to be a net additional,
++not-already-embedded residual, not total gross biomass-burning CO2.
++"""
++function climate_response_wildfire_path(;
++    scenario::Union{Symbol,String} = :medium,
++    years = DEFAULT_MODEL_YEARS,
++    temperature_c::AbstractVector,
++    start_year::Int = 2020,
++    reference_temperature_year::Int = 2020,
++    gross_reference_fire_carbon_pgc::Real = 2.2,
++    sensitivity_per_c::Union{Nothing,Real} = nothing,
++    net_persistence_fraction::Union{Nothing,Real} = nothing,
++    not_embedded_fraction::Union{Nothing,Real} = nothing,
++)
++    scenario = Symbol(scenario)
++    years = collect(years)
++    length(temperature_c) == length(years) ||
++        error("temperature_c must have one value for each year.")
++    any(ismissing, temperature_c) &&
++        error("temperature_c contains missing values; run the baseline model before constructing a climate-response path.")
++    temperature_c = Float64.(temperature_c)
++
++    assumptions = _climate_response_assumptions(
++        scenario;
++        sensitivity_per_c = sensitivity_per_c,
++        net_persistence_fraction = net_persistence_fraction,
++        not_embedded_fraction = not_embedded_fraction,
++    )
++
++    reference_index = findfirst(isequal(reference_temperature_year), years)
++    reference_index === nothing &&
++        error("reference_temperature_year $reference_temperature_year is not in years.")
++
++    gross_reference_fire_gtco2 = Float64(gross_reference_fire_carbon_pgc) * GTC_TO_GTCO2
++    reference_temperature_c = Float64(temperature_c[reference_index])
++
++    warming_above_reference = [
++        year >= start_year ? max(Float64(temp) - reference_temperature_c, 0.0) : 0.0
++        for (year, temp) in zip(years, temperature_c)
++    ]
++    gross_increment_gtco2 =
++        gross_reference_fire_gtco2 .* assumptions.sensitivity_per_c .* warming_above_reference
++    gtco2 =
++        gross_increment_gtco2 .*
++        assumptions.net_persistence_fraction .*
++        assumptions.not_embedded_fraction
++
++    return DataFrame(
++        year = years,
++        wildfire_scenario = fill("climate-response-$(scenario)", length(years)),
++        temperature_c = Float64.(temperature_c),
++        reference_temperature_year = fill(reference_temperature_year, length(years)),
++        reference_temperature_c = fill(reference_temperature_c, length(years)),
++        warming_above_reference_c = warming_above_reference,
++        gross_reference_fire_pgc = fill(Float64(gross_reference_fire_carbon_pgc), length(years)),
++        gross_reference_fire_gtco2 = fill(gross_reference_fire_gtco2, length(years)),
++        sensitivity_per_c = fill(assumptions.sensitivity_per_c, length(years)),
++        gross_increment_gtco2 = gross_increment_gtco2,
++        net_persistence_fraction = fill(assumptions.net_persistence_fraction, length(years)),
++        not_embedded_fraction = fill(assumptions.not_embedded_fraction, length(years)),
++        wildfire_gtco2 = gtco2,
++        wildfire_gtc = gtco2 .* GTCO2_TO_GTC,
++    )
++end
++
++function write_wildfire_path(path::DataFrame, filename::AbstractString)
++    mkpath(dirname(filename))
++    path |> save(filename)
++    return filename
++end
++
++function _repo_root()
++    return normpath(joinpath(@__DIR__, ".."))
++end
++
++function _ar6_total_co2_emissions_gtc(ar6_scenario::String, years)
++    path = joinpath(
++        _repo_root(),
++        "packages",
++        "MimiGIVE",
++        "data",
++        "FAIR_ar6",
++        "AR6_emissions_$(ar6_scenario)_1750_2300.csv",
++    )
++    isfile(path) || error("Could not find AR6 emissions file: $path")
++
++    df = DataFrame(load(path))
++    rows = indexin(collect(years), df.Year)
++    any(isnothing, rows) && error("AR6 emissions file does not cover all model years.")
++    rows = Int.(rows)
++
++    return df.FossilCO2[rows] .+ df.OtherCO2[rows]
++end
++
++"""
++    apply_wildfire_co2!(m; include_wildfire_co2=true, wildfire_scenario=:medium,
++        start_year=2020, custom_gtco2=nothing, ar6_scenario="ssp245")
++
++Insert the wildfire emissions path into GIVE's annual CO2 emissions stream before
++the existing `:co2_emissions_identity` component. This placement is deliberate:
++`MimiGIVE.add_marginal_emissions!` later adds the SCC pulse after that identity
++component, so both the base and marginal models inherit the same wildfire-adjusted
++baseline and the marginal ton is not contaminated by the wildfire scenario itself.
++
++Units entering FAIR are GtC/yr. Scenario inputs are documented in GtCO2/yr and
++converted with 12/44.
++"""
++function apply_wildfire_co2!(
++    m::Mimi.Model;
++    include_wildfire_co2::Bool = true,
++    wildfire_scenario::Union{Symbol,String} = :medium,
++    start_year::Int = 2020,
++    custom_gtco2::Union{Nothing,AbstractVector{<:Real}} = nothing,
++    ar6_scenario::String = "ssp245",
++)
++    time = collect(Mimi.dim_keys(m, :time))
++    path = wildfire_co2_path(
++        scenario = include_wildfire_co2 ? wildfire_scenario : :baseline,
++        years = time,
++        start_year = start_year,
++        custom_gtco2 = custom_gtco2,
++    )
++
++    if !include_wildfire_co2
++        return path
++    end
++
++    Mimi.add_comp!(m, Mimi.adder, :wildfire_co2_emissions, before = :co2_emissions_identity)
++    Mimi.set_param!(m, :wildfire_co2_emissions, :add, :wildfire_co2_emissions_add, path.wildfire_gtc)
++
++    # Preserve the original historical/backup behavior used in MimiGIVE.main_model:
++    # before the socioeconomic component begins in 2020, FAIR receives the AR6
++    # FossilCO2 + OtherCO2 stream; from 2020 onward it receives RFF-SP/SSP CO2.
++    ar6_total_co2 = _ar6_total_co2_emissions_gtc(ar6_scenario, time)
++    Mimi.connect_param!(
++        m,
++        :wildfire_co2_emissions => :input,
++        :Socioeconomic => :co2_emissions,
++        ar6_total_co2,
++    )
++    Mimi.connect_param!(
++        m,
++        :co2_emissions_identity => :input_co2,
++        :wildfire_co2_emissions => :output,
++    )
++
++    return path
++end
++
++"""
++    get_model(; include_wildfire_co2=false, wildfire_scenario=:medium, kwargs...)
++
++Build the ordinary MimiGIVE model and optionally add the wildfire CO2 extension.
++All unrecognized keyword arguments are passed to `MimiGIVE.get_model`.
++"""
++function get_model(;
++    include_wildfire_co2::Bool = false,
++    wildfire_scenario::Union{Symbol,String} = :medium,
++    start_year::Int = 2020,
++    custom_gtco2::Union{Nothing,AbstractVector{<:Real}} = nothing,
++    socioeconomics_source::Symbol = :RFF,
++    SSP_scenario::Union{Nothing,String} = nothing,
++    kwargs...,
++)
++    m = MimiGIVE.get_model(;
++        socioeconomics_source = socioeconomics_source,
++        SSP_scenario = SSP_scenario,
++        kwargs...,
++    )
++
++    ar6_scenario =
++        socioeconomics_source == :RFF ? "ssp245" :
++        socioeconomics_source == :SSP ? lowercase(SSP_scenario) :
++        error("Unsupported socioeconomics_source: $socioeconomics_source")
++
++    path = apply_wildfire_co2!(
++        m,
++        include_wildfire_co2 = include_wildfire_co2,
++        wildfire_scenario = wildfire_scenario,
++        start_year = start_year,
++        custom_gtco2 = custom_gtco2,
++        ar6_scenario = ar6_scenario,
++    )
++
++    return m, path
++end
++
++end
+diff --git a/wildfire_extension/process_usda_val_martin.jl b/wildfire_extension/process_usda_val_martin.jl
+new file mode 100644
+index 0000000..fb54d93
+--- /dev/null
++++ b/wildfire_extension/process_usda_val_martin.jl
+@@ -0,0 +1,134 @@
++#!/usr/bin/env julia
++
++# Summarize the public Val Martin, Pierce, and Heald USDA projected fire
++# emissions data. The archive does not include CO2 directly, so this script
++# extracts CO and burned-area changes as proxies for the projected fire-activity
++# scaling in RCP4.5/SSP1 and RCP8.5/SSP3.
++
++using NetCDF
++using Printf
++
++const AVOGADRO = 6.02214076e23
++const CO_G_PER_MOL = 28.0101
++const DAYS_IN_MONTH_NOLEAP = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
++
++function _year_month(date_int)
++    s = lpad(string(Int(date_int)), 8, "0")
++    return parse(Int, s[1:4]), parse(Int, s[5:6])
++end
++
++function _window_label(year)
++    if 2001 <= year <= 2010
++        return "baseline_2001_2010"
++    elseif 2041 <= year <= 2050
++        return "midcentury_2041_2050"
++    elseif 2091 <= year <= 2100
++        return "latecentury_2091_2100"
++    else
++        return nothing
++    end
++end
++
++function summarize_co_emissions(path, area_path)
++    bb = ncread(path, "bb")
++    dates = ncread(path, "date")
++    area_km2 = ncread(area_path, "area")
++    area_cm2 = area_km2 .* 1e10
++
++    annual = Dict{Int,Float64}()
++    for t in eachindex(dates)
++        year, month = _year_month(dates[t])
++        seconds = DAYS_IN_MONTH_NOLEAP[month] * 24 * 60 * 60
++        molecules_per_second = sum(Float64.(bb[:, :, t]) .* area_cm2)
++        tg_co = molecules_per_second * seconds / AVOGADRO * CO_G_PER_MOL / 1e12
++        annual[year] = get(annual, year, 0.0) + tg_co
++    end
++
++    return annual
++end
++
++function summarize_area_burned(path)
++    burned = ncread(path, "areaburned")
++    dates = ncread(path, "date")
++
++    annual = Dict{Int,Float64}()
++    for t in eachindex(dates)
++        year, _ = _year_month(dates[t])
++        value = sum(x -> isfinite(x) ? x : 0.0, Float64.(burned[:, :, t]))
++        annual[year] = get(annual, year, 0.0) + value
++    end
++
++    return annual
++end
++
++function mean_window(annual, label)
++    values = Float64[]
++    for (year, value) in annual
++        _window_label(year) == label && push!(values, value)
++    end
++    isempty(values) && return NaN
++    return sum(values) / length(values)
++end
++
++function write_summary(output_path, rows)
++    mkpath(dirname(output_path))
++    open(output_path, "w") do io
++        println(io, "source,scenario,metric,period,value,ratio_to_baseline")
++        for row in rows
++            @printf(
++                io,
++                "%s,%s,%s,%s,%.10g,%.10g\n",
++                row.source,
++                row.scenario,
++                row.metric,
++                row.period,
++                row.value,
++                row.ratio,
++            )
++        end
++    end
++end
++
++function main()
++    zip_extract_root = length(ARGS) >= 1 ? ARGS[1] :
++        "/Users/jbb/Dropbox/GIVE/fire_data/usda_val_martin_2018/extract"
++    output_path = length(ARGS) >= 2 ? ARGS[2] :
++        joinpath(@__DIR__, "source_data", "usda_val_martin_fire_projection_summary.csv")
++
++    area_path = joinpath(zip_extract_root, "Data", "AuxiliaryData", "cesm130_clm5_firemodule_area_f09x125.nc")
++    periods = ["baseline_2001_2010", "midcentury_2041_2050", "latecentury_2091_2100"]
++    rows = NamedTuple[]
++
++    for scenario in ["RCP45", "RCP85"]
++        co_path = joinpath(zip_extract_root, "Data", "Emissions", "CESM_$(scenario)_CO_surface_2000-2050-2100_0.9x1.25.nc")
++        burned_path = joinpath(zip_extract_root, "Data", "AuxiliaryData", "CESM_$(scenario)_AreaBurned_2000-2050-2100_0.9x1.25.nc")
++
++        co_annual = summarize_co_emissions(co_path, area_path)
++        burned_annual = summarize_area_burned(burned_path)
++
++        for (metric, annual) in [("CO_TgCO_per_year", co_annual), ("area_burned_km2_per_year", burned_annual)]
++            baseline = mean_window(annual, "baseline_2001_2010")
++            for period in periods
++                value = mean_window(annual, period)
++                push!(
++                    rows,
++                    (
++                        source = "ValMartinPierceHeald2018_USDA",
++                        scenario = scenario,
++                        metric = metric,
++                        period = period,
++                        value = value,
++                        ratio = value / baseline,
++                    ),
++                )
++            end
++        end
++    end
++
++    write_summary(output_path, rows)
++    println("Wrote ", output_path)
++end
++
++if abspath(PROGRAM_FILE) == @__FILE__
++    main()
++end
+diff --git a/wildfire_extension/run_source_uncertainty_scc.jl b/wildfire_extension/run_source_uncertainty_scc.jl
+new file mode 100644
+index 0000000..9e749c1
+--- /dev/null
++++ b/wildfire_extension/run_source_uncertainty_scc.jl
+@@ -0,0 +1,306 @@
++#!/usr/bin/env julia
++
++# Run a source-informed wildfire uncertainty experiment.
++# This is intentionally a small Monte Carlo (default n=100), not the 10,000-draw
++# Rennert et al. replication.
++
++using CSVFiles
++using DataFrames
++using Mimi
++using MimiGIVE
++using Random
++using Statistics
++
++import Mimi: SampleStore, add_RV!, add_transform!
++
++include(joinpath(@__DIR__, "WildfireGIVE.jl"))
++include(joinpath(@__DIR__, "..", "src", "discount_rates.jl"))
++
++using .WildfireGIVE
++
++const MODEL_YEARS = collect(1750:2300)
++
++function deterministic_path_frame(m, scenario_label)
++    Mimi.run(m)
++    return DataFrame(
++        scenario = fill(scenario_label, length(MODEL_YEARS)),
++        year = MODEL_YEARS,
++        co2_emissions_gtc = m[:co2_cycle, :E_co2],
++        co2_ppm = m[:co2_cycle, :co2],
++        total_forcing_wm2 = m[:total_forcing, :total_forcing],
++        temperature_c = m[:temperature, :T],
++        total_damage_2005usd_per_year = m[:DamageAggregator, :total_damage],
++    )
++end
++
++function wildfire_path_matrix(emissions_draws::DataFrame, n::Int)
++    years = sort(unique(emissions_draws.year))
++    matrix = Array{Float64}(undef, n, length(years))
++    for draw in 1:n
++        rows = emissions_draws[emissions_draws.draw .== draw, :]
++        sort!(rows, :year)
++        matrix[draw, :] .= rows.wildfire_gtc
++    end
++    return years, matrix
++end
++
++function wildfire_mcs_hook(path_years, path_matrix)
++    return function (mcs)
++        for (i, year) in enumerate(path_years)
++            rv_name = Symbol("rv_wildfire_co2_gtc_$year")
++            add_RV!(mcs, rv_name, SampleStore(path_matrix[:, i]))
++            add_transform!(mcs, :wildfire_co2_emissions_add, :(=), rv_name, [year])
++        end
++    end
++end
++
++function scc_samples_frame(results, scenario_label; dr_label = "2.0%")
++    out = DataFrame()
++    for key in keys(results[:scc])
++        sccs_2020usd = results[:scc][key].sccs .* MimiGIVE.pricelevel_2005_to_2020
++        append!(
++            out,
++            DataFrame(
++                scenario = fill(scenario_label, length(sccs_2020usd)),
++                dr_label = fill(key.dr_label, length(sccs_2020usd)),
++                prtp = fill(key.prtp, length(sccs_2020usd)),
++                eta = fill(key.eta, length(sccs_2020usd)),
++                trial = collect(1:length(sccs_2020usd)),
++                scc_2020usd_per_tco2 = sccs_2020usd,
++            ),
++            cols = :union,
++        )
++    end
++    return out
++end
++
++function summarize_scc(samples::DataFrame)
++    return combine(
++        groupby(samples, [:scenario, :dr_label, :prtp, :eta]),
++        :scc_2020usd_per_tco2 => mean => :mean_scc,
++        :scc_2020usd_per_tco2 => median => :median_scc,
++        :scc_2020usd_per_tco2 => (x -> quantile(x, 0.05)) => :p05_scc,
++        :scc_2020usd_per_tco2 => (x -> quantile(x, 0.95)) => :p95_scc,
++    )
++end
++
++function add_differences!(summary::DataFrame)
++    baseline = Dict(
++        row.dr_label => row.mean_scc
++        for row in eachrow(summary)
++        if row.scenario == "baseline"
++    )
++    baseline_median = Dict(
++        row.dr_label => row.median_scc
++        for row in eachrow(summary)
++        if row.scenario == "baseline"
++    )
++
++    summary[!, :delta_mean_scc] = [
++        row.mean_scc - baseline[row.dr_label]
++        for row in eachrow(summary)
++    ]
++    summary[!, :pct_delta_mean_scc] = [
++        100.0 * (row.mean_scc - baseline[row.dr_label]) / baseline[row.dr_label]
++        for row in eachrow(summary)
++    ]
++    summary[!, :delta_median_scc] = [
++        row.median_scc - baseline_median[row.dr_label]
++        for row in eachrow(summary)
++    ]
++    return summary
++end
++
++function write_scc_distribution_svg(samples::DataFrame, summary::DataFrame, output_path::String; dr_label = "2.0%")
++    data = samples[samples.dr_label .== dr_label, :]
++    stats = summary[summary.dr_label .== dr_label, :]
++
++    width = 960
++    height = 560
++    left = 78
++    right = 30
++    top = 42
++    bottom = 72
++    plot_w = width - left - right
++    plot_h = height - top - bottom
++    bins = 30
++
++    xmin = minimum(data.scc_2020usd_per_tco2)
++    xmax = maximum(data.scc_2020usd_per_tco2)
++    pad = 0.05 * (xmax - xmin)
++    xmin -= pad
++    xmax += pad
++    bin_width = (xmax - xmin) / bins
++
++    scenarios = unique(data.scenario)
++    colors = Dict("baseline" => "#3764ad", "wildfire-source-uncertainty" => "#c45135")
++
++    counts = Dict{String,Vector{Int}}()
++    ymax = 0
++    for scenario in scenarios
++        values = data[data.scenario .== scenario, :scc_2020usd_per_tco2]
++        c = zeros(Int, bins)
++        for value in values
++            idx = clamp(floor(Int, (value - xmin) / bin_width) + 1, 1, bins)
++            c[idx] += 1
++        end
++        counts[scenario] = c
++        ymax = max(ymax, maximum(c))
++    end
++
++    xscale(x) = left + (x - xmin) / (xmax - xmin) * plot_w
++    yscale(y) = top + plot_h - y / ymax * plot_h
++
++    mkpath(dirname(output_path))
++    open(output_path, "w") do io
++        println(io, """<svg xmlns="http://www.w3.org/2000/svg" width="$width" height="$height" viewBox="0 0 $width $height">""")
++        println(io, """<rect width="100%" height="100%" fill="white"/>""")
++        println(io, """<text x="$(left)" y="24" font-size="18" font-family="Arial" font-weight="700">SCC distribution, $dr_label discount case (n=$(length(unique(data.trial))))</text>""")
++        println(io, """<line x1="$left" y1="$(top + plot_h)" x2="$(left + plot_w)" y2="$(top + plot_h)" stroke="#333"/>""")
++        println(io, """<line x1="$left" y1="$top" x2="$left" y2="$(top + plot_h)" stroke="#333"/>""")
++        println(io, """<text x="$(left + plot_w / 2)" y="$(height - 22)" text-anchor="middle" font-size="13" font-family="Arial">2020 USD per tCO2</text>""")
++        println(io, """<text transform="translate(22,$(top + plot_h / 2)) rotate(-90)" text-anchor="middle" font-size="13" font-family="Arial">Count</text>""")
++
++        for (scenario_index, scenario) in enumerate(scenarios)
++            color = get(colors, scenario, "#777")
++            offset = (scenario_index - 1.5) * (plot_w / bins) * 0.22
++            for i in 1:bins
++                c = counts[scenario][i]
++                x0 = xscale(xmin + (i - 1) * bin_width) + offset
++                x1 = xscale(xmin + i * bin_width) + offset
++                y0 = yscale(c)
++                bar_w = max(x1 - x0, 1.0) * 0.62
++                println(io, """<rect x="$x0" y="$y0" width="$bar_w" height="$(top + plot_h - y0)" fill="$color" opacity="0.48"/>""")
++            end
++        end
++
++        for row in eachrow(stats)
++            color = get(colors, row.scenario, "#777")
++            mx = xscale(row.mean_scc)
++            md = xscale(row.median_scc)
++            println(io, """<line x1="$mx" y1="$top" x2="$mx" y2="$(top + plot_h)" stroke="$color" stroke-width="2"/>""")
++            println(io, """<line x1="$md" y1="$top" x2="$md" y2="$(top + plot_h)" stroke="$color" stroke-width="2" stroke-dasharray="5,5"/>""")
++            label_y = row.scenario == "baseline" ? top + 18 : top + 38
++            println(io, """<text x="$(mx + 4)" y="$label_y" font-size="12" font-family="Arial" fill="$color">$(row.scenario) mean $(round(row.mean_scc, digits=1))</text>""")
++            println(io, """<text x="$(md + 4)" y="$(label_y + 15)" font-size="12" font-family="Arial" fill="$color">median $(round(row.median_scc, digits=1))</text>""")
++        end
++
++        legend_y = height - 46
++        for (i, scenario) in enumerate(scenarios)
++            color = get(colors, scenario, "#777")
++            x = left + (i - 1) * 250
++            println(io, """<rect x="$x" y="$legend_y" width="16" height="16" fill="$color" opacity="0.65"/>""")
++            println(io, """<text x="$(x + 22)" y="$(legend_y + 13)" font-size="12" font-family="Arial">$scenario</text>""")
++        end
++        println(io, "</svg>")
++    end
++end
++
++function compute_scc_mcs(m; n, output_dir, seed, post_hook = nothing, fair_ids, rff_ids)
++    Random.seed!(seed)
++    return MimiGIVE.compute_scc(
++        m;
++        year = 2020,
++        last_year = 2300,
++        discount_rates = discount_rates,
++        fair_parameter_set = :deterministic,
++        fair_parameter_set_ids = fair_ids,
++        rffsp_sampling = :deterministic,
++        rffsp_sampling_ids = rff_ids,
++        n = n,
++        gas = :CO2,
++        output_dir = output_dir,
++        save_md = false,
++        save_cpc = false,
++        compute_sectoral_values = false,
++        compute_domestic_values = false,
++        CIAM_foresight = :perfect,
++        CIAM_GDPcap = true,
++        post_mcs_creation_function = post_hook,
++        pulse_size = 1e-4,
++    )
++end
++
++function run_experiment(; n = 100, output_dir = joinpath(@__DIR__, "..", "output", "wildfire_source_uncertainty_100"), seed = 20260502)
++    mkpath(output_dir)
++
++    baseline_model = MimiGIVE.get_model(socioeconomics_source = :RFF)
++    baseline_paths = deterministic_path_frame(deepcopy(baseline_model), "baseline")
++    baseline_paths |> save(joinpath(output_dir, "baseline_deterministic_climate_damage_paths.csv"))
++
++    parameter_draws, emissions_draws = WildfireGIVE.source_informed_wildfire_draws(
++        n = n,
++        years = baseline_paths.year,
++        temperature_c = baseline_paths.temperature_c,
++        seed = seed,
++    )
++    parameter_draws |> save(joinpath(output_dir, "wildfire_parameter_draws.csv"))
++    emissions_draws |> save(joinpath(output_dir, "wildfire_emissions_draws.csv"))
++
++    wildfire_years, wildfire_matrix = wildfire_path_matrix(emissions_draws, n)
++    hook = wildfire_mcs_hook(wildfire_years, wildfire_matrix)
++
++    fair_rng = MersenneTwister(seed + 1)
++    rff_rng = MersenneTwister(seed + 2)
++    fair_ids = rand(fair_rng, 1:2237, n)
++    rff_ids = rand(rff_rng, 1:10_000, n)
++    DataFrame(trial = 1:n, fair_parameter_set_id = fair_ids, rffsp_sample_id = rff_ids) |>
++        save(joinpath(output_dir, "paired_mcs_ids.csv"))
++
++    baseline_results = compute_scc_mcs(
++        baseline_model;
++        n = n,
++        output_dir = joinpath(output_dir, "baseline"),
++        seed = seed + 3,
++        fair_ids = fair_ids,
++        rff_ids = rff_ids,
++    )
++
++    wildfire_model, _ = WildfireGIVE.get_model(
++        include_wildfire_co2 = true,
++        wildfire_scenario = :baseline,
++        socioeconomics_source = :RFF,
++    )
++
++    wildfire_results = compute_scc_mcs(
++        wildfire_model;
++        n = n,
++        output_dir = joinpath(output_dir, "wildfire-source-uncertainty"),
++        seed = seed + 3,
++        post_hook = hook,
++        fair_ids = fair_ids,
++        rff_ids = rff_ids,
++    )
++
++    samples = vcat(
++        scc_samples_frame(baseline_results, "baseline"),
++        scc_samples_frame(wildfire_results, "wildfire-source-uncertainty"),
++        cols = :union,
++    )
++    summary = summarize_scc(samples)
++    add_differences!(summary)
++
++    samples |> save(joinpath(output_dir, "scc_samples.csv"))
++    summary |> save(joinpath(output_dir, "scc_summary.csv"))
++    write_scc_distribution_svg(
++        samples,
++        summary,
++        joinpath(output_dir, "scc_distribution_2pct.svg"),
++        dr_label = "2.0%",
++    )
++
++    println(summary[summary.dr_label .== "2.0%", :])
++    return summary
++end
++
++function main()
++    n = length(ARGS) >= 1 ? parse(Int, ARGS[1]) : 100
++    output_dir = length(ARGS) >= 2 ? ARGS[2] : joinpath(@__DIR__, "..", "output", "wildfire_source_uncertainty_100")
++    seed = length(ARGS) >= 3 ? parse(Int, ARGS[3]) : 20260502
++    println("Running source-informed wildfire SCC uncertainty experiment with n=$n. Output: $output_dir")
++    run_experiment(n = n, output_dir = output_dir, seed = seed)
++end
++
++if abspath(PROGRAM_FILE) == @__FILE__
++    main()
++end
+diff --git a/wildfire_extension/run_wildfire_scc.jl b/wildfire_extension/run_wildfire_scc.jl
+new file mode 100644
+index 0000000..7e63da5
+--- /dev/null
++++ b/wildfire_extension/run_wildfire_scc.jl
+@@ -0,0 +1,231 @@
++#!/usr/bin/env julia
++
++# Run from the repository root:
++#   julia --project=. wildfire_extension/run_wildfire_scc.jl 100
++#
++# The optional first argument is the Monte Carlo sample size. Use 10000 for the
++# full paper-scale run; smaller values are intended only for smoke tests.
++
++using CSVFiles
++using DataFrames
++using Dates
++using Mimi
++using MimiGIVE
++using Statistics
++using VegaLite
++
++include(joinpath(@__DIR__, "WildfireGIVE.jl"))
++include(joinpath(@__DIR__, "..", "src", "discount_rates.jl"))
++
++using .WildfireGIVE
++
++const MODEL_YEARS = collect(1750:2300)
++const DAMAGE_YEARS = collect(2020:2300)
++
++function scenario_specs()
++    return [
++        (label = "baseline", include_wildfire_co2 = false, wildfire_scenario = :baseline),
++        (label = "wildfire-low", include_wildfire_co2 = true, wildfire_scenario = :low),
++        (label = "wildfire-medium", include_wildfire_co2 = true, wildfire_scenario = :medium),
++        (label = "wildfire-high", include_wildfire_co2 = true, wildfire_scenario = :high),
++        (label = "wildfire-stress", include_wildfire_co2 = true, wildfire_scenario = :stress),
++    ]
++end
++
++function _scc_key(results; dr_label = "2.0%", region = :globe, sector = :total)
++    for key in keys(results[:scc])
++        if key.dr_label == dr_label && key.region == region && key.sector == sector
++            return key
++        end
++    end
++    error("No SCC result found for dr=$dr_label, region=$region, sector=$sector.")
++end
++
++function summarize_scc(results, scenario_label; dr_label = "2.0%")
++    key = _scc_key(results; dr_label = dr_label)
++    sccs_2020usd = results[:scc][key].sccs .* MimiGIVE.pricelevel_2005_to_2020
++    return (
++        scenario = scenario_label,
++        dr_label = dr_label,
++        mean_scc = mean(sccs_2020usd),
++        median_scc = median(sccs_2020usd),
++        p05_scc = quantile(sccs_2020usd, 0.05),
++        p95_scc = quantile(sccs_2020usd, 0.95),
++    )
++end
++
++function scc_samples_frame(results, scenario_label; dr_label = "2.0%")
++    key = _scc_key(results; dr_label = dr_label)
++    sccs_2020usd = results[:scc][key].sccs .* MimiGIVE.pricelevel_2005_to_2020
++    return DataFrame(
++        scenario = fill(scenario_label, length(sccs_2020usd)),
++        dr_label = fill(dr_label, length(sccs_2020usd)),
++        trial = collect(1:length(sccs_2020usd)),
++        scc_2020usd_per_tco2 = sccs_2020usd,
++    )
++end
++
++function discounted_marginal_damage_frame(results, scenario_label; dr_label = "2.0%")
++    dr = first(filter(x -> x.label == dr_label, discount_rates))
++    mds = results[:mds][(region = :globe, sector = :total)]
++    cpc = results[:cpc][(region = :globe, sector = :total)]
++    year_index = findfirst(isequal(2020), DAMAGE_YEARS)
++
++    out = DataFrame(
++        scenario = String[],
++        dr_label = String[],
++        year = Int[],
++        mean_discounted_md = Float64[],
++        median_discounted_md = Float64[],
++        p05_discounted_md = Float64[],
++        p95_discounted_md = Float64[],
++    )
++
++    for (col, year) in enumerate(DAMAGE_YEARS)
++        factors = (cpc[:, year_index] ./ cpc[:, col]) .^ dr.eta .* (1 / (1 + dr.prtp)^(year - 2020))
++        discounted = mds[:, col] .* factors .* MimiGIVE.pricelevel_2005_to_2020
++        push!(
++            out,
++            (
++                scenario_label,
++                dr_label,
++                year,
++                mean(discounted),
++                median(discounted),
++                quantile(discounted, 0.05),
++                quantile(discounted, 0.95),
++            ),
++        )
++    end
++
++    return out
++end
++
++function deterministic_path_frame(m, scenario_label)
++    Mimi.run(m)
++    return DataFrame(
++        scenario = fill(scenario_label, length(MODEL_YEARS)),
++        year = MODEL_YEARS,
++        co2_ppm = m[:co2_cycle, :co2],
++        total_forcing_wm2 = m[:total_forcing, :total_forcing],
++        temperature_c = m[:temperature, :T],
++        total_damage_2005usd_per_year = m[:DamageAggregator, :total_damage],
++    )
++end
++
++function maybe_write_plots(output_dir, wildfire_paths, deterministic_paths, scc_samples, discounted_mds)
++    try
++        plots_dir = joinpath(output_dir, "plots")
++        mkpath(plots_dir)
++
++        wildfire_paths |>
++            @vlplot(:line, x = :year, y = :wildfire_gtco2, color = :scenario, width = 650, height = 320) |>
++            save(joinpath(plots_dir, "wildfire_emissions_path.html"))
++
++        deterministic_paths |>
++            @vlplot(:line, x = :year, y = :co2_ppm, color = :scenario, width = 650, height = 320) |>
++            save(joinpath(plots_dir, "co2_concentration_path.html"))
++
++        deterministic_paths |>
++            @vlplot(:line, x = :year, y = :temperature_c, color = :scenario, width = 650, height = 320) |>
++            save(joinpath(plots_dir, "temperature_path.html"))
++
++        scc_samples |>
++            @vlplot(:bar, x = {:scc_2020usd_per_tco2, bin = true}, y = "count()", color = :scenario, width = 650, height = 320) |>
++            save(joinpath(plots_dir, "scc_distribution.html"))
++
++        discounted_mds |>
++            @vlplot(:line, x = :year, y = :mean_discounted_md, color = :scenario, width = 650, height = 320) |>
++            save(joinpath(plots_dir, "discounted_marginal_damages.html"))
++    catch err
++        @warn "Could not write VegaLite plots; CSV outputs were still written." exception = err
++    end
++end
++
++function run_experiments(; n = 100, include_stress = false, output_dir = joinpath(@__DIR__, "..", "output", "wildfire_extension"))
++    mkpath(output_dir)
++    specs = include_stress ? scenario_specs() : scenario_specs()[1:4]
++
++    all_summaries = DataFrame()
++    all_samples = DataFrame()
++    all_paths = DataFrame()
++    all_wildfire_paths = DataFrame()
++    all_discounted_mds = DataFrame()
++
++    for spec in specs
++        scenario_dir = joinpath(output_dir, spec.label)
++        mkpath(scenario_dir)
++
++        m, wildfire_path = WildfireGIVE.get_model(
++            include_wildfire_co2 = spec.include_wildfire_co2,
++            wildfire_scenario = spec.wildfire_scenario,
++            socioeconomics_source = :RFF,
++        )
++
++        wildfire_path[!, :scenario] = fill(spec.label, nrow(wildfire_path))
++        wildfire_path |> save(joinpath(scenario_dir, "wildfire_emissions_path.csv"))
++        append!(all_wildfire_paths, wildfire_path, cols = :union)
++
++        paths = deterministic_path_frame(deepcopy(m), spec.label)
++        paths |> save(joinpath(scenario_dir, "deterministic_climate_damage_paths.csv"))
++        append!(all_paths, paths, cols = :union)
++
++        results = MimiGIVE.compute_scc(
++            m;
++            year = 2020,
++            last_year = 2300,
++            discount_rates = discount_rates,
++            fair_parameter_set = :random,
++            rffsp_sampling = :random,
++            n = n,
++            gas = :CO2,
++            output_dir = scenario_dir,
++            save_md = true,
++            save_cpc = true,
++            compute_sectoral_values = true,
++            compute_domestic_values = false,
++            CIAM_foresight = :perfect,
++            CIAM_GDPcap = true,
++            pulse_size = 1e-4,
++        )
++
++        append!(all_summaries, DataFrame([summarize_scc(results, spec.label)]), cols = :union)
++        append!(all_samples, scc_samples_frame(results, spec.label), cols = :union)
++        append!(all_discounted_mds, discounted_marginal_damage_frame(results, spec.label), cols = :union)
++    end
++
++    baseline_mean = only(all_summaries[all_summaries.scenario .== "baseline", :mean_scc])
++    all_summaries[!, :delta_mean_scc] = all_summaries.mean_scc .- baseline_mean
++    all_summaries[!, :pct_delta_mean_scc] = 100.0 .* all_summaries.delta_mean_scc ./ baseline_mean
++
++    all_summaries |> save(joinpath(output_dir, "scc_summary.csv"))
++    all_samples |> save(joinpath(output_dir, "scc_samples.csv"))
++    all_wildfire_paths |> save(joinpath(output_dir, "wildfire_emissions_paths.csv"))
++    all_paths |> save(joinpath(output_dir, "deterministic_climate_damage_paths.csv"))
++    all_discounted_mds |> save(joinpath(output_dir, "discounted_marginal_damages.csv"))
++
++    # A direct plot-friendly difference from baseline for discounted marginal damages.
++    baseline_mds = all_discounted_mds[all_discounted_mds.scenario .== "baseline", [:year, :mean_discounted_md]]
++    rename!(baseline_mds, :mean_discounted_md => :baseline_mean_discounted_md)
++    md_diff = leftjoin(all_discounted_mds, baseline_mds, on = :year)
++    md_diff[!, :delta_mean_discounted_md] = md_diff.mean_discounted_md .- md_diff.baseline_mean_discounted_md
++    md_diff |> save(joinpath(output_dir, "discounted_marginal_damage_differences.csv"))
++
++    maybe_write_plots(output_dir, all_wildfire_paths, all_paths, all_samples, all_discounted_mds)
++
++    return all_summaries
++end
++
++function main()
++    n = length(ARGS) >= 1 ? parse(Int, ARGS[1]) : 100
++    include_stress = length(ARGS) >= 2 ? parse(Bool, ARGS[2]) : false
++    output_dir = length(ARGS) >= 3 ? ARGS[3] : joinpath(@__DIR__, "..", "output", "wildfire_extension")
++
++    println("Running wildfire SCC experiments with n=$n. Output: $output_dir")
++    summaries = run_experiments(n = n, include_stress = include_stress, output_dir = output_dir)
++    println(summaries)
++end
++
++if abspath(PROGRAM_FILE) == @__FILE__
++    main()
++end
+diff --git a/wildfire_extension/run_wildfire_experiments.sh b/wildfire_extension/run_wildfire_experiments.sh
+new file mode 100755
+index 0000000..2779b50
+--- /dev/null
++++ b/wildfire_extension/run_wildfire_experiments.sh
+@@ -0,0 +1,10 @@
++#!/usr/bin/env bash
++set -euo pipefail
++
++cd "$(dirname "$0")/.."
++
++N="${1:-100}"
++INCLUDE_STRESS="${2:-false}"
++OUTPUT_DIR="${3:-output/wildfire_extension}"
++
++julia --project=. wildfire_extension/run_wildfire_scc.jl "$N" "$INCLUDE_STRESS" "$OUTPUT_DIR"
+diff --git a/wildfire_extension/run_wildfire_quick.jl b/wildfire_extension/run_wildfire_quick.jl
+new file mode 100644
+index 0000000..37fbe99
+--- /dev/null
++++ b/wildfire_extension/run_wildfire_quick.jl
+@@ -0,0 +1,198 @@
++#!/usr/bin/env julia
++
++# Quick deterministic wildfire-carbon SCC experiment.
++#
++# This is intentionally not the full Rennert et al. Monte Carlo. It uses one
++# deterministic GIVE model configuration: the default RFF-SP sample in MimiRFFSPs
++# and the non-MCS `MimiGIVE.compute_scc(..., n=0)` path.
++
++using CSVFiles
++using DataFrames
++using Mimi
++using MimiGIVE
++
++include(joinpath(@__DIR__, "WildfireGIVE.jl"))
++include(joinpath(@__DIR__, "..", "src", "discount_rates.jl"))
++
++using .WildfireGIVE
++
++const MODEL_YEARS = collect(1750:2300)
++
++function scenario_specs(mode::Symbol)
++    if mode == :temperature
++        return [
++            (label = "baseline", scenario = :baseline, include_wildfire_co2 = false, path_kind = :baseline),
++            (label = "climate-fire-low", scenario = :low, include_wildfire_co2 = true, path_kind = :temperature),
++            (label = "climate-fire-medium", scenario = :medium, include_wildfire_co2 = true, path_kind = :temperature),
++            (label = "climate-fire-high", scenario = :high, include_wildfire_co2 = true, path_kind = :temperature),
++        ]
++    elseif mode == :canada2023
++        return [
++            (label = "baseline", scenario = :baseline, include_wildfire_co2 = false, path_kind = :baseline),
++            (label = "canada2023-low", scenario = :low, include_wildfire_co2 = true, path_kind = :canada2023),
++            (label = "canada2023-medium", scenario = :medium, include_wildfire_co2 = true, path_kind = :canada2023),
++            (label = "canada2023-high", scenario = :high, include_wildfire_co2 = true, path_kind = :canada2023),
++        ]
++    else
++        error("Unknown quick-run mode $mode. Use :temperature or :canada2023.")
++    end
++end
++
++function deterministic_path_frame(m, scenario_label)
++    Mimi.run(m)
++    return DataFrame(
++        scenario = fill(scenario_label, length(MODEL_YEARS)),
++        year = MODEL_YEARS,
++        co2_emissions_gtc = m[:co2_cycle, :E_co2],
++        co2_ppm = m[:co2_cycle, :co2],
++        total_forcing_wm2 = m[:total_forcing, :total_forcing],
++        temperature_c = m[:temperature, :T],
++        total_damage_2005usd_per_year = m[:DamageAggregator, :total_damage],
++    )
++end
++
++function deterministic_scc_frame(m, scenario_label)
++    results = MimiGIVE.compute_scc(
++        m;
++        year = 2020,
++        last_year = 2300,
++        discount_rates = discount_rates,
++        n = 0,
++        gas = :CO2,
++        compute_domestic_values = false,
++        CIAM_foresight = :perfect,
++        CIAM_GDPcap = true,
++        # The deterministic n=0 SCC helper relies on Mimi's MarginalModel scaling
++        # and is stable with its historical 1 GtC pulse. The replication MCS uses
++        # a smaller 1e-4 GtC pulse and normalizes it in the post-trial function.
++        pulse_size = 1.0,
++    )
++
++    out = DataFrame(
++        scenario = String[],
++        dr_label = String[],
++        prtp = Float64[],
++        eta = Float64[],
++        scc_2005usd_per_tco2 = Float64[],
++        scc_2020usd_per_tco2 = Float64[],
++    )
++
++    for key in sort(collect(keys(results)), by = x -> x.dr_label)
++        push!(
++            out,
++            (
++                scenario_label,
++                key.dr_label,
++                key.prtp,
++                key.eta,
++                results[key],
++                results[key] * MimiGIVE.pricelevel_2005_to_2020,
++            ),
++        )
++    end
++
++    return out
++end
++
++function add_baseline_differences!(scc::DataFrame)
++    baseline = Dict(
++        row.dr_label => row.scc_2020usd_per_tco2
++        for row in eachrow(scc)
++        if row.scenario == "baseline"
++    )
++
++    scc[!, :delta_scc_2020usd_per_tco2] = [
++        row.scc_2020usd_per_tco2 - baseline[row.dr_label]
++        for row in eachrow(scc)
++    ]
++    scc[!, :pct_delta_scc] = [
++        100.0 * (row.scc_2020usd_per_tco2 - baseline[row.dr_label]) / baseline[row.dr_label]
++        for row in eachrow(scc)
++    ]
++
++    return scc
++end
++
++function run_quick(; output_dir = joinpath(@__DIR__, "..", "output", "wildfire_quick"), mode::Symbol = :temperature)
++    mkpath(output_dir)
++
++    baseline_model, baseline_wildfire_path = WildfireGIVE.get_model(
++        include_wildfire_co2 = false,
++        socioeconomics_source = :RFF,
++    )
++    baseline_paths = deterministic_path_frame(deepcopy(baseline_model), "baseline")
++
++    all_scc = DataFrame()
++    all_paths = DataFrame()
++    all_wildfire_paths = DataFrame()
++
++    for spec in scenario_specs(mode)
++        scenario_dir = joinpath(output_dir, spec.label)
++        mkpath(scenario_dir)
++
++        if spec.label == "baseline"
++            m = baseline_model
++            wildfire_path = baseline_wildfire_path
++        elseif spec.path_kind == :temperature
++            wildfire_path = WildfireGIVE.climate_response_wildfire_path(
++                scenario = spec.scenario,
++                years = baseline_paths.year,
++                temperature_c = baseline_paths.temperature_c,
++            )
++            m, _ = WildfireGIVE.get_model(
++                include_wildfire_co2 = true,
++                wildfire_scenario = :custom,
++                custom_gtco2 = wildfire_path.wildfire_gtco2,
++                socioeconomics_source = :RFF,
++            )
++        elseif spec.path_kind == :canada2023
++            wildfire_path = WildfireGIVE.canada_2023_excess_wildfire_path(
++                scenario = spec.scenario,
++                years = baseline_paths.year,
++                temperature_c = baseline_paths.temperature_c,
++            )
++            m, _ = WildfireGIVE.get_model(
++                include_wildfire_co2 = true,
++                wildfire_scenario = :custom,
++                custom_gtco2 = wildfire_path.wildfire_gtco2,
++                socioeconomics_source = :RFF,
++            )
++        else
++            error("Unsupported path kind $(spec.path_kind).")
++        end
++
++        wildfire_path[!, :scenario] = fill(spec.label, nrow(wildfire_path))
++        wildfire_path |> save(joinpath(scenario_dir, "wildfire_emissions_path.csv"))
++        append!(all_wildfire_paths, wildfire_path, cols = :union)
++
++        paths =
++            spec.label == "baseline" ? baseline_paths :
++            deterministic_path_frame(deepcopy(m), spec.label)
++        paths |> save(joinpath(scenario_dir, "deterministic_climate_damage_paths.csv"))
++        append!(all_paths, paths, cols = :union)
++
++        scc = deterministic_scc_frame(m, spec.label)
++        scc |> save(joinpath(scenario_dir, "deterministic_scc.csv"))
++        append!(all_scc, scc, cols = :union)
++    end
++
++    add_baseline_differences!(all_scc)
++
++    all_scc |> save(joinpath(output_dir, "deterministic_scc_summary.csv"))
++    all_paths |> save(joinpath(output_dir, "deterministic_climate_damage_paths.csv"))
++    all_wildfire_paths |> save(joinpath(output_dir, "wildfire_emissions_paths.csv"))
++
++    return all_scc
++end
++
++function main()
++    output_dir = length(ARGS) >= 1 ? ARGS[1] : joinpath(@__DIR__, "..", "output", "wildfire_quick")
++    mode = length(ARGS) >= 2 ? Symbol(ARGS[2]) : :temperature
++    println("Running deterministic quick wildfire SCC experiment. Mode: $mode. Output: $output_dir")
++    scc = run_quick(output_dir = output_dir, mode = mode)
++    println(scc[scc.dr_label .== "2.0%", :])
++end
++
++if abspath(PROGRAM_FILE) == @__FILE__
++    main()
++end
+diff --git a/wildfire_extension/run_wildfire_quick.sh b/wildfire_extension/run_wildfire_quick.sh
+new file mode 100755
+index 0000000..4d70788
+--- /dev/null
++++ b/wildfire_extension/run_wildfire_quick.sh
+@@ -0,0 +1,20 @@
++#!/usr/bin/env bash
++set -euo pipefail
++
++OUTPUT_DIR="${1:-output/wildfire_quick}"
++MODE="${2:-temperature}"
++REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
++WORKSPACE_ROOT="$(cd "$REPO_ROOT/.." && pwd)"
++
++export JULIA_DEPOT_PATH="${JULIA_DEPOT_PATH:-$WORKSPACE_ROOT/.julia_depot_1_6}"
++export DATADEPS_ALWAYS_ACCEPT="${DATADEPS_ALWAYS_ACCEPT:-true}"
++
++cd "$REPO_ROOT"
++
++if [[ -n "${JULIA_BIN:-}" ]]; then
++    "$JULIA_BIN" --project=. wildfire_extension/run_wildfire_quick.jl "$OUTPUT_DIR" "$MODE"
++elif [[ -x "$WORKSPACE_ROOT/tools/julia-1.6.4/bin/julia" ]]; then
++    arch -x86_64 "$WORKSPACE_ROOT/tools/julia-1.6.4/bin/julia" --project=. wildfire_extension/run_wildfire_quick.jl "$OUTPUT_DIR" "$MODE"
++else
++    julia --project=. wildfire_extension/run_wildfire_quick.jl "$OUTPUT_DIR" "$MODE"
++fi
+diff --git a/wildfire_extension/TECHNICAL_MEMO.md b/wildfire_extension/TECHNICAL_MEMO.md
+new file mode 100644
+index 0000000..42681fd
+--- /dev/null
++++ b/wildfire_extension/TECHNICAL_MEMO.md
+@@ -0,0 +1,536 @@
++# Wildfire CO2 Extension Audit Memo
++
++Date: 2026-05-01
++
++## Bottom Line
++
++The Rennert et al. 2022 replication code does not contain an explicit wildfire,
++fire, or biomass-burning CO2 component. Searches for `wildfire`, `fire`,
++`biomass`, `land-use`, `land use`, `AFOLU`, `LULUCF`, `forestry`,
++`deforestation`, `emissions`, `carbon cycle`, `CO2 concentration`, `baseline`,
++`scenario`, `RFF-SPs`, `SSP`, `FAIR`, `impulse response`, and `exogenous`
++found no wildfire-specific CO2 pathway in GIVE.
++
++However, this does not mean wildfire-relevant carbon is absent from the
++baseline. The default Rennert/GIVE SCC run uses RFF socioeconomic projections
++for aggregate CO2 emissions after 2020. The RFF emissions elicitation includes
++broad non-fossil categories such as changes in natural CO2 stocks / AFOLU-like
++sources. Therefore an additive wildfire experiment should be interpreted as
++**net additional wildfire CO2 above what the RFF-SP baseline already embeds**,
++not gross biomass-burning CO2.
++
++## Code And Environment
++
++The frozen replication archive is the Zenodo release:
++`RennertEtAl2022ReplicationCodeData.zip` from
++https://zenodo.org/records/6932028.
++
++The GitHub URL in the paper (`https://github.com/anthofflab/paper-2022-scc-give`)
++was not cloneable from this environment, so the implementation uses the Zenodo
++snapshot.
++
++Environment facts:
++
++- Top-level model package: `packages/MimiGIVE` (`Project.toml` lines 11-13).
++- Main replication driver: `src/main.jl`.
++- Full paper run: `julia --procs auto src/main.jl` (`README.md` lines 17-25).
++- Tested Julia version in the archive: Julia 1.6.4 (`README.md` lines 9-15).
++- Expected full runtime: about one day on the authors' reference workstation
++  (`README.md` line 15).
++- Outputs are written to `output` (`README.md` lines 27-29).
++- The current machine does not have `julia` on `PATH`, so the extension is
++  implemented and wired for reproducible runs, but model experiments were not
++  executed here.
++
++Important package versions from `Manifest.toml`:
++
++- `Mimi` 1.4.0.
++- `MimiGIVE` 0.1.0-DEV, path `packages/MimiGIVE`.
++- `MimiFAIRv1_6_2` 0.1.0, path `packages/MimiFAIRv1_6_2`.
++- `MimiRFFSPs` 0.1.0, path `packages/MimiRFFSPs`.
++- `MimiSSPs` 0.1.0, path `packages/MimiSSPs`.
++
++The RFF-SP data are not fully embedded in the source tree. `MimiRFFSPs` registers
++a DataDep named `rffsps_v5` that downloads `rffsps_v5.7z` from Zenodo record
++6016583 (`packages/MimiRFFSPs/src/MimiRFFSPs.jl` lines 10-17). The file is about
++1.46 GB compressed.
++
++## Baseline SCC Entry Point
++
++The paper baseline SC-CO2 estimate is produced by:
++
++- `src/main.jl` lines 1-6: default `num_trials = 10_000`.
++- `src/main.jl` lines 23-25: triggers the RFF-SP data dependency.
++- `src/main.jl` lines 29-36: launches the RFF, DICE, and Howard-Sterner SCC
++  runs.
++- `src/compute_scc.jl` lines 4-27: `compute_rff_scc`, the main GIVE run.
++
++The default GIVE SC-CO2 call uses:
++
++- `MimiGIVE.get_model(socioeconomics_source = :RFF)`.
++- `year = 2020`, `last_year = 2300`.
++- `fair_parameter_set = :random`.
++- `rffsp_sampling = :random`.
++- `gas = :CO2`.
++- `pulse_size = 1e-4` GtC.
++- sectoral values enabled, domestic values disabled.
++- CIAM perfect foresight and GDP caps enabled.
++
++## Baseline Model Mechanics
++
++GIVE builds on FAIR, then connects socioeconomic emissions into FAIR:
++
++- `MimiGIVE.get_model` starts with `MimiFAIRv1_6_2.get_model` over 1750-2300
++  (`packages/MimiGIVE/src/main_model.jl` lines 139-147).
++- The socioeconomic component is inserted before FAIR's GHG cycles
++  (`main_model.jl` lines 158-163).
++- CO2 is routed through `:co2_emissions_identity`, then into
++  `:co2_cycle.E_co2` (`main_model.jl` lines 403-406).
++- Before the socioeconomic component starts, the backup stream is AR6
++  `FossilCO2 + OtherCO2` (`main_model.jl` lines 396-405).
++
++FAIR then runs:
++
++1. Emissions to atmospheric CO2:
++   `co2_cycle.E_co2` is annual CO2 emissions in GtC/yr
++   (`packages/MimiFAIRv1_6_2/src/components/co2_cycle.jl` lines 20 and 80-95).
++2. CO2 concentration to forcing:
++   `co2_forcing` computes radiative forcing from `co2_cycle.co2`
++   (`co2_forcing.jl` lines 17-24 and 67-68).
++3. Total forcing to temperature:
++   `total_forcing` feeds `temperature.forcing`
++   (`MimiFAIRv1_6_2.jl` lines 262-312).
++4. Temperature, sea level, ocean pH, GDP/population, and mortality enter damage
++   components and the `DamageAggregator`.
++
++The carbon cycle is state dependent. The 100-year integrated impulse response is
++a function of cumulative emissions, airborne emissions, and temperature
++(`co2_cycle.jl` line 62). A higher baseline can therefore affect both the
++thermal/damage state and the carbon-cycle response.
++
++## Marginal Ton And SCC Calculation
++
++`MimiGIVE.compute_scc` deep-copies the model, creates a base and modified
++MarginalModel, and adds a gas pulse to the modified model
++(`packages/MimiGIVE/src/scc.jl` lines 120-129 and 790-808).
++
++For CO2, `add_marginal_emissions!` inserts a `Mimi.adder` before
++`:co2_cycle`, adds `pulse_size` in the requested year, and reconnects
++`:co2_cycle.E_co2` to that modified stream (`scc.jl` lines 825-835).
++
++In the Monte Carlo SCC code:
++
++- Base and marginal damages are differenced (`scc.jl` lines 249-276).
++- The result is converted from GtC pulse units to USD per tCO2 using molecular
++  and pulse-size conversion factors (`scc.jl` lines 258-263).
++- Discounted marginal damages are summed from the emission year through
++  `last_year` using Ramsey discounting and per-capita consumption
++  (`scc.jl` lines 220-235).
++
++Raising baseline CO2 does not mechanically guarantee a higher SCC. It can raise
++the SCC through nonlinear damages, state-dependent carbon uptake, sea-level
++response, GDP/population interactions, or discounting. It can also have muted or
++mixed effects where damages are locally linear, where discounting pushes most
++incremental effects far into the future, or where higher damages reduce future
++consumption and change Ramsey discount factors.
++
++## Is Wildfire Already Included?
++
++Findings:
++
++- No explicit wildfire/fire/biomass-burning CO2 variable exists in `MimiGIVE`.
++- The only relevant "biomass" hits are RCP biomass aerosol labels in BRICK data,
++  not a GIVE CO2 emissions channel.
++- FAIR's land-use forcing component uses `OtherCO2` as a proxy for land-use
++  albedo forcing, not wildfire CO2 (`landuse_forcing.jl` lines 5-24).
++- GIVE does not connect RFF-SP land-use subcategories to `landuse_forcing`;
++  it leaves FAIR land-use forcing on the matched AR6 scenario (`main_model.jl`
++  lines 416-422).
++- RFF-SP CO2 enters as an aggregate `co2_emissions` variable in GtC/yr
++  (`packages/MimiRFFSPs/src/components/SPs.jl` lines 76 and 127-147).
++
++Conclusion:
++
++The model has aggregate net CO2 pathways that may implicitly include some
++wildfire-related net land-carbon effects, but there is no explicit wildfire
++module, no gross fire CO2 stream, and no decomposition that would let the user
++separate wildfire from other natural-stock or land-use terms.
++
++## Extension Designs Considered
++
++### A. Add Wildfire CO2 To Annual Emissions
++
++Scientific interpretation:
++Net additional wildfire CO2 enters the same carbon cycle as other CO2.
++
++Where it enters:
++Annual `co2_cycle.E_co2`, upstream of the existing marginal SCC pulse.
++
++Required data:
++Annual net wildfire CO2 above baseline in GtCO2/yr, converted to GtC/yr with
++12/44.
++
++Double-counting risk:
++High if interpreted as gross fire emissions. Lower if interpreted as residual
++net emissions not already embedded in RFF-SP aggregate CO2.
++
++Consistency with GIVE:
++High. GIVE already uses emissions -> concentration -> forcing -> temperature.
++
++Pros:
++Transparent, preserves FAIR carbon-cycle dynamics, exposes nonlinear carbon
++uptake and damage interactions.
++
++Cons:
++Requires a defensible net wildfire pathway; cannot distinguish managed fires,
++natural fires, deforestation fires, or regrowth without better data.
++
++### B. Add A Baseline Concentration Adjustment
++
++Scientific interpretation:
++Wildfire is treated as an exogenous atmospheric CO2 concentration perturbation.
++
++Where it enters:
++`co2_cycle.co2` or downstream forcing.
++
++Required data:
++Annual ppm increments or a concentration trajectory.
++
++Double-counting risk:
++Moderate to high, because the carbon-cycle fate of emitted CO2 is imposed
++outside FAIR.
++
++Consistency with GIVE:
++Lower. It bypasses the model's emissions-to-concentrations machinery and can
++break consistency with cumulative emissions and carbon uptake.
++
++Pros:
++Useful if the best evidence is a concentration reconstruction rather than an
++emissions inventory.
++
++Cons:
++Harder to audit; does not preserve mass-balance interpretation.
++
++### C. Scale Existing Land-Use / Non-Fossil Emissions
++
++Scientific interpretation:
++Wildfire is treated as part of existing land-use or natural-stock emissions.
++
++Where it enters:
++Scale RFF-SP aggregate CO2 or AR6 `OtherCO2`.
++
++Required data:
++A decomposition of wildfire within land-use / natural-stock CO2.
++
++Double-counting risk:
++Potentially lower than pure addition if wildfire is already embedded, but only
++if the decomposition is known.
++
++Consistency with GIVE:
++Moderate. It is a useful sensitivity if wildfire is partially embedded.
++
++Pros:
++Good for "what if the land-use component is under/overstated?" sensitivity.
++
++Cons:
++GIVE's default RFF-SP CO2 is aggregate; there is no native wildfire subseries to
++scale.
++
++Chosen first pass:
++Approach A, with the very explicit caveat that the path is net additional
++wildfire CO2 above baseline. This is the cleanest way to test the mechanism
++without overriding the original replication run.
++
++## Implemented Extension
++
++New files:
++
++- `wildfire_extension/WildfireGIVE.jl`.
++- `wildfire_extension/run_wildfire_scc.jl`.
++- `wildfire_extension/run_wildfire_experiments.sh`.
++- `wildfire_extension/TECHNICAL_MEMO.md`.
++
++No original replication files were modified.
++
++Implementation details:
++
++- `WildfireGIVE.wildfire_co2_path` builds low/medium/high/stress/custom paths
++  in GtCO2/yr and GtC/yr (`WildfireGIVE.jl` lines 20-70).
++- `WildfireGIVE.apply_wildfire_co2!` inserts `:wildfire_co2_emissions` before
++  `:co2_emissions_identity` (`WildfireGIVE.jl` lines 101-153).
++- This placement means the standard GIVE marginal pulse is added after the
++  wildfire-adjusted baseline, so base and marginal runs share the same wildfire
++  scenario and the pulse remains the marginal ton (`WildfireGIVE.jl` lines
++  105-112).
++- The original pre-2020 AR6 backup behavior is preserved
++  (`WildfireGIVE.jl` lines 137-145).
++
++Scenario assumptions:
++
++- Low: 0.10 GtCO2/yr from 2020 onward.
++- Medium: 0.25 GtCO2/yr in 2020, growing 0.5%/yr.
++- High: 0.50 GtCO2/yr in 2020, growing 1.0%/yr, capped at 5.0 GtCO2/yr.
++- Optional stress: 2.00 GtCO2/yr in 2020, growing 1.5%/yr, capped at
++  20.0 GtCO2/yr.
++
++These are deliberately stylized net-residual scenarios. They are not gross fire
++emissions.
++
++## Reproducible Run Script
++
++Smoke test:
++
++```bash
++cd /Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo
++./wildfire_extension/run_wildfire_experiments.sh 100 false
++```
++
++Full-size run:
++
++```bash
++cd /Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo
++./wildfire_extension/run_wildfire_experiments.sh 10000 false
++```
++
++Include the stress scenario:
++
++```bash
++./wildfire_extension/run_wildfire_experiments.sh 1000 true output/wildfire_extension_stress
++```
++
++Expected outputs under `output/wildfire_extension`:
++
++- `scc_summary.csv`: mean, median, 5th, 95th percentile SCC and baseline
++  differences.
++- `scc_samples.csv`: SCC draws for distribution plots.
++- `wildfire_emissions_paths.csv`: added wildfire path in GtCO2/yr and GtC/yr.
++- `deterministic_climate_damage_paths.csv`: baseline vs modified CO2,
++  forcing, temperature, and damage paths for deterministic diagnostics.
++- `discounted_marginal_damages.csv`: discounted marginal damage paths.
++- `discounted_marginal_damage_differences.csv`: scenario minus baseline
++  discounted marginal damages.
++- `plots/*.html`: simple VegaLite plots when plotting succeeds.
++
++## Follow-up: Double Counting And Climate-Responsive Fire
++
++The RFF-SP archive confirms that `rffsp_co2_emissions.csv` is an aggregate
++annual global CO2 pathway with columns `sample`, `year`, and `value`, in GtC.
++There is no fossil/industrial/AFOLU/wildfire decomposition in the downloaded
++pathway. The RFF-SP documentation says the emissions files contain projected
++annual global gas emissions only, and `packages/MimiRFFSPs/src/components/SPs.jl`
++loads that single aggregate file into `:co2_emissions`.
++
++The RFF-SP emissions elicitation was deliberately broad. The appendix defines
++global CO2 emissions in terms of fossil and industrial CO2, AFOLU / natural
++stock changes, DAC, and BECCS, and instructs experts to avoid double-counting
++between categories. Therefore the most careful reading is:
++
++- explicit wildfire or biomass-burning forecasts are not represented in GIVE or
++  MimiRFFSPs;
++- wildfire-related net land-carbon effects may already be implicit in expert
++  judgments about AFOLU / natural CO2 stocks;
++- an additive wildfire experiment should only add a residual: net additional
++  climate-driven fire CO2 not already embedded in RFF-SP aggregate CO2.
++
++Relevant projection papers/data identified for the next step:
++
++- Park et al. 2023, Global Environmental Change, "Impact of climate and
++  socioeconomic changes on fire carbon emissions in the future." This is the
++  best conceptual match: global 21st-century fire carbon emissions, driver
++  decomposition, meteorology/biomass/land-use/population/GDP, and boreal
++  increases even when global totals can fall under socioeconomic development.
++- Tian et al. 2023, Environmental Pollution, projects fire emissions under
++  1.5 C and 2 C warming, with global fire emissions rising roughly 10-15% at
++  1.5 C and 15-23% at 2 C. This supports a simple temperature-response
++  heuristic, though the paper focuses on air quality species rather than a net
++  CO2 stock perturbation.
++- Val Martin, Pierce, and Heald 2018 USDA Forest Service data release,
++  "Global fire emissions, fire area burned and air quality data projected using
++  a global earth system model (RCP45/SSP1 and RCP8.5/SSP3)." This has public
++  gridded CESM fire-emissions files. The emissions/auxiliary archive is about
++  603 MB and is the first practical candidate for making the extension data
++  driven.
++- Byrne et al. 2024, Nature, "Carbon emissions from the 2023 Canadian
++  wildfires," is not a global forecast, but it is highly relevant for boreal
++  plausibility: it estimates 647 TgC from 2023 Canadian fires and reports that
++  2023-like temperatures become typical in the 2050s under SSP2-4.5.
++- Phillips et al. 2022, Science Advances, estimates projected gross and net
++  CO2 from North American boreal wildfires through mid-century. It is valuable
++  for net-vs-gross treatment and fire-management counterfactuals.
++
++## Quick Climate-Response Heuristic
++
++The new quick script is:
++
++```bash
++cd /Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo
++./wildfire_extension/run_wildfire_quick.sh output/wildfire_quick
++```
++
++It does not run the 10,000-trial Monte Carlo. It uses one deterministic GIVE
++configuration, the default RFF-SP sample in MimiRFFSPs, and
++`MimiGIVE.compute_scc(..., n=0)`.
++
++The heuristic path is generated from the baseline deterministic temperature
++trajectory:
++
++```text
++added_net_gtco2 =
++    gross_reference_fire_gtco2
++    * sensitivity_per_c
++    * max(T_baseline(t) - T_baseline(2020), 0)
++    * net_persistence_fraction
++    * not_embedded_fraction
++```
++
++Defaults:
++
++- gross reference global fire carbon: 2.2 PgC/yr, equal to 8.07 GtCO2/yr.
++- low: 7% gross fire response per C, 5% net persistence, 25% not embedded.
++- medium: 10% per C, 10% net persistence, 50% not embedded.
++- high: 15% per C, 20% net persistence, 75% not embedded.
++
++Those parameters are intentionally conservative and transparent. They are not a
++claim about the true global wildfire feedback. They encode the double-counting
++defense directly: only a fraction of the gross climate-driven increment is
++treated as long-lived and missing from the RFF-SP baseline.
++
++Smoke-test output written to `output/wildfire_quick_smoke`:
++
++- `deterministic_scc_summary.csv`
++- `wildfire_emissions_paths.csv`
++- `deterministic_climate_damage_paths.csv`
++
++For the one deterministic 2.0% discount-rate configuration, the baseline SCC was
++about $139.10/tCO2 in 2020 dollars. The low, medium, and high heuristic changes
++were tiny: about -$0.006/tCO2, -$0.111/tCO2, and +$0.065/tCO2 respectively.
++Because these changes are much smaller than the finite-pulse and deterministic
++noise floor, they should be read only as a mechanism smoke test. The climate
++paths did move in the expected direction: maximum CO2 rose from 857.8 ppm in the
++baseline to 858.2, 859.9, and 867.1 ppm in low, medium, and high; maximum
++temperature rose from 4.692 C to 4.694, 4.700, and 4.728 C.
++
++## Source-Informed 100-Draw Uncertainty Run
++
++The follow-up source-informed run downloaded the USDA Forest Service archive for
++Val Martin, Pierce, and Heald 2018:
++
++```text
++/Users/jbb/Dropbox/GIVE/fire_data/usda_val_martin_2018/RDS-2018-0021_emissions_auxdata.zip
++```
++
++The archive contains projected fire-emissions netCDFs for many air-quality
++species, but not CO2 directly. I extracted CO fire emissions and burned-area
++changes as source-based scaling information in:
++
++```text
++wildfire_extension/source_data/usda_val_martin_fire_projection_summary.csv
++```
++
++Key extracted ratios relative to the 2001-2010 baseline:
++
++- RCP4.5 CO fire emissions: 1.19 by 2041-2050, 1.33 by 2091-2100.
++- RCP8.5 CO fire emissions: 1.55 by 2041-2050, 2.01 by 2091-2100.
++- RCP4.5 burned area: 1.09 by 2041-2050, 1.15 by 2091-2100.
++- RCP8.5 burned area: 1.11 by 2041-2050, 1.47 by 2091-2100.
++
++The 100-draw experiment combines these with the Byrne et al. Canada-2023 excess
++fire-carbon anchor:
++
++```text
++647 TgC - 121 TgC = 526 TgC = 0.526 GtC = 1.929 GtCO2/yr
++```
++
++For each draw, the model samples:
++
++- gross 2050 target fraction of the Canada-2023 excess: triangular
++  0.25 / 1.00 / 2.00.
++- net persistence fraction: triangular 0.25 / 0.60 / 1.00.
++- not-already-embedded fraction: triangular 0.50 / 0.80 / 1.00.
++- 2100-to-2050 growth ratio: triangular 1.06 / 1.20 / 1.32, based on the USDA
++  late/mid-century CO and burned-area ratios.
++
++The added emissions are temperature-scaled using the deterministic GIVE baseline
++temperature path. Draw summaries:
++
++| Year | Mean added GtCO2/yr | Median | 5th | 95th |
++| --- | ---: | ---: | ---: | ---: |
++| 2030 | 0.358 | 0.368 | 0.131 | 0.635 |
++| 2050 | 1.034 | 1.064 | 0.378 | 1.832 |
++| 2100 | 1.232 | 1.266 | 0.446 | 2.242 |
++| 2200 | 1.483 | 1.482 | 0.532 | 2.698 |
++| 2300 | 1.653 | 1.607 | 0.595 | 3.043 |
++
++For the 100-draw run, paired FAIR and RFF-SP sample IDs were used across the
++baseline and wildfire cases. The 2.0% discount-rate SCC summary was:
++
++| Scenario | Mean SCC | Median SCC | 5th | 95th |
++| --- | ---: | ---: | ---: | ---: |
++| Baseline | 218.98 | 185.64 | 49.30 | 568.96 |
++| Wildfire uncertainty | 219.48 | 185.85 | 53.63 | 565.91 |
++
++The wildfire case increased the mean SCC by $0.50/tCO2, about 0.23%, and the
++median by $0.21/tCO2. The paired 2.0% SCC delta had mean +$0.50/tCO2, median
++-$0.09/tCO2, 5th percentile -$3.27/tCO2, and 95th percentile +$5.67/tCO2.
++
++Main outputs:
++
++- `output/wildfire_source_uncertainty_100/scc_summary.csv`
++- `output/wildfire_source_uncertainty_100/scc_samples.csv`
++- `output/wildfire_source_uncertainty_100/wildfire_parameter_draws.csv`
++- `output/wildfire_source_uncertainty_100/wildfire_emissions_draws.csv`
++- `output/wildfire_source_uncertainty_100/wildfire_emissions_summary.csv`
++- `output/wildfire_source_uncertainty_100/scc_distribution_2pct.svg`
++
++## Validation Checklist
++
++Before interpreting wildfire results:
++
++1. Run the original replication with a small `n` and verify that the code
++   executes.
++2. Run the extension with `n=10` or `n=100` only as a smoke test.
++3. Run the original 10,000-trial baseline and confirm the central SC-CO2
++   estimate approximately reproduces Rennert et al.'s published result.
++4. Confirm `wildfire_emissions_paths.csv` uses GtCO2/yr and that
++   `wildfire_gtc = wildfire_gtco2 * 12/44`.
++5. Confirm the marginal pulse remains `1e-4` GtC and is not changed by the
++   wildfire scenario.
++6. Compare deterministic CO2 and temperature paths to ensure the wildfire
++   scenarios move in the expected direction.
++7. Inspect `discounted_marginal_damage_differences.csv` to see whether changes
++   come from near-term or far-future damages.
++8. Treat any high-scenario result as a sensitivity, not an empirical estimate.
++
++## Assumptions And Caveats
++
++- Wildfire CO2 may already be partly included in historical inventories,
++  land-use emissions, and RFF-SP natural-stock emissions.
++- Gross fire CO2 is not the right perturbation for SCC unless it is net of
++  regrowth and other carbon-cycle recovery.
++- Some fire CO2 is part of the short-run biogenic carbon cycle and may be
++  reabsorbed.
++- Climate-driven wildfire increases are partly endogenous to warming. Adding
++  them exogenously can double-count feedbacks if the baseline or damage modules
++  already capture parts of that process.
++- The SCC is the marginal damage of one additional ton, not total damage from
++  all wildfire emissions.
++- A higher baseline stock raises SCC only through model nonlinearities,
++  state-dependent carbon uptake, damage curvature, sea-level dynamics, GDP and
++  consumption interactions, and discounting.
++
++## Where This Could Be Wrong
++
++- The RFF-SP aggregate CO2 pathway may already include expert assumptions about
++  future wildfire-related net emissions. If so, the correct experiment is not
++  additive; it is a decomposition or rescaling of the relevant RFF-SP category.
++- The stylized scenarios may be too high or too low for net wildfire CO2.
++- The extension does not add fire aerosols, methane, ozone precursors, black
++  carbon, albedo change, health impacts from smoke, or ecosystem damages.
++- The extension starts in 2020. It does not alter historical pre-2020 CO2 stock.
++- The deterministic diagnostics use a single RFF-SP sample and are not a
++  substitute for Monte Carlo path diagnostics.
++- Julia 1.6.4 x86_64 was installed under `/Users/jbb/Dropbox/GIVE/tools` and
++  run through Rosetta. The project instantiated, MimiGIVE loaded, and the
++  RFF-SP DataDep downloaded and unpacked.
++- The full Monte Carlo path still needs validation after we settle the
++  double-counting and data-source assumptions.
