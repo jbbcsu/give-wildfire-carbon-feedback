@@ -18,15 +18,24 @@ they show how large the effect could be if gross fire carbon were treated as an
 additional persistent source. They are not interpreted as double-counting-safe
 central estimates.
 
-All file paths below refer to the working copy on this machine:
+Repository paths in this Supplement use the following convention. Paths beginning
+with `wildfire_extension/` refer to files in the public extension repository,
+[jbbcsu/give-wildfire-carbon-feedback](https://github.com/jbbcsu/give-wildfire-carbon-feedback).
 
-`/Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo`
+Paths beginning with `packages/`, `Project.toml` or `Manifest.toml` refer to the
+original Rennert et al. GIVE replication archive, which is available from Zenodo
+and GitHub. For full reproduction, download the original GIVE archive and place the
+extension repository inside it as `wildfire_extension/`. Commands in this
+Supplement use placeholder variables (`GIVE_ROOT`, `EXT_ROOT` and `USDA_RAW`) so
+that no step depends on a particular user's computer directory.
 
-The wildfire extension is contained in:
+## A. Roadmap Of The Replication Design
 
-`/Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo/wildfire_extension`
-
-## A. Overview Of The Replication Design
+This Supplement is organized around the practical questions a reader would ask when
+trying to reproduce the extension: what the baseline model contains, what new data
+were added, how those data were cleaned, how the wildfire-carbon pathway was
+constructed, where the pathway enters GIVE, how the experiments were run, and which
+outputs support the manuscript figures.
 
 The workflow has five parts.
 
@@ -144,17 +153,24 @@ Primary source:
 - GitHub replication repository: `https://github.com/anthofflab/paper-2022-scc-give`
 - MimiGIVE repository: `https://github.com/anthofflab/MimiGIVE.jl`
 
-Local working copy:
+Extension repository:
 
-`/Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo`
+- [GIVE wildfire-carbon feedback extension](https://github.com/jbbcsu/give-wildfire-carbon-feedback)
 
-Role in this project:
+Role of the original GIVE archive:
 
 - provides the original GIVE model code;
 - provides RFF-SP socioeconomic and emissions draws;
 - provides FaIR climate parameter draws and AR6 fallback emissions;
 - provides sectoral damage modules, discounting code, pulse machinery and output
   conventions.
+
+Role of the extension repository:
+
+- provides the wildfire-carbon model extension;
+- provides cleaned fire-projection summaries and uncertainty-framework files;
+- provides run scripts, figure builders, manuscript files, SI files, slide deck,
+  teaching notes and interactive-site materials.
 
 Cleaning:
 
@@ -168,13 +184,10 @@ Primary source:
 - Val Martin et al. and associated USDA Forest Service Research Data Archive,
   `RDS-2018-0021`, DOI `https://doi.org/10.2737/RDS-2018-0021`.
 
-Local staged archive:
+Raw data archive:
 
-`/Users/jbb/Dropbox/GIVE/fire_data/usda_val_martin_2018/RDS-2018-0021_emissions_auxdata.zip`
-
-Local extracted directory:
-
-`/Users/jbb/Dropbox/GIVE/fire_data/usda_val_martin_2018/extract`
+- download `RDS-2018-0021_emissions_auxdata.zip` from the DOI landing page;
+- extract it into a user-chosen directory, represented below as `USDA_RAW`.
 
 Files used:
 
@@ -186,7 +199,8 @@ Files used:
 
 Cleaned output:
 
-`wildfire_extension/source_data/usda_val_martin_fire_projection_summary.csv`
+- `wildfire_extension/source_data/usda_val_martin_fire_projection_summary.csv`
+- GitHub: [usda_val_martin_fire_projection_summary.csv](https://github.com/jbbcsu/give-wildfire-carbon-feedback/blob/main/source_data/usda_val_martin_fire_projection_summary.csv)
 
 Role in this project:
 
@@ -249,9 +263,10 @@ The distinction matters:
 
 ### C.5 Natural Earth Geographic Data
 
-Natural Earth country geometry is used only for maps. The local file is:
+Natural Earth country geometry is used only for maps. The repository file is:
 
-`wildfire_extension/data/natural_earth/ne_110m_admin_0_countries.geojson`
+- `wildfire_extension/data/natural_earth/ne_110m_admin_0_countries.geojson`
+- GitHub: [ne_110m_admin_0_countries.geojson](https://github.com/jbbcsu/give-wildfire-carbon-feedback/blob/main/data/natural_earth/ne_110m_admin_0_countries.geojson)
 
 Role in this project:
 
@@ -260,77 +275,71 @@ Role in this project:
 
 ### C.6 Qiu et al. Smoke Mortality Paper
 
-The user-provided Qiu et al. PDF was used as contextual literature on wildfire
-smoke-related mortality valuation. It is not used as a direct input to the CO2
-feedback model because the present extension is about wildfire carbon entering the
-global CO2 cycle. Smoke exposure, aerosols, ozone precursors and particulate-matter
-mortality are distinct channels and are not included in the central CO2-only
-extension.
+Qiu et al. was reviewed as contextual literature on wildfire smoke-related
+mortality valuation. It is not used as a direct input to the CO2 feedback model
+because the present extension is about wildfire carbon entering the global CO2
+cycle. Smoke exposure, aerosols, ozone precursors and particulate-matter mortality
+are distinct channels and are not included in the central CO2-only extension.
 
-## D. Downloading And Staging Data
+## D. Downloading And Organizing Data
 
 ### D.1 GIVE Code And Julia Environment
 
-The GIVE replication repository is staged locally in the working directory. Julia
-was installed locally for this project rather than relying on a system-wide Julia
-installation. The local Julia executable used in prior runs is:
+The replication uses the Julia environment supplied by the Rennert et al. archive,
+including `Project.toml` and `Manifest.toml`. The extension was tested with Julia
+1.6.4, matching the era of the released replication environment. A reader may use a
+system Julia executable or any Julia installation compatible with the archived
+manifest.
 
-`/Users/jbb/Dropbox/GIVE/tools/julia-1.6.4/bin/julia`
+For public replication, use a directory structure like this:
 
-The replication project uses the package environment supplied by the Rennert et al.
-archive, including `Project.toml` and `Manifest.toml`. Commands are run with:
-
-```bash
-/Users/jbb/Dropbox/GIVE/tools/julia-1.6.4/bin/julia \
-  --project=/Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo
+```text
+GIVE_ROOT/
+  Project.toml
+  Manifest.toml
+  packages/
+  wildfire_extension/
 ```
 
-For public replication, the recommended setup is:
-
-1. clone or download the Rennert et al. replication archive;
-2. install Julia 1.6.4 or use a Julia version compatible with the supplied
-   `Manifest.toml`;
-3. instantiate the Julia environment from the repository root;
-4. run the wildfire-extension scripts from the repository root.
-
-Example instantiation command:
+Here `GIVE_ROOT` is the root of the Rennert et al. replication archive and
+`EXT_ROOT=$GIVE_ROOT/wildfire_extension` is a clone of the public extension
+repository. One way to create that structure is:
 
 ```bash
-/Users/jbb/Dropbox/GIVE/tools/julia-1.6.4/bin/julia \
-  --project=/Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo \
-  -e 'using Pkg; Pkg.instantiate()'
+git clone https://github.com/anthofflab/paper-2022-scc-give.git GIVE_ROOT
+cd GIVE_ROOT
+git clone https://github.com/jbbcsu/give-wildfire-carbon-feedback.git wildfire_extension
+julia --project=. -e 'using Pkg; Pkg.instantiate()'
 ```
 
-The extension does not overwrite the original replication scripts. All new scripts,
+For exact reproduction of the archived package versions, the Zenodo replication
+archive should be preferred if it differs from the live GitHub repository. The
+extension does not overwrite the original replication scripts; all new scripts,
 outputs and manuscript files live under `wildfire_extension/`.
 
 ### D.2 USDA Fire Projection Archive
 
-The USDA archive was downloaded from the `RDS-2018-0021` landing page and staged in:
-
-`/Users/jbb/Dropbox/GIVE/fire_data/usda_val_martin_2018`
-
-The raw archive file is:
-
-`RDS-2018-0021_emissions_auxdata.zip`
-
-It was extracted to:
-
-`/Users/jbb/Dropbox/GIVE/fire_data/usda_val_martin_2018/extract`
+The USDA archive was downloaded from the `RDS-2018-0021` landing page. The raw
+archive file is `RDS-2018-0021_emissions_auxdata.zip`. After extraction, the
+directory containing `Data/Emissions/` and `Data/AuxiliaryData/` is represented in
+the commands below as `USDA_RAW`.
 
 The cleaned summary used by the extension is tracked in the repository:
 
 `wildfire_extension/source_data/usda_val_martin_fire_projection_summary.csv`
 
 For a fresh replication, the user should download the archive from the DOI landing
-page, preserve the same extracted directory structure, and run:
+page, preserve the archive's internal directory structure, and run:
 
 ```bash
-/Users/jbb/Dropbox/GIVE/tools/julia-1.6.4/bin/julia \
-  --project=/Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo \
-  /Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo/wildfire_extension/process_usda_val_martin.jl \
-  /Users/jbb/Dropbox/GIVE/fire_data/usda_val_martin_2018/extract \
-  /Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo/wildfire_extension/source_data/usda_val_martin_fire_projection_summary.csv
+GIVE_ROOT=/path/to/rennert-give-replication
+EXT_ROOT="$GIVE_ROOT/wildfire_extension"
+USDA_RAW=/path/to/extracted/RDS-2018-0021
+
+julia --project="$GIVE_ROOT" \
+  "$EXT_ROOT/process_usda_val_martin.jl" \
+  "$USDA_RAW" \
+  "$EXT_ROOT/source_data/usda_val_martin_fire_projection_summary.csv"
 ```
 
 If the raw archive is not available, the cleaned summary CSV is sufficient to
@@ -346,9 +355,8 @@ It is used by the R figure script. It is not used by Julia model runs.
 
 ## E. Cleaning And Aggregating The USDA Fire Projection Data
 
-The processing script is:
-
-`wildfire_extension/process_usda_val_martin.jl`
+The processing script is `wildfire_extension/process_usda_val_martin.jl`
+([GitHub](https://github.com/jbbcsu/give-wildfire-carbon-feedback/blob/main/process_usda_val_martin.jl)).
 
 This script converts the raw NetCDF files into a compact CSV of annual fire-activity
 statistics by scenario and time window. It performs two aggregations: one for
@@ -421,9 +429,8 @@ Two pathway families are implemented.
 
 ### F.1 Endogenous Temperature-Feedback Pathway
 
-The central extension is implemented in:
-
-`wildfire_extension/WildfireGIVE.jl`
+The central extension is implemented in `wildfire_extension/WildfireGIVE.jl`
+([GitHub](https://github.com/jbbcsu/give-wildfire-carbon-feedback/blob/main/WildfireGIVE.jl)).
 
 The component is named:
 
@@ -498,9 +505,8 @@ exploratory uncertainty distributions, not a formal posterior. They are designed
 separate baseline GIVE uncertainty from wildfire-accounting uncertainty while
 keeping the central assumptions transparent.
 
-The script is:
-
-`wildfire_extension/run_temperature_feedback_mcs.jl`
+The Monte Carlo script is `wildfire_extension/run_temperature_feedback_mcs.jl`
+([GitHub](https://github.com/jbbcsu/give-wildfire-carbon-feedback/blob/main/run_temperature_feedback_mcs.jl)).
 
 Scenario parameters:
 
@@ -518,9 +524,9 @@ effects are smaller than the total scale of fire carbon might suggest.
 
 ### F.4 RESFire-Style Stress Calibration
 
-The gross stress cases use a calibration routine in:
-
+The gross stress cases use a calibration routine in
 `wildfire_extension/run_temperature_feedback_scc.jl`
+([GitHub](https://github.com/jbbcsu/give-wildfire-carbon-feedback/blob/main/run_temperature_feedback_scc.jl)).
 
 The routine calibrates a temperature sensitivity so that cumulative gross additional
 fire CO2 between 2021 and 2050 equals a target cumulative quantity under the
@@ -919,35 +925,40 @@ the aggregate RFF-SP pathway cannot be decomposed.
 
 ## M. Reproducible Run Order
 
-The following commands reproduce the current analysis on this machine, assuming the
-Julia environment has been instantiated and the USDA archive has been downloaded and
-extracted.
+The following commands reproduce the current analysis after the original GIVE
+replication archive has been installed, the extension repository has been cloned as
+`wildfire_extension/`, the Julia environment has been instantiated, and the USDA
+archive has been downloaded and extracted. The commands use portable placeholders:
+
+```bash
+GIVE_ROOT=/path/to/rennert-give-replication
+EXT_ROOT="$GIVE_ROOT/wildfire_extension"
+USDA_RAW=/path/to/extracted/RDS-2018-0021
+```
 
 ### M.1 Process USDA Fire Projection Data
 
 ```bash
-/Users/jbb/Dropbox/GIVE/tools/julia-1.6.4/bin/julia \
-  --project=/Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo \
-  /Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo/wildfire_extension/process_usda_val_martin.jl \
-  /Users/jbb/Dropbox/GIVE/fire_data/usda_val_martin_2018/extract \
-  /Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo/wildfire_extension/source_data/usda_val_martin_fire_projection_summary.csv
+julia --project="$GIVE_ROOT" \
+  "$EXT_ROOT/process_usda_val_martin.jl" \
+  "$USDA_RAW" \
+  "$EXT_ROOT/source_data/usda_val_martin_fire_projection_summary.csv"
 ```
 
 ### M.2 Run Deterministic Endogenous Feedback Scenarios
 
 ```bash
-/Users/jbb/Dropbox/GIVE/tools/julia-1.6.4/bin/julia \
-  --project=/Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo \
-  /Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo/wildfire_extension/run_temperature_feedback_scc.jl \
-  /Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo/wildfire_extension/output/wildfire_temperature_feedback
+julia --project="$GIVE_ROOT" \
+  "$EXT_ROOT/run_temperature_feedback_scc.jl" \
+  "$EXT_ROOT/output/wildfire_temperature_feedback"
 ```
 
 ### M.3 Run 100-Draw Paired Monte Carlo
 
 ```bash
-/Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo/wildfire_extension/run_temperature_feedback_mcs.sh \
+"$EXT_ROOT/run_temperature_feedback_mcs.sh" \
   100 \
-  /Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo/wildfire_extension/output/wildfire_temperature_feedback_mcs_100_paired \
+  "$EXT_ROOT/output/wildfire_temperature_feedback_mcs_100_paired" \
   20260503 \
   all
 ```
@@ -958,50 +969,42 @@ runtime is much longer.
 ### M.4 Run Sectoral Diagnostics
 
 ```bash
-/Users/jbb/Dropbox/GIVE/tools/julia-1.6.4/bin/julia \
-  --project=/Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo \
-  /Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo/wildfire_extension/run_sectoral_diagnostics.jl \
+julia --project="$GIVE_ROOT" \
+  "$EXT_ROOT/run_sectoral_diagnostics.jl" \
   100 \
-  /Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo/wildfire_extension/output/wildfire_sectoral_diagnostics_100 \
+  "$EXT_ROOT/output/wildfire_sectoral_diagnostics_100" \
   20260502
 ```
 
 ### M.5 Run Regional Damage Diagnostics
 
 ```bash
-/Users/jbb/Dropbox/GIVE/tools/julia-1.6.4/bin/julia \
-  --project=/Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo \
-  /Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo/wildfire_extension/run_regional_damage_map_diagnostics.jl \
-  /Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo \
-  /Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo/wildfire_extension/output/wildfire_regional_damage_diagnostics
+julia --project="$GIVE_ROOT" \
+  "$EXT_ROOT/run_regional_damage_map_diagnostics.jl" \
+  "$GIVE_ROOT" \
+  "$EXT_ROOT/output/wildfire_regional_damage_diagnostics"
 ```
 
 ### M.6 Generate Figures
 
 ```bash
-Rscript \
-  /Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo/wildfire_extension/make_png_pdf_figures.R \
-  /Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo
+Rscript "$EXT_ROOT/make_png_pdf_figures.R" "$GIVE_ROOT"
 ```
 
 ### M.7 Render Manuscript And Supplement
 
 ```bash
-pandoc \
-  /Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo/wildfire_extension/manuscript/wildfire_carbon_feedback_ncc_draft.md \
-  -o /Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo/wildfire_extension/manuscript/wildfire_carbon_feedback_ncc_draft.html
+pandoc "$EXT_ROOT/manuscript/wildfire_carbon_feedback_ncc_draft.md" \
+  -o "$EXT_ROOT/manuscript/wildfire_carbon_feedback_ncc_draft.html"
 
-pandoc \
-  /Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo/wildfire_extension/manuscript/wildfire_carbon_feedback_ncc_draft.md \
-  -o /Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo/wildfire_extension/manuscript/wildfire_carbon_feedback_ncc_draft.pdf
+pandoc "$EXT_ROOT/manuscript/wildfire_carbon_feedback_ncc_draft.md" \
+  -o "$EXT_ROOT/manuscript/wildfire_carbon_feedback_ncc_draft.pdf"
 
-pandoc \
-  /Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo/wildfire_extension/manuscript/methods_appendix.md \
-  -o /Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo/wildfire_extension/manuscript/methods_appendix.html
+pandoc "$EXT_ROOT/manuscript/methods_appendix.md" \
+  -o "$EXT_ROOT/manuscript/methods_appendix.html"
 
-pandoc \
-  /Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo/wildfire_extension/manuscript/methods_appendix.md \
-  -o /Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo/wildfire_extension/manuscript/methods_appendix.pdf
+pandoc "$EXT_ROOT/manuscript/methods_appendix.md" \
+  -o "$EXT_ROOT/manuscript/methods_appendix.pdf"
 ```
 
 The rendered files are written to:
@@ -1040,8 +1043,9 @@ submission-grade archive. The remaining gaps are:
 - the main SCC results use 100 paired Monte Carlo draws, not 10,000;
 - wildfire parameter distributions are transparent but stylized;
 - `phi_missing` is an accounting uncertainty parameter, not empirically identified;
-- raw USDA NetCDF files are staged locally outside the extension directory, while
-  the cleaned summary CSV is inside the extension directory;
+- raw USDA NetCDF files are external to the GitHub repository and must be
+  downloaded from the USDA DOI, while the cleaned summary CSV is tracked in the
+  extension repository;
 - the source-attribution map uses a proxy rather than a gridded global fire-carbon
   forecast;
 - smoke mortality and non-CO2 fire pollutants are not included in the CO2-only SCC

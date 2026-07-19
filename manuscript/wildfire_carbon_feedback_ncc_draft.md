@@ -54,7 +54,7 @@ In the deterministic 2.0% discount case, the baseline SCC is 139.10 2020 USD/tCO
 
 We then implemented a paired Monte Carlo design that holds the same socioeconomic, climate, damage and discounting draws across baseline and wildfire scenarios. Pairing reduces sampling noise in scenario differences. In the corrected 100-draw validation run, the baseline 2.0% SCC mean is 198.35 2020 USD/tCO2 and the median is 155.82 2020 USD/tCO2. This is close to Rennert et al.'s preferred mean given the small sample and the right-skewed SCC distribution. A larger production driver is configured, but the current draft reports 100-draw validation values and should be interpreted as a model-development result.
 
-Residual-medium raises the 100-draw mean by 0.54 USD/tCO2 (+0.27%). Residual-high raises it by 11.21 USD/tCO2 (+5.65%). The half-gross stress case raises it by 64.44 USD/tCO2 (+32.49%), and the gross stress case by 148.02 USD/tCO2 (+74.62%). The right tail is large, so Figure 3 truncates the displayed density at 600 USD/tCO2 while computing means and medians on the full sample. The paired-delta panel shows that the gross stress cases shift nearly all draws upward, whereas residual cases are much smaller and more sensitive to draw-level model states.
+Residual-medium raises the 100-draw mean by 0.54 USD/tCO2 (+0.27%). Residual-high raises it by 11.21 USD/tCO2 (+5.65%). The half-gross stress case raises it by 64.44 USD/tCO2 (+32.49%), and the gross stress case by 148.02 USD/tCO2 (+74.62%). The right tail is large, so Figure 4 truncates the displayed density at 600 USD/tCO2 while computing means and medians on the full sample. The paired-delta panel shows that the gross stress cases shift nearly all draws upward, whereas residual cases are much smaller and more sensitive to draw-level model states.
 
 ![SCC distributions and paired scenario deltas. Densities are truncated visually at 600 USD/tCO2; means, medians and paired deltas are computed on the untruncated samples. Each point in the lower panel subtracts the matched baseline draw from the wildfire-feedback draw.](figures/png_pdf/figure_scc_distribution_and_delta_2pct.png)
 
@@ -108,7 +108,7 @@ The policy implication is not that SCC estimates should simply add wildfire emis
 
 We used the Rennert et al. replication archive and the archived GIVE Julia environment. The audit traced how CO2 emissions enter the model, whether wildfire or biomass burning appears as a separate pathway, and whether the SCC pulse can alter future emissions. GIVE uses aggregate emissions scenarios and does not contain an endogenous socioeconomic module. Population, GDP and emissions are sampled from exogenous pathways. In Kaya terms, emissions are not recomputed dynamically from population, income, energy intensity and carbon intensity after climate or damages are realized.
 
-The RFF-SP data used by GIVE provide global CO2 emissions as an aggregate carbon-mass pathway. The released input does not decompose CO2 into fossil, industrial-process, AFOLU, wildfire, biomass-burning, natural-stock or negative-emissions components. For non-RFF fallback scenarios, GIVE uses aggregate AR6 fossil CO2 and other CO2 categories. The released model therefore cannot determine whether a specific projected wildfire-carbon feedback is already included. Exact file paths, variable names and line references are provided in the Supplement.
+The RFF-SP data used by GIVE provide global CO2 emissions as an aggregate carbon-mass pathway. The released input does not decompose CO2 into fossil, industrial-process, AFOLU, wildfire, biomass-burning, natural-stock or negative-emissions components. For non-RFF fallback scenarios, GIVE uses aggregate AR6 fossil CO2 and other CO2 categories. The released model therefore cannot determine whether a specific projected wildfire-carbon feedback is already included. Implementation details, repository paths and reproducibility instructions are provided in the Supplement and in the public extension repository.
 
 ### Wildfire-carbon feedback
 
@@ -134,11 +134,11 @@ A generative AI coding assistant was used as a research-programming aid. The hum
 
 ## Data availability
 
-The original GIVE replication archive is available through the Rennert et al. Zenodo record and GitHub repository. RFF-SP data are loaded through the archived replication environment. Fire-emissions projection summaries, scale checks, SCC samples, paired-delta summaries, parameter draws and figure inputs are stored in the wildfire extension output directories. The current public draft uses 100-draw validation outputs; production outputs should replace them before submission.
+The original GIVE replication archive is available through the Rennert et al. Zenodo record and GitHub repository. RFF-SP data are loaded through the archived replication environment. The wildfire extension repository is available at [https://github.com/jbbcsu/give-wildfire-carbon-feedback](https://github.com/jbbcsu/give-wildfire-carbon-feedback). It contains the cleaned fire-projection summary, wildfire-parameter framework, 100-draw validation summaries, paired-delta tables, manuscript figures and figure-input files used in this draft. The current public draft uses 100-draw validation outputs; production outputs should replace them before submission.
 
 ## Code availability
 
-The wildfire extension is separate from the original replication code. It includes the Julia model-extension module, deterministic and Monte Carlo drivers, diagnostic scripts, figure builders, an interactive website, a teaching module and manuscript materials. A GitHub remote has not yet been added in this local workspace; once the author creates the repository, the package can be pushed and archived.
+The wildfire extension is separate from the original replication code and is archived at [https://github.com/jbbcsu/give-wildfire-carbon-feedback](https://github.com/jbbcsu/give-wildfire-carbon-feedback). It includes the Julia model-extension module, deterministic and Monte Carlo drivers, diagnostic scripts, figure builders, an interactive website, a teaching module and manuscript materials. The original Rennert et al. replication archive should be downloaded separately and the extension placed inside that project as `wildfire_extension/` for full reproduction.
 
 ## References
 

@@ -19,12 +19,27 @@ scenario. Gross wildfire cases are retained as mechanism and stress
 tests because they show how large the effect could be if gross fire
 carbon were treated as an additional persistent source. They are not
 interpreted as double-counting-safe central estimates.</p>
-<p>All file paths below refer to the working copy on this machine:</p>
-<p><code>/Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo</code></p>
-<p>The wildfire extension is contained in:</p>
-<p><code>/Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo/wildfire_extension</code></p>
-<h2 id="a.-overview-of-the-replication-design">A. Overview Of The
+<p>Repository paths in this Supplement use the following convention.
+Paths beginning with <code>wildfire_extension/</code> refer to files in
+the public extension repository, <a
+href="https://github.com/jbbcsu/give-wildfire-carbon-feedback">jbbcsu/give-wildfire-carbon-feedback</a>.</p>
+<p>Paths beginning with <code>packages/</code>,
+<code>Project.toml</code> or <code>Manifest.toml</code> refer to the
+original Rennert et al. GIVE replication archive, which is available
+from Zenodo and GitHub. For full reproduction, download the original
+GIVE archive and place the extension repository inside it as
+<code>wildfire_extension/</code>. Commands in this Supplement use
+placeholder variables (<code>GIVE_ROOT</code>, <code>EXT_ROOT</code> and
+<code>USDA_RAW</code>) so that no step depends on a particular user’s
+computer directory.</p>
+<h2 id="a.-roadmap-of-the-replication-design">A. Roadmap Of The
 Replication Design</h2>
+<p>This Supplement is organized around the practical questions a reader
+would ask when trying to reproduce the extension: what the baseline
+model contains, what new data were added, how those data were cleaned,
+how the wildfire-carbon pathway was constructed, where the pathway
+enters GIVE, how the experiments were run, and which outputs support the
+manuscript figures.</p>
 <p>The workflow has five parts.</p>
 <p>First, the released GIVE replication code was audited to determine
 how baseline CO2 enters the model. That audit found that the RFF
@@ -138,9 +153,13 @@ And Data</h3>
 <li>MimiGIVE repository:
 <code>https://github.com/anthofflab/MimiGIVE.jl</code></li>
 </ul>
-<p>Local working copy:</p>
-<p><code>/Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo</code></p>
-<p>Role in this project:</p>
+<p>Extension repository:</p>
+<ul>
+<li><a
+href="https://github.com/jbbcsu/give-wildfire-carbon-feedback">GIVE
+wildfire-carbon feedback extension</a></li>
+</ul>
+<p>Role of the original GIVE archive:</p>
 <ul>
 <li>provides the original GIVE model code;</li>
 <li>provides RFF-SP socioeconomic and emissions draws;</li>
@@ -148,6 +167,14 @@ And Data</h3>
 emissions;</li>
 <li>provides sectoral damage modules, discounting code, pulse machinery
 and output conventions.</li>
+</ul>
+<p>Role of the extension repository:</p>
+<ul>
+<li>provides the wildfire-carbon model extension;</li>
+<li>provides cleaned fire-projection summaries and uncertainty-framework
+files;</li>
+<li>provides run scripts, figure builders, manuscript files, SI files,
+slide deck, teaching notes and interactive-site materials.</li>
 </ul>
 <p>Cleaning:</p>
 <ul>
@@ -163,10 +190,13 @@ USDA / Val Martin / Pierce / Heald Fire Projection Archive</h3>
 Archive, <code>RDS-2018-0021</code>, DOI
 <code>https://doi.org/10.2737/RDS-2018-0021</code>.</li>
 </ul>
-<p>Local staged archive:</p>
-<p><code>/Users/jbb/Dropbox/GIVE/fire_data/usda_val_martin_2018/RDS-2018-0021_emissions_auxdata.zip</code></p>
-<p>Local extracted directory:</p>
-<p><code>/Users/jbb/Dropbox/GIVE/fire_data/usda_val_martin_2018/extract</code></p>
+<p>Raw data archive:</p>
+<ul>
+<li>download <code>RDS-2018-0021_emissions_auxdata.zip</code> from the
+DOI landing page;</li>
+<li>extract it into a user-chosen directory, represented below as
+<code>USDA_RAW</code>.</li>
+</ul>
 <p>Files used:</p>
 <ul>
 <li><code>Data/Emissions/CESM_RCP45_CO_surface_2000-2050-2100_0.9x1.25.nc</code></li>
@@ -176,7 +206,11 @@ Archive, <code>RDS-2018-0021</code>, DOI
 <li><code>Data/AuxiliaryData/cesm130_clm5_firemodule_area_f09x125.nc</code></li>
 </ul>
 <p>Cleaned output:</p>
-<p><code>wildfire_extension/source_data/usda_val_martin_fire_projection_summary.csv</code></p>
+<ul>
+<li><code>wildfire_extension/source_data/usda_val_martin_fire_projection_summary.csv</code></li>
+<li>GitHub: <a
+href="https://github.com/jbbcsu/give-wildfire-carbon-feedback/blob/main/source_data/usda_val_martin_fire_projection_summary.csv">usda_val_martin_fire_projection_summary.csv</a></li>
+</ul>
 <p>Role in this project:</p>
 <ul>
 <li>provides future fire-activity growth ratios from gridded projected
@@ -241,9 +275,13 @@ warming;</li>
 </ul>
 <h3 id="c.5-natural-earth-geographic-data">C.5 Natural Earth Geographic
 Data</h3>
-<p>Natural Earth country geometry is used only for maps. The local file
-is:</p>
-<p><code>wildfire_extension/data/natural_earth/ne_110m_admin_0_countries.geojson</code></p>
+<p>Natural Earth country geometry is used only for maps. The repository
+file is:</p>
+<ul>
+<li><code>wildfire_extension/data/natural_earth/ne_110m_admin_0_countries.geojson</code></li>
+<li>GitHub: <a
+href="https://github.com/jbbcsu/give-wildfire-carbon-feedback/blob/main/data/natural_earth/ne_110m_admin_0_countries.geojson">ne_110m_admin_0_countries.geojson</a></li>
+</ul>
 <p>Role in this project:</p>
 <ul>
 <li>provides country polygons for figures;</li>
@@ -251,64 +289,65 @@ is:</p>
 </ul>
 <h3 id="c.6-qiu-et-al.-smoke-mortality-paper">C.6 Qiu et al. Smoke
 Mortality Paper</h3>
-<p>The user-provided Qiu et al. PDF was used as contextual literature on
-wildfire smoke-related mortality valuation. It is not used as a direct
-input to the CO2 feedback model because the present extension is about
-wildfire carbon entering the global CO2 cycle. Smoke exposure, aerosols,
-ozone precursors and particulate-matter mortality are distinct channels
-and are not included in the central CO2-only extension.</p>
-<h2 id="d.-downloading-and-staging-data">D. Downloading And Staging
-Data</h2>
+<p>Qiu et al. was reviewed as contextual literature on wildfire
+smoke-related mortality valuation. It is not used as a direct input to
+the CO2 feedback model because the present extension is about wildfire
+carbon entering the global CO2 cycle. Smoke exposure, aerosols, ozone
+precursors and particulate-matter mortality are distinct channels and
+are not included in the central CO2-only extension.</p>
+<h2 id="d.-downloading-and-organizing-data">D. Downloading And
+Organizing Data</h2>
 <h3 id="d.1-give-code-and-julia-environment">D.1 GIVE Code And Julia
 Environment</h3>
-<p>The GIVE replication repository is staged locally in the working
-directory. Julia was installed locally for this project rather than
-relying on a system-wide Julia installation. The local Julia executable
-used in prior runs is:</p>
-<p><code>/Users/jbb/Dropbox/GIVE/tools/julia-1.6.4/bin/julia</code></p>
-<p>The replication project uses the package environment supplied by the
-Rennert et al. archive, including <code>Project.toml</code> and
-<code>Manifest.toml</code>. Commands are run with:</p>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/Users/jbb/Dropbox/GIVE/tools/julia-1.6.4/bin/julia</span> <span class="dt">\</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">--project</span><span class="op">=</span>/Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo</span></code></pre></div>
-<p>For public replication, the recommended setup is:</p>
-<ol type="1">
-<li>clone or download the Rennert et al. replication archive;</li>
-<li>install Julia 1.6.4 or use a Julia version compatible with the
-supplied <code>Manifest.toml</code>;</li>
-<li>instantiate the Julia environment from the repository root;</li>
-<li>run the wildfire-extension scripts from the repository root.</li>
-</ol>
-<p>Example instantiation command:</p>
+<p>The replication uses the Julia environment supplied by the Rennert et
+al. archive, including <code>Project.toml</code> and
+<code>Manifest.toml</code>. The extension was tested with Julia 1.6.4,
+matching the era of the released replication environment. A reader may
+use a system Julia executable or any Julia installation compatible with
+the archived manifest.</p>
+<p>For public replication, use a directory structure like this:</p>
+<pre class="text"><code>GIVE_ROOT/
+  Project.toml
+  Manifest.toml
+  packages/
+  wildfire_extension/</code></pre>
+<p>Here <code>GIVE_ROOT</code> is the root of the Rennert et
+al. replication archive and
+<code>EXT_ROOT=$GIVE_ROOT/wildfire_extension</code> is a clone of the
+public extension repository. One way to create that structure is:</p>
 <div class="sourceCode" id="cb2"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/Users/jbb/Dropbox/GIVE/tools/julia-1.6.4/bin/julia</span> <span class="dt">\</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">--project</span><span class="op">=</span>/Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo <span class="dt">\</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">-e</span> <span class="st">&#39;using Pkg; Pkg.instantiate()&#39;</span></span></code></pre></div>
-<p>The extension does not overwrite the original replication scripts.
-All new scripts, outputs and manuscript files live under
-<code>wildfire_extension/</code>.</p>
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/anthofflab/paper-2022-scc-give.git GIVE_ROOT</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> GIVE_ROOT</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/jbbcsu/give-wildfire-carbon-feedback.git wildfire_extension</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">julia</span> <span class="at">--project</span><span class="op">=</span>. <span class="at">-e</span> <span class="st">&#39;using Pkg; Pkg.instantiate()&#39;</span></span></code></pre></div>
+<p>For exact reproduction of the archived package versions, the Zenodo
+replication archive should be preferred if it differs from the live
+GitHub repository. The extension does not overwrite the original
+replication scripts; all new scripts, outputs and manuscript files live
+under <code>wildfire_extension/</code>.</p>
 <h3 id="d.2-usda-fire-projection-archive">D.2 USDA Fire Projection
 Archive</h3>
 <p>The USDA archive was downloaded from the <code>RDS-2018-0021</code>
-landing page and staged in:</p>
-<p><code>/Users/jbb/Dropbox/GIVE/fire_data/usda_val_martin_2018</code></p>
-<p>The raw archive file is:</p>
-<p><code>RDS-2018-0021_emissions_auxdata.zip</code></p>
-<p>It was extracted to:</p>
-<p><code>/Users/jbb/Dropbox/GIVE/fire_data/usda_val_martin_2018/extract</code></p>
+landing page. The raw archive file is
+<code>RDS-2018-0021_emissions_auxdata.zip</code>. After extraction, the
+directory containing <code>Data/Emissions/</code> and
+<code>Data/AuxiliaryData/</code> is represented in the commands below as
+<code>USDA_RAW</code>.</p>
 <p>The cleaned summary used by the extension is tracked in the
 repository:</p>
 <p><code>wildfire_extension/source_data/usda_val_martin_fire_projection_summary.csv</code></p>
 <p>For a fresh replication, the user should download the archive from
-the DOI landing page, preserve the same extracted directory structure,
-and run:</p>
+the DOI landing page, preserve the archive’s internal directory
+structure, and run:</p>
 <div class="sourceCode" id="cb3"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/Users/jbb/Dropbox/GIVE/tools/julia-1.6.4/bin/julia</span> <span class="dt">\</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">--project</span><span class="op">=</span>/Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo <span class="dt">\</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  /Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo/wildfire_extension/process_usda_val_martin.jl <span class="dt">\</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  /Users/jbb/Dropbox/GIVE/fire_data/usda_val_martin_2018/extract <span class="dt">\</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  /Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo/wildfire_extension/source_data/usda_val_martin_fire_projection_summary.csv</span></code></pre></div>
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="va">GIVE_ROOT</span><span class="op">=</span>/path/to/rennert-give-replication</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="va">EXT_ROOT</span><span class="op">=</span><span class="st">&quot;</span><span class="va">$GIVE_ROOT</span><span class="st">/wildfire_extension&quot;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="va">USDA_RAW</span><span class="op">=</span>/path/to/extracted/RDS-2018-0021</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="ex">julia</span> <span class="at">--project</span><span class="op">=</span><span class="st">&quot;</span><span class="va">$GIVE_ROOT</span><span class="st">&quot;</span> <span class="dt">\</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;</span><span class="va">$EXT_ROOT</span><span class="st">/process_usda_val_martin.jl&quot;</span> <span class="dt">\</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;</span><span class="va">$USDA_RAW</span><span class="st">&quot;</span> <span class="dt">\</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;</span><span class="va">$EXT_ROOT</span><span class="st">/source_data/usda_val_martin_fire_projection_summary.csv&quot;</span></span></code></pre></div>
 <p>If the raw archive is not available, the cleaned summary CSV is
 sufficient to reproduce the figures and parameter checks that depend on
 these ratios.</p>
@@ -319,8 +358,9 @@ these ratios.</p>
 runs.</p>
 <h2 id="e.-cleaning-and-aggregating-the-usda-fire-projection-data">E.
 Cleaning And Aggregating The USDA Fire Projection Data</h2>
-<p>The processing script is:</p>
-<p><code>wildfire_extension/process_usda_val_martin.jl</code></p>
+<p>The processing script is
+<code>wildfire_extension/process_usda_val_martin.jl</code> (<a
+href="https://github.com/jbbcsu/give-wildfire-carbon-feedback/blob/main/process_usda_val_martin.jl">GitHub</a>).</p>
 <p>This script converts the raw NetCDF files into a compact CSV of
 annual fire-activity statistics by scenario and time window. It performs
 two aggregations: one for surface CO emissions and one for burned
@@ -436,8 +476,9 @@ CO2 Pathways</h2>
 <p>Two pathway families are implemented.</p>
 <h3 id="f.1-endogenous-temperature-feedback-pathway">F.1 Endogenous
 Temperature-Feedback Pathway</h3>
-<p>The central extension is implemented in:</p>
-<p><code>wildfire_extension/WildfireGIVE.jl</code></p>
+<p>The central extension is implemented in
+<code>wildfire_extension/WildfireGIVE.jl</code> (<a
+href="https://github.com/jbbcsu/give-wildfire-carbon-feedback/blob/main/WildfireGIVE.jl">GitHub</a>).</p>
 <p>The component is named:</p>
 <p><code>wildfire_temperature_feedback_co2</code></p>
 <p>For model year <code>t</code>, the added wildfire carbon is:</p>
@@ -508,8 +549,9 @@ are exploratory uncertainty distributions, not a formal posterior. They
 are designed to separate baseline GIVE uncertainty from
 wildfire-accounting uncertainty while keeping the central assumptions
 transparent.</p>
-<p>The script is:</p>
-<p><code>wildfire_extension/run_temperature_feedback_mcs.jl</code></p>
+<p>The Monte Carlo script is
+<code>wildfire_extension/run_temperature_feedback_mcs.jl</code> (<a
+href="https://github.com/jbbcsu/give-wildfire-carbon-feedback/blob/main/run_temperature_feedback_mcs.jl">GitHub</a>).</p>
 <p>Scenario parameters:</p>
 <table style="width:100%;">
 <colgroup>
@@ -568,8 +610,9 @@ help interpret why the residual effects are smaller than the total scale
 of fire carbon might suggest.</p>
 <h3 id="f.4-resfire-style-stress-calibration">F.4 RESFire-Style Stress
 Calibration</h3>
-<p>The gross stress cases use a calibration routine in:</p>
-<p><code>wildfire_extension/run_temperature_feedback_scc.jl</code></p>
+<p>The gross stress cases use a calibration routine in
+<code>wildfire_extension/run_temperature_feedback_scc.jl</code> (<a
+href="https://github.com/jbbcsu/give-wildfire-carbon-feedback/blob/main/run_temperature_feedback_scc.jl">GitHub</a>).</p>
 <p>The routine calibrates a temperature sensitivity so that cumulative
 gross additional fire CO2 between 2021 and 2050 equals a target
 cumulative quantity under the baseline deterministic temperature path.
@@ -921,74 +964,70 @@ empirically identified from the RFF-SP source data. It is an accounting
 uncertainty parameter introduced because the aggregate RFF-SP pathway
 cannot be decomposed.</p>
 <h2 id="m.-reproducible-run-order">M. Reproducible Run Order</h2>
-<p>The following commands reproduce the current analysis on this
-machine, assuming the Julia environment has been instantiated and the
-USDA archive has been downloaded and extracted.</p>
+<p>The following commands reproduce the current analysis after the
+original GIVE replication archive has been installed, the extension
+repository has been cloned as <code>wildfire_extension/</code>, the
+Julia environment has been instantiated, and the USDA archive has been
+downloaded and extracted. The commands use portable placeholders:</p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="va">GIVE_ROOT</span><span class="op">=</span>/path/to/rennert-give-replication</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="va">EXT_ROOT</span><span class="op">=</span><span class="st">&quot;</span><span class="va">$GIVE_ROOT</span><span class="st">/wildfire_extension&quot;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="va">USDA_RAW</span><span class="op">=</span>/path/to/extracted/RDS-2018-0021</span></code></pre></div>
 <h3 id="m.1-process-usda-fire-projection-data">M.1 Process USDA Fire
 Projection Data</h3>
-<div class="sourceCode" id="cb14"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/Users/jbb/Dropbox/GIVE/tools/julia-1.6.4/bin/julia</span> <span class="dt">\</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">--project</span><span class="op">=</span>/Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo <span class="dt">\</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  /Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo/wildfire_extension/process_usda_val_martin.jl <span class="dt">\</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  /Users/jbb/Dropbox/GIVE/fire_data/usda_val_martin_2018/extract <span class="dt">\</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  /Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo/wildfire_extension/source_data/usda_val_martin_fire_projection_summary.csv</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">julia</span> <span class="at">--project</span><span class="op">=</span><span class="st">&quot;</span><span class="va">$GIVE_ROOT</span><span class="st">&quot;</span> <span class="dt">\</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;</span><span class="va">$EXT_ROOT</span><span class="st">/process_usda_val_martin.jl&quot;</span> <span class="dt">\</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;</span><span class="va">$USDA_RAW</span><span class="st">&quot;</span> <span class="dt">\</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;</span><span class="va">$EXT_ROOT</span><span class="st">/source_data/usda_val_martin_fire_projection_summary.csv&quot;</span></span></code></pre></div>
 <h3 id="m.2-run-deterministic-endogenous-feedback-scenarios">M.2 Run
 Deterministic Endogenous Feedback Scenarios</h3>
-<div class="sourceCode" id="cb15"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/Users/jbb/Dropbox/GIVE/tools/julia-1.6.4/bin/julia</span> <span class="dt">\</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">--project</span><span class="op">=</span>/Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo <span class="dt">\</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  /Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo/wildfire_extension/run_temperature_feedback_scc.jl <span class="dt">\</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  /Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo/wildfire_extension/output/wildfire_temperature_feedback</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">julia</span> <span class="at">--project</span><span class="op">=</span><span class="st">&quot;</span><span class="va">$GIVE_ROOT</span><span class="st">&quot;</span> <span class="dt">\</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;</span><span class="va">$EXT_ROOT</span><span class="st">/run_temperature_feedback_scc.jl&quot;</span> <span class="dt">\</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;</span><span class="va">$EXT_ROOT</span><span class="st">/output/wildfire_temperature_feedback&quot;</span></span></code></pre></div>
 <h3 id="m.3-run-100-draw-paired-monte-carlo">M.3 Run 100-Draw Paired
 Monte Carlo</h3>
-<div class="sourceCode" id="cb16"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo/wildfire_extension/run_temperature_feedback_mcs.sh</span> <span class="dt">\</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  100 <span class="dt">\</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  /Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo/wildfire_extension/output/wildfire_temperature_feedback_mcs_100_paired <span class="dt">\</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  20260503 <span class="dt">\</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  all</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;</span><span class="va">$EXT_ROOT</span><span class="st">/run_temperature_feedback_mcs.sh&quot;</span> <span class="dt">\</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  100 <span class="dt">\</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;</span><span class="va">$EXT_ROOT</span><span class="st">/output/wildfire_temperature_feedback_mcs_100_paired&quot;</span> <span class="dt">\</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  20260503 <span class="dt">\</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  all</span></code></pre></div>
 <p>For a 10,000-draw run, replace <code>100</code> with
 <code>10000</code>. The code path is the same, but runtime is much
 longer.</p>
 <h3 id="m.4-run-sectoral-diagnostics">M.4 Run Sectoral Diagnostics</h3>
-<div class="sourceCode" id="cb17"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/Users/jbb/Dropbox/GIVE/tools/julia-1.6.4/bin/julia</span> <span class="dt">\</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">--project</span><span class="op">=</span>/Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo <span class="dt">\</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  /Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo/wildfire_extension/run_sectoral_diagnostics.jl <span class="dt">\</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  100 <span class="dt">\</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  /Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo/wildfire_extension/output/wildfire_sectoral_diagnostics_100 <span class="dt">\</span></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  20260502</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">julia</span> <span class="at">--project</span><span class="op">=</span><span class="st">&quot;</span><span class="va">$GIVE_ROOT</span><span class="st">&quot;</span> <span class="dt">\</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;</span><span class="va">$EXT_ROOT</span><span class="st">/run_sectoral_diagnostics.jl&quot;</span> <span class="dt">\</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  100 <span class="dt">\</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;</span><span class="va">$EXT_ROOT</span><span class="st">/output/wildfire_sectoral_diagnostics_100&quot;</span> <span class="dt">\</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  20260502</span></code></pre></div>
 <h3 id="m.5-run-regional-damage-diagnostics">M.5 Run Regional Damage
 Diagnostics</h3>
-<div class="sourceCode" id="cb18"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/Users/jbb/Dropbox/GIVE/tools/julia-1.6.4/bin/julia</span> <span class="dt">\</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">--project</span><span class="op">=</span>/Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo <span class="dt">\</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  /Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo/wildfire_extension/run_regional_damage_map_diagnostics.jl <span class="dt">\</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  /Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo <span class="dt">\</span></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  /Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo/wildfire_extension/output/wildfire_regional_damage_diagnostics</span></code></pre></div>
-<h3 id="m.6-generate-figures">M.6 Generate Figures</h3>
 <div class="sourceCode" id="cb19"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> <span class="dt">\</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  /Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo/wildfire_extension/make_png_pdf_figures.R <span class="dt">\</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  /Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo</span></code></pre></div>
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">julia</span> <span class="at">--project</span><span class="op">=</span><span class="st">&quot;</span><span class="va">$GIVE_ROOT</span><span class="st">&quot;</span> <span class="dt">\</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;</span><span class="va">$EXT_ROOT</span><span class="st">/run_regional_damage_map_diagnostics.jl&quot;</span> <span class="dt">\</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;</span><span class="va">$GIVE_ROOT</span><span class="st">&quot;</span> <span class="dt">\</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;</span><span class="va">$EXT_ROOT</span><span class="st">/output/wildfire_regional_damage_diagnostics&quot;</span></span></code></pre></div>
+<h3 id="m.6-generate-figures">M.6 Generate Figures</h3>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> <span class="st">&quot;</span><span class="va">$EXT_ROOT</span><span class="st">/make_png_pdf_figures.R&quot;</span> <span class="st">&quot;</span><span class="va">$GIVE_ROOT</span><span class="st">&quot;</span></span></code></pre></div>
 <h3 id="m.7-render-manuscript-and-supplement">M.7 Render Manuscript And
 Supplement</h3>
-<div class="sourceCode" id="cb20"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pandoc</span> <span class="dt">\</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  /Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo/wildfire_extension/manuscript/wildfire_carbon_feedback_ncc_draft.md <span class="dt">\</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">-o</span> /Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo/wildfire_extension/manuscript/wildfire_carbon_feedback_ncc_draft.html</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="ex">pandoc</span> <span class="dt">\</span></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  /Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo/wildfire_extension/manuscript/wildfire_carbon_feedback_ncc_draft.md <span class="dt">\</span></span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">-o</span> /Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo/wildfire_extension/manuscript/wildfire_carbon_feedback_ncc_draft.pdf</span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="ex">pandoc</span> <span class="dt">\</span></span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>  /Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo/wildfire_extension/manuscript/methods_appendix.md <span class="dt">\</span></span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">-o</span> /Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo/wildfire_extension/manuscript/methods_appendix.html</span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="ex">pandoc</span> <span class="dt">\</span></span>
-<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>  /Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo/wildfire_extension/manuscript/methods_appendix.md <span class="dt">\</span></span>
-<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">-o</span> /Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo/wildfire_extension/manuscript/methods_appendix.pdf</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pandoc</span> <span class="st">&quot;</span><span class="va">$EXT_ROOT</span><span class="st">/manuscript/wildfire_carbon_feedback_ncc_draft.md&quot;</span> <span class="dt">\</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">-o</span> <span class="st">&quot;</span><span class="va">$EXT_ROOT</span><span class="st">/manuscript/wildfire_carbon_feedback_ncc_draft.html&quot;</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="ex">pandoc</span> <span class="st">&quot;</span><span class="va">$EXT_ROOT</span><span class="st">/manuscript/wildfire_carbon_feedback_ncc_draft.md&quot;</span> <span class="dt">\</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">-o</span> <span class="st">&quot;</span><span class="va">$EXT_ROOT</span><span class="st">/manuscript/wildfire_carbon_feedback_ncc_draft.pdf&quot;</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="ex">pandoc</span> <span class="st">&quot;</span><span class="va">$EXT_ROOT</span><span class="st">/manuscript/methods_appendix.md&quot;</span> <span class="dt">\</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">-o</span> <span class="st">&quot;</span><span class="va">$EXT_ROOT</span><span class="st">/manuscript/methods_appendix.html&quot;</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="ex">pandoc</span> <span class="st">&quot;</span><span class="va">$EXT_ROOT</span><span class="st">/manuscript/methods_appendix.md&quot;</span> <span class="dt">\</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">-o</span> <span class="st">&quot;</span><span class="va">$EXT_ROOT</span><span class="st">/manuscript/methods_appendix.pdf&quot;</span></span></code></pre></div>
 <p>The rendered files are written to:</p>
 <p><code>wildfire_extension/manuscript/</code></p>
 <h2 id="n.-output-files-and-their-roles">N. Output Files And Their
@@ -1025,9 +1064,9 @@ is not yet a submission-grade archive. The remaining gaps are:</p>
 <li>wildfire parameter distributions are transparent but stylized;</li>
 <li><code>phi_missing</code> is an accounting uncertainty parameter, not
 empirically identified;</li>
-<li>raw USDA NetCDF files are staged locally outside the extension
-directory, while the cleaned summary CSV is inside the extension
-directory;</li>
+<li>raw USDA NetCDF files are external to the GitHub repository and must
+be downloaded from the USDA DOI, while the cleaned summary CSV is
+tracked in the extension repository;</li>
 <li>the source-attribution map uses a proxy rather than a gridded global
 fire-carbon forecast;</li>
 <li>smoke mortality and non-CO2 fire pollutants are not included in the
