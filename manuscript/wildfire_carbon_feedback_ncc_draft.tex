@@ -1,8 +1,99 @@
-\textbf{Affiliation:} Associate Professor, Department of Agricultural
-and Resource Economics, Colorado State University
+\documentclass[12pt]{article}
 
-\subsection{Abstract}\label{abstract}
+% Encoding and fonts
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{palatino}
+\usepackage{url}
 
+% Math
+\usepackage{amsmath, amsthm, amssymb}
+
+% Page layout
+\usepackage{fullpage}
+\usepackage{setspace}
+
+% Graphics and figures
+\usepackage{graphicx}
+\usepackage{rotating}
+\usepackage{pdflscape}
+\usepackage{adjustbox}
+
+% Colors
+\usepackage[dvipsnames]{xcolor}
+\usepackage{color}
+
+% Hyperlinks
+\usepackage[colorlinks=true,urlcolor=black,linkcolor=black,citecolor=black,hypertexnames=false]{hyperref}
+
+% Tables
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{calc}
+\usepackage{multirow}
+\usepackage[flushleft]{threeparttable}
+
+% Captions and floats
+\usepackage[singlelinecheck=false,justification=centering]{caption}
+\captionsetup[table]{skip=1pt,aboveskip=0pt,belowskip=10pt}
+\usepackage{subfig}
+\usepackage[capposition=top]{floatrow}
+
+% Footnotes in tables
+\usepackage{footnote}
+\makesavenoteenv{tabular}
+\makesavenoteenv{table}
+
+% Bibliography
+\usepackage{natbib}
+\bibpunct{(}{)}{;}{a}{}{,}
+
+% Lists and misc
+\usepackage{enumerate}
+\usepackage{latexsym}
+\usepackage[mathscr]{euscript}
+\usepackage{comment}
+\setlength{\marginparwidth}{2cm}
+\usepackage{bm}
+\usepackage{dsfont}
+\usepackage{soul}
+
+% Pandoc compatibility
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\newcommand{\pandocbounded}[1]{#1}
+\newcounter{none}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>.82\textheight .82\textheight\else\Gin@nat@height\fi}
+\makeatother
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+
+% Custom commands
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\ba}{\begin{eqnarray}}
+\newcommand{\ea}{\end{eqnarray}}
+\newcommand{\nn}{\nonumber \\}
+\newcommand{\PM}{PM$_{2.5}$}
+\newcommand{\PMunit}{$\mu g/m^3$}
+
+\title{Climate-driven wildfire carbon feedbacks and the social cost of
+carbon}
+\makeatletter
+\renewcommand*\@fnsymbol[1]{\the#1}
+\makeatother
+\author{Jesse Burkhardt\footnote{\textbf{Corresponding Author}: Associate Professor, Department of Agricultural and Resource Economics, Colorado State University, 1200 Center Ave. Mall, Fort Collins, CO 80523. Please contact the author with any questions. e-mail: \href{mailto:jesse.burkhardt@colostate.edu}{jesse.burkhardt@colostate.edu}}}
+\date{July 25, 2026}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+\hypersetup{pageanchor=false}
+
+\begin{abstract}
 Wildfire links climate change, ecosystem carbon storage and human
 welfare, but its treatment in social cost of carbon dioxide (SC-CO2)
 calculations is difficult because fire carbon is often mixed into
@@ -23,13 +114,26 @@ stress case raises the mean by 74.62\%. The results show that
 wildfire-carbon feedbacks can matter for marginal damages, but that
 unqualified gross additions would risk double counting.
 
-\textbf{Keywords:} social cost of carbon; wildfire; climate feedbacks;
-biomass burning; carbon cycle; integrated assessment modeling;
-uncertainty; double counting.
+\noindent
+ \\
 
-\textbf{JEL codes:} Q54, Q51, Q58, D61, C63.
+\noindent \textbf{Keywords}: social cost of carbon; wildfire; climate
+feedbacks; biomass burning; carbon cycle; integrated assessment
+modeling; uncertainty; double counting.
+\newline
+\textbf{JEL classification codes}: Q54, Q51, Q58, D61, C63.
+\end{abstract}
 
-\subsection{Introduction}\label{introduction}
+\newpage
+\setcounter{page}{1}
+\hypersetup{pageanchor=true}
+\renewcommand{\baselinestretch}{1.5} \small \normalsize
+\renewcommand{\thefootnote}{\arabic{footnote}}
+\setcounter{footnote}{0}
+
+\sloppy
+
+\section{Introduction}\label{introduction}
 
 The social cost of carbon dioxide is the present value of global damages
 caused by one additional tonne of CO2. It is a marginal concept, but it
@@ -120,9 +224,9 @@ treated as net persistent and by the share treated as not already
 embedded in baseline aggregate CO2. Gross fire cases are retained only
 as stress tests.
 
-\subsection{Results}\label{results}
+\section{Results}\label{results}
 
-\subsubsection{The baseline does not identify fire
+\subsection{The baseline does not identify fire
 carbon}\label{the-baseline-does-not-identify-fire-carbon}
 
 The baseline pathway used in GIVE does not contain a separate wildfire
@@ -154,7 +258,7 @@ fire-carbon pathway before the carbon cycle and scales it by persistence
 and accounting uncertainty.}
 \end{figure}
 
-\subsubsection{A residual feedback limits double
+\subsection{A residual feedback limits double
 counting}\label{a-residual-feedback-limits-double-counting}
 
 We model added fire CO2 as a reduced-form response to lagged global mean
@@ -201,7 +305,7 @@ through AFOLU, managed burning, regrowth or baseline aggregate-emissions
 expectations.}
 \end{figure}
 
-\subsubsection{Fire-carbon scale depends on flow versus
+\subsection{Fire-carbon scale depends on flow versus
 stock}\label{fire-carbon-scale-depends-on-flow-versus-stock}
 
 The fire-carbon pathway is more visible as an annual flow than as an
@@ -232,7 +336,7 @@ several percent of baseline annual emissions while remaining much
 smaller as a percentage of the atmospheric carbon stock.}
 \end{figure}
 
-\subsubsection{Residual feedbacks modestly raise SCC in validation
+\subsection{Residual feedbacks modestly raise SCC in validation
 runs}\label{residual-feedbacks-modestly-raise-scc-in-validation-runs}
 
 In the deterministic 2.0\% discount case, the baseline SCC is 139.10
@@ -328,7 +432,7 @@ show 25-75\%, 5-95\% and 2.5-97.5\% paired-delta intervals for the 2\%
 case. Dots are medians and diamonds are means.}
 \end{figure}
 
-\subsubsection{Accounting uncertainty dominates
+\subsection{Accounting uncertainty dominates
 interpretation}\label{accounting-uncertainty-dominates-interpretation}
 
 The uncertainty structure matters as much as the point estimate. The
@@ -364,7 +468,7 @@ deltas. The lower panel reports simple proxy-regression R2 values for
 baseline SCC state, effective fire-feedback intensity and both proxies.}
 \end{figure}
 
-\subsubsection{Mechanisms are muted by marginal physics and sectoral
+\subsection{Mechanisms are muted by marginal physics and sectoral
 curvature}\label{mechanisms-are-muted-by-marginal-physics-and-sectoral-curvature}
 
 The residual-medium result is small because the SCC is not total damage
@@ -402,7 +506,7 @@ pathway and baseline. The right panel decomposes the 2\% SCC response by
 sector in the paired source-informed diagnostic.}
 \end{figure}
 
-\subsection{Discussion}\label{discussion}
+\section{Discussion}\label{discussion}
 
 The central result is an accounting result as much as a numerical
 result. GIVE does not internally generate a climate-driven
@@ -465,9 +569,9 @@ accounting, analysts face a false choice between ignoring a potentially
 important climate feedback and double counting carbon already embedded
 in aggregate pathways.
 
-\subsection{Methods}\label{methods}
+\section{Methods}\label{methods}
 
-\subsubsection{Model and pathway audit}\label{model-and-pathway-audit}
+\subsection{Model and pathway audit}\label{model-and-pathway-audit}
 
 We used the Rennert et al.~replication archive and the archived GIVE
 Julia environment. The audit traced how CO2 emissions enter the model,
@@ -489,16 +593,14 @@ projected wildfire-carbon feedback is already included. Implementation
 details, repository paths and reproducibility instructions are provided
 in the Supplement and in the public extension repository.
 
-\subsubsection{Wildfire-carbon feedback}\label{wildfire-carbon-feedback}
+\subsection{Wildfire-carbon feedback}\label{wildfire-carbon-feedback}
 
 The extension adds wildfire CO2 before the CO2 pathway enters the carbon
 cycle. For year t after 2020, added fire emissions are
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{E\_fire,t = E\_ref * beta * max(T[t{-}1] {-} T[2020], 0) * phi\_net * phi\_missing .}
-\end{Highlighting}
-\end{Shaded}
+\begin{verbatim}
+E_fire,t = E_ref * beta * max(T[t-1] - T[2020], 0) * phi_net * phi_missing .
+\end{verbatim}
 
 Here E\_ref is reference gross global fire carbon, beta is the
 fractional gross fire-emissions response per degree C, phi\_net is the
@@ -522,7 +624,7 @@ RFF-SP CO2 pathway. RESFire half-gross and gross stress cases calibrate
 beta to high forest-fire projection magnitudes and set phi\_net and
 phi\_missing to one.
 
-\subsubsection{Monte Carlo and
+\subsection{Monte Carlo and
 diagnostics}\label{monte-carlo-and-diagnostics}
 
 Monte Carlo experiments are paired. The same RFF-SP and FaIR draw IDs,
@@ -550,7 +652,7 @@ used as a negative control: when the same wildfire path is imposed in
 base and pulse worlds, SCC changes only through state nonlinearities
 rather than through feedback emissions caused by the pulse.
 
-\subsubsection{AI-assisted research
+\subsection{AI-assisted research
 programming}\label{ai-assisted-research-programming}
 
 A generative AI coding assistant was used as a research-programming aid.
@@ -567,7 +669,7 @@ is not listed as an author because it cannot satisfy authorship
 accountability criteria. A prompt-history appendix is provided for
 transparency.
 
-\subsection{Data availability}\label{data-availability}
+\section{Data availability}\label{data-availability}
 
 The original GIVE replication archive is available through the Rennert
 et al.~Zenodo record and GitHub repository. RFF-SP data are loaded
@@ -580,7 +682,7 @@ manuscript figures and figure-input files used in this draft. The
 current public draft uses 100-draw validation outputs; production
 outputs should replace them before submission.
 
-\subsection{Code availability}\label{code-availability}
+\section{Code availability}\label{code-availability}
 
 The wildfire extension is separate from the original replication code
 and is archived at
@@ -592,7 +694,7 @@ al.~replication archive should be downloaded separately and the
 extension placed inside that project as \texttt{wildfire\_extension/}
 for full reproduction.
 
-\subsection{References}\label{references}
+\section{References}\label{references}
 
 Abatzoglou, J. T. and Williams, A. P. Impact of anthropogenic climate
 change on wildfire across western US forests. Proceedings of the
@@ -754,3 +856,5 @@ Zou, Y. et al.~Using CESM-RESFire to understand climate-fire-ecosystem
 interactions and the implications for decadal climate variability.
 Atmospheric Chemistry and Physics 20, 995-1020 (2020).
 https://doi.org/10.5194/acp-20-995-2020
+
+\end{document}

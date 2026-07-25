@@ -1,0 +1,117 @@
+\documentclass[12pt]{article}
+
+% Encoding and fonts
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{palatino}
+\usepackage{url}
+
+% Math
+\usepackage{amsmath, amsthm, amssymb}
+
+% Page layout
+\usepackage{fullpage}
+\usepackage{setspace}
+
+% Graphics and figures
+\usepackage{graphicx}
+\usepackage{rotating}
+\usepackage{pdflscape}
+\usepackage{adjustbox}
+
+% Colors
+\usepackage[dvipsnames]{xcolor}
+\usepackage{color}
+
+% Hyperlinks
+\usepackage[colorlinks=true,urlcolor=black,linkcolor=black,citecolor=black,hypertexnames=false]{hyperref}
+
+% Tables
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{calc}
+\usepackage{multirow}
+\usepackage[flushleft]{threeparttable}
+
+% Captions and floats
+\usepackage[singlelinecheck=false,justification=centering]{caption}
+\captionsetup[table]{skip=1pt,aboveskip=0pt,belowskip=10pt}
+\usepackage{subfig}
+\usepackage[capposition=top]{floatrow}
+
+% Footnotes in tables
+\usepackage{footnote}
+\makesavenoteenv{tabular}
+\makesavenoteenv{table}
+
+% Bibliography
+\usepackage{natbib}
+\bibpunct{(}{)}{;}{a}{}{,}
+
+% Lists and misc
+\usepackage{enumerate}
+\usepackage{latexsym}
+\usepackage[mathscr]{euscript}
+\usepackage{comment}
+\setlength{\marginparwidth}{2cm}
+\usepackage{bm}
+\usepackage{dsfont}
+\usepackage{soul}
+
+% Pandoc compatibility
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\newcommand{\pandocbounded}[1]{#1}
+\newcounter{none}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>.82\textheight .82\textheight\else\Gin@nat@height\fi}
+\makeatother
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+
+% Custom commands
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\ba}{\begin{eqnarray}}
+\newcommand{\ea}{\end{eqnarray}}
+\newcommand{\nn}{\nonumber \\}
+\newcommand{\PM}{PM$$_{2.5}$$}
+\newcommand{\PMunit}{$$\mu g/m^3$$}
+
+\title{$title$}
+\makeatletter
+\renewcommand*\@fnsymbol[1]{\the#1}
+\makeatother
+\author{Jesse Burkhardt\footnote{\textbf{Corresponding Author}: Associate Professor, Department of Agricultural and Resource Economics, Colorado State University, 1200 Center Ave. Mall, Fort Collins, CO 80523. Please contact the author with any questions. e-mail: \href{mailto:jesse.burkhardt@colostate.edu}{jesse.burkhardt@colostate.edu}}}
+\date{$date$}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+\hypersetup{pageanchor=false}
+
+\begin{abstract}
+$abstract$
+
+\noindent
+ \\
+
+\noindent \textbf{Keywords}: $keywords$.
+\newline
+\textbf{JEL classification codes}: $jel$.
+\end{abstract}
+
+\newpage
+\setcounter{page}{1}
+\hypersetup{pageanchor=true}
+\renewcommand{\baselinestretch}{1.5} \small \normalsize
+\renewcommand{\thefootnote}{\arabic{footnote}}
+\setcounter{footnote}{0}
+
+\sloppy
+
+$body$
+
+\end{document}
