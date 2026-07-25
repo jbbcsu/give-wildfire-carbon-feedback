@@ -1,8 +1,20 @@
-# Climate-driven wildfire carbon feedbacks and the social cost of carbon
+---
+title: "Climate-driven wildfire carbon feedbacks and the social cost of carbon"
+author:
+  - "Jesse Burkhardt"
+date: "July 25, 2026"
+geometry: margin=1in
+---
+
+**Affiliation:** Associate Professor, Department of Agricultural and Resource Economics, Colorado State University
 
 ## Abstract
 
 Wildfire links climate change, ecosystem carbon storage and human welfare, but its treatment in social cost of carbon dioxide (SC-CO2) calculations is difficult because fire carbon is often mixed into aggregate land-carbon and emissions pathways. Here we audit the Greenhouse Gas Impact Value Estimator (GIVE), the model used in Rennert et al. (2022), and test a reduced-form wildfire-carbon feedback. GIVE uses exogenous emissions, population and income scenarios, so it does not internally generate a warming-to-wildfire-CO2 feedback. The released aggregate CO2 pathway also cannot reveal whether some fire-related carbon is already embedded in land-use, natural-stock or expert emissions judgements. We therefore distinguish gross fire emissions from the residual net-persistent share not already represented in the baseline, and characterize uncertainty in physical response, atmospheric persistence and accounting overlap. In paired 100-draw validation runs, a high residual feedback raises the mean 2% SC-CO2 by 5.65%, with a 5-95% paired-delta interval of 1.25-37.51 USD/tCO2. A gross forest-fire stress case raises the mean by 74.62%. The results show that wildfire-carbon feedbacks can matter for marginal damages, but that unqualified gross additions would risk double counting.
+
+**Keywords:** social cost of carbon; wildfire; climate feedbacks; biomass burning; carbon cycle; integrated assessment modeling; uncertainty; double counting.
+
+**JEL codes:** Q54, Q51, Q58, D61, C63.
 
 ## Introduction
 
