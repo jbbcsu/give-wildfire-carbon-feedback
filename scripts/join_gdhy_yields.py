@@ -42,8 +42,9 @@ def main() -> None:
     parts = []
     root = Path(args.gdhy_root) / GDHY_DIRECTORY[crop]
     for year, group in features.groupby("harvest_year", sort=True):
+        year = int(year)
         path = root / f"yield_{year}.nc4"
-        if not path.exists():
+        if not path.is_file():
             raise FileNotFoundError(path)
         with xr.open_dataset(path, engine="h5netcdf") as ds:
             if set(ds.dims) != {"lat", "lon"} or len(ds.data_vars) != 1:

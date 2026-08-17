@@ -2,9 +2,9 @@
 """Fit a transparent pilot grid/year fixed-effects yield response.
 
 This validates the estimation plumbing; it is not the final hierarchical,
-crop-stage response or an SCC coefficient source. It uses exact dummy fixed
-effects and standardized continuous features to expose conditioning and
-coefficient labels in the output.
+crop-stage response or an SCC coefficient source. It uses an iterative two-way
+within transformation, avoiding an infeasible dense grid-dummy matrix for a
+global panel.
 """
 from __future__ import annotations
 
@@ -16,9 +16,16 @@ import numpy as np
 import pandas as pd
 
 
-def dummy_frame(values: pd.Series, prefix: str) -> pd.DataFrame:
-    dummies = pd.get_dummies(values.astype(str), prefix=prefix, dtype=float)
-    return dummies.iloc[:, 1:]  # reference category avoids exact collinearity
+def two_way_within(frame: pd.DataFrame, columns: list[str], grid: pd.Series, years: pd.Series, iterations: int = 100) -> pd.DataFrame:
+    """Alternating projection for unbalanced grid/year fixed effects."""
+    result = frame[columns].astype(float).copy()
+    for _ in range(iterations):
+        prior = result.to_numpy(copy=True)
+        result = result - result.groupby(grid, observed=True).transform("mean")
+        result = result - result.groupby(years, observed=True).transform("mean")
+        if np.max(np.abs(result.to_numpy() - prior)) < 1e-10:
+            break
+    return result
 
 
 def main() -> None:
@@ -37,15 +44,12 @@ def main() -> None:
     panel = panel.dropna(subset=features + ["log_yield_t_ha"])
     if panel.harvest_year.nunique() < 3 or len(panel) < 100:
         raise ValueError("Pilot needs at least three years and 100 observations")
-    scaled = (panel[features] - panel[features].mean()) / panel[features].std(ddof=0)
-    scaled.columns = [f"z_{name}" for name in features]
     grid = panel.lat.astype(str) + "_" + panel.lon_360.astype(str) + "_" + panel.crop + "_" + panel.irrigation
-    design = pd.concat([
-        pd.DataFrame({"intercept": np.ones(len(panel))}, index=panel.index), scaled,
-        dummy_frame(grid, "grid"), dummy_frame(panel.harvest_year, "year"),
-    ], axis=1)
-    matrix = design.to_numpy(dtype=float)
-    coefficients, _, rank, singular_values = np.linalg.lstsq(matrix, panel.log_yield_t_ha.to_numpy(), rcond=1e-12)
+    transformed = two_way_within(panel, ["log_yield_t_ha"] + features, grid, panel.harvest_year)
+    feature_scales = panel[features].std(ddof=0)
+    matrix = (transformed[features] / feature_scales).to_numpy(dtype=float)
+    outcome = transformed.log_yield_t_ha.to_numpy()
+    coefficients, _, rank, singular_values = np.linalg.lstsq(matrix, outcome, rcond=1e-12)
     if not np.isfinite(coefficients).all():
         raise ValueError("Nonfinite pilot coefficients; inspect design conditioning")
     # Some sandboxed BLAS builds leave floating-point status flags set after
@@ -54,8 +58,8 @@ def main() -> None:
         fitted = matrix @ coefficients
     if not np.isfinite(fitted).all():
         raise ValueError("Nonfinite fitted values; inspect design conditioning")
-    residual = panel.log_yield_t_ha.to_numpy() - fitted
-    total = ((panel.log_yield_t_ha - panel.log_yield_t_ha.mean()) ** 2).sum()
+    residual = outcome - fitted
+    total = float(np.dot(outcome, outcome))
     with np.errstate(over="ignore", divide="ignore", invalid="ignore"):
         rss = float(np.dot(residual, residual))
     if not np.isfinite(rss):
@@ -64,9 +68,9 @@ def main() -> None:
         "n_observations": int(len(panel)), "n_grids": int(grid.nunique()),
         "n_years": int(panel.harvest_year.nunique()), "matrix_rank": int(rank),
         "condition_number": float(singular_values[0] / singular_values[-1]),
-        "r_squared_in_sample": float(1 - rss / total),
-        "coefficients_standardized": {name: float(value) for name, value in zip(design.columns[:len(features) + 1], coefficients[:len(features) + 1])},
-        "warning": "Pilot-only in-sample diagnostic. Do not use these coefficients for SCC or causal interpretation.",
+        "within_r_squared": float(1 - rss / total),
+        "coefficients_one_standard_deviation_feature": {name: float(value) for name, value in zip(features, coefficients)},
+        "warning": "Pilot-only within-estimator diagnostic. Do not use these coefficients for SCC or causal interpretation.",
     }
     Path(args.out).parent.mkdir(parents=True, exist_ok=True)
     Path(args.out).write_text(json.dumps(output, indent=2) + "\n")

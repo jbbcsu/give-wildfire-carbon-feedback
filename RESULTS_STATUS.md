@@ -11,7 +11,7 @@ does not report final response estimates or SCC values.
 | ISIMIP3a daily `tas` | 1981–2019 acquired; source sizes and SHA-512 recorded | Joint temperature control |
 | `tasmax` / `tasmin` | Download in progress | Required before final heat-extreme specification |
 | Maize/rainfed pilot | Real 2-latitude, 1982–89 feature and GDHY join completed | Pipeline/coordinate/feature validation only |
-| Global maize/rainfed, 1982–89 | Partitioned feature construction in progress | No inference until complete, joined, and held-out validated |
+| Global maize/rainfed, 1982–89 | Season-level feature panel and GDHY join complete: 539,360 potential crop-year rows; 120,399 observed-yield rows across 15,103 cells | Workflow/scaling diagnostic only; no SCC input |
 | Other crops/periods/scenarios | Not yet complete | No global response or SCC claim |
 
 ## Completed empirical checks
@@ -27,3 +27,9 @@ The fixed-effects pilot fit exists only to test panel dimensionality and
 numerical conditioning. Its coefficients and in-sample fit are not reported
 in the manuscript and are prohibited from SCC integration by the validation
 protocol.
+
+The global maize/rainfed panel passed the same coordinate and uniqueness
+checks and supported a scalable two-way within-estimator run. This does not
+clear the main-analysis gate: stage-resolved features, remaining crops/years,
+holdouts, uncertainty, CO2 treatment, welfare translation, and matched future
+baseline/pulse paths remain outstanding.
