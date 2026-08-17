@@ -49,7 +49,12 @@ selection and splines/thresholds. Cluster or model spatial dependence. Include
 irrigation/crop strata where coverage permits. The outcome file is matched to
 the calendar at the crop-season level according to the locked crosswalk in
 `data/provenance/crop_calendar_gdhy_crosswalk.md`; generic GDHY aggregate
-directories are not substitutes for an identified season. CO2 is an explicitly
+directories are not substitutes for an identified season. GDHY does not
+identify irrigated and rainfed yields separately, so the historical pilot uses
+rainfed-calendar exposure only and does not estimate an irrigation-stratified
+response or aggregate both calendar regimes. A production specification needs
+a compatible irrigated outcome/area treatment before representing irrigated
+production. CO2 is an explicitly
 provenanced scenario term; it cannot be separately added after a response that
 already includes it.
 
