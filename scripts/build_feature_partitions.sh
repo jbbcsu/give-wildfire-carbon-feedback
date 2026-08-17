@@ -14,7 +14,10 @@ mkdir -p "$outdir"
 for ((start=0; start<360; start+=chunk)); do
   stop=$((start + chunk)); (( stop > 360 )) && stop=360
   out="$outdir/${crop}_${irrigation}_lat${start}_${stop}_${year0}_${year1}.parquet"
-  [[ -f "$out" ]] && { echo "Present: $out"; continue; }
+  if [[ -f "$out" ]] && "$root/.venv/bin/python" "$root/scripts/validate_feature_partition.py" "$out" >/dev/null 2>&1; then
+    echo "Present and valid: $out"
+    continue
+  fi
   "$root/.venv/bin/python" "$root/scripts/build_crop_year_features.py" \
     --precip "$pr" --temperature "$tas" --calendar "$calendar" --crop "$crop" --irrigation "$irrigation" \
     --year-start "$year0" --year-end "$year1" --lat-start "$start" --lat-stop "$stop" --out "$out"
