@@ -26,6 +26,8 @@ future `Manifest.toml`/lock file before estimation results are released.
    ten-latitude partitions, avoiding global daily-array loads.
    `scripts/combine_feature_partitions.py` refuses to combine an incomplete or
    schema-inconsistent partition set.
+   Use `scripts/build_stage_feature_partitions.sh` for the separate
+   stage-resolved panel; retain both products for reconciliation.
 3. Run the schema/validation gates in `VALIDATION_PROTOCOL.md`.
 4. Fit the pre-registered joint response and write coefficient draws outside
    raw-data paths.
