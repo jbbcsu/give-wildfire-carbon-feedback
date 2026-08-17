@@ -23,3 +23,15 @@ and ML contingency are in [AGRICULTURE_RESEARCH.md](AGRICULTURE_RESEARCH.md).
 The evidence-bounded manuscript and Methods/SI blueprints are in
 [MANUSCRIPT_OUTLINE.md](MANUSCRIPT_OUTLINE.md) and
 [METHODS_SI_OUTLINE.md](METHODS_SI_OUTLINE.md).
+
+The empirical climate pipeline is deliberately staged: daily ISIMIP inputs are
+converted to calendar-defined crop-year features, independently reconciled
+against stage partitions, then joined to GDHY yields before any pilot response
+diagnostic.  The stage fractions are temporal proxies rather than asserted crop
+phenology.  See the scripts directory and [RESULTS_STATUS.md](RESULTS_STATUS.md)
+for the current evidence boundary.
+
+The approved calendar-to-yield season crosswalk is recorded in
+[data/provenance/crop_calendar_gdhy_crosswalk.md](data/provenance/crop_calendar_gdhy_crosswalk.md).
+It deliberately does not use GDHY convenience aggregate directories where a
+season-specific outcome exists.

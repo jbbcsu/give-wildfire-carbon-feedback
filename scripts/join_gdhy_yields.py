@@ -16,7 +16,10 @@ import xarray as xr
 
 
 GDHY_DIRECTORY = {
-    "mai": "maize", "ri1": "rice", "ri2": "rice_second",
+    # The ISIMIP calendar supplies one primary maize season and two rice
+    # periods.  Use the documented GDHY season-specific files rather than the
+    # convenience aggregate directories, which would obscure season matching.
+    "mai": "maize_major", "ri1": "rice_major", "ri2": "rice_second",
     "soy": "soybean", "swh": "wheat_spring", "wwh": "wheat_winter",
 }
 

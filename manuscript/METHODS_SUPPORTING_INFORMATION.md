@@ -22,10 +22,14 @@ them. See `data/input_manifest.csv`.
 
 For every grid cell, crop, season, irrigation regime, and harvest year, read
 planting and harvest dates from the selected calendar. Resolve cross-year
-seasons explicitly, split valid seasons into establishment, vegetative,
-reproductive, and maturity stages, and retain date/coverage flags. Exclude
-unrecoverable incomplete windows. No annual country precipitation may be used
-to stand in for stage weather.
+seasons explicitly and retain date/coverage flags. The current executable
+pipeline partitions each valid season into transparent 0–30%, 30–70%, and
+70–100% temporal windows; these are **not** claimed phenological stages. The
+main specification will replace them with crop-specific establishment,
+vegetative, reproductive, and maturity dates only after a licensed, globally
+consistent phenology source is selected. Exclude unrecoverable incomplete
+windows. No annual country precipitation may be used to stand in for stage
+weather.
 
 ## S4. Climate features
 
@@ -42,7 +46,10 @@ Fit the primary response on crop-grid-year observations with grid/crop fixed
 effects, flexible year effects, stage temperature and precipitation-pattern
 terms, and temperature--precipitation interactions. Pre-register feature
 selection and splines/thresholds. Cluster or model spatial dependence. Include
-irrigation/crop strata where coverage permits. CO2 is an explicitly
+irrigation/crop strata where coverage permits. The outcome file is matched to
+the calendar at the crop-season level according to the locked crosswalk in
+`data/provenance/crop_calendar_gdhy_crosswalk.md`; generic GDHY aggregate
+directories are not substitutes for an identified season. CO2 is an explicitly
 provenanced scenario term; it cannot be separately added after a response that
 already includes it.
 

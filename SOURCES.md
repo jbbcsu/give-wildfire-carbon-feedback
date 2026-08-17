@@ -6,6 +6,8 @@
 | CMIP6 scenario climate fields | [O'Neill et al. (2016), ScenarioMIP](https://doi.org/10.5194/gmd-9-3461-2016) | Primary protocol for scenario simulations. |
 | CMIP6 design and ensemble | [Eyring et al. (2016)](https://doi.org/10.5194/gmd-9-1937-2016) | Primary CMIP6 experimental design. |
 | Global daily bias-adjusted projections | [Lange (2021), ISIMIP3BASD](https://doi.org/10.5194/gmd-14-5443-2021) | Transparent bias-adjustment method for impact applications. |
+| Crop-calendar inputs | [Jägermeyr et al. (2021), GGCMI Phase 3 calendar](https://doi.org/10.5281/zenodo.5062513) | Calendar-defined crop years and separate rice/wheat seasons. |
+| Historical gridded yield outcomes | [Iizumi and Sakai (2020), GDHY](https://doi.org/10.1038/s41597-020-0433-7) | 0.5° annual, season-specific yield outcome; a census/satellite-informed estimate, not an independent FAOSTAT validation source. |
 | Flood hazard/loss modeling | [Ward et al. (2020)](https://doi.org/10.1038/s41467-020-17591-w) | Global flood-risk modeling with climate and socioeconomic drivers. |
 | River flood impacts and adaptation | [Winsemius et al. (2016)](https://doi.org/10.1038/nclimate2893) | Primary global assessment of flood-risk change and adaptation. |
 | Climate and agricultural productivity | [Ortiz-Bobea et al. (2021)](https://doi.org/10.1038/s41586-021-03500-5) | Empirical global agricultural productivity response to climate change. |
