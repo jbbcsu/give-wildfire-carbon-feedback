@@ -30,6 +30,9 @@ List nonredistributable files and scripted retrieval instructions. Never package
 2. Specify crop/season eligibility, rain-fed versus irrigated treatment, planting/harvest construction, and cross-year seasons.
 3. Give pseudocode joining daily climate to each crop-season-grid-year; exclude partial seasons by declared rule.
 4. Detail cell/crop to FUND aggregation; predictions must precede aggregation unless explicitly tested otherwise.
+   Until a crop-specific phenology source is introduced, stage construction is a
+   pre-specified fractional-season proxy (0–30%, 30–70%, 70–100%), explicitly
+   reported as such rather than as observed phenology.
 5. Report observation counts at every exclusion/filtering stage.
 
 ## S4. Daily feature definitions
@@ -84,4 +87,3 @@ Document directory tree, platforms, Julia/Python/R versions, lockfiles, environm
 * Tables S1–S3: source/provenance/license/checksum register.
 * Tables S4–S6: variables, units, formulae, parameters/priors.
 * Tables S7–S10: performance, regional impacts, SCC draws, exclusions.
-
