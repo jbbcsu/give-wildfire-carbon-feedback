@@ -17,6 +17,9 @@ validated feature panel and response draws are available. Its central outcome
 will be a global SCC decomposition that does not stack precipitation damages
 on top of the existing temperature-only agriculture component.
 
+Analysis completion and permitted claim status are maintained in
+`RESULTS_STATUS.md`; the manuscript must not advance beyond that ledger.
+
 ## 1. Introduction
 
 Agricultural climate damages depend on the distribution of weather within a
