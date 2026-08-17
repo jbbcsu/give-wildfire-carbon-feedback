@@ -12,6 +12,11 @@
    matched baseline/pulse global SCC simulations for `fixed`, `trend`, and
    `upper` adaptation scenarios.
 
+The eventual cell-to-FUND aggregation uses the frozen country-to-FUND mapping
+in `config/`; it still requires a separately licensed and versioned grid-cell
+country mask plus baseline harvested-area/value weights. Do not infer a FUND
+region from latitude or use climate-responsive weights.
+
 ## Later: noncoastal infrastructure flooding (deferred)
 
 Create a separate `InlandInfrastructureFloodDamages` component with basin
