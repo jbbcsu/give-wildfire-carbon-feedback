@@ -31,3 +31,11 @@ Before a public push, inspect `git status --ignored`, scan tracked files for
 credentials, confirm `data/raw/` is ignored, and review all manifests against
 data licenses. A remote must be explicitly supplied or created by the user;
 never push to a guessed GitHub destination.
+
+## Local checks
+
+```sh
+.venv/bin/python scripts/verify_provenance.py data/provenance
+.venv/bin/python scripts/test_feature_builder.py
+tools/julia-1.8.5/bin/julia -e 'include("src/AdaptationScenarios.jl")'
+```
