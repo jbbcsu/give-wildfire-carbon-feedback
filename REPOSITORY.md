@@ -24,6 +24,8 @@ future `Manifest.toml`/lock file before estimation results are released.
    files to make an auditable crop-year panel.
    `scripts/build_feature_partitions.sh` runs the same builder in resumable
    ten-latitude partitions, avoiding global daily-array loads.
+   `scripts/combine_feature_partitions.py` refuses to combine an incomplete or
+   schema-inconsistent partition set.
 3. Run the schema/validation gates in `VALIDATION_PROTOCOL.md`.
 4. Fit the pre-registered joint response and write coefficient draws outside
    raw-data paths.
