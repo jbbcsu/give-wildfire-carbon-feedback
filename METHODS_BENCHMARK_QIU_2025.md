@@ -55,8 +55,8 @@ damage coefficients and should not be copied mechanically across sectors.
 ## Immediate implementation changes
 
 The repository already has deterministic spatial/time/extreme labels. The
-next empirical specification will add normalized stage precipitation shares
-and concentration metrics alongside seasonal totals, then benchmark the
+stage-wide panel now receives normalized precipitation shares and concentration
+metrics alongside seasonal totals, then benchmarks the
 fixed-effects response against regularized and nonlinear alternatives in
 nested blocked validation. GCM/member-level feature paths and retained-model
 draws will feed the matched SCC baseline/pulse interface.
