@@ -44,14 +44,27 @@ def main() -> None:
         pd.DataFrame({"intercept": np.ones(len(panel))}, index=panel.index), scaled,
         dummy_frame(grid, "grid"), dummy_frame(panel.harvest_year, "year"),
     ], axis=1)
-    coefficients, _, rank, _ = np.linalg.lstsq(design.to_numpy(), panel.log_yield_t_ha.to_numpy(), rcond=None)
-    fitted = design.to_numpy() @ coefficients
+    matrix = design.to_numpy(dtype=float)
+    coefficients, _, rank, singular_values = np.linalg.lstsq(matrix, panel.log_yield_t_ha.to_numpy(), rcond=1e-12)
+    if not np.isfinite(coefficients).all():
+        raise ValueError("Nonfinite pilot coefficients; inspect design conditioning")
+    # Some sandboxed BLAS builds leave floating-point status flags set after
+    # matrix multiplication despite finite output; validate values explicitly.
+    with np.errstate(over="ignore", divide="ignore", invalid="ignore"):
+        fitted = matrix @ coefficients
+    if not np.isfinite(fitted).all():
+        raise ValueError("Nonfinite fitted values; inspect design conditioning")
     residual = panel.log_yield_t_ha.to_numpy() - fitted
     total = ((panel.log_yield_t_ha - panel.log_yield_t_ha.mean()) ** 2).sum()
+    with np.errstate(over="ignore", divide="ignore", invalid="ignore"):
+        rss = float(np.dot(residual, residual))
+    if not np.isfinite(rss):
+        raise ValueError("Nonfinite residual sum of squares")
     output = {
         "n_observations": int(len(panel)), "n_grids": int(grid.nunique()),
         "n_years": int(panel.harvest_year.nunique()), "matrix_rank": int(rank),
-        "r_squared_in_sample": float(1 - (residual @ residual) / total),
+        "condition_number": float(singular_values[0] / singular_values[-1]),
+        "r_squared_in_sample": float(1 - rss / total),
         "coefficients_standardized": {name: float(value) for name, value in zip(design.columns[:len(features) + 1], coefficients[:len(features) + 1])},
         "warning": "Pilot-only in-sample diagnostic. Do not use these coefficients for SCC or causal interpretation.",
     }
