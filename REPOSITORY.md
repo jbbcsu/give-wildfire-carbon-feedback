@@ -17,6 +17,9 @@ future `Manifest.toml`/lock file before estimation results are released.
 ## Reproducible order
 
 1. Run `scripts/verify_provenance.py` after every download.
+   Use `scripts/download_isimip3a_climate.sh pr tas` for the first climate
+   stage and `scripts/download_isimip3a_climate.sh --all` only when the final
+   temperature-extreme controls are required.
 2. Use `scripts/build_crop_year_features.py` on daily climate and crop-calendar
    files to make an auditable crop-year panel.
 3. Run the schema/validation gates in `VALIDATION_PROTOCOL.md`.
