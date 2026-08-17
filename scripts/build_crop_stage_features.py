@@ -44,7 +44,7 @@ def main() -> None:
     if fractions[0] != 0 or fractions[-1] != 1 or any(a >= b for a, b in zip(fractions, fractions[1:])):
         raise ValueError("Stage fractions must start at 0, end at 1, and strictly increase")
 
-    with xr.open_dataset(args.calendar, engine="h5netcdf") as calendar, \
+    with xr.open_dataset(args.calendar, engine="h5netcdf", decode_timedelta=False) as calendar, \
          xr.open_dataset(args.precip, engine="h5netcdf") as precip_ds, \
          xr.open_dataset(args.temperature, engine="h5netcdf") as temp_ds:
         pr = climate_array(precip_ds, "pr").isel(lat=slice(args.lat_start, args.lat_stop))

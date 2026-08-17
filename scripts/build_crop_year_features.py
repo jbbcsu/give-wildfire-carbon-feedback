@@ -74,7 +74,7 @@ def main() -> None:
     parser.add_argument("--wet-day-mm", type=float, default=1.0)
     args = parser.parse_args()
 
-    with xr.open_dataset(args.calendar, engine="h5netcdf") as calendar, \
+    with xr.open_dataset(args.calendar, engine="h5netcdf", decode_timedelta=False) as calendar, \
          xr.open_dataset(args.precip, engine="h5netcdf") as precip_ds, \
          xr.open_dataset(args.temperature, engine="h5netcdf") as temp_ds:
         required = {"planting_day", "maturity_day"}
