@@ -35,3 +35,6 @@ The approved calendar-to-yield season crosswalk is recorded in
 [data/provenance/crop_calendar_gdhy_crosswalk.md](data/provenance/crop_calendar_gdhy_crosswalk.md).
 It deliberately does not use GDHY convenience aggregate directories where a
 season-specific outcome exists.
+
+[METHODS_BENCHMARK_QIU_2025.md](METHODS_BENCHMARK_QIU_2025.md) records the
+adapted ensemble/validation design benchmark used for the next specification.
