@@ -10,9 +10,10 @@ does not report final response estimates or SCC values.
 | ISIMIP3a daily `pr` | 1981–2019 acquired; source sizes and SHA-512 recorded | Seasonal, dry-spell, wet-day, and extreme features |
 | ISIMIP3a daily `tas` | 1981–2019 acquired; source sizes and SHA-512 recorded | Joint temperature control |
 | `tasmax` | 1981–2019 acquired; source sizes and SHA-512 recorded | Required input for final heat-extreme specification |
-| `tasmin` | Download in progress | Required before final heat-extreme specification |
+| `tasmin` | 1981–2019 acquired; source sizes and SHA-512 recorded | Required input for final heat-extreme specification |
 | Maize/rainfed pilot | Real 2-latitude, 1982–89 feature and GDHY join completed | Pipeline/coordinate/feature validation only |
 | Global maize/rainfed, 1982–89 | Season-level and three-window temporal-proxy stage panel complete: 539,360 potential crop-year rows; 120,325 observed-yield rows across 15,098 cells | Workflow/scaling diagnostic only; no SCC input |
+| Global soybean/rainfed, 1982–89 | Season-level panel, GDHY join, and deterministic validation labels complete: 539,360 potential crop-year rows; 48,900 observed-yield rows across 6,123 cells | Workflow/scaling diagnostic only; no SCC input |
 | Other crops/periods/scenarios | Not yet complete | No global response or SCC claim |
 
 ## Completed empirical checks
@@ -51,6 +52,7 @@ maize-pilot outcome mapping going forward; the crosswalk and its limitation
 for second maize seasons are recorded in `data/provenance/`.
 
 This does not clear the main-analysis gate: crop-specific phenology, remaining
-crops/years, `tasmin` and final heat features, pre-specified holdouts,
+crop seasons/years, soybean stage features, final heat features, pre-specified
+holdout performance results,
 uncertainty, CO2 treatment, adaptation estimation, welfare translation, and
 matched future baseline/pulse paths remain outstanding.

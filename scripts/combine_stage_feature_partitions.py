@@ -43,7 +43,8 @@ def main() -> None:
             missing = sorted(REQUIRED_COLUMNS - set(frame.columns))
             extra = sorted(set(frame.columns) - REQUIRED_COLUMNS)
             raise ValueError(f"Schema mismatch in {path}: missing={missing}, extra={extra}")
-    combined = pd.concat([frame for frame in frames if len(frame.columns) > 0], ignore_index=True)
+    populated = [frame for frame in frames if not frame.empty]
+    combined = pd.concat(populated, ignore_index=True) if populated else pd.DataFrame(columns=sorted(REQUIRED_COLUMNS))
     base_keys = ["harvest_year", "lat", "lon_360", "crop", "irrigation"]
     keys = base_keys + ["stage_id"]
     if combined.empty:

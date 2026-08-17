@@ -25,7 +25,8 @@ def main() -> None:
             continue
         if set(frame.columns) != set(FEATURE_COLUMNS):
             raise ValueError(f"Schema mismatch in {path}")
-    combined = pd.concat([frame for frame in frames if len(frame.columns) > 0], ignore_index=True)
+    populated = [frame for frame in frames if not frame.empty]
+    combined = pd.concat(populated, ignore_index=True) if populated else pd.DataFrame(columns=FEATURE_COLUMNS)
     keys = ["harvest_year", "lat", "lon_360", "crop", "irrigation"]
     if combined.duplicated(keys).any():
         raise ValueError("Duplicate rows across latitude partitions")
