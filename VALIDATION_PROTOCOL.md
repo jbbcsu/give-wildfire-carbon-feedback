@@ -35,6 +35,11 @@ not call the resulting SCC net of adaptation investment.
    one-for-one test that `JointAgriculture.agcost` replaces—not augments—the
    agricultural input to SCC.
 
+The ISIMIP/GDHY coordinate transformation is an explicit validation gate:
+ISIMIP longitude is −180–180° with descending latitude, while GDHY longitude
+is 0–360° with ascending latitude. Normalize longitudes before an exact
+0.5-degree-centre join, and fail rather than interpolate if coordinates differ.
+
 ## ML gate
 
 An LSTM/temporal-fusion model may proceed only if it improves calibrated
@@ -43,3 +48,11 @@ benchmarks in held-out regions, years, and extremes; respects crop-stage
 inputs and physical sign/shape constraints; and produces stable pulse
 responses with precipitation altered while temperature and CO2 are fixed.
 It is a comparator/emulator, not the primary causal estimator.
+
+## Pilot-estimation boundary
+
+The repository includes a grid/year fixed-effects pilot script only to test
+data joins, dimensionality, and reproducibility. Its in-sample coefficients
+are never inputs to `JointAgriculture` or SCC. The main analysis requires the
+full global panel, crop-stage features, pre-specified nonlinear terms,
+spatial/temporal holdouts, coefficient uncertainty, and welfare mapping.

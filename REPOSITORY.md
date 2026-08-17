@@ -22,6 +22,8 @@ future `Manifest.toml`/lock file before estimation results are released.
    temperature-extreme controls are required.
 2. Use `scripts/build_crop_year_features.py` on daily climate and crop-calendar
    files to make an auditable crop-year panel.
+   `scripts/build_feature_partitions.sh` runs the same builder in resumable
+   ten-latitude partitions, avoiding global daily-array loads.
 3. Run the schema/validation gates in `VALIDATION_PROTOCOL.md`.
 4. Fit the pre-registered joint response and write coefficient draws outside
    raw-data paths.

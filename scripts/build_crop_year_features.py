@@ -16,6 +16,11 @@ import numpy as np
 import pandas as pd
 import xarray as xr
 
+FEATURE_COLUMNS = [
+    "harvest_year", "plant_year", "lat", "lon", "lon_360", "crop", "irrigation", "cross_year",
+    "plant_doy", "maturity_doy", "season_days", "tmean_c", "precip_mm", "wet_days_n",
+    "cdd_max_days", "rx1day_mm", "rx5day_mm", "wet_day_threshold_mm",
+]
 
 def normalize_precip(values: np.ndarray, units: str) -> np.ndarray:
     units = (units or "").lower().replace(" ", "")
@@ -111,6 +116,7 @@ def main() -> None:
                 rows.append({
                     "harvest_year": harvest_year, "plant_year": plant_year,
                     "lat": float(cal.lat.values[ilat]), "lon": float(cal.lon.values[ilon]),
+                    "lon_360": float(cal.lon.values[ilon] % 360),
                     "crop": args.crop, "irrigation": args.irrigation, "cross_year": cross_year,
                     "plant_doy": plant_doy, "maturity_doy": harvest_doy,
                     "season_days": len(rain), "tmean_c": float(temp.mean()),
@@ -119,7 +125,7 @@ def main() -> None:
                     "rx1day_mm": float(rain.max()), "rx5day_mm": rolling_max(rain, 5),
                     "wet_day_threshold_mm": args.wet_day_mm,
                 })
-    result = pd.DataFrame(rows)
+    result = pd.DataFrame(rows, columns=FEATURE_COLUMNS)
     Path(args.out).parent.mkdir(parents=True, exist_ok=True)
     result.to_parquet(args.out, index=False)
     print(f"wrote {len(result)} crop-year rows to {args.out}")

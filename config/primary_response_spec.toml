@@ -1,0 +1,14 @@
+[outcome]
+name = "log_yield_t_ha"
+source = "GDHY v1.2/v1.3"
+
+[features]
+continuous = ["tmean_c", "log1p_precip_mm", "cdd_max_days", "rx1day_mm"]
+interaction = "tmean_c_x_log1p_precip_mm"
+
+[fixed_effects]
+grid = "lat_lon_crop_irrigation"
+year = "harvest_year"
+
+[boundary]
+status = "pilot estimation workflow only; full global, crop-stage estimation is required for inference and SCC inputs"
