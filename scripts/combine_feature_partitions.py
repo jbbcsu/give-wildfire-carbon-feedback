@@ -21,9 +21,11 @@ def main() -> None:
         raise ValueError(f"Expected {args.expected_partitions} partitions, found {len(paths)}")
     frames = [pd.read_parquet(path) for path in paths]
     for path, frame in zip(paths, frames):
+        if frame.empty and len(frame.columns) == 0:
+            continue
         if set(frame.columns) != set(FEATURE_COLUMNS):
             raise ValueError(f"Schema mismatch in {path}")
-    combined = pd.concat(frames, ignore_index=True)
+    combined = pd.concat([frame for frame in frames if len(frame.columns) > 0], ignore_index=True)
     keys = ["harvest_year", "lat", "lon_360", "crop", "irrigation"]
     if combined.duplicated(keys).any():
         raise ValueError("Duplicate rows across latitude partitions")

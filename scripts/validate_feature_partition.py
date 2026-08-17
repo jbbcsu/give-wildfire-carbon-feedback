@@ -14,6 +14,12 @@ parser = argparse.ArgumentParser()
 parser.add_argument("partition")
 args = parser.parse_args()
 frame = pd.read_parquet(args.partition)
+# Older runs may contain a zero-row parquet whose writer inferred no schema.
+# Treat it as a completed empty band; newer builder output carries the explicit
+# FEATURE_COLUMNS schema above.
+if frame.empty and len(frame.columns) == 0:
+    print("OK legacy empty valid partition")
+    raise SystemExit(0)
 missing = set(FEATURE_COLUMNS) - set(frame.columns)
 if missing:
     raise SystemExit(f"Missing schema columns: {sorted(missing)}")

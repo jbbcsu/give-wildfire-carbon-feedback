@@ -38,6 +38,12 @@ floating-point precision. A stage-resolved fixed-effects diagnostic also ran
 on the 120,325 observed-yield rows. Its numerical estimates remain
 diagnostic-only and are not reported or used as SCC inputs.
 
+An executable outcome-independent validation panel has also been generated
+for this pilot. It assigns deterministic 5° spatial blocks to five folds,
+reserves 1988–89 as the temporal holdout (25% of rows), and labels grid-level
+upper-tail dry-spell or heavy-rain cases from climate features alone (27.7% of
+rows). It is a validation-design check, not a held-out performance result.
+
 On 2026-08-17 the maize outcome join was changed from the undocumented
 convenience `maize` directory to the documented season-specific `maize_major`
 directory. This gives 120,325 observed rows and is the only permitted

@@ -18,6 +18,13 @@ import xarray as xr
 from build_crop_year_features import climate_array, date_from_doy, max_run, normalize_precip, normalize_temperature, rolling_max
 
 
+STAGE_FEATURE_COLUMNS = [
+    "harvest_year", "plant_year", "lat", "lon", "lon_360", "crop", "irrigation", "cross_year",
+    "stage_id", "stage_start_offset_day", "stage_end_offset_day", "stage_days", "stage_fractions",
+    "tmean_c", "precip_mm", "wet_days_n", "cdd_max_days", "rx1day_mm", "rx5day_mm",
+]
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--precip", required=True)
@@ -83,7 +90,7 @@ def main() -> None:
                         "wet_days_n": int((stage_rain >= args.wet_day_mm).sum()), "cdd_max_days": max_run(stage_rain < args.wet_day_mm),
                         "rx1day_mm": float(stage_rain.max()), "rx5day_mm": rolling_max(stage_rain, 5),
                     })
-    output = pd.DataFrame(rows)
+    output = pd.DataFrame(rows, columns=STAGE_FEATURE_COLUMNS)
     Path(args.out).parent.mkdir(parents=True, exist_ok=True)
     output.to_parquet(args.out, index=False)
     print(f"wrote {len(output)} crop-stage rows to {args.out}")

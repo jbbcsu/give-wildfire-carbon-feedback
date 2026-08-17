@@ -56,3 +56,12 @@ data joins, dimensionality, and reproducibility. Its in-sample coefficients
 are never inputs to `JointAgriculture` or SCC. The main analysis requires the
 full global panel, crop-stage features, pre-specified nonlinear terms,
 spatial/temporal holdouts, coefficient uncertainty, and welfare mapping.
+
+## Executable holdout construction
+
+`scripts/make_validation_folds.py` assigns deterministic 5° spatial-block
+folds, reserves the final two harvest years, and labels grid-relative upper
+tail dry-spell/heavy-rain cases from climate features only. It never reads or
+uses `yield_t_ha` to select a holdout. The fixed seed and all thresholds are
+stored in the output panel. These labels are a required evaluation layer, not
+a claim that the tail definitions exhaust agricultural extremes.
