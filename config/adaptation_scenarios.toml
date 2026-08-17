@@ -1,0 +1,19 @@
+# Scenario controls, deliberately separate from empirical adaptation estimates.
+# Calibrate against the selected longitudinal empirical design before SCC runs.
+base_year = 2020
+
+[fixed]
+description = "Observed baseline practice/protection held fixed."
+adaptation_cost_share = 0.0
+
+[trend]
+description = "Transparent trend-based attenuation, pending empirical calibration."
+reduction_per_year = 0.003
+max_reduction = 0.35
+adaptation_cost_share = 0.0
+
+[upper]
+description = "Upper-bound calendar/cultivar/management adaptation scenario; not a forecast."
+reduction_per_year = 0.007
+max_reduction = 0.70
+adaptation_cost_share = 0.0

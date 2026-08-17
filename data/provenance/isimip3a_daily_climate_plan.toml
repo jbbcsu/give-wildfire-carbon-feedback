@@ -1,0 +1,8 @@
+input_id = "daily_climate"
+source_doi = "https://doi.org/10.48364/ISIMIP.982724.3"
+source = "ISIMIP3a GSWP3-W5E5 atmospheric climate input data v1.3"
+license = "CC0-1.0; record precise catalogue terms with every download"
+historical_window = "1981-2016 (last source chunk 2011-2019 is trimmed in processing)"
+variables = ["pr", "tas", "tasmax", "tasmin"]
+storage_constraint = "The full minimum set is approximately 33.1 GB compressed; stream/chunk and do not commit raw climate files."
+acquisition_order = "First pr for calendar/feature plumbing; then tas for joint-response control; tasmax/tasmin before final causal estimation."

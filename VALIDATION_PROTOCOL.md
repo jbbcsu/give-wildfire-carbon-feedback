@@ -1,0 +1,45 @@
+# Empirical and validation protocol
+
+## Estimation panel
+
+Build a crop-season-grid-year panel for maize, rice, wheat, and soybean from
+GDHY (1981–2016). Join daily ISIMIP3a climate and crop calendars before any
+spatial aggregation. Partition by rain-fed/irrigated status where the data
+support it. Exclude incomplete cross-year crop windows rather than filling
+them silently. Fit the pre-specified response with grid/crop fixed effects,
+flexible year effects, stage weather features, and temperature--precipitation
+interactions. Record all changes as secondary specifications.
+
+## Three adaptation scenarios
+
+`fixed` applies the observed response unchanged. `trend` and `upper` use the
+transparent effectiveness schedules in `config/adaptation_scenarios.toml`.
+They are stress-test scenarios, not empirical forecasts. Until a cost model is
+estimated, all use zero `adaptation_cost_share`; report this limitation and do
+not call the resulting SCC net of adaptation investment.
+
+## Required comparisons
+
+1. Seasonal precipitation-only, stage-feature, and joint temperature--water
+   specifications must be compared by blocked space, time, and extreme-year
+   holdouts.
+2. Compare predicted yield changes to GGCMI/ISIMIP process ensemble ranges;
+   disagreement is structural uncertainty, not grounds to average blindly.
+3. Use FAOSTAT only as an aggregation/provenance check because GDHY is partly
+   calibrated to it. Seek a genuinely independent subnational source for a
+   formal external validation.
+4. Refit with an alternate weather product/bias correction and alternate crop
+   calendar; retain uncertainty from both.
+5. Require zero climate features to give zero loss, matched pulse/base
+   climate draw IDs, nonzero pulse-minus-base precipitation features, and a
+   one-for-one test that `JointAgriculture.agcost` replaces—not augments—the
+   agricultural input to SCC.
+
+## ML gate
+
+An LSTM/temporal-fusion model may proceed only if it improves calibrated
+out-of-sample predictions versus the fixed-effects and gradient-boosted
+benchmarks in held-out regions, years, and extremes; respects crop-stage
+inputs and physical sign/shape constraints; and produces stable pulse
+responses with precipitation altered while temperature and CO2 are fixed.
+It is a comparator/emulator, not the primary causal estimator.
