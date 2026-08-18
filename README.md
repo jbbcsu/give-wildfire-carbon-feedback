@@ -38,3 +38,5 @@ season-specific outcome exists.
 
 [METHODS_BENCHMARK_QIU_2025.md](METHODS_BENCHMARK_QIU_2025.md) records the
 adapted ensemble/validation design benchmark used for the next specification.
+The high-resolution US validation track is isolated in
+[us_county_validation/README.md](us_county_validation/README.md).
