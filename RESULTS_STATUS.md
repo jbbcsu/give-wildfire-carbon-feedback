@@ -13,7 +13,7 @@ does not report final response estimates or SCC values.
 | `tasmin` | 1981–2019 acquired; source sizes and SHA-512 recorded | Required input for final heat-extreme specification |
 | Maize/rainfed pilot | Real 2-latitude, 1982–89 feature and GDHY join completed | Pipeline/coordinate/feature validation only |
 | Global maize/rainfed, 1982–89 | Season-level and three-window temporal-proxy stage panel complete: 539,360 potential crop-year rows; 120,325 observed-yield rows across 15,098 cells | Workflow/scaling diagnostic only; no SCC input |
-| Global soybean/rainfed, 1982–89 | Season-level panel, GDHY join, and deterministic validation labels complete: 539,360 potential crop-year rows; 48,900 observed-yield rows across 6,123 cells | Workflow/scaling diagnostic only; no SCC input |
+| Global soybean/rainfed, 1982–89 | Season-level and three-window temporal-proxy stage panel, GDHY join, and deterministic validation labels complete: 539,360 potential crop-year rows; 48,900 observed-yield rows across 6,123 cells | Workflow/scaling diagnostic only; no SCC input |
 | Other crops/periods/scenarios | Not yet complete | No global response or SCC claim |
 
 ## Completed empirical checks
@@ -39,6 +39,12 @@ floating-point precision. A stage-resolved fixed-effects diagnostic also ran
 on the 120,325 observed-yield rows. Its numerical estimates remain
 diagnostic-only and are not reported or used as SCC inputs.
 
+The soybean stage panel has the same 1,618,080-row structure and reconciles to
+every season-level record in crop-year days, wet-day counts, and maximum daily
+rainfall; its maximum precipitation-sum rounding difference is 0.000732 mm.
+Its stage diagnostic uses the 48,900 supported yield rows and is likewise
+prohibited from causal or SCC use.
+
 An executable outcome-independent validation panel has also been generated
 for this pilot. It assigns deterministic 5° spatial blocks to five folds,
 reserves 1988–89 as the temporal holdout (25% of rows), and labels grid-level
@@ -52,7 +58,7 @@ maize-pilot outcome mapping going forward; the crosswalk and its limitation
 for second maize seasons are recorded in `data/provenance/`.
 
 This does not clear the main-analysis gate: crop-specific phenology, remaining
-crop seasons/years, soybean stage features, final heat features, pre-specified
+crop seasons/years, crop-specific phenology, final heat features, pre-specified
 holdout performance results,
 uncertainty, CO2 treatment, adaptation estimation, welfare translation, and
 matched future baseline/pulse paths remain outstanding.
