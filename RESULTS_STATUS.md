@@ -15,7 +15,7 @@ does not report final response estimates or SCC values.
 | Global maize/rainfed, 1982–89 | Season-level and three-window temporal-proxy stage panel complete: 539,360 potential crop-year rows; 120,325 observed-yield rows across 15,098 cells | Workflow/scaling diagnostic only; no SCC input |
 | Global soybean/rainfed, 1982–89 | Season-level and three-window temporal-proxy stage panel, GDHY join, and deterministic validation labels complete: 539,360 potential crop-year rows; 48,900 observed-yield rows across 6,123 cells | Workflow/scaling diagnostic only; no SCC input |
 | Global spring-wheat/rainfed, 1982–89 | Season-level and three-window temporal-proxy stage panel, GDHY join, and deterministic validation labels complete: 539,360 potential crop-year rows; 40,977 observed-yield rows across 5,127 cells | Workflow/scaling diagnostic only; no SCC input |
-| Global winter-wheat/rainfed, 1982–89 | Season-level panel, GDHY join, and deterministic validation labels complete: 539,360 potential crop-year rows; 68,778 observed-yield rows across 8,668 cells | Workflow/scaling diagnostic only; no SCC input |
+| Global winter-wheat/rainfed, 1982–89 | Season-level and three-window temporal-proxy stage panel, GDHY join, and deterministic validation labels complete: 539,360 potential crop-year rows; 68,778 observed-yield rows across 8,668 cells | Workflow/scaling diagnostic only; no SCC input |
 | Other crops/periods/scenarios | Not yet complete | No global response or SCC claim |
 
 ## Completed empirical checks
@@ -52,6 +52,11 @@ stage-to-season reconciliation (maximum precipitation-sum rounding difference
 0.000855 mm). Its stage diagnostic is limited to 40,977 supported yield rows
 and remains prohibited from causal or SCC use.
 
+The winter-wheat stage panel also has 1,618,080 rows and passed complete
+stage-to-season reconciliation (maximum precipitation-sum rounding difference
+0.000855 mm). Its stage diagnostic uses 68,778 supported yield rows and is
+prohibited from causal or SCC use.
+
 An executable outcome-independent validation panel has also been generated
 for this pilot. It assigns deterministic 5° spatial blocks to five folds,
 reserves 1988–89 as the temporal holdout (25% of rows), and labels grid-level
@@ -64,8 +69,8 @@ directory. This gives 120,325 observed rows and is the only permitted
 maize-pilot outcome mapping going forward; the crosswalk and its limitation
 for second maize seasons are recorded in `data/provenance/`.
 
-This does not clear the main-analysis gate: crop-specific phenology, remaining
-crop seasons/years, crop-specific phenology, final heat features, pre-specified
+This does not clear the main-analysis gate: remaining crop seasons/years,
+crop-specific phenology, final heat features, pre-specified
 holdout performance results,
 uncertainty, CO2 treatment, adaptation estimation, welfare translation, and
 matched future baseline/pulse paths remain outstanding.
