@@ -19,6 +19,7 @@
 | Calendar adaptation under climate change | [Minoli et al. (2022)](https://doi.org/10.1038/s41467-022-34411-5) | Global process-model counterfactuals for sowing/maturity adaptation across crop calendars and climate scenarios. |
 | Rainfall amount and rainy-day distribution | [Fishman (2016)](https://doi.org/10.1088/1748-9326/11/2/024004) | Indian daily rainfall/crop-yield evidence separating total precipitation from rainy-day frequency; a core feature-design precedent, not a transferable coefficient. |
 | Drought-index robustness | [Drought metrics plan](DROUGHT_METRICS_PLAN.md) | PDSI/SPEI/soil-moisture implementation, non-collinearity, calibration, and SCC-attribution rules. |
+| Observed US drought/yield validation | [Kuwayama et al. (2019)](https://doi.org/10.1093/ajae/aay037) | County fixed-effect USDM drought-severity-week benchmark for NASS yield validation; USDM is not projected directly in global SCC draws. |
 | Irrigation constrained by water availability | [Fishman literature screen](FISHMAN_EVIDENCE_NOTE.md) | Documents use of Fishman and collaborators' irrigation/groundwater evidence for adaptation constraints and accounting boundaries. |
 | Supplied irrigated-water evidence | [Project assessment note](IRRIGATED_WATER_EVIDENCE_NOTE.md) | Documents the limited, non-stacking use of the supplied Gordon-Blumberg and Blumberg-Warziniack US manuscripts for irrigation/water-supply design. |
 | Existing GIVE methods | [Rennert et al. (2022)](https://doi.org/10.1038/s41586-022-05224-9) | Baseline GIVE SCC framework and sectoral design. |

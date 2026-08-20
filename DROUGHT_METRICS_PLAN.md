@@ -51,16 +51,62 @@ onto the direct precipitation mechanism.
 
 1. Derive county crop-area-weighted direct weather features from gridMET and
    validate against Daymet where feasible.
-2. Obtain the documented gridMET reference-ET and PDSI products, and calculate
+2. Acquire the weekly U.S. Drought Monitor (USDM) archive as an **observed
+   composite-drought validation outcome**, not a future climate input. Match
+   crop-area-weighted county drought-severity weeks to NASS yields and estimate
+   a Kuwayama et al.-style fixed-effect benchmark separately for high-rainfed
+   and mixed/irrigated samples.
+3. Obtain the documented gridMET reference-ET and PDSI products, and calculate
    crop-year SPEI under a fixed calibration rule.  Retain source PDSI as an
    independent implementation check rather than silently substituting it for
    our calculation.
-3. Link drought state to the crop calendar, including pre-plant, planting,
+4. Link drought state to the crop calendar, including pre-plant, planting,
    vegetative, reproductive, and grain-fill windows.  This permits wet-planting
    and subsequent drought to have distinct effects.
-4. Keep the initial high-rainfed-share sample.  In an irrigated extension,
+5. Keep the initial high-rainfed-share sample.  In an irrigated extension,
    treat soil moisture/PDSI as potentially affected by irrigation and avoid
    conditioning away the irrigation mechanism without an explicit estimand.
+
+## Linking drought occurrence to climate change
+
+This is a two-link analysis, and both links must be estimated/validated:
+
+1. **Climate to drought occurrence.** For each crop/grid/year and each matched
+   climate-model member, derive drought exposure from the daily/monthly
+   baseline path and the paired CO2-pulse path.  Examples are weeks below a
+   fixed SPEI threshold, crop-stage soil-moisture percentile deficits, or
+   drought severity/duration classes.  The climate-induced change is
+   `D(pulse) - D(baseline)`, never a comparison of unrelated scenarios or GCM
+   members.
+2. **Drought occurrence to agricultural outcome.** Estimate a stage-specific,
+   nonlinear yield response to the same drought exposure, with crop/location
+   and time controls and the declared adaptation scenario.  For the US,
+   USDM-week results are an external observed composite-drought validation;
+   global SCC projections use indices reproducible from climate/hydrology
+   fields, not a presumed future USDM label.
+
+For a water-balance drought index with precipitation `P` and temperature/PET
+drivers `Z`, the total climate-induced drought change is
+`D(P_pulse, Z_pulse) - D(P_base, Z_base)`.  If an attribution between
+precipitation and the other climate drivers is reported, use a symmetric
+paired (Shapley) decomposition, e.g. average the two precipitation increments
+obtained by changing `P` first and changing `P` second.  Label this an
+accounting attribution, because the drought index is a joint physical
+function.  Yield/SCC accounting must use either the direct
+precipitation-pattern response or the drought-response pathway for the same
+moisture stress; do not sum both.
+
+### Validation gates for the climate-to-drought link
+
+* Historical agreement: compare climate-derived U.S. drought occurrence to
+  USDM severity weeks without refitting thresholds on final holdouts.
+* Physical agreement: compare SPEI/PDSI/soil-moisture drought ranking and
+  duration, and report their disagreement as drought-definition uncertainty.
+* Projection integrity: retain GCM, scenario, calendar, and baseline/pulse IDs
+  on every drought record; fail on unmatched IDs.
+* Counterfactual integrity: no precipitation/temperature/PET change implies no
+  climate-induced drought increment and hence no drought-pathway marginal
+  damage.
 
 ## Estimation and interpretation rules
 
@@ -85,3 +131,10 @@ onto the direct precipitation mechanism.
 * [Fishman (2016)](https://doi.org/10.1088/1748-9326/11/2/024004) motivates
   retaining direct daily rainfall distribution independently of a drought
   summary index.
+* [Kuwayama et al. (2019)](https://doi.org/10.1093/ajae/aay037) estimates
+  county fixed-effect yield/farm-income responses to U.S. Drought Monitor
+  severity weeks and directly motivates the US external-validation benchmark.
+* [Fontes, Gorst, and Palmer (2020)](https://doi.org/10.1017/S1355770X2000011X)
+  demonstrates that drought-index definition can materially change estimated
+  rice losses, motivating index-family uncertainty rather than one privileged
+  drought metric.

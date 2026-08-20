@@ -69,6 +69,7 @@ questions and cannot be converted into one universal coefficient.
 | Global/SSA stage pattern evidence | [Marcos-Garcia, Carmona-Moreno, and Pastori (2024)](https://doi.org/10.1038/s43016-024-01040-8) uses GDHY maize outcomes, crop calendars, and stage-specific dry/wet spell patterns across Sub-Saharan Africa. | Direct support for feature construction by crop stage and for comparing pattern models against mean-total models. Its regional risk-mapping approach is not a causal SCC damage function. |
 | Counterfactual rainfall-pattern crop modeling | [Guan et al. (2015)](https://doi.org/10.1002/2015GL063877) perturbs West African rainfall amount, frequency/intensity, onset, and duration in a synthetic-rainfall framework driving two crop models. | Use as a process-based falsification/heterogeneity benchmark: it finds amount especially important overall but timing/frequency/intensity more consequential in drier settings. Do not import its response as an empirical coefficient. |
 | Crop-calendar adaptation | [Minoli et al. (2022)](https://doi.org/10.1038/s41467-022-34411-5) simulates future sowing/maturity adjustments under global climate scenarios. | Supplies a defensible reference for the `upper` calendar/cultivar adaptation scenario; it does not estimate observed autonomous adaptation or economic costs. |
+| Observed composite drought | [Kuwayama et al. (2019)](https://doi.org/10.1093/ajae/aay037) estimates US county fixed-effect crop-yield responses to U.S. Drought Monitor severity weeks, including dryland/irrigated distinctions. | External US validation target for climate-derived drought occurrence; do not project USDM labels directly or add USDM and direct precipitation damages together. |
 
 **Implementation consequence.** The main feature set must keep seasonal
 precipitation quantity separate from distribution: stage shares and timing,
@@ -84,6 +85,12 @@ adaptation boundary: irrigation expansion and engineering efficiency cannot be
 credited as unconstrained, proportional protection.  Where a future
 irrigated-water extension is evaluated, it needs an explicit water-supply and
 groundwater constraint; see [the literature screen](FISHMAN_EVIDENCE_NOTE.md).
+
+The drought extension is therefore not merely an additional historical
+regression.  It requires a paired climate-to-drought mapping and a
+drought-to-yield response; the resulting drought pathway is compared against,
+not summed with, the direct precipitation-pattern pathway.  The explicit SCC
+accounting and USDM validation gates are in [the drought plan](DROUGHT_METRICS_PLAN.md).
 
 ## Target estimand and climate features
 
