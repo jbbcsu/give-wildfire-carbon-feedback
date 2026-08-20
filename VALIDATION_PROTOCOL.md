@@ -23,6 +23,11 @@ not call the resulting SCC net of adaptation investment.
 1. Seasonal precipitation-only, stage-feature, and joint temperature--water
    specifications must be compared by blocked space, time, and extreme-year
    holdouts.
+   This comparison must include the direct precipitation-pattern, climatic
+   water-balance (SPEI/PDSI), and soil-moisture exposure families defined in
+   [the drought metrics plan](DROUGHT_METRICS_PLAN.md). PDSI/SPEI are competing
+   drought representations, not covariates to stack mechanically with their
+   underlying precipitation/temperature inputs.
 2. Compare predicted yield changes to GGCMI/ISIMIP process ensemble ranges;
    disagreement is structural uncertainty, not grounds to average blindly.
 3. Use FAOSTAT only as an aggregation/provenance check because GDHY is partly
