@@ -30,17 +30,32 @@ suppression handling before an estimation panel is accepted.
 
 ## Primary design
 
-1. Build crop--county--year outcomes, retain reported NASS values and flags,
+1. Begin with a **high-rainfed-share county sample** for maize, soybean, and
+   wheat. NASS county yield is not inherently irrigation-specific, so do not
+   call it rainfed without a separate crop-specific irrigated-area measure.
+   Pre-specify a primary rainfed-share threshold and test nearby thresholds;
+   exclude or separately model materially mixed counties.
+2. Build crop--county--year outcomes, retain reported NASS values and flags,
    and use harvested area only as an aggregation weight.
-2. Aggregate daily weather to crop-area-weighted county exposures; do not use
+3. Aggregate daily weather to crop-area-weighted county exposures; do not use
    county centroid weather as the main measure where crop masks are available.
-3. Include joint temperature, seasonal precipitation total, normalized
+4. Include joint temperature, seasonal precipitation total, normalized
    within-season precipitation shares, wet days, CDD, and heavy-rain metrics.
-4. Estimate county and year fixed-effect primary specifications, with
+5. Estimate county and year fixed-effect primary specifications, with
    crop/agro-climatic pooling. Compare regularized and constrained nonlinear
    alternatives without allowing them to select features using test outcomes.
-5. Use nested blocked year, state/region, and dry/wet-extreme validation.
+6. Use nested blocked year, state/region, and dry/wet-extreme validation.
    Treat the US fit as a validation/heterogeneity input to the global model.
+
+## Irrigation identification gate
+
+The initial county sample will use crop-specific irrigated versus non-irrigated
+harvested-area data where available from USDA Census/irrigation products. A
+fixed cross-sectional irrigation share is an imperfect proxy for annual
+practice; it is therefore a selection device, not a claim that every included
+observation is un-irrigated. The analysis will report results under multiple
+thresholds and a mixed-county sensitivity specification. No US estimate enters
+the global model unless this gate and its coverage diagnostics pass.
 
 ## Explicit exclusions
 
