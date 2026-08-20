@@ -63,6 +63,7 @@ questions and cannot be converted into one universal coefficient.
 | Evidence class | Study and usable contribution | Boundary for this project |
 |---|---|---|
 | US high-frequency empirical response | [Lesk, Coffel, and Horton (2020)](https://doi.org/10.1038/s41558-020-0830-0) relates county maize and soybean yields to the *distribution of hourly rainfall intensity* during the growing season, conditional on the broader climate setting. It finds a nonlinear response, including damage at the rarest hourly extremes. | Closest direct template for the US NASS track's wet-day/intensity distribution. It is not a global welfare function and should be re-estimated with a declared irrigation gate and contemporary crop-area weather weights. |
+| Daily rainfall amount and frequency | [Fishman (2016)](https://doi.org/10.1088/1748-9326/11/2/024004) uses India crop yields and daily rainfall to distinguish total precipitation from the number of rainy days. | Core precedent for a parsimonious rainy-day-frequency term in addition to total precipitation and conditional intensity. Re-estimate; do not transport the India response. |
 | US excess precipitation and planting timing | [Li et al. (2019)](https://doi.org/10.1111/gcb.14628) provides observational evidence that excessive rainfall can lower US maize yield, and [Urban et al. (2015)](https://doi.org/10.1007/s10584-015-1362-x) evaluates extremely wet planting conditions for US maize and soy. | Motivate a pre-plant/planting window and soil-wetness proxy, not just crop-season totals. They do not identify a permanent global climate response. |
 | US rainfed/irrigated extremes | [Troy, Kipgen, and Pal (2015)](https://doi.org/10.1088/1748-9326/10/5/054013) pools county outcomes and daily climate indices across growing and planting periods, using a limited county subset with separate irrigated/rainfed information. | Strong design precedent for the irrigation-data gate and for dry-spell, Rx5day, and planting-window checks. The pooled descriptive design is a benchmark, not the project's primary fixed-effects estimator. |
 | Global/SSA stage pattern evidence | [Marcos-Garcia, Carmona-Moreno, and Pastori (2024)](https://doi.org/10.1038/s43016-024-01040-8) uses GDHY maize outcomes, crop calendars, and stage-specific dry/wet spell patterns across Sub-Saharan Africa. | Direct support for feature construction by crop stage and for comparing pattern models against mean-total models. Its regional risk-mapping approach is not a causal SCC damage function. |
@@ -77,6 +78,12 @@ whether those distribution features improve *outer blocked* performance and
 produce stable paired pulse/base responses after temperature, CO2, calendar,
 and irrigation assumptions are held explicit. A null incremental result is
 informative and remains an admissible outcome.
+
+Fishman's irrigation and groundwater papers additionally sharpen the
+adaptation boundary: irrigation expansion and engineering efficiency cannot be
+credited as unconstrained, proportional protection.  Where a future
+irrigated-water extension is evaluated, it needs an explicit water-supply and
+groundwater constraint; see [the literature screen](FISHMAN_EVIDENCE_NOTE.md).
 
 ## Target estimand and climate features
 
