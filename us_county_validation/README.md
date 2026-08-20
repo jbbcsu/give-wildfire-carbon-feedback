@@ -63,6 +63,12 @@ observation is un-irrigated. The analysis will report results under multiple
 thresholds and a mixed-county sensitivity specification. No US estimate enters
 the global model unless this gate and its coverage diagnostics pass.
 
+The supplied US water manuscripts motivate a later irrigated-water constraint
+extension: irrigation is an adaptation/input whose feasibility can respond to
+snowpack, runoff, water rights, and seasonal scarcity. It is deliberately
+outside the initial high-rainfed-share estimand; see
+[the evidence and non-overlap note](../IRRIGATED_WATER_EVIDENCE_NOTE.md).
+
 ## Explicit exclusions
 
 - No direct extrapolation of a US coefficient to unsupported global regions.
