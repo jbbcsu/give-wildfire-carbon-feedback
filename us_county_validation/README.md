@@ -14,6 +14,12 @@ chain is daily climate -> precipitation-pattern exposure -> county yield ->
 agricultural damage validation. National/global welfare translation remains
 in the global track.
 
+The supplied [Blumberg (2026) appendix](BLUMBERG_2026_APPENDIX_NOTE.md)
+adds a complementary agricultural-functional-form benchmark.  It locks a
+comparison of seasonal-total, distribution, extremes, binned, and constrained
+nonlinear specifications; it also makes clear that the 100th meridian is only
+an irrigation-related robustness split, never a rainfed label.
+
 ## Locked initial inputs
 
 | Input | Planned use | Authority |
