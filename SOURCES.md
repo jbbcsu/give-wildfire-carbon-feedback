@@ -11,6 +11,12 @@
 | Flood hazard/loss modeling | [Ward et al. (2020)](https://doi.org/10.1038/s41467-020-17591-w) | Global flood-risk modeling with climate and socioeconomic drivers. |
 | River flood impacts and adaptation | [Winsemius et al. (2016)](https://doi.org/10.1038/nclimate2893) | Primary global assessment of flood-risk change and adaptation. |
 | Climate and agricultural productivity | [Ortiz-Bobea et al. (2021)](https://doi.org/10.1038/s41586-021-03500-5) | Empirical global agricultural productivity response to climate change. |
+| US hourly rainfall-intensity response | [Lesk, Coffel, and Horton (2020)](https://doi.org/10.1038/s41558-020-0830-0) | County maize/soy yield study that estimates a nonlinear response to the distribution of growing-season hourly rainfall intensities and provides code/data links. |
+| US excessive-rainfall loss | [Li et al. (2019)](https://doi.org/10.1111/gcb.14628) | Observational US maize/insurance evidence that very wet conditions can reduce yields; supports wet-excess metrics alongside drought metrics. |
+| US extremes and irrigation | [Troy, Kipgen, and Pal (2015)](https://doi.org/10.1088/1748-9326/10/5/054013) | County-level US crop/yield analysis of growing- and planting-season extremes, including a limited irrigated/rainfed subset. |
+| Rainfall amount, frequency, intensity, and onset | [Guan et al. (2015)](https://doi.org/10.1002/2015GL063877) | Synthetic-rainfall, two-crop-model West Africa experiment that separates amount, frequency/intensity, and monsoon timing; a process-model benchmark, not an econometric coefficient source. |
+| Stage-wise dry/wet sequences | [Marcos-Garcia, Carmona-Moreno, and Pastori (2024)](https://doi.org/10.1038/s43016-024-01040-8) | Sub-Saharan African maize/GDHY analysis of within-growing-season dry/wet spell patterns; directly relevant feature and validation benchmark. |
+| Calendar adaptation under climate change | [Minoli et al. (2022)](https://doi.org/10.1038/s41467-022-34411-5) | Global process-model counterfactuals for sowing/maturity adaptation across crop calendars and climate scenarios. |
 | Existing GIVE methods | [Rennert et al. (2022)](https://doi.org/10.1038/s41586-022-05224-9) | Baseline GIVE SCC framework and sectoral design. |
 | Potentially overlapping GIVE precipitation work | [Wenz et al. (2024) working paper](https://doi.org/10.21203/rs.3.rs-4829018/v1) | Novelty/overlap gate; do not stack its aggregate productivity damages with this sectoral module. |
 

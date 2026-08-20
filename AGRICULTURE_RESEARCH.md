@@ -55,6 +55,29 @@ as a predictive compound-extreme benchmark, and [Jägermeyr et al.
 (2019)](https://doi.org/10.1038/s41597-019-0023-8) for GGCMI daily forcing and
 process-model coverage.
 
+## Precipitation amount versus distribution: targeted evidence map
+
+The literature supports estimating both, but the papers answer different
+questions and cannot be converted into one universal coefficient.
+
+| Evidence class | Study and usable contribution | Boundary for this project |
+|---|---|---|
+| US high-frequency empirical response | [Lesk, Coffel, and Horton (2020)](https://doi.org/10.1038/s41558-020-0830-0) relates county maize and soybean yields to the *distribution of hourly rainfall intensity* during the growing season, conditional on the broader climate setting. It finds a nonlinear response, including damage at the rarest hourly extremes. | Closest direct template for the US NASS track's wet-day/intensity distribution. It is not a global welfare function and should be re-estimated with a declared irrigation gate and contemporary crop-area weather weights. |
+| US excess precipitation and planting timing | [Li et al. (2019)](https://doi.org/10.1111/gcb.14628) provides observational evidence that excessive rainfall can lower US maize yield, and [Urban et al. (2015)](https://doi.org/10.1007/s10584-015-1362-x) evaluates extremely wet planting conditions for US maize and soy. | Motivate a pre-plant/planting window and soil-wetness proxy, not just crop-season totals. They do not identify a permanent global climate response. |
+| US rainfed/irrigated extremes | [Troy, Kipgen, and Pal (2015)](https://doi.org/10.1088/1748-9326/10/5/054013) pools county outcomes and daily climate indices across growing and planting periods, using a limited county subset with separate irrigated/rainfed information. | Strong design precedent for the irrigation-data gate and for dry-spell, Rx5day, and planting-window checks. The pooled descriptive design is a benchmark, not the project's primary fixed-effects estimator. |
+| Global/SSA stage pattern evidence | [Marcos-Garcia, Carmona-Moreno, and Pastori (2024)](https://doi.org/10.1038/s43016-024-01040-8) uses GDHY maize outcomes, crop calendars, and stage-specific dry/wet spell patterns across Sub-Saharan Africa. | Direct support for feature construction by crop stage and for comparing pattern models against mean-total models. Its regional risk-mapping approach is not a causal SCC damage function. |
+| Counterfactual rainfall-pattern crop modeling | [Guan et al. (2015)](https://doi.org/10.1002/2015GL063877) perturbs West African rainfall amount, frequency/intensity, onset, and duration in a synthetic-rainfall framework driving two crop models. | Use as a process-based falsification/heterogeneity benchmark: it finds amount especially important overall but timing/frequency/intensity more consequential in drier settings. Do not import its response as an empirical coefficient. |
+| Crop-calendar adaptation | [Minoli et al. (2022)](https://doi.org/10.1038/s41467-022-34411-5) simulates future sowing/maturity adjustments under global climate scenarios. | Supplies a defensible reference for the `upper` calendar/cultivar adaptation scenario; it does not estimate observed autonomous adaptation or economic costs. |
+
+**Implementation consequence.** The main feature set must keep seasonal
+precipitation quantity separate from distribution: stage shares and timing,
+wet-day frequency versus conditional intensity, maximum dry spell, wet/heavy
+rain metrics, and pre-plant/planting wetness. The primary comparison asks
+whether those distribution features improve *outer blocked* performance and
+produce stable paired pulse/base responses after temperature, CO2, calendar,
+and irrigation assumptions are held explicit. A null incremental result is
+informative and remains an admissible outcome.
+
 ## Target estimand and climate features
 
 For crop `k`, grid/country `r`, harvest year `t`, estimate the counterfactual
