@@ -11,9 +11,15 @@ pr=$1; tas=$2; calendar=$3; crop=$4; irrigation=$5; year0=$6; year1=$7; outdir=$
 root="$(cd "$(dirname "$0")/.." && pwd)"
 mkdir -p "$outdir"
 for ((start=0; start<360; start+=chunk)); do
-  stop=$((start + chunk)); (( stop > 360 )) && stop=360
+  stop=$((start + chunk))
+  if (( stop > 360 )); then
+    stop=360
+  fi
   out="$outdir/${crop}_${irrigation}_stage_lat${start}_${stop}_${year0}_${year1}.parquet"
-  [[ -f "$out" ]] && { echo "Present: $out"; continue; }
+  if [[ -f "$out" ]]; then
+    echo "Present: $out"
+    continue
+  fi
   "$root/.venv/bin/python" "$root/scripts/build_crop_stage_features.py" \
     --precip "$pr" --temperature "$tas" --calendar "$calendar" --crop "$crop" --irrigation "$irrigation" \
     --year-start "$year0" --year-end "$year1" --lat-start "$start" --lat-stop "$stop" --stage-fractions "$fractions" --out "$out"
