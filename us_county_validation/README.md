@@ -29,10 +29,15 @@ an irrigation-related robustness split, never a rainfed label.
 | Daymet | 1 km daily weather robustness comparison | https://daymet.ornl.gov/getdata |
 | NASS planting/harvest reports and Crop Progress | Calendar priors and timing sensitivity | https://www.nass.usda.gov/Publications/Todays_Reports/reports/fcdate10.pdf |
 | Cropland Data Layer / Crop Sequence Boundaries | Crop-area masks/weights where the historical period permits | https://www.nass.usda.gov/developer/ |
+| U.S. Drought Monitor county statistics | Observed county-week composite-drought validation benchmark | https://droughtmonitor.unl.edu/DmData/DataDownload/WebServiceInfo.aspx |
 
 Raw US inputs stay under `data/raw/us_county/` and are gitignored. Record
 license, query/download URL, retrieval date, checksum, filters, units, and
 suppression handling before an estimation panel is accepted.
+
+USDM area-share files are acquired only with the explicit, state/year-bounded
+downloader in `scripts/`; its manifest preserves the official query URLs and
+checksums. A USDM category is never projected directly into a global SCC draw.
 
 ## Primary design
 
