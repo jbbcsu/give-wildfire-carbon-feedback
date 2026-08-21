@@ -16,8 +16,8 @@ for ((start=0; start<360; start+=chunk)); do
     stop=360
   fi
   out="$outdir/${crop}_${irrigation}_stage_lat${start}_${stop}_${year0}_${year1}.parquet"
-  if [[ -f "$out" ]]; then
-    echo "Present: $out"
+  if [[ -f "$out" ]] && "$root/.venv/bin/python" "$root/scripts/validate_stage_feature_partition.py" "$out" >/dev/null 2>&1; then
+    echo "Present and valid: $out"
     continue
   fi
   "$root/.venv/bin/python" "$root/scripts/build_crop_stage_features.py" \

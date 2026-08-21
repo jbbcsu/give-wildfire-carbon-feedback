@@ -86,7 +86,7 @@ def main() -> None:
                         "crop": args.crop, "irrigation": args.irrigation, "cross_year": cross_year,
                         "stage_id": stage_id, "stage_start_offset_day": i0 + 1, "stage_end_offset_day": i1,
                         "stage_days": len(stage_rain), "stage_fractions": args.stage_fractions,
-                        "tmean_c": float(stage_temp.mean()), "precip_mm": float(stage_rain.sum()),
+                        "tmean_c": float(stage_temp.mean()), "precip_mm": float(np.sum(stage_rain, dtype=np.float64)),
                         "wet_days_n": int((stage_rain >= args.wet_day_mm).sum()), "cdd_max_days": max_run(stage_rain < args.wet_day_mm),
                         "rx1day_mm": float(stage_rain.max()), "rx5day_mm": rolling_max(stage_rain, 5),
                     })
