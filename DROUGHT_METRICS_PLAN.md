@@ -138,3 +138,8 @@ moisture stress; do not sum both.
   demonstrates that drought-index definition can materially change estimated
   rice losses, motivating index-family uncertainty rather than one privileged
   drought metric.
+* The [CRU global scPDSI documentation](https://crudata.uea.ac.uk/cru/data/drought/)
+  supplies a monthly 0.5-degree historical benchmark and states its ODbL terms;
+  its 355 MB current netCDF is small enough to retain separately from the
+  multi-gigabyte ISIMIP daily fields. The exact acquisition is recorded in
+  `data/provenance/cru_scpdsi.toml` and a raw-data manifest.
