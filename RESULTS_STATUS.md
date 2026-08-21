@@ -17,6 +17,7 @@ does not report final response estimates or SCC values.
 | Global spring-wheat/rainfed, 1982–89 | Season-level and three-window temporal-proxy stage panel, GDHY join, and deterministic validation labels complete: 539,360 potential crop-year rows; 40,977 observed-yield rows across 5,127 cells | Workflow/scaling diagnostic only; no SCC input |
 | Global winter-wheat/rainfed, 1982–89 | Season-level and three-window temporal-proxy stage panel, GDHY join, and deterministic validation labels complete: 539,360 potential crop-year rows; 68,778 observed-yield rows across 8,668 cells | Workflow/scaling diagnostic only; no SCC input |
 | Global first-rice/rainfed, 1982–89 | Season-level and three-window temporal-proxy stage panel, GDHY join, deterministic validation labels, reconciliation, and fixed-effects numerical diagnostics complete: 539,360 potential crop-year rows; 76,348 observed-yield rows across 9,564 cells | Workflow/scaling diagnostic only; no SCC input |
+| Global second-rice/rainfed, 1982–89 | Season-level features, `rice_second` GDHY join, and deterministic validation labels complete: 248,040 potential crop-year rows; 12,694 observed-yield rows across 1,587 cells. Three-window temporal-proxy stage construction is in progress. | Workflow/scaling diagnostic only; no SCC input |
 | Other crops/periods/scenarios | Not yet complete | No global response or SCC claim |
 
 ## Completed empirical checks
@@ -69,6 +70,15 @@ difference 0.000732 mm). Season- and stage-level fixed-effects numerical
 diagnostics completed only to check matrix dimensions and conditioning; their
 estimates are not reported and are prohibited from causal interpretation or
 SCC integration.
+
+The second-rice panel has 248,040 potential crop-year records and 12,694
+observed-yield records in the documented `rice_second` GDHY directory. It
+passed feature-key and outcome-join checks. Its deterministic labels assign
+five spatial folds, reserve 1988–89 as the temporal holdout, and flag 27.3%
+of rows as climate-feature-defined dry-spell or heavy-rain cases. Its
+season-level numerical diagnostic is only a matrix-dimension and conditioning
+check; its estimates are not reported and are prohibited from causal
+interpretation or SCC integration.
 
 An executable outcome-independent validation panel has also been generated
 for this pilot. It assigns deterministic 5° spatial blocks to five folds,
