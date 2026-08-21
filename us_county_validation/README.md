@@ -38,6 +38,9 @@ suppression handling before an estimation panel is accepted.
 USDM area-share files are acquired only with the explicit, state/year-bounded
 downloader in `scripts/`; its manifest preserves the official query URLs and
 checksums. A USDM category is never projected directly into a global SCC draw.
+`prepare_usdm_county_weeks.py` standardizes the exclusive county-week area
+shares and preserves `D0` separately from the `D1+` drought-exposure measure;
+it refuses duplicate county-week inputs or shares that do not sum to 100.
 
 ## Primary design
 
