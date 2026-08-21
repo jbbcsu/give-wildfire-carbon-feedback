@@ -1,6 +1,6 @@
 # Analysis status and claim ledger
 
-Updated: 2026-08-20. This file records completed computational milestones; it
+Updated: 2026-08-21. This file records completed computational milestones; it
 does not report final response estimates or SCC values.
 
 | Item | Status | Permitted use |
@@ -16,7 +16,7 @@ does not report final response estimates or SCC values.
 | Global soybean/rainfed, 1982–89 | Season-level and three-window temporal-proxy stage panel, GDHY join, and deterministic validation labels complete: 539,360 potential crop-year rows; 48,900 observed-yield rows across 6,123 cells | Workflow/scaling diagnostic only; no SCC input |
 | Global spring-wheat/rainfed, 1982–89 | Season-level and three-window temporal-proxy stage panel, GDHY join, and deterministic validation labels complete: 539,360 potential crop-year rows; 40,977 observed-yield rows across 5,127 cells | Workflow/scaling diagnostic only; no SCC input |
 | Global winter-wheat/rainfed, 1982–89 | Season-level and three-window temporal-proxy stage panel, GDHY join, and deterministic validation labels complete: 539,360 potential crop-year rows; 68,778 observed-yield rows across 8,668 cells | Workflow/scaling diagnostic only; no SCC input |
-| Global first-rice/rainfed, 1982–89 | Season-level feature panel, GDHY join, deterministic validation labels, and fixed-effects numerical diagnostic complete: 539,360 potential crop-year rows; 76,348 observed-yield rows across 9,564 cells | Workflow/scaling diagnostic only; no SCC input |
+| Global first-rice/rainfed, 1982–89 | Season-level and three-window temporal-proxy stage panel, GDHY join, deterministic validation labels, reconciliation, and fixed-effects numerical diagnostics complete: 539,360 potential crop-year rows; 76,348 observed-yield rows across 9,564 cells | Workflow/scaling diagnostic only; no SCC input |
 | Other crops/periods/scenarios | Not yet complete | No global response or SCC claim |
 
 ## Completed empirical checks
@@ -58,14 +58,17 @@ stage-to-season reconciliation (maximum precipitation-sum rounding difference
 0.000855 mm). Its stage diagnostic uses 68,778 supported yield rows and is
 prohibited from causal or SCC use.
 
-The first-rice season-level panel has 539,360 potential crop-year records and
-76,348 observed-yield records in the documented `rice_major` GDHY directory.
-It passed the same feature-key and outcome-join checks. Its deterministic
+The first-rice panel has 539,360 potential crop-year records and 76,348
+observed-yield records in the documented `rice_major` GDHY directory. It
+passed the same feature-key and outcome-join checks. Its deterministic
 validation labels assign five spatial folds, reserve 1988–89 as the temporal
 holdout, and flag 28.1% of rows as a climate-feature-defined dry-spell or
-heavy-rain case. A fixed-effects numerical diagnostic completed only to check
-matrix dimensions and conditioning; its estimates are not reported and are
-prohibited from causal interpretation or SCC integration.
+heavy-rain case. The three-window stage panel has 1,618,080 rows and passed
+complete stage-to-season reconciliation (maximum precipitation-sum rounding
+difference 0.000732 mm). Season- and stage-level fixed-effects numerical
+diagnostics completed only to check matrix dimensions and conditioning; their
+estimates are not reported and are prohibited from causal interpretation or
+SCC integration.
 
 An executable outcome-independent validation panel has also been generated
 for this pilot. It assigns deterministic 5° spatial blocks to five folds,
