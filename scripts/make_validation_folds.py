@@ -43,8 +43,11 @@ def main() -> None:
     final_holdout_start = int(panel.harvest_year.max()) - args.temporal_holdout_years + 1
     panel["is_temporal_holdout"] = panel.harvest_year >= final_holdout_start
     grid = panel.lat.astype(str) + "_" + panel.lon_360.astype(str) + "_" + panel.crop + "_" + panel.irrigation
-    cdd_cutoff = panel.groupby(grid, observed=True).cdd_max_days.transform(lambda x: x.quantile(args.extreme_quantile))
-    rx1_cutoff = panel.groupby(grid, observed=True).rx1day_mm.transform(lambda x: x.quantile(args.extreme_quantile))
+    # Use pandas' grouped quantile transform rather than a Python lambda per
+    # grid. The semantics are identical, but the vectorized path is necessary
+    # for the full multi-crop panel.
+    cdd_cutoff = panel.groupby(grid, observed=True).cdd_max_days.transform("quantile", q=args.extreme_quantile)
+    rx1_cutoff = panel.groupby(grid, observed=True).rx1day_mm.transform("quantile", q=args.extreme_quantile)
     panel["is_dry_extreme"] = panel.cdd_max_days >= cdd_cutoff
     panel["is_wet_extreme"] = panel.rx1day_mm >= rx1_cutoff
     panel["is_climate_extreme"] = panel.is_dry_extreme | panel.is_wet_extreme

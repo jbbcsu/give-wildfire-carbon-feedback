@@ -52,7 +52,10 @@ temperature/PET attribution is required.
 Fit the primary response on crop-grid-year observations with grid/crop fixed
 effects, flexible year effects, stage temperature and precipitation-pattern
 terms, and temperature--precipitation interactions. Pre-register feature
-selection and splines/thresholds. Cluster or model spatial dependence. Include
+selection and splines/thresholds. Pool crop seasons only with pre-specified
+crop interactions or a hierarchical partial-pooling structure; a combined
+panel is never authority to impose common weather slopes across maize, rice,
+wheat, and soybean. Cluster or model spatial dependence. Include
 irrigation/crop strata where coverage permits. The outcome file is matched to
 the calendar at the crop-season level according to the locked crosswalk in
 `data/provenance/crop_calendar_gdhy_crosswalk.md`; generic GDHY aggregate

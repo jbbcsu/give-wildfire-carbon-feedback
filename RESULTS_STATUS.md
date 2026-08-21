@@ -18,6 +18,7 @@ does not report final response estimates or SCC values.
 | Global winter-wheat/rainfed, 1982–89 | Season-level and three-window temporal-proxy stage panel, GDHY join, and deterministic validation labels complete: 539,360 potential crop-year rows; 68,778 observed-yield rows across 8,668 cells | Workflow/scaling diagnostic only; no SCC input |
 | Global first-rice/rainfed, 1982–89 | Season-level and three-window temporal-proxy stage panel, GDHY join, deterministic validation labels, reconciliation, and fixed-effects numerical diagnostics complete: 539,360 potential crop-year rows; 76,348 observed-yield rows across 9,564 cells | Workflow/scaling diagnostic only; no SCC input |
 | Global second-rice/rainfed, 1982–89 | Season-level and three-window temporal-proxy stage panel, `rice_second` GDHY join, deterministic validation labels, reconciliation, and fixed-effects numerical diagnostics complete: 248,040 potential crop-year rows; 12,694 observed-yield rows across 1,587 cells. | Workflow/scaling diagnostic only; no SCC input |
+| Six-crop-season rainfed panel, 1982–89 | Combined seasonal data contract and outcome-independent validation labels complete: 2,944,840 potential crop-year rows; 368,022 observed-yield rows. Crop/season identity and source panel are retained. | Data-contract and validation scaling diagnostic only; no common-slope or SCC input |
 | Other crops/periods/scenarios | Not yet complete | No global response or SCC claim |
 
 ## Completed empirical checks
@@ -84,6 +85,15 @@ The second-rice three-window stage panel has 744,120 rows and passed complete
 stage-to-season reconciliation (maximum precipitation-sum rounding difference
 0.000419 mm). Its stage diagnostic uses the same 12,694 supported-yield rows
 and remains prohibited from causal interpretation or SCC integration.
+
+The combined six-crop-season rainfed panel retains maize, first/second rice,
+soybean, spring wheat, and winter wheat as distinct crop/season labels. It
+contains 2,944,840 potential crop-year records and 368,022 observed-yield
+records. Its outcome-independent labels assign five spatial folds, reserve
+1988–89 as the temporal holdout, and flag 27.1% of rows as a climate-feature-
+defined dry-spell or heavy-rain case. Combining the data contract does not
+license a common crop slope; the final response must use crop interactions or
+pre-specified hierarchical partial pooling.
 
 An executable outcome-independent validation panel has also been generated
 for this pilot. It assigns deterministic 5° spatial blocks to five folds,
