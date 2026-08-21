@@ -32,7 +32,12 @@ not call the resulting SCC net of adaptation investment.
    disagreement is structural uncertainty, not grounds to average blindly.
 3. Use FAOSTAT only as an aggregation/provenance check because GDHY is partly
    calibrated to it. Seek a genuinely independent subnational source for a
-   formal external validation.
+   formal external validation. The U.S. county extension supplies this layer:
+   compare calendar-aligned crop-area-weighted climate drought measures with
+   observed U.S. Drought Monitor county-week D1+ and severity-area exposures,
+   then assess their incremental and non-duplicative predictive role for
+   documented NASS crop yields. It is a historical validation test, not a
+   projected SCC input.
 4. Refit with an alternate weather product/bias correction and alternate crop
    calendar; retain uncertainty from both.
 5. Require zero climate features to give zero loss, matched pulse/base

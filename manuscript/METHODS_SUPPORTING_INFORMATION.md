@@ -39,6 +39,13 @@ method, water balance. Convert precipitation flux to mm/day using source time
 bounds. Define thresholds and anomalies relative to a fixed historical
 grid-crop-stage baseline. Store units, baseline interval, input version, and
 missing-data flags. Compute nonlinear metrics before geographic aggregation.
+The direct precipitation-pattern family is the primary attribution measure.
+SPEI/PDSI-like climatic-water-balance and soil-moisture families are competing
+drought representations, not terms automatically stacked with the underlying
+precipitation and temperature variables. For every future paired climate draw,
+calculate the corresponding drought-index change directly, then use a
+pre-specified symmetric decomposition when a precipitation versus
+temperature/PET attribution is required.
 
 ## S5. Estimation
 
@@ -88,6 +95,10 @@ Require held-out space, time, and extreme-year validation; calendar/date and
 coordinate checks; coverage/no-infill checks; nonnegative precipitation and
 integer-count checks; zero-feature/zero-loss tests; regional-weight
 normalization; and matched draw IDs for pulse/base. FAOSTAT is an aggregation
-check, not independent external validation of GDHY. Keep crop inundation in
-agriculture and exclude it from the future infrastructure module; exclude
-coastal surge/SLR impacts already addressed by CIAM.
+check, not independent external validation of GDHY. The U.S. county extension
+uses documented NASS yields and U.S. Drought Monitor county-week area shares
+as an external observed validation layer, after an explicit crop-calendar and
+crop-area-weighting choice; it is not a source of global future climate
+features. Keep crop inundation in agriculture and exclude it from the future
+infrastructure module; exclude coastal surge/SLR impacts already addressed by
+CIAM.

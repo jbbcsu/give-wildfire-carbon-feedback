@@ -48,7 +48,11 @@ def max_run(mask: np.ndarray) -> int:
 def rolling_max(values: np.ndarray, width: int) -> float:
     if len(values) < width:
         return np.nan
-    return float(np.convolve(values, np.ones(width), mode="valid").max())
+    # ISIMIP arrays are commonly float32.  Accumulate in float64 so a
+    # five-day subtotal cannot exceed the separately accumulated season total
+    # purely because the two operations rounded differently.
+    values64 = np.asarray(values, dtype=np.float64)
+    return float(np.convolve(values64, np.ones(width), mode="valid").max())
 
 
 def climate_array(ds: xr.Dataset, preferred: str) -> xr.DataArray:
@@ -120,7 +124,7 @@ def main() -> None:
                     "crop": args.crop, "irrigation": args.irrigation, "cross_year": cross_year,
                     "plant_doy": plant_doy, "maturity_doy": harvest_doy,
                     "season_days": len(rain), "tmean_c": float(temp.mean()),
-                    "precip_mm": float(rain.sum()), "wet_days_n": int((rain >= args.wet_day_mm).sum()),
+                    "precip_mm": float(np.sum(rain, dtype=np.float64)), "wet_days_n": int((rain >= args.wet_day_mm).sum()),
                     "cdd_max_days": max_run(rain < args.wet_day_mm),
                     "rx1day_mm": float(rain.max()), "rx5day_mm": rolling_max(rain, 5),
                     "wet_day_threshold_mm": args.wet_day_mm,
