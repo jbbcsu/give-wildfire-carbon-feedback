@@ -13,8 +13,13 @@ valuation coefficients, uncertainty draws, and GIVE country/region mappings are
 independently reproduced.
 
 `python/biodiversity_kernel.py` is the executable tested reference. The Julia
-module mirrors it for eventual Mimi/GIVE integration but requires Julia CI,
-which is not available on the current host.
+module mirrors it for eventual Mimi/GIVE integration. On this host it is
+tested with the repository-level Julia 1.8.5 runtime and a project-local,
+gitignored depot:
+
+```sh
+JULIA_DEPOT_PATH=.julia_depot ../tools/julia-1.8.5/bin/julia --project=. test/runtests.jl
+```
 
 ## Boundaries
 
