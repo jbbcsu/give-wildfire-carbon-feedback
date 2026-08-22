@@ -44,7 +44,11 @@ weather.
 
 For each stage, calculate mean temperature; precipitation total; wet-day
 count; maximum consecutive dry days; Rx1day and Rx5day; and, after a specified
-method, water balance. Convert precipitation flux to mm/day using source time
+method, water balance. Calculate maximum-temperature days and degree-days only
+for explicitly registered crop/specification thresholds. Stage heat-day and
+degree-day totals must reconcile additively to the season; the stage-day-
+weighted maximum-temperature mean must reconcile to the seasonal mean. Convert
+precipitation flux to mm/day using source time
 bounds. Define thresholds and anomalies relative to a fixed historical
 grid-crop-stage baseline. Store units, baseline interval, input version, and
 missing-data flags. Compute nonlinear metrics before geographic aggregation.
@@ -101,6 +105,16 @@ region inputs and outputs `agcost` in billion 2005 USD/year. It replaces
 paths propagate through the crop-specific joint response and one welfare
 mapping. The global SCC is calculated from the discounted difference using
 GIVE's established marginal-damage method.
+
+Before model wiring, the long-form response bundle is checked against the
+frozen crop and FUND-region orders. Every draw/year contains the complete
+region-by-crop product for baseline and pulse; FAIR, climate-member,
+socioeconomic, calendar, response, adaptation, weight, and welfare identifiers
+match within each pair; coefficients and adaptation settings match; weights
+sum to one and remain fixed across scenario and time within a draw; and all
+features are identical before the registered first-divergence year. Historical
+support flags remain scenario-specific. This is a schema/conservation gate,
+not evidence that a response clears empirical validation.
 
 ## S8. Uncertainty and sensitivity
 

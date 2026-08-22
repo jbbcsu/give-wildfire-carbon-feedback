@@ -14,6 +14,15 @@ Crop/season coefficients remain distinct; hierarchical estimation may share
 information but cannot collapse the executable bundle to an undocumented
 common slope.
 
+The long-form exchange bundle carries explicit FAIR, climate member,
+socioeconomic, calendar, response, adaptation, crop-weight, and welfare draw
+identifiers for both `baseline` and `pulse`. The paired-bundle validator
+requires exact scenario keys and identifiers, identical coefficients and
+adaptation settings, and identical features before the registered first year
+in which the pulse may affect them. `observed_support` is deliberately
+scenario-specific because a pulse can move an otherwise supported baseline
+observation outside the historical feature domain.
+
 `CropResponseAggregation` accepts crop-specific mean temperature, seasonal
 precipitation, precipitation timing, one water-stress representation, wet
 extremes, heat extremes, and the registered temperature--precipitation
@@ -26,7 +35,9 @@ identifies non-overlapping terms.
 
 `crop_value_share` is a fixed baseline share of the complete agricultural
 value pool in each FUND region. It must not respond to the climate realization
-or CO2 pulse. The production default requires shares to sum to one. A partial
+or CO2 pulse. A declared weight draw may differ from another uncertainty draw,
+but its region-crop shares cannot change between baseline/pulse or across
+years. The production default requires shares to sum to one. A partial
 coverage run is allowed only when `require_full_coverage=false`; it is a
 diagnostic, reports the coverage share, leaves the unrepresented share with no
 modeled response, and is not eligible for an SCC estimate. Normalizing four
@@ -73,3 +84,8 @@ model; units and FUND order; finite coefficient draws; fixed normalized
 weights; matched IDs; zero-feature and zero-pulse conservation; held-out
 response skill; observed-support flags; and a one-for-one agriculture
 replacement test.
+
+`scripts/validate_scc_response_bundle.py` implements the array/schema portion
+of these gates and writes an audit without estimating or authorizing a damage
+function. Held-out skill, future-climate support, welfare calibration, and the
+component-graph replacement test remain separate production requirements.

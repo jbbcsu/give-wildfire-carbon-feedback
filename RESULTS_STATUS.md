@@ -1,6 +1,6 @@
 # Analysis status and claim ledger
 
-Updated: 2026-08-21. This file records completed computational milestones; it
+Updated: 2026-08-22. This file records completed computational milestones; it
 does not report final response estimates or SCC values.
 
 | Item | Status | Permitted use |
@@ -21,6 +21,7 @@ does not report final response estimates or SCC values.
 | Global second-rice/rainfed, 1982–89 | Season-level and three-window temporal-proxy stage panel, `rice_second` GDHY join, deterministic validation labels, reconciliation, and fixed-effects numerical diagnostics complete: 248,040 potential crop-year rows; 12,694 observed-yield rows across 1,587 cells. | Workflow/scaling diagnostic only; no SCC input |
 | Six-crop-season rainfed panel, 1982–89 | Combined seasonal data contract and outcome-independent validation labels complete: 2,944,840 potential crop-year rows; 368,022 observed-yield rows. Crop/season identity and source panel are retained. | Data-contract and validation scaling diagnostic only; no common-slope or SCC input |
 | Crop-response/SCC interface | Synthetic tests pass for crop-specific feature coefficients, pre-aggregation adaptation, fixed crop-value weights, partial/full coverage gates, and MooreAg-compatible `agcost` output | Executable interface contract only; contains no empirical coefficients, welfare calibration, or SCC result |
+| Stage heat and paired-bundle gates | Synthetic cross-year heat construction, executable stage/season reconciliation audit, partition combine, panel join, and baseline/pulse identity/coverage/weight/conservation checks pass | Pipeline/schema validation only; no heat threshold, fitted response, or SCC result is selected |
 | Other crops/periods/scenarios | Not yet complete | No global response or SCC claim |
 
 ## Completed empirical checks
@@ -140,3 +141,11 @@ default. Its tests use synthetic arrays only. Allowing partial coverage is
 explicitly diagnostic; normalizing represented crops to the entire
 agricultural value pool or reporting an SCC still requires a justified welfare
 gap model and every empirical validation gate above.
+
+The stage-heat workflow now mirrors the latitude-partitioned precipitation
+pipeline and preserves crop/stage identity through the estimation-panel join.
+Its test covers a cross-year crop season and verifies threshold-day,
+degree-day, stage-length, and weighted-mean reconciliation. No production heat
+threshold is encoded: thresholds remain an explicit, pre-registered response-
+specification choice. The paired response-bundle gate is also executable on
+CSV or Parquet inputs, but has been exercised only on synthetic arrays.

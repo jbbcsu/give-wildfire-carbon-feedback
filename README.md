@@ -31,9 +31,19 @@ coefficients or SCC estimates.
 The empirical climate pipeline is deliberately staged: daily ISIMIP inputs are
 converted to calendar-defined crop-year features, independently reconciled
 against stage partitions, then joined to GDHY yields before any pilot response
-diagnostic.  The stage fractions are temporal proxies rather than asserted crop
-phenology.  See the scripts directory and [RESULTS_STATUS.md](RESULTS_STATUS.md)
-for the current evidence boundary.
+diagnostic. Stage-resolved daily-maximum heat features now use the same
+partition boundaries, require explicit temperature thresholds, and must
+reconcile additive heat days and degree-days to the season. The stage fractions
+are temporal proxies rather than asserted crop phenology. See the scripts
+directory and [RESULTS_STATUS.md](RESULTS_STATUS.md) for the current evidence
+boundary.
+
+Before any empirical response array can approach GIVE wiring,
+`scripts/validate_scc_response_bundle.py` enforces the frozen crop/FUND order,
+full crop-value coverage, matched baseline/pulse identifiers, one declared
+water-stress family, fixed-within-draw weights, finite coefficients, and
+pre-divergence conservation. Passing this schema gate is not evidence of
+held-out skill or authorization to calculate an SCC.
 
 The approved calendar-to-yield season crosswalk is recorded in
 [data/provenance/crop_calendar_gdhy_crosswalk.md](data/provenance/crop_calendar_gdhy_crosswalk.md).

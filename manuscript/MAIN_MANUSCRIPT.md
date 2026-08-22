@@ -53,8 +53,11 @@ The estimation outcome is GDHY gridded yield for maize, rice, wheat, and
 soybean. Daily ISIMIP climate fields and GGCMI Phase 3 crop calendars supply
 stage-level temperature and precipitation information. Features include
 stage-weighted temperature, seasonal precipitation or water balance,
-consecutive dry days, wet-day frequency, and heavy-rain/water-excess metrics.
-All are computed at grid-cell and crop-year level before aggregation.
+consecutive dry days, wet-day frequency, heavy-rain/water-excess metrics, and
+stage-resolved maximum-temperature threshold days and degree-days. Heat
+thresholds are registered explicitly rather than supplied by a universal code
+default. All features are computed at grid-cell and crop-year level before
+aggregation.
 
 ## 4. Empirical design
 

@@ -9,6 +9,10 @@ support it. Exclude incomplete cross-year crop windows rather than filling
 them silently. Fit the pre-specified response with grid/crop fixed effects,
 flexible year effects, stage weather features, and temperature--precipitation
 interactions. Record all changes as secondary specifications.
+Daily-maximum heat features must use the identical calendar and stage
+boundaries as precipitation features. For every registered threshold, stage
+heat-day counts and degree-days must sum to their season-level values, while
+the stage-day-weighted maximum-temperature mean must equal the seasonal mean.
 
 ## Three adaptation scenarios
 
@@ -46,6 +50,9 @@ not call the resulting SCC net of adaptation investment.
    agricultural input to SCC. Assert that crop-value shares are nonnegative,
    fixed across paired climate paths, and sum to the complete agricultural
    value pool in every region; partial-coverage mode is diagnostic-only.
+   Run the paired response-bundle validator before integration. Its schema
+   pass does not substitute for held-out skill, observed-support, or welfare
+   validation.
 
 The ISIMIP/GDHY coordinate transformation is an explicit validation gate:
 ISIMIP longitude is −180–180° with descending latitude, while GDHY longitude

@@ -1,8 +1,15 @@
-schema_version = 1
+schema_version = 2
 crops = ["maize", "rice_first", "rice_second", "soybean", "wheat_spring", "wheat_winter"]
 region_order_file = "fund_region_order.csv"
 weights = "fixed baseline agricultural-value shares; never climate-responsive"
 production_requires_full_coverage = true
+weight_tolerance = 1e-8
+
+[pairing]
+scenarios = ["baseline", "pulse"]
+identifiers = ["fair_draw_id", "climate_member_id", "socioeconomic_id", "calendar_id", "response_draw_id", "adaptation_scenario", "weight_draw_id", "welfare_draw_id"]
+pre_divergence_rule = "all response features must be equal before the registered first-divergence year"
+support_flag = "scenario-specific; never forced equal between baseline and pulse"
 
 [feature_families]
 temperature = "mean temperature plus a separately declared crop-specific heat extreme"
