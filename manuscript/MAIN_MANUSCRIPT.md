@@ -47,6 +47,16 @@ baseline agriculture component and replaces it. The primary quantity is the
 joint climate marginal damage. Any precipitation attribution is a declared
 decomposition of a joint model, not a separately identified causal outcome.
 
+This is not the first climate or crop emulator. MESMER-M-TP and related
+systems emulate spatial precipitation under warming; stochastic weather
+generators translate monthly conditions into daily sequences; and OSCAR-crop
+maps CO2, temperature, aggregate growing-season precipitation, and nitrogen
+to crop yields inside a compact Earth-system model. The distinguishing target
+here is narrower: determine whether crop-stage rainfall timing, dry-spell
+persistence, and heavy-rain exposure materially change agricultural marginal
+damages relative to an aggregate-water benchmark, using matched pulse/base
+paths and a non-overlapping GIVE welfare replacement.
+
 ## 3. Data and feature construction
 
 The estimation outcome is GDHY gridded yield for maize, rice, wheat, and

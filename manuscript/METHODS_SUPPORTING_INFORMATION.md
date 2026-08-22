@@ -42,6 +42,29 @@ weather.
 
 ## S4. Climate features
 
+### S4.1 Climate-to-precipitation projection
+
+The project does not claim or train a new free-standing precipitation
+emulator. Direct daily ISIMIP/CMIP fields are the reference. Candidate fast
+projection chains are evaluated against those fields with entire ESMs and
+scenarios held out. The current published-method candidate combines a
+MESMER-M-TP monthly response with a published daily occurrence/amount weather
+generator; STITCHES supplies a sequence-preserving benchmark and MESMER-X an
+independent Rx1day benchmark. RIG (Huang et al., 2026 preprint) is the closest
+known joint daily global temperature--precipitation system under flexible
+radiative forcing, but is not executable as of 22 August 2026 because its
+authors state that code will be released upon publication. ACE2-SOM is a
+high-complexity robustness model rather than the default.
+
+Every candidate must reproduce crop-calendar totals, early/middle/late or
+phenological-stage shares, wet-day frequency, consecutive dry days, Rx1day,
+Rx5day, heat--precipitation dependence, and spatially synchronized crop-region
+events. For SCC use, paired base/pulse runs share stochastic innovations and
+must show stable, convergent feature differences as pulse size is reduced.
+Aggregate growing-season precipitation results are additionally benchmarked
+against OSCAR-crop v1.0; that published model does not validate daily timing
+or extreme-weather effects.
+
 For each stage, calculate mean temperature; precipitation total; wet-day
 count; maximum consecutive dry days; Rx1day and Rx5day; and, after a specified
 method, water balance. Calculate maximum-temperature days and degree-days only

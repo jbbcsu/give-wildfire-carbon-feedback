@@ -6,6 +6,13 @@
 | CMIP6 scenario climate fields | [O'Neill et al. (2016), ScenarioMIP](https://doi.org/10.5194/gmd-9-3461-2016) | Primary protocol for scenario simulations. |
 | CMIP6 design and ensemble | [Eyring et al. (2016)](https://doi.org/10.5194/gmd-9-1937-2016) | Primary CMIP6 experimental design. |
 | Global daily bias-adjusted projections | [Lange (2021), ISIMIP3BASD](https://doi.org/10.5194/gmd-14-5443-2021) | Transparent bias-adjustment method for impact applications. |
+| Climate-emulator review | [Tebaldi et al. (2025)](https://doi.org/10.1146/annurev-environ-012125-085838) | Fit-for-purpose taxonomy and limitations of climate-model-output emulators. |
+| Monthly temperature--precipitation emulation | [Schöngart et al. (2024), MESMER-M-TP](https://doi.org/10.5194/gmd-17-8283-2024) | Published, open monthly spatial precipitation backbone conditional on temperature. |
+| Global daily stochastic weather | [Sommer and Kaplan (2017), Global-WGEN](https://doi.org/10.5194/gmd-10-3771-2017) | Transparent global daily precipitation and temperature generation from monthly inputs. |
+| Daily precipitation occurrence and amount under warming | [Kemsley et al. (2024)](https://doi.org/10.1002/joc.8320) | Pattern-scaled wet/dry transition and wet-day amount parameters; direct precedent for distributional rainfall change. |
+| Flexible daily climate generation | [Huang et al. (2026 preprint)](https://doi.org/10.48550/arXiv.2607.21382) | Closest known daily global temperature--precipitation generator across forcing scenarios; benchmark only pending review, code, and crop-feature validation. |
+| High-frequency learned climate response | [Clark et al. (2025), ACE2-SOM](https://doi.org/10.1029/2024JH000575) | Peer-reviewed 6-hourly atmospheric-emulator response across idealized CO2 climates. |
+| Integrated crop-emulator benchmark | [Liu et al. (2026), OSCAR-crop](https://doi.org/10.5194/gmd-19-5857-2026) | Closest compact-Earth-system crop module; represents aggregate growing-season water but explicitly omits extremes and daily timing. |
 | Crop-calendar inputs | [Jägermeyr et al. (2021), GGCMI Phase 3 calendar](https://doi.org/10.5281/zenodo.5062513) | Calendar-defined crop years and separate rice/wheat seasons. |
 | Historical gridded yield outcomes | [Iizumi and Sakai (2020), GDHY](https://doi.org/10.1038/s41597-020-0433-7) | 0.5° annual, season-specific yield outcome; a census/satellite-informed estimate, not an independent FAOSTAT validation source. |
 | Flood hazard/loss modeling | [Ward et al. (2020)](https://doi.org/10.1038/s41467-020-17591-w) | Global flood-risk modeling with climate and socioeconomic drivers. |

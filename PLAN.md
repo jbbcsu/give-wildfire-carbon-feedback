@@ -19,12 +19,15 @@ Relevant baseline locations (read-only for this project):
 * `paper-2022-scc-give-zenodo/packages/MooreAg/src/core/AgricultureComponent.jl`
 * `paper-2022-scc-give-zenodo/packages/MimiGIVE/src/main_ciam.jl`
 
-## Phase 0 — scope and accounting (user decision before integration)
+## Phase 0 — scope and accounting (authorized)
 
 Define the estimand as the present value of the damage difference caused by a
 one-tonne CO2 pulse through precipitation, conditional on the model's
-temperature and socioeconomic paths.  Default scope: mean/seasonal
-precipitation, heavy precipitation, and non-coastal riverine/pluvial flooding.
+temperature and socioeconomic paths. The primary estimand is global
+agricultural SCC from a replacement for MooreAg. It includes mean/seasonal
+precipitation, within-season timing and distribution, drought, and heavy/wet
+exposure jointly with temperature. Non-coastal riverine/pluvial infrastructure
+flooding is deferred behind a preserved separate interface.
 
 **Novelty gate:** a 2024 working paper by Wenz, Kotz, Callahan, and
 Stechemesser reports a GIVE integration of total precipitation, wet-day
@@ -38,12 +41,11 @@ status and intended relationship before empirical estimation.
 Do not run the new module alongside the optional DICE or Howard--Sterner
 aggregate functions: those are broad reduced-form damage functions and their
 overlap is unidentified.  Run it with GIVE's sectoral bundle only.  For
-agriculture, choose one of: (A) replace MooreAg with a jointly estimated
-temperature--water response; (B) estimate a precipitation residual orthogonal
-to the MooreAg temperature response and add only that residual; or (C) report
-agriculture separately.  For coastal flooding, use CIAM alone in the main
-specification; a coastal-rainfall add-on requires event-level evidence that
-excludes surge/sea-level damages already in CIAM.
+agriculture, the authorized choice is to replace MooreAg with a jointly
+estimated temperature--water response, not add a precipitation residual.
+For coastal flooding, use CIAM alone in the main specification; a
+coastal-rainfall add-on requires event-level evidence that excludes
+surge/sea-level damages already in CIAM.
 
 ## Phase 1 — published climate-to-precipitation emulators
 
@@ -52,9 +54,15 @@ predeclared validation. The literature audit in
 `CLIMATE_PRECIPITATION_EMULATOR_AUDIT.md` identifies MESMER-M-TP as the monthly
 backbone candidate, the Kemsley et al. pattern-scaled Markov--gamma generator
 for daily occurrence/intensity and dry-spell structure, MESMER-X for Rx1day,
-and STITCHES as the principal daily multivariate benchmark.
+and STITCHES as the principal daily multivariate benchmark. RIG (Huang et al.,
+2026 preprint) is the closest known daily global forcing-to-temperature-and-
+precipitation system, but its code and weights are promised only upon
+publication. ACE2-SOM is a peer-reviewed high-complexity benchmark under
+idealized CO2 climates. Neither is adopted until it passes crop-feature and
+small-pulse convergence tests.
 
-The published-method chain is driven by each matched FAIR temperature draw:
+The published-method chain is driven by each matched FAIR forcing/temperature
+draw, according to the selected emulator's validated input contract:
 
 `T(t) -> [P_ann, P_season, Rx1day, Rx5day, wet-day frequency, dry-spell]_(t,r)`.
 
@@ -75,8 +83,9 @@ held-out validated and pre-specified.
 
 ## Phase 2 — damage functions (empirical work required)
 
-1. **Riverine/pluvial flooding:** estimate event annual exceedance probability
-   or expected annual loss as a function of basin heavy-rainfall indicators,
+1. **Riverine/pluvial flooding (deferred):** preserve an interface for a later
+   event annual exceedance probability or expected annual loss as a function
+   of basin heavy-rainfall indicators,
    antecedent wetness/proxy, exposure, protection/adaptation, and income.
    Use gridded/basin hazard data and losses with fixed effects; do not infer
    fluvial hazard from country-average annual rainfall alone.
@@ -86,6 +95,9 @@ held-out validated and pre-specified.
    It must **replace**, not be residualized onto, the temperature-only MooreAg
    channel.  Benchmark against GGCMI/ISIMIP; use ML only as a constrained,
    held-out predictive comparator after the transparent panel model.
+   Compare against OSCAR-crop v1.0 as the mandatory aggregate growing-season
+   water benchmark; incremental value must come from daily/stage timing,
+   dry/wet persistence, extremes, empirical validation, or welfare accounting.
 3. **Other mechanisms:** include only with a separately identified response
    and accounting boundary: drought/water-supply losses, hydropower,
    landslides, and water-borne disease are candidates.  Avoid adding
@@ -98,15 +110,15 @@ check.  Negative precipitation effects and benefits remain permitted.
 
 ## Phase 3 — model integration and SCC (directly implementable once estimated)
 
-Use the isolated `PrecipitationDamages` component as the interface contract.
-Add the climate emulator, then the component, then a new additive input to a
-copy of `DamageAggregator`; do this in a new package/module rather than
-altering the baseline or wildfire branches.  Connect annual country losses to
-net consumption.  Compute paired baseline/pulse runs with matched FAIR,
-climate-pattern, vulnerability, and socioeconomic draws.  Discount the
-difference in consumption/welfare using GIVE's existing SCC procedure and
-report global, domestic (only after a defined national allocation rule), and
-sectoral marginal damages.
+Use the isolated `CropResponseAggregation` and `JointAgriculture` components
+as the executable contract. Add the selected climate driver and estimated
+response, then replace MooreAg's `agcost` pathway; do not add a second
+agricultural input to `DamageAggregator`. Keep this in the isolated project
+rather than altering the baseline or wildfire branches. Connect annual
+regional losses to net consumption. Compute paired baseline/pulse runs with
+matched FAIR, climate-pattern, vulnerability, and socioeconomic draws.
+Discount the difference in consumption/welfare using GIVE's existing SCC
+procedure and report global and sectoral marginal damages.
 
 ## Phase 4 — calibration, validation, and uncertainty
 
@@ -132,11 +144,15 @@ until they clear the overlap and validation criteria.  A pre-analysis plan
 should lock the main sector set, counterfactual, and aggregation rule before
 estimating SCC results.
 
-## Decisions needed
+## Decisions resolved
 
-1. Main estimand: global SCC only, or also a domestic allocation?
-2. Agriculture: replacement, residualized add-on, or separate reporting?
-3. Phase-1 scope: begin with riverine/pluvial flood plus agriculture, or flood
-   only while agricultural estimation is developed?
-4. Adaptation: hold present protection fixed, use SSP-consistent protection,
-   or show both as named scenarios?
+1. Main estimand: global SCC.
+2. Agriculture: joint temperature--precipitation replacement for MooreAg.
+3. Priority: agriculture; separate non-coastal infrastructure flooding is
+   deferred while its interface remains documented.
+4. Adaptation: report fixed, trend, and upper scenarios separately.
+
+No additional user decision is required to continue data, estimation, climate
+benchmark, and validation work. A later decision will be requested only if
+multiple climate-emulation chains pass the predeclared gates with a material
+accuracy--compute tradeoff.

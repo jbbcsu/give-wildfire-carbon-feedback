@@ -1,0 +1,49 @@
+schema_version = 1
+last_audited = "2026-08-22"
+purpose = "Pin candidate climate and crop emulators considered for the precipitation-SCC design. These records authorize no data redistribution."
+
+[[candidate]]
+id = "rig_huang_2026"
+role = "closest_daily_forcing_candidate"
+paper = "https://doi.org/10.48550/arXiv.2607.21382"
+peer_reviewed = false
+paper_license = "CC-BY-NC-SA-4.0"
+code_status = "Authors state that source code will be made public upon publication; no repository or weights were linked on 2026-08-22."
+resolution = "daily, 0.25 degree, global temperature and precipitation"
+decision = "external benchmark only until peer review, code and weights are archived, and crop-feature plus marginal-pulse gates pass"
+
+[[candidate]]
+id = "mesmer_m_tp"
+role = "monthly_precipitation_backbone_candidate"
+paper = "https://doi.org/10.5194/gmd-17-8283-2024"
+repository = "https://github.com/sarasita/mesmer-m-tp"
+repository_commit_audited = "64c4be909f094b4cfa3874abdc55a609790722c8"
+archived_release = "https://doi.org/10.5281/zenodo.11086167"
+code_license = "GPL-3.0"
+peer_reviewed = true
+code_status = "Public development code; not packaged, no pinned environment file, and local paths must be configured. Reproduce the frozen release before adaptation."
+decision = "candidate monthly backbone; keep as an external executable or separately licensed adaptation"
+
+[[candidate]]
+id = "ace2_som"
+role = "high_complexity_dynamic_benchmark"
+paper = "https://doi.org/10.1029/2024JH000575"
+repository = "https://github.com/ai2cm/ace"
+repository_commit_audited = "05c5a050f168d64ebcfef50ca0a8317f17246d2f"
+code_license = "Apache-2.0"
+peer_reviewed = true
+code_status = "Packaged as fme with public documentation and model checkpoints; substantial model, data and compute requirements remain."
+decision = "robustness benchmark; not primary unless transient FAIR pulse behavior is validated"
+
+[[candidate]]
+id = "oscar_crop_v1"
+role = "aggregate_crop_emulator_benchmark"
+paper = "https://doi.org/10.5194/gmd-19-5857-2026"
+repository = "https://github.com/Xinrui-Rea/OSCAR-crop"
+repository_commit_audited = "6d1e0b869004989a855569a54a04021f4faf74ad"
+archived_release = "https://doi.org/10.5281/zenodo.17228924"
+code_license = "CeCILL-2.1"
+peer_reviewed = true
+code_status = "Public Python 3.11+ source and model inputs; repository is not packaged for pip."
+resolution = "annual, 311 regions, crop and irrigation strata"
+decision = "mandatory aggregate growing-season precipitation benchmark; do not treat as daily timing or extremes model"
