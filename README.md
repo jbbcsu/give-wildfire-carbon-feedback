@@ -61,6 +61,10 @@ The pre-integration validation layer now also includes
 first-difference predictions across outcome-blind spatial, temporal, and
 climate-extreme holdouts and intentionally emits no coefficients. Its output
 is diagnostic and cannot be used as an SCC response bundle.
+`scripts/validate_response_evaluation_audit.py` then fails unless the audit
+matches the exact configuration hash and contains the complete explicitly
+declared crop/model/holdout product with reconciled folds, benchmarks, metrics,
+and row counts. Its descriptive ranking is not a model-selection rule.
 
 For a panel that already contains stage features, create the outcome-blind
 labels and run the audit with:
@@ -72,6 +76,11 @@ labels and run the audit with:
 ./.venv/bin/python scripts/evaluate_crop_response_models.py \
   --panel data/interim/STAGE_VALIDATION_PANEL.parquet \
   --out outputs/response_evaluation.json
+./.venv/bin/python scripts/validate_response_evaluation_audit.py \
+  --audit outputs/response_evaluation.json \
+  --expected-crop mai --expected-crop ri1 --expected-crop ri2 \
+  --expected-crop soy --expected-crop swh --expected-crop wwh \
+  --summary-out outputs/response_evaluation_summary.json
 ```
 
 The approved calendar-to-yield season crosswalk is recorded in

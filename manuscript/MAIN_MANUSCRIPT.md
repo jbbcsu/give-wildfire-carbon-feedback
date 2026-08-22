@@ -102,6 +102,18 @@ agreement across weather products.
 Report spatial, temporal, and extreme-year held-out skill; coefficient and
 functional-form uncertainty; and comparison with process-model ranges.
 
+Current diagnostic evidence is deliberately below that release gate. In the
+1982–89 rainfed panel, a frozen coefficient-suppressing audit evaluated
+321,620 consecutive observed-yield pairs across six crop-season labels. The
+three-window joint model had the lowest RMSE in 11 of 18 crop-by-holdout
+comparisons, but the seasonal joint and precipitation-only models led five and
+two comparisons, respectively. No candidate beat a zero-change prediction in
+the second-season-rice temporal block, and richer models also failed that
+benchmark in its spatial block. This retained mixed result is an internal
+predictive diagnostic, not model selection, causal response evidence, or an
+SCC input; the complete-period, irrigated, heat, drought-family, uncertainty,
+and external-validation gates remain open.
+
 ### 6.3 Marginal damages and global SCC
 
 Report global agricultural marginal damages and SCC under each adaptation

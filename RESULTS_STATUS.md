@@ -24,7 +24,8 @@ does not report final response estimates or SCC values.
 | Stage heat and paired-bundle gates | Synthetic cross-year heat construction, executable stage/season reconciliation audit, partition combine, panel join, and baseline/pulse identity/coverage/weight/conservation checks pass | Pipeline/schema validation only; no heat threshold, fitted response, or SCC result is selected |
 | Historical crop-stage scPDSI path | Synthetic cross-year construction, exact longitude normalization/grid matching, complete-month coverage, partition validation/combine, and one-to-one panel join pass | Historical climatic-index benchmark plumbing only; no real CRU panel, response estimate, future drought path, or SCC input |
 | Maize/rainfed blocked response audit, 1982–89 | 105,157 consecutive observed-yield pairs evaluated with crop-specific first-difference seasonal-precipitation, seasonal-joint, and three-window-joint models across spatial, temporal, and climate-extreme holdouts | Internal predictive diagnostic only; coefficients are suppressed and no causal, global-response, or SCC claim is permitted |
-| Other crops/periods/scenarios | Not yet complete | No global response or SCC claim |
+| Six-crop/rainfed blocked response audit, 1982–89 | 321,620 consecutive observed-yield pairs across maize, first/second rice, soybean, spring wheat, and winter wheat; exact crop/model/holdout coverage, metric arithmetic, fold reconciliation, and full-rank finite fits validated | Internal predictive diagnostic only; mixed crop/holdout rankings prohibit a universal-model or SCC claim |
+| Irrigated panels, later periods, and future scenarios | Not yet complete | No production global response or SCC claim |
 
 ## Completed empirical checks
 
@@ -60,6 +61,26 @@ seasonal joint model. The corresponding zero-change benchmarks were 0.3103,
 specification-comparison diagnostic on one crop, one rainfed exposure proxy,
 and eight years; coefficients are deliberately absent from the audit and the
 metrics do not establish causality or support SCC integration.
+
+The identical frozen diagnostic now covers all six available rainfed
+crop-season panels and 321,620 consecutive-year pairs. The audit validator
+confirmed the exact six-crop by three-model by three-holdout product, fold-row
+reconciliation, common zero-change benchmarks, metric arithmetic, and finite
+full-rank designs; the largest design condition number was 19.38. There was no
+universal predictive winner. The three-window joint model had the lowest RMSE
+in 11 of 18 crop/holdout comparisons, the seasonal joint model in five, and
+the seasonal precipitation-only model in two. In second-season rice, only the
+precipitation-only model beat zero change in the spatial audit, and no model
+beat zero change in the temporal audit; the three-window model's temporal RMSE
+was 0.2872 versus 0.2747 for zero change. Spring wheat also favored the simpler
+precipitation-only model in its temporal block (RMSE 0.3487 versus 0.3688 for
+the three-window model). These outcome-blind, retained unfavorable results
+preclude choosing one response family from this eight-year diagnostic. They
+do not supply coefficients, causal evidence, global external validity, or an
+SCC input. The source artifact is generated at
+`outputs/multicrop_noirr_1982_1989_response_evaluation.json` and validated into
+`outputs/multicrop_noirr_1982_1989_response_summary.json`; both remain ignored
+derived products and must be regenerated from the documented command.
 
 The independent 1992–2000 maize/rainfed seasonal panel contains 606,780
 potential crop-year records and 135,405 observed-yield records across 15,107

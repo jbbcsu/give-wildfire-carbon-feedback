@@ -188,6 +188,17 @@ benchmark are reported; response coefficients are not exported. This is an
 internal predictive diagnostic, not causal identification, independent
 external validation, or authority to construct SCC inputs.
 
+Multi-crop audit reporting is fail-closed. The audit validator binds the JSON
+artifact to the SHA-256 of the frozen response specification; requires the
+explicitly declared crop-season set and every crop-by-model-by-holdout result;
+checks positive and reconciled level, observed, pair, split, and spatial-fold
+row counts; requires finite metrics and design diagnostics; and independently
+recomputes improvement over the common zero-change benchmark. It emits a
+machine-readable diagnostic summary while labeling any lowest-RMSE model as
+descriptive only. Missing crops, duplicate results, stale configurations,
+inconsistent benchmark values, nonfinite metrics, and failed arithmetic stop
+the reporting workflow.
+
 ## S10. Scientific integrity and independent review
 
 Every quantitative statement is classified as observed source data, derived

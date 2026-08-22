@@ -66,6 +66,8 @@ Define joint-effect and precipitation-attribution decomposition, including featu
 
 * Spatial-blocked, temporal, and extreme-year holdouts.
 * Errors/skill relative to named baseline, calibration/coverage, bias by yield/region, and response-shape stability.
+* A configuration-hash and complete crop/model/holdout audit gate before any
+  diagnostic comparison is reported; retain model and benchmark failures.
 * GGCMI/ISIMIP comparison with configuration matching; interpret as structural benchmark.
 * Alternate weather, calendar, feature, and aggregation robustness.
 * ML comparator protocol: distributed-lag fixed effects and gradient boosting precede LSTM/temporal fusion; ML proceeds only if it clears holdout and physical/counterfactual gates.

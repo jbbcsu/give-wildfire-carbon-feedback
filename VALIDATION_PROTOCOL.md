@@ -100,3 +100,11 @@ zero-change benchmark. The transformation removes time-invariant grid levels;
 it does not establish causal identification or solve time-varying omitted
 variables. Coefficients are deliberately omitted from its output and the
 result cannot be used to populate an SCC response bundle.
+
+Before reporting a multi-crop diagnostic, run
+`scripts/validate_response_evaluation_audit.py` with every expected crop-season
+label. It binds the result to the response-specification SHA-256, requires the
+exact crop-by-model-by-holdout product, reconciles spatial-fold row counts, and
+recomputes every improvement-over-zero identity. Partial or stale audits fail.
+The emitted best-model fields are descriptive summaries of the frozen audit,
+not permission to select a preferred SCC response.
