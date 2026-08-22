@@ -1,10 +1,10 @@
-"""
+#=
 Standalone Mimi component contract for the precipitation-SCC project.
 
-This file is deliberately unintegrated: its zero default coefficient produces
-zero losses until an empirically estimated coefficient bundle is supplied.
+This file is deliberately unintegrated: all coefficient arrays must be
+supplied explicitly from an empirically estimated coefficient bundle.
 It has no imports from the wildfire project.
-"""
+=#
 using Mimi
 
 @defcomp PrecipitationDamages begin
@@ -14,9 +14,9 @@ using Mimi
     heavy_precip_anomaly = Parameter(index=[time, country])
     exposure = Parameter(index=[time, country], unit="persons or assets; documented by pathway")
     # Monetary loss per exposure-unit and index-unit; must be supplied by a registered estimate.
-    beta_mean = Parameter(index=[country], default=0.)
-    beta_heavy = Parameter(index=[country], default=0.)
-    adaptation_multiplier = Parameter(index=[time, country], default=1.)
+    beta_mean = Parameter(index=[country])
+    beta_heavy = Parameter(index=[country])
+    adaptation_multiplier = Parameter(index=[time, country])
     damages = Variable(index=[time, country], unit="US\$2005/yr")
 
     function run_timestep(p, v, d, t)

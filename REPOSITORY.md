@@ -8,11 +8,12 @@ reference wildfire/biomass-burning code, data, outputs, or credentials.
 
 ## Environment
 
-The prototype is Julia-first. Install Julia 1.8+ and create a project-local
-environment with `Mimi`, `NetCDF`, `CSV`, `DataFrames`, and `Statistics`.
-The planned feature builder also supports Python 3.11+ with `numpy`, `pandas`,
-`xarray`, and a NetCDF engine. Exact package versions must be locked in a
-future `Manifest.toml`/lock file before estimation results are released.
+The prototype is Julia-first. The tracked `Project.toml` pins the direct Mimi
+compatibility boundary; use Julia 1.8+ and a project-local depot. The current
+daily-feature pipeline uses Python 3.11+ with `numpy`, `pandas`, `xarray`, and
+a NetCDF engine.
+The tracked `Manifest.toml` locks the Julia dependency graph used by the test
+suite; regenerate and review it deliberately when changing dependencies.
 
 ## Reproducible order
 
@@ -46,5 +47,6 @@ never push to a guessed GitHub destination.
 ```sh
 .venv/bin/python scripts/verify_provenance.py data/provenance
 .venv/bin/python scripts/test_feature_builder.py
-tools/julia-1.8.5/bin/julia -e 'include("src/AdaptationScenarios.jl")'
+JULIA_DEPOT_PATH=.julia_depot ../tools/julia-1.8.5/bin/julia --project=. -e 'using Pkg; Pkg.instantiate()'
+JULIA_DEPOT_PATH=.julia_depot ../tools/julia-1.8.5/bin/julia --project=. test/runtests.jl
 ```

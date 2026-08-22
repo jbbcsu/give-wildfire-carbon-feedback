@@ -18,6 +18,15 @@ license/terms, SHA-512, retrieval date, and URL for every file. Climate files
 are multi-gigabyte global arrays and must be streamed/chunked; do not commit
 them. See `data/input_manifest.csv`.
 
+The U.S. validation outcome source is the dated USDA NASS Quick Stats crops
+bulk snapshot `qs.crops_20260821.txt.gz`. Acquisition pins the declared byte
+length, ETag, and last-modified value; downloads verified HTTP ranges and
+refuses to continue a partial file if source identity changes; and records a
+streaming SHA-512 only after completion. Raw records and the acquisition
+sidecar are excluded from Git. Commodity, practice, geography, unit, and
+suppression filters are fixed only after schema inspection and are recorded in
+the processed-panel manifest.
+
 ## S3. Crop-year alignment
 
 For every grid cell, crop, season, irrigation regime, and harvest year, read
@@ -102,6 +111,9 @@ check, not independent external validation of GDHY. The U.S. county extension
 uses documented NASS yields and U.S. Drought Monitor county-week area shares
 as an external observed validation layer, after an explicit crop-calendar and
 crop-area-weighting choice; it is not a source of global future climate
-features. Keep crop inundation in agriculture and exclude it from the future
+features. County yield is not labeled rainfed without crop-specific irrigated
+area evidence: the primary sample applies a predeclared high-rainfed-share
+threshold, reports nearby thresholds, and treats mixed counties separately.
+Keep crop inundation in agriculture and exclude it from the future
 infrastructure module; exclude coastal surge/SLR impacts already addressed by
 CIAM.

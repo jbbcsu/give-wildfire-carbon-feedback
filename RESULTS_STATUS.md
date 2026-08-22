@@ -13,6 +13,7 @@ does not report final response estimates or SCC values.
 | `tasmin` | 1981–2019 acquired; source sizes and SHA-512 recorded | Required input for final heat-extreme specification |
 | Maize/rainfed pilot | Real 2-latitude, 1982–89 feature and GDHY join completed | Pipeline/coordinate/feature validation only |
 | Global maize/rainfed, 1982–89 | Season-level and three-window temporal-proxy stage panel complete: 539,360 potential crop-year rows; 120,325 observed-yield rows across 15,098 cells | Workflow/scaling diagnostic only; no SCC input |
+| Global maize/rainfed, 1992–2000 | Season-level and three-window temporal-proxy stage panels, GDHY join, deterministic validation labels, reconciliation, and fixed-effects numerical diagnostic complete: 606,780 potential crop-year rows; 135,405 observed-yield rows across 15,107 cells | Independent-period workflow/coverage diagnostic only; no SCC input |
 | Global soybean/rainfed, 1982–89 | Season-level and three-window temporal-proxy stage panel, GDHY join, and deterministic validation labels complete: 539,360 potential crop-year rows; 48,900 observed-yield rows across 6,123 cells | Workflow/scaling diagnostic only; no SCC input |
 | Global spring-wheat/rainfed, 1982–89 | Season-level and three-window temporal-proxy stage panel, GDHY join, and deterministic validation labels complete: 539,360 potential crop-year rows; 40,977 observed-yield rows across 5,127 cells | Workflow/scaling diagnostic only; no SCC input |
 | Global winter-wheat/rainfed, 1982–89 | Season-level and three-window temporal-proxy stage panel, GDHY join, and deterministic validation labels complete: 539,360 potential crop-year rows; 68,778 observed-yield rows across 8,668 cells | Workflow/scaling diagnostic only; no SCC input |
@@ -43,6 +44,25 @@ rainfall; the largest precipitation-sum difference is 0.000855 mm from stored
 floating-point precision. A stage-resolved fixed-effects diagnostic also ran
 on the 120,325 observed-yield rows. Its numerical estimates remain
 diagnostic-only and are not reported or used as SCC inputs.
+
+The independent 1992–2000 maize/rainfed seasonal panel contains 606,780
+potential crop-year records and 135,405 observed-yield records across 15,107
+supported grid cells. It spans nine harvest years, has no duplicate crop-year
+grid keys, assigns five deterministic spatial folds, reserves 1999–2000 as the
+temporal holdout (22.2% of all rows), and flags 24.7% of all rows as a
+climate-feature-defined dry-spell or heavy-rain case. The panel passed the
+same precipitation/count/extreme invariants as the earlier block. These are
+data-contract and validation-design checks only; no response coefficient from
+this block is yet permitted in SCC calculations.
+
+The matching three-window stage panel contains 1,820,340 rows and reconciles
+to all 606,780 season-level records: crop-year days, wet-day counts, and
+maximum daily rainfall agree exactly, and the largest precipitation-sum
+difference is 2.27e-13 mm. A 15-feature stage-resolved within-estimator
+diagnostic on the 135,405 observed-yield rows has full matrix rank and a
+condition number of 21.9. This checks estimation plumbing and numerical
+conditioning only; its coefficients and in-sample fit are prohibited from
+causal interpretation, manuscript results, or SCC integration.
 
 The soybean stage panel has the same 1,618,080-row structure and reconciles to
 every season-level record in crop-year days, wet-day counts, and maximum daily

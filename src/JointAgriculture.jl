@@ -1,10 +1,10 @@
-"""
+#=
 Isolated replacement agriculture component for precipitation-SCC research.
 
 This component is not included in MimiGIVE and does not read wildfire files.
 It is designed to replace the temperature-only MooreAg component once the
 coefficient inputs are estimated and independently validated.
-"""
+=#
 using Mimi
 
 @defcomp JointAgriculture begin
@@ -35,8 +35,8 @@ using Mimi
     # Multiplier applies only to positive loss; adaptation cannot erase modeled
     # climate benefits. Cost is an annual share of agricultural value and is
     # explicitly visible rather than hidden in an effectiveness coefficient.
-    adaptation_loss_multiplier = Parameter(index=[time, fund_regions], default=1.)
-    adaptation_cost_share = Parameter(index=[time, fund_regions], default=0.)
+    adaptation_loss_multiplier = Parameter(index=[time, fund_regions])
+    adaptation_cost_share = Parameter(index=[time, fund_regions])
     floor_on_damages = Parameter{Bool}(default=true)
     ceiling_on_benefits = Parameter{Bool}(default=false)
 
