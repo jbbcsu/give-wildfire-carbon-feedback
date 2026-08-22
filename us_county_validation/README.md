@@ -35,6 +35,16 @@ Raw US inputs stay under `data/raw/us_county/` and are gitignored. Record
 license, query/download URL, retrieval date, checksum, filters, units, and
 suppression handling before an estimation panel is accepted.
 
+The primary NASS outcome source is a dated Quick Stats bulk crops snapshot,
+not an unversioned API response. Run
+`python us_county_validation/scripts/download_nass_bulk_crops.py` repeatedly
+to acquire verified ranges. The downloader pins content length, ETag, and last
+modified time; it refuses to continue if the upstream object changes and
+writes a SHA-512 manifest only after the full archive is present. The initial
+snapshot is `qs.crops_20260821.txt.gz` (1,128,988,003 bytes). No crop, geography,
+unit, or suppression filters are accepted until the downloaded header and
+field definitions have been inspected.
+
 USDM area-share files are acquired only with the explicit, state/year-bounded
 downloader in `scripts/`; its manifest preserves the official query URLs and
 checksums. A USDM category is never projected directly into a global SCC draw.
