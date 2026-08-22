@@ -34,7 +34,7 @@ def main() -> None:
     if not weekly["StatisticFormatID"].eq(2).all():
         raise ValueError("Expected official county area-percent statistic format 2")
 
-    weekly["county_geoid"] = weekly["FIPS"].astype("string").str.replace(r"\\.0$", "", regex=True).str.zfill(5)
+    weekly["county_geoid"] = weekly["FIPS"].astype("string").str.replace(r"\.0$", "", regex=True).str.zfill(5)
     if weekly.county_geoid.str.len().ne(5).any() or ~weekly.county_geoid.str.isnumeric().all():
         raise ValueError("FIPS values are not five-digit county GEOIDs")
     weekly["map_date"] = pd.to_datetime(weekly["MapDate"].astype(str), format="%Y%m%d", errors="raise")
@@ -42,6 +42,8 @@ def main() -> None:
     weekly["valid_end"] = pd.to_datetime(weekly["ValidEnd"], errors="raise")
     if (weekly.valid_end < weekly.valid_start).any():
         raise ValueError("USDM validity interval ends before it starts")
+    if ((weekly.map_date < weekly.valid_start) | (weekly.map_date > weekly.valid_end)).any():
+        raise ValueError("USDM map date falls outside its validity interval")
     areas = weekly[AREA_COLUMNS].apply(pd.to_numeric, errors="raise")
     if ((areas < -args.area_sum_tolerance) | (areas > 100 + args.area_sum_tolerance)).any().any():
         raise ValueError("USDM area percentage is outside [0, 100] within tolerance")

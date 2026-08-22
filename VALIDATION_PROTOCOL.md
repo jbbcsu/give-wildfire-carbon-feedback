@@ -13,6 +13,12 @@ Daily-maximum heat features must use the identical calendar and stage
 boundaries as precipitation features. For every registered threshold, stage
 heat-day counts and degree-days must sum to their season-level values, while
 the stage-day-weighted maximum-temperature mean must equal the seasonal mean.
+Historical monthly scPDSI benchmark features use the same crop windows,
+day-weight monthly values across partial months, and require index coverage to
+equal every stage length. Coordinate normalization may reorder exact grid
+centres but must fail instead of spatially interpolating. Preserve its
+historical-benchmark-only role through the join; it cannot be used as a future
+baseline/pulse feature.
 
 ## Three adaptation scenarios
 

@@ -18,6 +18,7 @@ For every input provide a manifest row and a machine-readable companion with rel
 | GDHY yields | Crop-year interpretation, grid, missing values, calibration dependency |
 | Crop calendars/irrigation/harvest weights | Calendar-year convention, multi-season treatment, crosswalk |
 | Historical daily weather | Variables, regridding, quality control |
+| Historical CRU scPDSI benchmark | Monthly overlap rule, exact-grid gate, threshold, historical-only role |
 | ISIMIP daily climate | Experiment, GCM/member, forcing/bias-adjustment version, scenario, calendar |
 | GGCMI/ISIMIP benchmark | Protocol, GCM/GGCM/CO2/water-management combinations, output units |
 | Socioeconomic/welfare inputs | GIVE/GTAP release, currency year, FUND mapping |

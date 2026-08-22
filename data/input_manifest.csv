@@ -1,7 +1,8 @@
 input_id,role,primary_source,access_url,required_variables,spatial_temporal_target,status
-daily_climate,baseline_and_projected_daily_features,Lange_2021_ISIMIP3BASD,https://doi.org/10.5194/gmd-14-5443-2021,"precipitation,tmin,tmax,radiation,humidity/wind",0.5_degree_daily_historical_and_scenario,registration_or_download_to_verify
-crop_calendars,stage_alignment,GGCMI_phase1,https://doi.org/10.1038/s41597-019-0023-8,"planting,harvest,crop,irrigation",0.5_degree_crop_calendar,download_to_verify
+daily_climate,baseline_and_projected_daily_features,Lange_2021_ISIMIP3BASD,https://doi.org/10.5194/gmd-14-5443-2021,"precipitation,tmin,tmax,radiation,humidity/wind",0.5_degree_daily_historical_and_scenario,historical_pr_tas_tasmin_tasmax_acquired_1981_2019_projection_pending
+crop_calendars,stage_alignment,GGCMI_phase3_2015soc,https://doi.org/10.5281/zenodo.5062513,"planting,harvest,crop,irrigation",0.5_degree_crop_calendar,12_crop_irrigation_files_acquired_and_verified
 process_yields,structural_benchmark,GGCMI_phase1,https://doi.org/10.1038/s41597-019-0023-8,"yield,CO2,management,irrigation",0.5_degree_annual_crop_model_ensemble,download_to_verify
 historical_yields,empirical_estimation,GDHY_v1.2_v1.3_Iizumi_Sakai_2020,https://doi.pangaea.de/10.1594/PANGAEA.909132,"crop_yield,harvested_area",0.5_degree_annual_1981_2016,acquired_2026-08-16
 aggregate_validation,external_validation,FAOSTAT_Crops_and_livestock_products,https://www.fao.org/faostat/en/#data/QCL,"production,yield,area",country_annual,download_to_verify
 nass_us_county_outcomes,us_high_resolution_validation,USDA_NASS_Quick_Stats_bulk_crops_20260821,https://www.nass.usda.gov/datasets/,"yield,production,harvested_area,commodity,practice,unit,flags",county_annual,partial_acquisition_integrity_pinned
+cru_scpdsi,historical_climatic_index_benchmark,CRU_TS_4.10_scpdsi,https://crudata.uea.ac.uk/cru/data/drought/,"monthly_self_calibrating_pdsi",0.5_degree_monthly_1903_2025,partial_acquisition_integrity_checked_138412032_of_355230575_bytes

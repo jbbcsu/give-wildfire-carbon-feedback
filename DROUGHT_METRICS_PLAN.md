@@ -47,6 +47,17 @@ onto the direct precipitation mechanism.
 5. For every index, compute the paired baseline/pulse change from the same
    climate-model member, scenario, and bias-adjustment protocol.
 
+The executable CRU benchmark path now implements item 4 without estimating a
+response. `build_crop_stage_scpdsi_features.py` converts monthly CRU scPDSI to
+day-weighted crop-stage means, stage minima, and days at or below an explicit
+threshold. It normalizes longitude conventions but never interpolates,
+requires exact 0.5-degree grid correspondence and complete monthly coverage,
+and excludes an entire crop year if any stage is incomplete. The validator,
+partition combiner, and one-to-one panel join retain a machine-readable
+historical-only role. These fields are eligible only for the climatic-index
+benchmark family; they are not stacked into the direct-pattern model and are
+not projected as SCC inputs.
+
 ### US county validation panel
 
 1. Derive county crop-area-weighted direct weather features from gridMET and

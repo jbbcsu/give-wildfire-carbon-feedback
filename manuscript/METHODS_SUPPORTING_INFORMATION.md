@@ -60,6 +60,16 @@ calculate the corresponding drought-index change directly, then use a
 pre-specified symmetric decomposition when a precipitation versus
 temperature/PET attribution is required.
 
+For the historical climatic-index benchmark, monthly CRU scPDSI is aligned to
+the same crop-year windows by day-weighting each monthly value over its exact
+overlap with a stage. Retain stage mean, minimum, days at or below the
+registered threshold, the threshold itself, and covered-day count. Require
+exact grid-centre correspondence after longitude normalization, complete
+monthly coverage for every stage, and a covered-day count equal to stage
+length. This benchmark tests historical response and coverage only; future
+SCC runs must derive their drought indices from matched baseline and pulse
+climate paths and must not project observed CRU scPDSI.
+
 ## S5. Estimation
 
 Fit the primary response on crop-grid-year observations with grid/crop fixed
@@ -136,6 +146,9 @@ crop-area-weighting choice; it is not a source of global future climate
 features. County yield is not labeled rainfed without crop-specific irrigated
 area evidence: the primary sample applies a predeclared high-rainfed-share
 threshold, reports nearby thresholds, and treats mixed counties separately.
+USDM county-week preparation preserves five-digit GEOIDs, rejects duplicate
+keys and category shares that do not sum to 100, and requires each map date to
+fall inside its declared validity interval.
 Keep crop inundation in agriculture and exclude it from the future
 infrastructure module; exclude coastal surge/SLR impacts already addressed by
 CIAM.

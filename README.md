@@ -34,9 +34,13 @@ against stage partitions, then joined to GDHY yields before any pilot response
 diagnostic. Stage-resolved daily-maximum heat features now use the same
 partition boundaries, require explicit temperature thresholds, and must
 reconcile additive heat days and degree-days to the season. The stage fractions
-are temporal proxies rather than asserted crop phenology. See the scripts
-directory and [RESULTS_STATUS.md](RESULTS_STATUS.md) for the current evidence
-boundary.
+are temporal proxies rather than asserted crop phenology. A parallel historical
+drought-benchmark path day-weights monthly CRU scPDSI over those same windows,
+requires exact 0.5-degree grid correspondence and complete monthly coverage,
+and preserves an explicit `historical_benchmark_not_future_scc_input` role
+through its panel join. It does not substitute observed CRU scPDSI for a
+matched future drought path. See the scripts directory and
+[RESULTS_STATUS.md](RESULTS_STATUS.md) for the current evidence boundary.
 
 Before any empirical response array can approach GIVE wiring,
 `scripts/validate_scc_response_bundle.py` enforces the frozen crop/FUND order,

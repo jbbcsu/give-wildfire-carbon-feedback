@@ -22,6 +22,7 @@ does not report final response estimates or SCC values.
 | Six-crop-season rainfed panel, 1982–89 | Combined seasonal data contract and outcome-independent validation labels complete: 2,944,840 potential crop-year rows; 368,022 observed-yield rows. Crop/season identity and source panel are retained. | Data-contract and validation scaling diagnostic only; no common-slope or SCC input |
 | Crop-response/SCC interface | Synthetic tests pass for crop-specific feature coefficients, pre-aggregation adaptation, fixed crop-value weights, partial/full coverage gates, and MooreAg-compatible `agcost` output | Executable interface contract only; contains no empirical coefficients, welfare calibration, or SCC result |
 | Stage heat and paired-bundle gates | Synthetic cross-year heat construction, executable stage/season reconciliation audit, partition combine, panel join, and baseline/pulse identity/coverage/weight/conservation checks pass | Pipeline/schema validation only; no heat threshold, fitted response, or SCC result is selected |
+| Historical crop-stage scPDSI path | Synthetic cross-year construction, exact longitude normalization/grid matching, complete-month coverage, partition validation/combine, and one-to-one panel join pass | Historical climatic-index benchmark plumbing only; no real CRU panel, response estimate, future drought path, or SCC input |
 | Other crops/periods/scenarios | Not yet complete | No global response or SCC claim |
 
 ## Completed empirical checks
@@ -149,3 +150,12 @@ degree-day, stage-length, and weighted-mean reconciliation. No production heat
 threshold is encoded: thresholds remain an explicit, pre-registered response-
 specification choice. The paired response-bundle gate is also executable on
 CSV or Parquet inputs, but has been exercised only on synthetic arrays.
+
+The historical scPDSI benchmark workflow now maps monthly index values to the
+same transparent crop-stage windows by exact day overlap. Its synthetic
+cross-year test verifies stage lengths, day-weighted means, minima, drought-day
+counts, longitude normalization, partition combination, and one-to-one panel
+coverage. The source-role field explicitly prohibits using observed CRU scPDSI
+as a future baseline/pulse input. The real CRU file is only partially acquired
+(138,412,032 of 355,230,575 bytes), has not been processed, and supports no
+drought-response result.
