@@ -112,7 +112,11 @@ the second-season-rice temporal block, and richer models also failed that
 benchmark in its spatial block. This retained mixed result is an internal
 predictive diagnostic, not model selection, causal response evidence, or an
 SCC input; the complete-period, irrigated, heat, drought-family, uncertainty,
-and external-validation gates remain open.
+and external-validation gates remain open. In an outcome-separate 1992–2000
+maize replication, the three-window model again led spatial and extreme-case
+RMSE, but precipitation-only led the temporal block; the earlier temporal
+ordering therefore did not replicate and is not a basis for period-specific
+model choice.
 
 ### 6.3 Marginal damages and global SCC
 

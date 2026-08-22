@@ -25,6 +25,7 @@ does not report final response estimates or SCC values.
 | Historical crop-stage scPDSI path | Synthetic cross-year construction, exact longitude normalization/grid matching, complete-month coverage, partition validation/combine, and one-to-one panel join pass | Historical climatic-index benchmark plumbing only; no real CRU panel, response estimate, future drought path, or SCC input |
 | Maize/rainfed blocked response audit, 1982–89 | 105,157 consecutive observed-yield pairs evaluated with crop-specific first-difference seasonal-precipitation, seasonal-joint, and three-window-joint models across spatial, temporal, and climate-extreme holdouts | Internal predictive diagnostic only; coefficients are suppressed and no causal, global-response, or SCC claim is permitted |
 | Six-crop/rainfed blocked response audit, 1982–89 | 321,620 consecutive observed-yield pairs across maize, first/second rice, soybean, spring wheat, and winter wheat; exact crop/model/holdout coverage, metric arithmetic, fold reconciliation, and full-rank finite fits validated | Internal predictive diagnostic only; mixed crop/holdout rankings prohibit a universal-model or SCC claim |
+| Maize/rainfed independent-period audit, 1992–2000 | 119,950 consecutive observed-yield pairs; the frozen models and validator rerun without using the 1982–89 outcome metrics | Internal predictive replication only; model ordering changes in the temporal block and no coefficient or SCC use is permitted |
 | Irrigated panels, later periods, and future scenarios | Not yet complete | No production global response or SCC claim |
 
 ## Completed empirical checks
@@ -91,6 +92,19 @@ climate-feature-defined dry-spell or heavy-rain case. The panel passed the
 same precipitation/count/extreme invariants as the earlier block. These are
 data-contract and validation-design checks only; no response coefficient from
 this block is yet permitted in SCC calculations.
+
+The same frozen coefficient-suppressing audit formed 119,950 consecutive-year
+pairs in this independent period, and the complete audit validator passed with
+a maximum design condition number of 13.83. The three-window joint model had
+the lowest RMSE in spatial blocks (0.3273 versus a 0.3348 zero-change
+benchmark) and climate-extreme cases (0.3228 versus 0.3266), but the
+precipitation-only model led the temporal block (0.2836 versus 0.2882 for the
+three-window model and 0.2883 for zero change). The precipitation-only model
+also fell slightly behind zero change in the climate-extreme block (0.3267
+versus 0.3266). Thus the stage model's temporal advantage in 1982–89 did not
+replicate in 1992–2000. This is an intentionally retained diagnostic failure
+of stable model ordering, not evidence for selecting period-specific models.
+It supplies no coefficient or SCC input.
 
 The matching three-window stage panel contains 1,820,340 rows and reconciles
 to all 606,780 season-level records: crop-year days, wet-day counts, and
