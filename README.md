@@ -41,3 +41,6 @@ other omitted climate-damage sector in expected SCC magnitude.
   adaptation, and data coverage remain unresolved.
 
 See [PLAN.md](PLAN.md) for staged gates. No raw data are stored in Git.
+The cross-sector RFF coverage review and bounded next-sector recommendation are
+in [GIVE_SECTOR_COVERAGE_SCREEN.md](GIVE_SECTOR_COVERAGE_SCREEN.md); they do not
+authorize cross-sector code or data inside this repository.

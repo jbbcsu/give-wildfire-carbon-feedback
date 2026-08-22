@@ -62,3 +62,9 @@ an identified welfare model, or (B) an existing integrated global fisheries
 model whose surplus outputs and pulse/scenario assumptions can be audited.
 Until then, numeric parameters remain unset rather than filled with judgmental
 defaults.
+
+The schema-only validator in `scripts/validate_welfare_interface.py` checks
+matched baseline/pulse identifiers, missing-versus-zero semantics, surplus
+arithmetic, duplicate keys, and additive eligibility. Its synthetic test is
+`python3 test/test_welfare_interface.py`; passing it does not clear the
+biophysical, welfare-identification, coverage, or SCC gates.
