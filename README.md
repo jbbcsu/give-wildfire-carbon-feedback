@@ -20,6 +20,8 @@ See [PLAN.md](PLAN.md) for the phased protocol, [SOURCES.md](SOURCES.md) for
 authoritative inputs, and [src/PrecipitationDamages.jl](src/PrecipitationDamages.jl)
 for the isolated Mimi component contract.  The literature-first recommendation
 and ML contingency are in [AGRICULTURE_RESEARCH.md](AGRICULTURE_RESEARCH.md).
+The climate-emulation literature and published-method reuse decision are in
+[CLIMATE_PRECIPITATION_EMULATOR_AUDIT.md](CLIMATE_PRECIPITATION_EMULATOR_AUDIT.md).
 The evidence-bounded manuscript and Methods/SI blueprints are in
 [MANUSCRIPT_OUTLINE.md](MANUSCRIPT_OUTLINE.md) and
 [METHODS_SI_OUTLINE.md](METHODS_SI_OUTLINE.md).

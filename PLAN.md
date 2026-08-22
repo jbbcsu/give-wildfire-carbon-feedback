@@ -45,14 +45,21 @@ agriculture separately.  For coastal flooding, use CIAM alone in the main
 specification; a coastal-rainfall add-on requires event-level evidence that
 excludes surge/sea-level damages already in CIAM.
 
-## Phase 1 — climate-to-hydrology emulator (directly implementable after data)
+## Phase 1 — published climate-to-precipitation emulators
 
-Build an annual country/basin emulator driven by each FAIR temperature draw:
+Do not build a new free-standing emulator unless published systems fail
+predeclared validation. The literature audit in
+`CLIMATE_PRECIPITATION_EMULATOR_AUDIT.md` identifies MESMER-M-TP as the monthly
+backbone candidate, the Kemsley et al. pattern-scaled Markov--gamma generator
+for daily occurrence/intensity and dry-spell structure, MESMER-X for Rx1day,
+and STITCHES as the principal daily multivariate benchmark.
+
+The published-method chain is driven by each matched FAIR temperature draw:
 
 `T(t) -> [P_ann, P_season, Rx1day, Rx5day, wet-day frequency, dry-spell]_(t,r)`.
 
-Train an ensemble of CMIP6/ScenarioMIP model patterns on warming, retaining
-model, scenario, internal-variability and downscaling uncertainty.  Preserve
+Calibrate or reuse ESM-specific CMIP6/ScenarioMIP responses, retaining model,
+scenario, internal-variability and downscaling uncertainty. Preserve
 spatial dependence by sampling a model/member jointly across regions rather
 than independently sampling country effects.  Bias-adjust and aggregate daily
 fields to basin/country exposure weights before estimating extreme indices.
@@ -60,8 +67,8 @@ Annual SCC timesteps receive annual loss expectations; the extreme-value layer
 converts subannual hazards into annual expected damage and retains tail risk.
 
 For the prioritized agriculture path, resolve daily fields by crop calendar
-and crop stage, not just country-year.  Run existing GGCMI/ISIMIP process
-ensembles as a benchmark before building any new ML emulator.  The first
+and crop stage, not just country-year. Run existing GGCMI/ISIMIP process
+ensembles and direct daily climate features as benchmarks. The first
 empirical response should jointly model seasonal precipitation, dry spells,
 water excess and temperature; selection of additional timing features must be
 held-out validated and pre-specified.
