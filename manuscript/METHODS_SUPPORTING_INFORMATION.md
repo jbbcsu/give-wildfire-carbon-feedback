@@ -175,3 +175,15 @@ fall inside its declared validity interval.
 Keep crop inundation in agriculture and exclude it from the future
 infrastructure module; exclude coastal surge/SLR impacts already addressed by
 CIAM.
+
+The executable internal predictive comparison uses only outcome-independent
+holdout labels. Within each crop, consecutive-year differences in log yield
+are regressed on corresponding weather-feature differences, eliminating
+time-invariant grid productivity. Seasonal precipitation-only, seasonal
+temperature--precipitation, and three-window joint specifications are scored
+on leave-one-spatial-fold-out predictions, the registered final-year block,
+and pairs containing a registered climate-extreme endpoint. RMSE, MAE,
+correlation, predictive R-squared, and improvement over a zero-yield-change
+benchmark are reported; response coefficients are not exported. This is an
+internal predictive diagnostic, not causal identification, independent
+external validation, or authority to construct SCC inputs.

@@ -1,0 +1,29 @@
+schema_version = 1
+response = "consecutive-year difference in log yield"
+estimation = "crop-specific ordinary least squares on first-differenced weather features"
+benchmark = "zero yield change"
+water_stress_family = "direct precipitation pattern"
+minimum_train_rows = 100
+minimum_test_rows = 100
+
+[holdouts]
+spatial = "leave one preassigned 5-degree spatial fold out at a time"
+temporal = "train before the preassigned final-year holdout and test within it"
+extreme = "train on pairs with no climate-extreme endpoint and test pairs with either endpoint extreme"
+
+[models.seasonal_precipitation]
+features = ["log1p_precip_mm", "cdd_max_days", "rx1day_mm"]
+
+[models.seasonal_joint]
+features = ["tmean_c", "log1p_precip_mm", "cdd_max_days", "rx1day_mm", "tmean_x_log1p_precip"]
+
+[models.stage_joint]
+features = [
+  "stage1_tmean_c", "stage1_log1p_precip_mm", "stage1_cdd_max_days", "stage1_rx1day_mm", "stage1_tmean_x_log1p_precip",
+  "stage2_tmean_c", "stage2_log1p_precip_mm", "stage2_cdd_max_days", "stage2_rx1day_mm", "stage2_tmean_x_log1p_precip",
+  "stage3_tmean_c", "stage3_log1p_precip_mm", "stage3_cdd_max_days", "stage3_rx1day_mm", "stage3_tmean_x_log1p_precip",
+]
+
+[boundary]
+status = "diagnostic held-out predictive comparison only"
+forbidden = "do not interpret coefficients causally, export response draws, or use metrics or coefficients in SCC integration"

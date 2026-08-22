@@ -90,3 +90,13 @@ tail dry-spell/heavy-rain cases from climate features only. It never reads or
 uses `yield_t_ha` to select a holdout. The fixed seed and all thresholds are
 stored in the output panel. These labels are a required evaluation layer, not
 a claim that the tail definitions exhaust agricultural extremes.
+
+`scripts/evaluate_crop_response_models.py` turns those labels into a
+crop-specific held-out predictive audit. It first-differences consecutive
+observations within crop/irrigation/grid cells, compares the registered
+seasonal precipitation-only, seasonal joint, and stage-joint feature sets,
+and reports spatial-fold, final-year, and climate-extreme metrics against a
+zero-change benchmark. The transformation removes time-invariant grid levels;
+it does not establish causal identification or solve time-varying omitted
+variables. Coefficients are deliberately omitted from its output and the
+result cannot be used to populate an SCC response bundle.

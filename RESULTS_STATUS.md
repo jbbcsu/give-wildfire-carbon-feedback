@@ -23,6 +23,7 @@ does not report final response estimates or SCC values.
 | Crop-response/SCC interface | Synthetic tests pass for crop-specific feature coefficients, pre-aggregation adaptation, fixed crop-value weights, partial/full coverage gates, and MooreAg-compatible `agcost` output | Executable interface contract only; contains no empirical coefficients, welfare calibration, or SCC result |
 | Stage heat and paired-bundle gates | Synthetic cross-year heat construction, executable stage/season reconciliation audit, partition combine, panel join, and baseline/pulse identity/coverage/weight/conservation checks pass | Pipeline/schema validation only; no heat threshold, fitted response, or SCC result is selected |
 | Historical crop-stage scPDSI path | Synthetic cross-year construction, exact longitude normalization/grid matching, complete-month coverage, partition validation/combine, and one-to-one panel join pass | Historical climatic-index benchmark plumbing only; no real CRU panel, response estimate, future drought path, or SCC input |
+| Maize/rainfed blocked response audit, 1982–89 | 105,157 consecutive observed-yield pairs evaluated with crop-specific first-difference seasonal-precipitation, seasonal-joint, and three-window-joint models across spatial, temporal, and climate-extreme holdouts | Internal predictive diagnostic only; coefficients are suppressed and no causal, global-response, or SCC claim is permitted |
 | Other crops/periods/scenarios | Not yet complete | No global response or SCC claim |
 
 ## Completed empirical checks
@@ -47,6 +48,18 @@ rainfall; the largest precipitation-sum difference is 0.000855 mm from stored
 floating-point precision. A stage-resolved fixed-effects diagnostic also ran
 on the 120,325 observed-yield rows. Its numerical estimates remain
 diagnostic-only and are not reported or used as SCC inputs.
+
+The same maize/rainfed block now has an executable held-out predictive audit
+using 105,157 consecutive-year observed-yield pairs. All three registered
+models produced finite, full-rank fits in every split. The three-window joint
+model had log-yield RMSE of 0.2945 in aggregated leave-one-spatial-fold-out
+predictions, 0.3082 in the final-two-year block, and 0.2992 for pairs with a
+climate-extreme endpoint, compared with 0.2971, 0.3088, and 0.3034 for the
+seasonal joint model. The corresponding zero-change benchmarks were 0.3103,
+0.3277, and 0.3163. These small predictive differences are a workflow and
+specification-comparison diagnostic on one crop, one rainfed exposure proxy,
+and eight years; coefficients are deliberately absent from the audit and the
+metrics do not establish causality or support SCC integration.
 
 The independent 1992–2000 maize/rainfed seasonal panel contains 606,780
 potential crop-year records and 135,405 observed-yield records across 15,107
@@ -131,8 +144,8 @@ maize-pilot outcome mapping going forward; the crosswalk and its limitation
 for second maize seasons are recorded in `data/provenance/`.
 
 This does not clear the main-analysis gate: remaining crop seasons/years,
-crop-specific phenology, final heat features, pre-specified
-holdout performance results,
+crop-specific phenology, final heat features, production holdout performance
+across the complete crop-period panel,
 uncertainty, CO2 treatment, adaptation estimation, welfare translation, and
 matched future baseline/pulse paths remain outstanding.
 

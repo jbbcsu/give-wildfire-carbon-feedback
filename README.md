@@ -51,6 +51,25 @@ water-stress family, fixed-within-draw weights, finite coefficients, and
 pre-divergence conservation. Passing this schema gate is not evidence of
 held-out skill or authorization to calculate an SCC.
 
+The pre-integration validation layer now also includes
+`scripts/evaluate_crop_response_models.py`, driven by the frozen
+`config/response_evaluation_spec.toml`. It evaluates crop-specific
+first-difference predictions across outcome-blind spatial, temporal, and
+climate-extreme holdouts and intentionally emits no coefficients. Its output
+is diagnostic and cannot be used as an SCC response bundle.
+
+For a panel that already contains stage features, create the outcome-blind
+labels and run the audit with:
+
+```bash
+./.venv/bin/python scripts/make_validation_folds.py \
+  --panel data/interim/STAGE_PANEL.parquet \
+  --out data/interim/STAGE_VALIDATION_PANEL.parquet
+./.venv/bin/python scripts/evaluate_crop_response_models.py \
+  --panel data/interim/STAGE_VALIDATION_PANEL.parquet \
+  --out outputs/response_evaluation.json
+```
+
 The approved calendar-to-yield season crosswalk is recorded in
 [data/provenance/crop_calendar_gdhy_crosswalk.md](data/provenance/crop_calendar_gdhy_crosswalk.md).
 It deliberately does not use GDHY convenience aggregate directories where a
