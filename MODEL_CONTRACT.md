@@ -45,6 +45,25 @@ The GIVE adapter aggregates eligible country-year welfare changes to its
 region order and discounts pulse-minus-baseline damages using the same SCC
 conventions as other sectors.
 
+### Country-to-region aggregation preflight
+
+`scripts/aggregate_welfare_to_regions.py` implements the aggregation portion
+without discounting. Its crosswalk has one row per declared `country_id` and
+requires `give_region_id`; duplicate or unmapped country identifiers are
+errors. For every observed draw-year, each region is eligible only if every
+country declared for that region is present, has `coverage_status=complete`,
+and has already passed the upstream overlap gate
+(`additive_eligible=true`). Otherwise, the regional surplus fields remain
+blank and explicit reason codes report missing, suppressed, unmodeled, or
+ineligible country rows. Complete regions conserve consumer, producer, and
+total welfare independently.
+
+The crosswalk is an explicit aggregation universe, not proof of global
+coverage. A production crosswalk still requires a provenance record, version,
+and reconciliation to the GIVE country/region definitions. The adapter does
+not clear the ecological, welfare-identification, global-coverage, overlap, or
+SCC gates.
+
 ## Locked overlap exclusions
 
 - No coral tourism, reef nonuse value, or reef-mediated coastal protection.
@@ -66,5 +85,7 @@ defaults.
 The schema-only validator in `scripts/validate_welfare_interface.py` checks
 matched baseline/pulse identifiers, missing-versus-zero semantics, surplus
 arithmetic, duplicate keys, and additive eligibility. Its synthetic test is
-`python3 test/test_welfare_interface.py`; passing it does not clear the
-biophysical, welfare-identification, coverage, or SCC gates.
+`python3 test/test_welfare_interface.py`. The aggregation preflight's synthetic
+coverage, identity, and conservation checks are in
+`python3 test/test_region_aggregation.py`; passing either test does not clear
+the biophysical, welfare-identification, coverage, or SCC gates.

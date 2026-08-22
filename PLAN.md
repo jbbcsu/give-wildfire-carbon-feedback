@@ -48,6 +48,13 @@ or incidence assumption. Implement a replacement/addition decision only after
 the overlap audit. Pair every climate/member, ecology, economy, and welfare
 draw across baseline and CO2-pulse paths.
 
+The coefficient-free country-to-region preflight is implemented. It uses a
+declared one-country/one-region crosswalk, verifies draw identity and welfare
+conservation, and withholds regional values when any declared country is
+missing, incomplete, or not additive eligible. Remaining Gate 4 work requires
+a reviewed global GIVE crosswalk and, upstream, an identified welfare model;
+discounting and SCC integration remain intentionally unimplemented.
+
 ## Gate 5 — validation, uncertainty, publication
 
 Require withheld years/regions/species, historical marine-heatwave tests,

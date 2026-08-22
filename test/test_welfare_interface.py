@@ -51,5 +51,23 @@ with tempfile.TemporaryDirectory() as directory:
     run("outputs", output_path, True)
     write_csv(output_path, [dict(output, delta_fisheries_welfare_usd=-4)])
     run("outputs", output_path, False)
+    write_csv(output_path, [dict(
+        output,
+        coverage_status="missing",
+        additive_eligible="false",
+        delta_consumer_surplus_usd="",
+        delta_producer_surplus_usd="",
+        delta_fisheries_welfare_usd="",
+    )])
+    run("outputs", output_path, True)
+    write_csv(output_path, [dict(
+        output,
+        coverage_status="missing",
+        additive_eligible="false",
+        delta_consumer_surplus_usd=0,
+        delta_producer_surplus_usd=0,
+        delta_fisheries_welfare_usd=0,
+    )])
+    run("outputs", output_path, False)
 
 print("fisheries welfare-interface tests passed")

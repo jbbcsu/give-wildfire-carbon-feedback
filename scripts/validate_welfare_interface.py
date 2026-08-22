@@ -102,9 +102,20 @@ def validate_outputs(fieldnames: list[str], records: list[dict[str, str]], toler
             raise ValueError("additive_eligible must be true or false")
         if eligible == "true" and status != "complete":
             raise ValueError("only complete coverage may be additive eligible")
-        consumer = finite(row["delta_consumer_surplus_usd"], "consumer surplus")
-        producer = finite(row["delta_producer_surplus_usd"], "producer surplus")
-        welfare = finite(row["delta_fisheries_welfare_usd"], "fisheries welfare")
+        values = (
+            row["delta_consumer_surplus_usd"].strip(),
+            row["delta_producer_surplus_usd"].strip(),
+            row["delta_fisheries_welfare_usd"].strip(),
+        )
+        if status != "complete":
+            if any(values):
+                raise ValueError(
+                    "non-complete welfare coverage must leave surplus fields blank, not encode zero"
+                )
+            continue
+        consumer = finite(values[0], "consumer surplus")
+        producer = finite(values[1], "producer surplus")
+        welfare = finite(values[2], "fisheries welfare")
         scale = max(1.0, abs(consumer), abs(producer), abs(welfare))
         if abs((consumer + producer) - welfare) > tolerance * scale:
             raise ValueError("fisheries welfare does not equal consumer plus producer surplus")

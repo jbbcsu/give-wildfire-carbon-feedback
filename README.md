@@ -44,3 +44,25 @@ See [PLAN.md](PLAN.md) for staged gates. No raw data are stored in Git.
 The cross-sector RFF coverage review and bounded next-sector recommendation are
 in [GIVE_SECTOR_COVERAGE_SCREEN.md](GIVE_SECTOR_COVERAGE_SCREEN.md); they do not
 authorize cross-sector code or data inside this repository.
+
+## Executable accounting scaffolding
+
+The repository currently provides two coefficient-free checks:
+
+- `scripts/validate_welfare_interface.py` validates matched baseline/pulse
+  inputs and country-year welfare outputs, including missing-versus-zero
+  semantics.
+- `scripts/aggregate_welfare_to_regions.py` aggregates already eligible
+  country-year welfare changes through an explicit country-to-GIVE-region
+  crosswalk. It fails each region closed if a declared country is absent,
+  incomplete, or not additive eligible, and emits no partial numeric total.
+
+Run the synthetic checks with:
+
+```bash
+python3 test/test_welfare_interface.py
+python3 test/test_region_aggregation.py
+```
+
+These scripts do not choose ecological or economic parameters, certify that a
+crosswalk is globally exhaustive, discount damages, or calculate an SCC.
