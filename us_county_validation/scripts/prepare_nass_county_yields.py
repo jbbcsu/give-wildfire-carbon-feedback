@@ -13,6 +13,16 @@ from pathlib import Path
 import pandas as pd
 
 
+def normalize_fips(series: pd.Series, width: int, label: str) -> pd.Series:
+    numeric = pd.to_numeric(series, errors="coerce")
+    if numeric.isna().any() or (numeric % 1 != 0).any():
+        raise ValueError(f"{label} contains missing or non-integer codes")
+    maximum = 10 ** width - 1
+    if ((numeric < 0) | (numeric > maximum)).any():
+        raise ValueError(f"{label} contains codes outside {width}-digit range")
+    return numeric.astype("int64").astype(str).str.zfill(width)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--input", required=True)
@@ -43,8 +53,8 @@ def main() -> None:
         col("year"): "harvest_year", col("state_ansi"): "state_fips", col("county_ansi"): "county_fips",
         col("commodity_desc"): "commodity", col("unit_desc"): "yield_unit",
     })
-    selected["state_fips"] = selected.state_fips.astype(str).str.zfill(2)
-    selected["county_fips"] = selected.county_fips.astype(str).str.zfill(3)
+    selected["state_fips"] = normalize_fips(selected.state_fips, 2, "state_ansi")
+    selected["county_fips"] = normalize_fips(selected.county_fips, 3, "county_ansi")
     selected["county_geoid"] = selected.state_fips + selected.county_fips
     keys = ["harvest_year", "county_geoid", "commodity", "yield_unit"]
     if selected.duplicated(keys).any():

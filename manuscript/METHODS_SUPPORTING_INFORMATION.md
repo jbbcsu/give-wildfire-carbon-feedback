@@ -79,20 +79,28 @@ already includes it.
 
 ## S6. Adaptation
 
-`fixed` keeps the observed response. `trend` and `upper` apply transparent
-time-varying loss multipliers from `config/adaptation_scenarios.toml`; they are
+`fixed` keeps the observed response. `trend` and `upper` apply transparent,
+crop-specific time-varying loss multipliers from
+`config/adaptation_scenarios.toml` before crop aggregation; they are
 sensitivity scenarios, not claims of forecasted adaptation. Adaptation cost
 shares default to zero pending empirical cost estimation and are reported as a
-limitation. Positive damages are attenuated; modeled benefits are not erased.
+limitation. Positive crop losses are attenuated; modeled benefits are not
+erased.
 
 ## S7. Model integration and SCC
 
-The isolated `JointAgriculture` component retains baseline income,
-population, agricultural-share, and 16-FUND-region inputs and outputs
-`agcost` in billion 2005 USD/year. It replaces `MooreAg.Agriculture`; never
-instantiate both. Matched baseline/pulse climate paths propagate through the
-joint response and one welfare mapping. The global SCC is calculated from the
-discounted difference using GIVE's established marginal-damage method.
+The isolated `CropResponseAggregation` component retains crop/season-specific
+features and coefficients through response evaluation. It accepts exactly one
+declared water-stress family, applies crop-specific adaptation, and aggregates
+with fixed baseline agricultural-value shares. Production runs require those
+shares to cover the complete regional agricultural value pool; partial-
+coverage runs are diagnostics and cannot produce an SCC. `JointAgriculture`
+then retains baseline income, population, agricultural-share, and 16-FUND-
+region inputs and outputs `agcost` in billion 2005 USD/year. It replaces
+`MooreAg.Agriculture`; never instantiate both. Matched baseline/pulse climate
+paths propagate through the crop-specific joint response and one welfare
+mapping. The global SCC is calculated from the discounted difference using
+GIVE's established marginal-damage method.
 
 ## S8. Uncertainty and sensitivity
 

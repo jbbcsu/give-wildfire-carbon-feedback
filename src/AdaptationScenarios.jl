@@ -39,4 +39,18 @@ end
 """Return zero adaptation-cost shares until a calibrated cost schedule is supplied."""
 adaptation_cost_share(years::AbstractVector{<:Integer}, nregions::Integer) = zeros(Float64, length(years), nregions)
 
+"""Return a `time × region × crop` multiplier for crop-specific aggregation."""
+function adaptation_multiplier(years::AbstractVector{<:Integer}, nregions::Integer, ncrops::Integer; kwargs...)
+    ncrops > 0 || throw(ArgumentError("ncrops must be positive"))
+    regional = adaptation_multiplier(years, nregions; kwargs...)
+    return repeat(reshape(regional, size(regional, 1), size(regional, 2), 1), 1, 1, ncrops)
+end
+
+"""Return zero crop-specific adaptation-cost shares pending calibration."""
+function adaptation_cost_share(years::AbstractVector{<:Integer}, nregions::Integer, ncrops::Integer)
+    nregions > 0 || throw(ArgumentError("nregions must be positive"))
+    ncrops > 0 || throw(ArgumentError("ncrops must be positive"))
+    return zeros(Float64, length(years), nregions, ncrops)
+end
+
 end # module

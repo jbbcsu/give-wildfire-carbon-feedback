@@ -44,6 +44,10 @@ writes a SHA-512 manifest only after the full archive is present. The initial
 snapshot is `qs.crops_20260821.txt.gz` (1,128,988,003 bytes). No crop, geography,
 unit, or suppression filters are accepted until the downloaded header and
 field definitions have been inspected.
+The synthetic preparation test
+`python us_county_validation/scripts/test_prepare_nass_county_yields.py`
+checks disclosure-flag preservation and strict five-digit county GEOIDs; it
+does not validate filters against the still-incomplete raw snapshot.
 
 USDM area-share files are acquired only with the explicit, state/year-bounded
 downloader in `scripts/`; its manifest preserves the official query URLs and

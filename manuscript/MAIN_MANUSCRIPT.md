@@ -39,9 +39,12 @@ CIAM.
 
 The contribution is an auditable climate-to-crop-to-welfare-to-SCC chain with
 daily precipitation-pattern features, not a second additive damage sector.
-The new `JointAgriculture` component emits the same regional `agcost` quantity
-as the baseline agriculture component and replaces it. The primary quantity is
-the joint climate marginal damage. Any precipitation attribution is a declared
+The executable contract preserves crop/season-specific coefficients through
+response evaluation, applies fixed baseline value weights only after that
+step, and blocks incomplete agricultural coverage by default. The new
+`JointAgriculture` component emits the same regional `agcost` quantity as the
+baseline agriculture component and replaces it. The primary quantity is the
+joint climate marginal damage. Any precipitation attribution is a declared
 decomposition of a joint model, not a separately identified causal outcome.
 
 ## 3. Data and feature construction

@@ -30,10 +30,12 @@ suite; regenerate and review it deliberately when changing dependencies.
    Use `scripts/build_stage_feature_partitions.sh` for the separate
    stage-resolved panel; retain both products for reconciliation.
 3. Run the schema/validation gates in `VALIDATION_PROTOCOL.md`.
-4. Fit the pre-registered joint response and write coefficient draws outside
-   raw-data paths.
-5. Feed matched baseline/pulse 16-FUND feature arrays to `JointAgriculture`;
-   replace rather than add to MooreAg.
+4. Fit the pre-registered crop-specific joint response and write coefficient
+   draws outside raw-data paths.
+5. Feed matched baseline/pulse region-crop feature arrays to
+   `CropResponseAggregation`, then connect its regional joint-loss fraction to
+   `JointAgriculture`; replace rather than add to MooreAg. Production SCC runs
+   retain the default full-coverage gate.
 
 ## Release gate
 
@@ -47,6 +49,7 @@ never push to a guessed GitHub destination.
 ```sh
 .venv/bin/python scripts/verify_provenance.py data/provenance
 .venv/bin/python scripts/test_feature_builder.py
+.venv/bin/python us_county_validation/scripts/test_prepare_nass_county_yields.py
 JULIA_DEPOT_PATH=.julia_depot ../tools/julia-1.8.5/bin/julia --project=. -e 'using Pkg; Pkg.instantiate()'
 JULIA_DEPOT_PATH=.julia_depot ../tools/julia-1.8.5/bin/julia --project=. test/runtests.jl
 ```

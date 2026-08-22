@@ -20,6 +20,7 @@ does not report final response estimates or SCC values.
 | Global first-rice/rainfed, 1982–89 | Season-level and three-window temporal-proxy stage panel, GDHY join, deterministic validation labels, reconciliation, and fixed-effects numerical diagnostics complete: 539,360 potential crop-year rows; 76,348 observed-yield rows across 9,564 cells | Workflow/scaling diagnostic only; no SCC input |
 | Global second-rice/rainfed, 1982–89 | Season-level and three-window temporal-proxy stage panel, `rice_second` GDHY join, deterministic validation labels, reconciliation, and fixed-effects numerical diagnostics complete: 248,040 potential crop-year rows; 12,694 observed-yield rows across 1,587 cells. | Workflow/scaling diagnostic only; no SCC input |
 | Six-crop-season rainfed panel, 1982–89 | Combined seasonal data contract and outcome-independent validation labels complete: 2,944,840 potential crop-year rows; 368,022 observed-yield rows. Crop/season identity and source panel are retained. | Data-contract and validation scaling diagnostic only; no common-slope or SCC input |
+| Crop-response/SCC interface | Synthetic tests pass for crop-specific feature coefficients, pre-aggregation adaptation, fixed crop-value weights, partial/full coverage gates, and MooreAg-compatible `agcost` output | Executable interface contract only; contains no empirical coefficients, welfare calibration, or SCC result |
 | Other crops/periods/scenarios | Not yet complete | No global response or SCC claim |
 
 ## Completed empirical checks
@@ -132,3 +133,10 @@ crop-specific phenology, final heat features, pre-specified
 holdout performance results,
 uncertainty, CO2 treatment, adaptation estimation, welfare translation, and
 matched future baseline/pulse paths remain outstanding.
+
+The executable integration scaffold now preserves crop/season coefficients
+through the response step and rejects incomplete crop-value coverage by
+default. Its tests use synthetic arrays only. Allowing partial coverage is
+explicitly diagnostic; normalizing represented crops to the entire
+agricultural value pool or reporting an SCC still requires a justified welfare
+gap model and every empirical validation gate above.

@@ -23,6 +23,10 @@ and ML contingency are in [AGRICULTURE_RESEARCH.md](AGRICULTURE_RESEARCH.md).
 The evidence-bounded manuscript and Methods/SI blueprints are in
 [MANUSCRIPT_OUTLINE.md](MANUSCRIPT_OUTLINE.md) and
 [METHODS_SI_OUTLINE.md](METHODS_SI_OUTLINE.md).
+The executable crop-specific array, coverage, adaptation, and replacement
+boundary is documented in
+[SCC_INTEGRATION_DESIGN.md](SCC_INTEGRATION_DESIGN.md). It contains no fitted
+coefficients or SCC estimates.
 
 The empirical climate pipeline is deliberately staged: daily ISIMIP inputs are
 converted to calendar-defined crop-year features, independently reconciled

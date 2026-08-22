@@ -43,7 +43,9 @@ not call the resulting SCC net of adaptation investment.
 5. Require zero climate features to give zero loss, matched pulse/base
    climate draw IDs, nonzero pulse-minus-base precipitation features, and a
    one-for-one test that `JointAgriculture.agcost` replaces—not augments—the
-   agricultural input to SCC.
+   agricultural input to SCC. Assert that crop-value shares are nonnegative,
+   fixed across paired climate paths, and sum to the complete agricultural
+   value pool in every region; partial-coverage mode is diagnostic-only.
 
 The ISIMIP/GDHY coordinate transformation is an explicit validation gate:
 ISIMIP longitude is −180–180° with descending latitude, while GDHY longitude

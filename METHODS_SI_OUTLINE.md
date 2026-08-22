@@ -5,7 +5,7 @@ This outline is a reproducibility contract. Bracketed fields are completion item
 ## S1. Study design and preregistration
 
 * State the main estimand, eligible crops, geographical support, historical period, baseline, welfare unit, and main/adaptive scenarios.
-* Freeze the replacement rule: `JointAgriculture.agcost` replaces the agriculture input otherwise supplied by MooreAg; it is not additive.
+* Freeze the replacement rule: crop-specific responses pass through `CropResponseAggregation`; `JointAgriculture.agcost` then replaces the agriculture input otherwise supplied by MooreAg and is not additive.
 * Declare outcome-blind choices: crop-stage definitions, primary feature set, transformations, model formula, minimum coverage, and skill gates.
 * Define primary, secondary, exploratory, and failed specifications before SCC projections.
 
@@ -55,7 +55,7 @@ Describe climate model/member/scenario selection, ISIMIP3BASD bias adjustment wh
 
 ## S8. Welfare translation and GIVE integration
 
-Specify the yield-to-welfare mechanism: GTAP-compatible mapping, emulator, or other layer. Demonstrate price/trade feedback enters once. Document currency, FUND crosswalk, consumption, discounting, and SCC algorithm. Include wiring/schema/units and an automated test that `agcost` replaces, rather than augments, MooreAg.
+Specify the yield-to-welfare mechanism: GTAP-compatible mapping, emulator, or other layer. Demonstrate price/trade feedback enters once. Document fixed baseline crop-value shares, their full agricultural coverage or an explicit gap model, currency, FUND crosswalk, consumption, discounting, and SCC algorithm. Include wiring/schema/units and automated tests that crop-specific coefficients survive aggregation, incomplete coverage fails by default, and `agcost` replaces rather than augments MooreAg.
 
 ## S9. Attribution and overlap audit
 
