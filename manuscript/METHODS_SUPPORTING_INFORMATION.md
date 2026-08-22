@@ -187,3 +187,16 @@ correlation, predictive R-squared, and improvement over a zero-yield-change
 benchmark are reported; response coefficients are not exported. This is an
 internal predictive diagnostic, not causal identification, independent
 external validation, or authority to construct SCC inputs.
+
+## S10. Scientific integrity and independent review
+
+Every quantitative statement is classified as observed source data, derived
+empirical result, published result, synthetic test, diagnostic pilot,
+assumption/scenario, or unavailable/planned. Missing or failed inputs and
+analyses are reported rather than replaced by inferred values. Numerical
+damage or SCC results require complete provenance, a frozen executable
+configuration, machine-readable draw artifacts, holdout validation,
+pulse-convergence and accounting checks, and explicit promotion in
+`RESULTS_STATUS.md`. The full rules are in
+`SCIENTIFIC_INTEGRITY_PROTOCOL.md`; `INDEPENDENT_REVIEW_CHECKLIST.md` defines
+the adversarial replication handoff.

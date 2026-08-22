@@ -25,6 +25,10 @@ The climate-emulation literature and published-method reuse decision are in
 The evidence-bounded manuscript and Methods/SI blueprints are in
 [MANUSCRIPT_OUTLINE.md](MANUSCRIPT_OUTLINE.md) and
 [METHODS_SI_OUTLINE.md](METHODS_SI_OUTLINE.md).
+All claims and results are governed by
+[SCIENTIFIC_INTEGRITY_PROTOCOL.md](SCIENTIFIC_INTEGRITY_PROTOCOL.md); an
+independent replication and adversarial-review path is provided in
+[INDEPENDENT_REVIEW_CHECKLIST.md](INDEPENDENT_REVIEW_CHECKLIST.md).
 The executable crop-specific array, coverage, adaptation, and replacement
 boundary is documented in
 [SCC_INTEGRATION_DESIGN.md](SCC_INTEGRATION_DESIGN.md). It contains no fitted
