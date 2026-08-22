@@ -14,6 +14,7 @@ management, migration, price/substitution, and data limitations.
 | Blanchard et al. (2024), *Earth's Future*, doi:10.1029/2023EF004402 | FishMIP 2.0 ensemble architecture and explicit structural uncertainty. | Notes limited standardized historical fishing data, uncertain coastal/shelf projections, and inconsistent fishing representation; cannot be treated as validated welfare output. |
 | Narita & Rehdanz (2016), *Ecological Economics*, doi:10.1016/j.ecolecon.2016.04.012 | Ecological-economic consumer-welfare approach for reef fisheries and warming/acidification. | Reef-associated branch only; overlaps potentially with future coral-reef services and needs separate accounting. |
 | Moore et al. (2021), *Climate Change Economics*, doi:10.1142/S2010007821500020 | Consumer-surplus modeling for 16 US fisheries; useful welfare validation benchmark. | US-specific and not globally transferable. |
+| RFF (2024), *Improving the Treatment of Catastrophic Climate Risk in the Social Cost of Carbon*, ocean systems report, https://media.rff.org/documents/Report_24-17_IX6Vq3m.pdf | Authoritative audit of ocean omissions in GIVE and candidate fisheries, coral, and acidification pathways; recommends integrated modeling and makes management, migration, aquaculture, and data constraints explicit. | A research roadmap rather than a calibrated pulse-response dataset; it does not justify a numeric fisheries damage function by itself. |
 
 ## Candidate primary architecture
 
@@ -26,6 +27,18 @@ management, migration, price/substitution, and data limitations.
 3. Treat harvest control, fishing effort, aquaculture, range shifts, and
    protein substitution as scenario/adaptation inputs with uncertainty.
 4. Aggregate only after resolving country/EEZ allocation and trade incidence.
+
+## Transferability conclusion
+
+The literature supports a global biophysical ensemble and makes a welfare
+translation scientifically defensible in principle. It does **not** support
+transferring the US fisheries surplus response, valuing global projected catch
+at observed prices, or interpreting FishMIP biomass as damages. The first
+executable global version therefore requires either licensed model outputs plus
+an identified surplus layer or auditable output from an integrated global
+fishery model. The exact interface and exclusions are fixed in
+[`MODEL_CONTRACT.md`](MODEL_CONTRACT.md) so source acquisition can proceed
+without silently choosing coefficients.
 
 ## Exclusion gate
 

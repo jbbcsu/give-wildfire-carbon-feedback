@@ -7,6 +7,12 @@ single welfare target and exclusions for aquaculture, fishmeal inputs,
 reef-mediated coastal protection, tourism, and food-price feedback. A module
 cannot proceed without a written double-counting resolution.
 
+RFF's 2024 ocean report identifies fisheries and other ocean systems as absent
+from current GIVE damages and recommends integrated ecological--economic
+modeling rather than an unsupported reduced-form plug-in. The implementation
+therefore follows the auditable [`MODEL_CONTRACT.md`](MODEL_CONTRACT.md), with
+numeric calibration gated on licensed biophysical and welfare inputs.
+
 ## Gate 1 — literature-first feasibility assessment
 
 Systematically assess global and regional fisheries studies for: climate
