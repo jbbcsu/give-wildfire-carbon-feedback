@@ -44,12 +44,32 @@ with tempfile.TemporaryDirectory() as directory:
         "delta_fisheries_welfare_usd": -5, "coverage_status": "complete",
         "additive_eligible": "true", "climate_model_id": "g1",
         "ecosystem_model_id": "e1", "management_scenario": "m1",
-        "welfare_draw_id": "w1",
+        "welfare_draw_id": "w1", "accounting_boundary_id": "marine_capture_surplus_v1",
+        "overlap_review_status": "passed", "includes_aquaculture": "false",
+        "includes_terrestrial_food_market_welfare": "false",
+        "includes_coral_or_reef_services": "false",
+        "includes_biodiversity_nonuse_value": "false",
+        "includes_ciam_coastal_impacts": "false",
+        "uses_gross_revenue_as_welfare": "false",
     }
     output_path = temp / "outputs.csv"
     write_csv(output_path, [output])
     run("outputs", output_path, True)
     write_csv(output_path, [dict(output, delta_fisheries_welfare_usd=-4)])
+    run("outputs", output_path, False)
+    write_csv(output_path, [dict(
+        output,
+        additive_eligible="false",
+        overlap_review_status="pending",
+    )])
+    run("outputs", output_path, True)
+    write_csv(output_path, [dict(output, overlap_review_status="pending")])
+    run("outputs", output_path, False)
+    write_csv(output_path, [dict(output, includes_aquaculture="true")])
+    run("outputs", output_path, False)
+    write_csv(output_path, [dict(output, accounting_boundary_id="")])
+    run("outputs", output_path, False)
+    write_csv(output_path, [dict(output, gross_revenue_usd=10)])
     run("outputs", output_path, False)
     write_csv(output_path, [dict(
         output,

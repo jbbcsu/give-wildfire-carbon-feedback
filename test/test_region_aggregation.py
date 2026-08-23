@@ -46,6 +46,14 @@ def welfare(country: str, consumer: object, producer: object) -> dict[str, objec
         "ecosystem_model_id": "e1",
         "management_scenario": "m1",
         "welfare_draw_id": "w1",
+        "accounting_boundary_id": "marine_capture_surplus_v1",
+        "overlap_review_status": "passed",
+        "includes_aquaculture": "false",
+        "includes_terrestrial_food_market_welfare": "false",
+        "includes_coral_or_reef_services": "false",
+        "includes_biodiversity_nonuse_value": "false",
+        "includes_ciam_coastal_impacts": "false",
+        "uses_gross_revenue_as_welfare": "false",
     }
 
 
@@ -73,6 +81,8 @@ with tempfile.TemporaryDirectory() as directory:
     assert output["R1"]["delta_producer_surplus_usd"] == "2.75"
     assert output["R1"]["delta_fisheries_welfare_usd"] == "6"
     assert output["R1"]["additive_eligible"] == "true"
+    assert output["R1"]["overlap_review_status"] == "passed"
+    assert output["R1"]["accounting_boundary_id"] == "marine_capture_surplus_v1"
     assert output["R2"]["delta_fisheries_welfare_usd"] == "-3"
 
     # A declared but absent country fails its region closed; no partial total is emitted.
@@ -83,6 +93,7 @@ with tempfile.TemporaryDirectory() as directory:
     assert output["R1"]["coverage_status"] == "incomplete"
     assert output["R1"]["coverage_reason_codes"] == "country_missing"
     assert output["R1"]["delta_fisheries_welfare_usd"] == ""
+    assert output["R1"]["overlap_review_status"] == "pending"
     assert output["R2"]["delta_fisheries_welfare_usd"] == "-3"
 
     # Incomplete upstream coverage is preserved and never converted to numeric zero.
@@ -96,13 +107,43 @@ with tempfile.TemporaryDirectory() as directory:
     assert output["R1"]["delta_fisheries_welfare_usd"] == ""
 
     # A complete row that has not cleared the overlap gate is also withheld.
-    overlap_pending = dict(records[1], additive_eligible="false")
+    overlap_pending = dict(
+        records[1], additive_eligible="false", overlap_review_status="pending"
+    )
     write_csv(country_path, [records[0], overlap_pending, records[2]])
     run(country_path, crosswalk_path, output_path, True)
     with output_path.open(newline="", encoding="utf-8") as stream:
         output = {row["give_region_id"]: row for row in csv.DictReader(stream)}
-    assert output["R1"]["coverage_reason_codes"] == "country_not_additive_eligible"
+    assert output["R1"]["coverage_reason_codes"] == "country_overlap_pending"
     assert output["R1"]["delta_fisheries_welfare_usd"] == ""
+
+    # A passed overlap review does not force eligibility if another gate is pending.
+    other_gate_pending = dict(records[1], additive_eligible="false")
+    write_csv(country_path, [records[0], other_gate_pending, records[2]])
+    run(country_path, crosswalk_path, output_path, True)
+    with output_path.open(newline="", encoding="utf-8") as stream:
+        output = {row["give_region_id"]: row for row in csv.DictReader(stream)}
+    assert output["R1"]["coverage_reason_codes"] == "country_not_additive_eligible"
+
+    # Boundary definitions cannot silently change within one draw-year.
+    write_csv(country_path, [
+        records[0],
+        dict(records[1], accounting_boundary_id="different_boundary_v1"),
+        records[2],
+    ])
+    run(country_path, crosswalk_path, output_path, False)
+
+    write_csv(country_path, [
+        records[0],
+        dict(
+            records[1],
+            additive_eligible="false",
+            includes_aquaculture="true",
+            overlap_review_status="failed",
+        ),
+        records[2],
+    ])
+    run(country_path, crosswalk_path, output_path, False)
 
     # Country rows cannot silently cross model/draw identities, even across regions.
     write_csv(country_path, [records[0], records[1], dict(records[2], climate_model_id="g2")])

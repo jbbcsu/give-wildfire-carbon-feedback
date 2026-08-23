@@ -51,7 +51,7 @@ The repository currently provides two coefficient-free checks:
 
 - `scripts/validate_welfare_interface.py` validates matched baseline/pulse
   inputs and country-year welfare outputs, including missing-versus-zero
-  semantics.
+  semantics and a fail-closed, machine-readable overlap review.
 - `scripts/aggregate_welfare_to_regions.py` aggregates already eligible
   country-year welfare changes through an explicit country-to-GIVE-region
   crosswalk. It fails each region closed if a declared country is absent,
@@ -66,3 +66,6 @@ python3 test/test_region_aggregation.py
 
 These scripts do not choose ecological or economic parameters, certify that a
 crosswalk is globally exhaustive, discount damages, or calculate an SCC.
+Passing the overlap schema also does not substitute for evidence that the
+declared exclusions were applied; it prevents an unresolved or contradictory
+boundary from being marked additive eligible.

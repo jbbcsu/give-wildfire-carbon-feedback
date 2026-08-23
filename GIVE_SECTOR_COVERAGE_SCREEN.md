@@ -1,6 +1,6 @@
 # GIVE coverage and next-sector screen
 
-Updated 2026-08-21. This is a literature-based prioritization note, not a
+Updated 2026-08-22. This is a literature-based prioritization note, not a
 damage estimate. It uses current RFF documentation to define the baseline and
 does not rank sectors by invented SCC values.
 
@@ -33,13 +33,25 @@ prioritizes it. Under this program's strict wildfire isolation rule, the
 implementable candidate narrows to **surface-level ozone morbidity and
 mortality**. This is a priority judgment, not a magnitude claim.
 
-Labor productivity is the closest alternative: RFF documents that it is
+Labor productivity is one alternative: RFF documents that it is
 included in EPA's 2023 enumerative implementation but absent from GIVE's four-
 sector core. It may be more implementation-ready than global ozone, but its
 market-output endpoint has wider overlap with agriculture, energy use,
-mortality, and any macroeconomic damage function. It should remain the second
-candidate until a direct comparison of data coverage, identification, and
-additive boundaries is completed.
+mortality, and any macroeconomic damage function. It should not be labeled the
+second-largest omission or second research priority unless a direct comparison
+of data coverage, identification, and additive boundaries supports that
+ordering.
+
+Coral-reef ecosystem services are a co-candidate, not evidence that labor is
+unambiguously second. RFF's ocean assessment identifies coral reefs and
+fisheries after considering anticipated magnitude and IAM feasibility. The
+active fisheries track excludes reef tourism, nonuse value, and coastal
+protection, while the biodiversity track is restricted to nonuse value and
+has no calibrated valuation. The remaining reef services are therefore real
+coverage gaps, but they are less scaffold-ready because every service must be
+assigned once across fisheries, biodiversity, and CIAM. This evidence supports
+including coral services in the coordinator choice; it does not establish a
+cross-sector numerical rank.
 
 ## Surface-ozone research boundary
 
@@ -69,8 +81,15 @@ Required exclusions and reconciliation rules:
 ## Scaffold gate
 
 No data download or numerical code should begin until a coordinator chooses
-between (A) non-wildfire surface ozone health and (B) labor productivity, and
-approves the endpoint reconciliation. For ozone, the next safe artifact is a
-source/provenance manifest covering climate-chemistry concentration fields,
-baseline mortality/morbidity rates, concentration-response functions,
-population, and valuation—without coefficients filled by assumption.
+between (A) non-wildfire surface ozone health, (B) labor productivity, and
+(C) a named coral-reef service, and approves the endpoint reconciliation. For
+ozone, the next safe artifact is a source/provenance manifest covering climate-
+chemistry concentration fields, baseline mortality/morbidity rates,
+concentration-response functions, population, and valuation—without
+coefficients filled by assumption. Labor requires one locked market endpoint
+and reconciliation against agriculture, energy/adaptation spending, health,
+and any macro damage representation. Coral requires service-by-service
+ownership: fisheries values stay in fisheries, nonuse values in biodiversity,
+shoreline/property protection in CIAM, and tourism/recreation only in a
+separately identified residual. No candidate is additive eligible before that
+review passes.

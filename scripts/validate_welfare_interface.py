@@ -24,6 +24,7 @@ OUTPUT_REQUIRED = {
     "delta_producer_surplus_usd", "delta_fisheries_welfare_usd",
     "coverage_status", "additive_eligible", "climate_model_id",
     "ecosystem_model_id", "management_scenario", "welfare_draw_id",
+    "accounting_boundary_id", "overlap_review_status",
 }
 SCENARIOS = {"baseline", "pulse"}
 COVERAGE = {"complete", "missing", "unmodeled", "suppressed"}
@@ -31,6 +32,16 @@ IDENTIFIERS = (
     "climate_model_id", "ecosystem_model_id", "management_scenario",
     "welfare_draw_id",
 )
+OVERLAP_REVIEW = {"passed", "pending", "failed"}
+OVERLAP_EXCLUSION_FIELDS = (
+    "includes_aquaculture",
+    "includes_terrestrial_food_market_welfare",
+    "includes_coral_or_reef_services",
+    "includes_biodiversity_nonuse_value",
+    "includes_ciam_coastal_impacts",
+    "uses_gross_revenue_as_welfare",
+)
+OUTPUT_REQUIRED.update(OVERLAP_EXCLUSION_FIELDS)
 
 
 def rows(path: Path) -> tuple[list[str], list[dict[str, str]]]:
@@ -86,7 +97,10 @@ def validate_outputs(fieldnames: list[str], records: list[dict[str, str]], toler
     missing = OUTPUT_REQUIRED - set(fieldnames)
     if missing:
         raise ValueError(f"welfare output missing columns {sorted(missing)}")
-    if any("revenue" in name.lower() for name in fieldnames):
+    if any(
+        "revenue" in name.lower() and name not in OVERLAP_EXCLUSION_FIELDS
+        for name in fieldnames
+    ):
         raise ValueError("gross revenue fields are outside the welfare output contract")
     seen: set[tuple[str, str, str]] = set()
     for row in records:
@@ -100,8 +114,29 @@ def validate_outputs(fieldnames: list[str], records: list[dict[str, str]], toler
         eligible = row["additive_eligible"].strip().lower()
         if eligible not in {"true", "false"}:
             raise ValueError("additive_eligible must be true or false")
+        if not row["accounting_boundary_id"].strip():
+            raise ValueError("accounting_boundary_id must be nonblank")
+        overlap_review = row["overlap_review_status"].strip().lower()
+        if overlap_review not in OVERLAP_REVIEW:
+            raise ValueError(
+                "overlap_review_status must be passed, pending, or failed"
+            )
+        overlap_flags: dict[str, bool] = {}
+        for name in OVERLAP_EXCLUSION_FIELDS:
+            value = row[name].strip().lower()
+            if value not in {"true", "false"}:
+                raise ValueError(f"{name} must be true or false")
+            overlap_flags[name] = value == "true"
+        if overlap_review == "passed" and any(overlap_flags.values()):
+            included = sorted(name for name, value in overlap_flags.items() if value)
+            raise ValueError(
+                "passed overlap review contradicts locked exclusions: "
+                + ", ".join(included)
+            )
         if eligible == "true" and status != "complete":
             raise ValueError("only complete coverage may be additive eligible")
+        if eligible == "true" and overlap_review != "passed":
+            raise ValueError("only a passed overlap review may be additive eligible")
         values = (
             row["delta_consumer_surplus_usd"].strip(),
             row["delta_producer_surplus_usd"].strip(),

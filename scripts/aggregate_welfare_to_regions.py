@@ -14,7 +14,12 @@ from collections import defaultdict
 from decimal import Decimal, InvalidOperation
 from pathlib import Path
 
-from validate_welfare_interface import IDENTIFIERS, rows, validate_outputs
+from validate_welfare_interface import (
+    IDENTIFIERS,
+    OVERLAP_EXCLUSION_FIELDS,
+    rows,
+    validate_outputs,
+)
 
 
 CROSSWALK_REQUIRED = {"country_id", "give_region_id"}
@@ -32,9 +37,17 @@ OUTPUT_FIELDS = (
     "coverage_reason_codes",
     "additive_eligible",
     *IDENTIFIERS,
+    "accounting_boundary_id",
+    "overlap_review_status",
+    *OVERLAP_EXCLUSION_FIELDS,
     "country_count_expected",
     "country_count_present",
     "country_count_complete",
+)
+AGGREGATION_IDENTIFIERS = (
+    *IDENTIFIERS,
+    "accounting_boundary_id",
+    *OVERLAP_EXCLUSION_FIELDS,
 )
 
 
@@ -91,13 +104,8 @@ def aggregate(
     output: list[dict[str, str | int]] = []
     for (draw_id, year), country_rows in sorted(by_draw_year.items()):
         draw_identifiers: dict[str, str] = {}
-        complete_draw_rows = [
-            row
-            for row in country_rows.values()
-            if row["coverage_status"].strip().lower() == "complete"
-        ]
-        for name in IDENTIFIERS:
-            observed = {row[name].strip() for row in complete_draw_rows if row[name].strip()}
+        for name in AGGREGATION_IDENTIFIERS:
+            observed = {row[name].strip() for row in country_rows.values() if row[name].strip()}
             if len(observed) > 1:
                 raise ValueError(f"draw-year {(draw_id, year)} has unmatched {name}")
             draw_identifiers[name] = next(iter(observed), "")
@@ -118,6 +126,11 @@ def aggregate(
                 status = row["coverage_status"].strip().lower()
                 if status != "complete":
                     reasons.add(f"country_{status}")
+                elif row["overlap_review_status"].strip().lower() != "passed":
+                    reasons.add(
+                        "country_overlap_"
+                        + row["overlap_review_status"].strip().lower()
+                    )
                 elif row["additive_eligible"].strip().lower() != "true":
                     reasons.add("country_not_additive_eligible")
 
@@ -130,6 +143,18 @@ def aggregate(
                 "coverage_reason_codes": ";".join(sorted(reasons)),
                 "additive_eligible": str(region_eligible).lower(),
                 **draw_identifiers,
+                "overlap_review_status": (
+                    "passed"
+                    if region_eligible
+                    else (
+                        "failed"
+                        if any(
+                            row["overlap_review_status"].strip().lower() == "failed"
+                            for row in present
+                        )
+                        else "pending"
+                    )
+                ),
                 "country_count_expected": len(expected_countries),
                 "country_count_present": len(present),
                 "country_count_complete": len(complete),

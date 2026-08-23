@@ -38,7 +38,9 @@ One row per `draw_id, year, country_id`:
 - `delta_producer_surplus_usd`;
 - `delta_fisheries_welfare_usd` (their sum);
 - optional nutrition quantity reported separately, never monetized implicitly;
-- input/model identifiers and coverage flags; and
+- input/model identifiers and coverage flags;
+- a nonblank `accounting_boundary_id`, machine-readable overlap-review status,
+  and explicit flags for each locked exclusion below; and
 - an additive-eligibility flag set only after overlap checks pass.
 
 The GIVE adapter aggregates eligible country-year welfare changes to its
@@ -57,6 +59,17 @@ and has already passed the upstream overlap gate
 blank and explicit reason codes report missing, suppressed, unmodeled, or
 ineligible country rows. Complete regions conserve consumer, producer, and
 total welfare independently.
+
+The validator makes the overlap gate executable rather than trusting the
+eligibility flag alone. `overlap_review_status` is `passed`, `pending`, or
+`failed`; eligibility requires `passed`. A passed review is invalid if any
+locked-exclusion flag says that aquaculture, terrestrial food-market welfare,
+coral/reef services, biodiversity nonuse value, CIAM coastal impacts, or gross
+revenue-as-welfare is included. Aggregation requires a common accounting
+boundary and common exclusion flags within each draw-year, carries them to the
+regional output, and withholds totals for pending or failed overlap reviews.
+These fields document a review; they do not prove that the review was
+scientifically adequate.
 
 The crosswalk is an explicit aggregation universe, not proof of global
 coverage. A production crosswalk still requires a provenance record, version,

@@ -55,6 +55,12 @@ missing, incomplete, or not additive eligible. Remaining Gate 4 work requires
 a reviewed global GIVE crosswalk and, upstream, an identified welfare model;
 discounting and SCC integration remain intentionally unimplemented.
 
+Additive eligibility is also fail-closed on a machine-readable overlap review:
+the marine-capture welfare boundary must be named, the review must pass, and
+all locked aquaculture, terrestrial-food-market, coral/reef, biodiversity,
+CIAM-coastal, and gross-revenue exclusions must remain false. This is an
+accounting safeguard, not empirical validation of the eventual model.
+
 ## Gate 5 — validation, uncertainty, publication
 
 Require withheld years/regions/species, historical marine-heatwave tests,
