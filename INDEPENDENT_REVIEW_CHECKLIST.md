@@ -45,7 +45,10 @@ the manuscript or `RESULTS_STATUS.md` as evidence without tracing the claim.
   cover the full agricultural value pool or trigger a hard failure.
 - Verify matched base/pulse identifiers, common random numbers,
   pre-divergence equality, pulse-size convergence, and discounting.
-- Confirm `JointAgriculture.agcost` replaces MooreAg and is not added beside it.
+- Run the component-graph audit and confirm that the sole internal producer of
+  `DamageAggregator.damage_ag` is `JointAgriculture.agcost`, no `Agriculture`
+  component remains, and the unmodified GIVE baseline fails as a negative
+  control.
 - Confirm infrastructure flooding remains absent and CIAM-covered coastal
   damages are not duplicated.
 - Reject any SCC result that lacks a machine-readable draw artifact,

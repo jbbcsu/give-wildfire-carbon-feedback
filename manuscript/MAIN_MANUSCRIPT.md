@@ -98,7 +98,12 @@ GCM/member, crop calendar, socioeconomic path, response draw, and weighting
 scheme. Cell-level yield responses are aggregated with fixed baseline weights,
 translated to 16 FUND regions, and supplied to the replacement component.
 GIVE's existing marginal-damage/discounting machinery then produces the global
-SCC. Results report fixed, trend, and upper adaptation scenarios separately.
+SCC. Before either member of a paired run, a structural audit requires
+`DamageAggregator.damage_ag` to have the sole internal producer
+`JointAgriculture.agcost` and requires the baseline `Agriculture` component to
+be absent. The unmodified GIVE graph fails this test by design. A passing graph
+is an accounting prerequisite, not evidence of response validity or an SCC
+result. Results report fixed, trend, and upper adaptation scenarios separately.
 
 ## 6. Results (pre-registered placeholders)
 

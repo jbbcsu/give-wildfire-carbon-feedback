@@ -87,8 +87,13 @@ For each Monte Carlo draw:
    Howard--Sterner aggregate damage functions. Discount the pulse-minus-base
    total-damage path using GIVE's established SCC routine.
 
-An integration test must inspect the model component graph, not merely compare
-numeric totals: exactly one agriculture producer may feed `damage_ag`. Further
+`src/AgricultureReplacementAudit.jl` inspects the model component graph rather
+than merely comparing numeric totals. It requires exactly one internal
+producer for `DamageAggregator.damage_ag`, requires that producer to be
+`JointAgriculture.agcost`, and rejects any simultaneously instantiated
+component named `Agriculture`. Missing, wrong-source, and coexistence graphs
+are executable synthetic failure cases. The unmodified GIVE model is an
+explicit negative control because it retains `Agriculture.agcost`. Further
 required gates are complete region/crop coverage or a pre-registered gap
 model; units and FUND order; finite coefficient draws; fixed normalized
 weights; matched IDs; zero-feature and zero-pulse conservation; held-out
@@ -97,5 +102,7 @@ replacement test.
 
 `scripts/validate_scc_response_bundle.py` implements the array/schema portion
 of these gates and writes an audit without estimating or authorizing a damage
-function. Held-out skill, future-climate support, welfare calibration, and the
-component-graph replacement test remain separate production requirements.
+function. The graph audit implements only the structural replacement gate.
+Held-out skill, future-climate support, welfare calibration, a successfully
+wired full GIVE model, and paired marginal runs remain separate production
+requirements.

@@ -57,6 +57,15 @@ water-stress family, fixed-within-draw weights, finite coefficients, and
 pre-divergence conservation. Passing this schema gate is not evidence of
 held-out skill or authorization to calculate an SCC.
 
+After wiring, `src/AgricultureReplacementAudit.jl` inspects Mimi's component
+graph and fails unless `DamageAggregator.damage_ag` has exactly one internal
+producer, `JointAgriculture.agcost`, and no component named `Agriculture`
+remains instantiated. Synthetic missing-source, wrong-source, and coexistence
+cases are tested. The unmodified GIVE baseline is a deliberate negative
+control: it is rejected because `Agriculture.agcost` still supplies
+`damage_ag`. A graph pass establishes the replacement topology only; it does
+not clear empirical, welfare, coverage, support, paired-run, or SCC gates.
+
 The pre-integration validation layer now also includes
 `scripts/evaluate_crop_response_models.py`, driven by the frozen
 `config/response_evaluation_spec.toml`. It evaluates crop-specific

@@ -150,6 +150,17 @@ paths propagate through the crop-specific joint response and one welfare
 mapping. The global SCC is calculated from the discounted difference using
 GIVE's established marginal-damage method.
 
+The executable integration gate inspects Mimi's parameter-connection graph
+before each paired marginal run. It requires exactly one internal producer for
+`DamageAggregator.damage_ag`, identifies that producer as
+`JointAgriculture.agcost`, and rejects an instantiated component named
+`Agriculture`. Synthetic tests retain missing-source, wrong-source, and
+coexistence failures. The unmodified GIVE model is a negative control and is
+rejected because `Agriculture.agcost` supplies `damage_ag`. This establishes a
+topological accounting condition only; it does not validate response skill,
+welfare calibration, crop coverage, future support, matched identifiers, or a
+paired SCC result.
+
 Before model wiring, the long-form response bundle is checked against the
 frozen crop and FUND-region orders. Every draw/year contains the complete
 region-by-crop product for baseline and pulse; FAIR, climate-member,

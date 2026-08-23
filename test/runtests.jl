@@ -5,6 +5,19 @@ include(joinpath(@__DIR__, "..", "src", "PrecipitationDamages.jl"))
 include(joinpath(@__DIR__, "..", "src", "AdaptationScenarios.jl"))
 include(joinpath(@__DIR__, "..", "src", "CropResponseAggregation.jl"))
 include(joinpath(@__DIR__, "..", "src", "JointAgriculture.jl"))
+include(joinpath(@__DIR__, "..", "src", "AgricultureReplacementAudit.jl"))
+
+@defcomp GraphDamageAggregator begin
+    fund_regions = Index()
+    damage_ag = Parameter(index=[time, fund_regions])
+    observed_damage_ag = Variable(index=[time, fund_regions])
+
+    function run_timestep(p, v, d, t)
+        for r in d.fund_regions
+            v.observed_damage_ag[t, r] = p.damage_ag[t, r]
+        end
+    end
+end
 
 @testset "PrecipitationDamages contract" begin
     m = Model()
@@ -64,6 +77,65 @@ end
     @test m[:CropResponseAggregation, :coverage_share][1, 1] ≈ 1.0
     @test m[:JointAgriculture, :raw_climate_loss_fraction][1, 1] ≈ 0.1775
     @test m[:JointAgriculture, :agcost][1, 1] ≈ 1.775
+end
+
+@testset "Agriculture replacement component graph" begin
+    m = Model()
+    set_dimension!(m, :time, [2020])
+    set_dimension!(m, :fund_regions, ["USA"])
+    add_comp!(m, JointAgriculture)
+    add_comp!(m, GraphDamageAggregator, :DamageAggregator, after=:JointAgriculture)
+    connect_param!(m, :DamageAggregator => :damage_ag, :JointAgriculture => :agcost)
+    audit = AgricultureReplacementAudit.audit_agriculture_replacement(m)
+    @test audit.passed
+    @test audit.damage_ag_producers == [(component=:JointAgriculture, variable=:agcost)]
+    @test isempty(audit.forbidden_components_present)
+
+    absent = Model()
+    set_dimension!(absent, :time, [2020])
+    set_dimension!(absent, :fund_regions, ["USA"])
+    absent_audit = AgricultureReplacementAudit.audit_agriculture_replacement(
+        absent; throw_on_error=false)
+    @test !absent_audit.passed
+    @test occursin("required component DamageAggregator is absent",
+                   only(absent_audit.errors))
+
+    missing = Model()
+    set_dimension!(missing, :time, [2020])
+    set_dimension!(missing, :fund_regions, ["USA"])
+    add_comp!(missing, GraphDamageAggregator, :DamageAggregator)
+    missing_audit = AgricultureReplacementAudit.audit_agriculture_replacement(
+        missing; throw_on_error=false)
+    @test !missing_audit.passed
+    @test occursin("exactly one internal producer", only(missing_audit.errors))
+    @test_throws ErrorException AgricultureReplacementAudit.audit_agriculture_replacement(missing)
+
+    wrong_source = Model()
+    set_dimension!(wrong_source, :time, [2020])
+    set_dimension!(wrong_source, :fund_regions, ["USA"])
+    add_comp!(wrong_source, JointAgriculture, :Agriculture)
+    add_comp!(wrong_source, GraphDamageAggregator, :DamageAggregator, after=:Agriculture)
+    connect_param!(wrong_source, :DamageAggregator => :damage_ag, :Agriculture => :agcost)
+    wrong_audit = AgricultureReplacementAudit.audit_agriculture_replacement(
+        wrong_source; throw_on_error=false)
+    @test !wrong_audit.passed
+    @test wrong_audit.damage_ag_producers == [(component=:Agriculture, variable=:agcost)]
+    @test wrong_audit.forbidden_components_present == [:Agriculture]
+    @test length(wrong_audit.errors) == 2
+
+    coexistence = Model()
+    set_dimension!(coexistence, :time, [2020])
+    set_dimension!(coexistence, :fund_regions, ["USA"])
+    add_comp!(coexistence, JointAgriculture)
+    add_comp!(coexistence, JointAgriculture, :Agriculture, after=:JointAgriculture)
+    add_comp!(coexistence, GraphDamageAggregator, :DamageAggregator, after=:Agriculture)
+    connect_param!(coexistence, :DamageAggregator => :damage_ag,
+                   :JointAgriculture => :agcost)
+    coexistence_audit = AgricultureReplacementAudit.audit_agriculture_replacement(
+        coexistence; throw_on_error=false)
+    @test !coexistence_audit.passed
+    @test coexistence_audit.damage_ag_producers == [(component=:JointAgriculture, variable=:agcost)]
+    @test coexistence_audit.forbidden_components_present == [:Agriculture]
 end
 
 @testset "Crop coverage gates" begin

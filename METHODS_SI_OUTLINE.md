@@ -62,6 +62,8 @@ Describe climate model/member/scenario selection, ISIMIP3BASD bias adjustment wh
 
 Specify the yield-to-welfare mechanism: GTAP-compatible mapping, emulator, or other layer. Demonstrate price/trade feedback enters once. Document fixed baseline crop-value shares, their full agricultural coverage or an explicit gap model, currency, FUND crosswalk, consumption, discounting, and SCC algorithm. Include wiring/schema/units and automated tests that crop-specific coefficients survive aggregation, incomplete coverage fails by default, and `agcost` replaces rather than augments MooreAg.
 
+Run the executable Mimi graph audit on both members of every paired model. Require the sole internal producer of `DamageAggregator.damage_ag` to be `JointAgriculture.agcost`, reject any remaining `Agriculture` component, and retain the unmodified GIVE graph as a negative control. State that this topology check does not validate the response or welfare layer.
+
 ## S9. Attribution and overlap audit
 
 Define joint-effect and precipitation-attribution decomposition, including feature groups/order averaging. Publish a reconciliation table: MooreAg excluded; CIAM retained for coastal effects; standard mortality/energy sectors retained subject to scope; optional aggregate damage functions disabled; noncoastal infrastructure flood excluded. Call this an accounting rule, not proof that overlap is zero.

@@ -76,6 +76,13 @@ not call the resulting SCC net of adaptation investment.
    Run the paired response-bundle validator before integration. Its schema
    pass does not substitute for held-out skill, observed-support, or welfare
    validation.
+   Run `AgricultureReplacementAudit.audit_agriculture_replacement` on the
+   constructed Mimi model before either member of a paired SCC run. The audit
+   must find exactly one internal producer for `DamageAggregator.damage_ag`,
+   identify it as `JointAgriculture.agcost`, and find no instantiated
+   `Agriculture` component. The unmodified GIVE graph must fail this test and
+   serves as a negative control. A graph pass is necessary but not sufficient
+   for SCC authorization.
 
 The ISIMIP/GDHY coordinate transformation is an explicit validation gate:
 ISIMIP longitude is −180–180° with descending latitude, while GDHY longitude
