@@ -7,9 +7,16 @@ include(joinpath(@__DIR__, "..", "src", "CropResponseAggregation.jl"))
 include(joinpath(@__DIR__, "..", "src", "JointAgriculture.jl"))
 include(joinpath(@__DIR__, "..", "src", "AgricultureReplacementAudit.jl"))
 include(joinpath(@__DIR__, "..", "src", "PairedAgricultureAudit.jl"))
+include(joinpath(@__DIR__, "..", "src", "AgricultureReplacementHarness.jl"))
 
 @defcomp GraphDamageAggregator begin
     fund_regions = Index()
+    include_cromar_mortality = Parameter{Bool}(default=true)
+    include_ag = Parameter{Bool}(default=true)
+    include_slr = Parameter{Bool}(default=true)
+    include_energy = Parameter{Bool}(default=true)
+    include_dice2016R2 = Parameter{Bool}(default=false)
+    include_hs_damage = Parameter{Bool}(default=false)
     damage_ag = Parameter(index=[time, fund_regions])
     observed_damage_ag = Variable(index=[time, fund_regions])
 
@@ -18,6 +25,97 @@ include(joinpath(@__DIR__, "..", "src", "PairedAgricultureAudit.jl"))
             v.observed_damage_ag[t, r] = p.damage_ag[t, r]
         end
     end
+end
+
+@defcomp LegacyAgricultureForHarness begin
+    fund_regions = Index()
+    income = Parameter(index=[time, fund_regions])
+    population = Parameter(index=[time, fund_regions])
+    gdp90 = Parameter(index=[fund_regions])
+    pop90 = Parameter(index=[fund_regions])
+    agrish0 = Parameter(index=[fund_regions])
+    temp = Parameter(index=[time])
+    agcost = Variable(index=[time, fund_regions])
+end
+
+@defcomp HarnessTimeAggregator begin
+    fund_regions = Index()
+    output = Variable(index=[time, fund_regions])
+end
+
+@defcomp HarnessNoTimeAggregator begin
+    fund_regions = Index()
+    output = Variable(index=[fund_regions])
+end
+
+@defcomp HarnessFollowingComponent begin
+    placeholder = Parameter(default=0.0)
+end
+
+@testset "Joint agriculture installation harness" begin
+    function harness_model(; with_baseline_aggregators=true)
+        m = Model()
+        set_dimension!(m, :time, [2020, 2021])
+        set_dimension!(m, :fund_regions, ["USA"])
+        add_comp!(m, HarnessTimeAggregator, :Agriculture_aggregator_population)
+        add_comp!(m, HarnessTimeAggregator, :Agriculture_aggregator_gdp)
+        if with_baseline_aggregators
+            add_comp!(m, HarnessNoTimeAggregator, :Agriculture_aggregator_pop90)
+            add_comp!(m, HarnessNoTimeAggregator, :Agriculture_aggregator_gdp90)
+        end
+        add_comp!(m, LegacyAgricultureForHarness, :Agriculture)
+        add_comp!(m, HarnessFollowingComponent, :energy_damages)
+        add_comp!(m, GraphDamageAggregator, :DamageAggregator)
+        connect_param!(m, :DamageAggregator => :damage_ag, :Agriculture => :agcost)
+        return m
+    end
+
+    m = harness_model()
+    installation = AgricultureReplacementHarness.install_joint_agriculture_replacement!(
+        m,
+        CropResponseAggregation,
+        JointAgriculture;
+        crops=["maize", "wheat"],
+        agrish0=[0.1],
+    )
+    @test installation.passed
+    @test installation.crops == ["maize", "wheat"]
+    @test installation.retained_sector_flags.include_cromar_mortality
+    graph = AgricultureReplacementAudit.audit_agriculture_replacement(m)
+    @test graph.passed
+
+    ssp = harness_model(; with_baseline_aggregators=false)
+    AgricultureReplacementHarness.install_joint_agriculture_replacement!(
+        ssp,
+        CropResponseAggregation,
+        JointAgriculture;
+        crops=["maize", "wheat"],
+        agrish0=[0.1],
+        gdp90=[80.0],
+        pop90=[8.0],
+    )
+    @test AgricultureReplacementAudit.audit_agriculture_replacement(ssp).passed
+
+    missing_baseline = harness_model(; with_baseline_aggregators=false)
+    @test_throws ErrorException AgricultureReplacementHarness.install_joint_agriculture_replacement!(
+        missing_baseline,
+        CropResponseAggregation,
+        JointAgriculture;
+        crops=["maize", "wheat"],
+        agrish0=[0.1],
+    )
+    @test :Agriculture in Set(nameof(component) for component in Mimi.compdefs(missing_baseline))
+    @test !(:JointAgriculture in Set(nameof(component) for component in Mimi.compdefs(missing_baseline)))
+
+    already_installed = harness_model()
+    set_dimension!(already_installed, :crops, ["rice"])
+    @test_throws ErrorException AgricultureReplacementHarness.install_joint_agriculture_replacement!(
+        already_installed,
+        CropResponseAggregation,
+        JointAgriculture;
+        crops=["maize", "wheat"],
+        agrish0=[0.1],
+    )
 end
 
 @testset "PrecipitationDamages contract" begin

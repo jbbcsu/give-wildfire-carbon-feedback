@@ -66,6 +66,17 @@ control: it is rejected because `Agriculture.agcost` still supplies
 `damage_ag`. A graph pass establishes the replacement topology only; it does
 not clear empirical, welfare, coverage, support, paired-run, or SCC gates.
 
+`src/AgricultureReplacementHarness.jl` now performs that replacement on a
+MimiGIVE-style model: it deletes the legacy component and its MooreAg-only
+parameters, installs the crop response and joint agriculture components,
+reuses the existing regional socioeconomic aggregators, preserves the
+declared sector-inclusion flags, and reconnects `damage_ag` once. The
+build-only integration test in `scripts/test_give_replacement_harness.jl`
+passes against the unmodified GIVE model with synthetic zero-response inputs.
+Mimi requires those externally supplied arrays on the full GIVE model time
+dimension, including years before the components' 2020 start. This is a
+topology/build result, not a successful marginal run or damage result.
+
 `src/PairedAgricultureAudit.jl` checks the next component boundary after the
 response and replacement components run: matched dimensions, finite values,
 pre-divergence conservation, and an all-years zero-pulse identity control. It

@@ -161,6 +161,17 @@ topological accounting condition only; it does not validate response skill,
 welfare calibration, crop coverage, future support, matched identifiers, or a
 paired SCC result.
 
+The executable installer preflights the legacy agriculture component, the
+regional population/GDP aggregators, baseline agricultural-value inputs, crop
+order, and component start year before mutation. It then deletes the MooreAg
+component and its unshared parameters, adds `CropResponseAggregation` and
+`JointAgriculture`, reconnects the socioeconomic inputs and `damage_ag`, and
+sets the declared sector flags explicitly. A build-only test applies this
+procedure to the unmodified GIVE model using synthetic zero-response inputs.
+All externally supplied response and adaptation arrays use GIVE's full
+1750--2300 time dimension even though the installed components begin in 2020;
+the pre-2020 rows are not evaluated by those components.
+
 The paired component-output gate is applied after the crop response and
 agriculture replacement components execute. For crop-level raw and adapted
 loss arrays and regional loss and monetary agriculture arrays, it requires

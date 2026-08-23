@@ -49,6 +49,11 @@ the manuscript or `RESULTS_STATUS.md` as evidence without tracing the claim.
   `DamageAggregator.damage_ag` is `JointAgriculture.agcost`, no `Agriculture`
   component remains, and the unmodified GIVE baseline fails as a negative
   control.
+- Reproduce the build-only installer on an unmodified GIVE checkout; confirm
+  that it mutates only after preflight, reuses the regional socioeconomic
+  aggregators, preserves declared sector flags, and requires full-time-axis
+  response arrays. Confirm the fixture inputs are synthetic and no damages are
+  reported.
 - Verify the paired component-output audit rejects pre-divergence differences,
   malformed arrays, and a changing zero-pulse control; confirm it does not
   require a nonzero response to a nonzero pulse.

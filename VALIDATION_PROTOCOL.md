@@ -83,6 +83,12 @@ not call the resulting SCC net of adaptation investment.
    `Agriculture` component. The unmodified GIVE graph must fail this test and
    serves as a negative control. A graph pass is necessary but not sufficient
    for SCC authorization.
+   Run `scripts/test_give_replacement_harness.jl` against the unmodified GIVE
+   repository as a build-only positive control. It must delete the legacy
+   component, retain the RFF socioeconomic aggregators and declared sector
+   flags, pass the graph audit, and build with synthetic zero-response arrays.
+   Supply feature and adaptation arrays on GIVE's complete model time axis;
+   component `first=2020` does not shorten Mimi's external parameter arrays.
 7. After the crop-response and replacement components run, require matched
    finite `(time, region, crop)` crop outputs and `(time, region)` regional
    outputs. Every required baseline/pulse output must agree before the

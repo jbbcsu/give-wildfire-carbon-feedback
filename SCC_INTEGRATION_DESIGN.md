@@ -103,6 +103,17 @@ replacement test.
 `scripts/validate_scc_response_bundle.py` implements the array/schema portion
 of these gates and writes an audit without estimating or authorizing a damage
 function. The graph audit implements only the structural replacement gate.
+`src/AgricultureReplacementHarness.jl` implements the corresponding model
+mutation for a standard MimiGIVE graph. It preflights the legacy component,
+regional socioeconomic aggregators, baseline agriculture-value inputs, crop
+order, and modeled start year before mutation; removes MooreAg-only parameters;
+retains Cromar mortality, energy, and CIAM while disabling the optional DICE
+and Howard--Sterner aggregate damage functions; and reconnects agriculture
+once. A build-only real-GIVE test passes with explicitly synthetic zero-
+response inputs. Because Mimi indexes externally supplied parameters on the
+complete model time dimension, a production bundle must pad or otherwise
+define all 1750--2300 rows even though both new components start in 2020. No
+pre-2020 response is evaluated by those components.
 `src/PairedAgricultureAudit.jl` implements the component-output boundary. It
 requires matched finite crop and regional output shapes, at least one modeled
 year on each side of the registered first-divergence year, equality of every
@@ -111,6 +122,6 @@ declared zero-pulse control. A nonzero pulse is not required to create a
 nonzero response, because that would silently impose a response-significance
 or support assumption. The audit records only maximum absolute differences
 and pass/fail metadata; it does not discount or sum an SCC.
-Held-out skill, future-climate support, welfare calibration, a successfully
-wired full GIVE model, and paired marginal runs remain separate production
-requirements.
+Held-out skill, future-climate support, welfare calibration, a runnable
+empirical full-GIVE configuration, and paired marginal runs remain separate
+production requirements.
