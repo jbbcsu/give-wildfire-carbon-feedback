@@ -21,7 +21,7 @@ does not report final response estimates or SCC values.
 | Global second-rice/rainfed, 1982–89 | Season-level and three-window temporal-proxy stage panel, `rice_second` GDHY join, deterministic validation labels, reconciliation, and fixed-effects numerical diagnostics complete: 248,040 potential crop-year rows; 12,694 observed-yield rows across 1,587 cells. | Workflow/scaling diagnostic only; no SCC input |
 | Six-crop-season rainfed panel, 1982–89 | Combined seasonal data contract and outcome-independent validation labels complete: 2,944,840 potential crop-year rows; 368,022 observed-yield rows. Crop/season identity and source panel are retained. | Data-contract and validation scaling diagnostic only; no common-slope or SCC input |
 | Crop-response/SCC interface | Synthetic tests pass for crop-specific feature coefficients, pre-aggregation adaptation, fixed crop-value weights, partial/full coverage gates, and MooreAg-compatible `agcost` output | Executable interface contract only; contains no empirical coefficients, welfare calibration, or SCC result |
-| Stage heat and paired-bundle gates | Synthetic cross-year heat construction, executable stage/season reconciliation audit, partition combine, panel join, and baseline/pulse identity/coverage/weight/conservation checks pass | Pipeline/schema validation only; no heat threshold, fitted response, or SCC result is selected |
+| Stage heat and paired-bundle gates | Synthetic cross-year heat construction, executable stage/season reconciliation audit, cross-threshold nesting checks, partition combine, panel join, and baseline/pulse identity/coverage/weight/conservation checks pass; a real 10-latitude maize slice also reconciles | Pipeline/schema validation only; 30/34 C were QA inputs, not selected heat thresholds, and no fitted response or SCC result is created |
 | Historical crop-stage scPDSI path | Synthetic cross-year construction, exact longitude normalization/grid matching, complete-month coverage, partition validation/combine, and one-to-one panel join pass | Historical climatic-index benchmark plumbing only; no real CRU panel, response estimate, future drought path, or SCC input |
 | Rainfed/irrigated outcome-allocation gate | Synthetic fixed-baseline area-share allocation and failure-mode tests pass; one aggregate GDHY yield is collapsed to exactly one weighted-exposure row | Data-contract plumbing only; no production area weights, irrigated response, coefficient, or SCC input |
 | U.S. county crop-season drought bridge | Synthetic cross-year USDM interval aggregation and failure-mode tests pass using an explicit state/crop/harvest-year calendar | Historical external-validation plumbing only; no real county-season exposure, response estimate, or SCC input |
@@ -196,7 +196,14 @@ gap model and every empirical validation gate above.
 The stage-heat workflow now mirrors the latitude-partitioned precipitation
 pipeline and preserves crop/stage identity through the estimation-panel join.
 Its test covers a cross-year crop season and verifies threshold-day,
-degree-day, stage-length, and weighted-mean reconciliation. No production heat
+degree-day, stage-length, and weighted-mean reconciliation. The shared
+seasonal/stage validator also requires hotter-threshold day counts to nest
+inside cooler-threshold counts and degree-day differences to lie inside their
+necessary aggregate bounds. On a real 10-latitude maize/rainfed slice for
+1982--89, 26,824 crop-year rows and 80,472 three-stage rows passed these gates
+at 30 and 34 C; every additive metric reconciled exactly and the maximum
+weighted-mean difference was 7.11e-15 C. Those two thresholds are pipeline-QA
+inputs only, not a selected crop response specification. No production heat
 threshold is encoded: thresholds remain an explicit, pre-registered response-
 specification choice. The paired response-bundle gate is also executable on
 CSV or Parquet inputs, but has been exercised only on synthetic arrays.

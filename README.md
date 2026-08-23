@@ -39,7 +39,9 @@ converted to calendar-defined crop-year features, independently reconciled
 against stage partitions, then joined to GDHY yields before any pilot response
 diagnostic. Stage-resolved daily-maximum heat features now use the same
 partition boundaries, require explicit temperature thresholds, and must
-reconcile additive heat days and degree-days to the season. The stage fractions
+reconcile additive heat days and degree-days to the season. Seasonal and stage
+validators also enforce the necessary nesting of day counts and degree-day
+totals across ordered thresholds. The stage fractions
 are temporal proxies rather than asserted crop phenology. A parallel historical
 drought-benchmark path day-weights monthly CRU scPDSI over those same windows,
 requires exact 0.5-degree grid correspondence and complete monthly coverage,

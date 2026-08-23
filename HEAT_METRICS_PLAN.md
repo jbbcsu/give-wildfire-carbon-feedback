@@ -15,6 +15,13 @@ threshold because a universal threshold would be an unrecorded modeling
 choice. It excludes seasons incomplete at a climate-file edge rather than
 filling them.
 
+Both seasonal and stage partition validators enforce cross-threshold
+identities before combination. For ordered thresholds, hotter-day counts must
+be nested inside cooler-day counts. The difference between the two
+degree-day totals must lie between the threshold gap times the hotter-day and
+cooler-day counts. These are data-integrity constraints, not a rule for
+choosing a crop response threshold.
+
 ## Estimation rule
 
 Lock crop-specific candidate thresholds and functional form before the main

@@ -66,8 +66,11 @@ stage-weighted temperature, seasonal precipitation or water balance,
 consecutive dry days, wet-day frequency, heavy-rain/water-excess metrics, and
 stage-resolved maximum-temperature threshold days and degree-days. Heat
 thresholds are registered explicitly rather than supplied by a universal code
-default. All features are computed at grid-cell and crop-year level before
-aggregation. Monthly CRU scPDSI supplies a calendar-aligned historical
+default. Partition validation requires ordered thresholds to have nested day
+counts and aggregate degree-day differences consistent with those counts,
+before stage totals are reconciled to the season. All features are computed at
+grid-cell and crop-year level before aggregation. Monthly CRU scPDSI supplies a
+calendar-aligned historical
 climatic-index benchmark only; future water-stress features are recomputed from
 matched baseline and pulse climate paths rather than extrapolating the
 observed index.

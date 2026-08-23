@@ -13,6 +13,10 @@ Daily-maximum heat features must use the identical calendar and stage
 boundaries as precipitation features. For every registered threshold, stage
 heat-day counts and degree-days must sum to their season-level values, while
 the stage-day-weighted maximum-temperature mean must equal the seasonal mean.
+Across ordered thresholds, hotter-day counts must be weakly decreasing and
+the difference in degree-day totals must remain within the necessary bounds
+implied by the two day counts and threshold gap. These nesting checks apply to
+both seasonal and stage partitions and do not select a production threshold.
 Historical monthly scPDSI benchmark features use the same crop windows,
 day-weight monthly values across partial months, and require index coverage to
 equal every stage length. Coordinate normalization may reorder exact grid

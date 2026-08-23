@@ -12,6 +12,10 @@ import numpy as np
 import pandas as pd
 import xarray as xr
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from validate_heat_partition import validate_frame as validate_season_frame
+from validate_stage_heat_partition import validate_frame as validate_stage_frame
+
 
 PROJECT = Path(__file__).resolve().parents[1]
 KEYS = ["harvest_year", "lat", "lon_360", "crop", "irrigation"]
@@ -97,6 +101,37 @@ with tempfile.TemporaryDirectory() as temporary:
     assert np.isclose(stage.tmax_30c_degree_days.sum(), season.tmax_30c_degree_days)
     assert np.isclose(stage.tmax_34c_degree_days.sum(), season.tmax_34c_degree_days)
     assert np.isclose(np.average(stage.tmax_mean_c, weights=stage.stage_days), season.tmax_mean_c)
+    validate_season_frame(pd.read_parquet(seasonal), [30.0, 34.0])
+    validate_stage_frame(stage, [30.0, 34.0], expected_stages=3)
+
+    bad = stage.copy()
+    bad.loc[bad.index[0], "tmax_34c_days"] = bad.loc[bad.index[0], "tmax_30c_days"] + 1
+    try:
+        validate_stage_frame(bad, [30.0, 34.0], expected_stages=3)
+    except ValueError as error:
+        assert "day counts must be nested" in str(error)
+    else:
+        raise AssertionError("Expected non-nested heat-day counts to fail")
+
+    bad = stage.copy()
+    bad.loc[bad.index[1], "tmax_30c_degree_days"] += 100.0
+    try:
+        validate_stage_frame(bad, [30.0, 34.0], expected_stages=3)
+    except ValueError as error:
+        assert "degree days violate" in str(error)
+    else:
+        raise AssertionError("Expected impossible cross-threshold degree days to fail")
+
+    bad_season = pd.read_parquet(seasonal)
+    bad_season.loc[bad_season.index[0], "tmax_34c_days"] = (
+        bad_season.loc[bad_season.index[0], "tmax_30c_days"] + 1
+    )
+    try:
+        validate_season_frame(bad_season, [30.0, 34.0])
+    except ValueError as error:
+        assert "day counts must be nested" in str(error)
+    else:
+        raise AssertionError("Expected non-nested seasonal heat-day counts to fail")
 
     panel = pd.DataFrame([{**{key: season[key] for key in KEYS}, "yield_observed": True}])
     panel.to_parquet(root / "panel.parquet", index=False)

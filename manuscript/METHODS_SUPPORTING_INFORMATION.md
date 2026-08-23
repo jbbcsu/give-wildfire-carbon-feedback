@@ -70,7 +70,11 @@ count; maximum consecutive dry days; Rx1day and Rx5day; and, after a specified
 method, water balance. Calculate maximum-temperature days and degree-days only
 for explicitly registered crop/specification thresholds. Stage heat-day and
 degree-day totals must reconcile additively to the season; the stage-day-
-weighted maximum-temperature mean must reconcile to the seasonal mean. Convert
+weighted maximum-temperature mean must reconcile to the seasonal mean.
+For every adjacent ordered threshold pair, require weakly decreasing hot-day
+counts and require the degree-day difference to lie between the threshold gap
+times the hotter-day and cooler-day counts. These algebraic checks detect
+corrupt summaries but do not choose a response threshold. Convert
 precipitation flux to mm/day using source time
 bounds. Define thresholds and anomalies relative to a fixed historical
 grid-crop-stage baseline. Store units, baseline interval, input version, and
