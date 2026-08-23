@@ -28,7 +28,11 @@ List nonredistributable files and scripted retrieval instructions. Never package
 ## S3. Harmonization and crop-season panel
 
 1. Document coordinates, land mask, grid alignment, units, leap days/calendars, and cell-area/harvested-area weights.
-2. Specify crop/season eligibility, rain-fed versus irrigated treatment, planting/harvest construction, and cross-year seasons.
+2. Specify crop/season eligibility, rain-fed versus irrigated treatment,
+   planting/harvest construction, and cross-year seasons. For aggregate yield
+   outcomes, require one outcome row and document the independent fixed-
+   baseline area shares used to combine regime-specific exposures; prohibit
+   duplicating the yield across regimes.
 3. Give pseudocode joining daily climate to each crop-season-grid-year; exclude partial seasons by declared rule.
 4. Detail cell/crop to FUND aggregation; predictions must precede aggregation unless explicitly tested otherwise.
    Until a crop-specific phenology source is introduced, stage construction is a

@@ -72,6 +72,13 @@ climatic-index benchmark only; future water-stress features are recomputed from
 matched baseline and pulse climate paths rather than extrapolating the
 observed index.
 
+GDHY supplies one crop-season-grid-year yield rather than separate rainfed and
+irrigated outcomes. The current diagnostics therefore use only the rainfed
+calendar exposure. A production all-area panel will combine rainfed and
+irrigated calendar features with independent, fixed-baseline crop-area shares
+to retain exactly one exposure row per observed yield; it will not duplicate
+the outcome across regimes or infer the shares from yield.
+
 ## 4. Empirical design
 
 The primary response is a hierarchically pooled fixed-effects model with

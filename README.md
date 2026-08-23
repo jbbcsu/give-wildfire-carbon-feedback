@@ -88,6 +88,17 @@ The approved calendar-to-yield season crosswalk is recorded in
 It deliberately does not use GDHY convenience aggregate directories where a
 season-specific outcome exists.
 
+GDHY does not provide separate rainfed and irrigated yield outcomes. The
+production path must therefore never duplicate one observed yield into two
+regime-specific estimation rows. `scripts/allocate_outcome_exposures.py`
+implements the admissible alternative: after both calendar exposures exist,
+an independently sourced, fixed-baseline crop-area-share table collapses them
+to exactly one area-weighted exposure row per crop-grid-year outcome. It fails
+on missing regimes, inconsistent yields, time-varying or non-independent
+weights, incomplete shares, nonfinite features, and duplicate keys. The
+synthetic test exercises these gates; no production area source or irrigated
+response is yet claimed.
+
 [METHODS_BENCHMARK_QIU_2025.md](METHODS_BENCHMARK_QIU_2025.md) records the
 adapted ensemble/validation design benchmark used for the next specification.
 The high-resolution US validation track is isolated in

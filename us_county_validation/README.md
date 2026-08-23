@@ -59,6 +59,19 @@ shares that do not sum to 100. Run
 `python us_county_validation/scripts/test_prepare_usdm_county_weeks.py` for
 synthetic checks of these invariants and five-digit county GEOID preservation.
 
+The next bridge is intentionally calendar-explicit. Run
+`build_usdm_crop_season_exposures.py --weeks PREPARED.parquet --calendar CALENDAR.csv --out SEASONS.parquet`
+only with a documented calendar containing one row per state, crop, and harvest
+year plus `season_start`, `season_end`, and a nonblank `calendar_source`. The
+builder rejects missing, gapped, or overlapping daily USDM coverage and emits
+day-weighted seasonal category shares, severity-index means, and
+area-equivalent drought days. The season end must fall in the declared harvest
+year.
+It does not infer planting or harvest dates, estimate a yield response, or
+authorize a global/SCC input. Run
+`python us_county_validation/scripts/test_build_usdm_crop_season_exposures.py`
+for a synthetic cross-year season and failure-mode checks.
+
 ## Primary design
 
 1. Begin with a **high-rainfed-share county sample** for maize, soybean, and

@@ -20,6 +20,19 @@ centres but must fail instead of spatially interpolating. Preserve its
 historical-benchmark-only role through the join; it cannot be used as a future
 baseline/pulse feature.
 
+Because GDHY contains one aggregate yield per crop-season-grid-year, rainfed
+and irrigated calendar exposures cannot be treated as two independent outcome
+observations. Before a production all-area panel is built, obtain a versioned
+crop-grid irrigated/rainfed area-share source that is independent of GDHY
+yield, fixed to a documented pre-period baseline, and complete for every
+included crop-grid. Collapse the regime-specific climate features to one
+area-weighted exposure row per observed outcome. Shares must be finite,
+nonnegative, invariant across outcome years, and sum to one; missing regime
+features or weights fail rather than trigger renormalization. Retain the
+rainfed-calendar-only panel as an explicitly narrowed diagnostic until that
+gate clears. `scripts/allocate_outcome_exposures.py` enforces the data
+contract but supplies no production weights.
+
 ## Three adaptation scenarios
 
 `fixed` applies the observed response unchanged. `trend` and `upper` use the

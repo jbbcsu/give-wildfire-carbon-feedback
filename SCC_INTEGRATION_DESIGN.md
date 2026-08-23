@@ -14,6 +14,16 @@ Crop/season coefficients remain distinct; hierarchical estimation may share
 information but cannot collapse the executable bundle to an undocumented
 common slope.
 
+The historical outcome boundary is also one-to-one. A GDHY crop-season-grid-
+year yield may enter the response panel once. When both rainfed and irrigated
+calendar exposures are represented, they must first be collapsed to one
+exposure using independent, fixed-baseline crop-area shares; duplicating the
+same yield as two regime outcomes is prohibited. This exposure-allocation
+weight is an empirical-panel construct and is distinct from the later fixed
+regional `crop_value_share` used to aggregate crop losses in GIVE. Neither
+weight may be inferred from the yield outcome, and neither may vary between
+the matched baseline and pulse climate paths.
+
 The long-form exchange bundle carries explicit FAIR, climate member,
 socioeconomic, calendar, response, adaptation, crop-weight, and welfare draw
 identifiers for both `baseline` and `pulse`. The paired-bundle validator

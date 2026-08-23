@@ -110,9 +110,16 @@ identify irrigated and rainfed yields separately, so the historical pilot uses
 rainfed-calendar exposure only and does not estimate an irrigation-stratified
 response or aggregate both calendar regimes. A production specification needs
 a compatible irrigated outcome/area treatment before representing irrigated
-production. CO2 is an explicitly
-provenanced scenario term; it cannot be separately added after a response that
-already includes it.
+production. Specifically, when both calendar regimes are available, an
+independent pre-period crop-grid area-share source must weight their climate
+features into one exposure vector for the single GDHY crop-season-grid-year
+outcome. Shares are fixed across outcome years, cover every declared regime,
+and sum to one. Missing shares or exposure rows are not renormalized, and the
+same observed yield is never entered as separate rainfed and irrigated
+observations. This historical exposure-allocation weight is distinct from the
+regional baseline crop-value weights used later for welfare aggregation. CO2
+is an explicitly provenanced scenario term; it cannot be separately added
+after a response that already includes it.
 
 ## S6. Adaptation
 
@@ -171,7 +178,12 @@ area evidence: the primary sample applies a predeclared high-rainfed-share
 threshold, reports nearby thresholds, and treats mixed counties separately.
 USDM county-week preparation preserves five-digit GEOIDs, rejects duplicate
 keys and category shares that do not sum to 100, and requires each map date to
-fall inside its declared validity interval.
+fall inside its declared validity interval. A documented state/crop/harvest-
+year calendar then clips the weekly validity intervals to each crop season and
+calculates day-weighted category shares, severity-area means, and D0+/D1+/D2+
+area-equivalent days. Missing, gapped, or overlapping daily coverage fails;
+planting and harvest dates are never inferred. The output remains explicitly
+historical-validation-only and is not a future climate or SCC input.
 Keep crop inundation in agriculture and exclude it from the future
 infrastructure module; exclude coastal surge/SLR impacts already addressed by
 CIAM.

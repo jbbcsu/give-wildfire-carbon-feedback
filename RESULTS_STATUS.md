@@ -23,6 +23,8 @@ does not report final response estimates or SCC values.
 | Crop-response/SCC interface | Synthetic tests pass for crop-specific feature coefficients, pre-aggregation adaptation, fixed crop-value weights, partial/full coverage gates, and MooreAg-compatible `agcost` output | Executable interface contract only; contains no empirical coefficients, welfare calibration, or SCC result |
 | Stage heat and paired-bundle gates | Synthetic cross-year heat construction, executable stage/season reconciliation audit, partition combine, panel join, and baseline/pulse identity/coverage/weight/conservation checks pass | Pipeline/schema validation only; no heat threshold, fitted response, or SCC result is selected |
 | Historical crop-stage scPDSI path | Synthetic cross-year construction, exact longitude normalization/grid matching, complete-month coverage, partition validation/combine, and one-to-one panel join pass | Historical climatic-index benchmark plumbing only; no real CRU panel, response estimate, future drought path, or SCC input |
+| Rainfed/irrigated outcome-allocation gate | Synthetic fixed-baseline area-share allocation and failure-mode tests pass; one aggregate GDHY yield is collapsed to exactly one weighted-exposure row | Data-contract plumbing only; no production area weights, irrigated response, coefficient, or SCC input |
+| U.S. county crop-season drought bridge | Synthetic cross-year USDM interval aggregation and failure-mode tests pass using an explicit state/crop/harvest-year calendar | Historical external-validation plumbing only; no real county-season exposure, response estimate, or SCC input |
 | Maize/rainfed blocked response audit, 1982–89 | 105,157 consecutive observed-yield pairs evaluated with crop-specific first-difference seasonal-precipitation, seasonal-joint, and three-window-joint models across spatial, temporal, and climate-extreme holdouts | Internal predictive diagnostic only; coefficients are suppressed and no causal, global-response, or SCC claim is permitted |
 | Six-crop/rainfed blocked response audit, 1982–89 | 321,620 consecutive observed-yield pairs across maize, first/second rice, soybean, spring wheat, and winter wheat; exact crop/model/holdout coverage, metric arithmetic, fold reconciliation, and full-rank finite fits validated | Internal predictive diagnostic only; mixed crop/holdout rankings prohibit a universal-model or SCC claim |
 | Maize/rainfed independent-period audit, 1992–2000 | 119,950 consecutive observed-yield pairs; the frozen models and validator rerun without using the 1982–89 outcome metrics | Internal predictive replication only; model ordering changes in the temporal block and no coefficient or SCC use is permitted |
@@ -207,3 +209,12 @@ coverage. The source-role field explicitly prohibits using observed CRU scPDSI
 as a future baseline/pulse input. The real CRU file is only partially acquired
 (138,412,032 of 355,230,575 bytes), has not been processed, and supports no
 drought-response result.
+
+The executable outcome-exposure allocator now prevents pseudo-replication of
+GDHY's aggregate crop-season yield across rainfed and irrigated calendar rows.
+Its synthetic suite verifies successful fixed-share aggregation and rejects
+non-unit shares, year-varying weights, outcome-derived source roles, missing
+regime exposures, inconsistent duplicated yields, and duplicate keys. The
+gate requires a separately acquired independent baseline crop-area-share
+source before it can process real irrigated/rainfed panels; it therefore does
+not change the rainfed-only diagnostics or authorize a production response.
