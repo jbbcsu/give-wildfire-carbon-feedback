@@ -138,14 +138,16 @@ RMSE, but precipitation-only led the temporal block; the earlier temporal
 ordering therefore did not replicate and is not a basis for period-specific
 model choice.
 
-At the integration boundary, the replacement installer now passes a build-
-only test on the unmodified GIVE model: the MooreAg agriculture component is
-removed, existing regional socioeconomic aggregators are reused, the new
-`agcost` is connected once, and the declared nonagricultural sector flags are
-preserved. The test uses synthetic normalized crop shares and zero response
-arrays on GIVE's complete model time axis. It therefore establishes software
-compatibility only and supplies no empirical response, marginal damage, or SCC
-evidence.
+At the integration boundary, the replacement installer now passes an executed
+synthetic control on the unmodified GIVE model: the MooreAg agriculture
+component is removed, existing regional socioeconomic aggregators are reused,
+the new `agcost` is connected once, and the declared nonagricultural sector
+flags are preserved. The test uses synthetic normalized crop shares and zero response
+arrays on GIVE's complete model time axis. All active-year crop and regional
+response outputs are complete, coverage is one, and both the component and
+GIVE-aggregated agriculture damage paths remain zero. It therefore establishes
+execution/connectivity only and supplies no empirical response, paired marginal
+damage, or SCC evidence.
 
 ### 6.3 Marginal damages and global SCC
 

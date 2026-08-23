@@ -109,8 +109,10 @@ regional socioeconomic aggregators, baseline agriculture-value inputs, crop
 order, and modeled start year before mutation; removes MooreAg-only parameters;
 retains Cromar mortality, energy, and CIAM while disabling the optional DICE
 and Howard--Sterner aggregate damage functions; and reconnects agriculture
-once. A build-only real-GIVE test passes with explicitly synthetic zero-
-response inputs. Because Mimi indexes externally supplied parameters on the
+once. An executed real-GIVE control passes with explicitly synthetic zero-
+response inputs: active-year crop and regional outputs are complete, coverage
+is one, and the component and GIVE-aggregated agriculture damage paths remain
+zero. Because Mimi indexes externally supplied parameters on the
 complete model time dimension, a production bundle must pad or otherwise
 define all 1750--2300 rows even though both new components start in 2020. No
 pre-2020 response is evaluated by those components.
@@ -124,4 +126,4 @@ or support assumption. The audit records only maximum absolute differences
 and pass/fail metadata; it does not discount or sum an SCC.
 Held-out skill, future-climate support, welfare calibration, a runnable
 empirical full-GIVE configuration, and paired marginal runs remain separate
-production requirements.
+production requirements. The zero-response execution is not a damage estimate.

@@ -166,11 +166,14 @@ regional population/GDP aggregators, baseline agricultural-value inputs, crop
 order, and component start year before mutation. It then deletes the MooreAg
 component and its unshared parameters, adds `CropResponseAggregation` and
 `JointAgriculture`, reconnects the socioeconomic inputs and `damage_ag`, and
-sets the declared sector flags explicitly. A build-only test applies this
+sets the declared sector flags explicitly. An executed control applies this
 procedure to the unmodified GIVE model using synthetic zero-response inputs.
 All externally supplied response and adaptation arrays use GIVE's full
 1750--2300 time dimension even though the installed components begin in 2020;
-the pre-2020 rows are not evaluated by those components.
+the pre-2020 rows are not evaluated by those components. For every active year,
+the control requires complete crop and regional outputs, unit crop-value
+coverage, and zero `JointAgriculture.agcost` and aggregated agriculture damage.
+It is not a paired marginal experiment or an empirical damage result.
 
 The paired component-output gate is applied after the crop response and
 agriculture replacement components execute. For crop-level raw and adapted
@@ -219,7 +222,12 @@ year calendar then clips the weekly validity intervals to each crop season and
 calculates day-weighted category shares, severity-area means, and D0+/D1+/D2+
 area-equivalent days. Missing, gapped, or overlapping daily coverage fails;
 planting and harvest dates are never inferred. The output remains explicitly
-historical-validation-only and is not a future climate or SCC input.
+historical-validation-only and is not a future climate or SCC input. Before
+constructing any estimation panel, a counts-only county-year coverage audit
+requires an explicit NASS-commodity-to-calendar-crop mapping, a single yield
+unit, unique keys, and the validation-only/SCC-ineligible exposure labels. It
+retains suppressed NASS outcomes in the coverage denominator, reports overlap
+for reported yields separately, and emits no yield values or response estimate.
 Keep crop inundation in agriculture and exclude it from the future
 infrastructure module; exclude coastal surge/SLR impacts already addressed by
 CIAM.

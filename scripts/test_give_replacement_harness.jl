@@ -1,10 +1,11 @@
 #!/usr/bin/env julia
 
 """
-Build-only integration test for the joint agriculture replacement against an
-unmodified MimiGIVE model. The supplied response arrays and agricultural shares
-are synthetic zero-control inputs. This script does not run a marginal pulse,
-calculate damages, discount a path, or report an SCC.
+Executed zero-response integration test for the joint agriculture replacement
+against an unmodified MimiGIVE model. The supplied response arrays and
+agricultural shares are synthetic control inputs. This script runs one ordinary
+GIVE path only to verify component execution and agriculture-damage aggregation;
+it does not run a marginal pulse, discount a damage difference, or report an SCC.
 
 Run with the GIVE repository root as the first argument while activating that
 repository's Julia project.
@@ -20,6 +21,7 @@ dirname(Base.active_project()) == give_root ||
 
 using Mimi
 using MimiGIVE
+using Test
 
 project_root = normpath(joinpath(@__DIR__, ".."))
 include(joinpath(project_root, "src", "CropResponseAggregation.jl"))
@@ -91,4 +93,42 @@ update_param!(
 )
 
 Mimi.build!(model)
-println("full GIVE replacement topology and synthetic zero-response build passed")
+run(model)
+
+years = collect(Mimi.dim_keys(model, :time))
+active_indices = findall(year -> year >= 2020, years)
+@test first(years[active_indices]) == 2020
+@test last(years[active_indices]) == 2300
+
+function require_complete_constant(values, expected)
+    active = values[active_indices, ntuple(_ -> Colon(), ndims(values) - 1)...]
+    @test !any(ismissing, active)
+    @test all(
+        value -> isapprox(value, expected; atol=1e-12, rtol=0.0),
+        skipmissing(vec(active)),
+    )
+end
+
+for variable in (
+    :crop_raw_loss_fraction,
+    :crop_adjusted_loss_fraction,
+    :regional_loss_fraction,
+)
+    require_complete_constant(
+        Array(model[:CropResponseAggregation, variable]),
+        0.0,
+    )
+end
+require_complete_constant(
+    Array(model[:CropResponseAggregation, :coverage_share]),
+    1.0,
+)
+for variable in (:raw_climate_loss_fraction, :climate_loss_fraction, :agcost)
+    require_complete_constant(Array(model[:JointAgriculture, variable]), 0.0)
+end
+require_complete_constant(
+    Array(model[:DamageAggregator, :agriculture_damage]),
+    0.0,
+)
+
+println("full GIVE replacement synthetic zero-response execution passed")

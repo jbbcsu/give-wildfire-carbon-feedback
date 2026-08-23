@@ -63,8 +63,11 @@ not call the resulting SCC net of adaptation investment.
    compare calendar-aligned crop-area-weighted climate drought measures with
    observed U.S. Drought Monitor county-week D1+ and severity-area exposures,
    then assess their incremental and non-duplicative predictive role for
-   documented NASS crop yields. It is a historical validation test, not a
-   projected SCC input.
+   documented NASS crop yields. Before any estimation join, run a counts-only
+   county-year overlap audit with an explicit commodity-to-crop mapping,
+   retaining suppressed NASS rows in the coverage denominator and reporting
+   reported-yield overlap separately. It is a historical validation test, not
+   a projected SCC input.
 4. Refit with an alternate weather product/bias correction and alternate crop
    calendar; retain uncertainty from both.
 5. Require zero climate features to give zero loss, matched pulse/base
@@ -84,9 +87,12 @@ not call the resulting SCC net of adaptation investment.
    serves as a negative control. A graph pass is necessary but not sufficient
    for SCC authorization.
    Run `scripts/test_give_replacement_harness.jl` against the unmodified GIVE
-   repository as a build-only positive control. It must delete the legacy
+   repository as an executed synthetic positive control. It must delete the legacy
    component, retain the RFF socioeconomic aggregators and declared sector
-   flags, pass the graph audit, and build with synthetic zero-response arrays.
+   flags, pass the graph audit, and run with synthetic zero-response arrays.
+   Every active-year crop and regional response output must be complete,
+   coverage must equal one, and the component and GIVE-aggregated agriculture
+   damage paths must both equal zero.
    Supply feature and adaptation arrays on GIVE's complete model time axis;
    component `first=2020` does not shorten Mimi's external parameter arrays.
 7. After the crop-response and replacement components run, require matched

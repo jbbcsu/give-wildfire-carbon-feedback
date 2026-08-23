@@ -72,6 +72,17 @@ authorize a global/SCC input. Run
 `python us_county_validation/scripts/test_build_usdm_crop_season_exposures.py`
 for a synthetic cross-year season and failure-mode checks.
 
+Before constructing any estimation panel, audit county-year overlap with an
+explicit commodity-to-crop mapping:
+`python us_county_validation/scripts/audit_usdm_yield_coverage.py --yields YIELDS.parquet --exposures SEASONS.parquet --commodity CORN --crop maize --out COVERAGE.csv`.
+The audit reports overall and annual counts for all NASS rows, reported-yield
+rows, matched rows, and one-sided rows. It rejects multiple yield units,
+duplicate join keys, or exposure rows that violate the historical-validation
+only / not-SCC-authorized boundary. It emits no yield values or response
+estimates. Run
+`python us_county_validation/scripts/test_audit_usdm_yield_coverage.py` for
+synthetic overlap and failure-mode checks.
+
 ## Primary design
 
 1. Begin with a **high-rainfed-share county sample** for maize, soybean, and

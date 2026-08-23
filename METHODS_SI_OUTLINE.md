@@ -64,7 +64,7 @@ Specify the yield-to-welfare mechanism: GTAP-compatible mapping, emulator, or ot
 
 Run the executable Mimi graph audit on both members of every paired model. Require the sole internal producer of `DamageAggregator.damage_ag` to be `JointAgriculture.agcost`, reject any remaining `Agriculture` component, and retain the unmodified GIVE graph as a negative control. State that this topology check does not validate the response or welfare layer.
 
-Run the build-only replacement installer against an unmodified GIVE model as a positive integration control. Verify preflight-before-mutation, removal of MooreAg-only parameters, reuse of the regional socioeconomic aggregators, explicit sector flags, and full-model-time-axis response arrays. Label all fixture shares and coefficients synthetic and prohibit damage or SCC interpretation.
+Run the replacement installer against an unmodified GIVE model as an executed synthetic integration control. Verify preflight-before-mutation, removal of MooreAg-only parameters, reuse of the regional socioeconomic aggregators, explicit sector flags, full-model-time-axis response arrays, complete active-year outputs, unit crop coverage, and zero component plus aggregated agriculture damage. Label all fixture shares and coefficients synthetic and prohibit empirical damage or SCC interpretation.
 
 After the agriculture components run, apply the paired output audit to crop-level raw/adapted losses, regional losses, and `agcost`. Require matched finite shapes, pre-divergence identity, and a separate complete-horizon zero-pulse control; do not require a nonzero response to a nonzero pulse.
 

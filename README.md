@@ -70,12 +70,15 @@ not clear empirical, welfare, coverage, support, paired-run, or SCC gates.
 MimiGIVE-style model: it deletes the legacy component and its MooreAg-only
 parameters, installs the crop response and joint agriculture components,
 reuses the existing regional socioeconomic aggregators, preserves the
-declared sector-inclusion flags, and reconnects `damage_ag` once. The
-build-only integration test in `scripts/test_give_replacement_harness.jl`
-passes against the unmodified GIVE model with synthetic zero-response inputs.
-Mimi requires those externally supplied arrays on the full GIVE model time
+declared sector-inclusion flags, and reconnects `damage_ag` once. The executed
+integration control in `scripts/test_give_replacement_harness.jl` passes
+against the unmodified GIVE model with synthetic zero-response inputs: every
+active-year crop and regional response output is complete, coverage is one,
+and both `JointAgriculture.agcost` and GIVE's aggregated agriculture damage are
+zero. Mimi requires externally supplied arrays on the full GIVE model time
 dimension, including years before the components' 2020 start. This is a
-topology/build result, not a successful marginal run or damage result.
+synthetic execution/connectivity result, not a paired marginal run, empirical
+damage estimate, or SCC result.
 
 `src/PairedAgricultureAudit.jl` checks the next component boundary after the
 response and replacement components run: matched dimensions, finite values,
