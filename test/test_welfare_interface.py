@@ -67,6 +67,32 @@ with tempfile.TemporaryDirectory() as directory:
     run("outputs", output_path, False)
     write_csv(output_path, [dict(output, includes_aquaculture="true")])
     run("outputs", output_path, False)
+    # A boundary identifier is an immutable definition, not a per-row label.
+    # Even individually valid rows cannot reuse it with different exclusions.
+    write_csv(output_path, [
+        output,
+        dict(
+            output,
+            draw_id="d2",
+            additive_eligible="false",
+            overlap_review_status="failed",
+            includes_aquaculture="true",
+        ),
+    ])
+    run("outputs", output_path, False)
+    # A separately named boundary may document a different excluded scope.
+    write_csv(output_path, [
+        output,
+        dict(
+            output,
+            draw_id="d2",
+            accounting_boundary_id="marine_capture_with_aquaculture_v1",
+            additive_eligible="false",
+            overlap_review_status="failed",
+            includes_aquaculture="true",
+        ),
+    ])
+    run("outputs", output_path, True)
     write_csv(output_path, [dict(output, accounting_boundary_id="")])
     run("outputs", output_path, False)
     write_csv(output_path, [dict(output, gross_revenue_usd=10)])

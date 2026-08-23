@@ -103,6 +103,7 @@ def validate_outputs(fieldnames: list[str], records: list[dict[str, str]], toler
     ):
         raise ValueError("gross revenue fields are outside the welfare output contract")
     seen: set[tuple[str, str, str]] = set()
+    boundary_signatures: dict[str, tuple[bool, ...]] = {}
     for row in records:
         key = (row["draw_id"], row["year"], row["country_id"])
         if key in seen:
@@ -127,6 +128,18 @@ def validate_outputs(fieldnames: list[str], records: list[dict[str, str]], toler
             if value not in {"true", "false"}:
                 raise ValueError(f"{name} must be true or false")
             overlap_flags[name] = value == "true"
+        boundary_id = row["accounting_boundary_id"].strip()
+        boundary_signature = tuple(
+            overlap_flags[name] for name in OVERLAP_EXCLUSION_FIELDS
+        )
+        previous_signature = boundary_signatures.setdefault(
+            boundary_id, boundary_signature
+        )
+        if previous_signature != boundary_signature:
+            raise ValueError(
+                f"accounting_boundary_id {boundary_id!r} has inconsistent "
+                "locked-exclusion flags"
+            )
         if overlap_review == "passed" and any(overlap_flags.values()):
             included = sorted(name for name, value in overlap_flags.items() if value)
             raise ValueError(

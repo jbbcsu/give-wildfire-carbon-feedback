@@ -65,9 +65,14 @@ eligibility flag alone. `overlap_review_status` is `passed`, `pending`, or
 `failed`; eligibility requires `passed`. A passed review is invalid if any
 locked-exclusion flag says that aquaculture, terrestrial food-market welfare,
 coral/reef services, biodiversity nonuse value, CIAM coastal impacts, or gross
-revenue-as-welfare is included. Aggregation requires a common accounting
-boundary and common exclusion flags within each draw-year, carries them to the
-regional output, and withholds totals for pending or failed overlap reviews.
+revenue-as-welfare is included. An `accounting_boundary_id` is treated as an
+immutable definition within an output file: reusing the same identifier with
+different locked-exclusion flags fails validation, including when the drift
+occurs across draw-years. Distinct candidate boundaries must use distinct
+identifiers and remain ineligible unless their own reviews pass. Aggregation
+requires a common accounting boundary and common exclusion flags within each
+draw-year, carries them to the regional output, and withholds totals for
+pending or failed overlap reviews.
 These fields document a review; they do not prove that the review was
 scientifically adequate.
 
