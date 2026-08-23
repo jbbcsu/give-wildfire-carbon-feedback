@@ -49,6 +49,9 @@ the manuscript or `RESULTS_STATUS.md` as evidence without tracing the claim.
   `DamageAggregator.damage_ag` is `JointAgriculture.agcost`, no `Agriculture`
   component remains, and the unmodified GIVE baseline fails as a negative
   control.
+- Verify the paired component-output audit rejects pre-divergence differences,
+  malformed arrays, and a changing zero-pulse control; confirm it does not
+  require a nonzero response to a nonzero pulse.
 - Confirm infrastructure flooding remains absent and CIAM-covered coastal
   damages are not duplicated.
 - Reject any SCC result that lacks a machine-readable draw artifact,

@@ -83,6 +83,14 @@ not call the resulting SCC net of adaptation investment.
    `Agriculture` component. The unmodified GIVE graph must fail this test and
    serves as a negative control. A graph pass is necessary but not sufficient
    for SCC authorization.
+7. After the crop-response and replacement components run, require matched
+   finite `(time, region, crop)` crop outputs and `(time, region)` regional
+   outputs. Every required baseline/pulse output must agree before the
+   registered first-divergence year. A separately declared zero-pulse control
+   must agree across the complete horizon. Require at least one modeled year
+   before and at/after divergence so conservation cannot pass vacuously. This
+   component-output audit is not a substitute for a full GIVE paired marginal
+   run, welfare calibration, or SCC reconciliation.
 
 The ISIMIP/GDHY coordinate transformation is an explicit validation gate:
 ISIMIP longitude is −180–180° with descending latitude, while GDHY longitude

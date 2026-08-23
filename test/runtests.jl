@@ -6,6 +6,7 @@ include(joinpath(@__DIR__, "..", "src", "AdaptationScenarios.jl"))
 include(joinpath(@__DIR__, "..", "src", "CropResponseAggregation.jl"))
 include(joinpath(@__DIR__, "..", "src", "JointAgriculture.jl"))
 include(joinpath(@__DIR__, "..", "src", "AgricultureReplacementAudit.jl"))
+include(joinpath(@__DIR__, "..", "src", "PairedAgricultureAudit.jl"))
 
 @defcomp GraphDamageAggregator begin
     fund_regions = Index()
@@ -136,6 +137,117 @@ end
     @test !coexistence_audit.passed
     @test coexistence_audit.damage_ag_producers == [(component=:JointAgriculture, variable=:agcost)]
     @test coexistence_audit.forbidden_components_present == [:Agriculture]
+end
+
+@testset "Paired agriculture component outputs" begin
+    function run_agriculture_path(seasonal_precip)
+        m = Model()
+        set_dimension!(m, :time, [2020, 2021])
+        set_dimension!(m, :fund_regions, ["USA"])
+        set_dimension!(m, :crops, ["maize", "wheat"])
+        add_comp!(m, CropResponseAggregation)
+        add_comp!(m, JointAgriculture, after=:CropResponseAggregation)
+        connect_param!(m, :JointAgriculture => :joint_loss_fraction,
+                       :CropResponseAggregation => :regional_loss_fraction)
+
+        zeros_trc = zeros(2, 1, 2)
+        for parameter in (
+            :mean_temp_anomaly, :precip_timing_anomaly, :water_stress_anomaly,
+            :wet_extreme_anomaly, :heat_extreme_anomaly,
+        )
+            update_param!(m, :CropResponseAggregation, parameter, zeros_trc)
+        end
+        update_param!(m, :CropResponseAggregation, :seasonal_precip_anomaly,
+                      seasonal_precip)
+        for parameter in (
+            :beta_temp, :beta_timing, :beta_water_stress, :beta_wet_extreme,
+            :beta_heat_extreme, :beta_temp_precip,
+        )
+            update_param!(m, :CropResponseAggregation, parameter, zeros(1, 2))
+        end
+        update_param!(m, :CropResponseAggregation, :beta_precip, [0.2 0.1])
+        update_param!(m, :CropResponseAggregation, :crop_value_share, [0.4 0.6])
+        update_param!(m, :CropResponseAggregation, :adaptation_loss_multiplier,
+                      ones(2, 1, 2))
+        update_param!(m, :CropResponseAggregation, :adaptation_cost_share,
+                      zeros_trc)
+
+        update_param!(m, :JointAgriculture, :income, [100.0; 110.0;;])
+        update_param!(m, :JointAgriculture, :population, [10.0; 10.0;;])
+        update_param!(m, :JointAgriculture, :gdp90, [80.0])
+        update_param!(m, :JointAgriculture, :pop90, [10.0])
+        update_param!(m, :JointAgriculture, :agrish0, [0.1])
+        run(m)
+        return (
+            crop_raw_loss_fraction=Array(m[:CropResponseAggregation, :crop_raw_loss_fraction]),
+            crop_adjusted_loss_fraction=Array(m[:CropResponseAggregation, :crop_adjusted_loss_fraction]),
+            regional_loss_fraction=Array(m[:CropResponseAggregation, :regional_loss_fraction]),
+            agcost=Array(m[:JointAgriculture, :agcost]),
+        )
+    end
+
+    baseline = run_agriculture_path(zeros(2, 1, 2))
+    pulse_features = zeros(2, 1, 2)
+    pulse_features[2, 1, 1] = 0.05
+    pulse = run_agriculture_path(pulse_features)
+
+    audit = PairedAgricultureAudit.audit_paired_agriculture_outputs(
+        [2020, 2021], baseline, pulse; first_divergence_year=2021)
+    @test audit.passed
+    @test audit.n_predivergence_years == 1
+    @test audit.maximum_absolute_differences.crop_raw_loss_fraction ≈ 0.01
+    @test audit.maximum_absolute_differences.regional_loss_fraction ≈ 0.004
+    @test audit.maximum_absolute_differences.agcost > 0
+
+    zero_pulse = PairedAgricultureAudit.audit_paired_agriculture_outputs(
+        [2020, 2021], baseline, baseline;
+        first_divergence_year=2021, expect_identical=true)
+    @test zero_pulse.passed
+    @test zero_pulse.maximum_absolute_differences.agcost == 0
+
+    early_change = merge(pulse, (
+        regional_loss_fraction=copy(pulse.regional_loss_fraction),
+    ))
+    early_change.regional_loss_fraction[1, 1] = 0.1
+    early_audit = PairedAgricultureAudit.audit_paired_agriculture_outputs(
+        [2020, 2021], baseline, early_change;
+        first_divergence_year=2021, throw_on_error=false)
+    @test !early_audit.passed
+    @test any(occursin("before first_divergence_year", error)
+              for error in early_audit.errors)
+
+    zero_control_audit = PairedAgricultureAudit.audit_paired_agriculture_outputs(
+        [2020, 2021], baseline, pulse;
+        first_divergence_year=2021, expect_identical=true, throw_on_error=false)
+    @test !zero_control_audit.passed
+    @test any(occursin("zero-pulse control", error)
+              for error in zero_control_audit.errors)
+
+    malformed = merge(pulse, (agcost=reshape(copy(pulse.agcost), 2, 1, 1),))
+    malformed_audit = PairedAgricultureAudit.audit_paired_agriculture_outputs(
+        [2020, 2021], baseline, malformed;
+        first_divergence_year=2021, throw_on_error=false)
+    @test !malformed_audit.passed
+    @test any(occursin("shapes", error) || occursin("dimensions", error)
+              for error in malformed_audit.errors)
+
+    nonnumeric = merge(pulse, (agcost=Any[0.0; "bad";;],))
+    nonnumeric_audit = PairedAgricultureAudit.audit_paired_agriculture_outputs(
+        [2020, 2021], baseline, nonnumeric;
+        first_divergence_year=2021, throw_on_error=false)
+    @test !nonnumeric_audit.passed
+    @test any(occursin("nonnumeric or nonfinite", error)
+              for error in nonnumeric_audit.errors)
+
+    malformed_years_audit = PairedAgricultureAudit.audit_paired_agriculture_outputs(
+        Any["2020", 2021], baseline, pulse;
+        first_divergence_year=2021, throw_on_error=false)
+    @test !malformed_years_audit.passed
+    @test any(occursin("integer sequence", error)
+              for error in malformed_years_audit.errors)
+
+    @test_throws ErrorException PairedAgricultureAudit.audit_paired_agriculture_outputs(
+        [2020, 2021], baseline, pulse; first_divergence_year=2020)
 end
 
 @testset "Crop coverage gates" begin

@@ -103,6 +103,14 @@ replacement test.
 `scripts/validate_scc_response_bundle.py` implements the array/schema portion
 of these gates and writes an audit without estimating or authorizing a damage
 function. The graph audit implements only the structural replacement gate.
+`src/PairedAgricultureAudit.jl` implements the component-output boundary. It
+requires matched finite crop and regional output shapes, at least one modeled
+year on each side of the registered first-divergence year, equality of every
+required output before divergence, and complete-horizon equality for a
+declared zero-pulse control. A nonzero pulse is not required to create a
+nonzero response, because that would silently impose a response-significance
+or support assumption. The audit records only maximum absolute differences
+and pass/fail metadata; it does not discount or sum an SCC.
 Held-out skill, future-climate support, welfare calibration, a successfully
 wired full GIVE model, and paired marginal runs remain separate production
 requirements.

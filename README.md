@@ -66,6 +66,11 @@ control: it is rejected because `Agriculture.agcost` still supplies
 `damage_ag`. A graph pass establishes the replacement topology only; it does
 not clear empirical, welfare, coverage, support, paired-run, or SCC gates.
 
+`src/PairedAgricultureAudit.jl` checks the next component boundary after the
+response and replacement components run: matched dimensions, finite values,
+pre-divergence conservation, and an all-years zero-pulse identity control. It
+remains an output-contract gate rather than a full GIVE marginal run or SCC.
+
 The pre-integration validation layer now also includes
 `scripts/evaluate_crop_response_models.py`, driven by the frozen
 `config/response_evaluation_spec.toml`. It evaluates crop-specific

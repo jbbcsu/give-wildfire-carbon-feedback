@@ -103,7 +103,12 @@ SCC. Before either member of a paired run, a structural audit requires
 `JointAgriculture.agcost` and requires the baseline `Agriculture` component to
 be absent. The unmodified GIVE graph fails this test by design. A passing graph
 is an accounting prerequisite, not evidence of response validity or an SCC
-result. Results report fixed, trend, and upper adaptation scenarios separately.
+result. After the two agriculture component paths run, a second executable
+audit requires matched finite crop and regional output arrays, verifies every
+required output is identical before the registered first-divergence year, and
+applies an all-years identity check to a separate zero-pulse control. These
+checks do not validate the empirical response, welfare layer, or full marginal
+SCC run. Results report fixed, trend, and upper adaptation scenarios separately.
 
 ## 6. Results (pre-registered placeholders)
 

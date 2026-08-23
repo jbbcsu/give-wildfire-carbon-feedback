@@ -64,6 +64,8 @@ Specify the yield-to-welfare mechanism: GTAP-compatible mapping, emulator, or ot
 
 Run the executable Mimi graph audit on both members of every paired model. Require the sole internal producer of `DamageAggregator.damage_ag` to be `JointAgriculture.agcost`, reject any remaining `Agriculture` component, and retain the unmodified GIVE graph as a negative control. State that this topology check does not validate the response or welfare layer.
 
+After the agriculture components run, apply the paired output audit to crop-level raw/adapted losses, regional losses, and `agcost`. Require matched finite shapes, pre-divergence identity, and a separate complete-horizon zero-pulse control; do not require a nonzero response to a nonzero pulse.
+
 ## S9. Attribution and overlap audit
 
 Define joint-effect and precipitation-attribution decomposition, including feature groups/order averaging. Publish a reconciliation table: MooreAg excluded; CIAM retained for coastal effects; standard mortality/energy sectors retained subject to scope; optional aggregate damage functions disabled; noncoastal infrastructure flood excluded. Call this an accounting rule, not proof that overlap is zero.

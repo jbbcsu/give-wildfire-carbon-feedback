@@ -161,6 +161,16 @@ topological accounting condition only; it does not validate response skill,
 welfare calibration, crop coverage, future support, matched identifiers, or a
 paired SCC result.
 
+The paired component-output gate is applied after the crop response and
+agriculture replacement components execute. For crop-level raw and adapted
+loss arrays and regional loss and monetary agriculture arrays, it requires
+matched dimensions, finite numeric values, and equality before the registered
+first-divergence year. The modeled horizon must contain at least one year
+before and at/after that year. A separately declared zero-pulse control must
+agree for every modeled year. The gate does not require a nonzero response to
+a nonzero pulse and therefore does not turn an integration check into an
+implicit statistical-significance or extrapolation rule.
+
 Before model wiring, the long-form response bundle is checked against the
 frozen crop and FUND-region orders. Every draw/year contains the complete
 region-by-crop product for baseline and pulse; FAIR, climate-member,
