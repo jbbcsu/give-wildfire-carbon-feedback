@@ -175,6 +175,14 @@ the control requires complete crop and regional outputs, unit crop-value
 coverage, and zero `JointAgriculture.agcost` and aggregated agriculture damage.
 It is not a paired marginal experiment or an empirical damage result.
 
+We executed this control using the archived GIVE environment: Julia 1.6.4
+x86_64 under Rosetta and the repository-level `.julia_depot_1_6`. A separate
+native Apple-silicon Julia 1.8.5 attempt failed before executing the harness
+because the archived dependency lock requested an Electron artifact that is
+not available for `aarch64-apple-darwin`. We therefore claim successful
+execution only for the archived x86_64 environment and report native-ARM
+portability as an unresolved reproducibility limitation.
+
 The paired component-output gate is applied after the crop response and
 agriculture replacement components execute. For crop-level raw and adapted
 loss arrays and regional loss and monetary agriculture arrays, it requires

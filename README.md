@@ -80,6 +80,11 @@ dimension, including years before the components' 2020 start. This is a
 synthetic execution/connectivity result, not a paired marginal run, empirical
 damage estimate, or SCC result.
 
+That control was executed with the archived GIVE runtime (Julia 1.6.4
+x86_64 under Rosetta). The archived dependency lock does not currently run
+natively on Apple silicon because its Electron artifact is unavailable for
+`aarch64-apple-darwin`; `REPOSITORY.md` records the exact reproducible command.
+
 `src/PairedAgricultureAudit.jl` checks the next component boundary after the
 response and replacement components run: matched dimensions, finite values,
 pre-divergence conservation, and an all-years zero-pulse identity control. It

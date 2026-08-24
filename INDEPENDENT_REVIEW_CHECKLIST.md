@@ -54,7 +54,9 @@ the manuscript or `RESULTS_STATUS.md` as evidence without tracing the claim.
   socioeconomic aggregators, preserves declared sector flags, and requires
   full-time-axis response arrays. Confirm the fixture inputs are synthetic,
   all active-year outputs are complete, crop coverage is one, and agriculture
-  damages are zero.
+  damages are zero. Use the exact archived Julia 1.6.4 x86_64/Rosetta command
+  in `REPOSITORY.md`; independently record that native Apple-silicon execution
+  currently stops before the harness on the archived Electron artifact.
 - Verify the paired component-output audit rejects pre-divergence differences,
   malformed arrays, and a changing zero-pulse control; confirm it does not
   require a nonzero response to a nonzero pulse.

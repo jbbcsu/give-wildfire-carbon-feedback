@@ -63,3 +63,20 @@ never push to a guessed GitHub destination.
 JULIA_DEPOT_PATH=.julia_depot ../tools/julia-1.8.5/bin/julia --project=. -e 'using Pkg; Pkg.instantiate()'
 JULIA_DEPOT_PATH=.julia_depot ../tools/julia-1.8.5/bin/julia --project=. test/runtests.jl
 ```
+
+The isolated component tests above use native Julia 1.8.5. Reproducing the
+executed control against the archived GIVE checkout currently requires its
+original x86_64 Julia 1.6.4 environment under Rosetta:
+
+```sh
+arch -x86_64 env JULIA_DEPOT_PATH=../.julia_depot_1_6 \
+  ../tools/julia-1.6.4/bin/julia \
+  --project=../paper-2022-scc-give-zenodo \
+  scripts/test_give_replacement_harness.jl \
+  ../paper-2022-scc-give-zenodo
+```
+
+A native Apple-silicon Julia 1.8.5 attempt stops before the harness because
+the archived GIVE dependency lock requests an unavailable Electron artifact
+for `aarch64-apple-darwin`. This is a baseline-environment portability limit;
+it is not evidence that the replacement passed under native ARM.
