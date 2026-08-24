@@ -25,7 +25,7 @@ does not report final response estimates or SCC values.
 | Full-GIVE replacement execution gate | The installation harness removes legacy MooreAg agriculture, reuses GIVE's regional socioeconomic aggregators, preserves declared sector flags, passes the graph audit, and runs the unmodified GIVE model with six crops and synthetic full-time-axis zero-response inputs under the archived Julia 1.6.4 x86_64/Rosetta environment; active-year crop/regional outputs are complete, coverage is one, and component plus aggregated agriculture damage paths are zero | Synthetic execution/connectivity only; shares and zero coefficients are not empirical inputs, no paired marginal run, empirical damage, welfare, discount, or SCC result is created, and native Apple-silicon execution is blocked before the harness by an unavailable archived Electron artifact |
 | Paired agriculture component-output gate | Synthetic matched baseline/pulse runs pass shape, finiteness, pre-divergence identity, targeted post-divergence propagation, and complete-horizon zero-pulse controls; malformed, early-divergence, and false zero-pulse cases fail | Component-boundary conservation only; no empirical bundle, full GIVE paired run, welfare calibration, discounting, or SCC result |
 | Stage heat and paired-bundle gates | Synthetic cross-year heat construction, executable stage/season reconciliation audit, cross-threshold nesting checks, partition combine, panel join, and baseline/pulse identity/coverage/weight/conservation checks pass; a real 10-latitude maize slice also reconciles | Pipeline/schema validation only; 30/34 C were QA inputs, not selected heat thresholds, and no fitted response or SCC result is created |
-| Historical crop-stage scPDSI path | Synthetic cross-year construction, exact longitude normalization/grid matching, complete-month coverage, partition validation/combine, and one-to-one panel join pass | Historical climatic-index benchmark plumbing only; no real CRU panel, response estimate, future drought path, or SCC input |
+| Historical crop-stage scPDSI path | The complete 1903--2025 CRU scPDSI file is acquired, SHA-512 recorded, and provenance-verified. Synthetic cross-year construction, longitude/grid matching, coverage, partition/combine, and join tests pass; a real 10-latitude maize/rainfed 1982--89 partition produced and validated 36,183 crop-stage rows | Historical climatic-index benchmark only; the -2 threshold is a diagnostic setting, the global crop panels and response comparison are incomplete, and no future drought path or SCC input exists |
 | Rainfed/irrigated outcome-allocation gate | Synthetic fixed-baseline area-share allocation and failure-mode tests pass; one aggregate GDHY yield is collapsed to exactly one weighted-exposure row | Data-contract plumbing only; no production area weights, irrigated response, coefficient, or SCC input |
 | U.S. county crop-season drought bridge | Synthetic cross-year USDM interval aggregation and failure-mode tests pass using an explicit state/crop/harvest-year calendar; a counts-only NASS–USDM audit preserves suppressed yield rows in its denominator and reports overall/annual county-year overlap | Historical external-validation plumbing only; no yield values are emitted and no real county-season exposure, response estimate, or SCC input is created |
 | Maize/rainfed blocked response audit, 1982–89 | 105,157 consecutive observed-yield pairs evaluated with crop-specific first-difference seasonal-precipitation, seasonal-joint, and three-window-joint models across spatial, temporal, and climate-extreme holdouts | Internal predictive diagnostic only; coefficients are suppressed and no causal, global-response, or SCC claim is permitted |
@@ -216,9 +216,12 @@ same transparent crop-stage windows by exact day overlap. Its synthetic
 cross-year test verifies stage lengths, day-weighted means, minima, drought-day
 counts, longitude normalization, partition combination, and one-to-one panel
 coverage. The source-role field explicitly prohibits using observed CRU scPDSI
-as a future baseline/pulse input. The real CRU file is only partially acquired
-(138,412,032 of 355,230,575 bytes), has not been processed, and supports no
-drought-response result.
+as a future baseline/pulse input. The complete 355,230,575-byte CRU file is now
+acquired and SHA-512/provenance verified. A real 10-latitude maize/rainfed
+1982--89 slice produced 36,183 crop-stage rows and passed the partition gate at
+a diagnostic scPDSI threshold of -2. This establishes real-data execution, not
+a selected drought definition or a drought-response result; the global crop
+panels, response comparison, and matched future drought paths remain open.
 
 The executable outcome-exposure allocator now prevents pseudo-replication of
 GDHY's aggregate crop-season yield across rainfed and irrigated calendar rows.
