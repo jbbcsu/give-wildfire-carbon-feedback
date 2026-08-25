@@ -44,6 +44,12 @@ writes a SHA-512 manifest only after the full archive is present. The initial
 snapshot is `qs.crops_20260821.txt.gz` (1,128,988,003 bytes). No crop, geography,
 unit, or suppression filters are accepted until the downloaded header and
 field definitions have been inspected.
+The current local-input audit and fail-closed panel prerequisites are recorded
+in [STATUS_AND_PANEL_GATE.md](STATUS_AND_PANEL_GATE.md). After the archive is
+complete and checksum-verified, the documented streaming extractor can select
+one fully specified county-yield series without expanding the full archive;
+its synthetic test preserves suppression flags and rejects duplicate keys or
+mixed units.
 The synthetic preparation test
 `python us_county_validation/scripts/test_prepare_nass_county_yields.py`
 checks disclosure-flag preservation and strict five-digit county GEOIDs; it

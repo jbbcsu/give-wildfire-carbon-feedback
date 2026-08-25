@@ -24,6 +24,11 @@ centres but must fail instead of spatially interpolating. Preserve its
 historical-benchmark-only role through the join; it cannot be used as a future
 baseline/pulse feature.
 
+The aligned GDHY construction can replace a negative aligned estimate with
+zero. Preserve every such source zero and flag it explicitly, but treat it as
+unobserved in a log-yield response; reject negative source values and never
+replace zero with an analyst-chosen positive constant.
+
 Because GDHY contains one aggregate yield per crop-season-grid-year, rainfed
 and irrigated calendar exposures cannot be treated as two independent outcome
 observations. Before a production all-area panel is built, obtain a versioned
@@ -79,6 +84,11 @@ not call the resulting SCC net of adaptation investment.
    Run the paired response-bundle validator before integration. Its schema
    pass does not substitute for held-out skill, observed-support, or welfare
    validation.
+   The matched climate-feature driver must also leave out whole ESMs and whole
+   scenarios, preserve ESM/member identity across space and features, use the
+   same residual realization for each baseline/pulse pair, and pass zero-pulse,
+   pre-divergence, support, and decreasing-pulse convergence tests. An unmatched
+   scenario difference is never accepted as a marginal CO2 response.
    Run `AgricultureReplacementAudit.audit_agriculture_replacement` on the
    constructed Mimi model before either member of a paired SCC run. The audit
    must find exactly one internal producer for `DamageAggregator.damage_ag`,

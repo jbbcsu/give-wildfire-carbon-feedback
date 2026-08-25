@@ -6,6 +6,8 @@
 | CMIP6 scenario climate fields | [O'Neill et al. (2016), ScenarioMIP](https://doi.org/10.5194/gmd-9-3461-2016) | Primary protocol for scenario simulations. |
 | CMIP6 design and ensemble | [Eyring et al. (2016)](https://doi.org/10.5194/gmd-9-1937-2016) | Primary CMIP6 experimental design. |
 | Global daily bias-adjusted projections | [Lange (2021), ISIMIP3BASD](https://doi.org/10.5194/gmd-14-5443-2021) | Transparent bias-adjustment method for impact applications. |
+| ISIMIP3b scenario forcing and model set | [Frieler et al. (2026)](https://doi.org/10.5194/gmd-19-4095-2026) | Primary description of the historical and SSP1-2.6/SSP3-7.0/SSP5-8.5 CMIP6 forcing used to train matched crop-feature responses. |
+| Sequence-preserving climate benchmark | [Tebaldi et al. (2022), STITCHES](https://doi.org/10.5194/esd-13-1557-2022) | Preserves coherent blocks of CMIP6 simulations for an external feature-sequence benchmark. |
 | Climate-emulator review | [Tebaldi et al. (2025)](https://doi.org/10.1146/annurev-environ-012125-085838) | Fit-for-purpose taxonomy and limitations of climate-model-output emulators. |
 | Monthly temperature--precipitation emulation | [Schöngart et al. (2024), MESMER-M-TP](https://doi.org/10.5194/gmd-17-8283-2024) | Published, open monthly spatial precipitation backbone conditional on temperature. |
 | Global daily stochastic weather | [Sommer and Kaplan (2017), Global-WGEN](https://doi.org/10.5194/gmd-10-3771-2017) | Transparent global daily precipitation and temperature generation from monthly inputs. |

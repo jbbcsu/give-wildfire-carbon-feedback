@@ -20,6 +20,8 @@ the manuscript or `RESULTS_STATUS.md` as evidence without tracing the claim.
   checksum, coverage, version, and license.
 - Independently inspect crop/calendar crosswalks, longitude conversion,
   latitude order, units, leap days, and cross-year crop seasons.
+- Confirm GDHY source zeros are preserved and flagged but excluded from the
+  log-yield response, and that negative values fail rather than being shifted.
 - Treat GDHY, FAOSTAT, NASS, ISIMIP, and crop-model outputs according to their
   documented dependence; do not count a derived source as independent
   validation.
@@ -45,6 +47,9 @@ the manuscript or `RESULTS_STATUS.md` as evidence without tracing the claim.
   cover the full agricultural value pool or trigger a hard failure.
 - Verify matched base/pulse identifiers, common random numbers,
   pre-divergence equality, pulse-size convergence, and discounting.
+- Verify future crop features are trained on same-realization ISIMIP3b daily
+  fields with whole-ESM and whole-scenario holdouts; reject scenario contrasts
+  presented as one-tonne marginal experiments.
 - Run the component-graph audit and confirm that the sole internal producer of
   `DamageAggregator.damage_ag` is `JointAgriculture.agcost`, no `Agriculture`
   component remains, and the unmodified GIVE baseline fails as a negative

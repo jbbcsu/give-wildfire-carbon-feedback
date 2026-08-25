@@ -1,0 +1,52 @@
+schema_version = 1
+status = "planned_not_acquired"
+purpose = "Direct daily CMIP6 feature training data for matched FAIR baseline/pulse climate-feature evaluation. This record does not authorize an SCC calculation or raw-data redistribution."
+
+[source]
+name = "ISIMIP3b bias-adjusted CMIP6 atmospheric climate input data"
+catalogue = "https://data.isimip.org/search/simulation_round/ISIMIP3b/product/InputData/"
+documentation = "https://www.isimip.org/gettingstarted/input-data-bias-adjustment/"
+api = "https://data.isimip.org/api/v1/datasets/"
+license_rule = "Read and record the rights, terms, version, exact URL, and SHA-512 on each selected catalogue file before processing. Do not assume rights from ISIMIP3a apply to an ISIMIP3b file."
+resolution = "global 0.5 degree daily"
+variables = ["pr", "tas", "tasmin", "tasmax"]
+experiments = ["historical", "ssp126", "ssp370", "ssp585"]
+
+[selection]
+unit = "one CMIP6 ESM/member sampled jointly across all grid cells, crops, stages, and variables"
+model_rule = "Predeclare a set of ESMs with complete daily variables and the required historical/future experiments before fitting outcomes; do not choose models after response results."
+member_rule = "Use one consistent available realization per ESM in the primary ensemble; retain member ID. Treat additional realizations as internal-variability sensitivity rather than independent regions."
+calendar_rule = "Use the separately pinned GGCMI Phase 3 calendar convention and preserve crop-year treatment for cross-calendar-year seasons."
+
+[api_queries]
+dataset_query_template = "https://data.isimip.org/api/v1/datasets/?simulation_round=ISIMIP3b&product=InputData&climate_forcing={canonical_lowercase_forcing}&climate_scenario={experiment}&climate_variable={variable}&time_step=daily&region=global"
+required_filters = ["simulation_round=ISIMIP3b", "time_step=daily", "region=global", "product=InputData"]
+download_rule = "Resolve and save file_url from the returned dataset metadata; never synthesize a URL without verifying the dataset version and checksum."
+
+[api_validation]
+checked_utc_date = "2026-08-25"
+example_query = "simulation_round=ISIMIP3b;product=InputData;climate_forcing=mri-esm2-0;climate_scenario=ssp370;climate_variable=pr;time_step=daily;region=global"
+example_count = 1
+example_dataset_id = "ff5d7e36-8ee9-4746-bea7-1c1450f94ee7"
+example_dataset_name = "mri-esm2-0_r1i1p1f1_w5e5_ssp370_pr_global_daily"
+example_version = "20210512"
+example_size_bytes = 17902376356
+example_rights = "CC0 1.0"
+note = "This confirms the query schema and one candidate dataset identity only; it is not ensemble selection or acquisition. The first returned file included an API-supplied SHA-512 and file_url."
+
+[processing]
+raw_storage = "Git-ignored data/raw/isimip3b/; process one model/scenario/variable block at a time."
+derived_storage = "Git-ignored compact crop-feature tables keyed by esm_id, member_id, experiment, year, crop, irrigation, grid, stage, and feature definition version."
+required_provenance_fields = ["esm_id", "member_id", "experiment", "source_dataset_id", "source_file_url", "source_version", "source_checksum_sha512", "rights", "retrieval_date", "feature_code_commit", "calendar_source_id", "gmst_source_id"]
+forbidden_shortcut = "Do not estimate a marginal CO2 effect from an unmatched pair of CMIP scenarios, independently sampled ESMs, or independently sampled daily residuals."
+
+[paired_evaluation]
+fair_role = "Evaluate only after fitting ESM-specific direct-feature response curves to CMIP/ISIMIP data."
+pairing = "Same ESM/member, feature-response draw, calendar, and residual innovation for baseline and pulse."
+expected_difference = "f(T_FAIR_pulse) - f(T_FAIR_baseline); shared residuals cancel."
+required_checks = ["pre-pulse equality", "zero-pulse all-years identity", "decreasing-pulse convergence", "feature support flags", "finite units and coverage"]
+
+[boundaries]
+agriculture = "Feeds only the replacement joint agricultural response after all validation gates."
+flooding = "Does not authorize a riverine, pluvial, or coastal flood damage component."
+co2 = "Does not represent CO2 fertilization; that pathway must be chosen and counted once in the agriculture/welfare layer."

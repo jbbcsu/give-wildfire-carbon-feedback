@@ -63,12 +63,21 @@ def main() -> None:
         merged["gdhy_path"] = str(path)
         parts.append(merged)
     panel = pd.concat(parts, ignore_index=True)
+    if (panel.yield_t_ha.dropna() < 0).any():
+        raise ValueError("GDHY contains negative nonmissing yield values")
+    # The aligned GDHY construction clips a small number of negative aligned
+    # values to zero (Iizumi and Sakai, 2020). Preserve that source value for
+    # audit, but do not pass zero to a log-yield response as an observation.
+    panel["gdhy_yield_raw_t_ha"] = panel.yield_t_ha
+    panel["yield_nonpositive"] = panel.yield_t_ha.eq(0)
+    panel.loc[panel.yield_nonpositive, "yield_t_ha"] = pd.NA
     panel["yield_observed"] = panel.yield_t_ha.notna()
-    if (panel.yield_t_ha.dropna() <= 0).any():
-        raise ValueError("GDHY contains nonpositive nonmissing yield values")
     Path(args.out).parent.mkdir(parents=True, exist_ok=True)
     panel.to_parquet(args.out, index=False)
-    print(f"wrote {len(panel)} rows; yield coverage={panel.yield_observed.mean():.3f}")
+    print(
+        f"wrote {len(panel)} rows; yield coverage={panel.yield_observed.mean():.3f}; "
+        f"source_zero_yields={int(panel.yield_nonpositive.sum())}"
+    )
 
 
 if __name__ == "__main__":

@@ -95,7 +95,14 @@ inputs; market feedback is applied exactly once in the welfare translation.
 
 For every paired climate draw, a baseline and marginal CO2-pulse path share
 GCM/member, crop calendar, socioeconomic path, response draw, and weighting
-scheme. Cell-level yield responses are aggregated with fixed baseline weights,
+scheme. The primary future driver derives the exact crop-calendar features
+from version-pinned daily ISIMIP3b historical and SSP fields, fits
+ESM/member-specific feature responses to same-realization global temperature,
+and evaluates both FAIR paths with the same ESM/member and residual innovation.
+An unmatched scenario contrast is not treated as a marginal pulse. Whole-ESM
+and whole-scenario holdouts, historical-support flags, zero-pulse identity, and
+decreasing-pulse convergence must pass before the resulting features can enter
+the response. Cell-level yield responses are aggregated with fixed baseline weights,
 translated to 16 FUND regions, and supplied to the replacement component.
 GIVE's existing marginal-damage/discounting machinery then produces the global
 SCC. Before either member of a paired run, a structural audit requires
@@ -137,6 +144,16 @@ maize replication, the three-window model again led spatial and extreme-case
 RMSE, but precipitation-only led the temporal block; the earlier temporal
 ordering therefore did not replicate and is not a basis for period-specific
 model choice.
+
+In a second outcome-separate replication, the 2002–2010 soybean panel yielded
+48,959 consecutive positive-yield pairs. The three-window joint model had the
+lowest RMSE in the spatial, final-two-year, and climate-extreme blocks (0.2143,
+0.2406, and 0.2175), compared with zero-change RMSE of 0.2202, 0.2493, and
+0.2251; every registered model beat zero in every block. One GDHY source zero,
+which the source method permits after clipping a negative aligned value, is
+preserved but excluded from the log-yield response. This retained favorable
+replication is still a one-crop, rainfed-calendar, internal predictive
+diagnostic; it supplies no released coefficient or SCC input.
 
 At the integration boundary, the replacement installer now passes an executed
 synthetic control on the unmodified GIVE model: the MooreAg agriculture

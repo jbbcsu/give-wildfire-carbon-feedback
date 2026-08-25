@@ -27,6 +27,16 @@ sidecar are excluded from Git. Commodity, practice, geography, unit, and
 suppression filters are fixed only after schema inspection and are recorded in
 the processed-panel manifest.
 
+The executable county-input status gate records that the local NASS archive is
+still incomplete, while a real Iowa 2001 USDM source/provenance slice exists
+without an outcome/calendar overlap. After archive verification, the streaming
+NASS extractor applies explicit commodity, annual county-yield, total-domain,
+production-practice, utilization-practice, unit, and reference-period filters;
+it preserves suppression flags and fails on duplicate county-years or mixed
+units. No county response is estimated until crop-specific irrigation shares,
+crop-area weights, daily gridMET exposures, complete calendars, and matching
+USDM records also pass.
+
 ## S3. Crop-year alignment
 
 For every grid cell, crop, season, irrigation regime, and harvest year, read
@@ -45,16 +55,29 @@ weather.
 ### S4.1 Climate-to-precipitation projection
 
 The project does not claim or train a new free-standing precipitation
-emulator. Direct daily ISIMIP/CMIP fields are the reference. Candidate fast
-projection chains are evaluated against those fields with entire ESMs and
-scenarios held out. The current published-method candidate combines a
-MESMER-M-TP monthly response with a published daily occurrence/amount weather
-generator; STITCHES supplies a sequence-preserving benchmark and MESMER-X an
-independent Rx1day benchmark. RIG (Huang et al., 2026 preprint) is the closest
-known joint daily global temperature--precipitation system under flexible
-radiative forcing, but is not executable as of 22 August 2026 because its
-authors state that code will be released upon publication. ACE2-SOM is a
-high-complexity robustness model rather than the default.
+emulator. Direct daily ISIMIP/CMIP fields are the reference. The primary fast
+path first computes the exact crop-calendar features from version-pinned daily
+ISIMIP3b historical, SSP1-2.6, SSP3-7.0, and SSP5-8.5 fields. For each retained
+ESM/member and crop feature, it fits a predeclared smooth response to GMST from
+the same CMIP6 realization. Matched FAIR baseline and pulse paths are then
+evaluated with the same ESM/member, feature-response draw, calendar, and joint
+residual realization, so weather noise is not mistaken for the one-tonne
+signal. The direct response difference and centered finite-difference
+derivative must converge as pulse size decreases. This is a direct-feature
+emulator, not an independent climate model; scenario differences are training
+information and never the marginal experiment. The complete design and
+provenance contract are in `PAIRED_CLIMATE_FEATURE_DRIVER.md` and
+`data/provenance/isimip3b_paired_feature_driver.toml`.
+
+Whole ESMs and whole scenarios, not random years alone, are held out. STITCHES
+supplies a sequence-preserving benchmark; MESMER-M-TP plus a published daily
+occurrence/amount generator is the fallback if the direct-feature response
+fails distributional or convergence gates. MESMER-X remains an independent
+Rx1day benchmark. RIG (Huang et al., 2026 preprint) is the closest known joint
+daily global temperature--precipitation system under flexible radiative
+forcing, but is not executable as of 22 August 2026 because its authors state
+that code will be released upon publication. ACE2-SOM is a high-complexity
+robustness model rather than the default.
 
 Every candidate must reproduce crop-calendar totals, early/middle/late or
 phenological-stage shares, wet-day frequency, consecutive dry days, Rx1day,
@@ -124,6 +147,11 @@ observations. This historical exposure-allocation weight is distinct from the
 regional baseline crop-value weights used later for welfare aggregation. CO2
 is an explicitly provenanced scenario term; it cannot be separately added
 after a response that already includes it.
+
+GDHY's aligned construction can clip a negative aligned estimate to zero.
+The join preserves the original value in `gdhy_yield_raw_t_ha`, flags it in
+`yield_nonpositive`, and sets the log-response outcome to missing. Negative
+source values fail, and no arbitrary positive offset is introduced.
 
 ## S6. Adaptation
 

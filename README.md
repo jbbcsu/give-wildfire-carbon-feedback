@@ -22,6 +22,12 @@ for the isolated Mimi component contract.  The literature-first recommendation
 and ML contingency are in [AGRICULTURE_RESEARCH.md](AGRICULTURE_RESEARCH.md).
 The climate-emulation literature and published-method reuse decision are in
 [CLIMATE_PRECIPITATION_EMULATOR_AUDIT.md](CLIMATE_PRECIPITATION_EMULATOR_AUDIT.md).
+The primary matched baseline/pulse route and its acquisition/validation gates
+are fixed in [PAIRED_CLIMATE_FEATURE_DRIVER.md](PAIRED_CLIMATE_FEATURE_DRIVER.md):
+derive the exact crop features from version-pinned daily ISIMIP3b fields, fit
+ESM-specific feature responses to same-realization GMST, and evaluate matched
+FAIR paths with common random numbers. Scenario differences are training data,
+not one-tonne CO2 experiments.
 The evidence-bounded manuscript and Methods/SI blueprints are in
 [MANUSCRIPT_OUTLINE.md](MANUSCRIPT_OUTLINE.md) and
 [METHODS_SI_OUTLINE.md](METHODS_SI_OUTLINE.md).
@@ -122,6 +128,10 @@ The approved calendar-to-yield season crosswalk is recorded in
 [data/provenance/crop_calendar_gdhy_crosswalk.md](data/provenance/crop_calendar_gdhy_crosswalk.md).
 It deliberately does not use GDHY convenience aggregate directories where a
 season-specific outcome exists.
+The aligned GDHY method can clip a negative aligned yield to zero. The join
+preserves that source zero in `gdhy_yield_raw_t_ha` and flags it with
+`yield_nonpositive`, but marks it unobserved for the log-yield response; it
+never silently adds an arbitrary positive offset.
 
 GDHY does not provide separate rainfed and irrigated yield outcomes. The
 production path must therefore never duplicate one observed yield into two

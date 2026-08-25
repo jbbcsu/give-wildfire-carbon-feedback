@@ -23,4 +23,7 @@ panel = pd.read_parquet(out)
 assert not panel.duplicated(["harvest_year", "lat", "lon_360", "crop", "irrigation"]).any()
 assert panel.yield_observed.any()
 assert (panel.loc[panel.yield_observed, "yield_t_ha"] > 0).all()
+assert panel.yield_nonpositive.dtype == bool
+assert panel.loc[panel.yield_nonpositive, "yield_t_ha"].isna().all()
+assert panel.loc[panel.yield_nonpositive, "gdhy_yield_raw_t_ha"].eq(0).all()
 print(f"GDHY pilot join passed; coverage={panel.yield_observed.mean():.3f}")

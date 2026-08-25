@@ -1,6 +1,6 @@
 # Analysis status and claim ledger
 
-Updated: 2026-08-23. This file records completed computational milestones; it
+Updated: 2026-08-25. This file records completed computational milestones; it
 does not report final response estimates or SCC values.
 
 | Item | Status | Permitted use |
@@ -31,6 +31,8 @@ does not report final response estimates or SCC values.
 | Maize/rainfed blocked response audit, 1982–89 | 105,157 consecutive observed-yield pairs evaluated with crop-specific first-difference seasonal-precipitation, seasonal-joint, and three-window-joint models across spatial, temporal, and climate-extreme holdouts | Internal predictive diagnostic only; coefficients are suppressed and no causal, global-response, or SCC claim is permitted |
 | Six-crop/rainfed blocked response audit, 1982–89 | 321,620 consecutive observed-yield pairs across maize, first/second rice, soybean, spring wheat, and winter wheat; exact crop/model/holdout coverage, metric arithmetic, fold reconciliation, and full-rank finite fits validated | Internal predictive diagnostic only; mixed crop/holdout rankings prohibit a universal-model or SCC claim |
 | Maize/rainfed independent-period audit, 1992–2000 | 119,950 consecutive observed-yield pairs; the frozen models and validator rerun without using the 1982–89 outcome metrics | Internal predictive replication only; model ordering changes in the temporal block and no coefficient or SCC use is permitted |
+| Soybean/rainfed independent-period audit, 2002–2010 | Season and three-window panels contain 606,780 and 1,820,340 rows and reconcile exactly within stored precision; the frozen audit validates 48,959 consecutive observed-yield pairs | Internal predictive replication only; one source-zero GDHY value is preserved and excluded from log yield, coefficients remain suppressed, and no causal or SCC use is permitted |
+| Matched future climate-feature driver | ISIMIP3b direct-daily-feature design, provenance schema, whole-ESM/scenario holdouts, common-random-number pairing, support flags, and pulse-convergence gates are specified | Planned/not acquired; no ISIMIP3b projection file, fitted climate response, baseline/pulse feature path, or SCC input exists |
 | Irrigated panels, later periods, and future scenarios | Not yet complete | No production global response or SCC claim |
 
 ## Completed empirical checks
@@ -119,6 +121,24 @@ diagnostic on the 135,405 observed-yield rows has full matrix rank and a
 condition number of 21.9. This checks estimation plumbing and numerical
 conditioning only; its coefficients and in-sample fit are prohibited from
 causal interpretation, manuscript results, or SCC integration.
+
+An outcome-separate 2002–2010 soybean replication now contains 606,780
+potential crop-year rows and 55,088 positive observed-yield rows. The source
+has one additional nonmissing zero in 2007; GDHY documents that negative
+aligned values were clipped to zero, so the join preserves the raw zero and a
+machine-readable flag but excludes it from the log-yield outcome. Its
+1,820,340 stage rows reconcile to every seasonal row: crop-year days,
+wet-day counts, and Rx1day agree exactly, and the largest precipitation-total
+difference is 2.27e-13 mm. The frozen diagnostic forms 48,959 consecutive
+positive-yield pairs. All designs are finite and full rank (maximum condition
+number 20.11). The stage-joint model is descriptively lowest-RMSE in spatial,
+temporal, and climate-extreme holdouts (0.2143, 0.2406, and 0.2175) versus
+zero-change benchmarks of 0.2202, 0.2493, and 0.2251. All three registered
+models beat zero in all three blocks. This later-period result is consistent
+with stage timing carrying predictive information for soybean, but it remains
+one crop, a rainfed-calendar proxy, and an internal predictive audit. It does
+not identify causal coefficients, resolve irrigation or drought-family
+selection, or authorize an SCC response.
 
 The soybean stage panel has the same 1,618,080-row structure and reconciles to
 every season-level record in crop-year days, wet-day counts, and maximum daily
