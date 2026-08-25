@@ -155,6 +155,18 @@ preserved but excluded from the log-yield response. This retained favorable
 replication is still a one-crop, rainfed-calendar, internal predictive
 diagnostic; it supplies no released coefficient or SCC input.
 
+Closing the decadal climate-file boundary yielded a contiguous 1982–2000
+maize/rainfed diagnostic with all 19 harvest years, 285,871 positive-yield
+levels, and 270,273 consecutive-year pairs. The three-window joint model had
+the lowest RMSE in spatial blocks (0.3111 versus 0.3221 for zero change) and
+climate-extreme cases (0.3243 versus 0.3324), whereas precipitation-only led
+the final-1999–2000 temporal block (0.2833 versus 0.2878 for the three-window
+model and 0.2883 for zero change). Precipitation-only was slightly worse than
+zero change in the extreme block (0.3341 versus 0.3324). Thus the longer period
+retains predictive value for within-season features but does not stabilize one
+model ranking across holdouts. This remains a one-crop, rainfed-calendar,
+internal predictive diagnostic with suppressed coefficients and no SCC use.
+
 At the integration boundary, the replacement installer now passes an executed
 synthetic control on the unmodified GIVE model: the MooreAg agriculture
 component is removed, existing regional socioeconomic aggregators are reused,

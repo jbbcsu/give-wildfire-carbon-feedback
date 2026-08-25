@@ -98,7 +98,9 @@ no projection file has been acquired and no ensemble member has been selected.
 2. Download one ESM/scenario/variable block at a time.  Build crop-year/stage
    features by latitude partition, write a compact feature table, verify it,
    and then archive or remove the raw block according to the source terms and
-   local storage policy.  Raw projections are not committed.
+   local storage policy. Chronologically adjacent files are opened as one
+   audited daily series: grids and units must match and the boundary must have
+   exactly one-day steps without duplicates or gaps. Raw projections are not committed.
 3. Join annual GMST from the *same CMIP6 realization* for fitting.  The GMST
    source, baseline period, and anomaly definition must be recorded; do not
    substitute FAIR temperatures during fitting.

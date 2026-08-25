@@ -9,12 +9,15 @@ flux; `tas` is converted from K to °C when appropriate.
 from __future__ import annotations
 
 import argparse
+from contextlib import ExitStack
 from datetime import date, timedelta
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 import xarray as xr
+
+from climate_inputs import crop_year_window, open_daily_series
 
 FEATURE_COLUMNS = [
     "harvest_year", "plant_year", "lat", "lon", "lon_360", "crop", "irrigation", "cross_year",
@@ -55,18 +58,10 @@ def rolling_max(values: np.ndarray, width: int) -> float:
     return float(np.convolve(values64, np.ones(width), mode="valid").max())
 
 
-def climate_array(ds: xr.Dataset, preferred: str) -> xr.DataArray:
-    if preferred in ds:
-        return ds[preferred]
-    if len(ds.data_vars) != 1:
-        raise ValueError(f"Cannot infer {preferred}; variables are {list(ds.data_vars)}")
-    return next(iter(ds.data_vars.values()))
-
-
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--precip", required=True, help="Daily ISIMIP pr NetCDF covering requested crop-years")
-    parser.add_argument("--temperature", required=True, help="Daily ISIMIP tas NetCDF covering requested crop-years")
+    parser.add_argument("--precip", required=True, nargs="+", help="Chronological daily ISIMIP pr NetCDF file(s) covering requested crop-years")
+    parser.add_argument("--temperature", required=True, nargs="+", help="Chronological daily ISIMIP tas NetCDF file(s) covering requested crop-years")
     parser.add_argument("--calendar", required=True)
     parser.add_argument("--crop", required=True)
     parser.add_argument("--irrigation", required=True, choices=["firr", "noirr"])
@@ -78,14 +73,17 @@ def main() -> None:
     parser.add_argument("--wet-day-mm", type=float, default=1.0)
     args = parser.parse_args()
 
-    with xr.open_dataset(args.calendar, engine="h5netcdf", decode_timedelta=False) as calendar, \
-         xr.open_dataset(args.precip, engine="h5netcdf") as precip_ds, \
-         xr.open_dataset(args.temperature, engine="h5netcdf") as temp_ds:
+    with ExitStack() as stack:
+        calendar = stack.enter_context(xr.open_dataset(args.calendar, engine="h5netcdf", decode_timedelta=False))
         required = {"planting_day", "maturity_day"}
         if missing := required - set(calendar.data_vars):
             raise ValueError(f"Calendar missing {sorted(missing)}")
-        pr = climate_array(precip_ds, "pr").isel(lat=slice(args.lat_start, args.lat_stop))
-        tas = climate_array(temp_ds, "tas").isel(lat=slice(args.lat_start, args.lat_stop))
+        pr = crop_year_window(open_daily_series(stack, args.precip, "pr"), args.year_start, args.year_end).isel(
+            lat=slice(args.lat_start, args.lat_stop)
+        )
+        tas = crop_year_window(open_daily_series(stack, args.temperature, "tas"), args.year_start, args.year_end).isel(
+            lat=slice(args.lat_start, args.lat_stop)
+        )
         cal = calendar.isel(lat=slice(args.lat_start, args.lat_stop))
         if not (np.array_equal(pr.lat, cal.lat) and np.array_equal(pr.lon, cal.lon)):
             raise ValueError("Climate and calendar coordinates differ; regrid explicitly before feature construction")

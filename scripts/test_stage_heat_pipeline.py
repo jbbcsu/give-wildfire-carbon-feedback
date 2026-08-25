@@ -26,10 +26,11 @@ with tempfile.TemporaryDirectory() as temporary:
     dates = pd.date_range("2020-12-30", "2021-01-03", freq="D")
     coords = {"time": dates, "lat": [0.25], "lon": [0.25]}
     tmax_c = np.array([28.0, 30.0, 31.0, 35.0, 29.0]).reshape(5, 1, 1)
-    xr.Dataset(
-        {"tasmax": (("time", "lat", "lon"), tmax_c + 273.15, {"units": "K"})},
-        coords=coords,
-    ).to_netcdf(root / "tasmax.nc", engine="h5netcdf")
+    for name, subset in (("first", slice(0, 2)), ("second", slice(2, 5))):
+        xr.Dataset(
+            {"tasmax": (("time", "lat", "lon"), (tmax_c + 273.15)[subset], {"units": "K"})},
+            coords={"time": dates[subset], "lat": [0.25], "lon": [0.25]},
+        ).to_netcdf(root / f"tasmax_{name}.nc", engine="h5netcdf")
     xr.Dataset(
         {
             "planting_day": (("lat", "lon"), [[365.0]]),
@@ -40,7 +41,8 @@ with tempfile.TemporaryDirectory() as temporary:
     seasonal = root / "seasonal.parquet"
     stages = root / "stages.parquet"
     common = [
-        "--tasmax", str(root / "tasmax.nc"), "--calendar", str(root / "calendar.nc"),
+        "--tasmax", str(root / "tasmax_first.nc"), str(root / "tasmax_second.nc"),
+        "--calendar", str(root / "calendar.nc"),
         "--crop", "maize", "--irrigation", "noirr", "--year-start", "2021",
         "--year-end", "2021", "--lat-start", "0", "--lat-stop", "1",
         "--threshold-c", "30", "--threshold-c", "34",

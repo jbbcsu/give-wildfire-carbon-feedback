@@ -280,6 +280,16 @@ benchmark are reported; response coefficients are not exported. This is an
 internal predictive diagnostic, not causal identification, independent
 external validation, or authority to construct SCC inputs.
 
+When daily climate coverage crosses source-file boundaries, the builders take
+an ordered list of NetCDF inputs, require identical latitude/longitude grids and units,
+and verify one strictly increasing daily time axis with neither duplicated nor
+missing boundary dates. They retain only the years that can enter the requested
+harvest-year seasons. Period panels must have an identical schema, nonoverlap
+on crop-grid-year keys, and the exact declared contiguous harvest-year set.
+The response audit records that set, and the validator checks it whenever an
+expected start and end year are supplied. These are coverage and reproducibility
+gates; they do not strengthen causal identification.
+
 Multi-crop audit reporting is fail-closed. The audit validator binds the JSON
 artifact to the SHA-256 of the frozen response specification; requires the
 explicitly declared crop-season set and every crop-by-model-by-holdout result;

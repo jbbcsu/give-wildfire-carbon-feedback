@@ -9,13 +9,15 @@ an approved source is available.
 from __future__ import annotations
 
 import argparse
+from contextlib import ExitStack
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 import xarray as xr
 
-from build_crop_year_features import climate_array, date_from_doy, max_run, normalize_precip, normalize_temperature, rolling_max
+from build_crop_year_features import date_from_doy, max_run, normalize_precip, normalize_temperature, rolling_max
+from climate_inputs import crop_year_window, open_daily_series
 
 
 STAGE_FEATURE_COLUMNS = [
@@ -27,8 +29,8 @@ STAGE_FEATURE_COLUMNS = [
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--precip", required=True)
-    parser.add_argument("--temperature", required=True)
+    parser.add_argument("--precip", required=True, nargs="+")
+    parser.add_argument("--temperature", required=True, nargs="+")
     parser.add_argument("--calendar", required=True)
     parser.add_argument("--crop", required=True)
     parser.add_argument("--irrigation", required=True, choices=["firr", "noirr"])
@@ -44,11 +46,14 @@ def main() -> None:
     if fractions[0] != 0 or fractions[-1] != 1 or any(a >= b for a, b in zip(fractions, fractions[1:])):
         raise ValueError("Stage fractions must start at 0, end at 1, and strictly increase")
 
-    with xr.open_dataset(args.calendar, engine="h5netcdf", decode_timedelta=False) as calendar, \
-         xr.open_dataset(args.precip, engine="h5netcdf") as precip_ds, \
-         xr.open_dataset(args.temperature, engine="h5netcdf") as temp_ds:
-        pr = climate_array(precip_ds, "pr").isel(lat=slice(args.lat_start, args.lat_stop))
-        tas = climate_array(temp_ds, "tas").isel(lat=slice(args.lat_start, args.lat_stop))
+    with ExitStack() as stack:
+        calendar = stack.enter_context(xr.open_dataset(args.calendar, engine="h5netcdf", decode_timedelta=False))
+        pr = crop_year_window(open_daily_series(stack, args.precip, "pr"), args.year_start, args.year_end).isel(
+            lat=slice(args.lat_start, args.lat_stop)
+        )
+        tas = crop_year_window(open_daily_series(stack, args.temperature, "tas"), args.year_start, args.year_end).isel(
+            lat=slice(args.lat_start, args.lat_stop)
+        )
         cal = calendar.isel(lat=slice(args.lat_start, args.lat_stop))
         if not (np.array_equal(pr.lat, cal.lat) and np.array_equal(pr.lon, cal.lon) and np.array_equal(pr.time, tas.time)):
             raise ValueError("Climate/calendar coordinates or time axes differ")

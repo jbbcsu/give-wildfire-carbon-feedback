@@ -31,9 +31,10 @@ does not report final response estimates or SCC values.
 | Maize/rainfed blocked response audit, 1982–89 | 105,157 consecutive observed-yield pairs evaluated with crop-specific first-difference seasonal-precipitation, seasonal-joint, and three-window-joint models across spatial, temporal, and climate-extreme holdouts | Internal predictive diagnostic only; coefficients are suppressed and no causal, global-response, or SCC claim is permitted |
 | Six-crop/rainfed blocked response audit, 1982–89 | 321,620 consecutive observed-yield pairs across maize, first/second rice, soybean, spring wheat, and winter wheat; exact crop/model/holdout coverage, metric arithmetic, fold reconciliation, and full-rank finite fits validated | Internal predictive diagnostic only; mixed crop/holdout rankings prohibit a universal-model or SCC claim |
 | Maize/rainfed independent-period audit, 1992–2000 | 119,950 consecutive observed-yield pairs; the frozen models and validator rerun without using the 1982–89 outcome metrics | Internal predictive replication only; model ordering changes in the temporal block and no coefficient or SCC use is permitted |
+| Maize/rainfed contiguous-period audit, 1982–2000 | Cross-file daily input and strict period-combination gates close 1990–91 and validate all 19 harvest years: 1,280,980 potential rows, 285,871 positive-yield rows, and 270,273 consecutive pairs | Longer-period internal predictive diagnostic only; mixed holdout rankings, rainfed-calendar exposure, and coefficient suppression prohibit causal or SCC use |
 | Soybean/rainfed independent-period audit, 2002–2010 | Season and three-window panels contain 606,780 and 1,820,340 rows and reconcile exactly within stored precision; the frozen audit validates 48,959 consecutive observed-yield pairs | Internal predictive replication only; one source-zero GDHY value is preserved and excluded from log yield, coefficients remain suppressed, and no causal or SCC use is permitted |
 | Matched future climate-feature driver | ISIMIP3b direct-daily-feature design, provenance schema, whole-ESM/scenario holdouts, common-random-number pairing, support flags, and pulse-convergence gates are specified | Planned/not acquired; no ISIMIP3b projection file, fitted climate response, baseline/pulse feature path, or SCC input exists |
-| Irrigated panels, later periods, and future scenarios | Not yet complete | No production global response or SCC claim |
+| Irrigated panels, full-period multi-crop coverage, and future scenarios | Not yet complete | No production global response or SCC claim |
 
 ## Completed empirical checks
 
@@ -121,6 +122,24 @@ diagnostic on the 135,405 observed-yield rows has full matrix rank and a
 condition number of 21.9. This checks estimation plumbing and numerical
 conditioning only; its coefficients and in-sample fit are prohibited from
 causal interpretation, manuscript results, or SCC integration.
+
+The decadal-file boundary was then closed with a real 1990–91 maize/rainfed
+build. Its 134,840 season rows and 404,520 three-window rows reconcile exactly
+for days, wet days, and Rx1day; the largest precipitation-total difference is
+2.27e-13 mm. Rejoining all outcomes under the corrected GDHY zero semantics
+and combining non-overlapping panels produced a contiguous 1982–2000 audit:
+1,280,980 level rows, 285,871 positive observed-yield rows, and 270,273
+consecutive-year pairs. The validator confirmed every harvest year from 1982
+through 2000. Stage-joint was descriptively lowest-RMSE for spatial blocks
+(0.3111 versus 0.3221 zero change) and climate-extreme pairs (0.3243 versus
+0.3324 zero), while precipitation-only led the final-1999–2000 temporal block
+(0.2833 versus 0.2878 stage-joint and 0.2883 zero). All models beat zero in the
+spatial and temporal blocks, but precipitation-only was slightly worse than
+zero for climate extremes (0.3341 versus 0.3324). This longer panel therefore
+strengthens the evidence that timing/extreme features can add predictive
+information without yielding a stable universal ranking. It is still one
+crop, one rainfed-calendar proxy, an internal first-difference diagnostic, and
+contains no released coefficient or SCC input.
 
 An outcome-separate 2002–2010 soybean replication now contains 606,780
 potential crop-year rows and 55,088 positive observed-yield rows. The source

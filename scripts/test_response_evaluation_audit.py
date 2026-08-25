@@ -54,13 +54,17 @@ valid = {
     "n_level_rows": 200,
     "n_observed_level_rows": 120,
     "n_consecutive_pairs": 80,
+    "harvest_year_start": 1982,
+    "harvest_year_end": 1984,
+    "harvest_years": [1982, 1983, 1984],
     "results": results,
 }
-summary = validate_audit(valid, models, digest, crops)
+summary = validate_audit(valid, models, digest, crops, 1982, 1984)
 assert summary["n_consecutive_pairs"] == 80
 assert len(summary["comparisons"]) == len(crops) * len(HOLDOUTS)
 assert all(row["all_models_beat_zero"] for row in summary["comparisons"])
 assert all(row["best_model_descriptive_only"] == models[0] for row in summary["comparisons"])
+assert summary["harvest_years"] == [1982, 1983, 1984]
 
 for mutator, expected in (
     (lambda audit: audit.update(spec_sha256="bad"), "frozen response"),
@@ -82,5 +86,13 @@ try:
     raise AssertionError("partial crop coverage should fail")
 except ValueError as error:
     assert "crop coverage" in str(error)
+
+broken_years = copy.deepcopy(valid)
+broken_years["harvest_years"] = [1982, 1984]
+try:
+    validate_audit(broken_years, models, digest, crops, 1982, 1984)
+    raise AssertionError("incomplete year coverage should fail")
+except ValueError as error:
+    assert "not complete and contiguous" in str(error)
 
 print("response-evaluation audit-validator synthetic tests passed")

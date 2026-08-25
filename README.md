@@ -55,6 +55,13 @@ and preserves an explicit `historical_benchmark_not_future_scc_input` role
 through its panel join. It does not substitute observed CRU scPDSI for a
 matched future drought path. See the scripts directory and
 [RESULTS_STATUS.md](RESULTS_STATUS.md) for the current evidence boundary.
+Daily precipitation, mean-temperature, and maximum-temperature builders accept
+chronologically ordered file lists. They reject coordinate or unit changes,
+duplicate or missing boundary dates, and non-daily steps before crop-season extraction;
+they then read only the calendar years that can enter the requested harvest
+years. This permits cross-year seasons to span version-pinned decadal files
+without silent edge loss and is also required for historical/future ISIMIP3b
+blocks in the matched-feature driver.
 
 Before any empirical response array can approach GIVE wiring,
 `scripts/validate_scc_response_bundle.py` enforces the frozen crop/FUND order,
@@ -105,7 +112,9 @@ is diagnostic and cannot be used as an SCC response bundle.
 `scripts/validate_response_evaluation_audit.py` then fails unless the audit
 matches the exact configuration hash and contains the complete explicitly
 declared crop/model/holdout product with reconciled folds, benchmarks, metrics,
-and row counts. Its descriptive ranking is not a model-selection rule.
+and row counts. When an expected year range is declared, it also requires the
+exact contiguous harvest-year list. Its descriptive ranking is not a
+model-selection rule.
 
 For a panel that already contains stage features, create the outcome-blind
 labels and run the audit with:
@@ -121,6 +130,7 @@ labels and run the audit with:
   --audit outputs/response_evaluation.json \
   --expected-crop mai --expected-crop ri1 --expected-crop ri2 \
   --expected-crop soy --expected-crop swh --expected-crop wwh \
+  --expected-year-start 1982 --expected-year-end 1989 \
   --summary-out outputs/response_evaluation_summary.json
 ```
 

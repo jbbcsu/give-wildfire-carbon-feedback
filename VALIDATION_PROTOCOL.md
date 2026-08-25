@@ -160,5 +160,9 @@ Before reporting a multi-crop diagnostic, run
 label. It binds the result to the response-specification SHA-256, requires the
 exact crop-by-model-by-holdout product, reconciles spatial-fold row counts, and
 recomputes every improvement-over-zero identity. Partial or stale audits fail.
+For a declared multi-period audit, pass the expected first and last harvest
+years; the audit must contain every year in that closed interval. Daily inputs
+that cross NetCDF boundaries must first pass strict grid identity and contiguous
+daily-time checks, and period panels must be schema-identical and nonoverlapping.
 The emitted best-model fields are descriptive summaries of the frozen audit,
 not permission to select a preferred SCC response.

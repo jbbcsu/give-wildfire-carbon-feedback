@@ -52,6 +52,8 @@ def validate_audit(
     models: list[str],
     spec_sha256: str,
     expected_crops: list[str],
+    expected_year_start: int | None = None,
+    expected_year_end: int | None = None,
 ) -> dict[str, Any]:
     if audit.get("status") != STATUS:
         raise ValueError("Audit has an unauthorized or unrecognized status")
@@ -70,6 +72,20 @@ def validate_audit(
     n_pairs = _positive_integer(audit.get("n_consecutive_pairs"), "n_consecutive_pairs")
     if n_observed > n_levels or n_pairs >= n_observed:
         raise ValueError("Audit row counts violate level/observed/pair ordering")
+
+    validated_years: list[int] | None = None
+    if (expected_year_start is None) != (expected_year_end is None):
+        raise ValueError("Expected year start and end must be supplied together")
+    if expected_year_start is not None and expected_year_end is not None:
+        if expected_year_end < expected_year_start:
+            raise ValueError("Expected year end precedes start")
+        validated_years = list(range(expected_year_start, expected_year_end + 1))
+        if audit.get("harvest_year_start") != expected_year_start:
+            raise ValueError("Audit harvest-year start differs from expectation")
+        if audit.get("harvest_year_end") != expected_year_end:
+            raise ValueError("Audit harvest-year end differs from expectation")
+        if audit.get("harvest_years") != validated_years:
+            raise ValueError("Audit harvest-year coverage is not complete and contiguous")
 
     entries = audit.get("results")
     if not isinstance(entries, list):
@@ -156,7 +172,7 @@ def validate_audit(
                 "ranked_models": ranked,
             })
 
-    return {
+    summary = {
         "status": SUMMARY_STATUS,
         "audit_status": STATUS,
         "spec_sha256": spec_sha256,
@@ -172,6 +188,13 @@ def validate_audit(
             "They are not a selection rule, causal estimate, response export, or SCC authorization."
         ),
     }
+    if validated_years is not None:
+        summary.update({
+            "harvest_year_start": expected_year_start,
+            "harvest_year_end": expected_year_end,
+            "harvest_years": validated_years,
+        })
+    return summary
 
 
 def main() -> None:
@@ -179,11 +202,16 @@ def main() -> None:
     parser.add_argument("--audit", required=True)
     parser.add_argument("--spec", default="config/response_evaluation_spec.toml")
     parser.add_argument("--expected-crop", action="append", required=True)
+    parser.add_argument("--expected-year-start", type=int)
+    parser.add_argument("--expected-year-end", type=int)
     parser.add_argument("--summary-out")
     args = parser.parse_args()
     models, digest = load_spec(Path(args.spec))
     audit = json.loads(Path(args.audit).read_text(encoding="utf-8"))
-    summary = validate_audit(audit, models, digest, args.expected_crop)
+    summary = validate_audit(
+        audit, models, digest, args.expected_crop,
+        args.expected_year_start, args.expected_year_end,
+    )
     rendered = json.dumps(summary, indent=2, sort_keys=True) + "\n"
     if args.summary_out:
         output = Path(args.summary_out)

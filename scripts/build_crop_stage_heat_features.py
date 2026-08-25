@@ -7,6 +7,7 @@ proxies and use the same boundary rule as ``build_crop_stage_features.py``.
 from __future__ import annotations
 
 import argparse
+from contextlib import ExitStack
 from pathlib import Path
 
 import numpy as np
@@ -14,7 +15,8 @@ import pandas as pd
 import xarray as xr
 
 from build_crop_heat_features import threshold_name
-from build_crop_year_features import climate_array, date_from_doy, normalize_temperature
+from build_crop_year_features import date_from_doy, normalize_temperature
+from climate_inputs import crop_year_window, open_daily_series
 
 
 BASE_COLUMNS = [
@@ -38,7 +40,7 @@ def parse_fractions(value: str) -> list[float]:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--tasmax", required=True)
+    parser.add_argument("--tasmax", required=True, nargs="+")
     parser.add_argument("--calendar", required=True)
     parser.add_argument("--crop", required=True)
     parser.add_argument("--irrigation", required=True, choices=["firr", "noirr"])
@@ -60,9 +62,11 @@ def main() -> None:
     metric_columns = [item for threshold in thresholds for item in (
         f"{threshold_name(threshold)}_days", f"{threshold_name(threshold)}_degree_days",
     )]
-    with xr.open_dataset(args.calendar, engine="h5netcdf", decode_timedelta=False) as calendar, \
-         xr.open_dataset(args.tasmax, engine="h5netcdf") as maximum_ds:
-        maximum = climate_array(maximum_ds, "tasmax").isel(lat=slice(args.lat_start, args.lat_stop))
+    with ExitStack() as stack:
+        calendar = stack.enter_context(xr.open_dataset(args.calendar, engine="h5netcdf", decode_timedelta=False))
+        maximum = crop_year_window(
+            open_daily_series(stack, args.tasmax, "tasmax"), args.year_start, args.year_end
+        ).isel(lat=slice(args.lat_start, args.lat_stop))
         cal = calendar.isel(lat=slice(args.lat_start, args.lat_stop))
         required = {"planting_day", "maturity_day"}
         if missing := required - set(cal.data_vars):

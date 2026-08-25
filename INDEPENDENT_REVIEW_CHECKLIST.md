@@ -20,6 +20,9 @@ the manuscript or `RESULTS_STATUS.md` as evidence without tracing the claim.
   checksum, coverage, version, and license.
 - Independently inspect crop/calendar crosswalks, longitude conversion,
   latitude order, units, leap days, and cross-year crop seasons.
+- Deliberately reorder, overlap, gap, and grid-shift adjacent climate files;
+  confirm each cross-file boundary fails before feature construction. Confirm
+  a declared long-period audit contains every harvest year in its closed range.
 - Confirm GDHY source zeros are preserved and flagged but excluded from the
   log-yield response, and that negative values fail rather than being shifted.
 - Treat GDHY, FAOSTAT, NASS, ISIMIP, and crop-model outputs according to their
