@@ -126,11 +126,13 @@ def clustered_ols(y: np.ndarray, x: np.ndarray, cluster: np.ndarray) -> dict[str
     standard_error_standardized = np.sqrt(np.maximum(np.diag(covariance), 0.0))
     beta = beta_standardized / scale
     standard_error = standard_error_standardized / scale
+    covariance_beta = covariance / np.outer(scale, scale)
     z = np.divide(beta, standard_error, out=np.full_like(beta, np.nan), where=standard_error > 0)
     p = np.array([math.erfc(abs(float(value)) / math.sqrt(2)) for value in z])
     return {
         "beta": beta,
         "standard_error_cluster_county": standard_error,
+        "covariance_beta_cluster_county": covariance_beta,
         "normal_approx_p_value": p,
         "residual_rmse": float(np.sqrt(np.mean(np.square(residual)))),
         "within_r_squared": float(1 - np.sum(np.square(residual)) / np.sum(np.square(y))),

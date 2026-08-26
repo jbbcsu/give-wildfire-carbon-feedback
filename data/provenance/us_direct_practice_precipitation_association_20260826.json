@@ -5,7 +5,7 @@
   "coefficients_emitted": true,
   "config": {
     "path": "us_county_validation/us_direct_practice_precipitation_association_v1.toml",
-    "sha256": "52e62d701c0fb12cb63d6765264f62745f1cfd6c6fc1096c2917b509299777ff"
+    "sha256": "8318893d555a20d68de85591aa3a148a88aa33e2f3e9e05bc5792f657c78bcb9"
   },
   "damage_claim_authorized": false,
   "disclaimer": "Historical county and state-by-year fixed-effects associations are not causal precipitation-yield effects, nationally representative U.S. estimates, damage functions, or SCC inputs. The timing contrast is a partial model contrast within observed historical support and does not reproduce every correlated rain extreme.",
@@ -97,25 +97,52 @@
       "contrasts": {
         "quantity_increment_contrasts": [
           {
+            "ci95_normal_log_difference": [
+              0.09297033160054176,
+              0.11697979835437743
+            ],
+            "ci95_normal_percent_yield_difference": [
+              9.74291758179257,
+              12.409672085755945
+            ],
             "fitted_log_yield_difference": 0.10497506497745959,
             "fitted_percent_yield_difference": 11.06829151068924,
             "increment_mm": 100.0,
             "reference_percentile": 0.25,
-            "reference_precipitation_mm": 323.0979399023423
+            "reference_precipitation_mm": 323.0979399023423,
+            "standard_error_cluster_county_log_difference": 0.00612486396781522
           },
           {
+            "ci95_normal_log_difference": [
+              0.06561817240951563,
+              0.0831828207551125
+            ],
+            "ci95_normal_percent_yield_difference": [
+              6.7818916592196565,
+              8.674046910122097
+            ],
             "fitted_log_yield_difference": 0.07440049658231407,
             "fitted_percent_yield_difference": 7.723814931173008,
             "increment_mm": 100.0,
             "reference_percentile": 0.5,
-            "reference_precipitation_mm": 400.736480294439
+            "reference_precipitation_mm": 400.736480294439,
+            "standard_error_cluster_county_log_difference": 0.004480777639182878
           },
           {
+            "ci95_normal_log_difference": [
+              0.028155234741193393,
+              0.04232497770085771
+            ],
+            "ci95_normal_percent_yield_difference": [
+              2.855533955103136,
+              4.323345127697772
+            ],
             "fitted_log_yield_difference": 0.03524010622102555,
             "fitted_percent_yield_difference": 3.586839738896666,
             "increment_mm": 100.0,
             "reference_percentile": 0.75,
-            "reference_precipitation_mm": 500.1771497273362
+            "reference_precipitation_mm": 500.1771497273362,
+            "standard_error_cluster_county_log_difference": 0.003614730346853142
           }
         ]
       },
@@ -240,32 +267,68 @@
       "contrasts": {
         "quantity_increment_contrasts": [
           {
+            "ci95_normal_log_difference": [
+              0.0948651348583076,
+              0.1186367820820712
+            ],
+            "ci95_normal_percent_yield_difference": [
+              9.951055947897455,
+              12.596087484226597
+            ],
             "fitted_log_yield_difference": 0.1067509584701894,
             "fitted_percent_yield_difference": 11.265712214017466,
             "increment_mm": 100.0,
             "reference_percentile": 0.25,
-            "reference_precipitation_mm": 323.0979399023423
+            "reference_precipitation_mm": 323.0979399023423,
+            "standard_error_cluster_county_log_difference": 0.0060641957203478565
           },
           {
+            "ci95_normal_log_difference": [
+              0.06656205636942948,
+              0.0840361113477923
+            ],
+            "ci95_normal_percent_yield_difference": [
+              6.882728955832998,
+              8.766817026323803
+            ],
             "fitted_log_yield_difference": 0.0752990838586109,
             "fitted_percent_yield_difference": 7.820657684941103,
             "increment_mm": 100.0,
             "reference_percentile": 0.5,
-            "reference_precipitation_mm": 400.736480294439
+            "reference_precipitation_mm": 400.736480294439,
+            "standard_error_cluster_county_log_difference": 0.004457667086317044
           },
           {
+            "ci95_normal_log_difference": [
+              0.02786192262267115,
+              0.04216812904034197
+            ],
+            "ci95_normal_percent_yield_difference": [
+              2.8253696045380705,
+              4.306983433942389
+            ],
             "fitted_log_yield_difference": 0.03501502583150656,
             "fitted_percent_yield_difference": 3.563526996378198,
             "increment_mm": 100.0,
             "reference_percentile": 0.75,
-            "reference_precipitation_mm": 500.1771497273362
+            "reference_precipitation_mm": 500.1771497273362,
+            "standard_error_cluster_county_log_difference": 0.0036495424534874546
           }
         ],
         "stage3_to_stage2_shift": {
+          "ci95_normal_log_difference": [
+            0.03761374319534082,
+            0.057302057162071623
+          ],
+          "ci95_normal_percent_yield_difference": [
+            3.8330093348010337,
+            5.89756332651613
+          ],
           "fitted_log_yield_difference": 0.04745790017870622,
           "fitted_percent_yield_difference": 4.860205423291218,
           "partial_contrast_warning": "holds total rain, stage1 share, heat, and registered regressors fixed; does not update correlated dry-spell or heavy-rain metrics",
-          "shift_share": 0.1
+          "shift_share": 0.1,
+          "standard_error_cluster_county_log_difference": 0.005022529073145613
         }
       },
       "counties": 361,
@@ -369,25 +432,52 @@
       "contrasts": {
         "quantity_increment_contrasts": [
           {
+            "ci95_normal_log_difference": [
+              -0.00504009888431986,
+              0.005846521054768829
+            ],
+            "ci95_normal_percent_yield_difference": [
+              -0.502741889767785,
+              0.5863645315174698
+            ],
             "fitted_log_yield_difference": 0.00040321108522448426,
             "fitted_percent_yield_difference": 0.04032923857408308,
             "increment_mm": 100.0,
             "reference_percentile": 0.25,
-            "reference_precipitation_mm": 323.0979399023423
+            "reference_precipitation_mm": 323.0979399023423,
+            "standard_error_cluster_county_log_difference": 0.002777198964053237
           },
           {
+            "ci95_normal_log_difference": [
+              -0.008149463288340352,
+              -4.8154859853497337e-05
+            ],
+            "ci95_normal_percent_yield_difference": [
+              -0.8116346434984862,
+              -0.004815370042684433
+            ],
             "fitted_log_yield_difference": -0.004098809074096925,
             "fitted_percent_yield_difference": -0.4090420421259787,
             "increment_mm": 100.0,
             "reference_percentile": 0.5,
-            "reference_precipitation_mm": 400.736480294439
+            "reference_precipitation_mm": 400.736480294439,
+            "standard_error_cluster_county_log_difference": 0.0020666603133895037
           },
           {
+            "ci95_normal_log_difference": [
+              -0.013957549277042305,
+              -0.005772585999433143
+            ],
+            "ci95_normal_percent_yield_difference": [
+              -1.3860594294959374,
+              -0.5755956638398354
+            ],
             "fitted_log_yield_difference": -0.009865067638237725,
             "fitted_percent_yield_difference": -0.9816567475305368,
             "increment_mm": 100.0,
             "reference_percentile": 0.75,
-            "reference_precipitation_mm": 500.1771497273362
+            "reference_precipitation_mm": 500.1771497273362,
+            "standard_error_cluster_county_log_difference": 0.0020880008361247866
           }
         ]
       },
@@ -512,32 +602,68 @@
       "contrasts": {
         "quantity_increment_contrasts": [
           {
+            "ci95_normal_log_difference": [
+              -0.004884379989709344,
+              0.00614809833463733
+            ],
+            "ci95_normal_percent_yield_difference": [
+              -0.487247080332094,
+              0.6167036682919749
+            ],
             "fitted_log_yield_difference": 0.000631859172463993,
             "fitted_percent_yield_difference": 0.06320588375220915,
             "increment_mm": 100.0,
             "reference_percentile": 0.25,
-            "reference_precipitation_mm": 323.0979399023423
+            "reference_precipitation_mm": 323.0979399023423,
+            "standard_error_cluster_county_log_difference": 0.002814407735802723
           },
           {
+            "ci95_normal_log_difference": [
+              -0.008157068777011962,
+              2.322650008316097e-05
+            ],
+            "ci95_normal_percent_yield_difference": [
+              -0.8123890166188688,
+              0.002322676982040237
+            ],
             "fitted_log_yield_difference": -0.004066921138464401,
             "fitted_percent_yield_difference": -0.4058662414344417,
             "increment_mm": 100.0,
             "reference_percentile": 0.5,
-            "reference_precipitation_mm": 400.736480294439
+            "reference_precipitation_mm": 400.736480294439,
+            "standard_error_cluster_county_log_difference": 0.0020868100196671235
           },
           {
+            "ci95_normal_log_difference": [
+              -0.014176313568869389,
+              -0.0059940728593814545
+            ],
+            "ci95_normal_percent_yield_difference": [
+              -1.407630278817306,
+              -0.5976144244353973
+            ],
             "fitted_log_yield_difference": -0.010085193214125421,
             "fitted_percent_yield_difference": -1.0034508185582112,
             "increment_mm": 100.0,
             "reference_percentile": 0.75,
-            "reference_precipitation_mm": 500.1771497273362
+            "reference_precipitation_mm": 500.1771497273362,
+            "standard_error_cluster_county_log_difference": 0.0020873063034407995
           }
         ],
         "stage3_to_stage2_shift": {
+          "ci95_normal_log_difference": [
+            0.0005645864376220269,
+            0.01020471618643077
+          ],
+          "ci95_normal_percent_yield_difference": [
+            0.05647458465434271,
+            1.025696186887493
+          ],
           "fitted_log_yield_difference": 0.0053846513120263985,
           "fitted_percent_yield_difference": 0.5399174602820112,
           "partial_contrast_warning": "holds total rain, stage1 share, heat, and registered regressors fixed; does not update correlated dry-spell or heavy-rain metrics",
-          "shift_share": 0.1
+          "shift_share": 0.1,
+          "standard_error_cluster_county_log_difference": 0.0024592167726552915
         }
       },
       "counties": 361,
@@ -641,25 +767,52 @@
       "contrasts": {
         "quantity_increment_contrasts": [
           {
+            "ci95_normal_log_difference": [
+              0.05746768928065051,
+              0.0823919565425119
+            ],
+            "ci95_normal_percent_yield_difference": [
+              5.915104816959252,
+              8.588134472596476
+            ],
             "fitted_log_yield_difference": 0.0699298229115812,
             "fitted_percent_yield_difference": 7.243291839364581,
             "increment_mm": 100.0,
             "reference_percentile": 0.25,
-            "reference_precipitation_mm": 325.25639998572314
+            "reference_precipitation_mm": 325.25639998572314,
+            "standard_error_cluster_county_log_difference": 0.006358231444352394
           },
           {
+            "ci95_normal_log_difference": [
+              0.03184336446561223,
+              0.05105849936023546
+            ],
+            "ci95_normal_percent_yield_difference": [
+              3.2355789039497704,
+              5.238445529987384
+            ],
             "fitted_log_yield_difference": 0.041450931912923844,
             "fitted_percent_yield_difference": 4.232201584923038,
             "increment_mm": 100.0,
             "reference_percentile": 0.5,
-            "reference_precipitation_mm": 397.16907805291095
+            "reference_precipitation_mm": 397.16907805291095,
+            "standard_error_cluster_county_log_difference": 0.004901820126179398
           },
           {
+            "ci95_normal_log_difference": [
+              0.00024651083211425784,
+              0.016575846961738958
+            ],
+            "ci95_normal_percent_yield_difference": [
+              0.024654121840623145,
+              1.671398852866027
+            ],
             "fitted_log_yield_difference": 0.008411178896926608,
             "fitted_percent_yield_difference": 0.8446652249965471,
             "increment_mm": 100.0,
             "reference_percentile": 0.75,
-            "reference_precipitation_mm": 480.59848975896404
+            "reference_precipitation_mm": 480.59848975896404,
+            "standard_error_cluster_county_log_difference": 0.004165646971843036
           }
         ]
       },
@@ -784,32 +937,68 @@
       "contrasts": {
         "quantity_increment_contrasts": [
           {
+            "ci95_normal_log_difference": [
+              0.05910057463920746,
+              0.08444878937904857
+            ],
+            "ci95_normal_percent_yield_difference": [
+              6.088193319246417,
+              8.811711965180582
+            ],
             "fitted_log_yield_difference": 0.07177468200912801,
             "fitted_percent_yield_difference": 7.441323215791772,
             "increment_mm": 100.0,
             "reference_percentile": 0.25,
-            "reference_precipitation_mm": 325.25639998572314
+            "reference_precipitation_mm": 325.25639998572314,
+            "standard_error_cluster_county_log_difference": 0.006466381311183955
           },
           {
+            "ci95_normal_log_difference": [
+              0.03382324618945727,
+              0.05353476385582594
+            ],
+            "ci95_normal_percent_yield_difference": [
+              3.4401756116797055,
+              5.499366677783432
+            ],
             "fitted_log_yield_difference": 0.043679005022641604,
             "fitted_percent_yield_difference": 4.464697463166514,
             "increment_mm": 100.0,
             "reference_percentile": 0.5,
-            "reference_precipitation_mm": 397.16907805291095
+            "reference_precipitation_mm": 397.16907805291095,
+            "standard_error_cluster_county_log_difference": 0.005028448384277721
           },
           {
+            "ci95_normal_log_difference": [
+              0.0025578392459251788,
+              0.019609835368493696
+            ],
+            "ci95_normal_percent_yield_difference": [
+              0.2561113307641907,
+              1.9803371188593095
+            ],
             "fitted_log_yield_difference": 0.011083837307209438,
             "fitted_percent_yield_difference": 1.1145490606432107,
             "increment_mm": 100.0,
             "reference_percentile": 0.75,
-            "reference_precipitation_mm": 480.59848975896404
+            "reference_precipitation_mm": 480.59848975896404,
+            "standard_error_cluster_county_log_difference": 0.004349999010859315
           }
         ],
         "stage3_to_stage2_shift": {
+          "ci95_normal_log_difference": [
+            0.03569360807574053,
+            0.05678814372074384
+          ],
+          "ci95_normal_percent_yield_difference": [
+            3.6338272164911345,
+            5.843155127068745
+          ],
           "fitted_log_yield_difference": 0.04624087589824218,
           "fitted_percent_yield_difference": 4.7326656324898,
           "partial_contrast_warning": "holds total rain, stage1 share, heat, and registered regressors fixed; does not update correlated dry-spell or heavy-rain metrics",
-          "shift_share": 0.1
+          "shift_share": 0.1,
+          "standard_error_cluster_county_log_difference": 0.005381259093113089
         }
       },
       "counties": 255,
@@ -913,25 +1102,52 @@
       "contrasts": {
         "quantity_increment_contrasts": [
           {
+            "ci95_normal_log_difference": [
+              -0.0023480457181316097,
+              0.009427219303496964
+            ],
+            "ci95_normal_percent_yield_difference": [
+              -0.234529121510585,
+              0.9471795501814038
+            ],
             "fitted_log_yield_difference": 0.0035395867926826773,
             "fitted_percent_yield_difference": 0.3545858527614325,
             "increment_mm": 100.0,
             "reference_percentile": 0.25,
-            "reference_precipitation_mm": 325.25639998572314
+            "reference_precipitation_mm": 325.25639998572314,
+            "standard_error_cluster_county_log_difference": 0.0030038941381705544
           },
           {
+            "ci95_normal_log_difference": [
+              -0.004677061162467327,
+              0.004946320292965842
+            ],
+            "ci95_normal_percent_yield_difference": [
+              -0.46661407436976693,
+              0.49585735296670524
+            ],
             "fitted_log_yield_difference": 0.00013462956524925782,
             "fitted_percent_yield_difference": 0.013463862821588726,
             "increment_mm": 100.0,
             "reference_percentile": 0.5,
-            "reference_precipitation_mm": 397.16907805291095
+            "reference_precipitation_mm": 397.16907805291095,
+            "standard_error_cluster_county_log_difference": 0.0024549442488349922
           },
           {
+            "ci95_normal_log_difference": [
+              -0.008827362135618948,
+              0.0011961067531233473
+            ],
+            "ci95_normal_percent_yield_difference": [
+              -0.8788515363359115,
+              0.11968223740970324
+            ],
             "fitted_log_yield_difference": -0.0038156276912478006,
             "fitted_percent_yield_difference": -0.38083574337134835,
             "increment_mm": 100.0,
             "reference_percentile": 0.75,
-            "reference_precipitation_mm": 480.59848975896404
+            "reference_precipitation_mm": 480.59848975896404,
+            "standard_error_cluster_county_log_difference": 0.0025570073695771163
           }
         ]
       },
@@ -1056,32 +1272,68 @@
       "contrasts": {
         "quantity_increment_contrasts": [
           {
+            "ci95_normal_log_difference": [
+              -0.002737857071414179,
+              0.00921867856687832
+            ],
+            "ci95_normal_percent_yield_difference": [
+              -0.2734112558835381,
+              0.9261301459038563
+            ],
             "fitted_log_yield_difference": 0.00324041074773207,
             "fitted_percent_yield_difference": 0.32456665540962426,
             "increment_mm": 100.0,
             "reference_percentile": 0.25,
-            "reference_precipitation_mm": 325.25639998572314
+            "reference_precipitation_mm": 325.25639998572314,
+            "standard_error_cluster_county_log_difference": 0.003050136642421556
           },
           {
+            "ci95_normal_log_difference": [
+              -0.00544314897717104,
+              0.00439120906931275
+            ],
+            "ci95_normal_percent_yield_difference": [
+              -0.5428361883393964,
+              0.4400864555771234
+            ],
             "fitted_log_yield_difference": -0.0005259699539291451,
             "fitted_percent_yield_difference": -0.052583165598084486,
             "increment_mm": 100.0,
             "reference_percentile": 0.5,
-            "reference_precipitation_mm": 397.16907805291095
+            "reference_precipitation_mm": 397.16907805291095,
+            "standard_error_cluster_county_log_difference": 0.0025087648077764774
           },
           {
+            "ci95_normal_log_difference": [
+              -0.00997628201560417,
+              0.00018521752926621213
+            ],
+            "ci95_normal_percent_yield_difference": [
+              -0.9926683985849094,
+              0.018523468309183257
+            ],
             "fitted_log_yield_difference": -0.004895532243168979,
             "fitted_percent_yield_difference": -0.48835686558680547,
             "increment_mm": 100.0,
             "reference_percentile": 0.75,
-            "reference_precipitation_mm": 480.59848975896404
+            "reference_precipitation_mm": 480.59848975896404,
+            "standard_error_cluster_county_log_difference": 0.0025922192716506076
           }
         ],
         "stage3_to_stage2_shift": {
+          "ci95_normal_log_difference": [
+            -0.007885604628493853,
+            0.003649357307274096
+          ],
+          "ci95_normal_percent_yield_difference": [
+            -0.7854594812233979,
+            0.36560243192881886
+          ],
           "fitted_log_yield_difference": -0.0021181236606098784,
           "fitted_percent_yield_difference": -0.21158820196592945,
           "partial_contrast_warning": "holds total rain, stage1 share, heat, and registered regressors fixed; does not update correlated dry-spell or heavy-rain metrics",
-          "shift_share": 0.1
+          "shift_share": 0.1,
+          "standard_error_cluster_county_log_difference": 0.0029425923305530484
         }
       },
       "counties": 255,
@@ -1099,13 +1351,17 @@
       "year_min": 1981
     }
   ],
+  "estimation_primitives": {
+    "path": "us_county_validation/scripts/estimate_us_national_all_practice_pdsi_association.py",
+    "sha256": "b309d64a1d213a77eb5b24f38ec47f29e4a8718ef641c2bc9fe778e593ff0572"
+  },
   "fixed_effects": [
     "county_geoid",
     "state_by_harvest_year"
   ],
   "implementation": {
     "path": "us_county_validation/scripts/estimate_us_direct_practice_precipitation_association.py",
-    "sha256": "32be3012311ac418a6fa6d67b7bdee5ed668258f7fe558a353e5acd8ca153499"
+    "sha256": "bb93a2dab7798b2c1083728b09ec11b0691fb64a03345ecda7428b5cec0bb591"
   },
   "input": {
     "path": "data/interim/us_county/nass_direct_practice_nclimgrid_1981_2019.parquet",

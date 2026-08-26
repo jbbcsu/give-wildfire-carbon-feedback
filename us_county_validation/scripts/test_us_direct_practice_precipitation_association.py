@@ -48,12 +48,15 @@ def main() -> None:
     beta[names.index("precipitation_per_100mm")] = 0.02
     beta[names.index("precipitation_per_100mm_squared")] = -0.001
     beta[names.index("stage2_precip_share")] = 0.5
-    contrasts = MODULE.contrast_summary(frame, "quantity_timing", names, beta, config)
+    covariance = np.eye(len(names)) * 0.0004
+    contrasts = MODULE.contrast_summary(frame, "quantity_timing", names, beta, covariance, config)
     assert math.isclose(
         contrasts["stage3_to_stage2_shift"]["fitted_percent_yield_difference"],
         100 * math.expm1(0.05),
     )
     assert len(contrasts["quantity_increment_contrasts"]) == 3
+    assert contrasts["stage3_to_stage2_shift"]["standard_error_cluster_county_log_difference"] > 0
+    assert len(contrasts["quantity_increment_contrasts"][0]["ci95_normal_percent_yield_difference"]) == 2
     try:
         MODULE.raw_design(frame, "unregistered", config)
     except ValueError as error:

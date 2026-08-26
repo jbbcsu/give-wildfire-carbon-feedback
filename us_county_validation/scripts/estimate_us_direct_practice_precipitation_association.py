@@ -21,6 +21,7 @@ from estimate_us_national_all_practice_pdsi_association import (
 
 PROJECT = Path(__file__).resolve().parents[2]
 DEFAULT_CONFIG = PROJECT / "us_county_validation/us_direct_practice_precipitation_association_v1.toml"
+ESTIMATION_PRIMITIVES = Path(__file__).with_name("estimate_us_national_all_practice_pdsi_association.py")
 
 
 def sha256(path: Path) -> str:
@@ -132,6 +133,7 @@ def contrast_summary(
     form: str,
     names: list[str],
     beta: np.ndarray,
+    covariance: np.ndarray,
     config: dict[str, Any],
 ) -> dict[str, object]:
     contrasts = config["contrasts"]
@@ -143,25 +145,41 @@ def contrast_summary(
     quantity = []
     for percentile, reference_mm in quantiles.items():
         reference = float(reference_mm) / scale
-        delta_log = (
-            beta[p_index] * increment
-            + beta[p2_index] * ((reference + increment) ** 2 - reference**2)
-        )
+        gradient = np.zeros(len(beta))
+        gradient[p_index] = increment
+        gradient[p2_index] = (reference + increment) ** 2 - reference**2
+        delta_log = float(gradient @ beta)
+        standard_error = float(np.sqrt(max(gradient @ covariance @ gradient, 0.0)))
+        low_log, high_log = delta_log - 1.96 * standard_error, delta_log + 1.96 * standard_error
         quantity.append({
             "reference_percentile": float(percentile),
             "reference_precipitation_mm": float(reference_mm),
             "increment_mm": float(contrasts["quantity_increment_mm"]),
             "fitted_log_yield_difference": float(delta_log),
+            "standard_error_cluster_county_log_difference": standard_error,
+            "ci95_normal_log_difference": [low_log, high_log],
             "fitted_percent_yield_difference": float(100 * math.expm1(delta_log)),
+            "ci95_normal_percent_yield_difference": [
+                float(100 * math.expm1(low_log)), float(100 * math.expm1(high_log))
+            ],
         })
     result: dict[str, object] = {"quantity_increment_contrasts": quantity}
     if form == "quantity_timing":
         share = float(contrasts["timing_shift_share"])
         delta_log = beta[names.index("stage2_precip_share")] * share
+        gradient = np.zeros(len(beta))
+        gradient[names.index("stage2_precip_share")] = share
+        standard_error = float(np.sqrt(max(gradient @ covariance @ gradient, 0.0)))
+        low_log, high_log = delta_log - 1.96 * standard_error, delta_log + 1.96 * standard_error
         result["stage3_to_stage2_shift"] = {
             "shift_share": share,
             "fitted_log_yield_difference": float(delta_log),
+            "standard_error_cluster_county_log_difference": standard_error,
+            "ci95_normal_log_difference": [low_log, high_log],
             "fitted_percent_yield_difference": float(100 * math.expm1(delta_log)),
+            "ci95_normal_percent_yield_difference": [
+                float(100 * math.expm1(low_log)), float(100 * math.expm1(high_log))
+            ],
             "partial_contrast_warning": "holds total rain, stage1 share, heat, and registered regressors fixed; does not update correlated dry-spell or heavy-rain metrics",
         }
     return result
@@ -218,7 +236,14 @@ def estimate(frame: pd.DataFrame, crop: str, practice: str, form: str, config: d
         "residual_rmse_log_yield": float(fit["residual_rmse"]),
         "cluster_count": int(fit["clusters"]),
         "coefficients": coefficients,
-        "contrasts": contrast_summary(subset, form, names, beta, config),
+        "contrasts": contrast_summary(
+            subset,
+            form,
+            names,
+            beta,
+            np.asarray(fit["covariance_beta_cluster_county"], dtype=float),
+            config,
+        ),
     }
 
 
@@ -238,6 +263,10 @@ def run(config_path: Path) -> dict[str, object]:
         "input": input_record,
         "config": {"path": str(config_path.relative_to(PROJECT)), "sha256": sha256(config_path)},
         "implementation": {"path": str(Path(__file__).resolve().relative_to(PROJECT)), "sha256": sha256(Path(__file__))},
+        "estimation_primitives": {
+            "path": str(ESTIMATION_PRIMITIVES.relative_to(PROJECT)),
+            "sha256": sha256(ESTIMATION_PRIMITIVES),
+        },
         "fixed_effects": config["models"]["fixed_effects"],
         "cluster": config["models"]["cluster"],
         "selection_lineage": config["models"]["primary_form_reason"],

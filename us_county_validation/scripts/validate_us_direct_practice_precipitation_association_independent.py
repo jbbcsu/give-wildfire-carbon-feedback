@@ -67,6 +67,7 @@ def qr_cluster_fit(y: np.ndarray, x: np.ndarray, clusters: np.ndarray) -> dict[s
     return {
         "beta": beta,
         "se": se,
+        "covariance": correction * bread @ meat @ bread / np.outer(scale, scale),
         "rmse": float(np.sqrt(np.mean(error**2))),
         "r2": float(1 - np.sum(error**2) / np.sum(y**2)),
         "clusters": len(labels),
@@ -97,6 +98,9 @@ def audit(config_path: Path, candidate_path: Path) -> dict[str, object]:
         raise AssertionError("panel hash changed")
     if candidate["input"]["sha256"] != digest(panel_path):
         raise AssertionError("candidate does not bind the audited panel")
+    primitives = PROJECT / candidate["estimation_primitives"]["path"]
+    if candidate["estimation_primitives"]["sha256"] != digest(primitives):
+        raise AssertionError("candidate estimation-primitives dependency changed")
     panel = pd.read_parquet(panel_path)
     panel = panel.loc[
         panel.outcome_crop.isin(config["input"]["crops"])
@@ -128,6 +132,32 @@ def audit(config_path: Path, candidate_path: Path) -> dict[str, object]:
             se = float(np.asarray(fit["se"])[index])
             p = math.erfc(abs(beta / se) / math.sqrt(2))
             checks += [(beta, coefficient["estimate"]), (se, coefficient["standard_error_cluster_county"]), (p, coefficient["normal_approx_p_value"])]
+        covariance = np.asarray(fit["covariance"])
+        p_index = names.index("precipitation_per_100mm")
+        p2_index = names.index("precipitation_per_100mm_squared")
+        for contrast in reported["contrasts"]["quantity_increment_contrasts"]:
+            reference = contrast["reference_precipitation_mm"] / 100
+            gradient = np.zeros(len(names))
+            gradient[p_index] = 1
+            gradient[p2_index] = (reference + 1) ** 2 - reference**2
+            delta = float(gradient @ np.asarray(fit["beta"]))
+            se_delta = float(np.sqrt(max(gradient @ covariance @ gradient, 0)))
+            checks += [
+                (delta, contrast["fitted_log_yield_difference"]),
+                (se_delta, contrast["standard_error_cluster_county_log_difference"]),
+                (100 * math.expm1(delta), contrast["fitted_percent_yield_difference"]),
+            ]
+        if reported["form"] == "quantity_timing":
+            contrast = reported["contrasts"]["stage3_to_stage2_shift"]
+            gradient = np.zeros(len(names))
+            gradient[names.index("stage2_precip_share")] = 0.1
+            delta = float(gradient @ np.asarray(fit["beta"]))
+            se_delta = float(np.sqrt(max(gradient @ covariance @ gradient, 0)))
+            checks += [
+                (delta, contrast["fitted_log_yield_difference"]),
+                (se_delta, contrast["standard_error_cluster_county_log_difference"]),
+                (100 * math.expm1(delta), contrast["fitted_percent_yield_difference"]),
+            ]
         for actual, expected in checks:
             maximum = max(maximum, abs(actual - float(expected)))
             comparisons += 1

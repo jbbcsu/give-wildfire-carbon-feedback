@@ -24,8 +24,11 @@ predictive screen before coefficients were estimated.
 For non-irrigated corn (7,013 county-years in 361 counties), the quantity-only
 model associates an additional 100 mm of seasonal precipitation with fitted
 yield differences of +11.07%, +7.72%, and +3.59% at the 25th, 50th, and 75th
-percentiles of observed seasonal precipitation (323, 401, and 500 mm). The
-corresponding irrigated-corn associations are +0.04%, -0.41%, and -0.98%.
+percentiles of observed seasonal precipitation (323, 401, and 500 mm). Their
+county-clustered normal 95% intervals are [9.74%, 12.41%], [6.78%, 8.67%], and
+[2.86%, 4.32%]. The corresponding irrigated-corn associations are +0.04%,
+-0.41%, and -0.98%, with intervals [-0.50%, 0.59%], [-0.81%, -0.01%], and
+[-1.39%, -0.58%].
 The contrast between non-irrigated and irrigated results is qualitatively
 consistent with irrigation buffering rainfall exposure, but it is not an
 identified irrigation treatment effect.
@@ -36,8 +39,9 @@ quantity-plus-timing model associates an additional 100 mm with +7.44%,
 model contrast that moves 10 percentage points of seasonal rainfall from the
 late to the middle crop-calendar window, holding total rainfall, early share,
 stage temperature, fixed effects, and other registered regressors constant,
-is +4.73%. The same contrasts for irrigated soybean are +0.32%, -0.05%,
--0.49%, and -0.21%.
+is +4.73% [3.63%, 5.84%]. The quantity intervals are [6.09%, 8.81%], [3.44%,
+5.50%], and [0.26%, 1.98%]. The same point contrasts for irrigated soybean are
++0.32%, -0.05%, -0.49%, and -0.21%; all four intervals include zero.
 
 The secondary corn timing model produces a positive middle-versus-late timing
 contrast, but timing failed the pre-existing geographic stability gate for
@@ -65,7 +69,7 @@ from overriding adverse outer-holdout evidence.
 
 A clean-room implementation independently reconstructs the sample and fixed-
 effect projection, solves the within model by QR, and reforms the clustered
-sandwich. It agrees across 240 reported numeric fields within `2.67e-14`.
+sandwich. It agrees across 324 reported numeric fields within `1.04e-13`.
 The next empirical gates are alternative heat controls, balanced-support and
 drought-family comparisons, and a pre-specified design for translating
 climate-model exposure changes through a defensible causal response rather
@@ -81,8 +85,8 @@ and
 `us_county_validation/scripts/test_us_direct_practice_precipitation_association.py`.
 The aggregate result is
 `data/provenance/us_direct_practice_precipitation_association_20260826.json`
-(SHA-256 `bd6eb0b442b790da47902fb40158c6e12da5555d58146438d7b88983cfd4f207`).
+(SHA-256 `4f39079e88103c9fbe14026b33d2741a942e24388a9dfe863845fea3b4100e6e`).
 The independent validation receipt is
 `data/provenance/us_direct_practice_precipitation_association_independent_validation_20260826.json`
-(SHA-256 `87e35deefd0280eee7366409d397756d8d16b7004f58ea4c78bddbccd6e9d329`).
+(SHA-256 `e7b259d840f95803e10d8037e3eb75a91c520952247f1a92b89aee943e7d0166`).
 No row predictions are emitted.
