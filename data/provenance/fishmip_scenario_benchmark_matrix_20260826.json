@@ -1,0 +1,132 @@
+{
+  "benchmarks": [
+    {
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 41029,
+      "models": [
+        {
+          "model": "boats",
+          "reference_mean_density_g_m2": 1.8166304451326166e-08,
+          "relative_change_from_reference": {
+            "late": -0.35624970362839337,
+            "mid": -0.3278271895463475,
+            "near": -0.2603650332286195
+          }
+        },
+        {
+          "model": "ecoocean",
+          "reference_mean_density_g_m2": 0.11240688068230002,
+          "relative_change_from_reference": {
+            "late": -0.2440408401775408,
+            "mid": -0.009784349489404431,
+            "near": 0.002696033682772603
+          }
+        }
+      ],
+      "source_result": {
+        "path": "data/raw/fishmip/gfdl-esm4/scenario_benchmark_v1.json",
+        "sha256": "3606bf369f4dd96bb5235dccf57212f4eff0dd94749184bedaf1bef181c5ee1a"
+      }
+    },
+    {
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 41029,
+      "models": [
+        {
+          "model": "boats",
+          "reference_mean_density_g_m2": 1.8166304451326166e-08,
+          "relative_change_from_reference": {
+            "late": -0.42905342924832257,
+            "mid": -0.3369554196200085,
+            "near": -0.25612214186812954
+          }
+        },
+        {
+          "model": "ecoocean",
+          "reference_mean_density_g_m2": 0.11240688068230002,
+          "relative_change_from_reference": {
+            "late": -0.31896222069754965,
+            "mid": -0.0301347118804558,
+            "near": -0.006395081106316147
+          }
+        }
+      ],
+      "source_result": {
+        "path": "data/raw/fishmip/gfdl-esm4/scenario_benchmark_ssp585_v1.json",
+        "sha256": "c36cc70d28910e2dfdbb7aecbd23bfcaab8a7a1e0a829539561dd2b40de7a59a"
+      }
+    },
+    {
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 40399,
+      "models": [
+        {
+          "model": "boats",
+          "reference_mean_density_g_m2": 1.2896257979098613e-08,
+          "relative_change_from_reference": {
+            "late": -0.2930711913344274,
+            "mid": -0.27347046686480936,
+            "near": -0.20082281787158573
+          }
+        },
+        {
+          "model": "ecoocean",
+          "reference_mean_density_g_m2": 0.08184660662092529,
+          "relative_change_from_reference": {
+            "late": -0.21173669694739328,
+            "mid": -0.05276568752761823,
+            "near": -0.039211644348044916
+          }
+        }
+      ],
+      "source_result": {
+        "path": "data/raw/fishmip/ipsl-cm6a-lr/scenario_benchmark_ssp126_v1.json",
+        "sha256": "1b6adac3e7620241bbb42ac144c7c55e6c8967f17dc19d2a930696efe1d6732d"
+      }
+    },
+    {
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 40399,
+      "models": [
+        {
+          "model": "boats",
+          "reference_mean_density_g_m2": 1.2896257979098613e-08,
+          "relative_change_from_reference": {
+            "late": -0.3693616093070936,
+            "mid": -0.2919118437148863,
+            "near": -0.19773945385490255
+          }
+        },
+        {
+          "model": "ecoocean",
+          "reference_mean_density_g_m2": 0.08184660662092529,
+          "relative_change_from_reference": {
+            "late": -0.2741703569986933,
+            "mid": -0.05347303329548536,
+            "near": -0.040608312293483384
+          }
+        }
+      ],
+      "source_result": {
+        "path": "data/raw/fishmip/ipsl-cm6a-lr/scenario_benchmark_ssp585_v1.json",
+        "sha256": "36d2b2339267bef3823b7775a386e64dea64d9b7f3cec6aa5b5fc0fdd6c05698"
+      }
+    }
+  ],
+  "damage_estimated": false,
+  "disclaimer": "Within-model scenario catch-density changes are not observed catch, welfare, marginal CO2-pulse damages, or SCC. Absolute model levels are not averaged.",
+  "implementation": {
+    "path": "scripts/export_fishmip_scenario_matrix.py",
+    "sha256": "1c5cd6275fa1d508ccb0f7641f0c2c6c72a821c18ec48f0357f2a32c17eeee07"
+  },
+  "matched_co2_pulse": false,
+  "observed_catch": false,
+  "scc_authorized": false,
+  "schema": "fishmip_scenario_benchmark_matrix_v1",
+  "status": "validated_biophysical_scenario_diagnostic_only",
+  "welfare_estimated": false
+}

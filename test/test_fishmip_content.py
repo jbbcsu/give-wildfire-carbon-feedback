@@ -21,12 +21,15 @@ from validate_fishmip_content import (
 )
 
 
-def base_metadata(model: str = "boats", year: int = 2020, scenario: str = "historical") -> dict[str, str]:
+def base_metadata(
+    model: str = "boats", year: int = 2020, scenario: str = "historical",
+    forcing: str = "gfdl-esm4",
+) -> dict[str, str]:
     return {
         "dataset_id": "dataset",
         "file_id": "file",
         "model": model,
-        "climate_forcing": "gfdl-esm4",
+        "climate_forcing": forcing,
         "climate_scenario": scenario,
         "version": "test",
         "start_year": str(year),
@@ -42,8 +45,9 @@ def write(
     year: int = 2020,
     scenario: str = "historical",
     units: str = "g m-2",
+    forcing: str = "gfdl-esm4",
 ) -> tuple[int, str]:
-    time, time_units, time_calendar = expected_time(base_metadata(model, year, scenario))
+    time, time_units, time_calendar = expected_time(base_metadata(model, year, scenario, forcing))
     dataset = xr.Dataset(
         {"tc": (("time", "lat", "lon"), values, {"units": units})},
         coords={
@@ -67,8 +71,9 @@ def row(
     model: str = "boats",
     year: int = 2020,
     scenario: str = "historical",
+    forcing: str = "gfdl-esm4",
 ) -> dict[str, str]:
-    return {**base_metadata(model, year, scenario), "bytes": str(size), "sha512": digest}
+    return {**base_metadata(model, year, scenario, forcing), "bytes": str(size), "sha512": digest}
 
 
 def failure(path: Path, metadata: dict[str, str], message: str) -> None:
@@ -100,6 +105,16 @@ with tempfile.TemporaryDirectory() as directory:
     ecoocean_audit = validate(ecoocean, row(ecoocean, size, digest, "ecoocean"))
     assert ecoocean_audit["calendar"] == "365_day"
     assert ecoocean_audit["time_units"] == "days since 1601-1-1 00:00:00"
+
+    ipsl_ecoocean = root / "ipsl_ecoocean.nc"
+    ipsl_size, ipsl_digest = write(
+        ipsl_ecoocean, ecoocean_values, "ecoocean", forcing="ipsl-cm6a-lr"
+    )
+    ipsl_audit = validate(
+        ipsl_ecoocean,
+        row(ipsl_ecoocean, ipsl_size, ipsl_digest, "ecoocean", forcing="ipsl-cm6a-lr"),
+    )
+    assert ipsl_audit["calendar"] == "gregorian"
 
     future = root / "ecoocean_future.nc"
     future_size, future_digest = write(

@@ -18,7 +18,12 @@ from validate_fishmip_content import EXPECTED_LAT, EXPECTED_LON, expected_time
 
 
 def write_file(path: Path, model: str, start: int, end: int, scenario: str, value: float, missing_row: int) -> tuple[int, str]:
-    metadata = {"model": model, "start_year": str(start), "end_year": str(end)}
+    metadata = {
+        "model": model,
+        "climate_forcing": "gfdl-esm4",
+        "start_year": str(start),
+        "end_year": str(end),
+    }
     time, units, calendar = expected_time(metadata)
     values = np.full((len(time), 180, 360), value, dtype=np.float32)
     values[:, missing_row, :] = np.nan

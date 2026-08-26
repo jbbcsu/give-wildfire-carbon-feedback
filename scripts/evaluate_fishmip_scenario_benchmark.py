@@ -32,6 +32,13 @@ def load_config(path: Path) -> dict[str, object]:
     require(config.get("temporal_summary") == "mean_of_twelve_monthly_spatial_means", "temporal summary changed")
     models = config.get("models")
     require(isinstance(models, list) and len(models) >= 2 and len(models) == len(set(models)), "models must be distinct")
+    stages = config.get("allowed_acquisition_stages", ["content_smoke"])
+    require(
+        isinstance(stages, list)
+        and set(stages).issubset({"content_smoke", "deferred_full_matrix"})
+        and bool(stages),
+        "allowed acquisition stages are invalid",
+    )
     periods = config.get("reporting_periods")
     require(isinstance(periods, list) and periods, "at least one reporting period is required")
     seen: set[str] = set()
@@ -115,9 +122,10 @@ def evaluate(
     ref_start = int(config["reference_start_year"])
     ref_end = int(config["reference_end_year"])
     output_models: list[dict[str, object]] = []
+    allowed_stages = set(map(str, config.get("allowed_acquisition_stages", ["content_smoke"])))
     for model in models:
-        historical_row = plan_row(plan, historical[model].name)
-        future_row = plan_row(plan, future[model].name)
+        historical_row = plan_row(plan, historical[model].name, allowed_stages=allowed_stages)
+        future_row = plan_row(plan, future[model].name, allowed_stages=allowed_stages)
         require(historical_row["model"] == model and future_row["model"] == model, "plan/model assignment changed")
         require(historical_row["climate_forcing"] == config["climate_forcing"], "historical forcing differs from config")
         require(future_row["climate_forcing"] == config["climate_forcing"], "future forcing differs from config")

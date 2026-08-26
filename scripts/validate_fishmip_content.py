@@ -6,6 +6,7 @@ import argparse
 import csv
 import hashlib
 import json
+from datetime import datetime
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -20,27 +21,39 @@ MODEL_TIME = {
         "units": "months since 1601-01-01 00:00:00",
         "calendar": "360_day",
     },
-    "ecoocean": {
-        "units": "days since 1601-1-1 00:00:00",
-        "calendar": "365_day",
-    },
+}
+ECOOCEAN_TIME = {
+    "gfdl-esm4": {"units": "days since 1601-1-1 00:00:00", "calendar": "365_day"},
+    "ipsl-cm6a-lr": {"units": "days since 1601-1-1 00:00:00", "calendar": "gregorian"},
 }
 NOLEAP_MONTH_START = np.array([0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334], dtype=float)
 
 
 def expected_time(row: dict[str, str]) -> tuple[np.ndarray, str, str]:
     model = row["model"]
-    if model not in MODEL_TIME:
+    if model not in {"boats", "ecoocean"}:
         raise ValueError(f"unsupported FishMIP model time encoding: {model}")
     start_year = int(row["start_year"])
     end_year = int(row["end_year"])
     if model == "boats":
         values = np.arange((start_year - 1601) * 12, (end_year - 1601 + 1) * 12, dtype=float)
-    else:
+    elif row.get("climate_forcing") == "gfdl-esm4":
         values = np.concatenate(
             [(year - 1601) * 365 + NOLEAP_MONTH_START for year in range(start_year, end_year + 1)]
         )
-    time = MODEL_TIME[model]
+    else:
+        forcing = row.get("climate_forcing")
+        if forcing != "ipsl-cm6a-lr":
+            raise ValueError(f"unsupported EcoOcean climate forcing time encoding: {forcing}")
+        origin = datetime(1601, 1, 1)
+        values = np.array(
+            [
+                float((datetime(year, month, 1) - origin).days)
+                for year in range(start_year, end_year + 1)
+                for month in range(1, 13)
+            ]
+        )
+    time = MODEL_TIME[model] if model == "boats" else ECOOCEAN_TIME[row["climate_forcing"]]
     return values, time["units"], time["calendar"]
 
 
@@ -52,13 +65,21 @@ def checksum(path: Path) -> str:
     return digest.hexdigest()
 
 
-def plan_row(plan: Path, file_name: str) -> dict[str, str]:
+def plan_row(
+    plan: Path,
+    file_name: str,
+    *,
+    allowed_stages: set[str] | None = None,
+) -> dict[str, str]:
     with plan.open(newline="", encoding="utf-8") as stream:
         rows = [row for row in csv.DictReader(stream) if Path(urlparse(row["file_url"]).path).name == file_name]
     if len(rows) != 1:
         raise ValueError(f"expected one acquisition-plan row for {file_name}, got {len(rows)}")
-    if rows[0]["acquisition_stage"] != "content_smoke":
-        raise ValueError("file is not authorized in the frozen content-smoke stage")
+    allowed = {"content_smoke"} if allowed_stages is None else set(allowed_stages)
+    if not allowed or rows[0]["acquisition_stage"] not in allowed:
+        raise ValueError(
+            "file acquisition stage is not authorized for this validation invocation"
+        )
     return rows[0]
 
 
@@ -272,8 +293,14 @@ def main() -> None:
     parser.add_argument("--pair-audit-out", type=Path)
     parser.add_argument("--compare-file", type=Path)
     parser.add_argument("--compare-audit-out", type=Path)
+    parser.add_argument(
+        "--allow-deferred-full-matrix",
+        action="store_true",
+        help="Explicitly validate a checksum-pinned file from the deferred matrix after the content smoke passed.",
+    )
     args = parser.parse_args()
-    row = plan_row(args.plan, args.file.name)
+    allowed_stages = {"content_smoke", "deferred_full_matrix"} if args.allow_deferred_full_matrix else None
+    row = plan_row(args.plan, args.file.name, allowed_stages=allowed_stages)
     audit = validate(args.file, row)
     args.audit_out.parent.mkdir(parents=True, exist_ok=True)
     args.audit_out.write_text(json.dumps(audit, indent=2, sort_keys=True) + "\n", encoding="utf-8")
@@ -284,7 +311,7 @@ def main() -> None:
     if (args.pair_file is None) != (args.pair_audit_out is None):
         raise ValueError("--pair-file and --pair-audit-out must be supplied together")
     if args.pair_file is not None:
-        pair_row = plan_row(args.plan, args.pair_file.name)
+        pair_row = plan_row(args.plan, args.pair_file.name, allowed_stages=allowed_stages)
         pair_audit = validate_pair(args.file, row, args.pair_file, pair_row)
         args.pair_audit_out.parent.mkdir(parents=True, exist_ok=True)
         args.pair_audit_out.write_text(json.dumps(pair_audit, indent=2, sort_keys=True) + "\n", encoding="utf-8")
@@ -295,7 +322,7 @@ def main() -> None:
     if (args.compare_file is None) != (args.compare_audit_out is None):
         raise ValueError("--compare-file and --compare-audit-out must be supplied together")
     if args.compare_file is not None:
-        compare_row = plan_row(args.plan, args.compare_file.name)
+        compare_row = plan_row(args.plan, args.compare_file.name, allowed_stages=allowed_stages)
         compare_audit = validate_cross_model_support(args.file, row, args.compare_file, compare_row)
         args.compare_audit_out.parent.mkdir(parents=True, exist_ok=True)
         args.compare_audit_out.write_text(
