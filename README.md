@@ -45,6 +45,18 @@ The cross-sector RFF coverage review and bounded next-sector recommendation are
 in [GIVE_SECTOR_COVERAGE_SCREEN.md](GIVE_SECTOR_COVERAGE_SCREEN.md); they do not
 authorize cross-sector code or data inside this repository.
 
+## Reviewed FishMIP catalogue snapshot
+
+The ISIMIP3b public catalogue currently exposes 20 global monthly total-catch
+density (`tc`) datasets in a balanced grid of BOATS and EcoOcean, forced by
+GFDL-ESM4 and IPSL-CM6A-LR, with historical, preindustrial-control, SSP1-2.6,
+and SSP5-8.5 experiments. The versioned, machine-readable audit is
+[`data/provenance/fishmip_isimip3b_tc_catalog.toml`](data/provenance/fishmip_isimip3b_tc_catalog.toml),
+and `scripts/validate_fishmip_catalog.py` validates an API response before any
+download. This clears a source-discovery gate only. The outputs are scenario
+total catch, not a matched marginal-CO2 response and not welfare, so no
+fisheries damage coefficient or SCC is inferred from them.
+
 ## Executable accounting scaffolding
 
 The repository currently provides two coefficient-free checks:
@@ -64,6 +76,7 @@ Run the synthetic checks with:
 ```bash
 python3 test/test_welfare_interface.py
 python3 test/test_region_aggregation.py
+python3 test/test_fishmip_catalog.py
 ```
 
 These scripts do not choose ecological or economic parameters, certify that a

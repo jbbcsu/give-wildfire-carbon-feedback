@@ -1,0 +1,55 @@
+status = "metadata_audited_not_acquired"
+checked_date = "2026-08-25"
+catalog = "ISIMIP repository"
+query_url = "https://data.isimip.org/api/v1/datasets/?simulation_round=ISIMIP3b&product=OutputData&sector=marine-fishery_global&variable=tc&page_size=200"
+catalog_result_count = 20
+public = true
+restricted = false
+license = "CC0 1.0"
+terms_url = "https://www.isimip.org/gettingstarted/terms-of-use/#general-terms-of-use-for-all-isimip-data-on-the-esg-server"
+raw_data_committed = false
+
+[variable]
+name = "tc"
+description = "total catch density"
+region = "global"
+time_step = "monthly"
+role = "biophysical scenario benchmark only"
+
+[catalog_matrix]
+models = ["boats", "ecoocean"]
+climate_forcings = ["gfdl-esm4", "ipsl-cm6a-lr"]
+historical_experiments = ["historical/histsoc", "picontrol/histsoc"]
+future_experiments = ["picontrol/2015soc-from-histsoc", "ssp126/2015soc-from-histsoc", "ssp585/2015soc-from-histsoc"]
+boats_version = "20210906"
+ecoocean_version = "20230317"
+files_per_model_forcing = 5
+files_total = 20
+
+[representative_datasets.boats_gfdl_ssp126]
+dataset_id = "c9578f50-936c-47e4-9f04-ebc1c4cd559d"
+file_id = "a9bb36dc-6e8e-42e4-bbe5-e42efc13bb79"
+bytes = 153855617
+sha512 = "05308c6cedc17e284d2fa825533f1c8e3365c145bc196dcf5f71727f5bce34c1b4ce8fefbbcf4eecc427c720d02b2689c4f57cbf0756b6c7339fffb15aa04f9e"
+
+[representative_datasets.ecoocean_gfdl_ssp126]
+dataset_id = "35d3f80f-927f-4392-a1a5-3f8675e653ff"
+file_id = "646474d8-26c8-48cb-bfe5-326a7a0841b4"
+bytes = 153678794
+sha512 = "eecf2457bc049c27e1cb0c8f2e1f7dd8e75a896a3ca89d651aa76b6f024bd73585906329983a0d2ebf44cf145da73e116c863cadd923c4a61fe395a49deb9cb8"
+
+[gates]
+scenario_outputs_are_not_a_marginal_co2_pulse = true
+catch_is_not_welfare = true
+welfare_model_identified = false
+matched_baseline_pulse_available = false
+production_ready = false
+
+[limitations]
+notes = [
+  "The audited catalogue contains two ecosystem models and two climate forcings, so structural coverage is limited.",
+  "The catalogue has SSP1-2.6 and SSP5-8.5 but no SSP3-7.0 total-catch entry.",
+  "Scenario contrasts cannot be substituted for a matched one-ton CO2 pulse.",
+  "Total catch density is an intermediate quantity, not consumer or producer welfare.",
+  "No files were downloaded in this audit; file-level checksums above are catalogue metadata, not local checksum verification."
+]

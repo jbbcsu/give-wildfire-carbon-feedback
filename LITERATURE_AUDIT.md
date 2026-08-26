@@ -40,6 +40,19 @@ fishery model. The exact interface and exclusions are fixed in
 [`MODEL_CONTRACT.md`](MODEL_CONTRACT.md) so source acquisition can proceed
 without silently choosing coefficients.
 
+## ISIMIP3b source-discovery result (2026-08-25)
+
+The public ISIMIP API has a compact, balanced `tc` catalogue: BOATS and
+EcoOcean crossed with GFDL-ESM4 and IPSL-CM6A-LR, each with historical and
+historical preindustrial-control records plus future preindustrial-control,
+SSP1-2.6, and SSP5-8.5 records. All 20 records report public, unrestricted CC0
+access and one monthly global NetCDF file. This makes a bounded multi-model
+biophysical benchmark feasible, subject to local checksum and content checks
+after acquisition. It remains structurally narrow (two ecosystem models and
+two forcings), contains no SSP3-7.0 `tc` record in the audited query, and does
+not identify welfare or a marginal emissions pulse. The catalogue therefore
+does not change the no-numeric-damage decision.
+
 ## Exclusion gate
 
 No coral-reef tourism, nonuse value, or reef-mediated coastal protection enters

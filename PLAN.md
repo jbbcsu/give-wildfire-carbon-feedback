@@ -30,6 +30,13 @@ management/harvest controls; prices/substitution; population/income. Preserve
 source queries, licenses, spatial keys, quality flags, and checksums. Never
 impute missing catch as zero.
 
+The first source-discovery subgate is now reproducible. A 2026-08-25 ISIMIP3b
+catalogue audit found 20 public, unrestricted, CC0 global monthly `tc` datasets:
+two ecosystem models (BOATS and EcoOcean) by two climate forcings (GFDL-ESM4
+and IPSL-CM6A-LR), with five historical/future experiment records per pairing.
+No files have been acquired. The audit does not clear the matched-pulse,
+NetCDF-content, welfare, or production gates.
+
 ## Gate 3 — primary model and alternatives
 
 Primary candidate: an explicitly stated regional/species hierarchical response

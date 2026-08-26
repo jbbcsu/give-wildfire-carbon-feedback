@@ -100,6 +100,13 @@ model whose surplus outputs and pulse/scenario assumptions can be audited.
 Until then, numeric parameters remain unset rather than filled with judgmental
 defaults.
 
+The audited ISIMIP3b `tc` catalogue is compatible with evidence path A only as
+a biophysical scenario-training and validation source. Its SSP and control
+experiments are not a one-ton pulse counterfactual, and total catch density is
+not a welfare measure. It therefore cannot populate either side of the
+required matched baseline/pulse welfare table without additional, separately
+validated climate-response and surplus layers.
+
 The schema-only validator in `scripts/validate_welfare_interface.py` checks
 matched baseline/pulse identifiers, missing-versus-zero semantics, surplus
 arithmetic, duplicate keys, and additive eligibility. Its synthetic test is
