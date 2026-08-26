@@ -1,6 +1,12 @@
 schema_version = 1
-status = "planned_not_acquired"
+status = "primary_route_approved_not_acquired"
 purpose = "Direct daily CMIP6 feature training data for matched FAIR baseline/pulse climate-feature evaluation. This record does not authorize an SCC calculation or raw-data redistribution."
+
+[decision]
+approved_date = "2026-08-25"
+approved_route = "Direct ISIMIP3b daily-feature response emulator"
+fallback = "MESMER-M-TP plus a published daily weather generator only if the direct route fails its validation gates"
+scope = "Approval covers acquisition and validation, not empirical coefficients, damages, or SCC integration."
 
 [source]
 name = "ISIMIP3b bias-adjusted CMIP6 atmospheric climate input data"

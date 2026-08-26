@@ -2,6 +2,11 @@
 
 ## Decision
 
+The project owner approved this direct ISIMIP3b daily-feature route as the
+primary matched precipitation-pattern path on 25 August 2026. The approval
+authorizes acquisition and validation work under the gates below; it does not
+pre-approve a coefficient, damage function, or SCC result.
+
 The primary implementable route is a **daily-feature response emulator**, not a
 new global weather emulator and not a scenario difference treated as a one-tonne
 CO2 experiment.  It learns the response of the exact crop-calendar features
