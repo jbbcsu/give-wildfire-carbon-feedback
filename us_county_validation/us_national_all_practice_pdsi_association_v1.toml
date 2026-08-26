@@ -1,0 +1,47 @@
+schema_version = 1
+analysis_id = "us_national_all_practice_pdsi_association_v1"
+analysis_role = "historical_predictive_association_only"
+predictive_association_authorized = true
+causal_claim_authorized = false
+damage_claim_authorized = false
+scc_claim_authorized = false
+
+[input]
+joined_panel = "data/interim/us_county/nass_national_all_practice_pdsi_join_1981_2019.parquet"
+public_receipt = "data/provenance/nass_national_all_practice_pdsi_1981_2019_receipt.json"
+outcome_source_id = "nass_quickstats_api_national_all_practice_1981_2019"
+index_source_id = "noaa_nclimdiv_county_pdsi_v1_0_0_20260806"
+calendar_role = "fixed_broad_window_sensitivity"
+window_id = "season"
+year_min = 1981
+year_max = 2019
+crops = ["corn_grain", "soybeans"]
+practice = "all_practices"
+
+[samples]
+primary = "rainfed_dominant_10pct"
+sensitivity = ["rainfed_dominant_20pct", "rainfed_dominant_30pct"]
+descriptive = ["all_eligible", "irrigation_share_known"]
+irrigation_share_vintage = 2017
+missing_irrigation_share_rule = "remain_missing_never_assume_zero"
+interpretation = "all-practice NASS yield in counties selected by a fixed crop-specific irrigated-area share; not directly observed non-irrigated yield"
+
+[models]
+outcome = "log_yield_bu_acre"
+fixed_effects = ["county_geoid", "state_by_harvest_year"]
+cluster = "county_geoid"
+primary_form = "quadratic"
+forms = ["linear", "quadratic", "quadratic_linear_trend_interaction"]
+pdsi_feature = "index_day_weighted_mean"
+trend_center_year = 2000
+demeaning_tolerance = 1e-10
+demeaning_max_iterations = 1000
+minimum_rows = 1000
+minimum_counties = 25
+minimum_within_standard_deviation = 1e-10
+
+[output]
+result = "data/provenance/us_national_all_practice_pdsi_association_20260826.json"
+coefficients_allowed = true
+row_predictions_allowed = false
+required_disclaimer = "Historical fixed-effects associations are not causal climate-yield estimates, rainfed-practice yield estimates, damage functions, or SCC inputs. PDSI combines precipitation and temperature-driven water balance and cannot by itself attribute effects to precipitation."

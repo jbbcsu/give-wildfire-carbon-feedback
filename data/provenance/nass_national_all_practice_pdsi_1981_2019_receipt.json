@@ -1,0 +1,95 @@
+{
+  "claim_gates": {
+    "causal_effect_estimated": false,
+    "contains_absolute_paths": false,
+    "contains_api_key": false,
+    "contains_outcome_values": false,
+    "contains_raw_values": false,
+    "damage_calculated": false,
+    "response_estimated": false,
+    "scc_calculated": false
+  },
+  "contracts": {
+    "geography": "fixed-2019 county-envelope proxy after registered historical-change screen",
+    "irrigation_share": "fixed-2017 sample selector; missing/suppressed remains missing",
+    "moisture_family": "PDSI competes with and is never stacked with direct weather or SPEI",
+    "outcome_interpretation": "all-practice yield mixture; never direct rainfed yield",
+    "pdsi_calibration": [
+      1931,
+      1990
+    ],
+    "pdsi_source_id": "noaa_nclimdiv_county_pdsi_v1_0_0_20260806"
+  },
+  "files": {
+    "calendar": {
+      "path": "data/interim/us_county/nass_usual_date_calendars_1981_2022.csv",
+      "sha256": "f3ed5d2932b3f709483f7d0064733d8dab9d783baa56384328c49da7b633fcb8"
+    },
+    "contract": {
+      "path": "config/us_county_drought_predictor_contract_v1.toml",
+      "sha256": "2abcafbfa4eba54b026dec1a9fc38ad87df1d0c8b7a77c3a8a27b47f8ba83aef"
+    },
+    "features": {
+      "path": "data/interim/us_county/nclimdiv_pdsi_nass_national_all_practice_calendar_features_1981_2019.parquet",
+      "sha256": "5f8601fb3b8769049a22307f69f39df8a000629334ecdd07f5713a16023ee463"
+    },
+    "geography_gate": {
+      "path": "data/interim/us_county/nass_national_all_practice_panel_1981_2019_geography_gate.csv",
+      "sha256": "5194ff66eab5dfff82dacb610c221463918f9f9b4b4d9332ffa4c0f9cb047993"
+    },
+    "joined": {
+      "path": "data/interim/us_county/nass_national_all_practice_pdsi_join_1981_2019.parquet",
+      "sha256": "aaaac965801c7b14a898c09ccfb66f1de55dd17c35c032a9827c96daf19d37fd"
+    },
+    "monthly": {
+      "path": "data/interim/us_county/nclimdiv_pdsi_nass_national_all_practice_eligible_1980_2019.parquet",
+      "sha256": "83f1dd7a2284f6690845cd018ef5378367ff190d2cf8dca8d3bbb0cc2be47eee"
+    },
+    "panel": {
+      "path": "data/interim/us_county/nass_national_all_practice_panel_1981_2019.parquet",
+      "sha256": "9fc15801d5c6ec82b8c8ec2cb2edcb10db3ff674a36c61c6b5dc2268a8353e11"
+    },
+    "pdsi_provenance": {
+      "path": "data/provenance/nclimdiv_county_pdsi_20260806.toml",
+      "sha256": "6017d8cce745c5b338db915382f73348165d7fd9c1c397d5c411790f73ccbd6e"
+    },
+    "pdsi_raw": {
+      "path": "data/raw/us_county/nclimdiv_pdsicy/climdiv-pdsicy-v1.0.0-20260806",
+      "sha256": "2cb453c8c94eeeaceeaa861299acb4263b49862bc75bc7b8a0bbaada4fb75ab3"
+    }
+  },
+  "implementation": {
+    "us_county_validation/scripts/build_county_crop_calendar_drought_features.py": {
+      "sha256": "9bd1681f08e3f5048f034c0108eb55184119dffb695b1e193f77176c4d99a4ca"
+    },
+    "us_county_validation/scripts/download_nclimdiv_county_pdsi.py": {
+      "sha256": "7944153579f40a6ab764f5c7b8d6288be3c1abf0c877b4bfb8d95c377c5e433d"
+    },
+    "us_county_validation/scripts/export_nass_national_all_practice_pdsi_receipt.py": {
+      "sha256": "09485ef153336808799b6a4e0d02021ef6aa29970cdc35c01ebd0dc2fe691675"
+    },
+    "us_county_validation/scripts/extract_nclimdiv_county_pdsi.py": {
+      "sha256": "69a4e1fd92d1b903418fb98705478ea5eafbf795265d45946b4a601b1d87754a"
+    },
+    "us_county_validation/scripts/prepare_nass_national_all_practice_pdsi.py": {
+      "sha256": "b0d93cc8abd81dee4abe42677481e237e470522088f1632cb775c1c8acc6ff86"
+    }
+  },
+  "receipt_id": "nass_national_all_practice_pdsi_1981_2019_v1",
+  "role": "validated aggregate receipt for a historical predictive input only",
+  "schema_version": 1,
+  "support": {
+    "calendar_rows": 5374,
+    "eligible_corn_rows": 75089,
+    "eligible_counties": 2628,
+    "eligible_soybean_rows": 61450,
+    "feature_rows": 1365390,
+    "fixed_2017_high_rainfed_10pct_rows": 30213,
+    "geography_blocked_outcome_rows": 1253,
+    "geography_eligible_outcome_rows": 136539,
+    "input_positive_outcome_rows": 137792,
+    "joined_rows": 1365390,
+    "missing_irrigation_share_rows": 77387,
+    "monthly_pdsi_rows": 1261440
+  }
+}

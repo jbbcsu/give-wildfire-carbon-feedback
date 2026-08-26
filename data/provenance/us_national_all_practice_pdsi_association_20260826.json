@@ -1,0 +1,1303 @@
+{
+  "analysis_id": "us_national_all_practice_pdsi_association_v1",
+  "causal_claim_authorized": false,
+  "cluster": "county_geoid",
+  "coefficients_emitted": true,
+  "config": {
+    "path": "us_county_validation/us_national_all_practice_pdsi_association_v1.toml",
+    "sha256": "35a0ca2ecf18ac752bbc800ce405ef7232015ea445d3e31282a8055edc6d43a9"
+  },
+  "damage_claim_authorized": false,
+  "disclaimer": "Historical fixed-effects associations are not causal climate-yield estimates, rainfed-practice yield estimates, damage functions, or SCC inputs. PDSI combines precipitation and temperature-driven water balance and cannot by itself attribute effects to precipitation.",
+  "estimates": [
+    {
+      "cluster_count": 424,
+      "coefficients": [
+        {
+          "ci95_normal": [
+            0.01725691262471164,
+            0.023110278950527915
+          ],
+          "estimate": 0.020183595787619777,
+          "normal_approx_p_value": 1.242097634660728e-41,
+          "standard_error_cluster_county": 0.0014932056953612944,
+          "term": "pdsi"
+        }
+      ],
+      "counties": 424,
+      "crop": "corn_grain",
+      "demeaning_final_max_change": 9.869682848773209e-11,
+      "demeaning_iterations": 28,
+      "form": "linear",
+      "pdsi_mean": 0.8570016522440054,
+      "pdsi_standard_deviation": 2.2721072568572964,
+      "residual_rmse_log_yield": 0.14586134344690554,
+      "rows": 15660,
+      "sample": "rainfed_dominant_10pct",
+      "states": 28,
+      "within_r_squared": 0.02528672680732691,
+      "year_max": 2019,
+      "year_min": 1981
+    },
+    {
+      "cluster_count": 424,
+      "coefficients": [
+        {
+          "ci95_normal": [
+            0.02854779447804468,
+            0.03558273002193229
+          ],
+          "estimate": 0.032065262249988485,
+          "normal_approx_p_value": 2.1172745108481326e-71,
+          "standard_error_cluster_county": 0.0017946264142570422,
+          "term": "pdsi"
+        },
+        {
+          "ci95_normal": [
+            -0.006408842598462193,
+            -0.00493288030006413
+          ],
+          "estimate": -0.0056708614492631615,
+          "normal_approx_p_value": 2.914080821613794e-51,
+          "standard_error_cluster_county": 0.0003765209944893018,
+          "term": "pdsi_squared"
+        }
+      ],
+      "counties": 424,
+      "crop": "corn_grain",
+      "demeaning_final_max_change": 9.735368067254058e-11,
+      "demeaning_iterations": 29,
+      "form": "quadratic",
+      "pdsi_mean": 0.8570016522440054,
+      "pdsi_standard_deviation": 2.2721072568572964,
+      "residual_rmse_log_yield": 0.14350137050847864,
+      "rows": 15660,
+      "sample": "rainfed_dominant_10pct",
+      "states": 28,
+      "within_r_squared": 0.056572439563348564,
+      "year_max": 2019,
+      "year_min": 1981
+    },
+    {
+      "cluster_count": 424,
+      "coefficients": [
+        {
+          "ci95_normal": [
+            0.02850784526871425,
+            0.035794968745757175
+          ],
+          "estimate": 0.03215140700723571,
+          "normal_approx_p_value": 5.0972402187017907e-67,
+          "standard_error_cluster_county": 0.0018589600706742163,
+          "term": "pdsi"
+        },
+        {
+          "ci95_normal": [
+            -0.006285841898023012,
+            -0.004789064146162224
+          ],
+          "estimate": -0.005537453022092618,
+          "normal_approx_p_value": 1.1704818395041235e-47,
+          "standard_error_cluster_county": 0.00038183105914816056,
+          "term": "pdsi_squared"
+        },
+        {
+          "ci95_normal": [
+            -0.00041649640287060626,
+            0.00021436368459592015
+          ],
+          "estimate": -0.00010106635913734307,
+          "normal_approx_p_value": 0.5300039473713817,
+          "standard_error_cluster_county": 0.00016093369578227716,
+          "term": "pdsi_x_year_centered"
+        },
+        {
+          "ci95_normal": [
+            -0.00012308529704702857,
+            1.3626537034271587e-05
+          ],
+          "estimate": -5.472938000637849e-05,
+          "normal_approx_p_value": 0.11658267184508868,
+          "standard_error_cluster_county": 3.487546787788269e-05,
+          "term": "pdsi_squared_x_year_centered"
+        }
+      ],
+      "counties": 424,
+      "crop": "corn_grain",
+      "demeaning_final_max_change": 6.082245818106458e-11,
+      "demeaning_iterations": 33,
+      "form": "quadratic_linear_trend_interaction",
+      "pdsi_mean": 0.8570016522440054,
+      "pdsi_standard_deviation": 2.2721072568572964,
+      "residual_rmse_log_yield": 0.1434437301806564,
+      "rows": 15660,
+      "sample": "rainfed_dominant_10pct",
+      "states": 28,
+      "within_r_squared": 0.05733018218755803,
+      "year_max": 2019,
+      "year_min": 1981
+    },
+    {
+      "cluster_count": 533,
+      "coefficients": [
+        {
+          "ci95_normal": [
+            0.018165142133836857,
+            0.023298250252184304
+          ],
+          "estimate": 0.02073169619301058,
+          "normal_approx_p_value": 1.8666567195567992e-56,
+          "standard_error_cluster_county": 0.0013094663567212877,
+          "term": "pdsi"
+        }
+      ],
+      "counties": 533,
+      "crop": "corn_grain",
+      "demeaning_final_max_change": 4.1090991720338366e-11,
+      "demeaning_iterations": 20,
+      "form": "linear",
+      "pdsi_mean": 0.7742661474792378,
+      "pdsi_standard_deviation": 2.2411482459067797,
+      "residual_rmse_log_yield": 0.14858245591515504,
+      "rows": 19682,
+      "sample": "rainfed_dominant_20pct",
+      "states": 31,
+      "within_r_squared": 0.02512864175935947,
+      "year_max": 2019,
+      "year_min": 1981
+    },
+    {
+      "cluster_count": 533,
+      "coefficients": [
+        {
+          "ci95_normal": [
+            0.028427665788911184,
+            0.034573619161947795
+          ],
+          "estimate": 0.03150064247542949,
+          "normal_approx_p_value": 8.726192852601766e-90,
+          "standard_error_cluster_county": 0.0015678452482236255,
+          "term": "pdsi"
+        },
+        {
+          "ci95_normal": [
+            -0.0060163383490216054,
+            -0.0046561343221926685
+          ],
+          "estimate": -0.005336236335607137,
+          "normal_approx_p_value": 2.2778749146942312e-53,
+          "standard_error_cluster_county": 0.00034699082317064735,
+          "term": "pdsi_squared"
+        }
+      ],
+      "counties": 533,
+      "crop": "corn_grain",
+      "demeaning_final_max_change": 4.1090991720338366e-11,
+      "demeaning_iterations": 20,
+      "form": "quadratic",
+      "pdsi_mean": 0.7742661474792378,
+      "pdsi_standard_deviation": 2.2411482459067797,
+      "residual_rmse_log_yield": 0.14655038168555365,
+      "rows": 19682,
+      "sample": "rainfed_dominant_20pct",
+      "states": 31,
+      "within_r_squared": 0.05161177390889393,
+      "year_max": 2019,
+      "year_min": 1981
+    },
+    {
+      "cluster_count": 533,
+      "coefficients": [
+        {
+          "ci95_normal": [
+            0.028546554020126083,
+            0.03488588240904106
+          ],
+          "estimate": 0.03171621821458357,
+          "normal_approx_p_value": 1.2188109549570871e-85,
+          "standard_error_cluster_county": 0.0016171756094170858,
+          "term": "pdsi"
+        },
+        {
+          "ci95_normal": [
+            -0.005929680509650275,
+            -0.004562182561939441
+          ],
+          "estimate": -0.005245931535794858,
+          "normal_approx_p_value": 4.156181478187939e-51,
+          "standard_error_cluster_county": 0.00034885151727317195,
+          "term": "pdsi_squared"
+        },
+        {
+          "ci95_normal": [
+            -0.000328420256583251,
+            0.00024955646039893486
+          ],
+          "estimate": -3.943189809215806e-05,
+          "normal_approx_p_value": 0.7891318072201899,
+          "standard_error_cluster_county": 0.000147443040046476,
+          "term": "pdsi_x_year_centered"
+        },
+        {
+          "ci95_normal": [
+            -0.0001276456525343897,
+            -4.085115069722508e-06
+          ],
+          "estimate": -6.58653838020561e-05,
+          "normal_approx_p_value": 0.03665359707875471,
+          "standard_error_cluster_county": 3.152054527159877e-05,
+          "term": "pdsi_squared_x_year_centered"
+        }
+      ],
+      "counties": 533,
+      "crop": "corn_grain",
+      "demeaning_final_max_change": 7.745626362520852e-11,
+      "demeaning_iterations": 23,
+      "form": "quadratic_linear_trend_interaction",
+      "pdsi_mean": 0.7742661474792378,
+      "pdsi_standard_deviation": 2.2411482459067797,
+      "residual_rmse_log_yield": 0.14649303319674303,
+      "rows": 19682,
+      "sample": "rainfed_dominant_20pct",
+      "states": 31,
+      "within_r_squared": 0.05235388033255528,
+      "year_max": 2019,
+      "year_min": 1981
+    },
+    {
+      "cluster_count": 603,
+      "coefficients": [
+        {
+          "ci95_normal": [
+            0.018416985439133775,
+            0.02318385558880668
+          ],
+          "estimate": 0.020800420513970228,
+          "normal_approx_p_value": 1.3603783471225252e-65,
+          "standard_error_cluster_county": 0.001216038303487986,
+          "term": "pdsi"
+        }
+      ],
+      "counties": 603,
+      "crop": "corn_grain",
+      "demeaning_final_max_change": 4.075861870234121e-11,
+      "demeaning_iterations": 17,
+      "form": "linear",
+      "pdsi_mean": 0.743466134897993,
+      "pdsi_standard_deviation": 2.2404422902291454,
+      "residual_rmse_log_yield": 0.15039953309961487,
+      "rows": 22069,
+      "sample": "rainfed_dominant_30pct",
+      "states": 34,
+      "within_r_squared": 0.024778825441495456,
+      "year_max": 2019,
+      "year_min": 1981
+    },
+    {
+      "cluster_count": 603,
+      "coefficients": [
+        {
+          "ci95_normal": [
+            0.028228607549672102,
+            0.03385600167081058
+          ],
+          "estimate": 0.03104230461024134,
+          "normal_approx_p_value": 1.0719292275717402e-103,
+          "standard_error_cluster_county": 0.001435559724780224,
+          "term": "pdsi"
+        },
+        {
+          "ci95_normal": [
+            -0.005883175897891317,
+            -0.004616229225229858
+          ],
+          "estimate": -0.005249702561560587,
+          "normal_approx_p_value": 2.5095759478628692e-59,
+          "standard_error_cluster_county": 0.0003232006818013927,
+          "term": "pdsi_squared"
+        }
+      ],
+      "counties": 603,
+      "crop": "corn_grain",
+      "demeaning_final_max_change": 9.763945207907909e-11,
+      "demeaning_iterations": 17,
+      "form": "quadratic",
+      "pdsi_mean": 0.743466134897993,
+      "pdsi_standard_deviation": 2.2404422902291454,
+      "residual_rmse_log_yield": 0.14847367804087797,
+      "rows": 22069,
+      "sample": "rainfed_dominant_30pct",
+      "states": 34,
+      "within_r_squared": 0.049594194284952264,
+      "year_max": 2019,
+      "year_min": 1981
+    },
+    {
+      "cluster_count": 603,
+      "coefficients": [
+        {
+          "ci95_normal": [
+            0.028290721108221343,
+            0.03408122596347529
+          ],
+          "estimate": 0.031185973535848316,
+          "normal_approx_p_value": 6.17330786397412e-99,
+          "standard_error_cluster_county": 0.0014771696059321295,
+          "term": "pdsi"
+        },
+        {
+          "ci95_normal": [
+            -0.005825409636179451,
+            -0.004556559670292457
+          ],
+          "estimate": -0.005190984653235954,
+          "normal_approx_p_value": 7.037668247802925e-58,
+          "standard_error_cluster_county": 0.0003236862157874987,
+          "term": "pdsi_squared"
+        },
+        {
+          "ci95_normal": [
+            -0.0002950326024262819,
+            0.00023928032451305916
+          ],
+          "estimate": -2.787613895661136e-05,
+          "normal_approx_p_value": 0.8379518662726678,
+          "standard_error_cluster_county": 0.00013630431809677067,
+          "term": "pdsi_x_year_centered"
+        },
+        {
+          "ci95_normal": [
+            -0.0001068752590841146,
+            8.863199240125435e-06
+          ],
+          "estimate": -4.900602992199459e-05,
+          "normal_approx_p_value": 0.09695305210564513,
+          "standard_error_cluster_county": 2.9525116919448992e-05,
+          "term": "pdsi_squared_x_year_centered"
+        }
+      ],
+      "counties": 603,
+      "crop": "corn_grain",
+      "demeaning_final_max_change": 2.609823468446848e-11,
+      "demeaning_iterations": 20,
+      "form": "quadratic_linear_trend_interaction",
+      "pdsi_mean": 0.743466134897993,
+      "pdsi_standard_deviation": 2.2404422902291454,
+      "residual_rmse_log_yield": 0.1484430016862811,
+      "rows": 22069,
+      "sample": "rainfed_dominant_30pct",
+      "states": 34,
+      "within_r_squared": 0.04998688306340093,
+      "year_max": 2019,
+      "year_min": 1981
+    },
+    {
+      "cluster_count": 2603,
+      "coefficients": [
+        {
+          "ci95_normal": [
+            0.01649817408000665,
+            0.01922197057248027
+          ],
+          "estimate": 0.01786007232624346,
+          "normal_approx_p_value": 1.064346526746196e-145,
+          "standard_error_cluster_county": 0.0006948460439983723,
+          "term": "pdsi"
+        }
+      ],
+      "counties": 2603,
+      "crop": "corn_grain",
+      "demeaning_final_max_change": 6.508460437260055e-11,
+      "demeaning_iterations": 27,
+      "form": "linear",
+      "pdsi_mean": 0.500601717279267,
+      "pdsi_standard_deviation": 2.166689707163019,
+      "residual_rmse_log_yield": 0.1675375209247231,
+      "rows": 75089,
+      "sample": "all_eligible",
+      "states": 41,
+      "within_r_squared": 0.014789581237286353,
+      "year_max": 2019,
+      "year_min": 1981
+    },
+    {
+      "cluster_count": 2603,
+      "coefficients": [
+        {
+          "ci95_normal": [
+            0.02323046327371612,
+            0.026442474114465556
+          ],
+          "estimate": 0.024836468694090837,
+          "normal_approx_p_value": 8.234281969942766e-202,
+          "standard_error_cluster_county": 0.0008193905205993456,
+          "term": "pdsi"
+        },
+        {
+          "ci95_normal": [
+            -0.004849199298433398,
+            -0.004060760712516199
+          ],
+          "estimate": -0.0044549800054747984,
+          "normal_approx_p_value": 1.0547965220416557e-108,
+          "standard_error_cluster_county": 0.00020113229232581595,
+          "term": "pdsi_squared"
+        }
+      ],
+      "counties": 2603,
+      "crop": "corn_grain",
+      "demeaning_final_max_change": 4.171718526180257e-11,
+      "demeaning_iterations": 29,
+      "form": "quadratic",
+      "pdsi_mean": 0.500601717279267,
+      "pdsi_standard_deviation": 2.166689707163019,
+      "residual_rmse_log_yield": 0.16636246948994263,
+      "rows": 75089,
+      "sample": "all_eligible",
+      "states": 41,
+      "within_r_squared": 0.028560981779301553,
+      "year_max": 2019,
+      "year_min": 1981
+    },
+    {
+      "cluster_count": 2603,
+      "coefficients": [
+        {
+          "ci95_normal": [
+            0.02286739872863307,
+            0.026256878478811956
+          ],
+          "estimate": 0.024562138603722514,
+          "normal_approx_p_value": 1.6762401561459108e-177,
+          "standard_error_cluster_county": 0.0008646632015762467,
+          "term": "pdsi"
+        },
+        {
+          "ci95_normal": [
+            -0.004780047909763477,
+            -0.003979284952856373
+          ],
+          "estimate": -0.004379666431309925,
+          "normal_approx_p_value": 5.671312049497727e-102,
+          "standard_error_cluster_county": 0.00020427626451711842,
+          "term": "pdsi_squared"
+        },
+        {
+          "ci95_normal": [
+            -0.0003146724588420614,
+            -3.2605206991806295e-05
+          ],
+          "estimate": -0.00017363883291693385,
+          "normal_approx_p_value": 0.015816288359184527,
+          "standard_error_cluster_county": 7.195593159445284e-05,
+          "term": "pdsi_x_year_centered"
+        },
+        {
+          "ci95_normal": [
+            -4.896465777416813e-05,
+            1.657891984657013e-05
+          ],
+          "estimate": -1.6192868963799002e-05,
+          "normal_approx_p_value": 0.3328168713144622,
+          "standard_error_cluster_county": 1.6720300413453637e-05,
+          "term": "pdsi_squared_x_year_centered"
+        }
+      ],
+      "counties": 2603,
+      "crop": "corn_grain",
+      "demeaning_final_max_change": 8.450751209920782e-11,
+      "demeaning_iterations": 32,
+      "form": "quadratic_linear_trend_interaction",
+      "pdsi_mean": 0.500601717279267,
+      "pdsi_standard_deviation": 2.166689707163019,
+      "residual_rmse_log_yield": 0.16633962844067177,
+      "rows": 75089,
+      "sample": "all_eligible",
+      "states": 41,
+      "within_r_squared": 0.028827714574601426,
+      "year_max": 2019,
+      "year_min": 1981
+    },
+    {
+      "cluster_count": 992,
+      "coefficients": [
+        {
+          "ci95_normal": [
+            0.013270173203449257,
+            0.016911305308010948
+          ],
+          "estimate": 0.015090739255730103,
+          "normal_approx_p_value": 2.3643778694178686e-59,
+          "standard_error_cluster_county": 0.0009288602307555337,
+          "term": "pdsi"
+        }
+      ],
+      "counties": 992,
+      "crop": "corn_grain",
+      "demeaning_final_max_change": 3.2973845875972074e-11,
+      "demeaning_iterations": 21,
+      "form": "linear",
+      "pdsi_mean": 0.5790947628808534,
+      "pdsi_standard_deviation": 2.3032251438725675,
+      "residual_rmse_log_yield": 0.1519711745068102,
+      "rows": 34587,
+      "sample": "irrigation_share_known",
+      "states": 41,
+      "within_r_squared": 0.013881975057791651,
+      "year_max": 2019,
+      "year_min": 1981
+    },
+    {
+      "cluster_count": 992,
+      "coefficients": [
+        {
+          "ci95_normal": [
+            0.019313772294305274,
+            0.02373357170912435
+          ],
+          "estimate": 0.021523672001714813,
+          "normal_approx_p_value": 3.073315109574504e-81,
+          "standard_error_cluster_county": 0.0011274998507191532,
+          "term": "pdsi"
+        },
+        {
+          "ci95_normal": [
+            -0.004102818912069016,
+            -0.0031189703794996847
+          ],
+          "estimate": -0.0036108946457843504,
+          "normal_approx_p_value": 6.237476145547647e-47,
+          "standard_error_cluster_county": 0.00025098176851258457,
+          "term": "pdsi_squared"
+        }
+      ],
+      "counties": 992,
+      "crop": "corn_grain",
+      "demeaning_final_max_change": 2.931319076360239e-11,
+      "demeaning_iterations": 22,
+      "form": "quadratic",
+      "pdsi_mean": 0.5790947628808534,
+      "pdsi_standard_deviation": 2.3032251438725675,
+      "residual_rmse_log_yield": 0.15097390052850007,
+      "rows": 34587,
+      "sample": "irrigation_share_known",
+      "states": 41,
+      "within_r_squared": 0.026781830429209563,
+      "year_max": 2019,
+      "year_min": 1981
+    },
+    {
+      "cluster_count": 992,
+      "coefficients": [
+        {
+          "ci95_normal": [
+            0.01882678691732866,
+            0.02331435122756555
+          ],
+          "estimate": 0.021070569072447105,
+          "normal_approx_p_value": 1.1831083664384466e-75,
+          "standard_error_cluster_county": 0.001144786813835942,
+          "term": "pdsi"
+        },
+        {
+          "ci95_normal": [
+            -0.004046532922210495,
+            -0.003064139331055457
+          ],
+          "estimate": -0.003555336126632976,
+          "normal_approx_p_value": 1.1075789920363672e-45,
+          "standard_error_cluster_county": 0.00025061060998852997,
+          "term": "pdsi_squared"
+        },
+        {
+          "ci95_normal": [
+            -0.0004903311355977187,
+            -9.432771731320187e-05
+          ],
+          "estimate": -0.00029232942645546027,
+          "normal_approx_p_value": 0.0038068195353378417,
+          "standard_error_cluster_county": 0.00010102128017462163,
+          "term": "pdsi_x_year_centered"
+        },
+        {
+          "ci95_normal": [
+            -7.348575114554875e-06,
+            7.498466808222531e-05
+          ],
+          "estimate": 3.3818046483835214e-05,
+          "normal_approx_p_value": 0.1073707585336325,
+          "standard_error_cluster_county": 2.1003378366525555e-05,
+          "term": "pdsi_squared_x_year_centered"
+        }
+      ],
+      "counties": 992,
+      "crop": "corn_grain",
+      "demeaning_final_max_change": 6.23971985191929e-11,
+      "demeaning_iterations": 24,
+      "form": "quadratic_linear_trend_interaction",
+      "pdsi_mean": 0.5790947628808534,
+      "pdsi_standard_deviation": 2.3032251438725675,
+      "residual_rmse_log_yield": 0.15093434442705211,
+      "rows": 34587,
+      "sample": "irrigation_share_known",
+      "states": 41,
+      "within_r_squared": 0.027291742053962453,
+      "year_max": 2019,
+      "year_min": 1981
+    },
+    {
+      "cluster_count": 390,
+      "coefficients": [
+        {
+          "ci95_normal": [
+            0.018847396203565445,
+            0.025657564022784296
+          ],
+          "estimate": 0.02225248011317487,
+          "normal_approx_p_value": 1.4647926543060706e-37,
+          "standard_error_cluster_county": 0.0017372877089844017,
+          "term": "pdsi"
+        }
+      ],
+      "counties": 390,
+      "crop": "soybeans",
+      "demeaning_final_max_change": 3.894973232831944e-11,
+      "demeaning_iterations": 14,
+      "form": "linear",
+      "pdsi_mean": 0.7853826076127947,
+      "pdsi_standard_deviation": 2.222757396545471,
+      "residual_rmse_log_yield": 0.12374357788270537,
+      "rows": 14553,
+      "sample": "rainfed_dominant_10pct",
+      "states": 28,
+      "within_r_squared": 0.040393968391189805,
+      "year_max": 2019,
+      "year_min": 1981
+    },
+    {
+      "cluster_count": 390,
+      "coefficients": [
+        {
+          "ci95_normal": [
+            0.027732979919313932,
+            0.03528890697831988
+          ],
+          "estimate": 0.03151094344881691,
+          "normal_approx_p_value": 4.50858609319758e-60,
+          "standard_error_cluster_county": 0.0019275324130117212,
+          "term": "pdsi"
+        },
+        {
+          "ci95_normal": [
+            -0.005483615331121294,
+            -0.004129677264075954
+          ],
+          "estimate": -0.004806646297598624,
+          "normal_approx_p_value": 5.030692811471646e-44,
+          "standard_error_cluster_county": 0.0003453923640421785,
+          "term": "pdsi_squared"
+        }
+      ],
+      "counties": 390,
+      "crop": "soybeans",
+      "demeaning_final_max_change": 2.5329738306822946e-11,
+      "demeaning_iterations": 15,
+      "form": "quadratic",
+      "pdsi_mean": 0.7853826076127947,
+      "pdsi_standard_deviation": 2.222757396545471,
+      "residual_rmse_log_yield": 0.12189799104210394,
+      "rows": 14553,
+      "sample": "rainfed_dominant_10pct",
+      "states": 28,
+      "within_r_squared": 0.06880480213609963,
+      "year_max": 2019,
+      "year_min": 1981
+    },
+    {
+      "cluster_count": 390,
+      "coefficients": [
+        {
+          "ci95_normal": [
+            0.02807610263349859,
+            0.036042938428456836
+          ],
+          "estimate": 0.032059520530977714,
+          "normal_approx_p_value": 4.656397527840543e-56,
+          "standard_error_cluster_county": 0.002032356070142411,
+          "term": "pdsi"
+        },
+        {
+          "ci95_normal": [
+            -0.005653789585113301,
+            -0.004240430760200439
+          ],
+          "estimate": -0.00494711017265687,
+          "normal_approx_p_value": 7.60279875256406e-43,
+          "standard_error_cluster_county": 0.00036055072064103617,
+          "term": "pdsi_squared"
+        },
+        {
+          "ci95_normal": [
+            6.828893476119765e-05,
+            0.0006652634562184286
+          ],
+          "estimate": 0.0003667761954898131,
+          "normal_approx_p_value": 0.016021935095969993,
+          "standard_error_cluster_county": 0.00015228941873908952,
+          "term": "pdsi_x_year_centered"
+        },
+        {
+          "ci95_normal": [
+            -9.605603774585271e-05,
+            3.643524173468576e-05
+          ],
+          "estimate": -2.9810398005583475e-05,
+          "normal_approx_p_value": 0.37777904528755435,
+          "standard_error_cluster_county": 3.3798795785851654e-05,
+          "term": "pdsi_squared_x_year_centered"
+        }
+      ],
+      "counties": 390,
+      "crop": "soybeans",
+      "demeaning_final_max_change": 1.8196999462816166e-11,
+      "demeaning_iterations": 18,
+      "form": "quadratic_linear_trend_interaction",
+      "pdsi_mean": 0.7853826076127947,
+      "pdsi_standard_deviation": 2.222757396545471,
+      "residual_rmse_log_yield": 0.12182907679190184,
+      "rows": 14553,
+      "sample": "rainfed_dominant_10pct",
+      "states": 28,
+      "within_r_squared": 0.06985739502157984,
+      "year_max": 2019,
+      "year_min": 1981
+    },
+    {
+      "cluster_count": 469,
+      "coefficients": [
+        {
+          "ci95_normal": [
+            0.02015024510232782,
+            0.02619723719204504
+          ],
+          "estimate": 0.02317374114718643,
+          "normal_approx_p_value": 5.228095840855646e-51,
+          "standard_error_cluster_county": 0.0015426000228870467,
+          "term": "pdsi"
+        }
+      ],
+      "counties": 469,
+      "crop": "soybeans",
+      "demeaning_final_max_change": 2.540223587033097e-11,
+      "demeaning_iterations": 13,
+      "form": "linear",
+      "pdsi_mean": 0.7577715904737052,
+      "pdsi_standard_deviation": 2.2267439902638486,
+      "residual_rmse_log_yield": 0.13071223795744094,
+      "rows": 17229,
+      "sample": "rainfed_dominant_20pct",
+      "states": 28,
+      "within_r_squared": 0.04001256883042403,
+      "year_max": 2019,
+      "year_min": 1981
+    },
+    {
+      "cluster_count": 469,
+      "coefficients": [
+        {
+          "ci95_normal": [
+            0.02850770668578452,
+            0.035154102273987436
+          ],
+          "estimate": 0.03183090447988598,
+          "normal_approx_p_value": 1.2404705744425112e-78,
+          "standard_error_cluster_county": 0.0016955090786231937,
+          "term": "pdsi"
+        },
+        {
+          "ci95_normal": [
+            -0.005107961362576793,
+            -0.0038540169552415803
+          ],
+          "estimate": -0.0044809891589091865,
+          "normal_approx_p_value": 1.389218769467012e-44,
+          "standard_error_cluster_county": 0.00031988377738143166,
+          "term": "pdsi_squared"
+        }
+      ],
+      "counties": 469,
+      "crop": "soybeans",
+      "demeaning_final_max_change": 5.809663861100489e-11,
+      "demeaning_iterations": 13,
+      "form": "quadratic",
+      "pdsi_mean": 0.7577715904737052,
+      "pdsi_standard_deviation": 2.2267439902638486,
+      "residual_rmse_log_yield": 0.12912389596742055,
+      "rows": 17229,
+      "sample": "rainfed_dominant_20pct",
+      "states": 28,
+      "within_r_squared": 0.06320127989557056,
+      "year_max": 2019,
+      "year_min": 1981
+    },
+    {
+      "cluster_count": 469,
+      "coefficients": [
+        {
+          "ci95_normal": [
+            0.028921932699861586,
+            0.035981799068394174
+          ],
+          "estimate": 0.03245186588412788,
+          "normal_approx_p_value": 1.3836725430847614e-72,
+          "standard_error_cluster_county": 0.0018009863185032104,
+          "term": "pdsi"
+        },
+        {
+          "ci95_normal": [
+            -0.005256045384726871,
+            -0.003947261536248331
+          ],
+          "estimate": -0.004601653460487601,
+          "normal_approx_p_value": 3.2424779144270168e-43,
+          "standard_error_cluster_county": 0.00033387343073432163,
+          "term": "pdsi_squared"
+        },
+        {
+          "ci95_normal": [
+            8.784927552618198e-05,
+            0.0006397088923353429
+          ],
+          "estimate": 0.00036377908393076246,
+          "normal_approx_p_value": 0.009765730005858834,
+          "standard_error_cluster_county": 0.0001407805144921329,
+          "term": "pdsi_x_year_centered"
+        },
+        {
+          "ci95_normal": [
+            -0.00010040895664715599,
+            1.7082312153684164e-05
+          ],
+          "estimate": -4.166332224673591e-05,
+          "normal_approx_p_value": 0.164509857025006,
+          "standard_error_cluster_county": 2.9972262449193915e-05,
+          "term": "pdsi_squared_x_year_centered"
+        }
+      ],
+      "counties": 469,
+      "crop": "soybeans",
+      "demeaning_final_max_change": 1.7961632181595633e-11,
+      "demeaning_iterations": 16,
+      "form": "quadratic_linear_trend_interaction",
+      "pdsi_mean": 0.7577715904737052,
+      "pdsi_standard_deviation": 2.2267439902638486,
+      "residual_rmse_log_yield": 0.12905958612282464,
+      "rows": 17229,
+      "sample": "rainfed_dominant_20pct",
+      "states": 28,
+      "within_r_squared": 0.06413418820232886,
+      "year_max": 2019,
+      "year_min": 1981
+    },
+    {
+      "cluster_count": 508,
+      "coefficients": [
+        {
+          "ci95_normal": [
+            0.01990811392459465,
+            0.025696167705328822
+          ],
+          "estimate": 0.022802140814961736,
+          "normal_approx_p_value": 8.421376359049912e-54,
+          "standard_error_cluster_county": 0.0014765443318199417,
+          "term": "pdsi"
+        }
+      ],
+      "counties": 508,
+      "crop": "soybeans",
+      "demeaning_final_max_change": 4.022560062821867e-11,
+      "demeaning_iterations": 13,
+      "form": "linear",
+      "pdsi_mean": 0.7358589118357788,
+      "pdsi_standard_deviation": 2.2154248038660493,
+      "residual_rmse_log_yield": 0.13255385225562966,
+      "rows": 18586,
+      "sample": "rainfed_dominant_30pct",
+      "states": 28,
+      "within_r_squared": 0.0376268481335732,
+      "year_max": 2019,
+      "year_min": 1981
+    },
+    {
+      "cluster_count": 508,
+      "coefficients": [
+        {
+          "ci95_normal": [
+            0.027888243028341038,
+            0.0342541365365229
+          ],
+          "estimate": 0.03107118978243197,
+          "normal_approx_p_value": 1.339575289607848e-81,
+          "standard_error_cluster_county": 0.0016239524255565968,
+          "term": "pdsi"
+        },
+        {
+          "ci95_normal": [
+            -0.004981555023706447,
+            -0.0037752910446417847
+          ],
+          "estimate": -0.004378423034174116,
+          "normal_approx_p_value": 6.090974338275986e-46,
+          "standard_error_cluster_county": 0.000307720402822618,
+          "term": "pdsi_squared"
+        }
+      ],
+      "counties": 508,
+      "crop": "soybeans",
+      "demeaning_final_max_change": 7.288092351842579e-11,
+      "demeaning_iterations": 13,
+      "form": "quadratic",
+      "pdsi_mean": 0.7358589118357788,
+      "pdsi_standard_deviation": 2.2154248038660493,
+      "residual_rmse_log_yield": 0.1310900710466923,
+      "rows": 18586,
+      "sample": "rainfed_dominant_30pct",
+      "states": 28,
+      "within_r_squared": 0.05876430453374115,
+      "year_max": 2019,
+      "year_min": 1981
+    },
+    {
+      "cluster_count": 508,
+      "coefficients": [
+        {
+          "ci95_normal": [
+            0.028264853242016844,
+            0.034981806966148055
+          ],
+          "estimate": 0.03162333010408245,
+          "normal_approx_p_value": 4.7265740768914845e-76,
+          "standard_error_cluster_county": 0.001713508603094697,
+          "term": "pdsi"
+        },
+        {
+          "ci95_normal": [
+            -0.005103591152680463,
+            -0.0038493100370067096
+          ],
+          "estimate": -0.004476450594843587,
+          "normal_approx_p_value": 1.7882255199553723e-44,
+          "standard_error_cluster_county": 0.00031996967236575354,
+          "term": "pdsi_squared"
+        },
+        {
+          "ci95_normal": [
+            5.9855360336180967e-05,
+            0.0005860445066637447
+          ],
+          "estimate": 0.0003229499334999628,
+          "normal_approx_p_value": 0.016132237594897944,
+          "standard_error_cluster_county": 0.00013423192508356217,
+          "term": "pdsi_x_year_centered"
+        },
+        {
+          "ci95_normal": [
+            -9.68401828503434e-05,
+            1.3589545549795045e-05
+          ],
+          "estimate": -4.162531865027418e-05,
+          "normal_approx_p_value": 0.13951418941704052,
+          "standard_error_cluster_county": 2.817084908166797e-05,
+          "term": "pdsi_squared_x_year_centered"
+        }
+      ],
+      "counties": 508,
+      "crop": "soybeans",
+      "demeaning_final_max_change": 1.9909407455998007e-11,
+      "demeaning_iterations": 16,
+      "form": "quadratic_linear_trend_interaction",
+      "pdsi_mean": 0.7358589118357788,
+      "pdsi_standard_deviation": 2.2154248038660493,
+      "residual_rmse_log_yield": 0.13103967089579524,
+      "rows": 18586,
+      "sample": "rainfed_dominant_30pct",
+      "states": 28,
+      "within_r_squared": 0.05948791847927404,
+      "year_max": 2019,
+      "year_min": 1981
+    },
+    {
+      "cluster_count": 2156,
+      "coefficients": [
+        {
+          "ci95_normal": [
+            0.017306026868315887,
+            0.02027590009420848
+          ],
+          "estimate": 0.018790963481262184,
+          "normal_approx_p_value": 8.404248245929323e-136,
+          "standard_error_cluster_county": 0.0007576207208909689,
+          "term": "pdsi"
+        }
+      ],
+      "counties": 2156,
+      "crop": "soybeans",
+      "demeaning_final_max_change": 7.38054432384653e-11,
+      "demeaning_iterations": 25,
+      "form": "linear",
+      "pdsi_mean": 0.5903449222861012,
+      "pdsi_standard_deviation": 2.136792008232196,
+      "residual_rmse_log_yield": 0.1466197122849979,
+      "rows": 61450,
+      "sample": "all_eligible",
+      "states": 31,
+      "within_r_squared": 0.021134650185390402,
+      "year_max": 2019,
+      "year_min": 1981
+    },
+    {
+      "cluster_count": 2156,
+      "coefficients": [
+        {
+          "ci95_normal": [
+            0.023697702963445852,
+            0.026977910202682406
+          ],
+          "estimate": 0.02533780658306413,
+          "normal_approx_p_value": 2.111528212865594e-201,
+          "standard_error_cluster_county": 0.0008367875610297341,
+          "term": "pdsi"
+        },
+        {
+          "ci95_normal": [
+            -0.004375770474192053,
+            -0.003654462083020529
+          ],
+          "estimate": -0.004015116278606291,
+          "normal_approx_p_value": 1.4847243683917013e-105,
+          "standard_error_cluster_county": 0.0001840072426457969,
+          "term": "pdsi_squared"
+        }
+      ],
+      "counties": 2156,
+      "crop": "soybeans",
+      "demeaning_final_max_change": 5.0573656373842375e-11,
+      "demeaning_iterations": 28,
+      "form": "quadratic",
+      "pdsi_mean": 0.5903449222861012,
+      "pdsi_standard_deviation": 2.136792008232196,
+      "residual_rmse_log_yield": 0.1455879649328544,
+      "rows": 61450,
+      "sample": "all_eligible",
+      "states": 31,
+      "within_r_squared": 0.034862521979795336,
+      "year_max": 2019,
+      "year_min": 1981
+    },
+    {
+      "cluster_count": 2156,
+      "coefficients": [
+        {
+          "ci95_normal": [
+            0.023743720142241888,
+            0.027177929237847724
+          ],
+          "estimate": 0.025460824690044806,
+          "normal_approx_p_value": 1.072130926384739e-185,
+          "standard_error_cluster_county": 0.0008760737488790397,
+          "term": "pdsi"
+        },
+        {
+          "ci95_normal": [
+            -0.004405848796802825,
+            -0.0036551319251459822
+          ],
+          "estimate": -0.0040304903609744034,
+          "normal_approx_p_value": 2.492689781529774e-98,
+          "standard_error_cluster_county": 0.00019150940603490874,
+          "term": "pdsi_squared"
+        },
+        {
+          "ci95_normal": [
+            -7.580343890688582e-05,
+            0.00018988839522981733
+          ],
+          "estimate": 5.704247816146576e-05,
+          "normal_approx_p_value": 0.4000113270556942,
+          "standard_error_cluster_county": 6.777852911650591e-05,
+          "term": "pdsi_x_year_centered"
+        },
+        {
+          "ci95_normal": [
+            -3.875171053348591e-05,
+            2.0066600903385523e-05
+          ],
+          "estimate": -9.342554815050193e-06,
+          "normal_approx_p_value": 0.5335190917256638,
+          "standard_error_cluster_county": 1.5004671284916182e-05,
+          "term": "pdsi_squared_x_year_centered"
+        }
+      ],
+      "counties": 2156,
+      "crop": "soybeans",
+      "demeaning_final_max_change": 6.494627058373226e-11,
+      "demeaning_iterations": 29,
+      "form": "quadratic_linear_trend_interaction",
+      "pdsi_mean": 0.5903449222861012,
+      "pdsi_standard_deviation": 2.136792008232196,
+      "residual_rmse_log_yield": 0.14558639553311473,
+      "rows": 61450,
+      "sample": "all_eligible",
+      "states": 31,
+      "within_r_squared": 0.034883329720922895,
+      "year_max": 2019,
+      "year_min": 1981
+    },
+    {
+      "cluster_count": 689,
+      "coefficients": [
+        {
+          "ci95_normal": [
+            0.01730194101311279,
+            0.021894831832070416
+          ],
+          "estimate": 0.019598386422591603,
+          "normal_approx_p_value": 8.321250646418698e-63,
+          "standard_error_cluster_county": 0.0011716558211626593,
+          "term": "pdsi"
+        }
+      ],
+      "counties": 689,
+      "crop": "soybeans",
+      "demeaning_final_max_change": 9.52400380782592e-11,
+      "demeaning_iterations": 16,
+      "form": "linear",
+      "pdsi_mean": 0.6998823977531275,
+      "pdsi_standard_deviation": 2.2423206520078383,
+      "residual_rmse_log_yield": 0.13635428985105386,
+      "rows": 24565,
+      "sample": "irrigation_share_known",
+      "states": 28,
+      "within_r_squared": 0.02833717502522648,
+      "year_max": 2019,
+      "year_min": 1981
+    },
+    {
+      "cluster_count": 689,
+      "coefficients": [
+        {
+          "ci95_normal": [
+            0.02347988957070288,
+            0.02872757724970249
+          ],
+          "estimate": 0.026103733410202685,
+          "normal_approx_p_value": 1.1112990614589025e-84,
+          "standard_error_cluster_county": 0.0013386958364794916,
+          "term": "pdsi"
+        },
+        {
+          "ci95_normal": [
+            -0.003918729640255708,
+            -0.0029254855166781597
+          ],
+          "estimate": -0.003422107578466934,
+          "normal_approx_p_value": 1.4432734807546653e-41,
+          "standard_error_cluster_county": 0.0002533786029534561,
+          "term": "pdsi_squared"
+        }
+      ],
+      "counties": 689,
+      "crop": "soybeans",
+      "demeaning_final_max_change": 9.52400380782592e-11,
+      "demeaning_iterations": 16,
+      "form": "quadratic",
+      "pdsi_mean": 0.6998823977531275,
+      "pdsi_standard_deviation": 2.2423206520078383,
+      "residual_rmse_log_yield": 0.13540504328634625,
+      "rows": 24565,
+      "sample": "irrigation_share_known",
+      "states": 28,
+      "within_r_squared": 0.04181877627960062,
+      "year_max": 2019,
+      "year_min": 1981
+    },
+    {
+      "cluster_count": 689,
+      "coefficients": [
+        {
+          "ci95_normal": [
+            0.023323247345347253,
+            0.02883613962684665
+          ],
+          "estimate": 0.026079693486096952,
+          "normal_approx_p_value": 9.077445947464884e-77,
+          "standard_error_cluster_county": 0.0014063500718110714,
+          "term": "pdsi"
+        },
+        {
+          "ci95_normal": [
+            -0.003925675295468231,
+            -0.0028913559822508128
+          ],
+          "estimate": -0.0034085156388595217,
+          "normal_approx_p_value": 3.560835424074614e-38,
+          "standard_error_cluster_county": 0.0002638569676575045,
+          "term": "pdsi_squared"
+        },
+        {
+          "ci95_normal": [
+            -0.00024783073787230643,
+            0.00020061529059210413
+          ],
+          "estimate": -2.360772364010114e-05,
+          "normal_approx_p_value": 0.8365080516912857,
+          "standard_error_cluster_county": 0.00011439949705724759,
+          "term": "pdsi_x_year_centered"
+        },
+        {
+          "ci95_normal": [
+            -4.7143487874477456e-05,
+            3.8887309535290766e-05
+          ],
+          "estimate": -4.128089169593344e-06,
+          "normal_approx_p_value": 0.8508008438124948,
+          "standard_error_cluster_county": 2.194663199228781e-05,
+          "term": "pdsi_squared_x_year_centered"
+        }
+      ],
+      "counties": 689,
+      "crop": "soybeans",
+      "demeaning_final_max_change": 2.7046809236708214e-11,
+      "demeaning_iterations": 21,
+      "form": "quadratic_linear_trend_interaction",
+      "pdsi_mean": 0.6998823977531275,
+      "pdsi_standard_deviation": 2.2423206520078383,
+      "residual_rmse_log_yield": 0.13540419434871503,
+      "rows": 24565,
+      "sample": "irrigation_share_known",
+      "states": 28,
+      "within_r_squared": 0.04183079109867427,
+      "year_max": 2019,
+      "year_min": 1981
+    }
+  ],
+  "fixed_effects": [
+    "county_geoid",
+    "state_by_harvest_year"
+  ],
+  "implementation": {
+    "path": "us_county_validation/scripts/estimate_us_national_all_practice_pdsi_association.py",
+    "sha256": "d40f91b1965fd1f2c94e2b7792831ac1227c273e3d37210ff366284ef1c1cc64"
+  },
+  "input": {
+    "path": "data/interim/us_county/nass_national_all_practice_pdsi_join_1981_2019.parquet",
+    "rows": 136539,
+    "sha256": "aaaac965801c7b14a898c09ccfb66f1de55dd17c35c032a9827c96daf19d37fd"
+  },
+  "primary_form": "quadratic",
+  "primary_sample": "rainfed_dominant_10pct",
+  "row_predictions_emitted": false,
+  "scc_claim_authorized": false,
+  "schema": "us_national_all_practice_pdsi_association_result_v1",
+  "status": "completed_historical_predictive_association_only"
+}
