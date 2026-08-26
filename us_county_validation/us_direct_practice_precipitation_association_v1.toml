@@ -1,0 +1,52 @@
+schema_version = 1
+analysis_id = "us_direct_practice_precipitation_association_v1"
+analysis_role = "historical_fixed_effects_association_only"
+association_fit_authorized = true
+causal_claim_authorized = false
+damage_claim_authorized = false
+scc_claim_authorized = false
+
+[input]
+panel = "data/interim/us_county/nass_direct_practice_nclimgrid_1981_2019.parquet"
+source_receipt = "outputs/us_county/competing_moisture_predictive_v1/direct_source_validation.json"
+expected_panel_sha256 = "205a94ae92c12810026c9c5d0ac0fa3760e46ebc39669e528ba20a125a0c46d7"
+outcome_source_id = "nass_quickstats_direct_practice_screen"
+weather_source_id = "nclimgrid_daily_v1_0_0_20220829"
+calendar_role = "fixed_primary"
+crops = ["corn_grain", "soybeans"]
+practices = ["non_irrigated", "irrigated"]
+year_min = 1981
+year_max = 2018
+year_2019_rule = "excluded_primary_because_direct_practice_support_collapses_to_three_corn_and_one_soy_county_levels"
+
+[models]
+fixed_effects = ["county_geoid", "state_by_harvest_year"]
+cluster = "county_geoid"
+outcome = "log_yield_bu_acre"
+forms = ["quantity", "quantity_timing"]
+primary_form_by_crop = { corn_grain = "quantity", soybeans = "quantity_timing" }
+primary_form_reason = "frozen_from_prior_outer_holdout_diagnostic_before_this_coefficient_fit; distribution failed_uniform_state_gate_for_corn_and_passed_for_soybeans"
+heat_controls = ["stage1_tmean_c", "stage2_tmean_c", "stage3_tmean_c"]
+heat_form = "stage_linear_and_quadratic"
+quantity_feature = "precip_mm"
+quantity_scale_mm = 100.0
+timing_features = ["stage1_precip_share", "stage2_precip_share"]
+timing_reference = "stage3_precip_share_omitted"
+timing_form = "linear_stage_shares_only"
+demeaning_tolerance = 1e-10
+demeaning_max_iterations = 1000
+minimum_rows = 500
+minimum_counties = 25
+minimum_within_standard_deviation = 1e-10
+
+[contrasts]
+quantity_increment_mm = 100.0
+quantity_reference_percentiles = [0.25, 0.50, 0.75]
+timing_shift_share = 0.10
+timing_shift = "move_ten_percentage_points_from_stage3_to_stage2_holding_season_total_stage1_share_and_heat_fixed"
+
+[output]
+result = "data/provenance/us_direct_practice_precipitation_association_20260826.json"
+coefficients_allowed = true
+row_predictions_allowed = false
+required_disclaimer = "Historical county and state-by-year fixed-effects associations are not causal precipitation-yield effects, nationally representative U.S. estimates, damage functions, or SCC inputs. The timing contrast is a partial model contrast within observed historical support and does not reproduce every correlated rain extreme."

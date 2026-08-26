@@ -1,0 +1,27 @@
+{
+  "audit_implementation": {
+    "path": "us_county_validation/scripts/validate_us_direct_practice_precipitation_association_independent.py",
+    "sha256": "050370cc35bab5bf309b7751057b18009a81ff700cb1d04fd963b16084a391b8"
+  },
+  "candidate": {
+    "path": "data/provenance/us_direct_practice_precipitation_association_20260826.json",
+    "sha256": "bd6eb0b442b790da47902fb40158c6e12da5555d58146438d7b88983cfd4f207"
+  },
+  "causal_claim_authorized": false,
+  "config": {
+    "path": "us_county_validation/us_direct_practice_precipitation_association_v1.toml",
+    "sha256": "52e62d701c0fb12cb63d6765264f62745f1cfd6c6fc1096c2917b509299777ff"
+  },
+  "damage_claim_authorized": false,
+  "estimates_audited": 8,
+  "maximum_absolute_disagreement": 2.6700863742235015e-14,
+  "numeric_comparisons": 240,
+  "panel": {
+    "path": "data/interim/us_county/nass_direct_practice_nclimgrid_1981_2019.parquet",
+    "sha256": "205a94ae92c12810026c9c5d0ac0fa3760e46ebc39669e528ba20a125a0c46d7"
+  },
+  "scc_claim_authorized": false,
+  "schema": "us_direct_practice_precipitation_association_independent_validation_v1",
+  "status": "validated_independent_qr_reimplementation",
+  "tolerance": 1e-10
+}
