@@ -1,0 +1,35 @@
+input_id = "unsd_m49_country_iso_crosswalk"
+dataset_title = "Standard country or area codes for statistical use (M49)"
+publisher = "United Nations Statistics Division"
+landing_page = "https://unstats.un.org/unsd/methodology/m49/"
+retrieved_on = "2026-08-26"
+coverage = "current UN country or area list; M49 numerical code and ISO-alpha3 code"
+license = "NOASSERTION; no explicit machine-readable data license was identified on the source page"
+role = "authoritative current M49-to-ISO-alpha3 crosswalk for a coverage audit"
+use_limit = "Internal crosswalk/audit only. The UN table alone does not map MapSPAM four-character stat_code values or historical/non-UN entities; the separate NGA GEC audit supplies the legacy prefix mapping. This record is not permission to redistribute a derived code table."
+parsed_current_country_area_codes = 248
+
+[[files]]
+kind = "selected_country_code_page"
+source_url = "https://unstats.un.org/unsd/methodology/m49/"
+local_ignored_path = "data/raw/unsd_m49/countries_retrieved_2026-08-26.html"
+size_bytes = 2051368
+local_sha512 = "139fcf62c1725097da571d443789fbe31f5e34f51cc73259bfd6f56b4feb22f997cc76738046e8bae4afb1d0822ffc7c5583b2ed539db09900f6434963b248f0"
+
+[[files]]
+kind = "nonselected_overview_page"
+source_url = "https://unstats.un.org/unsd/methodology/m49/overview/"
+local_ignored_path = "data/raw/unsd_m49/overview_retrieved_2026-08-26.html"
+size_bytes = 1721575
+local_sha512 = "7eb6c5b43f44e644ffe32eae4355808911287571488f4d2b96e65f07723eb68690a94acd7a0b899ccec8670c06d751cc3f07aa642902186188bbacfe5a3c5357"
+selection_note = "Not selected because the simpler country page has a dedicated three-column English table and avoids the overview page's malformed row-width anomaly."
+
+[audit]
+derived_audit_path = "data/interim/welfare_weights/mapspam_faostat_crosswalk.audit.json (ignored)"
+exact_match_maize_production_share = 0.9427919051383908
+exact_match_soybean_production_share = 0.9863029308083149
+current_iso3_without_baseline_value_maize_share = 0.012805664859150658
+current_iso3_without_baseline_value_soybean_share = 0.007697799434150231
+not_current_iso3_maize_share = 0.04440243000245832
+not_current_iso3_soybean_share = 0.005999269757534899
+spatial_value_weights_authorized = false

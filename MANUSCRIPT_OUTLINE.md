@@ -8,7 +8,13 @@ Alternative while results remain preliminary: **A framework for incorporating cl
 
 ## Central contribution and claim boundary
 
-The paper estimates a *replacement* agricultural damage sector for GIVE that jointly represents temperature and crop-calendar-aligned precipitation features, then evaluates a CO2-pulse welfare difference in matched global SCC simulations. Features include seasonal quantity, dry spells, and wet extremes, not annual precipitation alone. The sector replaces temperature-only MooreAg; it is never an incremental add-on.
+The paper estimates a *replacement* agricultural damage sector for GIVE that jointly represents temperature and crop-calendar-aligned precipitation features, then evaluates a CO2-pulse welfare difference in matched global SCC simulations. Features include seasonal quantity, dry spells, and wet extremes, not annual precipitation alone. The sector replaces the temperature-indexed MooreAg pathway, which has no explicit separable precipitation input in this checkout; it is never an incremental add-on.
+
+The empirical hierarchy is evidence-led: joint temperature plus crop-season
+precipitation quantity is the parsimonious reference; timing/distribution terms
+survive only with robust incremental outer-holdout value; PDSI/scPDSI and SPEI
+are serious separate competitors. Null and adverse comparisons are reported,
+and model choice is never based on SCC magnitude.
 
 Allowed claims, contingent on passing the registered analyses:
 
@@ -54,7 +60,7 @@ Temperature, CO2, radiation, and—where defensible—VPD are joint covariates s
 
 ### 4. Empirical response and adaptation (~1,100 words)
 
-State the exact outcome scale and estimating equation: location/crop/year effects; crop-stage temperature and precipitation-pattern features; interactions; crop/irrigation strata; pooling/regularization; and spatially robust uncertainty. Prespecify nested, spatial-blocked, temporal, and extreme-year selection tests.
+State the exact outcome scale and estimating equation: location/crop/year effects; crop-stage temperature and precipitation-pattern features; interactions; regime-specific response bases combined before fitting one aggregate crop-grid yield outcome; crop pooling/regularization; and spatially robust uncertainty. Prespecify nested, spatial-blocked, temporal, and extreme-year selection tests.
 
 | Scenario | Interpretation | Permitted wording |
 |---|---|---|
@@ -81,7 +87,7 @@ Separate historical identification from future extrapolation. Discuss limits fro
 1. **Accounting/data flow:** CO2 pulse to SCC; label MooreAg “replaced,” CIAM “retained,” and infrastructure flooding “deferred.”
 2. **Crop-calendar features:** daily precipitation/temperature, stages, dry-spell and wet-extreme definitions for representative rain-fed/irrigated crop.
 3. **Coverage and holdouts:** eligible observations/map plus space/time/extreme partitions.
-4. **Joint response surfaces:** crop/irrigation panels with uncertainty; only retained feature responses receive central placement.
+4. **Joint response surfaces:** crop-specific aggregate-outcome panels with regime-weighted exposure bases and uncertainty; only retained feature responses receive central placement.
 5. **Projection benchmark:** empirical regional crop effects versus GGCMI/ISIMIP ranges and alternate inputs; agreement is not causal validation.
 6. **SCC distributions:** matched draws for fixed/trend/upper; joint total primary and precipitation attribution separately labeled.
 7. **Robustness:** variance/importance decomposition, leave-one-GCM-out, and zero-warming conservation check.
@@ -97,4 +103,3 @@ Separate historical identification from future extrapolation. Discuss limits fro
 ## Supporting-information allocation and wording discipline
 
 Put all candidate-feature screens, coefficients, alternate forms, regional diagnostics, climate members, ML comparisons, exclusion logs, and SCC draws in SI, including null results. Cite primary/authoritative sources in `SOURCES.md`. Use “estimated conditional response” for historical fits, “consistent with” for process-model comparison, and reserve “caused by precipitation” for a model-defined counterfactual—not a Shapley attribution.
-

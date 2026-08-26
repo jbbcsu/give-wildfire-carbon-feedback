@@ -1,0 +1,70 @@
+source = "USDA NASS Field Crops Usual Planting and Harvesting Dates"
+provider = "USDA National Agricultural Statistics Service"
+status = "acquired_visually_audited_and_full_state_calendar_derived"
+retrieved_utc = "2026-08-26T15:47:40+00:00"
+source_url = "https://www.nass.usda.gov/Publications/Todays_Reports/reports/fcdate10.pdf"
+title = "Field Crops Usual Planting and Harvesting Dates"
+publication_date = "2010-10"
+publication_identifier = "Agricultural Handbook Number 628"
+approved_use = "Authoritative source for state-level fixed-calendar candidates for corn grain, soybeans, durum wheat, spring wheat, and winter wheat"
+excluded_use = "The report is not an annual realized crop calendar, does not supply county-level phenology, and does not choose which published date-range boundary should define the empirical growing season"
+
+[license]
+status = "U.S. federal government publication; no SPDX license is stated in the reviewed PDF"
+spdx_identifier = "NOASSERTION"
+url = "https://www.nass.usda.gov/Publications/Todays_Reports/reports/fcdate10.pdf"
+redistribution_assessment = "The raw PDF remains gitignored; only metadata, checksum, and derived calendar rows with source attribution are intended for the repository."
+
+[method]
+geographic_resolution = "state"
+source_basis = "NASS states that dates were assembled from 20 years of historical crop-progress estimates and industry-specialist knowledge"
+begin_end_semantics = "The report defines begin and end as approximately 5 percent and 95 percent completion"
+most_active_semantics = "The report defines the most-active range as approximately 15 percent through 85 percent completion"
+primary_candidate_role = "fixed usual calendar, which avoids conditioning the primary response on weather-driven realized annual timing"
+realized_calendar_sensitivity = "Annual NASS Crop Progress timing remains a separate adaptation/timing sensitivity and is not supplied by this PDF"
+modeling_choice_status = "Floor midpoint of the most-active planting/harvest intervals is the selected U.S. engineering primary and the published begin-to-end envelope is the fixed broad-window sensitivity; final causal-model selection remains subject to validation"
+wheat_rule = "All-classes wheat outcomes cannot receive one generic wheat calendar; class-specific winter, spring, and durum bases must be constructed and combined using independent crop-area shares"
+
+[object]
+local_ignored_path = "data/raw/us_county/crop_calendar/fcdate10.pdf"
+size_bytes = 2051038
+local_sha512 = "32038684035bc4e7e4191ad58ff45657db93da0da6c0a3da4d4dfbe3ad34aa805cd9aee7e500efa8d045580b9a847d9dbff7921c1a62f78122536bd152731e41"
+format = "PDF 1.5"
+
+[object.upstream_identity]
+verified_utc = "2026-08-26T15:47:32+00:00"
+content_length = 2051038
+etag = "\"1f4bde-55960589d7580\""
+last_modified = "Sun, 17 Sep 2017 10:47:02 GMT"
+content_type = "application/pdf"
+
+[object.validation]
+pages = 51
+pdf_title = "Field Crops Usual Planting and Harvesting Dates 10/29/2010"
+pdf_author = "USDA, National Agricultural Statistics Service"
+corn_grain_state_table_page = 9
+soybean_state_table_page = 25
+durum_and_spring_wheat_state_table_page = 33
+winter_wheat_state_table_page = 34
+relevant_pages_visually_reviewed = true
+
+[derived_definitions]
+local_path = "config/us_county_nass_usual_date_definitions_2010.csv"
+size_bytes = 10435
+local_sha512 = "7d67abec184ac02e7d2684c838edd55e3c0fe138dfdffcf538ac7e5bcef32b079725cbb366993e9cefd09f33f4792248547cacf15c4571c6c55893a6a11514fe"
+generator = "us_county_validation/scripts/build_nass_usual_date_calendars.py"
+rows = 130
+crop_row_counts = "corn_grain=41; soybeans=31; durum_wheat=6; spring_wheat=10; winter_wheat=42"
+fields = "state, source page, 2009 harvested acres, and all eight published planting/harvest boundary dates"
+
+[derived_calendar_smoke]
+local_ignored_path = "data/interim/us_county/nass_usual_date_calendars_1981_2022.csv"
+size_bytes = 3430111
+local_sha512 = "2ccc66d8ad0c7abdaefbeca4307900cc7558a60192c6d95afb9b4700a0352fa20c52f1e4c049817f807fbaf0dd38822abc16da759e08aa5fe3fd71ff1e96ef92"
+rows = 10920
+state_count = 42
+crop_count = 5
+harvest_years = "1981-2022"
+roles = ["fixed_primary", "fixed_broad_window_sensitivity"]
+validation = "All rows passed unique state/crop/year/role, exact fixed month/day, season ordering, harvest-year, duration, feature-eligibility, and false-SCC gates"
+excluded_use = "This deterministic calendar is not realized annual phenology, a fitted response, damage, or SCC input"

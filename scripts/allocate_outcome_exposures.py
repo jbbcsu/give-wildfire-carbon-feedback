@@ -22,7 +22,14 @@ PANEL_REQUIRED = set(KEYS + ["irrigation", "yield_observed", "yield_t_ha"])
 WEIGHT_KEYS = ["lat", "lon_360", "crop", "irrigation"]
 WEIGHT_REQUIRED = set(
     WEIGHT_KEYS
-    + ["area_share", "weight_source_id", "weight_vintage", "source_role"]
+    + [
+        "area_share",
+        "weight_source_id",
+        "weight_vintage",
+        "source_role",
+        "production_eligible",
+        "season_specific_share",
+    ]
 )
 REQUIRED_SOURCE_ROLE = "independent_fixed_baseline_crop_area_share"
 
@@ -109,6 +116,8 @@ def allocate(
     weights: pd.DataFrame,
     features: list[str],
     expected: list[str],
+    *,
+    exclude_missing_weight_cells: bool = False,
 ) -> tuple[pd.DataFrame, dict[str, object]]:
     require_columns(panel, PANEL_REQUIRED | set(features), "Exposure panel")
     require_columns(weights, WEIGHT_REQUIRED, "Area-share table")
@@ -117,21 +126,61 @@ def allocate(
     if len(expected) < 2 or len(expected) != len(set(expected)):
         raise ValueError("Declare at least two unique irrigation labels")
     validate_outcomes(panel)
+    original_input_rows = len(panel)
+    original_outcome_keys = panel.groupby(KEYS, dropna=False).ngroups
+    original_observed_outcomes = int(
+        panel.groupby(KEYS, dropna=False)["yield_observed"].first().sum()
+    )
     panel_crops = set(panel["crop"].dropna().astype(str).unique())
     weights = weights.loc[weights["crop"].astype(str).isin(panel_crops)].copy()
-    if "production_eligible" in weights.columns:
-        if not weights["production_eligible"].isin([True, False]).all():
-            raise ValueError("production_eligible must be Boolean when supplied")
-        ineligible = sorted(
-            weights.loc[~weights["production_eligible"].astype(bool), "crop"].astype(str).unique()
-        )
-        if ineligible:
-            raise ValueError(
-                f"Area weights are not production-eligible for outcome crops {ineligible}"
-            )
+    for column in ("production_eligible", "season_specific_share"):
+        if not weights[column].isin([True, False]).all():
+            raise ValueError(f"{column} must be Boolean")
+    ineligible = sorted(
+        weights.loc[~weights["production_eligible"].astype(bool), "crop"].astype(str).unique()
+    )
+    if ineligible:
+        raise ValueError(f"Area weights are not production-eligible for outcome crops {ineligible}")
+    nonseasonal = sorted(
+        weights.loc[~weights["season_specific_share"].astype(bool), "crop"].astype(str).unique()
+    )
+    if nonseasonal:
+        raise ValueError(f"Area weights are not season-specific for outcome crops {nonseasonal}")
     source_id, vintage = validate_weights(weights, expected)
     if set(panel["irrigation"].dropna().astype(str).unique()) != set(expected):
         raise ValueError("Exposure-panel irrigation labels differ from the declared set")
+
+    support_keys = ["lat", "lon_360", "crop"]
+    supported = weights[support_keys].drop_duplicates()
+    key_status = (
+        panel[KEYS + ["yield_observed"]]
+        .drop_duplicates(KEYS)
+        .merge(supported.assign(weight_supported=True), on=support_keys, how="left")
+    )
+    missing_keys = key_status["weight_supported"].isna()
+    excluded_outcome_keys = int(missing_keys.sum())
+    excluded_observed_outcomes = int(key_status.loc[missing_keys, "yield_observed"].sum())
+    excluded_by_crop = {
+        str(crop): {
+            "outcome_keys": int(len(group)),
+            "observed_outcomes": int(group["yield_observed"].sum()),
+            "grid_cells": int(group[["lat", "lon_360"]].drop_duplicates().shape[0]),
+        }
+        for crop, group in key_status.loc[missing_keys].groupby("crop", observed=True)
+    }
+    if excluded_outcome_keys and not exclude_missing_weight_cells:
+        raise ValueError(
+            f"One or more exposure rows lack an independent area-share weight "
+            f"({excluded_outcome_keys} outcome keys; explicit exclusion was not authorized)"
+        )
+    if excluded_outcome_keys:
+        panel = panel.merge(
+            supported.assign(weight_supported=True), on=support_keys, how="left", validate="many_to_one"
+        )
+        panel = panel.loc[panel["weight_supported"].eq(True)].drop(columns="weight_supported")
+        if panel.empty:
+            raise ValueError("Excluding missing-weight cells leaves no exposure rows")
+
     numeric = panel[features].apply(pd.to_numeric, errors="coerce")
     if not np.isfinite(numeric.to_numpy(dtype=float)).all():
         raise ValueError("All declared exposure features must be finite numeric values")
@@ -170,6 +219,9 @@ def allocate(
         "schema_version": 1,
         "purpose": "Prevent duplicated aggregate yield outcomes across irrigation exposures.",
         "boundary": "Data-contract output only; no response coefficient or SCC use is authorized.",
+        "original_input_rows": int(original_input_rows),
+        "original_outcome_keys": int(original_outcome_keys),
+        "original_observed_outcomes": original_observed_outcomes,
         "input_rows": int(len(panel)),
         "output_rows": int(len(output)),
         "outcome_keys": int(panel.groupby(KEYS, dropna=False).ngroups),
@@ -180,6 +232,16 @@ def allocate(
         "weight_vintage": vintage,
         "weight_source_role": REQUIRED_SOURCE_ROLE,
         "weights_fixed_across_years": True,
+        "production_eligibility_required": True,
+        "season_specific_weights_required": True,
+        "missing_weight_policy": (
+            "exclude_entire_crop_grid_year_outcome_without_infill_or_renormalization"
+            if exclude_missing_weight_cells
+            else "fail_closed"
+        ),
+        "excluded_outcome_keys_missing_weight": excluded_outcome_keys,
+        "excluded_observed_outcomes_missing_weight": excluded_observed_outcomes,
+        "excluded_missing_weight_by_crop": excluded_by_crop,
         "one_row_per_outcome": True,
         "scc_authorized": False,
     }
@@ -188,16 +250,42 @@ def allocate(
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--panel", required=True)
+    parser.add_argument(
+        "--panel",
+        action="append",
+        required=True,
+        help="Irrigation-specific exposure panel; repeat for separate regime files",
+    )
     parser.add_argument("--weights", required=True)
     parser.add_argument("--feature", action="append", required=True)
     parser.add_argument("--expected-irrigation", action="append", required=True)
+    parser.add_argument(
+        "--exclude-missing-weight-cells",
+        action="store_true",
+        help=(
+            "Explicitly exclude complete crop-grid-year outcome keys without MIRCA support; "
+            "the audit counts every exclusion and no weights are imputed or renormalized"
+        ),
+    )
     parser.add_argument("--out", required=True)
     parser.add_argument("--audit-out", required=True)
     args = parser.parse_args()
-    panel = read_table(Path(args.panel))
+    required_panel_columns = sorted(PANEL_REQUIRED | set(args.feature))
+    panel_frames: list[pd.DataFrame] = []
+    for filename in args.panel:
+        frame = read_table(Path(filename))
+        require_columns(frame, set(required_panel_columns), f"Exposure panel {filename}")
+        panel_frames.append(frame[required_panel_columns].copy())
+    panel = pd.concat(panel_frames, ignore_index=True)
     weights = read_table(Path(args.weights))
-    output, audit = allocate(panel, weights, args.feature, args.expected_irrigation)
+    output, audit = allocate(
+        panel,
+        weights,
+        args.feature,
+        args.expected_irrigation,
+        exclude_missing_weight_cells=args.exclude_missing_weight_cells,
+    )
+    audit["input_panel_files"] = [str(Path(filename)) for filename in args.panel]
     write_table(output, Path(args.out))
     audit_path = Path(args.audit_out)
     audit_path.parent.mkdir(parents=True, exist_ok=True)

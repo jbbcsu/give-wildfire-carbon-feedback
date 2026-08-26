@@ -17,7 +17,7 @@ import numpy as np
 import pandas as pd
 import xarray as xr
 
-from climate_inputs import crop_year_window, open_daily_series
+from climate_inputs import crop_year_window, open_daily_series, validate_daily_units
 
 FEATURE_COLUMNS = [
     "harvest_year", "plant_year", "lat", "lon", "lon_360", "crop", "irrigation", "cross_year",
@@ -26,14 +26,24 @@ FEATURE_COLUMNS = [
 ]
 
 def normalize_precip(values: np.ndarray, units: str) -> np.ndarray:
-    units = (units or "").lower().replace(" ", "")
-    if "kgm-2s-1" in units or "kgm**-2s**-1" in units or units == "kg/m2/s":
+    canonical = validate_daily_units("pr", units)
+    flux_units = {"kgm-2s-1", "kgm**-2s**-1", "kg/m2/s", "kgm^-2s^-1"}
+    if canonical in flux_units:
         return values * 86400.0
     return values
 
 
 def normalize_temperature(values: np.ndarray, units: str) -> np.ndarray:
-    return values - 273.15 if (units or "").lower() in {"k", "kelvin"} else values
+    canonical = validate_daily_units("tas", units)
+    if canonical in {"k", "kelvin"}:
+        return values - 273.15
+    return values
+
+
+def validate_wet_day_threshold(value: float) -> float:
+    if not np.isfinite(value) or value <= 0:
+        raise ValueError("Wet-day threshold must be finite and strictly positive")
+    return float(value)
 
 
 def date_from_doy(year: int, doy: int) -> date:
@@ -72,6 +82,7 @@ def main() -> None:
     parser.add_argument("--out", required=True)
     parser.add_argument("--wet-day-mm", type=float, default=1.0)
     args = parser.parse_args()
+    args.wet_day_mm = validate_wet_day_threshold(args.wet_day_mm)
 
     with ExitStack() as stack:
         calendar = stack.enter_context(xr.open_dataset(args.calendar, engine="h5netcdf", decode_timedelta=False))

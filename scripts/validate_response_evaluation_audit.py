@@ -20,11 +20,25 @@ from typing import Any
 STATUS = "diagnostic_held_out_prediction_not_causal_or_scc_authorized"
 HOLDOUTS = ("spatial_block", "temporal", "climate_extreme")
 SUMMARY_STATUS = "validated_diagnostic_summary_not_model_selection_or_scc_authorized"
+NONSPATIAL_SPLIT_CONTRACT = "yield_endpoint_disjoint_purged_training_pairs"
+PURGE_RULES = {
+    "temporal": "drop_training_pairs_sharing_either_yield_endpoint_with_temporal_test",
+    "climate_extreme": "drop_training_pairs_sharing_either_yield_endpoint_with_extreme_test",
+}
+RAW_REGIME_INPUT = "regime_primitive_weather"
+PREBUILT_WEIGHTED_INPUT = "prebuilt_irrigation_weighted_basis"
+PREBUILT_CONTRACT_ID = "gdhy_aggregate_irrigation_basis_v1"
 
 
 def _positive_integer(value: Any, name: str) -> int:
     if isinstance(value, bool) or not isinstance(value, int) or value < 1:
         raise ValueError(f"{name} must be a positive integer")
+    return value
+
+
+def _nonnegative_integer(value: Any, name: str) -> int:
+    if isinstance(value, bool) or not isinstance(value, int) or value < 0:
+        raise ValueError(f"{name} must be a nonnegative integer")
     return value
 
 
@@ -54,6 +68,7 @@ def validate_audit(
     expected_crops: list[str],
     expected_year_start: int | None = None,
     expected_year_end: int | None = None,
+    expected_input_basis_mode: str | None = None,
 ) -> dict[str, Any]:
     if audit.get("status") != STATUS:
         raise ValueError("Audit has an unauthorized or unrecognized status")
@@ -61,6 +76,17 @@ def validate_audit(
         raise ValueError("Audit does not match the frozen response specification")
     if audit.get("models") != models:
         raise ValueError("Audit model order/content does not match the response specification")
+    if audit.get("nonspatial_split_contract") != NONSPATIAL_SPLIT_CONTRACT:
+        raise ValueError("Audit lacks the required yield-endpoint-disjoint split contract")
+    basis_mode = audit.get("input_basis_mode")
+    if basis_mode not in {RAW_REGIME_INPUT, PREBUILT_WEIGHTED_INPUT}:
+        raise ValueError("Audit has an unrecognized input-basis mode")
+    if expected_input_basis_mode is not None and basis_mode != expected_input_basis_mode:
+        raise ValueError("Audit input-basis mode differs from expectation")
+    contract_id = audit.get("response_basis_contract_id")
+    expected_contract = PREBUILT_CONTRACT_ID if basis_mode == PREBUILT_WEIGHTED_INPUT else None
+    if contract_id != expected_contract:
+        raise ValueError("Audit response-basis contract is inconsistent with its input mode")
     if not expected_crops or len(expected_crops) != len(set(expected_crops)):
         raise ValueError("Expected crops must be a nonempty unique list")
     crops = audit.get("crops")
@@ -154,11 +180,22 @@ def validate_audit(
                         raise ValueError(f"Spatial fold rows do not reconcile for {(crop, model)}")
                 else:
                     _positive_integer(row.get("train_rows"), "train_rows")
+                    purged = _nonnegative_integer(row.get("purged_train_rows"), "purged_train_rows")
+                    overlap = _nonnegative_integer(row.get("endpoint_overlap_count"), "endpoint_overlap_count")
+                    if overlap != 0:
+                        raise ValueError(f"Yield endpoints overlap for {(crop, model, holdout)}")
+                    if row.get("purge_rule") != PURGE_RULES[holdout]:
+                        raise ValueError(f"Unrecognized purge rule for {(crop, model, holdout)}")
                     _positive_integer(row.get("matrix_rank"), "matrix_rank")
                     condition = _finite_number(row.get("condition_number"), "condition_number")
                     if condition < 1:
                         raise ValueError("Condition number cannot be below one")
                 ranked.append({"model": model, "rmse": rmse, "mae": mae, "rmse_improvement_vs_zero": improvement})
+            if holdout != "spatial_block":
+                train_rows = [row["train_rows"] for row in rows]
+                purged_rows = [row["purged_train_rows"] for row in rows]
+                if len(set(train_rows)) != 1 or len(set(purged_rows)) != 1:
+                    raise ValueError(f"Purged split rows differ across models for {(crop, holdout)}")
             ranked.sort(key=lambda item: (item["rmse"], models.index(item["model"])))
             comparisons.append({
                 "crop": crop,
@@ -179,6 +216,9 @@ def validate_audit(
         "crops": sorted(expected_crops),
         "models": models,
         "holdouts": list(HOLDOUTS),
+        "nonspatial_split_contract": NONSPATIAL_SPLIT_CONTRACT,
+        "input_basis_mode": basis_mode,
+        "response_basis_contract_id": contract_id,
         "n_level_rows": n_levels,
         "n_observed_level_rows": n_observed,
         "n_consecutive_pairs": n_pairs,
@@ -204,6 +244,10 @@ def main() -> None:
     parser.add_argument("--expected-crop", action="append", required=True)
     parser.add_argument("--expected-year-start", type=int)
     parser.add_argument("--expected-year-end", type=int)
+    parser.add_argument(
+        "--expected-input-basis-mode",
+        choices=[RAW_REGIME_INPUT, PREBUILT_WEIGHTED_INPUT],
+    )
     parser.add_argument("--summary-out")
     args = parser.parse_args()
     models, digest = load_spec(Path(args.spec))
@@ -211,6 +255,7 @@ def main() -> None:
     summary = validate_audit(
         audit, models, digest, args.expected_crop,
         args.expected_year_start, args.expected_year_end,
+        args.expected_input_basis_mode,
     )
     rendered = json.dumps(summary, indent=2, sort_keys=True) + "\n"
     if args.summary_out:

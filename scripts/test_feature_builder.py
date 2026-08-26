@@ -11,10 +11,35 @@ import numpy as np
 import pandas as pd
 import xarray as xr
 
+from build_crop_year_features import (
+    normalize_precip,
+    normalize_temperature,
+    validate_wet_day_threshold,
+)
 from reconcile_stage_season_features import validate_row_invariants
 
 
 PROJECT = Path(__file__).resolve().parents[1]
+
+values = np.array([1.0])
+assert normalize_precip(values, "kg m-2 s-1")[0] == 86400.0
+assert normalize_precip(values, "mm/day")[0] == 1.0
+assert np.isclose(normalize_temperature(np.array([273.15]), "K")[0], 0.0)
+assert normalize_temperature(values, "degC")[0] == 1.0
+for normalizer, units in ((normalize_precip, ""), (normalize_precip, "inch/day"), (normalize_temperature, ""), (normalize_temperature, "F")):
+    try:
+        normalizer(values, units)
+    except ValueError as error:
+        assert "Unsupported" in str(error)
+    else:
+        raise AssertionError(f"Unknown units {units!r} were accepted")
+for threshold in (0.0, -1.0, np.nan):
+    try:
+        validate_wet_day_threshold(threshold)
+    except ValueError as error:
+        assert "strictly positive" in str(error)
+    else:
+        raise AssertionError(f"Invalid wet-day threshold {threshold} was accepted")
 
 with tempfile.TemporaryDirectory() as temporary:
     root = Path(temporary)

@@ -1,0 +1,71 @@
+schema_version = 1
+contract_id = "us_county_competing_drought_predictor_families_v1"
+status = "pdsi_real_smoke_authorized_spei_metadata_only"
+response_estimation_authorized = false
+scc_use_authorized = false
+
+[hierarchy]
+families = ["direct_weather", "pdsi", "spei"]
+direct_weather_rule = "Use the parsimonious precipitation-quantity specification as the direct-weather baseline; retain within-season distribution features only for robust incremental outer-holdout value."
+comparison_rule = "Use identical outer holdout outcome keys for every eligible family and report null or worse performance."
+selection_rule = "Select a moisture family, and SPEI scale/distribution within that family, using training data only. Do not select by SCC magnitude."
+no_double_counting = "A PDSI or SPEI response replaces the raw precipitation/temperature moisture response in that run. Do not stack or sum the families."
+exception_rule = "Any future joint attribution design that combines index and raw drivers requires a separately frozen decomposition and counterfactual contract."
+
+[pdsi]
+source_id = "noaa_nclimdiv_county_pdsi_v1_0_0_20260806"
+provenance = "data/provenance/nclimdiv_county_pdsi_20260806.toml"
+calibration_start_year = 1931
+calibration_end_year = 1990
+moderate_threshold = -2.0
+severe_threshold = -3.0
+scale_months = 0
+scale_role = "stateful_palmer_index_not_fixed_accumulation"
+distribution = "palmer_water_balance"
+role = "historical U.S. county benchmark only"
+
+[spei]
+source_id = "noaa_nidis_nclimgrid_monthly_spei"
+provenance = "data/provenance/nclimgrid_monthly_spei_candidates.toml"
+calibration_start_year = 1895
+calibration_end_year = 2014
+candidate_scales_months = [1, 3, 6]
+primary_distribution_candidate = "pearson_type_iii"
+sensitivity_distribution = "gamma"
+moderate_threshold = -1.0
+severe_threshold = -1.5
+status = "large objects pinned by HTTP identity but not acquired or decoded"
+
+[calendar]
+source_id = "usda_nass_field_crops_usual_dates_2010"
+primary_role = "fixed_primary"
+sensitivity_role = "fixed_broad_window_sensitivity"
+preplant_days = 90
+stage_fractions = [0.0, 0.3, 0.7, 1.0]
+monthly_alignment = "day-weight each monthly index value over the exact overlap with preplant, stage, and season windows; no interpolation"
+incomplete_window_rule = "fail closed; do not impute a missing index month"
+
+[irrigation]
+index_interpretation = "PDSI/SPEI are climatic water-stress indicators and do not observe applied irrigation or realized root-zone soil moisture."
+estimation_rule = "Estimate or validate separately on high-rainfed and mixed/irrigated support; do not treat a lower irrigated-sample coefficient as a directly identified irrigation adaptation effect."
+same_index_across_practices = true
+contemporaneous_irrigation_control_allowed = false
+
+[holdouts]
+common_key = ["county_geoid", "outcome_crop", "harvest_year", "irrigation_practice"]
+outer_splits = ["spatial", "temporal", "extreme"]
+common_support_required = true
+final_holdout_selection_allowed = false
+physical_index_calibration_may_use_outcome = false
+temporal_holdout_rule = "The final temporal holdout must begin after the frozen index calibration endpoint or use a fold-specific training-only index calibration."
+terminal_holdout_rule = "Every non-holdout harvest year must precede every final temporal-holdout harvest year."
+spatial_fold_rule = "A county must retain one spatial fold across all harvest years."
+outcome_leakage_rule = "Predictor-family matrices must not contain yield, production, or other outcome-value columns."
+
+[output_boundary]
+analysis_role = "historical_county_validation_only"
+allowed_index_families_per_file = 1
+raw_precipitation_or_temperature_columns_allowed = false
+causal_claim_authorized = false
+damage_claim_authorized = false
+scc_claim_authorized = false

@@ -1,0 +1,73 @@
+schema_version = 1
+contract_id = "us_county_daily_weather_calendar_weights_candidate_v1"
+status = "bounded_real_smoke_authorized_defaults_selected"
+bounded_real_feature_smoke_authorized = true
+full_panel_feature_construction_authorized = false
+response_estimation_authorized = false
+scc_use_authorized = false
+primary_weight_validator = "us_county_validation/scripts/build_county_polygon_nclimgrid_weights.py::build_weights/validate_polygon_weights"
+cdl_sensitivity_validator = "us_county_validation/scripts/validate_county_crop_weather_contract.py"
+
+[estimand]
+role = "U.S. county validation of precipitation-pattern and temperature response; coefficients are not mechanically transferred to global GIVE"
+direct_practice_target = "Within-county comparison support from paired NASS irrigated and non-irrigated yield series where published"
+aggregate_target = "National all-practice county outcome restricted by fixed 2017 crop-specific irrigated-area share"
+weather_window = "1981-2019 candidate for the historical direct-practice screen; 2018-2022 for the aggregate high-rainfed screen"
+
+[weather]
+primary_source_id = "nclimgrid_daily_v1_0_0_20220829"
+primary_grid_id = "nclimgrid_daily_conus_1_24_degree"
+primary_fields = ["prcp", "tmin", "tmax", "tavg"]
+primary_temporal_resolution = "daily; one monthly NetCDF per object"
+date_label_rule = "Each label is the 24-hour period ending early morning of the specified date"
+primary_provenance_smoke = "data/provenance/nclimgrid_daily_198101.toml"
+growing_season_smoke_provenance = "data/provenance/nclimgrid_daily_1981_cuming_smoke.toml"
+full_period_spatial_weight = "Census county-polygon intersection area on nClimGrid; explicitly a county-average proxy rather than crop-pixel exposure"
+gridmet_role = "historical exposure robustness only; not sole evidence for precipitation intensity/frequency trends because the publisher documents input-source inhomogeneities"
+daymet_role = "candidate 1 km robustness product; exact object identity, license, and bounded acquisition still required"
+weather_product_robustness_required = true
+
+[feature_order]
+step_1 = "For each weather-grid cell and calendar class, align daily observations to the declared crop season and stages"
+step_2 = "At grid-cell level construct seasonal/stage quantity, normalized shares/timing/concentration, wet-day occurrence and conditional intensity, CDD, Rx1day, Rx5day, temperature, heat, and declared interactions"
+step_3 = "Apply county-polygon intersection-area weights for the primary county-average proxy; separately apply fixed CDL crop-pixel weights for the sensitivity"
+step_4 = "For all-classes wheat only, apply independent fixed winter/spring/durum class shares to class-specific bases"
+step_5 = "Join exactly one resulting county-outcome-crop-year feature row to each selected NASS outcome support row"
+post_county_mean_nonlinear_construction_allowed = false
+
+[calendar]
+fixed_primary_source_id = "usda_nass_field_crops_usual_dates_2010"
+fixed_primary_provenance = "data/provenance/nass_field_crop_calendar_2010.toml"
+fixed_primary_role = "avoids conditioning the primary response on realized planting/harvest timing that itself responds to weather and adaptation"
+candidate_boundary_rule = "representative season from the floor midpoint of the published most-active planting interval to the floor midpoint of the published most-active harvest interval"
+candidate_boundary_rule_status = "selected engineering default for U.S. feature construction; final causal-model calendar selection remains subject to validation"
+broader_window_sensitivity = "published planting-begin through harvest-end envelope"
+realized_timing_sensitivity = "annual NASS Crop Progress dates, after separate exact-source acquisition and a declared interpolation rule"
+stage_rule = "equal-duration thirds remain an engineering diagnostic; production phenological-stage boundaries require a crop-specific source or explicit modeling decision"
+wheat_rule = "Never assign one generic calendar to all-classes wheat; construct winter, spring, and durum bases separately before class-share weighting"
+
+[crop_area_weights]
+spatial_source = "USDA NASS Cropland Data Layer"
+spatial_input_plan = "data/provenance/us_county_spatial_input_plan.toml"
+full_period_primary = "county-polygon area-weighted nClimGrid, labeled county-average proxy"
+aggregate_2018_2022_candidate = "fixed 2017 CDL crop-pixel sensitivity; multi-year pre-outcome CDL-frequency mask as another sensitivity"
+direct_1981_2019_status = "county-polygon proxy selected as primary; crop-specific historical location remains unavailable before national CDL coverage"
+historical_options = [
+  "restrict corn/soy direct-practice crop-area-weighted analysis to 2008-2019 and report lost support",
+  "use a fixed later CDL frequency mask retrospectively with mask-vintage/stability sensitivities and explicit measurement-error caveat",
+  "use a coarser independent circa-2000 crop map for earlier years as a sensitivity",
+]
+county_polygon_interpretation = "selected primary county-average proxy, never described as crop-pixel or average-farm exposure"
+county_centroid_role = "labeled diagnostic only"
+minimum_coverage_fraction = "not_frozen; record and report coverage continuously before selecting an exclusion threshold"
+
+[geography]
+boundary_source = "2019 Census TIGER/Line county and equivalent shapefile"
+fips_rule = "Preserve five-digit state-plus-county GEOIDs exactly; no imputation or invented identifier"
+historical_rule = "Each used GEOID must be stable through its outcome years or carry an explicit authoritative county-change crosswalk"
+unresolved_county_change_eligible = false
+
+[output_boundary]
+output_grain = "county_geoid x outcome_crop x harvest_year x weather_product x calendar_role x weight_role"
+required_flags = ["analysis_role=historical_county_validation_only", "response_estimation_authorized=false", "scc_authorized=false"]
+raw_and_derived_storage = "data/raw/us_county and data/interim/us_county remain gitignored"

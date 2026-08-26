@@ -2,10 +2,19 @@
 
 ## Decision
 
-Add drought metrics as an explicit, competing representation of water stress.
-The current feature panel contains maximum consecutive dry days (CDD),
-wet-day frequency, rainfall total, and heavy-rain metrics, but it does **not**
-yet contain PDSI, SPEI, or root-zone soil moisture.  CDD alone is not an
+Add drought metrics as explicit, competing representations of water stress.
+PDSI/scPDSI and SPEI are serious candidate predictors, especially for the U.S.
+yield validation, and receive the same outer-validation priority as direct
+precipitation features. They are not relegated to an after-the-fact robustness
+check. The parsimonious direct-weather reference remains joint temperature plus
+crop-calendar seasonal precipitation quantity; neither timing features nor a
+drought index is privileged before validation.
+The validated 54-column maize/soybean candidate basis contains direct-pattern
+CDD, wet-day frequency and intensity, rainfall amount/timing, Rx1day, and
+Rx5day. It does **not** contain SPEI or root-zone soil moisture. A separate CRU
+scPDSI path now has fully validated aggregate-regime maize and soybean
+candidate panels for 1982--1989 and 2012--2016, but no fitted response or future paired
+drought path. CDD alone is not an
 adequate drought representation because it omits antecedent moisture and
 evaporative demand.
 
@@ -15,16 +24,16 @@ PDSI and SPEI summarize climatic water balance: both embed precipitation and
 temperature-derived evaporative demand (and PDSI also uses a soil-water
 accounting formulation).  Placing PDSI beside raw precipitation and
 temperature in one unrestricted regression creates severe collinearity and
-makes a ``precipitation-only'' attribution ambiguous.  PDSI is therefore a
-robustness/benchmark exposure family, not a control that is blindly stacked
-onto the direct precipitation mechanism.
+makes a ``precipitation-only'' attribution ambiguous. PDSI is therefore a
+serious competing exposure family, not a control that is blindly stacked onto
+the direct precipitation mechanism.
 
 ## Pre-specified exposure families
 
 | Family | Main inputs | Role |
 |---|---|---|
-| Direct precipitation-pattern | Stage precipitation total, rainy-day frequency, conditional intensity, CDD, timing/concentration, Rx1/Rx5, joint temperature | Primary attribution model: preserves a transparent precipitation-pattern counterfactual. |
-| Climatic water balance | Crop-calendar-aligned SPEI at 1-, 3-, and 6-month accumulation windows; self-calibrated PDSI where coverage/resolution are adequate | Drought robustness model; tests whether antecedent P-minus-PET stress predicts outcomes better than direct indicators. |
+| Direct precipitation-pattern | Stage precipitation total, rainy-day frequency, conditional intensity, CDD, timing/concentration, Rx1/Rx5, joint temperature | Candidate family with joint temperature plus seasonal quantity as the parsimonious reference; add pattern terms only for stable incremental held-out value. |
+| Climatic water balance | Crop-calendar-aligned SPEI at 1-, 3-, and 6-month accumulation windows; self-calibrated PDSI where coverage/resolution are adequate | Serious competing family; tests whether antecedent P-minus-PET stress predicts outcomes better and more stably than direct indicators. |
 | Soil-moisture state | Root-zone/total-column soil moisture anomaly, with prior-season and stage values | Physical mediator benchmark, particularly where irrigation or stored water decouples rainfall from crop water. |
 | Compound drought | Pre-specified hot-dry and wet-heat indicators, using temperature plus SPEI/soil-moisture class | Extreme-risk evaluation, not a substitute for the continuous primary response. |
 
@@ -42,29 +51,51 @@ onto the direct precipitation mechanism.
    planting and each crop stage rather than calendar year.  Do not fit the
    standardization distribution using holdout or future data.
 4. Use self-calibrated PDSI only if its spatial/temporal resolution passes a
-   coverage check against the 0.5-degree crop grid.  It is an external
-   robustness benchmark, not a substitute for daily crop-season exposures.
+   coverage check against the 0.5-degree crop grid. It competes with, rather
+   than supplements, the direct daily crop-season representation.
 5. For every index, compute the paired baseline/pulse change from the same
    climate-model member, scenario, and bias-adjustment protocol.
 
-The executable CRU benchmark path now implements item 4 without estimating a
-response. `build_crop_stage_scpdsi_features.py` converts monthly CRU scPDSI to
-day-weighted crop-stage means, stage minima, and days at or below an explicit
-threshold. It normalizes longitude conventions but never interpolates,
-requires exact 0.5-degree grid correspondence and complete monthly coverage,
-and excludes an entire crop year if any stage is incomplete. The validator,
-partition combiner, and one-to-one panel join retain a machine-readable
-historical-only role. These fields are eligible only for the climatic-index
-benchmark family; they are not stacked into the direct-pattern model and are
-not projected as SCC inputs.
+The executable CRU benchmark path partially implements item 4 without
+estimating a response. `build_crop_stage_scpdsi_features.py` converts monthly
+CRU scPDSI to day-weighted crop-stage means, stage minima, and monthly-index
+day-equivalents at or below an explicit threshold. A monthly index value is
+assigned to every overlapping calendar day; these are not observations of
+daily drought occurrence. The builder normalizes longitude conventions but never
+interpolates, requires exact 0.5-degree grid correspondence and complete
+monthly coverage, and excludes an entire crop-year key if any irrigation
+calendar lacks a complete stage. The validator and partition combiner retain a
+machine-readable historical-only role.
+
+`allocate_irrigation_scpdsi_basis.py` then constructs 16 seasonal/stage mean,
+minimum, threshold day-equivalent, and threshold-fraction features inside each regime
+before applying fixed MIRCA-2000 area shares. It emits no direct precipitation
+or temperature columns. Source-bound manifests tie every partition to the raw
+CRU and calendar hashes and embed the exact planting/maturity fields used by
+the direct-weather panels. The candidate validator fully recomputes allocation
+from those derived stage tables and checks their manifest chain; it does not
+claim to recompute every monthly metric directly from raw CRU. It rejects any fit, causal,
+future, or SCC authorization. The 2012--2016 output has 150,490 maize rows
+(59,772 positive GDHY outcomes) and 110,336 soybean rows (26,601 outcomes).
+The 1982--1989 output has 240,784 maize rows (115,758 outcomes) and 176,537
+soybean rows (47,653 outcomes).
+The -2 threshold remains a diagnostic construction value rather than a
+selected production threshold. Use `run_scpdsi_candidate_chunk.sh` to reproduce
+the partition, allocation, and validation chain. No complete SPEI,
+soil-moisture, fitted drought-response, or future paired-drought product exists.
+These fields are eligible only for the climatic-index benchmark family; they
+are not stacked into the direct-pattern model and are not projected as SCC
+inputs.
 
 ### US county validation panel
 
-1. Derive county crop-area-weighted direct weather features from gridMET and
-   validate against Daymet where feasible.
+1. Derive full-period county direct-weather features from nClimGrid-Daily using
+   county-polygon area weighting as the primary county-average proxy. Evaluate
+   fixed-CDL crop-pixel weighting separately, with gridMET and Daymet as weather-
+   product robustness routes where their support and trend limitations permit.
 2. Acquire the weekly U.S. Drought Monitor (USDM) archive as an **observed
    composite-drought validation outcome**, not a future climate input. Match
-   crop-area-weighted county drought-severity weeks to NASS yields and estimate
+   spatially aligned county drought-severity weeks to NASS yields and estimate
    a Kuwayama et al.-style fixed-effect benchmark separately for high-rainfed
    and mixed/irrigated samples.
 3. Obtain the documented gridMET reference-ET and PDSI products, and calculate
@@ -125,6 +156,10 @@ moisture stress; do not sum both.
   nested spatial/time/extreme holdouts; tune only in training folds.
 * Report performance, calibration, tail behavior, and feature coverage.  Do
   not select an index because it produces a larger SCC.
+* Report null and adverse comparisons. Permit the seasonal-quantity reference,
+  PDSI/scPDSI, or SPEI family to lead if it is more stable and parsimonious;
+  retain distribution features only where they add robust incremental
+  out-of-sample value.
 * The direct-pattern model supports a declared precipitation-pattern
   attribution.  Water-balance/soil-moisture models support total climate-water
   stress estimates; any precipitation-only decomposition must be recomputed

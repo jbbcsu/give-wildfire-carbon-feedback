@@ -16,7 +16,14 @@ import numpy as np
 import pandas as pd
 import xarray as xr
 
-from build_crop_year_features import date_from_doy, max_run, normalize_precip, normalize_temperature, rolling_max
+from build_crop_year_features import (
+    date_from_doy,
+    max_run,
+    normalize_precip,
+    normalize_temperature,
+    rolling_max,
+    validate_wet_day_threshold,
+)
 from climate_inputs import crop_year_window, open_daily_series
 
 
@@ -42,6 +49,7 @@ def main() -> None:
     parser.add_argument("--stage-fractions", default="0,0.3,0.7,1")
     parser.add_argument("--wet-day-mm", type=float, default=1.0)
     args = parser.parse_args()
+    args.wet_day_mm = validate_wet_day_threshold(args.wet_day_mm)
     fractions = [float(x) for x in args.stage_fractions.split(",")]
     if fractions[0] != 0 or fractions[-1] != 1 or any(a >= b for a, b in zip(fractions, fractions[1:])):
         raise ValueError("Stage fractions must start at 0, end at 1, and strictly increase")

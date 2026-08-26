@@ -43,13 +43,24 @@ for crop_index, crop in enumerate(crops):
                     {"fold": 1, "train_rows": 20, "test_rows": 10, "matrix_rank": 4, "condition_number": 2.5},
                 ]
             else:
-                entry.update(train_rows=40, matrix_rank=4, condition_number=2.0)
+                suffix = "temporal_test" if holdout == "temporal" else "extreme_test"
+                entry.update(
+                    train_rows=40,
+                    matrix_rank=4,
+                    condition_number=2.0,
+                    purged_train_rows=2,
+                    endpoint_overlap_count=0,
+                    purge_rule=f"drop_training_pairs_sharing_either_yield_endpoint_with_{suffix}",
+                )
             results.append(entry)
 
 valid = {
     "status": STATUS,
     "spec_sha256": digest,
     "models": models,
+    "nonspatial_split_contract": "yield_endpoint_disjoint_purged_training_pairs",
+    "input_basis_mode": "regime_primitive_weather",
+    "response_basis_contract_id": None,
     "crops": crops,
     "n_level_rows": 200,
     "n_observed_level_rows": 120,
@@ -68,10 +79,17 @@ assert summary["harvest_years"] == [1982, 1983, 1984]
 
 for mutator, expected in (
     (lambda audit: audit.update(spec_sha256="bad"), "frozen response"),
+    (lambda audit: audit.update(input_basis_mode="unknown"), "input-basis mode"),
     (lambda audit: audit["results"].pop(), "Incomplete result product"),
     (lambda audit: audit["results"][0].update(zero_change_rmse=0.7), "benchmark differs"),
     (lambda audit: audit["results"][0].update(rmse_improvement_vs_zero=0.0), "arithmetic fails"),
     (lambda audit: audit["results"][0]["folds"][0].update(test_rows=9), "do not reconcile"),
+    (
+        lambda audit: next(
+            row for row in audit["results"] if row["holdout"] == "temporal"
+        ).update(endpoint_overlap_count=1),
+        "Yield endpoints overlap",
+    ),
 ):
     broken = copy.deepcopy(valid)
     mutator(broken)

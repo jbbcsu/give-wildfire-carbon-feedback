@@ -1,0 +1,101 @@
+schema_version = 1
+specification_id = "precipitation_distribution_predictive_diagnostic_v1"
+specification_version = "1.0.0"
+diagnostic_contract_id = "gdhy_precipitation_distribution_predictive_diagnostic_v1"
+source_basis_contract_id = "gdhy_aggregate_irrigation_distribution_candidate_v1"
+source_basis_allocation_order = "regime_basis_before_fixed_area_weighting"
+source_basis_feature_count = 54
+minimum_train_rows = 100
+minimum_test_rows = 100
+
+[authorization]
+held_out_predictive_fit_authorized = true
+coefficient_export_authorized = false
+causal_interpretation_authorized = false
+production_model_selection_authorized = false
+response_draw_export_authorized = false
+scc_use_authorized = false
+source_basis_fit_authorized_expected = false
+
+[construction]
+wet_day_threshold_mm = 1.0
+wet_day_threshold_status = "diagnostic_QA_choice_not_production_selection"
+stage_fractions = [0.0, 0.3, 0.7, 1.0]
+stage_fraction_status = "diagnostic_temporal_proxies_not_phenological_stages_or_production_selection"
+stage_labels = ["0-30%", "30-70%", "70-100%"]
+algebraic_redundancy_rule = "use_timing_centroid_and_concentration_hhi; omit_all_stage_precipitation_shares"
+
+[validation]
+spatial_folds = 5
+spatial_block_degrees = 5.0
+temporal_holdout_years = 2
+extreme_quantile = 0.95
+extreme_features = ["cdd_max_days", "rx1day_mm"]
+seed = "precipitation-distribution-diagnostic-v1"
+nonspatial_split_contract = "yield_endpoint_disjoint_purged_training_pairs"
+
+[feature_sets.temperature_controls]
+features = ["stage1_tmean_c", "stage2_tmean_c", "stage3_tmean_c"]
+
+[feature_sets.seasonal_quantity]
+features = ["log1p_precip_mm"]
+
+[feature_sets.timing_concentration]
+features = ["precipitation_timing_centroid", "precipitation_concentration_hhi"]
+
+[feature_sets.occurrence_intensity]
+features = [
+  "stage1_wet_day_frequency", "stage2_wet_day_frequency", "stage3_wet_day_frequency",
+  "stage1_mean_wet_day_intensity_mm", "stage2_mean_wet_day_intensity_mm", "stage3_mean_wet_day_intensity_mm",
+]
+
+[feature_sets.dry_spells]
+features = ["stage1_cdd_fraction", "stage2_cdd_fraction", "stage3_cdd_fraction"]
+
+[feature_sets.wet_extremes]
+features = [
+  "stage1_rx1day_mm", "stage2_rx1day_mm", "stage3_rx1day_mm",
+  "stage1_rx5day_mm", "stage2_rx5day_mm", "stage3_rx5day_mm",
+]
+
+[models.temperature_control]
+feature_sets = ["temperature_controls"]
+
+[models.seasonal_quantity]
+feature_sets = ["temperature_controls", "seasonal_quantity"]
+
+[models.quantity_plus_timing_concentration]
+feature_sets = ["temperature_controls", "seasonal_quantity", "timing_concentration"]
+
+[models.quantity_plus_occurrence_intensity]
+feature_sets = ["temperature_controls", "seasonal_quantity", "occurrence_intensity"]
+
+[models.quantity_plus_dry_spells]
+feature_sets = ["temperature_controls", "seasonal_quantity", "dry_spells"]
+
+[models.quantity_plus_wet_extremes]
+feature_sets = ["temperature_controls", "seasonal_quantity", "wet_extremes"]
+
+[models.quantity_plus_all_distribution]
+feature_sets = [
+  "temperature_controls", "seasonal_quantity", "timing_concentration",
+  "occurrence_intensity", "dry_spells", "wet_extremes",
+]
+
+[comparison]
+model_order = [
+  "temperature_control",
+  "seasonal_quantity",
+  "quantity_plus_timing_concentration",
+  "quantity_plus_occurrence_intensity",
+  "quantity_plus_dry_spells",
+  "quantity_plus_wet_extremes",
+  "quantity_plus_all_distribution",
+]
+seasonal_quantity_reference = "seasonal_quantity"
+temperature_reference = "temperature_control"
+interpretation = "held-out predictive comparison only; differences do not identify causal rainfall effects"
+
+[boundary]
+status = "noncausal_coefficient_suppressing_diagnostic_not_eligible_for_production_or_SCC"
+forbidden = "do not report or export fitted coefficients, select a production response, calculate damages, or pass any diagnostic result to GIVE"

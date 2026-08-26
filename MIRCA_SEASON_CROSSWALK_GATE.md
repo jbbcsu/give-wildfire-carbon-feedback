@@ -10,7 +10,7 @@ for GDHY's two rice seasons or spring/winter wheat outcomes.
 |---|---|---|---|
 | `mai` | Maize | Eligible | Use the fixed-vintage annual share. |
 | `soy` | Soybeans | Eligible | Use the fixed-vintage annual share. |
-| `ri1`, `ri2` | Rice | Blocked | Validate the 5′ monthly `Rice1`, `Rice2`, and `Rice3` products, aggregate season-specific hectares to 0.5°, and reconcile their sum to annual Rice. |
+| `ri1`, `ri2` | Rice | Blocked after real-data gate | Resolve the failed 5′ monthly `Rice1`--`Rice3` reconciliation against annual Rice using publisher code or clarification; do not relax the tolerance simply to admit the data. |
 | `swh`, `wwh` | Wheat | Blocked | Obtain an explicit spring/winter harvested-area source or a publisher-supported mapping; do not infer it from `Wheat1`/`Wheat2`. |
 
 This gate is fail-closed in the weight builder and allocator. It is not a
@@ -50,26 +50,41 @@ The ignored discovery files are pinned here so the totals are reproducible:
 | `MIRCA-OS_2000_rf_v2.csv` | 9,295,446 | 129,530 | `9d0beb530f39f751918dfa2193625b0361e6aa4a3a0940bf551379e0fbc401031b366453a3952bde831a8c8b920e64f9876b5901e330f66db5358ea81181a558` |
 
 They require Latin-1 decoding. They support the outcome-blind label and total
-audit only; they are not gridded irrigation weights. A 1,537,240,142-byte
-local transfer named `Monthly_Growing_Area_Grids_v2.rar` also exists in ignored
-storage (local SHA-512
-`b01ca694d47967024bc8544037a381a6f267503dfeb12ea0b89dcc1ed23b35bdb8b8ce1cd5af014169f5616c12a2facc960ae8f8b0209bdc4adf6d768cb56a7c`).
-Its official object identity, inventory, extraction, and grid contents have
-not passed the protocol below, so it is not yet a validated rice input.
+audit only; they are not gridded irrigation weights. The official
+1,537,240,142-byte monthly archive is now object-identity and SHA-512 pinned,
+and all 30 expected Rice1/Rice2/Rice3 filenames for two systems and five
+vintages are inventoried. The metadata audit passes 21 files but fails nine:
+every rainfed Rice1--Rice3 file for 2005, 2010, and 2015 declares source year
+2020. Filenames do not override source metadata, so those vintages are blocked.
+All six 2000 files separately pass coordinate, dimension, month, metadata,
+nonnegativity, and 5′-to-0.5° aggregation checks. Exact provenance is in
+`data/provenance/mirca_os_v2_rice_season_inputs.toml`.
+
+The real 2000 gate nevertheless fails at the predeclared `rtol=1e-5` and
+`atol=0.1 ha`. Taking each season's maximum over the 12 monthly layers and
+summing Rice1--Rice3 gives 101,629,649.87 irrigated ha, 64,247.23 ha more than
+the publisher annual map, and 64,022,120.85 rainfed ha, 5,302.04 ha more than
+the publisher annual map. Maximum 0.5° cell differences are 4,988.62 and
+2,137.87 ha, respectively. Both systems therefore fail; the executable writes
+a failure audit and no weight table. These are source-consistency diagnostics,
+not yield effects.
 
 ## Rice validation protocol
 
-1. Pin the official monthly archive byte length, source object identity,
-   locally computed SHA-512, license, and exact inventory. Keep it ignored.
-2. Require explicit `Rice1`, `Rice2`, and `Rice3` files for both irrigation
-   systems and every selected fixed vintage; reject missing or duplicate files.
-3. Validate WGS84 grid coordinates, 5′ resolution, nonnegative finite hectares,
-   month order, units, and zero/nodata semantics.
-4. For each subcrop/system/grid cell, recover annual harvested area using the
+1. **Passed:** pin the official monthly archive byte length, source object
+   identity, locally computed SHA-512, license, and exact inventory; keep it
+   ignored.
+2. **Filename inventory passed; metadata failed:** all 30 expected names exist,
+   but the nine 2005--2015 rainfed files carry year 2020 in their attributes.
+3. **Passed for all six 2000 files:** validate WGS84 coordinates, 5′ resolution,
+   nonnegative finite hectares, month order, source metadata, and nodata handling.
+4. **Implemented:** for each subcrop/system/grid cell, recover annual harvested area using the
    publisher's documented maximum-over-month rule. Sum 5′ hectares into exact
    0.5° cells; never average area.
-5. Require the aggregated sum of Rice1--Rice3 to reconcile to the released
-   annual 0.5° Rice map within a predeclared numerical tolerance.
+5. **Failed for 2000:** require the aggregated sum of Rice1--Rice3 to reconcile
+   to the released annual 0.5° Rice map within the predeclared tolerance. The
+   next step is an audit of publisher generation code or clarification, not an
+   outcome-informed tolerance change.
 6. Compare Rice1/Rice2 calendar timing and spatial support with the locked
    GGCMI/GDHY `ri1`/`ri2` crosswalk. Disclose Rice3 and all ambiguous cells;
    do not renormalize them into the two observed outcomes.
@@ -80,3 +95,11 @@ not passed the protocol below, so it is not yet a validated rice input.
 No analogous MIRCA-only route is currently defensible for spring versus
 winter wheat. That input gap remains open rather than being filled from timing
 heuristics.
+
+The released [official code repository](https://github.com/EndiKebede/MIRCA-OS_Code/tree/c72d9dab7722a1c04ca1c7e90e21a16bc4a74089)
+predates v2. Its mosaicking notebook confirms maximum-over-month and
+sum-across-season logic, but it does not contain the March 2026 generation
+changes and therefore cannot resolve either v2 defect. The separate maximum-
+monthly broad-Rice product is not a substitute because it omits multiple
+cropping. Publisher clarification or corrected season-maximum intermediates
+are required; tolerance relaxation is not permitted.

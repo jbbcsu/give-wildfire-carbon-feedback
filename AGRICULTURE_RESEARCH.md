@@ -8,7 +8,7 @@ daily climate, crop-calendar, water-balance, yield, and CO2-response
 information.  They are suitable as a structured-scenario and uncertainty
 benchmark, but they do not directly provide a causal, monetary partial effect
 of precipitation timing that can be added to GIVE.  The first publishable
-implementation should therefore replace the temperature-only MooreAg
+implementation should therefore replace the temperature-indexed MooreAg
 agriculture sector with a jointly estimated temperature--precipitation
 response, benchmarked to crop-model ensembles and translated once through a
 documented economic/welfare layer.
@@ -27,7 +27,7 @@ agricultural sector, never both.
 |---|---|---|---|
 | Global gridded crop-model ensembles (GGCMI/ISIMIP/AgMIP) | Daily temperature, precipitation, radiation, CO2 and management inputs are propagated through crop physiology/water balance; multi-model, crop, scenario, and irrigation uncertainty can be retained. | Structural models have calibration/management and CO2-fertilization uncertainty; their counterfactuals are not empirical causal estimates, and yield changes need a market/welfare mapping. | Primary climate-impact benchmark and source of projected feature/yield scenarios. |
 | Panel econometrics with crop-calendar/stage weather | Can estimate conditional historical associations with location/year fixed effects and jointly control temperature, water, and shocks. | Coverage and measurement error vary; extrapolation to unobserved extremes and long-run adaptation is weak. | Primary estimating strategy if global gridded yields and harmonized daily weather pass diagnostics. |
-| Existing Moore et al. / GTAP welfare surface | Already matches GIVE's 16 FUND-region economic architecture. | In this checkout it is temperature-only and cannot identify precipitation effects. | Benchmark only; replace rather than augment. |
+| Existing Moore et al. / GTAP welfare surface | Already matches GIVE's 16 FUND-region economic architecture. | In this checkout it is indexed by temperature and has no explicit separable precipitation input, so it cannot identify precipitation effects. | Benchmark only; replace rather than augment. |
 | Machine learning | Flexible interactions and sequences can improve prediction in data-rich regions. | Prediction alone is not a climate-change causal effect; distribution shift, correlated drivers, and weak interpretability are material. | Later robustness/emulator layer, not main causal model. |
 
 Relevant peer-reviewed foundations include: [Rosenzweig et al. (2014)](https://doi.org/10.1073/pnas.1401979111)
@@ -62,7 +62,7 @@ questions and cannot be converted into one universal coefficient.
 
 | Evidence class | Study and usable contribution | Boundary for this project |
 |---|---|---|
-| US high-frequency empirical response | [Lesk, Coffel, and Horton (2020)](https://doi.org/10.1038/s41558-020-0830-0) relates county maize and soybean yields to the *distribution of hourly rainfall intensity* during the growing season, conditional on the broader climate setting. It finds a nonlinear response, including damage at the rarest hourly extremes. | Closest direct template for the US NASS track's wet-day/intensity distribution. It is not a global welfare function and should be re-estimated with a declared irrigation gate and contemporary crop-area weather weights. |
+| US high-frequency empirical response | [Lesk, Coffel, and Horton (2020)](https://doi.org/10.1038/s41558-020-0830-0) relates county maize and soybean yields to the *distribution of hourly rainfall intensity* during the growing season, conditional on the broader climate setting. It finds a nonlinear response, including damage at the rarest hourly extremes. | Closest direct template for the US NASS track's wet-day/intensity distribution. It is not a global welfare function and should be re-estimated with a declared irrigation gate, the county-polygon primary proxy, and a separate defensibly vintaged crop-pixel sensitivity. |
 | Daily rainfall amount and frequency | [Fishman (2016)](https://doi.org/10.1088/1748-9326/11/2/024004) uses India crop yields and daily rainfall to distinguish total precipitation from the number of rainy days. | Core precedent for a parsimonious rainy-day-frequency term in addition to total precipitation and conditional intensity. Re-estimate; do not transport the India response. |
 | US excess precipitation and planting timing | [Li et al. (2019)](https://doi.org/10.1111/gcb.14628) provides observational evidence that excessive rainfall can lower US maize yield, and [Urban et al. (2015)](https://doi.org/10.1007/s10584-015-1362-x) evaluates extremely wet planting conditions for US maize and soy. | Motivate a pre-plant/planting window and soil-wetness proxy, not just crop-season totals. They do not identify a permanent global climate response. |
 | US rainfed/irrigated extremes | [Troy, Kipgen, and Pal (2015)](https://doi.org/10.1088/1748-9326/10/5/054013) pools county outcomes and daily climate indices across growing and planting periods, using a limited county subset with separate irrigated/rainfed information. | Strong design precedent for the irrigation-data gate and for dry-spell, Rx5day, and planting-window checks. The pooled descriptive design is a benchmark, not the project's primary fixed-effects estimator. |
@@ -128,9 +128,11 @@ an accounting attribution, not a uniquely observed causal quantity.  Include
 CO2 concentration explicitly and use crop-model CO2 sensitivity scenarios;
 never let CO2 fertilization be hidden inside the precipitation coefficient.
 
-Use location fixed effects, flexible year effects, crop/irrigation strata,
-spatially blocked and temporally held-out validation, and placebo/pre-trend
-checks.  Cluster or spatially model errors.  Treat adaptation as an explicit
+Use location fixed effects, flexible year effects, crop-specific slopes, and
+one aggregate-yield row whose regime-specific response bases are combined with
+fixed independent area shares before fitting. Use spatially blocked and
+temporally held-out validation and placebo/pre-trend checks. Cluster or
+spatially model errors. Treat adaptation as an explicit
 scenario: fixed observed practice; calibrated autonomous adaptation; and an
 upper-bound calendar/cultivar adjustment.  Market-price and trade feedbacks
 are applied once in the welfare layer, not both in the yield estimator and

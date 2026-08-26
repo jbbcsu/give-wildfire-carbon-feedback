@@ -10,6 +10,25 @@ import pandas as pd
 import xarray as xr
 
 
+PRECIP_UNIT_KEYS = {"kgm-2s-1", "kgm**-2s**-1", "kg/m2/s", "kgm^-2s^-1", "mm", "mm/day", "mmday-1", "mmd-1", "mmd**-1", "mmd^-1"}
+TEMPERATURE_UNIT_KEYS = {"k", "kelvin", "c", "degc", "degree_celsius", "degreescelsius", "°c"}
+
+
+def canonical_units(units: str) -> str:
+    return (units or "").strip().lower().replace(" ", "")
+
+
+def validate_daily_units(variable: str, units: str) -> str:
+    canonical = canonical_units(units)
+    if variable == "pr" and canonical not in PRECIP_UNIT_KEYS:
+        raise ValueError(f"Unsupported precipitation units {units!r}")
+    if variable in {"tas", "tasmax", "tasmin"} and canonical not in TEMPERATURE_UNIT_KEYS:
+        raise ValueError(f"Unsupported temperature units {units!r}")
+    if variable not in {"pr", "tas", "tasmax", "tasmin"}:
+        raise ValueError(f"No daily-unit contract is registered for climate variable {variable!r}")
+    return canonical
+
+
 def climate_array(dataset: xr.Dataset, preferred: str) -> xr.DataArray:
     if preferred in dataset:
         return dataset[preferred]
@@ -36,6 +55,7 @@ def open_daily_series(stack: ExitStack, paths: list[str], preferred: str) -> xr.
         array = climate_array(dataset, preferred)
         if "time" not in array.dims or "lat" not in array.dims or "lon" not in array.dims:
             raise ValueError(f"{path} must have time, lat, and lon dimensions")
+        validate_daily_units(preferred, str(array.attrs.get("units", "")))
         if arrays and not (
             np.array_equal(array.lat.values, arrays[0].lat.values)
             and np.array_equal(array.lon.values, arrays[0].lon.values)

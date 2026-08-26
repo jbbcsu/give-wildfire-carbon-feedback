@@ -13,8 +13,8 @@ patterns**—seasonality, timing, dry spells, wet-day frequency, and extremes—
 a joint temperature--precipitation response. Coastal storm-surge and
 sea-level-rise costs remain the responsibility of CIAM. Inland flood/built
 infrastructure is a secondary, separately accounted track. Agricultural
-damages must replace, not be added to, the current temperature-only MooreAg
-sector.
+damages must replace, not be added to, the current temperature-indexed MooreAg
+sector, which has no explicit separable precipitation input in this checkout.
 
 See [PLAN.md](PLAN.md) for the phased protocol, [SOURCES.md](SOURCES.md) for
 authoritative inputs, and [src/PrecipitationDamages.jl](src/PrecipitationDamages.jl)
@@ -68,9 +68,17 @@ are temporal proxies rather than asserted crop phenology. A parallel historical
 drought-benchmark path day-weights monthly CRU scPDSI over those same windows,
 requires exact 0.5-degree grid correspondence and complete monthly coverage,
 and preserves an explicit `historical_benchmark_not_future_scc_input` role
-through its panel join. It does not substitute observed CRU scPDSI for a
-matched future drought path. See the scripts directory and
+through regime-first allocation. The global 1982--1989 and 2012--2016 maize
+and soybean candidate panels now pass raw-source/calendar manifest binding and
+complete derived-input allocation recomputation; they remain unfitted and
+contain no direct-weather terms. It does not substitute observed CRU scPDSI
+for a matched future drought path. See the scripts directory and
 [RESULTS_STATUS.md](RESULTS_STATUS.md) for the current evidence boundary.
+The resumable `scripts/run_historical_crop_chunk.sh` command executes the
+seasonal and stage extraction, completeness checks, independent
+reconciliation, GDHY join, and precipitation-pattern construction for one
+crop, irrigation calendar, and historical time block. All generated products
+remain below the ignored `data/interim/` boundary.
 Daily precipitation, mean-temperature, and maximum-temperature builders accept
 chronologically ordered file lists. They reject coordinate or unit changes,
 duplicate or missing boundary dates, and non-daily steps before crop-season extraction;
@@ -125,12 +133,35 @@ The pre-integration validation layer now also includes
 first-difference predictions across outcome-blind spatial, temporal, and
 climate-extreme holdouts and intentionally emits no coefficients. Its output
 is diagnostic and cannot be used as an SCC response bundle.
+That diagnostic comparison is deliberately smaller than the production estimand:
+it omits wet-day frequency, conditional wet-day intensity, Rx5day, heat, and
+the two alternative drought families, and represents normalized stage
+timing/distribution only indirectly through stage totals. The response audits
+reported before the purged-split revision used temporal and extreme
+first-difference pairs that could share a level-yield endpoint across training
+and test. Those values are legacy dependent stress tests and become stale when
+the hashed diagnostic specification changes; they are not production outer
+holdouts. The revised evaluator and audit validator now enforce zero endpoint
+overlap and pass synthetic tests. Corrected 1982--1989 MIRCA-2000 maize and
+soybean minimal diagnostics pass under the new hash; other historical panels
+remain stale or pending. The complete not-yet-frozen registry and the required
+purged-split promotion gate are documented in
+[RESPONSE_SPECIFICATION_BOUNDARY.md](RESPONSE_SPECIFICATION_BOUNDARY.md).
 `scripts/validate_response_evaluation_audit.py` then fails unless the audit
 matches the exact configuration hash and contains the complete explicitly
 declared crop/model/holdout product with reconciled folds, benchmarks, metrics,
 and row counts. When an expected year range is declared, it also requires the
 exact contiguous harvest-year list. Its descriptive ranking is not a
 model-selection rule.
+
+Run the independent scope boundary before any response work:
+
+```bash
+./.venv/bin/python scripts/validate_response_spec_boundaries.py
+```
+
+This check confirms omissions and non-authorization; it does not freeze or fit
+a production model.
 
 For a panel that already contains stage features, create the outcome-blind
 labels and run the audit with:
@@ -162,9 +193,15 @@ never silently adds an arbitrary positive offset.
 GDHY does not provide separate rainfed and irrigated yield outcomes. The
 production path must therefore never duplicate one observed yield into two
 regime-specific estimation rows. `scripts/allocate_outcome_exposures.py`
-implements the admissible alternative: after both calendar exposures exist,
-an independently sourced, fixed-baseline crop-area-share table collapses them
-to exactly one area-weighted exposure row per crop-grid-year outcome. It fails
+enforces the one-outcome and independent-share contract. For a nonlinear
+response, every regime-specific transform, extreme, drought index, spline,
+threshold, and interaction must be built before the fixed shares are applied;
+averaging primitive weather and transforming it afterward is invalid.
+`scripts/allocate_irrigation_response_basis.py` implements this order for the
+minimal predictive diagnostic. Its output is accepted only by the evaluator's
+explicit contract-aware prebuilt-basis mode, which consumes supplied basis
+columns without rebuilding them. The complete production basis and causal
+estimator remain to be frozen. The allocator fails
 on missing regimes, inconsistent yields, time-varying or non-independent
 weights, incomplete shares, nonfinite features, and duplicate keys. The
 synthetic test exercises these gates. MIRCA-OS v2 is now acquired and
@@ -176,9 +213,90 @@ Maize and soybean mappings are exact; annual rice and wheat weights carry
 or spring/winter wheat, and the allocator now rejects them. The source closes
 a weighting-input gate but does not supply an irrigated yield outcome,
 response coefficient, damage, or SCC.
-The season-specific evidence and the 5′ rice validation route are recorded in
-[MIRCA_SEASON_CROSSWALK_GATE.md](MIRCA_SEASON_CROSSWALK_GATE.md); wheat remains
-blocked without an explicit spring/winter area source.
+`scripts/allocate_irrigation_distribution_basis.py` extends the same ordering
+to a 54-column direct-pattern candidate contract: seasonal and three-window
+amounts, normalized shares/timing/concentration, wet-day occurrence and
+conditional intensity, CDD, Rx1day, Rx5day, mean temperature, and registered
+temperature-by-log-amount terms. The current 1 mm wet-day definition remains
+a recorded candidate/QA definition, not a selected production threshold. The
+script validates stage/season reconciliation and emits `fit_authorized=false`;
+heat and alternative drought-family features remain separate open gates.
+`scripts/allocate_irrigation_scpdsi_basis.py` implements the separate
+historical climatic-water-balance candidate: it builds seasonal/stage scPDSI
+means, minima, monthly-index threshold day-equivalents, and fractions within each irrigation
+calendar before fixed-area weighting, removes only complete outcome keys when
+coverage is missing, and emits no direct precipitation or temperature terms.
+`scripts/validate_irrigation_scpdsi_basis.py` hash-checks the raw-source and
+calendar manifest chain and fully recomputes the candidate from its derived
+stage tables. It does not label that derived-input check as full raw-metric
+recomputation. `scripts/run_scpdsi_candidate_chunk.sh` composes the complete
+partition-to-validation route; it performs no response fit and authorizes no
+future, causal, damage, or SCC use.
+`scripts/build_direct_scpdsi_common_support.py` then constructs four data-only
+common-support bundles while keeping the 54-feature direct-weather and
+16-feature scPDSI views separate. Common rows/observed outcomes and direct-only
+dropped rows/observed outcomes are: maize 1982--1989,
+240,784/115,758 and 24,744/1,921; soybean 1982--1989,
+176,537/47,653 and 14,935/269; maize 2012--2016,
+150,490/59,772 and 15,465/1,046; and soybean 2012--2016,
+110,336/26,601 and 9,334/147. scPDSI-only drops are 0/0 in every bundle.
+`scripts/validate_direct_scpdsi_common_support.py` verifies hashes and exactly
+recomputes both views and the intersection from the immediate candidate
+tables. It does not rerun upstream raw sources or bind upstream validation
+receipts; running those validators and retaining their receipts is an external
+prerequisite. These bundles fit no model and report no coefficient, causal
+effect, model selection, future projection, damage, or SCC result. Seasonal
+quantity remains the direct-weather reference, distribution terms require
+robust stable outer-holdout value, and drought families remain mutually
+exclusive competitors rather than stacked controls. See
+[DIRECT_SCPDSI_COMMON_SUPPORT_CONTRACT.md](DIRECT_SCPDSI_COMMON_SUPPORT_CONTRACT.md).
+`scripts/run_irrigation_basis_chunk.sh` composes these gates for one completed
+maize or soybean period: it constructs the corrected minimal basis, assigns
+fixed outcome-blind validation folds, runs and validates the coefficient-
+suppressing predictive audit, then constructs and validates the broader
+distribution candidate without fitting it. All products remain ignored and
+explicitly ineligible for causal, damage, or SCC use.
+`scripts/filter_complete_yield_support.py` creates a separate sample-
+composition sensitivity for periods in which GDHY's finite spatial support
+changes by year. It retains only cells observed in every declared year, imputes
+nothing, and warns that complete-support conditioning can itself select a
+nonrepresentative subset; it does not replace the unbalanced primary panel.
+Cell-count support is not welfare support. The fail-closed audit in
+`scripts/audit_mirca_welfare_support.py` shows that the current 1982--1989
+response-pair cells cover 79.02% of positive MIRCA maize area and 89.29% of
+soybean area, despite roughly 98% coverage when the denominator is only
+GDHY-observed cells. A same-vintage MIRCA-area-times-GDHY-yield proxy is
+undefined over the remaining 20.98%/10.71% of global MIRCA area, and no pinned
+spatial crop-value input exists. [WELFARE_SUPPORT_AUDIT.md](WELFARE_SUPPORT_AUDIT.md)
+therefore blocks interpreting the current sample as global production/value
+coverage or normalizing it to global welfare.
+The aggregate observation equation, identification restrictions, distinction
+between area, production, and revenue weights, and required sensitivities are
+recorded in [IRRIGATION_AGGREGATE_ESTIMAND.md](IRRIGATION_AGGREGATE_ESTIMAND.md).
+Legacy maize/soybean all-area response outputs constructed nonlinear terms
+after primitive-weather weighting are withdrawn; only their source/support
+audits remain valid.
+The season-specific evidence and executable 5′ rice validation gate are
+recorded in [MIRCA_SEASON_CROSSWALK_GATE.md](MIRCA_SEASON_CROSSWALK_GATE.md).
+The real 2000 Rice1--Rice3 reconstruction does not reconcile to the annual
+Rice maps, so the builder records a failure audit and emits no production
+weights. Wheat remains blocked without an explicit spring/winter area source.
+
+Reproduce the candidate rice source gates with the following commands. The
+inventory command is expected to exit nonzero because nine publisher files
+carry inconsistent year metadata; the 2000 builder is also expected to exit
+nonzero after writing its annual-reconciliation audit. Neither emits rice
+weights.
+
+```bash
+./.venv/bin/python scripts/download_mirca_rice_seasons.py
+./.venv/bin/python scripts/audit_mirca_rice_inventory.py
+./.venv/bin/python scripts/build_mirca_rice_season_shares.py \
+  --monthly-root data/raw/mirca_os_v2/monthly_rice \
+  --annual-root data/raw/mirca_os_v2/extracted_30arcmin --year 2000 \
+  --out data/interim/mirca_os_v2/rice_season_irrigation_shares_2000.parquet \
+  --audit-out data/interim/mirca_os_v2/rice_season_irrigation_shares_2000_audit.json
+```
 
 Rebuild the ignored source and fixed-2000 table with:
 

@@ -23,6 +23,11 @@ import pandas as pd
 KEYS = ["crop", "irrigation", "lat", "lon_360", "harvest_year"]
 LABELS = ["spatial_fold", "is_temporal_holdout", "is_climate_extreme"]
 BOUNDARY = "diagnostic_held_out_prediction_not_causal_or_scc_authorized"
+PAIR_GROUP_KEYS = KEYS[:-1]
+RAW_REGIME_INPUT = "regime_primitive_weather"
+PREBUILT_WEIGHTED_INPUT = "prebuilt_irrigation_weighted_basis"
+PREBUILT_CONTRACT_ID = "gdhy_aggregate_irrigation_basis_v1"
+PREBUILT_ALLOCATION_ORDER = "regime_basis_before_fixed_area_weighting"
 
 
 def _as_bool(series: pd.Series, name: str) -> pd.Series:
@@ -51,7 +56,48 @@ def load_spec(path: Path) -> tuple[dict[str, list[str]], int, int, str]:
     )
 
 
-def prepare_levels(panel: pd.DataFrame, models: dict[str, list[str]]) -> pd.DataFrame:
+def prepare_levels(
+    panel: pd.DataFrame,
+    models: dict[str, list[str]],
+    input_basis_mode: str = RAW_REGIME_INPUT,
+) -> pd.DataFrame:
+    if input_basis_mode not in {RAW_REGIME_INPUT, PREBUILT_WEIGHTED_INPUT}:
+        raise ValueError(f"Unrecognized input-basis mode {input_basis_mode!r}")
+    prebuilt = input_basis_mode == PREBUILT_WEIGHTED_INPUT
+    if prebuilt:
+        metadata = {
+            "response_basis_contract_id": PREBUILT_CONTRACT_ID,
+            "basis_allocation_order": PREBUILT_ALLOCATION_ORDER,
+        }
+        for column, expected in metadata.items():
+            if column not in panel.columns or set(panel[column].dropna().astype(str)) != {expected}:
+                raise ValueError(f"Prebuilt basis requires {column}={expected!r}")
+        if set(panel["irrigation"].dropna().astype(str)) != {"area_weighted"}:
+            raise ValueError("Prebuilt basis must contain only one area_weighted outcome row")
+        if (
+            "diagnostic_fit_authorized" not in panel.columns
+            or not panel["diagnostic_fit_authorized"].isin([True]).all()
+        ):
+            raise ValueError("Prebuilt basis is not authorized for diagnostic fitting")
+        if (
+            "nonlinear_post_allocation_transform_authorized" not in panel.columns
+            or not panel["nonlinear_post_allocation_transform_authorized"].isin([False]).all()
+        ):
+            raise ValueError("Prebuilt basis lacks the no-post-allocation-transform gate")
+    else:
+        if "response_basis_contract_id" in panel.columns:
+            raise ValueError(
+                "Prebuilt irrigation response-basis panels require the explicit "
+                "prebuilt_irrigation_weighted_basis evaluator mode"
+            )
+        if (
+            "irrigation" in panel.columns
+            and panel["irrigation"].astype(str).eq("area_weighted").any()
+        ):
+            raise ValueError(
+                "Area-weighted irrigation panels are forbidden in primitive-weather mode "
+                "because it constructs nonlinear terms after exposure aggregation"
+            )
     required = set(KEYS + LABELS + ["yield_t_ha", "yield_observed"])
     if missing := required - set(panel.columns):
         raise ValueError(f"Panel missing required fields {sorted(missing)}")
@@ -85,23 +131,24 @@ def prepare_levels(panel: pd.DataFrame, models: dict[str, list[str]]) -> pd.Data
         if not ordered.any() or ordered.all() or (ordered.astype(int).diff().fillna(0) < 0).any():
             raise ValueError(f"Temporal holdout must be one nonempty final-year block for {label}")
 
-    precip_columns = {"precip_mm"}
-    precip_columns.update(
-        name.replace("log1p_", "") for values in models.values() for name in values
-        if "log1p_precip_mm" in name
-    )
-    for precip in precip_columns:
-        if precip not in frame:
-            raise ValueError(f"Panel missing precipitation source {precip}")
-        numeric = pd.to_numeric(frame[precip], errors="coerce")
-        if numeric.isna().any() or (numeric < 0).any():
-            raise ValueError(f"{precip} must be finite and nonnegative")
-        prefix = precip.removesuffix("precip_mm")
-        frame[f"{prefix}log1p_precip_mm"] = np.log1p(numeric)
-        temp = f"{prefix}tmean_c"
-        if temp in frame:
-            temp_numeric = pd.to_numeric(frame[temp], errors="coerce")
-            frame[f"{prefix}tmean_x_log1p_precip"] = temp_numeric * frame[f"{prefix}log1p_precip_mm"]
+    if not prebuilt:
+        precip_columns = {"precip_mm"}
+        precip_columns.update(
+            name.replace("log1p_", "") for values in models.values() for name in values
+            if "log1p_precip_mm" in name
+        )
+        for precip in precip_columns:
+            if precip not in frame:
+                raise ValueError(f"Panel missing precipitation source {precip}")
+            numeric = pd.to_numeric(frame[precip], errors="coerce")
+            if numeric.isna().any() or (numeric < 0).any():
+                raise ValueError(f"{precip} must be finite and nonnegative")
+            prefix = precip.removesuffix("precip_mm")
+            frame[f"{prefix}log1p_precip_mm"] = np.log1p(numeric)
+            temp = f"{prefix}tmean_c"
+            if temp in frame:
+                temp_numeric = pd.to_numeric(frame[temp], errors="coerce")
+                frame[f"{prefix}tmean_x_log1p_precip"] = temp_numeric * frame[f"{prefix}log1p_precip_mm"]
 
     all_features = sorted({feature for values in models.values() for feature in values})
     if missing := set(all_features) - set(frame.columns):
@@ -125,6 +172,8 @@ def make_first_differences(frame: pd.DataFrame, features: Iterable[str]) -> pd.D
     differenced["delta_log_yield"] = (
         observed.log_yield - grouped.log_yield.shift(1)
     ).loc[consecutive].to_numpy()
+    differenced["pair_start_year"] = previous_year.loc[consecutive].astype(int).to_numpy()
+    differenced["pair_end_year"] = differenced["harvest_year"].astype(int)
     for feature in features:
         differenced[f"delta__{feature}"] = (
             observed[feature] - grouped[feature].shift(1)
@@ -140,6 +189,64 @@ def make_first_differences(frame: pd.DataFrame, features: Iterable[str]) -> pd.D
     if not np.isfinite(differenced[numeric].to_numpy(dtype=float)).all():
         raise ValueError("Differenced response or features are nonfinite")
     return differenced
+
+
+def endpoint_set(frame: pd.DataFrame) -> set[tuple[object, ...]]:
+    endpoints: set[tuple[object, ...]] = set()
+    columns = PAIR_GROUP_KEYS + ["pair_start_year", "pair_end_year"]
+    for row in frame[columns].itertuples(index=False, name=None):
+        group = tuple(row[:-2])
+        endpoints.add((*group, int(row[-2])))
+        endpoints.add((*group, int(row[-1])))
+    return endpoints
+
+
+def endpoint_overlap_count(train: pd.DataFrame, test: pd.DataFrame) -> int:
+    return len(endpoint_set(train) & endpoint_set(test))
+
+
+def purged_temporal_masks(data: pd.DataFrame) -> tuple[pd.Series, pd.Series, dict[str, object]]:
+    test = data.is_temporal_holdout.astype(bool)
+    if not test.any() or test.all():
+        raise ValueError("Temporal split must contain train and test pairs")
+    test_start = int(data.loc[test, "pair_end_year"].min())
+    candidate_train = ~test
+    # Pair ending in test_start-1 shares that year's endpoint with the first
+    # test pair, so the last admissible training pair ends at test_start-2.
+    train = candidate_train & data.pair_end_year.le(test_start - 2)
+    overlap = endpoint_overlap_count(data.loc[train], data.loc[test])
+    if overlap:
+        raise AssertionError("Purged temporal split retains shared yield endpoints")
+    return train, test, {
+        "purge_rule": "drop_training_pairs_sharing_either_yield_endpoint_with_temporal_test",
+        "purged_train_rows": int((candidate_train & ~train).sum()),
+        "endpoint_overlap_count": overlap,
+    }
+
+
+def purged_extreme_masks(data: pd.DataFrame) -> tuple[pd.Series, pd.Series, dict[str, object]]:
+    test = data.pair_is_climate_extreme.astype(bool)
+    if not test.any() or test.all():
+        raise ValueError("Climate-extreme split must contain train and test pairs")
+    test_endpoints = endpoint_set(data.loc[test])
+    candidate_train = ~test
+    keep: list[bool] = []
+    columns = PAIR_GROUP_KEYS + ["pair_start_year", "pair_end_year"]
+    for row in data.loc[candidate_train, columns].itertuples(index=False, name=None):
+        group = tuple(row[:-2])
+        start = (*group, int(row[-2]))
+        end = (*group, int(row[-1]))
+        keep.append(start not in test_endpoints and end not in test_endpoints)
+    train = pd.Series(False, index=data.index)
+    train.loc[candidate_train] = keep
+    overlap = endpoint_overlap_count(data.loc[train], data.loc[test])
+    if overlap:
+        raise AssertionError("Purged climate-extreme split retains shared yield endpoints")
+    return train, test, {
+        "purge_rule": "drop_training_pairs_sharing_either_yield_endpoint_with_extreme_test",
+        "purged_train_rows": int((candidate_train & ~train).sum()),
+        "endpoint_overlap_count": overlap,
+    }
 
 
 def _fit_predict(
@@ -222,8 +329,9 @@ def evaluate(
     minimum_train_rows: int,
     minimum_test_rows: int,
     spec_sha256: str,
+    input_basis_mode: str = RAW_REGIME_INPUT,
 ) -> dict[str, object]:
-    frame = prepare_levels(panel, models)
+    frame = prepare_levels(panel, models, input_basis_mode)
     all_features = sorted({feature for values in models.values() for feature in values})
     pairs = make_first_differences(frame, all_features)
     folds = sorted(pairs.spatial_fold.unique())
@@ -254,16 +362,20 @@ def evaluate(
                 **_metrics(observed, predicted),
             })
 
+            temporal_train, temporal_test, temporal_purge = purged_temporal_masks(crop_data)
             temporal = _evaluate_split(
-                crop_data, ~crop_data.is_temporal_holdout, crop_data.is_temporal_holdout,
+                crop_data, temporal_train, temporal_test,
                 features, minimum_train_rows, minimum_test_rows,
             )
+            temporal.update(temporal_purge)
             results.append({"crop": crop, "model": model, "holdout": "temporal", **temporal})
 
+            extreme_train, extreme_test, extreme_purge = purged_extreme_masks(crop_data)
             extreme = _evaluate_split(
-                crop_data, ~crop_data.pair_is_climate_extreme, crop_data.pair_is_climate_extreme,
+                crop_data, extreme_train, extreme_test,
                 features, minimum_train_rows, minimum_test_rows,
             )
+            extreme.update(extreme_purge)
             results.append({"crop": crop, "model": model, "holdout": "climate_extreme", **extreme})
     return {
         "status": BOUNDARY,
@@ -276,6 +388,11 @@ def evaluate(
         "harvest_years": sorted(int(value) for value in frame.harvest_year.unique()),
         "crops": crops,
         "models": list(models),
+        "input_basis_mode": input_basis_mode,
+        "response_basis_contract_id": (
+            PREBUILT_CONTRACT_ID if input_basis_mode == PREBUILT_WEIGHTED_INPUT else None
+        ),
+        "nonspatial_split_contract": "yield_endpoint_disjoint_purged_training_pairs",
         "results": results,
         "warning": (
             "First-difference predictive diagnostics omit coefficients and do not establish causality, "
@@ -291,6 +408,12 @@ def main() -> None:
     parser.add_argument("--out", required=True)
     parser.add_argument("--minimum-train-rows", type=int)
     parser.add_argument("--minimum-test-rows", type=int)
+    parser.add_argument(
+        "--input-basis-mode",
+        choices=[RAW_REGIME_INPUT, PREBUILT_WEIGHTED_INPUT],
+        default=RAW_REGIME_INPUT,
+        help="Use explicit prebuilt mode only for contract-marked basis-before-weighting panels.",
+    )
     args = parser.parse_args()
     models, minimum_train, minimum_test, digest = load_spec(Path(args.spec))
     if args.minimum_train_rows is not None:
@@ -299,7 +422,10 @@ def main() -> None:
         minimum_test = args.minimum_test_rows
     if minimum_train < 1 or minimum_test < 1:
         raise ValueError("Minimum split sizes must be positive")
-    audit = evaluate(pd.read_parquet(args.panel), models, minimum_train, minimum_test, digest)
+    audit = evaluate(
+        pd.read_parquet(args.panel), models, minimum_train, minimum_test, digest,
+        input_basis_mode=args.input_basis_mode,
+    )
     output = Path(args.out)
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(audit, indent=2, sort_keys=True) + "\n", encoding="utf-8")

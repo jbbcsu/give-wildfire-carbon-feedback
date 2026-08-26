@@ -8,8 +8,8 @@ minimum_test_rows = 100
 
 [holdouts]
 spatial = "leave one preassigned 5-degree spatial fold out at a time"
-temporal = "train before the preassigned final-year holdout and test within it"
-extreme = "train on pairs with no climate-extreme endpoint and test pairs with either endpoint extreme"
+temporal = "train before the preassigned final-year holdout, purging the boundary pair so no yield endpoint occurs in both train and test"
+extreme = "train on pairs with no climate-extreme endpoint after purging every pair that shares a yield endpoint with the extreme test set"
 
 [models.seasonal_precipitation]
 features = ["log1p_precip_mm", "cdd_max_days", "rx1day_mm"]

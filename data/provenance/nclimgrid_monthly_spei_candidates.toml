@@ -1,0 +1,84 @@
+source = "NOAA/NIDIS U.S. gridded SPEI derived from nClimGrid-Monthly"
+provider = "NOAA National Centers for Environmental Information / National Integrated Drought Information System"
+status = "exact_large_object_metadata_pinned_not_acquired"
+metadata_checked_utc = "2026-08-26T16:24:00+00:00"
+landing_page = "https://www.drought.gov/data-maps-tools/us-gridded-standardized-precipitation-index-spei-nclimgrid-monthly"
+readme_url = "https://www.ncei.noaa.gov/pub/data/nidis/indices/nclimgrid-monthly/nidis_nclimgrid_readme_c20220520.txt"
+distribution_root = "https://www.ncei.noaa.gov/pub/data/nidis/indices/nclimgrid-monthly/"
+method_reference = "Vicente-Serrano, Begueria, and Lopez-Moreno (2010), Journal of Climate, doi:10.1175/2009JCLI2909.1"
+implementation_reference = "NOAA climate_indices package; https://climate-indices.readthedocs.io/"
+approved_use = "Candidate 1-, 3-, and 6-month historical U.S. SPEI benchmark after exact acquisition, NetCDF validation, county weighting, and common-holdout coverage audit"
+excluded_use = "No listed object has been downloaded or decoded; metadata pins do not authorize fitting, causal interpretation, future SCC use, or stacking with raw precipitation/temperature predictors"
+
+[method]
+coverage = "CONUS, approximately 5 km, monthly, 1895-present"
+published_base_period = "1895-2014"
+scales_selected_months = [1, 3, 6]
+distribution_primary_candidate = "Pearson Type III"
+distribution_sensitivity = "gamma"
+selection_rule = "Choose scale and distribution only within training data; compare all candidates on identical outer holdout rows. Never select by SCC magnitude."
+pet_boundary = "The official product is derived from nClimGrid monthly precipitation and temperature/PET. It is a joint climatic-water-balance family, not precipitation alone."
+
+[storage]
+pearson_selected_bytes = 6968799899
+gamma_selected_bytes = 6909914917
+all_six_bytes = 13878714816
+decision = "Metadata and mocked schema tests first. Do not download roughly 13.9 GB until the county-weight and calibration-lineage gates are reviewed."
+
+[license]
+status = "NOAA U.S. federal-government data; no SPDX identifier stated on the reviewed product page"
+spdx_identifier = "NOASSERTION"
+redistribution_policy = "Keep eventual raw NetCDF objects gitignored and record local checksums before use."
+
+[[objects]]
+family = "spei_pearson"
+scale_months = 1
+url = "https://www.ncei.noaa.gov/pub/data/nidis/indices/nclimgrid-monthly/spei-pearson/nclimgrid-spei-pearson-01.nc"
+size_bytes = 2316727701
+last_modified = "Tue, 04 Aug 2026 23:22:36 GMT"
+etag = "\"8a167595-65840ee1f4178\""
+content_type = "application/x-netcdf"
+[[objects]]
+family = "spei_pearson"
+scale_months = 3
+url = "https://www.ncei.noaa.gov/pub/data/nidis/indices/nclimgrid-monthly/spei-pearson/nclimgrid-spei-pearson-03.nc"
+size_bytes = 2326108180
+last_modified = "Tue, 04 Aug 2026 23:23:18 GMT"
+etag = "\"8aa59814-65840f09eef47\""
+content_type = "application/x-netcdf"
+
+[[objects]]
+family = "spei_pearson"
+scale_months = 6
+url = "https://www.ncei.noaa.gov/pub/data/nidis/indices/nclimgrid-monthly/spei-pearson/nclimgrid-spei-pearson-06.nc"
+size_bytes = 2325964018
+last_modified = "Tue, 04 Aug 2026 23:23:39 GMT"
+etag = "\"8aa364f2-65840f1e0a6a6\""
+content_type = "application/x-netcdf"
+
+[[objects]]
+family = "spei_gamma"
+scale_months = 1
+url = "https://www.ncei.noaa.gov/pub/data/nidis/indices/nclimgrid-monthly/spei-gamma/nclimgrid-spei-gamma-01.nc"
+size_bytes = 2297799051
+last_modified = "Tue, 04 Aug 2026 23:18:48 GMT"
+etag = "\"88f5a18b-65840e08ed7fe\""
+content_type = "application/x-netcdf"
+
+[[objects]]
+family = "spei_gamma"
+scale_months = 3
+url = "https://www.ncei.noaa.gov/pub/data/nidis/indices/nclimgrid-monthly/spei-gamma/nclimgrid-spei-gamma-03.nc"
+size_bytes = 2307202879
+last_modified = "Tue, 04 Aug 2026 23:19:23 GMT"
+etag = "\"89851f3f-65840e29beddd\""
+content_type = "application/x-netcdf"
+
+[[objects]]
+family = "spei_gamma"
+scale_months = 6
+url = "https://www.ncei.noaa.gov/pub/data/nidis/indices/nclimgrid-monthly/spei-gamma/nclimgrid-spei-gamma-06.nc"
+size_bytes = 2304912987
+last_modified = "Tue, 04 Aug 2026 23:19:40 GMT"
+etag = "\"89622e5b-65840e3a0e675\""
+content_type = "application/x-netcdf"

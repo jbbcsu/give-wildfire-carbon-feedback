@@ -53,6 +53,8 @@ weights = pd.DataFrame(
 weights["weight_source_id"] = "synthetic-independent-area-v1"
 weights["weight_vintage"] = "baseline-1995"
 weights["source_role"] = MODULE.REQUIRED_SOURCE_ROLE
+weights["production_eligible"] = True
+weights["season_specific_share"] = True
 
 output, audit = MODULE.allocate(
     panel, weights.copy(), ["precip_mm", "cdd_max_days"], ["noirr", "firr"]
@@ -81,9 +83,15 @@ bad["source_role"] = "derived_from_yield_outcome"
 expect_failure(panel, bad, "source_role")
 
 bad = weights.copy()
-bad["production_eligible"] = True
 bad.loc[bad.crop == "mai", "production_eligible"] = False
 expect_failure(panel, bad, "not production-eligible")
+
+bad = weights.copy()
+bad["season_specific_share"] = False
+expect_failure(panel, bad, "not season-specific")
+
+bad = weights.drop(columns="production_eligible")
+expect_failure(panel, bad, "missing required fields")
 
 bad_panel = panel.drop(index=1)
 expect_failure(bad_panel, weights.copy(), "Every observed-outcome key")
@@ -94,5 +102,32 @@ expect_failure(bad_panel, weights.copy(), "Yield values differ")
 
 bad_panel = pd.concat([panel, panel.iloc[[0]]], ignore_index=True)
 expect_failure(bad_panel, weights.copy(), "duplicate crop-grid-year-irrigation")
+
+unsupported = pd.DataFrame(
+    [
+        [2000, 12.25, 20.25, "mai", "noirr", True, 1.8, 90.0, 9.0],
+        [2000, 12.25, 20.25, "mai", "firr", True, 1.8, 55.0, 2.0],
+    ],
+    columns=panel.columns,
+)
+panel_with_gap = pd.concat([panel, unsupported], ignore_index=True)
+expect_failure(panel_with_gap, weights.copy(), "explicit exclusion was not authorized")
+filtered, filtered_audit = MODULE.allocate(
+    panel_with_gap,
+    weights.copy(),
+    ["precip_mm", "cdd_max_days"],
+    ["noirr", "firr"],
+    exclude_missing_weight_cells=True,
+)
+assert len(filtered) == 3
+assert filtered_audit["original_outcome_keys"] == 4
+assert filtered_audit["excluded_outcome_keys_missing_weight"] == 1
+assert filtered_audit["excluded_observed_outcomes_missing_weight"] == 1
+assert filtered_audit["excluded_missing_weight_by_crop"]["mai"] == {
+    "outcome_keys": 1,
+    "observed_outcomes": 1,
+    "grid_cells": 1,
+}
+assert filtered_audit["missing_weight_policy"].startswith("exclude_entire")
 
 print("outcome exposure allocation synthetic tests passed")

@@ -1,0 +1,66 @@
+schema_version = 1
+contract_id = "gdhy_aggregate_irrigation_basis_v1"
+status = "design and data-contract only; no fitted response, damage, or SCC authorization"
+
+[outcome]
+source = "one GDHY crop-season-grid-year yield"
+scale = "log tonnes per hectare"
+duplicate_across_irrigation_regimes = false
+interpretation = "aggregate reduced-form yield response; not a directly observed rainfed or irrigated response"
+
+[weights]
+source = "MIRCA-OS v2 harvested area"
+type = "independent fixed-baseline crop-grid regime area share"
+primary_vintage = 2000
+sensitivity_vintages = [2005, 2010, 2015, 2020]
+time_varying_within_estimation = false
+missing_support = "exclude the complete crop-grid-year outcome with an audit; do not fill or renormalize"
+production_share_status = "unavailable without independent regime-specific baseline yields"
+revenue_weight_use = "welfare aggregation only; forbidden in the yield observation equation"
+
+[basis]
+contract_id = "allocation_order_smoke_basis_v1"
+coverage = "minimal executable subset only; the production feature basis is not frozen or complete"
+allocation_order = "construct every regime-specific nonlinear basis column, then multiply by fixed area share, then sum across regimes"
+forbidden_order = "average primitive rainfed and irrigated weather and then apply log, spline, threshold, extreme, drought, or interaction transforms"
+seasonal_terms = ["tmean_c", "log1p_precip_mm", "cdd_max_days", "rx1day_mm", "tmean_x_log1p_precip"]
+stage_blocks = ["stage1", "stage2", "stage3"]
+extension_rule = "Rx5day, splines, heat thresholds, and drought metrics require a versioned basis-contract update and synthetic allocation-order test"
+current_diagnostic_evaluator_compatible = true
+evaluator_rule = "primitive-weather mode rejects area-weighted panels; the explicit prebuilt-basis diagnostic mode consumes contract-marked columns without overwriting them"
+
+[primary_equation]
+form = "log_yield_ict = grid_crop_fe_ic + crop_year_fe_ct + beta_c * sum_r(area_share_icr * basis_c(weather_ictr)) + error_ict"
+regime_slope_restriction = "common crop-specific coefficient on the area-weighted regime basis"
+interpretation = "the common slope is an identifying restriction for the aggregate reduced form, not proof of equal structural regime responses"
+
+[identification]
+not_identified = [
+  "latent rainfed and irrigated yields",
+  "regime-specific intercepts or baseline yield ratio",
+  "unrestricted regime-specific response functions",
+  "irrigation water supply, reliability, or adaptation from MIRCA area shares",
+]
+required_gates = [
+  "within-cell feature variation",
+  "full column rank and disclosed condition number",
+  "interior-share support for any irrigated-deviation model",
+  "spatial, temporal, and climate-extreme holdouts",
+  "influence and specification stability",
+]
+
+[sensitivities]
+fixed_share_vintages = true
+level_yield_area_identity = true
+rainfed_calendar_only = true
+irrigated_deviation_if_identified = true
+externally_calibrated_irrigation_attenuation = true
+production_weights_only_with_independent_regime_yields = true
+invalid_weather_before_transform = "diagnostic contrast only; never production"
+
+[boundary]
+scc_authorized = false
+causal_interpretation_authorized = false
+coefficient_export_authorized = false
+diagnostic_fit_authorized = true
+production_fit_authorized = false

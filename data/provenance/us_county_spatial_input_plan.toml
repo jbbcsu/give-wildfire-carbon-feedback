@@ -1,0 +1,63 @@
+schema_version = 1
+status = "acquired_validated_bounded_smoke"
+role = "Pinned county-boundary input for the full-period county-polygon proxy and pinned 2017 crop mask for a separate fixed-mask sensitivity; neither authorizes response estimation or SCC use"
+created_utc = "2026-08-26T15:50:00+00:00"
+
+[county_boundaries]
+source = "U.S. Census Bureau 2019 TIGER/Line county and equivalent shapefile"
+landing_page_url = "https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.2019.html"
+technical_documentation_url = "https://www2.census.gov/geo/pdfs/maps-data/data/tiger/tgrshp2019/TGRSHP2019_TechDoc.pdf"
+source_url = "https://www2.census.gov/geo/tiger/TIGER2019/COUNTY/tl_2019_us_county.zip"
+upstream_content_length = 79237324
+upstream_last_modified = "Fri, 09 Aug 2019 04:08:52 GMT"
+upstream_etag = ""
+upstream_content_type = "application/zip"
+identity_verified_utc = "2026-08-26T15:47:33+00:00"
+acquisition_status = "downloaded_archive_validated_and_bounded_overlay_run"
+retrieved_utc = "2026-08-26T16:24:21Z"
+local_ignored_path = "data/raw/us_county/tigerline/tl_2019_us_county.zip"
+size_bytes = 79237324
+local_sha512 = "47f23dfca8fef559e8ecc0eae1c5d4378aef806ff6905603d7c89e46fbec4c8ab08b5441844587603c0eb28e18cb3e4cc07f65c9c4429c755816ac080600eece"
+archive_validation = "ZIP integrity passed; extracted shapefile contains 3,233 nonempty polygons, 3,233 unique five-digit GEOIDs, 56 state/territory codes, and a NAD83 .prj"
+bounded_smoke = "Cuming County, Nebraska (31039) was intersected with the nClimGrid grid in EPSG:5070; polygon area reconciled to TIGER ALAND+AWATER at relative error 3.05e-8; 120 positive grid-cell intersections covered the polygon and weights summed to one"
+boundary_reference_date = "2019-01-01"
+use_constraint = "A fixed 2019 geometry is only a spatial overlay reference. Every 1981-2019 NASS GEOID must first pass the Census county-change/crosswalk audit; no missing or obsolete FIPS code is invented."
+county_change_source_url = "https://www.census.gov/programs-surveys/geography/technical-documentation/county-changes.1990.html"
+relationship_file_source_url = "https://www.census.gov/geographies/reference-files/time-series/geo/relationship-files.html"
+license_status = "U.S. federal government work; the technical documentation states copyright protection is unavailable under 17 U.S.C. 105 and requests Census attribution"
+license_spdx_identifier = "NOASSERTION"
+trademark_note = "TIGER/Line is a Census Bureau registered trademark; follow the technical-documentation attribution and naming guidance if repackaging."
+
+[crop_mask_2017]
+source = "USDA NASS 2017 national Cropland Data Layer"
+landing_page_url = "https://data.nass.usda.gov/Research_and_Science/Cropland/Release/index.php"
+faq_and_metadata_url = "https://data.nass.usda.gov/Research_and_Science/Cropland/sarsfaqs2.php"
+source_url = "https://data.nass.usda.gov/Research_and_Science/Cropland/Release/datasets/2017_30m_cdls.zip"
+upstream_content_length = 1790196900
+upstream_etag = "\"6ab43ca4-5d7a5bed8a95f\""
+upstream_last_modified = "Thu, 10 Feb 2022 08:29:14 GMT"
+upstream_content_type = "application/zip"
+identity_verified_utc = "2026-08-26T15:47:36+00:00"
+acquisition_status = "downloaded_archive_validated_metadata_inspected"
+retrieved_utc = "2026-08-26T16:24:21Z"
+local_ignored_path = "data/raw/us_county/cdl/2017_30m_cdls.zip"
+size_bytes = 1790196900
+local_sha512 = "a2423a5a9cb45e029d7cb1aa3ccaa9fc3fd8e2aedf593ccf430d04a044e62633cd1997f1fe73c9ba20073309c80a9adcf910ff372ad98b4abfe3120ab553e55f"
+archive_validation = "Exact upstream byte count matched; all five ZIP members passed integrity testing"
+raster_validation = "Embedded GeoTIFF is one uint8 thematic band, EPSG:5070, 30 m pixels, 153811 x 96523, bounds [-2356095, 276915, 2258235, 3172605], 512 x 512 internal blocks, AREA_OR_POINT=Area; nodata is unset, while embedded statistics explicitly exclude class 0"
+class_code_validation = "Embedded USDA metadata identifies corn=1, soybeans=5, durum wheat=22, spring wheat=23, and winter wheat=24; double-crop categories are distinct and are not silently pooled"
+background_rule = "Treat embedded class 0 as Background explicitly; do not rely on a nodata value because the GeoTIFF does not declare one"
+license_status = "USDA NASS states the CDL is public domain and free to redistribute"
+license_spdx_identifier = "NOASSERTION"
+coverage_note = "Entire-CONUS CDL coverage begins in 2008; the historical 30 m products cover 2008-2023, while earlier coverage is partial"
+approved_sensitivity_use = "Fixed pre-outcome 2017 crop-pixel sensitivity for the 2018-2022 aggregate high-rainfed panel; for earlier outcome years, only an explicitly labeled retrospective-mask sensitivity"
+historical_practice_panel_limit = "Using 2017 crop locations retrospectively for 1981-2019 direct-practice outcomes is a modeling assumption, not an observed historical mask; wheat direct-practice support ends before national CDL coverage"
+download_decision = "User authorized storage; exact archive acquired and validated. County-polygon area-weighted nClimGrid remains the full-period primary proxy, and CDL remains a separate sensitivity."
+
+[processing_contract]
+primary_area_method = "Intersect county polygons and weather-grid cells in EPSG:5070; label every result county-average proxy, not crop-pixel exposure"
+cdl_sensitivity_area_method = "Select official 30 m CDL class pixels by pixel-center inclusion in the county polygon and assign their centers to nClimGrid cells; retain the 900 m2 equal-area pixel-count basis and boundary approximation in the audit"
+weight_order = "Construct grid-cell/calendar-class daily nonlinear feature bases first, then apply within-class crop-area weights, then apply all-wheat class shares"
+forbidden = "Do not calculate CDD, Rx1day, Rx5day, timing concentration, wet-day occurrence/intensity, heat thresholds, or nonlinear response transforms from county-mean weather and call that the average farm exposure"
+response_estimation_authorized = false
+scc_authorized = false

@@ -1,0 +1,69 @@
+source = "NOAA Monthly U.S. Climate Divisional Database (nClimDiv), county Palmer Drought Severity Index"
+provider = "NOAA National Centers for Environmental Information"
+status = "acquired_exact_dated_snapshot_and_validated_fixed_width_schema"
+retrieved_utc = "2026-08-26T16:22:16+00:00"
+dataset_landing_page = "https://www.ncei.noaa.gov/access/metadata/landing-page/bin/iso?id=gov.noaa.ncdc:C00005"
+distribution_index_url = "https://www.ncei.noaa.gov/monitoring-content/data/us/climdiv/monthly/current/"
+dataset_doi = "https://doi.org/10.7289/V5M32STR"
+method_reference = "Vose et al. (2014), Journal of Applied Meteorology and Climatology, doi:10.1175/JAMC-D-13-0248.1"
+approved_use = "Historical monthly county PDSI benchmark for U.S. crop-yield validation, kept as a competing climatic-water-stress family"
+excluded_use = "Not a future climate input, not an irrigation or soil-moisture observation, not additive to raw precipitation/temperature predictors, and not a causal damage or SCC result"
+
+[license]
+status = "NOAA U.S. federal-government data; dataset metadata requires citation and states NOAA/NCEI warranty and liability limitations"
+spdx_identifier = "NOASSERTION"
+url = "https://www.ncei.noaa.gov/access/metadata/landing-page/bin/iso?id=gov.noaa.ncdc:C00005"
+redistribution_policy = "Raw source files remain gitignored; tracked code, object identities, checksums, and derived schemas are redistributable project metadata."
+
+[scientific_boundary]
+temporal_resolution = "monthly"
+spatial_resolution = "county area-weighted values derived from nominal 5-km gridded station estimates"
+period_of_record = "1895 through July 2026 in this exact snapshot"
+pdsi_calibration_period = "1931-1990, as stated in the reviewed NOAA drought README"
+irrigation_treatment = "NOAA states that man-made changes are not included in PDSI; the index therefore does not measure irrigation water applied or realized root-zone soil moisture."
+revision_warning = "NOAA states that the most recent two calendar years are updated monthly and period-of-record updates can occur with version changes. The exact dated filename and local digest define this analysis snapshot."
+identifier_warning = "The bulk key is NOAA internal two-digit state code plus a documented three-digit county code. The two-digit prefix is not Census STATEFP. After state-code translation, 3,106 of 3,107 keys match the 2019 TIGER CONUS inventory; transformed NOAA 24511 and TIGER 51678 remain unmatched and require an explicit crosswalk or exclusion."
+
+[[files]]
+name = "climdiv-pdsicy-v1.0.0-20260806"
+url = "https://www.ncei.noaa.gov/monitoring-content/data/us/climdiv/monthly/current/climdiv-pdsicy-v1.0.0-20260806"
+local_ignored_path = "data/raw/us_county/nclimdiv_pdsicy/climdiv-pdsicy-v1.0.0-20260806"
+size_bytes = 40602276
+sha512 = "358f84f17f00f6c00bb6f938488e3ef2d5c4be0676b3bc769db57f72dd2ac407a445eb9c1d0fb233b0ba7269e12fd39814d418c815c92a3e8163e3f08e39d22b"
+last_modified = "Thu, 06 Aug 2026 08:56:48 GMT"
+etag = "\"26b8aa4-6585d11707d92\""
+content_type = "not declared by the reviewed HTTP response"
+
+[files.validation]
+record_bytes_including_lf = 99
+record_characters_excluding_lf = 98
+record_count = 410124
+internal_county_key_count = 3107
+internal_state_codes = "01-48 exactly"
+element_code = "05"
+first_year = 1895
+last_year = 2026
+complete_years_per_internal_county = 132
+missing_value = -99.99
+missing_count = 15535
+missing_scope = "August-December 2026 only: five months times 3,107 internal county keys"
+
+[[files]]
+name = "county-readme.txt"
+url = "https://www.ncei.noaa.gov/monitoring-content/data/us/climdiv/monthly/current/county-readme.txt"
+local_ignored_path = "data/raw/us_county/nclimdiv_pdsicy/county-readme.txt"
+size_bytes = 7807
+sha512 = "b1dd55ca2582086c2ef6ffb165be84227b7523ea5fa240cc52da275af468be3536a5fdbfb27eb37c11627e4d9b627c28c2711b852dcb056f70aec050f13c8769"
+last_modified = "Fri, 17 Jul 2026 16:45:44 GMT"
+etag = "\"1e7f-656d149aa7b21\""
+content_type = "text/plain"
+
+[[files]]
+name = "drought-readme.txt"
+url = "https://www.ncei.noaa.gov/monitoring-content/data/us/climdiv/monthly/current/drought-readme.txt"
+local_ignored_path = "data/raw/us_county/nclimdiv_pdsicy/drought-readme.txt"
+size_bytes = 15950
+sha512 = "57d0285ce5917748afe51fbdb90d2ecdc101e8e51a5926405fea8db6f65721ea53fe64685ea5b53e109a82930ab7d9d8c67190174ed61f76c3980b3e47387ce0"
+last_modified = "Fri, 17 Jul 2026 16:45:44 GMT"
+etag = "\"3e4e-656d149ae4cbe\""
+content_type = "text/plain"

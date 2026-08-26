@@ -19,12 +19,20 @@ import xarray as xr
 from build_crop_stage_heat_features import parse_fractions
 from build_crop_year_features import date_from_doy
 from climate_inputs import climate_array
+from scpdsi_partition_provenance import (
+    PARTITION_CONTRACT_ID,
+    manifest_path_for,
+    require_sha256,
+    sha256_file,
+    write_manifest,
+)
 
 
 KEYS = ["harvest_year", "lat", "lon_360", "crop", "irrigation"]
 COLUMNS = [
     "harvest_year", "plant_year", "lat", "lon", "lon_360", "crop", "irrigation",
-    "cross_year", "stage_id", "stage_start_offset_day", "stage_end_offset_day",
+    "cross_year", "plant_doy", "maturity_doy", "season_days",
+    "stage_id", "stage_start_offset_day", "stage_end_offset_day",
     "stage_days", "stage_fractions", "scpdsi_mean", "scpdsi_min",
     "scpdsi_days_at_or_below_threshold", "scpdsi_threshold",
     "monthly_index_days_covered", "drought_index_name", "drought_source_role",
@@ -111,6 +119,9 @@ def main() -> None:
     parser.add_argument("--threshold", type=float, required=True)
     parser.add_argument("--stage-fractions", default="0,0.3,0.7,1")
     parser.add_argument("--out", required=True)
+    parser.add_argument("--manifest-out")
+    parser.add_argument("--scpdsi-sha256")
+    parser.add_argument("--calendar-sha256")
     args = parser.parse_args()
     fractions = parse_fractions(args.stage_fractions)
     if args.year_end < args.year_start or args.lat_start < 0 or args.lat_stop <= args.lat_start:
@@ -118,8 +129,23 @@ def main() -> None:
     if not np.isfinite(args.threshold):
         raise ValueError("scPDSI threshold must be finite")
 
-    with xr.open_dataset(args.calendar, engine="h5netcdf", decode_timedelta=False) as calendar_ds, \
+    scpdsi_path = Path(args.scpdsi)
+    calendar_path = Path(args.calendar)
+    scpdsi_sha256 = (
+        require_sha256(args.scpdsi_sha256, "scpdsi_sha256")
+        if args.scpdsi_sha256
+        else sha256_file(scpdsi_path)
+    )
+    calendar_sha256 = (
+        require_sha256(args.calendar_sha256, "calendar_sha256")
+        if args.calendar_sha256
+        else sha256_file(calendar_path)
+    )
+
+    with xr.open_dataset(calendar_path, engine="h5netcdf", decode_timedelta=False) as calendar_ds, \
          xr.open_dataset(args.scpdsi, engine="h5netcdf") as drought_ds:
+        if args.lat_stop > calendar_ds.sizes.get("lat", 0):
+            raise ValueError("Latitude bounds extend beyond the crop-calendar grid")
         calendar = calendar_ds.isel(lat=slice(args.lat_start, args.lat_stop))
         calendar = calendar.assign_coords(lon=np.mod(calendar.lon.values.astype(float), 360.0)).sortby(["lat", "lon"])
         if missing := {"planting_day", "maturity_day"} - set(calendar.data_vars):
@@ -171,6 +197,8 @@ def main() -> None:
                         "lat": float(latitudes[ilat]), "lon": float(longitudes[ilon]),
                         "lon_360": float(longitudes[ilon] % 360), "crop": args.crop,
                         "irrigation": args.irrigation, "cross_year": cross_year,
+                        "plant_doy": plant_doy, "maturity_doy": maturity_doy,
+                        "season_days": season_days,
                         "stage_id": stage_id, "stage_start_offset_day": i0 + 1,
                         "stage_end_offset_day": i1, "stage_days": i1 - i0,
                         "stage_fractions": args.stage_fractions, "scpdsi_mean": mean_value,
@@ -188,6 +216,35 @@ def main() -> None:
     output = Path(args.out)
     output.parent.mkdir(parents=True, exist_ok=True)
     result.to_parquet(output, index=False)
+    manifest_output = Path(args.manifest_out) if args.manifest_out else manifest_path_for(output)
+    write_manifest(
+        manifest_output,
+        {
+            "schema_version": 1,
+            "contract_id": PARTITION_CONTRACT_ID,
+            "output_file": str(output.resolve()),
+            "output_sha256": sha256_file(output),
+            "output_rows": int(len(result)),
+            "scpdsi_source_file": str(scpdsi_path.resolve()),
+            "scpdsi_source_sha256": scpdsi_sha256,
+            "calendar_source_file": str(calendar_path.resolve()),
+            "calendar_source_sha256": calendar_sha256,
+            "drought_variable": args.variable,
+            "crop": args.crop,
+            "irrigation": args.irrigation,
+            "year_start": int(args.year_start),
+            "year_end": int(args.year_end),
+            "lat_start": int(args.lat_start),
+            "lat_stop": int(args.lat_stop),
+            "threshold": float(args.threshold),
+            "stage_fractions": args.stage_fractions,
+            "expected_stages": len(fractions) - 1,
+            "calendar_fields_embedded": [
+                "plant_year", "cross_year", "plant_doy", "maturity_doy", "season_days"
+            ],
+            "drought_source_role": "historical_benchmark_not_future_scc_input",
+        },
+    )
     print(f"wrote {len(result)} crop-stage scPDSI rows; threshold={args.threshold:g}")
 
 

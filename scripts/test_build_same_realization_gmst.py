@@ -64,7 +64,9 @@ with tempfile.TemporaryDirectory() as directory:
     failure([str(gap)], "daily")
 
     wrong_units = root / "tas_celsius.nc"
-    write(wrong_units, dates, values, units="degrees_C")
+    # This spelling passes the general daily-temperature unit contract so the
+    # GMST-specific Kelvin-only gate is exercised.
+    write(wrong_units, dates, values, units="degree_Celsius")
     failure([str(wrong_units)], "Kelvin")
 
 print("same-realization GMST synthetic tests passed")

@@ -54,9 +54,13 @@ damage coefficients and should not be copied mechanically across sectors.
 
 ## Immediate implementation changes
 
-The repository already has deterministic spatial/time/extreme labels. The
-stage-wide panel now receives normalized precipitation shares and concentration
-metrics alongside seasonal totals, then benchmarks the
-fixed-effects response against regularized and nonlinear alternatives in
-nested blocked validation. GCM/member-level feature paths and retained-model
-draws will feed the matched SCC baseline/pulse interface.
+The repository already has deterministic spatial/time/extreme labels, and the
+stage-wide panel can receive normalized precipitation shares and concentration
+metrics alongside seasonal totals. The frozen first-difference diagnostic does
+**not** yet use those normalized features, wet-day frequency/intensity, Rx5day,
+heat, or alternative drought families. The not-yet-frozen production registry
+requires those comparisons and purged observation-disjoint temporal/extreme
+splits before any regularized or nonlinear benchmark can influence model
+retention. GCM/member-level feature paths and retained-model draws remain
+planned inputs to the matched SCC baseline/pulse interface; none exists yet as
+an empirically authorized response bundle.

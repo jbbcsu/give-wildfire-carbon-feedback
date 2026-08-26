@@ -1,0 +1,48 @@
+input_id = "nga_genc_gec_crosswalk"
+dataset_title = "GENC Edition 3 Update 11 to GEC crosswalk and FIPS PUB 10-4"
+publisher = "National Geospatial-Intelligence Agency and National Institute of Standards and Technology"
+landing_page = "https://geonames.nga.mil/geonames/GNSHome/reference.html"
+retrieved_on = "2026-08-26"
+coverage = "official GENC geopolitical entities and administrative subdivisions crosswalked to legacy GEC, formerly FIPS PUB 10-4"
+license = "NOASSERTION; the NGA GNS page states that GNS data have no licensing requirements or restrictions, but no SPDX identifier is asserted"
+role = "authoritative legacy GEC/FIPS country-prefix resolution for MapSPAM 2000 stat_code audit"
+use_limit = "Internal code/provenance audit only. The crosswalk does not authorize MapSPAM welfare weights, missing-value imputation, data redistribution, or SCC aggregation."
+
+[[files]]
+kind = "selected_official_genc_gec_crosswalk"
+source_url = "https://geonames.nga.mil/geonames/GNSSearch/GNSDocs/pdfdocs/gec/GENC_ED3U11_GEC_XWALK.xlsx"
+local_ignored_path = "data/raw/nga_genc_gec/GENC_ED3U11_GEC_XWALK.xlsx"
+size_bytes = 351895
+etag = "W/\"351895-1773698599209\""
+last_modified = "2026-03-16T22:03:19Z"
+local_sha512 = "8071e8195cda90dbdb9fa42d6d2946acce1661761acc81f8eb52cded1af1ae5660a5bedcea0383950400b46923db89e71723a8adb9d61783ca0b43489e530d5e"
+selection_note = "The official current reference page describes and links a GENC-to-former-GEC crosswalk. Its ED3U25 link returned HTTP 404 on retrieval; the ED3U11 workbook remains available at the official path documented by the NGA GNS user guide and is sufficient for the legacy country-prefix mapping audited here."
+
+[[files]]
+kind = "official_fips_10_4_standard"
+source_url = "https://www.govinfo.gov/content/pkg/GOVPUB-C13-1ea099540271ff42b09274b9839d02a4/pdf/GOVPUB-C13-1ea099540271ff42b09274b9839d02a4.pdf"
+local_ignored_path = "data/raw/nga_genc_gec/FIPS_PUB_10-4_1995.pdf"
+size_bytes = 3645966
+local_sha512 = "d80cc13de6c63fc953af609d904904e546212247ec70e117c6557accc0738b7e926469c48ff1e2388a8e8397df1a9e4dbf38e071714e31fc2f6126293e4b6924"
+selection_note = "NIST FIPS PUB 10-4 defines two-letter geopolitical-entity codes and four-character principal-administrative-division codes; the standard was withdrawn in 2008, so the NGA GEC/GENC crosswalk supplies the current entity mapping."
+
+[[files]]
+kind = "official_reference_page_snapshot"
+source_url = "https://geonames.nga.mil/geonames/GNSHome/reference.html"
+local_ignored_path = "data/raw/nga_genc_gec/reference_retrieved_2026-08-26.html"
+size_bytes = 123564
+local_sha512 = "5dfb4692a19f5829fcb0d410b7169547ccedada4ac18a4b7ff9d4bf4be0cf52280587ba4fcfd54fbaca8db88b6da63ff2ae26d0d8fa42a94badab73433d33dbe"
+
+[audit]
+derived_audit_path = "data/interim/welfare_weights/mapspam_gec_resolution.audit.json (ignored)"
+four_character_stat_codes = 196
+four_character_country_prefixes = 14
+four_character_rows = 49222
+four_character_country_mapping_resolved = true
+maize_authoritative_country_plus_baseline_value_share = 0.9804980565871454
+soybean_authoritative_country_plus_baseline_value_share = 0.9905795928528542
+maize_gec_mapped_without_baseline_value_share = 0.006580302060650272
+soybean_gec_mapped_without_baseline_value_share = 0.0017206908521886798
+maize_genc_non_unsd_share = 0.00011597649305412328
+soybean_genc_non_unsd_share = 0.00000191686080689119
+spatial_value_weights_authorized = false

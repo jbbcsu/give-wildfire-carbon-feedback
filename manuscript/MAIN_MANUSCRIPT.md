@@ -5,31 +5,39 @@
 Climate change alters not only mean precipitation but also the timing,
 seasonality, dry spells, and heavy-rainfall exposures that govern crop water
 stress and excess-water damage. Existing GIVE agriculture in this checkout is
-a temperature-only welfare response, so it cannot identify a marginal
-precipitation contribution. We develop a replacement pathway: daily,
-crop-calendar-aligned climate features are linked to gridded crop outcomes in
-a joint temperature--water response; the response is evaluated under matched
-baseline and CO2-pulse climate paths, translated through one agricultural
-welfare layer, and passed to GIVE's SCC calculation. We pre-specify fixed,
+a temperature-indexed welfare response with no explicit separable
+precipitation input, so it cannot identify a marginal precipitation
+contribution. This project develops a replacement pathway:
+daily, crop-calendar-aligned climate features will be linked to gridded crop
+outcomes in a joint temperature--water response; the fitted response will be
+evaluated under matched baseline and CO2-pulse climate paths, translated
+through one agricultural welfare layer, and passed to GIVE's SCC calculation.
+The empirical hierarchy begins with joint temperature plus crop-calendar
+seasonal rainfall quantity, retains distribution terms only for robust
+incremental out-of-sample value, and treats PDSI/scPDSI and SPEI as serious
+competing moisture-stress representations rather than additive controls.
+We pre-specify fixed,
 trend, and upper adaptation scenarios and retain climate, response, calendar,
 and welfare uncertainty. The manuscript reports no SCC estimates until the
 validated feature panel and response draws are available. Its central outcome
 will be a global SCC decomposition that does not stack precipitation damages
-on top of the existing temperature-only agriculture component.
+on top of the existing temperature-indexed agriculture component.
 
 Analysis completion and permitted claim status are maintained in
 `RESULTS_STATUS.md`; the manuscript must not advance beyond that ledger.
 
 ## 1. Introduction
 
-Agricultural climate damages depend on the distribution of weather within a
-growing season. A country-year annual precipitation average obscures planting
-timing, dry-spell duration, waterlogging, and heavy-rain exposures. These
-features can covary with temperature and CO2, so a precipitation-only model
-can misattribute joint climate effects.
+Agricultural climate damages can depend on both the quantity and distribution
+of weather within a growing season. A country-year annual precipitation
+average obscures planting timing, dry-spell duration, waterlogging, and
+heavy-rain exposures, but that does not establish that a complex distribution
+model will outperform a crop-season quantity measure. These features can
+covary with temperature and CO2, so a precipitation-only model can misattribute
+joint climate effects.
 
 This study asks: how does the agricultural component of the global SCC change
-when a temperature-only agricultural pathway is replaced by a joint,
+when a temperature-indexed agricultural pathway is replaced by a joint,
 crop-calendar-aligned temperature--precipitation response? The scope is crop
 yield and agricultural welfare. Noncoastal infrastructure flooding is deferred
 to a distinct future module; coastal surge and sea-level costs remain under
@@ -59,8 +67,9 @@ paths and a non-overlapping GIVE welfare replacement.
 
 ## 3. Data and feature construction
 
-The estimation outcome is GDHY gridded yield for maize, rice, wheat, and
-soybean. Daily ISIMIP climate fields and GGCMI Phase 3 crop calendars supply
+The planned production outcome set includes GDHY gridded yield for maize,
+rice, wheat, and soybean; current corrected aggregate-regime diagnostics cover
+maize and soybean only. Daily ISIMIP climate fields and GGCMI Phase 3 crop calendars supply
 stage-level temperature and precipitation information. Features include
 stage-weighted temperature, seasonal precipitation or water balance,
 consecutive dry days, wet-day frequency, heavy-rain/water-excess metrics, and
@@ -70,32 +79,118 @@ default. Partition validation requires ordered thresholds to have nested day
 counts and aggregate degree-day differences consistent with those counts,
 before stage totals are reconciled to the season. All features are computed at
 grid-cell and crop-year level before aggregation. Monthly CRU scPDSI supplies a
-calendar-aligned historical
-climatic-index benchmark only; future water-stress features are recomputed from
-matched baseline and pulse climate paths rather than extrapolating the
-observed index.
+calendar-aligned historical candidate for the competing climatic-water-balance
+family. The global 1982--1989 and 2012--2016 maize and soybean candidate paths now pass full
+source-bound partition validation and complete derived-input allocation
+recomputation after constructing 16 seasonal/stage scPDSI features by
+irrigation regime and then applying fixed MIRCA shares. It contains no direct
+weather terms and has not been fitted. SPEI and scPDSI/PDSI receive serious
+comparison in the U.S. validation and global robustness work; future
+water-stress features must be recomputed from matched baseline and pulse
+climate paths rather than extrapolating an observed index.
 
 GDHY supplies one crop-season-grid-year yield rather than separate rainfed and
-irrigated outcomes. The current diagnostics therefore use only the rainfed
-calendar exposure. A production all-area panel will combine rainfed and
-irrigated calendar features with independent, fixed-baseline crop-area shares
-to retain exactly one exposure row per observed yield; it will not duplicate
+irrigated outcomes. Legacy diagnostics used only the rainfed calendar
+exposure. Corrected minimal maize and soybean diagnostics now combine rainfed
+and irrigated response bases with independent fixed-baseline crop-area shares
+to retain exactly one exposure row per observed yield; the allocator does not duplicate
 the outcome across regimes or infer the shares from yield. MIRCA-OS v2 annual
 harvested-area maps now supply candidate fixed 2000 weights, with the 2005,
 2010, 2015, and 2020 maps retained as vintage sensitivities. The exact 0.5°
 maize and soybean mappings pass source, grid, and share checks. Annual MIRCA
-rice and wheat do not identify GDHY's separate rice seasons or spring/winter
-wheat, so those mappings are explicitly blocked pending a season-resolved
-crosswalk.
+rice remains blocked because its monthly source fails metadata checks and the
+2000 seasonal reconstruction fails reconciliation to annual Rice; wheat lacks
+a documented spring/winter mapping. Every nonlinear weather basis and compound interaction is formed
+within each regime before the fixed area shares are applied. This defines an
+aggregate-yield reduced form and does not identify separate regime yields;
+production weights would require independent regime-specific baseline yields,
+and crop-value weights remain reserved for welfare aggregation. Early
+primitive-weather-weighted aggregate-regime diagnostics violate this ordering and are
+withdrawn. The corrected minimal predictive workflow now has an explicit
+contract-aware prebuilt-basis mode; it remains distinct from the unfrozen
+production causal response.
+For the same 1982--1989 maize and soybean panels, a broader 54-column
+candidate contract now passes independent reconciliation after irrigation
+allocation. It carries seasonal/stage rainfall amount, normalized
+shares/timing/concentration, wet-day frequency and conditional intensity,
+CDD, Rx1day, Rx5day, temperature, and interactions. This establishes that
+both quantity and temporal-distribution inputs can be represented without
+post-aggregation transforms; the 1 mm wet-day definition and response form
+remain unselected, and the table is not authorized for fitting.
+Matching later-period rainfed and irrigated panels are now complete for maize
+and soybean over 2012--2016. After fixed-2000 MIRCA allocation, the direct-
+pattern tables contain 165,955 maize and 119,670 soybean crop-grid-year rows,
+including 60,818 and 26,748 positive observed yields. Outcomes without an
+eligible crop-grid MIRCA weight (484 maize and 433 soybean records) are
+excluded rather than infilled. The official GDHY archive also has a temporary
+2015 positive-support drop that is restored in 2016; this is retained as a
+source-support limitation and complete-positive-support sensitivity, not
+repaired in the outcome data.
+Coverage also changes materially with the denominator. Current
+consecutive-pair cells contain 79.02% of positive MIRCA maize harvested area
+and 89.29% of soybean area, even though about 98% of GDHY-observed cells match
+a MIRCA weight. A same-vintage area-times-yield proxy is undefined over the
+remaining 20.98% and 10.71% of MIRCA area, and no compatible spatial
+crop-value input is yet pinned. We therefore do not normalize represented
+cells to global agricultural welfare or characterize the sample as global
+production coverage.
+
+The secondary U.S. validation track now contains 21,596 paired irrigated and
+non-irrigated crop-county-years over 1981--2019: 7,079 corn, 4,845 soybean,
+and 9,672 all-classes-wheat pairs. This support is regional, not nationally
+representative. All 807 reported county GEOIDs match 2019 TIGER; eight counties
+remain under historical-boundary review. NOAA nClimGrid daily weather has been
+validated only for a bounded Cuming County construction smoke, while a
+HEAD-only inventory pins the 468 monthly 1981--2019 objects (25.944 GiB
+advertised). Their remaining contents have not been acquired or validated, so
+the U.S. track has not estimated a weather--yield relationship.
 
 ## 4. Empirical design
 
-The primary response is a hierarchically pooled fixed-effects model with
-crop/grid controls, year effects, flexible stage weather functions, and
-temperature--precipitation interactions. It is compared to process-based
-GGCMI/ISIMIP outcomes and, only as a predictive comparator, a constrained
-sequence/ML model. CO2 concentration and adaptation are explicit scenario
-inputs; market feedback is applied exactly once in the welfare translation.
+The production registry includes a hierarchically pooled fixed-effects
+candidate with crop/grid controls, year effects, flexible stage weather
+functions, and temperature--precipitation interactions. It will be compared
+to process-based GGCMI/ISIMIP outcomes and, only as a predictive comparator, a
+constrained sequence/ML model. CO2 concentration and adaptation will be
+explicit scenario inputs; market feedback will be applied exactly once in the
+welfare translation.
+
+The production functional form is not yet frozen. Its registered comparison
+set keeps seasonal amount distinct from normalized stage shares and timing,
+wet-day frequency distinct from conditional wet-day intensity, CDD distinct
+from Rx1day/Rx5day, and mean temperature distinct from crop-specific heat
+extremes; registered temperature--water interactions are evaluated jointly.
+Direct precipitation-pattern, climatic-water-balance, and soil-moisture
+representations are competing water-stress families and are never stacked.
+The parsimonious reference is joint temperature plus crop-calendar seasonal
+precipitation quantity. Distribution, occurrence, intensity, dry-spell, and
+wet-extreme extensions survive only if pre-specified outer holdouts show robust
+and stable incremental value; null and worse results are reported plainly, and
+the seasonal-quantity reference may become primary. PDSI/scPDSI and SPEI are
+serious alternative predictors under those same outer splits, not secondary
+checks or extra covariates added to the direct-water specification. Selection
+is based on validity, stability, parsimony, and external validation, never SCC
+magnitude.
+The existing three-model exercise is a deliberately minimal predictive
+diagnostic: it omits frequency, intensity, Rx5day, heat, and the alternative
+drought families and only indirectly represents normalized timing through
+three window totals. The reported pre-revision audits also allowed adjacent
+first-difference pairs to share one yield endpoint across temporal or extreme
+train/test splits. Those values are legacy dependent stress tests and are stale
+under the revised configuration hash. Production model comparison requires
+purged observation-disjoint temporal and extreme splits in addition to the
+already grid-disjoint spatial blocks; rerunning a purged predictive diagnostic
+still does not establish causality or authorize an SCC response.
+The revised evaluator and audit validator implement that purge and pass
+synthetic failure-mode tests. Real 1982--1989 MIRCA-2000 maize and soybean
+minimal diagnostics have also been rerun with zero endpoint overlap in every
+temporal and retrospective high-tail stress split. These runs validate the corrected
+order-of-operations and split plumbing; they do not promote the minimal basis
+to the production response. Because GDHY has one aggregate crop-season-grid-year
+yield, the production outcome cell excludes an irrigation dimension. The choice between a
+level fixed-effects model with crop-year shocks and a first-difference model
+with registered year-shock controls remains unresolved rather than inherited
+from the diagnostic.
 
 ## 5. SCC implementation
 
@@ -116,10 +211,11 @@ source and processing validation, not a fitted feature response.
 An unmatched scenario contrast is not treated as a marginal pulse. Whole-ESM
 and whole-scenario holdouts, historical-support flags, zero-pulse identity, and
 decreasing-pulse convergence must pass before the resulting features can enter
-the response. Cell-level yield responses are aggregated with fixed baseline weights,
-translated to 16 FUND regions, and supplied to the replacement component.
-GIVE's existing marginal-damage/discounting machinery then produces the global
-SCC. Before either member of a paired run, a structural audit requires
+the response. After all empirical, welfare, coverage, and paired-climate gates
+pass, cell-level yield responses will be aggregated with fixed baseline
+weights, translated to 16 FUND regions, and supplied to the replacement
+component; GIVE's existing marginal-damage/discounting machinery will then
+calculate the global SCC. Before either member of a paired run, a structural audit requires
 `DamageAggregator.damage_ag` to have the sole internal producer
 `JointAgriculture.agcost` and requires the baseline `Agriculture` component to
 be absent. The unmodified GIVE graph fails this test by design. A passing graph
@@ -153,48 +249,105 @@ not future agricultural damages.
 Report calendar coverage, baseline alignment, daily-feature distributions, and
 agreement across weather products.
 
+The historical CRU scPDSI candidate covers 240,784 maize crop-grid-years
+(115,758 positive GDHY outcomes) and 176,537 soybean crop-grid-years (47,653
+outcomes) during 1982--1989, plus 150,490/59,772 and 110,336/26,601 during
+2012--2016, after complete-key drought-coverage and MIRCA-weight gates. The
+raw source, calendars, stage partitions, area weights, allocation audit, and
+final candidate are hash-bound; the validator fully recomputes allocation from
+the derived stage tables without claiming full raw-metric recomputation. This
+closes a data-construction gate for one competing
+historical drought representation. The diagnostic -2 threshold is not a
+selected drought definition, no response has been fitted, and CRU scPDSI
+cannot supply the matched future baseline/pulse drought path required for SCC.
+
+Four data-only common-support assemblies place this historical benchmark and
+the direct-weather candidate on identical crop-grid-year support while keeping
+their 16 and 54 features in separate, mutually exclusive views. Common
+rows/positive outcomes and direct-only dropped rows/positive outcomes are
+240,784/115,758 and 24,744/1,921 for maize in 1982--1989;
+176,537/47,653 and 14,935/269 for soybean in 1982--1989;
+150,490/59,772 and 15,465/1,046 for maize in 2012--2016; and
+110,336/26,601 and 9,334/147 for soybean in 2012--2016. No scPDSI-only row or
+observed outcome is dropped in any bundle. The validator verifies hashes and
+recomputes the intersection from the supplied immediate candidate tables, but
+does not rerun raw-source pipelines or bind their validation receipts; those
+upstream receipts remain an external prerequisite. This assembly estimates no
+model or causal effect and produces no coefficient, model-selection, future-
+projection, damage, or SCC result. The empirical hierarchy therefore remains
+unchanged: seasonal quantity is the direct-weather reference, distribution is
+retained only for robust stable outer-holdout value, and drought families
+compete mutually exclusively rather than stack.
+
 ### 6.2 Yield-response validation
 
 Report spatial, temporal, and extreme-year held-out skill; coefficient and
 functional-form uncertainty; and comparison with process-model ranges.
 
-Current diagnostic evidence is deliberately below that release gate. In the
-1982–89 rainfed panel, a frozen coefficient-suppressing audit evaluated
-321,620 consecutive observed-yield pairs across six crop-season labels. The
-three-window joint model had the lowest RMSE in 11 of 18 crop-by-holdout
-comparisons, but the seasonal joint and precipitation-only models led five and
-two comparisons, respectively. No candidate beat a zero-change prediction in
-the second-season-rice temporal block, and richer models also failed that
-benchmark in its spatial block. This retained mixed result is an internal
-predictive diagnostic, not model selection, causal response evidence, or an
-SCC input; the complete-period, irrigated, heat, drought-family, uncertainty,
-and external-validation gates remain open. In an outcome-separate 1992–2000
-maize replication, the three-window model again led spatial and extreme-case
-RMSE, but precipitation-only led the temporal block; the earlier temporal
-ordering therefore did not replicate and is not a basis for period-specific
-model choice.
+The current-hash, basis-before-weighting diagnostic covers 117,679 observed
+maize yields (102,847 consecutive pairs) and 47,922 observed soybean yields
+(41,915 pairs) during 1982--1989. Temporal and extreme training sets are
+yield-endpoint disjoint from their test sets. Every registered model improves
+on zero-change RMSE in every crop/holdout. For maize, stage-joint RMSE is
+0.2921 spatially and 0.2974 in high-tail stress pairs, compared with 0.2948 and
+0.3024 for seasonal-joint; in the temporal block seasonal-joint (0.3070) and
+stage-joint (0.3071) are essentially tied. For soybean, stage-joint is lowest
+spatially (0.2185) and in high-tail stress pairs (0.2212), while seasonal-joint
+is lowest temporally (0.2586 versus 0.2617 for stage-joint). Zero-change RMSEs
+are 0.3082/0.3256/0.3144 for maize and 0.2322/0.2737/0.2332 for soybean in
+spatial/temporal/extreme order. These are predictive diagnostics over eight
+years, not causal effects. The stage model mixes crop-window amount, dry
+spells, Rx1day, temperature, and interactions, so this result does not yet
+identify an effect of temporal distribution conditional on seasonal amount.
+It instead justifies the registered production comparison that separates
+quantity from normalized timing, occurrence, intensity, and extremes.
 
-In a second outcome-separate replication, the 2002–2010 soybean panel yielded
-48,959 consecutive positive-yield pairs. The three-window joint model had the
-lowest RMSE in the spatial, final-two-year, and climate-extreme blocks (0.2143,
-0.2406, and 0.2175), compared with zero-change RMSE of 0.2202, 0.2493, and
-0.2251; every registered model beat zero in every block. One GDHY source zero,
-which the source method permits after clipping a negative aligned value, is
-preserved but excluded from the log-yield response. This retained favorable
-replication is still a one-crop, rainfed-calendar, internal predictive
-diagnostic; it supplies no released coefficient or SCC input.
+That explicit quantity-versus-distribution comparison has now been run under
+a separate hash-locked, coefficient-suppressing screening contract. Relative
+to stage-temperature controls plus seasonal rainfall quantity, the best
+distribution candidate reduces pooled held-out RMSE by 0.00117--0.00138 in the
+three maize comparisons and by 0.00084--0.00261 in the three soybean
+comparisons. The pattern is not uniform: the full distribution set worsens
+soybean temporal RMSE by 0.00355, individual fold/year signs are heterogeneous,
+and the pooled differences have neither paired uncertainty intervals nor a
+multiple-comparison adjustment. The label used for the retrospective
+high-tail stress split also covers about 47% of pairs in this eight-year panel
+because a pair is included when either endpoint crosses either within-cell CDD
+or Rx1day threshold; it is not rare-event or prospective validation. These
+small predictive differences motivate continued testing of both rainfall
+quantity and timing, but do not identify a causal precipitation effect or
+select the production response.
 
-Closing the decadal climate-file boundary yielded a contiguous 1982–2000
-maize/rainfed diagnostic with all 19 harvest years, 285,871 positive-yield
-levels, and 270,273 consecutive-year pairs. The three-window joint model had
-the lowest RMSE in spatial blocks (0.3111 versus 0.3221 for zero change) and
-climate-extreme cases (0.3243 versus 0.3324), whereas precipitation-only led
-the final-1999–2000 temporal block (0.2833 versus 0.2878 for the three-window
-model and 0.2883 for zero change). Precipitation-only was slightly worse than
-zero change in the extreme block (0.3341 versus 0.3324). Thus the longer period
-retains predictive value for within-season features but does not stabilize one
-model ranking across holdouts. This remains a one-crop, rainfed-calendar,
-internal predictive diagnostic with suppressed coefficients and no SCC use.
+The same hash-locked screen on 2012--2016 data does not reproduce a stable
+distribution advantage. Among 46,434 maize pairs, every distribution extension
+worsens spatial and temporal RMSE relative to seasonal quantity; timing and
+concentration improve the high-tail score by only 0.000044. Among 20,682
+soybean pairs, dry spells improve spatial RMSE by 0.001516 and
+occurrence/intensity improve high-tail RMSE by 0.001366, but every extension
+worsens temporal RMSE. The combined distribution set worsens temporal RMSE by
+0.004826 for maize and 0.003491 for soybean. For maize's 2015--2016 temporal
+block, even the seasonal-quantity and temperature models are worse than the
+zero-change benchmark. No registered distribution family improves on seasonal
+quantity in all three holdouts for either crop.
+
+A separate three-model minimal-basis complete-positive-support sensitivity,
+motivated by GDHY's temporary 2015 support drop, retains 91.23% of maize pairs
+and 94.23% of soybean pairs.
+Seasonal joint temperature--quantity is lowest-RMSE in every crop-by-holdout
+comparison in that selected subset, although complete-support conditioning can
+change the sample and the seven-family screen has not been rerun on the
+subset. The later-period evidence therefore favors seasonal
+quantity as the current parsimonious direct-weather reference and does not
+clear the registered retention gate for any distribution extension. It does
+not freeze a causal production model: PDSI/scPDSI, SPEI, and soil moisture
+remain competing moisture-stress families under the same holdouts, and no
+predictive ranking is an SCC result.
+
+All earlier rainfed-panel response rankings were generated under a superseded,
+endpoint-overlapping split and are excluded from current manuscript results.
+Their source-panel coverage remains documented in `RESULTS_STATUS.md`; every
+response comparison must be rerun under the current hash before it can be
+reported.
 
 At the integration boundary, the replacement installer now passes an executed
 synthetic control on the unmodified GIVE model: the MooreAg agriculture

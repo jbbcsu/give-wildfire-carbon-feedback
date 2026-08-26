@@ -35,12 +35,27 @@ observations. Before a production all-area panel is built, obtain a versioned
 crop-grid irrigated/rainfed area-share source that is independent of GDHY
 yield, fixed to a documented pre-period baseline, and complete for every
 included crop-grid. Collapse the regime-specific climate features to one
-area-weighted exposure row per observed outcome. Shares must be finite,
+area-weighted exposure row per observed outcome only after constructing every
+nonlinear response-basis column within each regime. Logs, splines, thresholds,
+CDD, Rx1day/Rx5day, drought indices, and interactions cannot be reconstructed
+from area-averaged primitive weather; only linear basis columns commute with
+weighting. Shares must be finite,
 nonnegative, invariant across outcome years, and sum to one; missing regime
 features or weights fail rather than trigger renormalization. Retain the
 rainfed-calendar-only panel as an explicitly narrowed diagnostic until that
 gate clears. `scripts/allocate_outcome_exposures.py` enforces the data
-contract but supplies no production weights.
+contract but supplies no production weights. The minimal executable allocation
+order in `scripts/allocate_irrigation_response_basis.py` is compatible only
+with the evaluator's explicit contract-aware prebuilt-basis diagnostic mode;
+primitive-weather mode rejects area-weighted panels. This closes the
+order-of-operations gate for the limited predictive diagnostic, not for the
+unfrozen complete production basis or causal estimator.
+The broader candidate builder must additionally reconcile stage days,
+precipitation, and wet-day counts to the season within each irrigation regime;
+enforce finite bounded CDD/Rx1day/Rx5day values; construct normalized shares,
+timing, concentration, wet-day frequency/intensity, and interactions before
+weighting; and mark its wet-day threshold as unselected and all fitting/SCC
+use as unauthorized.
 
 ## Three adaptation scenarios
 
@@ -52,20 +67,23 @@ not call the resulting SCC net of adaptation investment.
 
 ## Required comparisons
 
-1. Seasonal precipitation-only, stage-feature, and joint temperature--water
-   specifications must be compared by blocked space, time, and extreme-year
-   holdouts.
+1. Joint temperature plus crop-season precipitation quantity is the
+   parsimonious reference. Stage/distribution extensions must be compared by
+   blocked space, time, and high-tail stress holdouts and retained only for
+   robust, stable incremental performance; null and worse results are reported.
    This comparison must include the direct precipitation-pattern, climatic
    water-balance (SPEI/PDSI), and soil-moisture exposure families defined in
    [the drought metrics plan](DROUGHT_METRICS_PLAN.md). PDSI/SPEI are competing
    drought representations, not covariates to stack mechanically with their
-   underlying precipitation/temperature inputs.
+   underlying precipitation/temperature inputs. Selection by SCC magnitude is
+   forbidden.
 2. Compare predicted yield changes to GGCMI/ISIMIP process ensemble ranges;
    disagreement is structural uncertainty, not grounds to average blindly.
 3. Use FAOSTAT only as an aggregation/provenance check because GDHY is partly
    calibrated to it. Seek a genuinely independent subnational source for a
    formal external validation. The U.S. county extension supplies this layer:
-   compare calendar-aligned crop-area-weighted climate drought measures with
+   compare calendar-aligned county-polygon primary and CDL-sensitivity climate
+   drought measures with
    observed U.S. Drought Monitor county-week D1+ and severity-area exposures,
    then assess their incremental and non-duplicative predictive role for
    documented NASS crop yields. Before any estimation join, run a counts-only
@@ -142,6 +160,19 @@ are never inputs to `JointAgriculture` or SCC. The main analysis requires the
 full global panel, crop-stage features, pre-specified nonlinear terms,
 spatial/temporal holdouts, coefficient uncertainty, and welfare mapping.
 
+Run `scripts/validate_response_spec_boundaries.py` before any production
+response work. It requires the complete quantity/distribution/frequency/
+intensity/dry-spell/Rx1day/Rx5day/heat/interaction comparison registry and all
+three non-stacking water-stress families, while verifying that the frozen
+predictive diagnostic remains production-ineligible. Production temporal and
+extreme validation must also purge every training first-difference pair that
+shares either level-yield endpoint with a test pair. That purge and its audit
+now pass synthetic tests. Corrected MIRCA-2000 maize and soybean minimal
+diagnostics for 1982--1989 also pass under the current hash with zero endpoint
+overlap; all other earlier response audits remain legacy/stale and must be
+rerun rather than relabeled. A zero-overlap predictive audit is still not
+causal model-selection evidence or SCC authorization.
+
 ## Executable holdout construction
 
 `scripts/make_validation_folds.py` assigns deterministic 5° spatial-block
@@ -153,7 +184,7 @@ a claim that the tail definitions exhaust agricultural extremes.
 
 `scripts/evaluate_crop_response_models.py` turns those labels into a
 crop-specific held-out predictive audit. It first-differences consecutive
-observations within crop/irrigation/grid cells, compares the registered
+observations within crop/exposure-basis/grid cells, compares the registered
 seasonal precipitation-only, seasonal joint, and stage-joint feature sets,
 and reports spatial-fold, final-year, and climate-extreme metrics against a
 zero-change benchmark. The transformation removes time-invariant grid levels;

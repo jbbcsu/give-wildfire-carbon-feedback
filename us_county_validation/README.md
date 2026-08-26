@@ -25,10 +25,10 @@ an irrigation-related robustness split, never a rainfed label.
 | Input | Planned use | Authority |
 |---|---|---|
 | USDA NASS Quick Stats | County yield, production, and harvested area for maize, soybean, winter/spring wheat, rice | https://www.nass.usda.gov/quick_stats/ |
-| gridMET | Primary daily county crop-area weather features, CONUS, 1979-present, about 4 km | https://climatetoolbox.org/data/past-weather-data |
-| Daymet | 1 km daily weather robustness comparison | https://daymet.ornl.gov/getdata |
+| NOAA nClimGrid-Daily | Primary daily weather for county-polygon area-weighted county-average proxies, CONUS, 1951-present, 1/24 degree | https://www.ncei.noaa.gov/products/land-based-station/nclimgrid-daily |
+| gridMET / Daymet | Daily weather-product robustness comparisons; gridMET is not sole trend evidence | https://www.climatologylab.org/gridmet.html / https://doi.org/10.3334/ORNLDAAC/1840 |
 | NASS planting/harvest reports and Crop Progress | Calendar priors and timing sensitivity | https://www.nass.usda.gov/Publications/Todays_Reports/reports/fcdate10.pdf |
-| Cropland Data Layer / Crop Sequence Boundaries | Crop-area masks/weights where the historical period permits | https://www.nass.usda.gov/developer/ |
+| Cropland Data Layer / Crop Sequence Boundaries | Separate crop-location weighting sensitivities where the mask vintage is defensible | https://www.nass.usda.gov/developer/ |
 | U.S. Drought Monitor county statistics | Observed county-week composite-drought validation benchmark | https://droughtmonitor.unl.edu/DmData/DataDownload/WebServiceInfo.aspx |
 
 Raw US inputs stay under `data/raw/us_county/` and are gitignored. Record
@@ -87,6 +87,15 @@ reject mixed series, duplicate keys, missing years, or invalid reported values.
 This validates bounded national/county outcome acquisition only; it is not a
 high-rainfed sample or a yield-response estimate.
 
+The separate irrigation screen is now operational. Exact all-years SURVEY
+queries found long regional pairs of `IRRIGATED` and `NON-IRRIGATED` county
+yields for corn, soybean, and all-classes wheat, while exact 2012/2017/2022
+Census queries provide crop-specific irrigated and total harvested acres for a
+national aggregate-yield selection gate. The direct practice series is not
+nationally representative; the Census share is a fixed selector, not annual
+practice. Full counts, exclusions, commands, and use boundaries are in
+[NASS_IRRIGATION_PRACTICE_SCREEN.md](NASS_IRRIGATION_PRACTICE_SCREEN.md).
+
 This is a bounded acquisition fallback, not authorization to mix NASS series
 or call aggregate county yield non-irrigated. Run
 `python us_county_validation/scripts/test_download_nass_quickstats_api.py`
@@ -141,9 +150,30 @@ estimates. Run
 `python us_county_validation/scripts/test_audit_usdm_yield_coverage.py` for
 synthetic overlap and failure-mode checks.
 
-The bounded gridMET smoke, crop-specific irrigation-share gate, and
-crop-area-weight routing are specified in
+The bounded nClimGrid and gridMET smokes, crop-specific irrigation-share gate,
+and primary/sensitivity spatial routing are specified in
 [WEATHER_IRRIGATION_MASK_ROUTES.md](WEATHER_IRRIGATION_MASK_ROUTES.md).
+The full sparse-weight, calendar-class, FIPS/county-change, and nonlinear
+feature-order gate is in
+[DAILY_WEATHER_CALENDAR_CONTRACT.md](DAILY_WEATHER_CALENDAR_CONTRACT.md).
+The exact 2018 precipitation smoke is independently pinned in tracked
+`data/provenance/gridmet_pr_2018.toml`; it is public-domain-dedicated but has
+no publisher-stated SPDX identifier. The publisher's precipitation
+inhomogeneity warning prevents using gridMET alone to infer long-run changes
+in rainfall intensity or frequency.
+
+The current real construction smoke uses Cuming County, Nebraska (31039),
+May--October 1981 nClimGrid weather, fixed NASS corn/soy calendars, and paired
+practice-support outcomes. `build_county_polygon_nclimgrid_weights.py` and
+`build_county_nclimgrid_feature_smoke.py` implement the primary proxy;
+`build_cdl_nclimgrid_crop_weights.py` and
+`build_crop_weighted_nclimgrid_feature_smoke.py` implement the retrospective
+2017-mask sensitivity. `compare_spatial_feature_smokes.py` compares 18 weather
+features only. All derived outputs remain ignored, and every audit records
+`relationship_estimated=false` and `scc_authorized=false`.
+
+After the pinned raw inputs are present, reproduce the complete bounded chain
+with `us_county_validation/scripts/run_cuming_1981_spatial_smoke.sh`.
 
 ## Primary design
 
@@ -154,8 +184,11 @@ crop-area-weight routing are specified in
    exclude or separately model materially mixed counties.
 2. Build crop--county--year outcomes, retain reported NASS values and flags,
    and use harvested area only as an aggregation weight.
-3. Aggregate daily weather to crop-area-weighted county exposures; do not use
-   county centroid weather as the main measure where crop masks are available.
+3. Construct daily nonlinear weather bases at crop-calendar/weather-cell level,
+   then apply county-polygon intersection-area weights for the full-period
+   primary county-average proxy. Apply fixed CDL crop-pixel weights as a
+   separate sensitivity. For all wheat, never pool before independent class
+   bases/shares exist; county-centroid weather remains diagnostic only.
 4. Include joint temperature, seasonal precipitation total, normalized
    within-season precipitation shares, wet days, CDD, and heavy-rain metrics.
 5. Estimate county and year fixed-effect primary specifications, with
@@ -166,13 +199,19 @@ crop-area-weight routing are specified in
 
 ## Irrigation identification gate
 
-The initial county sample will use crop-specific irrigated versus non-irrigated
-harvested-area data where available from USDA Census/irrigation products. A
+The initial national county sample will use the audited 2017 crop-specific
+irrigated share from USDA Census harvested-area records, with 2012 and 2022
+vintages as temporal sensitivities. A
 fixed cross-sectional irrigation share is an imperfect proxy for annual
 practice; it is therefore a selection device, not a claim that every included
 observation is un-irrigated. The analysis will report results under multiple
 thresholds and a mixed-county sensitivity specification. No US estimate enters
 the global model unless this gate and its coverage diagnostics pass.
+
+Where both NASS practice-specific yields are published, a separate regional
+paired-practice validation will estimate heterogeneity directly. It cannot be
+substituted for the national aggregate panel or extrapolated outside its
+observed states and years.
 
 The supplied US water manuscripts motivate a later irrigated-water constraint
 extension: irrigation is an adaptation/input whose feasibility can respond to

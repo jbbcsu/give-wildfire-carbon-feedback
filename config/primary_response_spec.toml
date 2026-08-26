@@ -1,20 +1,229 @@
+schema_version = 2
+specification_id = "global_joint_agriculture_production_candidate_registry"
+specification_kind = "production causal-model design registry"
+freeze_status = "not_frozen"
+fit_authorized = false
+response_draw_export_authorized = false
+scc_use_authorized = false
+
 [outcome]
 name = "log_yield_t_ha"
 source = "GDHY v1.2/v1.3"
 
-[features]
-continuous = ["tmean_c", "log1p_precip_mm", "cdd_max_days", "rx1day_mm"]
-interaction = "tmean_c_x_log1p_precip_mm"
-primary_precipitation_family = "seasonal total plus within-season distribution, wet-day frequency, consecutive dry days, Rx1day, and Rx5day"
-primary_water_stress = "direct precipitation-pattern and dry-spell features"
-robustness_water_stress = ["PDSI_or_SPEI_like", "soil_moisture"]
-water_stress_combination_rule = "estimate alternatives separately; never stack competing drought representations"
-heat_threshold_rule = "crop-specific thresholds registered from literature before outcome estimation"
+[estimand]
+primary = "joint crop-yield response to matched temperature and precipitation-pattern climate paths"
+precipitation_quantity_contrast = "change seasonal precipitation quantity while holding a declared normalized within-season pattern fixed"
+precipitation_distribution_contrast = "change stage timing/distribution, wet-day occurrence/intensity, dry spells, and wet extremes while holding seasonal precipitation quantity fixed"
+quantity_scope = "crop-calendar growing-season total is primary; calendar-year total is a benchmark or sensitivity and cannot replace stage-aligned exposure"
+joint_effect_rule = "report the full matched joint-climate prediction as primary"
+precipitation_attribution_rule = "declare a symmetric counterfactual decomposition before estimation; label it accounting attribution rather than a uniquely identified causal effect"
+causal_status = "not established; production functional form, identifying assumptions, and inference remain to be frozen and validated"
+
+[model_hierarchy]
+primary_selection_status = "not_frozen"
+parsimonious_reference = "joint temperature and crop-calendar growing-season precipitation quantity"
+distribution_status = "candidate incremental feature family; not privileged"
+distribution_retention_rule = "retain timing, concentration, occurrence, intensity, dry-spell, or wet-extreme terms only where pre-specified outer out-of-sample tests show robust and stable incremental value beyond the seasonal-quantity reference"
+null_and_adverse_result_rule = "report null, unstable, and worse held-out performance plainly; permit the parsimonious seasonal-quantity specification to be primary"
+drought_family_status = "PDSI/scPDSI and SPEI are serious competing moisture-stress representations evaluated under the same outer holdouts"
+nonstacking_rule = "direct precipitation-pattern, climatic-water-balance, and soil-moisture families replace one another unless a separately pre-specified attribution design proves nonoverlap"
+selection_target = "scientific validity, stability, parsimony, and external validation; never SCC magnitude"
+
+[diagnostic_boundary]
+frozen_predictive_spec = "config/response_evaluation_spec.toml"
+relationship = "deliberately minimal predictive diagnostic subset of this production candidate registry"
+frozen_predictive_spec_is_production_eligible = false
+promotion_rule = "a diagnostic model or ranking cannot become the production response without a separately frozen production specification covering every required comparison, identifying assumptions, uncertainty, and external validation"
+forbidden = "do not treat the diagnostic feature list, coefficients, rankings, or configuration hash as the production causal model or an SCC response source"
+
+[[production_feature_requirements]]
+id = "seasonal_precipitation_quantity"
+estimand_role = "seasonal amount benchmark and quantity contrast"
+construction_outputs = ["precip_mm"]
+candidate_model_terms = ["precip_mm", "log1p_precip_mm", "nonlinear seasonal-amount response"]
+required_for_production_comparison = true
+current_status = "constructed"
+model_form_status = "not_frozen"
+diagnostic_coverage = "covered"
+diagnostic_present_features = ["log1p_precip_mm"]
+diagnostic_absent_features = []
+literature_basis = ["Fishman_2016", "Guan_et_al_2015"]
+
+[[production_feature_requirements]]
+id = "stage_precipitation_quantity"
+estimand_role = "crop-window amount heterogeneity"
+construction_outputs = ["stage1_precip_mm", "stage2_precip_mm", "stage3_precip_mm"]
+candidate_model_terms = ["stage-specific precipitation totals or transformations"]
+required_for_production_comparison = true
+current_status = "constructed for transparent three-window proxies; crop-specific phenological stages unresolved"
+model_form_status = "not_frozen"
+diagnostic_coverage = "covered"
+diagnostic_present_features = ["stage1_log1p_precip_mm", "stage2_log1p_precip_mm", "stage3_log1p_precip_mm"]
+diagnostic_absent_features = []
+literature_basis = ["Marcos_Garcia_et_al_2024", "Xia_et_al_2021"]
+
+[[production_feature_requirements]]
+id = "normalized_stage_distribution_and_timing"
+estimand_role = "within-season distribution conditional on seasonal amount"
+construction_outputs = ["stage1_precip_share", "stage2_precip_share", "stage3_precip_share", "precipitation_timing_centroid", "precipitation_concentration_hhi", "zero_precipitation_season"]
+candidate_model_terms = ["composition-aware stage shares", "timing centroid", "concentration"]
+required_for_production_comparison = true
+current_status = "basis-before-irrigation-weighting candidate construction implemented; composition parameterization and phenological stages unresolved"
+model_form_status = "not_frozen"
+diagnostic_coverage = "partial"
+diagnostic_present_features = ["stage1_log1p_precip_mm", "stage2_log1p_precip_mm", "stage3_log1p_precip_mm"]
+diagnostic_absent_features = ["stage1_precip_share", "stage2_precip_share", "stage3_precip_share", "precipitation_timing_centroid", "precipitation_concentration_hhi"]
+literature_basis = ["Fishman_2016", "Marcos_Garcia_et_al_2024", "Guan_et_al_2015"]
+
+[[production_feature_requirements]]
+id = "wet_day_frequency"
+estimand_role = "rainfall occurrence conditional on amount"
+construction_outputs = ["wet_days_n", "stage1_wet_days_n", "stage2_wet_days_n", "stage3_wet_days_n", "wet_day_frequency"]
+candidate_model_terms = ["wet-day count", "wet-day fraction"]
+required_for_production_comparison = true
+current_status = "seasonal and stage candidate construction implemented before irrigation weighting; production wet-day definition is not frozen"
+model_form_status = "not_frozen"
+diagnostic_coverage = "omitted"
+diagnostic_present_features = []
+diagnostic_absent_features = ["wet_days_n", "stage1_wet_days_n", "stage2_wet_days_n", "stage3_wet_days_n", "wet_day_frequency"]
+literature_basis = ["Fishman_2016", "Kemsley_et_al_2024"]
+
+[[production_feature_requirements]]
+id = "wet_day_intensity"
+estimand_role = "conditional rainfall intensity distinct from amount and occurrence"
+construction_outputs = ["mean_wet_day_intensity_mm"]
+candidate_model_terms = ["seasonal and stage conditional wet-day intensity"]
+required_for_production_comparison = true
+current_status = "seasonal and stage candidate construction implemented before irrigation weighting; production wet-day definition is not frozen"
+model_form_status = "not_frozen"
+diagnostic_coverage = "omitted"
+diagnostic_present_features = []
+diagnostic_absent_features = ["mean_wet_day_intensity_mm"]
+literature_basis = ["Fishman_2016", "Lesk_et_al_2020", "Guan_et_al_2015"]
+
+[[production_feature_requirements]]
+id = "consecutive_dry_days"
+estimand_role = "seasonal and crop-window dry-spell persistence"
+construction_outputs = ["cdd_max_days", "stage1_cdd_max_days", "stage2_cdd_max_days", "stage3_cdd_max_days"]
+candidate_model_terms = ["maximum consecutive dry days", "nonlinear or tail response"]
+required_for_production_comparison = true
+current_status = "seasonal and stage candidate construction implemented before irrigation weighting; production wet/dry threshold and functional form are not frozen"
+model_form_status = "not_frozen"
+diagnostic_coverage = "covered"
+diagnostic_present_features = ["cdd_max_days", "stage1_cdd_max_days", "stage2_cdd_max_days", "stage3_cdd_max_days"]
+diagnostic_absent_features = []
+literature_basis = ["Troy_et_al_2015", "Marcos_Garcia_et_al_2024"]
+
+[[production_feature_requirements]]
+id = "rx1day_wet_extreme"
+estimand_role = "single-day heavy-rain and excess-water exposure"
+construction_outputs = ["rx1day_mm", "stage1_rx1day_mm", "stage2_rx1day_mm", "stage3_rx1day_mm"]
+candidate_model_terms = ["Rx1day", "nonlinear or tail response"]
+required_for_production_comparison = true
+current_status = "seasonal and stage candidate construction implemented before irrigation weighting; response form is not frozen"
+model_form_status = "not_frozen"
+diagnostic_coverage = "covered"
+diagnostic_present_features = ["rx1day_mm", "stage1_rx1day_mm", "stage2_rx1day_mm", "stage3_rx1day_mm"]
+diagnostic_absent_features = []
+literature_basis = ["Li_et_al_2019", "Lesk_et_al_2020"]
+
+[[production_feature_requirements]]
+id = "rx5day_wet_extreme"
+estimand_role = "multi-day heavy-rain and excess-water exposure"
+construction_outputs = ["rx5day_mm", "stage1_rx5day_mm", "stage2_rx5day_mm", "stage3_rx5day_mm"]
+candidate_model_terms = ["Rx5day", "nonlinear or tail response"]
+required_for_production_comparison = true
+current_status = "seasonal and stage candidate construction implemented before irrigation weighting; response form is not frozen"
+model_form_status = "not_frozen"
+diagnostic_coverage = "omitted"
+diagnostic_present_features = []
+diagnostic_absent_features = ["rx5day_mm", "stage1_rx5day_mm", "stage2_rx5day_mm", "stage3_rx5day_mm"]
+literature_basis = ["Troy_et_al_2015", "IPCC_AR6_WGI_Chapter_11"]
+
+[[production_feature_requirements]]
+id = "mean_temperature"
+estimand_role = "joint climate driver and confounder control"
+construction_outputs = ["tmean_c", "stage1_tmean_c", "stage2_tmean_c", "stage3_tmean_c"]
+candidate_model_terms = ["crop-window temperature response"]
+required_for_production_comparison = true
+current_status = "constructed; nonlinear form is not frozen"
+model_form_status = "not_frozen"
+diagnostic_coverage = "covered"
+diagnostic_present_features = ["tmean_c", "stage1_tmean_c", "stage2_tmean_c", "stage3_tmean_c"]
+diagnostic_absent_features = []
+literature_basis = ["Carleton_et_al_2025", "Ortiz_Bobea_et_al_2021"]
+
+[[production_feature_requirements]]
+id = "heat_extremes"
+estimand_role = "crop-specific exposure to damaging daily maximum temperature"
+construction_outputs = ["threshold-specific hot-day counts", "threshold-specific degree-day excess", "stage-resolved counterparts"]
+candidate_model_terms = ["crop-specific literature-registered thresholds", "threshold uncertainty"]
+required_for_production_comparison = true
+current_status = "builder and algebraic validation implemented; no production crop thresholds selected"
+model_form_status = "not_frozen"
+diagnostic_coverage = "omitted"
+diagnostic_present_features = []
+diagnostic_absent_features = ["heat_threshold_days", "heat_threshold_degree_days"]
+literature_basis = ["crop-specific primary literature review required"]
+
+[[production_feature_requirements]]
+id = "temperature_precipitation_interactions"
+estimand_role = "joint heat-water response and attribution consistency"
+construction_outputs = ["tmean_x_log1p_precip", "stage1_tmean_x_log1p_precip", "stage2_tmean_x_log1p_precip", "stage3_tmean_x_log1p_precip"]
+candidate_model_terms = ["mean-temperature by precipitation-quantity interaction", "pre-registered hot-dry and wet-heat interactions"]
+required_for_production_comparison = true
+current_status = "seasonal and stage mean-temperature by log-precipitation terms constructed before irrigation weighting; compound heat-pattern forms unresolved"
+model_form_status = "not_frozen"
+diagnostic_coverage = "covered"
+diagnostic_present_features = ["tmean_x_log1p_precip", "stage1_tmean_x_log1p_precip", "stage2_tmean_x_log1p_precip", "stage3_tmean_x_log1p_precip"]
+diagnostic_absent_features = []
+literature_basis = ["joint model required to separate correlated climate drivers"]
+
+[threshold_registry]
+production_wet_day_thresholds_mm = []
+production_heat_thresholds_c = []
+production_drought_thresholds = []
+status = "not_frozen"
+rule = "register crop/specification definitions from primary literature or a documented training-only procedure before production outcome estimation; diagnostic defaults and QA thresholds are not selections"
+
+[[water_stress_families]]
+id = "direct_precipitation_pattern"
+role = "candidate family with seasonal precipitation quantity as its parsimonious reference"
+members = ["seasonal and stage amount", "normalized timing/distribution", "wet-day occurrence and intensity", "CDD", "Rx1day", "Rx5day"]
+projection_status = "historical candidate basis builder implemented; matched future paired basis incomplete"
+production_use_authorized = false
+exclusive_group = "water_stress_representation"
+
+[[water_stress_families]]
+id = "climatic_water_balance"
+role = "serious competing predictive and robustness family"
+members = ["SPEI", "self-calibrated PDSI where defensible"]
+projection_status = "historical 1982-1989 and 2012-2016 aggregate-regime scPDSI candidate panels implemented with raw-source/calendar manifest binding and complete derived-input allocation recomputation for maize/soybean; response fit and matched future SPEI/PDSI path absent"
+production_use_authorized = false
+exclusive_group = "water_stress_representation"
+
+[[water_stress_families]]
+id = "soil_moisture"
+role = "competing physical-mediator robustness family"
+members = ["root-zone soil-moisture anomaly", "antecedent and stage soil moisture"]
+projection_status = "input and matched future path absent"
+production_use_authorized = false
+exclusive_group = "water_stress_representation"
+
+[water_stress_comparison]
+required_families = ["direct_precipitation_pattern", "climatic_water_balance", "soil_moisture"]
+simultaneous_stacking_allowed = false
+selection_status = "not_frozen"
+rule = "evaluate families separately under common outer holdouts; allow PDSI/scPDSI or SPEI to outperform and replace direct precipitation terms; do not select by SCC magnitude and do not sum their damages"
 
 [irrigation_exposure]
 approach = "one area-weighted exposure per observed GDHY crop-grid-year yield"
 weights = "independent fixed-baseline crop-grid rainfed and irrigated harvested-area shares"
 forbidden = "do not duplicate one GDHY yield across irrigation regimes or label an aggregate outcome rainfed"
+aggregate_estimand_contract = "config/irrigation_aggregate_estimand.toml"
+basis_allocation_order = "construct every nonlinear basis and interaction within regime before fixed-area weighting"
+post_aggregation_nonlinear_transform_allowed = false
+production_basis_status = "not frozen; minimal diagnostic basis and 54-column direct-pattern candidate allocation contracts are executable, but thresholds, heat/drought alternatives, model form, and causal estimator remain open"
 production_source_status = "MIRCA-OS v2 archive acquired and checksum/grid validated; exact maize/soybean weights built for all five vintages; rice/wheat season mapping remains blocked"
 production_source_id = "MIRCA-OS_v2_March_2026_AHAG_30arcmin"
 primary_share_year = 2000
@@ -23,14 +232,37 @@ share_year_rule = "one declared vintage fixed across every historical outcome ye
 production_eligible_outcome_crops = ["mai", "soy"]
 season_mapping_gate = "ri1, ri2, swh, and wwh remain blocked because annual parent-crop maps do not identify the GDHY season"
 
+[fixed_effects]
+outcome_cell = "lat_lon_crop_season"
+irrigation_dimension_rule = "not an outcome fixed-effect dimension; aggregate rainfed and irrigated response-basis terms to the single observed crop-season-grid-year outcome under the separate irrigation estimand contract"
+time_shock_candidates = ["harvest-year fixed effects", "crop-by-year fixed effects", "first-difference design with registered common or region-specific year-shock controls"]
+first_difference_vs_level_fixed_effects_status = "not_frozen"
+spatial_inference_status = "not_frozen"
+production_identification_status = "not_frozen"
+
+[validation_boundary]
+current_spatial_split_status = "grid-block split is observation-disjoint across held-out cells"
+legacy_reported_temporal_extreme_split_status = "adjacent first-difference pairs could share one level-yield endpoint across train and test"
+current_temporal_extreme_split_status = "current hashed diagnostic evaluator purges training pairs sharing either yield endpoint with temporal or extreme tests"
+current_temporal_extreme_interpretation = "endpoint-disjoint predictive diagnostic only; still noncausal and SCC-ineligible"
+production_requires_purged_observation_disjoint_temporal_extreme_splits = true
+production_split_implementation_status = "implemented_and_synthetic_tests_pass"
+real_panel_rerun_status = "maize_soy_1982_1989_and_2012_2016_mirca2000_direct_diagnostics_passed_historical_1982_1989_and_2012_2016_scpdsi_candidate_data_passed_but_unfitted_other_panels_pending"
+forbidden = "do not report legacy temporal or extreme performance as current or generalize the partial current-hash rerun; every promoted panel must audit that each level-yield observation contributing to a test difference is absent from training"
+
+[integration_boundary]
+current_component = "src/CropResponseAggregation.jl"
+current_status = "linear plumbing and accounting harness only"
+production_eligible = false
+required_choice = "either expand the Mimi interface to the complete frozen response basis or pass precomputed crop-region-year loss draws with an auditable one-to-one mapping"
+forbidden = "do not compress omitted timing, frequency, intensity, Rx5day, heat, interactions, or competing drought responses into undocumented aggregate slots"
+
 [decision]
 approved_by = "project owner"
 approved_on = "2026-08-25"
-status = "recommended defaults approved"
-
-[fixed_effects]
-grid = "lat_lon_crop_irrigation"
-year = "harvest_year"
+approved_scope = "global SCC estimand, MooreAg replacement, fixed/trend/upper adaptation reporting, and fixed-baseline irrigation weighting defaults"
+excluded_scope = "production causal functional form, empirical thresholds, drought-family selection, and final integration representation"
+status = "recommended defaults approved within the stated scope"
 
 [boundary]
-status = "primary feature and irrigation rules approved; full global crop-stage estimation remains required for inference and SCC inputs"
+status = "production candidate registry is not frozen; full global aggregate-regime crop-stage estimation and validation remain required for inference and SCC inputs"

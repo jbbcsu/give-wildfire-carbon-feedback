@@ -12,6 +12,8 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import re
+import tomllib
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any, Callable
@@ -30,6 +32,8 @@ EXPECTED_FIELDS = {
     "tmmx": ("air_temperature", "K"),
 }
 MAX_BYTES = 100 * 1024 * 1024
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+DEFAULT_PROVENANCE_RECORD = PROJECT_ROOT / "data/provenance/gridmet_pr_2018.toml"
 
 
 def source_url(variable: str, year: int) -> str:
@@ -67,6 +71,74 @@ def sha512_file(path: Path) -> str:
         while block := stream.read(8 * 1024 * 1024):
             digest.update(block)
     return digest.hexdigest()
+
+
+def load_pinned_record(path: Path, variable: str, year: int) -> dict[str, object]:
+    """Load one reviewed gridMET object identity and fail on scope drift."""
+    try:
+        record = tomllib.loads(path.read_text(encoding="utf-8"))
+    except (OSError, tomllib.TOMLDecodeError) as error:
+        raise RuntimeError(f"Cannot read reviewed gridMET provenance record: {path}") from error
+    obj = record.get("object")
+    license_record = record.get("license")
+    stability = record.get("stability")
+    if not isinstance(obj, dict) or not isinstance(license_record, dict):
+        raise RuntimeError("gridMET provenance record lacks object/license tables")
+    if obj.get("variable") != variable or obj.get("year") != year:
+        raise RuntimeError("gridMET request differs from reviewed provenance object")
+    expected_url = source_url(variable, year)
+    if obj.get("source_url") != expected_url:
+        raise RuntimeError("gridMET provenance source URL differs from the canonical request URL")
+    sha512 = obj.get("local_sha512")
+    size_bytes = obj.get("size_bytes")
+    local_path = obj.get("local_ignored_path")
+    if not isinstance(sha512, str) or not re.fullmatch(r"[0-9a-f]{128}", sha512):
+        raise RuntimeError("gridMET provenance lacks a valid lowercase SHA-512")
+    if not isinstance(size_bytes, int) or size_bytes <= 0:
+        raise RuntimeError("gridMET provenance lacks a positive byte length")
+    if not isinstance(local_path, str) or Path(local_path).name != f"gridmet_{variable}_{year}.nc":
+        raise RuntimeError("gridMET provenance local filename differs from requested object")
+    upstream = obj.get("upstream_identity")
+    if not isinstance(upstream, dict):
+        raise RuntimeError("gridMET provenance lacks upstream HTTP identity")
+    if upstream.get("content_length") != size_bytes:
+        raise RuntimeError("gridMET provenance byte lengths disagree")
+    return {
+        "record": record,
+        "sha512": sha512,
+        "size_bytes": size_bytes,
+        "local_ignored_path": local_path,
+        "source_url": expected_url,
+        "upstream_identity": upstream,
+        "license": license_record,
+        "stability": stability if isinstance(stability, dict) else {},
+    }
+
+
+def validate_pinned_remote(identity: dict[str, str], pin: dict[str, object]) -> None:
+    """Reject a mutable upstream URL if its recorded HTTP identity changed."""
+    upstream = pin["upstream_identity"]
+    assert isinstance(upstream, dict)
+    expected = {
+        "url": str(pin["source_url"]),
+        "content_length": str(pin["size_bytes"]),
+        "etag": str(upstream.get("etag", "")),
+        "last_modified": str(upstream.get("last_modified", "")),
+        "content_type": str(upstream.get("content_type", "")),
+    }
+    for field, value in expected.items():
+        if identity.get(field, "") != value:
+            raise RuntimeError(
+                f"gridMET upstream {field} differs from reviewed provenance identity"
+            )
+
+
+def validate_pinned_file(path: Path, pin: dict[str, object]) -> None:
+    """Verify byte length and content digest before decoding an existing/downloaded file."""
+    if path.stat().st_size != int(pin["size_bytes"]):
+        raise RuntimeError("gridMET file length differs from reviewed provenance identity")
+    if sha512_file(path) != pin["sha512"]:
+        raise RuntimeError("gridMET file SHA-512 differs from reviewed provenance identity")
 
 
 def validate_netcdf(path: Path, variable: str, year: int) -> dict[str, object]:
@@ -136,10 +208,18 @@ def main() -> None:
     parser.add_argument("--variable", required=True, choices=sorted(ALLOWED_VARIABLES))
     parser.add_argument("--year", required=True, type=int)
     parser.add_argument("--out-dir", default="data/raw/us_county/gridmet")
+    parser.add_argument(
+        "--provenance-record",
+        default=str(DEFAULT_PROVENANCE_RECORD),
+        help="reviewed tracked provenance record defining the only accepted object identity",
+    )
     args = parser.parse_args()
     url = source_url(args.variable, args.year)
+    provenance_path = Path(args.provenance_record)
+    pin = load_pinned_record(provenance_path, args.variable, args.year)
     identity = head_identity(url)
-    expected_bytes = int(identity["content_length"])
+    validate_pinned_remote(identity, pin)
+    expected_bytes = int(pin["size_bytes"])
     if expected_bytes > MAX_BYTES:
         raise RuntimeError(
             f"Refusing {expected_bytes} byte gridMET file; smoke cap is {MAX_BYTES} bytes"
@@ -147,23 +227,35 @@ def main() -> None:
     out_dir = Path(args.out_dir)
     destination = out_dir / f"gridmet_{args.variable}_{args.year}.nc"
     if destination.exists():
-        if destination.stat().st_size != expected_bytes:
-            raise RuntimeError("Existing gridMET smoke file length differs from pinned identity")
+        validate_pinned_file(destination, pin)
         status = "existing"
     else:
         out_dir.mkdir(parents=True, exist_ok=True)
         download(url, destination)
-        if destination.stat().st_size != expected_bytes:
+        try:
+            validate_pinned_file(destination, pin)
+        except RuntimeError:
             destination.unlink(missing_ok=True)
-            raise RuntimeError("Downloaded gridMET file length differs from pinned identity")
+            raise
         status = "downloaded"
     details = validate_netcdf(destination, args.variable, args.year)
+    license_record = pin["license"]
+    stability = pin["stability"]
+    assert isinstance(license_record, dict) and isinstance(stability, dict)
+    try:
+        displayed_provenance = str(provenance_path.resolve().relative_to(PROJECT_ROOT))
+    except ValueError:
+        displayed_provenance = provenance_path.name
     record = {
         "source": "gridMET daily surface meteorological data",
         "source_url": url,
-        "source_documentation": "https://climatetoolbox.org/data/past-weather-data",
-        "license": "Verify current gridMET/Northwest Knowledge Network terms before redistribution",
-        "role": "US county validation weather-file smoke only; not county exposure or SCC input",
+        "source_documentation": pin["record"]["landing_page_url"],
+        "provenance_record": displayed_provenance,
+        "license": license_record["status"],
+        "license_spdx_identifier": license_record["spdx_identifier"],
+        "license_url": license_record["url"],
+        "role": pin["record"]["approved_use"],
+        "scientific_limitations": stability.get("scientific_limitations", []),
         "retrieved_utc": datetime.now(UTC).isoformat(),
         "status": status,
         "file": str(destination),

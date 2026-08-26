@@ -1,8 +1,139 @@
+schema_version = 2
 input_id = "daily_climate"
 source_doi = "https://doi.org/10.48364/ISIMIP.982724.3"
 source = "ISIMIP3a GSWP3-W5E5 atmospheric climate input data v1.3"
-license = "CC0-1.0; record precise catalogue terms with every download"
-historical_window = "1981-2016 (last source chunk 2011-2019 is trimmed in processing)"
+catalogue_root = "https://files.isimip.org/ISIMIP3a/InputData/climate/atmosphere/obsclim/global/daily/historical/GSWP3-W5E5/"
+license = "CC0-1.0"
+acquired_utc_dates = "2026-08-16 through 2026-08-17"
+historical_window = "1981-2016; the 2011-2019 source chunks are trimmed in response processing"
 variables = ["pr", "tas", "tasmax", "tasmin"]
-storage_constraint = "The full minimum set is approximately 33.1 GB compressed; stream/chunk and do not commit raw climate files."
-acquisition_order = "First pr for calendar/feature plumbing; then tas for joint-response control; tasmax/tasmin before final causal estimation."
+storage = "Raw NetCDF files are ignored; all exact source identities below are tracked."
+role = "Historical weather feature construction and heat-control input; not a future climate projection or SCC result"
+
+[[files]]
+name = "gswp3-w5e5_obsclim_pr_global_daily_1981_1990.nc"
+url = "https://files.isimip.org/ISIMIP3a/InputData/climate/atmosphere/obsclim/global/daily/historical/GSWP3-W5E5/gswp3-w5e5_obsclim_pr_global_daily_1981_1990.nc"
+size_bytes = 2351177152
+sha512 = "c2b0688e59196088a1eaeac6fdc25b0bf1419f78c8662e9c21038c63b58aa6c40df5f22cc723d0ad9e24104a081bd215b9760f9003f0fc557b947341dc2d03f2"
+variable = "pr"
+years = "1981-1990"
+
+[[files]]
+name = "gswp3-w5e5_obsclim_pr_global_daily_1991_2000.nc"
+url = "https://files.isimip.org/ISIMIP3a/InputData/climate/atmosphere/obsclim/global/daily/historical/GSWP3-W5E5/gswp3-w5e5_obsclim_pr_global_daily_1991_2000.nc"
+size_bytes = 2361459207
+sha512 = "48daa05dbac176127e34e70fb6149e39f259695928276f4c968d01d60f4e1e0a0a6f1978734a0425f9fcd1012370dd6f8c3f356ff4798d265f4349a5d5d660c6"
+variable = "pr"
+years = "1991-2000"
+
+[[files]]
+name = "gswp3-w5e5_obsclim_pr_global_daily_2001_2010.nc"
+url = "https://files.isimip.org/ISIMIP3a/InputData/climate/atmosphere/obsclim/global/daily/historical/GSWP3-W5E5/gswp3-w5e5_obsclim_pr_global_daily_2001_2010.nc"
+size_bytes = 2354163982
+sha512 = "5208a595e7f7ed16d88588651313ee4415bb50a96f5592e50d1902a86943fdd1d3f7913ca2149d5f6a0eee5eef3c9198e85ebb112fccf12116011b1db466c8c4"
+variable = "pr"
+years = "2001-2010"
+
+[[files]]
+name = "gswp3-w5e5_obsclim_pr_global_daily_2011_2019.nc"
+url = "https://files.isimip.org/ISIMIP3a/InputData/climate/atmosphere/obsclim/global/daily/historical/GSWP3-W5E5/gswp3-w5e5_obsclim_pr_global_daily_2011_2019.nc"
+size_bytes = 2111921882
+sha512 = "fcbc1b7bdddaec12b8661ad0f0a5e48ea3297f1d13d25d19199502e6c74e7e26ba00e96f00b41b1a51915fe9802a724163281690bd9fc43ebb789f211b49d00c"
+variable = "pr"
+years = "2011-2019"
+
+[[files]]
+name = "gswp3-w5e5_obsclim_tas_global_daily_1981_1990.nc"
+url = "https://files.isimip.org/ISIMIP3a/InputData/climate/atmosphere/obsclim/global/daily/historical/GSWP3-W5E5/gswp3-w5e5_obsclim_tas_global_daily_1981_1990.nc"
+size_bytes = 2030156146
+sha512 = "f143f946c28e7aad7831b4aa47235a179448ca75030a63883e14c3aa23364d0c372dbb1dc01110a3bee69694ad87c252bb202f15e8fd74fd4f51af95031c0070"
+variable = "tas"
+years = "1981-1990"
+
+[[files]]
+name = "gswp3-w5e5_obsclim_tas_global_daily_1991_2000.nc"
+url = "https://files.isimip.org/ISIMIP3a/InputData/climate/atmosphere/obsclim/global/daily/historical/GSWP3-W5E5/gswp3-w5e5_obsclim_tas_global_daily_1991_2000.nc"
+size_bytes = 2030602039
+sha512 = "1e19f828d98be13036a286a43455600cf9e4e32ee8b389e01d8829557d9d369b33d724c401619ec4003d57f8539d9ef4e093022105db7a6ef07cddd92f700e24"
+variable = "tas"
+years = "1991-2000"
+
+[[files]]
+name = "gswp3-w5e5_obsclim_tas_global_daily_2001_2010.nc"
+url = "https://files.isimip.org/ISIMIP3a/InputData/climate/atmosphere/obsclim/global/daily/historical/GSWP3-W5E5/gswp3-w5e5_obsclim_tas_global_daily_2001_2010.nc"
+size_bytes = 2030296959
+sha512 = "b24544ef266cdb2ca5f1e4c6a4d98795efc0d84d16ff5da93088f3c4491a3a0a03577c73304e6cea2e573b8d40acc63f5accf42aad55d9fac53887caa992e097"
+variable = "tas"
+years = "2001-2010"
+
+[[files]]
+name = "gswp3-w5e5_obsclim_tas_global_daily_2011_2019.nc"
+url = "https://files.isimip.org/ISIMIP3a/InputData/climate/atmosphere/obsclim/global/daily/historical/GSWP3-W5E5/gswp3-w5e5_obsclim_tas_global_daily_2011_2019.nc"
+size_bytes = 1827956492
+sha512 = "782dfe4e517e35b598b7bcebc55c5712816584fe7c23bb26d68eae8a4b9b927a8907ec51aee4525818930d8c20e7434e62df63e59cb8a1325a56950cc1a25b73"
+variable = "tas"
+years = "2011-2019"
+
+[[files]]
+name = "gswp3-w5e5_obsclim_tasmax_global_daily_1981_1990.nc"
+url = "https://files.isimip.org/ISIMIP3a/InputData/climate/atmosphere/obsclim/global/daily/historical/GSWP3-W5E5/gswp3-w5e5_obsclim_tasmax_global_daily_1981_1990.nc"
+size_bytes = 2045681376
+sha512 = "b22a9d2be2fc6f36fd37452adf74b04737c29fed89611a73b3209dc159c514e674c09fd7940782035b1f1e3c52284e0684c231a3f83452312640cb0eb323ab42"
+variable = "tasmax"
+years = "1981-1990"
+
+[[files]]
+name = "gswp3-w5e5_obsclim_tasmax_global_daily_1991_2000.nc"
+url = "https://files.isimip.org/ISIMIP3a/InputData/climate/atmosphere/obsclim/global/daily/historical/GSWP3-W5E5/gswp3-w5e5_obsclim_tasmax_global_daily_1991_2000.nc"
+size_bytes = 2046372269
+sha512 = "07b81dea409566f786b846bc2a91d0e5735c1a23fe56d03b1aa7da25e97f950f09d4b98d6ef2863d29f605fed3409a030d178663f2a4d52f02668d6e112b9750"
+variable = "tasmax"
+years = "1991-2000"
+
+[[files]]
+name = "gswp3-w5e5_obsclim_tasmax_global_daily_2001_2010.nc"
+url = "https://files.isimip.org/ISIMIP3a/InputData/climate/atmosphere/obsclim/global/daily/historical/GSWP3-W5E5/gswp3-w5e5_obsclim_tasmax_global_daily_2001_2010.nc"
+size_bytes = 2045915343
+sha512 = "67fd765c75947f909db349bba60c84c97500995547a81aa4132a5252c4eba035be4812387491598840ff75b7a45c734af22785d92fa50793cf254bd15a53c2be"
+variable = "tasmax"
+years = "2001-2010"
+
+[[files]]
+name = "gswp3-w5e5_obsclim_tasmax_global_daily_2011_2019.nc"
+url = "https://files.isimip.org/ISIMIP3a/InputData/climate/atmosphere/obsclim/global/daily/historical/GSWP3-W5E5/gswp3-w5e5_obsclim_tasmax_global_daily_2011_2019.nc"
+size_bytes = 1842014493
+sha512 = "2f7083c48b8c947f4d59b65298366916bc93c4bfbd7f7c80f506c9a9100601e5d5672f64be8aecdd7f2f02245fee3fe8329be08af7bca7f4994b4f670b583d2b"
+variable = "tasmax"
+years = "2011-2019"
+
+[[files]]
+name = "gswp3-w5e5_obsclim_tasmin_global_daily_1981_1990.nc"
+url = "https://files.isimip.org/ISIMIP3a/InputData/climate/atmosphere/obsclim/global/daily/historical/GSWP3-W5E5/gswp3-w5e5_obsclim_tasmin_global_daily_1981_1990.nc"
+size_bytes = 2056386729
+sha512 = "51b056a9601417e124801f18878951d794ebe6a42153946e6172d13ade8d00748cff70e2cf15ff23b04c76ae0a3a1e62fee0baa6c8f21642886b0d8d7e579678"
+variable = "tasmin"
+years = "1981-1990"
+
+[[files]]
+name = "gswp3-w5e5_obsclim_tasmin_global_daily_1991_2000.nc"
+url = "https://files.isimip.org/ISIMIP3a/InputData/climate/atmosphere/obsclim/global/daily/historical/GSWP3-W5E5/gswp3-w5e5_obsclim_tasmin_global_daily_1991_2000.nc"
+size_bytes = 2057309879
+sha512 = "d6ed21a567ddde391df2eaad616ce9553fa2a95df6ce3e571129dc607c7ef3aa6c04b6b921677a6ebc4ffc5af1675e85258cf5a7bef3ba3160985027dddf09bf"
+variable = "tasmin"
+years = "1991-2000"
+
+[[files]]
+name = "gswp3-w5e5_obsclim_tasmin_global_daily_2001_2010.nc"
+url = "https://files.isimip.org/ISIMIP3a/InputData/climate/atmosphere/obsclim/global/daily/historical/GSWP3-W5E5/gswp3-w5e5_obsclim_tasmin_global_daily_2001_2010.nc"
+size_bytes = 2056480718
+sha512 = "482bcd2b97c6117acf38ef2e896a25172458b47ebc6f25dfa617d49aabee3f0eba6187c745bed79c891c40a58524589205eced36375734d5894032d19cdae636"
+variable = "tasmin"
+years = "2001-2010"
+
+[[files]]
+name = "gswp3-w5e5_obsclim_tasmin_global_daily_2011_2019.nc"
+url = "https://files.isimip.org/ISIMIP3a/InputData/climate/atmosphere/obsclim/global/daily/historical/GSWP3-W5E5/gswp3-w5e5_obsclim_tasmin_global_daily_2011_2019.nc"
+size_bytes = 1851441309
+sha512 = "6b2d4f5d6f174cc12e8c9e5e1f4f8dbc5f334234fd8daeec1396cd42ad7fdcdeea60313ee8ca1fce37c0c26240b6ad25e775ce97aec6f50dd09f1292ebbdfa02"
+variable = "tasmin"
+years = "2011-2019"

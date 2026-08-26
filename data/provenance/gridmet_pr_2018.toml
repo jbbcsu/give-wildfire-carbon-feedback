@@ -1,0 +1,60 @@
+source = "gridMET (METDATA) daily gridded surface meteorology"
+provider = "Climatology Lab; distributed by Northwest Knowledge Network"
+status = "acquired_and_validated_historical_weather_file_smoke"
+retrieved_utc = "2026-08-26T13:58:03.768440+00:00"
+landing_page_url = "https://www.climatologylab.org/gridmet.html"
+distribution_index_url = "https://www.northwestknowledge.net/metdata/data/"
+distribution_readme_url = "https://www.northwestknowledge.net/metdata/readme.txt"
+method_doi = "https://doi.org/10.1002/joc.3413"
+version = "annual 2018 precipitation object served on 2026-08-26; upstream assigns no semantic release identifier"
+approved_use = "U.S. county weather-input engineering smoke and, after crop-area weighting and validation, historical response estimation; not a global climate projection or SCC input"
+excluded_use = "No county exposure, yield response, climate-change trend, or SCC result is established by this file alone"
+
+[license]
+status = "public-domain dedication stated by the dataset publisher"
+spdx_identifier = "NOASSERTION"
+url = "https://www.climatologylab.org/gridmet.html"
+statement = "The publisher states that copyright and related or neighboring rights are waived to the extent possible under law and that gridMET is free of known copyright restrictions."
+spdx_note = "The publisher page does not name CC0 or another SPDX license; do not silently relabel the dedication."
+redistribution_assessment = "The publisher identifies no known copyright restriction after its waiver; project policy nevertheless keeps the raw NetCDF gitignored and distributes only metadata and checksums."
+citation = "Abatzoglou, J. T. (2013), Development of gridded surface meteorological data for ecological applications and modelling, International Journal of Climatology 33:121-131, doi:10.1002/joc.3413."
+
+[stability]
+official_preliminary_window = "dates within the latest 60 days"
+assessment = "Calendar year 2018 is outside the publisher's preliminary window. The annual direct URL is not content-addressed, so the local SHA-512, byte length, ETag, and Last-Modified value below define the reproducible snapshot and any upstream change must fail closed."
+
+scientific_limitations = [
+  "The publisher cautions against using gridMET to infer changes in precipitation intensity and frequency because the primary daily precipitation input contains inhomogeneities from data-source changes.",
+  "The approximately 4-km grid does not resolve farm-scale microclimates.",
+  "A gridMET day is approximately midnight-to-midnight Mountain Standard Time (07:00 UTC on the next calendar day).",
+]
+
+[object]
+variable = "pr"
+year = 2018
+source_url = "https://www.northwestknowledge.net/metdata/data/pr_2018.nc"
+local_ignored_path = "data/raw/us_county/gridmet/gridmet_pr_2018.nc"
+size_bytes = 65031749
+local_sha512 = "503c9cf6a1e14546b61b9b102ad54f6549eced7cec583ed2b76aeac7701ccc90b2005c1a593ba837f5e7a8fdae47f74d6ef7fb9fad325fe8c41ee594b5497bae"
+format = "NetCDF-4/HDF5"
+netcdf_global_date = "03 May 2021"
+
+[object.upstream_identity]
+verified_utc = "2026-08-26T15:03:23.451395+00:00"
+content_length = 65031749
+etag = "\"3e04e45-5c34100926b0c\""
+last_modified = "Wed, 26 May 2021 19:53:53 GMT"
+content_type = "application/x-netcdf"
+
+[object.validation]
+data_variable = "precipitation_amount"
+units = "mm"
+time_coordinate = "day"
+daily_time_steps = 365
+start_date = "2018-01-01"
+end_date = "2018-12-31"
+longitude_count = 1386
+latitude_count = 585
+crs_count = 1
+chronology_exact = true
+coordinates_finite_unique = true

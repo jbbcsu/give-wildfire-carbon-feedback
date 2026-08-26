@@ -63,4 +63,8 @@ with tempfile.TemporaryDirectory() as temporary:
     write(changed_units, pd.date_range("2020-01-04", "2020-01-05", freq="D"), units="kg m-2 s-1")
     expect_failure([str(second), str(changed_units)], "units differ")
 
+    unknown_units = root / "unknown_units.nc"
+    write(unknown_units, pd.date_range("2020-01-04", "2020-01-05", freq="D"), units="inch/day")
+    expect_failure([str(unknown_units)], "Unsupported precipitation units")
+
 print("multi-file climate input synthetic tests passed")

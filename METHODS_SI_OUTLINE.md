@@ -19,6 +19,7 @@ For every input provide a manifest row and a machine-readable companion with rel
 | Crop calendars/irrigation/harvest weights | Calendar-year convention, multi-season treatment, crosswalk |
 | Historical daily weather | Variables, regridding, quality control |
 | Historical CRU scPDSI benchmark | Monthly overlap rule, exact-grid gate, threshold, historical-only role |
+| Evidence-led moisture hierarchy | Seasonal-quantity reference; stable incremental-value gate for distribution; PDSI/scPDSI and SPEI as non-stacked competing families under common outer holdouts |
 | ISIMIP daily climate | Experiment, GCM/member, forcing/bias-adjustment version, scenario, calendar |
 | GGCMI/ISIMIP benchmark | Protocol, GCM/GGCM/CO2/water-management combinations, output units |
 | Socioeconomic/welfare inputs | GIVE/GTAP release, currency year, FUND mapping |
@@ -46,7 +47,7 @@ Give exact formula, unit, threshold/percentile baseline, and stage aggregation f
 
 ## S5. Historical response estimation
 
-Provide the complete outcome transformation and equation: fixed effects, interactions, crop/irrigation pooling, splines/knots, weights, sampling, regularization, and spatial-correlation/uncertainty method. Explain treatment of management trend and residual confounding. Keep temperature, CO2, radiation/VPD, and precipitation in one model.
+Provide the complete outcome transformation and equation: fixed effects, interactions, crop pooling, regime-basis-before-area-weighting, splines/knots, weights, sampling, regularization, and spatial-correlation/uncertainty method. Explain treatment of management trend and residual confounding. Keep temperature, CO2, radiation/VPD, and precipitation in one model; never create regime-specific outcome strata from aggregate GDHY yield.
 
 Report coefficients/posteriors, support/correlation diagnostics, selection path, residuals, leverage rules, and failure criteria. Mark projections outside observed support as extrapolation.
 

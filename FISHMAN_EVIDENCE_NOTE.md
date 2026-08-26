@@ -46,10 +46,12 @@ than a generic seasonal-total crop regression.
 
 ## Resulting implementation choice
 
-The main global and US-rainfed specifications now include an explicitly named
-`rainy_day_frequency` candidate alongside seasonal total, within-season share,
-conditional intensity, CDD, and heavy-rain features.  It will be admitted to
-the retained response set only if it improves outer blocked validation and has
-a stable paired baseline/pulse response.  The irrigation papers tighten the
-adaptation and non-overlap rules; they do not expand the primary estimand or
-create a second agricultural damage component.
+The global and US-rainfed **production candidate registries** include an
+explicit rainy-day-frequency comparison alongside seasonal total,
+within-season share, conditional intensity, CDD, and heavy-rain features. The
+current frozen global diagnostic omits rainy-day frequency and therefore
+cannot decide whether to retain it. It may enter a retained production response
+only after purged outer validation and a stable paired baseline/pulse response.
+The irrigation papers tighten the adaptation and non-overlap rules; they do
+not expand the primary estimand or create a second agricultural damage
+component.

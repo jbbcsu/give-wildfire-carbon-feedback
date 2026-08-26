@@ -3,6 +3,15 @@
 Updated: 2026-08-26. This file records completed computational milestones; it
 does not report final response estimates or SCC values.
 
+**Legacy-response notice.** Every real response metric generated before the
+2026-08-26 endpoint-disjoint purge and response-specification hash revision is
+stale. The historical values below are retained only to document pipeline
+development and unsuccessful specification stability; they are not current
+validation evidence and must be regenerated. This notice covers every
+rainfed response audit listed below. The earlier primitive-weather-weighted
+maize/soybean audits have the additional, separate basis-allocation error
+described in their rows.
+
 | Item | Status | Permitted use |
 |---|---|---|
 | GDHY v1.2/v1.3 yields | Acquired and checksum-verified | Outcome panel after coordinate checks |
@@ -13,8 +22,10 @@ does not report final response estimates or SCC values.
 | `tasmin` | 1981–2019 acquired; source sizes and SHA-512 recorded | Required input for final heat-extreme specification |
 | Maize/rainfed pilot | Real 2-latitude, 1982–89 feature and GDHY join completed | Pipeline/coordinate/feature validation only |
 | Global maize/rainfed, 1982–89 | Season-level and three-window temporal-proxy stage panel complete: 539,360 potential crop-year rows; 120,325 observed-yield rows across 15,098 cells | Workflow/scaling diagnostic only; no SCC input |
+| Global maize/fully irrigated exposure, 1982–89 | Season-level and three-window panels contain 539,360 and 1,618,080 rows; all stage/season invariants pass and the same aggregate GDHY outcome has 120,325 positive observations | Irrigation-calendar exposure component only; it is not an irrigated-yield outcome and cannot be fitted as a separate response |
 | Global maize/rainfed, 1992–2000 | Season-level and three-window temporal-proxy stage panels, GDHY join, deterministic validation labels, reconciliation, and fixed-effects numerical diagnostic complete: 606,780 potential crop-year rows; 135,405 observed-yield rows across 15,107 cells | Independent-period workflow/coverage diagnostic only; no SCC input |
 | Global soybean/rainfed, 1982–89 | Season-level and three-window temporal-proxy stage panel, GDHY join, and deterministic validation labels complete: 539,360 potential crop-year rows; 48,900 observed-yield rows across 6,123 cells | Workflow/scaling diagnostic only; no SCC input |
+| Global soybean/fully irrigated exposure, 1982–89 | Season-level and three-window panels contain 539,360 and 1,618,080 rows; all stage/season invariants pass and the same aggregate GDHY outcome has 48,900 positive observations | Irrigation-calendar exposure component only; it is not an irrigated-yield outcome and cannot be fitted as a separate response |
 | Global spring-wheat/rainfed, 1982–89 | Season-level and three-window temporal-proxy stage panel, GDHY join, and deterministic validation labels complete: 539,360 potential crop-year rows; 40,977 observed-yield rows across 5,127 cells | Workflow/scaling diagnostic only; no SCC input |
 | Global winter-wheat/rainfed, 1982–89 | Season-level and three-window temporal-proxy stage panel, GDHY join, and deterministic validation labels complete: 539,360 potential crop-year rows; 68,778 observed-yield rows across 8,668 cells | Workflow/scaling diagnostic only; no SCC input |
 | Global first-rice/rainfed, 1982–89 | Season-level and three-window temporal-proxy stage panel, GDHY join, deterministic validation labels, reconciliation, and fixed-effects numerical diagnostics complete: 539,360 potential crop-year rows; 76,348 observed-yield rows across 9,564 cells | Workflow/scaling diagnostic only; no SCC input |
@@ -25,19 +36,38 @@ does not report final response estimates or SCC values.
 | Full-GIVE replacement execution gate | The installation harness removes legacy MooreAg agriculture, reuses GIVE's regional socioeconomic aggregators, preserves declared sector flags, passes the graph audit, and runs the unmodified GIVE model with six crops and synthetic full-time-axis zero-response inputs under the archived Julia 1.6.4 x86_64/Rosetta environment; active-year crop/regional outputs are complete, coverage is one, and component plus aggregated agriculture damage paths are zero | Synthetic execution/connectivity only; shares and zero coefficients are not empirical inputs, no paired marginal run, empirical damage, welfare, discount, or SCC result is created, and native Apple-silicon execution is blocked before the harness by an unavailable archived Electron artifact |
 | Paired agriculture component-output gate | Synthetic matched baseline/pulse runs pass shape, finiteness, pre-divergence identity, targeted post-divergence propagation, and complete-horizon zero-pulse controls; malformed, early-divergence, and false zero-pulse cases fail | Component-boundary conservation only; no empirical bundle, full GIVE paired run, welfare calibration, discounting, or SCC result |
 | Stage heat and paired-bundle gates | Synthetic cross-year heat construction, executable stage/season reconciliation audit, cross-threshold nesting checks, partition combine, panel join, and baseline/pulse identity/coverage/weight/conservation checks pass; a real 10-latitude maize slice also reconciles | Pipeline/schema validation only; 30/34 C were QA inputs, not selected heat thresholds, and no fitted response or SCC result is created |
-| Historical crop-stage scPDSI path | The complete 1903--2025 CRU scPDSI file is acquired, SHA-512 recorded, and provenance-verified. Synthetic cross-year construction, longitude/grid matching, coverage, partition/combine, and join tests pass; a real 10-latitude maize/rainfed 1982--89 partition produced and validated 36,183 crop-stage rows | Historical climatic-index benchmark only; the -2 threshold is a diagnostic setting, the global crop panels and response comparison are incomplete, and no future drought path or SCC input exists |
+| Historical crop-stage scPDSI path | The complete 1903--2025 CRU scPDSI file is acquired, SHA-512 recorded, and provenance-verified. Synthetic cross-year construction and real global partition/combine gates pass. Raw-source/calendar-bound manifests and complete derived-input allocation recomputation validate separate fixed-MIRCA aggregate-regime candidates with 16 seasonal/stage features. For 1982--1989: 240,784 maize rows/115,758 positive outcomes and 176,537 soybean rows/47,653 outcomes. For 2012--2016: 150,490/59,772 and 110,336/26,601. Direct-weather columns are absent and missing drought/weight support is excluded only as complete outcome keys with counts recorded. The candidate validator does not claim to independently recompute every raw monthly metric. | Historical competing climatic-water-balance candidate only. The -2 threshold is diagnostic, coefficients and response fitting remain prohibited, CRU scPDSI is not projected, and no causal, future-drought, damage, or SCC input exists. |
+| Direct-weather/scPDSI common-support bundles | Four validated, data-only intersections emit separate 54-feature direct-weather and 16-feature scPDSI views with identical keys and outcomes. Maize 1982--1989 retains 240,784 rows/115,758 observed outcomes and drops 24,744 direct-only rows/1,921 observed outcomes; soybean 1982--1989 retains 176,537/47,653 and drops 14,935/269; maize 2012--2016 retains 150,490/59,772 and drops 15,465/1,046; soybean 2012--2016 retains 110,336/26,601 and drops 9,334/147. scPDSI-only drops are zero rows and zero observed outcomes in all four bundles. | Immediate-input, data-contract validation only. The validator hash-checks inputs/outputs and exactly recomputes both views and their intersection from the supplied candidate tables; it neither reruns upstream raw sources nor binds upstream validation receipts. Those upstream validations and retained receipts are an external prerequisite. No fit, coefficient, causal effect, model selection, future projection, damage, or SCC result is produced. Seasonal quantity remains the direct-weather reference; distribution requires robust stable outer-holdout value, and drought families compete mutually exclusively rather than stack. |
 | MIRCA-OS v2 irrigation weights | The 284,005,995-byte annual harvested-area archive is MD5/SHA-512 verified; 40 publisher-supplied 0.5° GeoTIFFs for four crops and five vintages pass grid, finiteness, nonnegativity, uniqueness, and unit-share gates. Fixed-2000 maize and soybean weights cover 97.79% and 97.99% of observed-yield cells in the existing 1982--89 panels. | Independent exposure-weight input only. Exact maize/soybean mappings are eligible for allocation; annual rice/wheat maps remain blocked from season-specific outcomes. No response or SCC input. |
-| Rainfed/irrigated outcome-allocation gate | Synthetic fixed-baseline area-share allocation and failure-mode tests pass; one aggregate GDHY yield is collapsed to exactly one weighted-exposure row. The allocator now rejects source mappings marked production-ineligible. | Data-contract plumbing plus a validated maize/soybean weight source; irrigated feature panels and the full one-row-per-outcome response remain incomplete, and no coefficient or SCC input is authorized. |
-| U.S. county crop-season drought bridge | Synthetic cross-year USDM interval aggregation passes. The key-safe Quick Stats fallback acquired the exact locked 2018--2022 corn-grain series; strict preparation retained 7,253 real-FIPS county-years, including 807 counties reported in all five years and 4,845 adjacent-year pairs. A fail-closed temporal audit verifies exact years, series, keys, positive reported values, and coverage arithmetic. | Historical national/county outcome acquisition and support audit only; the yields aggregate all production practices and no crop-area weather exposure, irrigation-screened panel, response estimate, or SCC input is created |
-| Maize/rainfed blocked response audit, 1982–89 | 105,157 consecutive observed-yield pairs evaluated with crop-specific first-difference seasonal-precipitation, seasonal-joint, and three-window-joint models across spatial, temporal, and climate-extreme holdouts | Internal predictive diagnostic only; coefficients are suppressed and no causal, global-response, or SCC claim is permitted |
-| Six-crop/rainfed blocked response audit, 1982–89 | 321,620 consecutive observed-yield pairs across maize, first/second rice, soybean, spring wheat, and winter wheat; exact crop/model/holdout coverage, metric arithmetic, fold reconciliation, and full-rank finite fits validated | Internal predictive diagnostic only; mixed crop/holdout rankings prohibit a universal-model or SCC claim |
-| Maize/rainfed independent-period audit, 1992–2000 | 119,950 consecutive observed-yield pairs; the frozen models and validator rerun without using the 1982–89 outcome metrics | Internal predictive replication only; model ordering changes in the temporal block and no coefficient or SCC use is permitted |
-| Maize/rainfed contiguous-period audit, 1982–2000 | Cross-file daily input and strict period-combination gates close 1990–91 and validate all 19 harvest years: 1,280,980 potential rows, 285,871 positive-yield rows, and 270,273 consecutive pairs | Longer-period internal predictive diagnostic only; mixed holdout rankings, rainfed-calendar exposure, and coefficient suppression prohibit causal or SCC use |
-| Soybean/rainfed independent-period audit, 2002–2010 | Season and three-window panels contain 606,780 and 1,820,340 rows and reconcile exactly within stored precision; the frozen audit validates 48,959 consecutive observed-yield pairs | Internal predictive replication only; one source-zero GDHY value is preserved and excluded from log yield, coefficients remain suppressed, and no causal or SCC use is permitted |
+| MIRCA rice-season source gate | The 1,537,240,142-byte official monthly archive is object-identity/SHA-512 pinned and all 30 Rice1--Rice3 filenames exist. Metadata pass 21/30: all nine 2005--2015 rainfed files declare year 2020 and are blocked. The six 2000 files pass full input checks, but their maximum-over-month reconstruction exceeds annual Rice by 64,247.23 irrigated ha and 5,302.04 rainfed ha, so both reconciliations fail and no table is emitted. | Failed source-consistency gate only; rice weights remain blocked pending publisher clarification/correction, and neither discrepancy is relaxed or converted into an effect estimate. |
+| Rainfed/irrigated outcome-allocation gate | Synthetic failure modes plus real fixed-2000 maize/soybean source/coverage allocations pass. The one-outcome tables retain 117,679/120,325 maize and 47,922/48,900 soybean observations; 2,646 and 978 unmatched outcomes are explicitly excluded without infill or renormalization. | The legacy tables weighted primitive weather before constructing nonlinear terms, so they are not valid response inputs. Only their source, support, exclusion, and one-row-per-outcome audits stand. Production must construct every nonlinear regime basis before area weighting. |
+| U.S. county outcome, irrigation, and bounded spatial-weather gate | The key-safe Quick Stats fallback retained 7,253 real-FIPS 2018--2022 all-practice corn county-years. The complete 1981--2019 direct-practice builder retains 7,079 corn, 4,845 soybean, and 9,672 all-classes-wheat crop-county-year pairs (43,192 long practice rows), but only regional support. All 807 unique GEOIDs match 2019 TIGER; a conservative Census-history screen flags eight geometry-review counties and leaves 799 fixed-2019 proxy candidates. Exact 2012/2017/2022 Census crop-area records pass the fail-closed share audit. Pinned TIGER, May--October 1981 nClimGrid, NASS calendars, and the 2017 CDL support one real Cuming County corn/soy construction smoke under county-polygon and retrospective crop-mask routes. A HEAD-only inventory pins 468 monthly 1981--2019 nClimGrid identities totaling 27,857,685,556 advertised bytes; the remaining file bodies are not acquired. | Input/support and bounded construction evidence only. Direct-practice support remains regional, all-wheat class weights are unresolved, eight historical-boundary cases need exclusion or sensitivity treatment, and HEAD metadata is not content provenance. No climate--yield response, global transfer, damage, or SCC input is created. |
+| Maize/rainfed blocked response audit, 1982–89 | **Legacy pre-purge audit:** 105,157 consecutive observed-yield pairs were evaluated under the superseded split/hash | Stale engineering history only; rerun required before predictive comparison, and no causal, global-response, or SCC claim is permitted |
+| Maize/MIRCA-2000 area-weighted response audit, 1982–89 | Legacy invalid-order output: nonlinear precipitation bases and interactions were constructed after rainfed/irrigated primitive-weather averaging. The previously listed RMSEs are withdrawn. | Superseded engineering artifact only; do not cite, compare, fit, or use for causal/damage/SCC work. Rerun requires regime-basis-before-area-weighting and a basis-preserving evaluator. |
+| Soybean/MIRCA-2000 area-weighted response audit, 1982–89 | Legacy invalid-order output: nonlinear precipitation bases and interactions were constructed after rainfed/irrigated primitive-weather averaging. The previously listed RMSEs are withdrawn. | Superseded engineering artifact only; do not cite, compare, fit, or use for causal/damage/SCC work. Rerun requires regime-basis-before-area-weighting and a basis-preserving evaluator. |
+| Maize/MIRCA-2000 corrected minimal response audit, 1982–89 | Current-hash basis-before-weighting diagnostic: 117,679 observed levels and 102,847 consecutive pairs. Stage-joint is descriptively lowest RMSE spatially (0.2921 versus 0.3082 zero) and for the retrospective high-tail stress split (0.2974 versus 0.3144 zero); seasonal-joint is lower temporally by 0.000056 RMSE (0.3070 versus 0.3071). All purged endpoint-overlap counts are zero. | Validated predictive diagnostic only. Eight years, minimal feature basis, area-share reduced-form exposure, suppressed coefficients, and unresolved causal specification prohibit damage or SCC use. |
+| Soybean/MIRCA-2000 corrected minimal response audit, 1982–89 | Current-hash basis-before-weighting diagnostic: 47,922 observed levels and 41,915 consecutive pairs. Stage-joint is descriptively lowest RMSE spatially (0.2185 versus 0.2322 zero) and for the retrospective high-tail stress split (0.2212 versus 0.2332 zero); seasonal-joint leads temporally (0.2586 versus 0.2737 zero). All purged endpoint-overlap counts are zero. | Validated predictive diagnostic only. Eight years, minimal feature basis, area-share reduced-form exposure, suppressed coefficients, and unresolved causal specification prohibit damage or SCC use. |
+| Direct precipitation-pattern candidate bases, maize/soybean MIRCA-2000, 1982–89 | Validated 54-column basis-before-weighting tables contain 265,528 maize and 191,472 soybean outcome rows, including 117,679 and 47,922 observed yields. Seasonal/stage amount, normalized shares/timing/concentration, wet-day frequency/intensity, CDD, Rx1day, Rx5day, temperature, and interactions pass stage/season and range gates. | Candidate data contract only. The 1 mm wet-day setting is unselected, heat and alternative drought families are separate open gates, and fitting/causal/damage/SCC use is explicitly unauthorized. |
+| Locked quantity-versus-distribution predictive screen, maize/soybean MIRCA-2000, 1982–89 | A separate hash-locked contract compares stage-temperature controls, seasonal rainfall quantity, and nested timing/concentration, occurrence/intensity, dry-spell, and wet-extreme sets. A full independent rerun reproduces every metric with zero endpoint overlap. The best distribution candidate reduces pooled RMSE beyond seasonal quantity by 0.00117–0.00138 for maize and by 0.00084–0.00261 for soybean across the three holdouts, but the full distribution model worsens soybean temporal RMSE by 0.00355. | Coefficient-suppressing screening evidence only. Differences are small and fold/year heterogeneous, have no paired uncertainty or multiple-comparison adjustment, and do not establish causality, production-model selection, damages, or SCC use. The retrospective high-tail stress split covers about 47% of pairs and is not rare-event validation. |
+| Aggregate-regime maize/soybean feature panels, 2012–2016 | Rainfed and fully irrigated daily-feature panels are complete for both crops. Fixed-2000 MIRCA basis-before-weighting allocation yields 165,955 maize and 119,670 soybean crop-grid-year rows, with 60,818 and 26,748 positive observed yields; 484 and 433 observed outcomes without eligible weights are excluded without infill. Seasonal/stage quantity, distribution, dry-spell, wet-extreme, and temperature reconciliation checks pass. | Real later-period engineering and predictive-diagnostic inputs only. GDHY remains an aggregate outcome, heat and competing drought families remain separate, and no causal coefficient, damage, or SCC input is authorized. |
+| Locked quantity-versus-distribution predictive screen, maize/soybean MIRCA-2000, 2012–2016 | Full input-panel recomputation validates 46,434 maize and 20,682 soybean consecutive pairs. No distribution family improves on seasonal quantity in all three holdouts for either crop. All maize distribution extensions worsen spatial and temporal RMSE; timing/concentration improves the high-tail score by only 0.000044. Soybean dry spells improve spatial RMSE by 0.001516 and occurrence/intensity improves the high-tail score by 0.001366, but all distribution extensions worsen temporal RMSE. The full set worsens temporal RMSE by 0.004826 for maize and 0.003491 for soybean. | Adverse and heterogeneous predictive screening evidence retained under the registered hierarchy. It supports using seasonal quantity as the parsimonious reference unless later causal/external validation overturns it; it does not select a production response or authorize damages/SCC. The short-panel high-tail split covers about 66% of pairs and is not rare-event validation. |
+| GDHY 2012–2016 support sensitivity | The checksum-verified official archive has lower positive-yield support in 2015, followed by restoration in 2016: 1,791 maize-major cells and 596 soybean cells. No values are imputed or relabeled. A separate three-model minimal-basis complete-positive-support sensitivity retains 87.06%/91.23% of maize levels/pairs and 91.07%/94.23% of soybean levels/pairs; seasonal joint temperature–quantity is lowest-RMSE in all six crop-by-holdout comparisons in that selected sample. | Source-support and sample-composition sensitivity only. The seven-family distribution screen has not been rerun on this subset, which may be nonrepresentative; the unbalanced positive-pair panel remains primary, and publisher clarification plus endpoint exclusions remain publication sensitivities. |
+| Evidence-led water-stress hierarchy | The production registry now makes joint temperature plus crop-calendar seasonal precipitation quantity the parsimonious reference; distribution terms require robust stable incremental outer-holdout value. PDSI/scPDSI and SPEI are serious competing moisture-stress families under common validation, not additive controls. Executable scope tests fail if null/worse-result reporting, drought competition, non-stacking, or the prohibition on selection by SCC magnitude is removed. | Design and integrity rule only. No water-stress family or primary production response has been selected, and no coefficient, damage, or SCC input is authorized. |
+| Welfare-support audit, MIRCA-2000 with current 1982–89 response support | Consecutive-pair cells cover 79.017% of positive MIRCA maize area and 89.288% of soybean area, not the roughly 98% suggested by conditioning the denominator on GDHY-observed cells. A MIRCA-area-times-GDHY-2000 production proxy is undefined over 20.984%/10.713% of global MIRCA area; spatial crop-value coverage is unavailable. | Harvested-area support diagnostic only. Unconditional production/revenue coverage, cross-crop welfare aggregation, sample-gap treatment, and SCC use remain blocked pending a pinned compatible production/value source or an explicit bounded gap model. |
+| MIRCA fixed-vintage response sensitivity, 2000--2020 | Legacy invalid-order outputs for all maize/soybean vintages; their model rankings and RMSE movements are withdrawn pending a corrected rerun. Source coverage across vintages remains an independent valid audit. | No response sensitivity result. A future rerun must hold each vintage fixed, build nonlinear bases within regime, and use an evaluator that never overwrites prebuilt terms. |
+| Six-crop/rainfed blocked response audit, 1982–89 | **Legacy pre-purge audit:** 321,620 consecutive observed-yield pairs under the superseded split/hash; source row counts remain valid | Stale engineering history only; rerun required and no universal-model, causal, or SCC claim is permitted |
+| Maize/rainfed independent-period audit, 1992–2000 | **Legacy pre-purge audit:** 119,950 consecutive observed-yield pairs under the superseded split/hash; source row counts remain valid | Stale engineering history only; rerun required and no coefficient or SCC use is permitted |
+| Maize/rainfed contiguous-period audit, 1982–2000 | Data combination remains valid (1,280,980 potential rows; 285,871 positive-yield rows), but the 270,273-pair response audit is **legacy pre-purge** | Stale response history only; rerun required and rainfed-calendar exposure still prohibits causal or SCC use |
+| Soybean/rainfed independent-period audit, 2002–2010 | Source panels/reconciliation remain valid, but the 48,959-pair response audit is **legacy pre-purge** | Stale response history only; rerun required, coefficients remain suppressed, and no causal or SCC use is permitted |
 | Matched future climate-feature driver | Frozen official catalogue selects the complete five-ESM/member by four-scenario by four-variable matrix: 80 public/unrestricted CC0 version-`20210512` datasets and 1,756,959,247,729 catalogue bytes. Complete MRI-ESM2-0 `pr`/`tas` files now cover historical 2011--2014 and SSP3-7.0 2015--2020, match API SHA-512 values, pass full-array content gates, and join at an exact 24-hour boundary. The matched `tas` fields produce ten annual same-realization GMST values with exact day counts. A real maize/rainfed two-latitude smoke produced 2,744 crop-years for 2016--19 and 8,232 three-window rows that reconcile exactly; its total, timing, wet-day, dry-spell, Rx1day, and Rx5day invariants pass. Synthetic whole-ESM/scenario, common-residual, separate-support, identity, and three-size convergence gates pass. | One ten-year historical/projection `pr`/`tas` engineering pair and bounded crop-feature smoke only; yields, real holdouts, the other ESMs/scenarios, fitted response, paired feature path, damage, and SCC input remain absent |
-| Irrigated panels, full-period multi-crop coverage, and future scenarios | Not yet complete | No production global response or SCC claim |
+| Remaining production coverage | Corrected MIRCA-weighted aggregate-regime quantity/distribution panels and predictive screens pass for maize/soybean in 1982–1989 and 2012–2016; unfitted historical scPDSI candidate panels pass for both periods. Rice/wheat irrigation mappings, the intervening complete 1981–2016 panels, heat, SPEI and soil-moisture competitors, causal response draws, matched future drought features, the full future ensemble, welfare calibration, and paired SCC runs remain incomplete. | No production global response or SCC claim |
 
 ## Completed empirical checks
+
+Unless explicitly labeled current-hash and basis-before-weighting, response
+RMSEs and rankings in the historical narrative below are legacy pre-purge
+diagnostics under a superseded specification hash. They are preserved for an
+auditable record of prior work, not as current results.
 
 The pilot produced 5,488 crop-year feature rows, had no duplicate crop-year
 grid keys, and passed nonnegative precipitation and stage-to-season
@@ -251,17 +281,39 @@ threshold is encoded: thresholds remain an explicit, pre-registered response-
 specification choice. The paired response-bundle gate is also executable on
 CSV or Parquet inputs, but has been exercised only on synthetic arrays.
 
-The historical scPDSI benchmark workflow now maps monthly index values to the
-same transparent crop-stage windows by exact day overlap. Its synthetic
-cross-year test verifies stage lengths, day-weighted means, minima, drought-day
-counts, longitude normalization, partition combination, and one-to-one panel
-coverage. The source-role field explicitly prohibits using observed CRU scPDSI
-as a future baseline/pulse input. The complete 355,230,575-byte CRU file is now
-acquired and SHA-512/provenance verified. A real 10-latitude maize/rainfed
-1982--89 slice produced 36,183 crop-stage rows and passed the partition gate at
-a diagnostic scPDSI threshold of -2. This establishes real-data execution, not
-a selected drought definition or a drought-response result; the global crop
-panels, response comparison, and matched future drought paths remain open.
+The historical scPDSI benchmark workflow maps monthly index values to the same
+transparent crop-stage windows by exact day overlap. Its synthetic cross-year
+test verifies stage lengths, day-weighted means, minima, monthly-index
+threshold day-equivalents,
+longitude normalization, partition combination, and one-to-one coverage. The
+complete 355,230,575-byte CRU file is SHA-512/provenance verified, and the
+source role explicitly prohibits using observed CRU scPDSI as a future
+baseline/pulse input. Global 1982--1989 and 2012--2016 rainfed and fully
+irrigated stage construction now passes for maize and soybean. A dedicated allocator builds 16
+seasonal/stage scPDSI features separately by regime before fixed MIRCA-2000
+weighting and emits no direct-weather terms. Source-bound raw-CRU/calendar
+manifests plus complete derived-input allocation recomputation validate
+240,784 maize rows with 115,758 positive outcomes and 176,537 soybean rows with
+47,653 outcomes in 1982--1989, plus 150,490/59,772 and 110,336/26,601 in
+2012--2016. Missing scPDSI or weight support removes a complete
+crop-grid-year key rather than one regime, and every exclusion is audited. The
+-2 threshold remains a diagnostic construction value. No coefficient has been
+fitted, no drought family has been selected, and matched future drought paths
+remain open.
+
+The subsequent common-support assembly emits the direct-weather and scPDSI
+families as separate, non-stacked views with 54 and 16 features, respectively.
+The exact common rows/observed outcomes and direct-only rows/observed outcomes
+are 240,784/115,758 and 24,744/1,921 for maize 1982--1989;
+176,537/47,653 and 14,935/269 for soybean 1982--1989;
+150,490/59,772 and 15,465/1,046 for maize 2012--2016; and
+110,336/26,601 and 9,334/147 for soybean 2012--2016. scPDSI-only drops are
+zero rows and zero observed outcomes in every bundle. Validation recomputes
+these data-only views from their immediate inputs and verifies input/output
+hashes. It does not rerun upstream raw sources or bind upstream validation
+receipts, so upstream validation with retained receipts remains an external
+prerequisite. The bundles fit no model and produce no coefficient, causal
+effect, model-selection, future-projection, damage, or SCC result.
 
 The executable outcome-exposure allocator now prevents pseudo-replication of
 GDHY's aggregate crop-season yield across rainfed and irrigated calendar rows.
@@ -280,5 +332,67 @@ observed-yield maize cells and 6,000 of 6,123 soybean cells in the existing
 and wheat parent-crop maps cannot distinguish `ri1`/`ri2` or `swh`/`wwh`; the
 builder marks those mappings production-ineligible and the allocator rejects
 them. These are source and coverage diagnostics, not a yield response or SCC
-input; matching irrigated climate features and complete estimation remain
-open.
+input.
+
+Matching maize and soybean fully irrigated calendar exposures are now built
+for 1982--1989 and reconcile exactly to their season summaries. Fixed-2000
+MIRCA source/coverage allocation retains 117,679 maize and 47,922 soybean
+observed outcomes, with every missing-weight outcome counted and removed as a
+complete key. The first area-weighted held-out runs are quarantined because
+they averaged primitive rainfed/irrigated weather and only then constructed
+`log1p` precipitation and temperature--precipitation interactions. Nonlinear
+bases do not commute with area weighting, and the post-aggregation interaction
+also introduces cross-regime products. The associated model rankings and RMSE
+comparisons are therefore withdrawn, including all four later-vintage reruns.
+The corrected design constructs each complete nonlinear basis within regime,
+then applies one fixed MIRCA vintage and sums across regimes. Primitive-weather
+mode rejects area-weighted panels; the explicit prebuilt-basis mode consumes
+the supplied basis without overwriting it. Under the current hash and purged
+splits, the corrected 2000-vintage maize and soybean diagnostics validate
+102,847 and 41,915 consecutive pairs with zero endpoint overlap. Stage-joint
+is descriptively best spatially and for climate-extreme pairs in both crops;
+seasonal-joint leads the temporal block, essentially tied for maize. These
+runs are limited predictive diagnostics and produce no causal coefficient,
+damage, or SCC input.
+
+A separate locked diagnostic now holds seasonal `log(1 + precipitation)`
+quantity fixed while adding normalized timing/concentration, wet-day
+occurrence and conditional intensity, dry-spell fractions, and Rx1day/Rx5day
+sets. A full validator reruns the regression from the exact hash-locked source
+panels rather than merely checking reported arithmetic. The best distribution
+candidate lowers pooled RMSE relative to seasonal quantity in all six
+crop-by-holdout comparisons, by 0.00117--0.00138 for maize and
+0.00084--0.00261 for soybean. This is not uniform across model sets: the full
+distribution model is 0.00355 worse than seasonal quantity in the soybean
+temporal block, and fold/year signs vary. No paired uncertainty or
+multiple-comparison correction has been applied. The so-called extreme label
+is a retrospective high-tail stress split containing about 47% of pairs
+because either endpoint may cross either within-cell CDD or Rx1day threshold;
+it is not rare-event or prospective validation. These results are screening
+evidence only and release no coefficient, damage, or SCC input.
+
+The same frozen comparison has now been independently recomputed for real
+2012--2016 aggregate-regime panels. It covers 60,818 maize levels and 46,434
+consecutive pairs, plus 26,748 soybean levels and 20,682 pairs. No distribution
+family improves on seasonal quantity in all three holdouts for either crop.
+For maize, every extension worsens spatial and temporal RMSE; the only gain is
+0.000044 for timing/concentration in the high-tail split, while the full set is
+0.004826 worse temporally. For soybean, dry spells improve spatial RMSE by
+0.001516 and occurrence/intensity improves high-tail RMSE by 0.001366, but
+every extension is worse temporally and the full set is 0.003491 worse. The
+maize temporal block is more adverse still: zero change has RMSE 0.267661,
+better than temperature only, seasonal quantity, or any distribution model.
+The high-tail label includes 66.15% of maize pairs and 66.39% of soybean pairs
+in this short panel and is not rare-event validation.
+
+The official GDHY archive also shows a 2015-only positive-support drop that is
+fully restored in 2016 (1,791 maize-major and 596 soybean grid cells). A
+complete-positive-support sensitivity is therefore reported without imputing
+or relabeling values. It retains 87.06% of maize levels and 91.23% of maize
+pairs, and 91.07% and 94.23% for soybean. Seasonal joint
+temperature--quantity is lowest-RMSE in all six balanced-sample comparisons,
+but conditioning on complete source support may itself select a
+nonrepresentative sample. Together, the later-period and support-sensitivity
+results favor the parsimonious quantity reference for continued work while
+leaving drought-index families as genuine competitors. They remain
+predictive, not causal or SCC evidence.

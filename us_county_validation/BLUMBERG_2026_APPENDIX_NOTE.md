@@ -39,7 +39,8 @@ a rainfed-crop effect for this project.
 ## Planned comparison set
 
 All candidates condition jointly on temperature, use the same crop calendar,
-county/crop area weights, outcome sample, and training folds.  No candidate
+selected spatial route (county-polygon primary or CDL sensitivity), outcome
+sample, and training folds. No candidate
 may use holdout outcomes to choose features or tuning parameters.
 
 | Family | Precipitation representation | Role |
@@ -74,7 +75,7 @@ when already embodied in a fitted response without an explicit decomposition.
 
 ## Selection and reporting protocol
 
-1. Lock crop, years, crop mask, irrigation threshold, candidate families, and
+1. Lock crop, years, spatial route and any mask vintage, irrigation threshold, candidate families, and
    hyperparameter grids before opening the final holdout outcomes.
 2. Tune only in inner blocked folds.  Outer tests are: future years, spatial
    blocks/states, and climate-feature-defined dry/wet extremes.
@@ -90,8 +91,8 @@ when already embodied in a fitted response without an explicit decomposition.
 
 ## Immediate implementation consequence
 
-The NASS ingestion contract remains the first executable step.  Before an
-estimation table is accepted, the project must acquire a documented
-crop-specific irrigated-area source, crop-area weather weights, and a daily
-weather archive.  The appendix improves the empirical design; it does not
-remove those input gates.
+The NASS ingestion contract remains the first executable step. Before an
+estimation table is accepted, the project must finish documented crop-specific
+irrigation classification, the county-polygon primary panel, CDL sensitivity,
+daily weather coverage, calendars, and blocked holdout definitions. The
+appendix improves the empirical design; it does not remove those input gates.

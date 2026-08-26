@@ -1,15 +1,18 @@
 # Literature audit: climate-to-precipitation emulation
 
-Updated: 2026-08-22
+Updated: 2026-08-26
 
 ## Decision
 
-Do **not** develop a free-standing precipitation emulator from scratch. Several
-peer-reviewed, open or archived frameworks already emulate spatial
-precipitation along novel warming trajectories. The project contribution
-should be a validated adaptation of published methods to crop calendars and a
-paired GIVE/FAIR marginal-emissions pulse, not a claim that climate-to-rainfall
-emulation is new.
+Do **not** develop a free-standing precipitation emulator from scratch. The
+project owner selected the direct daily ISIMIP3b crop-feature response route as
+primary on 25 August 2026: derive the exact crop-calendar features from
+version-pinned ESM/member fields, fit ESM-specific feature responses to
+same-realization GMST, and evaluate matched GIVE/FAIR baseline and pulse paths
+with common residual innovations. Several peer-reviewed, open or archived
+frameworks already emulate spatial precipitation along novel warming
+trajectories; they are benchmarks or fallbacks, not evidence that
+climate-to-rainfall emulation is a new contribution here.
 
 No peer-reviewed publication identified so far provides all required outputs:
 globally coherent crop-window totals, daily wet/dry persistence,
@@ -85,13 +88,18 @@ explicit agricultural welfare replacement inside GIVE.
   change contains a forced signal and is a useful validation concept, but the
   model is a detector rather than a trajectory generator.
 
-## Revised implementation strategy
+## Fallback and benchmark implementation strategy
 
-### Primary published-method chain
+The chain below was superseded as the primary route on 25 August 2026. Use it
+only as a robustness path or if the direct ISIMIP3b crop-feature response fails
+the predeclared support, holdout, identity, or pulse-convergence gates in
+`PAIRED_CLIMATE_FEATURE_DRIVER.md`.
+
+### Published-method fallback chain
 
 1. Drive a published spatial temperature emulator with matched GIVE/FAIR
    baseline and pulse GMT trajectories, preserving a common model/member draw.
-2. Use MESMER-M-TP as the primary monthly precipitation backbone.
+2. Use MESMER-M-TP as the monthly precipitation backbone within this fallback.
 3. Adapt the Kemsley et al. pattern-scaled Markov--gamma method to create daily
    precipitation conditional on the emulated monthly field, then calculate
    crop-calendar totals, window shares, wet days, consecutive dry days, Rx1day,

@@ -1,0 +1,32 @@
+schema_version = 1
+diagnostic_contract_id = "gdhy_precipitation_distribution_predictive_diagnostic_v1"
+spec_sha256 = "4b10f63deceec58b1792d519428b97f116ad1a6e916e085cdd47530f3b46115c"
+
+[[inputs]]
+crop = "mai"
+panel_path = "data/interim/irrigation_basis/maize_mirca2000_2012_2016_distribution_candidate.parquet"
+panel_sha256 = "06654e391b7df1de06bc91e828683f567ddf3f02b4fdd084162899eccdde8bc0"
+allocation_audit_path = "data/interim/irrigation_basis/maize_mirca2000_2012_2016_distribution_candidate_allocation_audit.json"
+allocation_audit_sha256 = "f89fdff385fd1c89ca0b13dfee1176ecd0528e0ae20ca3fcb8b41da9d63405ac"
+expected_rows = 165955
+expected_observed_outcomes = 60818
+expected_year_start = 2012
+expected_year_end = 2016
+
+[[inputs]]
+crop = "soy"
+panel_path = "data/interim/irrigation_basis/soy_mirca2000_2012_2016_distribution_candidate.parquet"
+panel_sha256 = "d544f2b8375109a1d786f0f2580dd78edd607ef4e6ac77dce4631196cd3dae3c"
+allocation_audit_path = "data/interim/irrigation_basis/soy_mirca2000_2012_2016_distribution_candidate_allocation_audit.json"
+allocation_audit_sha256 = "5cac6c530cf18cebc8ab4403b891e9ec4b4078526f2807284371dd946100819f"
+expected_rows = 119670
+expected_observed_outcomes = 26748
+expected_year_start = 2012
+expected_year_end = 2016
+
+[boundary]
+source_artifacts_are_ignored = true
+source_basis_fit_authorized = false
+diagnostic_only = true
+coefficient_export_authorized = false
+scc_use_authorized = false

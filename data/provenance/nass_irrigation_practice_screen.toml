@@ -1,0 +1,199 @@
+input_id = "nass_irrigation_practice_screen"
+title = "USDA NASS county irrigation-practice yields and Census crop-area shares"
+source = "USDA National Agricultural Statistics Service Quick Stats API"
+status = "acquired_exact_series_and_fail_closed_coverage_audited"
+retrieval_date = "2026-08-26"
+landing_page_url = "https://www.nass.usda.gov/quick_stats/"
+developer_url = "https://www.nass.usda.gov/developer/"
+count_endpoint = "https://quickstats.nass.usda.gov/api/get_counts/"
+data_endpoint = "https://quickstats.nass.usda.gov/api/api_GET/"
+credential_policy = "local .secrets/nass.env only; key is never printed, stored, or committed"
+license = "United States government public data; retain NASS attribution and disclosure flags"
+approved_use = "U.S. regional irrigation-practice validation and fixed Census crop-irrigation-share selection for aggregate county-yield validation; not a global coefficient or SCC input"
+use_limit = "Practice-specific yields are regionally selected. Census shares are fixed vintage-specific selection variables, not annual irrigation status. Missing or suppressed irrigated acres are never zero-filled."
+suppression_documentation = "https://www.nass.usda.gov/AgCensus/FAQ/2022/"
+irrigated_acres_definition = "https://data.nass.usda.gov/AgCensus/Report_Form_and_Instructions/2022_Report_Form/2022_Census_of_Agriculture_Report_Form_Guide.pdf"
+
+[yield_query]
+source_desc = "SURVEY"
+sector_desc = "CROPS"
+statisticcat_desc = "YIELD"
+agg_level_desc = "COUNTY"
+freq_desc = "ANNUAL"
+reference_period_desc = "YEAR"
+domain_desc = "TOTAL"
+domaincat_desc = "NOT SPECIFIED"
+class_desc = "ALL CLASSES"
+prodn_practice_desc = ["IRRIGATED", "NON-IRRIGATED"]
+unit_desc = "BU / ACRE"
+year_filter = "none; exact locked series over all published years, preflight count-capped before retrieval"
+
+[yield_validation.corn]
+api_counts = [16635, 14752]
+practice_order = ["IRRIGATED", "NON-IRRIGATED"]
+positive_paired_county_years = 11483
+positive_paired_counties = 437
+paired_states = 11
+paired_year_range = "1944-2025"
+paired_1981_2019_county_years = 7079
+paired_2018_2022_county_years = 71
+
+[yield_validation.soybeans]
+api_counts = [7467, 8247]
+practice_order = ["IRRIGATED", "NON-IRRIGATED"]
+positive_paired_county_years = 6294
+positive_paired_counties = 256
+paired_states = 5
+paired_year_range = "1960-2025"
+paired_1981_2019_county_years = 4845
+paired_2018_2022_county_years = 33
+
+[yield_validation.wheat]
+api_counts = [22001, 35112]
+practice_order = ["IRRIGATED", "NON-IRRIGATED"]
+positive_paired_county_years = 18831
+positive_paired_counties = 703
+paired_states = 14
+paired_year_range = "1929-2007"
+paired_1981_2019_county_years = 9672
+paired_2018_2022_county_years = 0
+
+[census_area_query]
+source_desc = "CENSUS"
+sector_desc = "CROPS"
+statisticcat_desc = "AREA HARVESTED"
+agg_level_desc = "COUNTY"
+freq_desc = "ANNUAL"
+reference_period_desc = "YEAR"
+class_desc = "ALL CLASSES"
+unit_desc = "ACRES"
+discovered_prodn_practice_desc = ["ALL PRODUCTION PRACTICES", "IRRIGATED"]
+years = [2012, 2017, 2022]
+share_formula = "numeric irrigated harvested acres / numeric all-production-practices harvested acres"
+missingness = "a missing, suppressed, or nonnumeric numerator is excluded and never interpreted as zero"
+
+[census_area_validation.corn]
+share_eligible_by_year = [1121, 1014, 1071]
+year_order = [2012, 2017, 2022]
+share_le_10pct_by_year = [496, 428, 484]
+share_le_20pct_by_year = [615, 540, 599]
+share_le_30pct_by_year = [668, 610, 676]
+
+[census_area_validation.soybeans]
+share_eligible_by_year = [720, 706, 785]
+year_order = [2012, 2017, 2022]
+share_le_10pct_by_year = [435, 393, 480]
+share_le_20pct_by_year = [505, 472, 560]
+share_le_30pct_by_year = [547, 511, 598]
+
+[census_area_validation.wheat]
+share_eligible_by_year = [612, 420, 485]
+year_order = [2012, 2017, 2022]
+share_le_10pct_by_year = [323, 219, 245]
+share_le_20pct_by_year = [414, 271, 311]
+share_le_30pct_by_year = [470, 304, 362]
+
+[[yield_files]]
+crop = "corn"
+practice = "IRRIGATED"
+local_ignored_path = "data/raw/us_county/nass_api/irrigation_practice_screen/yield_practice/survey_corn_irrigated_yield_all_years.json"
+size_bytes = 21316702
+local_sha512 = "6e298c015b00d2e2eb1aa3905e748ed3b34858dfea9ebfb214ea8758cfa76f2600f54073a3f7a4094ddfb2e776240f7c737300c27af081aba4d92713ca6a2a14"
+
+[[yield_files]]
+crop = "corn"
+practice = "NON-IRRIGATED"
+local_ignored_path = "data/raw/us_county/nass_api/irrigation_practice_screen/yield_practice/survey_corn_non_irrigated_yield_all_years.json"
+size_bytes = 19006794
+local_sha512 = "b0716b5d8f1180310c3233ab66ac5726cc9325195f9dcaa83340756f1c495e09ac6325799cc971bf32bbc5c4a6dad257772602642de6558e6ba61b923455f391"
+
+[[yield_files]]
+crop = "soybeans"
+practice = "IRRIGATED"
+local_ignored_path = "data/raw/us_county/nass_api/irrigation_practice_screen/yield_practice/survey_soybeans_irrigated_yield_all_years.json"
+size_bytes = 9697494
+local_sha512 = "0d76ba68d2971f5581d6b764ecd94a69dd43a1c2f6828f34dfde2b27190a4fba4a86eccf4d2031fa5d63418abba8d38cfd25b6bc2e115aa429c82e6037bdf7a1"
+
+[[yield_files]]
+crop = "soybeans"
+practice = "NON-IRRIGATED"
+local_ignored_path = "data/raw/us_county/nass_api/irrigation_practice_screen/yield_practice/survey_soybeans_non_irrigated_yield_all_years.json"
+size_bytes = 10780587
+local_sha512 = "ad88a4063f85acadd0ee50cd2d043876c15baccb5817d3c578f622c4813febb20ccb0e9a510772786a860da9b6d5436e866c9ab3280afd5feed3c408366f1889"
+
+[[yield_files]]
+crop = "wheat"
+practice = "IRRIGATED"
+local_ignored_path = "data/raw/us_county/nass_api/irrigation_practice_screen/yield_practice/survey_wheat_irrigated_yield_all_years.json"
+size_bytes = 28525679
+local_sha512 = "4805d8b90b1b64c48192ac4a8548a83b25e04618a80332a36c80b4299843cac07e1ffbfbfa390c607001a8eb831ebc8f342a6598d0611e7311666cadfd9c8285"
+
+[[yield_files]]
+crop = "wheat"
+practice = "NON-IRRIGATED"
+local_ignored_path = "data/raw/us_county/nass_api/irrigation_practice_screen/yield_practice/survey_wheat_non_irrigated_yield_all_years.json"
+size_bytes = 45822842
+local_sha512 = "7372c543b49e93aa1653d60b4e2797f60b6fb6b7f24631b5c6c4fb2e42f78ec5afbaa339efb5f51bd11fb9658d7c7cb536a4961d6c34a0330f5d81b9db6a1ee3"
+
+[[census_area_files]]
+crop = "corn"
+year = 2012
+local_ignored_path = "data/raw/us_county/nass_api/irrigation_practice_screen/census_area_discovery/census_2012_corn_area_harvested_discovery.json"
+size_bytes = 5773260
+local_sha512 = "c04f2fef82b427b6b157684f8865f34c268b9d8fd1a61ba613383c85473bf44acc2116c00c0c21a55022d9fd78f581542dfc72b8ee373e69bfbde2c18758462e"
+
+[[census_area_files]]
+crop = "soybeans"
+year = 2012
+local_ignored_path = "data/raw/us_county/nass_api/irrigation_practice_screen/census_area_discovery/census_2012_soybeans_area_harvested_discovery.json"
+size_bytes = 4516106
+local_sha512 = "c46bf3c3f3553db5f07ee224faa3b76d73cc2c4cc511f6965fed1969e6a3cbf9a312412724c807ee058745b813382f30e479843becd963dc0d37dccd5325e2ed"
+
+[[census_area_files]]
+crop = "wheat"
+year = 2012
+local_ignored_path = "data/raw/us_county/nass_api/irrigation_practice_screen/census_area_discovery/census_2012_wheat_area_harvested_discovery.json"
+size_bytes = 4884375
+local_sha512 = "b58fc8b1d852b5c04cbea1df97e2f1517524af981f54c3eb9195d10492d72fbb26f5227856290d0940645b0eb33353e6101b240cfe022b147bb51ebbdc1bbf8b"
+
+[[census_area_files]]
+crop = "corn"
+year = 2017
+local_ignored_path = "data/raw/us_county/nass_api/irrigation_practice_screen/census_area_discovery/census_2017_corn_area_harvested_discovery.json"
+size_bytes = 5444623
+local_sha512 = "f7b4e174f68cc496bd92eab873a16bde4d2c4eda55040751c1364d4af878b265d3d424c13c9f7aa0e817b939c60f82c53d173b77bd45b4ea09c8f2f15e38964b"
+
+[[census_area_files]]
+crop = "soybeans"
+year = 2017
+local_ignored_path = "data/raw/us_county/nass_api/irrigation_practice_screen/census_area_discovery/census_2017_soybeans_area_harvested_discovery.json"
+size_bytes = 4394977
+local_sha512 = "6b417fe477f0b9d485215b52d2199c4e9a6e4d0ce24dfb3a839103b03f28a81b24ed2ee7ce0f52608e594863dcf90eb2019d7a3d273a5405c8dc0cf6f803ff79"
+
+[[census_area_files]]
+crop = "wheat"
+year = 2017
+local_ignored_path = "data/raw/us_county/nass_api/irrigation_practice_screen/census_area_discovery/census_2017_wheat_area_harvested_discovery.json"
+size_bytes = 4171209
+local_sha512 = "17b7898f294fdae8dd087e3849c31620c50ac5d0b20fe7b621ade56826354a42fab314c1c7f8f3122d663d18abf39e70aa7980be1115453c3b73d4868720f42c"
+
+[[census_area_files]]
+crop = "corn"
+year = 2022
+local_ignored_path = "data/raw/us_county/nass_api/irrigation_practice_screen/census_area_discovery/census_2022_corn_area_harvested_discovery.json"
+size_bytes = 5628353
+local_sha512 = "966a88b521f8d11ba6a96437b52a5c0eef38882f32d6318e317fea190d44d89356cbfd196eb9dc85de28e58d21ba2fcdd4ccd125f28ecf017e73422f212c140b"
+
+[[census_area_files]]
+crop = "soybeans"
+year = 2022
+local_ignored_path = "data/raw/us_county/nass_api/irrigation_practice_screen/census_area_discovery/census_2022_soybeans_area_harvested_discovery.json"
+size_bytes = 4536328
+local_sha512 = "a2e072cec939429c3be1daed02eb0fb369b6f373249beab47ca04b9f30c364237f4c6e2faa173a42ba74c71582b8424e6e1989329d849ce9b969b70af9df9e3d"
+
+[[census_area_files]]
+crop = "wheat"
+year = 2022
+local_ignored_path = "data/raw/us_county/nass_api/irrigation_practice_screen/census_area_discovery/census_2022_wheat_area_harvested_discovery.json"
+size_bytes = 4344174
+local_sha512 = "e92b8a577af3f6f2bf38a143172db153b62aec8ba3a58ad14c0e75552dec79e0d3d04b089b60abf29ee78ea82332db033301d42c8a89668ca523ac13e9cbf17d"

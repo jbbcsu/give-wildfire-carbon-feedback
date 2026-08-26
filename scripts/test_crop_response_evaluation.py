@@ -18,7 +18,9 @@ models, _, _, digest = load_spec(PROJECT / "config" / "response_evaluation_spec.
 rng = np.random.default_rng(20260822)
 rows: list[dict[str, object]] = []
 for crop_index, crop in enumerate(("mai", "soy")):
-    for grid in range(12):
+    # Twenty-four cells leave more than one observation per feature after the
+    # extreme holdout purges every adjacent pair sharing a yield endpoint.
+    for grid in range(24):
         level = 2.0 + crop_index * 0.1 + grid * 0.01
         for year in range(2000, 2008):
             precip = 80 + grid + 3 * (year - 2000) + rng.normal(0, 1)
@@ -47,13 +49,61 @@ for crop_index, crop in enumerate(("mai", "soy")):
 valid = pd.DataFrame(rows)
 audit = evaluate(valid, models, 20, 8, digest)
 assert audit["status"].endswith("not_causal_or_scc_authorized")
-assert audit["n_consecutive_pairs"] == 168
+assert audit["n_consecutive_pairs"] == 336
 assert len(audit["results"]) == 2 * 3 * 3
 assert {entry["holdout"] for entry in audit["results"]} == {
     "spatial_block", "temporal", "climate_extreme",
 }
 assert all("coefficients" not in entry for entry in audit["results"])
 assert all(entry["test_rows"] > 0 for entry in audit["results"])
+assert audit["nonspatial_split_contract"] == "yield_endpoint_disjoint_purged_training_pairs"
+for entry in audit["results"]:
+    if entry["holdout"] in {"temporal", "climate_extreme"}:
+        assert entry["endpoint_overlap_count"] == 0
+        assert entry["purged_train_rows"] > 0
+        assert entry["purge_rule"].startswith("drop_training_pairs_sharing_either_yield_endpoint")
+
+# Contract-marked prebuilt bases are consumed verbatim only in the explicit
+# mode; primitive precipitation is absent, so an accidental rebuild cannot
+# succeed silently.
+prebuilt = valid.copy()
+for prefix in ("", "stage1_", "stage2_", "stage3_"):
+    prebuilt[f"{prefix}log1p_precip_mm"] = np.log1p(prebuilt[f"{prefix}precip_mm"])
+    prebuilt[f"{prefix}tmean_x_log1p_precip"] = (
+        prebuilt[f"{prefix}tmean_c"] * prebuilt[f"{prefix}log1p_precip_mm"]
+    )
+prebuilt = prebuilt.drop(
+    columns=["precip_mm", "stage1_precip_mm", "stage2_precip_mm", "stage3_precip_mm"]
+)
+prebuilt["irrigation"] = "area_weighted"
+prebuilt["response_basis_contract_id"] = "gdhy_aggregate_irrigation_basis_v1"
+prebuilt["basis_allocation_order"] = "regime_basis_before_fixed_area_weighting"
+prebuilt["diagnostic_fit_authorized"] = True
+prebuilt["nonlinear_post_allocation_transform_authorized"] = False
+prebuilt_audit = evaluate(
+    prebuilt,
+    models,
+    20,
+    8,
+    digest,
+    input_basis_mode="prebuilt_irrigation_weighted_basis",
+)
+assert prebuilt_audit["input_basis_mode"] == "prebuilt_irrigation_weighted_basis"
+assert prebuilt_audit["response_basis_contract_id"] == "gdhy_aggregate_irrigation_basis_v1"
+
+try:
+    evaluate(prebuilt, models, 20, 8, digest)
+    raise AssertionError("prebuilt bases should require explicit mode")
+except ValueError as error:
+    assert "explicit" in str(error)
+
+invalid_area_weighted = valid.copy()
+invalid_area_weighted["irrigation"] = "area_weighted"
+try:
+    evaluate(invalid_area_weighted, models, 20, 8, digest)
+    raise AssertionError("primitive transforms after irrigation aggregation should fail")
+except ValueError as error:
+    assert "primitive-weather mode" in str(error)
 
 duplicate = pd.concat([valid, valid.iloc[[0]]], ignore_index=True)
 try:

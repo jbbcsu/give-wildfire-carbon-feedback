@@ -5,7 +5,9 @@
 1. Obtain the manifest inputs into a separately versioned data store and record
    checksums/licenses.
 2. Derive crop-calendar-aligned features under baseline and matched CO2-pulse
-   climate draws; aggregate only after crop/irrigation-level estimation.
+   climate draws; construct every response-basis term within irrigation regime,
+   then combine regimes with fixed independent area shares before fitting the
+   single aggregate crop-grid yield outcome.
 3. Fit the pre-registered joint response; benchmark against GGCMI/ISIMIP,
    fixed-effects, and ML predictive comparators.
 4. Translate one joint yield response through one welfare/market layer and run

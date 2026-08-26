@@ -21,22 +21,37 @@ Relevant baseline locations (read-only for this project):
 
 ## Phase 0 — scope and accounting (authorized)
 
-Define the estimand as the present value of the damage difference caused by a
-one-tonne CO2 pulse through precipitation, conditional on the model's
-temperature and socioeconomic paths. The primary estimand is global
-agricultural SCC from a replacement for MooreAg. It includes mean/seasonal
+The primary estimand is the model-conditional global agricultural SCC from a
+joint temperature--water replacement for MooreAg. It includes mean/seasonal
 precipitation, within-season timing and distribution, drought, and heavy/wet
-exposure jointly with temperature. Non-coastal riverine/pluvial infrastructure
+exposure jointly with temperature. Precipitation quantity and distribution are
+predeclared accounting decompositions within that joint prediction, not a
+separately observed causal SCC. Non-coastal riverine/pluvial infrastructure
 flooding is deferred behind a preserved separate interface.
 
-**Novelty gate:** a 2024 working paper by Wenz, Kotz, Callahan, and
+Model hierarchy is evidence-led. The parsimonious direct-weather reference is
+joint temperature plus crop-calendar growing-season precipitation quantity.
+Timing, concentration, occurrence, intensity, dry-spell, and wet-extreme terms
+are retained only if pre-specified outer holdouts show robust, stable
+incremental value; null, unstable, and worse results are reported, and the
+quantity reference may become primary. PDSI/scPDSI and SPEI are serious
+competing climatic-water-balance representations, not minor checks. Direct
+precipitation-pattern, climatic-water-balance, and soil-moisture families are
+evaluated separately and never summed or mechanically stacked unless a
+separate pre-specified attribution design establishes nonoverlap.
+
+**Novelty and overlap gate:** a 2024 working paper by Wenz, Kotz, Callahan, and
 Stechemesser reports a GIVE integration of total precipitation, wet-day
 frequency, and extreme daily rainfall in a reduced-form subnational
-productivity framework.  This checkout does not contain that implementation,
-but the planned paper must not duplicate or stack it.  The proposed distinct
-contribution is a sectorally disaggregated climate-to-hydrology-to-loss module
-with flood validation and explicit overlap accounting.  Resolve the paper's
-status and intended relationship before empirical estimation.
+productivity framework. This checkout does not contain that implementation,
+and the planned paper must not duplicate or stack it. The proposed distinct
+contribution is an evidence-led test of whether crop-stage precipitation
+distribution improves on seasonal quantity, a defensible single-outcome
+treatment of rainfed/irrigated exposures, serious comparison with drought-index
+families, and an explicit replacement of GIVE agriculture with no overlapping
+precipitation add-on. A null distribution result is publishable information,
+not a reason to privilege a more elaborate model.
+Flood validation is outside the current paper.
 
 Do not run the new module alongside the optional DICE or Howard--Sterner
 aggregate functions: those are broad reduced-form damage functions and their
@@ -47,39 +62,73 @@ For coastal flooding, use CIAM alone in the main specification; a
 coastal-rainfall add-on requires event-level evidence that excludes
 surge/sea-level damages already in CIAM.
 
-## Phase 1 — published climate-to-precipitation emulators
+## Phase 1 — matched climate-to-crop-feature driver
 
-Do not build a new free-standing emulator unless published systems fail
-predeclared validation. The literature audit in
-`CLIMATE_PRECIPITATION_EMULATOR_AUDIT.md` identifies MESMER-M-TP as the monthly
-backbone candidate, the Kemsley et al. pattern-scaled Markov--gamma generator
-for daily occurrence/intensity and dry-spell structure, MESMER-X for Rx1day,
-and STITCHES as the principal daily multivariate benchmark. RIG (Huang et al.,
-2026 preprint) is the closest known daily global forcing-to-temperature-and-
-precipitation system, but its code and weights are promised only upon
-publication. ACE2-SOM is a peer-reviewed high-complexity benchmark under
-idealized CO2 climates. Neither is adopted until it passes crop-feature and
-small-pulse convergence tests.
+The project owner selected the direct daily ISIMIP3b crop-feature response
+route as primary on 25 August 2026. Derive exact crop-calendar features from
+version-pinned daily ESM/member fields, fit ESM-specific feature responses to
+same-realization GMST, and evaluate matched FAIR baseline/pulse paths with
+common residual innovations. Scenario contrasts are training support, not
+one-tonne CO2 experiments.
 
-The published-method chain is driven by each matched FAIR forcing/temperature
-draw, according to the selected emulator's validated input contract:
+Do not build a new free-standing weather emulator unless this route fails
+predeclared validation. The previously proposed MESMER-M-TP plus
+pattern-scaled Markov--gamma chain is now a fallback/benchmark, superseded as
+the primary route. MESMER-X remains an Rx1day benchmark and STITCHES a daily
+multivariate sequence benchmark. RIG and ACE2-SOM remain external candidates
+until their crop-feature and small-pulse behavior can be tested.
+
+The primary feature-response chain is driven by each matched FAIR
+forcing/temperature draw, according to its validated input contract:
 
 `T(t) -> [P_ann, P_season, Rx1day, Rx5day, wet-day frequency, dry-spell]_(t,r)`.
 
-Calibrate or reuse ESM-specific CMIP6/ScenarioMIP responses, retaining model,
-scenario, internal-variability and downscaling uncertainty. Preserve
-spatial dependence by sampling a model/member jointly across regions rather
-than independently sampling country effects.  Bias-adjust and aggregate daily
-fields to basin/country exposure weights before estimating extreme indices.
-Annual SCC timesteps receive annual loss expectations; the extreme-value layer
-converts subannual hazards into annual expected damage and retains tail risk.
+Fit ESM-specific CMIP6/ScenarioMIP feature responses while retaining model,
+scenario, internal-variability, and bias-adjustment uncertainty. Preserve
+spatial dependence by sampling a model/member jointly across crop grids rather
+than independently sampling country effects. Derive crop-stage totals,
+distribution, wet-day, dry-spell, and extreme indices from daily fields before
+welfare aggregation. Annual SCC timesteps receive crop-year response
+expectations and their retained uncertainty.
 
 For the prioritized agriculture path, resolve daily fields by crop calendar
 and crop stage, not just country-year. Run existing GGCMI/ISIMIP process
 ensembles and direct daily climate features as benchmarks. The first
-empirical response should jointly model seasonal precipitation, dry spells,
-water excess and temperature; selection of additional timing features must be
-held-out validated and pre-specified.
+empirical response should establish the parsimonious joint
+temperature--seasonal-quantity benchmark. Direct dry-spell, water-excess, and
+timing extensions must add stable held-out value. PDSI/scPDSI and SPEI must be
+evaluated as alternative water-stress families under the same outer splits;
+selection of any added timing or drought representation must be held-out
+validated and pre-specified.
+
+**Current empirical checkpoint.** Hash-locked screens for maize and soybean in
+1982--1989 and 2012--2016 are complete. The early panel contains small,
+heterogeneous gains from distribution features; the later panel has no
+distribution family that improves seasonal quantity across all three
+holdouts. All maize extensions are worse spatially and temporally in the later
+panel, and all soybean extensions are worse temporally. A separate
+minimal-basis complete-support sensitivity also ranks joint temperature plus
+seasonal quantity first in every crop/holdout cell, although conditioning on
+complete GDHY support can select the sample. Therefore seasonal quantity
+remains the reference and no distribution extension has cleared the retention
+gate. Historical aggregate-regime scPDSI candidate inputs now pass raw-source
+and calendar manifest binding plus complete derived-input allocation
+recomputation for maize and soybean in both periods, but they remain unfitted.
+Four data-only common-support bundles are now validated as separate 54-feature
+direct-weather and 16-feature scPDSI views. Their common rows/observed outcomes
+and direct-only dropped rows/observed outcomes are maize 1982--1989,
+240,784/115,758 and 24,744/1,921; soybean 1982--1989,
+176,537/47,653 and 14,935/269; maize 2012--2016,
+150,490/59,772 and 15,465/1,046; and soybean 2012--2016,
+110,336/26,601 and 9,334/147. Every scPDSI-only drop count is 0/0. Validation
+recomputes only from the immediate candidate inputs; upstream raw-source
+validation receipts are not bound and remain an external prerequisite. No
+fit, effect, model-selection, damage, or SCC result follows from assembly. The
+next empirical step is a separately frozen coefficient-suppressing
+PDSI/scPDSI response screen on this support, followed by SPEI and soil-moisture
+families under identical splits. Seasonal quantity remains the reference;
+distribution must show robust stable outer-holdout value, and drought families
+remain mutually exclusive and may not be stacked or selected by SCC magnitude.
 
 ## Phase 2 — damage functions (empirical work required)
 
@@ -92,12 +141,14 @@ held-out validated and pre-specified.
 2. **Agriculture (priority):** estimate crop/region responses jointly in
    temperature, growing-season water balance, onset/cessation, dry spells,
    water excess and extremes, then map once to welfare/food-price damages.
-   It must **replace**, not be residualized onto, the temperature-only MooreAg
+   It must **replace**, not be residualized onto, the temperature-indexed MooreAg
    channel.  Benchmark against GGCMI/ISIMIP; use ML only as a constrained,
    held-out predictive comparator after the transparent panel model.
    Compare against OSCAR-crop v1.0 as the mandatory aggregate growing-season
-   water benchmark; incremental value must come from daily/stage timing,
-   dry/wet persistence, extremes, empirical validation, or welfare accounting.
+   water benchmark. Test rather than assume whether daily/stage timing,
+   dry/wet persistence, or extremes add value beyond seasonal quantity, and
+   compare direct-weather results with separately specified PDSI/scPDSI and
+   SPEI families.
 3. **Other mechanisms:** include only with a separately identified response
    and accounting boundary: drought/water-supply losses, hydropower,
    landslides, and water-borne disease are candidates.  Avoid adding

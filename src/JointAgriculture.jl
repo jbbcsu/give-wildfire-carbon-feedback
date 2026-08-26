@@ -2,7 +2,8 @@
 Isolated replacement agriculture component for precipitation-SCC research.
 
 This component is not included in MimiGIVE and does not read wildfire files.
-It is designed to replace the temperature-only MooreAg component once the
+It is designed to replace the temperature-indexed MooreAg component, which has
+no explicit separable precipitation input in this checkout, once the
 crop-specific response bundle and welfare mapping are independently validated.
 Crop responses are calculated by `CropResponseAggregation`; this component
 only translates its regional joint-loss fraction into the existing `agcost`

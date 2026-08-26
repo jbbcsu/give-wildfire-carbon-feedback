@@ -1,0 +1,148 @@
+source = "NOAA NCEI nClimGrid-Daily v1.0.0"
+provider = "NOAA National Centers for Environmental Information"
+status = "acquired_and_validated_six_month_growing_season_smoke"
+retrieved_utc = "2026-08-26T16:07:30+00:00"
+landing_page_url = "https://www.ncei.noaa.gov/products/land-based-station/nclimgrid-daily"
+distribution_index_url = "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/1981/"
+user_guide_url = "https://www.ncei.noaa.gov/data/nclimgrid-daily/doc/nclimgrid-daily_v1-0-0_user-guide.pdf"
+dataset_doi = "https://doi.org/10.25921/c4gt-r169"
+version = "v1-0-0 20220829 as embedded in every reviewed NetCDF"
+approved_use = "Bounded May-October 1981 primary-calendar weather smoke for one real Cuming County, Nebraska corn/soy practice-pair support key after county-polygon weighting"
+excluded_use = "The six objects do not establish full-period acquisition, crop-pixel exposure, a yield response, causal effect, damage, or SCC result"
+total_size_bytes = 352386369
+time_coverage = "1981-05-01 through 1981-10-31 with six contiguous monthly objects"
+
+[license]
+status = "U.S. federal government data with no restrictions stated in the reviewed NetCDFs"
+spdx_identifier = "NOASSERTION"
+url = "https://www.ncei.noaa.gov/products/land-based-station/nclimgrid-daily"
+embedded_statement = "no restrictions"
+
+[stability]
+assessment = "NCEI states that nClimGrid-Daily v1 inputs can be updated without a product-version change; each mutable URL is independently pinned below by SHA-512, byte length, ETag, and Last-Modified value."
+scientific_limitations = [
+  "County-polygon weighting is a full-period primary proxy, not crop-pixel exposure.",
+  "NCEI recommends spatial and temporal aggregation and discourages interpreting a single grid point on a single day.",
+  "Precipitation smoothing can yield a slight dry bias, with larger errors in mountainous terrain and heavy events.",
+  "Each date label is the 24-hour period ending in the early morning of that date.",
+]
+
+[[files]]
+year = 1981
+month = 5
+name = "ncdd-198105-grd-scaled.nc"
+source_url = "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/1981/ncdd-198105-grd-scaled.nc"
+local_ignored_path = "data/raw/us_county/nclimgrid_daily/ncdd-198105-grd-scaled.nc"
+size_bytes = 61069446
+local_sha512 = "b2e5272189a23455397c730990d814d73bc12321f77f5e4cf6abd5132367c14e2d169fd24537c0ac2b18a8faf1a28f2751d468fb682f82d50171dde16dc0a9ef"
+[files.upstream_identity]
+verified_utc = "2026-08-26T16:06:46+00:00"
+content_length = 61069446
+etag = "\"3a3d886-5e7cc2ef97bc0\""
+last_modified = "Sat, 03 Sep 2022 21:03:51 GMT"
+content_type = "application/x-netcdf"
+[files.validation]
+daily_time_steps = 31
+start_date = "1981-05-01"
+end_date = "1981-05-31"
+schema_validated = true
+
+[[files]]
+year = 1981
+month = 6
+name = "ncdd-198106-grd-scaled.nc"
+source_url = "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/1981/ncdd-198106-grd-scaled.nc"
+local_ignored_path = "data/raw/us_county/nclimgrid_daily/ncdd-198106-grd-scaled.nc"
+size_bytes = 57901962
+local_sha512 = "3c03c9c57fabffb52181cdf4bbde4f22eeddb5dada5dcd7d3fa2e65dae00492467389b5bc8159e13e9973112aaeb40fbea88452f5db009034c304d1290a5ccb6"
+[files.upstream_identity]
+verified_utc = "2026-08-26T16:06:46+00:00"
+content_length = 57901962
+etag = "\"373838a-5e7cc3c813a80\""
+last_modified = "Sat, 03 Sep 2022 21:07:38 GMT"
+content_type = "application/x-netcdf"
+[files.validation]
+daily_time_steps = 30
+start_date = "1981-06-01"
+end_date = "1981-06-30"
+schema_validated = true
+
+[[files]]
+year = 1981
+month = 7
+name = "ncdd-198107-grd-scaled.nc"
+source_url = "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/1981/ncdd-198107-grd-scaled.nc"
+local_ignored_path = "data/raw/us_county/nclimgrid_daily/ncdd-198107-grd-scaled.nc"
+size_bytes = 58680994
+local_sha512 = "423cb294f9e18e16a57801a87aaf6f8e4c4e0cc24e8fb1bb69a594168b9fccc46f59f94372933320a7b7d0f2f2011512d7d1ca8078417a349f5816cd70b85153"
+[files.upstream_identity]
+verified_utc = "2026-08-26T16:06:46+00:00"
+content_length = 58680994
+etag = "\"37f66a2-5e7cc49bcae00\""
+last_modified = "Sat, 03 Sep 2022 21:11:20 GMT"
+content_type = "application/x-netcdf"
+[files.validation]
+daily_time_steps = 31
+start_date = "1981-07-01"
+end_date = "1981-07-31"
+schema_validated = true
+
+[[files]]
+year = 1981
+month = 8
+name = "ncdd-198108-grd-scaled.nc"
+source_url = "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/1981/ncdd-198108-grd-scaled.nc"
+local_ignored_path = "data/raw/us_county/nclimgrid_daily/ncdd-198108-grd-scaled.nc"
+size_bytes = 57750000
+local_sha512 = "fce936ca4c56e57352174a03d687ea6fd952d216003688ad17d6e852b6c938f049d989a97a439115839bb1e427231dcc74ebb3fdf4358237bfccd08a401f591c"
+[files.upstream_identity]
+verified_utc = "2026-08-26T16:06:46+00:00"
+content_length = 57750000
+etag = "\"37131f0-5e7cc58d12740\""
+last_modified = "Sat, 03 Sep 2022 21:15:33 GMT"
+content_type = "application/x-netcdf"
+[files.validation]
+daily_time_steps = 31
+start_date = "1981-08-01"
+end_date = "1981-08-31"
+schema_validated = true
+
+[[files]]
+year = 1981
+month = 9
+name = "ncdd-198109-grd-scaled.nc"
+source_url = "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/1981/ncdd-198109-grd-scaled.nc"
+local_ignored_path = "data/raw/us_county/nclimgrid_daily/ncdd-198109-grd-scaled.nc"
+size_bytes = 55750762
+local_sha512 = "b1ab0dce956ed268e8fd94c4faa9cb51275d07b3df4bb33646014a2dd3a574bff4c28a6c9f83fb3810e2cb0cbac66846ab5897662eb4d1d0b277387960e0f3d3"
+[files.upstream_identity]
+verified_utc = "2026-08-26T16:06:46+00:00"
+content_length = 55750762
+etag = "\"352b06a-5e7cc6686acc0\""
+last_modified = "Sat, 03 Sep 2022 21:19:23 GMT"
+content_type = "application/x-netcdf"
+[files.validation]
+daily_time_steps = 30
+start_date = "1981-09-01"
+end_date = "1981-09-30"
+schema_validated = true
+
+[[files]]
+year = 1981
+month = 10
+name = "ncdd-198110-grd-scaled.nc"
+source_url = "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/1981/ncdd-198110-grd-scaled.nc"
+local_ignored_path = "data/raw/us_county/nclimgrid_daily/ncdd-198110-grd-scaled.nc"
+size_bytes = 61233205
+local_sha512 = "34b734069355504f697335d6da2b2d4d29b54ce5b3cba55b1c2cd531b996c7ea0d8b599065b1bcfcabb6f129db3c5207393729c86413f1a301e3d148b8d27acf"
+[files.upstream_identity]
+verified_utc = "2026-08-26T16:06:46+00:00"
+content_length = 61233205
+etag = "\"3a65835-5e7cc74793b40\""
+last_modified = "Sat, 03 Sep 2022 21:23:17 GMT"
+content_type = "application/x-netcdf"
+[files.validation]
+daily_time_steps = 31
+start_date = "1981-10-01"
+end_date = "1981-10-31"
+schema_validated = true

@@ -7,9 +7,16 @@ coverage = "1903-2025; global land; monthly; 0.5 degree"
 expected_download_size = "355 MB (publisher listing, accessed 2026-08-21)"
 license = "Open Database License (ODbL); CRU attribution required"
 role = "Historical PDSI coverage/response/validation benchmark; not a future climate or SCC input"
+processing_contract = "source-bound latitude-partition manifests require this raw SHA-256 plus exact crop-calendar hashes; candidate validation recomputes allocation from derived stage tables but does not claim independent full raw-metric recomputation"
+threshold_count_semantics = "monthly-index calendar-day-equivalents; a monthly scPDSI value is repeated over overlapping crop-calendar days, not observed daily drought occurrence"
 method_reference = "van der Schrier et al. (2013), doi:10.1002/jgrd.50355"
 accessed_utc = "2026-08-21"
 
-# The acquisition script appends exact file URL, byte size, SHA-512, and
-# retrieval time to data/raw/drought/cru_scpdsi/MANIFEST.jsonl. Raw files stay
-# gitignored.
+[[files]]
+name = "cru-ts4.10.1903-2025.scpdsi.nc"
+url = "https://crudata.uea.ac.uk/cru/data/drought/cru-ts4.10.1903-2025.scpdsi.nc"
+size_bytes = 355230575
+sha512 = "b75eeeff7210d563cb75d60e6588f8fe14d101a0025dd096ac4bbd86b5b25a36b2399a8faa8d5cccd71ef63adf61ec5f6a305724e18b9fc04a971db69b4a2bd5"
+sha256 = "36a05706112b3d99910bf14ce298de55454a753554ab9ad1ba792944ec5bcd21"
+retrieved_utc = "2026-08-24T13:40:57.189180+00:00"
+status = "complete_file_verified"

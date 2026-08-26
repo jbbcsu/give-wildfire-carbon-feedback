@@ -1,0 +1,108 @@
+input_id = "mapspam2000_production_weights"
+dataset_title = "Global Spatially-Disaggregated Crop Production Statistics Data for 2000 Version 3.0.7"
+producer = "International Food Policy Research Institute (IFPRI)"
+product_version = "3.0.7"
+dataset_doi = "https://doi.org/10.7910/DVN/A50I2T"
+dataverse_dataset_id = 3357438
+dataverse_current_release = "2.2"
+dataverse_current_release_time = "2025-02-04T20:48:09Z"
+dataverse_metadata_url = "https://dataverse.harvard.edu/api/datasets/:persistentId/?persistentId=doi:10.7910/DVN/A50I2T"
+mapspam_data_center = "https://www.mapspam.info/data/"
+retrieved_on = "2026-08-26"
+coverage = "global nominal 5-arc-minute/approximately-10-km grid; modeled circa-2000 production for 20 named crops, aggregate and four production systems"
+units = "metric tonnes for the production member, subject to the archived blank-unit exceptions audited downstream"
+license_dataverse = "CC-BY-4.0; dataset-specific Dataverse 1.0 and 2.0 terms and current IFPRI default terms"
+license_mapspam_site = "CC-BY-NC-3.0; current MapSPAM site-wide Terms of Use"
+license_resolution = "source-specific official statements differ: the selected Dataverse object has CC-BY-4.0 terms, while the MapSPAM website states CC-BY-NC-3.0 for materials downloaded there. Use the exact Dataverse object for internal academic analysis and citation; raw and derived gridded redistribution stays disabled pending IFPRI clarification."
+citation = "International Food Policy Research Institute (IFPRI). 2019. Global Spatially-Disaggregated Crop Production Statistics Data for 2000 Version 3.0.7. Washington, DC: IFPRI [dataset]. Harvard Dataverse. https://doi.org/10.7910/DVN/A50I2T"
+role = "candidate fixed baseline spatial production weights for maize and soybean welfare aggregation"
+use_limit = "SPAM is a modeled spatial allocation, not observed production and not independent yield validation. Do not create welfare weights until country-code and national-value coverage gates pass."
+redistribution_authorized = false
+
+[[files]]
+kind = "selected_archival_production_archive"
+datafile_id = 3666788
+datafile_persistent_id = "doi:10.7910/DVN/A50I2T/R9POPJ"
+source_url = "https://dataverse.harvard.edu/api/access/datafile/3666788"
+local_ignored_path = "data/raw/mapspam_2000_v3_0_7/spam2000v3.0.7_global_production.dbf-csv.zip"
+size_bytes = 99610984
+dataverse_md5 = "1dff3f23e222b0648ab609ca5a5f05a5"
+local_sha512 = "8d7936b7ba375816d6813415fbfabae864246ad0cd12061cdc4bd39dc0504d6fb241a04afe24461d3d210b4cd0dafba2d15655335d32e579157658dc9da0ea51"
+member = "spam_r.csv"
+member_size_bytes = 425079488
+
+[[files]]
+kind = "readme"
+datafile_id = 3357441
+source_url = "https://dataverse.harvard.edu/api/access/datafile/3357441"
+local_ignored_path = "data/raw/mapspam_2000_v3_0_7/spam2000v3.0.7_ReadMe.txt"
+size_bytes = 2768
+dataverse_md5 = "f07ef02cd0bcabb6600716fd4c6225b1"
+local_sha512 = "37943fee5dbb977d9d30cbfa26b3a6e9173f29c9626cebba7052184e3d89e5257fa24e1cbf65cfd9527b1a14da81c70843ffa502256b0d442533940750c68a98"
+
+[[files]]
+kind = "original_codebook_xlsx"
+datafile_id = 3357445
+source_url = "https://dataverse.harvard.edu/api/access/datafile/3357445?format=original"
+local_ignored_path = "data/raw/mapspam_2000_v3_0_7/spam2000v3.0.7_TableStructure_CropList.xlsx"
+size_bytes = 93340
+dataverse_md5 = "4e273785fde3c5d21d84a729c53134f4"
+local_sha512 = "ff1928e0da0fe8a5825c1c9ae2b38bd7f1f9685f9c45c1a00366180ac80a3d3dc505b6e4710f36832b1b7b3c89c0af24f0177910225d5ac744e59d1401cc66c6"
+
+[[files]]
+kind = "dataverse_tabular_derivative_codebook"
+datafile_id = 3357445
+source_url = "https://dataverse.harvard.edu/api/access/datafile/3357445"
+local_ignored_path = "data/raw/mapspam_2000_v3_0_7/spam2000v3.0.7_TableStructure_CropList.tab"
+size_bytes = 2338
+local_sha512 = "233b41d6a8c2cee3327059786b3d3891493316c727f2d82820cba884c20e4372580c2a1aeb5f47ba4f99c7cc06b85739d0a353c9a52974d13b5f489dc78cf6d8"
+identity_note = "Dataverse exposes a converted tabular derivative; the dataset checksum applies to the original XLSX, so this derivative is pinned by the locally acquired SHA-512."
+
+[[files]]
+kind = "nonselected_mapspam_data_center_csv_archive"
+source_url = "https://s3.amazonaws.com/mapspam-data/2000/v3.0.7/csv/spam2000v3.0.7_global_prod.csv.zip"
+local_ignored_path = "data/raw/mapspam_2000_v3_0_7/spam2000v3.0.7_global_prod.csv.zip"
+size_bytes = 42188931
+etag = "201e242dbda59b0782b4b11dd5b5fe4c-3"
+last_modified = "2023-05-12T20:09:08Z"
+local_sha512 = "dd57020dd8cea25520da4233029a735a93e827c471058fd975745b8f5e20d85f4b79d503e1c96d090f87263c5223b36241fb4b50b7749c7c1f5bccd322caac20"
+selection_note = "Not selected: its CSV lacks the hc_seq5m/x/y fields present in the archival Dataverse production object."
+
+[[files]]
+kind = "dataverse_current_metadata_snapshot"
+source_url = "https://dataverse.harvard.edu/api/datasets/:persistentId/?persistentId=doi:10.7910/DVN/A50I2T"
+local_ignored_path = "data/raw/mapspam_2000_v3_0_7/dataverse_metadata_v2_2_retrieved_2026-08-26.json"
+size_bytes = 41226
+local_sha512 = "fdf45945cbf947ec7c99978e03c3ba98a3bcb741cb9e107976cf646061ca26415666757b50225275f3f1fd0da600d1655a9c231847961c7a0e1919c0ddad1c42"
+selection_note = "Released version 2.2, 2025-02-04. The record has no separate license field; its IFPRI December-2019 terms state the CC-BY-4.0 default absent a non-CC statement."
+
+[[files]]
+kind = "dataverse_version_history_snapshot"
+source_url = "https://dataverse.harvard.edu/api/datasets/:persistentId/versions?persistentId=doi:10.7910/DVN/A50I2T"
+local_ignored_path = "data/raw/mapspam_2000_v3_0_7/dataverse_versions_retrieved_2026-08-26.json"
+size_bytes = 166415
+local_sha512 = "3b226bb14dddabdd17346e58d5209b0d4dc3e1b4f64faa84e0f9e98539082d9e187c1d92b79ad85c43da8bda9bac57c304faf03d10b6f2b9c6614c5698f16b51"
+selection_note = "Versions 1.0 through 2.0 explicitly state CC-BY-4.0. Versions 2.1 and 2.2 carry IFPRI's December-2019 terms, whose license section states the same default absent a dataset-specific non-CC statement."
+
+[audit]
+source_rows = 792333
+selected_union_rows = 601130
+selected_unique_hc_seq5m = 601130
+selected_unique_coordinates = 601130
+coordinate_grid = "global five-arc-minute cell centres"
+maize_positive_cells = 564691
+soybean_positive_cells = 335460
+maize_global_modeled_production_mt = 637152392.3001624
+soybean_global_modeled_production_mt = 160731545.4999106
+maize_max_total_system_reconciliation_abs_mt = 0.4
+soybean_max_total_system_reconciliation_abs_mt = 0.2
+blank_unit_rows = 91
+blank_source_rows = 6373
+non_iso3_shaped_stat_code_rows = 66350
+nonstandard_source_vintages = ["2006&avg(200", "avg2004 2006"]
+legacy_gec_resolution_audit = "data/interim/welfare_weights/mapspam_gec_resolution.audit.json (ignored)"
+four_character_stat_codes = 196
+four_character_stat_code_rows = 49222
+four_character_country_mapping_resolved = true
+derived_table = "data/interim/welfare_weights/mapspam2000_maize_soy_production.csv (ignored)"
+audit_file = "data/interim/welfare_weights/mapspam2000_maize_soy_production.audit.json (ignored)"

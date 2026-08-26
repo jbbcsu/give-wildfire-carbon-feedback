@@ -1,0 +1,65 @@
+source = "NOAA NCEI nClimGrid-Daily v1.0.0"
+provider = "NOAA National Centers for Environmental Information"
+status = "acquired_and_validated_historical_weather_file_smoke"
+retrieved_utc = "2026-08-26T15:40:00+00:00"
+landing_page_url = "https://www.ncei.noaa.gov/products/land-based-station/nclimgrid-daily"
+distribution_index_url = "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/"
+thredds_catalog_url = "https://www.ncei.noaa.gov/thredds/catalog/nclimgrid-daily/catalog.html"
+user_guide_url = "https://www.ncei.noaa.gov/data/nclimgrid-daily/doc/nclimgrid-daily_v1-0-0_user-guide.pdf"
+dataset_doi = "https://doi.org/10.25921/c4gt-r169"
+method_reference = "Durre et al. (2022), Journal of Atmospheric and Oceanic Technology, doi:10.1175/JTECH-D-22-0024.1"
+version = "v1-0-0 20220829 as embedded in the reviewed NetCDF"
+approved_use = "Primary candidate for crop-area-weighted U.S. historical daily precipitation and temperature exposure, subject to crop-mask, county-boundary, calendar, station-support, and weather-product robustness gates"
+excluded_use = "This one-month file does not establish a county exposure, precipitation trend, crop-yield response, damage, climate emulator, or SCC result"
+
+[license]
+status = "U.S. federal government data with no restrictions stated in the reviewed NetCDF"
+spdx_identifier = "NOASSERTION"
+url = "https://www.ncei.noaa.gov/products/land-based-station/nclimgrid-daily"
+embedded_statement = "no restrictions"
+spdx_note = "Neither the product page nor the reviewed file names an SPDX license; do not silently relabel the data as CC0. Raw files remain gitignored by project policy."
+
+[stability]
+assessment = "NCEI states that nClimGrid-Daily v1 input data can be updated without a product-version change. The exact local SHA-512, byte length, ETag, Last-Modified value, and decoded metadata below therefore define the reproducible snapshot; any upstream change must fail closed."
+scientific_limitations = [
+  "NCEI recommends spatial and temporal aggregation and discourages interpreting a single grid point on a single day.",
+  "The gridding/smoothing procedure can yield a slight dry bias; precipitation errors are larger in mountainous terrain and for heavy events.",
+  "The user guide documents monthly consistency/homogeneity adjustment for temperature; this record does not claim an equivalent precipitation homogenization.",
+  "Each date label represents the 24-hour period ending in the early morning of that date, which must be preserved when aligning crop-calendar days.",
+  "The approximately 1/24-degree grid does not resolve farm-scale microclimates, and crop-area weighting does not eliminate weather measurement error.",
+]
+
+[object]
+year = 1981
+month = 1
+source_url = "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/1981/ncdd-198101-grd-scaled.nc"
+local_ignored_path = "data/raw/us_county/nclimgrid_daily/ncdd-198101-grd-scaled.nc"
+size_bytes = 59955310
+local_sha512 = "20ef278e25011b7eacca0430dc963a7674b43de8db1dd3e1973d8af55eb755d17aebe38185ab3a496c2e67124400eadd40e3fcba81a9263172744ff0c9541ab2"
+format = "NetCDF-4/HDF5"
+
+[object.upstream_identity]
+verified_utc = "2026-08-26T15:44:13+00:00"
+content_length = 59955310
+etag = "\"392d86e-5e7cbf7e65cc0\""
+last_modified = "Sat, 03 Sep 2022 20:48:27 GMT"
+content_type = "application/x-netcdf"
+
+[object.validation]
+title = "nClimGrid-Daily, Gridded Fields"
+product_version = "v1-0-0 20220829"
+source = "GHCN-Daily, nClimGrid-Monthly"
+embedded_license = "no restrictions"
+data_variables = ["prcp", "tavg", "tmax", "tmin"]
+temperature_units = "degree_Celsius"
+precipitation_units = "millimeter"
+time_coordinate = "time"
+daily_time_steps = 31
+start_date = "1981-01-01"
+end_date = "1981-01-31"
+latitude_count = 596
+longitude_count = 1385
+chronology_exact = true
+coordinates_finite_unique = true
+latitude_increasing = true
+longitude_increasing = true

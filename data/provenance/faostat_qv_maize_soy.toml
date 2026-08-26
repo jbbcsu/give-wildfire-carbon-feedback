@@ -1,0 +1,63 @@
+input_id = "faostat_qv_maize_soy"
+dataset_title = "Value of agricultural production (Global, National - Annual) - FAOSTAT"
+publisher = "Food and Agriculture Organization of the United Nations"
+landing_page = "https://data.fao.org/catalog/dataset/b1a04191-c86f-4972-a9d7-28b23568deba"
+catalog_dataset_id = "b1a04191-c86f-4972-a9d7-28b23568deba"
+query_resource_dataset_id = "bba7a5e2-1c92-4ba2-809f-e28cc7417abe"
+catalog_revision = "2025-01-31"
+catalog_last_updated = "2026-06-12T14:06:00Z"
+retrieved_on = "2026-08-26"
+temporal_coverage = "1961-2024 in the pinned maize and soybean query responses"
+spatial_coverage = "national and regional FAOSTAT entities identified by FAOSTAT code and M49 code"
+license = "CC-BY-4.0, subject to FAO Statistical Database Terms of Use"
+license_url = "https://creativecommons.org/licenses/by/4.0/"
+terms_url = "https://www.fao.org/contact-us/terms/db-terms-of-use/en/"
+value_definition = "gross agricultural production value at farm gate, calculated from agricultural production and price data"
+constant_price_base = "2014-2016"
+role = "candidate national crop-value control totals for a fixed-circa-2000 welfare-weight layer"
+use_limit = "National values alone do not spatially allocate welfare and do not validate GDHY independently. Preserve official/estimated flags and do not impute or renormalize missing country-crop values without a registered rule."
+redistribution_authorized = true
+
+[[files]]
+kind = "official_query_schema"
+source_url = "https://data.apps.fao.org/catalog/dataset/bba7a5e2-1c92-4ba2-809f-e28cc7417abe/resource/ea739279-908e-4c01-98ce-ea8983fb33cf/download/agricultural-production-value-qv-schema.json"
+local_ignored_path = "data/raw/faostat_qv/agricultural-production-value-qv-schema.json"
+size_bytes = 19049
+local_sha512 = "e6f66b95a49bdf377110c869efdf7c29ad80efa0cb4bdc39d84487f9cd55b2ba933db3e8e42357a83534ac5e6291b1631fed172d70fbc850197719cb9fe8675c"
+
+[[files]]
+kind = "official_parameterized_query"
+source_url = "https://data.apps.fao.org/catalog/dataset/bba7a5e2-1c92-4ba2-809f-e28cc7417abe/resource/63b1963d-d65c-4867-87c2-b4f513083cba/download/agricultural-production-value-qv-query.sql"
+local_ignored_path = "data/raw/faostat_qv/agricultural-production-value-qv-query.sql"
+size_bytes = 109
+local_sha512 = "6d90357598a8acdcd28af1aae204354ce12598fbaa54eac54a0c23c32be84cfa320b6f814f861b16913269cd32aa58a6daf1de6e779cf74e12814618276abacd"
+
+[[files]]
+kind = "maize_item_56_query_response"
+source_url = "https://api.data.apps.fao.org/api/v2/bigquery?sql_url=https%3A%2F%2Fdata.apps.fao.org%2Fcatalog%2Fdataset%2Fbba7a5e2-1c92-4ba2-809f-e28cc7417abe%2Fresource%2F63b1963d-d65c-4867-87c2-b4f513083cba%2Fdownload%2Fagricultural-production-value-qv-query.sql&item_code=56"
+local_ignored_path = "data/raw/faostat_qv/qv_56_maize_retrieved_2026-08-26.csv"
+size_bytes = 1212971
+local_sha512 = "82cde2ffb0e6063f729a7c962d873c2990c20d16f96e9ca2db3a47a3da043112d11ecec02f509f17ea2be4c3e55e2e3ad0afb8e0a25f7caf8b6227d0a2a2955c"
+rows = 9522
+countries = 176
+baseline_1999_2001_constant_usd_nonmissing_rows = 379
+baseline_1999_2001_constant_usd_countries = 127
+constant_usd_flag_note = "All 7,347 nonmissing constant-USD rows are flagged Estimated value in this response."
+
+[[files]]
+kind = "soybean_item_236_query_response"
+source_url = "https://api.data.apps.fao.org/api/v2/bigquery?sql_url=https%3A%2F%2Fdata.apps.fao.org%2Fcatalog%2Fdataset%2Fbba7a5e2-1c92-4ba2-809f-e28cc7417abe%2Fresource%2F63b1963d-d65c-4867-87c2-b4f513083cba%2Fdownload%2Fagricultural-production-value-qv-query.sql&item_code=236"
+local_ignored_path = "data/raw/faostat_qv/qv_236_soybeans_retrieved_2026-08-26.csv"
+size_bytes = 630134
+local_sha512 = "452d348b62233095fb8b0de1f65c9778440be1b0c315f3dd2ab44a5da6e35db8e71e9bc1d423d83a6d8d25d32404311ecc65d1e0445943b76e356d86eb53d1a8"
+rows = 4856
+countries = 114
+baseline_1999_2001_constant_usd_nonmissing_rows = 222
+baseline_1999_2001_constant_usd_countries = 75
+constant_usd_flag_note = "All 3,908 nonmissing constant-USD rows are flagged Estimated value in this response."
+
+[derived]
+canonical_combined_path = "data/interim/welfare_weights/faostat_qv_maize_soy.csv (ignored)"
+canonical_combined_rows = 14378
+canonical_combined_sha512 = "92c6cd6408a5eb57a1d401ed4d6699bec0497af697528f29a20cf291cde72ca9440ba46d0e2e5ec6bbc8b0036c080647e5d8a26c7da6bad6b936f4b2f2b11701"
+audit_path = "data/interim/welfare_weights/faostat_qv_maize_soy.audit.json (ignored)"

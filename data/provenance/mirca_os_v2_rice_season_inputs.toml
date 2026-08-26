@@ -1,0 +1,80 @@
+schema_version = 1
+dataset = "MIRCA-OS v2, March 2026"
+landing_page = "https://www.hydroshare.org/resource/e4582ca0042148338bb5e0148b749ed6/"
+paper_doi = "https://doi.org/10.1038/s41597-024-04313-w"
+license = "CC-BY-4.0"
+retrieved_utc_date = "2026-08-26"
+role = "candidate fixed rice-season irrigation exposure weights; not a weather response, damage estimate, or SCC input"
+
+[monthly_archive]
+source_url = "https://www.hydroshare.org/resource/e4582ca0042148338bb5e0148b749ed6/data/contents/Monthly%20Growing%20Area%20Grids/Monthly%20Growing%20Area%20Grids.rar"
+local_ignored_path = "data/raw/mirca_os_v2/Monthly_Growing_Area_Grids_v2.rar"
+size_bytes = 1537240142
+hydroshare_multipart_checksum = "0a5495c3d24e9611c571940b0e03b8ab-15"
+local_sha512 = "b01ca694d47967024bc8544037a381a6f267503dfeb12ea0b89dcc1ed23b35bdb8b8ce1cd5af014169f5616c12a2facc960ae8f8b0209bdc4adf6d768cb56a7c"
+inventory_gate = "Rice1, Rice2, and Rice3; irrigated and rainfed; 2000, 2005, 2010, 2015, and 2020; exactly 30 selected NetCDF files"
+grid = "global WGS84 5 arcminutes, 2160 latitude x 4320 longitude, 12 months"
+units = "growing area in hectares according to publisher README; NetCDF harvested_area variable omits a units attribute"
+local_extraction = "selected rice files only under ignored data/raw/mirca_os_v2/monthly_rice"
+metadata_gate = "failed: 9 rainfed files for 2005, 2010, and 2015 declare source year 2020; the other 21 filename/attribute records pass"
+full_content_scope = "all six 2000 files passed the full grid/month/value builder checks; no full-content pass is claimed for a vintage whose metadata gate fails"
+
+[monthly_readme]
+source_url = "https://www.hydroshare.org/resource/e4582ca0042148338bb5e0148b749ed6/data/contents/Monthly%20Growing%20Area%20Grids/README__monthly_growing_area.txt"
+hydroshare_checksum = "6f67a7f0dcfc0e1bce5e790733c59ba0-1"
+semantics = "numeric subcrop labels denote multiple cropping; Rice1 is the first rice season"
+
+[[calendar_files]]
+system = "irrigated"
+source_url = "https://www.hydroshare.org/resource/e4582ca0042148338bb5e0148b749ed6/data/contents/Crop%20Calendar/MIRCA-OS_2000_ir_v2.csv"
+local_ignored_path = "data/raw/mirca_os_v2/crop_calendar/MIRCA-OS_2000_ir_v2.csv"
+size_bytes = 9264277
+hydroshare_multipart_checksum = "2772eff73a28e8a379935402ae5dc993-1"
+local_md5 = "4dabee4a3765bb7c845ad03ff37e1ca6"
+local_sha512 = "76af4b0c55012e693ce2926c249c65cb7d1efe7e1484fb298751ceb3d0bfd284e196a36a63038febe248faf3c05a60e3b90e5b21649bc396dd3567914765c836"
+rows_excluding_header = 129661
+encoding = "Latin-1"
+
+[[calendar_files]]
+system = "rainfed"
+source_url = "https://www.hydroshare.org/resource/e4582ca0042148338bb5e0148b749ed6/data/contents/Crop%20Calendar/MIRCA-OS_2000_rf_v2.csv"
+local_ignored_path = "data/raw/mirca_os_v2/crop_calendar/MIRCA-OS_2000_rf_v2.csv"
+size_bytes = 9295446
+hydroshare_multipart_checksum = "b021ccd74a6ed455e2eaa73ae360d35c-1"
+local_md5 = "dec389acdcab6eb7bbeec574eb684398"
+local_sha512 = "9d0beb530f39f751918dfa2193625b0361e6aa4a3a0940bf551379e0fbc401031b366453a3952bde831a8c8b920e64f9876b5901e330f66db5358ea81181a558"
+rows_excluding_header = 129530
+encoding = "Latin-1"
+
+[checksum_note]
+text = "For HydroShare objects ending in -1, the catalog value is the S3 multipart ETag: MD5(MD5(file) as binary)-1, not the plain file MD5. Both the catalog identity and local cryptographic digest are retained."
+
+[production_gate]
+status = "blocked_failed_annual_reconciliation"
+year_tested = 2000
+method_tested = "maximum harvested_area across 12 months separately for Rice1, Rice2, and Rice3; sum aligned 6x6 5-arcminute cells to 0.5 degree; compare season sum with publisher annual Rice"
+irrigated_global_difference_ha = 64247.22783188522
+irrigated_maximum_cell_difference_ha = 4988.61767578125
+rainfed_global_difference_ha = 5302.04034537822
+rainfed_maximum_cell_difference_ha = 2137.869599342346
+reconciliation_rtol = 1e-5
+reconciliation_atol_ha = 0.1
+rule = "No ri1/ri2 weight table is promoted until the publisher logic or discrepancy is resolved and the predeclared reconciliation passes. Rice3 is never folded into ri1/ri2."
+scc_authorized = false
+
+[inventory_metadata_gate]
+audit_path = "data/interim/mirca_os_v2/rice_season_inventory_metadata_audit.json"
+expected_files = 30
+passed_files = 21
+failed_files = 9
+failed_pattern = "MIRCA-OS_Rice{1,2,3}_{2005,2010,2015}_rf.nc"
+observed_year_attribute = 2020
+rule = "Do not override source metadata from the filename. The 2005, 2010, and 2015 rainfed rice vintages are ineligible pending publisher correction or clarification."
+
+[publisher_code_audit]
+repository = "https://github.com/EndiKebede/MIRCA-OS_Code"
+commit = "c72d9dab7722a1c04ca1c7e90e21a16bc4a74089"
+commit_date = "2025-02-04"
+notebook = "code/Mosaicking.ipynb"
+finding = "The notebook confirms maximum-over-month and sum-across-subcrop logic but predates the March 2026 v2 release and cannot explain the v2 discrepancies."
+maximum_monthly_substitution = "rejected: the separate broad-crop maximum-monthly product omits multiple cropping and cannot supply Rice1/Rice2 weights"

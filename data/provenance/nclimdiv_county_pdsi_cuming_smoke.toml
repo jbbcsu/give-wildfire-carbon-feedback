@@ -1,0 +1,58 @@
+source = "Derived bounded Cuming County, Nebraska PDSI crop-calendar engineering smoke"
+status = "real_source_extract_and_crop_calendar_features_validated"
+created_utc = "2026-08-26T16:31:00+00:00"
+source_provenance = "data/provenance/nclimdiv_county_pdsi_20260806.toml"
+contract = "config/us_county_drought_predictor_contract_v1.toml"
+extractor = "us_county_validation/scripts/extract_nclimdiv_county_pdsi.py"
+feature_builder = "us_county_validation/scripts/build_county_crop_calendar_drought_features.py"
+test = "us_county_validation/scripts/test_us_county_drought_inputs.py"
+approved_use = "Bounded real historical input engineering and key/calendar validation only"
+excluded_use = "No crop-yield fit, causal estimate, agricultural damage, climate-change attribution, or SCC result"
+
+[key_validation]
+noaa_internal_county_key = "25039"
+census_county_geoid = "31039"
+state = "NE"
+county = "Cuming County"
+crosscheck = "All twelve 1981 bulk values independently matched NOAA Climate at a Glance county API location NE-039 on 2026-08-26."
+mislabel_gate = "The synthetic test rejects treating NOAA internal key 25039 as Census GEOID 25039."
+
+[monthly_extract]
+local_ignored_path = "data/interim/us_county/nclimdiv_pdsi_cuming_1980_2019.parquet"
+size_bytes = 21144
+local_sha512 = "aec13f06623506ea47d798730a5684cc2d3ab25998e47c27d704b2940e3c1fab0f9dd9c7b3c43277e0ab63b5c8366022dc54435107cdd86579e26eb99db6b70b"
+rows = 480
+columns = 22
+first_month = "1980-01"
+last_month = "2019-12"
+complete_months = true
+response_estimation_authorized = false
+scc_authorized = false
+
+[geography_audit]
+script = "us_county_validation/scripts/audit_nclimdiv_tiger_geography.py"
+county_inventory = "config/us_county_pdsi_geography_smoke.csv"
+local_ignored_path = "data/interim/us_county/nclimdiv_pdsi_tiger2019_geography_audit.json"
+size_bytes = 497
+local_sha512 = "e62c270a32e20fa883759d4756374cecf00ab153baafb86ad07f9e0f5717592ae9420959bd44f1582ac6515bf53ebfd1b44baf5d641b48e2ae436aa0408c8524"
+nclimdiv_transformed_key_count = 3107
+tiger_conus_key_count = 3107
+exact_key_intersection_count = 3106
+nclimdiv_only_transformed_geoids = ["24511"]
+tiger_only_geoids = ["51678"]
+full_panel_extraction_authorized = false
+rule = "Require an authoritative crosswalk or explicitly exclude and report support loss; do not guess."
+
+[crop_calendar_features]
+local_ignored_path = "data/interim/us_county/nclimdiv_pdsi_cuming_1981_crop_calendar_smoke.parquet"
+size_bytes = 24385
+local_sha512 = "4fbdfa32bd0421d13d1d3435d19273f50059bd255e313271916caef4b1e805a7966f23bb90437362b14bb43062018501e8da339058e41baed6398e527bc59446"
+rows = 20
+columns = 35
+crops = ["corn_grain", "soybeans"]
+calendar_roles = ["fixed_primary", "fixed_broad_window_sensitivity"]
+windows_per_crop_calendar = ["preplant90", "stage1", "stage2", "stage3", "season"]
+monthly_coverage_exact = true
+thresholds = "PDSI <= -2 moderate-day equivalents; PDSI <= -3 severe-day equivalents"
+response_estimation_authorized = false
+scc_authorized = false
