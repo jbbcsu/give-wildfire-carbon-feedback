@@ -1,4 +1,4 @@
-status = "metadata_audited_one_of_four_content_smoke_files_validated"
+status = "metadata_audited_two_of_four_content_smoke_files_validated_first_historical_future_pair_joined"
 checked_date = "2026-08-26"
 catalog = "ISIMIP repository"
 query_url = "https://data.isimip.org/api/v1/datasets/?simulation_round=ISIMIP3b&product=OutputData&sector=marine-fishery_global&variable=tc&page_size=200"
@@ -46,7 +46,45 @@ always_missing_grid_cells = 23724
 mixed_validity_grid_cells = 0
 result = "passed"
 role = "biophysical_scenario_content_smoke_not_pulse_welfare_or_scc"
-limitation = "Only one of four frozen smoke files; future join, cross-model grid/schema checks, matched pulse, welfare, and SCC gates remain open."
+limitation = "This is one member of the now-validated BOATS historical/future pair; EcoOcean, cross-model, matched-pulse, welfare, and SCC gates remain open."
+
+[content_validation.boats_gfdl_ssp126]
+checked_date = "2026-08-26"
+dataset_id = "c9578f50-936c-47e4-9f04-ebc1c4cd559d"
+file_id = "a9bb36dc-6e8e-42e4-bbe5-e42efc13bb79"
+file_name = "boats_gfdl-esm4_nobasd_ssp126_2015soc-from-histsoc_default_tc_global_monthly_2015_2100.nc"
+version = "20210906"
+bytes = 153855617
+sha512 = "05308c6cedc17e284d2fa825533f1c8e3365c145bc196dcf5f71727f5bce34c1b4ce8fefbbcf4eecc427c720d02b2689c4f57cbf0756b6c7339fffb15aa04f9e"
+dimensions = [1032, 180, 360]
+dimension_order = ["time", "lat", "lon"]
+calendar = "360_day"
+time_units = "months since 1601-01-01 00:00:00"
+time_range = "2015-01 through 2100-12, exact contiguous monthly indices"
+units = "g m-2"
+finite_values = 42390432
+missing_values = 24483168
+zero_values = 1176480
+negative_values = 0
+minimum = 0.0
+maximum = 8.954292951557363e-8
+always_finite_grid_cells = 41076
+always_missing_grid_cells = 23724
+mixed_validity_grid_cells = 0
+result = "passed"
+role = "biophysical_scenario_content_smoke_not_pulse_welfare_or_scc"
+limitation = "Scenario total catch is not a matched one-ton pulse or welfare response; EcoOcean and cross-model smoke files remain open."
+
+[content_validation.boats_gfdl_historical_ssp126_pair]
+checked_date = "2026-08-26"
+historical_last_month_index = 4967.0
+future_first_month_index = 4968.0
+month_index_step = 1.0
+latitude_grid_equal = true
+longitude_grid_equal = true
+finite_missing_mask_equal = true
+result = "passed"
+role = "continuous_scenario_biophysical_benchmark_not_pulse_welfare_or_scc"
 
 [variable]
 name = "tc"
@@ -90,5 +128,5 @@ notes = [
   "The catalogue has SSP1-2.6 and SSP5-8.5 but no SSP3-7.0 total-catch entry.",
   "Scenario contrasts cannot be substituted for a matched one-ton CO2 pulse.",
   "Total catch density is an intermediate quantity, not consumer or producer welfare.",
-  "One BOATS/GFDL historical smoke file has a verified local checksum and content audit; the other 19 plan checksums remain catalogue metadata until acquired."
+  "The BOATS/GFDL historical and SSP1-2.6 smoke files have verified local checksums, content audits, an exact 2014-12/2015-01 month-index join, and identical grids and finite/missing masks; the other 18 plan checksums remain catalogue metadata until acquired."
 ]

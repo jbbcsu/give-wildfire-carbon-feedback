@@ -12,5 +12,6 @@ the reviewed source and gates, while
 `fishmip_isimip3b_tc_acquisition_plan.csv` pins every dataset/file ID, version,
 URL, catalogue byte size, SHA-512, year interval, and frozen acquisition stage.
 These catalogue checksums become verified local provenance only after a
-complete downloaded file matches them. One BOATS/GFDL historical file now
-meets that condition; the remaining 19 do not.
+complete downloaded file matches them. The BOATS/GFDL historical and SSP1-2.6
+files now meet that condition and pass a contiguous-month/grid/mask join; the
+remaining 18 do not.
