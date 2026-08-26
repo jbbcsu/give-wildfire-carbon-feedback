@@ -7,7 +7,7 @@
 | NASS Quick Stats crops snapshot dated 2026-08-21 | Pinned identity sidecar exists; resumable partial is 104 MiB of expected 1,128,988,003 bytes; archive is incomplete | Do not inspect/filter as if valid gzip; no NASS yield observation has entered a panel |
 | NASS Quick Stats API | Locked 2018--2022 corn-grain queries passed; exact-series preparation retained 7,253 real-FIPS county-years. The temporal-support audit finds 807 counties complete in all five years and 4,845 adjacent-year pairs. | Real national/county outcome acquisition and support audit only; observations aggregate all production practices and have not entered a weather-response panel |
 | U.S. Drought Monitor county area shares | Real Iowa 2001 raw response and prepared county-week table exist | A real source/provenance check only; no documented crop-season calendar or NASS outcome overlap exists |
-| gridMET / Daymet daily climate | No raw files or derived county crop-area features found | No timing, dry-spell, temperature, or heavy-rain county exposure can be estimated |
+| gridMET / Daymet daily climate | One real gridMET 2018 precipitation file is verified as a daily-file smoke; no Daymet or derived crop-area county features | No timing, dry-spell, temperature, or heavy-rain county exposure can be estimated |
 | Crop-area masks/weights | Not found | County-centroid weather is not substituted as the main exposure |
 | Crop-specific irrigated/non-irrigated harvested area | Not found | No county is called non-irrigated or high-rainfed; no irrigation gate can pass |
 

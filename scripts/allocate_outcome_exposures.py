@@ -117,6 +117,18 @@ def allocate(
     if len(expected) < 2 or len(expected) != len(set(expected)):
         raise ValueError("Declare at least two unique irrigation labels")
     validate_outcomes(panel)
+    panel_crops = set(panel["crop"].dropna().astype(str).unique())
+    weights = weights.loc[weights["crop"].astype(str).isin(panel_crops)].copy()
+    if "production_eligible" in weights.columns:
+        if not weights["production_eligible"].isin([True, False]).all():
+            raise ValueError("production_eligible must be Boolean when supplied")
+        ineligible = sorted(
+            weights.loc[~weights["production_eligible"].astype(bool), "crop"].astype(str).unique()
+        )
+        if ineligible:
+            raise ValueError(
+                f"Area weights are not production-eligible for outcome crops {ineligible}"
+            )
     source_id, vintage = validate_weights(weights, expected)
     if set(panel["irrigation"].dropna().astype(str).unique()) != set(expected):
         raise ValueError("Exposure-panel irrigation labels differ from the declared set")

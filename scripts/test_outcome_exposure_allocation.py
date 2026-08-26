@@ -80,6 +80,11 @@ bad = weights.copy()
 bad["source_role"] = "derived_from_yield_outcome"
 expect_failure(panel, bad, "source_role")
 
+bad = weights.copy()
+bad["production_eligible"] = True
+bad.loc[bad.crop == "mai", "production_eligible"] = False
+expect_failure(panel, bad, "not production-eligible")
+
 bad_panel = panel.drop(index=1)
 expect_failure(bad_panel, weights.copy(), "Every observed-outcome key")
 

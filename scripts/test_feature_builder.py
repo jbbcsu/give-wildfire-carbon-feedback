@@ -11,12 +11,16 @@ import numpy as np
 import pandas as pd
 import xarray as xr
 
+from reconcile_stage_season_features import validate_row_invariants
+
 
 PROJECT = Path(__file__).resolve().parents[1]
 
 with tempfile.TemporaryDirectory() as temporary:
     root = Path(temporary)
-    dates = pd.date_range("2020-01-01", "2020-01-05", freq="D")
+    # ISIMIP daily fields can be stamped at noon.  A date-based crop calendar
+    # must still include the planting and maturity dates in full.
+    dates = pd.date_range("2020-01-01 12:00", "2020-01-05 12:00", freq="D")
     coords = {"time": dates, "lat": [0.25], "lon": [0.25]}
     rain = np.array([1, 2, 3, 4, 5], dtype=float).reshape(5, 1, 1)
     temperature = np.full((5, 1, 1), 280.0)
@@ -44,11 +48,35 @@ with tempfile.TemporaryDirectory() as temporary:
         "--year-start", "2020", "--year-end", "2020", "--lat-start", "0", "--lat-stop", "1",
         "--out", str(output),
     ], check=True)
-    row = pd.read_parquet(output).iloc[0]
+    season = pd.read_parquet(output)
+    row = season.iloc[0]
     assert row.precip_mm == 15.0
     assert row.wet_days_n == 5
     assert row.cdd_max_days == 0
     assert row.rx1day_mm == 5.0
     assert row.rx5day_mm == 15.0
     assert abs(row.tmean_c - 6.85) < 1e-9
+    stage_output = root / "stages.parquet"
+    subprocess.run([
+        sys.executable, str(PROJECT / "scripts" / "build_crop_stage_features.py"),
+        "--precip", str(root / "pr_first.nc"), str(root / "pr_second.nc"),
+        "--temperature", str(root / "tas_first.nc"), str(root / "tas_second.nc"),
+        "--calendar", str(root / "calendar.nc"), "--crop", "mai", "--irrigation", "noirr",
+        "--year-start", "2020", "--year-end", "2020", "--lat-start", "0", "--lat-stop", "1",
+        "--out", str(stage_output), "--stage-fractions", "0,0.4,1",
+    ], check=True)
+    stages = pd.read_parquet(stage_output)
+    assert stages.stage_id.tolist() == [1, 2]
+    assert stages.stage_days.sum() == 5
+    assert stages.precip_mm.sum() == 15.0
+    validate_row_invariants(season, "season_days", "season")
+    validate_row_invariants(stages, "stage_days", "stage")
+    bad = season.copy()
+    bad.loc[bad.index[0], "rx5day_mm"] = bad.loc[bad.index[0], "precip_mm"] + 1
+    try:
+        validate_row_invariants(bad, "season_days", "season")
+    except ValueError as error:
+        assert "Rx1day/Rx5day" in str(error)
+    else:
+        raise AssertionError("Rx5day above total precipitation should fail")
 print("feature-builder synthetic test passed")

@@ -57,7 +57,9 @@ def main() -> None:
         cal = calendar.isel(lat=slice(args.lat_start, args.lat_stop))
         if not (np.array_equal(pr.lat, cal.lat) and np.array_equal(pr.lon, cal.lon) and np.array_equal(pr.time, tas.time)):
             raise ValueError("Climate/calendar coordinates or time axes differ")
-        dates = pd.DatetimeIndex(pr.time.values)
+        # Crop calendars are date (DOY) based.  ISIMIP daily timestamps can be
+        # stamped at noon, so compare calendar dates rather than instants.
+        dates = pd.DatetimeIndex(pr.time.values).normalize()
         pr_values = normalize_precip(pr.values, pr.attrs.get("units", ""))
         tas_values = normalize_temperature(tas.values, tas.attrs.get("units", ""))
         planting, maturity = cal.planting_day.values, cal.maturity_day.values

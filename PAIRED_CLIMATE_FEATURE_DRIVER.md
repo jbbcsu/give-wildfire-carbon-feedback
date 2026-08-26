@@ -108,8 +108,10 @@ official sidecar/header check to the complete 1,241,058,098-byte 2015--2020
 file. Its full SHA-512 matches; the decoded block has 2,192 exact daily noon
 steps on the registered 360 by 720 global 0.5-degree grid, precipitation-flux
 units, 568,166,400 finite values, no missing or negative values, and
-215,127,839 genuine zeros. This validates one input block only, not its
-historical join, other variables, crop features, emulator, or SCC use.
+215,127,839 genuine zeros. This section validates one projection input block.
+The separately pinned 2011--2014 historical `pr`/`tas` files and boundary
+audit now close the exact join for this MRI engineering case only; other
+variables, ESMs/scenarios, fitted feature responses, and SCC use remain open.
 
 1. Retain the frozen five-ESM/member selection with daily `pr`, `tas`,
    `tasmin`, and `tasmax` over historical plus `ssp126`, `ssp370`, and
@@ -127,8 +129,10 @@ historical join, other variables, crop features, emulator, or SCC use.
    source ID and Kelvin value must be unique within every ESM/member/scenario/year
    across feature families. Record any later anomaly baseline separately; do
    not substitute FAIR temperatures during fitting. Synthetic failure modes
-   and one real MRI-ESM2-0 SSP3-7.0 2015--2020 `tas` content/GMST smoke have
-   passed; historical continuity and the other ESM/scenario cells have not.
+   and one real MRI-ESM2-0 historical 2011--2014 plus SSP3-7.0 2015--2020
+   `tas` content/GMST smoke have passed. The matching `pr`/`tas` files join at
+   an exact 24-hour historical/future boundary; the other ESM/scenario cells
+   have not passed.
 4. Fit only after complete historical/future feature coverage and
    calendar-year/cross-year checks.  FAIR is used only at the paired
    evaluation boundary after the climate response is fitted.

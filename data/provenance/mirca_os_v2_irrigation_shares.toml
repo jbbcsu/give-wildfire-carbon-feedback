@@ -1,0 +1,32 @@
+input_id = "mirca_os_v2_irrigation_shares"
+title = "MIRCA-OS annual irrigated and rainfed harvested-area grids"
+dataset_version = "v2, March 2026"
+paper_doi = "https://doi.org/10.1038/s41597-024-04313-w"
+resource_id = "e4582ca0042148338bb5e0148b749ed6"
+landing_page = "https://www.hydroshare.org/resource/e4582ca0042148338bb5e0148b749ed6/"
+source_url = "https://www.hydroshare.org/resource/e4582ca0042148338bb5e0148b749ed6/data/contents/Annual%20Harvested%20Area%20Grids/Annual%20Harvested%20Area%20Grids.rar"
+license = "CC-BY-4.0"
+retrieved_on = "2026-08-26"
+filename = "Annual_Harvested_Area_Grids_v2.rar"
+size_bytes = 284005995
+md5 = "c9243bf18d1b31b50ebd9cbfa0f9b3ab"
+sha512 = "7f60928c50f86c129de90b8d8056c5fbdc640dc03613a2a610f4c5fe412b83bd911ac7d836d91495525b11f4a8ed93e68af95d2c1ece4ddc83c1208ce4fc7600"
+coverage = "global crop-specific irrigated and rainfed annual harvested area for 2000, 2005, 2010, 2015, and 2020"
+units = "harvested area, hectares"
+source_resolution = "5 arcminutes with publisher-supplied 30-arcminute aggregations"
+selected_resolution = "30 arcminutes"
+selected_crops = ["Maize", "Soybeans", "Rice", "Wheat"]
+selected_years = [2000, 2005, 2010, 2015, 2020]
+extracted_file_count = 40
+extracted_scope = "publisher-supplied 30-arcminute irrigated/rainfed GeoTIFF pairs for four crop classes and five vintages"
+grid_validation = "all selected rasters are one-band 360 by 720 EPSG:4326, 0.5-degree global grids with centres matching ISIMIP/GDHY"
+primary_share_year = 2000
+sensitivity_share_years = [2005, 2010, 2015, 2020]
+share_year_rule = "Use one declared vintage fixed across all outcome years; never use annual or interpolated shares in the primary historical response."
+approved_use = "Independent fixed crop-grid harvested-area shares used to combine rainfed and irrigated calendar exposures into one vector per aggregate GDHY outcome."
+source_role = "independent_fixed_baseline_crop_area_share"
+zero_handling = "The GeoTIFFs declare nodata=0. The builder reads this as zero harvested area, omits cells whose irrigated plus rainfed area is zero, and never renormalizes a missing crop-grid weight."
+production_eligible_outcome_crops = ["mai", "soy"]
+provisional_outcome_crops = ["ri1", "ri2", "swh", "wwh"]
+season_mapping_gate = "MIRCA annual rice does not distinguish GDHY rice seasons and annual wheat does not distinguish spring/winter wheat; these mappings are exported with production_eligible=false and must not enter estimation until a documented season crosswalk passes."
+use_limit = "This is an exposure weight, not an irrigated-yield outcome, adaptation response, causal estimate, damage coefficient, or SCC input. The 2000 map is later than part of the 1981-2016 outcome panel, so all supported vintages must be reported as sensitivity tests."

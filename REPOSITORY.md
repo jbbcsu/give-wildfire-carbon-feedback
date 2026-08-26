@@ -10,8 +10,8 @@ reference wildfire/biomass-burning code, data, outputs, or credentials.
 
 The prototype is Julia-first. The tracked `Project.toml` pins the direct Mimi
 compatibility boundary; use Julia 1.8+ and a project-local depot. The current
-daily-feature pipeline uses Python 3.11+ with `numpy`, `pandas`, `xarray`, and
-a NetCDF engine.
+daily-feature pipeline uses Python 3.11+ with `numpy`, `pandas`, `xarray`, a
+NetCDF engine, and `rasterio` for publisher-supplied MIRCA-OS GeoTIFFs.
 The tracked `Manifest.toml` locks the Julia dependency graph used by the test
 suite; regenerate and review it deliberately when changing dependencies.
 
@@ -35,6 +35,9 @@ suite; regenerate and review it deliberately when changing dependencies.
    run `scripts/reconcile_stage_heat_features.py` against the seasonal heat
    product. Use `scripts/join_stage_heat_features.py` only after that audit to
    preserve one regression row per crop-year/grid.
+   Acquire fixed irrigation weights with `scripts/download_mirca_os_v2.py`,
+   build each declared vintage with `scripts/build_mirca_irrigation_shares.py`,
+   and audit observed-cell support before combining calendar exposures.
 3. Run the schema/validation gates in `VALIDATION_PROTOCOL.md`.
 4. Fit the pre-registered crop-specific joint response and write coefficient
    draws outside raw-data paths.
@@ -57,6 +60,9 @@ never push to a guessed GitHub destination.
 ```sh
 .venv/bin/python scripts/verify_provenance.py data/provenance
 .venv/bin/python scripts/test_feature_builder.py
+.venv/bin/python scripts/test_download_mirca_os_v2.py
+.venv/bin/python scripts/test_build_mirca_irrigation_shares.py
+.venv/bin/python scripts/test_validate_mirca_weight_coverage.py
 .venv/bin/python scripts/test_stage_heat_pipeline.py
 .venv/bin/python scripts/test_scc_response_bundle.py
 .venv/bin/python us_county_validation/scripts/test_prepare_nass_county_yields.py

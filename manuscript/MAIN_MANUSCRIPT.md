@@ -80,7 +80,13 @@ irrigated outcomes. The current diagnostics therefore use only the rainfed
 calendar exposure. A production all-area panel will combine rainfed and
 irrigated calendar features with independent, fixed-baseline crop-area shares
 to retain exactly one exposure row per observed yield; it will not duplicate
-the outcome across regimes or infer the shares from yield.
+the outcome across regimes or infer the shares from yield. MIRCA-OS v2 annual
+harvested-area maps now supply candidate fixed 2000 weights, with the 2005,
+2010, 2015, and 2020 maps retained as vintage sensitivities. The exact 0.5°
+maize and soybean mappings pass source, grid, and share checks. Annual MIRCA
+rice and wheat do not identify GDHY's separate rice seasons or spring/winter
+wheat, so those mappings are explicitly blocked pending a season-resolved
+crosswalk.
 
 ## 4. Empirical design
 
@@ -127,11 +133,18 @@ SCC run. Results report fixed, trend, and upper adaptation scenarios separately.
 
 The outcome-blind input screen currently selects all five ESM realizations
 with complete historical and three-SSP coverage for daily precipitation and
-temperature variables (80 version-pinned datasets). Only an official metadata
-sidecar and 64 KiB header range from one MRI-ESM2-0 precipitation file have
-been checked; no projection file or climate-feature response has been acquired
-or fitted. Synthetic holdout/pairing gate tests therefore establish software
-behavior, not future agricultural damages.
+temperature variables (80 version-pinned datasets). Acquisition remains
+bounded to complete MRI-ESM2-0 precipitation and mean-temperature fields for
+historical 2011--2014 and SSP3-7.0 2015--2020. Exact checksums and full-array
+content gates pass, each variable joins at a 24-hour 2014/2015 boundary, and
+the matched temperature fields produce ten annual same-realization GMST
+values with complete day counts. A real two-latitude maize/rainfed engineering smoke
+produces 2,744 crop-years and 8,232 three-window records whose precipitation
+and day-count totals reconcile exactly. It revealed and corrected a
+noon-timestamp calendar-boundary error that had omitted maturity dates. No
+yield is attached to this smoke and no climate-feature response has been
+fitted. This remains one ESM and one future scenario, so the real and synthetic gates establish software behavior,
+not future agricultural damages.
 
 ## 6. Results (pre-registered placeholders)
 

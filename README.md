@@ -35,8 +35,12 @@ SSP3-7.0 precipitation and mean-temperature blocks for 2015--2020 now pass
 their SHA-512, decoded global-grid, units, complete daily chronology,
 missingness, and physical-value gates. The matched `tas` block produced six
 same-realization annual cos(latitude)-weighted GMST values with exact
-365/366-day coverage. This is one six-year engineering pair, not acquisition
-of the 1.757 TB matrix or a feature response. Whole-ESM/scenario,
+365/366-day coverage. Matching MRI historical `pr` and `tas` blocks for
+2011--2014 also pass complete-file gates, join their SSP3-7.0 counterparts at
+an exact 24-hour boundary, and produce four historical same-realization GMST
+values with exact day counts. This is one ten-year historical/projection
+engineering pair, not acquisition of the 1.757 TB matrix or a feature
+response. Whole-ESM/scenario,
 common-residual, support, identity, and decreasing-pulse gates remain
 synthetic. The real run also exposed and fixed an end-of-year boundary bug that
 had excluded noon-stamped December 31 values from shared climate windows.
@@ -163,8 +167,28 @@ an independently sourced, fixed-baseline crop-area-share table collapses them
 to exactly one area-weighted exposure row per crop-grid-year outcome. It fails
 on missing regimes, inconsistent yields, time-varying or non-independent
 weights, incomplete shares, nonfinite features, and duplicate keys. The
-synthetic test exercises these gates; no production area source or irrigated
-response is yet claimed.
+synthetic test exercises these gates. MIRCA-OS v2 is now acquired and
+checksum/grid validated as that independent area source.
+`scripts/build_mirca_irrigation_shares.py` constructs fixed 2000 shares and
+the registered 2005--2020 vintage sensitivities on the common 0.5° grid.
+Maize and soybean mappings are exact; annual rice and wheat weights carry
+`production_eligible=false` because they cannot identify the two rice seasons
+or spring/winter wheat, and the allocator now rejects them. The source closes
+a weighting-input gate but does not supply an irrigated yield outcome,
+response coefficient, damage, or SCC.
+The season-specific evidence and the 5′ rice validation route are recorded in
+[MIRCA_SEASON_CROSSWALK_GATE.md](MIRCA_SEASON_CROSSWALK_GATE.md); wheat remains
+blocked without an explicit spring/winter area source.
+
+Rebuild the ignored source and fixed-2000 table with:
+
+```bash
+./.venv/bin/python scripts/download_mirca_os_v2.py
+./.venv/bin/python scripts/build_mirca_irrigation_shares.py \
+  --input-root data/raw/mirca_os_v2/extracted_30arcmin --year 2000 \
+  --out data/interim/mirca_os_v2/irrigation_shares_2000.parquet \
+  --audit-out data/interim/mirca_os_v2/irrigation_shares_2000_audit.json
+```
 
 [METHODS_BENCHMARK_QIU_2025.md](METHODS_BENCHMARK_QIU_2025.md) records the
 adapted ensemble/validation design benchmark used for the next specification.

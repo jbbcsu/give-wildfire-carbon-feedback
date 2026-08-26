@@ -23,3 +23,13 @@ raw manifests.
 all-production-practices corn-yield fallback and its counts-only temporal
 support audit. It is a county outcome-coverage record, not a rainfed sample,
 weather response, or SCC input.
+
+`mirca_os_v2_irrigation_shares.toml` pins the independently downloaded annual
+harvested-area archive and the fail-closed crop crosswalk. Maize and soybean
+are exact crop-class mappings; annual rice and wheat shares remain ineligible
+for their season-specific GDHY outcomes.
+
+`isimip3b_mri_historical_ssp370_boundary.toml` pins the first complete
+historical/projection `pr` and `tas` boundary, exact checksums, and the four
+historical same-realization GMST values. It is an engineering gate for one
+MRI-ESM2-0 member and SSP3-7.0, not whole-ensemble validation or an SCC input.

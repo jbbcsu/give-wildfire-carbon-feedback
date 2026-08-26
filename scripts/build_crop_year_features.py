@@ -90,7 +90,10 @@ def main() -> None:
         if not np.array_equal(pr.time, tas.time):
             raise ValueError("Precipitation and temperature time axes differ")
 
-        dates = pd.DatetimeIndex(pr.time.values)
+        # Crop calendars are date (DOY) based.  ISIMIP daily timestamps can be
+        # stamped at noon, so compare calendar dates rather than instants;
+        # otherwise the final day of every season is silently excluded.
+        dates = pd.DatetimeIndex(pr.time.values).normalize()
         pr_values = normalize_precip(pr.values, pr.attrs.get("units", ""))
         tas_values = normalize_temperature(tas.values, tas.attrs.get("units", ""))
         planting, maturity = cal.planting_day.values, cal.maturity_day.values

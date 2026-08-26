@@ -1,5 +1,5 @@
 schema_version = 2
-status = "primary_route_metadata_selected_first_pr_tas_pair_and_real_gmst_validated"
+status = "primary_route_metadata_selected_first_historical_ssp_pr_tas_pair_and_real_gmst_validated"
 purpose = "Direct daily CMIP6 feature training data for matched FAIR baseline/pulse climate-feature evaluation. This record does not authorize an SCC calculation or raw-data redistribution."
 
 [decision]
@@ -96,7 +96,7 @@ negative_values = 0
 minimum_flux = 0.0
 maximum_flux = 0.0069444444961845875
 result = "passed"
-limitation = "One MRI-ESM2-0 SSP3-7.0 precipitation block only; tas/tasmin/tasmax, historical join, crop features, real GMST, holdouts, paired paths, damages, and SCC remain unvalidated."
+limitation = "This section records the first MRI-ESM2-0 SSP3-7.0 precipitation block; the later tas/GMST and historical-boundary gates supersede its then-open checks. Tasmin/tasmax, other ESMs/scenarios, fitted holdouts, paired paths, damages, and SCC remain unvalidated."
 
 [same_realization_gmst_smoke]
 checked_utc_date = "2026-08-26"
@@ -125,7 +125,7 @@ gmst_daily_counts = [365, 366, 365, 365, 365, 366]
 gmst_values_k = [287.8831382845592, 287.94559446530025, 288.1144532748641, 288.12084850642, 288.10401719124644, 287.9502721275811]
 gmst_source_id = "isimip3b-20210512-d3c56f0a-0e9d-4838-a646-9e4db398e62f-0c859356-5f58-4f0c-95d5-4df01fefe141"
 result = "passed"
-limitation = "One MRI-ESM2-0 SSP3-7.0 six-year pr/tas engineering pair only; historical continuity, crop features, whole-ESM/scenario validation, fitted response, paired pulse path, damages, and SCC remain unvalidated."
+limitation = "One MRI-ESM2-0 SSP3-7.0 six-year pr/tas engineering pair only; the separately pinned historical boundary and crop-feature smoke now close those two engineering checks. Whole-ESM/scenario validation, fitted response, paired pulse path, damages, and SCC remain unvalidated."
 
 [processing]
 raw_storage = "Git-ignored data/raw/isimip3b/; process one model/scenario/variable block at a time."
@@ -138,7 +138,7 @@ primary_source = "Annual area-weighted mean of the pinned daily ISIMIP3b tas fie
 weighting = "cos(latitude) on the registered regular global grid; mean across complete decoded days within each calendar year"
 units = "K"
 identity_rule = "One esm_id/member_id/scenario/year must map to exactly one explicit gmst_source_id and one finite physical gmst_value_k across every feature family."
-status = "synthetic gates plus one real MRI-ESM2-0 SSP3-7.0 2015-2020 daily-tas content and annual-GMST smoke passed"
+status = "synthetic gates plus real MRI-ESM2-0 historical 2011-2014 and SSP3-7.0 2015-2020 daily-tas content and annual-GMST smokes passed; exact values and the boundary are pinned separately"
 
 [paired_evaluation]
 fair_role = "Evaluate only after fitting ESM-specific direct-feature response curves to CMIP/ISIMIP data."

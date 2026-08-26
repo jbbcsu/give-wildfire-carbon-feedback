@@ -141,6 +141,10 @@ estimates. Run
 `python us_county_validation/scripts/test_audit_usdm_yield_coverage.py` for
 synthetic overlap and failure-mode checks.
 
+The bounded gridMET smoke, crop-specific irrigation-share gate, and
+crop-area-weight routing are specified in
+[WEATHER_IRRIGATION_MASK_ROUTES.md](WEATHER_IRRIGATION_MASK_ROUTES.md).
+
 ## Primary design
 
 1. Begin with a **high-rainfed-share county sample** for maize, soybean, and

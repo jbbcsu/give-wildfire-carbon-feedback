@@ -1,0 +1,70 @@
+schema_version = 1
+checked_utc_date = "2026-08-26"
+role = "complete_file_historical_to_projection_boundary_engineering_gate_not_feature_response_or_scc"
+purpose = "Pins and validates the minimum MRI-ESM2-0 r1i1p1f1 daily historical files needed to join the existing SSP3-7.0 2015 block. It does not estimate climate features, damages, or an SCC contribution."
+source_catalogue = "https://data.isimip.org/api/v1/datasets/"
+rights = "CC0 1.0"
+esm = "MRI-ESM2-0"
+member = "r1i1p1f1"
+grid = "global 0.5 degree; latitude descending; longitude -179.75 to 179.75"
+calendar = "proleptic_gregorian"
+
+[[variable]]
+name = "pr"
+units = "kg m-2 s-1"
+historical_dataset_id = "f69c765f-e8fc-4b5d-a67b-5ec6c3792b65"
+historical_dataset_version = "20210512"
+historical_file_id = "3804bdf3-2ba3-451e-9a6b-37a24fd9ed24"
+historical_file_name = "mri-esm2-0_r1i1p1f1_w5e5_historical_pr_global_daily_2011_2014.nc"
+historical_url = "https://files.isimip.org/ISIMIP3b/InputData/climate/atmosphere/bias-adjusted/global/daily/historical/MRI-ESM2-0/mri-esm2-0_r1i1p1f1_w5e5_historical_pr_global_daily_2011_2014.nc"
+historical_bytes = 828562112
+historical_sha512 = "0691db55738380f5bb2054d2dec6526cc1a719b090e98a23908dc75bcc09b68a6129c7cc741b59912d81d50e0946d38a24ffaefad21b480e5aff206d21f006d4"
+projection_dataset_id = "ff5d7e36-8ee9-4746-bea7-1c1450f94ee7"
+projection_dataset_version = "20210512"
+projection_file_id = "ec861b63-97e0-4233-a2ba-ef80aa8b9574"
+projection_file_name = "mri-esm2-0_r1i1p1f1_w5e5_ssp370_pr_global_daily_2015_2020.nc"
+projection_bytes = 1241058098
+projection_sha512 = "746c5de9c458587697fe662d11ff8652f753910e3e251205d1d12ea0417dbb23871b943650c8750a3622b66536001c5cf4d5e104257a4aa2e0492ad97dfd79fd"
+historical_end = "2014-12-31T12:00:00"
+projection_start = "2015-01-01T12:00:00"
+boundary_audit = "data/interim/isimip3b/mri-esm2-0_pr_historical_2014_to_ssp370_2015_boundary_audit.json"
+content_audit = "data/interim/isimip3b/mri-esm2-0_historical_pr_2011_2014_content_audit.json"
+result = "passed"
+
+[[variable]]
+name = "tas"
+units = "K"
+historical_dataset_id = "7f461a74-e969-4baa-8bc9-d4e89b6d996e"
+historical_dataset_version = "20210512"
+historical_file_id = "025cdb2f-68a6-4ced-89c8-72c828ff7d63"
+historical_file_name = "mri-esm2-0_r1i1p1f1_w5e5_historical_tas_global_daily_2011_2014.nc"
+historical_url = "https://files.isimip.org/ISIMIP3b/InputData/climate/atmosphere/bias-adjusted/global/daily/historical/MRI-ESM2-0/mri-esm2-0_r1i1p1f1_w5e5_historical_tas_global_daily_2011_2014.nc"
+historical_bytes = 821995670
+historical_sha512 = "70880514f22437e6d6581a330240107cba2ded2d69961b561dc58af65b5f5248d0e4df21de464a8af7c03d6cad25e42c270d475657ecfcc9d1da9d3bd7a59eb7"
+projection_dataset_id = "d3c56f0a-0e9d-4838-a646-9e4db398e62f"
+projection_dataset_version = "20210512"
+projection_file_id = "0c859356-5f58-4f0c-95d5-4df01fefe141"
+projection_file_name = "mri-esm2-0_r1i1p1f1_w5e5_ssp370_tas_global_daily_2015_2020.nc"
+projection_bytes = 1231536845
+projection_sha512 = "1c31777e0575a9f159b26636f4e5adca1488067cf53af474192b63f4c46aa0b4af06df8e4fe5e453a605cb9f712f2530442369fa1fd7901484d33cfcea016fdf"
+historical_end = "2014-12-31T12:00:00"
+projection_start = "2015-01-01T12:00:00"
+boundary_audit = "data/interim/isimip3b/mri-esm2-0_tas_historical_2014_to_ssp370_2015_boundary_audit.json"
+content_audit = "data/interim/isimip3b/mri-esm2-0_historical_tas_2011_2014_content_audit.json"
+result = "passed"
+
+[validation]
+complete_historical_files = "Passed exact byte-size and ISIMIP API SHA-512 checks; daily noon chronology, 360x720 grid, proleptic Gregorian calendar, units, encodings, and finite value gates passed."
+boundary = "Each variable has an exact 24-hour transition from historical 2014-12-31T12:00:00 to SSP3-7.0 2015-01-01T12:00:00; coordinate, dimensions, units, and full concatenated daily chronology are checked fail-closed."
+limitation = "This single ESM/member and two variables are an acquisition-and-interface smoke test, not an ensemble, fitted precipitation response, calibrated damage module, or SCC calculation."
+
+[historical_same_realization_gmst]
+source_dataset_id = "7f461a74-e969-4baa-8bc9-d4e89b6d996e"
+source_file_id = "025cdb2f-68a6-4ced-89c8-72c828ff7d63"
+gmst_source_id = "isimip3b-20210512-7f461a74-e969-4baa-8bc9-d4e89b6d996e-025cdb2f-68a6-4ced-89c8-72c828ff7d63"
+years = [2011, 2012, 2013, 2014]
+daily_counts = [365, 366, 365, 365]
+gmst_values_k = [287.6151436978739, 287.7226835378648, 287.7688363862192, 287.78172382050394]
+method = "Complete daily tas field; cos(latitude)-weighted global mean followed by complete calendar-year mean."
+result = "passed"
+limitation = "Four historical years from the same MRI-ESM2-0 r1i1p1f1 realization only; this does not constitute whole-ESM or whole-scenario emulator validation."

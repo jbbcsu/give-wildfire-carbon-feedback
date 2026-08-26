@@ -18,6 +18,14 @@ license/terms, SHA-512, retrieval date, and URL for every file. Climate files
 are multi-gigabyte global arrays and must be streamed/chunked; do not commit
 them. See `data/input_manifest.csv`.
 
+Fixed irrigation-exposure weights use MIRCA-OS v2 (March 2026) annual
+irrigated and rainfed harvested-area maps. The source archive, CC-BY-4.0
+license, HydroShare resource, byte length, MD5, and SHA-512 are pinned in
+`data/provenance/mirca_os_v2_irrigation_shares.toml`. Use the publisher's
+30-arcminute GeoTIFFs only after verifying one 360-by-720 EPSG:4326 grid,
+0.5° cell centres, finite nonnegative hectares, unique crop/system/vintage
+files, and unit-summing shares. Raw rasters and derived tables remain ignored.
+
 The U.S. validation outcome source is the dated USDA NASS Quick Stats crops
 bulk snapshot `qs.crops_20260821.txt.gz`. Acquisition pins the declared byte
 length, ETag, and last-modified value; downloads verified HTTP ranges and
@@ -79,10 +87,20 @@ mean-temperature blocks for 2015--2020 now match their SHA-512 values and pass
 decoded-grid, units, missingness, physical-value, and exact daily-chronology
 checks. Daily `tas` from the same ESM/member/scenario supplies
 cos(latitude)-weighted annual GMST in the registered builder; the real
-six-year smoke has exact 365/366-day counts and training rows must share one
+six-year projection smoke has exact 365/366-day counts and training rows must share one
 explicit source and Kelvin value within each ESM/member/scenario/year. This
-clears one six-year `pr`/`tas` pair only, not historical continuity,
-whole-ESM/scenario validation, or feature-response fitting.
+now extends through complete historical 2011--2014 `pr`/`tas` files that join
+the projection fields at an exact 24-hour boundary. Four historical annual
+GMST values use the same MRI-ESM2-0 member and have exact 365/366-day counts.
+This clears one ten-year historical/projection `pr`/`tas` pair only, not
+whole-ESM/scenario validation or feature-response fitting. A bounded real
+maize/rainfed crop-calendar smoke over two latitude rows and harvest years
+2016--2019 produces 2,744 season records and 8,232 three-window records. All
+additive precipitation/day-count quantities reconcile exactly, and timing,
+wet-day, dry-spell, Rx1day, and Rx5day invariants pass. ISIMIP timestamps are
+normalized to calendar dates before comparison with day-of-year bounds; a
+synthetic noon-timestamp regression test prevents recurrence of the maturity-
+date omission found by this smoke.
 
 Whole ESMs and whole scenarios, not random years alone, are held out. STITCHES
 supplies a sequence-preserving benchmark; MESMER-M-TP plus a published daily
@@ -153,7 +171,7 @@ rainfed-calendar exposure only and does not estimate an irrigation-stratified
 response or aggregate both calendar regimes. A production specification needs
 a compatible irrigated outcome/area treatment before representing irrigated
 production. Specifically, when both calendar regimes are available, an
-independent pre-period crop-grid area-share source must weight their climate
+independent, outcome-blind fixed-vintage crop-grid area-share source must weight their climate
 features into one exposure vector for the single GDHY crop-season-grid-year
 outcome. Shares are fixed across outcome years, cover every declared regime,
 and sum to one. Missing shares or exposure rows are not renormalized, and the
@@ -162,6 +180,22 @@ observations. This historical exposure-allocation weight is distinct from the
 regional baseline crop-value weights used later for welfare aggregation. CO2
 is an explicitly provenanced scenario term; it cannot be separately added
 after a response that already includes it.
+
+The registered primary source is the earliest MIRCA-OS v2 vintage (2000),
+held fixed across the 1981--2016 outcome panel; 2005, 2010, 2015, and 2020 are
+separate fixed-vintage sensitivities, not time-varying adaptation. The 2000
+maize and soybean weights match 97.79% and 97.99% of observed-yield cells in
+the current 1982--1989 panels. Unmatched cells are disclosed and excluded
+before estimation, never assigned a national mean or renormalized. MIRCA's
+annual rice and wheat maps do not identify GDHY's two rice seasons or its
+spring/winter wheat outcomes. The builder exports those provisional mappings
+with `production_eligible=false`, and the allocator fails if they are supplied
+to a production panel. A season-resolved crosswalk is therefore an open input
+gate for rice and wheat. For rice, the only current candidate is the
+publisher's 5′ monthly `Rice1`/`Rice2`/`Rice3` product, aggregated by summing
+hectares and reconciled to the annual Rice map under the protocol in
+`MIRCA_SEASON_CROSSWALK_GATE.md`. MIRCA's numeric wheat subcrops do not provide
+a documented spring/winter identity, so no timing-based inference is allowed.
 
 GDHY's aligned construction can clip a negative aligned estimate to zero.
 The join preserves the original value in `gdhy_yield_raw_t_ha`, flags it in
