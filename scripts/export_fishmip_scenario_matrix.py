@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import math
 from pathlib import Path
 
 
@@ -15,10 +16,76 @@ INPUTS = (
     "data/raw/fishmip/ipsl-cm6a-lr/scenario_benchmark_ssp585_v1.json",
 )
 OUT = ROOT / "data/provenance/fishmip_scenario_benchmark_matrix_20260826.json"
+FORCINGS = {"gfdl-esm4", "ipsl-cm6a-lr"}
+SCENARIOS = {"ssp126", "ssp585"}
+MODELS = {"boats", "ecoocean"}
+PERIODS = {"near", "mid", "late"}
 
 
 def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def robustness_summary(rows: list[dict[str, object]]) -> dict[str, object]:
+    """Validate the frozen factorial and summarize signs without averaging levels."""
+    indexed: dict[tuple[str, str, str], dict[str, object]] = {}
+    support: dict[tuple[str, str], int] = {}
+    for row in rows:
+        forcing = str(row["climate_forcing"])
+        scenario = str(row["climate_scenario"])
+        support[(forcing, scenario)] = int(row["common_finite_grid_cells"])
+        for model_row in row["models"]:
+            model = str(model_row["model"])
+            key = (forcing, scenario, model)
+            if key in indexed:
+                raise ValueError("scenario matrix duplicates a forcing/scenario/model row")
+            changes = model_row["relative_change_from_reference"]
+            if set(changes) != PERIODS or not all(math.isfinite(float(value)) for value in changes.values()):
+                raise ValueError("scenario matrix has invalid reporting-period changes")
+            reference = float(model_row["reference_mean_density_g_m2"])
+            if not math.isfinite(reference) or reference <= 0:
+                raise ValueError("scenario matrix reference density must be finite and positive")
+            indexed[key] = model_row
+
+    expected = {
+        (forcing, scenario, model)
+        for forcing in FORCINGS for scenario in SCENARIOS for model in MODELS
+    }
+    if set(indexed) != expected:
+        raise ValueError("scenario matrix forcing/scenario/model factorial is incomplete")
+
+    for forcing in FORCINGS:
+        if support[(forcing, "ssp126")] != support[(forcing, "ssp585")]:
+            raise ValueError("common support differs across scenarios within a forcing")
+        for model in MODELS:
+            low = float(indexed[(forcing, "ssp126", model)]["reference_mean_density_g_m2"])
+            high = float(indexed[(forcing, "ssp585", model)]["reference_mean_density_g_m2"])
+            if low != high:
+                raise ValueError("historical reference differs across scenarios within a forcing/model")
+
+    negative_counts: dict[str, int] = {}
+    stronger_high_counts: dict[str, int] = {}
+    for period in sorted(PERIODS):
+        negative_counts[period] = sum(
+            float(row["relative_change_from_reference"][period]) < 0
+            for row in indexed.values()
+        )
+        stronger_high_counts[period] = sum(
+            float(indexed[(forcing, "ssp585", model)]["relative_change_from_reference"][period])
+            < float(indexed[(forcing, "ssp126", model)]["relative_change_from_reference"][period])
+            for forcing in FORCINGS for model in MODELS
+        )
+    return {
+        "comparison_unit": "within_climate_forcing_and_ecosystem_model_relative_change_only",
+        "trajectory_count": len(indexed),
+        "negative_change_counts_out_of_8": negative_counts,
+        "ssp585_more_negative_than_ssp126_counts_out_of_4": stronger_high_counts,
+        "absolute_model_levels_averaged": False,
+        "inference_boundary": (
+            "Sign agreement is a structural biophysical scenario diagnostic, not an "
+            "observed-catch calibration, matched pulse, welfare effect, damage, or SCC input."
+        ),
+    }
 
 
 def main() -> None:
@@ -41,14 +108,14 @@ def main() -> None:
                 row["id"]: float(row["relative_change_from_reference"])
                 for row in model["reporting_periods"]
             }
-            if set(periods) != {"near", "mid", "late"}:
+            if set(periods) != PERIODS:
                 raise ValueError("scenario result reporting periods changed")
             models.append({
                 "model": model["model"],
                 "reference_mean_density_g_m2": float(model["reference_mean_density_g_m2"]),
                 "relative_change_from_reference": periods,
             })
-        if {row["model"] for row in models} != {"boats", "ecoocean"}:
+        if {row["model"] for row in models} != MODELS:
             raise ValueError("scenario result ecosystem-model set changed")
         rows.append({
             "climate_forcing": key[0],
@@ -57,15 +124,14 @@ def main() -> None:
             "models": models,
             "source_result": {"path": relative, "sha256": sha256(path)},
         })
-    if seen != {
-        ("gfdl-esm4", "ssp126"), ("gfdl-esm4", "ssp585"),
-        ("ipsl-cm6a-lr", "ssp126"), ("ipsl-cm6a-lr", "ssp585"),
-    }:
+    if seen != {(forcing, scenario) for forcing in FORCINGS for scenario in SCENARIOS}:
         raise ValueError("scenario matrix is incomplete")
+    summary = robustness_summary(rows)
     output = {
         "schema": "fishmip_scenario_benchmark_matrix_v1",
         "status": "validated_biophysical_scenario_diagnostic_only",
         "benchmarks": sorted(rows, key=lambda row: (row["climate_forcing"], row["climate_scenario"])),
+        "robustness_summary": summary,
         "implementation": {
             "path": str(Path(__file__).resolve().relative_to(ROOT)),
             "sha256": sha256(Path(__file__)),

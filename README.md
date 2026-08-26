@@ -91,6 +91,14 @@ diagnostic does not average model levels, because their absolute scales differ
 greatly, and it remains a scenario benchmark rather than a pulse, welfare,
 damage, or SCC result.
 
+An executable cross-matrix audit now verifies the complete two-forcing,
+two-scenario, two-ecosystem-model factorial, identical historical references
+and common support across scenarios, and finite period changes. It finds
+negative changes in 7/8 near-, 8/8 mid-, and 8/8 late-century trajectories;
+SSP5-8.5 is more negative than SSP1-2.6 in 2/4 near- and 4/4 mid- and
+late-century within-forcing/model comparisons. These are descriptive sign
+counts, not probabilities or welfare evidence.
+
 ## Executable accounting scaffolding
 
 The repository currently provides two coefficient-free checks:
@@ -113,6 +121,7 @@ python3 test/test_region_aggregation.py
 python3 test/test_fishmip_catalog.py
 python3 test/test_fishmip_content.py  # in an environment with xarray and h5netcdf
 python3 test/test_fishmip_scenario_benchmark.py  # same environment requirement
+python3 test/test_fishmip_scenario_matrix.py
 ```
 
 These scripts do not choose ecological or economic parameters, certify that a

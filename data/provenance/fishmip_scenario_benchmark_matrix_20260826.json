@@ -121,10 +121,26 @@
   "disclaimer": "Within-model scenario catch-density changes are not observed catch, welfare, marginal CO2-pulse damages, or SCC. Absolute model levels are not averaged.",
   "implementation": {
     "path": "scripts/export_fishmip_scenario_matrix.py",
-    "sha256": "1c5cd6275fa1d508ccb0f7641f0c2c6c72a821c18ec48f0357f2a32c17eeee07"
+    "sha256": "ece38a874bb3855b22a5cc40e77bc4a720e691a3f1b020ded0b09cb2282a5704"
   },
   "matched_co2_pulse": false,
   "observed_catch": false,
+  "robustness_summary": {
+    "absolute_model_levels_averaged": false,
+    "comparison_unit": "within_climate_forcing_and_ecosystem_model_relative_change_only",
+    "inference_boundary": "Sign agreement is a structural biophysical scenario diagnostic, not an observed-catch calibration, matched pulse, welfare effect, damage, or SCC input.",
+    "negative_change_counts_out_of_8": {
+      "late": 8,
+      "mid": 8,
+      "near": 7
+    },
+    "ssp585_more_negative_than_ssp126_counts_out_of_4": {
+      "late": 4,
+      "mid": 4,
+      "near": 2
+    },
+    "trajectory_count": 8
+  },
   "scc_authorized": false,
   "schema": "fishmip_scenario_benchmark_matrix_v1",
   "status": "validated_biophysical_scenario_diagnostic_only",

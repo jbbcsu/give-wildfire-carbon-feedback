@@ -37,10 +37,20 @@ periods. This is useful structural-uncertainty evidence for the biophysical
 benchmark only. Neither SSP path is a baseline/one-ton-pulse counterfactual,
 and `tc` density is not observed catch, producer surplus, or consumer surplus.
 
+The machine-audited cross-matrix sign check retains the forcing/model as the
+comparison unit and never averages absolute density levels. Seven of eight
+near-century trajectories, all eight mid-century trajectories, and all eight
+late-century trajectories are below their own historical reference. SSP5-8.5
+is more negative than SSP1-2.6 in two of four near-century comparisons and all
+four mid- and late-century comparisons. These counts show where the frozen
+scenario matrix agrees; they are not uncertainty probabilities and do not
+resolve the missing observed-catch, marginal-pulse, or welfare layers.
+
 The frozen configurations are the four
 `config/fishmip_scenario_benchmark_*ssp*_v1.toml` files; the executable is
 `scripts/evaluate_fishmip_scenario_benchmark.py`. The machine-readable real
 outputs remain under ignored raw storage beside the 12 validated NetCDF
 files. Synthetic tests cover exact model membership, differing finite masks,
 common-support preservation, the two ecosystem-model calendars, annual
-coverage, and known relative changes.
+coverage, known relative changes, complete forcing/scenario/model membership,
+and rejection of support, reference, or nonfinite-result drift.
