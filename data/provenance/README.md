@@ -54,9 +54,56 @@ not estimate a climate--yield relationship, damages, or an SCC change.
 
 `nclimgrid_daily_1981_2019_http_inventory.csv` records complete HEAD identities
 for all 468 canonical monthly objects in 1981--2019. The exact aggregate
-`Content-Length` is 27,857,685,556 bytes (25.944 GiB). This is an acquisition
-plan, not content provenance: each downloaded NetCDF must still pass local
-byte-length, SHA-512, schema, and daily-calendar checks before use.
+`Content-Length` is 27,857,685,556 bytes (25.944 GiB). The authorized bounded
+acquisition subsequently retrieved all 468 objects. Its ignored local manifest
+records one object-level local SHA-512 and successful byte-length, schema, and
+daily-calendar receipt per month, all tied to this frozen inventory. This
+completes raw acquisition only; downstream feature receipts remain required.
+
+`nclimgrid_daily_1981_2019_content_receipt.json` is the deterministic,
+tracked-safe publication projection of that ignored manifest. It exposes all
+468 local SHA-512 content identities together with each canonical URL and
+frozen HTTP identity, one common validated NetCDF schema, and each month's
+exact daily calendar. It also binds the byte-for-byte ignored manifest at
+SHA-512
+`3e46415d4bba94362a46c6db536c756e2cc55f73624eee977b67fef63955d03deae832b35c553a8e1bcb1f758e020eb5020fa8e087979e0372f3e47c7d17ac5f`.
+The receipt contains no raw observations, credentials, receipt-generation
+timestamp, or machine-specific absolute path. Its relationship, causal,
+damage, and SCC gates are all false. Regenerate or check it only with the
+offline exporter documented in
+`us_county_validation/NCLIMGRID_DAILY_BULK_ACQUISITION.md`.
+
+`nass_quickstats_national_all_practice_1981_2019_content_receipt.json` is the
+tracked-safe projection of the ignored national corn/soy Quick Stats API
+archive. It binds 78 annual objects for 1981--2019, 190,394,822 raw bytes, and
+146,672 API records to their exact key-free query parameters, retrieval times,
+byte lengths, and recomputed local SHA-512 values. The exporter also parses
+every raw JSON object, reconciles its row count to the recorded preflight
+count, and enforces the exact commodity/unit/practice series. It exposes no
+county observations, credential, or machine-specific path and authorizes no
+relationship, causal claim, damage, or SCC use.
+
+`spei_source_decision_20260826.toml` records the primary source-consistent
+computed-SPEI route, primary literature and software versions, reviewed local
+daily-weather variables/licenses, NOAA and SPEIbase metadata checks, the
+1982--2011 frozen calibration boundary, PET/distribution/scale choices, and
+the algorithmic antecedent-coverage gate. It authorizes no full index field,
+outcome fit, causal claim, damage, or SCC input.
+
+`us_competing_moisture_independent_audit_20260826.json` is the portable,
+aggregate-only clean-room audit receipt for the U.S. predictive diagnostic.
+It binds the registered sources/results and independent script/test hashes,
+records exact common support and split/purge gates, and reports numerical
+discrepancies without coefficients or row predictions. Its causal, damage,
+and SCC flags are false.
+
+`us_competing_moisture_paired_loss_uncertainty_20260826.json` is the portable,
+aggregate-only exact-validation receipt for the separate 5,000-draw U.S.
+county-cluster loss sensitivity. It contains conditional RMSE/MAE differences,
+percentile bounds, cluster diagnostics, state omissions, and post hoc support-
+only point checks. All artifact paths are relative; it contains no fitted
+coefficient, row prediction, row loss, or bootstrap draw and does not alter
+the point protocol, promotion gate, causal boundary, damages, or SCC.
 
 `census_county_changes_1980_2019.toml` pins the official 1980s--2010s Census
 county-change pages and their scope statement. They provide a conservative

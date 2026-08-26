@@ -153,20 +153,20 @@ Sources:
 ## Current gate status
 
 * NASS corn-grain 2018–2022 outcomes: acquired and temporally audited.
-* nClimGrid-Daily: January and May--October 1981 are independently byte-pinned,
-  live-identity checked, and decoded. The six growing-season objects contain
-  184 contiguous days. Full 1981--2019 acquisition is still pending.
+* nClimGrid-Daily: all 468 monthly 1981--2019 objects are independently
+  content-pinned and validated. A tracked publication receipt preserves every
+  local SHA-512 and frozen HTTP/schema/calendar identity.
 * gridMET: the 2018 `pr` smoke file was acquired from the documented official
   distribution on 2026-08-26 (65,031,749 bytes; 365 verified daily steps;
   SHA-512 `503c9cf6...b5497bae`). Exact object identity, terms, decoded
   validation, and scientific limitations are now tracked in
   `data/provenance/gridmet_pr_2018.toml`; the ignored raw manifest records each
   execution. It remains a robustness input, not the primary trend product.
-* Polygon primary: the acquired 2019 TIGER archive passed ZIP/schema/FIPS/CRS
-  checks. Cuming County has 120 positive nClimGrid intersections, effectively
-  complete polygon coverage, and area weights summing to one. A real 1981
-  corn/soy feature panel was built cell-first and joined to four paired NASS
-  practice-support rows; no relationship was estimated.
+* Polygon primary: 419 registered counties contain 79,355 positive valid
+  nClimGrid intersections and all exceed the 0.95 valid-area/declared-land
+  gate. All 39 yearly feature partitions assemble to 23,722 exact paired-
+  practice corn/soy rows. The downstream 20,228-change comparison is
+  predictive and regional, not a causal relationship.
 * CDL sensitivity: the exact 1,790,196,900-byte archive passed SHA-512 and all
   five ZIP-member checks. The Cuming window contains 706,394 corn and 582,110
   soybean pixels mapped with 100% nClimGrid coverage into 120 cells per crop.

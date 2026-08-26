@@ -8,7 +8,7 @@ scc_use_authorized = false
 families = ["direct_weather", "pdsi", "spei"]
 direct_weather_rule = "Use the parsimonious precipitation-quantity specification as the direct-weather baseline; retain within-season distribution features only for robust incremental outer-holdout value."
 comparison_rule = "Use identical outer holdout outcome keys for every eligible family and report null or worse performance."
-selection_rule = "Select a moisture family, and SPEI scale/distribution within that family, using training data only. Do not select by SCC magnitude."
+selection_rule = "This legacy contract may compare PDSI or the published NOAA SPEI benchmark only in an eligible retrospective design. The replacement computed-SPEI contract reports log-logistic 1/3/6-month models separately and does not select a scale or distribution by outcomes."
 no_double_counting = "A PDSI or SPEI response replaces the raw precipitation/temperature moisture response in that run. Do not stack or sum the families."
 exception_rule = "Any future joint attribution design that combines index and raw drivers requires a separately frozen decomposition and counterfactual contract."
 
@@ -34,7 +34,11 @@ primary_distribution_candidate = "pearson_type_iii"
 sensitivity_distribution = "gamma"
 moderate_threshold = -1.0
 severe_threshold = -1.5
-status = "large objects pinned by HTTP identity but not acquired or decoded"
+status = "published benchmark metadata pinned but ineligible for the 2012 terminal diagnostic"
+primary_predictive_eligible = false
+ineligibility_reason = "Publisher calibration 1895-2014 overlaps the terminal holdout beginning in 2012; this contract may validate the field only as a retrospective implementation check."
+replacement_primary_contract = "config/spei_competitor_v1.toml"
+legacy_validator_scope = "The existing county drought feature/support validators accept this NOAA Pearson/gamma schema for retrospective checks only; they do not validate the replacement computed Hargreaves/log-logistic family."
 
 [calendar]
 source_id = "usda_nass_field_crops_usual_dates_2010"
@@ -43,6 +47,9 @@ sensitivity_role = "fixed_broad_window_sensitivity"
 preplant_days = 90
 stage_fractions = [0.0, 0.3, 0.7, 1.0]
 monthly_alignment = "day-weight each monthly index value over the exact overlap with preplant, stage, and season windows; no interpolation"
+monthly_alignment_role = "retrospective_crop_window_approximation_not_an_operational_within_season_forecast"
+boundary_month_caveat = "A monthly index contains the complete month's weather even when only its overlapping days receive weight; it is not an exact daily exposure and may include days outside a partial boundary window."
+month_end_sensitivity = "Use only observations whose month-end timestamp lies inside the crop window and apply the same rule to PDSI and SPEI within a comparison."
 incomplete_window_rule = "fail closed; do not impute a missing index month"
 
 [irrigation]

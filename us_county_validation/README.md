@@ -55,6 +55,18 @@ The synthetic preparation test
 checks disclosure-flag preservation and strict five-digit county GEOIDs; it
 does not validate filters against the still-incomplete raw snapshot.
 
+The separate primary weather archive is complete. The bounded bulk utility in
+[`NCLIMGRID_DAILY_BULK_ACQUISITION.md`](NCLIMGRID_DAILY_BULK_ACQUISITION.md)
+validated all 468 monthly NOAA nClimGrid-Daily objects for 1981--2019 against
+the frozen HTTP identities, local SHA-512 values, NetCDF schema, and exact
+daily calendars (27,857,685,556 compressed bytes). Raw files and their working
+manifest remain ignored. The tracked
+[`nclimgrid_daily_1981_2019_content_receipt.json`](../data/provenance/nclimgrid_daily_1981_2019_content_receipt.json)
+publishes all 468 content hashes, frozen HTTP identities, and schema/calendar
+receipts without exposing raw data or machine-local paths. This is an input
+gate only; county aggregation, crop-calendar features, and the predeclared
+model comparison are downstream.
+
 ### Bounded Quick Stats API fallback
 
 If the pinned bulk archive remains unavailable, the isolated fallback is
@@ -225,3 +237,23 @@ outside the initial high-rainfed-share estimand; see
 - No adding a US damage estimate beside the global agricultural component.
 - No separate CO2 fertilization term after a response that already embeds it.
 - No silently treating NASS suppression or missingness as zero yield.
+
+## Competing direct-rainfall/PDSI diagnostic
+
+The regional paired-practice corn/soy validation now has a frozen executable
+protocol in
+[US_COMPETING_MOISTURE_PREDICTIVE_PROTOCOL.md](US_COMPETING_MOISTURE_PREDICTIVE_PROTOCOL.md).
+It treats seasonal precipitation total as the parsimonious direct-weather
+baseline, admits distribution features only on uniform development-fold
+predictive improvement, and evaluates PDSI in mutually exclusive models on
+the same outcome changes and temperature controls. The full 23,722-row direct
+panel and 20,228 common first differences now pass exact and independent
+audits. The resulting regional predictive ranking is summarized in
+[US_COMPETING_MOISTURE_INDEPENDENT_AUDIT.md](US_COMPETING_MOISTURE_INDEPENDENT_AUDIT.md);
+it remains noncausal and cannot be used as a damage function or SCC input.
+The separate hash-bound
+[paired county-loss sensitivity](US_COMPETING_MOISTURE_PAIRED_LOSS_UNCERTAINTY.md)
+reports conditional 5,000-draw RMSE/MAE intervals for pooled development,
+terminal, extreme, and adequately clustered state tests without revising the
+point protocol or promotion decision. It also records post hoc 2019-exclusion
+and fixed-2012--2018-county point checks; neither is a new selection gate.

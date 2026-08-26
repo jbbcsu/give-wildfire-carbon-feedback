@@ -1,0 +1,156 @@
+schema_version = 1
+record_id = "spei_source_decision_20260826"
+verified_date = "2026-08-26"
+status = "source_metadata_reviewed_primary_route_selected_no_large_download"
+decision = "Compute the primary SPEI fields from already acquired source-consistent daily precipitation and temperature. Keep NOAA nClimGrid-Monthly SPEI and SPEIbase 2.11 outside terminal predictive scoring as retrospective checks only."
+contract = "config/spei_competitor_v1.toml"
+
+[literature.original_spei]
+citation = "Vicente-Serrano, Begueria, and Lopez-Moreno (2010), A Multiscalar Drought Index Sensitive to Global Warming: The Standardized Precipitation Evapotranspiration Index."
+doi = "https://doi.org/10.1175/2009JCLI2909.1"
+method_relevance = "Defines accumulated precipitation minus potential evapotranspiration and the log-logistic SPEI transformation."
+
+[literature.spei_revisited]
+citation = "Begueria et al. (2014), Standardized precipitation evapotranspiration index revisited: parameter fitting, evapotranspiration models, tools, datasets and drought monitoring."
+doi = "https://doi.org/10.1002/joc.3887"
+method_relevance = "Documents sensitivity to PET formulation and supports the unbiased probability-weighted-moment fit for the log-logistic distribution."
+
+[literature.hargreaves_samani]
+citation = "Hargreaves and Samani (1985), Reference Crop Evapotranspiration from Temperature."
+doi = "https://doi.org/10.13031/2013.26773"
+method_relevance = "Temperature-and-extraterrestrial-radiation reference ET formulation selected because its required inputs exist locally and consistently for both diagnostics."
+
+[literature.speibase]
+citation = "Begueria, Vicente-Serrano, and Angulo-Martinez (2010), A Multiscalar Global Drought Dataset: The SPEIbase."
+doi = "https://doi.org/10.1175/2010BAMS2988.1"
+method_relevance = "Primary description of the gridded SPEIbase concept; the live CSIC page governs the current 2.11 inputs, coverage, and license reviewed here."
+
+[literature.fao56]
+citation = "Allen et al. (1998), Crop Evapotranspiration: Guidelines for Computing Crop Water Requirements, FAO Irrigation and Drainage Paper 56."
+url = "https://www.fao.org/4/x0490e/x0490e00.htm"
+method_relevance = "Authoritative extraterrestrial-radiation calculations and the fuller Penman-Monteith sensitivity boundary."
+
+[software.spei_r]
+version = "1.8.1"
+verified_source = "https://cran.r-project.org/package=SPEI"
+manual = "https://stat.ethz.ch/CRAN/web/packages/SPEI/SPEI.pdf"
+source_code = "https://github.com/sbegueria/SPEI/blob/master/R/spei.R"
+source_repository_head_reviewed = "6d3c8ba605c7609006cbff44e986f1da69a82c57"
+license = "GPL-2 as stated by the current CRAN package page"
+relevance = "Reference behavior is three-parameter log-logistic with unbiased PWM by default and explicit ref.start/ref.end support. The package is not installed in the project environment, so no numerical implementation is claimed here."
+
+[local_inputs.us_nclimgrid_daily]
+source = "NOAA NCEI nClimGrid-Daily v1.0.0"
+source_id = "nclimgrid_daily_v1_0_0_20220829"
+doi = "https://doi.org/10.25921/c4gt-r169"
+local_root = "data/raw/us_county/nclimgrid_daily"
+local_inventory = "All 468 monthly files for 1981-2019 were present when reviewed; exact file identities remain governed by the existing nClimGrid acquisition receipts."
+variables_reviewed = ["prcp", "tavg", "tmax", "tmin"]
+units_reviewed = ["millimeter", "degree_Celsius"]
+example_provenance = "data/provenance/nclimgrid_daily_198101.toml"
+license_status = "U.S. federal government data; reviewed file says no restrictions; SPDX NOASSERTION"
+large_download_needed = false
+
+[local_inputs.global_gswp3_w5e5]
+source = "ISIMIP3a GSWP3-W5E5 atmospheric climate input data v1.3"
+source_id = "isimip3a_gswp3_w5e5_obsclim_v1_3"
+doi = "https://doi.org/10.48364/ISIMIP.982724.3"
+official_description = "https://www.isimip.org/gettingstarted/input-data-bias-adjustment/details/110/"
+local_root = "data/raw/isimip3a_gswp3_w5e5_v1_3"
+local_inventory = "The four 1981-2019 source chunks for each of pr, tas, tasmax, and tasmin were present with exact SHA-512 identities in the existing provenance record."
+variables_reviewed = ["pr", "tas", "tasmax", "tasmin"]
+units_reviewed = ["kg m-2 s-1", "K"]
+provenance = "data/provenance/isimip3a_daily_climate_plan.toml"
+license = "CC0-1.0"
+large_download_needed = false
+
+[published.noaa_nclimgrid_monthly_spei]
+landing_page = "https://www.drought.gov/data-maps-tools/us-gridded-standardized-precipitation-index-spei-nclimgrid-monthly"
+directory = "https://www.ncei.noaa.gov/pub/data/nidis/indices/nclimgrid-monthly/"
+readme = "https://www.ncei.noaa.gov/pub/data/nidis/indices/nclimgrid-monthly/nidis_nclimgrid_readme_c20220520.txt"
+access = "Open HTTPS NetCDF; rolling period-of-record objects"
+version_identity = "No immutable semantic version; reviewed current objects were regenerated 2026-08-04"
+coverage = "January 1895 to present, approximately 5 km CONUS"
+pet_method = "Thornthwaite equation, verified in the current PET NetCDF header"
+calibration = "1895-2014, verified in current PET and Pearson three-month NetCDF headers"
+distributions = ["pearson_type_iii", "gamma"]
+candidate_scales_months = [1, 3, 6]
+license = "U.S. federal government public-domain status; product does not state an SPDX identifier, so record NOASSERTION rather than silently relabeling CC0"
+role = "retrospective_implementation_check_only_not_terminal_score"
+rejection_reason = "The fixed calibration includes 2012-2014 climate from the U.S. terminal holdout and its Thornthwaite PET is not the locked primary PET formulation. The six 1/3/6-month Pearson/gamma files total 13,878,714,816 bytes, so they were not downloaded."
+metadata_inspection = "HTTP HEAD plus a bounded first-MiB NetCDF/HDF5 header read; no full object was acquired"
+
+[[published.noaa_nclimgrid_monthly_spei.reviewed_objects]]
+role = "pet"
+url = "https://www.ncei.noaa.gov/pub/data/nidis/indices/nclimgrid-monthly/pet/nclimgrid-pet.nc"
+size_bytes = 1736974933
+
+[[published.noaa_nclimgrid_monthly_spei.reviewed_objects]]
+role = "spei_03_pearson"
+url = "https://www.ncei.noaa.gov/pub/data/nidis/indices/nclimgrid-monthly/spei-pearson/nclimgrid-spei-pearson-03.nc"
+size_bytes = 2326108180
+
+[published.speibase]
+official_page = "https://spei.csic.es/database.html"
+version = "2.11"
+version_verified_on_live_page = true
+input = "CRU TS 4.09 precipitation and FAO-56 Penman-Monteith PET"
+coverage = "January 1901 through December 2024"
+grid = "0.5 degree monthly"
+scales_months = "1 through 48"
+distribution = "log_logistic"
+software = "SPEI R package 1.8.1"
+access = "Open HTTPS NetCDF"
+license = "Open Database License 1.0 for the database and Database Contents License for contents, as stated by the live official page"
+public_generation_repository = "https://github.com/sbegueria/SPEIbase"
+public_generation_repository_head_reviewed = "df64af9cf3177540bebd68f3e06857ee22cd75ca"
+repository_version_reviewed = "2.10"
+repository_version_gap = "The public repository still documents CRU TS 4.08 and SPEIbase 2.10 while the live files are 2.11."
+calibration_assessment = "The v2.11 NetCDF header does not declare a reference subset. The public v2.10 compute code calls SPEI::spei without ref.start/ref.end, whose documented default fits the supplied full record. Full-record 1901-2024 calibration for v2.11 is therefore a strong but explicitly unverified inference; the code-version gap alone prevents a prospective terminal role."
+role = "retrospective_pet_and_implementation_sensitivity_only_not_terminal_score"
+rejection_reason = "It is a CRU-based retrospective field rather than a transform of the source-consistent daily panel weather, likely uses later climate in its fit, and its public generation code lags the live product version."
+metadata_inspection = "Official live page, public source repository, HTTP HEAD, and a bounded first-MiB NetCDF/HDF5 header read; no full object was acquired"
+
+[[published.speibase.reviewed_objects]]
+scale_months = 1
+url = "https://spei.csic.es/spei_database_2_11/nc/spei01.nc"
+size_bytes = 382492827
+last_modified = "2025-06-24"
+
+[[published.speibase.reviewed_objects]]
+scale_months = 3
+url = "https://spei.csic.es/spei_database_2_11/nc/spei03.nc"
+size_bytes = 383495707
+last_modified = "2025-06-24"
+
+[[published.speibase.reviewed_objects]]
+scale_months = 6
+url = "https://spei.csic.es/spei_database_2_11/nc/spei06.nc"
+size_bytes = 382342026
+last_modified = "2025-06-24"
+
+[decision_boundary]
+primary_pet = "Hargreaves-Samani daily reference ET0"
+primary_calibration = "1982-2011, fitted once by grid cell/calendar month and frozen before the 2012 terminal holdout"
+primary_scales_months = [1, 3, 6]
+published_products_in_primary_comparison = false
+fit_or_rank_outcome_models = false
+causal_damage_or_scc_claim = false
+
+[local_coverage_audit]
+counts_role = "illustrative_preconstruction_counts_not_locked_continuous_panel_results"
+reviewed_inputs = [
+  "config/continuous_global_panel_1982_2016_v1.toml",
+  "data/interim/mirca_os_v2/irrigation_shares_2000.parquet",
+  "data/interim/common_support/maize_1982_1989_direct_view.parquet",
+  "data/interim/common_support/soy_1982_1989_direct_view.parquet",
+]
+method = "For each valid GGCMI calendar cell and regime, assign harvest year 1982 using the repository cross-year rule, subtract 90 days where applicable, then subtract five calendar months for SPEI-6. Intersect pre-1981 requirements with positive MIRCA regime share and the current early direct/scPDSI common-support keys."
+primary_season_maize_common_rows_requiring_pre1981 = 16
+primary_season_maize_observed_yield_rows_requiring_pre1981 = 15
+primary_season_soy_common_rows_requiring_pre1981 = 0
+preplant90_maize_common_rows_requiring_pre1981 = 444
+preplant90_maize_observed_yield_rows_requiring_pre1981 = 82
+preplant90_soy_common_rows_requiring_pre1981 = 29
+preplant90_soy_observed_yield_rows_requiring_pre1981 = 9
+decision = "No large download for the primary: apply the algorithmic antecedent-coverage rule and remove every affected key from every family through the exact master support intersection. Start the global preplant90 secondary in 1983; preserving its 1982 support would require a separately reviewed pre-1981 climate acquisition. Recompute the illustrative counts against the continuous-panel candidates and hash the resulting coverage receipt before construction."

@@ -347,6 +347,7 @@ def build_panel(
                 "season_start": season.season_start,
                 "season_end": season.season_end,
                 "calendar_source_id": season.calendar_source_id,
+                "calendar_vintage": season.calendar_vintage,
                 "calendar_role": season.calendar_role,
                 "calendar_boundary_rule": season.boundary_rule,
                 "stage_definition": season.stage_definition,

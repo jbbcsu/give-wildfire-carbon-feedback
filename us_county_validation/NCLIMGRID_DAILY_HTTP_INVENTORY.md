@@ -32,3 +32,10 @@ still be checked against the pinned byte length, hashed locally with SHA-512,
 opened and schema-validated, and checked for its exact daily calendar coverage.
 Only those content-level checks can support a reviewed acquisition record and
 scientific use. This catalog does not authorize a bulk download.
+
+The project owner subsequently authorized the separate raw-data acquisition
+and Dropbox storage. That authorization does not turn this HTTP catalog into a
+content checksum. The bounded, content-validating implementation, exact
+storage footprint, resume semantics, local-manifest contract, and commands are
+documented in
+[NCLIMGRID_DAILY_BULK_ACQUISITION.md](NCLIMGRID_DAILY_BULK_ACQUISITION.md).

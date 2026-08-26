@@ -48,10 +48,12 @@ test suite locks the Cuming County 2012 values against NOAA's county API.
 An all-key comparison against the acquired 2019 TIGER/Line county inventory
 finds 3,106 exact matches among 3,107 keys. Transformed NOAA key `24511` is
 absent from TIGER, while TIGER key `51678` is absent from NOAA. Their causes
-are not guessed. Full-panel extraction remains unauthorized until an
-authoritative crosswalk or explicit exclusion/support-loss rule is recorded.
-Every extraction must instead supply a validated county inventory; the current
-bounded inventory contains only stable Cuming County GEOID `31039`.
+are not guessed. The implemented full-panel route resolves this conservatively:
+it extracts only the 799 direct-practice counties that already passed the
+separate historical-geography gate, so neither unmatched key can enter the
+estimation input. The pinned bulk file then supplies 383,520 complete monthly
+PDSI rows for those counties over 1980--2019. This support restriction is not
+an inferred crosswalk and does not establish national representativeness.
 
 NOAA states that its PDSI uses a 1931--1990 calibration and does not include
 man-made changes. Consequently, this is a meteorological water-balance index,
@@ -59,37 +61,46 @@ not observed irrigation, soil moisture, or water applied. It can be evaluated
 separately in high-rainfed and mixed/irrigated samples, but a coefficient
 difference is not automatically an identified irrigation-adaptation effect.
 
-A bounded real execution now extracts all 480 Cuming County months from
-1980--2019 and constructs 20 crop-calendar windows for 1981 corn and soybean
+A bounded real execution first extracted all 480 Cuming County months from
+1980--2019 and constructed 20 crop-calendar windows for 1981 corn and soybean
 under the fixed-primary and broad-window calendars. All twelve 1981 bulk
 values independently match NOAA's county API. The derived file identities and
 checksums are recorded in
-`data/provenance/nclimdiv_county_pdsi_cuming_smoke.toml`. This establishes the
-source-key and calendar machinery only; it is not a crop-yield relationship.
+`data/provenance/nclimdiv_county_pdsi_cuming_smoke.toml`. That smoke establishes
+the source-key and calendar machinery only. The subsequent locked corn/soy
+join contains 118,610 crop-calendar index-window rows on the same 23,722
+practice-specific level outcomes used by the direct-weather diagnostic; its
+source receipt is
+`outputs/us_county/competing_moisture_predictive_v1/pdsi_source_validation.json`.
+Neither construction is itself a crop-yield relationship.
 
-## SPEI route and current storage gate
+## SPEI route and calibration resolution
 
 NOAA/NIDIS publishes nClimGrid-Monthly SPEI at approximately 5 km for 1-, 3-,
 and 6-month (among other) scales, with gamma and Pearson Type III fitting and
-a published 1895--2014 base period. The exact current HTTP identities for the
-six 1/3/6-month files are pinned in
+a published 1895--2014 base period. Current PET and three-month NetCDF headers
+were checked and confirm the 1895--2014 calibration; the PET header identifies
+Thornthwaite. The exact current HTTP identities for the six 1/3/6-month files
+are pinned in
 `data/provenance/nclimgrid_monthly_spei_candidates.toml`.
 
-Those six objects total 13,878,714,816 bytes. They are not yet downloaded or
-decoded. The next acquisition gate is to validate one file's internal
-variable, grid, calendar, missing-value, calibration, and license metadata and
-prove that the existing county-polygon nClimGrid weights match its coordinates
-exactly. Until that gate passes, SPEI is a metadata-pinned candidate, not an
-available county predictor. Pearson Type III is the primary candidate and
-gamma is a drought-definition sensitivity; this ordering does not authorize
-choosing whichever produces larger damages.
+Those six objects total 13,878,714,816 bytes and were not downloaded. More
+importantly, their calibration includes 2012--2014 climate from the terminal
+holdout in `us_competing_moisture_predictive_v1.toml`. The published field is
+therefore ineligible for that terminal comparison regardless of storage. It
+may remain a bounded retrospective implementation check; the Pearson/gamma
+ordering below is legacy metadata for that check, not a primary predictive
+choice.
 
 The original SPEI formulation is based on accumulated precipitation minus
-potential evapotranspiration and a fitted probability distribution. NOAA's
-operational product is useful as an independent historical benchmark. Future
-global SCC paths still require an index recomputed from matched baseline and
-CO2-pulse climate/hydrology inputs under one frozen calibration, because the
-historical U.S. NOAA field is not a future global forcing.
+potential evapotranspiration and a fitted probability distribution. The new
+primary design in `config/spei_competitor_v1.toml` instead computes
+source-consistent SPEI from the already acquired nClimGrid-Daily precipitation
+and temperature, using daily Hargreaves-Samani reference ET0, 1/3/6-month
+accumulations, a log-logistic unbiased-PWM fit by grid cell and calendar month,
+and a frozen 1982--2011 calibration. See `SPEI_COMPETITOR_DESIGN.md`. This is a
+historical predictive competitor only; it does not authorize a future forcing,
+damage calculation, or SCC use.
 
 ## Crop-calendar features
 
@@ -103,27 +114,36 @@ The builder records the window mean, minimum, and day-equivalent counts below
 family-specific moderate/severe thresholds. “Day-equivalent” means a monthly
 index value is held constant only for weighting the days of that calendar
 month; it is not a claim that daily PDSI/SPEI was observed. Missing months fail
-the whole eligible window. The primary and broad NASS-calendar roles stay
-separate.
+the whole eligible window. This overlap rule is retrospective and does not make
+the exposure daily-exact: a monthly value contains the complete month's
+weather, including days outside a partial planting or maturity boundary. A
+month-end-only timing sensitivity under the replacement contract avoids
+post-window weather at the cost of omitting partial boundary-month exposure;
+PDSI and SPEI must use the same rule within a comparison. The primary and broad
+NASS-calendar roles stay separate.
 
 ## Leakage and common-holdout gates
 
-The NOAA PDSI 1931--1990 and SPEI 1895--2014 calibration windows are fixed
-independently of crop outcomes. No yield or final-holdout statistic may enter
-index construction. For the final temporal evaluation, the holdout must start
-after the declared calibration endpoint unless a separately implemented
-training-only index calibration is used. Every model-family comparison must
-then inner-join to the same outcome keys and preserve the same spatial,
-temporal, and extreme split labels. Scale, distribution, threshold, and model
-tuning occur only within training data.
+The NOAA PDSI 1931--1990 and published NOAA SPEI 1895--2014 calibration windows
+are fixed independently of crop outcomes, but only PDSI ends before the 2012
+terminal holdout. The published SPEI path must fail that gate. The replacement
+SPEI calibration is outcome-blind 1982--2011 and is applied unchanged to the
+2012+ climate. Every model-family comparison must inner-join direct weather,
+PDSI, and each reported SPEI scale to the same outcome keys and preserve the
+same spatial, temporal, and extreme split labels. No yield or holdout statistic
+may enter index construction or scale choice.
 
-The executable lock is
-`config/us_county_drought_predictor_contract_v1.toml`. All current outputs
-remain historical validation inputs with response estimation, damages, and
-SCC use set to false.
+The executable lock for the existing PDSI and published-NOAA benchmark path is
+`config/us_county_drought_predictor_contract_v1.toml`. The replacement primary
+method lock is `config/spei_competitor_v1.toml`. All current outputs remain
+historical validation inputs with response estimation, damages, and SCC use
+set to false.
 
 `validate_competing_moisture_family_support.py` provides the last pre-fit
-gate. It requires one unique direct-weather row and one unique row from each
+gate for PDSI and the legacy published-NOAA Pearson/gamma schema. It is not yet
+a computed-Hargreaves/log-logistic SPEI gate; extending it under the new
+contract is an explicit implementation prerequisite. For its supported inputs,
+it requires one unique direct-weather row and one unique row from each
 candidate drought family for exactly the same county/crop/year/practice keys,
 preserves a single common spatial/temporal/extreme fold table, keeps each
 county in one spatial fold, and requires the temporal holdout to be a terminal
@@ -134,16 +154,14 @@ holdout. It writes only a support audit; it does not fit or rank a model.
 
 ## Global robustness boundary
 
-The existing CRU scPDSI machinery remains the global historical robustness
-route: it maps monthly 0.5-degree scPDSI to crop stages without interpolation
-and fails incomplete crop years. Its current real execution is still only a
-ten-latitude maize/rainfed smoke. NOAA county PDSI and NOAA/NIDIS SPEI are U.S.
-benchmarks and cannot be projected globally. A global SPEI response requires
-versioned precipitation and physically consistent PET inputs on the crop grid,
-one frozen historical calibration, and separate baseline/pulse calculation
-within each matched climate realization. A PDSI/scPDSI or SPEI response then
-replaces, rather than adds to, the direct precipitation/temperature response
-for the same water-stress pathway.
+The existing CRU scPDSI machinery remains a global historical benchmark.
+NOAA county PDSI and NOAA/NIDIS SPEI remain U.S. products. The global SPEI
+competitor now has a source-consistent historical design using the already
+acquired ISIMIP3a GSWP3-W5E5 precipitation and daily temperatures, the same
+Hargreaves/log-logistic method and 1982--2011 calibration, and the existing
+GGCMI/MIRCA calendar-allocation lineage. It remains a predictive diagnostic
+only. PDSI/scPDSI or one SPEI scale replaces, rather than adds to, direct
+precipitation for the moisture family.
 
 ## Reproduction commands
 

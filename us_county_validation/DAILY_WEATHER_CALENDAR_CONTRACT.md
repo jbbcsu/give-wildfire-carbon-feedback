@@ -2,10 +2,10 @@
 
 ## Purpose and present boundary
 
-This contract defines the next reproducible bridge from the selected NASS
-county outcome support to daily precipitation and temperature features. It is
-not an estimated climate-yield relationship. No county precipitation feature,
-coefficient, damage, or SCC result is currently implied.
+This contract defines the reproducible bridge from selected NASS county
+outcome support to daily precipitation and temperature features. The complete
+corn/soy bridge now exists, but it is not an estimated causal climate-yield
+relationship. No coefficient, damage, or SCC result is implied.
 
 The primary historical weather candidate is now NOAA NCEI nClimGrid-Daily,
 not gridMET alone. The reason is methodological: gridMET remains useful for
@@ -18,7 +18,7 @@ least one weather-product robustness comparison.
 
 | Input | Audited state | Permitted use |
 |---|---|---|
-| NOAA nClimGrid-Daily v1.0.0 | January and May--October 1981 full-CONUS objects acquired and independently pinned; growing-season set has 184 exact daily steps; `prcp`, `tmin`, `tmax`, and `tavg` schema validated | Primary daily weather source; remaining monthly objects still require independent pinning |
+| NOAA nClimGrid-Daily v1.0.0 | All 468 monthly 1981--2019 objects are acquired and independently content-pinned; each passes HTTP identity, local SHA-512, schema, units, day-label, and exact-calendar checks | Primary daily weather source; 419 county weights, 39 year partitions, and the exact 23,722-row corn/soy assembly pass downstream receipts |
 | gridMET | 2018 precipitation object pinned and decoded | Historical weather-product robustness; not sole trend evidence |
 | Daymet V4 | Official dataset/DOI identified; no exact local object acquired | Candidate 1 km robustness after license/object/size review |
 | USDA NASS 2010 usual dates | Exact 51-page PDF acquired/checksummed and relevant tables visually inspected; tested parser preserves 130 state/crop definitions and emits 10,920 validated 1981--2022 primary/broad rows | Fixed state-level calendar construction, not realized annual phenology |

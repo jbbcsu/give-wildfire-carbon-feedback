@@ -1,0 +1,194 @@
+schema_version = 1
+contract_id = "spei_competitor_v1"
+reference_date = "2026-08-26"
+status = "source_and_method_locked_bounded_engineering_pipeline_implemented_gates_closed"
+description = "Leakage-safe historical SPEI competitor design for the U.S. county and global maize/soy predictive diagnostics."
+
+# All production/scientific-use gates remain closed. A bounded engineering
+# chunk may be built only to verify the locked implementation and receipts; it
+# does not authorize a full-grid run, crop outcome fit, ranking, or downstream use.
+index_construction_authorized = false
+predictive_diagnostic_fit_authorized = false
+coefficient_export_authorized = false
+causal_interpretation_authorized = false
+damage_calculation_authorized = false
+future_projection_authorized = false
+scc_authorized = false
+selection_by_scc_authorized = false
+
+[source_decision]
+primary_route = "compute_from_source_consistent_daily_weather"
+source_decision_provenance = "data/provenance/spei_source_decision_20260826.toml"
+published_noaa_role = "retrospective_implementation_check_only_not_terminal_score"
+published_speibase_role = "retrospective_pet_and_implementation_sensitivity_only_not_terminal_score"
+large_download_required_for_primary = false
+reason = "The local daily weather supplies precipitation and temperature consistently for both panels. NOAA's rolling nClimGrid SPEI is calibrated through 2014, which overlaps the 2012 U.S. terminal holdout. SPEIbase 2.11 is a CRU-based field that appears to use full-record fitting, while its public generation repository still documents 2.10; neither product is a defensible prospective terminal predictor here."
+
+[method]
+index_name = "spei_hargreaves_loglogistic_ubpwm"
+water_balance = "monthly_sum_precipitation_mm_minus_monthly_sum_reference_et0_mm"
+pet_method = "hargreaves_samani_1985_daily"
+pet_equation = "ET0_mm_day = max(0, 0.0023 * 0.408 * Ra_MJ_m2_day * (Tmean_C + 17.8) * sqrt(max(Tmax_C - Tmin_C, 0)))"
+extraterrestrial_radiation_method = "fao56_daily_from_cell_center_latitude_and_day_of_year"
+tmean_definition = "arithmetic_mean_of_daily_tmin_and_tmax_not_source_tavg_or_tas"
+temperature_rule = "fail_if_tmax_is_less_than_tmin_beyond_float_tolerance"
+pet_interpretation = "reference_evaporative_demand_proxy_not_actual_evapotranspiration_or_soil_moisture"
+monthly_aggregation = "sum_complete_source_days_then_compute_P_minus_ET0"
+accumulation_scales_months = [1, 3, 6]
+accumulation_kernel = "rectangular_right_aligned_including_current_month"
+distribution = "log_logistic_three_parameter"
+fit_method = "unbiased_probability_weighted_moments"
+fit_scope = "separately_by_native_grid_cell_and_calendar_month_for_each_scale"
+standardization = "inverse_standard_normal_cdf_of_fitted_log_logistic_cdf_negative_is_dry"
+cdf_probability_clip_epsilon = 1e-12
+tail_clip_audit_required = true
+scales_reported_separately = true
+scales_selected_by_outcome = false
+scales_stacked = false
+spatial_order = "compute_and_standardize_on_native_grid_before_county_or_crop_area_aggregation"
+missing_rule = "fail_cell_month_and_drop_only_through_exact_common_support_no_imputation"
+degenerate_fit_rule = "fail_cell_calendar_month_when_thirty_finite_calibration_values_are_not_available_or_the_fit_is_degenerate"
+irrigation_in_index = false
+
+[calibration]
+start_year = 1982
+end_year = 2011
+minimum_years_per_calendar_month = 30
+warmup_source_start_year = 1981
+terminal_holdout_start_year = 2012
+parameter_use = "fit_once_without_outcomes_and_apply_unchanged_to_all_analysis_months"
+terminal_role = "prospective_index_transform_for_2012_and_later_climate"
+preterminal_role = "fixed_full-development-climatology_transform_not_a_forecast-as-of-1982"
+post_holdout_climate_in_calibration_allowed = false
+outcomes_in_calibration_allowed = false
+
+[features]
+primary_summary = "day_weighted_season_mean"
+secondary_summaries = [
+  "day_weighted_preplant90_mean",
+  "day_weighted_stage1_mean",
+  "day_weighted_stage2_mean",
+  "day_weighted_stage3_mean",
+]
+descriptive_only_summaries = [
+  "season_monthly_minimum",
+  "season_day_equivalents_at_or_below_minus_1",
+  "season_day_equivalents_at_or_below_minus_1_5",
+]
+monthly_overlap_rule = "hold_each monthly SPEI value constant only to day-weight its exact overlap with a crop window; do not call it a daily observation"
+temporal_availability_role = "retrospective_crop_season_exposure_not_an_operational_within_season_forecast"
+boundary_month_caveat = "An overlap-weighted monthly value contains the complete calendar month's weather, including days outside a partial boundary window. Disclose this approximation and never describe it as information available before that month ended."
+month_end_sensitivity = "use only SPEI observations whose month-end timestamp lies inside the crop window; this prevents post-window weather at the cost of omitting partial boundary-month exposure"
+preplant_days = 90
+stage_fractions = [0.0, 0.3, 0.7, 1.0]
+moderate_threshold = -1.0
+severe_threshold = -1.5
+
+[us_county]
+weather_source_id = "nclimgrid_daily_v1_0_0_20220829"
+weather_provenance_smoke = "data/provenance/nclimgrid_daily_198101.toml"
+weather_root = "data/raw/us_county/nclimgrid_daily"
+required_variables = ["prcp", "tavg", "tmax", "tmin"]
+source_year_start = 1981
+source_year_end = 2019
+analysis_level_year_start = 1982
+analysis_level_year_end = 2019
+terminal_holdout_start_year = 2012
+spatial_aggregation = "existing_fixed_county_polygon_weights_after_grid_cell_SPEI"
+calendar_source_id = "usda_nass_field_crops_usual_dates_2010"
+calendar_role = "fixed_primary_with_prespecified_broad_window_sensitivity_kept_separate"
+level_keys = ["county_geoid", "outcome_crop", "harvest_year", "irrigation_practice"]
+first_difference_rule = "consecutive_years_only_with_shared_endpoint_purging_in_every_test"
+comparison_families = ["direct_precipitation", "pdsi", "spei_1", "spei_3", "spei_6"]
+
+[global]
+weather_source_id = "isimip3a_gswp3_w5e5_obsclim_v1_3"
+weather_provenance = "data/provenance/isimip3a_daily_climate_plan.toml"
+weather_root = "data/raw/isimip3a_gswp3_w5e5_v1_3"
+required_variables = ["pr", "tas", "tasmax", "tasmin"]
+precipitation_conversion = "kg_m2_s_to_mm_day_multiply_86400"
+temperature_conversion = "kelvin_to_celsius_subtract_273_15"
+source_year_start = 1981
+source_year_end = 2019
+analysis_level_year_start = 1982
+analysis_level_year_end = 2016
+terminal_holdout_start_year = 2012
+native_grid = "0.5_degree_lat_lon"
+calendar_source = "GGCMI Phase 3 2015soc crop calendars already locked by the continuous global panel"
+irrigation_allocation = "compute calendar-specific SPEI basis within noirr and firr before fixed outcome-independent MIRCA-OS v2 area weighting"
+level_keys_after_allocation = ["harvest_year", "lat", "lon_360", "crop"]
+first_difference_rule = "consecutive_years_only_with_shared_endpoint_purging_in_every_test_and_no_1989_to_2012_bridge"
+comparison_families = ["direct_precipitation", "scpdsi", "spei_1", "spei_3", "spei_6"]
+terminal_ranking_eligible_families = ["direct_precipitation", "spei_1", "spei_3", "spei_6"]
+scpdsi_temporal_role = "retrospective_context_only_full_record_calibration_not_eligible_for_terminal_promotion"
+legacy_episode_caveat = "Do not describe an early-1982-1989 versus later-2012-2016 score as prospectively transformed; the 1982-2011 climatology uses climate after the early episode. Use the continuous 1982-2016 panel and reserve 2012-2016 as the terminal score."
+source_start_month = "1981-01"
+antecedent_coverage_rule = "For every crop-window key and scale k, derive the earliest required water-balance month from the window and right-aligned k-month accumulation. If it precedes source_start_month, exclude that level key from every family in that comparison; never partial-fill or renormalize irrigation weights."
+current_early_support_observation = "Illustrative pre-construction audit: SPEI-6 season coverage excludes 16 current 1982 maize common-support cells, 15 with observed yield, and no soybean cells. Recompute; do not lock these counts as the continuous-panel result."
+preconstruction_coverage_receipt_required = true
+preconstruction_coverage_receipt_hash_required = true
+preplant90_global_year_start = 1983
+preplant90_boundary = "The 1982 preplant90 SPEI-6 window reaches 1980 for some calendars. Keep the global preplant90 secondary at 1983-2016 unless pre-1981 source-consistent weather is separately acquired and validated."
+
+[common_support]
+mode = "one_master_inner_intersection_across_every_reported_moisture_family_and_scale"
+outcomes_equal_exactly = true
+calendar_lineage_equal_exactly = true
+allocation_weights_equal_exactly = true
+common_temperature_and_heat_controls_equal_exactly = true
+split_labels_equal_exactly = true
+test_key_hashes_equal_exactly = true
+first_difference_endpoint_purging_required = true
+support_loss_audit_required = true
+family_specific_imputation_allowed = false
+
+[mutual_exclusivity]
+maximum_moisture_families_per_model = 1
+maximum_spei_scales_per_model = 1
+direct_precipitation_in_spei_model = false
+pdsi_or_scpdsi_in_spei_model = false
+raw_pet_in_any_outcome_model = false
+common_temperature_and_heat_controls_allowed_in_every_model = true
+family_effects_may_be_summed = false
+
+[penman_monteith_sensitivity]
+status = "future_nonblocking_sensitivity_not_acquired"
+role = "same_source_same_calibration_pet_sensitivity_only"
+global_additional_variables = ["rsds", "rlds", "hurs_or_huss", "sfcWind", "ps"]
+promotion_by_damage_or_scc = false
+note = "FAO-56 Penman-Monteith is the preferred fuller-data sensitivity. Those drivers are not present locally for both panels; acquiring them is not needed to implement the locked Hargreaves primary."
+
+[bounded_construction]
+status = "engineering_verification_only_not_production_index_authorization"
+runner = "scripts/build_spei_grid_chunk.py"
+maximum_native_grid_cells_per_invocation = 64
+full_grid_invocation_allowed = false
+source_sha512_recomputation_required = true
+source_file_set_exactness_required = true
+source_daily_calendar_exactness_required = true
+source_variable_units_exactness_required = true
+source_coordinate_alignment_required = true
+numerical_environment_in_run_signature_required = true
+numerical_environment_in_checkpoint_identity_required = true
+environment_mismatch_rule = "fail_closed_and_require_a_fresh_output_root"
+numerical_environment_fields = ["python_implementation", "python_version", "python_cache_tag", "platform_system", "platform_release", "platform_machine", "byteorder", "numpy", "pandas", "xarray", "h5py", "hdf5", "h5netcdf"]
+nclimgrid_checkpoint = "one_calendar_year"
+global_checkpoint = "one_calendar_year_within_each_decadal_source_file"
+source_start_date = "1981-01-01"
+source_end_date = "2019-12-31"
+expected_daily_steps = 14244
+expected_monthly_steps = 468
+require_at_least_one_fully_fitted_cell = true
+required_receipts = ["contract_receipt.json", "source_receipt.json", "output_receipt.json"]
+output_format = "netcdf4_h5netcdf"
+output_role = "bounded_native_grid_engineering_diagnostic_only"
+outcome_input_allowed = false
+imputation_allowed = false
+
+[implementation_gates]
+completed_scaffold = "scripts/spei_construction_primitives.py implements tested FAO-56 radiation, daily Hargreaves ET0, complete-month water balance, and right-aligned 1/3/6 accumulation"
+stage_1 = "completed: independently implemented and tested calendar-month generalized-logistic UBPWM fitting, probability-tail audit, and frozen-parameter application against a CRAN SPEI 1.8.1 numerical oracle"
+stage_2 = "implemented: fail-closed resumable annual checkpoints, exact source/contract/output receipts, and bounded native-grid NetCDF construction; one U.S. and one global chunk may run only after tests and independent code review pass"
+stage_3 = "generate and hash the antecedent-coverage receipt on continuous-panel candidates, then construct U.S. county and global crop-calendar feature candidates with lineage and missingness receipts"
+stage_4 = "assemble separate family views on the exact master common support and verify identical split-key hashes"
+stage_5 = "obtain separate authorization before any outcome fit"

@@ -1,0 +1,383 @@
+{
+  "aggregate_metric_comparison": {
+    "all_exact_integer_boolean_fields_match": true,
+    "comparison_tolerance": 2e-12,
+    "maximum_absolute_discrepancy_by_field": {
+      "correlation": 1.0824674490095276e-15,
+      "mae": 3.3306690738754696e-16,
+      "r2_oos": 1.9984014443252818e-15,
+      "rmse": 4.440892098500626e-16,
+      "smallest_retained_to_largest_singular_value_ratio": 8.881784197001252e-16
+    },
+    "metric_rows_compared": 120
+  },
+  "analysis_role": "independent_audit_of_noncausal_predictive_diagnostic_only",
+  "artifact_content_audit": {
+    "aggregate_metric_rows": 120,
+    "causal_effect_estimated": false,
+    "coefficient_fields_present": false,
+    "damage_calculated": false,
+    "required_disclaimer_matches_protocol": true,
+    "row_prediction_fields_present": false,
+    "scc_calculated": false
+  },
+  "discrepancies": [],
+  "hash_audit": {
+    "all_selected_files_match_internal_hash_bindings": true,
+    "sha256": {
+      "audit_script": "ec6c08015a8dd570d4efb1c7b5487d48ff08e0683899d06be7ad4251a390a4d9",
+      "audit_test": "e1ce7c20f5502a7e5a899b05aead1a2044d54e44942147c70ced62ec3af13051",
+      "calendar_raw": "f3ed5d2932b3f709483f7d0064733d8dab9d783baa56384328c49da7b633fcb8",
+      "calendar_receipt": "38e8c5bf19bfa433cec360bab1d6590c6da0415fa527db65c9d2862cb1a09686",
+      "common": "34f9b9c3d18169322f90bf9e7142d650659e5f162d7be222d33dbafdf0d7d965",
+      "direct_input": "8c649c84d33a12ba4c5c06b2e36faacc45606ec93f9b88cec4812b5b021cac45",
+      "direct_raw": "205a94ae92c12810026c9c5d0ac0fa3760e46ebc39669e528ba20a125a0c46d7",
+      "direct_receipt": "992371e452b0aa97f3dffce6e8f53ae2e2183e8754cfcd2b5a8bd5ae48563f2e",
+      "input_audit": "1b4aaa9547370dcc25d66927e923005942f006f57e0a633409d5dfb4aee6b7aa",
+      "pdsi_input": "88ddaf737f88ca74325db367f71eb9b8d5dcf37c71ac90e0fc21f56e13b94f61",
+      "pdsi_raw": "70237da1bc759144cbc9adaaab4f0c30f805f5deb526683a60edc75d84e971a6",
+      "pdsi_receipt": "31a03dd4fb8f41d1f11e35a4b5bf309dc9ffbdc0346ce99932cd90b0ad9534ce",
+      "protocol": "11ccd161c0f2f467e42b8ca9ecc1731b276db4edd52d77a9eb3931380ee70b2a",
+      "registered_builder": "9fd20926beca98526f12cfb5c02158cfa4f3014d4faf035c7499bac83c080948",
+      "registered_evaluator": "815cde686eb6758eeb3b2745b88b03b7cf723a1f7b19a459c7a61a57c4f03334",
+      "registered_validator": "9108f7ce81a3f71057fe0c7621fcd75fc56baaf482b59d8b0e191a39409eb57e",
+      "results": "12d32bec7b9ff6a74339123f95b9282263fdc7675280d9a019c1710dcaaf0b66",
+      "validation": "778e2fbc2f1dd2351eb0ad91bd1565a7bb7582d68c42b88434ab0c67f697d28c"
+    }
+  },
+  "independent_of_registered_builder_evaluator_validator": true,
+  "promotion_gate_comparison": {
+    "all_registered_summary_fields_match": true,
+    "maximum_absolute_discrepancy": 3.885780586188048e-16,
+    "outcomes": {
+      "corn_grain/irrigated": false,
+      "corn_grain/non_irrigated": false,
+      "soybeans/irrigated": true,
+      "soybeans/non_irrigated": true
+    },
+    "terminal_and_extreme_not_used_for_selection": true
+  },
+  "raw_rebuild": {
+    "all_common_levels_reconciled_to_bound_calendar": true,
+    "calendar_rows": 2808,
+    "common_consecutive_difference_rows": 20228,
+    "common_level_rows": 23722,
+    "direct_level_rows": 23722,
+    "exact_direct_pdsi_level_support": true,
+    "exact_practice_pairs_and_shared_exposures": true,
+    "pdsi_level_rows": 23722,
+    "precipitation_extreme_cutoffs": {
+      "corn_grain/irrigated": {
+        "lower_mm": 266.8191205118315,
+        "upper_mm": 606.6382097913463
+      },
+      "corn_grain/non_irrigated": {
+        "lower_mm": 266.8191205118315,
+        "upper_mm": 606.6382097913463
+      },
+      "soybeans/irrigated": {
+        "lower_mm": 268.6384712270838,
+        "upper_mm": 573.0045445460737
+      },
+      "soybeans/non_irrigated": {
+        "lower_mm": 268.6384712270838,
+        "upper_mm": 573.0045445460737
+      }
+    }
+  },
+  "required_disclaimer": "Predictive validation is not a causal climate-yield estimate and cannot be used as a damage function or SCC input.",
+  "split_and_preprocessing_audit": {
+    "all_candidate_columns_retained": true,
+    "all_designs_full_rank_under_registered_cutoff": true,
+    "maximum_absolute_training_scaled_mean": 3.212911285196772e-14,
+    "maximum_absolute_training_scaled_std_minus_one": 8.881784197001252e-15,
+    "method": "unpivoted_reduced_QR_then_triangular_solve; SVD_used_only_for_registered_rank_audit",
+    "minimum_smallest_retained_to_largest_singular_ratio": 0.04929675551512623,
+    "model_feature_columns": {
+      "controls_only": [
+        "d_stage1_tmean_c",
+        "d_stage2_tmean_c",
+        "d_stage3_tmean_c"
+      ],
+      "direct_quantity": [
+        "d_stage1_tmean_c",
+        "d_stage2_tmean_c",
+        "d_stage3_tmean_c",
+        "d_precip_mm"
+      ],
+      "direct_quantity_distribution": [
+        "d_stage1_tmean_c",
+        "d_stage2_tmean_c",
+        "d_stage3_tmean_c",
+        "d_precip_mm",
+        "d_cdd_max_days",
+        "d_wet_day_frequency",
+        "d_mean_wet_day_intensity_mm",
+        "d_rx1day_mm",
+        "d_rx5day_mm",
+        "d_precipitation_concentration_hhi",
+        "d_stage1_precip_share",
+        "d_stage2_precip_share"
+      ],
+      "pdsi_season_mean": [
+        "d_stage1_tmean_c",
+        "d_stage2_tmean_c",
+        "d_stage3_tmean_c",
+        "d_pdsi_season_mean"
+      ],
+      "pdsi_stage_sensitivity": [
+        "d_stage1_tmean_c",
+        "d_stage2_tmean_c",
+        "d_stage3_tmean_c",
+        "d_pdsi_preplant90_mean",
+        "d_pdsi_stage1_mean",
+        "d_pdsi_stage2_mean",
+        "d_pdsi_stage3_mean"
+      ]
+    },
+    "moisture_families_stacked": false,
+    "registered_relative_rank_cutoff": 1e-10,
+    "scaling_statistics_computed_from_training_rows_only": true,
+    "splits": {
+      "corn_grain/irrigated": {
+        "eligible_leave_state_out_groups": [
+          "CO",
+          "KS",
+          "ND",
+          "NE",
+          "SD"
+        ],
+        "splits": {
+          "development_leave_state_out/CO": {
+            "level_endpoints_disjoint": true,
+            "test_rows": 257,
+            "train_rows": 5242,
+            "train_rows_before_endpoint_purge": 5242,
+            "train_rows_purged_shared_level_endpoint": 0
+          },
+          "development_leave_state_out/KS": {
+            "level_endpoints_disjoint": true,
+            "test_rows": 1527,
+            "train_rows": 3972,
+            "train_rows_before_endpoint_purge": 3972,
+            "train_rows_purged_shared_level_endpoint": 0
+          },
+          "development_leave_state_out/ND": {
+            "level_endpoints_disjoint": true,
+            "test_rows": 498,
+            "train_rows": 5001,
+            "train_rows_before_endpoint_purge": 5001,
+            "train_rows_purged_shared_level_endpoint": 0
+          },
+          "development_leave_state_out/NE": {
+            "level_endpoints_disjoint": true,
+            "test_rows": 2495,
+            "train_rows": 3004,
+            "train_rows_before_endpoint_purge": 3004,
+            "train_rows_purged_shared_level_endpoint": 0
+          },
+          "development_leave_state_out/SD": {
+            "level_endpoints_disjoint": true,
+            "test_rows": 646,
+            "train_rows": 4853,
+            "train_rows_before_endpoint_purge": 4853,
+            "train_rows_purged_shared_level_endpoint": 0
+          },
+          "development_precipitation_extreme/tails": {
+            "level_endpoints_disjoint": true,
+            "test_rows": 1100,
+            "train_rows": 3211,
+            "train_rows_before_endpoint_purge": 4399,
+            "train_rows_purged_shared_level_endpoint": 1188
+          },
+          "terminal_temporal_same_counties/terminal": {
+            "level_endpoints_disjoint": true,
+            "test_rows": 434,
+            "train_rows": 5415,
+            "train_rows_before_endpoint_purge": 5499,
+            "train_rows_purged_shared_level_endpoint": 84
+          }
+        }
+      },
+      "corn_grain/non_irrigated": {
+        "eligible_leave_state_out_groups": [
+          "CO",
+          "KS",
+          "ND",
+          "NE",
+          "SD"
+        ],
+        "splits": {
+          "development_leave_state_out/CO": {
+            "level_endpoints_disjoint": true,
+            "test_rows": 257,
+            "train_rows": 5242,
+            "train_rows_before_endpoint_purge": 5242,
+            "train_rows_purged_shared_level_endpoint": 0
+          },
+          "development_leave_state_out/KS": {
+            "level_endpoints_disjoint": true,
+            "test_rows": 1527,
+            "train_rows": 3972,
+            "train_rows_before_endpoint_purge": 3972,
+            "train_rows_purged_shared_level_endpoint": 0
+          },
+          "development_leave_state_out/ND": {
+            "level_endpoints_disjoint": true,
+            "test_rows": 498,
+            "train_rows": 5001,
+            "train_rows_before_endpoint_purge": 5001,
+            "train_rows_purged_shared_level_endpoint": 0
+          },
+          "development_leave_state_out/NE": {
+            "level_endpoints_disjoint": true,
+            "test_rows": 2495,
+            "train_rows": 3004,
+            "train_rows_before_endpoint_purge": 3004,
+            "train_rows_purged_shared_level_endpoint": 0
+          },
+          "development_leave_state_out/SD": {
+            "level_endpoints_disjoint": true,
+            "test_rows": 646,
+            "train_rows": 4853,
+            "train_rows_before_endpoint_purge": 4853,
+            "train_rows_purged_shared_level_endpoint": 0
+          },
+          "development_precipitation_extreme/tails": {
+            "level_endpoints_disjoint": true,
+            "test_rows": 1100,
+            "train_rows": 3211,
+            "train_rows_before_endpoint_purge": 4399,
+            "train_rows_purged_shared_level_endpoint": 1188
+          },
+          "terminal_temporal_same_counties/terminal": {
+            "level_endpoints_disjoint": true,
+            "test_rows": 434,
+            "train_rows": 5415,
+            "train_rows_before_endpoint_purge": 5499,
+            "train_rows_purged_shared_level_endpoint": 84
+          }
+        }
+      },
+      "soybeans/irrigated": {
+        "eligible_leave_state_out_groups": [
+          "AR",
+          "KS",
+          "NE"
+        ],
+        "splits": {
+          "development_leave_state_out/AR": {
+            "level_endpoints_disjoint": true,
+            "test_rows": 980,
+            "train_rows": 2916,
+            "train_rows_before_endpoint_purge": 2916,
+            "train_rows_purged_shared_level_endpoint": 0
+          },
+          "development_leave_state_out/KS": {
+            "level_endpoints_disjoint": true,
+            "test_rows": 994,
+            "train_rows": 2902,
+            "train_rows_before_endpoint_purge": 2902,
+            "train_rows_purged_shared_level_endpoint": 0
+          },
+          "development_leave_state_out/NE": {
+            "level_endpoints_disjoint": true,
+            "test_rows": 1892,
+            "train_rows": 2004,
+            "train_rows_before_endpoint_purge": 2004,
+            "train_rows_purged_shared_level_endpoint": 0
+          },
+          "development_precipitation_extreme/tails": {
+            "level_endpoints_disjoint": true,
+            "test_rows": 780,
+            "train_rows": 2182,
+            "train_rows_before_endpoint_purge": 3116,
+            "train_rows_purged_shared_level_endpoint": 934
+          },
+          "terminal_temporal_same_counties/terminal": {
+            "level_endpoints_disjoint": true,
+            "test_rows": 262,
+            "train_rows": 3840,
+            "train_rows_before_endpoint_purge": 3896,
+            "train_rows_purged_shared_level_endpoint": 56
+          }
+        }
+      },
+      "soybeans/non_irrigated": {
+        "eligible_leave_state_out_groups": [
+          "AR",
+          "KS",
+          "NE"
+        ],
+        "splits": {
+          "development_leave_state_out/AR": {
+            "level_endpoints_disjoint": true,
+            "test_rows": 980,
+            "train_rows": 2916,
+            "train_rows_before_endpoint_purge": 2916,
+            "train_rows_purged_shared_level_endpoint": 0
+          },
+          "development_leave_state_out/KS": {
+            "level_endpoints_disjoint": true,
+            "test_rows": 994,
+            "train_rows": 2902,
+            "train_rows_before_endpoint_purge": 2902,
+            "train_rows_purged_shared_level_endpoint": 0
+          },
+          "development_leave_state_out/NE": {
+            "level_endpoints_disjoint": true,
+            "test_rows": 1892,
+            "train_rows": 2004,
+            "train_rows_before_endpoint_purge": 2004,
+            "train_rows_purged_shared_level_endpoint": 0
+          },
+          "development_precipitation_extreme/tails": {
+            "level_endpoints_disjoint": true,
+            "test_rows": 780,
+            "train_rows": 2182,
+            "train_rows_before_endpoint_purge": 3116,
+            "train_rows_purged_shared_level_endpoint": 934
+          },
+          "terminal_temporal_same_counties/terminal": {
+            "level_endpoints_disjoint": true,
+            "test_rows": 262,
+            "train_rows": 3840,
+            "train_rows_before_endpoint_purge": 3896,
+            "train_rows_purged_shared_level_endpoint": 56
+          }
+        }
+      }
+    }
+  },
+  "status": "CLEAR_independent_noncausal_predictive_audit",
+  "stored_input_comparison": {
+    "exact_key_support_all_three_tables": true,
+    "maximum_absolute_value_discrepancy_by_table_and_column": {
+      "common": {
+        "d_stage1_tmean_c": 0.0,
+        "d_stage2_tmean_c": 0.0,
+        "d_stage3_tmean_c": 0.0,
+        "delta_log_yield": 0.0,
+        "difference_previous_harvest_year": 0.0
+      },
+      "direct_weather": {
+        "d_cdd_max_days": 0.0,
+        "d_mean_wet_day_intensity_mm": 0.0,
+        "d_precip_mm": 0.0,
+        "d_precipitation_concentration_hhi": 0.0,
+        "d_rx1day_mm": 0.0,
+        "d_rx5day_mm": 0.0,
+        "d_stage1_precip_share": 0.0,
+        "d_stage2_precip_share": 0.0,
+        "d_wet_day_frequency": 0.0
+      },
+      "pdsi": {
+        "d_pdsi_preplant90_mean": 0.0,
+        "d_pdsi_season_mean": 0.0,
+        "d_pdsi_stage1_mean": 0.0,
+        "d_pdsi_stage2_mean": 0.0,
+        "d_pdsi_stage3_mean": 0.0
+      }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+schema_version = 1
+contract_id = "us_national_all_practice_nclimgrid_features_v1"
+analysis_role = "historical_us_county_weather_feature_construction_only"
+feature_construction_authorized = true
+response_estimation_authorized = false
+causal_claim_authorized = false
+damage_claim_authorized = false
+scc_claim_authorized = false
+
+[sample]
+crops = ["corn_grain", "soybeans"]
+irrigation_practices = ["all_practices"]
+year_min = 1981
+year_max = 2019
+expected_counties = 2628
+expected_crop_county_years = 136539
+expected_practice_rows = 136539
+expected_corn_crop_county_years = 75089
+expected_soy_crop_county_years = 61450
+outcome_source_id = "nass_quickstats_api_national_all_practice_1981_2019"
+geography_rule = "2019 TIGER polygon proxy after the tracked Census substantial-change page-hit exclusion gate"
+
+[weather]
+source_id = "nclimgrid_daily_v1_0_0_20220829"
+grid_id = "nclimgrid_daily_conus_1_24_degree"
+product_version = "v1-0-0 20220829"
+calendar_scope = "1981-01 through 2019-12; exact 468-object reviewed HTTP inventory"
+day_alignment = "source_date_label_unshifted_24h_ending_early_morning"
+wet_day_threshold_mm = 1.0
+spatial_weight_role = "county_polygon_primary_proxy"
+spatial_operation_order = "construct every nonlinear basis at the weather cell before county-polygon area weighting"
+crop_pixel_exposure = false
+reference_validity_mask = "finite prcp/tavg/tmin/tmax on every day of the validated January 1981 grid object"
+reference_valid_grid_cells = 469758
+minimum_weather_valid_area_relative_to_declared_land = 0.95
+minimum_geometric_grid_coverage = 0.999
+maximum_declared_area_relative_error = 0.03
+validity_weight_rule = "exclude masked nClimGrid cells, report geometric and weather-valid polygon coverage, and renormalize positive valid-cell intersections"
+
+[calendar]
+role = "fixed_primary"
+source_id = "usda_nass_field_crops_usual_dates_2010"
+vintage = "2010"
+boundary_rule = "floor_midpoint_of_most_active_planting_and_harvest_intervals"
+stage_definition = "equal_duration_0_30_70_100_engineering_proxy"
+bound_input = "data/interim/us_county/nass_usual_date_calendars_1981_2022.csv"
+bound_receipt = "outputs/us_county/competing_moisture_predictive_v1/calendar_source_validation.json"
+receipt_protocol = "us_county_validation/us_competing_moisture_predictive_v1.toml"
+receipt_boundary = "deterministic immediate-table validation; does not claim to recompute the pinned PDF"
+
+[partitioning]
+weight_grain = "one atomic Parquet plus SHA-256 receipt per county GEOID in a distinct all-practice output tree"
+feature_grain = "one atomic Parquet plus SHA-256 receipt per harvest year in a distinct all-practice output tree"
+resume_rule = "skip only after current input identities, receipt fields, output hash, schema, and exact keys all validate"
+assembly_rule = "require every supported harvest-year partition and exact all-practice outcome keys before assembly"
+
+[scientific_boundary]
+irrigation_rule = "outcome is all production practices; fixed 2017 crop-specific irrigation share is a pre-outcome sample/interaction variable, with missing shares never interpreted as zero"
+county_proxy_rule = "fixed 2019 legal county envelope restricted to finite nClimGrid cells; report valid area relative to the full polygon and declared TIGER land, and never call this crop-pixel or average-farm weather"
+stage_rule = "equal-duration stages are an engineering proxy, not observed phenology"
+distribution_rule = "construct registered features without presuming incremental predictive or causal value"
+output_rule = "features and outcomes only; no coefficient, row prediction, response fit, damage, or SCC"

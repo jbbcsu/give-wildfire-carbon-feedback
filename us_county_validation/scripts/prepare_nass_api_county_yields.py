@@ -152,6 +152,11 @@ def prepare(
     selected = selected[OUTPUT].sort_values(keys).reset_index(drop=True)
     audit = {
         "role": "national_county_outcome_acquisition_only_not_response_or_scc",
+        "api_absence_rule": (
+            "a county-year absent from the API response remains absent; it is not "
+            "interpreted as zero or as an explicitly observed suppression"
+        ),
+        "balanced_panel_claimed": False,
         "commodity": commodity,
         "unit": unit,
         "utilization_practice": utilization_practice,

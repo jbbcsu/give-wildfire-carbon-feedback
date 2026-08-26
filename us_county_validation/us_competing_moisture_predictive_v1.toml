@@ -1,0 +1,98 @@
+schema_version = 2
+protocol_id = "us_corn_soy_competing_moisture_predictive_v1"
+analysis_role = "historical_us_county_predictive_validation_only"
+predictive_diagnostic_authorized = true
+causal_claim_authorized = false
+damage_claim_authorized = false
+scc_claim_authorized = false
+
+[sample]
+crops = ["corn_grain", "soybeans"]
+irrigation_practices = ["irrigated", "non_irrigated"]
+calendar_role = "fixed_primary"
+year_min = 1981
+year_max = 2019
+first_difference_consecutive_years_only = true
+minimum_rows_per_crop_practice = 500
+minimum_counties_per_crop_practice = 25
+
+[features]
+common_temperature_controls = ["stage1_tmean_c", "stage2_tmean_c", "stage3_tmean_c"]
+direct_quantity = ["precip_mm"]
+direct_distribution_extension = [
+  "cdd_max_days",
+  "wet_day_frequency",
+  "mean_wet_day_intensity_mm",
+  "rx1day_mm",
+  "rx5day_mm",
+  "precipitation_concentration_hhi",
+  "stage1_precip_share",
+  "stage2_precip_share",
+]
+pdsi_primary = ["pdsi_season_mean"]
+pdsi_stage_sensitivity = [
+  "pdsi_preplant90_mean",
+  "pdsi_stage1_mean",
+  "pdsi_stage2_mean",
+  "pdsi_stage3_mean",
+]
+temperature_control_note = "The same stage-mean temperature basis enters every moisture model. It is a predictive control, not a complete causal heat-response specification."
+moisture_exclusivity = "No fitted model may contain both a direct precipitation feature and a PDSI feature."
+
+[direct_source]
+outcome_source_id = "nass_quickstats_direct_practice_screen"
+weather_source_id = "nclimgrid_daily_v1_0_0_20220829"
+weather_grid_id = "nclimgrid_daily_conus_1_24_degree"
+calendar_source_id = "usda_nass_field_crops_usual_dates_2010"
+calendar_vintage = "2010"
+calendar_boundary_rule = "floor_midpoint_of_most_active_planting_and_harvest_intervals"
+stage_definition = "equal_duration_0_30_70_100_engineering_proxy"
+weather_day_alignment = "source_date_label_unshifted_24h_ending_early_morning"
+wet_day_threshold_mm = 1.0
+weight_role = "county_polygon_primary_proxy"
+crop_pixel_exposure = false
+
+[pdsi_source]
+outcome_source_id = "nass_quickstats_direct_practice_screen"
+index_source_id = "noaa_nclimdiv_county_pdsi_v1_0_0_20260806"
+index_name = "nclimdiv_county_pdsi"
+drought_family = "pdsi"
+index_scale_months = 0
+index_distribution = "palmer_water_balance"
+calendar_source_id = "usda_nass_field_crops_usual_dates_2010"
+calendar_vintage = "2010"
+calendar_boundary_rule = "floor_midpoint_of_most_active_planting_and_harvest_intervals"
+stage_definition = "equal_duration_0_30_70_100_engineering_proxy"
+calibration_start_year = 1931
+calibration_end_year = 1990
+irrigation_in_index = false
+
+[validation]
+geographic_holdout_unit = "state"
+minimum_geographic_groups_per_crop_practice = 3
+terminal_temporal_holdout_start = 2012
+extreme_lower_quantile = 0.10
+extreme_upper_quantile = 0.90
+extreme_definition_feature = "precip_mm"
+minimum_test_rows = 50
+development_selection_split = "leave-one-state-out tests before the terminal temporal holdout; states below the minimum test-row gate remain in training but are not scored alone"
+distribution_promotion_rule = "Promote the distribution extension only if its RMSE improvement versus quantity-only reaches both the absolute and relative predeclared materiality floors in every eligible development leave-state-out test; report terminal-time and precipitation-extreme tests separately and do not tune on them."
+distribution_minimum_absolute_rmse_improvement = 0.0001
+distribution_minimum_relative_rmse_improvement = 0.01
+preprocessing = "Center and scale continuous columns using training rows only; deterministic year trend terms are constructed and scaled within each fit."
+svd_relative_tolerance = 1e-10
+minimum_relative_training_scale = 1e-8
+minimum_absolute_training_scale = 1e-10
+
+[models]
+controls_only = []
+direct_quantity = ["direct_quantity"]
+direct_quantity_distribution = ["direct_quantity", "direct_distribution_extension"]
+pdsi_season_mean = ["pdsi_primary"]
+pdsi_stage_sensitivity = ["pdsi_stage_sensitivity"]
+
+[output]
+coefficients_allowed = false
+row_predictions_allowed = false
+aggregate_predictive_metrics_only = true
+required_disclaimer = "Predictive validation is not a causal climate-yield estimate and cannot be used as a damage function or SCC input."

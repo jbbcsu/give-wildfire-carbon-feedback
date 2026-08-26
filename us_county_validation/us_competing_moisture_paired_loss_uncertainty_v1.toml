@@ -1,0 +1,147 @@
+schema_version = 1
+contract_id = "us_competing_moisture_paired_loss_uncertainty_v1"
+description = "Separate conditional paired predictive-loss sensitivity for the independently validated U.S. county competing-moisture diagnostic."
+base_protocol_id = "us_corn_soy_competing_moisture_predictive_v1"
+
+score_basis = "registered_endpoint_purged_fits_recomputed_in_memory_on_identical_test_support"
+development_pooling = "pool_each_eligible_leave_state_out_test_row_once_using_its_state_holdout_fit"
+resampling_scheme = "paired_fixed_fit_county_cluster_bootstrap"
+resampling_unit = "whole_county_across_all_relevant_test_rows_within_crop_practice_report_scope"
+bootstrap_replicates = 5000
+random_seed = 20260826
+seed_derivation = "base_seed_plus_zero_based_report_index_in_locked_crop_practice_scope_state_order"
+interval_probabilities = [0.025, 0.975]
+minimum_occupied_counties_per_report = 30
+maximum_county_test_row_share = 0.10
+state_specific_scope = "development_leave_state_out_distribution_vs_quantity_only_when_at_least_30_test_counties"
+observation_weighting = "equal_test_row_weighting_with_counties_resampled_uniformly"
+training_refit_within_bootstrap = false
+model_selection_rule = "none_sensitivity_does_not_revise_or_reapply_the_frozen_distribution_promotion_rule"
+
+post_hoc_support_sensitivity_authorized = true
+post_hoc_excluded_terminal_endpoint_years = [2019]
+post_hoc_fixed_county_window_start = 2012
+post_hoc_fixed_county_window_end = 2018
+post_hoc_fixed_county_inclusion_rule = "county_has_one_terminal_test_row_in_every_endpoint_year_2012_2018_without_using_outcome_values"
+post_hoc_loss_metrics = ["rmse_difference", "mae_difference"]
+
+predictive_fit_authorized = true
+family_stacking_authorized = false
+coefficient_export_authorized = false
+row_prediction_export_authorized = false
+row_loss_export_authorized = false
+bootstrap_draw_export_authorized = false
+refit_uncertainty_authorized = false
+model_selection_uncertainty_authorized = false
+population_uncertainty_authorized = false
+causal_uncertainty_authorized = false
+damage_uncertainty_authorized = false
+scc_uncertainty_authorized = false
+promotion_rule_revision_authorized = false
+post_hoc_bootstrap_authorized = false
+post_hoc_model_selection_authorized = false
+
+[[comparisons]]
+id = "direct_quantity_minus_controls"
+candidate_model_id = "direct_quantity"
+reference_model_id = "controls_only"
+
+[[comparisons]]
+id = "direct_quantity_distribution_minus_direct_quantity"
+candidate_model_id = "direct_quantity_distribution"
+reference_model_id = "direct_quantity"
+
+[[comparisons]]
+id = "pdsi_season_mean_minus_direct_quantity"
+candidate_model_id = "pdsi_season_mean"
+reference_model_id = "direct_quantity"
+
+[[comparisons]]
+id = "pdsi_stage_sensitivity_minus_direct_quantity"
+candidate_model_id = "pdsi_stage_sensitivity"
+reference_model_id = "direct_quantity"
+
+[[base_artifacts]]
+id = "protocol"
+path = "us_county_validation/us_competing_moisture_predictive_v1.toml"
+sha256 = "11ccd161c0f2f467e42b8ca9ecc1731b276db4edd52d77a9eb3931380ee70b2a"
+
+[[base_artifacts]]
+id = "registered_builder"
+path = "us_county_validation/scripts/build_us_competing_moisture_inputs.py"
+sha256 = "9fd20926beca98526f12cfb5c02158cfa4f3014d4faf035c7499bac83c080948"
+
+[[base_artifacts]]
+id = "registered_evaluator"
+path = "us_county_validation/scripts/evaluate_us_competing_moisture.py"
+sha256 = "815cde686eb6758eeb3b2745b88b03b7cf723a1f7b19a459c7a61a57c4f03334"
+
+[[base_artifacts]]
+id = "registered_validator"
+path = "us_county_validation/scripts/validate_us_competing_moisture.py"
+sha256 = "9108f7ce81a3f71057fe0c7621fcd75fc56baaf482b59d8b0e191a39409eb57e"
+
+[[base_artifacts]]
+id = "common_input"
+path = "data/interim/us_county/competing_moisture_predictive_v1/common_outcomes_controls_folds.parquet"
+sha256 = "34f9b9c3d18169322f90bf9e7142d650659e5f162d7be222d33dbafdf0d7d965"
+
+[[base_artifacts]]
+id = "direct_input"
+path = "data/interim/us_county/competing_moisture_predictive_v1/direct_weather.parquet"
+sha256 = "8c649c84d33a12ba4c5c06b2e36faacc45606ec93f9b88cec4812b5b021cac45"
+
+[[base_artifacts]]
+id = "pdsi_input"
+path = "data/interim/us_county/competing_moisture_predictive_v1/pdsi.parquet"
+sha256 = "88ddaf737f88ca74325db367f71eb9b8d5dcf37c71ac90e0fc21f56e13b94f61"
+
+[[base_artifacts]]
+id = "input_audit"
+path = "outputs/us_county/competing_moisture_predictive_v1/input_audit.json"
+sha256 = "1b4aaa9547370dcc25d66927e923005942f006f57e0a633409d5dfb4aee6b7aa"
+
+[[base_artifacts]]
+id = "direct_weather"
+path = "data/interim/us_county/nass_direct_practice_nclimgrid_1981_2019.parquet"
+sha256 = "205a94ae92c12810026c9c5d0ac0fa3760e46ebc39669e528ba20a125a0c46d7"
+
+[[base_artifacts]]
+id = "direct_validation"
+path = "outputs/us_county/competing_moisture_predictive_v1/direct_source_validation.json"
+sha256 = "992371e452b0aa97f3dffce6e8f53ae2e2183e8754cfcd2b5a8bd5ae48563f2e"
+
+[[base_artifacts]]
+id = "pdsi_join"
+path = "data/interim/us_county/nass_direct_practice_pdsi_join_1981_2019.parquet"
+sha256 = "70237da1bc759144cbc9adaaab4f0c30f805f5deb526683a60edc75d84e971a6"
+
+[[base_artifacts]]
+id = "pdsi_validation"
+path = "outputs/us_county/competing_moisture_predictive_v1/pdsi_source_validation.json"
+sha256 = "31a03dd4fb8f41d1f11e35a4b5bf309dc9ffbdc0346ce99932cd90b0ad9534ce"
+
+[[base_artifacts]]
+id = "calendar"
+path = "data/interim/us_county/nass_usual_date_calendars_1981_2022.csv"
+sha256 = "f3ed5d2932b3f709483f7d0064733d8dab9d783baa56384328c49da7b633fcb8"
+
+[[base_artifacts]]
+id = "calendar_validation"
+path = "outputs/us_county/competing_moisture_predictive_v1/calendar_source_validation.json"
+sha256 = "38e8c5bf19bfa433cec360bab1d6590c6da0415fa527db65c9d2862cb1a09686"
+
+[[base_artifacts]]
+id = "base_result"
+path = "outputs/us_county/competing_moisture_predictive_v1/results.json"
+sha256 = "12d32bec7b9ff6a74339123f95b9282263fdc7675280d9a019c1710dcaaf0b66"
+
+[[base_artifacts]]
+id = "base_validation"
+path = "outputs/us_county/competing_moisture_predictive_v1/validation.json"
+sha256 = "778e2fbc2f1dd2351eb0ad91bd1565a7bb7582d68c42b88434ab0c67f697d28c"
+
+[[base_artifacts]]
+id = "independent_audit_receipt"
+path = "data/provenance/us_competing_moisture_independent_audit_20260826.json"
+sha256 = "3e159b495336257869d01698657375a772bfa71a99150c1758e2bdbe797f5283"

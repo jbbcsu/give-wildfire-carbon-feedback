@@ -1,0 +1,111 @@
+schema_version = 1
+contract_id = "us_national_all_practice_spei_v1"
+analysis_role = "manifest_and_aggregation_scaffold_only"
+manifest_generation_authorized = true
+cell_execution_authorized = false
+full_scope_execution_authorized = false
+crop_calendar_aggregation_execution_authorized = false
+response_estimation_authorized = false
+coefficient_export_authorized = false
+causal_claim_authorized = false
+damage_claim_authorized = false
+future_projection_authorized = false
+scc_claim_authorized = false
+
+[source]
+source = "nclimgrid"
+source_id = "nclimgrid_daily_v1_0_0_20220829"
+source_contract = "config/spei_competitor_v1.toml"
+source_content_receipt = "data/provenance/nclimgrid_daily_1981_2019_content_receipt.json"
+source_file_set_sha512 = "d2e05bb8bd7381045afc942bb504b1264679fb30c5231a07174ae409485df3ff95066b08cb213fa95f232a5f826e6c054aa6938843f7a93cea0a017b223d64cc"
+daily_start = "1981-01-01"
+daily_end = "2019-12-31"
+actual_source_sha512_revalidation_required = true
+algorithm_version = "spei_grid_chunk_v2_environment_bound"
+checkpoint_version = "daily_to_monthly_checkpoint_v2_environment_bound"
+calibration = "1982-2011"
+accumulation_scales_months = [1, 3, 6]
+numerical_environment_fields = ["python_implementation", "python_version", "python_cache_tag", "platform_system", "platform_release", "platform_machine", "byteorder", "numpy", "pandas", "xarray", "h5py", "hdf5", "h5netcdf"]
+
+[weights]
+route_contract = "us_county_validation/us_national_all_practice_nclimgrid_features_v1.toml"
+panel = "data/interim/us_county/nass_national_all_practice_panel_1981_2019.parquet"
+geography = "data/interim/us_county/nass_national_all_practice_panel_1981_2019_geography_gate.csv"
+calendar = "data/interim/us_county/nass_usual_date_calendars_1981_2022.csv"
+calendar_validation = "outputs/us_county/competing_moisture_predictive_v1/calendar_source_validation.json"
+calendar_protocol = "us_county_validation/us_competing_moisture_predictive_v1.toml"
+partition_builder = "us_county_validation/scripts/build_us_national_county_nclimgrid_weights.py"
+complete_manifest = "outputs/us_county/national_all_practice_nclimgrid_features_v1/weights/complete_registered_scope_manifest.json"
+partition_root = "data/interim/us_county/nclimgrid_polygon_weights_national_all_practice_v1"
+expected_counties = 2628
+expected_crop_county_years = 136539
+required_practice = "all_practices"
+complete_registered_scope_required = true
+spatial_weight_sum_tolerance = 1e-10
+cell_selection_rule = "union of exact grid_lat_index/grid_lon_index pairs with positive spatial_weight in every validated county partition"
+extra_grid_cells_forbidden = true
+outcome_values_read = 0
+
+[execution]
+manifest_schema = "us_all_practice_spei_execution_manifest_v1"
+cell_inventory_schema = "us_all_practice_spei_cell_inventory_v1"
+chunk_layout = "one latitude row and one contiguous referenced-longitude run"
+maximum_cells_per_chunk = 64
+one_chunk_per_invocation_required = true
+automatic_run_all_command_available = false
+annual_checkpoint_resume_required = true
+resume_rule = "accept only matching environment, source, code, contract, cell-set, weight, checkpoint, and output identities"
+representative_64_cell_benchmark_required_before_full_scope_authorization = true
+computed_cell_set_must_equal_referenced_cell_set = true
+
+[aggregation]
+analysis_year_min = 1982
+analysis_year_max = 2019
+scales = [1, 3, 6]
+windows = ["preplant90", "stage1", "stage2", "stage3", "season"]
+stage_fractions = [0.0, 0.3, 0.7, 1.0]
+spatial_order = "standardize at native cell, then fixed county-polygon area weighting"
+missing_cell_rule = "fail the county-month-scale; do not renormalize weights or impute"
+calendar_weighting = "monthly SPEI held constant only across exact overlapping calendar days"
+preplant_rule = "90 days ending the day before season_start"
+output_grain = "one county_geoid/outcome_crop/harvest_year/scale row"
+outcome_values_read = 0
+response_columns_forbidden = true
+
+[resources]
+benchmark_role = "bounded one-cell engineering anchor only; not a multi-cell performance claim"
+benchmark_environment_sha512 = "9c8d50f500c873097f433413be1979d1c3e82c0720e7840beca28f2a9d6d92cfd212e9fb0d828c5b2b4b50f31516c5d043b5b376f0b7502039a4ff6c0201e0a1"
+benchmark_cells = 1
+benchmark_wall_seconds = 173.4464772499632
+benchmark_peak_rss_bytes = 450854912
+benchmark_final_netcdf_bytes = 118556
+benchmark_checkpoint_data_bytes = 63577
+benchmark_receipt_bytes = 152493
+storage_formula = "receipt_bytes_per_chunk + referenced_cells * (final_netcdf_bytes + checkpoint_data_bytes)"
+runtime_lower_formula = "chunk_count * one_cell_wall_seconds"
+runtime_conservative_upper_formula = "referenced_cell_count * one_cell_wall_seconds"
+peak_rss_floor_formula = "one_cell_peak_rss_bytes"
+peak_rss_conservative_upper_formula = "maximum_cells_per_chunk * one_cell_peak_rss_bytes"
+temporary_storage_multiplier = 2.0
+aggregate_estimated_bytes_per_row = 320
+
+[paths]
+plan_root = "outputs/us_county/national_all_practice_spei_v1/execution"
+execution_manifest = "outputs/us_county/national_all_practice_spei_v1/execution/manifest.json"
+cell_inventory = "data/interim/us_county/spei_cells_national_all_practice_v1/cells.parquet"
+support_calendar = "data/interim/us_county/spei_cells_national_all_practice_v1/support_calendar.parquet"
+cell_output_root = "outputs/us_county/national_all_practice_spei_v1/cell_chunks"
+execution_receipt_root = "outputs/us_county/national_all_practice_spei_v1/execution/chunk_receipts"
+aggregate_partition_root = "data/interim/us_county/spei_features_national_all_practice_v1"
+aggregate_receipt_root = "outputs/us_county/national_all_practice_spei_v1/aggregate_receipts"
+direct_weather_feature_root = "data/interim/us_county/nclimgrid_features_national_all_practice_v1"
+pdsi_output_root = "outputs/us_county/national_all_practice_pdsi_v1"
+path_aliasing_forbidden = true
+
+[scientific_boundary]
+county_proxy = "fixed 2019 legal county polygon area average, not crop-pixel or average-farm weather"
+stage_interpretation = "equal-duration engineering proxy, not observed phenology"
+all_practice_interpretation = "one all-production-practices support key; not a direct rainfed outcome"
+selection_by_predictive_damage_or_scc_result = false
+production_construction_authorized = false
+relationship_estimated = false
