@@ -57,15 +57,22 @@ download. The exact 20-file, checksum-bearing acquisition plan and bounded
 four-file content smoke are documented in
 [`FISHMIP_CONTENT_PLAN.md`](FISHMIP_CONTENT_PLAN.md). The plan pins 2,585,466,439
 catalogue bytes overall but initially permits only 513,826,771 bytes: BOATS and
-EcoOcean historical plus SSP1-2.6 under the same GFDL-ESM4 forcing. The two
-BOATS files are now acquired and fully validated. The 90,012,681-byte
+EcoOcean historical plus SSP1-2.6 under the same GFDL-ESM4 forcing. All four
+files are now acquired and fully validated. The 90,012,681-byte BOATS
 historical file has 780 contiguous `360_day` months from 1950 through 2014;
 the 153,855,617-byte SSP1-2.6 file has 1,032 months from 2015 through 2100.
 Both match their SHA-512 values, use the same global 1-degree grid and exact
 finite/missing mask, and join at consecutive month indices 4967/4968. The
 future file contains 42,390,432 finite values, 1,176,480 genuine zeros, no
-negative values, and 24,483,168 time-stable missing values. The two EcoOcean
-smoke files and cross-model content gate remain open. These outputs are
+negative values, and 24,483,168 time-stable missing values. The corresponding
+116,279,679-byte and 153,678,794-byte EcoOcean files use exact month-start
+offsets under a `365_day` calendar, match their checksums, and join from day
+151079 to 151110 without a missing month. They contain 33,798,960 and
+44,718,624 finite values, respectively, no negatives, no genuine zeros, and
+time-stable masks. The model masks are not identical: 41,029 grid cells are
+common, 47 are BOATS-only, and 2,303 are EcoOcean-only. Any cross-model
+comparison must carry an explicit common-support flag and may not turn
+unsupported cells into zeros. These outputs are
 scenario total catch, not a matched marginal-CO2 response and not welfare, so
 no fisheries damage coefficient or SCC is inferred from them.
 

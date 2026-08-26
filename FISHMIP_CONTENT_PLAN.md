@@ -1,7 +1,7 @@
 # FishMIP `tc` acquisition and content-validation plan
 
-Status: metadata pinned; one of four smoke NetCDF files acquired and validated;
-no empirical welfare or SCC use authorized.
+Status: metadata pinned; all four smoke NetCDF files acquired and validated;
+no matched-pulse, welfare, or SCC use authorized.
 
 ## Frozen acquisition stages
 
@@ -19,13 +19,21 @@ checksum and content validation. This staging is an engineering decision, not
 scenario or model selection for inference. SSP1-2.6 is not treated as a
 marginal-CO2 counterfactual, and GFDL-ESM4 is not promoted above IPSL-CM6A-LR.
 
-The first complete-file check passed for BOATS/GFDL-ESM4 historical
-(`1950--2014`, 90,012,681 bytes). The local SHA-512 equals the plan; the file
-has 780 contiguous `360_day` monthly indices, a 180 by 360 global 1-degree
-grid, `tc` units `g m-2`, a stable missing mask, no negative values, and
-separate finite/missing/zero counts. The remaining BOATS future and both
-EcoOcean files are still required before the four-file smoke or any
-historical/future join is considered passed.
+The complete four-file check passed. Both BOATS files use contiguous monthly
+indices under `360_day`; both EcoOcean files use exact month-start day offsets
+under `365_day`. Within each model, historical and SSP1-2.6 fields have the
+same 180 by 360 global grid and time-stable finite/missing mask and join
+without a missing or duplicated month. All four local byte counts and SHA-512
+values equal the plan, `tc` remains `g m-2`, and no negative value occurs.
+EcoOcean has no genuine zeros in either file, whereas BOATS does; the validator
+therefore preserves missing-versus-zero semantics rather than imposing a
+shared convention.
+
+The cross-model grids are identical but their finite masks are not. The
+historical masks contain 41,029 common finite cells, 47 BOATS-only cells, and
+2,303 EcoOcean-only cells. Cross-model summaries must carry model-specific and
+common-support flags and must not fill unsupported cells with zero. This is a
+validated content limitation, not a reason to select one ecosystem model.
 
 Before any download, refresh the catalogue response and require an exact match:
 
@@ -65,11 +73,11 @@ Each file must pass all of the following before any numeric summary is used:
    units, and missing-value conventions within each ecosystem model. No
    cross-model equality of values is expected.
 
-The four-file smoke is promoted only on a machine-readable pass for every
-check. Failure leaves the other 16 files unacquired and records the exact file,
-field, and reason. After a pass, the full matrix repeats the same checks and
-also requires complete BOATS/EcoOcean by GFDL-ESM4/IPSL-CM6A-LR by registered
-experiment coverage.
+The four-file smoke now has a machine-readable pass for every within-model
+file and join check. The other 16 files remain deferred pending a reviewed
+full-matrix storage/processing step. A full matrix must repeat these checks and
+also require complete BOATS/EcoOcean by GFDL-ESM4/IPSL-CM6A-LR by registered
+experiment coverage; the smoke does not itself authorize that acquisition.
 
 ## Scientific boundary
 

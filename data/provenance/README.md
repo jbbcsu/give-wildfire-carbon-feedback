@@ -12,6 +12,7 @@ the reviewed source and gates, while
 `fishmip_isimip3b_tc_acquisition_plan.csv` pins every dataset/file ID, version,
 URL, catalogue byte size, SHA-512, year interval, and frozen acquisition stage.
 These catalogue checksums become verified local provenance only after a
-complete downloaded file matches them. The BOATS/GFDL historical and SSP1-2.6
-files now meet that condition and pass a contiguous-month/grid/mask join; the
-remaining 18 do not.
+complete downloaded file matches them. All four frozen GFDL-ESM4 smoke files
+(BOATS and EcoOcean, historical and SSP1-2.6) now meet that condition. Each
+model passes its exact calendar-aware historical/future join. The other 16
+files remain unacquired; the smoke does not authorize their acquisition.
