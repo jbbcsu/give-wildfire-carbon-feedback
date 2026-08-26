@@ -1,4 +1,4 @@
-status = "metadata_audited_not_acquired"
+status = "metadata_audited_one_of_four_content_smoke_files_validated"
 checked_date = "2026-08-26"
 catalog = "ISIMIP repository"
 query_url = "https://data.isimip.org/api/v1/datasets/?simulation_round=ISIMIP3b&product=OutputData&sector=marine-fishery_global&variable=tc&page_size=200"
@@ -20,6 +20,33 @@ content_smoke_bytes = 513826771
 deferred_full_matrix_files = 16
 deferred_full_matrix_bytes = 2071639668
 selection_is_engineering_only = true
+
+[content_validation.boats_gfdl_historical]
+checked_date = "2026-08-26"
+dataset_id = "69c69981-0aef-42cb-9d9e-2ebaa423cdb7"
+file_id = "7aed5a47-5cd9-423b-9a9d-1b06d1f64794"
+file_name = "boats_gfdl-esm4_nobasd_historical_histsoc_default_tc_global_monthly_1950_2014.nc"
+version = "20210906"
+bytes = 90012681
+sha512 = "2ca08c5d40413e437b7d7215acf3029c2f69613e8afdce847a5aa62d8aaad0b658347557374a17daae43d6957a56e9aee6597b9fb4c8b4737ed7e1f578101411"
+dimensions = [780, 180, 360]
+dimension_order = ["time", "lat", "lon"]
+calendar = "360_day"
+time_units = "months since 1601-01-01 00:00:00"
+time_range = "1950-01 through 2014-12, exact contiguous monthly indices"
+units = "g m-2"
+finite_values = 32039280
+missing_values = 18504720
+zero_values = 9115336
+negative_values = 0
+minimum = 0.0
+maximum = 2.4695663114471245e-7
+always_finite_grid_cells = 41076
+always_missing_grid_cells = 23724
+mixed_validity_grid_cells = 0
+result = "passed"
+role = "biophysical_scenario_content_smoke_not_pulse_welfare_or_scc"
+limitation = "Only one of four frozen smoke files; future join, cross-model grid/schema checks, matched pulse, welfare, and SCC gates remain open."
 
 [variable]
 name = "tc"
@@ -63,5 +90,5 @@ notes = [
   "The catalogue has SSP1-2.6 and SSP5-8.5 but no SSP3-7.0 total-catch entry.",
   "Scenario contrasts cannot be substituted for a matched one-ton CO2 pulse.",
   "Total catch density is an intermediate quantity, not consumer or producer welfare.",
-  "No files were downloaded in this audit; all file-level checksums in the acquisition plan are catalogue metadata, not local checksum verification."
+  "One BOATS/GFDL historical smoke file has a verified local checksum and content audit; the other 19 plan checksums remain catalogue metadata until acquired."
 ]

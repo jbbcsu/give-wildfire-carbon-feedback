@@ -57,10 +57,16 @@ download. The exact 20-file, checksum-bearing acquisition plan and bounded
 four-file content smoke are documented in
 [`FISHMIP_CONTENT_PLAN.md`](FISHMIP_CONTENT_PLAN.md). The plan pins 2,585,466,439
 catalogue bytes overall but initially permits only 513,826,771 bytes: BOATS and
-EcoOcean historical plus SSP1-2.6 under the same GFDL-ESM4 forcing. No NetCDF
-file has been acquired. This clears a source-discovery gate only. The outputs
-are scenario total catch, not a matched marginal-CO2 response and not welfare,
-so no fisheries damage coefficient or SCC is inferred from them.
+EcoOcean historical plus SSP1-2.6 under the same GFDL-ESM4 forcing. The first
+of those four files is now acquired and fully validated: the 90,012,681-byte
+BOATS historical file matches its SHA-512 and contains 780 contiguous
+`360_day` monthly steps from 1950 through 2014 on a global 1-degree grid. Its
+32,039,280 finite catch-density values include 9,115,336 genuine zeros and no
+negative values; 18,504,720 decoded missing values form a time-stable mask.
+The other three smoke files remain unacquired, so the historical/future join
+and cross-model schema/grid gates remain open. These outputs are scenario total
+catch, not a matched marginal-CO2 response and not welfare, so no fisheries
+damage coefficient or SCC is inferred from them.
 
 ## Executable accounting scaffolding
 
@@ -82,6 +88,7 @@ Run the synthetic checks with:
 python3 test/test_welfare_interface.py
 python3 test/test_region_aggregation.py
 python3 test/test_fishmip_catalog.py
+python3 test/test_fishmip_content.py  # in an environment with xarray and h5netcdf
 ```
 
 These scripts do not choose ecological or economic parameters, certify that a

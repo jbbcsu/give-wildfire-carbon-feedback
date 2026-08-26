@@ -1,7 +1,7 @@
 # FishMIP `tc` acquisition and content-validation plan
 
-Status: metadata pinned; no NetCDF files acquired; no empirical or SCC use
-authorized.
+Status: metadata pinned; one of four smoke NetCDF files acquired and validated;
+no empirical welfare or SCC use authorized.
 
 ## Frozen acquisition stages
 
@@ -18,6 +18,14 @@ The other 16 files (2,071,639,668 catalogue bytes) remain
 checksum and content validation. This staging is an engineering decision, not
 scenario or model selection for inference. SSP1-2.6 is not treated as a
 marginal-CO2 counterfactual, and GFDL-ESM4 is not promoted above IPSL-CM6A-LR.
+
+The first complete-file check passed for BOATS/GFDL-ESM4 historical
+(`1950--2014`, 90,012,681 bytes). The local SHA-512 equals the plan; the file
+has 780 contiguous `360_day` monthly indices, a 180 by 360 global 1-degree
+grid, `tc` units `g m-2`, a stable missing mask, no negative values, and
+separate finite/missing/zero counts. The remaining BOATS future and both
+EcoOcean files are still required before the four-file smoke or any
+historical/future join is considered passed.
 
 Before any download, refresh the catalogue response and require an exact match:
 
