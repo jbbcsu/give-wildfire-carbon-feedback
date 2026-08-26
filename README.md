@@ -28,6 +28,14 @@ derive the exact crop features from version-pinned daily ISIMIP3b fields, fit
 ESM-specific feature responses to same-realization GMST, and evaluate matched
 FAIR paths with common random numbers. Scenario differences are training data,
 not one-tonne CO2 experiments.
+The outcome-blind selection is now frozen to the five complete ISIMIP3b ESM
+realizations across historical, SSP1-2.6, SSP3-7.0, SSP5-8.5 and the four daily
+variables (80 version-`20210512` datasets). A bounded MRI precipitation
+sidecar/header smoke passed without downloading the 1.24 GB file. The full
+1.757 TB catalogue matrix is not acquired. Executable validators enforce the
+frozen catalogue product and the whole-ESM/scenario, same-realization GMST,
+common-residual, support, identity, and decreasing-pulse gates; they have only
+synthetic evidence so far.
 The evidence-bounded manuscript and Methods/SI blueprints are in
 [MANUSCRIPT_OUTLINE.md](MANUSCRIPT_OUTLINE.md) and
 [METHODS_SI_OUTLINE.md](METHODS_SI_OUTLINE.md).

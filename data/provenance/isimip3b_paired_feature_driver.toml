@@ -1,5 +1,5 @@
-schema_version = 1
-status = "primary_route_approved_not_acquired"
+schema_version = 2
+status = "primary_route_metadata_selected_smoke_verified_not_acquired"
 purpose = "Direct daily CMIP6 feature training data for matched FAIR baseline/pulse climate-feature evaluation. This record does not authorize an SCC calculation or raw-data redistribution."
 
 [decision]
@@ -23,6 +23,18 @@ unit = "one CMIP6 ESM/member sampled jointly across all grid cells, crops, stage
 model_rule = "Predeclare a set of ESMs with complete daily variables and the required historical/future experiments before fitting outcomes; do not choose models after response results."
 member_rule = "Use one consistent available realization per ESM in the primary ensemble; retain member ID. Treat additional realizations as internal-variability sensitivity rather than independent regions."
 calendar_rule = "Use the separately pinned GGCMI Phase 3 calendar convention and preserve crop-year treatment for cross-calendar-year seasons."
+snapshot = "data/provenance/isimip3b_daily_catalog_selection.csv"
+snapshot_checked_utc_date = "2026-08-26"
+snapshot_dataset_count = 80
+snapshot_catalogue_bytes = 1756959247729
+snapshot_rule = "Freeze the complete five-ESM by four-scenario by four-variable dataset Cartesian product before climate-feature fitting. Re-resolve and verify every file SHA-512 at acquisition time."
+
+[selection.members]
+gfdl-esm4 = "r1i1p1f1"
+ipsl-cm6a-lr = "r1i1p1f1"
+mpi-esm1-2-hr = "r1i1p1f1"
+mri-esm2-0 = "r1i1p1f1"
+ukesm1-0-ll = "r1i1p1f2"
 
 [api_queries]
 dataset_query_template = "https://data.isimip.org/api/v1/datasets/?simulation_round=ISIMIP3b&product=InputData&climate_forcing={canonical_lowercase_forcing}&climate_scenario={experiment}&climate_variable={variable}&time_step=daily&region=global"
@@ -39,6 +51,30 @@ example_version = "20210512"
 example_size_bytes = 17902376356
 example_rights = "CC0 1.0"
 note = "This confirms the query schema and one candidate dataset identity only; it is not ensemble selection or acquisition. The first returned file included an API-supplied SHA-512 and file_url."
+
+[engineering_smoke]
+checked_utc_date = "2026-08-26"
+role = "metadata_and_range_content_only_not_projection_acquisition"
+source_dataset_id = "ff5d7e36-8ee9-4746-bea7-1c1450f94ee7"
+source_dataset_version = "20210512"
+source_dataset_name = "mri-esm2-0_r1i1p1f1_w5e5_ssp370_pr_global_daily"
+file_id = "ec861b63-97e0-4233-a2ba-ef80aa8b9574"
+file_name = "mri-esm2-0_r1i1p1f1_w5e5_ssp370_pr_global_daily_2015_2020.nc"
+file_path = "ISIMIP3b/InputData/climate/atmosphere/bias-adjusted/global/daily/ssp370/MRI-ESM2-0/mri-esm2-0_r1i1p1f1_w5e5_ssp370_pr_global_daily_2015_2020.nc"
+file_size_bytes = 1241058098
+file_checksum_sha512 = "746c5de9c458587697fe662d11ff8652f753910e3e251205d1d12ea0417dbb23871b943650c8750a3622b66536001c5cf4d5e104257a4aa2e0492ad97dfd79fd"
+file_rights = "CC0 1.0"
+start_year = 2015
+end_year = 2020
+http_content_length = 1241058098
+http_accept_ranges = "bytes"
+range_start = 0
+range_end = 65535
+range_bytes_received = 65536
+range_magic_hex = "894844460d0a1a0a"
+range_magic_format = "HDF5"
+result = "passed"
+limitation = "The sidecar and first 64 KiB were checked. The complete NetCDF was not downloaded, so the full-file SHA-512, decoded dimensions, daily continuity, grid, units, and values remain unverified."
 
 [processing]
 raw_storage = "Git-ignored data/raw/isimip3b/; process one model/scenario/variable block at a time."

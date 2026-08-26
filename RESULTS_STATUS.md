@@ -1,6 +1,6 @@
 # Analysis status and claim ledger
 
-Updated: 2026-08-25. This file records completed computational milestones; it
+Updated: 2026-08-26. This file records completed computational milestones; it
 does not report final response estimates or SCC values.
 
 | Item | Status | Permitted use |
@@ -33,7 +33,7 @@ does not report final response estimates or SCC values.
 | Maize/rainfed independent-period audit, 1992–2000 | 119,950 consecutive observed-yield pairs; the frozen models and validator rerun without using the 1982–89 outcome metrics | Internal predictive replication only; model ordering changes in the temporal block and no coefficient or SCC use is permitted |
 | Maize/rainfed contiguous-period audit, 1982–2000 | Cross-file daily input and strict period-combination gates close 1990–91 and validate all 19 harvest years: 1,280,980 potential rows, 285,871 positive-yield rows, and 270,273 consecutive pairs | Longer-period internal predictive diagnostic only; mixed holdout rankings, rainfed-calendar exposure, and coefficient suppression prohibit causal or SCC use |
 | Soybean/rainfed independent-period audit, 2002–2010 | Season and three-window panels contain 606,780 and 1,820,340 rows and reconcile exactly within stored precision; the frozen audit validates 48,959 consecutive observed-yield pairs | Internal predictive replication only; one source-zero GDHY value is preserved and excluded from log yield, coefficients remain suppressed, and no causal or SCC use is permitted |
-| Matched future climate-feature driver | ISIMIP3b direct-daily-feature design, provenance schema, whole-ESM/scenario holdouts, common-random-number pairing, support flags, and pulse-convergence gates are specified | Planned/not acquired; no ISIMIP3b projection file, fitted climate response, baseline/pulse feature path, or SCC input exists |
+| Matched future climate-feature driver | Frozen official catalogue selects the complete five-ESM/member by four-scenario by four-variable matrix: 80 public/unrestricted CC0 version-`20210512` datasets and 1,756,959,247,729 catalogue bytes. A pinned MRI-ESM2-0 SSP3-7.0 precipitation sidecar plus 64 KiB HDF5-header range passed. Synthetic executable gates enforce same-realization GMST, whole-ESM/scenario holdouts, common residuals, separate support flags, zero-pulse/pre-divergence identity, and three-size convergence. | Metadata and bounded-header engineering evidence only; the complete smoke file and projection matrix are not acquired, no full SHA-512/content/chronology validation or real holdout has run, and no fitted response, paired feature path, damage, or SCC input exists |
 | Irrigated panels, full-period multi-crop coverage, and future scenarios | Not yet complete | No production global response or SCC claim |
 
 ## Completed empirical checks

@@ -69,6 +69,15 @@ information and never the marginal experiment. The complete design and
 provenance contract are in `PAIRED_CLIMATE_FEATURE_DRIVER.md` and
 `data/provenance/isimip3b_paired_feature_driver.toml`.
 
+Before fitting, freeze the complete five-ESM/member by four-experiment by
+four-variable catalogue product recorded in
+`data/provenance/isimip3b_daily_catalog_selection.csv`. The current snapshot
+contains 80 public/unrestricted CC0 version-`20210512` datasets. It is a model
+selection and storage-planning record, not evidence that the 1.757 TB catalogue
+has been acquired. A bounded sidecar and 64 KiB HDF5-signature smoke for one
+MRI-ESM2-0 SSP3-7.0 precipitation file does not replace complete-file SHA-512,
+decoded-grid, units, missingness, and chronology validation.
+
 Whole ESMs and whole scenarios, not random years alone, are held out. STITCHES
 supplies a sequence-preserving benchmark; MESMER-M-TP plus a published daily
 occurrence/amount generator is the fallback if the direct-feature response

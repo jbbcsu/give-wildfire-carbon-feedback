@@ -89,6 +89,12 @@ not call the resulting SCC net of adaptation investment.
    same residual realization for each baseline/pulse pair, and pass zero-pulse,
    pre-divergence, support, and decreasing-pulse convergence tests. An unmatched
    scenario difference is never accepted as a marginal CO2 response.
+   The climate-input selection must first match the frozen five-ESM/member,
+   four-scenario, four-variable version-`20210512` catalogue snapshot. Run
+   `scripts/select_isimip3b_daily_catalog.py` against saved official API
+   responses and `scripts/validate_paired_feature_emulator.py` against the
+   actual training, holdout, and paired-evaluation tables. Synthetic passes do
+   not clear the real-data gate.
    Run `AgricultureReplacementAudit.audit_agriculture_replacement` on the
    constructed Mimi model before either member of a paired SCC run. The audit
    must find exactly one internal producer for `DamageAggregator.damage_ag`,

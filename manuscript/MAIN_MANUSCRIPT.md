@@ -117,6 +117,14 @@ applies an all-years identity check to a separate zero-pulse control. These
 checks do not validate the empirical response, welfare layer, or full marginal
 SCC run. Results report fixed, trend, and upper adaptation scenarios separately.
 
+The outcome-blind input screen currently selects all five ESM realizations
+with complete historical and three-SSP coverage for daily precipitation and
+temperature variables (80 version-pinned datasets). Only an official metadata
+sidecar and 64 KiB header range from one MRI-ESM2-0 precipitation file have
+been checked; no projection file or climate-feature response has been acquired
+or fitted. Synthetic holdout/pairing gate tests therefore establish software
+behavior, not future agricultural damages.
+
 ## 6. Results (pre-registered placeholders)
 
 ### 6.1 Climate-feature validation

@@ -53,6 +53,13 @@ the manuscript or `RESULTS_STATUS.md` as evidence without tracing the claim.
 - Verify future crop features are trained on same-realization ISIMIP3b daily
   fields with whole-ESM and whole-scenario holdouts; reject scenario contrasts
   presented as one-tonne marginal experiments.
+- Re-run the frozen 80-dataset catalogue selector against saved official API
+  responses; confirm the five members, version, rights, year blocks, URLs,
+  sizes, and per-file SHA-512 metadata before any acquisition or fit.
+- Re-run the paired-feature emulator validator on real artifacts and inspect
+  the exact whole-ESM/scenario holdout product, common residual IDs, separate
+  support flags, all-years zero pulse, pre-divergence identity, and the three
+  decreasing positive pulse sizes. A synthetic pass is software evidence only.
 - Run the component-graph audit and confirm that the sole internal producer of
   `DamageAggregator.damage_ag` is `JointAgriculture.agcost`, no `Agriculture`
   component remains, and the unmodified GIVE baseline fails as a negative

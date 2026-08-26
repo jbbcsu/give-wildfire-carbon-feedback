@@ -91,15 +91,28 @@ causal estimate of crop damages.
 Use only public, version-pinned datasets described in
 `data/provenance/isimip3b_paired_feature_driver.toml`.
 
-The repository API query schema was exercised on 25 August 2026 for the
-MRI-ESM2-0 SSP3-7.0 daily precipitation dataset. It returned exactly one
-public dataset (version 20210512) with dataset/file identifiers, rights,
-file URLs, and SHA-512 metadata. This is a discovery/provenance check only;
-no projection file has been acquired and no ensemble member has been selected.
+The official repository catalogue was frozen on 26 August 2026 before any
+feature-response fitting. The selected primary matrix is the complete set of
+five available ESM realizations (GFDL-ESM4, IPSL-CM6A-LR, MPI-ESM1-2-HR,
+MRI-ESM2-0, and UKESM1-0-LL), four experiments, and four daily variables: 80
+public, unrestricted CC0 datasets at version `20210512`, representing
+1,756,959,247,729 catalogue bytes. Dataset IDs, members, sizes, year coverage,
+and DOI are pinned in
+`data/provenance/isimip3b_daily_catalog_selection.csv`; the executable selector
+also checks every advertised file SHA-512, URL, version, size sum, and
+contiguous 1850--2014 or 2015--2100 year coverage against saved official API
+responses. This is metadata selection, not acquisition or climate validation.
 
-1. Select a predeclared set of ISIMIP3b CMIP6 ESMs with daily `pr`, `tas`,
+The bounded MRI-ESM2-0 SSP3-7.0 precipitation smoke checked the official
+2015--2020 JSON sidecar and a 64 KiB HTTP range. The sidecar matched the pinned
+1,241,058,098-byte file and SHA-512, and the range had the HDF5 signature. The
+complete file was not downloaded, so its full checksum, decoded grid, units,
+daily chronology, and values remain unverified.
+
+1. Retain the frozen five-ESM/member selection with daily `pr`, `tas`,
    `tasmin`, and `tasmax` over historical plus `ssp126`, `ssp370`, and
-   `ssp585`.  Keep model/member identity in every file and output row.
+   `ssp585`. Keep model/member identity in every file and output row; changing
+   this set requires a versioned, outcome-blind amendment.
 2. Download one ESM/scenario/variable block at a time.  Build crop-year/stage
    features by latitude partition, write a compact feature table, verify it,
    and then archive or remove the raw block according to the source terms and
@@ -135,6 +148,14 @@ The driver cannot supply a GIVE SCC input unless all apply:
 6. **Accounting gate:** this driver feeds the replacement agriculture module
    only.  It does not create a separate flood, temperature, CO2 fertilization,
    or agricultural add-on.
+
+`scripts/validate_paired_feature_emulator.py` makes the design gates
+executable. It requires the complete ESM/scenario/feature training product,
+same-realization GMST identifiers, exact whole-ESM and whole-scenario
+holdout coverage, common baseline/pulse residual IDs, independently evaluated
+support flags, pre-divergence and zero-pulse identity, and agreement plus
+convergence across at least three decreasing positive pulse sizes. Synthetic
+failure tests pass. No real feature response or paired path has yet passed it.
 
 ## Known limitations and fallbacks
 

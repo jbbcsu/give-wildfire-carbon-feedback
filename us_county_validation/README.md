@@ -57,7 +57,13 @@ does not validate filters against the still-incomplete raw snapshot.
 
 USDM area-share files are acquired only with the explicit, state/year-bounded
 downloader in `scripts/`; its manifest preserves the official query URLs and
-checksums. A USDM category is never projected directly into a global SCC draw.
+checksums. The downloader validates the requested state, year, format, schema,
+five-digit county keys, and unique county-weeks before an atomic write; on
+rerun it rejects any raw file whose size or SHA-512 differs from the pinned
+manifest identity. Run
+`python us_county_validation/scripts/test_download_usdm_county_statistics.py`
+for synthetic response and tamper checks. A USDM category is never projected
+directly into a global SCC draw.
 `prepare_usdm_county_weeks.py` standardizes the exclusive county-week area
 shares and preserves `D0` separately from the `D1+` drought-exposure measure;
 it refuses duplicate county-week inputs, inconsistent validity dates, or

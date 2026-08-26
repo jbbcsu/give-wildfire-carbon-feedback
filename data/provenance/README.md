@@ -8,3 +8,9 @@ and the approved use boundary. Commit records, never raw source files.
 emulators assessed for reuse or benchmarking, including audited repository
 commits and licenses. It is a decision/provenance record, not vendored code and
 not permission to redistribute third-party model data.
+
+`isimip3b_daily_catalog_selection.csv` is the outcome-blind primary climate
+training selection. It pins the exact 80-dataset Cartesian product and is
+regenerated or compared only after `select_isimip3b_daily_catalog.py` validates
+saved official API payloads. It is metadata, not evidence of file acquisition;
+every selected file still requires acquisition-time SHA-512 and content checks.

@@ -17,7 +17,8 @@ import pandas as pd
 import xarray as xr
 
 from build_crop_stage_heat_features import parse_fractions
-from build_crop_year_features import climate_array, date_from_doy
+from build_crop_year_features import date_from_doy
+from climate_inputs import climate_array
 
 
 KEYS = ["harvest_year", "lat", "lon_360", "crop", "irrigation"]
