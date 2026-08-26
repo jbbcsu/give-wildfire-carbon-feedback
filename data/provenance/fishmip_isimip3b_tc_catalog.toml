@@ -1,5 +1,5 @@
 status = "metadata_audited_not_acquired"
-checked_date = "2026-08-25"
+checked_date = "2026-08-26"
 catalog = "ISIMIP repository"
 query_url = "https://data.isimip.org/api/v1/datasets/?simulation_round=ISIMIP3b&product=OutputData&sector=marine-fishery_global&variable=tc&page_size=200"
 catalog_result_count = 20
@@ -8,6 +8,18 @@ restricted = false
 license = "CC0 1.0"
 terms_url = "https://www.isimip.org/gettingstarted/terms-of-use/#general-terms-of-use-for-all-isimip-data-on-the-esg-server"
 raw_data_committed = false
+
+[acquisition_plan]
+path = "data/provenance/fishmip_isimip3b_tc_acquisition_plan.csv"
+exact_file_metadata_pinned = true
+files_total = 20
+bytes_total = 2585466439
+content_smoke_rule = "all models; gfdl-esm4; historical/histsoc plus ssp126/2015soc-from-histsoc"
+content_smoke_files = 4
+content_smoke_bytes = 513826771
+deferred_full_matrix_files = 16
+deferred_full_matrix_bytes = 2071639668
+selection_is_engineering_only = true
 
 [variable]
 name = "tc"
@@ -51,5 +63,5 @@ notes = [
   "The catalogue has SSP1-2.6 and SSP5-8.5 but no SSP3-7.0 total-catch entry.",
   "Scenario contrasts cannot be substituted for a matched one-ton CO2 pulse.",
   "Total catch density is an intermediate quantity, not consumer or producer welfare.",
-  "No files were downloaded in this audit; file-level checksums above are catalogue metadata, not local checksum verification."
+  "No files were downloaded in this audit; all file-level checksums in the acquisition plan are catalogue metadata, not local checksum verification."
 ]

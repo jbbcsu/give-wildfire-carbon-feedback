@@ -37,6 +37,13 @@ and IPSL-CM6A-LR), with five historical/future experiment records per pairing.
 No files have been acquired. The audit does not clear the matched-pulse,
 NetCDF-content, welfare, or production gates.
 
+The all-file acquisition plan is now version-pinned and executable against a
+fresh catalogue response. Its outcome-blind content smoke is limited to the
+four BOATS/EcoOcean historical and SSP1-2.6 files under GFDL-ESM4 (513,826,771
+catalogue bytes). The remaining 16 files stay deferred until the smoke passes
+complete-file checksum, schema, monthly chronology, historical/future join,
+grid, unit, and missing-versus-zero checks. See `FISHMIP_CONTENT_PLAN.md`.
+
 ## Gate 3 — primary model and alternatives
 
 Primary candidate: an explicitly stated regional/species hierarchical response

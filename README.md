@@ -53,9 +53,14 @@ GFDL-ESM4 and IPSL-CM6A-LR, with historical, preindustrial-control, SSP1-2.6,
 and SSP5-8.5 experiments. The versioned, machine-readable audit is
 [`data/provenance/fishmip_isimip3b_tc_catalog.toml`](data/provenance/fishmip_isimip3b_tc_catalog.toml),
 and `scripts/validate_fishmip_catalog.py` validates an API response before any
-download. This clears a source-discovery gate only. The outputs are scenario
-total catch, not a matched marginal-CO2 response and not welfare, so no
-fisheries damage coefficient or SCC is inferred from them.
+download. The exact 20-file, checksum-bearing acquisition plan and bounded
+four-file content smoke are documented in
+[`FISHMIP_CONTENT_PLAN.md`](FISHMIP_CONTENT_PLAN.md). The plan pins 2,585,466,439
+catalogue bytes overall but initially permits only 513,826,771 bytes: BOATS and
+EcoOcean historical plus SSP1-2.6 under the same GFDL-ESM4 forcing. No NetCDF
+file has been acquired. This clears a source-discovery gate only. The outputs
+are scenario total catch, not a matched marginal-CO2 response and not welfare,
+so no fisheries damage coefficient or SCC is inferred from them.
 
 ## Executable accounting scaffolding
 
