@@ -103,11 +103,13 @@ also checks every advertised file SHA-512, URL, version, size sum, and
 contiguous 1850--2014 or 2015--2100 year coverage against saved official API
 responses. This is metadata selection, not acquisition or climate validation.
 
-The bounded MRI-ESM2-0 SSP3-7.0 precipitation smoke checked the official
-2015--2020 JSON sidecar and a 64 KiB HTTP range. The sidecar matched the pinned
-1,241,058,098-byte file and SHA-512, and the range had the HDF5 signature. The
-complete file was not downloaded, so its full checksum, decoded grid, units,
-daily chronology, and values remain unverified.
+The bounded MRI-ESM2-0 SSP3-7.0 precipitation smoke progressed from the
+official sidecar/header check to the complete 1,241,058,098-byte 2015--2020
+file. Its full SHA-512 matches; the decoded block has 2,192 exact daily noon
+steps on the registered 360 by 720 global 0.5-degree grid, precipitation-flux
+units, 568,166,400 finite values, no missing or negative values, and
+215,127,839 genuine zeros. This validates one input block only, not its
+historical join, other variables, crop features, emulator, or SCC use.
 
 1. Retain the frozen five-ESM/member selection with daily `pr`, `tas`,
    `tasmin`, and `tasmax` over historical plus `ssp126`, `ssp370`, and
@@ -119,9 +121,13 @@ daily chronology, and values remain unverified.
    local storage policy. Chronologically adjacent files are opened as one
    audited daily series: grids and units must match and the boundary must have
    exactly one-day steps without duplicates or gaps. Raw projections are not committed.
-3. Join annual GMST from the *same CMIP6 realization* for fitting.  The GMST
-   source, baseline period, and anomaly definition must be recorded; do not
-   substitute FAIR temperatures during fitting.
+3. Build annual GMST from the pinned daily `tas` files belonging to the *same
+   CMIP6 ESM/member/scenario* as the feature rows. `build_same_realization_gmst.py`
+   uses cos(latitude) grid weights and complete decoded calendar years. The
+   source ID and Kelvin value must be unique within every ESM/member/scenario/year
+   across feature families. Record any later anomaly baseline separately; do
+   not substitute FAIR temperatures during fitting. Only synthetic GMST input
+   checks have passed so far.
 4. Fit only after complete historical/future feature coverage and
    calendar-year/cross-year checks.  FAIR is used only at the paired
    evaluation boundary after the climate response is fitted.
@@ -151,7 +157,7 @@ The driver cannot supply a GIVE SCC input unless all apply:
 
 `scripts/validate_paired_feature_emulator.py` makes the design gates
 executable. It requires the complete ESM/scenario/feature training product,
-same-realization GMST identifiers, exact whole-ESM and whole-scenario
+same-realization finite physical GMST values and identifiers, exact whole-ESM and whole-scenario
 holdout coverage, common baseline/pulse residual IDs, independently evaluated
 support flags, pre-divergence and zero-pulse identity, and agreement plus
 convergence across at least three decreasing positive pulse sizes. Synthetic

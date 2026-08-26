@@ -99,6 +99,13 @@ scheme. The primary future driver derives the exact crop-calendar features
 from version-pinned daily ISIMIP3b historical and SSP fields, fits
 ESM/member-specific feature responses to same-realization global temperature,
 and evaluates both FAIR paths with the same ESM/member and residual innovation.
+Annual training GMST is defined as the cos(latitude)-weighted mean of the
+pinned daily `tas` field from that exact ESM/member/scenario; an executable
+gate requires one finite physical Kelvin value and source per year across all
+feature families. Its builder has only synthetic evidence. One complete
+MRI-ESM2-0 SSP3-7.0 precipitation block for 2015--2020 passes its pinned
+SHA-512 and full decoded content/chronology gate, but this is not a fitted
+feature response.
 An unmatched scenario contrast is not treated as a marginal pulse. Whole-ESM
 and whole-scenario holdouts, historical-support flags, zero-pulse identity, and
 decreasing-pulse convergence must pass before the resulting features can enter

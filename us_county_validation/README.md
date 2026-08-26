@@ -75,14 +75,22 @@ The locked corn-grain form is:
 
 `python us_county_validation/scripts/download_nass_quickstats_api.py --commodity CORN --unit 'BU / ACRE' --util-practice GRAIN --year-min 2020 --year-max 2020 --out-dir data/raw/us_county/nass_api/locked`
 
-The real 2020 smoke acquired 1,699 unique county-year corn-grain observations
-under the exact all-production-practices series. It validates access and series
-identity only; it is not a high-rainfed sample or a yield-response estimate.
+The real 2019--2021 smoke acquired 1,449, 1,699, and 1,502 raw corn-grain
+records under the exact all-production-practices series. Run
+`prepare_nass_api_county_yields.py` over the three responses to reject combined
+or other non-FIPS geographies without inventing identifiers, preserve
+suppression flags, and require exact year/series coverage. The validated output
+contains 4,396 real-FIPS county-years (1,257, 1,668, and 1,471); 254 raw records
+were explicitly excluded as non-FIPS/combined geographies and no retained
+value was suppressed. This validates bounded national/county outcome
+acquisition only; it is not a high-rainfed sample or a yield-response estimate.
 
 This is a bounded acquisition fallback, not authorization to mix NASS series
 or call aggregate county yield non-irrigated. Run
 `python us_county_validation/scripts/test_download_nass_quickstats_api.py`
-for mocked authentication/count/cap/provenance checks.
+for mocked authentication/count/cap/provenance checks and
+`python us_county_validation/scripts/test_prepare_nass_api_county_yields.py`
+for exact-series, FIPS, suppression, year-product, and duplicate checks.
 
 The project owner authorized the NASS Quick Stats API as a bounded
 fallback for the stalled bulk transfer. Store the key only in the local,

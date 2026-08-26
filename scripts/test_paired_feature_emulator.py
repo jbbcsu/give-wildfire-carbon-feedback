@@ -32,6 +32,7 @@ def training() -> pd.DataFrame:
                         "gmst_source_id": f"cmip6-{esm}-{member}",
                         "gmst_esm_id": esm,
                         "gmst_member_id": member,
+                        "gmst_value_k": 288.0,
                         "feature_family": family,
                         "feature_value": 10.0,
                     }
@@ -108,6 +109,10 @@ validate_pairs(pairs(), members)
 case = train.copy()
 case.loc[0, "gmst_member_id"] = "different"
 expect_failure(validate_training_design, case, message="same realization")
+
+case = train.copy()
+case.loc[0, "gmst_value_k"] = 289.0
+expect_failure(validate_training_design, case, message="multiple GMST values")
 
 case = holdouts()
 case = case[~((case["split_type"] == "scenario") & (case["holdout_id"] == "ssp585"))]

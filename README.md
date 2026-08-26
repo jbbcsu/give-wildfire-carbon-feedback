@@ -30,12 +30,16 @@ FAIR paths with common random numbers. Scenario differences are training data,
 not one-tonne CO2 experiments.
 The outcome-blind selection is now frozen to the five complete ISIMIP3b ESM
 realizations across historical, SSP1-2.6, SSP3-7.0, SSP5-8.5 and the four daily
-variables (80 version-`20210512` datasets). A bounded MRI precipitation
-sidecar/header smoke passed without downloading the 1.24 GB file. The full
-1.757 TB catalogue matrix is not acquired. Executable validators enforce the
-frozen catalogue product and the whole-ESM/scenario, same-realization GMST,
-common-residual, support, identity, and decreasing-pulse gates; they have only
-synthetic evidence so far.
+variables (80 version-`20210512` datasets). The complete pinned 1.24 GB
+MRI-ESM2-0 SSP3-7.0 precipitation block for 2015--2020 now passes its SHA-512,
+decoded global-grid, units, complete daily chronology, missingness, and
+nonnegative-value gates. This is one engineering block, not acquisition of the
+1.757 TB matrix. A same-realization GMST builder now calculates annual
+cos(latitude)-weighted means from the pinned daily `tas` field and the training
+gate requires one physical GMST value/source per ESM/member/scenario/year
+across feature families; only its synthetic checks have run. Whole-ESM/scenario,
+common-residual, support, identity, and decreasing-pulse gates also remain
+synthetic.
 The evidence-bounded manuscript and Methods/SI blueprints are in
 [MANUSCRIPT_OUTLINE.md](MANUSCRIPT_OUTLINE.md) and
 [METHODS_SI_OUTLINE.md](METHODS_SI_OUTLINE.md).

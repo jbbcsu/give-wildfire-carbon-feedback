@@ -1,0 +1,48 @@
+source = "USDA NASS Quick Stats API"
+status = "authenticated_locked_series_three_year_outcome_panel_acquired"
+retrieval_dates_utc = ["2026-08-26T02:45:20.799997+00:00", "2026-08-26T06:08:23.231279+00:00", "2026-08-26T06:08:28.547297+00:00"]
+documentation_url = "https://quickstats.nass.usda.gov/api"
+count_endpoint = "https://quickstats.nass.usda.gov/api/get_counts/"
+data_endpoint = "https://quickstats.nass.usda.gov/api/api_GET/"
+credential_policy = "local .secrets/nass.env only; never recorded, printed, or committed"
+approved_use = "US national/county external-validation outcome acquisition; not a global or SCC input"
+
+[query]
+source_desc = "SURVEY"
+sector_desc = "CROPS"
+commodity_desc = "CORN"
+statisticcat_desc = "YIELD"
+agg_level_desc = "COUNTY"
+freq_desc = "ANNUAL"
+reference_period_desc = "YEAR"
+domain_desc = "TOTAL"
+domaincat_desc = "NOT SPECIFIED"
+prodn_practice_desc = "ALL PRODUCTION PRACTICES"
+util_practice_desc = "GRAIN"
+unit_desc = "BU / ACRE"
+years = [2019, 2020, 2021]
+format = "JSON"
+
+[validation]
+raw_counts = [1449, 1699, 1502]
+real_fips_county_counts = [1257, 1668, 1471]
+excluded_combined_or_non_fips_counts = [192, 31, 31]
+reported_numeric_real_county_counts = [1257, 1668, 1471]
+suppressed_or_nonnumeric_real_county_count = 0
+total_real_fips_county_years = 4396
+role = "national_county_outcome_acquisition_only_not_response_or_scc"
+
+[[files]]
+name = "quickstats_corn_grain_all_production_practices_county_yield_2019.json"
+size_bytes = 1872603
+sha512 = "08f47fb8947b4d2326173a844ba2e2a7a0da92d261554c81512118606cf5705a170ba091b674b2bc5fe53072e67f5c1f023e39a20bbc0e8a3b2f9803d13b32ba"
+
+[[files]]
+name = "quickstats_corn_grain_all_production_practices_county_yield_2020.json"
+size_bytes = 2192965
+sha512 = "8495c1092eaf2a45147832f64e340001d2d2b32714d8a7e8c6a7bc228fbc69506c12503e69c2e49d7c7055d8b244b6acba217095d0a2c23332d8cefa90526f73"
+
+[[files]]
+name = "quickstats_corn_grain_all_production_practices_county_yield_2021.json"
+size_bytes = 1938976
+sha512 = "52ce8e05733e149b2f2f3647eb7a7dc158d4153eb7fcde1cd5315059e2fb2a173625389e3ab24ba854c9f5025dcb44bb0c04c61ec9cbe3d22f8fd1f91e79ce1b"

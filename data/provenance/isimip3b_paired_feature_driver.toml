@@ -1,5 +1,5 @@
 schema_version = 2
-status = "primary_route_metadata_selected_smoke_verified_not_acquired"
+status = "primary_route_metadata_selected_first_complete_pr_file_validated"
 purpose = "Direct daily CMIP6 feature training data for matched FAIR baseline/pulse climate-feature evaluation. This record does not authorize an SCC calculation or raw-data redistribution."
 
 [decision]
@@ -74,13 +74,42 @@ range_bytes_received = 65536
 range_magic_hex = "894844460d0a1a0a"
 range_magic_format = "HDF5"
 result = "passed"
-limitation = "The sidecar and first 64 KiB were checked. The complete NetCDF was not downloaded, so the full-file SHA-512, decoded dimensions, daily continuity, grid, units, and values remain unverified."
+limitation = "The sidecar and first 64 KiB were the initial check; the complete-file result below supersedes those open content checks for this one precipitation block only."
+
+[complete_file_validation]
+checked_utc_date = "2026-08-26"
+role = "complete_file_engineering_smoke_not_feature_response_or_scc"
+file_name = "mri-esm2-0_r1i1p1f1_w5e5_ssp370_pr_global_daily_2015_2020.nc"
+file_size_bytes = 1241058098
+file_checksum_sha512 = "746c5de9c458587697fe662d11ff8652f753910e3e251205d1d12ea0417dbb23871b943650c8750a3622b66536001c5cf4d5e104257a4aa2e0492ad97dfd79fd"
+dimensions = [2192, 360, 720]
+dimension_order = ["time", "lat", "lon"]
+start_time = "2015-01-01T12:00:00"
+end_time = "2020-12-31T12:00:00"
+calendar = "proleptic_gregorian"
+units = "kg m-2 s-1"
+grid = "global 0.5 degree; latitude descending; longitude -179.75 to 179.75"
+finite_values = 568166400
+missing_values = 0
+zero_values = 215127839
+negative_values = 0
+minimum_flux = 0.0
+maximum_flux = 0.0069444444961845875
+result = "passed"
+limitation = "One MRI-ESM2-0 SSP3-7.0 precipitation block only; tas/tasmin/tasmax, historical join, crop features, real GMST, holdouts, paired paths, damages, and SCC remain unvalidated."
 
 [processing]
 raw_storage = "Git-ignored data/raw/isimip3b/; process one model/scenario/variable block at a time."
 derived_storage = "Git-ignored compact crop-feature tables keyed by esm_id, member_id, experiment, year, crop, irrigation, grid, stage, and feature definition version."
 required_provenance_fields = ["esm_id", "member_id", "experiment", "source_dataset_id", "source_file_url", "source_version", "source_checksum_sha512", "rights", "retrieval_date", "feature_code_commit", "calendar_source_id", "gmst_source_id"]
 forbidden_shortcut = "Do not estimate a marginal CO2 effect from an unmatched pair of CMIP scenarios, independently sampled ESMs, or independently sampled daily residuals."
+
+[processing.gmst]
+primary_source = "Annual area-weighted mean of the pinned daily ISIMIP3b tas field from the same ESM, member, and scenario as each feature row."
+weighting = "cos(latitude) on the registered regular global grid; mean across complete decoded days within each calendar year"
+units = "K"
+identity_rule = "One esm_id/member_id/scenario/year must map to exactly one explicit gmst_source_id and one finite physical gmst_value_k across every feature family."
+status = "synthetic builder and fail-closed identity gates passed; no real tas file or GMST series acquired"
 
 [paired_evaluation]
 fair_role = "Evaluate only after fitting ESM-specific direct-feature response curves to CMIP/ISIMIP data."

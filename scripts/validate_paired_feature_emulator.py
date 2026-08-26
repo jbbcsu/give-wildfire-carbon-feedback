@@ -35,21 +35,29 @@ def validate_training_design(training: pd.DataFrame) -> tuple[dict[str, str], se
             "gmst_source_id",
             "gmst_esm_id",
             "gmst_member_id",
+            "gmst_value_k",
             "feature_family",
             "feature_value",
         },
         "training",
     )
-    if training[list({"year", "feature_value"})].isna().any().any():
-        raise ValueError("training has missing year or feature value")
-    if not np.isfinite(training["feature_value"].to_numpy(dtype=float)).all():
-        raise ValueError("training feature values must be finite")
+    if training[["year", "feature_value", "gmst_value_k"]].isna().any().any():
+        raise ValueError("training has missing year, feature, or GMST value")
+    if not np.isfinite(training[["feature_value", "gmst_value_k"]].to_numpy(dtype=float)).all():
+        raise ValueError("training feature and GMST values must be finite")
+    if not training["gmst_value_k"].astype(float).between(150.0, 350.0).all():
+        raise ValueError("training GMST values are outside physical Kelvin bounds")
     if (training["gmst_source_id"].astype(str).str.strip() == "").any():
         raise ValueError("training GMST source IDs must be explicit")
     if not (training["esm_id"].astype(str) == training["gmst_esm_id"].astype(str)).all():
         raise ValueError("training features and GMST must use the same ESM")
     if not (training["member_id"].astype(str) == training["gmst_member_id"].astype(str)).all():
         raise ValueError("training features and GMST must use the same realization")
+    gmst_keys = ["esm_id", "member_id", "scenario", "year"]
+    if (training.groupby(gmst_keys)["gmst_source_id"].nunique() != 1).any():
+        raise ValueError("one ESM/member/scenario/year maps to multiple GMST source IDs")
+    if (training.groupby(gmst_keys)["gmst_value_k"].nunique() != 1).any():
+        raise ValueError("one ESM/member/scenario/year maps to multiple GMST values")
     if set(training["scenario"].astype(str)) != SCENARIOS:
         raise ValueError("training must cover historical, SSP1-2.6, SSP3-7.0, and SSP5-8.5")
 

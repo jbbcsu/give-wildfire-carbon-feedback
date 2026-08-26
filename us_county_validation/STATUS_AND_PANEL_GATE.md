@@ -1,11 +1,11 @@
 # County validation: executable status and gates
 
-## Observed local input state (audited 2026-08-25)
+## Observed local input state (audited 2026-08-26)
 
 | Input | Local state | Permitted conclusion |
 |---|---|---|
 | NASS Quick Stats crops snapshot dated 2026-08-21 | Pinned identity sidecar exists; resumable partial is 104 MiB of expected 1,128,988,003 bytes; archive is incomplete | Do not inspect/filter as if valid gzip; no NASS yield observation has entered a panel |
-| NASS Quick Stats API | Key authentication, exact-year discovery, count gate, and locked 2020 corn-grain query passed; 1,699 unique county-year rows were acquired with one unit and one series | Real outcome acquisition smoke only; the observations are aggregate across production practices and have not entered a weather-response panel |
+| NASS Quick Stats API | Locked 2019--2021 corn-grain queries passed; exact-series preparation retained 4,396 real-FIPS county-years and separately counted 254 combined/non-FIPS records | Real national/county outcome acquisition only; observations aggregate all production practices and have not entered a weather-response panel |
 | U.S. Drought Monitor county area shares | Real Iowa 2001 raw response and prepared county-week table exist | A real source/provenance check only; no documented crop-season calendar or NASS outcome overlap exists |
 | gridMET / Daymet daily climate | No raw files or derived county crop-area features found | No timing, dry-spell, temperature, or heavy-rain county exposure can be estimated |
 | Crop-area masks/weights | Not found | County-centroid weather is not substituted as the main exposure |
