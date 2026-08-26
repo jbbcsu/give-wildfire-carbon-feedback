@@ -70,8 +70,11 @@ def crop_year_window(array: xr.DataArray, year_start: int, year_end: int) -> xr.
         raise ValueError("year_end must not precede year_start")
     dates = pd.DatetimeIndex(array.time.values)
     first = pd.Timestamp(year_start - 1, 1, 1)
-    last = pd.Timestamp(year_end, 12, 31)
-    selected = np.flatnonzero((dates >= first) & (dates <= last))
+    # ISIMIP daily fields are commonly timestamped at noon.  Use an exclusive
+    # next-year boundary so December 31 is retained regardless of intraday
+    # timestamp while January 1 of the following year is still excluded.
+    last_exclusive = pd.Timestamp(year_end + 1, 1, 1)
+    selected = np.flatnonzero((dates >= first) & (dates < last_exclusive))
     if len(selected) == 0:
         raise ValueError(f"Climate input has no days for harvest years {year_start}-{year_end}")
     return array.isel(time=selected)

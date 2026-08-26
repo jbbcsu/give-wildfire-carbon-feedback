@@ -42,6 +42,14 @@ with tempfile.TemporaryDirectory() as temporary:
         assert len(combined.time) == 5
         assert len(crop_year_window(combined, 2020, 2020).time) == 5
 
+    noon_year_end = root / "noon_year_end.nc"
+    write(noon_year_end, pd.date_range("2020-12-30 12:00", "2020-12-31 12:00", freq="D"))
+    with ExitStack() as stack:
+        noon = open_daily_series(stack, [str(noon_year_end)], "pr")
+        selected = crop_year_window(noon, 2020, 2020)
+        assert len(selected.time) == 2
+        assert pd.Timestamp(selected.time.values[-1]) == pd.Timestamp("2020-12-31 12:00")
+
     gap = root / "gap.nc"
     write(gap, pd.date_range("2020-01-02", "2020-01-03", freq="D"))
     expect_failure([str(first), str(gap)], "strictly increasing daily series")

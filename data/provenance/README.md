@@ -18,3 +18,8 @@ every selected file still requires acquisition-time SHA-512 and content checks.
 `nass_quickstats_api_2020_corn_smoke.toml` records the credential-free locked
 Quick Stats API smoke. The API key is intentionally absent from all tracked and
 raw manifests.
+
+`nass_quickstats_api_2018_2022_corn_panel.toml` pins the exact five-year
+all-production-practices corn-yield fallback and its counts-only temporal
+support audit. It is a county outcome-coverage record, not a rainfed sample,
+weather response, or SCC input.

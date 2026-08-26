@@ -75,15 +75,17 @@ The locked corn-grain form is:
 
 `python us_county_validation/scripts/download_nass_quickstats_api.py --commodity CORN --unit 'BU / ACRE' --util-practice GRAIN --year-min 2020 --year-max 2020 --out-dir data/raw/us_county/nass_api/locked`
 
-The real 2019--2021 smoke acquired 1,449, 1,699, and 1,502 raw corn-grain
-records under the exact all-production-practices series. Run
-`prepare_nass_api_county_yields.py` over the three responses to reject combined
+The real 2018--2022 smoke acquired 1,518, 1,449, 1,699, 1,502, and 1,543 raw
+corn-grain records under the exact all-production-practices series. Run
+`prepare_nass_api_county_yields.py` over the five responses to reject combined
 or other non-FIPS geographies without inventing identifiers, preserve
 suppression flags, and require exact year/series coverage. The validated output
-contains 4,396 real-FIPS county-years (1,257, 1,668, and 1,471); 254 raw records
-were explicitly excluded as non-FIPS/combined geographies and no retained
-value was suppressed. This validates bounded national/county outcome
-acquisition only; it is not a high-rainfed sample or a yield-response estimate.
+contains 7,253 real-FIPS county-years; 807 counties have reported observations
+in all five years and 4,845 reported adjacent-year pairs are available. Run
+`audit_nass_api_temporal_coverage.py` to reproduce those support counts and
+reject mixed series, duplicate keys, missing years, or invalid reported values.
+This validates bounded national/county outcome acquisition only; it is not a
+high-rainfed sample or a yield-response estimate.
 
 This is a bounded acquisition fallback, not authorization to mix NASS series
 or call aggregate county yield non-irrigated. Run

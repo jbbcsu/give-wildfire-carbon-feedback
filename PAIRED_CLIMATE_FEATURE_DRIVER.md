@@ -126,8 +126,9 @@ historical join, other variables, crop features, emulator, or SCC use.
    uses cos(latitude) grid weights and complete decoded calendar years. The
    source ID and Kelvin value must be unique within every ESM/member/scenario/year
    across feature families. Record any later anomaly baseline separately; do
-   not substitute FAIR temperatures during fitting. Only synthetic GMST input
-   checks have passed so far.
+   not substitute FAIR temperatures during fitting. Synthetic failure modes
+   and one real MRI-ESM2-0 SSP3-7.0 2015--2020 `tas` content/GMST smoke have
+   passed; historical continuity and the other ESM/scenario cells have not.
 4. Fit only after complete historical/future feature coverage and
    calendar-year/cross-year checks.  FAIR is used only at the paired
    evaluation boundary after the climate response is fitted.

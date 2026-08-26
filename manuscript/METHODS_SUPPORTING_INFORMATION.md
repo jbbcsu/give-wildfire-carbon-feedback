@@ -74,14 +74,15 @@ four-variable catalogue product recorded in
 `data/provenance/isimip3b_daily_catalog_selection.csv`. The current snapshot
 contains 80 public/unrestricted CC0 version-`20210512` datasets. It is a model
 selection and storage-planning record, not evidence that the 1.757 TB catalogue
-has been acquired. The complete pinned MRI-ESM2-0 SSP3-7.0 precipitation block
-for 2015--2020 now matches its SHA-512 and passes decoded-grid, units,
-missingness, nonnegative-value, and exact daily-chronology checks. This clears
-those checks for one precipitation file only. Daily `tas` from the same
-ESM/member/scenario supplies cos(latitude)-weighted annual GMST in the
-registered builder; training rows must share one explicit source and Kelvin
-value within each ESM/member/scenario/year. The GMST builder has only synthetic
-evidence and no real temperature block has yet passed it.
+has been acquired. The complete pinned MRI-ESM2-0 SSP3-7.0 precipitation and
+mean-temperature blocks for 2015--2020 now match their SHA-512 values and pass
+decoded-grid, units, missingness, physical-value, and exact daily-chronology
+checks. Daily `tas` from the same ESM/member/scenario supplies
+cos(latitude)-weighted annual GMST in the registered builder; the real
+six-year smoke has exact 365/366-day counts and training rows must share one
+explicit source and Kelvin value within each ESM/member/scenario/year. This
+clears one six-year `pr`/`tas` pair only, not historical continuity,
+whole-ESM/scenario validation, or feature-response fitting.
 
 Whole ESMs and whole scenarios, not random years alone, are held out. STITCHES
 supplies a sequence-preserving benchmark; MESMER-M-TP plus a published daily
