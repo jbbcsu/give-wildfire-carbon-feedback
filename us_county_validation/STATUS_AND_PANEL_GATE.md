@@ -5,12 +5,15 @@
 | Input | Local state | Permitted conclusion |
 |---|---|---|
 | NASS Quick Stats crops snapshot dated 2026-08-21 | Pinned identity sidecar exists; resumable partial is 104 MiB of expected 1,128,988,003 bytes; archive is incomplete | Do not inspect/filter as if valid gzip; no NASS yield observation has entered a panel |
+| NASS Quick Stats API | Key authentication, exact-year discovery, count gate, and locked 2020 corn-grain query passed; 1,699 unique county-year rows were acquired with one unit and one series | Real outcome acquisition smoke only; the observations are aggregate across production practices and have not entered a weather-response panel |
 | U.S. Drought Monitor county area shares | Real Iowa 2001 raw response and prepared county-week table exist | A real source/provenance check only; no documented crop-season calendar or NASS outcome overlap exists |
 | gridMET / Daymet daily climate | No raw files or derived county crop-area features found | No timing, dry-spell, temperature, or heavy-rain county exposure can be estimated |
 | Crop-area masks/weights | Not found | County-centroid weather is not substituted as the main exposure |
 | Crop-specific irrigated/non-irrigated harvested area | Not found | No county is called non-irrigated or high-rainfed; no irrigation gate can pass |
 
-There is therefore **no real county yield-response result** and no valid non-irrigated county panel as of this audit.
+There is therefore **no real county yield-response result** and no valid
+non-irrigated county panel as of this audit, although the API outcome path is
+now operational.
 
 ## New reproducible NASS path
 
@@ -39,7 +42,13 @@ It needs, in this order:
 4. Complete state/crop/year calendar rows and USDM county-week records for the same county-years, enabling the fixed-effect composite-drought benchmark.
 5. Predeclared rolling-year, spatial/state, and dry/wet-extreme holdouts before choosing among total-only, seasonal-shape, dry/wet-extreme, binned, and constrained-nonlinear specifications.
 
-No API key is needed for the approved pinned NASS bulk-archive route. The 2026-08-25 resume attempt failed at remote HTTP header/range transfer (curl exit 56) even with network permission; this is an upstream/transport condition, not a key/authentication response. NASS Quick Stats API would need a user-provided key and is less reproducible than the pinned bulk release, so it is not a fallback without authorization.
+No API key is needed for the pinned NASS bulk-archive route. The 2026-08-25
+resume attempt failed at remote HTTP header/range transfer (curl exit 56), an
+upstream/transport condition. The owner subsequently authorized the Quick
+Stats API fallback and supplied a local Git-ignored key. The fallback is now
+count-first, one commodity-year per request, exact-series filtered, and
+provenance/checksum recorded; the key is never written to output. The dated
+bulk release remains the replication benchmark if its transfer completes.
 
 ## Climate/drought interpretation constraint
 

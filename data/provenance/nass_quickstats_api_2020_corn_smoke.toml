@@ -1,0 +1,36 @@
+source = "USDA NASS Quick Stats API"
+status = "authenticated_locked_series_smoke_acquired"
+retrieved_utc = "2026-08-26T02:45:20.799997+00:00"
+documentation_url = "https://quickstats.nass.usda.gov/api"
+count_endpoint = "https://quickstats.nass.usda.gov/api/get_counts/"
+data_endpoint = "https://quickstats.nass.usda.gov/api/api_GET/"
+credential_policy = "local .secrets/nass.env only; never recorded, printed, or committed"
+approved_use = "US county external validation outcome acquisition; not a global or SCC input"
+
+[query]
+source_desc = "SURVEY"
+sector_desc = "CROPS"
+commodity_desc = "CORN"
+statisticcat_desc = "YIELD"
+agg_level_desc = "COUNTY"
+freq_desc = "ANNUAL"
+reference_period_desc = "YEAR"
+domain_desc = "TOTAL"
+prodn_practice_desc = "ALL PRODUCTION PRACTICES"
+util_practice_desc = "GRAIN"
+unit_desc = "BU / ACRE"
+year = "2020"
+format = "JSON"
+
+[validation]
+preflight_count = 1699
+row_count = 1699
+unique_county_year_count = 1699
+reported_numeric_count = 1699
+suppressed_or_other_count = 0
+year_values = [2020]
+
+[[files]]
+name = "quickstats_corn_grain_all_production_practices_county_yield_2020.json"
+size_bytes = 2192965
+sha512 = "8495c1092eaf2a45147832f64e340001d2d2b32714d8a7e8c6a7bc228fbc69506c12503e69c2e49d7c7055d8b244b6acba217095d0a2c23332d8cefa90526f73"

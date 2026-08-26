@@ -55,7 +55,36 @@ The synthetic preparation test
 checks disclosure-flag preservation and strict five-digit county GEOIDs; it
 does not validate filters against the still-incomplete raw snapshot.
 
-The project owner has also authorized the NASS Quick Stats API as a bounded
+### Bounded Quick Stats API fallback
+
+If the pinned bulk archive remains unavailable, the isolated fallback is
+`download_nass_quickstats_api.py`. It reads `NASS_API_KEY` (or
+`QUICKSTATS_API_KEY`) only from the precipitation-repository-root
+`.secrets/nass.env` file; that
+file and `data/raw/` are gitignored. It first calls the official Quick Stats
+`get_counts` endpoint using the exact county-yield filters, refuses to call
+the data endpoint when the count exceeds 50,000, then writes the raw JSON and
+a SHA-512 provenance record with the query parameters **excluding the key**.
+It requires exactly one commodity-year per request. Use bounded discovery to
+inspect the published series before locking its unit and utilization/practice
+descriptors:
+
+`python us_county_validation/scripts/download_nass_quickstats_api.py --commodity CORN --year-min 2020 --year-max 2020 --series-discovery --out-dir data/raw/us_county/nass_api/discovery_exact_year`
+
+The locked corn-grain form is:
+
+`python us_county_validation/scripts/download_nass_quickstats_api.py --commodity CORN --unit 'BU / ACRE' --util-practice GRAIN --year-min 2020 --year-max 2020 --out-dir data/raw/us_county/nass_api/locked`
+
+The real 2020 smoke acquired 1,699 unique county-year corn-grain observations
+under the exact all-production-practices series. It validates access and series
+identity only; it is not a high-rainfed sample or a yield-response estimate.
+
+This is a bounded acquisition fallback, not authorization to mix NASS series
+or call aggregate county yield non-irrigated. Run
+`python us_county_validation/scripts/test_download_nass_quickstats_api.py`
+for mocked authentication/count/cap/provenance checks.
+
+The project owner authorized the NASS Quick Stats API as a bounded
 fallback for the stalled bulk transfer. Store the key only in the local,
 Git-ignored file `.secrets/nass.env` at the repository root, using the form
 `NASS_API_KEY=...`. Never commit, log, or print the key. API-derived inputs
