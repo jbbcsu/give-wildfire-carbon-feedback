@@ -76,6 +76,16 @@ unsupported cells into zeros. These outputs are
 scenario total catch, not a matched marginal-CO2 response and not welfare, so
 no fisheries damage coefficient or SCC is inferred from them.
 
+The first support-matched scenario diagnostic is documented in
+[`FISHMIP_SCENARIO_BENCHMARK.md`](FISHMIP_SCENARIO_BENCHMARK.md). On the 41,029
+cells jointly supported by BOATS and EcoOcean, the cosine-latitude-weighted
+annual mean `tc` density in 2081--2090 under SSP1-2.6 is 35.62% below BOATS's
+own 2005--2014 reference and 24.40% below EcoOcean's own reference. Earlier
+periods disagree more: BOATS is 26.04% below its reference in 2021--2030 while
+EcoOcean is 0.27% above its reference. The diagnostic does not average model
+levels, because their absolute scales differ greatly, and it remains a
+scenario benchmark rather than a pulse, welfare, damage, or SCC result.
+
 ## Executable accounting scaffolding
 
 The repository currently provides two coefficient-free checks:
@@ -97,6 +107,7 @@ python3 test/test_welfare_interface.py
 python3 test/test_region_aggregation.py
 python3 test/test_fishmip_catalog.py
 python3 test/test_fishmip_content.py  # in an environment with xarray and h5netcdf
+python3 test/test_fishmip_scenario_benchmark.py  # same environment requirement
 ```
 
 These scripts do not choose ecological or economic parameters, certify that a

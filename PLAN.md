@@ -54,6 +54,13 @@ catch/landings models only where identification is credible. Model migration,
 harvest management, and substitution explicitly rather than attributing all
 catch trends to climate.
 
+The first four-file scenario benchmark now passes on 41,029 common-support
+cells. BOATS and EcoOcean both have lower 2081--2090 SSP1-2.6 mean `tc` density
+than their own 2005--2014 reference (-35.62% and -24.40%), but their earlier
+paths differ. This advances the ensemble biophysical benchmark and exposes
+model spread; it does not clear the matched-pulse or welfare portions of this
+gate.
+
 ## Gate 4 — welfare translation and GIVE interface
 
 Translate changes in catch/availability into producer and consumer welfare,

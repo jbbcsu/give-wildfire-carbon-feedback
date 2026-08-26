@@ -35,6 +35,14 @@ historical masks contain 41,029 common finite cells, 47 BOATS-only cells, and
 common-support flags and must not fill unsupported cells with zero. This is a
 validated content limitation, not a reason to select one ecosystem model.
 
+The registered scenario benchmark now exercises that rule over the complete
+1950--2100 historical/SSP1-2.6 paths. Relative to each model's own 2005--2014
+common-support reference, 2081--2090 mean `tc` density is 35.62% lower for
+BOATS and 24.40% lower for EcoOcean. Their 2021--2030 changes are -26.04% and
++0.27%, respectively, so neither a common short-run response nor a preferred
+model is inferred. See `FISHMIP_SCENARIO_BENCHMARK.md`. These are scenario
+diagnostics, not marginal-pulse or welfare effects.
+
 Before any download, refresh the catalogue response and require an exact match:
 
 ```bash
