@@ -5,10 +5,26 @@ source = "GDHY v1.2/v1.3"
 [features]
 continuous = ["tmean_c", "log1p_precip_mm", "cdd_max_days", "rx1day_mm"]
 interaction = "tmean_c_x_log1p_precip_mm"
+primary_precipitation_family = "seasonal total plus within-season distribution, wet-day frequency, consecutive dry days, Rx1day, and Rx5day"
+primary_water_stress = "direct precipitation-pattern and dry-spell features"
+robustness_water_stress = ["PDSI_or_SPEI_like", "soil_moisture"]
+water_stress_combination_rule = "estimate alternatives separately; never stack competing drought representations"
+heat_threshold_rule = "crop-specific thresholds registered from literature before outcome estimation"
+
+[irrigation_exposure]
+approach = "one area-weighted exposure per observed GDHY crop-grid-year yield"
+weights = "independent fixed-baseline crop-grid rainfed and irrigated harvested-area shares"
+forbidden = "do not duplicate one GDHY yield across irrigation regimes or label an aggregate outcome rainfed"
+production_source_status = "pending acquisition and validation"
+
+[decision]
+approved_by = "project owner"
+approved_on = "2026-08-25"
+status = "recommended defaults approved"
 
 [fixed_effects]
 grid = "lat_lon_crop_irrigation"
 year = "harvest_year"
 
 [boundary]
-status = "pilot estimation workflow only; full global, crop-stage estimation is required for inference and SCC inputs"
+status = "primary feature and irrigation rules approved; full global crop-stage estimation remains required for inference and SCC inputs"

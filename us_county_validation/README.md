@@ -55,6 +55,13 @@ The synthetic preparation test
 checks disclosure-flag preservation and strict five-digit county GEOIDs; it
 does not validate filters against the still-incomplete raw snapshot.
 
+The project owner has also authorized the NASS Quick Stats API as a bounded
+fallback for the stalled bulk transfer. Store the key only in the local,
+Git-ignored file `.secrets/nass.env` at the repository root, using the form
+`NASS_API_KEY=...`. Never commit, log, or print the key. API-derived inputs
+must retain exact query parameters, retrieval time, response checksum, and
+suppression flags; they do not silently replace the dated bulk snapshot.
+
 USDM area-share files are acquired only with the explicit, state/year-bounded
 downloader in `scripts/`; its manifest preserves the official query URLs and
 checksums. The downloader validates the requested state, year, format, schema,
