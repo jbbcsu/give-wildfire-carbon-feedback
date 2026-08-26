@@ -1,0 +1,58 @@
+schema_version = 1
+contract_id = "blue_scc_fisheries_literature_benchmark_v1"
+analysis_role = "published_method_and_source_data_audit_only"
+
+[source]
+article_doi = "10.1038/s41558-025-02533-5"
+article_url = "https://www.nature.com/articles/s41558-025-02533-5"
+repository_url = "https://github.com/berbastien/blue-scc"
+repository_commit = "dbc0d8cb21c81f1508abfaf9e5c0f5671ccdd83f"
+repository_commit_date = "2026-03-06T13:55:08+01:00"
+repository_license_status = "no_explicit_root_license_file_found_at_audited_commit"
+
+[files]
+market_projection_script = "Code/Fisheries_and_Mariculture/001_Read_FisheriesProjections_Free.r"
+market_projection_script_sha256 = "6db24bc30dc6847be8454db34089f3d38a367277676a18a7ba06d7a05a85ee61"
+market_damage_script = "Code/Fisheries_and_Mariculture/002_Damage_Function_Free.r"
+market_damage_script_sha256 = "0b6ad3656ebfb2519c2b7af229db8046c1724f8cf85ee67ab6f6c606f19f2da3"
+nutrition_script = "Code/Fisheries_and_Mariculture/001N_Nutrition_ReadData.r"
+nutrition_script_sha256 = "1598f6d466806454b7ece6ed83e3d61c651a3e6d70f057a83003b9c92dfef389"
+country_market_coefficients = "Data/output_modules_input_rice50x/input_rice50x/fish_tcoeff.csv"
+country_market_coefficients_sha256 = "50a981d08a2939dc6e83cd537578ceea2eb9f6a4c1647b138b5d95f466814037"
+figure4_source_data = "Code/MainText_Figures_Code/figure_source_data/Fig4_source_data.xlsx"
+figure4_source_data_sha256 = "23dd228434dac4cd3377a27a54ecedde33f6a84ef911dfa342c79f044783feb6"
+
+[expected]
+country_coefficient_rows = 143
+figure_sheet = "Upper panel"
+figure_year = 2020
+total_blue_scc_usd_per_tco2 = 48.281363
+fisheries_market_scc_usd_per_tco2 = 0.057040
+fisheries_nonmarket_use_scc_usd_per_tco2 = 22.040509
+comparison_tolerance = 0.000001
+
+[method_tokens]
+market_projection = [
+  "Full Adaptation",
+  "RCP 2.6",
+  "profits_usd * multiplier_value",
+  "profit_ppDiff_from_rcp_26",
+]
+market_damage = [
+  "profit_ppDiff_from_rcp_26/100",
+  "0 + I(tdif_from_rcp26)",
+]
+nutrition = [
+  "s41558-023-01822-1",
+  "no_subs = 0.05",
+  "vsl_base_us_million2020USD = 10.05",
+]
+
+[scientific_gates]
+published_result_replication_completed = false
+fishmip_to_welfare_mapping_estimated = false
+consumer_surplus_estimated = false
+producer_surplus_estimated = false
+matched_co2_pulse_available = false
+give_damage_function_authorized = false
+scc_integration_authorized = false

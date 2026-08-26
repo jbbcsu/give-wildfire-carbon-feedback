@@ -129,3 +129,22 @@ crosswalk is globally exhaustive, discount damages, or calculate an SCC.
 Passing the overlap schema also does not substitute for evidence that the
 declared exclusions were applied; it prevents an unresolved or contradictory
 boundary from being marked additive eligible.
+
+## Published fisheries-SCC benchmark
+
+The project now includes a hash- and commit-pinned audit of Bastien-Olvera et
+al., *Accounting for ocean impacts nearly doubles the social cost of carbon*
+(doi:10.1038/s41558-025-02533-5) and its public Blue-SCC repository. The
+audited Figure 4 source data report $22.09755/tCO2 for fisheries under the
+paper's baseline settings: $0.05704 market value and $22.04051 non-market use
+value. These are published external benchmarks, not estimates from this
+repository.
+
+The audit also records why the benchmark cannot be copied mechanically into
+GIVE. The market route uses Free et al. country profit projections, regional
+output multipliers, and temperature slopes rather than explicit consumer plus
+producer surplus. The much larger nutrition route carries separate nutrient,
+health, substitution, dependence, and VSL assumptions. The public repository
+had no explicit root license file at the audited commit, so this project stores
+only aggregate audit facts and hashes. See
+[`BLUE_SCC_FISHERIES_BENCHMARK_AUDIT.md`](BLUE_SCC_FISHERIES_BENCHMARK_AUDIT.md).

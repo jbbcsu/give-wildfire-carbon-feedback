@@ -6,6 +6,13 @@ keys, units, and missing/suppression semantics. Raw files remain under
 `data/raw/` and are never committed. A source is not estimation-ready until
 license and redistribution boundaries are explicit.
 
+`blue_scc_fisheries_literature_benchmark_20260826.json` is an aggregate-only
+audit of the published Blue-SCC fisheries workflow and Figure 4 source data at
+a frozen external repository commit. It stores file hashes, method readouts,
+country-coefficient sign/count summaries, and published sectoral SCC values;
+it stores no external coefficient row or source workbook and authorizes no
+GIVE damage function or SCC integration.
+
 For the staged FishMIP `tc` benchmark, the catalogue record and exact all-file
 plan are kept separately: `fishmip_isimip3b_tc_catalog.toml` records
 the reviewed source and gates, while

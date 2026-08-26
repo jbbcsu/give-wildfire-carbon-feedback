@@ -22,6 +22,14 @@ shifts and management; economic measure (catch, revenue, profit, surplus,
 nutrition); scenario compatibility; uncertainty; and data licenses. Compare
 reduced-form and integrated ecosystem/economic approaches.
 
+The 2025/2026 Blue-SCC paper and repository now pass a frozen method/source-
+data audit and become the required literature benchmark. Its source data imply
+$22.09755/tCO2 for fisheries under the paper's baseline settings, almost all
+from nutrition/non-market use rather than the market-profit channel. This is
+an external published result, not this project's estimate. Gate 1 therefore
+advances from "no plug-in exists" to "published benchmark identified, exact
+replication and transferability review required."
+
 ## Gate 2 — data/provenance
 
 Create manifests before downloading: fisheries catch/effort/value data;
@@ -75,6 +83,14 @@ conservation, and withholds regional values when any declared country is
 missing, incomplete, or not additive eligible. Remaining Gate 4 work requires
 a reviewed global GIVE crosswalk and, upstream, an identified welfare model;
 discounting and SCC integration remain intentionally unimplemented.
+
+The Blue-SCC audit sharpens this gate. A first benchmark can use its published
+country temperature damage coefficients only after source-license and exact-
+replication checks. The market pathway must be labeled profit-plus-output-
+multiplier damage rather than consumer/producer surplus. Its nutrition pathway
+must remain a separate component with explicit substitution, baseline-health,
+VSL, and terrestrial-food overlap sensitivities. FishMIP total-catch density
+cannot be substituted for the Free et al. country profit input.
 
 Additive eligibility is also fail-closed on a machine-readable overlap review:
 the marine-capture welfare boundary must be named, the review must pass, and
