@@ -1,0 +1,438 @@
+{
+  "causal_claim_authorized": false,
+  "config": {
+    "path": "us_county_validation/us_paired_practice_gap_association_v1.toml",
+    "sha256": "e2291899b485227a978bdf9a78584766e821efe6248c76a1f3e07c3da873b212"
+  },
+  "damage_claim_authorized": false,
+  "disclaimer": "Leave-one-state-out stability is a support-sensitivity check for selected historical reporting counties, not a causal irrigation effect, national estimate, damage function, or SCC input.",
+  "implementation": {
+    "path": "us_county_validation/scripts/audit_us_paired_practice_state_jackknife.py",
+    "sha256": "5b529a76eff363549c5d74d999e586af31452144709b2416b95566b7b5a0821b"
+  },
+  "input": {
+    "path": "data/interim/us_county/nass_direct_practice_nclimgrid_1981_2019.parquet",
+    "sha256": "205a94ae92c12810026c9c5d0ac0fa3760e46ebc39669e528ba20a125a0c46d7"
+  },
+  "national_representativeness_claim_authorized": false,
+  "registered_result": {
+    "path": "data/provenance/us_paired_practice_gap_association_20260827.json",
+    "sha256": "4e250aad5d645306dbc3d68073fde4d009f696399ea2c5b808cae4f573928d3b"
+  },
+  "results": [
+    {
+      "crop": "corn_grain",
+      "form": "quantity",
+      "full_sample_counties": 361,
+      "full_sample_rows": 7013,
+      "full_sample_states": [
+        "CO",
+        "DE",
+        "KS",
+        "ND",
+        "NE",
+        "NM",
+        "OK",
+        "SD",
+        "TX",
+        "WY"
+      ],
+      "omissions": [
+        {
+          "contrasts": {
+            "quantity_increment_at_median_log_difference": -0.0759476168197622
+          },
+          "counties": 343,
+          "omitted_state": "CO",
+          "rows": 6693,
+          "states": 9
+        },
+        {
+          "contrasts": {
+            "quantity_increment_at_median_log_difference": -0.0785638724032939
+          },
+          "counties": 358,
+          "omitted_state": "DE",
+          "rows": 7001,
+          "states": 9
+        },
+        {
+          "contrasts": {
+            "quantity_increment_at_median_log_difference": -0.0718692729688904
+          },
+          "counties": 258,
+          "omitted_state": "KS",
+          "rows": 4954,
+          "states": 9
+        },
+        {
+          "contrasts": {
+            "quantity_increment_at_median_log_difference": -0.07824901239933008
+          },
+          "counties": 320,
+          "omitted_state": "ND",
+          "rows": 6404,
+          "states": 9
+        },
+        {
+          "contrasts": {
+            "quantity_increment_at_median_log_difference": -0.09097350718957517
+          },
+          "counties": 270,
+          "omitted_state": "NE",
+          "rows": 4005,
+          "states": 9
+        },
+        {
+          "contrasts": {
+            "quantity_increment_at_median_log_difference": -0.07810704364570253
+          },
+          "counties": 353,
+          "omitted_state": "NM",
+          "rows": 6983,
+          "states": 9
+        },
+        {
+          "contrasts": {
+            "quantity_increment_at_median_log_difference": -0.07849934826426508
+          },
+          "counties": 360,
+          "omitted_state": "OK",
+          "rows": 7012,
+          "states": 9
+        },
+        {
+          "contrasts": {
+            "quantity_increment_at_median_log_difference": -0.07837913143131461
+          },
+          "counties": 316,
+          "omitted_state": "SD",
+          "rows": 6229,
+          "states": 9
+        },
+        {
+          "contrasts": {
+            "quantity_increment_at_median_log_difference": -0.07767339228734296
+          },
+          "counties": 315,
+          "omitted_state": "TX",
+          "rows": 6849,
+          "states": 9
+        },
+        {
+          "contrasts": {
+            "quantity_increment_at_median_log_difference": -0.07836131132854388
+          },
+          "counties": 356,
+          "omitted_state": "WY",
+          "rows": 6987,
+          "states": 9
+        }
+      ],
+      "summary": {
+        "quantity_increment_at_median_log_difference": {
+          "full_sample": -0.078499305656411,
+          "maximum_absolute_change_from_full": 0.01247420153316417,
+          "maximum_leave_one_state_out": -0.0718692729688904,
+          "minimum_leave_one_state_out": -0.09097350718957517,
+          "omission_count": 10,
+          "same_sign_count": 10
+        }
+      }
+    },
+    {
+      "crop": "corn_grain",
+      "form": "quantity_timing",
+      "full_sample_counties": 361,
+      "full_sample_rows": 7013,
+      "full_sample_states": [
+        "CO",
+        "DE",
+        "KS",
+        "ND",
+        "NE",
+        "NM",
+        "OK",
+        "SD",
+        "TX",
+        "WY"
+      ],
+      "omissions": [
+        {
+          "contrasts": {
+            "quantity_increment_at_median_log_difference": -0.07694411891275732,
+            "stage3_to_stage2_shift_log_difference": -0.042016150498045586
+          },
+          "counties": 343,
+          "omitted_state": "CO",
+          "rows": 6693,
+          "states": 9
+        },
+        {
+          "contrasts": {
+            "quantity_increment_at_median_log_difference": -0.07942203879978832,
+            "stage3_to_stage2_shift_log_difference": -0.04208798645674799
+          },
+          "counties": 358,
+          "omitted_state": "DE",
+          "rows": 7001,
+          "states": 9
+        },
+        {
+          "contrasts": {
+            "quantity_increment_at_median_log_difference": -0.07334948116164797,
+            "stage3_to_stage2_shift_log_difference": -0.05025857236137748
+          },
+          "counties": 258,
+          "omitted_state": "KS",
+          "rows": 4954,
+          "states": 9
+        },
+        {
+          "contrasts": {
+            "quantity_increment_at_median_log_difference": -0.07913804221200316,
+            "stage3_to_stage2_shift_log_difference": -0.04217365543275611
+          },
+          "counties": 320,
+          "omitted_state": "ND",
+          "rows": 6404,
+          "states": 9
+        },
+        {
+          "contrasts": {
+            "quantity_increment_at_median_log_difference": -0.09074685522847348,
+            "stage3_to_stage2_shift_log_difference": -0.021465049896394528
+          },
+          "counties": 270,
+          "omitted_state": "NE",
+          "rows": 4005,
+          "states": 9
+        },
+        {
+          "contrasts": {
+            "quantity_increment_at_median_log_difference": -0.07896673247584984,
+            "stage3_to_stage2_shift_log_difference": -0.04185918206174946
+          },
+          "counties": 353,
+          "omitted_state": "NM",
+          "rows": 6983,
+          "states": 9
+        },
+        {
+          "contrasts": {
+            "quantity_increment_at_median_log_difference": -0.07936604871708042,
+            "stage3_to_stage2_shift_log_difference": -0.04207324886667986
+          },
+          "counties": 360,
+          "omitted_state": "OK",
+          "rows": 7012,
+          "states": 9
+        },
+        {
+          "contrasts": {
+            "quantity_increment_at_median_log_difference": -0.07943073599858838,
+            "stage3_to_stage2_shift_log_difference": -0.046818938968727276
+          },
+          "counties": 316,
+          "omitted_state": "SD",
+          "rows": 6229,
+          "states": 9
+        },
+        {
+          "contrasts": {
+            "quantity_increment_at_median_log_difference": -0.07836369327826931,
+            "stage3_to_stage2_shift_log_difference": -0.04634313738818259
+          },
+          "counties": 315,
+          "omitted_state": "TX",
+          "rows": 6849,
+          "states": 9
+        },
+        {
+          "contrasts": {
+            "quantity_increment_at_median_log_difference": -0.07922121411147323,
+            "stage3_to_stage2_shift_log_difference": -0.04210994512386642
+          },
+          "counties": 356,
+          "omitted_state": "WY",
+          "rows": 6987,
+          "states": 9
+        }
+      ],
+      "summary": {
+        "quantity_increment_at_median_log_difference": {
+          "full_sample": -0.0793660049970753,
+          "maximum_absolute_change_from_full": 0.011380850231398176,
+          "maximum_leave_one_state_out": -0.07334948116164797,
+          "minimum_leave_one_state_out": -0.09074685522847348,
+          "omission_count": 10,
+          "same_sign_count": 10
+        },
+        "stage3_to_stage2_shift_log_difference": {
+          "full_sample": -0.0420732488666798,
+          "maximum_absolute_change_from_full": 0.02060819897028527,
+          "maximum_leave_one_state_out": -0.021465049896394528,
+          "minimum_leave_one_state_out": -0.05025857236137748,
+          "omission_count": 10,
+          "same_sign_count": 10
+        }
+      }
+    },
+    {
+      "crop": "soybeans",
+      "form": "quantity",
+      "full_sample_counties": 255,
+      "full_sample_rows": 4844,
+      "full_sample_states": [
+        "AR",
+        "DE",
+        "KS",
+        "NE",
+        "TX"
+      ],
+      "omissions": [
+        {
+          "contrasts": {
+            "quantity_increment_at_median_log_difference": -0.045414159547574606
+          },
+          "counties": 208,
+          "omitted_state": "AR",
+          "rows": 3676,
+          "states": 4
+        },
+        {
+          "contrasts": {
+            "quantity_increment_at_median_log_difference": -0.04139030929516371
+          },
+          "counties": 252,
+          "omitted_state": "DE",
+          "rows": 4838,
+          "states": 4
+        },
+        {
+          "contrasts": {
+            "quantity_increment_at_median_log_difference": -0.032203713249296106
+          },
+          "counties": 152,
+          "omitted_state": "KS",
+          "rows": 3508,
+          "states": 4
+        },
+        {
+          "contrasts": {
+            "quantity_increment_at_median_log_difference": -0.04772033674889806
+          },
+          "counties": 179,
+          "omitted_state": "NE",
+          "rows": 2586,
+          "states": 4
+        },
+        {
+          "contrasts": {
+            "quantity_increment_at_median_log_difference": -0.04195320027694077
+          },
+          "counties": 229,
+          "omitted_state": "TX",
+          "rows": 4768,
+          "states": 4
+        }
+      ],
+      "summary": {
+        "quantity_increment_at_median_log_difference": {
+          "full_sample": -0.04131630234767461,
+          "maximum_absolute_change_from_full": 0.009112589098378504,
+          "maximum_leave_one_state_out": -0.032203713249296106,
+          "minimum_leave_one_state_out": -0.04772033674889806,
+          "omission_count": 5,
+          "same_sign_count": 5
+        }
+      }
+    },
+    {
+      "crop": "soybeans",
+      "form": "quantity_timing",
+      "full_sample_counties": 255,
+      "full_sample_rows": 4844,
+      "full_sample_states": [
+        "AR",
+        "DE",
+        "KS",
+        "NE",
+        "TX"
+      ],
+      "omissions": [
+        {
+          "contrasts": {
+            "quantity_increment_at_median_log_difference": -0.048544096348232285,
+            "stage3_to_stage2_shift_log_difference": -0.05316976241578051
+          },
+          "counties": 208,
+          "omitted_state": "AR",
+          "rows": 3676,
+          "states": 4
+        },
+        {
+          "contrasts": {
+            "quantity_increment_at_median_log_difference": -0.044276784089932325,
+            "stage3_to_stage2_shift_log_difference": -0.04835899955885197
+          },
+          "counties": 252,
+          "omitted_state": "DE",
+          "rows": 4838,
+          "states": 4
+        },
+        {
+          "contrasts": {
+            "quantity_increment_at_median_log_difference": -0.034365702458148656,
+            "stage3_to_stage2_shift_log_difference": -0.05541331777827089
+          },
+          "counties": 152,
+          "omitted_state": "KS",
+          "rows": 3508,
+          "states": 4
+        },
+        {
+          "contrasts": {
+            "quantity_increment_at_median_log_difference": -0.05012034475597699,
+            "stage3_to_stage2_shift_log_difference": -0.03318961610044651
+          },
+          "counties": 179,
+          "omitted_state": "NE",
+          "rows": 2586,
+          "states": 4
+        },
+        {
+          "contrasts": {
+            "quantity_increment_at_median_log_difference": -0.04502510200027163,
+            "stage3_to_stage2_shift_log_difference": -0.05064800739317418
+          },
+          "counties": 229,
+          "omitted_state": "TX",
+          "rows": 4768,
+          "states": 4
+        }
+      ],
+      "summary": {
+        "quantity_increment_at_median_log_difference": {
+          "full_sample": -0.04420497497657072,
+          "maximum_absolute_change_from_full": 0.009839272518422065,
+          "maximum_leave_one_state_out": -0.034365702458148656,
+          "minimum_leave_one_state_out": -0.05012034475597699,
+          "omission_count": 5,
+          "same_sign_count": 5
+        },
+        "stage3_to_stage2_shift_log_difference": {
+          "full_sample": -0.04835899955885205,
+          "maximum_absolute_change_from_full": 0.015169383458405537,
+          "maximum_leave_one_state_out": -0.03318961610044651,
+          "minimum_leave_one_state_out": -0.05541331777827089,
+          "omission_count": 5,
+          "same_sign_count": 5
+        }
+      }
+    }
+  ],
+  "scc_claim_authorized": false,
+  "schema": "us_paired_practice_state_jackknife_v1",
+  "status": "completed_historical_support_sensitivity_only"
+}
