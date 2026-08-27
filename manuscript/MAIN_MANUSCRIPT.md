@@ -302,6 +302,14 @@ direct-versus-centered agreement, and convergence across 0.01, 0.005, and
 0.0025 K perturbations pass. Nineteen pulse rows are above and 10 below the
 bounded aggregate training range. These are artificial Kelvin perturbations,
 not FAIR baseline/pulse paths.
+Separately, the pinned core deterministic GIVE/FAIR marginal model produces
+2,204 matched temperature rows for 1750--2300 under zero and
+0.0001/0.00005/0.000025 GtC pulses in 2020. Baselines are identical across
+pulse-size runs, zero and pre-pulse identity are exact, the first nonzero
+temperature response occurs in 2021, and the two smallest normalized signals
+converge. The maximum response to 0.0001 GtC is 1.8368e-7 K. This establishes
+the actual FAIR temperature-delta input, not its alignment to ESM feature
+levels or any damage/SCC result.
 No yield is attached to these smokes and no climate-feature response has been
 fitted. The evidence establishes software behavior, not future agricultural
 damages.

@@ -380,6 +380,16 @@ within the bounded aggregate training range for 851 rows, above for 19, and
 below for 10. This is an artificial-Kelvin software gate, not a FAIR path or a
 selected production emulator.
 
+The actual temperature-delta input is validated separately using the pinned
+core GIVE/FAIR manifest and source hashes. Deterministic marginal models for a
+2020 CO2 pulse generate 2,204 matched rows spanning 1750--2300 for pulse sizes
+0, 0.0001, 0.00005, and 0.000025 GtC. The baseline temperature path is
+bit-identical across runs; the zero-pulse and through-2020 paths are identical;
+the first nonzero response is in 2021; and normalized responses at the two
+smallest pulse sizes agree within the registered tolerance. The largest
+0.0001-GtC temperature response is 1.8368e-7 K. ESM-specific absolute-baseline
+alignment and feature-level support evaluation remain separate prerequisites.
+
 Whole ESMs and whole scenarios, not random years alone, are held out. STITCHES
 supplies a sequence-preserving benchmark; MESMER-M-TP plus a published daily
 occurrence/amount generator is the fallback if the direct-feature response

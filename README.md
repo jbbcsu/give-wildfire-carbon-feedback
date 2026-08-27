@@ -56,6 +56,14 @@ three decreasing positive pulse scales pass; 19 pulse rows are above and 10
 below bounded training support. These artificial Kelvin perturbations are not
 FAIR paths. Actual FAIR pairing, spatial support, and production convergence
 remain open.
+The core deterministic GIVE/FAIR marginal API is now separately pinned and
+reproduced for a 2020 CO2 pulse: 2,204 matched temperature rows cover
+1750--2300 for zero plus 0.0001/0.00005/0.000025 GtC pulses. Baselines are
+identical across runs, zero and pre-pulse paths are exact, temperature first
+diverges in 2021, and normalized smallest-pulse signals converge. The maximum
+0.0001-GtC temperature difference is 1.8368e-7 K. This validates the actual
+FAIR temperature-delta input only; ESM baseline alignment, feature levels,
+support, damages, and SCC remain unauthorized.
 The evidence-bounded manuscript and Methods/SI blueprints are in
 [MANUSCRIPT_OUTLINE.md](MANUSCRIPT_OUTLINE.md) and
 [METHODS_SI_OUTLINE.md](METHODS_SI_OUTLINE.md).

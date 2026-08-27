@@ -1,0 +1,35 @@
+schema = "give_fair_temperature_path_smoke_config_v1"
+role = "matched_core_fair_temperature_path_numerical_gate_not_feature_response_damage_or_scc"
+core_root = "../paper-2022-scc-give-zenodo"
+julia_version = "1.6.4"
+model_start_year = 1750
+model_end_year = 2300
+pulse_year = 2020
+gas = "CO2"
+pulse_sizes_gtc = [0.0, 0.0001, 0.00005, 0.000025]
+convergence_rtol = 0.05
+
+[[source_receipts]]
+path = "Project.toml"
+sha256 = "e358df0982a68d866af21dea2b2263aa9202fda88cb8e83e80709886cd96a7ee"
+
+[[source_receipts]]
+path = "Manifest.toml"
+sha256 = "e357bbe963593d50a70d326f55736366551a50fff5d6edb12868e730fc37dc9d"
+
+[[source_receipts]]
+path = "packages/MimiGIVE/src/scc.jl"
+sha256 = "c08634dd29f579f318ccd8f5fa5ac572aaa485fd84b7741d87ab30486651daf8"
+
+[[source_receipts]]
+path = "packages/MimiGIVE/src/main_model.jl"
+sha256 = "5dcd02dbb8fc03246ff673e219308ac1f81c1ee3111b5198023ba8c28691f520"
+
+[[source_receipts]]
+path = "packages/MimiFAIRv1_6_2/src/MimiFAIRv1_6_2.jl"
+sha256 = "0fb9ae57efbef955053fb23394446e2aa4dac19983703c15a5fd2c82ca267077"
+
+[limitations]
+deterministic_default_parameterization = true
+feature_response_evaluated = false
+damage_or_scc_authorized = false
