@@ -20,10 +20,11 @@ def write(
     *,
     units: str = "K",
     hour: int = 12,
+    variable_name: str = "tas",
 ) -> tuple[int, str]:
     dataset = xr.Dataset(
         {
-            "tas": (
+            variable_name: (
                 ("time", "lat", "lon"),
                 values,
                 {"standard_name": "air_temperature", "units": units},
@@ -38,7 +39,7 @@ def write(
         },
     )
     dataset["time"].encoding.update({"calendar": "proleptic_gregorian"})
-    dataset["tas"].encoding.update(
+    dataset[variable_name].encoding.update(
         {"chunksizes": (1, 360, 720), "_FillValue": np.float32(1e20), "missing_value": np.float32(1e20)}
     )
     dataset.to_netcdf(path, engine="h5netcdf")
@@ -76,6 +77,19 @@ with tempfile.TemporaryDirectory() as directory:
     assert result["result"] == "passed"
     assert result["finite_values"] == values.size
     assert result["missing_values"] == 0
+
+    for variable_name in ("tasmin", "tasmax"):
+        extreme = root / f"{variable_name}.nc"
+        size, digest = write(extreme, values, variable_name=variable_name)
+        result = validate(
+            extreme,
+            expected_bytes=size,
+            expected_sha512=digest,
+            start_date="2020-01-01",
+            end_date="2020-01-02",
+            variable_name=variable_name,
+        )
+        assert result["variable"] == variable_name
 
     midnight = root / "midnight.nc"
     size, digest = write(midnight, values, hour=0)

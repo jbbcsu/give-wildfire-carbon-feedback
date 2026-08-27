@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Full-file content gate for a pinned ISIMIP3b daily temperature block."""
+"""Full-file content gate for a pinned ISIMIP3b daily air-temperature block."""
 from __future__ import annotations
 
 import argparse
@@ -20,6 +20,7 @@ def validate(
     expected_sha512: str,
     start_date: str,
     end_date: str,
+    variable_name: str = "tas",
     expected_hour: int = 12,
     block_days: int = 32,
 ) -> dict[str, object]:
@@ -27,6 +28,8 @@ def validate(
         raise ValueError("block_days must be positive")
     if expected_hour not in range(24):
         raise ValueError("expected_hour must be an integer from 0 through 23")
+    if variable_name not in {"tas", "tasmin", "tasmax"}:
+        raise ValueError("variable_name must be tas, tasmin, or tasmax")
     actual_bytes = path.stat().st_size
     if actual_bytes != expected_bytes:
         raise ValueError(f"file byte size mismatch: expected {expected_bytes}, got {actual_bytes}")
@@ -38,17 +41,19 @@ def validate(
     minimum = np.inf
     maximum = -np.inf
     with xr.open_dataset(path, engine="h5netcdf") as dataset:
-        if set(dataset.data_vars) != {"tas"}:
-            raise ValueError(f"expected only data variable tas, got {sorted(dataset.data_vars)}")
-        variable = dataset["tas"]
+        if set(dataset.data_vars) != {variable_name}:
+            raise ValueError(
+                f"expected only data variable {variable_name}, got {sorted(dataset.data_vars)}"
+            )
+        variable = dataset[variable_name]
         if variable.dims != ("time", "lat", "lon"):
-            raise ValueError(f"unexpected tas dimension order: {variable.dims}")
+            raise ValueError(f"unexpected {variable_name} dimension order: {variable.dims}")
         if dataset.sizes != {"time": len(expected_time), "lat": 360, "lon": 720}:
             raise ValueError(f"unexpected decoded dimensions: {dict(dataset.sizes)}")
         if variable.attrs.get("standard_name") != "air_temperature":
-            raise ValueError("tas standard_name must be air_temperature")
+            raise ValueError(f"{variable_name} standard_name must be air_temperature")
         if variable.attrs.get("units") != "K":
-            raise ValueError("tas units must be K")
+            raise ValueError(f"{variable_name} units must be K")
         if dataset["lat"].attrs.get("units") != "degrees_north":
             raise ValueError("latitude units changed")
         if dataset["lon"].attrs.get("units") != "degrees_east":
@@ -66,10 +71,12 @@ def validate(
         fill = variable.encoding.get("_FillValue")
         missing = variable.encoding.get("missing_value")
         if fill is None or missing is None or float(fill) != float(missing):
-            raise ValueError("tas fill and missing-value encodings must be explicit and equal")
+            raise ValueError(
+                f"{variable_name} fill and missing-value encodings must be explicit and equal"
+            )
         chunks = variable.encoding.get("chunksizes")
         if chunks != (1, 360, 720):
-            raise ValueError(f"unexpected tas chunking: {chunks}")
+            raise ValueError(f"unexpected {variable_name} chunking: {chunks}")
         for start in range(0, dataset.sizes["time"], block_days):
             values = variable.isel(time=slice(start, start + block_days)).values
             finite = np.isfinite(values)
@@ -88,7 +95,7 @@ def validate(
         "file_name": path.name,
         "bytes": actual_bytes,
         "sha512": actual_sha512,
-        "variable": "tas",
+        "variable": variable_name,
         "dimensions": {"time": len(expected_time), "lat": 360, "lon": 720},
         "start_time": expected_time[0].isoformat(),
         "end_time": expected_time[-1].isoformat(),
@@ -114,6 +121,7 @@ def main() -> None:
     parser.add_argument("--expected-sha512", required=True)
     parser.add_argument("--start-date", required=True)
     parser.add_argument("--end-date", required=True)
+    parser.add_argument("--variable", choices=("tas", "tasmin", "tasmax"), default="tas")
     parser.add_argument("--expected-hour", type=int, choices=range(24), default=12)
     parser.add_argument("--block-days", type=int, default=32)
     parser.add_argument("--audit-out", type=Path, required=True)
@@ -124,6 +132,7 @@ def main() -> None:
         expected_sha512=args.expected_sha512,
         start_date=args.start_date,
         end_date=args.end_date,
+        variable_name=args.variable,
         expected_hour=args.expected_hour,
         block_days=args.block_days,
     )

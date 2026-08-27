@@ -9,6 +9,7 @@ member = "r1i1p1f1"
 scenarios = ["ssp126", "ssp370", "ssp585"]
 variables = ["pr", "tas"]
 historical_provenance = "data/provenance/isimip3b_gfdl_historical_ssp126_boundary.toml"
+temperature_extrema_provenance = "data/provenance/isimip3b_gfdl_temperature_extrema.toml"
 grid = "global 0.5 degree; latitude descending; longitude -179.75 to 179.75"
 calendar = "proleptic_gregorian"
 daily_timestamp_hour_utc = 0
@@ -157,6 +158,6 @@ candidate_minus_reference_mean_timing_centroid = 0.0014924540942268065
 interpretation = "This four-year raw-scenario contrast mixes forcing and divergent daily weather. It is descriptive support for scenario-holdout design, not a causal forcing response and not the common-random-number baseline/pulse comparison required for marginal damages."
 
 [limitations]
-acquisition = "The complete-file matrix covers pr/tas only for 2015-2020. tasmin/tasmax, later decades, and the other frozen ESMs remain absent."
+acquisition = "This file covers pr/tas for 2015-2020. The matching tasmin/tasmax matrix is pinned separately; later decades and the other frozen ESMs remain absent."
 feature_scope = "Feature cells cover one crop/irrigation calendar and two latitude rows, not the global multi-crop matrix."
 validation_scope = "No feature response is fitted, so whole-ESM and whole-scenario emulator holdout scores, support flags, zero-pulse identity, pre-divergence identity, decreasing-pulse convergence, damages, and SCC integration remain pending."

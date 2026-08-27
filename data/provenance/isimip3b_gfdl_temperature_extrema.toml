@@ -1,0 +1,215 @@
+schema_version = 1
+checked_utc_date = "2026-08-26"
+role = "complete_file_temperature_extrema_and_bounded_heat_feature_engineering_gate_not_response_damage_or_scc"
+source_catalogue = "https://data.isimip.org/api/v1/datasets/"
+rights = "CC0 1.0"
+dataset_version = "20210512"
+esm = "GFDL-ESM4"
+member = "r1i1p1f1"
+variables = ["tasmin", "tasmax"]
+scenarios = ["historical", "ssp126", "ssp370", "ssp585"]
+grid = "global 0.5 degree; latitude descending; longitude -179.75 to 179.75"
+calendar = "proleptic_gregorian"
+daily_timestamp_hour_utc = 0
+mean_temperature_provenance = "data/provenance/isimip3b_gfdl_scenario_matrix.toml"
+
+[[extreme_cell]]
+scenario = "historical"
+variable = "tasmin"
+dataset_id = "ee8abd48-8040-4b30-8741-c62cea0d9a62"
+file_id = "28822840-290f-45df-b009-abe08516cb39"
+file_name = "gfdl-esm4_r1i1p1f1_w5e5_historical_tasmin_global_daily_2011_2014.nc"
+bytes = 833129366
+sha512 = "34954ac8115bd4b67d9997c349ed8a5d85e49da9b0a9d36037c7f16377e8e280a3dd970c2319dea083888d340cae189908bf6263921629d88ebe5410e50d92fd"
+minimum_k = 192.56011962890625
+maximum_k = 312.8092041015625
+finite_values = 378691200
+content_audit = "data/interim/isimip3b/gfdl-esm4_historical_tasmin_2011_2014_content_audit.json"
+result = "passed"
+
+[[extreme_cell]]
+scenario = "historical"
+variable = "tasmax"
+dataset_id = "ad8ae7de-b41e-4f69-b683-daa5c0f21509"
+file_id = "ddde54af-2cb4-4185-8ae4-0b8cd4b4650f"
+file_name = "gfdl-esm4_r1i1p1f1_w5e5_historical_tasmax_global_daily_2011_2014.nc"
+bytes = 828703313
+sha512 = "bf21383d89e7ff788119efbae23981d1a974cffa9faab8c6a4b365a395d2094a77e854356ca16872a1eacafd250c389c24eda92a4fa8f81200fff69789c37506"
+minimum_k = 195.5481719970703
+maximum_k = 326.13848876953125
+finite_values = 378691200
+content_audit = "data/interim/isimip3b/gfdl-esm4_historical_tasmax_2011_2014_content_audit.json"
+result = "passed"
+
+[[extreme_cell]]
+scenario = "ssp126"
+variable = "tasmin"
+dataset_id = "c1e40f1b-a641-4542-a0a6-d483ad9e9792"
+file_id = "91c4c00a-ae9b-4a0b-b5f5-f352c03c19af"
+file_name = "gfdl-esm4_r1i1p1f1_w5e5_ssp126_tasmin_global_daily_2015_2020.nc"
+bytes = 1248046453
+sha512 = "e3e7793dd9e57d9d3e642a129d1c477fa5eb87b69e463f853ac7c4732c7e814672baceaba01e6850b1685f1561f5975829c71586a3bf9ce1b05e8a2f4b272e7a"
+minimum_k = 189.28810119628906
+maximum_k = 312.30413818359375
+finite_values = 568166400
+content_audit = "data/interim/isimip3b/gfdl-esm4_ssp126_tasmin_2015_2020_content_audit.json"
+boundary_audit = "data/interim/isimip3b/gfdl-esm4_historical_ssp126_tasmin_boundary_audit.json"
+result = "passed"
+
+[[extreme_cell]]
+scenario = "ssp126"
+variable = "tasmax"
+dataset_id = "6802d6a9-1d1b-4d58-b436-b47ce82cec6f"
+file_id = "b8355654-5e0d-4a1a-a342-e9525e92600c"
+file_name = "gfdl-esm4_r1i1p1f1_w5e5_ssp126_tasmax_global_daily_2015_2020.nc"
+bytes = 1241254263
+sha512 = "397afe26ee1db830b2e0310ed2bf0fc49675e201e08c01500e18bf6bf07545098b1ffe9359a73fe673089081a99baab258ca64595de24f7eb770af21e331e609"
+minimum_k = 192.6363525390625
+maximum_k = 325.3814392089844
+finite_values = 568166400
+content_audit = "data/interim/isimip3b/gfdl-esm4_ssp126_tasmax_2015_2020_content_audit.json"
+boundary_audit = "data/interim/isimip3b/gfdl-esm4_historical_ssp126_tasmax_boundary_audit.json"
+result = "passed"
+
+[[extreme_cell]]
+scenario = "ssp370"
+variable = "tasmin"
+dataset_id = "1d909df4-d6f1-4820-9cf5-9b37c985ab82"
+file_id = "439b363a-d1d6-49e3-b70e-d1ac27b75dae"
+file_name = "gfdl-esm4_r1i1p1f1_w5e5_ssp370_tasmin_global_daily_2015_2020.nc"
+bytes = 1248238292
+sha512 = "23aebfdf416c0974910e9cb9f902ad9473ff95820ae086c67ef8aaf65631dec593e75f43e8621955b0f8796e1423cda3efaa22d15c6acd2dfdd48254e08adfe5"
+minimum_k = 190.49107360839844
+maximum_k = 311.8859558105469
+finite_values = 568166400
+content_audit = "data/interim/isimip3b/gfdl-esm4_ssp370_tasmin_2015_2020_content_audit.json"
+boundary_audit = "data/interim/isimip3b/gfdl-esm4_historical_ssp370_tasmin_boundary_audit.json"
+result = "passed"
+
+[[extreme_cell]]
+scenario = "ssp370"
+variable = "tasmax"
+dataset_id = "3468cadb-6fb2-43cb-8ad3-bced7aab8723"
+file_id = "a47f2836-26b5-4fa9-8d42-fae4b4f9e0ef"
+file_name = "gfdl-esm4_r1i1p1f1_w5e5_ssp370_tasmax_global_daily_2015_2020.nc"
+bytes = 1241560284
+sha512 = "da0d103e3281894883d5ead477dc296fc7036b009645e6614e7c3ccd63293333dcd52c04247fd66c022af47b8e154f4e25099adfcba8fc7b8d2aba50ebcc5ce3"
+minimum_k = 193.11203002929688
+maximum_k = 326.3601989746094
+finite_values = 568166400
+content_audit = "data/interim/isimip3b/gfdl-esm4_ssp370_tasmax_2015_2020_content_audit.json"
+boundary_audit = "data/interim/isimip3b/gfdl-esm4_historical_ssp370_tasmax_boundary_audit.json"
+result = "passed"
+
+[[extreme_cell]]
+scenario = "ssp585"
+variable = "tasmin"
+dataset_id = "879aad2f-062f-482b-ba23-caf46b74781c"
+file_id = "0bd64de0-b6c6-40b6-9a30-73aa49fc525f"
+file_name = "gfdl-esm4_r1i1p1f1_w5e5_ssp585_tasmin_global_daily_2015_2020.nc"
+bytes = 1248308302
+sha512 = "9a066afd280e574bf0df75824756c9ee71447829d2548c1a0f246a25da11564956bcde025f6c0e4c9c8db9e0a4f1a8946425aba7f7c621888bd98f168e128adc"
+minimum_k = 191.02833557128906
+maximum_k = 312.11700439453125
+finite_values = 568166400
+content_audit = "data/interim/isimip3b/gfdl-esm4_ssp585_tasmin_2015_2020_content_audit.json"
+boundary_audit = "data/interim/isimip3b/gfdl-esm4_historical_ssp585_tasmin_boundary_audit.json"
+result = "passed"
+
+[[extreme_cell]]
+scenario = "ssp585"
+variable = "tasmax"
+dataset_id = "512a7927-2125-494d-b0fe-7229dac66d44"
+file_id = "b1e5f91a-9559-42b6-8a76-6ae39ae53048"
+file_name = "gfdl-esm4_r1i1p1f1_w5e5_ssp585_tasmax_global_daily_2015_2020.nc"
+bytes = 1241417208
+sha512 = "9e2c91652674ffe60eabfe009ac2b039410f0f065718ff850357a740ea86723589fabfd80ee822d6c5a80147444f82ac786351799322230f5f6b06e0e288bbdc"
+minimum_k = 193.7427978515625
+maximum_k = 327.6506042480469
+finite_values = 568166400
+content_audit = "data/interim/isimip3b/gfdl-esm4_ssp585_tasmax_2015_2020_content_audit.json"
+boundary_audit = "data/interim/isimip3b/gfdl-esm4_historical_ssp585_tasmax_boundary_audit.json"
+result = "passed"
+
+[[temperature_ordering]]
+scenario = "historical"
+triplets = 378691200
+raw_tasmin_above_tas = 0
+raw_tas_above_tasmax = 0
+maximum_ordering_excess_k = 0.0
+minimum_tasmax_minus_tasmin_k = 0.0099945068359375
+audit = "data/interim/isimip3b/gfdl-esm4_historical_temperature_ordering_audit.json"
+result = "passed"
+
+[[temperature_ordering]]
+scenario = "ssp126"
+triplets = 568166400
+raw_tasmin_above_tas = 0
+raw_tas_above_tasmax = 3
+maximum_ordering_excess_k = 0.000030517578125
+minimum_tasmax_minus_tasmin_k = 0.0099945068359375
+audit = "data/interim/isimip3b/gfdl-esm4_ssp126_temperature_ordering_audit.json"
+result = "passed_with_only_single_float32_ulp_raw_excesses"
+
+[[temperature_ordering]]
+scenario = "ssp370"
+triplets = 568166400
+raw_tasmin_above_tas = 0
+raw_tas_above_tasmax = 2
+maximum_ordering_excess_k = 0.000030517578125
+minimum_tasmax_minus_tasmin_k = 0.0099945068359375
+audit = "data/interim/isimip3b/gfdl-esm4_ssp370_temperature_ordering_audit.json"
+result = "passed_with_only_single_float32_ulp_raw_excesses"
+
+[[temperature_ordering]]
+scenario = "ssp585"
+triplets = 568166400
+raw_tasmin_above_tas = 0
+raw_tas_above_tasmax = 3
+maximum_ordering_excess_k = 0.000030517578125
+minimum_tasmax_minus_tasmin_k = 0.0099945068359375
+audit = "data/interim/isimip3b/gfdl-esm4_ssp585_temperature_ordering_audit.json"
+result = "passed_with_only_single_float32_ulp_raw_excesses"
+
+[ordering_contract]
+tolerance_k = 0.00005
+rationale = "The tolerance is larger than one float32 unit in the last place near 285 K (0.000030517578125 K) but far below any scientifically material temperature difference. Raw ordering inversions are retained explicitly and no excess beyond tolerance is permitted."
+all_tasmin_above_tas_beyond_tolerance = 0
+all_tas_above_tasmax_beyond_tolerance = 0
+
+[bounded_heat_feature_smoke]
+crop = "mai"
+irrigation = "noirr"
+harvest_years = [2016, 2017, 2018, 2019]
+latitude_index_start = 100
+latitude_index_stop_exclusive = 102
+thresholds_c = [29.0, 30.0]
+season_rows_per_scenario = 2744
+stage_rows_per_scenario = 8232
+scenarios = ["ssp126", "ssp370", "ssp585"]
+reconciliation = "Every scenario passes seasonal/stage schema gates; stage-weighted mean tasmax and both threshold day/degree-day totals reconcile within 1e-9."
+
+[bounded_heat_scenario_comparison_ssp370_minus_ssp126]
+output = "data/interim/isimip3b_gfdl_ssp370_smoke/ssp370_vs_ssp126_heat_feature_comparison.json"
+matched_rows = 2744
+mean_tmax_difference_c = -0.17189938945862254
+mean_tmax_correlation = 0.9637316341281068
+mean_tmax_29c_day_difference = -0.6465014577259475
+tmax_29c_days_correlation = 0.9220307992364225
+mean_tmax_29c_degree_day_difference = -13.916781500546648
+tmax_29c_degree_days_correlation = 0.9252091683181463
+
+[bounded_heat_scenario_comparison_ssp585_minus_ssp126]
+output = "data/interim/isimip3b_gfdl_ssp585_smoke/ssp585_vs_ssp126_heat_feature_comparison.json"
+matched_rows = 2744
+mean_tmax_difference_c = 0.16096110730266389
+mean_tmax_correlation = 0.9694643530824552
+mean_tmax_29c_day_difference = 1.4828717201166182
+tmax_29c_days_correlation = 0.9324768300143086
+mean_tmax_29c_degree_day_difference = 14.916644527335208
+tmax_29c_degree_days_correlation = 0.9394751027928324
+
+[limitations]
+heat_scope = "The heat smoke covers one crop/irrigation calendar, two latitude rows, four years, and daily-maximum thresholds; it is not intraday degree-hour exposure or a global crop result."
+inference = "Raw scenario comparisons mix forcing and divergent daily weather. No emulator response, whole-ESM or whole-scenario holdout score, common-random-number marginal feature path, yield response, damage, or SCC claim is authorized."
+coverage = "Later decades and the other frozen ESMs remain absent."
