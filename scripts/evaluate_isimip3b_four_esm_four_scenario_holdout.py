@@ -41,8 +41,8 @@ def assemble(config_path: Path) -> tuple[pd.DataFrame, dict[str, Any]]:
         if limits.get(gate) is not False:
             raise ValueError(f"four-ESM joint holdout unexpectedly opens {gate}")
     products = config.get("training_products", [])
-    if len(products) != 4 or {str(row.get("esm_id")) for row in products} != EXPECTED_ESMS:
-        raise ValueError("joint holdout lacks the exact four ESM products")
+    if len(products) != len(EXPECTED_ESMS) or {str(row.get("esm_id")) for row in products} != EXPECTED_ESMS:
+        raise ValueError("joint holdout lacks the exact declared ESM products")
 
     frames: list[pd.DataFrame] = []
     receipts: list[dict[str, Any]] = []

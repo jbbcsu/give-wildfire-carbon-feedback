@@ -1,0 +1,119 @@
+{
+  "comparison_count": 44,
+  "config_path": "config/isimip3b_ukesm_scenario_holdout_smoke_v1.toml",
+  "config_sha256": "bf7c0f8a1080e9e72c0a85ff9bf2069aa1fb8d7067acc180165defeec61bb756",
+  "esm_id": "UKESM1-0-LL",
+  "feature_families": [
+    "tmean_c",
+    "precip_mm",
+    "wet_days_n",
+    "cdd_max_days",
+    "rx1day_mm",
+    "rx5day_mm",
+    "stage1_precip_share",
+    "stage2_precip_share",
+    "stage3_precip_share",
+    "precipitation_timing_centroid",
+    "precipitation_concentration_hhi"
+  ],
+  "gmst_model_better_than_cell_mean_count": 23,
+  "holdout_rows": 44,
+  "holdouts_output": {
+    "artifact_name": "whole_scenario_holdouts.csv",
+    "sha256": "46ddcd052426367ba9c8a653cc8b43adc38b94e01b3c3966ed2e57a04047389c"
+  },
+  "implementation": {
+    "path": "scripts/evaluate_isimip3b_gfdl_scenario_holdout_smoke.py",
+    "sha256": "61d52d94b3185d11acf1360d5e4362cec99d6c286ff36d0a7689c002af98af0a"
+  },
+  "inputs": [
+    {
+      "gmst_path": "data/interim/isimip3b/ukesm1-0-ll_historical_r1i1p1f2_gmst_2011_2014.parquet",
+      "gmst_sha256": "40a57d013b0c0be271038c58274ae5313fbbe7dc033507c5c190fd397f46daa1",
+      "scenario": "historical",
+      "season_path": "data/interim/isimip3b_ukesm_historical_smoke/mai_noirr_2012_2014_lat100_102_features.parquet",
+      "season_sha256": "5f834f636dce6cb033fb79077fb2e48a9ac7913c9f9975b83dbe51b91b2974ad",
+      "stage_path": "data/interim/isimip3b_ukesm_historical_smoke/mai_noirr_2012_2014_lat100_102_stages.parquet",
+      "stage_sha256": "dc718aaa2e07345ca270889ac8ec682137968dda0350f3b392bccf5560c56c2c",
+      "year_end": 2014,
+      "year_start": 2012
+    },
+    {
+      "gmst_path": "data/interim/isimip3b/ukesm1-0-ll_r1i1p1f2_ssp126_gmst_2015_2020.parquet",
+      "gmst_sha256": "22247883bd6b99783db1dab1a5e033692eb37d58ed8358ade8c6141d662ff3ff",
+      "scenario": "ssp126",
+      "season_path": "data/interim/isimip3b_ukesm_ssp126_smoke/mai_noirr_2016_2019_lat100_102_features.parquet",
+      "season_sha256": "8c5fbfbad15e6e3f391015c6e8df4405bc20dbb9ec024e9311323f5248f61aea",
+      "stage_path": "data/interim/isimip3b_ukesm_ssp126_smoke/mai_noirr_2016_2019_lat100_102_stages.parquet",
+      "stage_sha256": "5e4c154fcc50ecb680c01e3a28bf75f78fa6fa547ba37f3ccb58fb9771681e2d",
+      "year_end": 2019,
+      "year_start": 2016
+    },
+    {
+      "gmst_path": "data/interim/isimip3b_ukesm_ssp370_smoke/same_realization_gmst_2015_2020.parquet",
+      "gmst_sha256": "c60bfbb95e165aa21056b45f34bd6365c6260cb07ca9c4a64e126e0b5ac8aec2",
+      "scenario": "ssp370",
+      "season_path": "data/interim/isimip3b_ukesm_ssp370_smoke/mai_noirr_2016_2019_lat100_102_features.parquet",
+      "season_sha256": "3ee10afe81257a43003fb2c381d00f400a94f265f7e5467084cc542422de7b35",
+      "stage_path": "data/interim/isimip3b_ukesm_ssp370_smoke/mai_noirr_2016_2019_lat100_102_stages.parquet",
+      "stage_sha256": "53d8d19be9905d1c2f02255120029fb6149d42e0b47d193602f9b48f23b70cc5",
+      "year_end": 2019,
+      "year_start": 2016
+    },
+    {
+      "gmst_path": "data/interim/isimip3b/ukesm1-0-ll_r1i1p1f2_ssp585_gmst_2015_2020.parquet",
+      "gmst_sha256": "b9cb87b479aa0c519e13011914e0e7f689d91dd2f8264d8f4dd2f3a327174572",
+      "scenario": "ssp585",
+      "season_path": "data/interim/isimip3b_ukesm_ssp585_smoke/mai_noirr_2016_2019_lat100_102_features.parquet",
+      "season_sha256": "d7b4a58237dc57eb07f5a1b2fc3d2242778797b83319f97aabb19a20868f0096",
+      "stage_path": "data/interim/isimip3b_ukesm_ssp585_smoke/mai_noirr_2016_2019_lat100_102_stages.parquet",
+      "stage_sha256": "febc905ef6339eab285ee67285667ebcefb0aa49e29675112d3100a61407018d",
+      "year_end": 2019,
+      "year_start": 2016
+    }
+  ],
+  "limitations": [
+    "Only seven nonoverlapping harvest years, one ESM/member, one crop/regime, and two latitude rows are evaluated.",
+    "The exact four-scenario training-design gate passes, but this is not the complete historical/future temporal or five-ESM product.",
+    "No paired baseline/pulse path, support rule, yield response, damage, welfare, or SCC value is produced."
+  ],
+  "maximum_rmse_ratio_to_cell_mean": 1.0324778140078261,
+  "median_rmse_ratio_to_cell_mean": 0.9998531265005277,
+  "member_id": "r1i1p1f2",
+  "result": "passed",
+  "role": "historical_plus_three_ssp_scenario_engineering_smoke_not_complete_emulator_damage_or_scc_input",
+  "scenario_summaries": {
+    "historical": {
+      "comparisons": 11,
+      "gmst_model_better_count": 5,
+      "maximum_rmse_ratio_to_cell_mean": 1.0324778140078261,
+      "median_rmse_ratio_to_cell_mean": 1.0014535782904093
+    },
+    "ssp126": {
+      "comparisons": 11,
+      "gmst_model_better_count": 6,
+      "maximum_rmse_ratio_to_cell_mean": 1.0061294072354294,
+      "median_rmse_ratio_to_cell_mean": 0.9998492939364528
+    },
+    "ssp370": {
+      "comparisons": 11,
+      "gmst_model_better_count": 6,
+      "maximum_rmse_ratio_to_cell_mean": 1.011140277490746,
+      "median_rmse_ratio_to_cell_mean": 0.9998569590646027
+    },
+    "ssp585": {
+      "comparisons": 11,
+      "gmst_model_better_count": 6,
+      "maximum_rmse_ratio_to_cell_mean": 1.0072241395390962,
+      "median_rmse_ratio_to_cell_mean": 0.9979785251646024
+    }
+  },
+  "schema": "isimip3b_bounded_gfdl_scenario_holdout_smoke_v1",
+  "training_output": {
+    "artifact_name": "four_scenario_training.parquet",
+    "sha256": "9a0223d5dc3ba77241c0c882641299a4d3177ec404c1a064dc9e8253d5cf7cfe"
+  },
+  "training_rows": 113190,
+  "year_end": 2019,
+  "year_start": 2012
+}

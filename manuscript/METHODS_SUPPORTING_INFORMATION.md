@@ -350,8 +350,8 @@ four-variable catalogue product recorded in
 contains 80 public/unrestricted CC0 version-`20210512` datasets. It is a model
 selection and storage-planning record, not evidence that the 1.757 TB catalogue
 has been acquired. Bounded complete-file `pr`/`tas` coverage now includes
-historical plus all three SSPs for GFDL-ESM4, IPSL-CM6A-LR, MPI-ESM1-2-HR,
-and MRI-ESM2-0; UKESM1-0-LL has SSP3-7.0. Every available file matches its
+historical plus all three SSPs for all five frozen ESM realizations. Every
+available file matches its
 version-`20210512` API identity, bytes, and SHA-512 and passes decoded-grid,
 units, missingness, physical-value, exact daily-chronology, and historical-
 boundary checks. Daily `tas` from the same ESM/member/scenario supplies
@@ -361,10 +361,12 @@ maize/rainfed smokes over two latitude rows produce 2,744 season records and
 8,232 three-window records per future scenario. Additive precipitation/day-
 count quantities reconcile exactly, and timing, wet-day, dry-spell, Rx1day,
 and Rx5day invariants pass. MRI's exact four-scenario holdout improves 24/44
-folds but has a 1.09903 worst RMSE ratio, so it is not promoted. The four-ESM
-joint product has 452,760 rows and passes 44 whole-ESM and 44 whole-scenario
-folds. Their median RMSE ratios are 0.99782 and 0.99820, while the historical
-holdout median is 1.00405. It remains only seven nonoverlapping years, one
+folds but has a 1.09903 worst RMSE ratio, so it is not promoted. UKESM improves
+23/44 folds (median ratio 0.99985; worst 1.03248). The five-ESM joint product
+has 565,950 rows and passes 55 whole-ESM and 44 whole-scenario folds; 41 and 36
+improve over the cell-mean benchmark, with median ratios 0.99760 and 0.99744
+and worst ratios 1.05145 and 1.01605. Independent validation passes, but it
+remains only seven nonoverlapping years, one
 crop/regime, and two latitude rows. ISIMIP timestamps are normalized
 to dates only after complete daily-sequence validation.
 

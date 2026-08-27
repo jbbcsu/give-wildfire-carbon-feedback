@@ -19,6 +19,8 @@ from validate_isimip3b_two_esm_four_scenario_holdout import (
 
 
 ROOT = Path(__file__).resolve().parents[1]
+AUDIT_SCHEMA = "isimip3b_bounded_four_esm_four_scenario_holdout_v1"
+IMPLEMENTATION_RECEIPT_COUNT = 4
 
 
 def project_path(value: str) -> Path:
@@ -31,7 +33,7 @@ def project_path(value: str) -> Path:
 
 def validate(audit_path: Path, training_path: Path, esm_path: Path, scenario_path: Path) -> dict[str, object]:
     audit = json.loads(audit_path.read_text(encoding="utf-8"))
-    require(audit.get("schema") == "isimip3b_bounded_four_esm_four_scenario_holdout_v1", "four-ESM audit schema changed")
+    require(audit.get("schema") == AUDIT_SCHEMA, "joint audit schema changed")
     require(audit.get("role") == CONFIG_ROLE and audit.get("result") == "passed", "four-ESM audit role/result changed")
     for gate in (
         "complete_five_esm_matrix", "complete_historical_future_temporal_coverage",
@@ -44,14 +46,14 @@ def validate(audit_path: Path, training_path: Path, esm_path: Path, scenario_pat
 
     implementation = audit.get("implementation", {})
     receipts = [{"path": implementation.get("path"), "sha256": implementation.get("sha256")}, *implementation.get("dependencies", [])]
-    require(len(receipts) == 4, "four-ESM implementation receipts are incomplete")
+    require(len(receipts) == IMPLEMENTATION_RECEIPT_COUNT, "joint implementation receipts are incomplete")
     for receipt in receipts:
         path = project_path(str(receipt.get("path", "")))
         require(path.is_file() and sha256(path) == receipt.get("sha256"), f"four-ESM code hash changed: {path}")
     config = audit.get("config", {})
     config_path = project_path(str(config.get("path", "")))
     require(config_path.is_file() and sha256(config_path) == config.get("sha256"), "four-ESM config hash changed")
-    require(len(audit.get("inputs", [])) == 4, "four-ESM input receipts are incomplete")
+    require(len(audit.get("inputs", [])) == len(EXPECTED_ESMS), "joint input receipts are incomplete")
     for receipt in audit["inputs"]:
         source = project_path(str(receipt["source_audit"]))
         source_training = project_path(str(receipt["path"]))

@@ -31,19 +31,22 @@ not one-tonne CO2 experiments.
 The outcome-blind selection is now frozen to the five complete ISIMIP3b ESM
 realizations across historical, SSP1-2.6, SSP3-7.0, SSP5-8.5 and the four daily
 variables (80 version-`20210512` datasets). Bounded complete-file `pr`/`tas`
-coverage now includes historical plus all three SSPs for GFDL-ESM4,
-IPSL-CM6A-LR, MPI-ESM1-2-HR, and MRI-ESM2-0; UKESM1-0-LL currently has the
-SSP3-7.0 cell. Every available file is API-identity/version/checksum bound and
+coverage now includes historical plus all three SSPs for all five frozen ESM
+realizations. Every available file is API-identity/version/checksum bound and
 passes decoded global-grid, units, exact daily chronology, missingness, and
 physical-value gates. Same-realization annual GMST and two-latitude
 maize/rainfed feature cells pass for every bounded scenario. MRI's newly closed
 SSP1-2.6 and SSP5-8.5 block adds four complete files (4,953,940,488 bytes) and
 its exact historical/four-scenario product passes 44 whole-scenario engineering
 folds; the simple GMST adjustment improves 24 folds, with median RMSE ratio
-0.99971 and worst ratio 1.09903, so it is not promoted. The exact four-ESM
-joint product has 452,760 rows and passes 44 whole-ESM plus 44 whole-scenario
-folds; median RMSE ratios are 0.99782 and 0.99820, but the historical-scenario
-median is 1.00405, so it too remains an engineering gate. These
+0.99971 and worst ratio 1.09903, so it is not promoted. The UKESM expansion
+adds six complete files (6,680,992,736 bytes), exact historical/future
+boundaries, same-realization GMST, and exact-reconciliation feature cells. Its
+four-scenario diagnostic improves 23/44 folds (median RMSE ratio 0.99985;
+worst 1.03248). The exact five-ESM joint product has 565,950 rows. Whole-ESM
+folds improve 41/55 (median 0.99760; worst 1.05145) and whole-scenario folds
+improve 36/44 (median 0.99744; worst 1.01605). It remains an engineering gate
+and is not promoted. These
 are seven-year, one-crop/two-latitude engineering smokes, not acquisition of
 the 1.757 TB matrix or a production feature response. Common-random-number
 pairing, real support, identity, and decreasing-pulse gates remain open.

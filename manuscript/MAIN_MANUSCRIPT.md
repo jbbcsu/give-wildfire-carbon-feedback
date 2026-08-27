@@ -282,17 +282,19 @@ SCC run. Results report fixed, trend, and upper adaptation scenarios separately.
 The outcome-blind input screen currently selects all five ESM realizations
 with complete historical and three-SSP coverage for daily precipitation and
 temperature variables (80 version-pinned datasets). Acquisition remains a
-bounded subset of the 1.757 TB catalogue. GFDL-ESM4, IPSL-CM6A-LR,
-MPI-ESM1-2-HR, and MRI-ESM2-0 now have complete historical and three-SSP
-`pr`/`tas` cells for the registered smoke years; UKESM1-0-LL has SSP3-7.0.
+bounded subset of the 1.757 TB catalogue. All five frozen realizations now have
+complete historical and three-SSP `pr`/`tas` cells for the registered smoke
+years.
 A real two-latitude maize/rainfed engineering cell produces 2,744 crop-years
 and 8,232 three-window records per future scenario with exact precipitation
 and day-count reconciliation. MRI's four-scenario diagnostic improves 24/44
 folds relative to the cell-mean benchmark, but its median RMSE ratio is
-0.99971 and worst ratio is 1.09903; it is not promoted. The exact four-ESM
-joint product has 452,760 rows and passes whole-ESM and whole-scenario software
-gates, but the historical holdout improves only 3/11 features and has median
-RMSE ratio 1.00405.
+0.99971 and worst ratio is 1.09903; it is not promoted. UKESM's corresponding
+diagnostic improves 23/44 folds (median ratio 0.99985; worst 1.03248). The
+exact five-ESM joint product has 565,950 rows. Whole-ESM folds improve 41/55
+(median ratio 0.99760; worst 1.05145), while whole-scenario folds improve 36/44
+(median ratio 0.99744; worst 1.01605). The independent validator passes, but
+the model is not promoted.
 No yield is attached to these smokes and no climate-feature response has been
 fitted. The evidence establishes software behavior, not future agricultural
 damages.
