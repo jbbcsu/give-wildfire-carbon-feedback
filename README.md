@@ -64,6 +64,16 @@ diverges in 2021, and normalized smallest-pulse signals converge. The maximum
 0.0001-GtC temperature difference is 1.8368e-7 K. This validates the actual
 FAIR temperature-delta input only; ESM baseline alignment, feature levels,
 support, damages, and SCC remain unauthorized.
+A version-pinned alignment sensitivity now maps the same FAIR paths onto each
+ESM using a 2012--2014 historical overlap mean. For the bounded affine feature
+surface, absolute anomaly mapping and centered-coordinate evaluation are
+algebraically equivalent: all 127,160 paired rows pass common-residual,
+zero-pulse, pre-divergence, support, direct/centered, and decreasing-pulse
+gates, and the largest method disagreement is `4.55e-12`. This does not select
+the reference window or promote the surface. Only 3,784 of 63,580 temperature
+rows per formulation (5.95%) remain within the seven-year GMST training range;
+22,824 feature rows (35.90%) remain within bounded feature support. The result
+therefore diagnoses extrapolation rather than authorizing production use.
 The evidence-bounded manuscript and Methods/SI blueprints are in
 [MANUSCRIPT_OUTLINE.md](MANUSCRIPT_OUTLINE.md) and
 [METHODS_SI_OUTLINE.md](METHODS_SI_OUTLINE.md).

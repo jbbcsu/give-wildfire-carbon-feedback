@@ -170,8 +170,15 @@ failure tests pass. A bounded aggregate artificial-Kelvin feature smoke passes
 these mechanics over 880 rows, but is not FAIR. The pinned core GIVE/FAIR
 marginal model separately passes a 2,204-row zero/pre-pulse/baseline-identity
 and three-scale temperature convergence gate for a 2020 CO2 pulse. The next
-gate is ESM-specific absolute-baseline alignment and feature-level support;
-no production feature response, damage, or SCC path has passed.
+gate is ESM-specific absolute-baseline alignment and feature-level support.
+A version-pinned sensitivity using a 2012--2014 historical overlap mean shows
+that absolute anomaly mapping and centered-coordinate evaluation are the same
+affine reparameterization to a maximum `4.55e-12` disagreement over 127,160
+paired rows. Only 5.95% of temperature rows and 35.90% of feature rows remain
+within the bounded seven-year training support per formulation. This rejects
+promotion of the current affine smoke; it does not select a production
+reference window or response form. No production feature response, damage, or
+SCC path has passed.
 
 ## Known limitations and fallbacks
 

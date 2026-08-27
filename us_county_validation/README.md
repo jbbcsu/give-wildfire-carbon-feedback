@@ -96,6 +96,10 @@ contains 7,253 real-FIPS county-years; 807 counties have reported observations
 in all five years and 4,845 reported adjacent-year pairs are available. Run
 `audit_nass_api_temporal_coverage.py` to reproduce those support counts and
 reject mixed series, duplicate keys, missing years, or invalid reported values.
+The five-year and earlier three-year provenance records bind the locked 2018
+and 2019 responses by exact ignored path, so identically named copies in the
+long national archive cannot satisfy the wrong receipt; the complete local
+provenance walk now checks 110 artifacts with zero failures.
 This validates bounded national/county outcome acquisition only; it is not a
 high-rainfed sample or a yield-response estimate.
 

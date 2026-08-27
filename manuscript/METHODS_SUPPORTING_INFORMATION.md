@@ -387,8 +387,22 @@ core GIVE/FAIR manifest and source hashes. Deterministic marginal models for a
 bit-identical across runs; the zero-pulse and through-2020 paths are identical;
 the first nonzero response is in 2021; and normalized responses at the two
 smallest pulse sizes agree within the registered tolerance. The largest
-0.0001-GtC temperature response is 1.8368e-7 K. ESM-specific absolute-baseline
-alignment and feature-level support evaluation remain separate prerequisites.
+0.0001-GtC temperature response is 1.8368e-7 K.
+
+The first alignment sensitivity is fixed in
+`config/fair_esm_alignment_sensitivity_v1.toml`. It uses the exact pinned
+five-ESM feature product and FAIR paths, defines a 2012--2014 historical
+overlap mean separately for each ESM, and evaluates 2012--2300 under both
+absolute anomaly mapping and centered-coordinate mapping. With an affine
+feature surface, these are algebraic reparameterizations; 127,160 rows pass
+common zero-residual, zero-pulse, pre-divergence, direct/centered, support, and
+decreasing-pulse gates, with a maximum method disagreement of `4.55e-12`.
+Per formulation, mapped temperature support is below/within/above for
+44/3,784/59,752 rows, while feature support is below/within/above for
+17,764/22,824/22,992 rows. Thus only 5.95% of temperature rows and 35.90% of
+feature rows are inside the bounded seven-year training range. This sensitivity
+does not select the overlap window, validate a non-affine response, supply a
+stochastic residual path, or authorize production damages or SCC.
 
 Whole ESMs and whole scenarios, not random years alone, are held out. STITCHES
 supplies a sequence-preserving benchmark; MESMER-M-TP plus a published daily

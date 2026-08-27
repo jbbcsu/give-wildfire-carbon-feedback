@@ -1,0 +1,29 @@
+schema = "fair_esm_alignment_sensitivity_config_v1"
+role = "bounded_affine_fair_to_esm_alignment_sensitivity_not_production_feature_response_damage_or_scc"
+
+[inputs]
+training_path = "data/interim/isimip3b_five_esm_four_scenario_holdout/training_long.parquet"
+training_sha256 = "2ed65370b02a5fd0e3330292e60ad92a00f7f7b7d5f7c11f58d74fa020aaeaab"
+fair_paths_path = "data/interim/give_fair_temperature_path_smoke/temperature_paths.csv"
+fair_paths_sha256 = "aedf6b66dd296337e1cb6105d2aa56ec94f3e15e5ac92c2abcdf74b6a42b6067"
+fair_config_path = "config/give_fair_temperature_path_smoke_v1.toml"
+fair_config_sha256 = "c28be8eff2d396fcafc82b0e3571da7c75c0d5721c24778d153f1506dbb9bb83"
+
+[alignment]
+reference_scenario = "historical"
+reference_start_year = 2012
+reference_end_year = 2014
+evaluation_start_year = 2012
+evaluation_end_year = 2300
+first_divergence_year = 2021
+methods = ["absolute_anomaly_mapping", "centered_coordinate_mapping"]
+equivalence_atol = 1e-10
+pairing_pulse_scale_unit = "tonnes_C"
+
+[limitations]
+feature_surface = "Affine aggregate feature-on-GMST engineering surface fit to seven bounded years; not selected by the holdout results."
+reference_window = "The 2012--2014 overlap is a predeclared engineering sensitivity window, not an approved production baseline."
+residuals = "Conditional-mean zero residual is shared exactly by baseline and pulse; no stochastic production residual path is claimed."
+production_alignment_selected = false
+production_emulator_authorized = false
+damage_or_scc_authorized = false

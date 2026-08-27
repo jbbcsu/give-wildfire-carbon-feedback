@@ -308,8 +308,15 @@ Separately, the pinned core deterministic GIVE/FAIR marginal model produces
 pulse-size runs, zero and pre-pulse identity are exact, the first nonzero
 temperature response occurs in 2021, and the two smallest normalized signals
 converge. The maximum response to 0.0001 GtC is 1.8368e-7 K. This establishes
-the actual FAIR temperature-delta input, not its alignment to ESM feature
-levels or any damage/SCC result.
+the actual FAIR temperature-delta input. A subsequent version-pinned
+engineering sensitivity maps the 2012--2300 FAIR paths to each ESM using its
+2012--2014 historical mean. Under the bounded affine surface, absolute anomaly
+mapping and centered-coordinate evaluation agree to a maximum `4.55e-12`
+across 127,160 paired rows. However, only 5.95% of mapped temperature rows and
+35.90% of feature rows remain inside the seven-year training support per
+formulation. The equivalence is a coordinate identity, not evidence for the
+reference window or response model, and the support result prohibits
+promotion to damages or SCC.
 No yield is attached to these smokes and no climate-feature response has been
 fitted. The evidence establishes software behavior, not future agricultural
 damages.
