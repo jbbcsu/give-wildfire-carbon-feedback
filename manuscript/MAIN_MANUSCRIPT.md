@@ -295,6 +295,13 @@ exact five-ESM joint product has 565,950 rows. Whole-ESM folds improve 41/55
 (median ratio 0.99760; worst 1.05145), while whole-scenario folds improve 36/44
 (median ratio 0.99744; worst 1.01605). The independent validator passes, but
 the model is not promoted.
+A bounded aggregate numerical smoke then reuses one residual identifier across
+baseline and pulse for 880 ESM-feature-year-scale rows. Zero-pulse and
+pre-divergence identity, separate baseline/pulse support flags,
+direct-versus-centered agreement, and convergence across 0.01, 0.005, and
+0.0025 K perturbations pass. Nineteen pulse rows are above and 10 below the
+bounded aggregate training range. These are artificial Kelvin perturbations,
+not FAIR baseline/pulse paths.
 No yield is attached to these smokes and no climate-feature response has been
 fitted. The evidence establishes software behavior, not future agricultural
 damages.

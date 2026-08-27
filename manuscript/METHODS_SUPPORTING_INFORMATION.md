@@ -370,6 +370,16 @@ remains only seven nonoverlapping years, one
 crop/regime, and two latitude rows. ISIMIP timestamps are normalized
 to dates only after complete daily-sequence validation.
 
+Before using FAIR, a bounded numerical pairing smoke aggregates the two-
+latitude feature cells, fits one linear feature-on-GMST surface for each of 55
+ESM-feature combinations, and reuses the same empirical residual identifier
+for baseline and pulse levels. Across 880 rows, zero-pulse and pre-divergence
+identity, separate support flags, direct-versus-centered agreement, and
+convergence for 0.01, 0.005, and 0.0025 K perturbations pass. Pulse support is
+within the bounded aggregate training range for 851 rows, above for 19, and
+below for 10. This is an artificial-Kelvin software gate, not a FAIR path or a
+selected production emulator.
+
 Whole ESMs and whole scenarios, not random years alone, are held out. STITCHES
 supplies a sequence-preserving benchmark; MESMER-M-TP plus a published daily
 occurrence/amount generator is the fallback if the direct-feature response

@@ -48,8 +48,14 @@ folds improve 41/55 (median 0.99760; worst 1.05145) and whole-scenario folds
 improve 36/44 (median 0.99744; worst 1.01605). It remains an engineering gate
 and is not promoted. These
 are seven-year, one-crop/two-latitude engineering smokes, not acquisition of
-the 1.757 TB matrix or a production feature response. Common-random-number
-pairing, real support, identity, and decreasing-pulse gates remain open.
+the 1.757 TB matrix or a production feature response. A separate
+area-unweighted aggregate numerical smoke produces 880 common-residual
+baseline/pulse rows across all 55 ESM-feature fits. Zero-pulse and
+pre-divergence identity, separate support flags, direct/centered agreement, and
+three decreasing positive pulse scales pass; 19 pulse rows are above and 10
+below bounded training support. These artificial Kelvin perturbations are not
+FAIR paths. Actual FAIR pairing, spatial support, and production convergence
+remain open.
 The evidence-bounded manuscript and Methods/SI blueprints are in
 [MANUSCRIPT_OUTLINE.md](MANUSCRIPT_OUTLINE.md) and
 [METHODS_SI_OUTLINE.md](METHODS_SI_OUTLINE.md).

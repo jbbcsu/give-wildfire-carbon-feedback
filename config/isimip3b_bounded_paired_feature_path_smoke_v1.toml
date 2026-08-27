@@ -1,0 +1,23 @@
+schema = "isimip3b_bounded_paired_feature_path_config_v1"
+role = "aggregate_feature_common_random_number_numerical_gate_not_fair_pulse_production_emulator_damage_or_scc"
+
+[inputs]
+training_path = "data/interim/isimip3b_five_esm_four_scenario_holdout/training_long.parquet"
+training_sha256 = "2ed65370b02a5fd0e3330292e60ad92a00f7f7b7d5f7c11f58d74fa020aaeaab"
+esm_holdouts_path = "data/interim/isimip3b_five_esm_four_scenario_holdout/whole_esm_holdouts.csv"
+esm_holdouts_sha256 = "c412fd8c3d1e8b569e11d29ffd4f3d3eecf3aa03a9101f879b07f6f6d06c0d12"
+scenario_holdouts_path = "data/interim/isimip3b_five_esm_four_scenario_holdout/whole_scenario_holdouts.csv"
+scenario_holdouts_sha256 = "21cc9c54431f76b8779a8ddd50bf38dbccaafcde96299633ebb7535f05d2d705"
+
+[pairing]
+baseline_scenario = "ssp370"
+first_divergence_year = 2018
+pulse_scales_k = [0.0, 0.01, 0.005, 0.0025]
+draw_id = "bounded-aggregate-linear-feature-draw-v1"
+
+[limitations]
+spatial_aggregation = "One area-unweighted mean over the bounded two-latitude feature cell; no country or FUND-region path."
+temperature_path = "Observed bounded SSP3-7.0 same-realization GMST plus artificial Kelvin perturbations; not a FAIR baseline or one-tonne pulse."
+response = "Linear feature-on-GMST fit over fifteen bounded scenario-years per ESM/feature; numerical pairing gate only."
+production_emulator_authorized = false
+damage_or_scc_authorized = false

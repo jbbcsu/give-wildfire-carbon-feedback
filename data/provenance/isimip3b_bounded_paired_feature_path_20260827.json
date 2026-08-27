@@ -1,0 +1,534 @@
+{
+  "baseline_scenario": "ssp370",
+  "common_residual_innovations": true,
+  "config": {
+    "path": "config/isimip3b_bounded_paired_feature_path_smoke_v1.toml",
+    "sha256": "6b95fbd793d73e541548d61615e1535d09ea3ed292c909e8582ee5fbd2286ff8"
+  },
+  "damage_or_scc_authorized": false,
+  "decreasing_pulse_convergence": true,
+  "direct_centered_agreement": true,
+  "fair_baseline_pulse_paths": false,
+  "feature_families": [
+    "cdd_max_days",
+    "precip_mm",
+    "precipitation_concentration_hhi",
+    "precipitation_timing_centroid",
+    "rx1day_mm",
+    "rx5day_mm",
+    "stage1_precip_share",
+    "stage2_precip_share",
+    "stage3_precip_share",
+    "tmean_c",
+    "wet_days_n"
+  ],
+  "first_divergence_year": 2018,
+  "fits": [
+    {
+      "esm_id": "GFDL-ESM4",
+      "feature_family": "cdd_max_days",
+      "gmst_slope_per_k": -20.931448619422817,
+      "support_max": 49.06268221574344,
+      "support_min": 30.517492711370263,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "GFDL-ESM4",
+      "feature_family": "precip_mm",
+      "gmst_slope_per_k": -4.416204899296782,
+      "support_max": 250.76488980422823,
+      "support_min": 187.30284069868418,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "GFDL-ESM4",
+      "feature_family": "precipitation_concentration_hhi",
+      "gmst_slope_per_k": -0.044436744747018225,
+      "support_max": 0.5514170570529404,
+      "support_min": 0.4484453080084093,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "GFDL-ESM4",
+      "feature_family": "precipitation_timing_centroid",
+      "gmst_slope_per_k": -0.034541333173351466,
+      "support_max": 0.4763202581971501,
+      "support_min": 0.40102184821333503,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "GFDL-ESM4",
+      "feature_family": "rx1day_mm",
+      "gmst_slope_per_k": 1.5754648538925051,
+      "support_max": 33.12594466063441,
+      "support_min": 26.94069075288995,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "GFDL-ESM4",
+      "feature_family": "rx5day_mm",
+      "gmst_slope_per_k": -2.4573743864824795,
+      "support_max": 55.59890715409689,
+      "support_min": 45.478231100761946,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "GFDL-ESM4",
+      "feature_family": "stage1_precip_share",
+      "gmst_slope_per_k": 0.05361691238170901,
+      "support_max": 0.47826738945149727,
+      "support_min": 0.32811063325172324,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "GFDL-ESM4",
+      "feature_family": "stage2_precip_share",
+      "gmst_slope_per_k": 0.011557539652870518,
+      "support_max": 0.4415621657796193,
+      "support_min": 0.3172467971586665,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "GFDL-ESM4",
+      "feature_family": "stage3_precip_share",
+      "gmst_slope_per_k": -0.059107506076085864,
+      "support_max": 0.28995086335400316,
+      "support_min": 0.18133293409150247,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "GFDL-ESM4",
+      "feature_family": "tmean_c",
+      "gmst_slope_per_k": 0.22426849833984797,
+      "support_max": 21.567292884556963,
+      "support_min": 20.365368970498746,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "GFDL-ESM4",
+      "feature_family": "wet_days_n",
+      "gmst_slope_per_k": 0.5842757644661128,
+      "support_max": 29.511661807580175,
+      "support_min": 23.64139941690962,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "IPSL-CM6A-LR",
+      "feature_family": "cdd_max_days",
+      "gmst_slope_per_k": -9.89097689712556,
+      "support_max": 40.99562682215743,
+      "support_min": 30.64723032069971,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "IPSL-CM6A-LR",
+      "feature_family": "precip_mm",
+      "gmst_slope_per_k": 95.7527333881934,
+      "support_max": 280.7556880494748,
+      "support_min": 176.86401040391567,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "IPSL-CM6A-LR",
+      "feature_family": "precipitation_concentration_hhi",
+      "gmst_slope_per_k": -0.0078548960991841,
+      "support_max": 0.5232193009532428,
+      "support_min": 0.45141762659349877,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "IPSL-CM6A-LR",
+      "feature_family": "precipitation_timing_centroid",
+      "gmst_slope_per_k": -0.043246650623631526,
+      "support_max": 0.4963608151524717,
+      "support_min": 0.40809197277929826,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "IPSL-CM6A-LR",
+      "feature_family": "rx1day_mm",
+      "gmst_slope_per_k": 20.791066177778703,
+      "support_max": 40.357510994544185,
+      "support_min": 23.95668430365731,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "IPSL-CM6A-LR",
+      "feature_family": "rx5day_mm",
+      "gmst_slope_per_k": 36.039241803719044,
+      "support_max": 65.89584351956583,
+      "support_min": 37.365795411593105,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "IPSL-CM6A-LR",
+      "feature_family": "stage1_precip_share",
+      "gmst_slope_per_k": 0.05211738975250112,
+      "support_max": 0.47080746167171617,
+      "support_min": 0.3163747534959744,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "IPSL-CM6A-LR",
+      "feature_family": "stage2_precip_share",
+      "gmst_slope_per_k": 0.02550517236589213,
+      "support_max": 0.4498348580706921,
+      "support_min": 0.3313788160322402,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "IPSL-CM6A-LR",
+      "feature_family": "stage3_precip_share",
+      "gmst_slope_per_k": -0.07762256211839318,
+      "support_max": 0.3225493306901294,
+      "support_min": 0.1789793885672775,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "IPSL-CM6A-LR",
+      "feature_family": "tmean_c",
+      "gmst_slope_per_k": -0.07395904940408134,
+      "support_max": 21.593865179111937,
+      "support_min": 20.850417722027434,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "IPSL-CM6A-LR",
+      "feature_family": "wet_days_n",
+      "gmst_slope_per_k": 4.653515744428651,
+      "support_max": 31.989795918367346,
+      "support_min": 24.82069970845481,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "MPI-ESM1-2-HR",
+      "feature_family": "cdd_max_days",
+      "gmst_slope_per_k": -8.59243277732836,
+      "support_max": 45.0932944606414,
+      "support_min": 33.065597667638485,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "MPI-ESM1-2-HR",
+      "feature_family": "precip_mm",
+      "gmst_slope_per_k": 49.971000548385256,
+      "support_max": 226.28717393353148,
+      "support_min": 187.8845885810456,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "MPI-ESM1-2-HR",
+      "feature_family": "precipitation_concentration_hhi",
+      "gmst_slope_per_k": -0.07181067588468358,
+      "support_max": 0.520320843520752,
+      "support_min": 0.45856497174789773,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "MPI-ESM1-2-HR",
+      "feature_family": "precipitation_timing_centroid",
+      "gmst_slope_per_k": -0.07069988775046064,
+      "support_max": 0.5136347408956852,
+      "support_min": 0.41479252593539273,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "MPI-ESM1-2-HR",
+      "feature_family": "rx1day_mm",
+      "gmst_slope_per_k": 3.1645986293930997,
+      "support_max": 29.656778352079865,
+      "support_min": 23.553645164404422,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "MPI-ESM1-2-HR",
+      "feature_family": "rx5day_mm",
+      "gmst_slope_per_k": 14.537328697210615,
+      "support_max": 55.83175598181589,
+      "support_min": 41.90877606615468,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "MPI-ESM1-2-HR",
+      "feature_family": "stage1_precip_share",
+      "gmst_slope_per_k": 0.11794389507531226,
+      "support_max": 0.4464596033580765,
+      "support_min": 0.2938450382196682,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "MPI-ESM1-2-HR",
+      "feature_family": "stage2_precip_share",
+      "gmst_slope_per_k": -0.02173589038845232,
+      "support_max": 0.4600959514269638,
+      "support_min": 0.306224475712013,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "MPI-ESM1-2-HR",
+      "feature_family": "stage3_precip_share",
+      "gmst_slope_per_k": -0.09538711008254372,
+      "support_max": 0.33474926090672397,
+      "support_min": 0.16553884488731188,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "MPI-ESM1-2-HR",
+      "feature_family": "tmean_c",
+      "gmst_slope_per_k": 0.7322159376298678,
+      "support_max": 21.504527558738218,
+      "support_min": 20.406462165042377,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "MPI-ESM1-2-HR",
+      "feature_family": "wet_days_n",
+      "gmst_slope_per_k": 8.978470005811172,
+      "support_max": 29.014577259475217,
+      "support_min": 21.698250728862973,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "UKESM1-0-LL",
+      "feature_family": "cdd_max_days",
+      "gmst_slope_per_k": -6.579981762854389,
+      "support_max": 43.65451895043732,
+      "support_min": 31.112244897959183,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "UKESM1-0-LL",
+      "feature_family": "precip_mm",
+      "gmst_slope_per_k": 37.21708286957716,
+      "support_max": 264.14437304521874,
+      "support_min": 197.19820941167913,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "UKESM1-0-LL",
+      "feature_family": "precipitation_concentration_hhi",
+      "gmst_slope_per_k": -0.0036448770007183875,
+      "support_max": 0.5204502136061601,
+      "support_min": 0.43073459327563096,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "UKESM1-0-LL",
+      "feature_family": "precipitation_timing_centroid",
+      "gmst_slope_per_k": -0.05187417820156355,
+      "support_max": 0.4664240735262649,
+      "support_min": 0.41066546198947007,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "UKESM1-0-LL",
+      "feature_family": "rx1day_mm",
+      "gmst_slope_per_k": 7.420801888879526,
+      "support_max": 32.43077882759425,
+      "support_min": 24.730248490766602,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "UKESM1-0-LL",
+      "feature_family": "rx5day_mm",
+      "gmst_slope_per_k": 4.671930730709096,
+      "support_max": 59.90025565561461,
+      "support_min": 48.332287994998104,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "UKESM1-0-LL",
+      "feature_family": "stage1_precip_share",
+      "gmst_slope_per_k": 0.08054696514359541,
+      "support_max": 0.4497510640063061,
+      "support_min": 0.337678415416258,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "UKESM1-0-LL",
+      "feature_family": "stage2_precip_share",
+      "gmst_slope_per_k": -0.0054713956825001376,
+      "support_max": 0.45754559664744904,
+      "support_min": 0.31760382952913535,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "UKESM1-0-LL",
+      "feature_family": "stage3_precip_share",
+      "gmst_slope_per_k": -0.0750755694610953,
+      "support_max": 0.2778144457717621,
+      "support_min": 0.16651276943687324,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "UKESM1-0-LL",
+      "feature_family": "tmean_c",
+      "gmst_slope_per_k": 1.5178240527514446,
+      "support_max": 21.915301797080666,
+      "support_min": 20.748551065911357,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "UKESM1-0-LL",
+      "feature_family": "wet_days_n",
+      "gmst_slope_per_k": 3.741511025274707,
+      "support_max": 30.606413994169095,
+      "support_min": 24.99125364431487,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "mri-esm2-0",
+      "feature_family": "cdd_max_days",
+      "gmst_slope_per_k": -14.832681860232555,
+      "support_max": 50.41399416909621,
+      "support_min": 32.677842565597665,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "mri-esm2-0",
+      "feature_family": "precip_mm",
+      "gmst_slope_per_k": 53.05243662987475,
+      "support_max": 291.2802199907384,
+      "support_min": 179.2885634538123,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "mri-esm2-0",
+      "feature_family": "precipitation_concentration_hhi",
+      "gmst_slope_per_k": -0.07606303248004632,
+      "support_max": 0.5303410168632715,
+      "support_min": 0.45008408417983276,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "mri-esm2-0",
+      "feature_family": "precipitation_timing_centroid",
+      "gmst_slope_per_k": -0.009266814615899505,
+      "support_max": 0.47123976022961633,
+      "support_min": 0.4164367979868941,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "mri-esm2-0",
+      "feature_family": "rx1day_mm",
+      "gmst_slope_per_k": 0.33265421585634647,
+      "support_max": 30.371802464561977,
+      "support_min": 21.751752651435034,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "mri-esm2-0",
+      "feature_family": "rx5day_mm",
+      "gmst_slope_per_k": 4.46166186070111,
+      "support_max": 59.531491582816784,
+      "support_min": 40.926172904996065,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "mri-esm2-0",
+      "feature_family": "stage1_precip_share",
+      "gmst_slope_per_k": -0.006193174988932359,
+      "support_max": 0.4445299686391571,
+      "support_min": 0.35565707230615834,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "mri-esm2-0",
+      "feature_family": "stage2_precip_share",
+      "gmst_slope_per_k": 0.04536101898925819,
+      "support_max": 0.4289312863036322,
+      "support_min": 0.3415204592184349,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "mri-esm2-0",
+      "feature_family": "stage3_precip_share",
+      "gmst_slope_per_k": -0.03709815393484788,
+      "support_max": 0.26937635299500723,
+      "support_min": 0.19200055902173122,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "mri-esm2-0",
+      "feature_family": "tmean_c",
+      "gmst_slope_per_k": 1.1329995581436691,
+      "support_max": 22.112535734044567,
+      "support_min": 20.70387928124854,
+      "training_rows": 15
+    },
+    {
+      "esm_id": "mri-esm2-0",
+      "feature_family": "wet_days_n",
+      "gmst_slope_per_k": 7.769005460189634,
+      "support_max": 32.16180758017493,
+      "support_min": 22.271137026239067,
+      "training_rows": 15
+    }
+  ],
+  "holdout_rows": 99,
+  "holdouts_output": {
+    "artifact_name": "holdouts.csv",
+    "sha256": "431df41883520f7212ab3dadc3900c5b0dbb3795ae32c08b3c99f4ee71c40f43"
+  },
+  "implementation": {
+    "path": "scripts/evaluate_isimip3b_bounded_paired_feature_path.py",
+    "sha256": "d1cc9e30c8c6fa155ac69832e68ffea8c8badc3fc9a773c2dae421ce841c4959"
+  },
+  "inputs": [
+    {
+      "name": "training",
+      "path": "data/interim/isimip3b_five_esm_four_scenario_holdout/training_long.parquet",
+      "sha256": "2ed65370b02a5fd0e3330292e60ad92a00f7f7b7d5f7c11f58d74fa020aaeaab"
+    },
+    {
+      "name": "esm_holdouts",
+      "path": "data/interim/isimip3b_five_esm_four_scenario_holdout/whole_esm_holdouts.csv",
+      "sha256": "c412fd8c3d1e8b569e11d29ffd4f3d3eecf3aa03a9101f879b07f6f6d06c0d12"
+    },
+    {
+      "name": "scenario_holdouts",
+      "path": "data/interim/isimip3b_five_esm_four_scenario_holdout/whole_scenario_holdouts.csv",
+      "sha256": "21cc9c54431f76b8779a8ddd50bf38dbccaafcde96299633ebb7535f05d2d705"
+    }
+  ],
+  "limitations": [
+    "The paired path uses area-unweighted aggregate bounded cells and an artificial Kelvin perturbation, not FAIR.",
+    "The linear surface is a numerical identity/convergence smoke and is not selected by the holdout scores.",
+    "No yield response, damage, welfare, or SCC value is produced."
+  ],
+  "members": {
+    "GFDL-ESM4": "r1i1p1f1",
+    "IPSL-CM6A-LR": "r1i1p1f1",
+    "MPI-ESM1-2-HR": "r1i1p1f1",
+    "UKESM1-0-LL": "r1i1p1f2",
+    "mri-esm2-0": "r1i1p1f1"
+  },
+  "pair_rows": 880,
+  "pairs_output": {
+    "artifact_name": "pairs.parquet",
+    "sha256": "e175f51d1454aeadd0650406eff19d4b9ff4f36697dd4d95708164b10555c237"
+  },
+  "pre_divergence_identity": true,
+  "production_emulator_authorized": false,
+  "pulse_scales_k": [
+    0.0,
+    0.01,
+    0.005,
+    0.0025
+  ],
+  "result": "passed",
+  "role": "aggregate_feature_common_random_number_numerical_gate_not_fair_pulse_production_emulator_damage_or_scc",
+  "schema": "isimip3b_bounded_paired_feature_path_v1",
+  "separate_baseline_pulse_support_flags": true,
+  "support_counts": {
+    "baseline": {
+      "within": 880
+    },
+    "pulse": {
+      "above": 19,
+      "below": 10,
+      "within": 851
+    }
+  },
+  "zero_pulse_all_year_identity": true
+}
