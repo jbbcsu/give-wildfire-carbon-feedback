@@ -13,7 +13,13 @@ import xarray as xr
 from validate_isimip3b_pr_content import EXPECTED_LAT, EXPECTED_LON, validate
 
 
-def write(path: Path, values: np.ndarray, *, lon: np.ndarray = EXPECTED_LON) -> tuple[int, str]:
+def write(
+    path: Path,
+    values: np.ndarray,
+    *,
+    lon: np.ndarray = EXPECTED_LON,
+    hour: int = 12,
+) -> tuple[int, str]:
     dataset = xr.Dataset(
         {
             "pr": (
@@ -23,7 +29,9 @@ def write(path: Path, values: np.ndarray, *, lon: np.ndarray = EXPECTED_LON) -> 
             )
         },
         coords={
-            "time": pd.date_range("2020-01-01 12:00", "2020-01-02 12:00", freq="D"),
+            "time": pd.date_range(
+                f"2020-01-01 {hour:02d}:00", f"2020-01-02 {hour:02d}:00", freq="D"
+            ),
             "lat": ("lat", EXPECTED_LAT, {"units": "degrees_north"}),
             "lon": ("lon", lon, {"units": "degrees_east"}),
         },
@@ -68,6 +76,18 @@ with tempfile.TemporaryDirectory() as directory:
     assert audit["result"] == "passed"
     assert audit["finite_values"] == values.size
     assert audit["negative_values"] == 0
+
+    midnight = root / "midnight.nc"
+    size, digest = write(midnight, values, hour=0)
+    audit = validate(
+        midnight,
+        expected_bytes=size,
+        expected_sha512=digest,
+        start_date="2020-01-01",
+        end_date="2020-01-02",
+        expected_hour=0,
+    )
+    assert audit["start_time"].endswith("T00:00:00")
 
     expect_failure(valid, size, "0" * 128, "SHA-512")
 

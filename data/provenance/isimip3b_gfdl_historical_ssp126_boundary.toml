@@ -1,0 +1,104 @@
+schema_version = 1
+checked_utc_date = "2026-08-26"
+role = "complete_file_historical_to_projection_boundary_and_bounded_feature_engineering_gate_not_feature_response_or_scc"
+purpose = "Pins and validates one GFDL-ESM4 r1i1p1f1 historical-to-SSP1-2.6 daily pr/tas pair, same-realization GMST, and a bounded maize/rainfed crop-feature smoke. It does not estimate a climate response, damages, or an SCC contribution."
+source_catalogue = "https://data.isimip.org/api/v1/datasets/"
+rights = "CC0 1.0"
+esm = "GFDL-ESM4"
+member = "r1i1p1f1"
+scenario = "ssp126"
+dataset_version = "20210512"
+grid = "global 0.5 degree; latitude descending; longitude -179.75 to 179.75"
+calendar = "proleptic_gregorian"
+daily_timestamp_hour_utc = 0
+
+[[variable]]
+name = "pr"
+units = "kg m-2 s-1"
+historical_dataset_id = "3b37bbd1-d18d-4283-9e96-bf429c02479c"
+historical_file_id = "84f930db-6d48-4c49-b214-280a0db284f4"
+historical_file_name = "gfdl-esm4_r1i1p1f1_w5e5_historical_pr_global_daily_2011_2014.nc"
+historical_url = "https://files.isimip.org/ISIMIP3b/InputData/climate/atmosphere/bias-adjusted/global/daily/historical/GFDL-ESM4/gfdl-esm4_r1i1p1f1_w5e5_historical_pr_global_daily_2011_2014.nc"
+historical_bytes = 827342034
+historical_sha512 = "d91ce311bc39d620b78b911df24555292a2ad9699eb4fa0b148f71bdc23a7f19c4d01ff9ced446da95bcae7b187048306ebb07d727f17a67a5dbe2ba5ce12d0b"
+historical_content_audit = "data/interim/isimip3b/gfdl-esm4_historical_pr_2011_2014_content_audit.json"
+projection_dataset_id = "24cb1007-3c96-4b59-a0dc-42d94a8cff8c"
+projection_file_id = "4e159040-3a67-4626-ab24-262471211c39"
+projection_file_name = "gfdl-esm4_r1i1p1f1_w5e5_ssp126_pr_global_daily_2015_2020.nc"
+projection_url = "https://files.isimip.org/ISIMIP3b/InputData/climate/atmosphere/bias-adjusted/global/daily/ssp126/GFDL-ESM4/gfdl-esm4_r1i1p1f1_w5e5_ssp126_pr_global_daily_2015_2020.nc"
+projection_bytes = 1244010374
+projection_sha512 = "c6cd1f38929c6b33fe0b3d51f63277cf942731566567b0098c53a1b89287a92674795920683b8400e64f8b3750748c8207a2076b2939916182b3f17b76fed6f4"
+projection_content_audit = "data/interim/isimip3b/gfdl-esm4_ssp126_pr_2015_2020_content_audit.json"
+historical_end = "2014-12-31T00:00:00"
+projection_start = "2015-01-01T00:00:00"
+boundary_audit = "data/interim/isimip3b/gfdl-esm4_historical_ssp126_pr_boundary_audit.json"
+finite_historical_values = 378691200
+finite_projection_values = 568166400
+zero_historical_values = 143853068
+zero_projection_values = 213951801
+result = "passed"
+
+[[variable]]
+name = "tas"
+units = "K"
+historical_dataset_id = "ecf92220-2f67-41d9-a427-a3ebef1255e9"
+historical_file_id = "324d848f-86af-42a7-bab8-ec4fe9230550"
+historical_file_name = "gfdl-esm4_r1i1p1f1_w5e5_historical_tas_global_daily_2011_2014.nc"
+historical_url = "https://files.isimip.org/ISIMIP3b/InputData/climate/atmosphere/bias-adjusted/global/daily/historical/GFDL-ESM4/gfdl-esm4_r1i1p1f1_w5e5_historical_tas_global_daily_2011_2014.nc"
+historical_bytes = 824290473
+historical_sha512 = "c3a280b78ff0afa198b4ff516ab12586ebaa67984f118c571aae032cc2a97ae03171e22ef337ed456c07b260ea96380199e2bef281b5e910e73d5439e11aa737"
+historical_content_audit = "data/interim/isimip3b/gfdl-esm4_historical_tas_2011_2014_content_audit.json"
+projection_dataset_id = "f741da2d-9d21-4c86-be9b-484396303e33"
+projection_file_id = "361503f2-619a-4abd-a14f-5eb45aefb7fc"
+projection_file_name = "gfdl-esm4_r1i1p1f1_w5e5_ssp126_tas_global_daily_2015_2020.nc"
+projection_url = "https://files.isimip.org/ISIMIP3b/InputData/climate/atmosphere/bias-adjusted/global/daily/ssp126/GFDL-ESM4/gfdl-esm4_r1i1p1f1_w5e5_ssp126_tas_global_daily_2015_2020.nc"
+projection_bytes = 1234409371
+projection_sha512 = "cef52ec9b2f24faedf27670434c54dae5a1b30cffbc673e6cbe842786800962214404fb9c89f4c3be15cef7f7e4ecee65cf1a2b91cbdede745ff64abf4cf6fee"
+projection_content_audit = "data/interim/isimip3b/gfdl-esm4_ssp126_tas_2015_2020_content_audit.json"
+historical_end = "2014-12-31T00:00:00"
+projection_start = "2015-01-01T00:00:00"
+boundary_audit = "data/interim/isimip3b/gfdl-esm4_historical_ssp126_tas_boundary_audit.json"
+finite_historical_values = 378691200
+finite_projection_values = 568166400
+result = "passed"
+
+[historical_same_realization_gmst]
+gmst_source_id = "isimip3b-20210512-ecf92220-2f67-41d9-a427-a3ebef1255e9-324d848f-86af-42a7-bab8-ec4fe9230550"
+years = [2011, 2012, 2013, 2014]
+daily_counts = [365, 366, 365, 365]
+gmst_values_k = [287.6588506406746, 287.8024722928931, 287.9230636280724, 287.67541181892705]
+output = "data/interim/isimip3b/gfdl-esm4_r1i1p1f1_historical_gmst_2011_2014.parquet"
+method = "Complete daily tas field; cos(latitude)-weighted global mean followed by complete calendar-year mean."
+result = "passed"
+
+[projection_same_realization_gmst]
+gmst_source_id = "isimip3b-20210512-f741da2d-9d21-4c86-be9b-484396303e33-361503f2-619a-4abd-a14f-5eb45aefb7fc"
+years = [2015, 2016, 2017, 2018, 2019, 2020]
+daily_counts = [365, 366, 365, 365, 365, 366]
+gmst_values_k = [287.7762374737382, 287.8157033188457, 287.96428147616933, 287.8100836618442, 287.8966805195471, 288.0642473036691]
+output = "data/interim/isimip3b/gfdl-esm4_r1i1p1f1_ssp126_gmst_2015_2020.parquet"
+method = "Complete daily tas field; cos(latitude)-weighted global mean followed by complete calendar-year mean."
+result = "passed"
+
+[bounded_crop_feature_smoke]
+crop = "mai"
+irrigation = "noirr"
+calendar_file = "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_mai_noirr.nc"
+harvest_years = [2015, 2016, 2017, 2018, 2019]
+latitude_index_start = 100
+latitude_index_stop_exclusive = 102
+season_rows = 3430
+stage_rows = 10290
+stage_count = 3
+season_output = "data/interim/isimip3b_gfdl_ssp126_smoke/mai_noirr_2015_2019_lat100_102_features.parquet"
+stage_output = "data/interim/isimip3b_gfdl_ssp126_smoke/mai_noirr_2015_2019_lat100_102_stages.parquet"
+reconciliation_audit = "data/interim/isimip3b_gfdl_ssp126_smoke/reconciliation_audit.json"
+reconciliation_max_absolute_differences = { stage_days = 0.0, precip_mm = 0.0, wet_days_n = 0.0, rx1day_mm = 0.0 }
+validated_metrics = ["seasonal precipitation quantity", "within-season stage quantity", "wet-day count", "maximum dry spell", "Rx1day", "Rx5day", "daily mean temperature"]
+result = "passed"
+
+[validation]
+complete_files = "All four files passed exact byte-size and ISIMIP API SHA-512 checks; complete midnight daily chronology, 360x720 grid, proleptic Gregorian calendar, units, encodings, and full-array finite/physical gates passed."
+boundary = "Both variables join at exactly 24 hours from historical 2014-12-31T00:00:00 to SSP1-2.6 2015-01-01T00:00:00 with identical coordinates, dimensions, and units."
+timestamp_note = "GFDL-ESM4 files use 00:00 daily timestamps; the earlier MRI-ESM2-0 files use 12:00. Validators require an explicit expected hour and crop inputs normalize dates only after a complete daily sequence is verified."
+limitation = "One GFDL ESM/member, one future scenario, pr/tas only, and two latitude rows are validated. tasmin/tasmax, the remaining scenarios and ESMs, yields, fitted feature responses, whole-ESM/whole-scenario holdouts, matched baseline/pulse features, damages, and SCC integration remain absent."

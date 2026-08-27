@@ -20,17 +20,20 @@ def validate(
     expected_sha512: str,
     start_date: str,
     end_date: str,
+    expected_hour: int = 12,
     block_days: int = 32,
 ) -> dict[str, object]:
     if block_days < 1:
         raise ValueError("block_days must be positive")
+    if expected_hour not in range(24):
+        raise ValueError("expected_hour must be an integer from 0 through 23")
     actual_bytes = path.stat().st_size
     if actual_bytes != expected_bytes:
         raise ValueError(f"file byte size mismatch: expected {expected_bytes}, got {actual_bytes}")
     actual_sha512 = sha512(path)
     if actual_sha512 != expected_sha512:
         raise ValueError("file SHA-512 differs from the pinned catalogue checksum")
-    expected_time = pd.date_range(start_date, end_date, freq="D") + pd.Timedelta(hours=12)
+    expected_time = pd.date_range(start_date, end_date, freq="D") + pd.Timedelta(hours=expected_hour)
     counts = {"finite": 0, "missing": 0}
     minimum = np.inf
     maximum = -np.inf
@@ -55,7 +58,9 @@ def validate(
         if not np.array_equal(dataset["lon"].values, EXPECTED_LON):
             raise ValueError("longitude grid is not the registered -179.75..179.75 grid")
         if not pd.DatetimeIndex(dataset["time"].values).equals(expected_time):
-            raise ValueError("decoded time is not the exact complete daily noon sequence")
+            raise ValueError(
+                f"decoded time is not the exact complete daily {expected_hour:02d}:00 sequence"
+            )
         if dataset["time"].encoding.get("calendar") != "proleptic_gregorian":
             raise ValueError("time calendar must be proleptic_gregorian")
         fill = variable.encoding.get("_FillValue")
@@ -109,6 +114,7 @@ def main() -> None:
     parser.add_argument("--expected-sha512", required=True)
     parser.add_argument("--start-date", required=True)
     parser.add_argument("--end-date", required=True)
+    parser.add_argument("--expected-hour", type=int, choices=range(24), default=12)
     parser.add_argument("--block-days", type=int, default=32)
     parser.add_argument("--audit-out", type=Path, required=True)
     args = parser.parse_args()
@@ -118,6 +124,7 @@ def main() -> None:
         expected_sha512=args.expected_sha512,
         start_date=args.start_date,
         end_date=args.end_date,
+        expected_hour=args.expected_hour,
         block_days=args.block_days,
     )
     args.audit_out.parent.mkdir(parents=True, exist_ok=True)
