@@ -24,6 +24,11 @@ and 99.74% of the fisheries component is the non-market-use/nutrition pathway.
 These are external published results, not estimates from the GIVE fisheries
 project and not outputs from the local FishMIP scenario benchmark.
 
+The executable workbook audit fails closed if any required 2020 component is
+missing, duplicated, nonnumeric, or nonfinite, or if the total is zero. This
+prevents an ambiguous spreadsheet row from being silently selected while
+leaving all transferability, welfare, matched-pulse, and SCC gates closed.
+
 ## What the published implementation does
 
 The market pathway reads Free et al. country profit projections, averages

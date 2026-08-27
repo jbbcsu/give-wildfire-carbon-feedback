@@ -18,12 +18,12 @@ sys.modules[SPEC.name] = MODULE
 SPEC.loader.exec_module(MODULE)
 
 
-def write_minimal_xlsx(path: Path) -> None:
+def write_minimal_xlsx(path: Path, rows: list[list[object]] | None = None) -> None:
     workbook = '''<?xml version="1.0" encoding="UTF-8"?>
 <workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets><sheet name="Upper panel" sheetId="1" r:id="rId1"/></sheets></workbook>'''
     rels = '''<?xml version="1.0" encoding="UTF-8"?>
 <Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="worksheet" Target="worksheets/sheet1.xml"/></Relationships>'''
-    rows = [
+    rows = rows or [
         ["t", "scc", "oc_capital", "valuation"],
         [2020, 48.281363, "Total", "Total"],
         [2020, 0.057040, "Fisheries", "Market value"],
@@ -60,6 +60,47 @@ def main() -> None:
             summary["fisheries_share_of_total_blue_scc"],
             22.097549 / 48.281363,
         )
+        duplicate = root / "duplicate.xlsx"
+        write_minimal_xlsx(duplicate, [
+            ["t", "scc", "oc_capital", "valuation"],
+            [2020, 48.281363, "Total", "Total"],
+            [2020, 0.057040, "Fisheries", "Market value"],
+            [2020, 0.058000, "Fisheries", "Market value"],
+            [2020, 22.040509, "Fisheries", "Non-market use value"],
+        ])
+        try:
+            MODULE.figure_summary(duplicate, "Upper panel", 2020)
+        except ValueError as error:
+            assert "duplicate Figure 4 component" in str(error)
+        else:
+            raise AssertionError("duplicate published components must fail closed")
+
+        malformed = root / "malformed.xlsx"
+        write_minimal_xlsx(malformed, [
+            ["t", "scc", "oc_capital", "valuation"],
+            [2020, 48.281363, "Total", "Total"],
+            [2020, float("nan"), "Fisheries", "Market value"],
+            [2020, 22.040509, "Fisheries", "Non-market use value"],
+        ])
+        try:
+            MODULE.figure_summary(malformed, "Upper panel", 2020)
+        except ValueError as error:
+            assert "nonfinite SCC value" in str(error)
+        else:
+            raise AssertionError("nonfinite published components must fail closed")
+
+        missing = root / "missing.xlsx"
+        write_minimal_xlsx(missing, [
+            ["t", "scc", "oc_capital", "valuation"],
+            [2020, 48.281363, "Total", "Total"],
+            [2020, 0.057040, "Fisheries", "Market value"],
+        ])
+        try:
+            MODULE.figure_summary(missing, "Upper panel", 2020)
+        except ValueError as error:
+            assert "missing required components" in str(error)
+        else:
+            raise AssertionError("incomplete published components must fail closed")
 
         coefficients = root / "coefficients.csv"
         coefficients.write_text(

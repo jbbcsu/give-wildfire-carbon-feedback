@@ -159,19 +159,42 @@ def figure_summary(path: Path, sheet_name: str, year: int) -> dict[str, float]:
     selected: dict[tuple[str, str], float] = {}
     for row in rows[1:]:
         padded = row + [""] * (len(header) - len(row))
-        if int(padded[indexes["t"]]) != year:
+        try:
+            row_year = int(padded[indexes["t"]])
+        except (TypeError, ValueError):
+            raise ValueError("Figure 4 source sheet has an invalid year") from None
+        if row_year != year:
             continue
         key = (str(padded[indexes["oc_capital"]]), str(padded[indexes["valuation"]]))
-        selected[key] = float(padded[indexes["scc"]])
+        if key in selected:
+            raise ValueError(f"duplicate Figure 4 component for {year}: {key}")
+        try:
+            value = float(padded[indexes["scc"]])
+        except (TypeError, ValueError):
+            raise ValueError(f"Figure 4 component has a nonnumeric SCC value: {key}") from None
+        if not math.isfinite(value):
+            raise ValueError(f"Figure 4 component has a nonfinite SCC value: {key}")
+        selected[key] = value
+    required_keys = {
+        ("Total", "Total"),
+        ("Fisheries", "Market value"),
+        ("Fisheries", "Non-market use value"),
+    }
+    missing = required_keys - selected.keys()
+    if missing:
+        raise ValueError(f"Figure 4 source sheet is missing required components: {sorted(missing)}")
     total = selected[("Total", "Total")]
     market = selected[("Fisheries", "Market value")]
     nonmarket = selected[("Fisheries", "Non-market use value")]
+    if total == 0:
+        raise ValueError("Figure 4 total blue SCC is zero; component share is undefined")
+    fisheries_total = market + nonmarket
     return {
         "total_blue_scc_usd_per_tco2": total,
         "fisheries_market_scc_usd_per_tco2": market,
         "fisheries_nonmarket_use_scc_usd_per_tco2": nonmarket,
-        "fisheries_total_scc_usd_per_tco2": market + nonmarket,
-        "fisheries_share_of_total_blue_scc": (market + nonmarket) / total,
+        "fisheries_total_scc_usd_per_tco2": fisheries_total,
+        "fisheries_share_of_total_blue_scc": fisheries_total / total,
     }
 
 
