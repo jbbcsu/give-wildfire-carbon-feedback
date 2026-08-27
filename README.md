@@ -99,6 +99,16 @@ SSP5-8.5 is more negative than SSP1-2.6 in 2/4 near- and 4/4 mid- and
 late-century within-forcing/model comparisons. These are descriptive sign
 counts, not probabilities or welfare evidence.
 
+The bounded spatial-distribution audit in
+[`FISHMIP_SPATIAL_CHANGE_DISTRIBUTION.md`](FISHMIP_SPATIAL_CHANGE_DISTRIBUTION.md)
+shows that each of the eight late-century trajectories has lower catch density
+over a majority of its forcing-specific common-support ocean area. The
+cosine-latitude-weighted lower-cell shares range from 68.21% to 97.70%, while
+unweighted lower-cell shares range from 64.95% to 94.24%. Every trajectory
+also retains cells with increases, so the global declines are spatially broad
+but not universal. This remains a modelled scenario-density diagnostic, not
+observed catch, a marginal pulse, welfare, damages, or SCC evidence.
+
 ## Executable accounting scaffolding
 
 The repository currently provides two coefficient-free checks:

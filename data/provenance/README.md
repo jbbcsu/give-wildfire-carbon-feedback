@@ -19,7 +19,13 @@ the reviewed source and gates, while
 `fishmip_isimip3b_tc_acquisition_plan.csv` pins every dataset/file ID, version,
 URL, catalogue byte size, SHA-512, year interval, and frozen acquisition stage.
 These catalogue checksums become verified local provenance only after a
-complete downloaded file matches them. All four frozen GFDL-ESM4 smoke files
-(BOATS and EcoOcean, historical and SSP1-2.6) now meet that condition. Each
-model passes its exact calendar-aware historical/future join. The other 16
-files remain unacquired; the smoke does not authorize their acquisition.
+complete downloaded file matches them. The 12 historical, SSP1-2.6, and
+SSP5-8.5 files used by the two-forcing scenario matrix now meet that condition;
+each model/forcing pair passes its calendar-aware historical/future joins. The
+eight preindustrial-control files remain outside the scenario diagnostic.
+
+`fishmip_spatial_change_distribution_20260827.json` binds those 12 validated
+files to aggregate late-century grid-cell sign shares and normalized change
+quantiles. It reproduces the tracked global-mean scenario matrix and exports
+no cell values. It is a biophysical spatial scenario diagnostic only; pulse,
+welfare, damage, and SCC gates remain closed.

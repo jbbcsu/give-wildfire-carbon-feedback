@@ -42,15 +42,19 @@ The first source-discovery subgate is now reproducible. A 2026-08-25 ISIMIP3b
 catalogue audit found 20 public, unrestricted, CC0 global monthly `tc` datasets:
 two ecosystem models (BOATS and EcoOcean) by two climate forcings (GFDL-ESM4
 and IPSL-CM6A-LR), with five historical/future experiment records per pairing.
-No files have been acquired. The audit does not clear the matched-pulse,
-NetCDF-content, welfare, or production gates.
+Twelve files spanning historical, SSP1-2.6, and SSP5-8.5 have since been
+acquired and content-validated for the scenario matrix. The eight
+preindustrial-control files remain unacquired. This does not clear the
+matched-pulse, welfare, or production gates.
 
 The all-file acquisition plan is now version-pinned and executable against a
 fresh catalogue response. Its outcome-blind content smoke is limited to the
 four BOATS/EcoOcean historical and SSP1-2.6 files under GFDL-ESM4 (513,826,771
-catalogue bytes). The remaining 16 files stay deferred until the smoke passes
-complete-file checksum, schema, monthly chronology, historical/future join,
-grid, unit, and missing-versus-zero checks. See `FISHMIP_CONTENT_PLAN.md`.
+catalogue bytes). After that smoke passed, the bounded scenario matrix added
+the equivalent IPSL-CM6A-LR cells and both SSP5-8.5 futures. All 12 scenario
+files passed complete-file checksum, schema, monthly chronology,
+historical/future join, grid, unit, and missing-versus-zero checks. The eight
+control files remain deferred. See `FISHMIP_CONTENT_PLAN.md`.
 
 ## Gate 3 — primary model and alternatives
 
@@ -62,12 +66,14 @@ catch/landings models only where identification is credible. Model migration,
 harvest management, and substitution explicitly rather than attributing all
 catch trends to climate.
 
-The first four-file scenario benchmark now passes on 41,029 common-support
-cells. BOATS and EcoOcean both have lower 2081--2090 SSP1-2.6 mean `tc` density
-than their own 2005--2014 reference (-35.62% and -24.40%), but their earlier
-paths differ. This advances the ensemble biophysical benchmark and exposes
-model spread; it does not clear the matched-pulse or welfare portions of this
-gate.
+The two-forcing/two-scenario scenario matrix now passes on 41,029 GFDL and
+40,399 IPSL common-support cells. All eight modelled 2081--2090 mean `tc`
+density changes are negative relative to the same model/forcing's 2005--2014
+reference, but earlier paths and spatial magnitudes differ. The spatial audit
+finds area-weighted majorities of lower-density cells in all eight
+trajectories, while every trajectory retains cells with increases. This
+advances the ensemble biophysical benchmark and exposes model spread; it does
+not clear the matched-pulse or welfare portions of this gate.
 
 ## Gate 4 — welfare translation and GIVE interface
 

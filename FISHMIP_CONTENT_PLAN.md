@@ -1,7 +1,8 @@
 # FishMIP `tc` acquisition and content-validation plan
 
-Status: metadata pinned; all four smoke NetCDF files acquired and validated;
-no matched-pulse, welfare, or SCC use authorized.
+Status: metadata pinned; all 12 historical/SSP1-2.6/SSP5-8.5 scenario-matrix
+NetCDF files acquired and validated; no matched-pulse, welfare, or SCC use
+authorized.
 
 ## Frozen acquisition stages
 
@@ -13,11 +14,13 @@ ecosystem model. This is four files and 513,826,771 catalogue bytes
 (approximately 0.479 GiB). It tests both ecosystem-model conventions and one
 historical/future join while bounding the initial transfer.
 
-The other 16 files (2,071,639,668 catalogue bytes) remain
-`deferred_full_matrix`. They are not acquired until every smoke file passes
-checksum and content validation. This staging is an engineering decision, not
-scenario or model selection for inference. SSP1-2.6 is not treated as a
-marginal-CO2 counterfactual, and GFDL-ESM4 is not promoted above IPSL-CM6A-LR.
+After the four-file smoke passed, eight additional historical/SSP1-2.6/
+SSP5-8.5 files were acquired under the predeclared full-matrix stage. The 12
+scenario files now cover both forcings and ecosystem models. The eight
+preindustrial-control files remain deferred. This staging is an engineering
+decision, not scenario or model selection for inference. Neither SSP is
+treated as a marginal-CO2 counterfactual, and neither climate forcing or
+ecosystem model is promoted above another.
 
 The complete four-file check passed. Both BOATS files use contiguous monthly
 indices under `360_day`; both EcoOcean files use exact month-start day offsets
@@ -81,11 +84,11 @@ Each file must pass all of the following before any numeric summary is used:
    units, and missing-value conventions within each ecosystem model. No
    cross-model equality of values is expected.
 
-The four-file smoke now has a machine-readable pass for every within-model
-file and join check. The other 16 files remain deferred pending a reviewed
-full-matrix storage/processing step. A full matrix must repeat these checks and
-also require complete BOATS/EcoOcean by GFDL-ESM4/IPSL-CM6A-LR by registered
-experiment coverage; the smoke does not itself authorize that acquisition.
+The initial four-file smoke and the later eight-file scenario expansion have
+machine-readable passes for every within-model file and historical/future join
+check. The resulting historical/SSP1-2.6/SSP5-8.5 matrix is complete across
+BOATS/EcoOcean and GFDL-ESM4/IPSL-CM6A-LR. The eight control files remain
+deferred and are not needed for the bounded scenario diagnostic.
 
 ## Scientific boundary
 
