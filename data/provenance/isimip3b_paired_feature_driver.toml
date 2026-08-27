@@ -1,5 +1,5 @@
 schema_version = 2
-status = "primary_route_metadata_selected_first_historical_ssp_pr_tas_pair_and_real_gmst_validated"
+status = "primary_route_metadata_selected_three_esm_ssp370_pr_tas_cells_and_one_complete_gfdl_scenario_matrix_bounded_smokes_validated"
 purpose = "Direct daily CMIP6 feature training data for matched FAIR baseline/pulse climate-feature evaluation. This record does not authorize an SCC calculation or raw-data redistribution."
 
 [decision]
@@ -28,6 +28,15 @@ snapshot_checked_utc_date = "2026-08-26"
 snapshot_dataset_count = 80
 snapshot_catalogue_bytes = 1756959247729
 snapshot_rule = "Freeze the complete five-ESM by four-scenario by four-variable dataset Cartesian product before climate-feature fitting. Re-resolve and verify every file SHA-512 at acquisition time."
+
+[validated_evidence]
+mri_historical_ssp370 = "data/provenance/isimip3b_mri_historical_ssp370_boundary.toml"
+gfdl_historical_scenarios_pr_tas = "data/provenance/isimip3b_gfdl_scenario_matrix.toml"
+gfdl_temperature_extrema = "data/provenance/isimip3b_gfdl_temperature_extrema.toml"
+ipsl_ssp370_pr_tas = "data/provenance/isimip3b_ipsl_ssp370_smoke.toml"
+bounded_esm_coverage = ["GFDL-ESM4", "IPSL-CM6A-LR", "MRI-ESM2-0"]
+bounded_scenario_coverage = ["ssp126", "ssp370", "ssp585"]
+validation_limit = "Coverage is not a fitted holdout result: only SSP3-7.0 has three ESMs, only GFDL has all three future scenarios plus temperature extrema, and every feature smoke remains bounded."
 
 [selection.members]
 gfdl-esm4 = "r1i1p1f1"
