@@ -22,9 +22,10 @@ from evaluate_isimip3b_five_esm_holdout_smoke import (
     _validate_physical,
     sha256,
 )
+from validate_paired_feature_emulator import validate_training_design
 
 
-SCENARIOS = {"ssp126", "ssp370", "ssp585"}
+SCENARIOS = {"historical", "ssp126", "ssp370", "ssp585"}
 
 
 def assemble_training(config_path: Path) -> tuple[pd.DataFrame, dict[str, object]]:
@@ -32,15 +33,15 @@ def assemble_training(config_path: Path) -> tuple[pd.DataFrame, dict[str, object
     root = config_path.parent.parent
     selection = config["selection"]
     esm_id, member_id = str(selection["esm_id"]), str(selection["member_id"])
-    year_start, year_end = int(selection["year_start"]), int(selection["year_end"])
     cells = config.get("cells", [])
-    if len(cells) != 3 or {str(cell["scenario"]) for cell in cells} != SCENARIOS:
-        raise ValueError("scenario config must contain exactly SSP1-2.6, SSP3-7.0, and SSP5-8.5")
+    if len(cells) != 4 or {str(cell["scenario"]) for cell in cells} != SCENARIOS:
+        raise ValueError("scenario config must contain historical plus the three frozen SSPs")
     reference_keys: pd.DataFrame | None = None
     frames: list[pd.DataFrame] = []
     receipts = []
     for cell in cells:
         scenario = str(cell["scenario"])
+        year_start, year_end = int(cell["year_start"]), int(cell["year_end"])
         season_path = _path(root, str(cell["season_path"]))
         stage_path = _path(root, str(cell["stage_path"]))
         gmst_path = _path(root, str(cell["gmst_path"]))
@@ -59,10 +60,11 @@ def assemble_training(config_path: Path) -> tuple[pd.DataFrame, dict[str, object
         timing = _timing_features(season, stages, scenario)
         wide = season[KEYS + SEASON_FEATURES].merge(timing, on=KEYS, validate="one_to_one")
         _validate_physical(wide, scenario)
+        spatial_keys = wide[CELL_KEYS].drop_duplicates().sort_values(CELL_KEYS).reset_index(drop=True)
         if reference_keys is None:
-            reference_keys = wide[KEYS].copy()
-        elif not wide[KEYS].equals(reference_keys):
-            raise ValueError("scenario feature cells do not have identical ordered keys")
+            reference_keys = spatial_keys
+        elif not spatial_keys.equals(reference_keys):
+            raise ValueError("scenario feature cells do not have identical spatial support")
         gmst = pd.read_parquet(gmst_path)
         required = {"esm_id", "member_id", "scenario", "gmst_source_id", "year", "gmst_value_k"}
         if missing := required - set(gmst.columns):
@@ -95,6 +97,8 @@ def assemble_training(config_path: Path) -> tuple[pd.DataFrame, dict[str, object
         frames.append(long)
         receipts.append({
             "scenario": scenario,
+            "year_start": year_start,
+            "year_end": year_end,
             "season_path": _display_path(season_path, root), "season_sha256": sha256(season_path),
             "stage_path": _display_path(stage_path, root), "stage_sha256": sha256(stage_path),
             "gmst_path": _display_path(gmst_path, root), "gmst_sha256": sha256(gmst_path),
@@ -108,13 +112,14 @@ def assemble_training(config_path: Path) -> tuple[pd.DataFrame, dict[str, object
         training["member_id"] == training["gmst_member_id"]
     ).all():
         raise ValueError("scenario features and GMST use different realizations")
+    validate_training_design(training)
     return training, {
         "config_path": _display_path(config_path, root),
         "config_sha256": sha256(config_path),
         "esm_id": esm_id,
         "member_id": member_id,
-        "year_start": year_start,
-        "year_end": year_end,
+        "year_start": int(training["year"].min()),
+        "year_end": int(training["year"].max()),
         "inputs": receipts,
     }
 
@@ -188,7 +193,7 @@ def main() -> None:
     improved = holdouts["rmse"] < holdouts["benchmark_rmse"]
     audit = {
         "schema": "isimip3b_bounded_gfdl_scenario_holdout_smoke_v1",
-        "role": "three_future_scenario_engineering_smoke_not_complete_emulator_damage_or_scc_input",
+        "role": "historical_plus_three_ssp_scenario_engineering_smoke_not_complete_emulator_damage_or_scc_input",
         **metadata,
         "implementation": {
             "path": _display_path(Path(__file__).resolve(), args.config.resolve().parent.parent),
@@ -212,8 +217,8 @@ def main() -> None:
         "training_output": {"artifact_name": args.training_out.name, "sha256": sha256(args.training_out)},
         "holdouts_output": {"artifact_name": args.holdouts_out.name, "sha256": sha256(args.holdouts_out)},
         "limitations": [
-            "Only three future scenarios, four harvest years, one ESM/member, one crop/regime, and two latitude rows are evaluated.",
-            "Historical is absent, so this does not satisfy the production four-scenario training or holdout gate.",
+            "Only seven nonoverlapping harvest years, one ESM/member, one crop/regime, and two latitude rows are evaluated.",
+            "The exact four-scenario training-design gate passes, but this is not the complete historical/future temporal or five-ESM product.",
             "No paired baseline/pulse path, support rule, yield response, damage, welfare, or SCC value is produced.",
         ],
         "result": "passed",

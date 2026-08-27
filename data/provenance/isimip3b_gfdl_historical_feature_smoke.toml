@@ -1,0 +1,56 @@
+schema_version = 1
+checked_utc_date = "2026-08-27"
+role = "bounded_historical_crop_feature_engineering_gate_not_complete_emulator_damage_or_scc"
+esm_id = "GFDL-ESM4"
+member_id = "r1i1p1f1"
+scenario = "historical"
+crop = "mai"
+irrigation = "noirr"
+harvest_years = [2012, 2013, 2014]
+latitude_index_start = 100
+latitude_index_stop_exclusive = 102
+source_code_commit = "067fd80"
+source_provenance = "data/provenance/isimip3b_gfdl_historical_ssp126_boundary.toml"
+source_provenance_sha256 = "defe292871ac2478a387fc8d63f596bbab2d3a1f9cede2fc6084767656e77100"
+build_isolation = "Committed source was exported with git archive to /private/tmp; the dirty shared checkout was not executed or modified."
+
+[climate_inputs]
+precipitation_path = "data/raw/isimip3b/gfdl-esm4/historical/pr/gfdl-esm4_r1i1p1f1_w5e5_historical_pr_global_daily_2011_2014.nc"
+precipitation_sha512 = "d91ce311bc39d620b78b911df24555292a2ad9699eb4fa0b148f71bdc23a7f19c4d01ff9ced446da95bcae7b187048306ebb07d727f17a67a5dbe2ba5ce12d0b"
+temperature_path = "data/raw/isimip3b/gfdl-esm4/historical/tas/gfdl-esm4_r1i1p1f1_w5e5_historical_tas_global_daily_2011_2014.nc"
+temperature_sha512 = "c3a280b78ff0afa198b4ff516ab12586ebaa67984f118c571aae032cc2a97ae03171e22ef337ed456c07b260ea96380199e2bef281b5e910e73d5439e11aa737"
+calendar_path = "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_mai_noirr.nc"
+calendar_sha512 = "30aba2e000a712328bdfdd1c161c55390bcd6b34e876e92465b0972ac1361a1d039857a99926be9d73cc2baf0936ae10860e47823f8d67ad7e6fb284a1edbf1e"
+
+[implementation]
+build_season_git_object = "067fd80:scripts/build_crop_year_features.py"
+build_season_sha256 = "fb6d9f8749611e9ca090665be9098a30f99ea08c74130e292a81d961e719a078"
+build_stages_git_object = "067fd80:scripts/build_crop_stage_features.py"
+build_stages_sha256 = "c083522fb41553a7660d064d275fd6aac1b06cb71f20df8f41e35ac287535bb4"
+reconcile_git_object = "067fd80:scripts/reconcile_stage_season_features.py"
+reconcile_sha256 = "129cb2f666e7fe030988966a3c00c1c81e8e3fa8958b817a4818a9a35b3cbc59"
+
+[outputs]
+season_path = "data/interim/isimip3b_gfdl_historical_smoke/mai_noirr_2012_2014_lat100_102_features.parquet"
+season_sha256 = "d6ca2918f4a7677b22090afc4d5e8db5942a3b356dfd5d7d58bb346e9764ec4b"
+season_rows = 2058
+stage_path = "data/interim/isimip3b_gfdl_historical_smoke/mai_noirr_2012_2014_lat100_102_stages.parquet"
+stage_sha256 = "430f6b1e87deda1897e8484e66c025c9f6dbc9d65a65c96b27c2ba974282ae3c"
+stage_rows = 6174
+reconciliation_path = "data/interim/isimip3b_gfdl_historical_smoke/reconciliation_audit.json"
+reconciliation_sha256 = "a19132c154d599e0c8d5f864e01576d75c001beff197f5e734283dd0d34e4330"
+spatial_cells = 686
+stage_count = 3
+maximum_absolute_stage_season_differences = { stage_days = 0.0, precip_mm = 0.0, wet_days_n = 0.0, rx1day_mm = 0.0 }
+finite_features = true
+nonnegative_precipitation_and_count_features = true
+rx_ordering_passed = true
+result = "passed"
+
+[limitations]
+complete_historical_feature_period = false
+complete_five_esm_scenario_product = false
+paired_baseline_pulse_paths = false
+support_flags = false
+yield_response_or_damage_authorized = false
+scc_authorized = false

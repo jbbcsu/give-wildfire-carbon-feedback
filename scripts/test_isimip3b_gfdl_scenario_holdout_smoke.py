@@ -17,7 +17,7 @@ from evaluate_isimip3b_gfdl_scenario_holdout_smoke import (  # noqa: E402
 
 
 rows = []
-for scenario_index, scenario in enumerate(("ssp126", "ssp370", "ssp585")):
+for scenario_index, scenario in enumerate(("historical", "ssp126", "ssp370", "ssp585")):
     for year_index, year in enumerate((2016, 2017)):
         gmst = 287.0 + 0.2 * scenario_index + 0.1 * year_index
         for lon in (10.25, 10.75):
@@ -32,11 +32,11 @@ for scenario_index, scenario in enumerate(("ssp126", "ssp370", "ssp585")):
                 })
 training = pd.DataFrame(rows)
 result = evaluate_leave_one_scenario_out(training)
-assert len(result) == 3 * len(FEATURES)
+assert len(result) == 4 * len(FEATURES)
 assert set(result["holdout_excluded"]) == {True}
 assert np.isfinite(result[["rmse", "mae", "benchmark_rmse", "benchmark_mae"]]).all().all()
 
-bad = training.loc[training["scenario"] != "ssp585"].copy()
+bad = training.loc[training["scenario"] != "historical"].copy()
 try:
     evaluate_leave_one_scenario_out(bad)
 except ValueError:
