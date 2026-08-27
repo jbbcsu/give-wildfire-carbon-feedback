@@ -1,0 +1,106 @@
+schema_version = 1
+checked_utc_date = "2026-08-26"
+role = "fourth_esm_same_scenario_complete_file_and_bounded_feature_engineering_gate_not_emulator_holdout_damage_or_scc"
+source_catalogue = "https://data.isimip.org/api/v1/datasets/"
+rights = "CC0 1.0"
+dataset_version = "20210512"
+esm = "MPI-ESM1-2-HR"
+member = "r1i1p1f1"
+scenario = "ssp370"
+variables = ["pr", "tas"]
+grid = "global 0.5 degree; latitude descending; longitude -179.75 to 179.75"
+calendar = "proleptic_gregorian"
+daily_timestamp_hour_utc = 12
+selection_snapshot = "data/provenance/isimip3b_daily_catalog_selection.csv"
+
+[precipitation]
+dataset_id = "acb43507-b914-4028-aa15-67a7f51fa14e"
+file_id = "cb17f3da-def6-4019-9c61-5a4558034b82"
+file_name = "mpi-esm1-2-hr_r1i1p1f1_w5e5_ssp370_pr_global_daily_2015_2020.nc"
+bytes = 1259943664
+sha512 = "98990c5b1ac23a658773358fdc7bda97e53ca1369c6913452313fcd8649d695735eaa060b2ab7dfa0c7475038d9615cd83ed1318029edb93687f412b043cca54"
+finite_values = 568166400
+zero_values = 217129161
+negative_values = 0
+minimum_flux_kg_m2_s = 0.0
+maximum_flux_kg_m2_s = 0.006517103407531977
+content_audit = "data/interim/isimip3b/mpi-esm1-2-hr_ssp370_pr_2015_2020_content_audit.json"
+result = "passed"
+
+[temperature]
+dataset_id = "4f168a86-5cc5-4745-ab2a-950454a35fe5"
+file_id = "45924971-2fe1-4f4d-b705-ab993a5255af"
+file_name = "mpi-esm1-2-hr_r1i1p1f1_w5e5_ssp370_tas_global_daily_2015_2020.nc"
+bytes = 1236881504
+sha512 = "9e454094c5af7df7d97ebce234d360d891dc08e4e2995b2f006f9443b9675a3e451b0a3c550985a0a691658768e833ae1425308a8c47757d62ba89b0de1f9a35"
+finite_values = 568166400
+minimum_k = 196.03076171875
+maximum_k = 317.3757629394531
+content_audit = "data/interim/isimip3b/mpi-esm1-2-hr_ssp370_tas_2015_2020_content_audit.json"
+result = "passed"
+
+[same_realization_gmst]
+source_id = "isimip3b-20210512-4f168a86-5cc5-4745-ab2a-950454a35fe5-45924971-2fe1-4f4d-b705-ab993a5255af"
+years = [2015, 2016, 2017, 2018, 2019, 2020]
+daily_counts = [365, 366, 365, 365, 365, 366]
+values_k = [287.64577712411057, 287.7939856061721, 287.8392459834596, 288.0391122332613, 288.11960405198676, 287.9345654286137]
+output = "data/interim/isimip3b_mpi_ssp370_smoke/same_realization_gmst_2015_2020.parquet"
+result = "passed"
+
+[bounded_feature_smoke]
+crop = "mai"
+irrigation = "noirr"
+harvest_years = [2016, 2017, 2018, 2019]
+latitude_index_start = 100
+latitude_index_stop_exclusive = 102
+season_rows = 2744
+stage_rows = 8232
+stage_fractions = [0.0, 0.3, 0.7, 1.0]
+season_output = "data/interim/isimip3b_mpi_ssp370_smoke/mai_noirr_2016_2019_lat100_102_features.parquet"
+stage_output = "data/interim/isimip3b_mpi_ssp370_smoke/mai_noirr_2016_2019_lat100_102_stages.parquet"
+reconciliation_audit = "data/interim/isimip3b_mpi_ssp370_smoke/reconciliation_audit.json"
+reconciliation = "All seasonal and stage schema gates passed; stage days, precipitation, wet-day counts, and Rx1day reconcile exactly."
+
+[[comparison]]
+reference = "MRI-ESM2-0_r1i1p1f1_ssp370"
+output = "data/interim/isimip3b_mpi_ssp370_smoke/mpi_vs_mri_ssp370_feature_comparison.json"
+matched_rows = 2744
+mean_precip_difference_mm = -8.776047983866608
+precip_correlation = 0.8738394753587194
+mean_timing_centroid_difference = 0.01511325513503682
+timing_centroid_correlation = 0.4825450446756628
+mean_cdd_max_difference_days = 1.782069970845481
+cdd_max_correlation = 0.6519924315999845
+mean_rx1day_difference_mm = 0.9393286306367584
+rx1day_correlation = 0.7435669636497442
+
+[[comparison]]
+reference = "GFDL-ESM4_r1i1p1f1_ssp370"
+output = "data/interim/isimip3b_mpi_ssp370_smoke/mpi_vs_gfdl_ssp370_feature_comparison.json"
+matched_rows = 2744
+mean_precip_difference_mm = 1.330677375153967
+precip_correlation = 0.846418528317982
+mean_timing_centroid_difference = -0.00028348267467822886
+timing_centroid_correlation = 0.4373715673983341
+mean_cdd_max_difference_days = 2.229591836734694
+cdd_max_correlation = 0.5861575689559511
+mean_rx1day_difference_mm = -2.5320480958621068
+rx1day_correlation = 0.70397047651701
+
+[[comparison]]
+reference = "IPSL-CM6A-LR_r1i1p1f1_ssp370"
+output = "data/interim/isimip3b_mpi_ssp370_smoke/mpi_vs_ipsl_ssp370_feature_comparison.json"
+matched_rows = 2744
+mean_precip_difference_mm = -14.047553569412418
+precip_correlation = 0.8454716127424632
+mean_timing_centroid_difference = 0.002607161682717163
+timing_centroid_correlation = 0.3732113411216117
+mean_cdd_max_difference_days = 2.9631924198250728
+cdd_max_correlation = 0.6081246105819365
+mean_rx1day_difference_mm = -2.887581820493841
+rx1day_correlation = 0.6405610918130843
+
+[limitations]
+acquisition = "This complete-file cell covers pr/tas for 2015-2020 in one scenario. Historical continuity, tasmin/tasmax, other scenarios, and later decades remain absent for MPI-ESM1-2-HR."
+feature_scope = "The feature smoke covers one crop/irrigation calendar, two latitude rows, and four years, not the global multi-crop matrix."
+inference = "The same-scenario cross-ESM comparisons are descriptive. Four bounded ESM cells do not constitute a fitted whole-ESM holdout; no feature response, baseline/pulse pair, damage, or SCC claim is authorized."
