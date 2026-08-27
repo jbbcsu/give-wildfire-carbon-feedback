@@ -1,0 +1,40 @@
+schema_version = 1
+analysis_id = "us_paired_practice_gap_association_v1"
+analysis_role = "historical_paired_practice_yield_gap_association_only"
+association_fit_authorized = true
+causal_claim_authorized = false
+damage_claim_authorized = false
+scc_claim_authorized = false
+
+[input]
+panel = "data/interim/us_county/nass_direct_practice_nclimgrid_1981_2019.parquet"
+expected_panel_sha256 = "205a94ae92c12810026c9c5d0ac0fa3760e46ebc39669e528ba20a125a0c46d7"
+crops = ["corn_grain", "soybeans"]
+practices = ["non_irrigated", "irrigated"]
+year_min = 1981
+year_max = 2018
+
+[models]
+fixed_effects = ["county_geoid", "state_by_harvest_year"]
+cluster = "county_geoid"
+outcome = "log_irrigated_yield_minus_log_non_irrigated_yield"
+forms = ["quantity", "quantity_timing"]
+heat_controls = ["stage1_tmean_c", "stage2_tmean_c", "stage3_tmean_c"]
+quantity_feature = "precip_mm"
+quantity_scale_mm = 100.0
+timing_features = ["stage1_precip_share", "stage2_precip_share"]
+timing_reference = "stage3_precip_share_omitted"
+demeaning_tolerance = 1e-10
+demeaning_max_iterations = 1000
+minimum_rows = 500
+minimum_counties = 25
+minimum_within_standard_deviation = 1e-10
+
+[contrasts]
+quantity_increment_mm = 100.0
+quantity_reference_percentile = 0.50
+timing_shift_share = 0.10
+
+[output]
+result = "data/provenance/us_paired_practice_gap_association_20260827.json"
+required_disclaimer = "The paired outcome is an observed historical yield gap among selected counties reporting both practices under a shared county weather proxy. Associations are not causal irrigation effects, nationally representative U.S. estimates, global transfer parameters, damage functions, or SCC inputs."

@@ -1,0 +1,47 @@
+{
+  "causal_claim_authorized": false,
+  "comparisons": 36,
+  "damage_claim_authorized": false,
+  "identity": "paired_gap_coefficient_equals_irrigated_coefficient_minus_non_irrigated_coefficient",
+  "maximum_absolute_difference": 3.3306690738754696e-16,
+  "paired_result": {
+    "path": "data/provenance/us_paired_practice_gap_association_20260827.json",
+    "sha256": "4e250aad5d645306dbc3d68073fde4d009f696399ea2c5b808cae4f573928d3b"
+  },
+  "rows": [
+    {
+      "coefficient_count": 8,
+      "crop": "corn_grain",
+      "form": "quantity",
+      "maximum_absolute_difference_from_irrigated_minus_non_irrigated": 2.7755575615628914e-16
+    },
+    {
+      "coefficient_count": 10,
+      "crop": "corn_grain",
+      "form": "quantity_timing",
+      "maximum_absolute_difference_from_irrigated_minus_non_irrigated": 2.636779683484747e-16
+    },
+    {
+      "coefficient_count": 8,
+      "crop": "soybeans",
+      "form": "quantity",
+      "maximum_absolute_difference_from_irrigated_minus_non_irrigated": 3.3306690738754696e-16
+    },
+    {
+      "coefficient_count": 10,
+      "crop": "soybeans",
+      "form": "quantity_timing",
+      "maximum_absolute_difference_from_irrigated_minus_non_irrigated": 2.7755575615628914e-16
+    }
+  ],
+  "scc_claim_authorized": false,
+  "schema": "us_paired_practice_gap_independent_validation_v1",
+  "separate_result": {
+    "path": "data/provenance/us_direct_practice_precipitation_association_20260826.json",
+    "sha256": "4f39079e88103c9fbe14026b33d2741a942e24388a9dfe863845fea3b4100e6e"
+  },
+  "standard_error_note": "The paired fit estimates county-clustered uncertainty on the within-pair yield gap; separate-fit standard errors omit their cross-practice covariance and are not subtracted.",
+  "standard_errors_cross_checked": false,
+  "status": "validated_against_difference_of_separate_practice_coefficients",
+  "tolerance": 2e-12
+}

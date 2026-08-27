@@ -1,0 +1,53 @@
+schema = "isimip3b_bounded_five_esm_holdout_smoke_config_v1"
+role = "outcome_blind_engineering_smoke_not_complete_emulator_damage_or_scc_input"
+
+[selection]
+scenario = "ssp370"
+year_start = 2016
+year_end = 2019
+expected_esm_count = 5
+crop = "mai"
+irrigation = "noirr"
+latitude_indices = "100:102"
+
+[[cells]]
+esm_id = "GFDL-ESM4"
+member_id = "r1i1p1f1"
+season_path = "data/interim/isimip3b_gfdl_ssp370_smoke/mai_noirr_2016_2019_lat100_102_features.parquet"
+stage_path = "data/interim/isimip3b_gfdl_ssp370_smoke/mai_noirr_2016_2019_lat100_102_stages.parquet"
+gmst_path = "data/interim/isimip3b/gfdl-esm4_r1i1p1f1_ssp370_gmst_2015_2020.parquet"
+
+[[cells]]
+esm_id = "IPSL-CM6A-LR"
+member_id = "r1i1p1f1"
+season_path = "data/interim/isimip3b_ipsl_ssp370_smoke/mai_noirr_2016_2019_lat100_102_features.parquet"
+stage_path = "data/interim/isimip3b_ipsl_ssp370_smoke/mai_noirr_2016_2019_lat100_102_stages.parquet"
+gmst_path = "data/interim/isimip3b_ipsl_ssp370_smoke/same_realization_gmst_2015_2020.parquet"
+
+[[cells]]
+esm_id = "MPI-ESM1-2-HR"
+member_id = "r1i1p1f1"
+season_path = "data/interim/isimip3b_mpi_ssp370_smoke/mai_noirr_2016_2019_lat100_102_features.parquet"
+stage_path = "data/interim/isimip3b_mpi_ssp370_smoke/mai_noirr_2016_2019_lat100_102_stages.parquet"
+gmst_path = "data/interim/isimip3b_mpi_ssp370_smoke/same_realization_gmst_2015_2020.parquet"
+
+[[cells]]
+esm_id = "mri-esm2-0"
+member_id = "r1i1p1f1"
+season_path = "data/interim/isimip3b_mri_ssp370_smoke/mai_noirr_2016_2019_lat100_102_features.parquet"
+stage_path = "data/interim/isimip3b_mri_ssp370_smoke/mai_noirr_2016_2019_lat100_102_stages.parquet"
+gmst_path = "data/interim/isimip3b/mri-esm2-0_ssp370_r1i1p1f1_gmst_2015_2020.parquet"
+
+[[cells]]
+esm_id = "UKESM1-0-LL"
+member_id = "r1i1p1f2"
+season_path = "data/interim/isimip3b_ukesm_ssp370_smoke/mai_noirr_2016_2019_lat100_102_features.parquet"
+stage_path = "data/interim/isimip3b_ukesm_ssp370_smoke/mai_noirr_2016_2019_lat100_102_stages.parquet"
+gmst_path = "data/interim/isimip3b_ukesm_ssp370_smoke/same_realization_gmst_2015_2020.parquet"
+
+[limitations]
+complete_historical_future_product = false
+whole_scenario_holdouts = false
+paired_baseline_pulse_paths = false
+support_flags = false
+damage_or_scc_authorized = false

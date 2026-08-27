@@ -1,0 +1,219 @@
+{
+  "comparison_count": 55,
+  "config_path": "config/isimip3b_five_esm_ssp370_holdout_smoke_v1.toml",
+  "config_sha256": "af7d6f0e7cf70063813bab3bbfc7cbbe8c418928f215c07e673b5b4a0da063a8",
+  "esm_ids": [
+    "GFDL-ESM4",
+    "IPSL-CM6A-LR",
+    "MPI-ESM1-2-HR",
+    "UKESM1-0-LL",
+    "mri-esm2-0"
+  ],
+  "esm_summaries": {
+    "GFDL-ESM4": {
+      "comparisons": 11,
+      "gmst_model_better_count": 5,
+      "maximum_rmse_ratio_to_cell_mean": 1.0124604375134667,
+      "median_rmse_ratio_to_cell_mean": 1.000097511213651
+    },
+    "IPSL-CM6A-LR": {
+      "comparisons": 11,
+      "gmst_model_better_count": 9,
+      "maximum_rmse_ratio_to_cell_mean": 1.0101513051980577,
+      "median_rmse_ratio_to_cell_mean": 0.9988205182499961
+    },
+    "MPI-ESM1-2-HR": {
+      "comparisons": 11,
+      "gmst_model_better_count": 11,
+      "maximum_rmse_ratio_to_cell_mean": 0.9993911998138533,
+      "median_rmse_ratio_to_cell_mean": 0.99743206573078
+    },
+    "UKESM1-0-LL": {
+      "comparisons": 11,
+      "gmst_model_better_count": 4,
+      "maximum_rmse_ratio_to_cell_mean": 1.075730673617626,
+      "median_rmse_ratio_to_cell_mean": 1.0022035972380972
+    },
+    "mri-esm2-0": {
+      "comparisons": 11,
+      "gmst_model_better_count": 6,
+      "maximum_rmse_ratio_to_cell_mean": 1.0055148345942346,
+      "median_rmse_ratio_to_cell_mean": 0.9997704907062193
+    }
+  },
+  "expected_esm_count": 5,
+  "feature_families": [
+    "tmean_c",
+    "precip_mm",
+    "wet_days_n",
+    "cdd_max_days",
+    "rx1day_mm",
+    "rx5day_mm",
+    "stage1_precip_share",
+    "stage2_precip_share",
+    "stage3_precip_share",
+    "precipitation_timing_centroid",
+    "precipitation_concentration_hhi"
+  ],
+  "feature_summaries": {
+    "cdd_max_days": {
+      "comparisons": 5,
+      "gmst_model_better_count": 3,
+      "maximum_rmse_ratio_to_cell_mean": 1.0612372625856066,
+      "median_rmse_ratio_to_cell_mean": 0.9986211448750082
+    },
+    "precip_mm": {
+      "comparisons": 5,
+      "gmst_model_better_count": 4,
+      "maximum_rmse_ratio_to_cell_mean": 1.033798459127417,
+      "median_rmse_ratio_to_cell_mean": 0.99743206573078
+    },
+    "precipitation_concentration_hhi": {
+      "comparisons": 5,
+      "gmst_model_better_count": 4,
+      "maximum_rmse_ratio_to_cell_mean": 1.0254879934594445,
+      "median_rmse_ratio_to_cell_mean": 0.9988811714424144
+    },
+    "precipitation_timing_centroid": {
+      "comparisons": 5,
+      "gmst_model_better_count": 3,
+      "maximum_rmse_ratio_to_cell_mean": 1.0055148345942346,
+      "median_rmse_ratio_to_cell_mean": 0.9983046492972139
+    },
+    "rx1day_mm": {
+      "comparisons": 5,
+      "gmst_model_better_count": 2,
+      "maximum_rmse_ratio_to_cell_mean": 1.0124604375134667,
+      "median_rmse_ratio_to_cell_mean": 1.0015452034488252
+    },
+    "rx5day_mm": {
+      "comparisons": 5,
+      "gmst_model_better_count": 2,
+      "maximum_rmse_ratio_to_cell_mean": 1.0022035972380972,
+      "median_rmse_ratio_to_cell_mean": 1.000279862074396
+    },
+    "stage1_precip_share": {
+      "comparisons": 5,
+      "gmst_model_better_count": 4,
+      "maximum_rmse_ratio_to_cell_mean": 1.0038495552424402,
+      "median_rmse_ratio_to_cell_mean": 0.9988205182499961
+    },
+    "stage2_precip_share": {
+      "comparisons": 5,
+      "gmst_model_better_count": 2,
+      "maximum_rmse_ratio_to_cell_mean": 1.0048513486747908,
+      "median_rmse_ratio_to_cell_mean": 1.0001463751191564
+    },
+    "stage3_precip_share": {
+      "comparisons": 5,
+      "gmst_model_better_count": 3,
+      "maximum_rmse_ratio_to_cell_mean": 1.0031569518973864,
+      "median_rmse_ratio_to_cell_mean": 0.9990490244958834
+    },
+    "tmean_c": {
+      "comparisons": 5,
+      "gmst_model_better_count": 4,
+      "maximum_rmse_ratio_to_cell_mean": 1.0101513051980577,
+      "median_rmse_ratio_to_cell_mean": 0.9847256590924259
+    },
+    "wet_days_n": {
+      "comparisons": 5,
+      "gmst_model_better_count": 4,
+      "maximum_rmse_ratio_to_cell_mean": 1.075730673617626,
+      "median_rmse_ratio_to_cell_mean": 0.9994715844418266
+    }
+  },
+  "holdout_rows": 55,
+  "holdouts_output": {
+    "artifact_name": "holdouts.csv",
+    "sha256": "312f97c9fd8b6b849195c9e718dcd9fb951a98d00408dfd4f5704895d9d3f8dd"
+  },
+  "implementation": {
+    "path": "scripts/evaluate_isimip3b_five_esm_holdout_smoke.py",
+    "sha256": "34c5007921700086604dc54de22600055fad632ff69e8cfaabce2c130feab3a5"
+  },
+  "inputs": [
+    {
+      "esm_id": "GFDL-ESM4",
+      "gmst_path": "data/interim/isimip3b/gfdl-esm4_r1i1p1f1_ssp370_gmst_2015_2020.parquet",
+      "gmst_sha256": "476b6f3502bf94883b1022d15a3f9d45acac4c22f887c4f9b09a728975e6fa27",
+      "member_id": "r1i1p1f1",
+      "season_path": "data/interim/isimip3b_gfdl_ssp370_smoke/mai_noirr_2016_2019_lat100_102_features.parquet",
+      "season_sha256": "8bba13cb50cfdb0e874241df117bf915a18f8727d715cdac350d54ffc257a8de",
+      "stage_path": "data/interim/isimip3b_gfdl_ssp370_smoke/mai_noirr_2016_2019_lat100_102_stages.parquet",
+      "stage_sha256": "f12793c4031c6ef5b95d4e80d892e83332a3620950d3003679c79fc6a72061c0"
+    },
+    {
+      "esm_id": "IPSL-CM6A-LR",
+      "gmst_path": "data/interim/isimip3b_ipsl_ssp370_smoke/same_realization_gmst_2015_2020.parquet",
+      "gmst_sha256": "6d7a8d6e9f5a6c4f080d3a6f936c5d289658de10cbfdaee89bb7fc814dd3fc80",
+      "member_id": "r1i1p1f1",
+      "season_path": "data/interim/isimip3b_ipsl_ssp370_smoke/mai_noirr_2016_2019_lat100_102_features.parquet",
+      "season_sha256": "4cdf9c8ac33d8505d13977ef04faabd6e077eaba9a956d452411369531d748c9",
+      "stage_path": "data/interim/isimip3b_ipsl_ssp370_smoke/mai_noirr_2016_2019_lat100_102_stages.parquet",
+      "stage_sha256": "f818ce2cfb5bf01c1dd1d2326246eb207baa759b54a72d02bfe53df8d96aa1f5"
+    },
+    {
+      "esm_id": "MPI-ESM1-2-HR",
+      "gmst_path": "data/interim/isimip3b_mpi_ssp370_smoke/same_realization_gmst_2015_2020.parquet",
+      "gmst_sha256": "b4932c282c5d15c5859e4b83bed1ad0004765b3ffc7e9f0d078757f986582619",
+      "member_id": "r1i1p1f1",
+      "season_path": "data/interim/isimip3b_mpi_ssp370_smoke/mai_noirr_2016_2019_lat100_102_features.parquet",
+      "season_sha256": "a79e5b6fa1d334d96357643b91a54a1578d93f9803d656d1547e90a01eb7d9b0",
+      "stage_path": "data/interim/isimip3b_mpi_ssp370_smoke/mai_noirr_2016_2019_lat100_102_stages.parquet",
+      "stage_sha256": "80ea8ec7b9567a5677a240237391702918edbdc157a59f4298a0ad96d055f971"
+    },
+    {
+      "esm_id": "mri-esm2-0",
+      "gmst_path": "data/interim/isimip3b/mri-esm2-0_ssp370_r1i1p1f1_gmst_2015_2020.parquet",
+      "gmst_sha256": "6c2b617c2df150ea8c4ef451796d86a1f1cfcf57dfdcd9174c43950a1c5ed211",
+      "member_id": "r1i1p1f1",
+      "season_path": "data/interim/isimip3b_mri_ssp370_smoke/mai_noirr_2016_2019_lat100_102_features.parquet",
+      "season_sha256": "99460730f547a00bcbd212dd6c700eb37c7b9f9319310352abdcbaaf8e05175e",
+      "stage_path": "data/interim/isimip3b_mri_ssp370_smoke/mai_noirr_2016_2019_lat100_102_stages.parquet",
+      "stage_sha256": "f0b831a335179f9ffe780356e53cecac7cad1f38d79800fdb50c61ab8c0253a1"
+    },
+    {
+      "esm_id": "UKESM1-0-LL",
+      "gmst_path": "data/interim/isimip3b_ukesm_ssp370_smoke/same_realization_gmst_2015_2020.parquet",
+      "gmst_sha256": "c60bfbb95e165aa21056b45f34bd6365c6260cb07ca9c4a64e126e0b5ac8aec2",
+      "member_id": "r1i1p1f2",
+      "season_path": "data/interim/isimip3b_ukesm_ssp370_smoke/mai_noirr_2016_2019_lat100_102_features.parquet",
+      "season_sha256": "3ee10afe81257a43003fb2c381d00f400a94f265f7e5467084cc542422de7b35",
+      "stage_path": "data/interim/isimip3b_ukesm_ssp370_smoke/mai_noirr_2016_2019_lat100_102_stages.parquet",
+      "stage_sha256": "53d8d19be9905d1c2f02255120029fb6149d42e0b47d193602f9b48f23b70cc5"
+    }
+  ],
+  "limitations": [
+    "Only one scenario, four harvest years, one crop/regime, and a two-latitude-row engineering slice are evaluated.",
+    "This does not satisfy the complete historical plus four-scenario production training gate.",
+    "No paired baseline/pulse path, support rule, yield response, damage, welfare, or SCC value is produced."
+  ],
+  "max_finite_rmse": 92.72233222243648,
+  "members": {
+    "GFDL-ESM4": "r1i1p1f1",
+    "IPSL-CM6A-LR": "r1i1p1f1",
+    "MPI-ESM1-2-HR": "r1i1p1f1",
+    "UKESM1-0-LL": "r1i1p1f2",
+    "mri-esm2-0": "r1i1p1f1"
+  },
+  "model_better_than_cell_mean_count": 35,
+  "result": "passed",
+  "role": "engineering_smoke_not_complete_emulator_damage_or_scc_input",
+  "rows_per_esm": {
+    "GFDL-ESM4": 30184,
+    "IPSL-CM6A-LR": 30184,
+    "MPI-ESM1-2-HR": 30184,
+    "UKESM1-0-LL": 30184,
+    "mri-esm2-0": 30184
+  },
+  "scenario": "ssp370",
+  "schema": "isimip3b_bounded_five_esm_holdout_smoke_v1",
+  "training_output": {
+    "artifact_name": "training.parquet",
+    "sha256": "dc7c858efd08db7977e90bc35189da81941cf4931c93cf30e3bc73480bbf9e05"
+  },
+  "training_rows": 150920,
+  "year_end": 2019,
+  "year_start": 2016
+}
