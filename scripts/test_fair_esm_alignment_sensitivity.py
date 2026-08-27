@@ -10,6 +10,7 @@ from evaluate_fair_esm_alignment_sensitivity import (
     aligned_feature,
     fit_affine_surface,
     support,
+    temperature_support_horizons,
     validate_method_equivalence,
 )
 
@@ -42,6 +43,10 @@ for method in ("absolute_anomaly_mapping", "centered_coordinate_mapping"):
         "pulse_feature": 12.2,
         "direct_difference": 0.2,
         "centered_difference": 0.2,
+        "baseline_support": "within",
+        "pulse_support": "within",
+        "baseline_temperature_support": "within",
+        "pulse_temperature_support": "within",
     })
 frame = pd.DataFrame(rows)
 assert validate_method_equivalence(frame, 1e-12) == 0.0
@@ -53,5 +58,24 @@ except ValueError as error:
     assert "disagree" in str(error)
 else:
     raise AssertionError("expected method-equivalence failure")
+
+horizon_rows = []
+for year, state in ((2020, "below"), (2021, "within"), (2022, "above")):
+    horizon_rows.append({
+        "alignment_method": "absolute_anomaly_mapping",
+        "pulse_size_gtc": 0.0,
+        "esm_id": "esm",
+        "year": year,
+        "baseline_temperature_support": state,
+    })
+horizon = temperature_support_horizons(pd.DataFrame(horizon_rows))[0]
+assert horizon == {
+    "esm_id": "esm",
+    "first_within_year": 2021,
+    "last_within_year": 2021,
+    "within_year_count": 1,
+    "last_below_year": 2020,
+    "first_above_year": 2022,
+}
 
 print("FAIR-to-ESM alignment sensitivity synthetic tests passed")

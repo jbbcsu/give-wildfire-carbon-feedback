@@ -314,7 +314,9 @@ engineering sensitivity maps the 2012--2300 FAIR paths to each ESM using its
 mapping and centered-coordinate evaluation agree to a maximum `4.55e-12`
 across 127,160 paired rows. However, only 5.95% of mapped temperature rows and
 35.90% of feature rows remain inside the seven-year training support per
-formulation. The equivalence is a coordinate identity, not evidence for the
+formulation. Mapped baseline GMST first exceeds support in 2021 for GFDL, 2027
+for MPI, and 2033 for IPSL, UKESM, and MRI. The equivalence is a coordinate
+identity, not evidence for the
 reference window or response model, and the support result prohibits
 promotion to damages or SCC.
 No yield is attached to these smokes and no climate-feature response has been

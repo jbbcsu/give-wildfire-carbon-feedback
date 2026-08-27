@@ -94,7 +94,52 @@ def validate_method_equivalence(pairs: pd.DataFrame, atol: float) -> float:
         maxima.append(maximum)
         if maximum > atol:
             raise ValueError(f"affine alignment methods disagree for {column}: {maximum}")
+    for column in (
+        "baseline_support",
+        "pulse_support",
+        "baseline_temperature_support",
+        "pulse_temperature_support",
+    ):
+        wide = pairs.pivot(index=keys, columns="alignment_method", values=column)
+        if set(wide.columns.astype(str)) != METHODS or wide.isna().any().any():
+            raise ValueError(f"alignment comparison is incomplete for {column}")
+        if not (
+            wide["absolute_anomaly_mapping"].astype(str)
+            == wide["centered_coordinate_mapping"].astype(str)
+        ).all():
+            raise ValueError(f"affine alignment methods disagree for {column}")
     return max(maxima, default=0.0)
+
+
+def temperature_support_horizons(pairs: pd.DataFrame) -> list[dict[str, object]]:
+    baseline = pairs.loc[
+        (pairs["alignment_method"] == "absolute_anomaly_mapping")
+        & (pairs["pulse_size_gtc"] == 0),
+        ["esm_id", "year", "baseline_temperature_support"],
+    ].drop_duplicates()
+    if baseline.duplicated(["esm_id", "year"]).any():
+        raise ValueError("baseline temperature support differs across feature families")
+    result: list[dict[str, object]] = []
+    for esm_id, block in baseline.groupby("esm_id", sort=True):
+        years = {
+            state: sorted(
+                block.loc[
+                    block["baseline_temperature_support"] == state, "year"
+                ].astype(int).tolist()
+            )
+            for state in ("below", "within", "above")
+        }
+        if not years["within"]:
+            raise ValueError(f"{esm_id}: mapped FAIR baseline never enters training support")
+        result.append({
+            "esm_id": str(esm_id),
+            "first_within_year": years["within"][0],
+            "last_within_year": years["within"][-1],
+            "within_year_count": len(years["within"]),
+            "last_below_year": years["below"][-1] if years["below"] else None,
+            "first_above_year": years["above"][0] if years["above"] else None,
+        })
+    return result
 
 
 def build(config_path: Path) -> tuple[pd.DataFrame, dict[str, object]]:
@@ -295,6 +340,7 @@ def build(config_path: Path) -> tuple[pd.DataFrame, dict[str, object]]:
         "fits": receipts,
         "maximum_alignment_method_disagreement": maximum_method_disagreement,
         "maximum_raw_level_vs_stable_pulse_feature_disagreement": raw_level_disagreement,
+        "baseline_temperature_support_horizons": temperature_support_horizons(pairs),
         "equivalence_atol": equivalence_atol,
     }
     return pairs, metadata

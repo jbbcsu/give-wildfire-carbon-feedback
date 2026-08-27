@@ -73,7 +73,9 @@ gates, and the largest method disagreement is `4.55e-12`. This does not select
 the reference window or promote the surface. Only 3,784 of 63,580 temperature
 rows per formulation (5.95%) remain within the seven-year GMST training range;
 22,824 feature rows (35.90%) remain within bounded feature support. The result
-therefore diagnoses extrapolation rather than authorizing production use.
+therefore diagnoses extrapolation rather than authorizing production use. The
+mapped FAIR baseline first exceeds bounded GMST support in 2021 for GFDL, 2027
+for MPI, and 2033 for IPSL, UKESM, and MRI.
 The evidence-bounded manuscript and Methods/SI blueprints are in
 [MANUSCRIPT_OUTLINE.md](MANUSCRIPT_OUTLINE.md) and
 [METHODS_SI_OUTLINE.md](METHODS_SI_OUTLINE.md).

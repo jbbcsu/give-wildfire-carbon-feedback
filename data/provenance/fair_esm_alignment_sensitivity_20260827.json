@@ -4,6 +4,48 @@
     "absolute_anomaly_mapping",
     "centered_coordinate_mapping"
   ],
+  "baseline_temperature_support_horizons": [
+    {
+      "esm_id": "GFDL-ESM4",
+      "first_above_year": 2021,
+      "first_within_year": 2012,
+      "last_below_year": null,
+      "last_within_year": 2020,
+      "within_year_count": 9
+    },
+    {
+      "esm_id": "IPSL-CM6A-LR",
+      "first_above_year": 2033,
+      "first_within_year": 2012,
+      "last_below_year": null,
+      "last_within_year": 2032,
+      "within_year_count": 21
+    },
+    {
+      "esm_id": "MPI-ESM1-2-HR",
+      "first_above_year": 2027,
+      "first_within_year": 2013,
+      "last_below_year": 2012,
+      "last_within_year": 2026,
+      "within_year_count": 14
+    },
+    {
+      "esm_id": "UKESM1-0-LL",
+      "first_above_year": 2033,
+      "first_within_year": 2012,
+      "last_below_year": null,
+      "last_within_year": 2032,
+      "within_year_count": 21
+    },
+    {
+      "esm_id": "mri-esm2-0",
+      "first_above_year": 2033,
+      "first_within_year": 2012,
+      "last_below_year": null,
+      "last_within_year": 2032,
+      "within_year_count": 21
+    }
+  ],
   "common_zero_residual": true,
   "config": {
     "path": "config/fair_esm_alignment_sensitivity_v1.toml",
@@ -807,7 +849,7 @@
   ],
   "implementation": {
     "path": "scripts/evaluate_fair_esm_alignment_sensitivity.py",
-    "sha256": "5356bcc5d3d53644877fc90639133460f24aa25a583b03f27dfb262fae49e6fc"
+    "sha256": "d0cad2cb144a76bdbe6105b6512963b19b484f3c61495bc4b03a0d4f0a8538fc"
   },
   "inputs": [
     {

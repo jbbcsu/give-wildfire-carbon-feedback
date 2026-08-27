@@ -401,6 +401,8 @@ Per formulation, mapped temperature support is below/within/above for
 44/3,784/59,752 rows, while feature support is below/within/above for
 17,764/22,824/22,992 rows. Thus only 5.95% of temperature rows and 35.90% of
 feature rows are inside the bounded seven-year training range. This sensitivity
+also records model-specific support horizons: the first above-support baseline
+year is 2021 for GFDL, 2027 for MPI, and 2033 for IPSL, UKESM, and MRI. It
 does not select the overlap window, validate a non-affine response, supply a
 stochastic residual path, or authorize production damages or SCC.
 
