@@ -1,0 +1,134 @@
+{
+  "comparison_count": 44,
+  "config_path": "config/isimip3b_mpi_scenario_holdout_smoke_v1.toml",
+  "config_sha256": "6489373dd8a6e24ef4d12ed6f4700eece77524513e263f283191a79e81d5090d",
+  "damage_or_scc_authorized": false,
+  "esm_id": "MPI-ESM1-2-HR",
+  "feature_families": [
+    "tmean_c",
+    "precip_mm",
+    "wet_days_n",
+    "cdd_max_days",
+    "rx1day_mm",
+    "rx5day_mm",
+    "stage1_precip_share",
+    "stage2_precip_share",
+    "stage3_precip_share",
+    "precipitation_timing_centroid",
+    "precipitation_concentration_hhi"
+  ],
+  "gmst_model_better_than_cell_mean_count": 19,
+  "holdout_rows": 44,
+  "holdouts_output": {
+    "artifact_name": "holdouts.csv",
+    "sha256": "7bc5122e38f5c16c788627ee1b1d65f02b2896ed3bba0adca1abd6210df603dd"
+  },
+  "implementation": {
+    "dependencies": [
+      {
+        "path": "scripts/evaluate_isimip3b_gfdl_scenario_holdout_smoke.py",
+        "sha256": "61d52d94b3185d11acf1360d5e4362cec99d6c286ff36d0a7689c002af98af0a"
+      },
+      {
+        "path": "scripts/evaluate_isimip3b_five_esm_holdout_smoke.py",
+        "sha256": "34c5007921700086604dc54de22600055fad632ff69e8cfaabce2c130feab3a5"
+      }
+    ],
+    "path": "scripts/evaluate_isimip3b_scenario_holdout_smoke.py",
+    "sha256": "80282435f7cf448fdf8a1eb2570227ea6e00aa8c738b111ba7f9c35354e0fd0f"
+  },
+  "inputs": [
+    {
+      "gmst_path": "data/interim/isimip3b/mpi-esm1-2-hr_r1i1p1f1_historical_gmst_2011_2014.parquet",
+      "gmst_sha256": "5344fd19326e10b4cb8260d79a01099aecbdc6090776f298fdefaa2105b1a6fd",
+      "scenario": "historical",
+      "season_path": "data/interim/isimip3b_mpi_historical_smoke/mai_noirr_2012_2014_lat100_102_features.parquet",
+      "season_sha256": "e9de92e2057e59e7aaa3926bed7736cbb7f3665c9b31c912f0bb15d683ed62cd",
+      "stage_path": "data/interim/isimip3b_mpi_historical_smoke/mai_noirr_2012_2014_lat100_102_stages.parquet",
+      "stage_sha256": "eb39bcc6e5086f692eb61fd858145a7ea570c2f939e735d6f557d7f5d41098b9",
+      "year_end": 2014,
+      "year_start": 2012
+    },
+    {
+      "gmst_path": "data/interim/isimip3b/mpi-esm1-2-hr_r1i1p1f1_ssp126_gmst_2015_2020.parquet",
+      "gmst_sha256": "59d8837e942b7c70b7e4b40604e077e6eb5101e61b78dadbfb15feae1f33c7d3",
+      "scenario": "ssp126",
+      "season_path": "data/interim/isimip3b_mpi_ssp126_smoke/mai_noirr_2016_2019_lat100_102_features.parquet",
+      "season_sha256": "7db6293ee6726f4fb9fba668ce51c2bffb5970edefe386393218d907cff79fed",
+      "stage_path": "data/interim/isimip3b_mpi_ssp126_smoke/mai_noirr_2016_2019_lat100_102_stages.parquet",
+      "stage_sha256": "f9722ea74e32e8ffc1c061af3bdab644605a1a06065fa81352bb8abcb1009ebc",
+      "year_end": 2019,
+      "year_start": 2016
+    },
+    {
+      "gmst_path": "data/interim/isimip3b_mpi_ssp370_smoke/same_realization_gmst_2015_2020.parquet",
+      "gmst_sha256": "b4932c282c5d15c5859e4b83bed1ad0004765b3ffc7e9f0d078757f986582619",
+      "scenario": "ssp370",
+      "season_path": "data/interim/isimip3b_mpi_ssp370_smoke/mai_noirr_2016_2019_lat100_102_features.parquet",
+      "season_sha256": "a79e5b6fa1d334d96357643b91a54a1578d93f9803d656d1547e90a01eb7d9b0",
+      "stage_path": "data/interim/isimip3b_mpi_ssp370_smoke/mai_noirr_2016_2019_lat100_102_stages.parquet",
+      "stage_sha256": "80ea8ec7b9567a5677a240237391702918edbdc157a59f4298a0ad96d055f971",
+      "year_end": 2019,
+      "year_start": 2016
+    },
+    {
+      "gmst_path": "data/interim/isimip3b/mpi-esm1-2-hr_r1i1p1f1_ssp585_gmst_2015_2020.parquet",
+      "gmst_sha256": "d101f614376f57b34a48fb333c4d7daf16264c719c4ff586d96ab51bf7fb8bc9",
+      "scenario": "ssp585",
+      "season_path": "data/interim/isimip3b_mpi_ssp585_smoke/mai_noirr_2016_2019_lat100_102_features.parquet",
+      "season_sha256": "64e18344708423185321ba9031ed4a8b526617e9573d9485d244f0feb3a81be4",
+      "stage_path": "data/interim/isimip3b_mpi_ssp585_smoke/mai_noirr_2016_2019_lat100_102_stages.parquet",
+      "stage_sha256": "0da489ee56af25859d818a6d4876b435ed131591406cd3887b71133a7e823311",
+      "year_end": 2019,
+      "year_start": 2016
+    }
+  ],
+  "limitations": [
+    "Only seven nonoverlapping harvest years, one ESM/member, one crop/regime, and two latitude rows are evaluated.",
+    "The exact four-scenario training-design gate passes, but complete historical/future temporal and five-ESM coverage remain absent.",
+    "No common-random-number baseline/pulse pair, support rule, yield response, damage, welfare, or SCC value is produced."
+  ],
+  "maximum_rmse_ratio_to_cell_mean": 1.19895243337658,
+  "median_rmse_ratio_to_cell_mean": 1.0008319603067466,
+  "member_id": "r1i1p1f1",
+  "paired_baseline_pulse_paths": false,
+  "result": "passed",
+  "role": "outcome_blind_historical_plus_three_ssp_engineering_smoke_not_complete_emulator_damage_or_scc_input",
+  "scenario_summaries": {
+    "historical": {
+      "comparisons": 11,
+      "gmst_model_better_count": 2,
+      "maximum_rmse_ratio_to_cell_mean": 1.0405634736953104,
+      "median_rmse_ratio_to_cell_mean": 1.0162349026560595
+    },
+    "ssp126": {
+      "comparisons": 11,
+      "gmst_model_better_count": 7,
+      "maximum_rmse_ratio_to_cell_mean": 1.0082325699792984,
+      "median_rmse_ratio_to_cell_mean": 0.9992591948293925
+    },
+    "ssp370": {
+      "comparisons": 11,
+      "gmst_model_better_count": 3,
+      "maximum_rmse_ratio_to_cell_mean": 1.19895243337658,
+      "median_rmse_ratio_to_cell_mean": 1.004410352685192
+    },
+    "ssp585": {
+      "comparisons": 11,
+      "gmst_model_better_count": 7,
+      "maximum_rmse_ratio_to_cell_mean": 1.0041516722316874,
+      "median_rmse_ratio_to_cell_mean": 0.9993763506998297
+    }
+  },
+  "schema": "isimip3b_bounded_scenario_holdout_smoke_v1",
+  "support_flags": false,
+  "training_output": {
+    "artifact_name": "training_long.parquet",
+    "sha256": "5a72f42d051df026d601d7a8963bfaf585d332c00a894862daf2e758eca66260"
+  },
+  "training_rows": 113190,
+  "whole_esm_holdout_in_this_product": false,
+  "whole_scenario_holdout": true,
+  "year_end": 2019,
+  "year_start": 2012
+}

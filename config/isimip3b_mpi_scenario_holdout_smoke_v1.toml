@@ -1,0 +1,49 @@
+schema = "isimip3b_bounded_scenario_holdout_smoke_config_v1"
+role = "outcome_blind_historical_plus_three_ssp_engineering_smoke_not_complete_emulator_damage_or_scc_input"
+
+[selection]
+esm_id = "MPI-ESM1-2-HR"
+member_id = "r1i1p1f1"
+crop = "mai"
+irrigation = "noirr"
+latitude_indices = "100:102"
+
+[[cells]]
+scenario = "historical"
+year_start = 2012
+year_end = 2014
+season_path = "data/interim/isimip3b_mpi_historical_smoke/mai_noirr_2012_2014_lat100_102_features.parquet"
+stage_path = "data/interim/isimip3b_mpi_historical_smoke/mai_noirr_2012_2014_lat100_102_stages.parquet"
+gmst_path = "data/interim/isimip3b/mpi-esm1-2-hr_r1i1p1f1_historical_gmst_2011_2014.parquet"
+
+[[cells]]
+scenario = "ssp126"
+year_start = 2016
+year_end = 2019
+season_path = "data/interim/isimip3b_mpi_ssp126_smoke/mai_noirr_2016_2019_lat100_102_features.parquet"
+stage_path = "data/interim/isimip3b_mpi_ssp126_smoke/mai_noirr_2016_2019_lat100_102_stages.parquet"
+gmst_path = "data/interim/isimip3b/mpi-esm1-2-hr_r1i1p1f1_ssp126_gmst_2015_2020.parquet"
+
+[[cells]]
+scenario = "ssp370"
+year_start = 2016
+year_end = 2019
+season_path = "data/interim/isimip3b_mpi_ssp370_smoke/mai_noirr_2016_2019_lat100_102_features.parquet"
+stage_path = "data/interim/isimip3b_mpi_ssp370_smoke/mai_noirr_2016_2019_lat100_102_stages.parquet"
+gmst_path = "data/interim/isimip3b_mpi_ssp370_smoke/same_realization_gmst_2015_2020.parquet"
+
+[[cells]]
+scenario = "ssp585"
+year_start = 2016
+year_end = 2019
+season_path = "data/interim/isimip3b_mpi_ssp585_smoke/mai_noirr_2016_2019_lat100_102_features.parquet"
+stage_path = "data/interim/isimip3b_mpi_ssp585_smoke/mai_noirr_2016_2019_lat100_102_stages.parquet"
+gmst_path = "data/interim/isimip3b/mpi-esm1-2-hr_r1i1p1f1_ssp585_gmst_2015_2020.parquet"
+
+[limitations]
+historical_scenario_present = true
+complete_historical_future_temporal_coverage = false
+complete_esm_matrix = false
+paired_baseline_pulse_paths = false
+support_flags = false
+damage_or_scc_authorized = false

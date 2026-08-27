@@ -1,0 +1,37 @@
+schema = "isimip3b_bounded_three_esm_four_scenario_holdout_config_v1"
+role = "outcome_blind_joint_whole_esm_and_whole_scenario_engineering_smoke_not_complete_emulator_damage_or_scc_input"
+
+[[training_products]]
+esm_id = "GFDL-ESM4"
+member_id = "r1i1p1f1"
+path = "data/interim/isimip3b_gfdl_scenario_holdout/training.parquet"
+sha256 = "1222630fcb056aee7f988aa85e4f651aa2e2e5ae66070bb1c2e04291a9abd463"
+source_audit = "data/provenance/isimip3b_gfdl_scenario_holdout_smoke_20260827.json"
+
+[[training_products]]
+esm_id = "IPSL-CM6A-LR"
+member_id = "r1i1p1f1"
+path = "data/interim/isimip3b_ipsl_scenario_holdout/training_long.parquet"
+sha256 = "b865c6b01408510a531adbbc34e3127cb6b7a904dbf09e339506c5fbc897cf8f"
+source_audit = "data/provenance/isimip3b_ipsl_scenario_holdout_smoke_20260827.json"
+
+[[training_products]]
+esm_id = "MPI-ESM1-2-HR"
+member_id = "r1i1p1f1"
+path = "data/interim/isimip3b_mpi_scenario_holdout/training_long.parquet"
+sha256 = "5a72f42d051df026d601d7a8963bfaf585d332c00a894862daf2e758eca66260"
+source_audit = "data/provenance/isimip3b_mpi_scenario_holdout_smoke_20260827.json"
+
+[selection]
+esm_ids = ["GFDL-ESM4", "IPSL-CM6A-LR", "MPI-ESM1-2-HR"]
+scenarios = ["historical", "ssp126", "ssp370", "ssp585"]
+crop = "mai"
+irrigation = "noirr"
+latitude_indices = "100:102"
+
+[limitations]
+complete_five_esm_matrix = false
+complete_historical_future_temporal_coverage = false
+paired_baseline_pulse_paths = false
+support_flags = false
+damage_or_scc_authorized = false
