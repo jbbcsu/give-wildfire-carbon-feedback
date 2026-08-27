@@ -349,25 +349,22 @@ four-variable catalogue product recorded in
 `data/provenance/isimip3b_daily_catalog_selection.csv`. The current snapshot
 contains 80 public/unrestricted CC0 version-`20210512` datasets. It is a model
 selection and storage-planning record, not evidence that the 1.757 TB catalogue
-has been acquired. The complete pinned MRI-ESM2-0 SSP3-7.0 precipitation and
-mean-temperature blocks for 2015--2020 now match their SHA-512 values and pass
-decoded-grid, units, missingness, physical-value, and exact daily-chronology
-checks. Daily `tas` from the same ESM/member/scenario supplies
-cos(latitude)-weighted annual GMST in the registered builder; the real
-six-year projection smoke has exact 365/366-day counts and training rows must share one
-explicit source and Kelvin value within each ESM/member/scenario/year. This
-now extends through complete historical 2011--2014 `pr`/`tas` files that join
-the projection fields at an exact 24-hour boundary. Four historical annual
-GMST values use the same MRI-ESM2-0 member and have exact 365/366-day counts.
-This clears one ten-year historical/projection `pr`/`tas` pair only, not
-whole-ESM/scenario validation or feature-response fitting. A bounded real
-maize/rainfed crop-calendar smoke over two latitude rows and harvest years
-2016--2019 produces 2,744 season records and 8,232 three-window records. All
-additive precipitation/day-count quantities reconcile exactly, and timing,
-wet-day, dry-spell, Rx1day, and Rx5day invariants pass. ISIMIP timestamps are
-normalized to calendar dates before comparison with day-of-year bounds; a
-synthetic noon-timestamp regression test prevents recurrence of the maturity-
-date omission found by this smoke.
+has been acquired. Bounded complete-file `pr`/`tas` coverage now includes
+historical plus all three SSPs for GFDL-ESM4, IPSL-CM6A-LR, MPI-ESM1-2-HR,
+and MRI-ESM2-0; UKESM1-0-LL has SSP3-7.0. Every available file matches its
+version-`20210512` API identity, bytes, and SHA-512 and passes decoded-grid,
+units, missingness, physical-value, exact daily-chronology, and historical-
+boundary checks. Daily `tas` from the same ESM/member/scenario supplies
+cos(latitude)-weighted annual GMST with exact 365/366-day counts, and training
+rows share one explicit source and Kelvin value within each cell. Bounded
+maize/rainfed smokes over two latitude rows produce 2,744 season records and
+8,232 three-window records per future scenario. Additive precipitation/day-
+count quantities reconcile exactly, and timing, wet-day, dry-spell, Rx1day,
+and Rx5day invariants pass. MRI's exact four-scenario holdout improves 24/44
+folds but has a 1.09903 worst RMSE ratio, so it is not promoted. The three-ESM
+joint product passes software gates but remains only seven nonoverlapping
+years, one crop/regime, and two latitude rows. ISIMIP timestamps are normalized
+to dates only after complete daily-sequence validation.
 
 Whole ESMs and whole scenarios, not random years alone, are held out. STITCHES
 supplies a sequence-preserving benchmark; MESMER-M-TP plus a published daily

@@ -1,0 +1,117 @@
+schema_version = 1
+checked_utc_date = "2026-08-27"
+role = "bounded_complete_file_two_ssp_expansion_and_four_scenario_holdout_engineering_gate_not_production_emulator_damage_or_scc"
+source_catalogue = "https://data.isimip.org/api/v1/datasets/"
+resource_doi = "10.48364/ISIMIP.842396.1"
+rights = "CC0 1.0"
+dataset_version = "20210512"
+esm = "mri-esm2-0"
+member = "r1i1p1f1"
+new_scenarios = ["ssp126", "ssp585"]
+complete_bounded_scenarios = ["historical", "ssp126", "ssp370", "ssp585"]
+variables = ["pr", "tas"]
+grid = "global 0.5 degree; latitude descending; longitude -179.75 to 179.75"
+calendar = "proleptic_gregorian"
+daily_timestamp_hour_utc = 12
+selection_snapshot = "data/provenance/isimip3b_daily_catalog_selection.csv"
+historical_ssp370_provenance = "data/provenance/isimip3b_mri_historical_ssp370_boundary.toml"
+
+[[cell]]
+scenario = "ssp126"
+variable = "pr"
+dataset_id = "a3e28029-e111-4577-b636-174a1ffc8aab"
+file_id = "36cca4fd-0b1c-441b-ac26-6b2ac7e1fff8"
+file_name = "mri-esm2-0_r1i1p1f1_w5e5_ssp126_pr_global_daily_2015_2020.nc"
+raw_path = "data/raw/isimip3b/mri-esm2-0/ssp126/pr/mri-esm2-0_r1i1p1f1_w5e5_ssp126_pr_global_daily_2015_2020.nc"
+bytes = 1243181039
+sha512 = "96b561528262fb9f717abc9e56fcb8f32ab514df3c7ba544befe45db1181babb4e6241b161457029722a400b1db5bc86c12f14a780d6014854810f974e7d5c51"
+content_audit = "data/interim/isimip3b/mri-esm2-0_ssp126_pr_2015_2020_content_audit.json"
+boundary_audit = "data/interim/isimip3b/mri-esm2-0_historical_ssp126_pr_boundary_audit.json"
+finite_values = 568166400
+zero_values = 214313437
+result = "passed"
+
+[[cell]]
+scenario = "ssp126"
+variable = "tas"
+dataset_id = "afb7d844-1aa4-4d63-b7a7-58d35d008036"
+file_id = "76ea51bd-92fb-4a46-8e94-6d2557bcc4d9"
+file_name = "mri-esm2-0_r1i1p1f1_w5e5_ssp126_tas_global_daily_2015_2020.nc"
+raw_path = "data/raw/isimip3b/mri-esm2-0/ssp126/tas/mri-esm2-0_r1i1p1f1_w5e5_ssp126_tas_global_daily_2015_2020.nc"
+bytes = 1231246476
+sha512 = "fa17a34020c867ac3ca68876c8f0455e4e907252775a5510c28cbc4dd359ae6c8dac58de4781ff57f2d2995f437db5e48cf95f90ae66a95b5d8cd6ae493d30bc"
+content_audit = "data/interim/isimip3b/mri-esm2-0_ssp126_tas_2015_2020_content_audit.json"
+boundary_audit = "data/interim/isimip3b/mri-esm2-0_historical_ssp126_tas_boundary_audit.json"
+finite_values = 568166400
+minimum_k = 195.34996032714844
+maximum_k = 317.311279296875
+gmst_output = "data/interim/isimip3b/mri-esm2-0_r1i1p1f1_ssp126_gmst_2015_2020.parquet"
+gmst_source_id = "isimip3b-20210512-afb7d844-1aa4-4d63-b7a7-58d35d008036-76ea51bd-92fb-4a46-8e94-6d2557bcc4d9"
+gmst_values_k = [287.95624390062954, 288.00268488102245, 287.9064969367079, 287.9939310559825, 288.1996331212289, 288.19581475045266]
+result = "passed"
+
+[[cell]]
+scenario = "ssp585"
+variable = "pr"
+dataset_id = "10f79bb9-54af-4f1e-b88f-f1b2d2bfdeca"
+file_id = "ad1518da-4471-4ba3-88d3-3810be051fda"
+file_name = "mri-esm2-0_r1i1p1f1_w5e5_ssp585_pr_global_daily_2015_2020.nc"
+raw_path = "data/raw/isimip3b/mri-esm2-0/ssp585/pr/mri-esm2-0_r1i1p1f1_w5e5_ssp585_pr_global_daily_2015_2020.nc"
+bytes = 1247799949
+sha512 = "b802281ff36552d7c04f63ef266a434a1cbe647331d9e5b684d2f424ec89fc1c345e3f49a91dd9bb6954f8a9ba528b36f7c869255f2d98e57d07b7ac043b1ebb"
+content_audit = "data/interim/isimip3b/mri-esm2-0_ssp585_pr_2015_2020_content_audit.json"
+boundary_audit = "data/interim/isimip3b/mri-esm2-0_historical_ssp585_pr_boundary_audit.json"
+finite_values = 568166400
+zero_values = 212741622
+result = "passed"
+
+[[cell]]
+scenario = "ssp585"
+variable = "tas"
+dataset_id = "7794344e-e721-4c4c-9c2e-2c429c3c0477"
+file_id = "8cc3446f-128e-4f31-a5d5-0da9b5f9942d"
+file_name = "mri-esm2-0_r1i1p1f1_w5e5_ssp585_tas_global_daily_2015_2020.nc"
+raw_path = "data/raw/isimip3b/mri-esm2-0/ssp585/tas/mri-esm2-0_r1i1p1f1_w5e5_ssp585_tas_global_daily_2015_2020.nc"
+bytes = 1231713024
+sha512 = "dbb06c9fa3828998221a7b274c60942528903c107de591ff4d2d0b45a18eca6a023f4af5f90d63b3593c84729299d6bc7522457ddb56d9457f0abbf03bb8e6f0"
+content_audit = "data/interim/isimip3b/mri-esm2-0_ssp585_tas_2015_2020_content_audit.json"
+boundary_audit = "data/interim/isimip3b/mri-esm2-0_historical_ssp585_tas_boundary_audit.json"
+finite_values = 568166400
+minimum_k = 191.1635284423828
+maximum_k = 315.9725036621094
+gmst_output = "data/interim/isimip3b/mri-esm2-0_r1i1p1f1_ssp585_gmst_2015_2020.parquet"
+gmst_source_id = "isimip3b-20210512-7794344e-e721-4c4c-9c2e-2c429c3c0477-8cc3446f-128e-4f31-a5d5-0da9b5f9942d"
+gmst_values_k = [287.91079636325827, 288.015050273236, 288.0358015971023, 288.0739097157376, 288.1678412972675, 288.0548786704494]
+result = "passed"
+
+[bounded_feature_cells]
+crop = "mai"
+irrigation = "noirr"
+future_years = [2016, 2017, 2018, 2019]
+latitude_index_start = 100
+latitude_index_stop_exclusive = 102
+season_rows_per_new_scenario = 2744
+stage_rows_per_new_scenario = 8232
+reconciliation = "Both new scenarios pass finite/nonnegative/Rx gates and exact stage-to-season day, precipitation, wet-day, and Rx1day reconciliation."
+
+[whole_scenario_holdout]
+config = "config/isimip3b_mri_scenario_holdout_smoke_v1.toml"
+audit = "data/provenance/isimip3b_mri_scenario_holdout_smoke_20260827.json"
+training_rows = 113190
+holdout_rows = 44
+feature_families = 11
+gmst_model_better_than_cell_mean_count = 24
+median_rmse_ratio_to_cell_mean = 0.9997097825763315
+maximum_rmse_ratio_to_cell_mean = 1.0990266493729648
+historical_improved = 5
+ssp126_improved = 7
+ssp370_improved = 5
+ssp585_improved = 7
+result = "passed_engineering_gate_not_promoted"
+implementation_note = "The shared evaluator retains its original GFDL filename and schema label; ESM/member identity is read from the hash-bound MRI config and validated independently."
+
+[limitations]
+temporal = "Seven nonoverlapping harvest years only; complete historical and future periods are absent."
+spatial = "One crop, one rainfed calendar, and two latitude rows only; this is not the global multi-crop product."
+emulator = "The simple cell-mean plus common GMST-slope specification is an engineering diagnostic and is not promoted."
+paired = "No common-random-number baseline/pulse paths, support flags, zero-pulse or pre-divergence identity, decreasing-pulse convergence, damage, or SCC result exists."

@@ -254,11 +254,12 @@ and evaluates both FAIR paths with the same ESM/member and residual innovation.
 Annual training GMST is defined as the cos(latitude)-weighted mean of the
 pinned daily `tas` field from that exact ESM/member/scenario; an executable
 gate requires one finite physical Kelvin value and source per year across all
-feature families. One complete MRI-ESM2-0 SSP3-7.0 precipitation and
-mean-temperature pair for 2015--2020 passes pinned SHA-512 and full decoded
-content/chronology gates. The temperature block supplies six annual
-same-realization GMST values with exact 365/366-day support. This is a bounded
-source and processing validation, not a fitted feature response.
+feature families. Bounded complete-file precipitation and mean-temperature
+coverage now includes historical and all three SSPs for four frozen ESMs, with
+the fifth ESM represented by SSP3-7.0. Every available cell passes pinned
+SHA-512, full decoded content/chronology, historical-boundary, same-realization
+GMST, and bounded crop-feature reconciliation gates. This is bounded source
+and processing validation, not a fitted feature response.
 An unmatched scenario contrast is not treated as a marginal pulse. Whole-ESM
 and whole-scenario holdouts, historical-support flags, zero-pulse identity, and
 decreasing-pulse convergence must pass before the resulting features can enter
@@ -280,18 +281,19 @@ SCC run. Results report fixed, trend, and upper adaptation scenarios separately.
 
 The outcome-blind input screen currently selects all five ESM realizations
 with complete historical and three-SSP coverage for daily precipitation and
-temperature variables (80 version-pinned datasets). Acquisition remains
-bounded to complete MRI-ESM2-0 precipitation and mean-temperature fields for
-historical 2011--2014 and SSP3-7.0 2015--2020. Exact checksums and full-array
-content gates pass, each variable joins at a 24-hour 2014/2015 boundary, and
-the matched temperature fields produce ten annual same-realization GMST
-values with complete day counts. A real two-latitude maize/rainfed engineering smoke
-produces 2,744 crop-years and 8,232 three-window records whose precipitation
-and day-count totals reconcile exactly. It revealed and corrected a
-noon-timestamp calendar-boundary error that had omitted maturity dates. No
-yield is attached to this smoke and no climate-feature response has been
-fitted. This remains one ESM and one future scenario, so the real and synthetic gates establish software behavior,
-not future agricultural damages.
+temperature variables (80 version-pinned datasets). Acquisition remains a
+bounded subset of the 1.757 TB catalogue. GFDL-ESM4, IPSL-CM6A-LR,
+MPI-ESM1-2-HR, and MRI-ESM2-0 now have complete historical and three-SSP
+`pr`/`tas` cells for the registered smoke years; UKESM1-0-LL has SSP3-7.0.
+A real two-latitude maize/rainfed engineering cell produces 2,744 crop-years
+and 8,232 three-window records per future scenario with exact precipitation
+and day-count reconciliation. MRI's four-scenario diagnostic improves 24/44
+folds relative to the cell-mean benchmark, but its median RMSE ratio is
+0.99971 and worst ratio is 1.09903; it is not promoted. The exact three-ESM
+joint product separately passes whole-ESM and whole-scenario software gates.
+No yield is attached to these smokes and no climate-feature response has been
+fitted. The evidence establishes software behavior, not future agricultural
+damages.
 
 ## 6. Results (pre-registered placeholders)
 

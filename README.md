@@ -30,20 +30,21 @@ FAIR paths with common random numbers. Scenario differences are training data,
 not one-tonne CO2 experiments.
 The outcome-blind selection is now frozen to the five complete ISIMIP3b ESM
 realizations across historical, SSP1-2.6, SSP3-7.0, SSP5-8.5 and the four daily
-variables (80 version-`20210512` datasets). The complete pinned MRI-ESM2-0
-SSP3-7.0 precipitation and mean-temperature blocks for 2015--2020 now pass
-their SHA-512, decoded global-grid, units, complete daily chronology,
-missingness, and physical-value gates. The matched `tas` block produced six
-same-realization annual cos(latitude)-weighted GMST values with exact
-365/366-day coverage. Matching MRI historical `pr` and `tas` blocks for
-2011--2014 also pass complete-file gates, join their SSP3-7.0 counterparts at
-an exact 24-hour boundary, and produce four historical same-realization GMST
-values with exact day counts. This is one ten-year historical/projection
-engineering pair, not acquisition of the 1.757 TB matrix or a feature
-response. Whole-ESM/scenario,
-common-residual, support, identity, and decreasing-pulse gates remain
-synthetic. The real run also exposed and fixed an end-of-year boundary bug that
-had excluded noon-stamped December 31 values from shared climate windows.
+variables (80 version-`20210512` datasets). Bounded complete-file `pr`/`tas`
+coverage now includes historical plus all three SSPs for GFDL-ESM4,
+IPSL-CM6A-LR, MPI-ESM1-2-HR, and MRI-ESM2-0; UKESM1-0-LL currently has the
+SSP3-7.0 cell. Every available file is API-identity/version/checksum bound and
+passes decoded global-grid, units, exact daily chronology, missingness, and
+physical-value gates. Same-realization annual GMST and two-latitude
+maize/rainfed feature cells pass for every bounded scenario. MRI's newly closed
+SSP1-2.6 and SSP5-8.5 block adds four complete files (4,953,940,488 bytes) and
+its exact historical/four-scenario product passes 44 whole-scenario engineering
+folds; the simple GMST adjustment improves 24 folds, with median RMSE ratio
+0.99971 and worst ratio 1.09903, so it is not promoted. The exact three-ESM
+joint product also passes whole-ESM and whole-scenario software gates. These
+are seven-year, one-crop/two-latitude engineering smokes, not acquisition of
+the 1.757 TB matrix or a production feature response. Common-random-number
+pairing, real support, identity, and decreasing-pulse gates remain open.
 The evidence-bounded manuscript and Methods/SI blueprints are in
 [MANUSCRIPT_OUTLINE.md](MANUSCRIPT_OUTLINE.md) and
 [METHODS_SI_OUTLINE.md](METHODS_SI_OUTLINE.md).
