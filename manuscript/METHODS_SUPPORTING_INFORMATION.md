@@ -74,11 +74,16 @@ inputs can change without a version bump; every monthly object is pinned
 independently. The real Cuming construction is an exposure-engineering check,
 not a response estimate or precipitation trend.
 
-A HEAD-only acquisition inventory now records all 468 canonical monthly
-objects for 1981--2019, totaling exactly 27,857,685,556 advertised bytes
-(25.944 GiB). This metadata inventory is not treated as local file provenance:
-every downloaded object must match its byte length and then pass a local
-SHA-512, NetCDF schema, and exact date-coverage check before feature use.
+A complete bounded acquisition now records all 468 canonical monthly objects
+for 1981--2019, totaling exactly 27,857,685,556 bytes (25.944 GiB). Before each
+object entered the atomic local manifest, the utility required the frozen HTTP
+identity and exact byte length, computed a local SHA-512, and validated the
+NetCDF schema, four required fields, embedded product metadata, day-label
+semantics, and exact daily date coverage. Every resume invocation revalidated
+all already manifested objects; a changed upstream identity, local hash,
+schema, or calendar failed closed. The raw files and working manifest remain
+Git-ignored. These checks establish a reproducible historical-weather input,
+not a county exposure, predictive relationship, causal response, or SCC term.
 
 The first U.S. weather-file smoke is the official NKN annual gridMET 2018
 precipitation object. `data/provenance/gridmet_pr_2018.toml` pins its mutable
@@ -104,6 +109,44 @@ precipitation-water terms unless a separate attribution design is frozen;
 their effects or damages are not added to direct-precipitation effects.
 Irrigation-stratified reporting is required because an index derived from
 meteorological supply does not observe applied irrigation water.
+[Dai (2011)](https://doi.org/10.1029/2010JD015541) documents PDSI variants,
+while [Vicente-Serrano, Begueria, and Lopez-Moreno
+(2010)](https://doi.org/10.1175/2009JCLI2909.1) defines the multi-scalar SPEI
+framework. [Kuwayama et al.
+(2019)](https://doi.org/10.1093/ajae/aay037) supplies the primary U.S.
+observed-drought agricultural benchmark. These sources support definitions and
+comparison design, not transport of their estimated responses into the global
+model.
+
+The primary SPEI route is computed rather than imported. U.S. construction
+uses the acquired nClimGrid-Daily `prcp`, `tmin`, and `tmax`; global
+construction uses source-consistent ISIMIP3a GSWP3-W5E5 `pr`, `tasmin`, and
+`tasmax`. Daily Hargreaves-Samani reference ET0 uses the FAO-56
+extraterrestrial-radiation equations and
+`Tmean=(Tmin+Tmax)/2`; it represents climatic evaporative demand, not actual
+evapotranspiration, applied irrigation, or soil moisture. Complete daily
+precipitation and ET0 are summed to calendar months, and right-aligned 1-, 3-,
+and 6-month `P-ET0` balances are formed. For each scale, native grid cell, and
+calendar month, a three-parameter log-logistic distribution is fit by unbiased
+probability-weighted moments to the 30 observations in 1982--2011. Parameters
+are frozen before the 2012 terminal block. Missing calibration months,
+degenerate fits, nonfinite values, or unreported tail-probability clipping fail
+closed. The three scales remain separate models and are never stacked or
+selected by SCC magnitude.
+
+NOAA's current nClimGrid-Monthly SPEI uses a declared 1895--2014 calibration
+and Thornthwaite PET, so it overlaps the terminal period and is retained only
+as a retrospective U.S. implementation check. SPEIbase 2.11 uses CRU TS 4.09,
+FAO-56 Penman-Monteith PET, and the SPEI package, but its public generation
+repository still documents version 2.10 and does not expose a verified v2.11
+reference subset; it is a retrospective global PET/implementation check rather
+than the primary terminal-score field. Crop-window means day-weight monthly
+values over overlapping calendar days and are explicitly retrospective at
+partial boundary months; a month-end-inside-window sensitivity avoids
+post-window boundary weather at the cost of dropping partial months. Before
+any outcome fit, a master intersection must make direct precipitation,
+PDSI/scPDSI, and all three SPEI scales share identical outcomes, calendars,
+controls, weights, split labels, and first-difference endpoints.
 
 The fixed-calendar source is the exact checksummed USDA NASS 2010 *Field Crops
 Usual Planting and Harvesting Dates* report. NASS defines published begin/end
@@ -159,6 +202,115 @@ The executable comparison covers 18 weather features and two crop-year keys;
 its largest absolute relative route difference is 0.00762. This is a one-
 county/year spatial-measurement diagnostic only. It neither estimates a
 climate--yield relationship nor establishes general equivalence of the routes.
+
+### U.S. national corn/soy construction and predictive protocol
+
+The registered direct-practice comparison contains 419 counties in 11 states,
+11,861 unique crop--county--years (7,016 corn and 4,845 soybean), and 23,722
+practice rows. One weather exposure is duplicated exactly across the distinct
+irrigated and non-irrigated outcomes; applied irrigation water is not inferred
+from nClimGrid. A fixed validity mask excludes cells that are nonfinite for any
+of the four required fields on any day of January 1981 before county weights
+are normalized. Of the 419 counties, 30 have at least one masked intersection.
+The minimum valid/full-legal-polygon fraction is 0.529533 in a water-rich
+county, but the minimum valid-area/TIGER-declared-land fraction is 0.983710;
+all counties therefore pass the locked 0.95 declared-land gate. The 419
+atomic county partitions contain 79,355 positive valid intersections.
+
+For each cell and fixed state/crop calendar, the national builder constructs
+seasonal precipitation total; 0--30%, 30--70%, and 70--100% precipitation
+shares; timing centroid and concentration; wet-day frequency conditional on a
+1 mm threshold; conditional wet-day intensity; maximum consecutive dry days;
+Rx1day and Rx5day; and seasonal/stage temperature summaries. These nonlinear
+bases are formed before county weighting. One atomic feature partition and
+source-bound receipt is written per harvest year. All 39 partitions for
+1981--2019 pass raw-month identity, calendar, grid, unit, key, finiteness,
+practice-pair, and fixed-mask gates. Default assembly rehashes the raw weather
+and exactly reconstructs 23,722 registered practice rows (table SHA-256
+`205a94ae92c12810026c9c5d0ac0fa3760e46ebc39669e528ba20a125a0c46d7`);
+a separate exact-recomputation receipt passes. This validator reuses the
+registered implementation and is described as exact recomputation, not an
+independent implementation.
+
+The mutually exclusive moisture-family screen compares: common stage-mean
+temperature controls only; controls plus seasonal precipitation total;
+controls plus total and eight distribution/extreme terms; controls plus
+seasonal-mean PDSI; and controls plus four preplant/stage PDSI summaries. No
+model contains both direct precipitation and PDSI. Exact source validators
+bind 23,722 direct-weather rows, 118,610 monthly-index window rows, and 2,808
+calendar rows. Their identical common support yields 20,228 consecutive-year
+changes: 5,952 per corn practice and 4,162 per soybean practice. Initial or
+gapped years are not differenced, and training differences sharing either
+level endpoint with a test difference are purged.
+
+Direct-practice reporting support is strongly unbalanced over time and is
+never filled. Unique corn/soy county levels are generally near 200 per crop in
+the 1980s and 1990s, fall to 115/67 in 2012, 63/25 in 2018, and only 3/1 in
+2019. The same-county terminal tests contain 434 corn and 262 soybean
+first-difference rows per practice after endpoint purging, but are conditional
+on this selected reporting support. Publication sensitivities therefore omit
+the sparse 2019 endpoint and use fixed-county support windows; neither is a
+model-selection input.
+
+Models are fit separately by crop and irrigation practice. Continuous columns
+and quadratic year terms are centered/scaled using training rows only. A
+rank-revealing least-squares solve uses the registered relative singular-value
+cutoff of (10^{-10}); numerical warnings or nonfinite singular values,
+coefficients, predictions, or metrics fail closed. Aggregate RMSE, MAE,
+predictive R-squared, and correlation are scored for eligible leave-one-state-
+out development tests, a same-county terminal 2012--2019 test, and development-
+period precipitation tails. Distribution is promoted by the frozen
+development rule only when it improves RMSE in every eligible state by at
+least the greater of 0.0001 and 1% of quantity-only RMSE. Terminal and extreme
+tests are confirmation evidence and are not used to tune that rule. Neither
+coefficients nor row predictions are emitted. The exercise is a historical,
+regional predictive screen; it is not a causal yield response, nationally
+representative U.S. estimate, damage function, or SCC input.
+
+### Preliminary direct-practice fixed-effects association
+
+A separate, coefficient-bearing diagnostic uses the same validated direct
+NASS/nClimGrid levels but excludes 2019 before estimation because reported
+support collapses to three corn and one soybean county levels. For crop
+`c`, irrigation practice `r`, county `i`, state `s`, and harvest year `t`, the
+registered association is
+
+\[
+\log Y_{icrt}=\alpha_{icr}+\lambda_{sct}+f_c(P_{ict})+
+\sum_{k=1}^{3}\left(\gamma_{kcr}T_{kict}+\delta_{kcr}T_{kict}^2\right)
++\varepsilon_{icrt},
+\]
+
+where `P` is crop-calendar seasonal precipitation and `T_k` is mean
+temperature in fixed 0--30%, 30--70%, and 70--100% season windows. The
+quantity form uses precipitation per 100 mm and its square. The timing form
+also includes early- and middle-window precipitation shares; the late share
+is omitted. County fixed effects and crop-specific state-by-year fixed effects
+are removed by alternating projections to a maximum-change tolerance of
+`1e-10`; the within regression is solved by rank-checked least squares and
+uses a finite-sample-corrected county-cluster sandwich covariance estimator.
+
+The primary form is frozen from the preceding outer-holdout screen before
+coefficient estimation: quantity for corn, quantity plus timing for soybean.
+The reported quantity contrast adds 100 mm at the observed 25th, 50th, and
+75th precipitation percentiles and evaluates the quadratic exactly. The timing
+contrast moves 0.10 share from the omitted late window to the middle window,
+holding total rain, early share, temperatures, and fixed effects constant. It
+is explicitly partial and does not reconstruct co-moving dry-spell or
+heavy-rain statistics. The retained sample has 7,013 observations/361 counties
+per corn practice and 4,844/255 per soybean practice. No missing outcome is
+filled and no row prediction is released. Because state-year absorption does
+not eliminate all time-varying confounding, the resulting coefficients and
+contrasts remain historical associations and are barred from causal,
+national, damage, or SCC interpretation.
+
+An independent audit rereads the hash-bound panel, reconstructs all eight
+crop-by-practice-by-form samples and designs without importing production
+estimation functions, reimplements the alternating fixed-effect projection,
+solves by reduced QR, and separately forms the county-cluster sandwich. All
+324 coefficient, standard-error, probability, contrast, fit, and cluster-count
+fields agree within a maximum absolute difference of `1.04e-13` against a registered
+`1e-10` tolerance.
 
 ## S3. Crop-year alignment
 
@@ -256,7 +408,20 @@ candidate extensions retained only for robust, stable incremental outer-
 holdout value. SPEI and PDSI/scPDSI climatic-water-balance indices are serious
 competing drought representations, as is the soil-moisture family; none is a
 term automatically stacked with the underlying precipitation and temperature
-variables. For every future paired climate draw,
+variables. [Fishman
+(2016)](https://doi.org/10.1088/1748-9326/11/2/024004) motivates separating
+rainfall quantity from occurrence, and [Lesk, Coffel, and Horton
+(2020)](https://doi.org/10.1038/s41558-020-0830-0) motivates testing rainfall-
+intensity distributions; neither determines the global response form.
+
+Predictive comparisons may give every moisture family the same predeclared
+nonmoisture heat controls. Because PDSI/scPDSI and SPEI already incorporate a
+temperature-dependent atmospheric-demand term, coefficients from a model that
+also contains temperature or heat cannot be interpreted as an additive
+precipitation-versus-temperature decomposition. A later causal attribution
+design must state which drivers are held fixed and use a symmetric or other
+pre-specified path decomposition; component effects are never summed across
+alternative moisture families. For every future paired climate draw,
 calculate the corresponding drought-index change directly, then use a
 pre-specified symmetric decomposition when a precipitation versus
 temperature/PET attribution is required.
@@ -301,9 +466,10 @@ validates 240,784 maize rows with 115,758 positive outcomes and 176,537 soybean
 rows with 47,653 outcomes; the 2012--2016 run validates 150,490/59,772 and
 110,336/26,601. The -2 threshold used in these runs is
 a diagnostic construction setting, not a selected response threshold. These
-panels permit a future common-support predictive comparison only after a
-separate coefficient-suppressing drought-family response contract is frozen;
-they do not themselves estimate a relationship.
+panels permit a common-support predictive comparison under the separate,
+coefficient-suppressing drought-family diagnostic contract. That design is
+specified and its downstream historical predictive comparison has now been
+run and validated; the panels themselves do not estimate a relationship.
 
 `scripts/build_direct_scpdsi_common_support.py` implements that support
 assembly without fitting. It takes the validated candidate tables, intersects
@@ -331,6 +497,56 @@ results. Seasonal quantity remains the parsimonious direct-weather reference;
 distribution requires robust stable incremental outer-holdout value, and
 direct weather, scPDSI/PDSI, SPEI, and soil-moisture families compete
 mutually exclusively.
+
+The registered direct-weather--scPDSI diagnostic binds its configuration,
+four common-support view pairs, heat-control bases, upstream allocation
+audits, validation receipts, and source hashes before fitting. It checks exact
+common keys and outcomes, irrigation weights, the 1 mm wet-day threshold used
+in direct weather, the -2 scPDSI threshold, and equality of stage-temperature
+controls across families. It forms only consecutive-year log-yield
+differences and never bridges a missing year. This yields 209,036
+crop-grid-year pairs: 101,157 early-period and 45,633 later-period maize pairs,
+and 41,678 early-period and 20,568 later-period soybean pairs.
+
+Five mutually exclusive predictor sets are compared: nonmoisture controls;
+controls plus seasonal log precipitation; controls plus seasonal mean scPDSI;
+controls plus a seasonal scPDSI summary; and controls plus crop-stage scPDSI
+means. Each fit standardizes continuous predictors using the training sample
+and estimates ordinary least squares separately by crop. Evaluation reports
+RMSE, MAE, and R-squared for five deterministic hashed, unbuffered 5-degree
+spatial folds; one retrospective early-to-later split; and five crop-specific,
+endpoint-purged stress subsets. Crop-grid-year pairs receive equal weight. The
+protocol has no model-selection rule and emits neither coefficients nor
+row-level predictions.
+
+Across the five spatial folds, seasonal quantity has the lowest mean RMSE for
+maize (0.288589, versus 0.290401 for controls and 0.288697 for the best scPDSI
+specification) and soybean (0.209670, versus 0.211282 and 0.210183). It lowers
+RMSE in every crop-fold comparison, but gains are below 1% and MAE results are
+less uniform. The seasonal scPDSI summary is lowest-RMSE in all five maize
+stress subsets; it is not the stable general winner. The validator exactly
+recomputes the declared inputs, splits, refits, and aggregate metrics, and a
+separate clean-room implementation reproduces all 110 metrics with zero
+numerical discrepancy.
+
+This comparison remains a nonproduction historical predictive diagnostic.
+Spatial folds are unbuffered and equal-pair weighting is not a
+production-weighted welfare estimand. A separate registered sensitivity pools
+the five spatial-fold OOF errors and resamples crop-specific 10-degree cells
+5,000 times, keeping all years and both episodes within a cell together. Maize
+has 126 occupied cells (inverse-Herfindahl effective count 65.26) and soybean
+56 (26.66). It reports paired percentile intervals for candidate-minus-
+reference RMSE and MAE while emitting no row scores or draws. All 12
+scPDSI-versus-direct intervals include zero. The sensitivity is conditional on
+the fixed OOF fits: it does not refit training samples, define a random target
+population, account for model selection, or model dependence beyond the cell
+boundary. Because the CRU product calibrates scPDSI using the complete
+1901--2025 record, the early-to-later score is retrospective rather than
+prospective. Buffered or leave-region-out validation, common heat thresholds,
+SPEI and soil-moisture competitors, production weighting, frozen drought-index
+calibration, and causal response identification remain open gates. No result
+in this diagnostic is a climate-to-drought projection, damage estimate, or SCC
+input.
 
 ## S5. Estimation
 
@@ -578,6 +794,17 @@ The competing PDSI/scPDSI and SPEI panels use the same crop calendars,
 irrigation classifications, outcomes, and outer folds so their predictive
 performance is directly comparable; they are not appended to the direct-
 weather model by default.
+
+The drought pathway contains two separately validated estimands. The
+historical response estimand compares crop outcomes with a declared drought
+exposure; the climate estimand compares that same exposure under matched
+baseline and CO2-pulse climate paths. The current CRU scPDSI panels and their
+direct-weather common-support views prepare only a historical predictive
+comparison. They do not estimate either a causal drought--yield response or a
+climate-induced drought increment. A future SCC pathway requires both links,
+plus the single welfare mapping, to pass independently. It may not substitute
+observed CRU scPDSI or USDM histories for the matched future drought path.
+
 USDM county-week preparation preserves five-digit GEOIDs, rejects duplicate
 keys and category shares that do not sum to 100, and requires each map date to
 fall inside its declared validity interval. A documented state/crop/harvest-
@@ -714,3 +941,17 @@ pulse-convergence and accounting checks, and explicit promotion in
 `RESULTS_STATUS.md`. The full rules are in
 `SCIENTIFIC_INTEGRITY_PROTOCOL.md`; `INDEPENDENT_REVIEW_CHECKLIST.md` defines
 the adversarial replication handoff.
+
+### S10.1 Citation and evidence gaps retained at this stage
+
+The cited primary literature supports the definitions of PDSI/SPEI and the
+decision to compare rainfall quantity, occurrence, intensity, and observed
+drought severity. It does not validate a universal global crop coefficient,
+the diagnostic scPDSI threshold of -2, or transport of a historical CRU
+scPDSI association to future ISIMIP climate. No completed, validated global
+SPEI or soil-moisture candidate is yet available. The climate-to-drought
+mapping, causal response design, global welfare calibration, and empirical
+cost basis for the `trend` and `upper` adaptation schedules therefore remain
+evidence gaps rather than quantities to fill by assumption. The deferred
+noncoastal infrastructure-flood component likewise requires its own primary
+hazard, exposure, vulnerability, and overlap evidence before implementation.

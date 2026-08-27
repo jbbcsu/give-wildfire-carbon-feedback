@@ -24,7 +24,7 @@ from build_crop_year_features import (
     rolling_max,
     validate_wet_day_threshold,
 )
-from climate_inputs import crop_year_window, open_daily_series
+from climate_inputs import open_daily_crop_window
 
 
 STAGE_FEATURE_COLUMNS = [
@@ -51,16 +51,24 @@ def main() -> None:
     args = parser.parse_args()
     args.wet_day_mm = validate_wet_day_threshold(args.wet_day_mm)
     fractions = [float(x) for x in args.stage_fractions.split(",")]
-    if fractions[0] != 0 or fractions[-1] != 1 or any(a >= b for a, b in zip(fractions, fractions[1:])):
+    if (
+        len(fractions) < 2
+        or not np.isfinite(fractions).all()
+        or fractions[0] != 0
+        or fractions[-1] != 1
+        or any(a >= b for a, b in zip(fractions, fractions[1:]))
+    ):
         raise ValueError("Stage fractions must start at 0, end at 1, and strictly increase")
 
     with ExitStack() as stack:
         calendar = stack.enter_context(xr.open_dataset(args.calendar, engine="h5netcdf", decode_timedelta=False))
-        pr = crop_year_window(open_daily_series(stack, args.precip, "pr"), args.year_start, args.year_end).isel(
-            lat=slice(args.lat_start, args.lat_stop)
+        pr = open_daily_crop_window(
+            stack, args.precip, "pr", args.year_start, args.year_end,
+            args.lat_start, args.lat_stop,
         )
-        tas = crop_year_window(open_daily_series(stack, args.temperature, "tas"), args.year_start, args.year_end).isel(
-            lat=slice(args.lat_start, args.lat_stop)
+        tas = open_daily_crop_window(
+            stack, args.temperature, "tas", args.year_start, args.year_end,
+            args.lat_start, args.lat_stop,
         )
         cal = calendar.isel(lat=slice(args.lat_start, args.lat_stop))
         if not (np.array_equal(pr.lat, cal.lat) and np.array_equal(pr.lon, cal.lon) and np.array_equal(pr.time, tas.time)):

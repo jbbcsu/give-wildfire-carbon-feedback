@@ -13,6 +13,7 @@ damage or SCC input.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 from pathlib import Path
 
@@ -31,6 +32,14 @@ from allocate_outcome_exposures import (
 CONTRACT_ID = "gdhy_aggregate_irrigation_distribution_candidate_v1"
 ALLOCATION_ORDER = "regime_basis_before_fixed_area_weighting"
 DEFAULT_STAGES = 3
+
+
+def sha256_file(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as stream:
+        for chunk in iter(lambda: stream.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
 
 
 def primitive_columns(stages: int) -> set[str]:
@@ -289,16 +298,28 @@ def main() -> None:
     parser.add_argument("--out", required=True)
     parser.add_argument("--audit-out", required=True)
     args = parser.parse_args()
-    panel = pd.concat([read_table(Path(path)) for path in args.panel], ignore_index=True)
+    panel_paths = [Path(path) for path in args.panel]
+    weights_path = Path(args.weights)
+    candidate_path = Path(args.out)
+    panel = pd.concat([read_table(path) for path in panel_paths], ignore_index=True)
     output, audit = allocate_distribution_candidate(
         panel,
-        read_table(Path(args.weights)),
+        read_table(weights_path),
         args.expected_irrigation,
         stages=args.stages,
         exclude_missing_weight_cells=args.exclude_missing_weight_cells,
     )
-    audit["input_panel_files"] = [str(Path(path)) for path in args.panel]
-    write_table(output, Path(args.out))
+    write_table(output, candidate_path)
+    audit.update(
+        {
+            "input_panel_files": [str(path) for path in panel_paths],
+            "input_panel_sha256": [sha256_file(path) for path in panel_paths],
+            "weight_file": str(weights_path),
+            "weight_file_sha256": sha256_file(weights_path),
+            "candidate_file": str(candidate_path),
+            "candidate_sha256": sha256_file(candidate_path),
+        }
+    )
     audit_path = Path(args.audit_out)
     audit_path.parent.mkdir(parents=True, exist_ok=True)
     audit_path.write_text(json.dumps(audit, indent=2, sort_keys=True) + "\n", encoding="utf-8")

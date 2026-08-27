@@ -37,16 +37,14 @@ def climate_array(dataset: xr.Dataset, preferred: str) -> xr.DataArray:
     return next(iter(dataset.data_vars.values()))
 
 
-def open_daily_series(stack: ExitStack, paths: list[str], preferred: str) -> xr.DataArray:
-    """Return a lazy, coordinate-checked concatenation of daily input files.
-
-    Files must be supplied in chronological order. Duplicate, decreasing, or
-    non-daily timestamps fail closed so a growing season cannot silently lose
-    or double-count days at a decadal file boundary.
-    """
+def _open_checked_daily_arrays(
+    stack: ExitStack, paths: list[str], preferred: str
+) -> tuple[list[xr.DataArray], list[np.ndarray]]:
+    """Open files and validate their full coordinates without concatenating data."""
     if not paths:
         raise ValueError(f"At least one {preferred} file is required")
     arrays: list[xr.DataArray] = []
+    timestamp_parts: list[np.ndarray] = []
     for raw_path in paths:
         path = Path(raw_path)
         if not path.is_file():
@@ -65,22 +63,103 @@ def open_daily_series(stack: ExitStack, paths: list[str], preferred: str) -> xr.
             raise ValueError(f"{preferred} dimension order differs across input files: {path}")
         if arrays and array.attrs.get("units", "") != arrays[0].attrs.get("units", ""):
             raise ValueError(f"{preferred} units differ across input files: {path}")
+        try:
+            timestamps = array.time.values.astype("datetime64[ns]")
+        except (TypeError, ValueError) as error:
+            raise ValueError(
+                f"{preferred} time axis must be Gregorian-compatible daily dates"
+            ) from error
         arrays.append(array)
+        timestamp_parts.append(timestamps)
 
-    combined = arrays[0] if len(arrays) == 1 else xr.concat(arrays, dim="time")
-    try:
-        timestamps = combined.time.values.astype("datetime64[ns]")
-    except (TypeError, ValueError) as error:
-        raise ValueError(f"{preferred} time axis must be Gregorian-compatible daily dates") from error
+    timestamps = np.concatenate(timestamp_parts)
     if len(timestamps) < 1:
         raise ValueError(f"{preferred} time series is empty")
     if len(timestamps) > 1:
-        differences = np.diff(timestamps).astype("timedelta64[D]").astype(np.int64)
-        if not np.all(differences == 1):
+        differences = np.diff(timestamps)
+        if not np.all(differences == np.timedelta64(1, "D")):
             raise ValueError(
                 f"{preferred} files must form one strictly increasing daily series; "
-                f"observed day steps={sorted(set(differences.tolist()))}"
+                f"observed steps={sorted(set(str(value) for value in differences))}"
             )
+    return arrays, timestamp_parts
+
+
+def daily_series_coordinates(
+    stack: ExitStack, paths: list[str], preferred: str
+) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+    """Return audited full-series time/latitude/longitude coordinates only.
+
+    This path intentionally avoids concatenating the climate payload. It is
+    suitable for readiness audits of many multi-gigabyte decadal files.
+    """
+    arrays, timestamp_parts = _open_checked_daily_arrays(stack, paths, preferred)
+    return (
+        np.concatenate(timestamp_parts),
+        arrays[0].lat.values.copy(),
+        arrays[0].lon.values.copy(),
+    )
+
+
+def open_daily_series(stack: ExitStack, paths: list[str], preferred: str) -> xr.DataArray:
+    """Return a coordinate-checked concatenation of daily input files.
+
+    Files must be supplied in chronological order. Duplicate, decreasing, or
+    non-daily timestamps fail closed so a growing season cannot silently lose
+    or double-count days at a decadal file boundary. For multi-gigabyte inputs,
+    callers that need a bounded crop/latitude window should use
+    :func:`open_daily_crop_window` so full-grid payloads are not materialized.
+    """
+    arrays, _ = _open_checked_daily_arrays(stack, paths, preferred)
+    combined = arrays[0] if len(arrays) == 1 else xr.concat(arrays, dim="time")
+    return combined
+
+
+def open_daily_crop_window(
+    stack: ExitStack,
+    paths: list[str],
+    preferred: str,
+    year_start: int,
+    year_end: int,
+    lat_start: int,
+    lat_stop: int,
+) -> xr.DataArray:
+    """Return only the crop-year time window and requested latitude cells.
+
+    Full-file chronology, grid, dimensions, and units are checked first. Each
+    source file is then sliced *before* concatenation. This preserves the same
+    scientific contract as :func:`open_daily_series` while bounding memory and
+    I/O for multi-decadal global inputs.
+    """
+    if year_end < year_start:
+        raise ValueError("year_end must not precede year_start")
+    arrays, timestamp_parts = _open_checked_daily_arrays(stack, paths, preferred)
+    latitude_count = int(arrays[0].sizes["lat"])
+    if lat_start < 0 or lat_stop <= lat_start or lat_stop > latitude_count:
+        raise ValueError("Latitude window is outside the daily climate grid")
+    first = np.datetime64(f"{year_start - 1:04d}-01-01", "ns")
+    last_exclusive = np.datetime64(f"{year_end + 1:04d}-01-01", "ns")
+    selected: list[xr.DataArray] = []
+    for array, timestamps in zip(arrays, timestamp_parts):
+        positions = np.flatnonzero(
+            (timestamps >= first) & (timestamps < last_exclusive)
+        )
+        if len(positions):
+            selected.append(
+                array.isel(time=positions, lat=slice(lat_start, lat_stop))
+            )
+    if not selected:
+        raise ValueError(
+            f"Climate input has no days for harvest years {year_start}-{year_end}"
+        )
+    combined = selected[0] if len(selected) == 1 else xr.concat(selected, dim="time")
+    # The full chronology is already checked. Verify the selected boundary as
+    # a defensive invariant against accidental selector changes.
+    selected_times = combined.time.values.astype("datetime64[ns]")
+    if len(selected_times) > 1:
+        differences = np.diff(selected_times)
+        if not np.all(differences == np.timedelta64(1, "D")):
+            raise AssertionError("Selected daily crop window is not contiguous")
     return combined
 
 

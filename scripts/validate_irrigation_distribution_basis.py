@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 from pathlib import Path
 from typing import Any
@@ -18,6 +19,14 @@ from allocate_irrigation_distribution_basis import (
 
 
 KEYS = ["harvest_year", "lat", "lon_360", "crop"]
+
+
+def sha256_file(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as stream:
+        for chunk in iter(lambda: stream.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
 
 
 def validate(
@@ -178,11 +187,19 @@ def main() -> None:
     parser.add_argument("--stages", type=int, default=3)
     parser.add_argument("--out")
     args = parser.parse_args()
+    candidate_path = Path(args.panel)
+    audit_path = Path(args.allocation_audit)
     summary = validate(
-        pd.read_parquet(args.panel),
-        json.loads(Path(args.allocation_audit).read_text(encoding="utf-8")),
+        pd.read_parquet(candidate_path),
+        json.loads(audit_path.read_text(encoding="utf-8")),
         expected_crop=args.expected_crop,
         stages=args.stages,
+    )
+    summary.update(
+        {
+            "candidate_sha256": sha256_file(candidate_path),
+            "allocation_audit_sha256": sha256_file(audit_path),
+        }
     )
     rendered = json.dumps(summary, indent=2, sort_keys=True) + "\n"
     if args.out:

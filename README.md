@@ -250,6 +250,41 @@ quantity remains the direct-weather reference, distribution terms require
 robust stable outer-holdout value, and drought families remain mutually
 exclusive competitors rather than stacked controls. See
 [DIRECT_SCPDSI_COMMON_SUPPORT_CONTRACT.md](DIRECT_SCPDSI_COMMON_SUPPORT_CONTRACT.md).
+The matched comparison now also has a separate, validated heat-control basis
+constructed within rainfed and fully irrigated calendars before fixed-share
+aggregation. It uses crop-stage mean temperature plus daily-maximum
+degree-days above 29 C for maize and 30 C for soybean; the parallel 30 C maize
+basis is retained as a sensitivity. See
+[HEAT_CONTROL_BASIS_CONTRACT.md](HEAT_CONTROL_BASIS_CONTRACT.md) and
+[HEAT_THRESHOLD_EVIDENCE_NOTE.md](HEAT_THRESHOLD_EVIDENCE_NOTE.md).
+
+The resulting coefficient-suppressing historical diagnostic contains 209,036
+maize and soybean consecutive-year pairs. Across five unbuffered 5-degree
+spatial folds, direct seasonal precipitation quantity has the lowest mean RMSE
+for both crops and lowers RMSE in all ten crop-fold comparisons, but the gains
+are below 1% and MAE rankings are less uniform. Richer scPDSI summaries add
+stress-specific rather than stable general predictive value. All 110 aggregate
+metrics pass exact recomputation and a separate clean-room refit. This is not a
+causal response, production-model selection, climate-change projection,
+damage estimate, or SCC input. Exact results, hashes, and limitations are in
+[GLOBAL_DIRECT_SCPDSI_DIAGNOSTIC_RESULTS.md](GLOBAL_DIRECT_SCPDSI_DIAGNOSTIC_RESULTS.md);
+the executable contract is documented in
+[DIRECT_SCPDSI_PREDICTIVE_DIAGNOSTIC.md](DIRECT_SCPDSI_PREDICTIVE_DIAGNOSTIC.md).
+The paired geographic loss sensitivity and its narrower uncertainty boundary
+are documented in
+[DIRECT_SCPDSI_PAIRED_LOSS_UNCERTAINTY.md](DIRECT_SCPDSI_PAIRED_LOSS_UNCERTAINTY.md).
+
+The primary SPEI competitor is now literature- and source-locked without
+reusing a later-period standardized field. It will compute separate SPEI-1,
+SPEI-3, and SPEI-6 candidates from the already acquired nClimGrid-Daily and
+ISIMIP3a GSWP3-W5E5 precipitation/temperature, using daily Hargreaves-Samani
+reference ET, monthly water balance, and a grid-cell/calendar-month
+three-parameter log-logistic unbiased-PWM fit over 1982--2011 frozen before
+the 2012 terminal holdout. NOAA's published U.S. SPEI and SPEIbase 2.11 remain
+retrospective implementation/PET checks because their calibration/source
+boundaries do not match the terminal diagnostic. The contract and physical/
+time primitives pass; full SPEI fields and crop/outcome models do not yet
+exist. See [SPEI_COMPETITOR_DESIGN.md](SPEI_COMPETITOR_DESIGN.md).
 `scripts/run_irrigation_basis_chunk.sh` composes these gates for one completed
 maize or soybean period: it constructs the corrected minimal basis, assigns
 fixed outcome-blind validation folds, runs and validates the coefficient-

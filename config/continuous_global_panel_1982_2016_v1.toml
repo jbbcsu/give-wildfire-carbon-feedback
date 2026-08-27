@@ -1,0 +1,116 @@
+schema_version = 1
+contract_id = "global_maize_soy_continuous_panel_1982_2016_v1"
+description = "Isolated resumable construction plan for the missing 1990-2011 derivatives needed to extend the validated 1982-1989 and 2012-2016 maize/soybean panels to continuous 1982-2016 coverage."
+
+target_year_start = 1982
+target_year_end = 2016
+validated_early_year_start = 1982
+validated_early_year_end = 1989
+construction_year_start = 1990
+construction_year_end = 2011
+validated_later_year_start = 2012
+validated_later_year_end = 2016
+
+crops = ["mai", "soy"]
+irrigation_regimes = ["noirr", "firr"]
+families = ["direct_season", "direct_stage", "heat_season", "heat_stage", "historical_scpdsi_stage"]
+latitude_chunk_cells = 10
+pilot_latitude_start = 100
+stage_fractions = "0,0.3,0.7,1"
+expected_stages = 3
+wet_day_threshold_mm = 1.0
+heat_thresholds_c = [29.0, 30.0]
+scpdsi_threshold = -2.0
+
+# These gates deliberately keep construction separate from estimation and use.
+diagnostic_fit_authorized = false
+family_stacking_authorized = false
+coefficient_export_authorized = false
+causal_interpretation_authorized = false
+production_model_selection_authorized = false
+production_fit_authorized = false
+response_draw_authorized = false
+damage_calculation_authorized = false
+future_projection_authorized = false
+scc_authorized = false
+selection_by_scc_authorized = false
+
+output_root = "data/interim/continuous_global_panel_1982_2016_v1"
+audit_root = "outputs/continuous_global_panel_1982_2016_v1"
+raw_climate_root = "data/raw/isimip3a_gswp3_w5e5_v1_3"
+raw_climate_provenance = "data/provenance/isimip3a_daily_climate_plan.toml"
+
+precipitation_files = [
+  "gswp3-w5e5_obsclim_pr_global_daily_1981_1990.nc",
+  "gswp3-w5e5_obsclim_pr_global_daily_1991_2000.nc",
+  "gswp3-w5e5_obsclim_pr_global_daily_2001_2010.nc",
+  "gswp3-w5e5_obsclim_pr_global_daily_2011_2019.nc",
+]
+temperature_files = [
+  "gswp3-w5e5_obsclim_tas_global_daily_1981_1990.nc",
+  "gswp3-w5e5_obsclim_tas_global_daily_1991_2000.nc",
+  "gswp3-w5e5_obsclim_tas_global_daily_2001_2010.nc",
+  "gswp3-w5e5_obsclim_tas_global_daily_2011_2019.nc",
+]
+maximum_temperature_files = [
+  "gswp3-w5e5_obsclim_tasmax_global_daily_1981_1990.nc",
+  "gswp3-w5e5_obsclim_tasmax_global_daily_1991_2000.nc",
+  "gswp3-w5e5_obsclim_tasmax_global_daily_2001_2010.nc",
+  "gswp3-w5e5_obsclim_tasmax_global_daily_2011_2019.nc",
+]
+
+gdhy_root = "data/raw/gdhy_v1.2_v1.3"
+gdhy_provenance = "data/provenance/gdhy_v1.2_v1.3_20190128.toml"
+gdhy_support_audit = "outputs/gdhy_annual_support_audit.json"
+scpdsi_file = "data/raw/drought/cru_scpdsi/cru-ts4.10.1903-2025.scpdsi.nc"
+scpdsi_provenance = "data/provenance/cru_scpdsi.toml"
+mirca_weights = "data/interim/mirca_os_v2/irrigation_shares_2000.parquet"
+mirca_provenance = "data/provenance/mirca_os_v2_irrigation_shares.toml"
+validated_endpoint_receipt = "outputs/direct_scpdsi_predictive_diagnostic_v1/validation.json"
+
+[[calendars]]
+crop = "mai"
+irrigation = "noirr"
+path = "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_mai_noirr.nc"
+
+[[calendars]]
+crop = "mai"
+irrigation = "firr"
+path = "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_mai_firr.nc"
+
+[[calendars]]
+crop = "soy"
+irrigation = "noirr"
+path = "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_soy_noirr.nc"
+
+[[calendars]]
+crop = "soy"
+irrigation = "firr"
+path = "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_soy_firr.nc"
+
+# These completed middle-period panels are retained only as independent
+# cross-check candidates. The isolated v1 construction does not overwrite or
+# silently splice them because their period/schema histories differ.
+[[existing_middle_crosschecks]]
+crop = "mai"
+irrigation = "noirr"
+year_start = 1990
+year_end = 1991
+season_panel = "data/interim/mai_noirr_1990_1991_features.parquet"
+stage_panel = "data/interim/mai_noirr_1990_1991_stage_estimation_panel.parquet"
+
+[[existing_middle_crosschecks]]
+crop = "mai"
+irrigation = "noirr"
+year_start = 1992
+year_end = 2000
+season_panel = "data/interim/mai_noirr_1992_2000_features.parquet"
+stage_panel = "data/interim/mai_noirr_1992_2000_stage_estimation_panel_v2.parquet"
+
+[[existing_middle_crosschecks]]
+crop = "soy"
+irrigation = "noirr"
+year_start = 2002
+year_end = 2010
+season_panel = "data/interim/soy_noirr_2002_2010_features.parquet"
+stage_panel = "data/interim/soy_noirr_2002_2010_stage_estimation_panel.parquet"

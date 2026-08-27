@@ -1,0 +1,74 @@
+schema_version = 1
+contract_id = "global_direct_scpdsi_paired_loss_uncertainty_v1"
+description = "Nonproduction paired cluster-bootstrap intervals for spatial out-of-fold loss differences in the validated direct-quantity versus historical-scPDSI diagnostic."
+
+base_config = "config/direct_scpdsi_predictive_diagnostic_v1.toml"
+base_input_audit = "outputs/direct_scpdsi_predictive_diagnostic_v1/input_audit.json"
+base_direct_view = "data/interim/direct_scpdsi_predictive_diagnostic_v1/direct_view.parquet"
+base_scpdsi_view = "data/interim/direct_scpdsi_predictive_diagnostic_v1/scpdsi_view.parquet"
+base_common_view = "data/interim/direct_scpdsi_predictive_diagnostic_v1/common_view.parquet"
+base_split_view = "data/interim/direct_scpdsi_predictive_diagnostic_v1/split_view.parquet"
+base_result = "outputs/direct_scpdsi_predictive_diagnostic_v1/result.json"
+base_validation = "outputs/direct_scpdsi_predictive_diagnostic_v1/validation.json"
+
+score_basis = "existing_five_fold_spatial_oof_scores_recomputed_in_memory"
+resampling_scheme = "paired_pairs_cluster_bootstrap_fixed_oof_losses"
+resampling_unit = "crop_by_10degree_lat_lon_cell_with_all_pairs_and_episodes_together"
+cluster_latitude_degrees = 10
+cluster_longitude_degrees = 10
+bootstrap_replicates = 5000
+random_seed = 20260826
+interval_probabilities = [0.025, 0.975]
+minimum_occupied_clusters_per_crop = 30
+maximum_cluster_pair_share = 0.10
+training_reestimated_within_bootstrap = false
+loss_metrics = ["rmse_difference", "mae_difference"]
+observation_weighting = "equal_crop_grid_year_pair_weighting_not_area_production_or_welfare_weighted"
+model_selection_rule = "none_nonproduction_sensitivity_reports_all_registered_comparisons"
+
+diagnostic_fit_authorized = true
+family_stacking_authorized = false
+coefficient_export_authorized = false
+causal_interpretation_authorized = false
+production_model_selection_authorized = false
+production_fit_authorized = false
+response_draw_authorized = false
+damage_calculation_authorized = false
+future_projection_authorized = false
+scc_authorized = false
+selection_by_scc_authorized = false
+
+[[comparisons]]
+id = "direct_quantity_minus_controls"
+candidate_model_id = "direct_quantity"
+reference_model_id = "controls_only"
+
+[[comparisons]]
+id = "scpdsi_mean_minus_controls"
+candidate_model_id = "scpdsi_mean"
+reference_model_id = "controls_only"
+
+[[comparisons]]
+id = "scpdsi_seasonal_summary_minus_controls"
+candidate_model_id = "scpdsi_seasonal_summary"
+reference_model_id = "controls_only"
+
+[[comparisons]]
+id = "scpdsi_stage_means_minus_controls"
+candidate_model_id = "scpdsi_stage_means"
+reference_model_id = "controls_only"
+
+[[comparisons]]
+id = "scpdsi_mean_minus_direct_quantity"
+candidate_model_id = "scpdsi_mean"
+reference_model_id = "direct_quantity"
+
+[[comparisons]]
+id = "scpdsi_seasonal_summary_minus_direct_quantity"
+candidate_model_id = "scpdsi_seasonal_summary"
+reference_model_id = "direct_quantity"
+
+[[comparisons]]
+id = "scpdsi_stage_means_minus_direct_quantity"
+candidate_model_id = "scpdsi_stage_means"
+reference_model_id = "direct_quantity"

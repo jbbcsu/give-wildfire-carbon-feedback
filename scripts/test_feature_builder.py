@@ -17,6 +17,7 @@ from build_crop_year_features import (
     validate_wet_day_threshold,
 )
 from reconcile_stage_season_features import validate_row_invariants
+from validate_stage_feature_partition import validate_frame as validate_stage_partition
 
 
 PROJECT = Path(__file__).resolve().parents[1]
@@ -94,6 +95,13 @@ with tempfile.TemporaryDirectory() as temporary:
     assert stages.stage_id.tolist() == [1, 2]
     assert stages.stage_days.sum() == 5
     assert stages.precip_mm.sum() == 15.0
+    validate_stage_partition(stages, 2, "0,0.4,1")
+    try:
+        validate_stage_partition(stages.iloc[:-1].copy(), 2, "0,0.4,1")
+    except ValueError as error:
+        assert "exactly the expected stages" in str(error)
+    else:
+        raise AssertionError("An incomplete stage key must fail validation")
     validate_row_invariants(season, "season_days", "season")
     validate_row_invariants(stages, "stage_days", "stage")
     bad = season.copy()

@@ -21,6 +21,19 @@ suite; regenerate and review it deliberately when changing dependencies.
    Use `scripts/download_isimip3a_climate.sh pr tas` for the first climate
    stage and `scripts/download_isimip3a_climate.sh --all` only when the final
    temperature-extreme controls are required.
+   For the separate U.S. national validation route, acquire one exact annual
+   corn or soybean Quick Stats series at a time with
+   `us_county_validation/scripts/download_nass_quickstats_api.py`, keeping the
+   API key only in ignored `.secrets/nass.env`. Revalidate and export the
+   complete key-free archive identity with
+   `us_county_validation/scripts/export_nass_national_all_practice_content_receipt.py`.
+   Prepare the exact commodity tables with `prepare_nass_api_county_yields.py`,
+   attach only reported fixed-2017 crop irrigation shares with
+   `prepare_nass_national_all_practice_panel.py`, and run
+   `audit_nass_all_practice_geography.py` before any weather construction.
+   Zero NASS yields and missing/suppressed irrigation numerators are excluded
+   explicitly rather than filled; all-practice outcomes are never relabeled as
+   directly rainfed yields.
 2. Use `scripts/build_crop_year_features.py` on daily climate and crop-calendar
    files to make an auditable crop-year panel.
    `scripts/build_feature_partitions.sh` runs the same builder in resumable
@@ -123,6 +136,8 @@ never push to a guessed GitHub destination.
 .venv/bin/python scripts/test_audit_mirca_welfare_support.py
 .venv/bin/python scripts/test_allocate_irrigation_response_basis.py
 .venv/bin/python scripts/test_allocate_irrigation_distribution_basis.py
+.venv/bin/python scripts/test_validate_irrigation_distribution_basis.py
+.venv/bin/python scripts/test_allocate_irrigation_heat_basis.py
 .venv/bin/python scripts/test_download_mirca_rice_seasons.py
 .venv/bin/python scripts/test_audit_mirca_rice_inventory.py
 .venv/bin/python scripts/test_build_mirca_rice_season_shares.py
@@ -133,10 +148,20 @@ never push to a guessed GitHub destination.
 .venv/bin/python scripts/test_stage_scpdsi_pipeline.py
 .venv/bin/python scripts/test_allocate_irrigation_scpdsi_basis.py
 .venv/bin/python scripts/test_run_scpdsi_candidate_chunk.py
+.venv/bin/python scripts/test_direct_scpdsi_predictive_diagnostic.py
+.venv/bin/python scripts/test_direct_scpdsi_paired_loss_uncertainty.py
 .venv/bin/python scripts/test_render_precipitation_distribution_table.py
 .venv/bin/python scripts/test_filter_complete_yield_support.py
 .venv/bin/python scripts/test_scc_response_bundle.py
 .venv/bin/python us_county_validation/scripts/test_prepare_nass_county_yields.py
+.venv/bin/python us_county_validation/scripts/test_prepare_nass_api_county_yields.py
+.venv/bin/python us_county_validation/scripts/test_prepare_nass_national_all_practice_panel.py
+.venv/bin/python us_county_validation/scripts/test_export_nass_national_all_practice_content_receipt.py
+.venv/bin/python us_county_validation/scripts/test_audit_nass_all_practice_geography.py
+.venv/bin/python us_county_validation/scripts/test_join_nass_pdsi_features.py
+.venv/bin/python us_county_validation/scripts/test_us_competing_moisture_diagnostic.py
+.venv/bin/python us_county_validation/scripts/test_us_competing_moisture_paired_loss_uncertainty.py
+.venv/bin/python us_county_validation/scripts/test_acquire_nclimgrid_daily_bulk.py
 JULIA_DEPOT_PATH=.julia_depot ../tools/julia-1.8.5/bin/julia --project=. -e 'using Pkg; Pkg.instantiate()'
 JULIA_DEPOT_PATH=.julia_depot ../tools/julia-1.8.5/bin/julia --project=. test/runtests.jl
 ```

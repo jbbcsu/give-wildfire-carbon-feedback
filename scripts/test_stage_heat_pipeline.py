@@ -23,7 +23,9 @@ KEYS = ["harvest_year", "lat", "lon_360", "crop", "irrigation"]
 
 with tempfile.TemporaryDirectory() as temporary:
     root = Path(temporary)
-    dates = pd.date_range("2020-12-30", "2021-01-03", freq="D")
+    # Daily inputs may be stamped at noon while crop calendars are DOY based.
+    # Both seasonal and stage heat builders must retain the maturity date.
+    dates = pd.date_range("2020-12-30 12:00", "2021-01-03 12:00", freq="D")
     coords = {"time": dates, "lat": [0.25], "lon": [0.25]}
     tmax_c = np.array([28.0, 30.0, 31.0, 35.0, 29.0]).reshape(5, 1, 1)
     for name, subset in (("first", slice(0, 2)), ("second", slice(2, 5))):
@@ -54,11 +56,14 @@ with tempfile.TemporaryDirectory() as temporary:
     seasonal_partitions = root / "seasonal-partitions"
     seasonal_partitions.mkdir()
     (seasonal_partitions / "part-1.parquet").write_bytes(seasonal.read_bytes())
+    pd.read_parquet(seasonal).iloc[0:0].to_parquet(
+        seasonal_partitions / "part-2-empty.parquet", index=False
+    )
     combined_seasonal = root / "combined-seasonal.parquet"
     subprocess.run(
         [
             sys.executable, str(PROJECT / "scripts" / "combine_heat_partitions.py"),
-            "--directory", str(seasonal_partitions), "--expected-partitions", "1",
+            "--directory", str(seasonal_partitions), "--expected-partitions", "2",
             "--threshold-c", "30", "--threshold-c", "34", "--out", str(combined_seasonal),
         ],
         check=True,
@@ -73,11 +78,14 @@ with tempfile.TemporaryDirectory() as temporary:
     partition_dir = root / "partitions"
     partition_dir.mkdir()
     (partition_dir / "part-1.parquet").write_bytes(stages.read_bytes())
+    pd.read_parquet(stages).iloc[0:0].to_parquet(
+        partition_dir / "part-2-empty.parquet", index=False
+    )
     combined_stages = root / "combined-stages.parquet"
     subprocess.run(
         [
             sys.executable, str(PROJECT / "scripts" / "combine_stage_heat_partitions.py"),
-            "--directory", str(partition_dir), "--expected-partitions", "1",
+            "--directory", str(partition_dir), "--expected-partitions", "2",
             "--expected-stages", "3", "--threshold-c", "30", "--threshold-c", "34",
             "--out", str(combined_stages),
         ],

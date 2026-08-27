@@ -122,13 +122,28 @@ and direct-only dropped rows/observed outcomes are maize 1982--1989,
 150,490/59,772 and 15,465/1,046; and soybean 2012--2016,
 110,336/26,601 and 9,334/147. Every scPDSI-only drop count is 0/0. Validation
 recomputes only from the immediate candidate inputs; upstream raw-source
-validation receipts are not bound and remain an external prerequisite. No
-fit, effect, model-selection, damage, or SCC result follows from assembly. The
-next empirical step is a separately frozen coefficient-suppressing
-PDSI/scPDSI response screen on this support, followed by SPEI and soil-moisture
-families under identical splits. Seasonal quantity remains the reference;
-distribution must show robust stable outer-holdout value, and drought families
-remain mutually exclusive and may not be stacked or selected by SCC magnitude.
+validation receipts are not bound and remain an external prerequisite. The
+subsequent coefficient-suppressing historical diagnostic is now complete on
+209,036 consecutive-year pairs. Seasonal quantity has the lowest mean spatial-
+fold RMSE for maize and soybean, but improvements over controls are below 1%
+and MAE rankings are less uniform; richer scPDSI summaries add stress-specific
+rather than stable general predictive value. A paired 10-degree-cell loss
+sensitivity places zero inside all 12 scPDSI-versus-direct RMSE/MAE intervals
+and remains conditional on fixed OOF fits. Neither result identifies a causal
+response or selects a production model. SPEI and soil-moisture families,
+buffered/leave-region validation, a continuous all-year panel, and causal
+identification remain next empirical gates. Seasonal quantity remains the
+reference; distribution and drought families may not be stacked or selected
+by SCC magnitude.
+
+The SPEI route is now source-locked before construction. Separate 1-, 3-, and
+6-month fields will be computed on each panel's native weather grid from the
+already acquired direct-weather inputs, using Hargreaves-Samani reference ET
+and calendar-month log-logistic UBPWM fits calibrated on 1982--2011 and frozen
+before the 2012 terminal block. Published NOAA SPEI and SPEIbase are
+retrospective checks rather than terminal-score inputs. The current scaffold
+authorizes only index construction and common-support auditing; it does not
+authorize an outcome fit, causal interpretation, damage, or SCC use.
 
 ## Phase 2 — damage functions (empirical work required)
 

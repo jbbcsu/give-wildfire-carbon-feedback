@@ -16,6 +16,28 @@ The empirical hierarchy begins with joint temperature plus crop-calendar
 seasonal rainfall quantity, retains distribution terms only for robust
 incremental out-of-sample value, and treats PDSI/scPDSI and SPEI as serious
 competing moisture-stress representations rather than additive controls.
+The current 2012--2016 maize and soybean screens do not identify any
+distribution family that improves on seasonal quantity in every registered
+holdout, so seasonal quantity remains the parsimonious direct-weather
+reference. That ranking is predictive screening evidence, not a causal
+response estimate. The matched direct-weather--scPDSI predictive diagnostic is
+now validated on 209,036 global-gridded maize and soybean consecutive-year
+pairs. Seasonal quantity has the lowest mean spatial-fold RMSE for both crops,
+although its improvement over controls is below 1% and its MAE ranking is less
+uniform; richer scPDSI summaries add stress-specific rather than stable general
+predictive value. Paired geographic loss intervals include zero for every
+scPDSI-versus-direct comparison. This is a historical prediction result, not a
+causal response, full-global-agriculture result, climate-change projection, or
+SCC input. A separate U.S. regional screen validates 20,228 common corn/soy
+practice-specific changes. For non-irrigated corn, seasonal and stage PDSI
+outpredict rainfall quantity in every eligible state and in terminal/extreme
+tests; the direct distribution extension improves four of five states but
+fails its frozen uniform-state rule. For non-irrigated soybean, the
+distribution extension improves all three eligible states plus the terminal
+and extreme tests. Irrigated rankings are less stable. A clean-room QR audit
+reproduces all 120 aggregate metrics. These U.S. results are historical
+prediction evidence, not causal effects or SCC inputs. Primary SPEI
+construction is source-locked but has not yet been executed.
 We pre-specify fixed,
 trend, and upper adaptation scenarios and retain climate, response, calendar,
 and welfare uncertainty. The manuscript reports no SCC estimates until the
@@ -35,6 +57,17 @@ heavy-rain exposures, but that does not establish that a complex distribution
 model will outperform a crop-season quantity measure. These features can
 covary with temperature and CO2, so a precipitation-only model can misattribute
 joint climate effects.
+
+Prior empirical studies motivate testing rather than presuming this added
+complexity. [Fishman (2016)](https://doi.org/10.1088/1748-9326/11/2/024004)
+separates rainfall quantity from rainy-day frequency in Indian crop outcomes,
+and [Lesk, Coffel, and Horton
+(2020)](https://doi.org/10.1038/s41558-020-0830-0) studies the distribution of
+hourly rainfall intensity in U.S. maize and soybean yields. [Kuwayama et al.
+(2019)](https://doi.org/10.1093/ajae/aay037) provides a U.S. county benchmark
+using observed composite drought severity. These studies justify candidate
+features and validation tests; none supplies a coefficient that can be
+transported directly into a global SCC calculation.
 
 This study asks: how does the agricultural component of the global SCC change
 when a temperature-indexed agricultural pathway is replaced by a joint,
@@ -83,8 +116,9 @@ calendar-aligned historical candidate for the competing climatic-water-balance
 family. The global 1982--1989 and 2012--2016 maize and soybean candidate paths now pass full
 source-bound partition validation and complete derived-input allocation
 recomputation after constructing 16 seasonal/stage scPDSI features by
-irrigation regime and then applying fixed MIRCA shares. It contains no direct
-weather terms and has not been fitted. SPEI and scPDSI/PDSI receive serious
+irrigation regime and then applying fixed MIRCA shares. The candidate itself
+contains no direct-weather terms; a separate matched historical predictive
+diagnostic has been fit and is reported below. SPEI and scPDSI/PDSI receive serious
 comparison in the U.S. validation and global robustness work; future
 water-stress features must be recomputed from matched baseline and pulse
 climate paths rather than extrapolating an observed index.
@@ -139,11 +173,15 @@ The secondary U.S. validation track now contains 21,596 paired irrigated and
 non-irrigated crop-county-years over 1981--2019: 7,079 corn, 4,845 soybean,
 and 9,672 all-classes-wheat pairs. This support is regional, not nationally
 representative. All 807 reported county GEOIDs match 2019 TIGER; eight counties
-remain under historical-boundary review. NOAA nClimGrid daily weather has been
-validated only for a bounded Cuming County construction smoke, while a
-HEAD-only inventory pins the 468 monthly 1981--2019 objects (25.944 GiB
-advertised). Their remaining contents have not been acquired or validated, so
-the U.S. track has not estimated a weather--yield relationship.
+remain under historical-boundary review. All 468 monthly NOAA nClimGrid-Daily
+objects for 1981--2019 are now local: the bounded acquisition utility checked
+the frozen HTTP identity, local SHA-512, NetCDF schema, and exact daily calendar
+for each of the 27,857,685,556 compressed bytes. Registered aggregation over
+419 eligible counties and 39 harvest years produces exactly 23,722 paired-
+practice rows and 20,228 common direct-weather/PDSI consecutive-year changes;
+both assembly and exact recomputation pass. This regional construction enables
+a historical predictive comparison but does not estimate a causal weather--
+yield response or create a damage/SCC input.
 
 ## 4. Empirical design
 
@@ -171,6 +209,19 @@ serious alternative predictors under those same outer splits, not secondary
 checks or extra covariates added to the direct-water specification. Selection
 is based on validity, stability, parsimony, and external validation, never SCC
 magnitude.
+
+The empirical decision sequence is deliberately ordered. First, predictive
+screens compare the seasonal-quantity reference with nested distribution
+extensions and mutually exclusive drought-index families on identical support
+and outer holdouts. Second, only a specification with a defensible identifying
+design can produce historical response draws. Third, climate-induced change in
+the selected moisture representation is estimated from matched baseline and
+CO2-pulse climate paths. Fourth, validated response draws and climate changes
+enter the single agriculture welfare replacement and SCC calculation. Passing
+an earlier step does not authorize a claim at a later step. In particular, a
+historical scPDSI--yield prediction exercise is not an estimate of how climate
+change alters drought, and neither is a drought damage or SCC estimate.
+
 The existing three-model exercise is a deliberately minimal predictive
 diagnostic: it omits frequency, intensity, Rx5day, heat, and the alternative
 drought families and only indirectly represents normalized timing through
@@ -258,8 +309,10 @@ final candidate are hash-bound; the validator fully recomputes allocation from
 the derived stage tables without claiming full raw-metric recomputation. This
 closes a data-construction gate for one competing
 historical drought representation. The diagnostic -2 threshold is not a
-selected drought definition, no response has been fitted, and CRU scPDSI
-cannot supply the matched future baseline/pulse drought path required for SCC.
+selected drought definition. The candidate panel itself fits no response; the
+separate downstream predictive diagnostic emits no coefficients and selects no
+production model. CRU scPDSI cannot supply the matched future baseline/pulse
+drought path required for SCC.
 
 Four data-only common-support assemblies place this historical benchmark and
 the direct-weather candidate on identical crop-grid-year support while keeping
@@ -279,10 +332,101 @@ unchanged: seasonal quantity is the direct-weather reference, distribution is
 retained only for robust stable outer-holdout value, and drought families
 compete mutually exclusively rather than stack.
 
+**Historical drought-family predictive comparison.** A
+coefficient-suppressing diagnostic compares seasonal quantity and historical
+scPDSI on 209,036 identical maize and soybean consecutive-year pairs with the
+same crop-stage temperature and heat controls. Direct quantity has the lowest
+mean RMSE across five unbuffered spatial folds for maize (0.288589 versus
+0.290401 for controls and 0.288697 for the best scPDSI specification) and
+soybean (0.209670 versus 0.211282 and 0.210183), lowering RMSE in all ten
+crop-fold comparisons. The gains are small and metric-sensitive: direct
+quantity lowers MAE in four of five maize folds but only two of five soybean
+folds. The seasonal scPDSI summary has the lowest RMSE in all five maize stress
+subsets, while direct quantity wins three of five soybean stress subsets. An
+independent clean-room refit reproduces all 110 aggregate metrics exactly. No
+coefficient or row-level prediction is emitted.
+
+These diagnostics weight crop-grid-year pairs equally and use unbuffered
+spatial folds. A separate paired bootstrap resampling crop-specific 10-degree
+cells finds that every one of the 12 scPDSI-versus-direct RMSE/MAE intervals
+includes zero. For direct quantity versus controls, the pooled OOF RMSE
+difference interval is entirely below zero for maize but ends about 0.000001
+above zero for soybean; both MAE intervals include zero. These are descriptive
+loss sensitivities conditional on fixed fold fits, not population confidence
+intervals, training/model-choice uncertainty, or response uncertainty.
+Because the CRU scPDSI product uses a 1901--2025 full-record calibration, its
+early-to-later score is retrospective rather than a genuinely prospective
+forecast. The comparison selects no production response, reports no SPEI
+result, and does not identify a causal effect, project climate-induced drought
+change, or authorize damages or an SCC input.
+
 ### 6.2 Yield-response validation
 
 Report spatial, temporal, and extreme-year held-out skill; coefficient and
 functional-form uncertainty; and comparison with process-model ranges.
+
+**Regional U.S. competing-moisture diagnostic.** The registered NASS/
+nClimGrid/PDSI comparison retains 23,722 corn/soy crop--county--practice-year
+levels and 20,228 consecutive-year log-yield changes on exact common support.
+Models are separate by crop and irrigation practice and compare controls,
+seasonal rainfall quantity, quantity plus eight distribution/extreme terms,
+seasonal PDSI, and preplant/stage PDSI without stacking moisture families.
+Eligible development holdouts are Colorado, Kansas, North Dakota, Nebraska,
+and South Dakota for corn and Arkansas, Kansas, and Nebraska for soybean;
+terminal tests use 2012--2019 observations from counties present in
+development. All training/test level endpoints are disjoint.
+
+The direct distribution extension fails the frozen uniform-state materiality
+rule for irrigated corn (one of five states) and non-irrigated corn (four of
+five; South Dakota reverses). For non-irrigated corn it nevertheless lowers
+quantity-only RMSE by 0.060342 in the terminal test and 0.006075 in the
+extreme test. Seasonal and stage PDSI are more stable competitors in this
+stratum: both beat quantity-only in all five state holdouts, by mean state-fold
+RMSE differences of 0.015309 and 0.018826, and also improve terminal RMSE by
+0.049216 and 0.045035 and extreme RMSE by 0.032397 and 0.039544.
+
+The distribution extension clears the development rule for both soybean
+practice strata. For non-irrigated soybean it improves quantity-only RMSE in
+all three state holdouts (mean 0.012279), the terminal test (0.058268), and the
+extreme test (0.028115). For irrigated soybean, however, its 0.003862 mean
+state-fold improvement reverses to a 0.012312 worsening in the terminal test;
+it is therefore not characterized as temporally stable. PDSI comparisons are
+smaller or geographically mixed outside non-irrigated corn.
+
+A standalone implementation reconstructs the raw-level intersection and
+first differences and solves the 120 fits by QR rather than the registered
+least-squares path. Maximum disagreement is `4.44e-16` for RMSE and
+`2.00e-15` across any reported numeric field; all split,
+purge, rank, and promotion fields agree exactly. The regional outcome support,
+fixed historical calendars, limited state folds, point-loss comparisons, and
+shrinking direct-practice reporting support prohibit causal, nationally
+representative, damage, or SCC interpretation. Support falls to 63 corn and
+25 soybean counties in 2018 and 3/1 in 2019; no missing outcome is filled.
+County-cluster paired-loss intervals, a 2019-endpoint exclusion, and balanced-
+support windows remain separate sensitivities and are not silently inferred
+from these point rankings.
+
+As a preliminary coefficient-bearing bridge, we fit historical county and
+state-by-year fixed-effects associations through 2018, with county-clustered
+standard errors and quadratic stage-mean temperature controls. Model form was
+frozen from the predictive screen: quantity only for corn and quantity plus
+early/middle precipitation shares for soybean. In 7,013 non-irrigated corn
+county-years, an additional 100 mm is associated with fitted yield differences
+of 11.07%, 7.72%, and 3.59% at the 25th, 50th, and 75th percentiles of seasonal
+rainfall; corresponding irrigated-corn differences are 0.04%, -0.41%, and
+-0.98%. In 4,844 non-irrigated soybean county-years, the analogous values are
+7.44%, 4.46%, and 1.11%. A partial 10-percentage-point middle-for-late-season
+rainfall shift is associated with 4.73% for non-irrigated soybean and -0.21%
+for irrigated soybean. Corn timing coefficients remain secondary because the
+timing extension failed its prior geographic-stability gate. These estimates
+are selected-sample historical associations, not causal or nationally
+representative effects; they do not identify adaptation, CO2 fertilization,
+irrigation water, climate-induced precipitation change, damages, or SCC.
+A clean-room fixed-effect projection and QR/cluster-sandwich reimplementation
+reproduces 324 reported numeric fields within `1.04e-13`. County-clustered
+normal 95% intervals exclude zero for all three non-irrigated quantity
+contrasts and for the non-irrigated soybean timing contrast; this sampling
+uncertainty statement does not remove the design and transport limitations.
 
 The current-hash, basis-before-weighting diagnostic covers 117,679 observed
 maize yields (102,847 consecutive pairs) and 47,922 observed soybean yields

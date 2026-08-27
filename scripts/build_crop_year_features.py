@@ -17,7 +17,7 @@ import numpy as np
 import pandas as pd
 import xarray as xr
 
-from climate_inputs import crop_year_window, open_daily_series, validate_daily_units
+from climate_inputs import open_daily_crop_window, validate_daily_units
 
 FEATURE_COLUMNS = [
     "harvest_year", "plant_year", "lat", "lon", "lon_360", "crop", "irrigation", "cross_year",
@@ -89,11 +89,13 @@ def main() -> None:
         required = {"planting_day", "maturity_day"}
         if missing := required - set(calendar.data_vars):
             raise ValueError(f"Calendar missing {sorted(missing)}")
-        pr = crop_year_window(open_daily_series(stack, args.precip, "pr"), args.year_start, args.year_end).isel(
-            lat=slice(args.lat_start, args.lat_stop)
+        pr = open_daily_crop_window(
+            stack, args.precip, "pr", args.year_start, args.year_end,
+            args.lat_start, args.lat_stop,
         )
-        tas = crop_year_window(open_daily_series(stack, args.temperature, "tas"), args.year_start, args.year_end).isel(
-            lat=slice(args.lat_start, args.lat_stop)
+        tas = open_daily_crop_window(
+            stack, args.temperature, "tas", args.year_start, args.year_end,
+            args.lat_start, args.lat_stop,
         )
         cal = calendar.isel(lat=slice(args.lat_start, args.lat_stop))
         if not (np.array_equal(pr.lat, cal.lat) and np.array_equal(pr.lon, cal.lon)):

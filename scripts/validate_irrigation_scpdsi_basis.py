@@ -211,6 +211,7 @@ def validate_candidate(
         "rows": int(len(candidate)),
         "observed_outcomes": int(candidate["yield_observed"].sum()),
         "basis_feature_count": len(feature_names),
+        "scpdsi_threshold": threshold,
         "candidate_sha256": sha256_file(candidate_path),
         "allocation_audit_sha256": _hash_json(audit_path),
         "input_panel_sha256": panel_hashes,

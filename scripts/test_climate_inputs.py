@@ -10,7 +10,12 @@ import numpy as np
 import pandas as pd
 import xarray as xr
 
-from climate_inputs import crop_year_window, open_daily_series
+from climate_inputs import (
+    crop_year_window,
+    daily_series_coordinates,
+    open_daily_crop_window,
+    open_daily_series,
+)
 
 
 def write(path: Path, dates: pd.DatetimeIndex, *, lat: float = 0.25, units: str = "mm/day") -> None:
@@ -41,6 +46,19 @@ with tempfile.TemporaryDirectory() as temporary:
         combined = open_daily_series(stack, [str(first), str(second)], "pr")
         assert len(combined.time) == 5
         assert len(crop_year_window(combined, 2020, 2020).time) == 5
+    with ExitStack() as stack:
+        times, latitudes, longitudes = daily_series_coordinates(
+            stack, [str(first), str(second)], "pr"
+        )
+        assert len(times) == 5
+        assert latitudes.tolist() == [0.25]
+        assert longitudes.tolist() == [0.25]
+    with ExitStack() as stack:
+        window = open_daily_crop_window(
+            stack, [str(first), str(second)], "pr", 2020, 2020, 0, 1
+        )
+        assert window.shape == (5, 1, 1)
+        assert window.values.tolist() == np.ones((5, 1, 1)).tolist()
 
     noon_year_end = root / "noon_year_end.nc"
     write(noon_year_end, pd.date_range("2020-12-30 12:00", "2020-12-31 12:00", freq="D"))
@@ -54,6 +72,15 @@ with tempfile.TemporaryDirectory() as temporary:
     write(gap, pd.date_range("2020-01-02", "2020-01-03", freq="D"))
     expect_failure([str(first), str(gap)], "strictly increasing daily series")
     expect_failure([str(second), str(first)], "strictly increasing daily series")
+
+    shifted_clock = root / "shifted_clock.nc"
+    write(
+        shifted_clock,
+        pd.date_range("2020-01-04 01:00", "2020-01-05 01:00", freq="D"),
+    )
+    expect_failure(
+        [str(second), str(shifted_clock)], "strictly increasing daily series"
+    )
 
     shifted = root / "shifted.nc"
     write(shifted, pd.date_range("2020-01-04", "2020-01-05", freq="D"), lat=0.75)

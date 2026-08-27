@@ -17,7 +17,7 @@ import pandas as pd
 import xarray as xr
 
 from build_crop_year_features import date_from_doy, normalize_temperature
-from climate_inputs import crop_year_window, open_daily_series
+from climate_inputs import open_daily_crop_window
 
 
 BASE_COLUMNS = [
@@ -56,16 +56,20 @@ def main() -> None:
     )]
     with ExitStack() as stack:
         calendar = stack.enter_context(xr.open_dataset(args.calendar, engine="h5netcdf", decode_timedelta=False))
-        maximum = crop_year_window(
-            open_daily_series(stack, args.tasmax, "tasmax"), args.year_start, args.year_end
-        ).isel(lat=slice(args.lat_start, args.lat_stop))
+        maximum = open_daily_crop_window(
+            stack, args.tasmax, "tasmax", args.year_start, args.year_end,
+            args.lat_start, args.lat_stop,
+        )
         cal = calendar.isel(lat=slice(args.lat_start, args.lat_stop))
         required = {"planting_day", "maturity_day"}
         if missing := required - set(cal.data_vars):
             raise ValueError(f"Calendar missing {sorted(missing)}")
         if not (np.array_equal(maximum.lat, cal.lat) and np.array_equal(maximum.lon, cal.lon)):
             raise ValueError("tasmax and calendar coordinates differ; regrid explicitly before construction")
-        dates = pd.DatetimeIndex(maximum.time.values)
+        # Crop calendars are date (DOY) based. Daily climate fields may carry
+        # an intraday timestamp, so compare normalized dates; otherwise a
+        # noon-stamped maturity date is silently excluded.
+        dates = pd.DatetimeIndex(maximum.time.values).normalize()
         tmax = normalize_temperature(maximum.values, maximum.attrs.get("units", ""))
         planting, maturity = cal.planting_day.values, cal.maturity_day.values
         rows: list[dict[str, object]] = []

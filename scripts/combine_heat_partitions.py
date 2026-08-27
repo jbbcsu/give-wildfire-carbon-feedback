@@ -23,10 +23,11 @@ def main() -> None:
     frames = [pd.read_parquet(path) for path in paths]
     for frame in frames:
         validate_frame(frame, args.threshold_c)
-    combined = pd.concat(frames, ignore_index=True)
-    validate_frame(combined, args.threshold_c)
-    if combined.empty:
+    nonempty = [frame for frame in frames if not frame.empty]
+    if not nonempty:
         raise ValueError("No seasonal heat rows to combine")
+    combined = pd.concat(nonempty, ignore_index=True)
+    validate_frame(combined, args.threshold_c)
     output = Path(args.out)
     output.parent.mkdir(parents=True, exist_ok=True)
     combined.to_parquet(output, index=False)

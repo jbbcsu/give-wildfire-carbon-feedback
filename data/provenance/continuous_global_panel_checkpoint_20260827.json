@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "status": "validated_continuous_global_candidate_checkpoint",
+  "date": "2026-08-27",
+  "middle_feature_assembly": {
+    "validated_source_tasks": 720,
+    "aggregate_tables": 20,
+    "receipt": "data/interim/continuous_global_panel_1982_2016_v1/assembled_middle_1990_2011/assembly_receipt.json",
+    "receipt_sha256": "c81aa75339043360285e1be964ecefa30a3ca1aee6bd2d0ce20e6fae679a6461"
+  },
+  "continuous_candidates": {
+    "maize_direct": {
+      "rows": 1161685,
+      "observed_outcomes": 500129,
+      "candidate_sha256": "6be40f66363a2de8840ace25b2e80817fece1598cad2682e42e22ee6075b8ed3",
+      "receipt_sha256": "e287bda7f42b99ab7a28e16846c3b47affc3549dd78561cdbc583b6b247d2972"
+    },
+    "soy_direct": {
+      "rows": 837690,
+      "observed_outcomes": 206087,
+      "candidate_sha256": "ce26936cd3d175c56c89333c9f5805e242b6a32961e41babe67e8f55117518dd",
+      "receipt_sha256": "50462d0e14e0e6a6972e088119552f370627e64d7cceeb0c11b845e5d6d908d0"
+    },
+    "maize_heat": {
+      "rows": 1161685,
+      "observed_outcomes": 500129,
+      "candidate_sha256": "bc312795def993bc7c769f2378046074684a7de294b737b80db85bc4ae2166f1",
+      "receipt_sha256": "a58623c87faec1901ba727f9bf02a3e6345de7db3c0377390642a8f4c2cada5a"
+    },
+    "soy_heat": {
+      "rows": 837690,
+      "observed_outcomes": 206087,
+      "candidate_sha256": "a949b4b1fa62708775fad10ba9f01105d5fe3e29dd5472d6792dea9b19a4c100",
+      "receipt_sha256": "6039edf8b2f14fd0ceb390cc9811a31bc186cbd33e4a1161fd12b5063fb2a2e8"
+    },
+    "maize_scpdsi": {
+      "rows": 1053418,
+      "observed_outcomes": 491918,
+      "candidate_sha256": "d7f81a99a1fe1ed84aa947843a3eb8b26a31bfb1388927c242a401ab4d154fce",
+      "receipt_sha256": "1ebbcb6656ebcbf56ce3fb846a0351b5844b206596ee9048de44f4e8178617fc"
+    },
+    "soy_scpdsi": {
+      "rows": 772352,
+      "observed_outcomes": 204917,
+      "candidate_sha256": "e686440825910e4ef36f80677085561e70448993d6f8479b34cf1479f944cbc2",
+      "receipt_sha256": "dacbef432471f4561db9b1a105d069c999e40a1d607d77862b1bceab33d7e31a"
+    }
+  },
+  "direct_scpdsi_common_support": {
+    "maize": {
+      "rows": 1053418,
+      "observed_outcomes": 491918,
+      "direct_only_rows_dropped": 108267,
+      "direct_only_observed_outcomes_dropped": 8211,
+      "scpdsi_only_rows_dropped": 0,
+      "validation_receipt_sha256": "728aa57f6fe47137f68ab919379e0691f234e3ba000f7924318e6843deea7fc8"
+    },
+    "soy": {
+      "rows": 772352,
+      "observed_outcomes": 204917,
+      "direct_only_rows_dropped": 65338,
+      "direct_only_observed_outcomes_dropped": 1170,
+      "scpdsi_only_rows_dropped": 0,
+      "validation_receipt_sha256": "cbd0badf0583dfacc9e32f665ab4d58e71b81f662688361d3b6365f18d1bf504"
+    }
+  },
+  "families_stacked": false,
+  "fit_performed": false,
+  "causal_interpretation_authorized": false,
+  "damage_calculation_authorized": false,
+  "future_projection_authorized": false,
+  "scc_authorized": false,
+  "limitations": [
+    "Historical CRU scPDSI is a retrospective competitor, not a future SCC input.",
+    "The full-grid leakage-safe SPEI competitor remains unbuilt.",
+    "This checkpoint contains no causal response, damage, welfare, or SCC estimate."
+  ]
+}

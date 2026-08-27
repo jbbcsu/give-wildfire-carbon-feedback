@@ -1,0 +1,164 @@
+schema_version = 1
+contract_id = "global_direct_scpdsi_predictive_diagnostic_v1"
+description = "Nonproduction first-difference predictive diagnostic comparing direct seasonal precipitation quantity with historical scPDSI on exact common support."
+outcome = "delta_log_yield"
+estimator = "ols"
+spatial_block_degrees = 5
+spatial_fold_count = 5
+stress_quantile = 0.95
+scpdsi_drought_threshold = -2.0
+direct_wet_day_threshold_mm = 1.0
+scpdsi_calibration_period = "1901-2025"
+scpdsi_temporal_evaluation = "retrospective_not_prospective_full_record_calibration"
+temporal_holdout_prospective = false
+spatial_validation_scope = "hashed_5degree_blocks_unbuffered_adjacent_blocks_may_cross_folds"
+observation_weighting = "equal_crop_grid_year_pair_weighting_not_area_production_or_welfare_weighted"
+loss_metrics = ["rmse", "mae", "r2"]
+model_selection_rule = "none_nonproduction_diagnostic_reports_all_metrics"
+diagnostic_fit_authorized = true
+family_stacking_authorized = false
+coefficient_export_authorized = false
+causal_interpretation_authorized = false
+production_model_selection_authorized = false
+production_fit_authorized = false
+response_draw_authorized = false
+damage_calculation_authorized = false
+future_projection_authorized = false
+scc_authorized = false
+selection_by_scc_authorized = false
+
+pair_keys = ["crop", "episode", "lat", "lon_360", "start_year", "end_year"]
+common_controls = [
+  "common__delta_stage1_tmean_c",
+  "common__delta_stage2_tmean_c",
+  "common__delta_stage3_tmean_c",
+  "common__delta_stage1_heat_degree_days",
+  "common__delta_stage2_heat_degree_days",
+  "common__delta_stage3_heat_degree_days",
+]
+
+[[models]]
+id = "controls_only"
+family = "none"
+candidate_features = []
+
+[[models]]
+id = "direct_quantity"
+family = "direct"
+candidate_features = ["direct__delta_log1p_precip_mm"]
+
+[[models]]
+id = "scpdsi_mean"
+family = "scpdsi"
+candidate_features = ["scpdsi__delta_season_scpdsi_mean"]
+
+[[models]]
+id = "scpdsi_seasonal_summary"
+family = "scpdsi"
+candidate_features = [
+  "scpdsi__delta_season_scpdsi_mean",
+  "scpdsi__delta_season_scpdsi_min",
+  "scpdsi__delta_season_scpdsi_fraction_at_or_below_threshold",
+]
+
+[[models]]
+id = "scpdsi_stage_means"
+family = "scpdsi"
+candidate_features = [
+  "scpdsi__delta_stage1_scpdsi_mean",
+  "scpdsi__delta_stage2_scpdsi_mean",
+  "scpdsi__delta_stage3_scpdsi_mean",
+]
+
+[[crops]]
+id = "mai"
+heat_threshold_c = 29
+heat_source_features = [
+  "stage1_tmean_c", "stage2_tmean_c", "stage3_tmean_c",
+  "stage1_tmax_29c_degree_days", "stage2_tmax_29c_degree_days", "stage3_tmax_29c_degree_days",
+]
+
+[[crops]]
+id = "soy"
+heat_threshold_c = 30
+heat_source_features = [
+  "stage1_tmean_c", "stage2_tmean_c", "stage3_tmean_c",
+  "stage1_tmax_30c_degree_days", "stage2_tmax_30c_degree_days", "stage3_tmax_30c_degree_days",
+]
+
+[[episodes]]
+id = "early"
+year_start = 1982
+year_end = 1989
+
+[[episodes]]
+id = "later"
+year_start = 2012
+year_end = 2016
+
+# The common-support files exist and are revalidated from their immediate
+# candidate inputs. The separate heat-control files are intentionally absent
+# until the stage-heat pipeline produces and validates this exact contract.
+[[input_bundles]]
+crop = "mai"
+episode = "early"
+direct_view = "data/interim/common_support/maize_1982_1989_direct_view.parquet"
+scpdsi_view = "data/interim/common_support/maize_1982_1989_scpdsi_view.parquet"
+common_audit = "outputs/common_support/maize_1982_1989_audit.json"
+common_validation = "outputs/common_support/maize_1982_1989_validation.json"
+direct_candidate = "data/interim/irrigation_basis/maize_mirca2000_1982_1989_distribution_candidate.parquet"
+direct_allocation_audit = "outputs/irrigation_basis/maize_mirca2000_1982_1989_distribution_candidate_audit.json"
+direct_validation = "outputs/irrigation_basis/maize_mirca2000_1982_1989_distribution_candidate_validation.json"
+scpdsi_candidate = "data/interim/irrigation_basis/maize_mirca2000_1982_1989_scpdsi_candidate.parquet"
+scpdsi_allocation_audit = "data/interim/irrigation_basis/maize_mirca2000_1982_1989_scpdsi_candidate_allocation_audit.json"
+scpdsi_validation = "outputs/irrigation_basis/maize_mirca2000_1982_1989_scpdsi_candidate_validation.json"
+heat_control = "data/interim/diagnostic_heat_controls/maize_1982_1989_heat_control_basis.parquet"
+heat_validation = "outputs/diagnostic_heat_controls/maize_1982_1989_heat_control_basis_validation.json"
+
+[[input_bundles]]
+crop = "mai"
+episode = "later"
+direct_view = "data/interim/common_support/maize_2012_2016_direct_view.parquet"
+scpdsi_view = "data/interim/common_support/maize_2012_2016_scpdsi_view.parquet"
+common_audit = "outputs/common_support/maize_2012_2016_audit.json"
+common_validation = "outputs/common_support/maize_2012_2016_validation.json"
+direct_candidate = "data/interim/irrigation_basis/maize_mirca2000_2012_2016_distribution_candidate.parquet"
+direct_allocation_audit = "data/interim/irrigation_basis/maize_mirca2000_2012_2016_distribution_candidate_allocation_audit.json"
+direct_validation = "outputs/irrigation_basis/maize_mirca2000_2012_2016_distribution_candidate_validation.json"
+scpdsi_candidate = "data/interim/irrigation_basis/maize_mirca2000_2012_2016_scpdsi_candidate.parquet"
+scpdsi_allocation_audit = "data/interim/irrigation_basis/maize_mirca2000_2012_2016_scpdsi_candidate_allocation_audit.json"
+scpdsi_validation = "outputs/irrigation_basis/maize_mirca2000_2012_2016_scpdsi_candidate_validation.json"
+heat_control = "data/interim/diagnostic_heat_controls/maize_2012_2016_heat_control_basis.parquet"
+heat_validation = "outputs/diagnostic_heat_controls/maize_2012_2016_heat_control_basis_validation.json"
+
+[[input_bundles]]
+crop = "soy"
+episode = "early"
+direct_view = "data/interim/common_support/soy_1982_1989_direct_view.parquet"
+scpdsi_view = "data/interim/common_support/soy_1982_1989_scpdsi_view.parquet"
+common_audit = "outputs/common_support/soy_1982_1989_audit.json"
+common_validation = "outputs/common_support/soy_1982_1989_validation.json"
+direct_candidate = "data/interim/irrigation_basis/soy_mirca2000_1982_1989_distribution_candidate.parquet"
+direct_allocation_audit = "outputs/irrigation_basis/soy_mirca2000_1982_1989_distribution_candidate_audit.json"
+direct_validation = "outputs/irrigation_basis/soy_mirca2000_1982_1989_distribution_candidate_validation.json"
+scpdsi_candidate = "data/interim/irrigation_basis/soy_mirca2000_1982_1989_scpdsi_candidate.parquet"
+scpdsi_allocation_audit = "data/interim/irrigation_basis/soy_mirca2000_1982_1989_scpdsi_candidate_allocation_audit.json"
+scpdsi_validation = "outputs/irrigation_basis/soy_mirca2000_1982_1989_scpdsi_candidate_validation.json"
+heat_control = "data/interim/diagnostic_heat_controls/soy_1982_1989_heat_control_basis.parquet"
+heat_validation = "outputs/diagnostic_heat_controls/soy_1982_1989_heat_control_basis_validation.json"
+
+[[input_bundles]]
+crop = "soy"
+episode = "later"
+direct_view = "data/interim/common_support/soy_2012_2016_direct_view.parquet"
+scpdsi_view = "data/interim/common_support/soy_2012_2016_scpdsi_view.parquet"
+common_audit = "outputs/common_support/soy_2012_2016_audit.json"
+common_validation = "outputs/common_support/soy_2012_2016_validation.json"
+direct_candidate = "data/interim/irrigation_basis/soy_mirca2000_2012_2016_distribution_candidate.parquet"
+direct_allocation_audit = "data/interim/irrigation_basis/soy_mirca2000_2012_2016_distribution_candidate_allocation_audit.json"
+direct_validation = "outputs/irrigation_basis/soy_mirca2000_2012_2016_distribution_candidate_validation.json"
+scpdsi_candidate = "data/interim/irrigation_basis/soy_mirca2000_2012_2016_scpdsi_candidate.parquet"
+scpdsi_allocation_audit = "data/interim/irrigation_basis/soy_mirca2000_2012_2016_scpdsi_candidate_allocation_audit.json"
+scpdsi_validation = "outputs/irrigation_basis/soy_mirca2000_2012_2016_scpdsi_candidate_validation.json"
+heat_control = "data/interim/diagnostic_heat_controls/soy_2012_2016_heat_control_basis.parquet"
+heat_validation = "outputs/diagnostic_heat_controls/soy_2012_2016_heat_control_basis_validation.json"
