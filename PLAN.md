@@ -71,9 +71,12 @@ The two-forcing/two-scenario scenario matrix now passes on 41,029 GFDL and
 density changes are negative relative to the same model/forcing's 2005--2014
 reference, but earlier paths and spatial magnitudes differ. The spatial audit
 finds area-weighted majorities of lower-density cells in all eight
-trajectories, while every trajectory retains cells with increases. This
-advances the ensemble biophysical benchmark and exposes model spread; it does
-not clear the matched-pulse or welfare portions of this gate.
+trajectories, while every trajectory retains cells with increases. The annual
+scenario-separation audit finds SSP5-8.5 below SSP1-2.6 in 64--82 of 86 years,
+with persistent ten-year separation beginning between 2021 and 2052 depending
+on the forcing/model pair. This advances the ensemble biophysical benchmark
+and exposes temporal model spread; it does not clear the matched-pulse or
+welfare portions of this gate.
 
 ## Gate 4 — welfare translation and GIVE interface
 

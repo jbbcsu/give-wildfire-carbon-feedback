@@ -109,6 +109,14 @@ also retains cells with increases, so the global declines are spatially broad
 but not universal. This remains a modelled scenario-density diagnostic, not
 observed catch, a marginal pulse, welfare, damages, or SCC evidence.
 
+The annual within-model comparison in
+[`FISHMIP_SCENARIO_SEPARATION.md`](FISHMIP_SCENARIO_SEPARATION.md) adds a
+persistence check. SSP5-8.5 is below SSP1-2.6 in 64--82 of 86 annual values
+across the four forcing/model pairs, but the first persistent ten-year lower
+run ranges from 2021 to 2052 and near-century differences have mixed signs.
+All four late-century differences are negative. This is still scenario
+separation, not a matched pulse or welfare response.
+
 ## Executable accounting scaffolding
 
 The repository currently provides two coefficient-free checks:
@@ -132,6 +140,7 @@ python3 test/test_fishmip_catalog.py
 python3 test/test_fishmip_content.py  # in an environment with xarray and h5netcdf
 python3 test/test_fishmip_scenario_benchmark.py  # same environment requirement
 python3 test/test_fishmip_scenario_matrix.py
+python3 test/test_fishmip_scenario_separation.py  # same environment requirement
 ```
 
 These scripts do not choose ecological or economic parameters, certify that a
