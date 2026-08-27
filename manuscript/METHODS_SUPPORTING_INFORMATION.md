@@ -361,9 +361,11 @@ maize/rainfed smokes over two latitude rows produce 2,744 season records and
 8,232 three-window records per future scenario. Additive precipitation/day-
 count quantities reconcile exactly, and timing, wet-day, dry-spell, Rx1day,
 and Rx5day invariants pass. MRI's exact four-scenario holdout improves 24/44
-folds but has a 1.09903 worst RMSE ratio, so it is not promoted. The three-ESM
-joint product passes software gates but remains only seven nonoverlapping
-years, one crop/regime, and two latitude rows. ISIMIP timestamps are normalized
+folds but has a 1.09903 worst RMSE ratio, so it is not promoted. The four-ESM
+joint product has 452,760 rows and passes 44 whole-ESM and 44 whole-scenario
+folds. Their median RMSE ratios are 0.99782 and 0.99820, while the historical
+holdout median is 1.00405. It remains only seven nonoverlapping years, one
+crop/regime, and two latitude rows. ISIMIP timestamps are normalized
 to dates only after complete daily-sequence validation.
 
 Whole ESMs and whole scenarios, not random years alone, are held out. STITCHES

@@ -40,8 +40,10 @@ maize/rainfed feature cells pass for every bounded scenario. MRI's newly closed
 SSP1-2.6 and SSP5-8.5 block adds four complete files (4,953,940,488 bytes) and
 its exact historical/four-scenario product passes 44 whole-scenario engineering
 folds; the simple GMST adjustment improves 24 folds, with median RMSE ratio
-0.99971 and worst ratio 1.09903, so it is not promoted. The exact three-ESM
-joint product also passes whole-ESM and whole-scenario software gates. These
+0.99971 and worst ratio 1.09903, so it is not promoted. The exact four-ESM
+joint product has 452,760 rows and passes 44 whole-ESM plus 44 whole-scenario
+folds; median RMSE ratios are 0.99782 and 0.99820, but the historical-scenario
+median is 1.00405, so it too remains an engineering gate. These
 are seven-year, one-crop/two-latitude engineering smokes, not acquisition of
 the 1.757 TB matrix or a production feature response. Common-random-number
 pairing, real support, identity, and decreasing-pulse gates remain open.

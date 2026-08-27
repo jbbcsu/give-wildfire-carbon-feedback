@@ -1,0 +1,181 @@
+{
+  "complete_five_esm_matrix": false,
+  "complete_historical_future_temporal_coverage": false,
+  "config": {
+    "path": "config/isimip3b_four_esm_four_scenario_holdout_smoke_v1.toml",
+    "sha256": "c965de0a7433d4e2e17fd1ab46306345a5b1bdd1deb5cc3347fd998a0fb6573f"
+  },
+  "damage_or_scc_authorized": false,
+  "esm_holdouts_output": {
+    "artifact_name": "esm_holdouts.csv",
+    "sha256": "20f20142c807216f356d95e536fc8c98e9c44a1684546eb6cf4f1d49150bc3a4"
+  },
+  "esm_ids": [
+    "GFDL-ESM4",
+    "IPSL-CM6A-LR",
+    "MPI-ESM1-2-HR",
+    "mri-esm2-0"
+  ],
+  "feature_families": [
+    "tmean_c",
+    "precip_mm",
+    "wet_days_n",
+    "cdd_max_days",
+    "rx1day_mm",
+    "rx5day_mm",
+    "stage1_precip_share",
+    "stage2_precip_share",
+    "stage3_precip_share",
+    "precipitation_timing_centroid",
+    "precipitation_concentration_hhi"
+  ],
+  "implementation": {
+    "dependencies": [
+      {
+        "path": "scripts/evaluate_isimip3b_five_esm_holdout_smoke.py",
+        "sha256": "34c5007921700086604dc54de22600055fad632ff69e8cfaabce2c130feab3a5"
+      },
+      {
+        "path": "scripts/evaluate_isimip3b_gfdl_scenario_holdout_smoke.py",
+        "sha256": "61d52d94b3185d11acf1360d5e4362cec99d6c286ff36d0a7689c002af98af0a"
+      },
+      {
+        "path": "scripts/validate_paired_feature_emulator.py",
+        "sha256": "8b604fccd616b1be8db93d9dd9c562786968145e1114de1b85bd0ca7be51816c"
+      }
+    ],
+    "path": "scripts/evaluate_isimip3b_four_esm_four_scenario_holdout.py",
+    "sha256": "75cb69076c374093de6b0b9f794f8e2a67dce45055bc7aa5558301589c1128b3"
+  },
+  "inputs": [
+    {
+      "esm_id": "GFDL-ESM4",
+      "member_id": "r1i1p1f1",
+      "path": "data/interim/isimip3b_gfdl_scenario_holdout/training.parquet",
+      "rows": 113190,
+      "sha256": "1222630fcb056aee7f988aa85e4f651aa2e2e5ae66070bb1c2e04291a9abd463",
+      "source_audit": "data/provenance/isimip3b_gfdl_scenario_holdout_smoke_20260827.json",
+      "source_audit_sha256": "37ad9fca326eae6d8164101148d904b37515f22a8114cea6fa6a5ba04e4dc659"
+    },
+    {
+      "esm_id": "IPSL-CM6A-LR",
+      "member_id": "r1i1p1f1",
+      "path": "data/interim/isimip3b_ipsl_scenario_holdout/training_long.parquet",
+      "rows": 113190,
+      "sha256": "b865c6b01408510a531adbbc34e3127cb6b7a904dbf09e339506c5fbc897cf8f",
+      "source_audit": "data/provenance/isimip3b_ipsl_scenario_holdout_smoke_20260827.json",
+      "source_audit_sha256": "dcdcd7367b2c951f3399b7fa71117e2d804cbac5e850b944b51dd6f0289a1444"
+    },
+    {
+      "esm_id": "MPI-ESM1-2-HR",
+      "member_id": "r1i1p1f1",
+      "path": "data/interim/isimip3b_mpi_scenario_holdout/training_long.parquet",
+      "rows": 113190,
+      "sha256": "5a72f42d051df026d601d7a8963bfaf585d332c00a894862daf2e758eca66260",
+      "source_audit": "data/provenance/isimip3b_mpi_scenario_holdout_smoke_20260827.json",
+      "source_audit_sha256": "11309012e75b9768d746fd7106bf942fcb05eb7a344d6276823794ba35c827f4"
+    },
+    {
+      "esm_id": "mri-esm2-0",
+      "member_id": "r1i1p1f1",
+      "path": "data/interim/isimip3b_mri_scenario_holdout_smoke_v1/training_long.parquet",
+      "rows": 113190,
+      "sha256": "5718dc6160ae93126c2207bba9dd4a53cccc1df29f673d6ccdb0039d9acc9f97",
+      "source_audit": "data/provenance/isimip3b_mri_scenario_holdout_smoke_20260827.json",
+      "source_audit_sha256": "f72c1da56824dcd99f77c6a4cbcffbf290bee2ca5bcc748720e265b2303788be"
+    }
+  ],
+  "limitations": [
+    "Four of the five frozen ESM realizations have the exact four-scenario bounded product.",
+    "Only seven nonoverlapping years, one crop/regime, and two latitude rows are evaluated.",
+    "No common-random-number baseline/pulse pair, production support rule, yield response, damage, or SCC value is produced."
+  ],
+  "paired_baseline_pulse_paths": false,
+  "result": "passed",
+  "role": "outcome_blind_joint_whole_esm_and_whole_scenario_engineering_smoke_not_complete_emulator_damage_or_scc_input",
+  "scenario_holdouts_output": {
+    "artifact_name": "scenario_holdouts.csv",
+    "sha256": "d3666baf40ed016a9517856da5dfb0a64e5ccee25e044d64c9bfe7945fd90c37"
+  },
+  "scenarios": [
+    "historical",
+    "ssp126",
+    "ssp370",
+    "ssp585"
+  ],
+  "schema": "isimip3b_bounded_four_esm_four_scenario_holdout_v1",
+  "summary": {
+    "esm": {
+      "comparisons": 44,
+      "gmst_model_better_count": 30,
+      "holdouts": {
+        "GFDL-ESM4": {
+          "comparisons": 11,
+          "gmst_model_better_count": 4,
+          "maximum_rmse_ratio_to_cell_mean": 1.0091923277933759,
+          "median_rmse_ratio_to_cell_mean": 1.0002505345962691
+        },
+        "IPSL-CM6A-LR": {
+          "comparisons": 11,
+          "gmst_model_better_count": 8,
+          "maximum_rmse_ratio_to_cell_mean": 1.0449411922523149,
+          "median_rmse_ratio_to_cell_mean": 0.9982516357689745
+        },
+        "MPI-ESM1-2-HR": {
+          "comparisons": 11,
+          "gmst_model_better_count": 10,
+          "maximum_rmse_ratio_to_cell_mean": 1.0001003722453239,
+          "median_rmse_ratio_to_cell_mean": 0.9948040783662385
+        },
+        "mri-esm2-0": {
+          "comparisons": 11,
+          "gmst_model_better_count": 8,
+          "maximum_rmse_ratio_to_cell_mean": 1.0192312061856712,
+          "median_rmse_ratio_to_cell_mean": 0.9980425779251969
+        }
+      },
+      "maximum_rmse_ratio_to_cell_mean": 1.0449411922523149,
+      "median_rmse_ratio_to_cell_mean": 0.9978223937272317
+    },
+    "scenario": {
+      "comparisons": 44,
+      "gmst_model_better_count": 28,
+      "holdouts": {
+        "historical": {
+          "comparisons": 11,
+          "gmst_model_better_count": 3,
+          "maximum_rmse_ratio_to_cell_mean": 1.0250955205600507,
+          "median_rmse_ratio_to_cell_mean": 1.004051960449038
+        },
+        "ssp126": {
+          "comparisons": 11,
+          "gmst_model_better_count": 8,
+          "maximum_rmse_ratio_to_cell_mean": 1.0032006493384118,
+          "median_rmse_ratio_to_cell_mean": 0.9973797494642798
+        },
+        "ssp370": {
+          "comparisons": 11,
+          "gmst_model_better_count": 7,
+          "maximum_rmse_ratio_to_cell_mean": 1.0129139993343208,
+          "median_rmse_ratio_to_cell_mean": 0.9976282095581658
+        },
+        "ssp585": {
+          "comparisons": 11,
+          "gmst_model_better_count": 10,
+          "maximum_rmse_ratio_to_cell_mean": 1.0007611972378059,
+          "median_rmse_ratio_to_cell_mean": 0.9962180926034812
+        }
+      },
+      "maximum_rmse_ratio_to_cell_mean": 1.0250955205600507,
+      "median_rmse_ratio_to_cell_mean": 0.9981951969758672
+    }
+  },
+  "support_flags": false,
+  "training_output": {
+    "artifact_name": "training_long.parquet",
+    "sha256": "24e374139e5710c634c372ebb5a410385749204d7b1dfb6be6acbda9dbb2a018"
+  },
+  "training_rows": 452760,
+  "whole_esm_holdout": true,
+  "whole_scenario_holdout": true
+}

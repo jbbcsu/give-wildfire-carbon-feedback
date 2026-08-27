@@ -289,8 +289,10 @@ A real two-latitude maize/rainfed engineering cell produces 2,744 crop-years
 and 8,232 three-window records per future scenario with exact precipitation
 and day-count reconciliation. MRI's four-scenario diagnostic improves 24/44
 folds relative to the cell-mean benchmark, but its median RMSE ratio is
-0.99971 and worst ratio is 1.09903; it is not promoted. The exact three-ESM
-joint product separately passes whole-ESM and whole-scenario software gates.
+0.99971 and worst ratio is 1.09903; it is not promoted. The exact four-ESM
+joint product has 452,760 rows and passes whole-ESM and whole-scenario software
+gates, but the historical holdout improves only 3/11 features and has median
+RMSE ratio 1.00405.
 No yield is attached to these smokes and no climate-feature response has been
 fitted. The evidence establishes software behavior, not future agricultural
 damages.
