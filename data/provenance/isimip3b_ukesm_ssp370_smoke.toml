@@ -1,0 +1,119 @@
+schema_version = 1
+checked_utc_date = "2026-08-26"
+role = "fifth_esm_same_scenario_complete_file_and_bounded_feature_engineering_gate_not_emulator_holdout_damage_or_scc"
+source_catalogue = "https://data.isimip.org/api/v1/datasets/"
+rights = "CC0 1.0"
+dataset_version = "20210512"
+esm = "UKESM1-0-LL"
+member = "r1i1p1f2"
+scenario = "ssp370"
+variables = ["pr", "tas"]
+grid = "global 0.5 degree; latitude descending; longitude -179.75 to 179.75"
+calendar = "proleptic_gregorian"
+daily_timestamp_hour_utc = 0
+selection_snapshot = "data/provenance/isimip3b_daily_catalog_selection.csv"
+
+[precipitation]
+dataset_id = "92deba84-0382-45b8-b370-ef35ab564517"
+file_id = "45e850f2-3113-4332-a38f-a9acf23c50e1"
+file_name = "ukesm1-0-ll_r1i1p1f2_w5e5_ssp370_pr_global_daily_2015_2020.nc"
+bytes = 1266393042
+sha512 = "7ab4254d8097f63a3eb42608ef644326832f6d6471078d5e976f6d8fef3d8ace0b8ab2fe0b4d9e4b1ed1e37adb889f609dbdb391fa5fd109c8c2cf2c8ec51798"
+finite_values = 568166400
+zero_values = 215251707
+negative_values = 0
+minimum_flux_kg_m2_s = 0.0
+maximum_flux_kg_m2_s = 0.006457292474806309
+content_audit = "data/interim/isimip3b/ukesm1-0-ll_ssp370_pr_2015_2020_content_audit.json"
+result = "passed"
+
+[temperature]
+dataset_id = "fce39d22-a04f-4dc0-8d99-251a76613128"
+file_id = "0962dfad-00e7-4895-92fb-ba9a3f6517dd"
+file_name = "ukesm1-0-ll_r1i1p1f2_w5e5_ssp370_tas_global_daily_2015_2020.nc"
+bytes = 1239775178
+sha512 = "866519fc856a7a903bf05942d58d1e00164bbe6485fcd0956a108f5b2f0a6bb670483b2df76f8d125537089ad5f3635cb207955e84c6ef04b2d9ca516a32298e"
+finite_values = 568166400
+minimum_k = 189.21446228027344
+maximum_k = 320.07623291015625
+content_audit = "data/interim/isimip3b/ukesm1-0-ll_ssp370_tas_2015_2020_content_audit.json"
+result = "passed"
+
+[same_realization_gmst]
+source_id = "isimip3b-20210512-fce39d22-a04f-4dc0-8d99-251a76613128-0962dfad-00e7-4895-92fb-ba9a3f6517dd"
+years = [2015, 2016, 2017, 2018, 2019, 2020]
+daily_counts = [365, 366, 365, 365, 365, 366]
+values_k = [288.12583680618644, 288.11114430384407, 288.2591136545641, 288.3448516834937, 288.37775911336377, 288.3469265598351]
+output = "data/interim/isimip3b_ukesm_ssp370_smoke/same_realization_gmst_2015_2020.parquet"
+result = "passed"
+
+[bounded_feature_smoke]
+crop = "mai"
+irrigation = "noirr"
+harvest_years = [2016, 2017, 2018, 2019]
+latitude_index_start = 100
+latitude_index_stop_exclusive = 102
+season_rows = 2744
+stage_rows = 8232
+stage_fractions = [0.0, 0.3, 0.7, 1.0]
+season_output = "data/interim/isimip3b_ukesm_ssp370_smoke/mai_noirr_2016_2019_lat100_102_features.parquet"
+stage_output = "data/interim/isimip3b_ukesm_ssp370_smoke/mai_noirr_2016_2019_lat100_102_stages.parquet"
+reconciliation_audit = "data/interim/isimip3b_ukesm_ssp370_smoke/reconciliation_audit.json"
+reconciliation = "All seasonal and stage schema gates passed; stage days, precipitation, wet-day counts, and Rx1day reconcile exactly."
+
+[[comparison]]
+reference = "MRI-ESM2-0_r1i1p1f1_ssp370"
+output = "data/interim/isimip3b_ukesm_ssp370_smoke/ukesm_vs_mri_ssp370_feature_comparison.json"
+matched_rows = 2744
+mean_precip_difference_mm = -7.574100506926396
+precip_correlation = 0.873709552522873
+mean_timing_centroid_difference = -0.005449379157693788
+timing_centroid_correlation = 0.4035891902695935
+mean_cdd_max_difference_days = 1.397594752186589
+cdd_max_correlation = 0.6447195056249715
+mean_rx1day_difference_mm = 2.764231886378009
+rx1day_correlation = 0.7449468000623182
+
+[[comparison]]
+reference = "GFDL-ESM4_r1i1p1f1_ssp370"
+output = "data/interim/isimip3b_ukesm_ssp370_smoke/ukesm_vs_gfdl_ssp370_feature_comparison.json"
+matched_rows = 2744
+mean_precip_difference_mm = 2.5326248520941803
+precip_correlation = 0.8580553196067412
+mean_timing_centroid_difference = -0.020846116967408835
+timing_centroid_correlation = 0.4940936416165623
+mean_cdd_max_difference_days = 1.8451166180758019
+cdd_max_correlation = 0.6484297747920523
+mean_rx1day_difference_mm = -0.7071448401208565
+rx1day_correlation = 0.7205756534372292
+
+[[comparison]]
+reference = "IPSL-CM6A-LR_r1i1p1f1_ssp370"
+output = "data/interim/isimip3b_ukesm_ssp370_smoke/ukesm_vs_ipsl_ssp370_feature_comparison.json"
+matched_rows = 2744
+mean_precip_difference_mm = -12.845606092472204
+precip_correlation = 0.8704313376275793
+mean_timing_centroid_difference = -0.01795547261001345
+timing_centroid_correlation = 0.304670831384344
+mean_cdd_max_difference_days = 2.5787172011661808
+cdd_max_correlation = 0.6617076022734392
+mean_rx1day_difference_mm = -1.0626785647525905
+rx1day_correlation = 0.6556089015609756
+
+[[comparison]]
+reference = "MPI-ESM1-2-HR_r1i1p1f1_ssp370"
+output = "data/interim/isimip3b_ukesm_ssp370_smoke/ukesm_vs_mpi_ssp370_feature_comparison.json"
+matched_rows = 2744
+mean_precip_difference_mm = 1.2019474769402132
+precip_correlation = 0.8505471463253715
+mean_timing_centroid_difference = -0.02056263429273061
+timing_centroid_correlation = 0.4250904015079147
+mean_cdd_max_difference_days = -0.3844752186588921
+cdd_max_correlation = 0.6122265717241167
+mean_rx1day_difference_mm = 1.8249032557412503
+rx1day_correlation = 0.727974912808781
+
+[limitations]
+acquisition = "This complete-file cell covers pr/tas for 2015-2020 in one scenario. Historical continuity, tasmin/tasmax, other scenarios, and later decades remain absent for UKESM1-0-LL."
+feature_scope = "The feature smoke covers one crop/irrigation calendar, two latitude rows, and four years, not the global multi-crop matrix."
+inference = "The same-scenario cross-ESM comparisons are descriptive. Five bounded ESM cells provide the predeclared ESM product for this one smoke slice but are not fitted whole-ESM holdout scores; no feature response, baseline/pulse pair, damage, or SCC claim is authorized."
