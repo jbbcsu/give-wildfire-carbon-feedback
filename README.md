@@ -89,7 +89,8 @@ fully acquired. Both files pass exact byte, SHA-512, and decoded 3,652-day
 global-grid gates, and the paired `tas` yields ten annual same-realization GMST
 rows. A bounded two-latitude-row maize/rainfed smoke produces 5,488 seasonal
 and 16,464 stage rows for the eight preregistered harvest years with exact
-additive stage reconciliation. Joined holdouts and the support rerun remain
+additive stage reconciliation. The matching 2091--2100 pair and 2092--2099
+feature block pass the same gates. Joined holdouts and the support rerun remain
 open.
 The evidence-bounded manuscript and Methods/SI blueprints are in
 [MANUSCRIPT_OUTLINE.md](MANUSCRIPT_OUTLINE.md) and

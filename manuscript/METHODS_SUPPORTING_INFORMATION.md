@@ -427,9 +427,10 @@ passed exact byte, SHA-512, and decoded global 0.5-degree, 3,652-day content
 gates. `pr` has zero missing or negative values; `tas` has zero missing values
 and produces ten annual same-realization GMST rows. The bounded two-latitude-
 row maize/rainfed feature smoke yields 5,488 seasonal and 16,464 stage rows for
-2042--2049 and passes exact additive reconciliation. These are two of 60 file
-gates and one bounded feature block; they do not substitute for joined holdouts
-or the support sequence.
+2042--2049 and passes exact additive reconciliation. The matching 2091--2100
+pair and 2092--2099 bounded feature block pass the same gates. These are four
+of 60 file gates and two bounded feature blocks; they do not substitute for
+joined holdouts or the support sequence.
 
 Whole ESMs and whole scenarios, not random years alone, are held out. STITCHES
 supplies a sequence-preserving benchmark; MESMER-M-TP plus a published daily

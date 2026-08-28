@@ -196,8 +196,9 @@ passes full SHA-512 and decoded 3,652-day global-grid content gates. `pr` has no
 missing or negative values; `tas` has no missing values and produces ten
 annual same-realization GMST rows. The preregistered eight harvest years then
 produce 5,488 seasonal and 16,464 stage maize/rainfed rows on the bounded two-
-latitude-row smoke, with exact additive reconciliation. This closes two of 60
-file gates and one feature block; joined holdouts and support remain open.
+latitude-row smoke, with exact additive reconciliation. The matching 2091--
+2100 pair and 2092--2099 feature block pass the same gates. This closes four of
+60 file gates and two feature blocks; joined holdouts and support remain open.
 
 ## Known limitations and fallbacks
 

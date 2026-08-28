@@ -329,8 +329,9 @@ The first registered GFDL SSP1-2.6 `pr`/`tas` pair for 2041--2050 passes full
 SHA-512 and decoded 3,652-day content gates. The paired `tas` also produces ten
 annual same-realization GMST rows. The bounded two-latitude-row maize/rainfed
 smoke produces 5,488 seasonal and 16,464 stage rows for 2042--2049 with exact
-additive reconciliation. Joined holdouts and every downstream support gate
-remain open.
+additive reconciliation. The matching 2091--2100 pair and 2092--2099 bounded
+feature block pass the same gates. Joined holdouts and every downstream support
+gate remain open.
 No yield is attached to these smokes and no climate-feature response has been
 fitted. The evidence establishes software behavior, not future agricultural
 damages.
