@@ -31,7 +31,30 @@
     "path": "data/interim/us_county/nass_national_all_practice_panel_1981_2019_geography_gate.csv",
     "sha256": "5194ff66eab5dfff82dacb610c221463918f9f9b4b4d9332ffa4c0f9cb047993"
   },
-  "next_safe_step": "Audit the nClimGrid mask intersection and TIGER declared-land denominator for GEOID 21221, then preregister any exclusion or sensitivity rule before resuming.",
+  "mask_stability_check": {
+    "all_three_area_results_identical": true,
+    "months": [
+      {
+        "bytes": 59955310,
+        "path": "data/raw/us_county/nclimgrid_daily/ncdd-198101-grd-scaled.nc",
+        "sha256": "be5a49942fdd4e2bde9b9515c7bc1223edb5ef68a53ac6aaa9da6b9890cff648"
+      },
+      {
+        "bytes": 57178041,
+        "path": "data/raw/us_county/nclimgrid_daily/ncdd-200007-grd-scaled.nc",
+        "sha256": "c886009a34529a2cf61b79b3fc759c5ebc960725dabb892e3e38996381c7590b"
+      },
+      {
+        "bytes": 63547388,
+        "path": "data/raw/us_county/nclimgrid_daily/ncdd-201901-grd-scaled.nc",
+        "sha256": "67b850d051c0449a70483b5233f302faadbad729e6054baf0a4e8177574f1152"
+      }
+    ],
+    "positive_weather_cells_each": 77,
+    "weather_masked_intersection_area_m2_each": 209051009.18304303,
+    "weather_valid_area_relative_to_declared_land_each": 0.9072679793176278
+  },
+  "next_safe_step": "Audit the structural nClimGrid mask/TIGER land mismatch for GEOID 21221 and preregister any exclusion or sensitivity rule before resuming; three separated months have identical area results.",
   "raw_observations_embedded": false,
   "registered_counties": 2628,
   "relationship_estimated": false,

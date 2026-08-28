@@ -109,9 +109,11 @@ is 0.907267979 of TIGER-declared land area, below the preregistered 0.95 gate.
 The gate was not relaxed and the county was not silently excluded. The exact
 failure and source/code hashes are recorded in
 `data/provenance/us_national_all_practice_nclimgrid_weight_checkpoint_20260828.json`.
-Before resumption, the masked nClimGrid intersection and TIGER land-area
-denominator require a source-level audit and an outcome-blind exclusion or
-sensitivity rule if the mismatch is genuine.
+The same 77 valid cells, 209,051,009 m2 masked intersection, and 0.907267979
+land-relative coverage recur exactly for January 1981, July 2000, and January
+2019, so this is not a one-month missingness artifact. Before resumption, the
+structural nClimGrid mask/TIGER land-area mismatch requires a source-level
+audit and an outcome-blind exclusion or sensitivity rule.
 
 Because this route has one all-practice outcome per crop-county-year, its
 feature output explicitly records a one-to-one exposure application and does
