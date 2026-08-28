@@ -45,9 +45,16 @@ It finds 499 reported corn zero-yield county-years across 150 counties and 217
 consecutive spells; 419 rows pass the fixed geography gate, but only 45 have a
 usable fixed-2017 irrigation share and only 7 meet the 10% high-rainfed
 selector. The longest zero spell is 10 years, while 118 rows have an adjacent
-positive observation. These counts show that zeroes are neither a single
-isolated coding anomaly nor adequately supported for the primary high-rainfed
-estimand. No two-part or alternative outcome model is selected.
+positive observation. Every reported zero lies in 1998--2009 despite 17
+declared source years before and 10 after that interval, and the five most
+represented states account for 73.55% of zero rows. Of the 118 rows with an
+adjacent positive observation, 111 pass the geography gate, only 15 have an
+eligible fixed irrigation share, and 4/5/5 meet the 10/20/30% high-rainfed
+selectors. These counts show that zeroes are neither a single isolated coding
+anomaly nor adequately supported for the primary high-rainfed estimand; their
+temporal and state concentration also rules out silently treating them as a
+generic crop-failure signal. No two-part or alternative outcome model is
+selected.
 
 ## Reproducible route
 

@@ -31,6 +31,12 @@ geography = pd.DataFrame({"county_geoid": ["01001"], "feature_construction_eligi
 result = audit(corn, positive, geography, config)
 assert result["reported_zero_rows"] == 2 and result["zero_spell_count"] == 1
 assert result["zero_spell_max_years"] == 2 and result["rows_with_adjacent_positive_observation"] == 2
+assert result["first_reported_zero_year"] == 2001 and result["last_reported_zero_year"] == 2002
+assert result["declared_years_before_first_zero"] == 1 and result["declared_years_after_last_zero"] == 1
+assert result["top_five_state_row_share"] == 1.0 and result["state_row_concentration_hhi"] == 1.0
+assert result["geography_eligible_rows_with_adjacent_positive"] == 2
+assert result["irrigation_share_eligible_rows_with_adjacent_positive"] == 2
+assert result["rainfed_dominant_rows_with_adjacent_positive"] == {"10": 2, "20": 2, "30": 2}
 
 
 def must_fail(corn_frame: pd.DataFrame) -> None:

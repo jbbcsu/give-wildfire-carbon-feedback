@@ -413,8 +413,14 @@ corn source contains 499 reported zero-yield county-years in 150 counties and
 217 spells. Of these, 419 rows pass the fixed geography gate, only 45 have a
 usable fixed-2017 irrigation share, and only seven meet the 10% high-rainfed
 selector. The longest spell is 10 years and 118 rows have an adjacent positive
-observation. The audit retains rather than recodes zeroes, but it does not
-choose a two-part outcome model or estimate a response.
+observation. All reported zeroes occur during 1998--2009 even though the
+declared source spans 17 earlier and 10 later years, and the five most
+represented states contain 73.55% of the zero rows. Among adjacent-positive
+rows, only 15 have an eligible fixed irrigation share and 4/5/5 meet the
+10/20/30% high-rainfed selectors. The audit retains rather than recodes
+zeroes, but their temporal and geographic concentration prevents treating
+them as a generic crop-failure signal; it does not choose a two-part outcome
+model or estimate a response.
 
 **Regional U.S. competing-moisture diagnostic.** The registered NASS/
 nClimGrid/PDSI comparison retains 23,722 corn/soy crop--county--practice-year

@@ -2,14 +2,18 @@
   "all_practice_outcome_not_direct_rainfed_yield": true,
   "config": {
     "path": "us_county_validation/us_national_zero_yield_support_v1.toml",
-    "sha256": "83254a4e9c400d59640525732c81997c150fa66fc90aa9acf6ddd6ac7591fa65"
+    "sha256": "c6dd85e9b4ab4eea973628325cb44312661c86a7b95d1d03ff3acd1092b93b7c"
   },
   "damage_or_scc_authorized": false,
+  "declared_years_after_last_zero": 10,
+  "declared_years_before_first_zero": 17,
+  "first_reported_zero_year": 1998,
   "geography_eligible_counties": 130,
   "geography_eligible_rows": 419,
+  "geography_eligible_rows_with_adjacent_positive": 111,
   "implementation": {
     "path": "us_county_validation/scripts/audit_us_national_zero_yield_support.py",
-    "sha256": "de51b8b399ce5b1f5f8b93cea6ddaa735a3a02bddf83d4ecaa963498831b04a3"
+    "sha256": "38cd539f8107c229dbc9b837bfae3fae0c30dbea1fead80565794583571df1ca"
   },
   "inputs": {
     "corn_source": {
@@ -29,10 +33,17 @@
     }
   },
   "irrigation_share_eligible_rows": 45,
+  "irrigation_share_eligible_rows_with_adjacent_positive": 15,
+  "last_reported_zero_year": 2009,
   "rainfed_dominant_rows": {
     "10": 7,
     "20": 8,
     "30": 8
+  },
+  "rainfed_dominant_rows_with_adjacent_positive": {
+    "10": 4,
+    "20": 5,
+    "30": 5
   },
   "registered_utc_date": "2026-08-27",
   "relationship_estimated": false,
@@ -75,6 +86,15 @@
   },
   "rows_with_adjacent_positive_observation": 118,
   "schema": "us_national_zero_yield_support_audit_v1",
+  "state_row_concentration_hhi": 0.15516001943767294,
+  "top_five_state_row_share": 0.7354709418837675,
+  "top_five_states_by_zero_rows": {
+    "CA": 43,
+    "NM": 35,
+    "OR": 77,
+    "VA": 156,
+    "WA": 56
+  },
   "zero_outcome_model_selected": false,
   "zero_spell_count": 217,
   "zero_spell_length_counts": {

@@ -14,6 +14,8 @@ expected_reported_zero_rows = 499
 rule = "Describe reported zero-yield support without log-transforming, replacing, winsorizing, or estimating a response."
 sequence_rule = "Count exact consecutive zero spells within county and whether an adjacent observed county-year is positive."
 irrigation_rule = "Join only the fixed 2017 share flags already attached to the positive panel; missing shares remain missing and the all-practice outcome is never relabeled rainfed."
+concentration_rule = "Report the exact first/last zero year, declared zero-free years before/after, top-five-state share, and state-row HHI without assigning a biological or reporting cause."
+intersection_rule = "Report adjacent-positive support jointly with geography, fixed irrigation-share, and high-rainfed eligibility; never infer unsupported intersections."
 
 [limitations]
 zero_outcome_model_selected = false

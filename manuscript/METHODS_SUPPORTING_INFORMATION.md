@@ -236,9 +236,14 @@ The positive log-yield construction separately exposes the 499 reported corn
 zeroes in its source table. A source/hash-bound support audit counts 150
 counties, 217 consecutive spells, and a maximum 10-year spell; 419 zero rows
 pass the fixed geography gate, 45 have a usable fixed-2017 irrigation share,
-and 7/8/8 meet the 10/20/30% high-rainfed selectors. No zero is replaced or
-log-transformed, and the audit emits no coefficient. A zero-retaining outcome
-model remains a required, separately preregistered sensitivity.
+and 7/8/8 meet the 10/20/30% high-rainfed selectors. It also records that all
+zeroes lie in 1998--2009, the five leading states contain 73.55% of zero rows,
+and only 15 adjacent-positive rows have an eligible irrigation share (4/5/5
+meet the three high-rainfed selectors). No zero is replaced or log-
+transformed, and the audit emits no coefficient. A zero-retaining outcome
+model remains a required, separately preregistered sensitivity; temporal and
+state concentration prohibit interpreting reported zeroes as a generic crop-
+failure signal.
 
 The mutually exclusive moisture-family screen compares: common stage-mean
 temperature controls only; controls plus seasonal precipitation total;
