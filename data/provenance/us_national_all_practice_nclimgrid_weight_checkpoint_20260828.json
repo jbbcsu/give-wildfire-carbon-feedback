@@ -1,0 +1,50 @@
+{
+  "analysis_role": "national_all_practice_county_weather_weight_checkpoint_not_response_damage_or_scc",
+  "checked_date": "2026-08-28",
+  "completed_county_receipts": 932,
+  "contract": {
+    "path": "us_county_validation/us_national_all_practice_nclimgrid_features_v1.toml",
+    "sha256": "8ebde45194ea8082701dab1db9c31335c49d87d9d7252e9eca23dd5fcde70217"
+  },
+  "failure": {
+    "county_geoid": "21221",
+    "county_name": "Trigg",
+    "county_polygon_area_m2_epsg5070": 1246636802.6593332,
+    "declared_land_area_m2": 1143637621,
+    "declared_water_area_m2": 102999105,
+    "exact_message": "county/weather-valid area relative to declared land 0.907267979 fails for 21221",
+    "geometric_grid_coverage_fraction": 0.9999999999999994,
+    "intersected_weather_valid_area_m2": 1037585793.476289,
+    "observed_weather_valid_area_relative_to_declared_land": 0.907267979,
+    "positive_weather_cells": 77,
+    "registered_minimum_weather_valid_area_relative_to_declared_land": 0.95,
+    "state": "KY",
+    "weather_masked_intersection_area_m2": 209051009.18304303,
+    "weather_valid_polygon_coverage_fraction": 0.8323080076433687
+  },
+  "failure_diagnostic": {
+    "partition_written": false,
+    "purpose": "read_only_recomputation_of_area_terms_after_registered_gate_failure",
+    "temporary_diagnostic_minimum": 0.9
+  },
+  "geography_gate": {
+    "path": "data/interim/us_county/nass_national_all_practice_panel_1981_2019_geography_gate.csv",
+    "sha256": "5194ff66eab5dfff82dacb610c221463918f9f9b4b4d9332ffa4c0f9cb047993"
+  },
+  "next_safe_step": "Audit the nClimGrid mask intersection and TIGER declared-land denominator for GEOID 21221, then preregister any exclusion or sensitivity rule before resuming.",
+  "raw_observations_embedded": false,
+  "registered_counties": 2628,
+  "relationship_estimated": false,
+  "route_launcher": {
+    "path": "us_county_validation/scripts/run_us_national_all_practice_nclimgrid_route.py",
+    "sha256": "6a2b00ccd9c5fcd736cc88d7f245290197193841e953ae67df07f0aa26336352"
+  },
+  "scc_authorized": false,
+  "schema": "us_national_all_practice_nclimgrid_weight_checkpoint_v1",
+  "status": "failed_closed_on_registered_weather_valid_area_gate",
+  "threshold_relaxed": false,
+  "weight_builder": {
+    "path": "us_county_validation/scripts/build_us_national_county_nclimgrid_weights.py",
+    "sha256": "616d51231ac37cc348250419d60a698219da5d81f3f21a45023579dab69cb9c8"
+  }
+}

@@ -103,6 +103,16 @@ to the `national_all_practice_v1` weight tree, and resumes a county only when
 its current input identity, output hash, and receipt validate.  `--force` is
 intentionally absent from the reviewed full command.
 
+The first full-scope execution has now validated 932 county receipts and then
+failed closed at Trigg County, Kentucky (GEOID 21221). Its weather-valid area
+is 0.907267979 of TIGER-declared land area, below the preregistered 0.95 gate.
+The gate was not relaxed and the county was not silently excluded. The exact
+failure and source/code hashes are recorded in
+`data/provenance/us_national_all_practice_nclimgrid_weight_checkpoint_20260828.json`.
+Before resumption, the masked nClimGrid intersection and TIGER land-area
+denominator require a source-level audit and an outcome-blind exclusion or
+sensitivity rule if the mismatch is genuine.
+
 Because this route has one all-practice outcome per crop-county-year, its
 feature output explicitly records a one-to-one exposure application and does
 not carry the direct route's `weather_exposure_shared_across_practices` flag.
@@ -122,3 +132,6 @@ not carry the direct route's `weather_exposure_shared_across_practices` flag.
   outcome itself rainfed.
 - The bounded smoke validates data plumbing and lineage only.  Predictive and
   causal validation remain separate gates.
+- The full county-weight build is currently fail-closed at GEOID 21221 under
+  the registered weather-valid-area threshold; 932 of 2,628 receipts are
+  complete and no national feature panel is authorized from that partial set.
