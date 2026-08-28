@@ -1,0 +1,149 @@
+{
+  "acquisition_and_preparation_counts": {
+    "api_response_objects": 78,
+    "corn_reported_fips_county_records": 76340,
+    "excluded_non_fips_aggregate_records": 8381,
+    "prepared_positive_yield_panel_rows": 137792,
+    "raw_api_records_including_non_fips_aggregates": 146672,
+    "reported_fips_county_records": 138291,
+    "rows_removed_by_geography_calendar_gate": 1253,
+    "soy_reported_fips_county_records": 61951,
+    "suppressed_or_nonnumeric_fips_county_records": 0,
+    "zero_yield_rows_excluded_from_log_yield_panel": 499
+  },
+  "bounded_smoke": {
+    "county_geoid": "22001",
+    "crop_county_years": 1,
+    "feature_input_fingerprint_sha256": "e3464fb3c96609137ac5496caaeeb8558d9a97f12d82640939521e102e55fdc6",
+    "feature_output": {
+      "path": "data/interim/us_county/nclimgrid_features_national_all_practice_v1/smoke/harvest_year=2019/counties=ac388878a939/features.parquet",
+      "sha256": "11aa80f31a43ef447a35a393a153246874eeecd02a61f21ea5a76bae8461bdff",
+      "size_bytes": 52955
+    },
+    "feature_receipt": {
+      "path": "data/interim/us_county/nclimgrid_features_national_all_practice_v1/smoke/harvest_year=2019/counties=ac388878a939/receipt.json",
+      "sha256": "08ecac9b41ab74cffcfc552d45d81bc053be794269f8902e31b885da8b09c0b6",
+      "size_bytes": 10678
+    },
+    "harvest_year": 2019,
+    "irrigation_practice": "all_practices",
+    "manifest_requested_counties": 1,
+    "outcome_rows": 1,
+    "output_key_sha256": "888917f6ba28ad6e3e62b86e3edc39bf0c3ce25606ef2bc9969851b420cd96ad",
+    "weather_exposure_application": "one_county_crop_year_exposure_joined_to_one_all_practices_outcome",
+    "weather_month_objects": 5,
+    "weight_input_fingerprint_sha256": "03e959c92fe61af4f34060695a7979d19e448439420c841b80fedbbc7b671ba5",
+    "weight_manifest": {
+      "path": "outputs/us_county/national_all_practice_nclimgrid_features_v1/weights/subset_ac388878a939_manifest.json",
+      "sha256": "a8f26ca400f7d69604a8ec66a0c5abf2337407da62a9380246c15664d9cc7924",
+      "size_bytes": 1898
+    },
+    "weight_output": {
+      "path": "data/interim/us_county/nclimgrid_polygon_weights_national_all_practice_v1/county_geoid=22001/weights.parquet",
+      "sha256": "682fa5b91284099dd0e3089786f6f1719561101ea9ace99c4f3fa7fed5abef6d",
+      "size_bytes": 18192
+    },
+    "weight_receipt": {
+      "path": "data/interim/us_county/nclimgrid_polygon_weights_national_all_practice_v1/county_geoid=22001/receipt.json",
+      "sha256": "05053b6e10ce3b29b722b3947e800bae9da82321e9e02444f908934a6a6c8521",
+      "size_bytes": 3925
+    },
+    "weight_rows": 119
+  },
+  "causal_effect_estimated": false,
+  "coefficients_emitted": false,
+  "damage_estimated": false,
+  "geography_gate_rows": 2657,
+  "inputs": {
+    "contract": {
+      "path": "us_county_validation/us_national_all_practice_nclimgrid_features_v1.toml",
+      "sha256": "8ebde45194ea8082701dab1db9c31335c49d87d9d7252e9eca23dd5fcde70217",
+      "size_bytes": 3608
+    },
+    "corn_preparation_receipt": {
+      "path": "outputs/us_county/nass_national_all_practice_1981_2019/corn_prepare_audit.json",
+      "sha256": "171316e0c3ea1547b8dd9b5c1be2afe9a4136c4b8da4396c29d99a39f0697859",
+      "size_bytes": 3408
+    },
+    "fixed_calendar": {
+      "path": "data/interim/us_county/nass_usual_date_calendars_1981_2022.csv",
+      "sha256": "f3ed5d2932b3f709483f7d0064733d8dab9d783baa56384328c49da7b633fcb8",
+      "size_bytes": 3430111
+    },
+    "geography_gate": {
+      "path": "data/interim/us_county/nass_national_all_practice_panel_1981_2019_geography_gate.csv",
+      "sha256": "5194ff66eab5dfff82dacb610c221463918f9f9b4b4d9332ffa4c0f9cb047993",
+      "size_bytes": 373873
+    },
+    "geography_receipt": {
+      "path": "outputs/us_county/nass_national_all_practice_1981_2019/geography_audit.json",
+      "sha256": "77340bf95e0d67f575055f62297ad840addb68d2b5d1c481ec5e894f090f248e",
+      "size_bytes": 1169
+    },
+    "nass_api_manifest": {
+      "path": "data/raw/us_county/nass_api/national_all_practice_1981_2019/MANIFEST.jsonl",
+      "sha256": "da376737e60fc79f71e11437a9c2538c47d22fabb1e077a8787abea06438edbe",
+      "size_bytes": 90636
+    },
+    "panel_preparation_receipt": {
+      "path": "outputs/us_county/nass_national_all_practice_1981_2019/panel_prepare_audit.json",
+      "sha256": "e0ffbc8563cab2460b47a85fd8778fcc6fd9d448ac027f81e0c6b8e96a526457",
+      "size_bytes": 2286
+    },
+    "prepared_panel": {
+      "path": "data/interim/us_county/nass_national_all_practice_panel_1981_2019.parquet",
+      "sha256": "9fc15801d5c6ec82b8c8ec2cb2edcb10db3ff674a36c61c6b5dc2268a8353e11",
+      "size_bytes": 346597
+    },
+    "soy_preparation_receipt": {
+      "path": "outputs/us_county/nass_national_all_practice_1981_2019/soybeans_prepare_audit.json",
+      "sha256": "43dafde9637feebf2716e73dd1b1ea5f7351709b4b223afdf7cc93c3f7c5e034",
+      "size_bytes": 3427
+    }
+  },
+  "prepared_panel_rows_before_geography_calendar_gate": 137792,
+  "prepared_panel_unique_counties": 2657,
+  "raw_observations_embedded": false,
+  "registered_support": {
+    "corn_crop_county_years": 75089,
+    "eligible_counties": 2628,
+    "eligible_crop_county_years": 136539,
+    "eligible_practice_rows": 136539,
+    "outcome_key_sha256": "b062eb90384678548e789f83e14773b44fd814744ad0e6cbfe0e0199976750a4",
+    "pair_key_sha256": "f8e0ee81d6c0679773cebbb113f89d44f3ba16fbb0ee4cc5751a71ee89049ef5",
+    "relationship_estimated": false,
+    "scc_authorized": false,
+    "soy_crop_county_years": 61450,
+    "state_count": 41,
+    "year_max": 2019,
+    "year_min": 1981
+  },
+  "relationship_estimated": false,
+  "route_id": "us_national_all_practice_nclimgrid_features_v1",
+  "row_predictions_emitted": false,
+  "scc_authorized": false,
+  "schema": "us_national_all_practice_nclimgrid_bounded_smoke_receipt_v1",
+  "script_lineage": {
+    "feature_builder": {
+      "path": "us_county_validation/scripts/build_us_national_all_practice_nclimgrid_features.py",
+      "sha256": "ee6ce14d68386270beb2e6c366084ddf43fa9f4afcef093d41daf22fef7bbc87",
+      "size_bytes": 18631
+    },
+    "feature_calculation_module": {
+      "path": "us_county_validation/scripts/build_us_national_nclimgrid_features.py",
+      "sha256": "143cbe6907d50aa01ec7206b70926fefd4ac6e7663d13e1ccce6944b088709cb",
+      "size_bytes": 48001
+    },
+    "route_launcher": {
+      "path": "us_county_validation/scripts/run_us_national_all_practice_nclimgrid_route.py",
+      "sha256": "6a2b00ccd9c5fcd736cc88d7f245290197193841e953ae67df07f0aa26336352",
+      "size_bytes": 23288
+    },
+    "weight_builder": {
+      "path": "us_county_validation/scripts/build_us_national_county_nclimgrid_weights.py",
+      "sha256": "616d51231ac37cc348250419d60a698219da5d81f3f21a45023579dab69cb9c8",
+      "size_bytes": 25292
+    }
+  },
+  "status": "bounded_one_county_one_year_weather_features_validated_not_fitted"
+}

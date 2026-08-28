@@ -82,6 +82,14 @@ not implied by a passing smoke.  Full weights require explicit
 `weights --all-counties`; a full year requires explicit
 `feature --year YYYY --complete-year`.
 
+A second, source-bound southern-support smoke uses Acadia Parish, Louisiana
+(GEOID 22001) in 2019. It validates 119 positive polygon/grid intersections,
+five exact monthly weather objects, and one supported soybean crop-county-year
+feature row. Its tracked receipt is
+`data/provenance/us_national_all_practice_nclimgrid_southern_smoke_20260828.json`.
+This extends the route check beyond the original Nebraska engineering case;
+it is still one county-year, not national validation or a fitted response.
+
 Reviewed resumable full-weight command (not run in this bounded phase):
 
 ```bash

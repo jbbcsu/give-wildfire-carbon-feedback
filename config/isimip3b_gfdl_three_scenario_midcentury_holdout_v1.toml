@@ -1,0 +1,47 @@
+schema = "isimip3b_gfdl_three_scenario_midcentury_holdout_config_v1"
+role = "outcome_blind_joined_three_scenario_midcentury_feature_holdout_and_support_audit_not_emulator_damage_or_scc"
+registered_utc_date = "2026-08-28"
+
+[selection]
+esm_id = "GFDL-ESM4"
+member_id = "r1i1p1f1"
+crop = "mai"
+irrigation = "noirr"
+latitude_indices = "100:102"
+year_start = 2042
+year_end = 2049
+expected_scenarios = ["ssp126", "ssp370", "ssp585"]
+expected_feature_families = ["tmean_c", "precip_mm", "wet_days_n", "cdd_max_days", "rx1day_mm", "rx5day_mm", "stage1_precip_share", "stage2_precip_share", "stage3_precip_share", "precipitation_timing_centroid", "precipitation_concentration_hhi"]
+
+[[cells]]
+scenario = "ssp126"
+season_path = "data/interim/isimip3b_gfdl_ssp126_2041_2050_smoke/mai_noirr_2042_2049_lat100_102_features.parquet"
+stage_path = "data/interim/isimip3b_gfdl_ssp126_2041_2050_smoke/mai_noirr_2042_2049_lat100_102_stages.parquet"
+gmst_path = "data/interim/isimip3b/gfdl-esm4_r1i1p1f1_ssp126_gmst_2041_2050.parquet"
+
+[[cells]]
+scenario = "ssp370"
+season_path = "data/interim/isimip3b_gfdl_ssp370_2041_2050_smoke/mai_noirr_2042_2049_lat100_102_features.parquet"
+stage_path = "data/interim/isimip3b_gfdl_ssp370_2041_2050_smoke/mai_noirr_2042_2049_lat100_102_stages.parquet"
+gmst_path = "data/interim/isimip3b/gfdl-esm4_r1i1p1f1_ssp370_gmst_2041_2050.parquet"
+
+[[cells]]
+scenario = "ssp585"
+season_path = "data/interim/isimip3b_gfdl_ssp585_2041_2050_smoke/mai_noirr_2042_2049_lat100_102_features.parquet"
+stage_path = "data/interim/isimip3b_gfdl_ssp585_2041_2050_smoke/mai_noirr_2042_2049_lat100_102_stages.parquet"
+gmst_path = "data/interim/isimip3b/gfdl-esm4_r1i1p1f1_ssp585_gmst_2041_2050.parquet"
+
+[evaluation]
+split = "leave_one_whole_scenario_out"
+model = "training_cell_mean_plus_common_within_cell_gmst_slope"
+benchmark = "training_cell_mean"
+support_rule = "for_each_held_out_scenario_cell_feature_flag_below_within_or_above_the_exact_two_scenario_training_minimum_and_maximum"
+
+[limitations]
+complete_three_scenario_midcentury_matrix = true
+whole_scenario_holdouts = true
+whole_esm_holdouts = false
+fair_baseline_pulse_feature_support = false
+paired_baseline_pulse_paths = false
+response_estimation_authorized = false
+damage_or_scc_authorized = false

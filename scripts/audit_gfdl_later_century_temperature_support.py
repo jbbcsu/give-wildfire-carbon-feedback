@@ -20,7 +20,7 @@ EXPECTED_SCENARIO_YEARS = {
     "historical": set(range(2011, 2015)),
     "ssp126": set(range(2015, 2021)) | set(range(2041, 2051)) | set(range(2091, 2101)),
     "ssp370": set(range(2015, 2021)) | set(range(2041, 2051)),
-    "ssp585": set(range(2015, 2021)),
+    "ssp585": set(range(2015, 2021)) | set(range(2041, 2051)),
 }
 
 
@@ -66,8 +66,8 @@ def validate_gmst_coverage(frame: pd.DataFrame) -> dict[str, list[int]]:
 
 
 def audit(pairs_path: Path, gmst_paths: list[Path]) -> dict[str, object]:
-    if len(gmst_paths) != 7 or len(set(gmst_paths)) != len(gmst_paths):
-        raise ValueError("expanded support requires the seven unique fixed GMST inputs")
+    if len(gmst_paths) != 8 or len(set(gmst_paths)) != len(gmst_paths):
+        raise ValueError("expanded support requires the eight unique fixed GMST inputs")
     pairs = pd.read_parquet(pairs_path)
     member_counts = pairs.groupby("esm_id")["member_id"].nunique()
     if (member_counts != 1).any():

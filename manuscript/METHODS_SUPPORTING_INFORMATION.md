@@ -74,6 +74,13 @@ inputs can change without a version bump; every monthly object is pinned
 independently. The real Cuming construction is an exposure-engineering check,
 not a response estimate or precipitation trend.
 
+The isolated all-practice route was also exercised for Acadia Parish,
+Louisiana (GEOID 22001) in 2019. The hash-bound receipt retains 119 positive
+polygon/grid intersections, five monthly weather inputs, and one supported
+soybean crop-county-year feature row. This geographically distinct check
+validates plumbing and lineage only; it is not a national sample or a climate--
+yield estimate.
+
 A complete bounded acquisition now records all 468 canonical monthly objects
 for 1981--2019, totaling exactly 27,857,685,556 bytes (25.944 GiB). Before each
 object entered the atomic local manifest, the utility required the frozen HTTP
@@ -438,13 +445,21 @@ SSP3-7.0 2041--2050 pair and 2042--2049 feature block pass the identical
 checks. Their exact-key comparison with SSP1-2.6 uses 5,488 seasonal rows and
 finds mean SSP3-7.0-minus-SSP1-2.6 differences of +0.574 C, -18.33 mm
 seasonal precipitation, -1.11 wet days, +3.20 maximum dry-spell days, -1.99 mm
-Rx1day, and -4.07 mm Rx5day. These are six of 60 file gates and three bounded
-feature blocks, not a response estimate. A separate audit revalidates the
-existing paired FAIR paths and reclassifies temperature support against the
-expanded GFDL GMST range (287.659--288.759 K). The mapped baseline is within
-that temperature envelope for 2012--2058 rather than 2012--2020, with first
-above-support year 2059. This is temperature support only: joined holdouts and
-feature-family support have not been rerun.
+Rx1day, and -4.07 mm Rx5day. The registered SSP5-8.5 2041--2050 pair and
+bounded feature block pass the same content, GMST, and reconciliation gates.
+These are eight of 60 file gates and four bounded feature blocks, not a
+response estimate. The preregistered three-SSP midcentury join contains
+181,104 rows across 11 feature families. Leave-one-scenario-out GMST adjustment
+improves 14/33 comparisons versus the cell-mean benchmark; its median RMSE
+ratio is 1.00036, maximum is 1.06410, and the SSP5-8.5 holdout improves only
+1/11. Per-cell/family support flags classify 20,562/181,104 held-out values
+(11.35%) outside the exact two-scenario envelope. These flags describe climate
+holdouts, not FAIR baseline/pulse feature support. A separate audit revalidates
+the existing paired FAIR paths and reclassifies temperature support against
+the expanded GFDL GMST range (287.659--288.900 K). The mapped baseline is
+within that temperature envelope for 2012--2066 rather than 2012--2020, with
+first above-support year 2067. Whole-ESM and FAIR feature-support gates remain
+open, and the adverse scenario result prohibits promotion.
 
 Whole ESMs and whole scenarios, not random years alone, are held out. STITCHES
 supplies a sequence-preserving benchmark; MESMER-M-TP plus a published daily

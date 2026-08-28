@@ -1,0 +1,129 @@
+schema_version = 1
+checked_utc_date = "2026-08-28"
+role = "third_scenario_midcentury_complete_pr_tas_same_realization_gmst_bounded_feature_and_joined_holdout_gate_not_response_damage_or_scc"
+source_catalogue = "https://data.isimip.org/api/v1/datasets/"
+resource_doi = "10.48364/ISIMIP.842396.1"
+rights = "CC0 1.0"
+dataset_version = "20210512"
+plan_config = "config/isimip3b_later_century_expansion_v1.toml"
+plan_config_sha256 = "d23e68a32ddf26194477acb7f2bca18cedbf050844ada859bc05fbbd7f27d963"
+plan_snapshot = "data/provenance/isimip3b_later_century_plan.csv"
+plan_snapshot_sha256 = "19a93485a9d51dade6328daadca540a48bb946a13d85cf276d3b77cc1f195767"
+esm = "GFDL-ESM4"
+member = "r1i1p1f1"
+scenario = "ssp585"
+period_start_year = 2041
+period_end_year = 2050
+
+[precipitation]
+dataset_id = "4beceb4b-4626-4026-96d1-6d3544981eb4"
+file_id = "a1a4f988-d018-452e-b5fa-6e33cedcf175"
+file_name = "gfdl-esm4_r1i1p1f1_w5e5_ssp585_pr_global_daily_2041_2050.nc"
+bytes = 2074270346
+sha512 = "f94f573a7fb430c6eabbe9139b1fe59e03800503268ac6ca082094e8828e25cf06f66e4c71a3333b58a29f138f180cc0a817f92bf680aa770602ead0d3676ca1"
+content_audit = "data/interim/isimip3b/gfdl-esm4_ssp585_pr_2041_2050_content_audit.json"
+validator = "scripts/validate_isimip3b_pr_content.py"
+validator_sha256 = "1634ee42acce3392ac14d69eeb35c307924dcbef49499ff9b01cafd2a9312710"
+calendar = "proleptic_gregorian"
+start_time = "2041-01-01T00:00:00"
+end_time = "2050-12-31T00:00:00"
+daily_steps = 3652
+grid = "360 x 720 global 0.5 degree; latitude descending; longitude -179.75 to 179.75"
+units = "kg m-2 s-1"
+finite_values = 946598400
+missing_values = 0
+negative_values = 0
+zero_values = 356497719
+minimum_flux = 0.0
+maximum_flux = 0.0069444444961845875
+result = "passed"
+
+[paired_temperature]
+dataset_id = "9bb93283-4b22-4c18-825e-c12f30b8f114"
+file_id = "5fbc43f5-2529-4a07-a245-cc63486067e4"
+file_name = "gfdl-esm4_r1i1p1f1_w5e5_ssp585_tas_global_daily_2041_2050.nc"
+bytes = 2052533302
+sha512 = "2decc93540e031939b45919de1a0bc5b5b8651f01d4bee562dd6cb71606c60801b4663be7fe078972b4b7c6629fb68176b7437e8810412ce4dd9abf98d44a0fc"
+content_audit = "data/interim/isimip3b/gfdl-esm4_ssp585_tas_2041_2050_content_audit.json"
+validator = "scripts/validate_isimip3b_tas_content.py"
+validator_sha256 = "d5876ecc3682d94c991659cb14dd7a582ec0684fdd77e3ecfb6c2bec8b503b0f"
+calendar = "proleptic_gregorian"
+start_time = "2041-01-01T00:00:00"
+end_time = "2050-12-31T00:00:00"
+daily_steps = 3652
+grid = "360 x 720 global 0.5 degree; latitude descending; longitude -179.75 to 179.75"
+units = "K"
+finite_values = 946598400
+missing_values = 0
+minimum_temperature_k = 193.5868682861328
+maximum_temperature_k = 319.00543212890625
+result = "passed"
+
+[same_realization_gmst]
+builder = "scripts/build_same_realization_gmst.py"
+source_id = "isimip3b-20210512-9bb93283-4b22-4c18-825e-c12f30b8f114-5fbc43f5-2529-4a07-a245-cc63486067e4"
+output = "data/interim/isimip3b/gfdl-esm4_r1i1p1f1_ssp585_gmst_2041_2050.parquet"
+output_sha256 = "db4f09abc48e082e1a80d6829f7fca45a3d7cd916e808513ac10ad6059102c76"
+years = [2041, 2042, 2043, 2044, 2045, 2046, 2047, 2048, 2049, 2050]
+daily_counts = [365, 365, 365, 366, 365, 365, 365, 366, 365, 365]
+gmst_values_k = [288.46729074932284, 288.43893286073484, 288.55998629046195, 288.71157775461376, 288.73859552339945, 288.5216596041706, 288.63366061043445, 288.83645054572173, 288.89992173958547, 288.7610950341283]
+result = "passed"
+
+[bounded_crop_feature_smoke]
+crop = "mai"
+irrigation = "noirr"
+calendar_file = "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_mai_noirr.nc"
+harvest_years = [2042, 2043, 2044, 2045, 2046, 2047, 2048, 2049]
+latitude_index_start = 100
+latitude_index_stop_exclusive = 102
+season_rows = 5488
+stage_rows = 16464
+stage_count = 3
+season_output = "data/interim/isimip3b_gfdl_ssp585_2041_2050_smoke/mai_noirr_2042_2049_lat100_102_features.parquet"
+season_output_sha256 = "2dea89bd5d6b9ec29c3d852f9447d788b4e120f27f5a15b6ce1f3777b9e8881a"
+stage_output = "data/interim/isimip3b_gfdl_ssp585_2041_2050_smoke/mai_noirr_2042_2049_lat100_102_stages.parquet"
+stage_output_sha256 = "dba330cf2893f4a9f5c57ec9cf78e9de9ce6bda64287656a90ea30339c3844c1"
+reconciliation_audit = "data/interim/isimip3b_gfdl_ssp585_2041_2050_smoke/reconciliation_audit.json"
+reconciliation_audit_sha256 = "2aad84ddaea0d0f57b44b29534e53e65346bc60c049ab3cbe05f7e54d5fe9c88"
+reconciliation_max_absolute_differences = { stage_days = 0.0, precip_mm = 0.0, wet_days_n = 0.0, rx1day_mm = 0.0 }
+validated_metrics = ["seasonal precipitation quantity", "within-season stage quantity", "wet-day count", "maximum dry spell", "Rx1day", "Rx5day", "daily mean temperature"]
+result = "passed"
+
+[joined_three_scenario_midcentury_holdout]
+config = "config/isimip3b_gfdl_three_scenario_midcentury_holdout_v1.toml"
+config_sha256 = "c9118cbf0771ec0ceb2b258332575d6821a2b3225e033cc297866135735a3bec"
+audit = "data/provenance/isimip3b_gfdl_three_scenario_midcentury_holdout_20260828.json"
+audit_sha256 = "7063cbe46c34fe6184ca3ebdbab966a2b893dfb72caad2d14b77db9b9bd52902"
+training_rows = 181104
+whole_scenario_comparisons = 33
+gmst_model_better_than_cell_mean = 14
+median_rmse_ratio_to_cell_mean = 1.0003577014081657
+maximum_rmse_ratio_to_cell_mean = 1.0640952343898638
+ssp585_holdout_better_count = 1
+ssp585_holdout_comparisons = 11
+held_out_feature_values = 181104
+outside_two_scenario_support_values = 20562
+outside_two_scenario_support_share = 0.11353697323085078
+role = "whole_scenario_engineering_and_held_out_feature_support_evidence_not_response_damage_or_scc"
+
+[paired_fair_temperature_support]
+audit = "data/provenance/gfdl_later_century_fair_temperature_support_20260828.json"
+audit_sha256 = "56af05938141d02e7567c5bcefcedc484898ce0e2d4ecaaccf2fd462a9edde8c"
+expanded_gmst_min_k = 287.6588506406746
+expanded_gmst_max_k = 288.89992173958547
+prior_last_within_year = 2020
+expanded_last_within_year = 2066
+common_random_number_pairing_revalidated = true
+zero_pulse_and_predivergence_identity_revalidated = true
+decreasing_pulse_convergence_revalidated = true
+feature_support_rerun = false
+
+[limitations]
+paired_pr_tas_complete = true
+same_realization_gmst_built = true
+crop_features_built = true
+whole_scenario_holdout_rerun = true
+whole_esm_holdout_rerun = false
+fair_baseline_pulse_feature_support_rerun = false
+production_emulator_authorized = false
+damage_or_scc_authorized = false
