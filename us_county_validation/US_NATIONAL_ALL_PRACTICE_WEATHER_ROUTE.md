@@ -121,6 +121,13 @@ January 1981 reference file also reproduce the exact same 77 cells,
 land ratio. The blocker is therefore common to the product mask, not driven by
 one weather variable.
 
+The common mask removes 16 whole grid-cell intersections totaling
+209,051,009.183043 m2. This is 2.02964 times the county's 102,999,105 m2 of
+declared water, so even assigning every declared water square metre to those
+cells leaves at least 106,051,904.183043 m2 beyond declared water. The next
+safe step is a source-authorized fractional land/water geometry audit; the
+whole-cell diagnostic alone does not authorize changing the 0.95 threshold.
+
 Because this route has one all-practice outcome per crop-county-year, its
 feature output explicitly records a one-to-one exposure application and does
 not carry the direct route's `weather_exposure_shared_across_practices` flag.
