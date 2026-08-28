@@ -510,6 +510,16 @@ normal 95% intervals exclude zero for all three non-irrigated quantity
 contrasts and for the non-irrigated soybean timing contrast; this sampling
 uncertainty statement does not remove the design and transport limitations.
 
+The separate all-practice national weather route remains a construction
+diagnostic. It validates 932 of 2,628 county-weight receipts before failing
+closed at Trigg County, Kentucky, whose weather-valid area is 0.907267979 of
+declared land versus the fixed 0.95 gate. A hash-bound scan revalidates all
+completed weight files: their minimum ratio is 0.960832366, only one is below
+0.97, and 60 have positive masked area. Although Trigg is below every completed
+receipt, the partial set spans 16 states and reflects FIPS-ordered execution
+plus earlier bounded smokes. We therefore neither relax the threshold nor
+exclude the county, and no partial national response is estimated.
+
 The current-hash, basis-before-weighting diagnostic covers 117,679 observed
 maize yields (102,847 consecutive pairs) and 47,922 observed soybean yields
 (41,915 pairs) during 1982--1989. Temporal and extreme training sets are

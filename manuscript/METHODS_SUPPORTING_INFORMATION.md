@@ -81,6 +81,17 @@ soybean crop-county-year feature row. This geographically distinct check
 validates plumbing and lineage only; it is not a national sample or a climate--
 yield estimate.
 
+For the partial national weight checkpoint, a separate audit rereads every
+completed receipt, verifies all 932 corresponding Parquet hashes and frozen
+contract identities, and summarizes land-relative weather-valid coverage
+without resuming construction. Completed receipts cover 35.46% of the 2,628
+registered counties across 16 states; 60 have positive masked area. The
+minimum completed ratio is 0.960832366, one is below 0.97, and seven are below
+1.0. The partial set reflects FIPS-ordered execution plus earlier bounded
+smokes and is not a representative national sample. Consequently, Trigg's
+lower 0.907267979 ratio remains a fail-closed source-geometry question rather
+than grounds for a post-result threshold change or silent county exclusion.
+
 A complete bounded acquisition now records all 468 canonical monthly objects
 for 1981--2019, totaling exactly 27,857,685,556 bytes (25.944 GiB). Before each
 object entered the atomic local manifest, the utility required the frozen HTTP

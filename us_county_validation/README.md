@@ -191,6 +191,14 @@ features only. All derived outputs remain ignored, and every audit records
 After the pinned raw inputs are present, reproduce the complete bounded chain
 with `us_county_validation/scripts/run_cuming_1981_spatial_smoke.sh`.
 
+The isolated all-practice national route and its current Trigg County
+fail-closed state are documented in
+[US_NATIONAL_ALL_PRACTICE_WEATHER_ROUTE.md](US_NATIONAL_ALL_PRACTICE_WEATHER_ROUTE.md).
+The partial-checkpoint distribution can be reproduced without resuming any
+county build using `audit_us_national_weight_checkpoint_distribution.py`; its
+synthetic threshold/hash failures are covered by the correspondingly named
+`test_` script.
+
 ## Primary design
 
 1. Begin with a **high-rainfed-share county sample** for maize, soybean, and

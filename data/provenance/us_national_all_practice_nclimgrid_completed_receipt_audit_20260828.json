@@ -1,0 +1,66 @@
+{
+  "checkpoint": {
+    "path": "data/provenance/us_national_all_practice_nclimgrid_weight_checkpoint_20260828.json",
+    "sha256": "64829e09b8b9b26cd92de55139380adc775e7691cdec48ddb2aa11ce47db5eea"
+  },
+  "completed_count_below_ratio_threshold": {
+    "0.96": 0,
+    "0.97": 1,
+    "0.99": 1,
+    "1.0": 7
+  },
+  "completed_count_with_positive_masked_area": 60,
+  "completed_county_receipts": 932,
+  "completed_fraction_of_registered_counties": 0.3546423135464231,
+  "completed_receipts_by_state": {
+    "AL": 67,
+    "AR": 67,
+    "AZ": 11,
+    "CA": 37,
+    "CO": 30,
+    "DE": 3,
+    "FL": 36,
+    "GA": 158,
+    "IA": 99,
+    "ID": 19,
+    "IL": 102,
+    "IN": 92,
+    "KS": 105,
+    "KY": 104,
+    "LA": 1,
+    "NE": 1
+  },
+  "damage_or_scc_authorized": false,
+  "failed_county_excluded": false,
+  "geography_gate": {
+    "path": "data/interim/us_county/nass_national_all_practice_panel_1981_2019_geography_gate.csv",
+    "sha256": "5194ff66eab5dfff82dacb610c221463918f9f9b4b4d9332ffa4c0f9cb047993"
+  },
+  "implementation": {
+    "path": "us_county_validation/scripts/audit_us_national_weight_checkpoint_distribution.py",
+    "sha256": "bf099dafcd896b39934cb32a34b52330e2c29e6bc5be482bb30e2f2fe085f221"
+  },
+  "maximum_completed_geoid": "31039",
+  "minimum_completed_geoid": "01001",
+  "minimum_completed_ratio": 0.9608323660317611,
+  "minimum_completed_ratio_county_geoid": "21143",
+  "partial_scope_warning": "The completed receipts are a fail-closed partial checkpoint shaped by FIPS-ordered execution plus earlier bounded smokes; they are not a nationally representative sample or an authorized national feature panel.",
+  "ratio_quantiles": {
+    "p01": 1.0000636780484684,
+    "p05": 1.0005752996948012,
+    "p50": 1.0096688377834862,
+    "p95": 1.057950444293013,
+    "p99": 1.1062167670369654
+  },
+  "receipt_set_sha256": "44ad3c3c7f711702d6a19de960330cfd1ee7861e742f35c8e332b5bc42dac18f",
+  "registered_counties": 2628,
+  "registered_minimum_weather_valid_area_relative_to_declared_land": 0.95,
+  "relationship_estimated": false,
+  "response_estimation_authorized": false,
+  "schema": "us_national_weight_checkpoint_distribution_v1",
+  "states_with_completed_receipts": 16,
+  "status": "validated_partial_checkpoint_distribution_only",
+  "threshold_relaxed": false,
+  "total_supported_crop_county_years": 51363,
+  "total_weight_rows": 135900
+}

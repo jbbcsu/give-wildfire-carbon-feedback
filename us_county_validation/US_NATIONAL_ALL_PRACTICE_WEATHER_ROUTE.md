@@ -128,6 +128,19 @@ cells leaves at least 106,051,904.183043 m2 beyond declared water. The next
 safe step is a source-authorized fractional land/water geometry audit; the
 whole-cell diagnostic alone does not authorize changing the 0.95 threshold.
 
+A separate hash-bound checkpoint-distribution audit validates every one of the
+932 completed receipts and its corresponding weight file without resuming the
+route. These receipts cover 35.46% of the 2,628 registered counties and 16
+states, but the mix reflects FIPS-ordered execution plus the earlier bounded
+smokes and is not nationally representative. Sixty completed counties have
+positive masked intersection area. The smallest completed land-relative
+weather-valid ratio is 0.960832366 (GEOID 21143); only one completed ratio is
+below 0.97 and seven are below 1.0. Trigg's failed 0.907267979 value is thus
+well below every completed receipt, but this partial distribution does not
+authorize excluding Trigg, relaxing 0.95, or constructing a partial national
+panel. The aggregate receipt is
+`data/provenance/us_national_all_practice_nclimgrid_completed_receipt_audit_20260828.json`.
+
 Because this route has one all-practice outcome per crop-county-year, its
 feature output explicitly records a one-to-one exposure application and does
 not carry the direct route's `weather_exposure_shared_across_practices` flag.
