@@ -197,8 +197,16 @@ missing or negative values; `tas` has no missing values and produces ten
 annual same-realization GMST rows. The preregistered eight harvest years then
 produce 5,488 seasonal and 16,464 stage maize/rainfed rows on the bounded two-
 latitude-row smoke, with exact additive reconciliation. The matching 2091--
-2100 pair and 2092--2099 feature block pass the same gates. This closes four of
-60 file gates and two feature blocks; joined holdouts and support remain open.
+2100 pair and 2092--2099 feature block pass the same gates. The GFDL SSP3-7.0
+2041--2050 pair now also passes those gates. Relative to the matched SSP1-2.6
+cells, its 2042--2049 smoke is 0.574 C warmer and has 18.33 mm less seasonal
+rain, 1.11 fewer wet days, and a 3.20-day longer maximum dry spell on average;
+these are descriptive climate differences, not a response estimate. This
+closes six of 60 file gates and three feature blocks. Reclassifying the already
+validated FAIR paths against the expanded GFDL GMST envelope moves the last
+within-temperature-support baseline year from 2020 to 2058 while revalidating
+common-random-number, identity, and decreasing-pulse gates. Feature-family
+support and joined whole-ESM/whole-scenario holdouts remain open.
 
 ## Known limitations and fallbacks
 

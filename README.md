@@ -90,8 +90,14 @@ global-grid gates, and the paired `tas` yields ten annual same-realization GMST
 rows. A bounded two-latitude-row maize/rainfed smoke produces 5,488 seasonal
 and 16,464 stage rows for the eight preregistered harvest years with exact
 additive stage reconciliation. The matching 2091--2100 pair and 2092--2099
-feature block pass the same gates. Joined holdouts and the support rerun remain
-open.
+feature block pass the same gates. The registered SSP3-7.0 2041--2050 pair and
+bounded feature block also pass. Against matched SSP1-2.6 cells, mean
+SSP3-7.0 differences are +0.574 C, -18.33 mm seasonal rain, -1.11 wet days,
+and +3.20 maximum dry-spell days. A temperature-only support sensitivity moves
+the GFDL mapped-FAIR last-within year from 2020 to 2058 and revalidates pairing,
+identity, and convergence. Six of 60 files are complete; joined holdouts and
+feature-family support remain open, so no response, damage, or SCC use is
+authorized.
 The evidence-bounded manuscript and Methods/SI blueprints are in
 [MANUSCRIPT_OUTLINE.md](MANUSCRIPT_OUTLINE.md) and
 [METHODS_SI_OUTLINE.md](METHODS_SI_OUTLINE.md).

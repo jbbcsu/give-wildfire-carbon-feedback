@@ -433,9 +433,18 @@ gates. `pr` has zero missing or negative values; `tas` has zero missing values
 and produces ten annual same-realization GMST rows. The bounded two-latitude-
 row maize/rainfed feature smoke yields 5,488 seasonal and 16,464 stage rows for
 2042--2049 and passes exact additive reconciliation. The matching 2091--2100
-pair and 2092--2099 bounded feature block pass the same gates. These are four
-of 60 file gates and two bounded feature blocks; they do not substitute for
-joined holdouts or the support sequence.
+pair and 2092--2099 bounded feature block pass the same gates. The GFDL
+SSP3-7.0 2041--2050 pair and 2042--2049 feature block pass the identical
+checks. Their exact-key comparison with SSP1-2.6 uses 5,488 seasonal rows and
+finds mean SSP3-7.0-minus-SSP1-2.6 differences of +0.574 C, -18.33 mm
+seasonal precipitation, -1.11 wet days, +3.20 maximum dry-spell days, -1.99 mm
+Rx1day, and -4.07 mm Rx5day. These are six of 60 file gates and three bounded
+feature blocks, not a response estimate. A separate audit revalidates the
+existing paired FAIR paths and reclassifies temperature support against the
+expanded GFDL GMST range (287.659--288.759 K). The mapped baseline is within
+that temperature envelope for 2012--2058 rather than 2012--2020, with first
+above-support year 2059. This is temperature support only: joined holdouts and
+feature-family support have not been rerun.
 
 Whole ESMs and whole scenarios, not random years alone, are held out. STITCHES
 supplies a sequence-preserving benchmark; MESMER-M-TP plus a published daily
