@@ -1,5 +1,5 @@
-status = "metadata_audited_two_of_four_content_smoke_files_validated_first_historical_future_pair_joined"
-checked_date = "2026-08-26"
+status = "scenario_matrix_12_of_20_files_content_validated_eight_picontrol_files_deferred"
+checked_date = "2026-08-28"
 catalog = "ISIMIP repository"
 query_url = "https://data.isimip.org/api/v1/datasets/?simulation_round=ISIMIP3b&product=OutputData&sector=marine-fishery_global&variable=tc&page_size=200"
 catalog_result_count = 20
@@ -20,6 +20,23 @@ content_smoke_bytes = 513826771
 deferred_full_matrix_files = 16
 deferred_full_matrix_bytes = 2071639668
 selection_is_engineering_only = true
+currently_acquired_scenario_files = 12
+currently_acquired_scenario_bytes = 1593306523
+remaining_picontrol_files = 8
+remaining_picontrol_bytes = 992159916
+
+[scenario_matrix_validation]
+scenario_matrix_receipt = "data/provenance/fishmip_scenario_benchmark_matrix_20260826.json"
+scenario_matrix_receipt_sha256 = "6dd210a971778b7f745f590a09148189421761a60f7f73af40d9d163262367be"
+scenario_separation_receipt = "data/provenance/fishmip_scenario_separation_20260827.json"
+scenario_separation_receipt_sha256 = "b2e77abb3e2d504c38d65303205b5a702be9c5cbbea0add5b61621da0588f8ed"
+temporal_consensus_receipt = "data/provenance/fishmip_spatial_consensus_time_windows_20260828.json"
+temporal_consensus_receipt_sha256 = "3e2526a3cb200dee78df199ca5ee9089926e5c08f61198844363c1aa6245934d"
+historical_ssp126_ssp585_matrix_complete = true
+picontrol_matrix_complete = false
+matched_pulse_available = false
+welfare_model_identified = false
+damage_or_scc_authorized = false
 
 [content_validation.boats_gfdl_historical]
 checked_date = "2026-08-26"
@@ -128,5 +145,5 @@ notes = [
   "The catalogue has SSP1-2.6 and SSP5-8.5 but no SSP3-7.0 total-catch entry.",
   "Scenario contrasts cannot be substituted for a matched one-ton CO2 pulse.",
   "Total catch density is an intermediate quantity, not consumer or producer welfare.",
-  "The BOATS/GFDL historical and SSP1-2.6 smoke files have verified local checksums, content audits, an exact 2014-12/2015-01 month-index join, and identical grids and finite/missing masks; the other 18 plan checksums remain catalogue metadata until acquired."
+  "All 12 historical, SSP1-2.6, and SSP5-8.5 files have verified local checksums, content audits, historical/future joins, grids, and finite/missing semantics; the eight piControl files remain catalogue metadata until acquired."
 ]
