@@ -1,0 +1,95 @@
+{
+  "all_practice_outcome_not_direct_rainfed_yield": true,
+  "config": {
+    "path": "us_county_validation/us_national_zero_yield_support_v1.toml",
+    "sha256": "83254a4e9c400d59640525732c81997c150fa66fc90aa9acf6ddd6ac7591fa65"
+  },
+  "damage_or_scc_authorized": false,
+  "geography_eligible_counties": 130,
+  "geography_eligible_rows": 419,
+  "implementation": {
+    "path": "us_county_validation/scripts/audit_us_national_zero_yield_support.py",
+    "sha256": "de51b8b399ce5b1f5f8b93cea6ddaa735a3a02bddf83d4ecaa963498831b04a3"
+  },
+  "inputs": {
+    "corn_source": {
+      "path": "data/interim/us_county/nass_national_all_practice_corn_1981_2019.parquet",
+      "sha256": "91c433bae52979b243c9f6412f0e2a301a63e89e505c02923d51a26c2652bbba",
+      "size_bytes": 454748
+    },
+    "geography_gate": {
+      "path": "data/interim/us_county/nass_national_all_practice_panel_1981_2019_geography_gate.csv",
+      "sha256": "5194ff66eab5dfff82dacb610c221463918f9f9b4b4d9332ffa4c0f9cb047993",
+      "size_bytes": 373873
+    },
+    "positive_panel": {
+      "path": "data/interim/us_county/nass_national_all_practice_panel_1981_2019.parquet",
+      "sha256": "9fc15801d5c6ec82b8c8ec2cb2edcb10db3ff674a36c61c6b5dc2268a8353e11",
+      "size_bytes": 346597
+    }
+  },
+  "irrigation_share_eligible_rows": 45,
+  "rainfed_dominant_rows": {
+    "10": 7,
+    "20": 8,
+    "30": 8
+  },
+  "registered_utc_date": "2026-08-27",
+  "relationship_estimated": false,
+  "reported_zero_rows": 499,
+  "result": "passed_descriptive_support_only",
+  "role": "descriptive_zero_yield_support_audit_not_response_damage_or_scc",
+  "rows_by_state": {
+    "CA": 43,
+    "CO": 12,
+    "FL": 8,
+    "ID": 17,
+    "MI": 6,
+    "MT": 3,
+    "NC": 30,
+    "ND": 2,
+    "NM": 35,
+    "NY": 5,
+    "OR": 77,
+    "SD": 12,
+    "TX": 2,
+    "UT": 21,
+    "VA": 156,
+    "WA": 56,
+    "WV": 6,
+    "WY": 8
+  },
+  "rows_by_year": {
+    "1998": 9,
+    "1999": 72,
+    "2000": 63,
+    "2001": 74,
+    "2002": 63,
+    "2003": 56,
+    "2004": 43,
+    "2005": 42,
+    "2006": 42,
+    "2007": 24,
+    "2008": 9,
+    "2009": 2
+  },
+  "rows_with_adjacent_positive_observation": 118,
+  "schema": "us_national_zero_yield_support_audit_v1",
+  "zero_outcome_model_selected": false,
+  "zero_spell_count": 217,
+  "zero_spell_length_counts": {
+    "1": 120,
+    "10": 5,
+    "2": 36,
+    "3": 22,
+    "4": 13,
+    "5": 4,
+    "6": 8,
+    "7": 4,
+    "8": 2,
+    "9": 3
+  },
+  "zero_spell_max_years": 10,
+  "zero_yield_counties": 150,
+  "zero_yield_states": 18
+}

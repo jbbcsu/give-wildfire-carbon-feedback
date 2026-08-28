@@ -232,6 +232,14 @@ a separate exact-recomputation receipt passes. This validator reuses the
 registered implementation and is described as exact recomputation, not an
 independent implementation.
 
+The positive log-yield construction separately exposes the 499 reported corn
+zeroes in its source table. A source/hash-bound support audit counts 150
+counties, 217 consecutive spells, and a maximum 10-year spell; 419 zero rows
+pass the fixed geography gate, 45 have a usable fixed-2017 irrigation share,
+and 7/8/8 meet the 10/20/30% high-rainfed selectors. No zero is replaced or
+log-transformed, and the audit emits no coefficient. A zero-retaining outcome
+model remains a required, separately preregistered sensitivity.
+
 The mutually exclusive moisture-family screen compares: common stage-mean
 temperature controls only; controls plus seasonal precipitation total;
 controls plus total and eight distribution/extreme terms; controls plus
@@ -405,6 +413,19 @@ also records model-specific support horizons: the first above-support baseline
 year is 2021 for GFDL, 2027 for MPI, and 2033 for IPSL, UKESM, and MRI. It
 does not select the overlap window, validate a non-affine response, supply a
 stochastic residual path, or authorize production damages or SCC.
+
+The next acquisition is preregistered in
+`config/isimip3b_later_century_expansion_v1.toml`: the complete five-ESM by
+three-SSP by `pr`/`tas` matrix for exactly 2041--2050 and 2091--2100. The live
+version-`20210512` API snapshot pins 60 public/unrestricted CC0 files totaling
+124,935,312,957 bytes. Harvest years 2042--2049 and 2092--2099 keep every
+cross-year season inside one block. Metadata passage does not substitute for
+full checksum/content, same-realization GMST, crop-feature reconciliation, or
+whole-ESM/scenario validation; post-2100 FAIR years remain out of support.
+The first registered GFDL SSP1-2.6 `pr` block for 2041--2050 has now passed
+its exact 2,076,388,276-byte SHA-512 and decoded global 0.5-degree, 3,652-day
+content gate with zero missing or negative values. This is one of 60 file
+gates and does not substitute for the paired `tas`/GMST/feature sequence.
 
 Whole ESMs and whole scenarios, not random years alone, are held out. STITCHES
 supplies a sequence-preserving benchmark; MESMER-M-TP plus a published daily

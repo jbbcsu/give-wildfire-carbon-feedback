@@ -1,0 +1,56 @@
+schema_version = 1
+checked_utc_date = "2026-08-27"
+role = "first_predeclared_later_century_complete_pr_content_gate_not_paired_feature_response_damage_or_scc"
+source_catalogue = "https://data.isimip.org/api/v1/datasets/"
+resource_doi = "10.48364/ISIMIP.842396.1"
+rights = "CC0 1.0"
+dataset_version = "20210512"
+plan_config = "config/isimip3b_later_century_expansion_v1.toml"
+plan_config_sha256 = "d23e68a32ddf26194477acb7f2bca18cedbf050844ada859bc05fbbd7f27d963"
+plan_snapshot = "data/provenance/isimip3b_later_century_plan.csv"
+plan_snapshot_sha256 = "19a93485a9d51dade6328daadca540a48bb946a13d85cf276d3b77cc1f195767"
+esm = "GFDL-ESM4"
+member = "r1i1p1f1"
+scenario = "ssp126"
+period_start_year = 2041
+period_end_year = 2050
+
+[precipitation]
+dataset_id = "24cb1007-3c96-4b59-a0dc-42d94a8cff8c"
+file_id = "1c590e23-31e7-4475-bde9-8eca462c4b3b"
+file_name = "gfdl-esm4_r1i1p1f1_w5e5_ssp126_pr_global_daily_2041_2050.nc"
+bytes = 2076388276
+sha512 = "678cebcb61930c5d4aa17ab7e8ab2cb5b4c5c1d89c8467d23c2bdc67df09214124ab1720e5742eaef513493afb7084fd0afc97a24b6b2773657b0c579f361f61"
+content_audit = "data/interim/isimip3b/gfdl-esm4_ssp126_pr_2041_2050_content_audit.json"
+validator = "scripts/validate_isimip3b_pr_content.py"
+validator_sha256 = "1634ee42acce3392ac14d69eeb35c307924dcbef49499ff9b01cafd2a9312710"
+calendar = "proleptic_gregorian"
+start_time = "2041-01-01T00:00:00"
+end_time = "2050-12-31T00:00:00"
+daily_steps = 3652
+grid = "360 x 720 global 0.5 degree; latitude descending; longitude -179.75 to 179.75"
+units = "kg m-2 s-1"
+finite_values = 946598400
+missing_values = 0
+negative_values = 0
+zero_values = 355671623
+minimum_flux = 0.0
+maximum_flux = 0.0069444444961845875
+result = "passed"
+
+[paired_temperature]
+dataset_id = "f741da2d-9d21-4c86-be9b-484396303e33"
+file_id = "827f5957-05a5-4205-8bcb-a593a2c323b5"
+file_name = "gfdl-esm4_r1i1p1f1_w5e5_ssp126_tas_global_daily_2041_2050.nc"
+bytes = 2052378930
+sha512 = "3f6caf0e1f7bdee50ab7d89e7c033739e94da3aa1cc9082643d8a380f9dd915b073fb478344e53e338cb7d3738a94e0de698fade39b003e516e0fb1f1090e090"
+status = "acquisition_in_progress_not_content_validated"
+
+[limitations]
+paired_pr_tas_complete = false
+same_realization_gmst_built = false
+crop_features_built = false
+whole_esm_scenario_holdouts_rerun = false
+support_gate_rerun = false
+production_emulator_authorized = false
+damage_or_scc_authorized = false

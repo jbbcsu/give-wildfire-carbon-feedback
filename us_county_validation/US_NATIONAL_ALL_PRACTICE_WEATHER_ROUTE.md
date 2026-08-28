@@ -40,6 +40,15 @@ support is:
 These are unbalanced historical observations.  They are not coefficients,
 predictions, causal effects, damages, or SCC results.
 
+The required zero-retaining support audit is now executable and source-bound.
+It finds 499 reported corn zero-yield county-years across 150 counties and 217
+consecutive spells; 419 rows pass the fixed geography gate, but only 45 have a
+usable fixed-2017 irrigation share and only 7 meet the 10% high-rainfed
+selector. The longest zero spell is 10 years, while 118 rows have an adjacent
+positive observation. These counts show that zeroes are neither a single
+isolated coding anomaly nor adequately supported for the primary high-rainfed
+estimand. No two-part or alternative outcome model is selected.
+
 ## Reproducible route
 
 The contract is
@@ -91,7 +100,8 @@ not carry the direct route's `weather_exposure_shared_across_practices` flag.
   stages are not observed phenology.
 - Historical county coverage declines over time and is unbalanced.
 - The primary positive log-yield panel excludes 499 reported zero-yield corn
-  observations; a zero-retaining sensitivity is required before inference.
+  observations; their support is now audited, but a predeclared zero-retaining
+  model sensitivity is still required before inference.
 - All-practice yields mix irrigated and rainfed production.  Any response model
   must pre-specify how the fixed irrigation share is used and must not label the
   outcome itself rainfed.

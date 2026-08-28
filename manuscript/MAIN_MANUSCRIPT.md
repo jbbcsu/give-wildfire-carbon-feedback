@@ -319,6 +319,15 @@ for MPI, and 2033 for IPSL, UKESM, and MRI. The equivalence is a coordinate
 identity, not evidence for the
 reference window or response model, and the support result prohibits
 promotion to damages or SCC.
+Before extending the surface, we fixed two later-century daily blocks without
+examining their features: 2041--2050 and 2091--2100 for all five ESMs, three
+SSPs, and `pr`/`tas`. The official metadata gate pins 60 public CC0 files
+totaling 124,935,312,957 bytes. This is an acquisition plan only; full content,
+GMST, features, and expanded holdouts remain unvalidated, and post-2100 FAIR
+years remain outside direct ISIMIP training support.
+The first registered GFDL SSP1-2.6 precipitation file for 2041--2050 passes
+its full 2,076,388,276-byte SHA-512 and decoded 3,652-day content gate; its
+paired temperature and every downstream support gate remain open.
 No yield is attached to these smokes and no climate-feature response has been
 fitted. The evidence establishes software behavior, not future agricultural
 damages.
@@ -394,6 +403,14 @@ change, or authorize damages or an SCC input.
 
 Report spatial, temporal, and extreme-year held-out skill; coefficient and
 functional-form uncertainty; and comparison with process-model ranges.
+
+**National U.S. zero-outcome support.** The locked 1981--2019 all-practice
+corn source contains 499 reported zero-yield county-years in 150 counties and
+217 spells. Of these, 419 rows pass the fixed geography gate, only 45 have a
+usable fixed-2017 irrigation share, and only seven meet the 10% high-rainfed
+selector. The longest spell is 10 years and 118 rows have an adjacent positive
+observation. The audit retains rather than recodes zeroes, but it does not
+choose a two-part outcome model or estimate a response.
 
 **Regional U.S. competing-moisture diagnostic.** The registered NASS/
 nClimGrid/PDSI comparison retains 23,722 corn/soy crop--county--practice-year

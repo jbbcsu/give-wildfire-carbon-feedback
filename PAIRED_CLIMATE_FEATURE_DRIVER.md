@@ -182,6 +182,20 @@ sensitivity does not select a production
 reference window or response form. No production feature response, damage, or
 SCC path has passed.
 
+The next support expansion is outcome-blind and hash-bound in
+`config/isimip3b_later_century_expansion_v1.toml`. The official live API
+snapshot pins 60 exact files (124,935,312,957 bytes) for 2041--2050 and
+2091--2100 across all five registered realizations, three SSPs, and `pr`/`tas`.
+Only harvest years fully contained inside those blocks are eligible. Each file
+must still pass its full checksum/content gate, same-realization GMST and crop-
+feature reconciliation, and the joined whole-ESM/whole-scenario rerun. The
+blocks are noncontiguous, and every FAIR year after 2100 remains outside direct
+ISIMIP daily-feature training support.
+The first registered GFDL-ESM4 SSP1-2.6 `pr` file for 2041--2050 now passes its
+full SHA-512 and decoded 3,652-day global-grid content gate. It contains no
+missing or negative values. This closes only one of 60 file gates; paired
+temperature, GMST, crop features, joined holdouts, and support remain open.
+
 ## Known limitations and fallbacks
 
 The response curve cannot represent a circulation-driven change at identical

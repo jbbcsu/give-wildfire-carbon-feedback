@@ -76,6 +76,18 @@ rows per formulation (5.95%) remain within the seven-year GMST training range;
 therefore diagnoses extrapolation rather than authorizing production use. The
 mapped FAIR baseline first exceeds bounded GMST support in 2021 for GFDL, 2027
 for MPI, and 2033 for IPSL, UKESM, and MRI.
+A registered later-century expansion now fixes the next acquisition before any
+later-century feature or response result is examined. It selects exactly the
+2041--2050 and 2091--2100 `pr`/`tas` files for the full five-ESM by three-SSP
+matrix: 30 official version-`20210512` datasets and 60 public, unrestricted
+CC0 files totaling 124,935,312,957 catalogue bytes. Harvest years are limited
+to 2042--2049 and 2092--2099 so every crop season is contained within one
+selected daily block. This is a metadata-pinned acquisition plan, not content
+validation, expanded support, a fitted response, damages, or an SCC input.
+The first file in the registered order, GFDL-ESM4 SSP1-2.6 precipitation for
+2041--2050, is now fully acquired and passes its exact 2,076,388,276-byte
+SHA-512 and decoded 3,652-day global-grid content gate. The paired temperature,
+GMST, crop features, joined holdouts, and support rerun remain open.
 The evidence-bounded manuscript and Methods/SI blueprints are in
 [MANUSCRIPT_OUTLINE.md](MANUSCRIPT_OUTLINE.md) and
 [METHODS_SI_OUTLINE.md](METHODS_SI_OUTLINE.md).

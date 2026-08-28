@@ -1,0 +1,22 @@
+schema = "us_national_zero_yield_support_config_v1"
+role = "descriptive_zero_yield_support_audit_not_response_damage_or_scc"
+registered_utc_date = "2026-08-27"
+
+[inputs]
+corn_source = "data/interim/us_county/nass_national_all_practice_corn_1981_2019.parquet"
+positive_panel = "data/interim/us_county/nass_national_all_practice_panel_1981_2019.parquet"
+geography_gate = "data/interim/us_county/nass_national_all_practice_panel_1981_2019_geography_gate.csv"
+year_start = 1981
+year_end = 2019
+expected_reported_zero_rows = 499
+
+[audit]
+rule = "Describe reported zero-yield support without log-transforming, replacing, winsorizing, or estimating a response."
+sequence_rule = "Count exact consecutive zero spells within county and whether an adjacent observed county-year is positive."
+irrigation_rule = "Join only the fixed 2017 share flags already attached to the positive panel; missing shares remain missing and the all-practice outcome is never relabeled rainfed."
+
+[limitations]
+zero_outcome_model_selected = false
+response_estimation_authorized = false
+causal_claim_authorized = false
+damage_or_scc_authorized = false

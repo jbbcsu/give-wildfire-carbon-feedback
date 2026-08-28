@@ -1,0 +1,46 @@
+schema = "isimip3b_later_century_expansion_config_v1"
+role = "outcome_blind_metadata_pinned_later_century_daily_feature_support_expansion_not_acquired_not_emulator_damage_or_scc_input"
+registered_utc_date = "2026-08-27"
+
+[source]
+catalogue_api = "https://data.isimip.org/api/v1/datasets/"
+selection_snapshot = "data/provenance/isimip3b_daily_catalog_selection.csv"
+selection_snapshot_sha256 = "c9f4af14b1cc8d3d4f2b532b154a850c814ba5309eb17a5c7e015dba2d3a9547"
+dataset_version = "20210512"
+resource_doi = "10.48364/ISIMIP.842396.1"
+rights = "CC0 1.0"
+
+[selection]
+esm_ids = ["gfdl-esm4", "ipsl-cm6a-lr", "mpi-esm1-2-hr", "mri-esm2-0", "ukesm1-0-ll"]
+member_ids = ["r1i1p1f1", "r1i1p1f1", "r1i1p1f1", "r1i1p1f1", "r1i1p1f2"]
+scenarios = ["ssp126", "ssp370", "ssp585"]
+variables = ["pr", "tas"]
+file_periods = ["2041_2050", "2091_2100"]
+crop = "mai"
+irrigation = "noirr"
+latitude_index_start = 100
+latitude_index_stop_exclusive = 102
+feature_harvest_years = [2042, 2043, 2044, 2045, 2046, 2047, 2048, 2049, 2092, 2093, 2094, 2095, 2096, 2097, 2098, 2099]
+
+[design]
+rule = "Select the full five-ESM by three-SSP by pr/tas Cartesian product for exactly two predeclared ten-year files before examining any later-century feature or response result."
+rationale = "The 2041--2050 and 2091--2100 blocks add registered mid-century and end-century GMST/feature support while bounding acquisition to two of the eight post-2020 decade files per dataset."
+cross_year_rule = "Use only harvest years 2042--2049 and 2092--2099 so every registered crop season is contained inside one selected ten-year daily block."
+acquisition_order = "For each ESM in config order, acquire paired pr then tas for SSP1-2.6, SSP3-7.0, and SSP5-8.5, first 2041--2050 and then 2091--2100."
+expected_dataset_count = 30
+expected_file_count = 60
+
+[required_gates]
+metadata = "Exact dataset/file UUID, version, byte size, SHA-512, public/unrestricted/CC0 status, scenario, forcing, member, variable, and year block."
+content = "Full checksum, decoded global grid, units, physical bounds, missingness, exact daily chronology, and paired pr/tas calendar identity."
+features = "Same-realization annual GMST plus finite/nonnegative crop features with wet-day, dry-spell, extreme-rain, stage/season, and heat-moisture reconciliation gates."
+holdouts = "Rerun exact whole-ESM and whole-scenario holdouts after joining the early, mid-, and end-century products; no random-year-only validation."
+pairing = "Retain common-random-number baseline/pulse residuals, separate support flags, zero-pulse and pre-divergence identity, direct/centered agreement, and three decreasing positive pulse sizes."
+
+[limitations]
+temporal = "The two selected decades are noncontiguous engineering support blocks, not complete 2015--2100 coverage."
+spatial = "The first feature pass remains one maize/rainfed calendar and two latitude rows; global multi-crop expansion is still required."
+beyond_2100 = "ISIMIP3b scenario files end in 2100; FAIR years after 2100 must remain explicitly outside direct daily-feature training support unless a separately validated route is approved."
+acquired = false
+production_emulator_authorized = false
+damage_or_scc_authorized = false
