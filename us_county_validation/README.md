@@ -198,6 +198,10 @@ The partial-checkpoint distribution can be reproduced without resuming any
 county build using `audit_us_national_weight_checkpoint_distribution.py`; its
 synthetic threshold/hash failures are covered by the correspondingly named
 `test_` script.
+The official TIGER/Line fractional-water follow-up is reproduced with
+`audit_trigg_tiger_areawater_mask.py`; its synthetic geometry test is
+`test_audit_trigg_tiger_areawater_mask.py`. It leaves the fixed 0.95 gate
+failed and writes no county partition.
 
 ## Primary design
 

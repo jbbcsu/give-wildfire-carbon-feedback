@@ -358,11 +358,13 @@ The next registered IPSL-CM6A-LR SSP1-2.6 `pr`/`tas` pairs for 2041--2050 and
 2091--2100 also pass exact byte, SHA-512, decoded-content, same-realization
 GMST, and bounded feature/reconciliation gates. Their paired daily files use
 a fixed 12:00 timestamp rather than GFDL's 00:00; both variables share each
-exact 3,652-day sequence. The IPSL SSP3-7.0 2041--2050 pair and bounded feature
-block pass the same gates. Relative to matched SSP1-2.6 cells, mean differences
-are +0.365 C, +13.22 mm seasonal rain, +0.93 wet days, -1.36 maximum dry-spell
-days, +2.18 mm Rx1day, and +3.84 mm Rx5day. These are descriptive forcing
-differences, not yield effects. The three IPSL blocks do not yet form another
+exact 3,652-day sequence. The IPSL SSP3-7.0 2041--2050 and 2091--2100 pairs and
+bounded feature blocks pass the same gates. Relative to matched SSP1-2.6 cells,
+midcentury mean differences are +0.365 C, +13.22 mm seasonal rain, +0.93 wet
+days, -1.36 maximum dry-spell days, +2.18 mm Rx1day, and +3.84 mm Rx5day. The
+end-century means are +4.146 C, +25.70 mm seasonal rain, +2.85 wet days, -2.26
+maximum dry-spell days, +3.12 mm Rx1day, and +4.47 mm Rx5day. These are
+descriptive forcing differences, not yield effects. The four IPSL blocks do not yet form another
 complete scenario or ESM holdout product.
 
 ## 6. Results (pre-registered placeholders)
@@ -523,6 +525,13 @@ completed weight files: their minimum ratio is 0.960832366, only one is below
 receipt, the partial set spans 16 states and reflects FIPS-ordered execution
 plus earlier bounded smokes. We therefore neither relax the threshold nor
 exclude the county, and no partial national response is estimated.
+An official 2019 TIGER/Line area-water follow-up exactly reconciles the
+county's 102,999,105 m2 declared water across 2,123 hydrographic polygons.
+Fractional polygon/grid intersection assigns 81,538,947 m2 of water and
+127,512,062 m2 of land to the 16 masked cells; removing water from both valid
+and masked areas lowers valid fractional-land coverage to 0.888503097. The
+unchanged 0.95 gate therefore still fails, and no county exclusion, partition,
+response, damage, or SCC result follows.
 
 The current-hash, basis-before-weighting diagnostic covers 117,679 observed
 maize yields (102,847 consecutive pairs) and 47,922 observed soybean yields

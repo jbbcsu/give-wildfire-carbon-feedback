@@ -128,6 +128,18 @@ cells leaves at least 106,051,904.183043 m2 beyond declared water. The next
 safe step is a source-authorized fractional land/water geometry audit; the
 whole-cell diagnostic alone does not authorize changing the 0.95 threshold.
 
+That source-level audit now uses the official 2019 Census TIGER/Line
+`tl_2019_21221_areawater` file. Its 2,123 polygons carry exactly 102,999,105
+m2 of `AWATER`, matching the county declaration. Allocating each polygon's
+published `AWATER/(ALAND+AWATER)` fraction within exact EPSG:5070 county/grid
+intersections assigns 81,538,947 m2 of water and 127,512,062 m2 of land to the
+16 masked cells. After removing water from both valid and masked areas, only
+0.888503097 of fractional land is weather-valid, still below 0.95. The audit
+therefore strengthens rather than resolves the blocker: the threshold remains
+fixed, no county is excluded, and no Trigg partition is written. Reproduce it
+with `audit_trigg_tiger_areawater_mask.py` and the hash-bound receipt in
+`data/provenance/us_trigg_tiger2019_fractional_water_audit_20260828.json`.
+
 A separate hash-bound checkpoint-distribution audit validates every one of the
 932 completed receipts and its corresponding weight file without resuming the
 route. These receipts cover 35.46% of the 2,628 registered counties and 16

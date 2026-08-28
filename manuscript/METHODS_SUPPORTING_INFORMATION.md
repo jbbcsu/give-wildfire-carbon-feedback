@@ -91,6 +91,14 @@ minimum completed ratio is 0.960832366, one is below 0.97, and seven are below
 smokes and is not a representative national sample. Consequently, Trigg's
 lower 0.907267979 ratio remains a fail-closed source-geometry question rather
 than grounds for a post-result threshold change or silent county exclusion.
+The follow-up source audit pins the official 2019 Census TIGER/Line Trigg
+County area-water archive (625,481 bytes; SHA-512 recorded in provenance).
+Its 2,123 features' `AWATER` values sum exactly to the county's 102,999,105 m2.
+Within each polygon, the audit applies its published
+`AWATER/(ALAND+AWATER)` fraction to exact EPSG:5070 county/grid intersections.
+The 16 masked cells contain an estimated 81,538,947 m2 water and 127,512,062
+m2 land; weather-valid fractional-land coverage is 0.888503097 and remains
+below the unchanged 0.95 gate. No output partition is emitted.
 
 A complete bounded acquisition now records all 468 canonical monthly objects
 for 1981--2019, totaling exactly 27,857,685,556 bytes (25.944 GiB). Before each
@@ -461,12 +469,15 @@ bounded feature block pass the same content, GMST, and reconciliation gates.
 The SSP3-7.0 and SSP5-8.5 2091--2100 pairs and bounded 2092--2099 feature
 blocks also pass. The IPSL-CM6A-LR SSP1-2.6 2041--2050 and 2091--2100 pairs
 then pass the same gates under their exact model-specific 12:00 daily timestamp
-contract. The IPSL SSP3-7.0 2041--2050 pair and bounded feature block also pass,
-bringing the expansion to 18 of 60 file gates and nine bounded feature blocks.
-Their exact-key comparison with IPSL SSP1-2.6 finds mean differences of +0.365 C,
-+13.22 mm seasonal precipitation, +0.93 wet days, -1.36 maximum dry-spell days,
-+2.18 mm Rx1day, and +3.84 mm Rx5day. These are climate-support diagnostics,
-not a response estimate. The preregistered three-SSP midcentury join contains
+contract. The IPSL SSP3-7.0 2041--2050 and 2091--2100 pairs and bounded feature
+blocks also pass, bringing the expansion to 20 of 60 file gates and ten bounded
+feature blocks. Their exact-key midcentury comparison with IPSL SSP1-2.6 finds
+mean differences of +0.365 C, +13.22 mm seasonal precipitation, +0.93 wet days,
+-1.36 maximum dry-spell days, +2.18 mm Rx1day, and +3.84 mm Rx5day. The matching
+end-century differences are +4.146 C, +25.70 mm seasonal precipitation, +2.85
+wet days, -2.26 maximum dry-spell days, +3.12 mm Rx1day, and +4.47 mm Rx5day.
+These are climate-support diagnostics, not a response estimate. The
+preregistered three-SSP midcentury join contains
 181,104 rows across 11 feature families. Leave-one-scenario-out GMST adjustment
 improves 14/33 comparisons versus the cell-mean benchmark; its median RMSE
 ratio is 1.00036, maximum is 1.06410, and the SSP5-8.5 holdout improves only

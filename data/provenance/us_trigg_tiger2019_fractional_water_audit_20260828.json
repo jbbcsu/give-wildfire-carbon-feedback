@@ -1,0 +1,62 @@
+{
+  "analysis_role": "historical_us_county_fractional_water_diagnostic_only",
+  "area_water_features": {
+    "attribute_land_area_m2": 569686,
+    "attribute_water_area_m2": 102999105,
+    "mtfcc_record_counts": {
+      "H2030": 2107,
+      "H2040": 9,
+      "H3010": 7
+    },
+    "projected_feature_area_m2": 103568790.23353256,
+    "records": 2123
+  },
+  "county_declared": {
+    "land_area_m2": 1143637621,
+    "projected_polygon_area_m2": 1246636802.6593332,
+    "water_area_m2": 102999105
+  },
+  "county_excluded": false,
+  "county_geoid": "21221",
+  "county_name": "Trigg",
+  "county_weight_partition_written": false,
+  "fractional_method": "Within each official TIGER area-water polygon, allocate its published AWATER share uniformly over the polygon and retain its published ALAND share as land. Intersect those fractions with exact county-grid polygons in EPSG:5070.",
+  "grid_intersections": {
+    "fractional_land_area_m2": 1143637698.7833107,
+    "fractional_land_coverage": 0.8885030967482823,
+    "fractional_water_area_m2": 102999103.87602192,
+    "legacy_gross_valid_area_relative_to_declared_land": 0.9072679793176281,
+    "passes_registered_land_coverage_gate": false,
+    "positive_cells": 93,
+    "total_polygon_area_m2": 1246636802.6593325,
+    "weather_masked_cells": 16,
+    "weather_masked_fractional_land_area_m2": 127512061.85625988,
+    "weather_masked_fractional_water_area_m2": 81538947.32678315,
+    "weather_masked_polygon_area_m2": 209051009.18304303,
+    "weather_valid_cells": 77,
+    "weather_valid_fractional_land_area_m2": 1016125636.9270508,
+    "weather_valid_fractional_water_area_m2": 21460156.549238734,
+    "weather_valid_polygon_area_m2": 1037585793.4762895
+  },
+  "registered_minimum_land_coverage": 0.95,
+  "registered_threshold_relaxed": false,
+  "relationship_estimated": false,
+  "response_damage_or_scc_authorized": false,
+  "schema": "us_trigg_tiger2019_fractional_water_mask_audit_v1",
+  "source": {
+    "component_sha256": {
+      "tl_2019_21221_areawater.dbf": "cef87cef5ad48cb52a2bacadde5f0fdee87ac9a6afb30fd0b3e34e4419836208",
+      "tl_2019_21221_areawater.prj": "0b9041e921d9ebb43247d314608fe9e38a0b008ee793067fc1806199ea1fb9dd",
+      "tl_2019_21221_areawater.shp": "af6a035cbf93829901f95fbfb5be4014e72fd344c641c8f4a266bac8efcda711",
+      "tl_2019_21221_areawater.shx": "67354317ae7445cc9d21f7c23ef4f55e051976e5b7ca55bf2c47a5a7e5195eda"
+    },
+    "rights": "public_domain_us_census_bureau",
+    "shapefile_path": "data/raw/us_county_validation/tiger2019_areawater/tl_2019_21221_areawater/tl_2019_21221_areawater.shp",
+    "url": "https://www2.census.gov/geo/tiger/TIGER2019/AREAWATER/tl_2019_21221_areawater.zip",
+    "vintage": 2019,
+    "zip_bytes": 625481,
+    "zip_path": "data/raw/us_county_validation/tiger2019_areawater/tl_2019_21221_areawater.zip",
+    "zip_sha512": "7246180a102bb6734bf2b80d17e5801572ef4a3b164fcbd28ea22dee05ad2bef2319270d3120b3b2c7b73335f1bda01a3c59dd5d8d4b418b3c96b5b955dc24da"
+  },
+  "status": "passed_source_audit_registered_weather_gate_still_failed"
+}
