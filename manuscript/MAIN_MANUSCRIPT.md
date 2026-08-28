@@ -358,8 +358,12 @@ The next registered IPSL-CM6A-LR SSP1-2.6 `pr`/`tas` pairs for 2041--2050 and
 2091--2100 also pass exact byte, SHA-512, decoded-content, same-realization
 GMST, and bounded feature/reconciliation gates. Their paired daily files use
 a fixed 12:00 timestamp rather than GFDL's 00:00; both variables share each
-exact 3,652-day sequence. These two IPSL blocks do not yet form another
-scenario or ESM holdout product.
+exact 3,652-day sequence. The IPSL SSP3-7.0 2041--2050 pair and bounded feature
+block pass the same gates. Relative to matched SSP1-2.6 cells, mean differences
+are +0.365 C, +13.22 mm seasonal rain, +0.93 wet days, -1.36 maximum dry-spell
+days, +2.18 mm Rx1day, and +3.84 mm Rx5day. These are descriptive forcing
+differences, not yield effects. The three IPSL blocks do not yet form another
+complete scenario or ESM holdout product.
 
 ## 6. Results (pre-registered placeholders)
 

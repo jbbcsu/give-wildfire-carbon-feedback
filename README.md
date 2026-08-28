@@ -100,8 +100,12 @@ pair and its bounded 2092--2099 feature block pass as well, bringing the
 expansion to 12 of 60 files and six feature blocks. The next registered
 IPSL-CM6A-LR SSP1-2.6 2041--2050 pair and its matching 2091--2100 pair also
 pass exact bytes, SHA-512, model-specific 12:00 daily chronology, decoded
-content, same-realization GMST, and bounded-feature reconciliation, bringing
-the expansion to 16 of 60 files and eight feature blocks. The exact joined three-SSP
+content, same-realization GMST, and bounded-feature reconciliation. The IPSL
+SSP3-7.0 2041--2050 pair and bounded feature block now pass the same gates,
+bringing the expansion to 18 of 60 files and nine feature blocks. Against
+matched IPSL SSP1-2.6 cells, mean SSP3-7.0 differences are +0.365 C, +13.22 mm
+seasonal rain, +0.93 wet days, -1.36 maximum dry-spell days, +2.18 mm Rx1day,
+and +3.84 mm Rx5day; these are descriptive climate differences only. The exact joined three-SSP
 midcentury product has 181,104 feature rows. Leave-one-scenario-out GMST adjustment improves only
 14/33 feature comparisons versus a cell-mean benchmark (median RMSE ratio
 1.00036; maximum 1.06410), and only 1/11 when SSP5-8.5 is held out. Across all

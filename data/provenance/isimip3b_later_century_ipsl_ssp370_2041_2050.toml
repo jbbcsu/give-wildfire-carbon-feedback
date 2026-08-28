@@ -1,0 +1,101 @@
+schema_version = 1
+checked_utc_date = "2026-08-28"
+role = "ipsl_ssp370_midcentury_complete_pr_tas_gmst_and_bounded_feature_gate_not_response_damage_or_scc"
+source_catalogue = "https://data.isimip.org/api/v1/datasets/"
+resource_doi = "10.48364/ISIMIP.842396.1"
+rights = "CC0 1.0"
+dataset_version = "20210512"
+plan_config = "config/isimip3b_later_century_expansion_v1.toml"
+plan_config_sha256 = "d23e68a32ddf26194477acb7f2bca18cedbf050844ada859bc05fbbd7f27d963"
+plan_snapshot = "data/provenance/isimip3b_later_century_plan.csv"
+plan_snapshot_sha256 = "19a93485a9d51dade6328daadca540a48bb946a13d85cf276d3b77cc1f195767"
+esm = "IPSL-CM6A-LR"
+member = "r1i1p1f1"
+scenario = "ssp370"
+period_start_year = 2041
+period_end_year = 2050
+
+[precipitation]
+dataset_id = "f67e2800-c9ca-489d-af67-f5fefe0c0491"
+file_id = "3267a8a8-e7d5-4ff8-81c2-dace64ced304"
+file_name = "ipsl-cm6a-lr_r1i1p1f1_w5e5_ssp370_pr_global_daily_2041_2050.nc"
+bytes = 2123664410
+sha512 = "59cb73fc24100bdc2964a7a41d529ce8c8b616b1de568f02b5abc0fe5b1a38db705f321800020ea3e66f0b765fcca3de51b761ef279aab1cc102dad293686fcf"
+content_audit = "data/interim/isimip3b/ipsl-cm6a-lr_ssp370_pr_2041_2050_content_audit.json"
+content_audit_sha256 = "f15c75f993776d4fed46af9b5c566d5c33b744af55fb7ec2c687c1d346f72902"
+calendar = "proleptic_gregorian"
+start_time = "2041-01-01T12:00:00"
+end_time = "2050-12-31T12:00:00"
+daily_steps = 3652
+grid = "360 x 720 global 0.5 degree; latitude descending; longitude -179.75 to 179.75"
+units = "kg m-2 s-1"
+finite_values = 946598400
+missing_values = 0
+negative_values = 0
+zero_values = 356272926
+minimum_flux = 0.0
+maximum_flux = 0.0069444444961845875
+result = "passed"
+
+[paired_temperature]
+dataset_id = "c0112ac8-0b8d-4082-b21b-0c48c2b2c1d5"
+file_id = "d0a936ef-c3ad-4509-aa60-356415f68437"
+file_name = "ipsl-cm6a-lr_r1i1p1f1_w5e5_ssp370_tas_global_daily_2041_2050.nc"
+bytes = 2063111699
+sha512 = "ae52d34bd15f5d95cdb8bbe35b782f37a66a827cc3fab1d85a81ff71bf3b3c5cd0ff7952c6fabddfb87b6fc21d332b93ba18dfb1f5d3578912f02ca710b6d8b1"
+content_audit = "data/interim/isimip3b/ipsl-cm6a-lr_ssp370_tas_2041_2050_content_audit.json"
+content_audit_sha256 = "aeb3e492dd2e49d4dacd6a0b1147103d792f54aefbd7ef2f2f9d461fc91cf2c0"
+calendar = "proleptic_gregorian"
+start_time = "2041-01-01T12:00:00"
+end_time = "2050-12-31T12:00:00"
+daily_steps = 3652
+grid = "360 x 720 global 0.5 degree; latitude descending; longitude -179.75 to 179.75"
+units = "K"
+finite_values = 946598400
+missing_values = 0
+minimum_temperature_k = 192.61595153808594
+maximum_temperature_k = 319.6421813964844
+result = "passed"
+
+[same_realization_gmst]
+source_id = "isimip3b-20210512-c0112ac8-0b8d-4082-b21b-0c48c2b2c1d5-d0a936ef-c3ad-4509-aa60-356415f68437"
+output = "data/interim/isimip3b/ipsl-cm6a-lr_r1i1p1f1_ssp370_gmst_2041_2050.parquet"
+output_sha256 = "799d3734b1f2215fa5d6ae15658e0c19c90fc35dc1630646126b2072b709f8d7"
+years = [2041, 2042, 2043, 2044, 2045, 2046, 2047, 2048, 2049, 2050]
+daily_counts = [365, 365, 365, 366, 365, 365, 365, 366, 365, 365]
+gmst_values_k = [288.9072910532242, 288.8644495022306, 288.790319397933, 288.88117818821354, 289.0017398763589, 289.1850935544317, 289.24161985651756, 289.06534306717845, 289.33066571088193, 289.3215214294192]
+result = "passed"
+
+[bounded_crop_feature_smoke]
+crop = "mai"
+irrigation = "noirr"
+harvest_years = [2042, 2043, 2044, 2045, 2046, 2047, 2048, 2049]
+latitude_index_start = 100
+latitude_index_stop_exclusive = 102
+season_rows = 5488
+stage_rows = 16464
+stage_count = 3
+season_output_sha256 = "9fa7acab01919c57f2fe1467f3ea9645089da388ae9b0b128ab44fdcc92df1a7"
+stage_output_sha256 = "547c4736c73665f127d85253614419ff087375c8c25643e587ccdfdce5145aa0"
+reconciliation_audit_sha256 = "2aad84ddaea0d0f57b44b29534e53e65346bc60c049ab3cbe05f7e54d5fe9c88"
+reconciliation_max_absolute_differences = { stage_days = 0.0, precip_mm = 0.0, wet_days_n = 0.0, rx1day_mm = 0.0 }
+validated_metrics = ["seasonal precipitation quantity", "within-season stage quantity", "wet-day count", "maximum dry spell", "Rx1day", "Rx5day", "daily mean temperature"]
+result = "passed"
+
+[paired_ssp126_comparison]
+comparison_sha256 = "e6190cc0a1f6c18bc67850df365468d98876d1bfcf7385d931fa2b7580c5d63c"
+paired_rows = 5488
+mean_temperature_difference_c = 0.36542036034215686
+mean_seasonal_precipitation_difference_mm = 13.221439209535891
+mean_wet_day_difference = 0.9258381924198251
+mean_maximum_dry_spell_difference_days = -1.3611516034985423
+mean_rx1day_difference_mm = 2.1779171858721416
+mean_rx5day_difference_mm = 3.8406636558321057
+role = "descriptive_climate_feature_comparison_not_response_damage_or_scc"
+result = "passed"
+
+[limitations]
+whole_esm_scenario_holdouts_rerun = false
+support_gate_rerun = false
+production_emulator_authorized = false
+damage_or_scc_authorized = false

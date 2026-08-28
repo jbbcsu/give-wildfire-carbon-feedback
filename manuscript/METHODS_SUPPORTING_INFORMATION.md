@@ -461,8 +461,12 @@ bounded feature block pass the same content, GMST, and reconciliation gates.
 The SSP3-7.0 and SSP5-8.5 2091--2100 pairs and bounded 2092--2099 feature
 blocks also pass. The IPSL-CM6A-LR SSP1-2.6 2041--2050 and 2091--2100 pairs
 then pass the same gates under their exact model-specific 12:00 daily timestamp
-contract. These are 16 of 60 file gates and eight bounded feature blocks, not a response
-estimate. The preregistered three-SSP midcentury join contains
+contract. The IPSL SSP3-7.0 2041--2050 pair and bounded feature block also pass,
+bringing the expansion to 18 of 60 file gates and nine bounded feature blocks.
+Their exact-key comparison with IPSL SSP1-2.6 finds mean differences of +0.365 C,
++13.22 mm seasonal precipitation, +0.93 wet days, -1.36 maximum dry-spell days,
++2.18 mm Rx1day, and +3.84 mm Rx5day. These are climate-support diagnostics,
+not a response estimate. The preregistered three-SSP midcentury join contains
 181,104 rows across 11 feature families. Leave-one-scenario-out GMST adjustment
 improves 14/33 comparisons versus the cell-mean benchmark; its median RMSE
 ratio is 1.00036, maximum is 1.06410, and the SSP5-8.5 holdout improves only
