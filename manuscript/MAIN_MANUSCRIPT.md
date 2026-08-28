@@ -354,6 +354,13 @@ No yield is attached to these smokes and no climate-feature response has been
 fitted. The evidence establishes software behavior, not future agricultural
 damages.
 
+The next registered IPSL-CM6A-LR SSP1-2.6 2041--2050 `pr`/`tas` pair also
+passes exact byte, SHA-512, decoded-content, same-realization GMST, and bounded
+feature/reconciliation gates. Its paired daily files use a fixed 12:00
+timestamp rather than GFDL's 00:00; both variables share the exact 3,652-day
+sequence. This first IPSL block does not yet form another scenario or ESM
+holdout product.
+
 ## 6. Results (pre-registered placeholders)
 
 ### 6.1 Climate-feature validation
