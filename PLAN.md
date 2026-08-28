@@ -86,12 +86,15 @@ or incidence assumption. Implement a replacement/addition decision only after
 the overlap audit. Pair every climate/member, ecology, economy, and welfare
 draw across baseline and CO2-pulse paths.
 
-The coefficient-free country-to-region preflight is implemented. It uses a
-declared one-country/one-region crosswalk, verifies draw identity and welfare
-conservation, and withholds regional values when any declared country is
-missing, incomplete, or not additive eligible. Remaining Gate 4 work requires
-a reviewed global GIVE crosswalk and, upstream, an identified welfare model;
-discounting and SCC integration remain intentionally unimplemented.
+The coefficient-free country-to-region preflight is implemented. Its reviewed
+global aggregation universe is now the hash-bound baseline MimiGIVE mapping:
+184 unique ISO3 countries in all 16 FUND regions, with exact region identities
+and counts checked before use. The aggregator verifies draw identity and
+welfare conservation and withholds regional values when any declared country
+is missing, incomplete, or not additive eligible. Remaining Gate 4 work
+requires a validated FishMIP/stock-to-country allocation, identified trade or
+incidence assumptions, and an identified welfare model; discounting and SCC
+integration remain intentionally unimplemented.
 
 The Blue-SCC audit sharpens this gate. A first benchmark can use its published
 country temperature damage coefficients only after source-license and exact-

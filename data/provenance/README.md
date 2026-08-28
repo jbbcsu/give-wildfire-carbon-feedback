@@ -40,3 +40,11 @@ not open pulse, welfare, damage, or SCC gates.
 checksum-bound consensus to three fixed future decades on one common
 40,398-cell intersection. It reports aggregate sign shares only and keeps all
 pulse, welfare, damage, and SCC gates closed.
+
+`give_country_fund_region_crosswalk_v1.csv` is the normalized aggregation
+universe derived from the baseline MimiGIVE mapping in the Rennert et al.
+replication archive. Its config pins the exact source and derived hashes; the
+tracked audit verifies 184 unique ISO3 countries, all 16 FUND regions, and
+the exact per-region counts. This validates mapping identity only. Fisheries
+country coverage, grid/EEZ allocation, trade/incidence, welfare, damage, and
+SCC gates remain closed.

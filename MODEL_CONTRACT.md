@@ -76,11 +76,16 @@ pending or failed overlap reviews.
 These fields document a review; they do not prove that the review was
 scientifically adequate.
 
-The crosswalk is an explicit aggregation universe, not proof of global
-coverage. A production crosswalk still requires a provenance record, version,
-and reconciliation to the GIVE country/region definitions. The adapter does
-not clear the ecological, welfare-identification, global-coverage, overlap, or
-SCC gates.
+The aggregation universe is now frozen to the baseline MimiGIVE mapping from
+the Rennert et al. replication archive. The normalized crosswalk contains 184
+unique ISO3 countries in all 16 FUND regions and is bound to the exact source
+and derived-file hashes by
+`config/give_country_fund_region_crosswalk_v1.toml`. The executable validator
+checks the country keys, immutable mapping version, region identities and
+per-region counts before the adapter can use it. This closes the mapping-
+identity and schema preflight only: it does not prove that a fisheries model
+covers all 184 countries, allocate FishMIP grid cells to countries, select a
+trade/incidence model, or clear the ecological, welfare, overlap, or SCC gates.
 
 ## Locked overlap exclusions
 
@@ -112,5 +117,8 @@ matched baseline/pulse identifiers, missing-versus-zero semantics, surplus
 arithmetic, duplicate keys, and additive eligibility. Its synthetic test is
 `python3 test/test_welfare_interface.py`. The aggregation preflight's synthetic
 coverage, identity, and conservation checks are in
-`python3 test/test_region_aggregation.py`; passing either test does not clear
-the biophysical, welfare-identification, coverage, or SCC gates.
+`python3 test/test_region_aggregation.py`. The real crosswalk and its synthetic
+failure modes are checked by
+`python3 test/test_give_country_region_crosswalk.py`; passing these tests does
+not clear the biophysical, welfare-identification, country-coverage, or SCC
+gates.

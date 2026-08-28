@@ -147,12 +147,17 @@ The repository currently provides two coefficient-free checks:
   country-year welfare changes through an explicit country-to-GIVE-region
   crosswalk. It fails each region closed if a declared country is absent,
   incomplete, or not additive eligible, and emits no partial numeric total.
+- `scripts/validate_give_country_region_crosswalk.py` binds that aggregation
+  universe to the baseline MimiGIVE replication mapping. The normalized file
+  has 184 unique ISO3 countries in all 16 FUND regions and passes exact hash,
+  mapping-version, country-key, region-identity, and per-region-count gates.
 
 Run the synthetic checks with:
 
 ```bash
 python3 test/test_welfare_interface.py
 python3 test/test_region_aggregation.py
+python3 test/test_give_country_region_crosswalk.py
 python3 test/test_fishmip_catalog.py
 python3 test/test_fishmip_content.py  # in an environment with xarray and h5netcdf
 python3 test/test_fishmip_scenario_benchmark.py  # same environment requirement
@@ -160,8 +165,9 @@ python3 test/test_fishmip_scenario_matrix.py
 python3 test/test_fishmip_scenario_separation.py  # same environment requirement
 ```
 
-These scripts do not choose ecological or economic parameters, certify that a
-crosswalk is globally exhaustive, discount damages, or calculate an SCC.
+These scripts do not choose ecological or economic parameters, prove that an
+eventual fisheries model covers every mapped country, allocate grid cells to
+countries, discount damages, or calculate an SCC.
 Passing the overlap schema also does not substitute for evidence that the
 declared exclusions were applied; it prevents an unresolved or contradictory
 boundary from being marked additive eligible.
