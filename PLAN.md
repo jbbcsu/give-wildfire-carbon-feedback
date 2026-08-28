@@ -107,6 +107,14 @@ or disputed waters and high seas remain explicit, country-ineligible rows.
 This is an executable contract only: no production EEZ geometry, fleet
 incidence, trade, welfare, damage, or SCC result is supplied.
 
+The candidate geometry is now outcome-blind: Marine Regions Maritime
+Boundaries and EEZ version 12 (2023; doi:10.14284/632; CC-BY), with joint and
+overlapping areas retained rather than silently assigned. The current download
+page separately lists World High Seas version 2, so its topological consistency
+with EEZ v12 must be demonstrated rather than assumed. Exact objects, bytes,
+checksums, schema, topology, longitude handling, and ISO3 reconciliation remain
+pending; no geometry has been acquired into this repository.
+
 The Blue-SCC audit sharpens this gate. A first benchmark can use its published
 country temperature damage coefficients only after source-license and exact-
 replication checks. The market pathway must be labeled profit-plus-output-

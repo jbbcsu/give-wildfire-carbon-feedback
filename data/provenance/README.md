@@ -60,3 +60,9 @@ fail-closed preflight for a future versioned maritime overlay. It requires
 exact declared FishMIP support coverage and per-cell area conservation while
 keeping joint/disputed waters and high seas outside country aggregation. No
 production allocation or new empirical source is included yet.
+
+`marine_regions_eez_source_decision_20260828.toml` preregisters Marine Regions
+Maritime Boundaries/EEZ version 12 (doi:10.14284/632, CC-BY) as the candidate
+spatial source before any overlay result is inspected. The geometry is not
+acquired; exact object identity, content/topology, joint regimes, high-seas
+consistency, longitude handling, and ISO3 reconciliation remain pending.

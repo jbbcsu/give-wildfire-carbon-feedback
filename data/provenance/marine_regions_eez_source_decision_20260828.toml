@@ -1,0 +1,47 @@
+schema_version = 1
+checked_utc_date = "2026-08-28"
+role = "candidate_spatial_allocation_source_selection_not_acquired_not_country_incidence_or_welfare"
+status = "version_selected_acquisition_and_content_validation_pending"
+
+[eez]
+provider = "Flanders Marine Institute Marine Regions"
+product = "Maritime Boundaries and Exclusive Economic Zones (200NM)"
+version = 12
+release_date = "2023-10-25"
+doi = "10.14284/632"
+download_page = "https://www.marineregions.org/downloads.php"
+methodology = "https://www.marineregions.org/eezmethodology.php"
+approximate_shapefile_size_mb_from_download_page = 122
+license = "CC-BY"
+license_page = "https://www.marineregions.org/disclaimer.php"
+scientific_research_use_only = true
+legal_or_navigational_use = false
+acquired = false
+exact_object_url_pinned = false
+exact_bytes_pinned = false
+checksum_pinned = false
+schema_validated = false
+
+[high_seas]
+provider = "Flanders Marine Institute Marine Regions"
+current_download_listing = "World High Seas v2"
+listing_release_date = "2024-10-10"
+approximate_shapefile_size_mb_from_download_page = 6.85
+compatibility_with_eez_v12_validated = false
+acquired = false
+
+[allocation_contract]
+validator = "scripts/validate_fishmip_grid_eez_allocation.py"
+sovereign_eez_requires_reviewed_iso3 = true
+joint_or_disputed_country_aggregation_eligible = false
+high_seas_country_aggregation_eligible = false
+complete_fishmip_support_required = true
+per_cell_fraction_conservation_required = true
+
+[limitations]
+production_allocation_built = false
+fleet_incidence_identified = false
+trade_or_market_incidence_identified = false
+welfare_model_identified = false
+damage_or_scc_authorized = false
+notes = "Selection fixes the candidate geometry/version before overlay results are inspected. Acquisition must preserve provider download terms; exact object identity, bytes, checksum, fields, topology, longitude convention, joint regimes, disputed claims, high-seas complement, and ISO3 mapping remain fail-closed gates."

@@ -163,6 +163,9 @@ The repository currently provides two coefficient-free checks:
   FishMIP-support-to-maritime-area overlay on exact support cells, conserved
   positive cell fractions, fixed source version/license, and reviewed ISO3
   keys. Joint/disputed waters and high seas cannot be marked country eligible.
+  The preregistered candidate source is Marine Regions EEZ v12 under CC-BY;
+  `data/provenance/marine_regions_eez_source_decision_20260828.toml` records
+  the unresolved acquisition, topology, high-seas-consistency, and ISO3 gates.
 
 Run the synthetic checks with:
 
