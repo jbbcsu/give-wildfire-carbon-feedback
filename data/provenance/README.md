@@ -35,3 +35,8 @@ only aggregate sign-consensus shares on the exact 40,398-cell intersection
 across both forcings, both ecosystem models, and all historical/future files.
 It never averages absolute model levels or exports grid-cell values and does
 not open pulse, welfare, damage, or SCC gates.
+
+`fishmip_spatial_consensus_time_windows_20260828.json` extends the same
+checksum-bound consensus to three fixed future decades on one common
+40,398-cell intersection. It reports aggregate sign shares only and keeps all
+pulse, welfare, damage, and SCC gates closed.

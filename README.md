@@ -126,6 +126,14 @@ over 88.48% and 85.75%. Absolute model levels are not averaged. This remains a
 biophysical scenario-density diagnostic, not observed catch, a matched pulse,
 welfare, damages, or SCC evidence.
 
+A fixed-decade robustness extension in the same document repeats the
+cross-matrix consensus over 2071--2080, 2081--2090, and 2091--2100 on one
+40,398-cell support intersection. Unanimous-lower weighted shares are
+49.98%/53.10%/49.99% for SSP1-2.6 and 55.01%/54.60%/52.48% for SSP5-8.5;
+at least three of four trajectories are lower over 84.39%--88.48% in every
+scenario-window cell. This is temporal robustness evidence for the
+biophysical sign result only.
+
 ## Executable accounting scaffolding
 
 The repository currently provides two coefficient-free checks:
