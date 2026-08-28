@@ -448,9 +448,9 @@ seasonal precipitation, -1.11 wet days, +3.20 maximum dry-spell days, -1.99 mm
 Rx1day, and -4.07 mm Rx5day. The registered SSP5-8.5 2041--2050 pair and
 bounded feature block pass the same content, GMST, and reconciliation gates.
 The SSP3-7.0 and SSP5-8.5 2091--2100 pairs and bounded 2092--2099 feature
-blocks also pass. The IPSL-CM6A-LR SSP1-2.6 2041--2050 pair then passes the
-same gates under its exact model-specific 12:00 daily timestamp contract.
-These are 14 of 60 file gates and seven bounded feature blocks, not a response
+blocks also pass. The IPSL-CM6A-LR SSP1-2.6 2041--2050 and 2091--2100 pairs
+then pass the same gates under their exact model-specific 12:00 daily timestamp
+contract. These are 16 of 60 file gates and eight bounded feature blocks, not a response
 estimate. The preregistered three-SSP midcentury join contains
 181,104 rows across 11 feature families. Leave-one-scenario-out GMST adjustment
 improves 14/33 comparisons versus the cell-mean benchmark; its median RMSE

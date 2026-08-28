@@ -98,10 +98,10 @@ and bounded feature block pass the same gates. The SSP3-7.0 2091--2100 pair
 and its bounded 2092--2099 feature block now also pass. The SSP5-8.5 2091--2100
 pair and its bounded 2092--2099 feature block pass as well, bringing the
 expansion to 12 of 60 files and six feature blocks. The next registered
-IPSL-CM6A-LR SSP1-2.6 2041--2050 pair also passes exact bytes, SHA-512,
-model-specific 12:00 daily chronology, decoded content, same-realization GMST,
-and bounded-feature reconciliation, bringing the expansion to 14 of 60 files
-and seven feature blocks. The exact joined three-SSP
+IPSL-CM6A-LR SSP1-2.6 2041--2050 pair and its matching 2091--2100 pair also
+pass exact bytes, SHA-512, model-specific 12:00 daily chronology, decoded
+content, same-realization GMST, and bounded-feature reconciliation, bringing
+the expansion to 16 of 60 files and eight feature blocks. The exact joined three-SSP
 midcentury product has 181,104 feature rows. Leave-one-scenario-out GMST adjustment improves only
 14/33 feature comparisons versus a cell-mean benchmark (median RMSE ratio
 1.00036; maximum 1.06410), and only 1/11 when SSP5-8.5 is held out. Across all

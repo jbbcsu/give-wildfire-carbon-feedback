@@ -204,9 +204,9 @@ rain, 1.11 fewer wet days, and a 3.20-day longer maximum dry spell on average;
 these are descriptive climate differences, not a response estimate. The
 registered GFDL SSP5-8.5 2041--2050 pair and its bounded feature block also
 pass. The SSP3-7.0 and SSP5-8.5 2091--2100 pairs and bounded 2092--2099 feature
-blocks pass. The next IPSL-CM6A-LR SSP1-2.6 2041--2050 pair passes the same
-gates with its exact model-specific 12:00 daily timestamps, closing 14 of 60
-file gates and seven feature blocks. The preregistered
+blocks pass. The next IPSL-CM6A-LR SSP1-2.6 2041--2050 and 2091--2100 pairs
+pass the same gates with their exact model-specific 12:00 daily timestamps,
+closing 16 of 60 file gates and eight feature blocks. The preregistered
 three-SSP midcentury product contains 181,104 rows. Its whole-scenario GMST
 adjustment improves 14/33 feature comparisons versus the cell-mean benchmark,
 with median RMSE ratio 1.00036 and maximum 1.06410; the SSP5-8.5 holdout
