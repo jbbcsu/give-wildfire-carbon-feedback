@@ -159,6 +159,10 @@ The repository currently provides two coefficient-free checks:
   universe to the baseline MimiGIVE replication mapping. The normalized file
   has 184 unique ISO3 countries in all 16 FUND regions and passes exact hash,
   mapping-version, country-key, region-identity, and per-region-count gates.
+- `scripts/validate_fishmip_grid_eez_allocation.py` fail-closes a future
+  FishMIP-support-to-maritime-area overlay on exact support cells, conserved
+  positive cell fractions, fixed source version/license, and reviewed ISO3
+  keys. Joint/disputed waters and high seas cannot be marked country eligible.
 
 Run the synthetic checks with:
 
@@ -166,6 +170,7 @@ Run the synthetic checks with:
 python3 test/test_welfare_interface.py
 python3 test/test_region_aggregation.py
 python3 test/test_give_country_region_crosswalk.py
+python3 test/test_fishmip_grid_eez_allocation.py
 python3 test/test_fishmip_catalog.py
 python3 test/test_fishmip_content.py  # in an environment with xarray and h5netcdf
 python3 test/test_fishmip_scenario_benchmark.py  # same environment requirement

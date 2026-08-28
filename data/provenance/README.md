@@ -54,3 +54,9 @@ tracked audit verifies 184 unique ISO3 countries, all 16 FUND regions, and
 the exact per-region counts. This validates mapping identity only. Fisheries
 country coverage, grid/EEZ allocation, trade/incidence, welfare, damage, and
 SCC gates remain closed.
+
+`scripts/validate_fishmip_grid_eez_allocation.py` defines a coefficient-free,
+fail-closed preflight for a future versioned maritime overlay. It requires
+exact declared FishMIP support coverage and per-cell area conservation while
+keeping joint/disputed waters and high seas outside country aggregation. No
+production allocation or new empirical source is included yet.

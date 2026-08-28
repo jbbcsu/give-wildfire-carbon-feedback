@@ -99,6 +99,14 @@ requires a validated FishMIP/stock-to-country allocation, identified trade or
 incidence assumptions, and an identified welfare model; discounting and SCC
 integration remain intentionally unimplemented.
 
+A coefficient-free grid/EEZ allocation preflight now defines the next spatial
+boundary. It requires exact coverage of the declared FishMIP support grid,
+unit-sum positive area fractions within every cell, a fixed source version and
+license, and sovereign ISO3 keys present in the reviewed GIVE crosswalk. Joint
+or disputed waters and high seas remain explicit, country-ineligible rows.
+This is an executable contract only: no production EEZ geometry, fleet
+incidence, trade, welfare, damage, or SCC result is supplied.
+
 The Blue-SCC audit sharpens this gate. A first benchmark can use its published
 country temperature damage coefficients only after source-license and exact-
 replication checks. The market pathway must be labeled profit-plus-output-
