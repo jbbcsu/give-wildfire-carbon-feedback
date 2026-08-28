@@ -29,3 +29,9 @@ files to aggregate late-century grid-cell sign shares and normalized change
 quantiles. It reproduces the tracked global-mean scenario matrix and exports
 no cell values. It is a biophysical spatial scenario diagnostic only; pulse,
 welfare, damage, and SCC gates remain closed.
+
+`fishmip_spatial_consensus_20260827.json` binds the same raw files and reports
+only aggregate sign-consensus shares on the exact 40,398-cell intersection
+across both forcings, both ecosystem models, and all historical/future files.
+It never averages absolute model levels or exports grid-cell values and does
+not open pulse, welfare, damage, or SCC gates.

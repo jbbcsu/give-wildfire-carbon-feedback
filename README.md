@@ -117,6 +117,15 @@ run ranges from 2021 to 2052 and near-century differences have mixed signs.
 All four late-century differences are negative. This is still scenario
 separation, not a matched pulse or welfare response.
 
+The cross-matrix spatial consensus in
+[`FISHMIP_SPATIAL_CONSENSUS.md`](FISHMIP_SPATIAL_CONSENSUS.md) retains 40,398
+cells common to both forcings, both ecosystem models, and all three
+experiments. All four late-century trajectories decline over 53.10% of
+weighted area under SSP1-2.6 and 54.60% under SSP5-8.5; at least three decline
+over 88.48% and 85.75%. Absolute model levels are not averaged. This remains a
+biophysical scenario-density diagnostic, not observed catch, a matched pulse,
+welfare, damages, or SCC evidence.
+
 ## Executable accounting scaffolding
 
 The repository currently provides two coefficient-free checks:
