@@ -325,9 +325,12 @@ SSPs, and `pr`/`tas`. The official metadata gate pins 60 public CC0 files
 totaling 124,935,312,957 bytes. This is an acquisition plan only; full content,
 GMST, features, and expanded holdouts remain unvalidated, and post-2100 FAIR
 years remain outside direct ISIMIP training support.
-The first registered GFDL SSP1-2.6 precipitation file for 2041--2050 passes
-its full 2,076,388,276-byte SHA-512 and decoded 3,652-day content gate; its
-paired temperature and every downstream support gate remain open.
+The first registered GFDL SSP1-2.6 `pr`/`tas` pair for 2041--2050 passes full
+SHA-512 and decoded 3,652-day content gates. The paired `tas` also produces ten
+annual same-realization GMST rows. The bounded two-latitude-row maize/rainfed
+smoke produces 5,488 seasonal and 16,464 stage rows for 2042--2049 with exact
+additive reconciliation. Joined holdouts and every downstream support gate
+remain open.
 No yield is attached to these smokes and no climate-feature response has been
 fitted. The evidence establishes software behavior, not future agricultural
 damages.

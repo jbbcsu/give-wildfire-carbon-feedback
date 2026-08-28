@@ -1,6 +1,6 @@
 schema_version = 1
 checked_utc_date = "2026-08-27"
-role = "first_predeclared_later_century_complete_pr_content_gate_not_paired_feature_response_damage_or_scc"
+role = "first_predeclared_later_century_complete_pr_tas_and_same_realization_gmst_gate_not_feature_response_damage_or_scc"
 source_catalogue = "https://data.isimip.org/api/v1/datasets/"
 resource_doi = "10.48364/ISIMIP.842396.1"
 rights = "CC0 1.0"
@@ -44,12 +44,54 @@ file_id = "827f5957-05a5-4205-8bcb-a593a2c323b5"
 file_name = "gfdl-esm4_r1i1p1f1_w5e5_ssp126_tas_global_daily_2041_2050.nc"
 bytes = 2052378930
 sha512 = "3f6caf0e1f7bdee50ab7d89e7c033739e94da3aa1cc9082643d8a380f9dd915b073fb478344e53e338cb7d3738a94e0de698fade39b003e516e0fb1f1090e090"
-status = "acquisition_in_progress_not_content_validated"
+content_audit = "data/interim/isimip3b/gfdl-esm4_ssp126_tas_2041_2050_content_audit.json"
+validator = "scripts/validate_isimip3b_tas_content.py"
+calendar = "proleptic_gregorian"
+start_time = "2041-01-01T00:00:00"
+end_time = "2050-12-31T00:00:00"
+daily_steps = 3652
+grid = "360 x 720 global 0.5 degree; latitude descending; longitude -179.75 to 179.75"
+units = "K"
+finite_values = 946598400
+missing_values = 0
+minimum_temperature_k = 191.41009521484375
+maximum_temperature_k = 317.6636962890625
+result = "passed"
+
+[same_realization_gmst]
+builder = "scripts/build_same_realization_gmst.py"
+source_id = "isimip3b-20210512-f741da2d-9d21-4c86-be9b-484396303e33-827f5957-05a5-4205-8bcb-a593a2c323b5"
+output = "data/interim/isimip3b/gfdl-esm4_r1i1p1f1_ssp126_gmst_2041_2050.parquet"
+output_sha256 = "6130b833712dafdbace7351f890560b2a4ff8df1d1a6bb9465f082068893100c"
+years = [2041, 2042, 2043, 2044, 2045, 2046, 2047, 2048, 2049, 2050]
+daily_counts = [365, 365, 365, 366, 365, 365, 365, 366, 365, 365]
+gmst_values_k = [288.3503303749668, 288.3219567905501, 288.3545307447852, 288.2299947791263, 288.2951417479005, 288.4097974501271, 288.3222336741516, 288.28151604899415, 288.42265791110503, 288.3440858620141]
+result = "passed"
+
+[bounded_crop_feature_smoke]
+crop = "mai"
+irrigation = "noirr"
+calendar_file = "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_mai_noirr.nc"
+harvest_years = [2042, 2043, 2044, 2045, 2046, 2047, 2048, 2049]
+latitude_index_start = 100
+latitude_index_stop_exclusive = 102
+season_rows = 5488
+stage_rows = 16464
+stage_count = 3
+season_output = "data/interim/isimip3b_gfdl_ssp126_2041_2050_smoke/mai_noirr_2042_2049_lat100_102_features.parquet"
+season_output_sha256 = "679c9988f0d9ae55bc2efa172a2be6af7c27eb4e912d8c7085a8486a1cfc9038"
+stage_output = "data/interim/isimip3b_gfdl_ssp126_2041_2050_smoke/mai_noirr_2042_2049_lat100_102_stages.parquet"
+stage_output_sha256 = "643a739cbafe16bfa3b0df97515f14709d3fa9b9f59208ca2019bb9bc92f1bdc"
+reconciliation_audit = "data/interim/isimip3b_gfdl_ssp126_2041_2050_smoke/reconciliation_audit.json"
+reconciliation_audit_sha256 = "2aad84ddaea0d0f57b44b29534e53e65346bc60c049ab3cbe05f7e54d5fe9c88"
+reconciliation_max_absolute_differences = { stage_days = 0.0, precip_mm = 0.0, wet_days_n = 0.0, rx1day_mm = 0.0 }
+validated_metrics = ["seasonal precipitation quantity", "within-season stage quantity", "wet-day count", "maximum dry spell", "Rx1day", "Rx5day", "daily mean temperature"]
+result = "passed"
 
 [limitations]
-paired_pr_tas_complete = false
-same_realization_gmst_built = false
-crop_features_built = false
+paired_pr_tas_complete = true
+same_realization_gmst_built = true
+crop_features_built = true
 whole_esm_scenario_holdouts_rerun = false
 support_gate_rerun = false
 production_emulator_authorized = false

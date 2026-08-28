@@ -191,10 +191,13 @@ must still pass its full checksum/content gate, same-realization GMST and crop-
 feature reconciliation, and the joined whole-ESM/whole-scenario rerun. The
 blocks are noncontiguous, and every FAIR year after 2100 remains outside direct
 ISIMIP daily-feature training support.
-The first registered GFDL-ESM4 SSP1-2.6 `pr` file for 2041--2050 now passes its
-full SHA-512 and decoded 3,652-day global-grid content gate. It contains no
-missing or negative values. This closes only one of 60 file gates; paired
-temperature, GMST, crop features, joined holdouts, and support remain open.
+The first registered GFDL-ESM4 SSP1-2.6 `pr`/`tas` pair for 2041--2050 now
+passes full SHA-512 and decoded 3,652-day global-grid content gates. `pr` has no
+missing or negative values; `tas` has no missing values and produces ten
+annual same-realization GMST rows. The preregistered eight harvest years then
+produce 5,488 seasonal and 16,464 stage maize/rainfed rows on the bounded two-
+latitude-row smoke, with exact additive reconciliation. This closes two of 60
+file gates and one feature block; joined holdouts and support remain open.
 
 ## Known limitations and fallbacks
 

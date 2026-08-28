@@ -422,10 +422,14 @@ version-`20210512` API snapshot pins 60 public/unrestricted CC0 files totaling
 cross-year season inside one block. Metadata passage does not substitute for
 full checksum/content, same-realization GMST, crop-feature reconciliation, or
 whole-ESM/scenario validation; post-2100 FAIR years remain out of support.
-The first registered GFDL SSP1-2.6 `pr` block for 2041--2050 has now passed
-its exact 2,076,388,276-byte SHA-512 and decoded global 0.5-degree, 3,652-day
-content gate with zero missing or negative values. This is one of 60 file
-gates and does not substitute for the paired `tas`/GMST/feature sequence.
+The first registered GFDL SSP1-2.6 `pr`/`tas` pair for 2041--2050 has now
+passed exact byte, SHA-512, and decoded global 0.5-degree, 3,652-day content
+gates. `pr` has zero missing or negative values; `tas` has zero missing values
+and produces ten annual same-realization GMST rows. The bounded two-latitude-
+row maize/rainfed feature smoke yields 5,488 seasonal and 16,464 stage rows for
+2042--2049 and passes exact additive reconciliation. These are two of 60 file
+gates and one bounded feature block; they do not substitute for joined holdouts
+or the support sequence.
 
 Whole ESMs and whole scenarios, not random years alone, are held out. STITCHES
 supplies a sequence-preserving benchmark; MESMER-M-TP plus a published daily

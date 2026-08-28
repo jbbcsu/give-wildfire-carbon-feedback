@@ -84,10 +84,13 @@ CC0 files totaling 124,935,312,957 catalogue bytes. Harvest years are limited
 to 2042--2049 and 2092--2099 so every crop season is contained within one
 selected daily block. This is a metadata-pinned acquisition plan, not content
 validation, expanded support, a fitted response, damages, or an SCC input.
-The first file in the registered order, GFDL-ESM4 SSP1-2.6 precipitation for
-2041--2050, is now fully acquired and passes its exact 2,076,388,276-byte
-SHA-512 and decoded 3,652-day global-grid content gate. The paired temperature,
-GMST, crop features, joined holdouts, and support rerun remain open.
+The first registered GFDL-ESM4 SSP1-2.6 `pr`/`tas` pair for 2041--2050 is now
+fully acquired. Both files pass exact byte, SHA-512, and decoded 3,652-day
+global-grid gates, and the paired `tas` yields ten annual same-realization GMST
+rows. A bounded two-latitude-row maize/rainfed smoke produces 5,488 seasonal
+and 16,464 stage rows for the eight preregistered harvest years with exact
+additive stage reconciliation. Joined holdouts and the support rerun remain
+open.
 The evidence-bounded manuscript and Methods/SI blueprints are in
 [MANUSCRIPT_OUTLINE.md](MANUSCRIPT_OUTLINE.md) and
 [METHODS_SI_OUTLINE.md](METHODS_SI_OUTLINE.md).
