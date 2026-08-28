@@ -134,6 +134,14 @@ at least three of four trajectories are lower over 84.39%--88.48% in every
 scenario-window cell. This is temporal robustness evidence for the
 biophysical sign result only.
 
+The same exact 2091--2100 support is now reported over five exhaustive fixed
+latitude bands. At least three of four trajectories are lower over
+64.77%--95.97% of weighted band area across the ten scenario-band cells, but
+strict-unanimity shares range from 37.38% to 66.10%. This confirms broad sign
+agreement while exposing material geographic heterogeneity. Latitude bands
+are not countries or EEZs and do not clear the allocation, welfare, pulse,
+damage, or SCC gates.
+
 ## Executable accounting scaffolding
 
 The repository currently provides two coefficient-free checks:

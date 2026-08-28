@@ -74,9 +74,12 @@ finds area-weighted majorities of lower-density cells in all eight
 trajectories, while every trajectory retains cells with increases. The annual
 scenario-separation audit finds SSP5-8.5 below SSP1-2.6 in 64--82 of 86 years,
 with persistent ten-year separation beginning between 2021 and 2052 depending
-on the forcing/model pair. This advances the ensemble biophysical benchmark
-and exposes temporal model spread; it does not clear the matched-pulse or
-welfare portions of this gate.
+on the forcing/model pair. A fixed five-band latitude audit finds at-least-
+three-model weighted decline shares ranging from 64.77% to 95.97%, while
+strict-unanimity ranges from 37.38% to 66.10%; this exposes geographic as well
+as temporal heterogeneity. It does not substitute latitude bands for country
+or EEZ allocation and does not clear the matched-pulse or welfare portions of
+this gate.
 
 ## Gate 4 — welfare translation and GIVE interface
 

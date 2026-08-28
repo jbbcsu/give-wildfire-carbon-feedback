@@ -41,6 +41,12 @@ checksum-bound consensus to three fixed future decades on one common
 40,398-cell intersection. It reports aggregate sign shares only and keeps all
 pulse, welfare, damage, and SCC gates closed.
 
+`fishmip_latitude_band_consensus_20260828.json` partitions the fixed
+2091--2100 sign consensus into five exhaustive latitude bands. It records
+aggregate sign shares and exact input/implementation hashes without exporting
+cells. Latitude bands are not country or EEZ allocations, and all pulse,
+welfare, damage, and SCC gates remain closed.
+
 `give_country_fund_region_crosswalk_v1.csv` is the normalized aggregation
 universe derived from the baseline MimiGIVE mapping in the Rennert et al.
 replication archive. Its config pins the exact source and derived hashes; the

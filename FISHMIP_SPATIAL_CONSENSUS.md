@@ -58,3 +58,28 @@ with:
 This extension tests temporal robustness only. It retains the same
 biophysical-only boundary and cannot be interpreted as observed catch,
 welfare, a matched carbon pulse, damages, or SCC evidence.
+
+## Fixed latitude-band heterogeneity
+
+A second preregistered robustness view partitions the exact 2091--2100 common
+support into five exhaustive latitude bands: south of 40 S, 40--20 S,
+20 S--20 N, 20--40 N, and north of 40 N. At least three of four trajectories
+are lower over 74.52%--94.00% of weighted band area under SSP1-2.6 and
+64.77%--95.97% under SSP5-8.5. Strict unanimity is more heterogeneous:
+38.30%--63.30% for SSP1-2.6 and 37.38%--66.10% for SSP5-8.5. The tropical
+band has the strongest SSP5-8.5 at-least-three consensus (95.97%), while the
+northern high-latitude band has the weakest (64.77%). This prevents the global
+consensus share from being read as spatially uniform.
+
+The five bands conserve all 40,398 common-support cells and the full cosine-
+weighted support. They are not countries, EEZs, markets, or incidence regions,
+so the result does not supply the country allocation required by the welfare
+interface. Reproduce it with:
+
+```bash
+../precipitation_scc/.venv/bin/python \
+  scripts/evaluate_fishmip_latitude_band_consensus.py \
+  --plan data/provenance/fishmip_isimip3b_tc_acquisition_plan.csv \
+  --raw-root data/raw/fishmip \
+  --out data/provenance/fishmip_latitude_band_consensus_20260828.json
+```
