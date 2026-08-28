@@ -20,6 +20,10 @@ from evaluate_isimip3b_five_esm_holdout_smoke import FEATURES
 ROOT = Path(__file__).resolve().parents[1]
 config = tomllib.loads((ROOT / "config/isimip3b_gfdl_three_scenario_midcentury_holdout_v1.toml").read_text(encoding="utf-8"))
 validate_config(config)
+endcentury_config = tomllib.loads(
+    (ROOT / "config/isimip3b_gfdl_three_scenario_endcentury_holdout_v1.toml").read_text(encoding="utf-8")
+)
+assert validate_config(endcentury_config)["period"] == "endcentury"
 bad = copy.deepcopy(config)
 bad["limitations"]["damage_or_scc_authorized"] = True
 try:

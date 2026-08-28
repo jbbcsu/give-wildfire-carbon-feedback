@@ -6,33 +6,29 @@
   "expanded_support_counts": {
     "absolute_anomaly_mapping": {
       "baseline": {
-        "above": 3476,
-        "within": 9240
+        "within": 12716
       },
       "pulse": {
-        "above": 3476,
-        "within": 9240
+        "within": 12716
       }
     },
     "centered_coordinate_mapping": {
       "baseline": {
-        "above": 3476,
-        "within": 9240
+        "within": 12716
       },
       "pulse": {
-        "above": 3476,
-        "within": 9240
+        "within": 12716
       }
     }
   },
   "expanded_temperature_support_horizon": {
-    "first_above_year": 2222,
+    "first_above_year": null,
     "first_within_year": 2012,
     "last_below_year": null,
-    "last_within_year": 2221,
-    "within_year_count": 210
+    "last_within_year": 2300,
+    "within_year_count": 289
   },
-  "expanded_training_temperature_max_k": 290.5141467347852,
+  "expanded_training_temperature_max_k": 291.1894427486395,
   "expanded_training_temperature_min_k": 287.6588506406746,
   "feature_support_rerun": false,
   "fixed_scenario_year_coverage": {
@@ -114,7 +110,17 @@
       2047,
       2048,
       2049,
-      2050
+      2050,
+      2091,
+      2092,
+      2093,
+      2094,
+      2095,
+      2096,
+      2097,
+      2098,
+      2099,
+      2100
     ]
   },
   "gmst_inputs": [
@@ -198,11 +204,20 @@
       "path": "/Users/jbb/Dropbox/GIVE/precipitation_scc/data/interim/isimip3b/gfdl-esm4_r1i1p1f1_ssp585_gmst_2041_2050.parquet",
       "rows": 10,
       "sha256": "db4f09abc48e082e1a80d6829f7fca45a3d7cd916e808513ac10ad6059102c76"
+    },
+    {
+      "canonical_esm_id": "GFDL-ESM4",
+      "observed_esm_id": [
+        "GFDL-ESM4"
+      ],
+      "path": "/Users/jbb/Dropbox/GIVE/precipitation_scc/data/interim/isimip3b/gfdl-esm4_r1i1p1f1_ssp585_gmst_2091_2100.parquet",
+      "rows": 10,
+      "sha256": "7fe46b4b924032aaea07d94c74ed0687eb8d0418a8f8e2c03aabf0ee7110de6d"
     }
   ],
   "implementation": {
     "path": "/Users/jbb/Dropbox/GIVE/precipitation_scc/scripts/audit_gfdl_later_century_temperature_support.py",
-    "sha256": "95aee906af26e6deed92f4ddb7f1dae6baf9b158b5d3ff884e64eebf739f0bb5"
+    "sha256": "ea0f4ee4ed37aa9110f82cdd60854465097ba5d3d2e10f3c8f2c5cb72ac0786b"
   },
   "limitation": "This reclassifies mapped FAIR temperatures against the expanded GFDL GMST envelope only. It does not extend feature support for every family or validate a production response.",
   "member_id": "r1i1p1f1",

@@ -95,15 +95,19 @@ bounded feature block also pass. Against matched SSP1-2.6 cells, mean
 SSP3-7.0 differences are +0.574 C, -18.33 mm seasonal rain, -1.11 wet days,
 and +3.20 maximum dry-spell days. The registered SSP5-8.5 2041--2050 pair
 and bounded feature block pass the same gates. The SSP3-7.0 2091--2100 pair
-and its bounded 2092--2099 feature block now also pass, bringing the expansion
-to ten of 60 files and five feature blocks. The exact joined three-SSP product
-has 181,104 feature rows. Leave-one-scenario-out GMST adjustment improves only
+and its bounded 2092--2099 feature block now also pass. The SSP5-8.5 2091--2100
+pair and its bounded 2092--2099 feature block pass as well, bringing the
+expansion to 12 of 60 files and six feature blocks. The exact joined three-SSP
+midcentury product has 181,104 feature rows. Leave-one-scenario-out GMST adjustment improves only
 14/33 feature comparisons versus a cell-mean benchmark (median RMSE ratio
 1.00036; maximum 1.06410), and only 1/11 when SSP5-8.5 is held out. Across all
 held-out climate values, 20,562/181,104 (11.35%) lie outside the exact two-
-scenario cell/feature envelope. A temperature-only FAIR sensitivity using the
-now-expanded 287.659--290.514 K GFDL envelope extends the mapped-baseline
-last-within year from 2020 to 2221 and revalidates
+scenario cell/feature envelope. The matching end-century three-SSP product
+also has 181,104 rows; its GMST adjustment improves 13/33 comparisons (median
+RMSE ratio 1.00110; maximum 1.23350), while 27,260 values (15.05%) fall outside
+the two-scenario support envelope. A temperature-only FAIR sensitivity using
+the now-expanded 287.659--291.189 K GFDL envelope extends the mapped-baseline
+last-within year from 2020 through 2300 and revalidates
 common-random-number pairing, zero/pre-divergence identity, and decreasing-
 pulse convergence. The adverse holdout result rejects promotion; whole-ESM,
 FAIR feature-support, response, damage, and SCC gates remain open.

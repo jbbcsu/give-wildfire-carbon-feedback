@@ -115,6 +115,12 @@ land-relative coverage recur exactly for January 1981, July 2000, and January
 structural nClimGrid mask/TIGER land-area mismatch requires a source-level
 audit and an outcome-blind exclusion or sensitivity rule.
 
+Separate finite-value masks for `prcp`, `tavg`, `tmin`, and `tmax` in the
+January 1981 reference file also reproduce the exact same 77 cells,
+209,051,009.183043 m2 masked intersection, and 0.907267979 valid-area/declared-
+land ratio. The blocker is therefore common to the product mask, not driven by
+one weather variable.
+
 Because this route has one all-practice outcome per crop-county-year, its
 feature output explicitly records a one-to-one exposure application and does
 not carry the direct route's `weather_exposure_shared_across_practices` flag.

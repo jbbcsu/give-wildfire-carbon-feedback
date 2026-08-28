@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Join three GFDL midcentury SSP feature blocks and audit whole-scenario support."""
+"""Join a registered three-SSP GFDL feature block and audit whole-scenario support."""
 
 from __future__ import annotations
 
@@ -26,27 +26,52 @@ from evaluate_isimip3b_five_esm_holdout_smoke import (
 )
 
 
-CONFIG_SCHEMA = "isimip3b_gfdl_three_scenario_midcentury_holdout_config_v1"
-CONFIG_ROLE = "outcome_blind_joined_three_scenario_midcentury_feature_holdout_and_support_audit_not_emulator_damage_or_scc"
 EXPECTED_SCENARIOS = {"ssp126", "ssp370", "ssp585"}
+CONFIG_CONTRACTS = {
+    (
+        "isimip3b_gfdl_three_scenario_midcentury_holdout_config_v1",
+        "outcome_blind_joined_three_scenario_midcentury_feature_holdout_and_support_audit_not_emulator_damage_or_scc",
+    ): {
+        "period": "midcentury",
+        "year_start": 2042,
+        "year_end": 2049,
+        "complete_key": "complete_three_scenario_midcentury_matrix",
+        "audit_schema": "isimip3b_gfdl_three_scenario_midcentury_holdout_audit_v1",
+    },
+    (
+        "isimip3b_gfdl_three_scenario_endcentury_holdout_config_v1",
+        "outcome_blind_joined_three_scenario_endcentury_feature_holdout_and_support_audit_not_emulator_damage_or_scc",
+    ): {
+        "period": "endcentury",
+        "year_start": 2092,
+        "year_end": 2099,
+        "complete_key": "complete_three_scenario_endcentury_matrix",
+        "audit_schema": "isimip3b_gfdl_three_scenario_endcentury_holdout_audit_v1",
+    },
+}
 
 
-def validate_config(config: dict) -> None:
-    if config.get("schema") != CONFIG_SCHEMA or config.get("role") != CONFIG_ROLE:
-        raise ValueError("midcentury scenario-holdout config identity changed")
+def validate_config(config: dict) -> dict[str, object]:
+    identity = (str(config.get("schema", "")), str(config.get("role", "")))
+    if identity not in CONFIG_CONTRACTS:
+        raise ValueError("scenario-holdout config identity changed")
+    contract = CONFIG_CONTRACTS[identity]
     selection = config["selection"]
     if set(map(str, selection["expected_scenarios"])) != EXPECTED_SCENARIOS:
         raise ValueError("expected scenario set changed")
     if list(map(str, selection["expected_feature_families"])) != FEATURES:
         raise ValueError("expected feature-family order changed")
-    if int(selection["year_start"]) != 2042 or int(selection["year_end"]) != 2049:
-        raise ValueError("registered midcentury harvest-year block changed")
+    if (
+        int(selection["year_start"]) != int(contract["year_start"])
+        or int(selection["year_end"]) != int(contract["year_end"])
+    ):
+        raise ValueError("registered harvest-year block changed")
     cells = config.get("cells", [])
     if len(cells) != 3 or {str(cell["scenario"]) for cell in cells} != EXPECTED_SCENARIOS:
         raise ValueError("config lacks the exact three-scenario cells")
     limits = config.get("limitations", {})
     required = {
-        "complete_three_scenario_midcentury_matrix": True,
+        str(contract["complete_key"]): True,
         "whole_scenario_holdouts": True,
         "whole_esm_holdouts": False,
         "fair_baseline_pulse_feature_support": False,
@@ -55,12 +80,13 @@ def validate_config(config: dict) -> None:
         "damage_or_scc_authorized": False,
     }
     if any(limits.get(key) is not value for key, value in required.items()):
-        raise ValueError("midcentury limitations changed")
+        raise ValueError("scenario-holdout limitations changed")
+    return contract
 
 
 def assemble(config_path: Path) -> tuple[pd.DataFrame, dict[str, object]]:
     config = tomllib.loads(config_path.read_text(encoding="utf-8"))
-    validate_config(config)
+    contract = validate_config(config)
     root = config_path.parent.parent
     selection = config["selection"]
     esm_id = str(selection["esm_id"])
@@ -147,6 +173,7 @@ def assemble(config_path: Path) -> tuple[pd.DataFrame, dict[str, object]]:
         "member_id": member_id,
         "year_start": year_start,
         "year_end": year_end,
+        "period": contract["period"],
         "inputs": receipts,
     }
 
@@ -205,6 +232,8 @@ def main() -> None:
     parser.add_argument("--audit-out", type=Path, required=True)
     args = parser.parse_args()
     config_path = args.config.resolve()
+    config = tomllib.loads(config_path.read_text(encoding="utf-8"))
+    contract = validate_config(config)
     training, metadata = assemble(config_path)
     scenario_helpers.SCENARIOS = EXPECTED_SCENARIOS
     holdouts = scenario_helpers.evaluate_leave_one_scenario_out(training)
@@ -217,8 +246,8 @@ def main() -> None:
     ratios = holdouts.rmse / holdouts.benchmark_rmse
     improved = holdouts.rmse < holdouts.benchmark_rmse
     audit = {
-        "schema": "isimip3b_gfdl_three_scenario_midcentury_holdout_audit_v1",
-        "role": CONFIG_ROLE,
+        "schema": contract["audit_schema"],
+        "role": config["role"],
         "result": "passed_engineering_holdout_and_support_only",
         **metadata,
         "training_rows": len(training),
@@ -265,7 +294,7 @@ def main() -> None:
     }
     args.audit_out.write_text(json.dumps(audit, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(
-        f"GFDL three-scenario midcentury audit passed: {len(training)} rows, "
+        f"GFDL three-scenario {contract['period']} audit passed: {len(training)} rows, "
         f"GMST model improved {int(improved.sum())}/{len(holdouts)}, "
         f"outside support {int(support.outside_support.sum())}/{int(support.n_test.sum())}"
     )

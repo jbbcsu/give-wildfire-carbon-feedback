@@ -447,19 +447,22 @@ finds mean SSP3-7.0-minus-SSP1-2.6 differences of +0.574 C, -18.33 mm
 seasonal precipitation, -1.11 wet days, +3.20 maximum dry-spell days, -1.99 mm
 Rx1day, and -4.07 mm Rx5day. The registered SSP5-8.5 2041--2050 pair and
 bounded feature block pass the same content, GMST, and reconciliation gates.
-The SSP3-7.0 2091--2100 pair and bounded 2092--2099 feature block also pass.
-These are ten of 60 file gates and five bounded feature blocks, not a
+The SSP3-7.0 and SSP5-8.5 2091--2100 pairs and bounded 2092--2099 feature
+blocks also pass. These are 12 of 60 file gates and six bounded feature blocks, not a
 response estimate. The preregistered three-SSP midcentury join contains
 181,104 rows across 11 feature families. Leave-one-scenario-out GMST adjustment
 improves 14/33 comparisons versus the cell-mean benchmark; its median RMSE
 ratio is 1.00036, maximum is 1.06410, and the SSP5-8.5 holdout improves only
 1/11. Per-cell/family support flags classify 20,562/181,104 held-out values
-(11.35%) outside the exact two-scenario envelope. These flags describe climate
-holdouts, not FAIR baseline/pulse feature support. A separate audit revalidates
+(11.35%) outside the exact two-scenario envelope. The matching end-century
+join has 181,104 rows; GMST adjustment improves 13/33 comparisons (median RMSE
+ratio 1.00110; maximum 1.23350), with 27,260/181,104 values (15.05%) outside
+the corresponding support envelope. These flags describe climate holdouts,
+not FAIR baseline/pulse feature support. A separate audit revalidates
 the existing paired FAIR paths and reclassifies temperature support against
-the expanded GFDL GMST range (287.659--290.514 K). The mapped baseline is
-within that temperature envelope for 2012--2221 rather than 2012--2020, with
-first above-support year 2222. Whole-ESM and FAIR feature-support gates remain
+the expanded GFDL GMST range (287.659--291.189 K). The mapped baseline is
+within that temperature envelope for every year from 2012 through 2300 rather
+than only 2012--2020. Whole-ESM and FAIR feature-support gates remain
 open, and the adverse scenario result prohibits promotion.
 
 Whole ESMs and whole scenarios, not random years alone, are held out. STITCHES
