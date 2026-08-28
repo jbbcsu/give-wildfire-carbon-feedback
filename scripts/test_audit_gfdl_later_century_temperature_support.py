@@ -32,7 +32,7 @@ coverage_rows = [
     for scenario, years_for_scenario in {
         "historical": range(2011, 2015),
         "ssp126": list(range(2015, 2021)) + list(range(2041, 2051)) + list(range(2091, 2101)),
-        "ssp370": list(range(2015, 2021)) + list(range(2041, 2051)),
+        "ssp370": list(range(2015, 2021)) + list(range(2041, 2051)) + list(range(2091, 2101)),
         "ssp585": list(range(2015, 2021)) + list(range(2041, 2051)),
     }.items()
     for year in years_for_scenario

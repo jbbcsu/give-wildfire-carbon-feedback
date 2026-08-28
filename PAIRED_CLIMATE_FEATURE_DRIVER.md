@@ -203,16 +203,17 @@ cells, its 2042--2049 smoke is 0.574 C warmer and has 18.33 mm less seasonal
 rain, 1.11 fewer wet days, and a 3.20-day longer maximum dry spell on average;
 these are descriptive climate differences, not a response estimate. The
 registered GFDL SSP5-8.5 2041--2050 pair and its bounded feature block also
-pass, closing eight of 60 file gates and four feature blocks. The preregistered
+pass. The SSP3-7.0 2091--2100 pair and bounded 2092--2099 feature block pass,
+closing ten of 60 file gates and five feature blocks. The preregistered
 three-SSP midcentury product contains 181,104 rows. Its whole-scenario GMST
 adjustment improves 14/33 feature comparisons versus the cell-mean benchmark,
 with median RMSE ratio 1.00036 and maximum 1.06410; the SSP5-8.5 holdout
 improves only 1/11. Exact held-out cell/feature flags place 20,562/181,104
 values (11.35%) outside the two-scenario training envelope. This is adverse
 engineering evidence, not a response. Reclassifying the validated FAIR paths
-against the expanded GFDL GMST envelope moves the last within-temperature-
-support baseline year from 2020 to 2066 while revalidating common-random-
-number, zero/pre-divergence, and decreasing-pulse gates. Whole-ESM and FAIR
+against the expanded 287.659--290.514 K GFDL GMST envelope moves the last
+within-temperature-support baseline year from 2020 to 2221 while revalidating
+common-random-number, zero/pre-divergence, and decreasing-pulse gates. Whole-ESM and FAIR
 baseline/pulse feature-support gates remain open, so the emulator is not
 promoted.
 

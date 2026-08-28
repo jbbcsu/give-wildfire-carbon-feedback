@@ -335,15 +335,16 @@ bounded feature block also pass. Relative to matched SSP1-2.6 cells, SSP3-7.0
 has mean differences of +0.574 C, -18.33 mm seasonal precipitation, -1.11 wet
 days, and +3.20 maximum dry-spell days. These are descriptive forcing
 differences, not yield effects. The registered SSP5-8.5 2041--2050 pair and
-feature block also pass. In the exact 181,104-row three-SSP product, a simple
+feature block also pass, as do the SSP3-7.0 2091--2100 pair and bounded
+2092--2099 feature block. In the exact 181,104-row three-SSP product, a simple
 whole-scenario GMST adjustment improves only 14/33 feature comparisons versus
 a cell-mean benchmark (median RMSE ratio 1.00036; maximum 1.06410), including
 only 1/11 when SSP5-8.5 is held out. Exact support flags classify 20,562 held-
 out values (11.35%) outside the corresponding two-scenario cell/feature
 envelope. A temperature-only sensitivity reclassifying the validated FAIR
-paths against the expanded GFDL GMST envelope moves the last within-support
-baseline year from 2020 to 2066; common-random-number, zero/pre-divergence
-identity, and decreasing-pulse convergence checks still pass. The adverse
+paths against the expanded 287.659--290.514 K GFDL GMST envelope moves the
+last within-support baseline year from 2020 to 2221; common-random-number,
+zero/pre-divergence identity, and decreasing-pulse convergence checks still pass. The adverse
 holdout result is engineering evidence against promotion, not a yield effect.
 No yield is attached to these smokes and no climate-feature response has been
 fitted. The evidence establishes software behavior, not future agricultural

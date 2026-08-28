@@ -447,7 +447,8 @@ finds mean SSP3-7.0-minus-SSP1-2.6 differences of +0.574 C, -18.33 mm
 seasonal precipitation, -1.11 wet days, +3.20 maximum dry-spell days, -1.99 mm
 Rx1day, and -4.07 mm Rx5day. The registered SSP5-8.5 2041--2050 pair and
 bounded feature block pass the same content, GMST, and reconciliation gates.
-These are eight of 60 file gates and four bounded feature blocks, not a
+The SSP3-7.0 2091--2100 pair and bounded 2092--2099 feature block also pass.
+These are ten of 60 file gates and five bounded feature blocks, not a
 response estimate. The preregistered three-SSP midcentury join contains
 181,104 rows across 11 feature families. Leave-one-scenario-out GMST adjustment
 improves 14/33 comparisons versus the cell-mean benchmark; its median RMSE
@@ -456,9 +457,9 @@ ratio is 1.00036, maximum is 1.06410, and the SSP5-8.5 holdout improves only
 (11.35%) outside the exact two-scenario envelope. These flags describe climate
 holdouts, not FAIR baseline/pulse feature support. A separate audit revalidates
 the existing paired FAIR paths and reclassifies temperature support against
-the expanded GFDL GMST range (287.659--288.900 K). The mapped baseline is
-within that temperature envelope for 2012--2066 rather than 2012--2020, with
-first above-support year 2067. Whole-ESM and FAIR feature-support gates remain
+the expanded GFDL GMST range (287.659--290.514 K). The mapped baseline is
+within that temperature envelope for 2012--2221 rather than 2012--2020, with
+first above-support year 2222. Whole-ESM and FAIR feature-support gates remain
 open, and the adverse scenario result prohibits promotion.
 
 Whole ESMs and whole scenarios, not random years alone, are held out. STITCHES
