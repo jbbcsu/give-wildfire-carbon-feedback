@@ -153,6 +153,20 @@ authorize excluding Trigg, relaxing 0.95, or constructing a partial national
 panel. The aggregate receipt is
 `data/provenance/us_national_all_practice_nclimgrid_completed_receipt_audit_20260828.json`.
 
+NOAA also publishes source-computed nClimGrid-Daily county area-average CSVs.
+An outcome-free January 1981 audit pins all four 1,093,490-byte county files,
+the product-version receipt, and the official numeric NCEI-to-FIPS state
+crosswalk. All variables have the same 3,107 county rows. The numeric code
+`15221` maps to Trigg FIPS `21221`; its 31 real-day values are finite for
+precipitation and all three temperature summaries, with `TMIN <= TAVG <=
+TMAX` and a maximum rounded midpoint error of 0.005 C. This demonstrates a
+source-authorized county-average sensitivity that is not blocked by the local
+polygon mask. It does not replace the registered area-intersection route:
+historical boundary vintage, code mapping, weighting-method comparability,
+full 1981--2019 identity, and feature-equivalence gates remain open. Reproduce
+the sample with `audit_nclimgrid_county_average_sample.py` and the hash-bound
+receipt `data/provenance/us_nclimgrid_county_average_trigg_198101_audit_20260828.json`.
+
 Because this route has one all-practice outcome per crop-county-year, its
 feature output explicitly records a one-to-one exposure application and does
 not carry the direct route's `weather_exposure_shared_across_practices` flag.
@@ -175,3 +189,6 @@ not carry the direct route's `weather_exposure_shared_across_practices` flag.
 - The full county-weight build is currently fail-closed at GEOID 21221 under
   the registered weather-valid-area threshold; 932 of 2,628 receipts are
   complete and no national feature panel is authorized from that partial set.
+- Official source-computed county averages are now a validated one-month
+  sensitivity candidate, but their boundary vintage and equivalence to the
+  registered polygon-area estimator are not established.

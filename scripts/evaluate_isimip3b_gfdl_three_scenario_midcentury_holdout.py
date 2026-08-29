@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Join a registered three-SSP GFDL feature block and audit whole-scenario support."""
+"""Join a registered three-SSP single-ESM feature block and audit support."""
 
 from __future__ import annotations
 
@@ -47,6 +47,16 @@ CONFIG_CONTRACTS = {
         "year_end": 2099,
         "complete_key": "complete_three_scenario_endcentury_matrix",
         "audit_schema": "isimip3b_gfdl_three_scenario_endcentury_holdout_audit_v1",
+    },
+    (
+        "isimip3b_ipsl_three_scenario_midcentury_holdout_config_v1",
+        "outcome_blind_joined_ipsl_three_scenario_midcentury_feature_holdout_and_support_audit_not_emulator_damage_or_scc",
+    ): {
+        "period": "midcentury",
+        "year_start": 2042,
+        "year_end": 2049,
+        "complete_key": "complete_three_scenario_midcentury_matrix",
+        "audit_schema": "isimip3b_ipsl_three_scenario_midcentury_holdout_audit_v1",
     },
 }
 
@@ -294,7 +304,7 @@ def main() -> None:
     }
     args.audit_out.write_text(json.dumps(audit, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(
-        f"GFDL three-scenario {contract['period']} audit passed: {len(training)} rows, "
+        f"{metadata['esm_id']} three-scenario {contract['period']} audit passed: {len(training)} rows, "
         f"GMST model improved {int(improved.sum())}/{len(holdouts)}, "
         f"outside support {int(support.outside_support.sum())}/{int(support.n_test.sum())}"
     )

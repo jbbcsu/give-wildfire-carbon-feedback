@@ -207,14 +207,21 @@ pass. The SSP3-7.0 and SSP5-8.5 2091--2100 pairs and bounded 2092--2099 feature
 blocks pass. The next IPSL-CM6A-LR SSP1-2.6 2041--2050 and 2091--2100 pairs
 pass the same gates with their exact model-specific 12:00 daily timestamps,
 followed by the IPSL SSP3-7.0 2041--2050 and 2091--2100 pairs and bounded
-feature blocks. This closes 20 of 60 file gates and ten feature blocks.
+feature blocks. The IPSL SSP5-8.5 2041--2050 pair and bounded feature block
+also pass, closing 22 of 60 file gates and eleven feature blocks.
 Relative to matched IPSL SSP1-2.6 cells, mean SSP3-7.0 differences at
 midcentury are +0.365 C, +13.22 mm seasonal rain, +0.93 wet days, -1.36
 maximum dry-spell days, +2.18 mm Rx1day, and +3.84 mm Rx5day. The end-century
 matched differences are +4.146 C, +25.70 mm seasonal rain, +2.85 wet days,
 -2.26 maximum dry-spell days, +3.12 mm Rx1day, and +4.47 mm Rx5day. These are
 descriptive climate differences, not a response estimate. The preregistered
-three-SSP midcentury product contains 181,104 rows. Its whole-scenario GMST
+IPSL midcentury comparison finds SSP5-8.5-minus-SSP1-2.6 means of +0.607 C,
++19.88 mm seasonal rain, +2.07 wet days, -0.77 maximum dry-spell days, +2.01
+mm Rx1day, and +3.13 mm Rx5day. Its 181,104-row three-SSP whole-scenario audit
+improves only 15/33 comparisons versus the cell-mean benchmark (median RMSE
+ratio 1.00028; maximum 1.02568), including 3/11 for held-out SSP5-8.5;
+20,529/181,104 values (11.34%) are outside the two-scenario envelope. The
+preregistered GFDL three-SSP midcentury product contains 181,104 rows. Its whole-scenario GMST
 adjustment improves 14/33 feature comparisons versus the cell-mean benchmark,
 with median RMSE ratio 1.00036 and maximum 1.06410; the SSP5-8.5 holdout
 improves only 1/11. Exact held-out cell/feature flags place 20,562/181,104

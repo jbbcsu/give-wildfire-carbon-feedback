@@ -202,6 +202,12 @@ The official TIGER/Line fractional-water follow-up is reproduced with
 `audit_trigg_tiger_areawater_mask.py`; its synthetic geometry test is
 `test_audit_trigg_tiger_areawater_mask.py`. It leaves the fixed 0.95 gate
 failed and writes no county partition.
+An independent official-source sensitivity sample is reproduced with
+`audit_nclimgrid_county_average_sample.py`; it validates all 3,107 January 1981
+county rows across PRCP/TAVG/TMIN/TMAX and finds a complete finite Trigg row
+after the official numeric NCEI-to-FIPS mapping. This does not replace the
+polygon-weight route until boundary-vintage and estimator-equivalence gates
+are preregistered and passed.
 
 ## Primary design
 

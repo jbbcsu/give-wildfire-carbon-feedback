@@ -24,6 +24,11 @@ endcentury_config = tomllib.loads(
     (ROOT / "config/isimip3b_gfdl_three_scenario_endcentury_holdout_v1.toml").read_text(encoding="utf-8")
 )
 assert validate_config(endcentury_config)["period"] == "endcentury"
+ipsl_config = tomllib.loads(
+    (ROOT / "config/isimip3b_ipsl_three_scenario_midcentury_holdout_v1.toml").read_text(encoding="utf-8")
+)
+assert validate_config(ipsl_config)["period"] == "midcentury"
+assert ipsl_config["selection"]["esm_id"] == "IPSL-CM6A-LR"
 bad = copy.deepcopy(config)
 bad["limitations"]["damage_or_scc_authorized"] = True
 try:

@@ -99,6 +99,14 @@ Within each polygon, the audit applies its published
 The 16 masked cells contain an estimated 81,538,947 m2 water and 127,512,062
 m2 land; weather-valid fractional-land coverage is 0.888503097 and remains
 below the unchanged 0.95 gate. No output partition is emitted.
+For an outcome-free source sensitivity, we separately hash-bind NOAA's four
+January 1981 county area-average files, product-version receipt, and official
+numeric NCEI-to-FIPS state crosswalk. All four files contain the same 3,107
+county rows. Numeric code 15221 maps to Trigg FIPS 21221; its 31 real-day
+values are finite, satisfy `TMIN <= TAVG <= TMAX`, and reproduce the rounded
+temperature midpoint within 0.005 C. This sample validates a source-computed
+county route but does not replace the registered polygon estimator; boundary
+vintage, full-period identity, and feature-equivalence gates remain open.
 
 A complete bounded acquisition now records all 468 canonical monthly objects
 for 1981--2019, totaling exactly 27,857,685,556 bytes (25.944 GiB). Before each
@@ -470,14 +478,21 @@ The SSP3-7.0 and SSP5-8.5 2091--2100 pairs and bounded 2092--2099 feature
 blocks also pass. The IPSL-CM6A-LR SSP1-2.6 2041--2050 and 2091--2100 pairs
 then pass the same gates under their exact model-specific 12:00 daily timestamp
 contract. The IPSL SSP3-7.0 2041--2050 and 2091--2100 pairs and bounded feature
-blocks also pass, bringing the expansion to 20 of 60 file gates and ten bounded
+blocks also pass. The IPSL SSP5-8.5 2041--2050 pair and bounded feature block
+also pass, bringing the expansion to 22 of 60 file gates and eleven bounded
 feature blocks. Their exact-key midcentury comparison with IPSL SSP1-2.6 finds
 mean differences of +0.365 C, +13.22 mm seasonal precipitation, +0.93 wet days,
 -1.36 maximum dry-spell days, +2.18 mm Rx1day, and +3.84 mm Rx5day. The matching
 end-century differences are +4.146 C, +25.70 mm seasonal precipitation, +2.85
 wet days, -2.26 maximum dry-spell days, +3.12 mm Rx1day, and +4.47 mm Rx5day.
 These are climate-support diagnostics, not a response estimate. The
-preregistered three-SSP midcentury join contains
+matched IPSL SSP5-8.5-minus-SSP1-2.6 midcentury means are +0.607 C, +19.88 mm
+seasonal precipitation, +2.07 wet days, -0.77 maximum dry-spell days, +2.01
+mm Rx1day, and +3.13 mm Rx5day. The IPSL three-SSP midcentury join contains
+181,104 rows. Leave-one-scenario-out GMST adjustment improves 15/33
+comparisons (median RMSE ratio 1.00028; maximum 1.02568), including 3/11 for
+held-out SSP5-8.5; 20,529/181,104 values (11.34%) are outside the exact two-
+scenario envelope. The preregistered GFDL three-SSP midcentury join contains
 181,104 rows across 11 feature families. Leave-one-scenario-out GMST adjustment
 improves 14/33 comparisons versus the cell-mean benchmark; its median RMSE
 ratio is 1.00036, maximum is 1.06410, and the SSP5-8.5 holdout improves only

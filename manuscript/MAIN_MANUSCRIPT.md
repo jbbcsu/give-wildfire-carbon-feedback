@@ -359,13 +359,21 @@ The next registered IPSL-CM6A-LR SSP1-2.6 `pr`/`tas` pairs for 2041--2050 and
 GMST, and bounded feature/reconciliation gates. Their paired daily files use
 a fixed 12:00 timestamp rather than GFDL's 00:00; both variables share each
 exact 3,652-day sequence. The IPSL SSP3-7.0 2041--2050 and 2091--2100 pairs and
-bounded feature blocks pass the same gates. Relative to matched SSP1-2.6 cells,
+bounded feature blocks pass the same gates. The IPSL SSP5-8.5 2041--2050 pair
+and bounded feature block also pass. Relative to matched SSP1-2.6 cells,
 midcentury mean differences are +0.365 C, +13.22 mm seasonal rain, +0.93 wet
 days, -1.36 maximum dry-spell days, +2.18 mm Rx1day, and +3.84 mm Rx5day. The
 end-century means are +4.146 C, +25.70 mm seasonal rain, +2.85 wet days, -2.26
 maximum dry-spell days, +3.12 mm Rx1day, and +4.47 mm Rx5day. These are
-descriptive forcing differences, not yield effects. The four IPSL blocks do not yet form another
-complete scenario or ESM holdout product.
+descriptive forcing differences, not yield effects. Matched midcentury
+SSP5-8.5-minus-SSP1-2.6 means are +0.607 C, +19.88 mm seasonal rain, +2.07 wet
+days, -0.77 maximum dry-spell days, +2.01 mm Rx1day, and +3.13 mm Rx5day. In
+the exact 181,104-row IPSL three-SSP midcentury product, whole-scenario GMST
+adjustment improves only 15/33 feature comparisons versus the cell-mean
+benchmark (median RMSE ratio 1.00028; maximum 1.02568), including 3/11 for
+held-out SSP5-8.5. Exact support flags put 20,529 values (11.34%) outside the
+two-scenario envelope. This second adverse single-ESM scenario result does not
+complete whole-ESM validation and does not authorize a response, damage, or SCC.
 
 ## 6. Results (pre-registered placeholders)
 
@@ -532,6 +540,13 @@ Fractional polygon/grid intersection assigns 81,538,947 m2 of water and
 and masked areas lowers valid fractional-land coverage to 0.888503097. The
 unchanged 0.95 gate therefore still fails, and no county exclusion, partition,
 response, damage, or SCC result follows.
+As an outcome-free sensitivity check, we also audited NOAA's own January 1981
+nClimGrid-Daily county area averages. The four weather files have identical
+3,107-county support; official numeric code 15221 maps to Trigg FIPS 21221,
+and all 31 daily values are finite and temperature-ordered. This establishes
+a source-computed county-average alternative, not an estimator replacement:
+historical boundary vintage and equivalence to the registered polygon-area
+weights remain unvalidated.
 
 The current-hash, basis-before-weighting diagnostic covers 117,679 observed
 maize yields (102,847 consecutive pairs) and 47,922 observed soybean yields

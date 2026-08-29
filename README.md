@@ -102,13 +102,21 @@ IPSL-CM6A-LR SSP1-2.6 2041--2050 pair and its matching 2091--2100 pair also
 pass exact bytes, SHA-512, model-specific 12:00 daily chronology, decoded
 content, same-realization GMST, and bounded-feature reconciliation. The IPSL
 SSP3-7.0 2041--2050 and 2091--2100 pairs and bounded feature blocks now pass
-the same gates, bringing the expansion to 20 of 60 files and ten feature
-blocks. Against matched IPSL SSP1-2.6 cells, mean SSP3-7.0 differences at
+the same gates. The IPSL SSP5-8.5 2041--2050 pair now also passes exact
+checksum/content, same-realization GMST, and bounded-feature gates, bringing
+the expansion to 22 of 60 files and eleven feature blocks. Against matched
+IPSL SSP1-2.6 cells, mean SSP3-7.0 differences at
 midcentury are +0.365 C, +13.22 mm seasonal rain, +0.93 wet days, -1.36
 maximum dry-spell days, +2.18 mm Rx1day, and +3.84 mm Rx5day. At end century,
 the matched means are +4.146 C, +25.70 mm seasonal rain, +2.85 wet days, -2.26
 maximum dry-spell days, +3.12 mm Rx1day, and +4.47 mm Rx5day. These are
-descriptive climate differences only. The exact joined three-SSP
+descriptive climate differences only. At midcentury, matched IPSL SSP5-8.5
+minus SSP1-2.6 means are +0.607 C, +19.88 mm rain, +2.07 wet days, -0.77
+maximum dry-spell days, +2.01 mm Rx1day, and +3.13 mm Rx5day. The exact joined
+IPSL three-SSP product has 181,104 feature rows; GMST adjustment improves only
+15/33 comparisons (median RMSE ratio 1.00028; maximum 1.02568), including
+3/11 for held-out SSP5-8.5, and 20,529/181,104 values (11.34%) are outside the
+two-scenario envelope. The corresponding GFDL
 midcentury product has 181,104 feature rows. Leave-one-scenario-out GMST adjustment improves only
 14/33 feature comparisons versus a cell-mean benchmark (median RMSE ratio
 1.00036; maximum 1.06410), and only 1/11 when SSP5-8.5 is held out. Across all
@@ -120,7 +128,7 @@ the two-scenario support envelope. A temperature-only FAIR sensitivity using
 the now-expanded 287.659--291.189 K GFDL envelope extends the mapped-baseline
 last-within year from 2020 through 2300 and revalidates
 common-random-number pairing, zero/pre-divergence identity, and decreasing-
-pulse convergence. The adverse holdout result rejects promotion; whole-ESM,
+pulse convergence. The adverse GFDL and IPSL holdout results reject promotion; whole-ESM,
 FAIR feature-support, response, damage, and SCC gates remain open.
 The evidence-bounded manuscript and Methods/SI blueprints are in
 [MANUSCRIPT_OUTLINE.md](MANUSCRIPT_OUTLINE.md) and
