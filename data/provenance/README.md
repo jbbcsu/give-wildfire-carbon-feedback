@@ -47,6 +47,12 @@ aggregate sign shares and exact input/implementation hashes without exporting
 cells. Latitude bands are not country or EEZ allocations, and all pulse,
 welfare, damage, and SCC gates remain closed.
 
+`fishmip_factorial_sensitivity_20260829.json` binds the tracked two-forcing,
+two-scenario, two-ecosystem-model matrix and reports exact contrasts in
+relative change from each model/forcing-specific historical reference. It
+does not average absolute model levels or assign model probabilities; all
+observed-catch, pulse, welfare, damage, and SCC gates remain closed.
+
 `give_country_fund_region_crosswalk_v1.csv` is the normalized aggregation
 universe derived from the baseline MimiGIVE mapping in the Rennert et al.
 replication archive. Its config pins the exact source and derived hashes; the

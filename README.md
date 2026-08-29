@@ -99,6 +99,16 @@ SSP5-8.5 is more negative than SSP1-2.6 in 2/4 near- and 4/4 mid- and
 late-century within-forcing/model comparisons. These are descriptive sign
 counts, not probabilities or welfare evidence.
 
+A separate exact factorial-sensitivity audit keeps each model's relative
+change anchored to its own forcing-specific historical reference. Across all
+six scenario-by-period cells, both ecosystem-model contrasts are larger in
+absolute value than both climate-forcing contrasts: ecosystem contrasts span
+8.13--31.80 percentage points, versus 2.33--6.32 points for the forcing
+contrasts. This small frozen ensemble therefore identifies ecosystem-model
+structure as the larger of those two sampled biophysical dimensions; it does
+not assign model probabilities, average absolute levels, or clear observed-
+catch, pulse, welfare, damage, or SCC gates.
+
 The bounded spatial-distribution audit in
 [`FISHMIP_SPATIAL_CHANGE_DISTRIBUTION.md`](FISHMIP_SPATIAL_CHANGE_DISTRIBUTION.md)
 shows that each of the eight late-century trajectories has lower catch density

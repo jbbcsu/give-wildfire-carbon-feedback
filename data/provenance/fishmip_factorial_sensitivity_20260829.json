@@ -1,0 +1,157 @@
+{
+  "absolute_model_levels_averaged": false,
+  "comparison_unit": "relative_change_from_each_model_and_forcing_specific_historical_reference",
+  "damage_estimated": false,
+  "disclaimer": "Exact structural contrasts in modelled scenario catch-density changes are not uncertainty probabilities, observed catch, a marginal carbon-pulse response, welfare, damages, or SCC evidence.",
+  "ecosystem_contrast_dominance_cells": 6,
+  "implementation": {
+    "path": "scripts/evaluate_fishmip_factorial_sensitivity.py",
+    "sha256": "f5471a5d8fe055ed3cccba952fe563740982a5045f4bc74e4578d47568eecee0"
+  },
+  "matched_co2_pulse": false,
+  "model_probabilities_assigned": false,
+  "observed_catch": false,
+  "rows": [
+    {
+      "absolute_climate_forcing_contrast_range": [
+        0.04190767803081752,
+        0.059542215357033745
+      ],
+      "absolute_ecosystem_model_contrast_range": [
+        0.16161117352354082,
+        0.2630610669113921
+      ],
+      "both_ecosystem_model_contrasts_exceed_both_climate_forcing_contrasts": true,
+      "difference_in_differences": -0.10144989338785126,
+      "ecoocean_minus_boats_by_forcing": {
+        "gfdl-esm4": 0.2630610669113921,
+        "ipsl-cm6a-lr": 0.16161117352354082
+      },
+      "ipsl_minus_gfdl_by_ecosystem_model": {
+        "boats": 0.059542215357033745,
+        "ecoocean": -0.04190767803081752
+      },
+      "period": "near",
+      "scenario": "ssp126"
+    },
+    {
+      "absolute_climate_forcing_contrast_range": [
+        0.0429813380382138,
+        0.05435672268153813
+      ],
+      "absolute_ecosystem_model_contrast_range": [
+        0.22070477933719113,
+        0.31804284005694305
+      ],
+      "both_ecosystem_model_contrasts_exceed_both_climate_forcing_contrasts": true,
+      "difference_in_differences": -0.09733806071975193,
+      "ecoocean_minus_boats_by_forcing": {
+        "gfdl-esm4": 0.31804284005694305,
+        "ipsl-cm6a-lr": 0.22070477933719113
+      },
+      "ipsl_minus_gfdl_by_ecosystem_model": {
+        "boats": 0.05435672268153813,
+        "ecoocean": -0.0429813380382138
+      },
+      "period": "mid",
+      "scenario": "ssp126"
+    },
+    {
+      "absolute_climate_forcing_contrast_range": [
+        0.03230414323014752,
+        0.06317851229396598
+      ],
+      "absolute_ecosystem_model_contrast_range": [
+        0.0813344943870341,
+        0.11220886345085257
+      ],
+      "both_ecosystem_model_contrasts_exceed_both_climate_forcing_contrasts": true,
+      "difference_in_differences": -0.030874369063818463,
+      "ecoocean_minus_boats_by_forcing": {
+        "gfdl-esm4": 0.11220886345085257,
+        "ipsl-cm6a-lr": 0.0813344943870341
+      },
+      "ipsl_minus_gfdl_by_ecosystem_model": {
+        "boats": 0.06317851229396598,
+        "ecoocean": 0.03230414323014752
+      },
+      "period": "late",
+      "scenario": "ssp126"
+    },
+    {
+      "absolute_climate_forcing_contrast_range": [
+        0.03421323118716724,
+        0.05838268801322699
+      ],
+      "absolute_ecosystem_model_contrast_range": [
+        0.15713114156141916,
+        0.2497270607618134
+      ],
+      "both_ecosystem_model_contrasts_exceed_both_climate_forcing_contrasts": true,
+      "difference_in_differences": -0.09259591920039423,
+      "ecoocean_minus_boats_by_forcing": {
+        "gfdl-esm4": 0.2497270607618134,
+        "ipsl-cm6a-lr": 0.15713114156141916
+      },
+      "ipsl_minus_gfdl_by_ecosystem_model": {
+        "boats": 0.05838268801322699,
+        "ecoocean": -0.03421323118716724
+      },
+      "period": "near",
+      "scenario": "ssp585"
+    },
+    {
+      "absolute_climate_forcing_contrast_range": [
+        0.02333832141502956,
+        0.0450435759051222
+      ],
+      "absolute_ecosystem_model_contrast_range": [
+        0.23843881041940096,
+        0.3068207077395527
+      ],
+      "both_ecosystem_model_contrasts_exceed_both_climate_forcing_contrasts": true,
+      "difference_in_differences": -0.06838189732015176,
+      "ecoocean_minus_boats_by_forcing": {
+        "gfdl-esm4": 0.3068207077395527,
+        "ipsl-cm6a-lr": 0.23843881041940096
+      },
+      "ipsl_minus_gfdl_by_ecosystem_model": {
+        "boats": 0.0450435759051222,
+        "ecoocean": -0.02333832141502956
+      },
+      "period": "mid",
+      "scenario": "ssp585"
+    },
+    {
+      "absolute_climate_forcing_contrast_range": [
+        0.04479186369885635,
+        0.05969181994122896
+      ],
+      "absolute_ecosystem_model_contrast_range": [
+        0.09519125230840031,
+        0.11009120855077292
+      ],
+      "both_ecosystem_model_contrasts_exceed_both_climate_forcing_contrasts": true,
+      "difference_in_differences": -0.014899956242372614,
+      "ecoocean_minus_boats_by_forcing": {
+        "gfdl-esm4": 0.11009120855077292,
+        "ipsl-cm6a-lr": 0.09519125230840031
+      },
+      "ipsl_minus_gfdl_by_ecosystem_model": {
+        "boats": 0.05969181994122896,
+        "ecoocean": 0.04479186369885635
+      },
+      "period": "late",
+      "scenario": "ssp585"
+    }
+  ],
+  "scc_authorized": false,
+  "scenario_period_cells": 6,
+  "schema": "fishmip_factorial_relative_change_sensitivity_v1",
+  "source_matrix": {
+    "path": "data/provenance/fishmip_scenario_benchmark_matrix_20260826.json",
+    "sha256": "6dd210a971778b7f745f590a09148189421761a60f7f73af40d9d163262367be"
+  },
+  "status": "validated_biophysical_structural_sensitivity_only",
+  "welfare_estimated": false
+}

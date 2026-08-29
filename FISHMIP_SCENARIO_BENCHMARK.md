@@ -46,6 +46,21 @@ four mid- and late-century comparisons. These counts show where the frozen
 scenario matrix agrees; they are not uncertainty probabilities and do not
 resolve the missing observed-catch, marginal-pulse, or welfare layers.
 
+The tracked factorial-sensitivity extension uses those same eight relative
+changes and preserves each model/forcing-specific historical reference. For
+each of the six scenario-by-period cells it computes the two exact EcoOcean-
+minus-BOATS contrasts and the two exact IPSL-minus-GFDL contrasts. Both
+ecosystem-model contrasts exceed both climate-forcing contrasts in absolute
+value in all 6/6 cells. Across the cells, the ecosystem-model contrast range
+is 8.13--31.80 percentage points, compared with 2.33--6.32 points for climate
+forcing. Difference-in-differences terms remain nonzero, so the factors are
+not assumed additive. This is a descriptive structural-sensitivity result
+from two ecosystem models and two climate forcings, not a variance estimate,
+probability distribution, observed-catch calibration, pulse, welfare, damage,
+or SCC result. The executable and receipt are
+`scripts/evaluate_fishmip_factorial_sensitivity.py` and
+`data/provenance/fishmip_factorial_sensitivity_20260829.json`.
+
 The frozen configurations are the four
 `config/fishmip_scenario_benchmark_*ssp*_v1.toml` files; the executable is
 `scripts/evaluate_fishmip_scenario_benchmark.py`. The machine-readable real
