@@ -167,6 +167,12 @@ The repository currently provides two coefficient-free checks:
   `data/provenance/marine_regions_eez_source_decision_20260828.toml` records
   the unresolved acquisition, topology, high-seas-consistency, and ISO3 gates.
 
+The named EEZ and High Seas GeoPackage request endpoints are now resolved,
+but each returns a provider form requiring personal registration fields and
+explicit disclaimer acceptance before supplying the file. The automation has
+not submitted personal data or accepted terms. Acquisition remains blocked on
+an authorized human request or a provider-approved non-personal route.
+
 Run the synthetic checks with:
 
 ```bash

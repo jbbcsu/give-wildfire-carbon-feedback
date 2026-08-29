@@ -115,6 +115,14 @@ with EEZ v12 must be demonstrated rather than assumed. Exact objects, bytes,
 checksums, schema, topology, longitude handling, and ISO3 reconciliation remain
 pending; no geometry has been acquired into this repository.
 
+The official named GeoPackage request endpoints have been resolved for both
+products. They return provider registration forms, not files, and require a
+name, organisation, email, country, user category, purpose, and explicit
+disclaimer acceptance. No personal data were invented or submitted and no
+terms were accepted by the automation. Acquisition is therefore blocked on an
+authorized human submission or a provider-supplied non-personal access route;
+the exact downloadable object remains unpinned.
+
 The Blue-SCC audit sharpens this gate. A first benchmark can use its published
 country temperature damage coefficients only after source-license and exact-
 replication checks. The market pathway must be labeled profit-plus-output-

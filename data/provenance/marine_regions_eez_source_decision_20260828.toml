@@ -1,7 +1,7 @@
 schema_version = 1
 checked_utc_date = "2026-08-28"
 role = "candidate_spatial_allocation_source_selection_not_acquired_not_country_incidence_or_welfare"
-status = "version_selected_acquisition_and_content_validation_pending"
+status = "version_and_provider_request_endpoints_selected_user_registration_and_terms_acceptance_required"
 
 [eez]
 provider = "Flanders Marine Institute Marine Regions"
@@ -10,6 +10,8 @@ version = 12
 release_date = "2023-10-25"
 doi = "10.14284/632"
 download_page = "https://www.marineregions.org/downloads.php"
+request_endpoint = "https://www.marineregions.org/download_file.php?name=World_EEZ_v12_20231025_gpkg.zip"
+requested_archive_name = "World_EEZ_v12_20231025_gpkg.zip"
 methodology = "https://www.marineregions.org/eezmethodology.php"
 approximate_shapefile_size_mb_from_download_page = 122
 license = "CC-BY"
@@ -21,14 +23,28 @@ exact_object_url_pinned = false
 exact_bytes_pinned = false
 checksum_pinned = false
 schema_validated = false
+request_form_requires_name = true
+request_form_requires_organisation = true
+request_form_requires_email = true
+request_form_requires_country = true
+request_form_requires_user_category = true
+request_form_requires_purpose = true
+request_form_requires_explicit_disclaimer_acceptance = true
+automation_submitted_personal_data = false
+automation_accepted_terms = false
 
 [high_seas]
 provider = "Flanders Marine Institute Marine Regions"
 current_download_listing = "World High Seas v2"
+request_endpoint = "https://www.marineregions.org/download_file.php?name=World_High_Seas_v2_20241010_gpkg.zip"
+requested_archive_name = "World_High_Seas_v2_20241010_gpkg.zip"
 listing_release_date = "2024-10-10"
 approximate_shapefile_size_mb_from_download_page = 6.85
 compatibility_with_eez_v12_validated = false
 acquired = false
+request_form_requires_user_registration_and_explicit_disclaimer_acceptance = true
+automation_submitted_personal_data = false
+automation_accepted_terms = false
 
 [allocation_contract]
 validator = "scripts/validate_fishmip_grid_eez_allocation.py"
@@ -44,4 +60,4 @@ fleet_incidence_identified = false
 trade_or_market_incidence_identified = false
 welfare_model_identified = false
 damage_or_scc_authorized = false
-notes = "Selection fixes the candidate geometry/version before overlay results are inspected. Acquisition must preserve provider download terms; exact object identity, bytes, checksum, fields, topology, longitude convention, joint regimes, disputed claims, high-seas complement, and ISO3 mapping remain fail-closed gates."
+notes = "Selection fixes the candidate geometry/version before overlay results are inspected. On 2026-08-28 the official named GeoPackage request endpoints were resolved, but both return a registration form requiring name, organisation, email, country, user category, purpose, and explicit disclaimer acceptance rather than a downloadable object. The automation did not invent or submit personal data and did not accept terms. Acquisition therefore needs an authorized human submission or a provider-supplied non-personal access route. Exact object identity, bytes, checksum, fields, topology, longitude convention, joint regimes, disputed claims, high-seas complement, and ISO3 mapping remain fail-closed gates."
