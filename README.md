@@ -91,8 +91,9 @@ diagnostic does not average model levels, because their absolute scales differ
 greatly, and it remains a scenario benchmark rather than a pulse, welfare,
 damage, or SCC result.
 
-A first checksum-pinned preindustrial-control pair now bounds interpretation
-of the scenario changes. BOATS/GFDL-ESM4 control files for 1950--2014 and
+The first two checksum-pinned preindustrial-control pairs now bound
+interpretation of the scenario changes. BOATS/GFDL-ESM4 control files for
+1950--2014 and
 2015--2100 pass complete checksum, monthly chronology, grid, units,
 time-stable missingness, nonnegativity, and exact pair-join gates. On 41,076
 finite cells, control mean density is 23.66%, 30.75%, and 31.71% below its own
@@ -106,6 +107,15 @@ decades. This materially narrows the unadjusted BOATS declines, especially
 before late century. It remains a structural control adjustment rather than
 causal attribution, a matched pulse, welfare estimate, damage function, or SCC
 input.
+
+The matching EcoOcean/GFDL-ESM4 control pair independently passes on 43,332
+finite cells. Its near/mid/late changes are -2.06%/-3.26%/-24.14%. On the exact
+four-file intersection, EcoOcean forced-minus-control changes are
++2.18/+2.36/+0.72 percentage points for SSP1-2.6 and +1.33/+0.26/-6.68 points
+for SSP5-8.5. The sign and magnitude therefore depend on ecosystem model,
+scenario, and period after adjustment; neither raw decline nor adjusted sign
+is a universal forced response. The same pulse/welfare/damage/SCC exclusions
+apply.
 
 An executable cross-matrix audit now verifies the complete two-forcing,
 two-scenario, two-ecosystem-model factorial, identical historical references

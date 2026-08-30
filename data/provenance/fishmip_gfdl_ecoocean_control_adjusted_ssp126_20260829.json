@@ -1,0 +1,76 @@
+{
+  "absolute_model_levels_averaged": false,
+  "climate_forcing": "gfdl-esm4",
+  "common_finite_grid_cells": 43332,
+  "config_sha256": "a1bfd95e681499a5b414958c90646be714286c800e4f43d9fe35781ae0f057ca",
+  "control_pair_validation": "passed",
+  "control_reference_mean_density_g_m2": 0.1368885855449719,
+  "control_scenario": "picontrol",
+  "damage_estimated": false,
+  "forced_pair_validation": "passed",
+  "forced_reference_mean_density_g_m2": 0.12558976504692623,
+  "forced_response_estimated": false,
+  "forced_scenario": "ssp126",
+  "future_soc_scenario": "2015soc-from-histsoc",
+  "historical_soc_scenario": "histsoc",
+  "implementation_sha256": "a25e90949836d2a2332efffe30aafd1c26bd498da0f96ccd92806e9946326e87",
+  "inference_limit": "Difference-in-relative-changes on one support intersection is a structural control adjustment, not causal attribution or a marginal pulse response.",
+  "inputs": [
+    {
+      "bytes": 116279679,
+      "file_name": "ecoocean_gfdl-esm4_nobasd_historical_histsoc_default_tc_global_monthly_1950_2014.nc",
+      "sha512": "d1da9d46305f9f53f88c0a5e7d9971b16bfb86bd14c2ce44964fd19473e9390e35a99fa1091956ad79456c87dc0f1f154fe416e59710ad9b7c720a90501cf420"
+    },
+    {
+      "bytes": 153678794,
+      "file_name": "ecoocean_gfdl-esm4_nobasd_ssp126_2015soc-from-histsoc_default_tc_global_monthly_2015_2100.nc",
+      "sha512": "eecf2457bc049c27e1cb0c8f2e1f7dd8e75a896a3ca89d651aa76b6f024bd73585906329983a0d2ebf44cf145da73e116c863cadd923c4a61fe395a49deb9cb8"
+    },
+    {
+      "bytes": 116388372,
+      "file_name": "ecoocean_gfdl-esm4_nobasd_picontrol_histsoc_default_tc_global_monthly_1950_2014.nc",
+      "sha512": "50997d5015be2e8d9ada24b8267858bfa5f7e598965fc6a3c0c05d21b1e7e2a083636e113fd7b0044f0ac43f47db00ef50a197cf3bd1459471021fa11526a816"
+    },
+    {
+      "bytes": 153136364,
+      "file_name": "ecoocean_gfdl-esm4_nobasd_picontrol_2015soc-from-histsoc_default_tc_global_monthly_2015_2100.nc",
+      "sha512": "e645c805f0aa17c196156813cdaef8a7209faa0ed9207d2be05aaf3988ee19931fcc937b7fa56b1db871d062baf9a2068fa2eb848591dfcb99b93b0ab44aac8f"
+    }
+  ],
+  "matched_co2_pulse": false,
+  "model": "ecoocean",
+  "reference_end_year": 2014,
+  "reference_start_year": 2005,
+  "reporting_periods": [
+    {
+      "control_relative_change": -0.020599935638489608,
+      "difference_in_relative_changes": 0.021773248946399315,
+      "end_year": 2030,
+      "forced_relative_change": 0.001173313307909707,
+      "id": "near",
+      "start_year": 2021
+    },
+    {
+      "control_relative_change": -0.03255752711088922,
+      "difference_in_relative_changes": 0.023575747970521088,
+      "end_year": 2050,
+      "forced_relative_change": -0.008981779140368129,
+      "id": "mid",
+      "start_year": 2041
+    },
+    {
+      "control_relative_change": -0.241357097937696,
+      "difference_in_relative_changes": 0.007221663657564159,
+      "end_year": 2090,
+      "forced_relative_change": -0.23413543428013184,
+      "id": "late",
+      "start_year": 2081
+    }
+  ],
+  "result": "passed",
+  "role": "biophysical_control_adjusted_scenario_diagnostic_not_pulse_welfare_or_scc",
+  "scc_authorized": false,
+  "support_rule": "intersection_across_control_and_forced_historical_future_files",
+  "version": "fishmip_gfdl_ecoocean_control_adjusted_ssp126_v1",
+  "welfare_estimated": false
+}

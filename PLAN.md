@@ -44,9 +44,10 @@ two ecosystem models (BOATS and EcoOcean) by two climate forcings (GFDL-ESM4
 and IPSL-CM6A-LR), with five historical/future experiment records per pairing.
 Twelve files spanning historical, SSP1-2.6, and SSP5-8.5 have since been
 acquired and content-validated for the scenario matrix. One checksum-pinned
-BOATS/GFDL-ESM4 preindustrial-control historical/future pair is also acquired
-and fully validated; the other six control files remain unacquired. This does
-not clear the matched-pulse, welfare, or production gates.
+BOATS/GFDL-ESM4 and EcoOcean/GFDL-ESM4 preindustrial-control historical/future
+pairs are also acquired and fully validated; the other four control files
+remain unacquired. This does not clear the matched-pulse, welfare, or production
+gates.
 
 The all-file acquisition plan is now version-pinned and executable against a
 fresh catalogue response. Its outcome-blind content smoke is limited to the
@@ -55,8 +56,8 @@ catalogue bytes). After that smoke passed, the bounded scenario matrix added
 the equivalent IPSL-CM6A-LR cells and both SSP5-8.5 futures. All 12 scenario
 files passed complete-file checksum, schema, monthly chronology,
 historical/future join, grid, unit, and missing-versus-zero checks. The first
-two control files were subsequently admitted for a bounded drift diagnostic;
-the other six remain deferred. See `FISHMIP_CONTENT_PLAN.md`.
+four GFDL control files were subsequently admitted for bounded drift
+diagnostics; the other four remain deferred. See `FISHMIP_CONTENT_PLAN.md`.
 
 ## Gate 3 — primary model and alternatives
 
@@ -94,6 +95,14 @@ percentage points for SSP1-2.6 and -1.96/-2.95/-11.19 points for SSP5-8.5 in
 the near/mid/late decades. This is a structural sensitivity, not causal or
 marginal-pulse identification; model/forcing/social-forcing labels remain
 explicit.
+
+The EcoOcean/GFDL control pair provides a materially different bound. Its
+near/mid/late control changes are -2.06%/-3.26%/-24.14%, and its exact-support
+forced-minus-control changes are +2.18/+2.36/+0.72 percentage points for
+SSP1-2.6 and +1.33/+0.26/-6.68 points for SSP5-8.5. Control adjustment thus
+does not produce a common sign across ecosystem models and periods. These
+contrasts strengthen the requirement for multiple ecosystem models and keep
+all forced-response, pulse, welfare, damage, and SCC gates closed.
 
 ## Gate 4 — welfare translation and GIVE interface
 

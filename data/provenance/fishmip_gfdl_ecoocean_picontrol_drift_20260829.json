@@ -1,0 +1,69 @@
+{
+  "climate_forcing": "gfdl-esm4",
+  "climate_scenario": "picontrol",
+  "common_finite_grid_cells": 43332,
+  "config_sha256": "4edd36c53dfacda91b96efbe87de37deef27d52de79bd85b436bfed5c30ebc99",
+  "control_inference_limit": "The climate input is picontrol, but social forcing changes from histsoc to 2015soc-from-histsoc; the result diagnoses this model pair and is not pure autonomous ecological drift.",
+  "damage_estimated": false,
+  "forced_response_estimated": false,
+  "future_soc_scenario": "2015soc-from-histsoc",
+  "historical_soc_scenario": "histsoc",
+  "implementation_sha256": "c861ecf7e301e2e6a3e6fddf5c05e55e1da6afd993937cc943d7ad540baad15f",
+  "inputs": [
+    {
+      "bytes": 116388372,
+      "file_name": "ecoocean_gfdl-esm4_nobasd_picontrol_histsoc_default_tc_global_monthly_1950_2014.nc",
+      "sha512": "50997d5015be2e8d9ada24b8267858bfa5f7e598965fc6a3c0c05d21b1e7e2a083636e113fd7b0044f0ac43f47db00ef50a197cf3bd1459471021fa11526a816"
+    },
+    {
+      "bytes": 153136364,
+      "file_name": "ecoocean_gfdl-esm4_nobasd_picontrol_2015soc-from-histsoc_default_tc_global_monthly_2015_2100.nc",
+      "sha512": "e645c805f0aa17c196156813cdaef8a7209faa0ed9207d2be05aaf3988ee19931fcc937b7fa56b1db871d062baf9a2068fa2eb848591dfcb99b93b0ab44aac8f"
+    }
+  ],
+  "matched_co2_pulse": false,
+  "model": "ecoocean",
+  "pair_validation": {
+    "calendar": "365_day",
+    "finite_grid_cells": 43332,
+    "future_content_result": "passed",
+    "historical_content_result": "passed",
+    "missing_grid_cells": 21468,
+    "result": "passed",
+    "time_units": "days since 1601-1-1 00:00:00"
+  },
+  "reference_end_year": 2014,
+  "reference_mean_density_g_m2": 0.1368885855449719,
+  "reference_start_year": 2005,
+  "reporting_periods": [
+    {
+      "absolute_change_from_reference_g_m2": -0.002819896051870302,
+      "end_year": 2030,
+      "id": "near",
+      "mean_density_g_m2": 0.1340686894931016,
+      "relative_change_from_reference": -0.020599935638489608,
+      "start_year": 2021
+    },
+    {
+      "absolute_change_from_reference_g_m2": -0.004456753835051702,
+      "end_year": 2050,
+      "id": "mid",
+      "mean_density_g_m2": 0.1324318317099202,
+      "relative_change_from_reference": -0.03255752711088922,
+      "start_year": 2041
+    },
+    {
+      "absolute_change_from_reference_g_m2": -0.033039031747930464,
+      "end_year": 2090,
+      "id": "late",
+      "mean_density_g_m2": 0.10384955379704144,
+      "relative_change_from_reference": -0.241357097937696,
+      "start_year": 2081
+    }
+  ],
+  "result": "passed",
+  "role": "biophysical_picontrol_drift_diagnostic_not_forced_response_pulse_welfare_or_scc",
+  "scc_authorized": false,
+  "version": "fishmip_gfdl_ecoocean_picontrol_drift_v1",
+  "welfare_estimated": false
+}

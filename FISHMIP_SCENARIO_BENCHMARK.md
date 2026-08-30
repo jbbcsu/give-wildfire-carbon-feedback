@@ -85,6 +85,16 @@ control-adjusted receipts are
 They export only aggregate means/differences and source/implementation hashes
 and keep every forced-response, pulse, welfare, damage, and SCC gate closed.
 
+The EcoOcean/GFDL-ESM4 control pair passes the same gates on 43,332 cells. Its
+near/mid/late relative changes are -2.06%/-3.26%/-24.14%. On the exact support
+intersection with the forced files, forced-minus-control changes are
++2.18/+2.36/+0.72 percentage points for SSP1-2.6 and +1.33/+0.26/-6.68 points
+for SSP5-8.5. Unlike BOATS, EcoOcean therefore has positive adjusted changes
+through SSP1-2.6 late century and through SSP5-8.5 midcentury. This is direct
+evidence that control adjustment does not yield a common response sign across
+the two ecosystem models, scenarios, and periods. The EcoOcean receipts use
+the same naming pattern with `ecoocean` in place of `boats`.
+
 The frozen configurations are the four
 `config/fishmip_scenario_benchmark_*ssp*_v1.toml` files; the executable is
 `scripts/evaluate_fishmip_scenario_benchmark.py`. The machine-readable real
