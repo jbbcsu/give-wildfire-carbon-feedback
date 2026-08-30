@@ -1,0 +1,178 @@
+{
+  "counties": [
+    "06019",
+    "31039"
+  ],
+  "disclaimer": "A bounded source-versus-polygon weather measurement comparison is not evidence of general estimator equivalence, a climate-yield response, damages, or SCC effects.",
+  "estimators_declared_equivalent": false,
+  "inputs": {
+    "grid": {
+      "bytes": 59110682,
+      "path": "data/raw/us_county/nclimgrid_daily/ncdd-199004-grd-scaled.nc",
+      "sha256": "be4164f19d6400f5051ff19b6aa64cac3b3fb6b3315db616c85a81a3072c9eba"
+    },
+    "official": {
+      "prcp": {
+        "bytes": 1093490,
+        "sha256": "1c1f980299d42e6059972472b045dffcf7f04be0f0b4c3440e85bc9e0f9a2eb8",
+        "url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/averages/1990/prcp-199004-cty-scaled.csv"
+      },
+      "tavg": {
+        "bytes": 1093490,
+        "sha256": "29aede62557a223fe9ae852db111a655997587b58af61c77473d8159247d8c7b",
+        "url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/averages/1990/tavg-199004-cty-scaled.csv"
+      },
+      "tmax": {
+        "bytes": 1093490,
+        "sha256": "209d15551dc2addcf8f083298bc7f98fbe5b07e6e99b319c767706493ca7b769",
+        "url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/averages/1990/tmax-199004-cty-scaled.csv"
+      },
+      "tmin": {
+        "bytes": 1093490,
+        "sha256": "7d7c6981cf79e9e9cc79bd97a412985ef636a2e561b1b9f0a9dc19c358b27bb8",
+        "url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/averages/1990/tmin-199004-cty-scaled.csv"
+      }
+    },
+    "polygon_weights": [
+      {
+        "county_geoid": "31039",
+        "path": "data/interim/us_county/nclimgrid_polygon_weights_national_all_practice_v1/county_geoid=31039/weights.parquet",
+        "sha256": "76464b5c9a15cecc8caa86ebb283128f0d4775972ed3524a7ad910df43eec3fb"
+      },
+      {
+        "county_geoid": "06019",
+        "path": "data/interim/us_county/nclimgrid_polygon_weights_national_all_practice_v1/county_geoid=06019/weights.parquet",
+        "sha256": "7e0cba61530715d2796002ac13ddd768a421467f845df16d92ae67803eab3e2e"
+      }
+    ],
+    "state_crosswalk": {
+      "bytes": 972,
+      "sha256": "99d3d10651362d1312976c454830c65b743c495cb9f176811a0c35961382595c",
+      "url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/doc/us-state-codes_ncei-to-fips.csv"
+    },
+    "version": {
+      "bytes": 124,
+      "sha256": "f9d2fa942e456b4ee49d8c730fd4cdef891e06b7db361b59c2e4bc31a7469f36",
+      "text": "nClimGrid-Daily v1-0-0 complete for 1990-04-01 through 1990-04-30\n\n  from GHCNd data downloaded on Wed Mar 29 18:06:37 2017",
+      "url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/averages/1990/ncdd-199004-version.txt"
+    }
+  },
+  "month": 4,
+  "official_counties_per_variable": 3107,
+  "registered_polygon_route_replaced": false,
+  "relationship_estimated": false,
+  "response_damage_or_scc_authorized": false,
+  "results": [
+    {
+      "county_geoid": "31039",
+      "days": 30,
+      "maximum_absolute_difference": 0.13445184357,
+      "mean_absolute_difference": 0.0128407843,
+      "mean_difference": 0.006016026977,
+      "monthly_total_difference": 0.180480809307,
+      "pearson_correlation": 0.999830697948,
+      "polygon_mean": 0.637016026977,
+      "polygon_monthly_total": 19.110480809307,
+      "root_mean_squared_difference": 0.029696756758,
+      "source_mean": 0.631,
+      "source_monthly_total": 18.93,
+      "variable": "PRCP"
+    },
+    {
+      "county_geoid": "31039",
+      "days": 30,
+      "maximum_absolute_difference": 0.031829482761,
+      "mean_absolute_difference": 0.010951540098,
+      "mean_difference": 0.003004968784,
+      "pearson_correlation": 0.999998131918,
+      "polygon_mean": 9.110338302117,
+      "root_mean_squared_difference": 0.014080372597,
+      "source_mean": 9.107333333333,
+      "variable": "TAVG"
+    },
+    {
+      "county_geoid": "31039",
+      "days": 30,
+      "maximum_absolute_difference": 0.036788927682,
+      "mean_absolute_difference": 0.011278179174,
+      "mean_difference": 0.003690032824,
+      "pearson_correlation": 0.999998307558,
+      "polygon_mean": 1.549356699491,
+      "root_mean_squared_difference": 0.014610335005,
+      "source_mean": 1.545666666667,
+      "variable": "TMIN"
+    },
+    {
+      "county_geoid": "31039",
+      "days": 30,
+      "maximum_absolute_difference": 0.043054979379,
+      "mean_absolute_difference": 0.014181547053,
+      "mean_difference": 0.000478180741,
+      "pearson_correlation": 0.999996901153,
+      "polygon_mean": 16.671478180741,
+      "root_mean_squared_difference": 0.017596555172,
+      "source_mean": 16.671,
+      "variable": "TMAX"
+    },
+    {
+      "county_geoid": "06019",
+      "days": 30,
+      "maximum_absolute_difference": 0.022717645117,
+      "mean_absolute_difference": 0.003356346035,
+      "mean_difference": 0.000884607187,
+      "monthly_total_difference": 0.026538215616,
+      "pearson_correlation": 0.999996323047,
+      "polygon_mean": 1.023884607187,
+      "polygon_monthly_total": 30.716538215616,
+      "root_mean_squared_difference": 0.006266079428,
+      "source_mean": 1.023,
+      "source_monthly_total": 30.69,
+      "variable": "PRCP"
+    },
+    {
+      "county_geoid": "06019",
+      "days": 30,
+      "maximum_absolute_difference": 0.059184245975,
+      "mean_absolute_difference": 0.047625082207,
+      "mean_difference": -0.047625082207,
+      "pearson_correlation": 0.999997132103,
+      "polygon_mean": 12.968374917793,
+      "root_mean_squared_difference": 0.048115786668,
+      "source_mean": 13.016,
+      "variable": "TAVG"
+    },
+    {
+      "county_geoid": "06019",
+      "days": 30,
+      "maximum_absolute_difference": 0.054210219048,
+      "mean_absolute_difference": 0.04118912661,
+      "mean_difference": -0.04118912661,
+      "pearson_correlation": 0.999992825172,
+      "polygon_mean": 5.820144206723,
+      "root_mean_squared_difference": 0.041742567286,
+      "source_mean": 5.861333333333,
+      "variable": "TMIN"
+    },
+    {
+      "county_geoid": "06019",
+      "days": 30,
+      "maximum_absolute_difference": 0.071634412369,
+      "mean_absolute_difference": 0.054962252836,
+      "mean_difference": -0.054962252836,
+      "pearson_correlation": 0.999996727639,
+      "polygon_mean": 20.116704413831,
+      "root_mean_squared_difference": 0.055669542172,
+      "source_mean": 20.171666666667,
+      "variable": "TMAX"
+    }
+  ],
+  "schema": "us_nclimgrid_county_average_estimator_comparison_v1",
+  "status": "validated_measurement_comparison_not_estimator_equivalence",
+  "variables": [
+    "PRCP",
+    "TAVG",
+    "TMIN",
+    "TMAX"
+  ],
+  "year": 1990
+}
