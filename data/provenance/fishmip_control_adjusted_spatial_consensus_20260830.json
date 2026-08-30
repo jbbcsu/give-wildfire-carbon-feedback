@@ -1,0 +1,439 @@
+{
+  "absolute_model_levels_averaged": false,
+  "consensus": [
+    {
+      "area_weighted_cell_share_at_least_three_lower": 0.4222106216760035,
+      "area_weighted_cell_share_by_lower_trajectory_count": {
+        "0": 0.052484563864830545,
+        "1": 0.20822556406086692,
+        "2": 0.3170792503982991,
+        "3": 0.29070496814269,
+        "4": 0.1315056535333135
+      },
+      "area_weighted_cell_share_unanimously_lower": 0.1315056535333135,
+      "area_weighted_cell_share_with_any_higher_trajectory": 0.8651400021417369,
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 40398,
+      "unweighted_cell_share_at_least_three_lower": 0.3738056339422744,
+      "unweighted_cell_share_by_lower_trajectory_count": {
+        "0": 0.09245507203326897,
+        "1": 0.22944205158671221,
+        "2": 0.3042972424377444,
+        "3": 0.26110203475419574,
+        "4": 0.11270359918807862
+      },
+      "unweighted_cell_share_unanimously_lower": 0.11270359918807862,
+      "unweighted_cell_share_with_any_exactly_unchanged_trajectory": 0.13896727560770336,
+      "unweighted_cell_share_with_any_higher_trajectory": 0.8804891331254022
+    },
+    {
+      "area_weighted_cell_share_at_least_three_lower": 0.5653926484259952,
+      "area_weighted_cell_share_by_lower_trajectory_count": {
+        "0": 0.05222350027159348,
+        "1": 0.14779811871972873,
+        "2": 0.23458573258268256,
+        "3": 0.3018680865614653,
+        "4": 0.26352456186452994
+      },
+      "area_weighted_cell_share_unanimously_lower": 0.26352456186452994,
+      "area_weighted_cell_share_with_any_higher_trajectory": 0.7346572832544296,
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 40398,
+      "unweighted_cell_share_at_least_three_lower": 0.46210208426159716,
+      "unweighted_cell_share_by_lower_trajectory_count": {
+        "0": 0.0954502698153374,
+        "1": 0.20592603594237338,
+        "2": 0.2365216099806921,
+        "3": 0.255903757611763,
+        "4": 0.20619832664983415
+      },
+      "unweighted_cell_share_unanimously_lower": 0.20619832664983415,
+      "unweighted_cell_share_with_any_exactly_unchanged_trajectory": 0.13896727560770336,
+      "unweighted_cell_share_with_any_higher_trajectory": 0.790360908955889
+    }
+  ],
+  "damage_estimated": false,
+  "disclaimer": "Cell signs after a structural control adjustment are not causal forced responses, observed catch, welfare, a matched carbon pulse, damages, or SCC evidence.",
+  "forced_response_estimated": false,
+  "future_period": {
+    "end_year": 2090,
+    "start_year": 2081
+  },
+  "implementation": {
+    "path": "scripts/evaluate_fishmip_control_adjusted_spatial_consensus.py",
+    "sha256": "d3eb72643f13924cd44c6d92cb6270ae9fc8e203424706ce935021213690645a"
+  },
+  "inputs": [
+    {
+      "bytes": 90012681,
+      "climate_forcing": "gfdl-esm4",
+      "ecosystem_model": "boats",
+      "experiment": "forced_historical",
+      "path": "data/raw/fishmip/gfdl-esm4/boats/boats_gfdl-esm4_nobasd_historical_histsoc_default_tc_global_monthly_1950_2014.nc",
+      "sha512": "2ca08c5d40413e437b7d7215acf3029c2f69613e8afdce847a5aa62d8aaad0b658347557374a17daae43d6957a56e9aee6597b9fb4c8b4737ed7e1f578101411"
+    },
+    {
+      "bytes": 90196384,
+      "climate_forcing": "gfdl-esm4",
+      "ecosystem_model": "boats",
+      "experiment": "control_historical",
+      "path": "data/raw/fishmip/gfdl-esm4/boats/boats_gfdl-esm4_nobasd_picontrol_histsoc_default_tc_global_monthly_1950_2014.nc",
+      "sha512": "083e55e0f05c48b7e600b2df5bf05695692d0f934cfc581da5b57c04af491d1a8d479b7a2bad16cff75ffad21e312489b7e340b26a532f5056a29889ec3a6155"
+    },
+    {
+      "bytes": 153642534,
+      "climate_forcing": "gfdl-esm4",
+      "ecosystem_model": "boats",
+      "experiment": "control_future",
+      "path": "data/raw/fishmip/gfdl-esm4/boats/boats_gfdl-esm4_nobasd_picontrol_2015soc-from-histsoc_default_tc_global_monthly_2015_2100.nc",
+      "sha512": "9f9541ccdf842823e168b33387510021bd72ee1408b25fa305d467ddadb8a6f1e9f75ab2398138b855857f82ff0555a2c1c9f87555facf926e598a06fa8780ad"
+    },
+    {
+      "bytes": 153855617,
+      "climate_forcing": "gfdl-esm4",
+      "ecosystem_model": "boats",
+      "experiment": "ssp126_future",
+      "path": "data/raw/fishmip/gfdl-esm4/boats/boats_gfdl-esm4_nobasd_ssp126_2015soc-from-histsoc_default_tc_global_monthly_2015_2100.nc",
+      "sha512": "05308c6cedc17e284d2fa825533f1c8e3365c145bc196dcf5f71727f5bce34c1b4ce8fefbbcf4eecc427c720d02b2689c4f57cbf0756b6c7339fffb15aa04f9e"
+    },
+    {
+      "bytes": 153750026,
+      "climate_forcing": "gfdl-esm4",
+      "ecosystem_model": "boats",
+      "experiment": "ssp585_future",
+      "path": "data/raw/fishmip/gfdl-esm4/boats/boats_gfdl-esm4_nobasd_ssp585_2015soc-from-histsoc_default_tc_global_monthly_2015_2100.nc",
+      "sha512": "f3619e582b5d35f15f5a51a9580f1596342d3b99e1d5f859528e339624487f794c34cad6fc4a6b9d70f78013014523141bbeac69087063dccf14dc3e60f7df13"
+    },
+    {
+      "bytes": 116279679,
+      "climate_forcing": "gfdl-esm4",
+      "ecosystem_model": "ecoocean",
+      "experiment": "forced_historical",
+      "path": "data/raw/fishmip/gfdl-esm4/ecoocean/ecoocean_gfdl-esm4_nobasd_historical_histsoc_default_tc_global_monthly_1950_2014.nc",
+      "sha512": "d1da9d46305f9f53f88c0a5e7d9971b16bfb86bd14c2ce44964fd19473e9390e35a99fa1091956ad79456c87dc0f1f154fe416e59710ad9b7c720a90501cf420"
+    },
+    {
+      "bytes": 116388372,
+      "climate_forcing": "gfdl-esm4",
+      "ecosystem_model": "ecoocean",
+      "experiment": "control_historical",
+      "path": "data/raw/fishmip/gfdl-esm4/ecoocean/ecoocean_gfdl-esm4_nobasd_picontrol_histsoc_default_tc_global_monthly_1950_2014.nc",
+      "sha512": "50997d5015be2e8d9ada24b8267858bfa5f7e598965fc6a3c0c05d21b1e7e2a083636e113fd7b0044f0ac43f47db00ef50a197cf3bd1459471021fa11526a816"
+    },
+    {
+      "bytes": 153136364,
+      "climate_forcing": "gfdl-esm4",
+      "ecosystem_model": "ecoocean",
+      "experiment": "control_future",
+      "path": "data/raw/fishmip/gfdl-esm4/ecoocean/ecoocean_gfdl-esm4_nobasd_picontrol_2015soc-from-histsoc_default_tc_global_monthly_2015_2100.nc",
+      "sha512": "e645c805f0aa17c196156813cdaef8a7209faa0ed9207d2be05aaf3988ee19931fcc937b7fa56b1db871d062baf9a2068fa2eb848591dfcb99b93b0ab44aac8f"
+    },
+    {
+      "bytes": 153678794,
+      "climate_forcing": "gfdl-esm4",
+      "ecosystem_model": "ecoocean",
+      "experiment": "ssp126_future",
+      "path": "data/raw/fishmip/gfdl-esm4/ecoocean/ecoocean_gfdl-esm4_nobasd_ssp126_2015soc-from-histsoc_default_tc_global_monthly_2015_2100.nc",
+      "sha512": "eecf2457bc049c27e1cb0c8f2e1f7dd8e75a896a3ca89d651aa76b6f024bd73585906329983a0d2ebf44cf145da73e116c863cadd923c4a61fe395a49deb9cb8"
+    },
+    {
+      "bytes": 153831737,
+      "climate_forcing": "gfdl-esm4",
+      "ecosystem_model": "ecoocean",
+      "experiment": "ssp585_future",
+      "path": "data/raw/fishmip/gfdl-esm4/ecoocean/ecoocean_gfdl-esm4_nobasd_ssp585_2015soc-from-histsoc_default_tc_global_monthly_2015_2100.nc",
+      "sha512": "6a8250ff252993492a75fb81592a47f556bbb844703424fc2ded197939399f069e87ca20bd5134f238aab2998552618706a4c88f7a6c7e634e62bd3e37ab9cc1"
+    },
+    {
+      "bytes": 70395110,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "ecosystem_model": "boats",
+      "experiment": "forced_historical",
+      "path": "data/raw/fishmip/ipsl-cm6a-lr/boats/boats_ipsl-cm6a-lr_nobasd_historical_histsoc_default_tc_global_monthly_1950_2014.nc",
+      "sha512": "3d618ab7472077f611ef655dbc5a52e1bacd00d4e21fca7c78aec2e220851821cb43a8d172fd0b73dd24e6b68d20ab04b8538df44e6687d8e4abc3f66b1ff225"
+    },
+    {
+      "bytes": 70398404,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "ecosystem_model": "boats",
+      "experiment": "control_historical",
+      "path": "data/raw/fishmip/ipsl-cm6a-lr/boats/boats_ipsl-cm6a-lr_nobasd_picontrol_histsoc_default_tc_global_monthly_1950_2014.nc",
+      "sha512": "be4971d6508aed370a02e055859c928309d56373409ab088f0bcaa2ded91b5ffe7919740e9e8809cf6743281d0667bbeb3a0584987635f706e7bf076f7bfa542"
+    },
+    {
+      "bytes": 136301660,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "ecosystem_model": "boats",
+      "experiment": "control_future",
+      "path": "data/raw/fishmip/ipsl-cm6a-lr/boats/boats_ipsl-cm6a-lr_nobasd_picontrol_2015soc-from-histsoc_default_tc_global_monthly_2015_2100.nc",
+      "sha512": "29fcd31bd787545a41c4caab66c5b46bb0dad6a341d955bf8f9ced49eb5e6de242cc5902c8c516a184b61186dcf48d14e53c88e94761d82e2e42d6752a475298"
+    },
+    {
+      "bytes": 137262318,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "ecosystem_model": "boats",
+      "experiment": "ssp126_future",
+      "path": "data/raw/fishmip/ipsl-cm6a-lr/boats/boats_ipsl-cm6a-lr_nobasd_ssp126_2015soc-from-histsoc_default_tc_global_monthly_2015_2100.nc",
+      "sha512": "1cbf04f784b986d6733094f01c2df25641e8dbeeea17711e61e319d729745f713646de3457b7c5f93dd42c884b1e6264842f87102cfff47e7216a94a60094eef"
+    },
+    {
+      "bytes": 137262423,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "ecosystem_model": "boats",
+      "experiment": "ssp585_future",
+      "path": "data/raw/fishmip/ipsl-cm6a-lr/boats/boats_ipsl-cm6a-lr_nobasd_ssp585_2015soc-from-histsoc_default_tc_global_monthly_2015_2100.nc",
+      "sha512": "2bfb857e9bc71818a7c2b8acdeda662ef0c3ef3c035ccb4b1d0eab07319503530343c7d17bf946d013040687c776d53325b09ad22829488e83aa135a456ee447"
+    },
+    {
+      "bytes": 117489834,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "ecosystem_model": "ecoocean",
+      "experiment": "forced_historical",
+      "path": "data/raw/fishmip/ipsl-cm6a-lr/ecoocean/ecoocean_ipsl-cm6a-lr_nobasd_historical_histsoc_default_tc_global_monthly_1950_2014.nc",
+      "sha512": "00c27d0f05dcc3ab0061edb5f5207b32f240a29e41eaec062edcc4e8f18d14a8f2c858b95cca33e3916f8f922685cec81aa197dc9d9a421fd940e625e6b6de38"
+    },
+    {
+      "bytes": 117478143,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "ecosystem_model": "ecoocean",
+      "experiment": "control_historical",
+      "path": "data/raw/fishmip/ipsl-cm6a-lr/ecoocean/ecoocean_ipsl-cm6a-lr_nobasd_picontrol_histsoc_default_tc_global_monthly_1950_2014.nc",
+      "sha512": "73f3a298ec286fb5955add4a3a0de2f789656c602c0d7174bec4fdf1d67cd8ed8f845d7ea05893b887dae693ce3b35b8bab5b061c530a023b1bc8f1e820240e0"
+    },
+    {
+      "bytes": 154618055,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "ecosystem_model": "ecoocean",
+      "experiment": "control_future",
+      "path": "data/raw/fishmip/ipsl-cm6a-lr/ecoocean/ecoocean_ipsl-cm6a-lr_nobasd_picontrol_2015soc-from-histsoc_default_tc_global_monthly_2015_2100.nc",
+      "sha512": "74a8c33e84abcdbaf8c80f89b79b576ccc59f36c1f58c857875b4683f9859ca3a22194f3eda78d1f6b456850aaaf212560479acf868dcf454d2c6a7b278d8128"
+    },
+    {
+      "bytes": 154779013,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "ecosystem_model": "ecoocean",
+      "experiment": "ssp126_future",
+      "path": "data/raw/fishmip/ipsl-cm6a-lr/ecoocean/ecoocean_ipsl-cm6a-lr_nobasd_ssp126_2015soc-from-histsoc_default_tc_global_monthly_2015_2100.nc",
+      "sha512": "a8928dd3bef052e48d6a5b4180fd8d988efdb38c4d788e46ae193da056e8699f9e79a1bb6ffa594fa37f9990fe88139820b6905ffbf4aad6658726736a66c359"
+    },
+    {
+      "bytes": 154709291,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "ecosystem_model": "ecoocean",
+      "experiment": "ssp585_future",
+      "path": "data/raw/fishmip/ipsl-cm6a-lr/ecoocean/ecoocean_ipsl-cm6a-lr_nobasd_ssp585_2015soc-from-histsoc_default_tc_global_monthly_2015_2100.nc",
+      "sha512": "bce2e77b88c024215a49d36e10ab126ab7c4134076649670bc138fc188be8795c95f458aaab6f000151693c70d8f6e94056c6b2b49febc6aedd1ca17220cb3c9"
+    }
+  ],
+  "matched_co2_pulse": false,
+  "normalization_rule": "forced_cell_change_divided_by_forced_global_reference_mean_minus_control_cell_change_divided_by_control_global_reference_mean",
+  "observed_catch": false,
+  "plan": {
+    "path": "data/provenance/fishmip_isimip3b_tc_acquisition_plan.csv",
+    "sha256": "7bf476e7b3832b5c9114d5455ebf0b15c71ff68f18d8eab0bd7151c9af554f25"
+  },
+  "reference_period": {
+    "end_year": 2014,
+    "start_year": 2005
+  },
+  "results": [
+    {
+      "area_weighted_cell_share_exactly_unchanged": 0.004406538965015607,
+      "area_weighted_cell_share_higher": 0.3858778062142429,
+      "area_weighted_cell_share_lower": 0.6097156548207415,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 40398,
+      "control_reference_mean_density_g_m2": 1.8967871319197368e-08,
+      "control_relative_change": -0.31745438811075455,
+      "difference_in_relative_changes": -0.03957253577782708,
+      "ecosystem_model": "boats",
+      "forced_reference_mean_density_g_m2": 1.816856296286871e-08,
+      "forced_relative_change": -0.3570269238885817,
+      "normalized_adjusted_change_quantiles": {
+        "p05": -0.2640400962987703,
+        "p25": -0.07434759290725518,
+        "p50": -0.010564541453793874,
+        "p75": 0.020885915585132725,
+        "p95": 0.12757811051401974
+      },
+      "unweighted_cell_share_exactly_unchanged": 0.026981533739294024,
+      "unweighted_cell_share_higher": 0.37484528937076095,
+      "unweighted_cell_share_lower": 0.5981731768899451
+    },
+    {
+      "area_weighted_cell_share_exactly_unchanged": 0.0,
+      "area_weighted_cell_share_higher": 0.4265595001833595,
+      "area_weighted_cell_share_lower": 0.5734404998166406,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 40398,
+      "control_reference_mean_density_g_m2": 0.11226224772231642,
+      "control_relative_change": -0.25195496318673516,
+      "difference_in_relative_changes": 0.004879382698176454,
+      "ecosystem_model": "ecoocean",
+      "forced_reference_mean_density_g_m2": 0.10333938788490911,
+      "forced_relative_change": -0.2470755804885587,
+      "normalized_adjusted_change_quantiles": {
+        "p05": -0.0972605954072494,
+        "p25": -0.005731952767143208,
+        "p50": -8.173954942699608e-05,
+        "p75": 0.0010992246178589808,
+        "p95": 0.0330565569518238
+      },
+      "unweighted_cell_share_exactly_unchanged": 0.0,
+      "unweighted_cell_share_higher": 0.4493291747116194,
+      "unweighted_cell_share_lower": 0.5506708252883806
+    },
+    {
+      "area_weighted_cell_share_exactly_unchanged": 0.03705042798761781,
+      "area_weighted_cell_share_higher": 0.5444759962859866,
+      "area_weighted_cell_share_lower": 0.4184735757263956,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 40398,
+      "control_reference_mean_density_g_m2": 1.3139359547674005e-08,
+      "control_relative_change": -0.294337079306644,
+      "difference_in_relative_changes": 0.0012658879722165675,
+      "ecosystem_model": "boats",
+      "forced_reference_mean_density_g_m2": 1.2896350549940266e-08,
+      "forced_relative_change": -0.2930711913344274,
+      "normalized_adjusted_change_quantiles": {
+        "p05": -0.2768942792975668,
+        "p25": -0.031241105789993177,
+        "p50": 0.0,
+        "p75": 0.03619695693554307,
+        "p95": 0.2738771964213121
+      },
+      "unweighted_cell_share_exactly_unchanged": 0.13896727560770336,
+      "unweighted_cell_share_higher": 0.47653349175701765,
+      "unweighted_cell_share_lower": 0.38449923263527896
+    },
+    {
+      "area_weighted_cell_share_exactly_unchanged": 0.0,
+      "area_weighted_cell_share_higher": 0.3611081469449888,
+      "area_weighted_cell_share_lower": 0.6388918530550114,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 40398,
+      "control_reference_mean_density_g_m2": 0.08227197953605193,
+      "control_relative_change": -0.15447655876962052,
+      "difference_in_relative_changes": -0.0572601381921811,
+      "ecosystem_model": "ecoocean",
+      "forced_reference_mean_density_g_m2": 0.08184719411804096,
+      "forced_relative_change": -0.21173669696180175,
+      "normalized_adjusted_change_quantiles": {
+        "p05": -0.11779300745419494,
+        "p25": -0.007403459724198263,
+        "p50": -0.00010084853237990297,
+        "p75": 0.0018103073492709764,
+        "p95": 0.05184768855797738
+      },
+      "unweighted_cell_share_exactly_unchanged": 0.0,
+      "unweighted_cell_share_higher": 0.4611861973365018,
+      "unweighted_cell_share_lower": 0.5388138026634982
+    },
+    {
+      "area_weighted_cell_share_exactly_unchanged": 0.004406538965015607,
+      "area_weighted_cell_share_higher": 0.2302554720687305,
+      "area_weighted_cell_share_lower": 0.7653379889662539,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 40398,
+      "control_reference_mean_density_g_m2": 1.8967871319197368e-08,
+      "control_relative_change": -0.31745438811075455,
+      "difference_in_relative_changes": -0.11254083674807773,
+      "ecosystem_model": "boats",
+      "forced_reference_mean_density_g_m2": 1.816856296286871e-08,
+      "forced_relative_change": -0.42999522485883224,
+      "normalized_adjusted_change_quantiles": {
+        "p05": -0.41286144700485344,
+        "p25": -0.13537279600425578,
+        "p50": -0.045675639847121245,
+        "p75": 0.00022300733312131645,
+        "p95": 0.09591331586662136
+      },
+      "unweighted_cell_share_exactly_unchanged": 0.026981533739294024,
+      "unweighted_cell_share_higher": 0.26283479380167335,
+      "unweighted_cell_share_lower": 0.7101836724590326
+    },
+    {
+      "area_weighted_cell_share_exactly_unchanged": 0.0,
+      "area_weighted_cell_share_higher": 0.32256987835125517,
+      "area_weighted_cell_share_lower": 0.6774301216487448,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 40398,
+      "control_reference_mean_density_g_m2": 0.11226224772231642,
+      "control_relative_change": -0.25195496318673516,
+      "difference_in_relative_changes": -0.0716693730138708,
+      "ecosystem_model": "ecoocean",
+      "forced_reference_mean_density_g_m2": 0.10333938788490911,
+      "forced_relative_change": -0.32362433620060593,
+      "normalized_adjusted_change_quantiles": {
+        "p05": -0.23499098732834028,
+        "p25": -0.012681359091499245,
+        "p50": -0.00048422589136113076,
+        "p75": 0.0008420143068498456,
+        "p95": 0.03550458624148247
+      },
+      "unweighted_cell_share_exactly_unchanged": 0.0,
+      "unweighted_cell_share_higher": 0.39893064013069957,
+      "unweighted_cell_share_lower": 0.6010693598693004
+    },
+    {
+      "area_weighted_cell_share_exactly_unchanged": 0.03705042798761781,
+      "area_weighted_cell_share_higher": 0.4257141404974255,
+      "area_weighted_cell_share_lower": 0.5372354315149567,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 40398,
+      "control_reference_mean_density_g_m2": 1.3139359547674005e-08,
+      "control_relative_change": -0.294337079306644,
+      "difference_in_relative_changes": -0.0750245300004496,
+      "ecosystem_model": "boats",
+      "forced_reference_mean_density_g_m2": 1.2896350549940266e-08,
+      "forced_relative_change": -0.3693616093070935,
+      "normalized_adjusted_change_quantiles": {
+        "p05": -0.5070041708489127,
+        "p25": -0.09129920610876772,
+        "p50": 0.0,
+        "p75": 0.021054787519809947,
+        "p95": 0.20998506391477076
+      },
+      "unweighted_cell_share_exactly_unchanged": 0.13896727560770336,
+      "unweighted_cell_share_higher": 0.39449972770929254,
+      "unweighted_cell_share_lower": 0.46653299668300413
+    },
+    {
+      "area_weighted_cell_share_exactly_unchanged": 0.0,
+      "area_weighted_cell_share_higher": 0.40333145110234586,
+      "area_weighted_cell_share_lower": 0.5966685488976542,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 40398,
+      "control_reference_mean_density_g_m2": 0.08227197953605193,
+      "control_relative_change": -0.15447655876962052,
+      "difference_in_relative_changes": -0.11969379825928515,
+      "ecosystem_model": "ecoocean",
+      "forced_reference_mean_density_g_m2": 0.08184719411804096,
+      "forced_relative_change": -0.2741703570289056,
+      "normalized_adjusted_change_quantiles": {
+        "p05": -0.24080349148634209,
+        "p25": -0.011619040937710216,
+        "p50": 7.3101885055008625e-06,
+        "p75": 0.008851189160304862,
+        "p95": 0.0837409178730125
+      },
+      "unweighted_cell_share_exactly_unchanged": 0.0,
+      "unweighted_cell_share_higher": 0.5063121936729541,
+      "unweighted_cell_share_lower": 0.4936878063270459
+    }
+  ],
+  "scc_authorized": false,
+  "schema": "fishmip_control_adjusted_spatial_consensus_v1",
+  "social_forcing_constant_across_historical_future_join": false,
+  "status": "validated_structural_control_adjusted_spatial_sensitivity_only",
+  "support_rule": "intersection_across_all_20_frozen_scenario_and_control_files",
+  "welfare_estimated": false
+}

@@ -113,6 +113,14 @@ changes of -5.15/-5.99/-5.78 points and SSP5-8.5 changes of
 all four adjusted SSP5-8.5 late-century changes are negative, while SSP1-2.6
 and earlier cells retain mixed signs. This is not a probability or pulse.
 
+The exact 20-file spatial adjustment preserves the same evidence boundary.
+On 40,398 common finite cells, at least three of four adjusted trajectories are
+negative over 42.22% of weighted area under SSP1-2.6 and 56.54% under
+SSP5-8.5; unanimity reaches only 13.15% and 26.35%. The all-negative SSP5-8.5
+global means therefore coexist with substantial local disagreement. This is a
+structural spatial sensitivity, not a forced-response estimator, observed-
+catch validation, country allocation, marginal pulse, or welfare evidence.
+
 ## Gate 4 — welfare translation and GIVE interface
 
 Translate changes in catch/availability into producer and consumer welfare,

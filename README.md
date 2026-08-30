@@ -135,6 +135,16 @@ control changes. Only SSP5-8.5 late century is negative in all four cells
 (-12.28 to -6.68 percentage points); every other scenario-period sign summary
 is mixed. This is a structural-sensitivity result, not a probability.
 
+The exact 20-file spatial extension in
+[`FISHMIP_CONTROL_ADJUSTED_SPATIAL_CONSENSUS.md`](FISHMIP_CONTROL_ADJUSTED_SPATIAL_CONSENSUS.md)
+retains 40,398 common finite cells and separately normalizes forced and control
+cell changes by their same-support global historical means. At least three of
+four adjusted trajectories are negative over 42.22% of weighted area under
+SSP1-2.6 and 56.54% under SSP5-8.5; strict unanimity covers only 13.15% and
+26.35%. Control adjustment therefore leaves material geographic and model
+disagreement. The social-forcing change, allocation, pulse, welfare, damage,
+and SCC gates remain closed.
+
 An executable cross-matrix audit now verifies the complete two-forcing,
 two-scenario, two-ecosystem-model factorial, identical historical references
 and common support across scenarios, and finite period changes. It finds
@@ -241,6 +251,7 @@ python3 test/test_fishmip_scenario_matrix.py
 python3 test/test_fishmip_scenario_separation.py  # same environment requirement
 python3 test/test_fishmip_picontrol_drift.py  # same environment requirement
 python3 test/test_fishmip_control_adjusted_scenario.py  # same environment requirement
+python3 test/test_fishmip_control_adjusted_spatial_consensus.py  # same environment requirement
 ```
 
 These scripts do not choose ecological or economic parameters, prove that an

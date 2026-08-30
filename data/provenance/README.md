@@ -81,6 +81,14 @@ drift receipt. SSP5-8.5 late century is the only all-negative sign cell across
 the four forcing/model combinations. The receipt explicitly keeps forced-
 response, pulse, welfare, damage, and SCC gates closed.
 
+`fishmip_control_adjusted_spatial_consensus_20260830.json` binds all 20 raw
+files on one exact 40,398-cell intersection. It reports only global-reference-
+normalized adjusted-change distributions and cross-model sign shares, exports
+no cell values, and reconciles each area-weighted spatial mean to its global
+difference in relative changes. The social-forcing join remains confounded and
+all forced-response, allocation, pulse, welfare, damage, and SCC gates remain
+closed.
+
 `fishmip_gfdl_boats_control_adjusted_ssp126_20260829.json` and
 `fishmip_gfdl_boats_control_adjusted_ssp585_20260829.json` place the matching
 forced and control historical/future files on one exact 41,076-cell support
