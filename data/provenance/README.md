@@ -73,6 +73,14 @@ the identical source, support, social-forcing, and downstream-gate checks to
 IPSL-CM6A-LR. All 20 pinned FishMIP files are now fully validated; none of the
 control-adjusted receipts is a causal or marginal-pulse estimate.
 
+`fishmip_control_adjusted_matrix_audit_20260829.json` checksum-binds those 12
+drift and adjusted receipts and rejects missing or duplicated matrix cells,
+support/reference mismatches, reporting-window changes, and disagreement
+between a control trajectory embedded in an adjusted receipt and its standalone
+drift receipt. SSP5-8.5 late century is the only all-negative sign cell across
+the four forcing/model combinations. The receipt explicitly keeps forced-
+response, pulse, welfare, damage, and SCC gates closed.
+
 `fishmip_gfdl_boats_control_adjusted_ssp126_20260829.json` and
 `fishmip_gfdl_boats_control_adjusted_ssp585_20260829.json` place the matching
 forced and control historical/future files on one exact 41,076-cell support

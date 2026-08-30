@@ -128,6 +128,13 @@ signs. The complete 20-file content matrix therefore supports only a bounded
 structural diagnostic, not probabilities, a forced-response estimator, pulse,
 welfare, damages, or SCC.
 
+The machine-readable control-adjusted matrix audit verifies all four
+forcing/model control cells and all eight forcing/model/scenario adjusted
+cells against their shared support, reference period, reporting windows, and
+control changes. Only SSP5-8.5 late century is negative in all four cells
+(-12.28 to -6.68 percentage points); every other scenario-period sign summary
+is mixed. This is a structural-sensitivity result, not a probability.
+
 An executable cross-matrix audit now verifies the complete two-forcing,
 two-scenario, two-ecosystem-model factorial, identical historical references
 and common support across scenarios, and finite period changes. It finds
