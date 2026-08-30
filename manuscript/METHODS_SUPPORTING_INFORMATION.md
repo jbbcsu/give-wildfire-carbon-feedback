@@ -481,7 +481,12 @@ then pass the same gates under their exact model-specific 12:00 daily timestamp
 contract. The IPSL SSP3-7.0 2041--2050 and 2091--2100 pairs and bounded feature
 blocks also pass. Both IPSL SSP5-8.5 pairs and bounded feature blocks also
 pass, bringing the expansion to 24 of 60 file gates and twelve bounded feature
-blocks. Their exact-key midcentury comparison with IPSL SSP1-2.6 finds
+blocks. The MPI-ESM1-2-HR SSP1-2.6 2041--2050 pair also passes exact bytes,
+SHA-512, the model-specific 12:00 3,652-day content contract, same-realization
+GMST, and 5,488-season/16,464-stage feature reconciliation. This raises the
+registered expansion to 26 of 60 file gates and thirteen bounded feature
+blocks without rerunning a whole-scenario or whole-ESM response. Their
+exact-key midcentury comparison with IPSL SSP1-2.6 finds
 mean differences of +0.365 C, +13.22 mm seasonal precipitation, +0.93 wet days,
 -1.36 maximum dry-spell days, +2.18 mm Rx1day, and +3.84 mm Rx5day. The matching
 end-century differences are +4.146 C, +25.70 mm seasonal precipitation, +2.85
