@@ -166,6 +166,13 @@ historical boundary vintage, code mapping, weighting-method comparability,
 full 1981--2019 identity, and feature-equivalence gates remain open. Reproduce
 the sample with `audit_nclimgrid_county_average_sample.py` and the hash-bound
 receipt `data/provenance/us_nclimgrid_county_average_trigg_198101_audit_20260828.json`.
+The outcome-blind January 2019 endpoint check uses the same four-file schema,
+the same 3,107-county support, and the same Trigg mapping; all 31 Trigg values
+are finite and temperature-ordered, with 105.75 mm monthly precipitation and
+the same 0.005 C maximum rounded midpoint error. Its hash-bound receipt is
+`data/provenance/us_nclimgrid_county_average_trigg_201901_audit_20260829.json`.
+This two-endpoint check narrows source-schema drift but does not validate every
+intervening month or resolve historical boundary-vintage equivalence.
 
 Because this route has one all-practice outcome per crop-county-year, its
 feature output explicitly records a one-to-one exposure application and does

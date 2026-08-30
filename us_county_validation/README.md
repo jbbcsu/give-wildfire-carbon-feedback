@@ -204,8 +204,9 @@ The official TIGER/Line fractional-water follow-up is reproduced with
 failed and writes no county partition.
 An independent official-source sensitivity sample is reproduced with
 `audit_nclimgrid_county_average_sample.py`; it validates all 3,107 January 1981
-county rows across PRCP/TAVG/TMIN/TMAX and finds a complete finite Trigg row
-after the official numeric NCEI-to-FIPS mapping. This does not replace the
+and January 2019 county rows across PRCP/TAVG/TMIN/TMAX and finds a complete
+finite Trigg row under the same official numeric NCEI-to-FIPS mapping at both
+historical endpoints. This does not replace the
 polygon-weight route until boundary-vintage and estimator-equivalence gates
 are preregistered and passed.
 
