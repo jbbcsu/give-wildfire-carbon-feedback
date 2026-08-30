@@ -117,6 +117,17 @@ scenario, and period after adjustment; neither raw decline nor adjusted sign
 is a universal forced response. The same pulse/welfare/damage/SCC exclusions
 apply.
 
+The two IPSL-CM6A-LR control pairs complete all eight control files. BOATS
+control changes are -21.18%/-27.54%/-29.44%, with adjusted SSP1-2.6 changes of
++1.07/+0.18/+0.14 points and SSP5-8.5 changes of +1.38/-1.66/-7.46 points.
+EcoOcean control changes are +1.29/+1.09/-14.05%, with adjusted SSP1-2.6
+changes of -5.15/-5.99/-5.78 points and SSP5-8.5 changes of
+-5.24/-6.48/-12.28 points. All four model/forcing cells have a negative
+adjusted SSP5-8.5 late-century change; SSP1-2.6 and earlier cells have mixed
+signs. The complete 20-file content matrix therefore supports only a bounded
+structural diagnostic, not probabilities, a forced-response estimator, pulse,
+welfare, damages, or SCC.
+
 An executable cross-matrix audit now verifies the complete two-forcing,
 two-scenario, two-ecosystem-model factorial, identical historical references
 and common support across scenarios, and finite period changes. It finds

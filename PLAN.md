@@ -44,10 +44,10 @@ two ecosystem models (BOATS and EcoOcean) by two climate forcings (GFDL-ESM4
 and IPSL-CM6A-LR), with five historical/future experiment records per pairing.
 Twelve files spanning historical, SSP1-2.6, and SSP5-8.5 have since been
 acquired and content-validated for the scenario matrix. One checksum-pinned
-BOATS/GFDL-ESM4 and EcoOcean/GFDL-ESM4 preindustrial-control historical/future
-pairs are also acquired and fully validated; the other four control files
-remain unacquired. This does not clear the matched-pulse, welfare, or production
-gates.
+All four BOATS/EcoOcean by GFDL-ESM4/IPSL-CM6A-LR preindustrial-control
+historical/future pairs are also acquired and fully validated. This completes
+the 20-file pinned catalogue but does not clear matched-pulse, welfare, or
+production gates.
 
 The all-file acquisition plan is now version-pinned and executable against a
 fresh catalogue response. Its outcome-blind content smoke is limited to the
@@ -56,8 +56,8 @@ catalogue bytes). After that smoke passed, the bounded scenario matrix added
 the equivalent IPSL-CM6A-LR cells and both SSP5-8.5 futures. All 12 scenario
 files passed complete-file checksum, schema, monthly chronology,
 historical/future join, grid, unit, and missing-versus-zero checks. The first
-four GFDL control files were subsequently admitted for bounded drift
-diagnostics; the other four remain deferred. See `FISHMIP_CONTENT_PLAN.md`.
+all eight control files were subsequently admitted for bounded drift
+diagnostics. See `FISHMIP_CONTENT_PLAN.md`.
 
 ## Gate 3 — primary model and alternatives
 
@@ -103,6 +103,15 @@ SSP1-2.6 and +1.33/+0.26/-6.68 points for SSP5-8.5. Control adjustment thus
 does not produce a common sign across ecosystem models and periods. These
 contrasts strengthen the requirement for multiple ecosystem models and keep
 all forced-response, pulse, welfare, damage, and SCC gates closed.
+
+The IPSL controls complete the matrix. BOATS control changes are
+-21.18%/-27.54%/-29.44%, with adjusted SSP1-2.6 changes of
++1.07/+0.18/+0.14 points and SSP5-8.5 changes of +1.38/-1.66/-7.46 points.
+EcoOcean control changes are +1.29/+1.09/-14.05%, with adjusted SSP1-2.6
+changes of -5.15/-5.99/-5.78 points and SSP5-8.5 changes of
+-5.24/-6.48/-12.28 points. Across the complete 2-forcing by 2-model matrix,
+all four adjusted SSP5-8.5 late-century changes are negative, while SSP1-2.6
+and earlier cells retain mixed signs. This is not a probability or pulse.
 
 ## Gate 4 — welfare translation and GIVE interface
 

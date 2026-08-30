@@ -22,9 +22,8 @@ These catalogue checksums become verified local provenance only after a
 complete downloaded file matches them. The 12 historical, SSP1-2.6, and
 SSP5-8.5 files used by the two-forcing scenario matrix now meet that condition;
 each model/forcing pair passes its calendar-aware historical/future joins. The
-four BOATS/EcoOcean GFDL-ESM4 preindustrial-control files also meet the
-complete-content gate for separate bounded drift diagnostics; the other four
-controls remain deferred.
+all eight BOATS/EcoOcean GFDL-ESM4/IPSL-CM6A-LR preindustrial-control files
+also meet the complete-content gate for separate bounded drift diagnostics.
 
 `fishmip_spatial_change_distribution_20260827.json` binds those 12 validated
 files to aggregate late-century grid-cell sign shares and normalized change
@@ -66,7 +65,13 @@ damage, and SCC gates remain closed.
 `fishmip_gfdl_ecoocean_control_adjusted_ssp126_20260829.json`, and
 `fishmip_gfdl_ecoocean_control_adjusted_ssp585_20260829.json` extend the same
 exact gates to EcoOcean/GFDL-ESM4. Together the two GFDL pairs cover four
-control files; the four IPSL control files remain deferred.
+control files.
+
+The six matching `fishmip_ipsl_{boats,ecoocean}_{picontrol_drift,
+control_adjusted_ssp126,control_adjusted_ssp585}_20260829.json` receipts extend
+the identical source, support, social-forcing, and downstream-gate checks to
+IPSL-CM6A-LR. All 20 pinned FishMIP files are now fully validated; none of the
+control-adjusted receipts is a causal or marginal-pulse estimate.
 
 `fishmip_gfdl_boats_control_adjusted_ssp126_20260829.json` and
 `fishmip_gfdl_boats_control_adjusted_ssp585_20260829.json` place the matching

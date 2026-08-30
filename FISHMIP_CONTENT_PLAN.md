@@ -1,8 +1,7 @@
 # FishMIP `tc` acquisition and content-validation plan
 
-Status: metadata pinned; all 12 historical/SSP1-2.6/SSP5-8.5 scenario-matrix
-NetCDF files acquired and validated; no matched-pulse, welfare, or SCC use
-authorized.
+Status: metadata pinned; all 20 scenario and preindustrial-control NetCDF
+files acquired and validated; no matched-pulse, welfare, or SCC use authorized.
 
 ## Frozen acquisition stages
 
@@ -17,10 +16,10 @@ historical/future join while bounding the initial transfer.
 After the four-file smoke passed, eight additional historical/SSP1-2.6/
 SSP5-8.5 files were acquired under the predeclared full-matrix stage. The 12
 scenario files now cover both forcings and ecosystem models. A later bounded
-control-drift extension acquired the four BOATS/EcoOcean GFDL-ESM4
-preindustrial-control files; the other four control files remain deferred.
+control-drift extension acquired all eight BOATS/EcoOcean preindustrial-control
+files under GFDL-ESM4 and IPSL-CM6A-LR.
 This staging is an engineering decision, not scenario or model selection for
-inference. Neither SSP is treated as a marginal-CO2 counterfactual, and neither climate forcing or
+inference. Neither SSP is treated as a marginal-CO2 counterfactual, and neither climate forcing nor
 ecosystem model is promoted above another.
 
 The complete four-file check passed. Both BOATS files use contiguous monthly
@@ -89,8 +88,9 @@ The initial four-file smoke and the later eight-file scenario expansion have
 machine-readable passes for every within-model file and historical/future join
 check. The resulting historical/SSP1-2.6/SSP5-8.5 matrix is complete across
 BOATS/EcoOcean and GFDL-ESM4/IPSL-CM6A-LR. The two GFDL-ESM4 control pairs are
-now validated for separate bounded drift diagnostics; the other four control
-files remain deferred and are not needed for the scenario diagnostic.
+joined by the two IPSL-CM6A-LR control pairs, so every one of the 20 pinned
+files now passes the complete content gate. Control diagnostics remain
+separate from the scenario diagnostic and do not create a marginal pulse.
 
 ## Scientific boundary
 

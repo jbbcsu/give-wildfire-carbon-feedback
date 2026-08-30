@@ -95,6 +95,15 @@ evidence that control adjustment does not yield a common response sign across
 the two ecosystem models, scenarios, and periods. The EcoOcean receipts use
 the same naming pattern with `ecoocean` in place of `boats`.
 
+The IPSL-CM6A-LR controls complete the 2-forcing by 2-ecosystem-model matrix.
+BOATS control drift is -21.18%/-27.54%/-29.44%; its adjusted changes are
++1.07/+0.18/+0.14 points under SSP1-2.6 and +1.38/-1.66/-7.46 under SSP5-8.5.
+EcoOcean control drift is +1.29/+1.09/-14.05%; its adjusted changes are
+-5.15/-5.99/-5.78 under SSP1-2.6 and -5.24/-6.48/-12.28 under SSP5-8.5.
+All four adjusted SSP5-8.5 late-century changes are negative, but the other
+scenario-period cells do not share a universal sign. Each receipt preserves
+its exact model, forcing, scenario, social forcing, and support intersection.
+
 The frozen configurations are the four
 `config/fishmip_scenario_benchmark_*ssp*_v1.toml` files; the executable is
 `scripts/evaluate_fishmip_scenario_benchmark.py`. The machine-readable real
