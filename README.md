@@ -145,6 +145,16 @@ SSP1-2.6 and 56.54% under SSP5-8.5; strict unanimity covers only 13.15% and
 disagreement. The social-forcing change, allocation, pulse, welfare, damage,
 and SCC gates remain closed.
 
+The fixed-decade extension in
+[`FISHMIP_CONTROL_ADJUSTED_SPATIAL_TIME_WINDOWS.md`](FISHMIP_CONTROL_ADJUSTED_SPATIAL_TIME_WINDOWS.md)
+repeats that exact-support adjustment in 2021--2030, 2041--2050, and
+2081--2090. The weighted area where at least three of four trajectories are
+negative rises from 34.30% to 42.22% under SSP1-2.6 and from 33.51% to 56.54%
+under SSP5-8.5; strict unanimity rises from 9.38% to 13.15% and from 8.11% to
+26.35%, respectively. The monotone increase is a temporal structural
+sensitivity, not causal attribution, a probability, observed catch, a pulse,
+welfare, damages, or SCC evidence.
+
 An executable cross-matrix audit now verifies the complete two-forcing,
 two-scenario, two-ecosystem-model factorial, identical historical references
 and common support across scenarios, and finite period changes. It finds
@@ -252,6 +262,7 @@ python3 test/test_fishmip_scenario_separation.py  # same environment requirement
 python3 test/test_fishmip_picontrol_drift.py  # same environment requirement
 python3 test/test_fishmip_control_adjusted_scenario.py  # same environment requirement
 python3 test/test_fishmip_control_adjusted_spatial_consensus.py  # same environment requirement
+python3 test/test_fishmip_control_adjusted_spatial_time_windows.py  # same environment requirement
 ```
 
 These scripts do not choose ecological or economic parameters, prove that an

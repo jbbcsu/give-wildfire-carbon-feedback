@@ -89,6 +89,12 @@ difference in relative changes. The social-forcing join remains confounded and
 all forced-response, allocation, pulse, welfare, damage, and SCC gates remain
 closed.
 
+`fishmip_control_adjusted_spatial_time_windows_20260830.json` repeats that
+exact-support diagnostic over fixed 2021--2030, 2041--2050, and 2081--2090
+windows. It reports temporal sign-share robustness without exporting cells or
+turning the structural control adjustment into causal, observed-catch,
+allocation, pulse, welfare, damage, or SCC evidence.
+
 `fishmip_gfdl_boats_control_adjusted_ssp126_20260829.json` and
 `fishmip_gfdl_boats_control_adjusted_ssp585_20260829.json` place the matching
 forced and control historical/future files on one exact 41,076-cell support

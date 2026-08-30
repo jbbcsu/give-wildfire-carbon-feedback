@@ -121,6 +121,14 @@ global means therefore coexist with substantial local disagreement. This is a
 structural spatial sensitivity, not a forced-response estimator, observed-
 catch validation, country allocation, marginal pulse, or welfare evidence.
 
+The registered 2021--2030, 2041--2050, and 2081--2090 spatial windows show
+that the at-least-three-negative area share rises monotonically from 34.30% to
+42.22% under SSP1-2.6 and from 33.51% to 56.54% under SSP5-8.5. Unanimity also
+rises but reaches only 13.15% and 26.35% in the late window. This establishes
+temporal persistence of increasing sign agreement inside the frozen matrix,
+not causality, probability weights, observed-catch validation, allocation, a
+matched pulse, welfare, damage, or SCC eligibility.
+
 ## Gate 4 — welfare translation and GIVE interface
 
 Translate changes in catch/availability into producer and consumer welfare,
