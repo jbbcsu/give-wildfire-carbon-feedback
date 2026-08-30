@@ -209,6 +209,12 @@ finite Trigg row under the same official numeric NCEI-to-FIPS mapping at both
 historical endpoints. This does not replace the
 polygon-weight route until boundary-vintage and estimator-equivalence gates
 are preregistered and passed.
+A seasonally distinct July 2000 check retains the identical 3,107-county
+support and validates complete, finite, temperature-ordered rows for both
+Trigg County, Kentucky, and Adair County, Iowa. The two counties sum to 69.64
+and 115.50 mm monthly precipitation, respectively, and both retain the 0.005 C
+rounded midpoint bound. This narrows month/region/schema drift only; it does
+not establish full-panel identity or feature equivalence.
 
 ## Primary design
 

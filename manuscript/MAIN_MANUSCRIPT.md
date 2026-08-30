@@ -548,11 +548,12 @@ Fractional polygon/grid intersection assigns 81,538,947 m2 of water and
 and masked areas lowers valid fractional-land coverage to 0.888503097. The
 unchanged 0.95 gate therefore still fails, and no county exclusion, partition,
 response, damage, or SCC result follows.
-As an outcome-free sensitivity check, we also audited NOAA's own January 1981
-and January 2019 nClimGrid-Daily county area averages. At both endpoints the
-four weather files have identical 3,107-county support; official numeric code
-15221 maps to Trigg FIPS 21221, and all 31 daily values are finite and
-temperature-ordered. This establishes
+As an outcome-free sensitivity check, we also audited NOAA's own January 1981,
+July 2000, and January 2019 nClimGrid-Daily county area averages. All three
+sampled months have identical 3,107-county support. Official numeric code
+15221 maps to Trigg FIPS 21221, and all sampled Trigg daily values are finite
+and temperature-ordered; the July 2000 check independently validates Adair
+County, Iowa, under the same rules. This establishes
 a source-computed county-average alternative, not an estimator replacement:
 historical boundary vintage and equivalence to the registered polygon-area
 weights remain unvalidated.

@@ -171,7 +171,14 @@ the same 3,107-county support, and the same Trigg mapping; all 31 Trigg values
 are finite and temperature-ordered, with 105.75 mm monthly precipitation and
 the same 0.005 C maximum rounded midpoint error. Its hash-bound receipt is
 `data/provenance/us_nclimgrid_county_average_trigg_201901_audit_20260829.json`.
-This two-endpoint check narrows source-schema drift but does not validate every
+An outcome-blind July 2000 sample adds a seasonally and temporally distinct
+check: all four files again share 3,107-county support, and both Trigg County,
+Kentucky, and Adair County, Iowa, have 31 finite, temperature-ordered days.
+Monthly precipitation is 69.64 and 115.50 mm, respectively; the maximum
+rounded midpoint error remains 0.005 C. The paired receipts are
+`data/provenance/us_nclimgrid_county_average_trigg_200007_audit_20260830.json`
+and `data/provenance/us_nclimgrid_county_average_adair_200007_audit_20260830.json`.
+These three sampled months narrow source-schema drift but do not validate every
 intervening month or resolve historical boundary-vintage equivalence.
 
 Because this route has one all-practice outcome per crop-county-year, its

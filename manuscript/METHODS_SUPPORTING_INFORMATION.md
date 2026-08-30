@@ -100,12 +100,14 @@ The 16 masked cells contain an estimated 81,538,947 m2 water and 127,512,062
 m2 land; weather-valid fractional-land coverage is 0.888503097 and remains
 below the unchanged 0.95 gate. No output partition is emitted.
 For an outcome-free source sensitivity, we separately hash-bind NOAA's four
-January 1981 and January 2019 county area-average files, product-version receipts, and official
-numeric NCEI-to-FIPS state crosswalk. All four files contain the same 3,107
-county rows. Numeric code 15221 maps to Trigg FIPS 21221; its 31 real-day
-values are finite at both endpoints, satisfy `TMIN <= TAVG <= TMAX`, and
-reproduce the rounded temperature midpoint within 0.005 C. These endpoint
-samples validate a source-computed county route but do not replace the
+January 1981, July 2000, and January 2019 county area-average files,
+product-version receipts, and official numeric NCEI-to-FIPS state crosswalk.
+Every sampled variable/month contains the same 3,107 county rows. Numeric code
+15221 maps to Trigg FIPS 21221; all sampled Trigg real-day values are finite,
+satisfy `TMIN <= TAVG <= TMAX`, and reproduce the rounded temperature midpoint
+within 0.005 C. July 2000 also validates Adair County, Iowa (19001), under the
+same mapping and value gates. These samples validate a source-computed county
+route but do not replace the
 registered polygon estimator; boundary
 vintage, full-period identity, and feature-equivalence gates remain open.
 

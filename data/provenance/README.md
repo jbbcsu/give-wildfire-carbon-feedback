@@ -47,6 +47,13 @@ semantics. It records NCEI's update-without-version-bump warning and the
 precipitation smoothing/error limitations. The object is a primary weather
 candidate smoke, not a county exposure or trend result.
 
+`us_nclimgrid_county_average_*_audit_*.json` records hash-bound, outcome-free
+NOAA county-area-average source samples for January 1981, July 2000, and
+January 2019. The July 2000 pair covers Trigg County, Kentucky, and Adair
+County, Iowa. These receipts test source support, numeric code mapping, finite
+daily values, and temperature ordering; they do not replace the registered
+polygon-weight estimator or authorize a response, damage, or SCC input.
+
 `nclimgrid_daily_1981_cuming_smoke.toml` pins the six exact May--October 1981
 monthly objects used in the Cuming County corn/soy engineering smoke. The
 resulting feature table is a county-weather construction check only: it does
