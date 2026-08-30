@@ -61,6 +61,30 @@ or SCC result. The executable and receipt are
 `scripts/evaluate_fishmip_factorial_sensitivity.py` and
 `data/provenance/fishmip_factorial_sensitivity_20260829.json`.
 
+## First preindustrial-control bound
+
+The separately registered BOATS/GFDL-ESM4 preindustrial-control pair passes
+complete checksum/content validation and an exact 1950--2100 monthly join. On
+its 41,076 time-stable finite cells, cosine-latitude-weighted mean `tc` density
+is 23.66%, 30.75%, and 31.71% below its own 2005--2014 reference in the near-,
+mid-, and late-century reporting decades. This pair changes social forcing
+from `histsoc` to `2015soc-from-histsoc` at 2015, so the changes cannot be
+called pure ecological drift. On one exact 41,076-cell intersection across the
+control and forced historical/future files, the forced-minus-control relative
+changes are -2.38/-2.03/-3.91 percentage points for SSP1-2.6 and
+-1.96/-2.95/-11.19 points for SSP5-8.5 in the near/mid/late decades. Thus much
+of the unadjusted BOATS decline is shared with this control pair, especially
+before late century. The comparison preserves separate climate and social-
+forcing labels and is a structural control adjustment, not causal attribution.
+
+The machine-readable receipt is
+`data/provenance/fishmip_gfdl_boats_picontrol_drift_20260829.json`; the two
+control-adjusted receipts are
+`data/provenance/fishmip_gfdl_boats_control_adjusted_ssp126_20260829.json` and
+`data/provenance/fishmip_gfdl_boats_control_adjusted_ssp585_20260829.json`.
+They export only aggregate means/differences and source/implementation hashes
+and keep every forced-response, pulse, welfare, damage, and SCC gate closed.
+
 The frozen configurations are the four
 `config/fishmip_scenario_benchmark_*ssp*_v1.toml` files; the executable is
 `scripts/evaluate_fishmip_scenario_benchmark.py`. The machine-readable real

@@ -91,6 +91,22 @@ diagnostic does not average model levels, because their absolute scales differ
 greatly, and it remains a scenario benchmark rather than a pulse, welfare,
 damage, or SCC result.
 
+A first checksum-pinned preindustrial-control pair now bounds interpretation
+of the scenario changes. BOATS/GFDL-ESM4 control files for 1950--2014 and
+2015--2100 pass complete checksum, monthly chronology, grid, units,
+time-stable missingness, nonnegativity, and exact pair-join gates. On 41,076
+finite cells, control mean density is 23.66%, 30.75%, and 31.71% below its own
+2005--2014 reference in 2021--2030, 2041--2050, and 2081--2090. Because social
+forcing changes from `histsoc` to `2015soc-from-histsoc` at the join, this is
+not pure autonomous ecological drift. An exact 41,076-cell four-file
+intersection then compares each forced path's relative change with the control
+relative change. The differences are -2.38/-2.03/-3.91 percentage points for
+SSP1-2.6 and -1.96/-2.95/-11.19 points for SSP5-8.5 in the near/mid/late
+decades. This materially narrows the unadjusted BOATS declines, especially
+before late century. It remains a structural control adjustment rather than
+causal attribution, a matched pulse, welfare estimate, damage function, or SCC
+input.
+
 An executable cross-matrix audit now verifies the complete two-forcing,
 two-scenario, two-ecosystem-model factorial, identical historical references
 and common support across scenarios, and finite period changes. It finds
@@ -195,6 +211,8 @@ python3 test/test_fishmip_content.py  # in an environment with xarray and h5netc
 python3 test/test_fishmip_scenario_benchmark.py  # same environment requirement
 python3 test/test_fishmip_scenario_matrix.py
 python3 test/test_fishmip_scenario_separation.py  # same environment requirement
+python3 test/test_fishmip_picontrol_drift.py  # same environment requirement
+python3 test/test_fishmip_control_adjusted_scenario.py  # same environment requirement
 ```
 
 These scripts do not choose ecological or economic parameters, prove that an

@@ -22,7 +22,9 @@ These catalogue checksums become verified local provenance only after a
 complete downloaded file matches them. The 12 historical, SSP1-2.6, and
 SSP5-8.5 files used by the two-forcing scenario matrix now meet that condition;
 each model/forcing pair passes its calendar-aware historical/future joins. The
-eight preindustrial-control files remain outside the scenario diagnostic.
+two BOATS/GFDL-ESM4 preindustrial-control files also meet the complete-content
+gate for a separate bounded drift diagnostic; the other six controls remain
+deferred.
 
 `fishmip_spatial_change_distribution_20260827.json` binds those 12 validated
 files to aggregate late-century grid-cell sign shares and normalized change
@@ -52,6 +54,22 @@ two-scenario, two-ecosystem-model matrix and reports exact contrasts in
 relative change from each model/forcing-specific historical reference. It
 does not average absolute model levels or assign model probabilities; all
 observed-catch, pulse, welfare, damage, and SCC gates remain closed.
+
+`fishmip_gfdl_boats_picontrol_drift_20260829.json` binds the first two fully
+validated preindustrial-control files and reports only a single-model global
+reference plus three registered decade means. The social-forcing label changes
+at 2015, so it is a bounded model-pair drift diagnostic rather than a pure
+autonomous ecological drift or forced-climate response. Pulse, welfare,
+damage, and SCC gates remain closed; the other six control files remain
+deferred.
+
+`fishmip_gfdl_boats_control_adjusted_ssp126_20260829.json` and
+`fishmip_gfdl_boats_control_adjusted_ssp585_20260829.json` place the matching
+forced and control historical/future files on one exact 41,076-cell support
+intersection. They report only forced, control, and difference-in-relative-
+change aggregates for three registered decades. The difference is a
+structural sensitivity, not causal attribution or a marginal pulse response;
+welfare, damage, and SCC gates remain closed.
 
 `give_country_fund_region_crosswalk_v1.csv` is the normalized aggregation
 universe derived from the baseline MimiGIVE mapping in the Rennert et al.

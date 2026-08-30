@@ -43,9 +43,10 @@ catalogue audit found 20 public, unrestricted, CC0 global monthly `tc` datasets:
 two ecosystem models (BOATS and EcoOcean) by two climate forcings (GFDL-ESM4
 and IPSL-CM6A-LR), with five historical/future experiment records per pairing.
 Twelve files spanning historical, SSP1-2.6, and SSP5-8.5 have since been
-acquired and content-validated for the scenario matrix. The eight
-preindustrial-control files remain unacquired. This does not clear the
-matched-pulse, welfare, or production gates.
+acquired and content-validated for the scenario matrix. One checksum-pinned
+BOATS/GFDL-ESM4 preindustrial-control historical/future pair is also acquired
+and fully validated; the other six control files remain unacquired. This does
+not clear the matched-pulse, welfare, or production gates.
 
 The all-file acquisition plan is now version-pinned and executable against a
 fresh catalogue response. Its outcome-blind content smoke is limited to the
@@ -53,8 +54,9 @@ four BOATS/EcoOcean historical and SSP1-2.6 files under GFDL-ESM4 (513,826,771
 catalogue bytes). After that smoke passed, the bounded scenario matrix added
 the equivalent IPSL-CM6A-LR cells and both SSP5-8.5 futures. All 12 scenario
 files passed complete-file checksum, schema, monthly chronology,
-historical/future join, grid, unit, and missing-versus-zero checks. The eight
-control files remain deferred. See `FISHMIP_CONTENT_PLAN.md`.
+historical/future join, grid, unit, and missing-versus-zero checks. The first
+two control files were subsequently admitted for a bounded drift diagnostic;
+the other six remain deferred. See `FISHMIP_CONTENT_PLAN.md`.
 
 ## Gate 3 — primary model and alternatives
 
@@ -80,6 +82,18 @@ strict-unanimity ranges from 37.38% to 66.10%; this exposes geographic as well
 as temporal heterogeneity. It does not substitute latitude bands for country
 or EEZ allocation and does not clear the matched-pulse or welfare portions of
 this gate.
+
+The first BOATS/GFDL-ESM4 control pair materially narrows interpretation. Its
+global mean `tc` density falls 23.66%, 30.75%, and 31.71% relative to its own
+2005--2014 reference in the registered near-, mid-, and late-century decades.
+The pair changes social forcing at 2015 and therefore cannot identify pure
+autonomous ecological drift, but it demonstrates that raw BOATS scenario
+changes are not forced-response estimates. The completed exact-support
+adjustment yields forced-minus-control relative changes of -2.38/-2.03/-3.91
+percentage points for SSP1-2.6 and -1.96/-2.95/-11.19 points for SSP5-8.5 in
+the near/mid/late decades. This is a structural sensitivity, not causal or
+marginal-pulse identification; model/forcing/social-forcing labels remain
+explicit.
 
 ## Gate 4 — welfare translation and GIVE interface
 

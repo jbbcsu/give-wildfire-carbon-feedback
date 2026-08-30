@@ -1,0 +1,76 @@
+{
+  "absolute_model_levels_averaged": false,
+  "climate_forcing": "gfdl-esm4",
+  "common_finite_grid_cells": 41076,
+  "config_sha256": "5370e95c47713babd03250abd862888f884dde52c5970a18ee7e5ab0949a8fb4",
+  "control_pair_validation": "passed",
+  "control_reference_mean_density_g_m2": 1.8972207518070106e-08,
+  "control_scenario": "picontrol",
+  "damage_estimated": false,
+  "forced_pair_validation": "passed",
+  "forced_reference_mean_density_g_m2": 1.8159008572144263e-08,
+  "forced_response_estimated": false,
+  "forced_scenario": "ssp126",
+  "future_soc_scenario": "2015soc-from-histsoc",
+  "historical_soc_scenario": "histsoc",
+  "implementation_sha256": "a25e90949836d2a2332efffe30aafd1c26bd498da0f96ccd92806e9946326e87",
+  "inference_limit": "Difference-in-relative-changes on one support intersection is a structural control adjustment, not causal attribution or a marginal pulse response.",
+  "inputs": [
+    {
+      "bytes": 90012681,
+      "file_name": "boats_gfdl-esm4_nobasd_historical_histsoc_default_tc_global_monthly_1950_2014.nc",
+      "sha512": "2ca08c5d40413e437b7d7215acf3029c2f69613e8afdce847a5aa62d8aaad0b658347557374a17daae43d6957a56e9aee6597b9fb4c8b4737ed7e1f578101411"
+    },
+    {
+      "bytes": 153855617,
+      "file_name": "boats_gfdl-esm4_nobasd_ssp126_2015soc-from-histsoc_default_tc_global_monthly_2015_2100.nc",
+      "sha512": "05308c6cedc17e284d2fa825533f1c8e3365c145bc196dcf5f71727f5bce34c1b4ce8fefbbcf4eecc427c720d02b2689c4f57cbf0756b6c7339fffb15aa04f9e"
+    },
+    {
+      "bytes": 90196384,
+      "file_name": "boats_gfdl-esm4_nobasd_picontrol_histsoc_default_tc_global_monthly_1950_2014.nc",
+      "sha512": "083e55e0f05c48b7e600b2df5bf05695692d0f934cfc581da5b57c04af491d1a8d479b7a2bad16cff75ffad21e312489b7e340b26a532f5056a29889ec3a6155"
+    },
+    {
+      "bytes": 153642534,
+      "file_name": "boats_gfdl-esm4_nobasd_picontrol_2015soc-from-histsoc_default_tc_global_monthly_2015_2100.nc",
+      "sha512": "9f9541ccdf842823e168b33387510021bd72ee1408b25fa305d467ddadb8a6f1e9f75ab2398138b855857f82ff0555a2c1c9f87555facf926e598a06fa8780ad"
+    }
+  ],
+  "matched_co2_pulse": false,
+  "model": "boats",
+  "reference_end_year": 2014,
+  "reference_start_year": 2005,
+  "reporting_periods": [
+    {
+      "control_relative_change": -0.2365543013764434,
+      "difference_in_relative_changes": -0.023813460221085436,
+      "end_year": 2030,
+      "forced_relative_change": -0.26036776159752884,
+      "id": "near",
+      "start_year": 2021
+    },
+    {
+      "control_relative_change": -0.3075039130340811,
+      "difference_in_relative_changes": -0.02033423989485006,
+      "end_year": 2050,
+      "forced_relative_change": -0.32783815292893115,
+      "id": "mid",
+      "start_year": 2041
+    },
+    {
+      "control_relative_change": -0.3171448010134237,
+      "difference_in_relative_changes": -0.039118902903156005,
+      "end_year": 2090,
+      "forced_relative_change": -0.3562637039165797,
+      "id": "late",
+      "start_year": 2081
+    }
+  ],
+  "result": "passed",
+  "role": "biophysical_control_adjusted_scenario_diagnostic_not_pulse_welfare_or_scc",
+  "scc_authorized": false,
+  "support_rule": "intersection_across_control_and_forced_historical_future_files",
+  "version": "fishmip_gfdl_boats_control_adjusted_ssp126_v1",
+  "welfare_estimated": false
+}

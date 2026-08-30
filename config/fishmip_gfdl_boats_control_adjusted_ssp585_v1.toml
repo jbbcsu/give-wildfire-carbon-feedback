@@ -1,0 +1,33 @@
+version = "fishmip_gfdl_boats_control_adjusted_ssp585_v1"
+role = "biophysical_control_adjusted_scenario_diagnostic_not_pulse_welfare_or_scc"
+model = "boats"
+climate_forcing = "gfdl-esm4"
+forced_scenario = "ssp585"
+control_scenario = "picontrol"
+historical_soc_scenario = "histsoc"
+future_soc_scenario = "2015soc-from-histsoc"
+historical_start_year = 1950
+historical_end_year = 2014
+future_start_year = 2015
+future_end_year = 2100
+reference_start_year = 2005
+reference_end_year = 2014
+support_rule = "intersection_across_control_and_forced_historical_future_files"
+spatial_summary = "cosine_latitude_weighted_mean_density"
+temporal_summary = "mean_of_twelve_monthly_spatial_means"
+allowed_acquisition_stages = ["content_smoke", "deferred_full_matrix"]
+
+[[reporting_periods]]
+id = "near"
+start_year = 2021
+end_year = 2030
+
+[[reporting_periods]]
+id = "mid"
+start_year = 2041
+end_year = 2050
+
+[[reporting_periods]]
+id = "late"
+start_year = 2081
+end_year = 2090

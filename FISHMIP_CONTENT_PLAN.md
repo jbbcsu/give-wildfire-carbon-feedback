@@ -16,9 +16,10 @@ historical/future join while bounding the initial transfer.
 
 After the four-file smoke passed, eight additional historical/SSP1-2.6/
 SSP5-8.5 files were acquired under the predeclared full-matrix stage. The 12
-scenario files now cover both forcings and ecosystem models. The eight
-preindustrial-control files remain deferred. This staging is an engineering
-decision, not scenario or model selection for inference. Neither SSP is
+scenario files now cover both forcings and ecosystem models. A later bounded
+control-drift extension acquired the two BOATS/GFDL-ESM4 preindustrial-control
+files; the other six control files remain deferred. This staging is an
+engineering decision, not scenario or model selection for inference. Neither SSP is
 treated as a marginal-CO2 counterfactual, and neither climate forcing or
 ecosystem model is promoted above another.
 
@@ -87,8 +88,9 @@ Each file must pass all of the following before any numeric summary is used:
 The initial four-file smoke and the later eight-file scenario expansion have
 machine-readable passes for every within-model file and historical/future join
 check. The resulting historical/SSP1-2.6/SSP5-8.5 matrix is complete across
-BOATS/EcoOcean and GFDL-ESM4/IPSL-CM6A-LR. The eight control files remain
-deferred and are not needed for the bounded scenario diagnostic.
+BOATS/EcoOcean and GFDL-ESM4/IPSL-CM6A-LR. The BOATS/GFDL-ESM4 control pair is
+now validated for a separate bounded drift diagnostic; the other six control
+files remain deferred and are not needed for the scenario diagnostic.
 
 ## Scientific boundary
 
