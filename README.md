@@ -104,10 +104,10 @@ content, same-realization GMST, and bounded-feature reconciliation. The IPSL
 SSP3-7.0 2041--2050 and 2091--2100 pairs and bounded feature blocks now pass
 the same gates. Both IPSL SSP5-8.5 pairs now also pass exact checksum/content,
 same-realization GMST, and bounded-feature gates, bringing the expansion to 24
-of 60 files and twelve feature blocks. The first MPI-ESM1-2-HR block,
-SSP1-2.6 in 2041--2050, also passes exact checksum, model-specific 12:00 daily
-content, same-realization GMST, and bounded-feature gates, bringing the
-expansion to 26 of 60 files and thirteen feature blocks. Against matched
+of 60 files and twelve feature blocks. Both MPI-ESM1-2-HR SSP1-2.6 blocks,
+2041--2050 and 2091--2100, also pass exact checksum, model-specific 12:00
+daily content, same-realization GMST, and bounded-feature gates, bringing the
+expansion to 28 of 60 files and fourteen feature blocks. Against matched
 IPSL SSP1-2.6 cells, mean SSP3-7.0 differences at
 midcentury are +0.365 C, +13.22 mm seasonal rain, +0.93 wet days, -1.36
 maximum dry-spell days, +2.18 mm Rx1day, and +3.84 mm Rx5day. At end century,

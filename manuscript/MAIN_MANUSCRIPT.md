@@ -360,12 +360,12 @@ GMST, and bounded feature/reconciliation gates. Their paired daily files use
 a fixed 12:00 timestamp rather than GFDL's 00:00; both variables share each
 exact 3,652-day sequence. The IPSL SSP3-7.0 2041--2050 and 2091--2100 pairs and
 bounded feature blocks pass the same gates. Both IPSL SSP5-8.5 pairs and
-bounded feature blocks also pass. The MPI-ESM1-2-HR SSP1-2.6 2041--2050 pair
-also passes the exact 3,652-step 12:00 content, same-realization GMST, and
-bounded maize/rainfed reconciliation gates, raising registered progress to 26
-of 60 files and thirteen feature blocks. This single MPI later-century cell is
-engineering evidence only and does not support a scenario or ESM response
-claim. Relative to matched SSP1-2.6 cells,
+bounded feature blocks also pass. The MPI-ESM1-2-HR SSP1-2.6 2041--2050 and
+2091--2100 pairs also pass the exact 3,652-step 12:00 content,
+same-realization GMST, and bounded maize/rainfed reconciliation gates, raising
+registered progress to 28 of 60 files and fourteen feature blocks. These two
+same-scenario MPI later-century cells are engineering evidence only and do not
+support a scenario or ESM response claim. Relative to matched SSP1-2.6 cells,
 midcentury mean differences are +0.365 C, +13.22 mm seasonal rain, +0.93 wet
 days, -1.36 maximum dry-spell days, +2.18 mm Rx1day, and +3.84 mm Rx5day. The
 end-century means are +4.146 C, +25.70 mm seasonal rain, +2.85 wet days, -2.26
