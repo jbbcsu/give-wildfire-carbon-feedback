@@ -9,9 +9,11 @@
    temperature, RFF-SP population/income, and FUND-region valuation parameters.
 4. **Uncertainty:** preserve joint socioeconomic/climate draws and sample the
    empirical species-loss and valuation uncertainties.
-5. **Accounting tests:** zero pulse gives zero marginal damage; zero preference
-   gives zero damage; baseline/pulse IDs match; biodiversity enters consumption
-   and SCC exactly once.
+5. **Accounting tests:** the standalone pair preflight now requires matched
+   baseline/pulse draw-country-year keys and fixed inputs, recomputes deficits
+   and country damages, and enforces zero-pulse and pre-divergence identity.
+   Zero preference and exactly-once GIVE consumption/SCC integration remain
+   open.
 6. **Sensitivity:** original versus updated species-loss function, alternative
    income elasticities, alternative valuation transfer, temperature path, and
    exclusion of non-climate background loss from marginal attribution.

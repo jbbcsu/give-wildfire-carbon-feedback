@@ -21,6 +21,13 @@ gitignored depot:
 JULIA_DEPOT_PATH=.julia_depot ../tools/julia-1.8.5/bin/julia --project=. test/runtests.jl
 ```
 
+`python/validate_biodiversity_pair.py` is a fail-closed accounting preflight
+for externally produced baseline/pulse bundles. It requires exact matched
+draw-country-year keys and fixed socioeconomic/valuation identities,
+recomputes every deficit and country damage, and enforces pre-divergence and
+zero-pulse identity. Its output explicitly does not validate empirical
+parameters, overlap, discounting, damages, or an SCC.
+
 ## Boundaries
 
 - Include existence/nonuse value only.
