@@ -107,7 +107,12 @@ same-realization GMST, and bounded-feature gates, bringing the expansion to 24
 of 60 files and twelve feature blocks. Both MPI-ESM1-2-HR SSP1-2.6 blocks,
 2041--2050 and 2091--2100, also pass exact checksum, model-specific 12:00
 daily content, same-realization GMST, and bounded-feature gates, bringing the
-expansion to 28 of 60 files and fourteen feature blocks. Against matched
+expansion to 28 of 60 files and fourteen feature blocks. The MPI SSP5-8.5
+2041--2050 pair now passes those same gates. Together with the separately
+registered MRI SSP1-2.6 2041--2050 block, this brings the expansion to 32 of
+60 files and sixteen feature blocks. Against matched MPI SSP1-2.6 cells, its
+mean differences are +0.237 C, +17.88 mm seasonal rain, +1.37 wet days, -1.00
+maximum dry-spell days, +1.71 mm Rx1day, and +6.75 mm Rx5day. Against matched
 IPSL SSP1-2.6 cells, mean SSP3-7.0 differences at
 midcentury are +0.365 C, +13.22 mm seasonal rain, +0.93 wet days, -1.36
 maximum dry-spell days, +2.18 mm Rx1day, and +3.84 mm Rx5day. At end century,

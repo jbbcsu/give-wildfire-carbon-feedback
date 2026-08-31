@@ -212,8 +212,13 @@ closing 24 of 60 file gates and twelve feature blocks. The MPI-ESM1-2-HR
 SSP1-2.6 2041--2050 and 2091--2100 `pr`/`tas` pairs then pass exact
 byte/SHA-512, 3,652-step 12:00 decoded-content, same-realization GMST, and
 bounded feature/reconciliation gates, bringing progress to 28 of 60 file gates
-and fourteen bounded feature blocks. No MPI whole-scenario or whole-ESM
-inference is made from these two same-scenario later-century cells.
+and fourteen bounded feature blocks. The MPI SSP5-8.5 2041--2050 pair and
+bounded feature block also pass. Together with the separately registered MRI
+SSP1-2.6 2041--2050 block, progress is 32 of 60 file gates and sixteen feature
+blocks. Relative to exact-key MPI SSP1-2.6 cells, the SSP5-8.5
+means are +0.237 C, +17.88 mm seasonal rain, +1.37 wet days, -1.00 maximum
+dry-spell days, +1.71 mm Rx1day, and +6.75 mm Rx5day. No MPI whole-scenario or
+whole-ESM inference is made from these three later-century cells.
 Relative to matched IPSL SSP1-2.6 cells, mean SSP3-7.0 differences at
 midcentury are +0.365 C, +13.22 mm seasonal rain, +0.93 wet days, -1.36
 maximum dry-spell days, +2.18 mm Rx1day, and +3.84 mm Rx5day. The end-century

@@ -363,10 +363,15 @@ bounded feature blocks pass the same gates. Both IPSL SSP5-8.5 pairs and
 bounded feature blocks also pass. The MPI-ESM1-2-HR SSP1-2.6 2041--2050 and
 2091--2100 pairs also pass the exact 3,652-step 12:00 content,
 same-realization GMST, and bounded maize/rainfed reconciliation gates, raising
-registered progress to 28 of 60 files and fourteen feature blocks. These two
-same-scenario MPI later-century cells are engineering evidence only and do not
-support a scenario or ESM response claim. Relative to matched SSP1-2.6 cells,
-midcentury mean differences are +0.365 C, +13.22 mm seasonal rain, +0.93 wet
+registered progress to 28 of 60 files and fourteen feature blocks. The MPI
+SSP5-8.5 2041--2050 pair passes the same gates. Together with the separately
+registered MRI SSP1-2.6 2041--2050 block, progress reaches 32 of 60 files and
+sixteen feature blocks. Relative to matched MPI SSP1-2.6 cells, its
+mean differences are +0.237 C, +17.88 mm seasonal rain, +1.37 wet days, -1.00
+maximum dry-spell days, +1.71 mm Rx1day, and +6.75 mm Rx5day. These three MPI
+later-century cells are engineering evidence only and do not support a whole-
+scenario or whole-ESM response claim. For IPSL, SSP3-7.0 relative to matched
+SSP1-2.6 cells has midcentury mean differences of +0.365 C, +13.22 mm seasonal rain, +0.93 wet
 days, -1.36 maximum dry-spell days, +2.18 mm Rx1day, and +3.84 mm Rx5day. The
 end-century means are +4.146 C, +25.70 mm seasonal rain, +2.85 wet days, -2.26
 maximum dry-spell days, +3.12 mm Rx1day, and +4.47 mm Rx5day. These are

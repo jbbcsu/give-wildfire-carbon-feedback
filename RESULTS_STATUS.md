@@ -73,6 +73,17 @@ described in their rows.
 | U.S. national reported-zero support | The exact 1981--2019 all-practice corn source contains 499 reported zero-yield county-years across 150 counties, 18 states, and 217 consecutive spells; the longest spell is 10 years and 118 zero rows have an adjacent positive observation. Every zero lies in 1998--2009, leaving 17 declared years before and 10 after with none, and the top five states contain 73.55% of zero rows (state-row HHI 0.1552). The fixed geography gate retains 419 rows. Only 45 zero rows have a usable fixed-2017 irrigation share; 7/8/8 meet the 10/20/30% high-rainfed selectors. Among adjacent-positive rows, those counts fall to 111 geography-eligible, 15 irrigation-share-eligible, and 4/5/5 high-rainfed. | Descriptive zero-outcome support only. The temporal/state concentration prevents interpreting reported zeroes as a generic crop-failure signal. Nothing is replaced, log-transformed, or modeled; all-practice zeroes are not direct rainfed outcomes. A two-part or other zero-retaining outcome model remains unselected, and no response, damage, or SCC claim is authorized. |
 | Remaining production coverage | Corrected MIRCA-weighted aggregate-regime quantity/distribution panels and separate direct/heat/historical-scPDSI candidates now cover maize/soybean continuously through 1982--2016. A source-consistent leakage-safe SPEI method is locked but its full fields/candidates are not built. Rice/wheat irrigation mappings, soil-moisture competitors, causal response draws, matched future drought features, the full future ensemble, welfare calibration, and paired SCC runs remain incomplete. | No production global response or SCC claim |
 
+Post-table checkpoint (2026-08-31): the MPI-ESM1-2-HR SSP5-8.5 2041--2050
+`pr`/`tas` pair, same-realization GMST, and bounded feature block now pass.
+Together with the separately registered MRI SSP1-2.6 2041--2050 block, this
+raises the later-century expansion to 32 of 60 complete-file gates and sixteen
+feature blocks. Exact-key SSP5-8.5-minus-SSP1-2.6 MPI means are +0.237 C,
++17.88 mm seasonal rain, +1.37 wet days, -1.00 maximum dry-spell days, +1.71
+mm Rx1day, and +6.75 mm Rx5day across 5,488 fixed seasonal cells. This is a
+descriptive climate-support diagnostic only; whole-scenario, whole-ESM,
+response, damage, and SCC gates remain open. This checkpoint supersedes the
+28/60 and fourteen-block counts in the table row above.
+
 ## Completed empirical checks
 
 Unless explicitly labeled current-hash and basis-before-weighting, response
