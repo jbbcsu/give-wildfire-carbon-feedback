@@ -113,6 +113,11 @@ registered MRI SSP1-2.6 2041--2050 block, this brings the expansion to 32 of
 60 files and sixteen feature blocks. Against matched MPI SSP1-2.6 cells, its
 mean differences are +0.237 C, +17.88 mm seasonal rain, +1.37 wet days, -1.00
 maximum dry-spell days, +1.71 mm Rx1day, and +6.75 mm Rx5day. Against matched
+MRI SSP1-2.6 cells, the newly registered MRI SSP3-7.0 midcentury block averages
++0.369 C, -11.02 mm seasonal rain, -1.07 wet days, +0.23 maximum dry-spell
+days, -0.32 mm Rx1day, and +0.26 mm Rx5day. It raises tracked progress to 34
+of 60 files and seventeen feature blocks but does not yet close an MRI
+whole-scenario or whole-ESM gate. Against matched
 IPSL SSP1-2.6 cells, mean SSP3-7.0 differences at
 midcentury are +0.365 C, +13.22 mm seasonal rain, +0.93 wet days, -1.36
 maximum dry-spell days, +2.18 mm Rx1day, and +3.84 mm Rx5day. At end century,

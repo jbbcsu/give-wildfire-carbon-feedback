@@ -84,6 +84,14 @@ descriptive climate-support diagnostic only; whole-scenario, whole-ESM,
 response, damage, and SCC gates remain open. This checkpoint supersedes the
 28/60 and fourteen-block counts in the table row above.
 
+The MRI-ESM2-0 SSP3-7.0 2041--2050 `pr`/`tas` pair, same-realization GMST,
+and 5,488-season/16,464-stage maize/rainfed block now also pass exact checksum,
+decoded-content, and reconciliation gates. Relative to matched MRI SSP1-2.6
+cells, mean differences are +0.369 C, -11.02 mm seasonal rain, -1.07 wet days,
++0.23 maximum dry-spell days, -0.32 mm Rx1day, and +0.26 mm Rx5day. Tracked
+progress is 34/60 files and seventeen feature blocks; these descriptive values
+do not close whole-scenario, whole-ESM, response, damage, or SCC gates.
+
 ## Completed empirical checks
 
 Unless explicitly labeled current-hash and basis-before-weighting, response

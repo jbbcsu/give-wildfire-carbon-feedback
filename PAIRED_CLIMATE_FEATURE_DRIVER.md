@@ -219,6 +219,13 @@ blocks. Relative to exact-key MPI SSP1-2.6 cells, the SSP5-8.5
 means are +0.237 C, +17.88 mm seasonal rain, +1.37 wet days, -1.00 maximum
 dry-spell days, +1.71 mm Rx1day, and +6.75 mm Rx5day. No MPI whole-scenario or
 whole-ESM inference is made from these three later-century cells.
+The MRI SSP3-7.0 2041--2050 pair now passes exact checksum, full decoded
+content, same-realization GMST, and bounded feature/reconciliation gates. Its
+matched SSP3-7.0-minus-SSP1-2.6 means are +0.369 C, -11.02 mm rain, -1.07 wet
+days, +0.23 maximum dry-spell days, -0.32 mm Rx1day, and +0.26 mm Rx5day.
+Tracked progress is 34 of 60 file gates and seventeen feature blocks. A third
+MRI SSP and both remaining end-century MRI scenario cells are still required
+before whole-scenario or expanded whole-ESM inference.
 Relative to matched IPSL SSP1-2.6 cells, mean SSP3-7.0 differences at
 midcentury are +0.365 C, +13.22 mm seasonal rain, +0.93 wet days, -1.36
 maximum dry-spell days, +2.18 mm Rx1day, and +3.84 mm Rx5day. The end-century

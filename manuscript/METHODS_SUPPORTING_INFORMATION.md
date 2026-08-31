@@ -493,8 +493,15 @@ the expansion reaches 32 of 60 file gates and sixteen bounded feature blocks
 without rerunning a whole-scenario or whole-ESM response. Its exact-key
 comparison with MPI SSP1-2.6 finds mean differences of +0.237 C, +17.88 mm
 seasonal precipitation, +1.37 wet days, -1.00 maximum dry-spell days, +1.71 mm
-Rx1day, and +6.75 mm Rx5day. For IPSL, the exact-key
-SSP3-7.0-minus-SSP1-2.6 midcentury comparison finds
+Rx1day, and +6.75 mm Rx5day. The MRI SSP3-7.0 2041--2050 pair passes the same
+exact-byte, checksum, noon
+chronology, decoded-content, same-realization GMST, feature, and reconciliation
+gates. Its exact-key SSP3-7.0-minus-SSP1-2.6 means are +0.369 C, -11.02 mm
+seasonal precipitation, -1.07 wet days, +0.23 maximum dry-spell days, -0.32 mm
+Rx1day, and +0.26 mm Rx5day. This raises tracked progress to 34 of 60 file
+gates and seventeen bounded blocks, without completing the MRI scenario or
+period matrix. For IPSL, the exact-key SSP3-7.0-minus-SSP1-2.6 midcentury
+comparison finds
 mean differences of +0.365 C, +13.22 mm seasonal precipitation, +0.93 wet days,
 -1.36 maximum dry-spell days, +2.18 mm Rx1day, and +3.84 mm Rx5day. The matching
 end-century differences are +4.146 C, +25.70 mm seasonal precipitation, +2.85

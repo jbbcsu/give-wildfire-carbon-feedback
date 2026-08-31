@@ -370,8 +370,15 @@ sixteen feature blocks. Relative to matched MPI SSP1-2.6 cells, its
 mean differences are +0.237 C, +17.88 mm seasonal rain, +1.37 wet days, -1.00
 maximum dry-spell days, +1.71 mm Rx1day, and +6.75 mm Rx5day. These three MPI
 later-century cells are engineering evidence only and do not support a whole-
-scenario or whole-ESM response claim. For IPSL, SSP3-7.0 relative to matched
-SSP1-2.6 cells has midcentury mean differences of +0.365 C, +13.22 mm seasonal rain, +0.93 wet
+scenario or whole-ESM response claim. The MRI SSP3-7.0 2041--2050 pair and
+bounded block also pass, raising tracked
+progress to 34 of 60 files and seventeen feature blocks. Relative to matched
+MRI SSP1-2.6 cells, mean differences are +0.369 C, -11.02 mm seasonal rain,
+-1.07 wet days, +0.23 maximum dry-spell days, -0.32 mm Rx1day, and +0.26 mm
+Rx5day. These are descriptive climate differences; incomplete MRI scenario and
+period coverage precludes a whole-scenario or expanded whole-ESM claim. For
+IPSL, SSP3-7.0 relative to matched SSP1-2.6 cells has midcentury mean
+differences of +0.365 C, +13.22 mm seasonal rain, +0.93 wet
 days, -1.36 maximum dry-spell days, +2.18 mm Rx1day, and +3.84 mm Rx5day. The
 end-century means are +4.146 C, +25.70 mm seasonal rain, +2.85 wet days, -2.26
 maximum dry-spell days, +3.12 mm Rx1day, and +4.47 mm Rx5day. These are
