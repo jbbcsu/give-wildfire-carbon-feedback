@@ -129,6 +129,14 @@ temporal persistence of increasing sign agreement inside the frozen matrix,
 not causality, probability weights, observed-catch validation, allocation, a
 matched pulse, welfare, damage, or SCC eligibility.
 
+A stricter same-cell persistence audit qualifies that result. Requiring a
+given trajectory to be negative at the same cell in all three registered
+windows leaves only 15.34% of weighted area with persistent agreement from at
+least three of four structures under SSP1-2.6 and 17.89% under SSP5-8.5;
+persistent unanimity is 2.82% and 3.35%. Increasing aggregate sign agreement
+through time therefore does not imply stable cross-model agreement at the same
+locations. The same structural-sensitivity and non-SCC boundaries apply.
+
 ## Gate 4 — welfare translation and GIVE interface
 
 Translate changes in catch/availability into producer and consumer welfare,

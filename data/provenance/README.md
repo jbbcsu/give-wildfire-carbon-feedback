@@ -95,6 +95,12 @@ windows. It reports temporal sign-share robustness without exporting cells or
 turning the structural control adjustment into causal, observed-catch,
 allocation, pulse, welfare, damage, or SCC evidence.
 
+`fishmip_control_adjusted_spatial_persistence_20260830.json` requires each
+forcing/model trajectory to be negative at the same cell in all three fixed
+windows before counting it as persistently lower. It exports only aggregate
+shares on the same 40,398-cell intersection and retains the confounded-social-
+forcing, observed-catch, allocation, pulse, welfare, damage, and SCC gates.
+
 `fishmip_gfdl_boats_control_adjusted_ssp126_20260829.json` and
 `fishmip_gfdl_boats_control_adjusted_ssp585_20260829.json` place the matching
 forced and control historical/future files on one exact 41,076-cell support

@@ -155,6 +155,15 @@ under SSP5-8.5; strict unanimity rises from 9.38% to 13.15% and from 8.11% to
 sensitivity, not causal attribution, a probability, observed catch, a pulse,
 welfare, damages, or SCC evidence.
 
+The stricter same-cell test in
+[`FISHMIP_CONTROL_ADJUSTED_SPATIAL_PERSISTENCE.md`](FISHMIP_CONTROL_ADJUSTED_SPATIAL_PERSISTENCE.md)
+requires each trajectory to remain negative at the same cell in all three
+windows. At least three of four trajectories meet that condition over only
+15.34% of weighted area under SSP1-2.6 and 17.89% under SSP5-8.5; persistent
+unanimity is 2.82% and 3.35%. This exposes stronger temporal/geographic
+disagreement and retains all causal, allocation, pulse, welfare, damage, and
+SCC exclusions.
+
 An executable cross-matrix audit now verifies the complete two-forcing,
 two-scenario, two-ecosystem-model factorial, identical historical references
 and common support across scenarios, and finite period changes. It finds
@@ -263,6 +272,7 @@ python3 test/test_fishmip_picontrol_drift.py  # same environment requirement
 python3 test/test_fishmip_control_adjusted_scenario.py  # same environment requirement
 python3 test/test_fishmip_control_adjusted_spatial_consensus.py  # same environment requirement
 python3 test/test_fishmip_control_adjusted_spatial_time_windows.py  # same environment requirement
+python3 test/test_fishmip_control_adjusted_spatial_persistence.py  # same environment requirement
 ```
 
 These scripts do not choose ecological or economic parameters, prove that an
