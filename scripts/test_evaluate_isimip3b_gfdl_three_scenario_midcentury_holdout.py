@@ -34,6 +34,11 @@ ipsl_endcentury_config = tomllib.loads(
 )
 assert validate_config(ipsl_endcentury_config)["period"] == "endcentury"
 assert ipsl_endcentury_config["selection"]["esm_id"] == "IPSL-CM6A-LR"
+mri_config = tomllib.loads(
+    (ROOT / "config/isimip3b_mri_three_scenario_midcentury_holdout_v1.toml").read_text(encoding="utf-8")
+)
+assert validate_config(mri_config)["period"] == "midcentury"
+assert mri_config["selection"]["esm_id"] == "MRI-ESM2-0"
 bad = copy.deepcopy(config)
 bad["limitations"]["damage_or_scc_authorized"] = True
 try:

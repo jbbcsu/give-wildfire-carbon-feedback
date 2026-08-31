@@ -226,6 +226,15 @@ days, +0.23 maximum dry-spell days, -0.32 mm Rx1day, and +0.26 mm Rx5day.
 Tracked progress is 34 of 60 file gates and seventeen feature blocks. A third
 MRI SSP and both remaining end-century MRI scenario cells are still required
 before whole-scenario or expanded whole-ESM inference.
+The MRI SSP5-8.5 midcentury pair subsequently closes the three-scenario MRI
+midcentury matrix at 36/60 file gates and eighteen feature blocks. Its matched
+SSP5-8.5-minus-SSP1-2.6 means are +0.777 C, -8.81 mm rain, +0.28 wet days,
+-2.83 maximum-dry-spell days, -1.50 mm Rx1day, and -2.68 mm Rx5day. The
+181,104-row whole-scenario audit improves 15/33 comparisons (median RMSE ratio
+1.00027; maximum 1.04233), including 4/11 for held-out SSP5-8.5, while
+21,236 values (11.73%) fall outside the two-scenario support envelope. This is
+adverse engineering evidence; end-century, whole-ESM, FAIR feature-support,
+response, damage, and SCC gates remain open.
 Relative to matched IPSL SSP1-2.6 cells, mean SSP3-7.0 differences at
 midcentury are +0.365 C, +13.22 mm seasonal rain, +0.93 wet days, -1.36
 maximum dry-spell days, +2.18 mm Rx1day, and +3.84 mm Rx5day. The end-century

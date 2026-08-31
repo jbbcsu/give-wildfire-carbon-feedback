@@ -92,6 +92,15 @@ cells, mean differences are +0.369 C, -11.02 mm seasonal rain, -1.07 wet days,
 progress is 34/60 files and seventeen feature blocks; these descriptive values
 do not close whole-scenario, whole-ESM, response, damage, or SCC gates.
 
+The MRI SSP5-8.5 2041--2050 pair and bounded block now pass the same gates,
+raising progress to 36/60 files and eighteen blocks. Relative to SSP1-2.6,
+mean differences are +0.777 C, -8.81 mm seasonal rain, +0.28 wet days, -2.83
+maximum-dry-spell days, -1.50 mm Rx1day, and -2.68 mm Rx5day. The resulting
+181,104-row MRI three-scenario midcentury holdout improves 15/33 comparisons,
+has median/maximum RMSE ratios of 1.00027/1.04233, and flags 21,236 values
+(11.73%) outside support. This adverse engineering result does not authorize a
+response, damage function, or SCC input.
+
 ## Completed empirical checks
 
 Unless explicitly labeled current-hash and basis-before-weighting, response

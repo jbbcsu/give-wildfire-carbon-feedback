@@ -117,7 +117,13 @@ MRI SSP1-2.6 cells, the newly registered MRI SSP3-7.0 midcentury block averages
 +0.369 C, -11.02 mm seasonal rain, -1.07 wet days, +0.23 maximum dry-spell
 days, -0.32 mm Rx1day, and +0.26 mm Rx5day. It raises tracked progress to 34
 of 60 files and seventeen feature blocks but does not yet close an MRI
-whole-scenario or whole-ESM gate. Against matched
+whole-scenario or whole-ESM gate. Against matched MRI SSP1-2.6 cells, the
+SSP5-8.5 midcentury block averages +0.777 C, -8.81 mm
+seasonal rain, +0.28 wet days, -2.83 maximum-dry-spell days, -1.50 mm Rx1day,
+and -2.68 mm Rx5day. It closes the MRI three-scenario midcentury matrix at
+36/60 files and eighteen blocks. The whole-scenario audit improves 15/33
+comparisons and places 11.73% of held-out values outside support, so the
+response, damage, and SCC gates remain closed. Against matched
 IPSL SSP1-2.6 cells, mean SSP3-7.0 differences at
 midcentury are +0.365 C, +13.22 mm seasonal rain, +0.93 wet days, -1.36
 maximum dry-spell days, +2.18 mm Rx1day, and +3.84 mm Rx5day. At end century,

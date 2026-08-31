@@ -68,6 +68,16 @@ CONFIG_CONTRACTS = {
         "complete_key": "complete_three_scenario_endcentury_matrix",
         "audit_schema": "isimip3b_ipsl_three_scenario_endcentury_holdout_audit_v1",
     },
+    (
+        "isimip3b_mri_three_scenario_midcentury_holdout_config_v1",
+        "outcome_blind_joined_mri_three_scenario_midcentury_feature_holdout_and_support_audit_not_emulator_damage_or_scc",
+    ): {
+        "period": "midcentury",
+        "year_start": 2042,
+        "year_end": 2049,
+        "complete_key": "complete_three_scenario_midcentury_matrix",
+        "audit_schema": "isimip3b_mri_three_scenario_midcentury_holdout_audit_v1",
+    },
 }
 
 

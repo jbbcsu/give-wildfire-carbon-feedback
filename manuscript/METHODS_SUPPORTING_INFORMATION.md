@@ -500,8 +500,17 @@ gates. Its exact-key SSP3-7.0-minus-SSP1-2.6 means are +0.369 C, -11.02 mm
 seasonal precipitation, -1.07 wet days, +0.23 maximum dry-spell days, -0.32 mm
 Rx1day, and +0.26 mm Rx5day. This raises tracked progress to 34 of 60 file
 gates and seventeen bounded blocks, without completing the MRI scenario or
-period matrix. For IPSL, the exact-key SSP3-7.0-minus-SSP1-2.6 midcentury
-comparison finds
+period matrix. The MRI SSP5-8.5 midcentury pair passes the same frozen-file, content,
+same-realization GMST, feature, and reconciliation gates. Its exact-key
+SSP5-8.5-minus-SSP1-2.6 means are +0.777 C, -8.81 mm seasonal precipitation,
++0.28 wet days, -2.83 maximum-dry-spell days, -1.50 mm Rx1day, and -2.68 mm
+Rx5day. The generic leave-one-scenario-out audit is extended with an explicit
+MRI contract and exact two-scenario support flags. Across 181,104 long feature
+rows it improves 15/33 comparisons (median RMSE ratio 1.00027; maximum
+1.04233), including 4/11 for held-out SSP5-8.5, while 21,236 values (11.73%)
+are outside support. These gates raise tracked progress to 36/60 files and
+eighteen blocks but remain engineering evidence only. For IPSL, the exact-key
+SSP3-7.0-minus-SSP1-2.6 midcentury comparison finds
 mean differences of +0.365 C, +13.22 mm seasonal precipitation, +0.93 wet days,
 -1.36 maximum dry-spell days, +2.18 mm Rx1day, and +3.84 mm Rx5day. The matching
 end-century differences are +4.146 C, +25.70 mm seasonal precipitation, +2.85

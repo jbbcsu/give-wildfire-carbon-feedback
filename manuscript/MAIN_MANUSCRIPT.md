@@ -376,8 +376,16 @@ progress to 34 of 60 files and seventeen feature blocks. Relative to matched
 MRI SSP1-2.6 cells, mean differences are +0.369 C, -11.02 mm seasonal rain,
 -1.07 wet days, +0.23 maximum dry-spell days, -0.32 mm Rx1day, and +0.26 mm
 Rx5day. These are descriptive climate differences; incomplete MRI scenario and
-period coverage precludes a whole-scenario or expanded whole-ESM claim. For
-IPSL, SSP3-7.0 relative to matched SSP1-2.6 cells has midcentury mean
+period coverage precludes a whole-scenario or expanded whole-ESM claim. The
+MRI SSP5-8.5 pair subsequently completes the midcentury scenario matrix;
+relative to SSP1-2.6, matched means are +0.777 C,
+-8.81 mm seasonal rain, +0.28 wet days, -2.83 maximum-dry-spell days, -1.50 mm
+Rx1day, and -2.68 mm Rx5day. The resulting 181,104-row MRI three-scenario
+midcentury product improves 15/33 comparisons (median RMSE ratio 1.00027;
+maximum 1.04233), including 4/11 for held-out SSP5-8.5, and places 21,236
+values (11.73%) outside support. This adverse single-ESM result raises tracked
+progress to 36/60 files and eighteen blocks but does not authorize a response,
+damage, or SCC. For IPSL, SSP3-7.0 relative to matched SSP1-2.6 cells has midcentury mean
 differences of +0.365 C, +13.22 mm seasonal rain, +0.93 wet
 days, -1.36 maximum dry-spell days, +2.18 mm Rx1day, and +3.84 mm Rx5day. The
 end-century means are +4.146 C, +25.70 mm seasonal rain, +2.85 wet days, -2.26
