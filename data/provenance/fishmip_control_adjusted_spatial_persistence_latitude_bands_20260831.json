@@ -1,0 +1,525 @@
+{
+  "absolute_model_levels_averaged": false,
+  "country_or_eez_allocation_performed": false,
+  "damage_estimated": false,
+  "disclaimer": "Latitude-band persistent signs after a structural control adjustment are not causal forced responses, observed catch, country or EEZ allocation, welfare, damages, or SCC evidence.",
+  "forced_response_estimated": false,
+  "future_periods": [
+    {
+      "end_year": 2030,
+      "start_year": 2021
+    },
+    {
+      "end_year": 2050,
+      "start_year": 2041
+    },
+    {
+      "end_year": 2090,
+      "start_year": 2081
+    }
+  ],
+  "implementation": {
+    "path": "scripts/evaluate_fishmip_control_adjusted_spatial_persistence_latitude_bands.py",
+    "sha256": "521daf3ec3a0f8059150f656eccc373eaafd40e13c2d731376daf585f4e4103d"
+  },
+  "inputs": [
+    {
+      "bytes": 90012681,
+      "climate_forcing": "gfdl-esm4",
+      "ecosystem_model": "boats",
+      "experiment": "forced_historical",
+      "path": "data/raw/fishmip/gfdl-esm4/boats/boats_gfdl-esm4_nobasd_historical_histsoc_default_tc_global_monthly_1950_2014.nc",
+      "sha512": "2ca08c5d40413e437b7d7215acf3029c2f69613e8afdce847a5aa62d8aaad0b658347557374a17daae43d6957a56e9aee6597b9fb4c8b4737ed7e1f578101411"
+    },
+    {
+      "bytes": 90196384,
+      "climate_forcing": "gfdl-esm4",
+      "ecosystem_model": "boats",
+      "experiment": "control_historical",
+      "path": "data/raw/fishmip/gfdl-esm4/boats/boats_gfdl-esm4_nobasd_picontrol_histsoc_default_tc_global_monthly_1950_2014.nc",
+      "sha512": "083e55e0f05c48b7e600b2df5bf05695692d0f934cfc581da5b57c04af491d1a8d479b7a2bad16cff75ffad21e312489b7e340b26a532f5056a29889ec3a6155"
+    },
+    {
+      "bytes": 153642534,
+      "climate_forcing": "gfdl-esm4",
+      "ecosystem_model": "boats",
+      "experiment": "control_future",
+      "path": "data/raw/fishmip/gfdl-esm4/boats/boats_gfdl-esm4_nobasd_picontrol_2015soc-from-histsoc_default_tc_global_monthly_2015_2100.nc",
+      "sha512": "9f9541ccdf842823e168b33387510021bd72ee1408b25fa305d467ddadb8a6f1e9f75ab2398138b855857f82ff0555a2c1c9f87555facf926e598a06fa8780ad"
+    },
+    {
+      "bytes": 153855617,
+      "climate_forcing": "gfdl-esm4",
+      "ecosystem_model": "boats",
+      "experiment": "ssp126_future",
+      "path": "data/raw/fishmip/gfdl-esm4/boats/boats_gfdl-esm4_nobasd_ssp126_2015soc-from-histsoc_default_tc_global_monthly_2015_2100.nc",
+      "sha512": "05308c6cedc17e284d2fa825533f1c8e3365c145bc196dcf5f71727f5bce34c1b4ce8fefbbcf4eecc427c720d02b2689c4f57cbf0756b6c7339fffb15aa04f9e"
+    },
+    {
+      "bytes": 153750026,
+      "climate_forcing": "gfdl-esm4",
+      "ecosystem_model": "boats",
+      "experiment": "ssp585_future",
+      "path": "data/raw/fishmip/gfdl-esm4/boats/boats_gfdl-esm4_nobasd_ssp585_2015soc-from-histsoc_default_tc_global_monthly_2015_2100.nc",
+      "sha512": "f3619e582b5d35f15f5a51a9580f1596342d3b99e1d5f859528e339624487f794c34cad6fc4a6b9d70f78013014523141bbeac69087063dccf14dc3e60f7df13"
+    },
+    {
+      "bytes": 116279679,
+      "climate_forcing": "gfdl-esm4",
+      "ecosystem_model": "ecoocean",
+      "experiment": "forced_historical",
+      "path": "data/raw/fishmip/gfdl-esm4/ecoocean/ecoocean_gfdl-esm4_nobasd_historical_histsoc_default_tc_global_monthly_1950_2014.nc",
+      "sha512": "d1da9d46305f9f53f88c0a5e7d9971b16bfb86bd14c2ce44964fd19473e9390e35a99fa1091956ad79456c87dc0f1f154fe416e59710ad9b7c720a90501cf420"
+    },
+    {
+      "bytes": 116388372,
+      "climate_forcing": "gfdl-esm4",
+      "ecosystem_model": "ecoocean",
+      "experiment": "control_historical",
+      "path": "data/raw/fishmip/gfdl-esm4/ecoocean/ecoocean_gfdl-esm4_nobasd_picontrol_histsoc_default_tc_global_monthly_1950_2014.nc",
+      "sha512": "50997d5015be2e8d9ada24b8267858bfa5f7e598965fc6a3c0c05d21b1e7e2a083636e113fd7b0044f0ac43f47db00ef50a197cf3bd1459471021fa11526a816"
+    },
+    {
+      "bytes": 153136364,
+      "climate_forcing": "gfdl-esm4",
+      "ecosystem_model": "ecoocean",
+      "experiment": "control_future",
+      "path": "data/raw/fishmip/gfdl-esm4/ecoocean/ecoocean_gfdl-esm4_nobasd_picontrol_2015soc-from-histsoc_default_tc_global_monthly_2015_2100.nc",
+      "sha512": "e645c805f0aa17c196156813cdaef8a7209faa0ed9207d2be05aaf3988ee19931fcc937b7fa56b1db871d062baf9a2068fa2eb848591dfcb99b93b0ab44aac8f"
+    },
+    {
+      "bytes": 153678794,
+      "climate_forcing": "gfdl-esm4",
+      "ecosystem_model": "ecoocean",
+      "experiment": "ssp126_future",
+      "path": "data/raw/fishmip/gfdl-esm4/ecoocean/ecoocean_gfdl-esm4_nobasd_ssp126_2015soc-from-histsoc_default_tc_global_monthly_2015_2100.nc",
+      "sha512": "eecf2457bc049c27e1cb0c8f2e1f7dd8e75a896a3ca89d651aa76b6f024bd73585906329983a0d2ebf44cf145da73e116c863cadd923c4a61fe395a49deb9cb8"
+    },
+    {
+      "bytes": 153831737,
+      "climate_forcing": "gfdl-esm4",
+      "ecosystem_model": "ecoocean",
+      "experiment": "ssp585_future",
+      "path": "data/raw/fishmip/gfdl-esm4/ecoocean/ecoocean_gfdl-esm4_nobasd_ssp585_2015soc-from-histsoc_default_tc_global_monthly_2015_2100.nc",
+      "sha512": "6a8250ff252993492a75fb81592a47f556bbb844703424fc2ded197939399f069e87ca20bd5134f238aab2998552618706a4c88f7a6c7e634e62bd3e37ab9cc1"
+    },
+    {
+      "bytes": 70395110,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "ecosystem_model": "boats",
+      "experiment": "forced_historical",
+      "path": "data/raw/fishmip/ipsl-cm6a-lr/boats/boats_ipsl-cm6a-lr_nobasd_historical_histsoc_default_tc_global_monthly_1950_2014.nc",
+      "sha512": "3d618ab7472077f611ef655dbc5a52e1bacd00d4e21fca7c78aec2e220851821cb43a8d172fd0b73dd24e6b68d20ab04b8538df44e6687d8e4abc3f66b1ff225"
+    },
+    {
+      "bytes": 70398404,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "ecosystem_model": "boats",
+      "experiment": "control_historical",
+      "path": "data/raw/fishmip/ipsl-cm6a-lr/boats/boats_ipsl-cm6a-lr_nobasd_picontrol_histsoc_default_tc_global_monthly_1950_2014.nc",
+      "sha512": "be4971d6508aed370a02e055859c928309d56373409ab088f0bcaa2ded91b5ffe7919740e9e8809cf6743281d0667bbeb3a0584987635f706e7bf076f7bfa542"
+    },
+    {
+      "bytes": 136301660,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "ecosystem_model": "boats",
+      "experiment": "control_future",
+      "path": "data/raw/fishmip/ipsl-cm6a-lr/boats/boats_ipsl-cm6a-lr_nobasd_picontrol_2015soc-from-histsoc_default_tc_global_monthly_2015_2100.nc",
+      "sha512": "29fcd31bd787545a41c4caab66c5b46bb0dad6a341d955bf8f9ced49eb5e6de242cc5902c8c516a184b61186dcf48d14e53c88e94761d82e2e42d6752a475298"
+    },
+    {
+      "bytes": 137262318,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "ecosystem_model": "boats",
+      "experiment": "ssp126_future",
+      "path": "data/raw/fishmip/ipsl-cm6a-lr/boats/boats_ipsl-cm6a-lr_nobasd_ssp126_2015soc-from-histsoc_default_tc_global_monthly_2015_2100.nc",
+      "sha512": "1cbf04f784b986d6733094f01c2df25641e8dbeeea17711e61e319d729745f713646de3457b7c5f93dd42c884b1e6264842f87102cfff47e7216a94a60094eef"
+    },
+    {
+      "bytes": 137262423,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "ecosystem_model": "boats",
+      "experiment": "ssp585_future",
+      "path": "data/raw/fishmip/ipsl-cm6a-lr/boats/boats_ipsl-cm6a-lr_nobasd_ssp585_2015soc-from-histsoc_default_tc_global_monthly_2015_2100.nc",
+      "sha512": "2bfb857e9bc71818a7c2b8acdeda662ef0c3ef3c035ccb4b1d0eab07319503530343c7d17bf946d013040687c776d53325b09ad22829488e83aa135a456ee447"
+    },
+    {
+      "bytes": 117489834,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "ecosystem_model": "ecoocean",
+      "experiment": "forced_historical",
+      "path": "data/raw/fishmip/ipsl-cm6a-lr/ecoocean/ecoocean_ipsl-cm6a-lr_nobasd_historical_histsoc_default_tc_global_monthly_1950_2014.nc",
+      "sha512": "00c27d0f05dcc3ab0061edb5f5207b32f240a29e41eaec062edcc4e8f18d14a8f2c858b95cca33e3916f8f922685cec81aa197dc9d9a421fd940e625e6b6de38"
+    },
+    {
+      "bytes": 117478143,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "ecosystem_model": "ecoocean",
+      "experiment": "control_historical",
+      "path": "data/raw/fishmip/ipsl-cm6a-lr/ecoocean/ecoocean_ipsl-cm6a-lr_nobasd_picontrol_histsoc_default_tc_global_monthly_1950_2014.nc",
+      "sha512": "73f3a298ec286fb5955add4a3a0de2f789656c602c0d7174bec4fdf1d67cd8ed8f845d7ea05893b887dae693ce3b35b8bab5b061c530a023b1bc8f1e820240e0"
+    },
+    {
+      "bytes": 154618055,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "ecosystem_model": "ecoocean",
+      "experiment": "control_future",
+      "path": "data/raw/fishmip/ipsl-cm6a-lr/ecoocean/ecoocean_ipsl-cm6a-lr_nobasd_picontrol_2015soc-from-histsoc_default_tc_global_monthly_2015_2100.nc",
+      "sha512": "74a8c33e84abcdbaf8c80f89b79b576ccc59f36c1f58c857875b4683f9859ca3a22194f3eda78d1f6b456850aaaf212560479acf868dcf454d2c6a7b278d8128"
+    },
+    {
+      "bytes": 154779013,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "ecosystem_model": "ecoocean",
+      "experiment": "ssp126_future",
+      "path": "data/raw/fishmip/ipsl-cm6a-lr/ecoocean/ecoocean_ipsl-cm6a-lr_nobasd_ssp126_2015soc-from-histsoc_default_tc_global_monthly_2015_2100.nc",
+      "sha512": "a8928dd3bef052e48d6a5b4180fd8d988efdb38c4d788e46ae193da056e8699f9e79a1bb6ffa594fa37f9990fe88139820b6905ffbf4aad6658726736a66c359"
+    },
+    {
+      "bytes": 154709291,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "ecosystem_model": "ecoocean",
+      "experiment": "ssp585_future",
+      "path": "data/raw/fishmip/ipsl-cm6a-lr/ecoocean/ecoocean_ipsl-cm6a-lr_nobasd_ssp585_2015soc-from-histsoc_default_tc_global_monthly_2015_2100.nc",
+      "sha512": "bce2e77b88c024215a49d36e10ab126ab7c4134076649670bc138fc188be8795c95f458aaab6f000151693c70d8f6e94056c6b2b49febc6aedd1ca17220cb3c9"
+    }
+  ],
+  "latitude_bands": [
+    {
+      "label": "south_high",
+      "lower_bound": -90.0,
+      "upper_bound": -40.0
+    },
+    {
+      "label": "south_mid",
+      "lower_bound": -40.0,
+      "upper_bound": -20.0
+    },
+    {
+      "label": "tropics",
+      "lower_bound": -20.0,
+      "upper_bound": 20.0
+    },
+    {
+      "label": "north_mid",
+      "lower_bound": 20.0,
+      "upper_bound": 40.0
+    },
+    {
+      "label": "north_high",
+      "lower_bound": 40.0,
+      "upper_bound": 90.0
+    }
+  ],
+  "latitude_bands_fixed_before_evaluation": true,
+  "matched_co2_pulse": false,
+  "normalization_rule": "forced_cell_change_divided_by_forced_global_reference_mean_minus_control_cell_change_divided_by_control_global_reference_mean",
+  "observed_catch": false,
+  "persistent_lower_rule": "maximum_adjusted_change_across_registered_windows_is_strictly_negative",
+  "plan": {
+    "path": "data/provenance/fishmip_isimip3b_tc_acquisition_plan.csv",
+    "sha256": "7bf476e7b3832b5c9114d5455ebf0b15c71ff68f18d8eab0bd7151c9af554f25"
+  },
+  "reference_period": {
+    "end_year": 2014,
+    "start_year": 2005
+  },
+  "results": [
+    {
+      "area_weighted_cell_share_at_least_three_lower": 0.12009790795477716,
+      "area_weighted_cell_share_by_lower_trajectory_count": {
+        "0": 0.1966380288789219,
+        "1": 0.38198988288909397,
+        "2": 0.30127418027720687,
+        "3": 0.10248314103587151,
+        "4": 0.017614766918905653
+      },
+      "area_weighted_cell_share_unanimously_lower": 0.017614766918905653,
+      "area_weighted_cell_share_with_any_higher_trajectory": 0.9809060457517094,
+      "area_weighted_share_of_global_common_support": 0.21768990591536477,
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 10951,
+      "latitude_band": "south_high",
+      "lower_bound_degrees_north_inclusive": -90.0,
+      "unweighted_cell_share_at_least_three_lower": 0.11825404072687425,
+      "unweighted_cell_share_by_lower_trajectory_count": {
+        "0": 0.19048488722491097,
+        "1": 0.3857181992512099,
+        "2": 0.3055428727970048,
+        "3": 0.10346087115331933,
+        "4": 0.014793169573554926
+      },
+      "unweighted_cell_share_unanimously_lower": 0.014793169573554926,
+      "unweighted_cell_share_with_any_exactly_unchanged_trajectory": 0.056615834170395396,
+      "unweighted_cell_share_with_any_higher_trajectory": 0.9826499863026208,
+      "upper_bound_degrees_north_exclusive": -40.0
+    },
+    {
+      "area_weighted_cell_share_at_least_three_lower": 0.1406805404397633,
+      "area_weighted_cell_share_by_lower_trajectory_count": {
+        "0": 0.2192722302977418,
+        "1": 0.34558814175531444,
+        "2": 0.29445908750718036,
+        "3": 0.11523598654990405,
+        "4": 0.025444553889859257
+      },
+      "area_weighted_cell_share_unanimously_lower": 0.025444553889859257,
+      "area_weighted_cell_share_with_any_higher_trajectory": 0.9745554461101406,
+      "area_weighted_share_of_global_common_support": 0.17976467138590593,
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 5824,
+      "latitude_band": "south_mid",
+      "lower_bound_degrees_north_inclusive": -40.0,
+      "unweighted_cell_share_at_least_three_lower": 0.14234203296703296,
+      "unweighted_cell_share_by_lower_trajectory_count": {
+        "0": 0.21754807692307693,
+        "1": 0.34563873626373626,
+        "2": 0.29447115384615385,
+        "3": 0.11607142857142858,
+        "4": 0.026270604395604396
+      },
+      "unweighted_cell_share_unanimously_lower": 0.026270604395604396,
+      "unweighted_cell_share_with_any_exactly_unchanged_trajectory": 0.0005151098901098901,
+      "unweighted_cell_share_with_any_higher_trajectory": 0.9737293956043956,
+      "upper_bound_degrees_north_exclusive": -20.0
+    },
+    {
+      "area_weighted_cell_share_at_least_three_lower": 0.15681817074133683,
+      "area_weighted_cell_share_by_lower_trajectory_count": {
+        "0": 0.12888882188935252,
+        "1": 0.39215499845806134,
+        "2": 0.3221380089112494,
+        "3": 0.14240439485264694,
+        "4": 0.014413775888689879
+      },
+      "area_weighted_cell_share_unanimously_lower": 0.014413775888689879,
+      "area_weighted_cell_share_with_any_higher_trajectory": 0.9853911754619785,
+      "area_weighted_share_of_global_common_support": 0.36843873781369096,
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 10441,
+      "latitude_band": "tropics",
+      "lower_bound_degrees_north_inclusive": -20.0,
+      "unweighted_cell_share_at_least_three_lower": 0.15621109089167706,
+      "unweighted_cell_share_by_lower_trajectory_count": {
+        "0": 0.13015994636529069,
+        "1": 0.3920122593621301,
+        "2": 0.3216167033809022,
+        "3": 0.1418446508955081,
+        "4": 0.01436643999616895
+      },
+      "unweighted_cell_share_unanimously_lower": 0.01436643999616895,
+      "unweighted_cell_share_with_any_exactly_unchanged_trajectory": 0.002011301599463653,
+      "unweighted_cell_share_with_any_higher_trajectory": 0.9854420074705488,
+      "upper_bound_degrees_north_exclusive": 20.0
+    },
+    {
+      "area_weighted_cell_share_at_least_three_lower": 0.27681094765361136,
+      "area_weighted_cell_share_by_lower_trajectory_count": {
+        "0": 0.23507309986625058,
+        "1": 0.21512876623913715,
+        "2": 0.2729871862410008,
+        "3": 0.16618559082788598,
+        "4": 0.11062535682572538
+      },
+      "area_weighted_cell_share_unanimously_lower": 0.11062535682572538,
+      "area_weighted_cell_share_with_any_higher_trajectory": 0.8888768648098129,
+      "area_weighted_share_of_global_common_support": 0.12464347790866188,
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 4005,
+      "latitude_band": "north_mid",
+      "lower_bound_degrees_north_inclusive": 20.0,
+      "unweighted_cell_share_at_least_three_lower": 0.28064918851435705,
+      "unweighted_cell_share_by_lower_trajectory_count": {
+        "0": 0.23295880149812734,
+        "1": 0.21373283395755305,
+        "2": 0.27265917602996254,
+        "3": 0.1682896379525593,
+        "4": 0.11235955056179775
+      },
+      "unweighted_cell_share_unanimously_lower": 0.11235955056179775,
+      "unweighted_cell_share_with_any_exactly_unchanged_trajectory": 0.05967540574282147,
+      "unweighted_cell_share_with_any_higher_trajectory": 0.8871410736579276,
+      "upper_bound_degrees_north_exclusive": 40.0
+    },
+    {
+      "area_weighted_cell_share_at_least_three_lower": 0.08891584906328985,
+      "area_weighted_cell_share_by_lower_trajectory_count": {
+        "0": 0.24980702031140334,
+        "1": 0.3915607436691103,
+        "2": 0.26971638695619643,
+        "3": 0.0828729031955307,
+        "4": 0.006042945867759156
+      },
+      "area_weighted_cell_share_unanimously_lower": 0.006042945867759156,
+      "area_weighted_cell_share_with_any_higher_trajectory": 0.9926111300362651,
+      "area_weighted_share_of_global_common_support": 0.10946320697637656,
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 9177,
+      "latitude_band": "north_high",
+      "lower_bound_degrees_north_inclusive": 40.0,
+      "unweighted_cell_share_at_least_three_lower": 0.04903563255966002,
+      "unweighted_cell_share_by_lower_trajectory_count": {
+        "0": 0.41625803639533615,
+        "1": 0.35850495804729215,
+        "2": 0.17620137299771166,
+        "3": 0.04609349460608042,
+        "4": 0.002942137953579601
+      },
+      "unweighted_cell_share_unanimously_lower": 0.002942137953579601,
+      "unweighted_cell_share_with_any_exactly_unchanged_trajectory": 0.515527950310559,
+      "unweighted_cell_share_with_any_higher_trajectory": 0.9949874686716792,
+      "upper_bound_degrees_north_exclusive": 90.0
+    },
+    {
+      "area_weighted_cell_share_at_least_three_lower": 0.09607642803010392,
+      "area_weighted_cell_share_by_lower_trajectory_count": {
+        "0": 0.26927044436995917,
+        "1": 0.3760946367338344,
+        "2": 0.25855849086610244,
+        "3": 0.08150935144551105,
+        "4": 0.014567076584592869
+      },
+      "area_weighted_cell_share_unanimously_lower": 0.014567076584592869,
+      "area_weighted_cell_share_with_any_higher_trajectory": 0.9850519683640717,
+      "area_weighted_share_of_global_common_support": 0.21768990591536477,
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 10951,
+      "latitude_band": "south_high",
+      "lower_bound_degrees_north_inclusive": -90.0,
+      "unweighted_cell_share_at_least_three_lower": 0.08684138434846132,
+      "unweighted_cell_share_by_lower_trajectory_count": {
+        "0": 0.2706602136791161,
+        "1": 0.3814263537576477,
+        "2": 0.2610720482147749,
+        "3": 0.07515295406812163,
+        "4": 0.011688430280339696
+      },
+      "unweighted_cell_share_unanimously_lower": 0.011688430280339696,
+      "unweighted_cell_share_with_any_exactly_unchanged_trajectory": 0.056615834170395396,
+      "unweighted_cell_share_with_any_higher_trajectory": 0.9876723586887042,
+      "upper_bound_degrees_north_exclusive": -40.0
+    },
+    {
+      "area_weighted_cell_share_at_least_three_lower": 0.20692694571678583,
+      "area_weighted_cell_share_by_lower_trajectory_count": {
+        "0": 0.16243217462496343,
+        "1": 0.3130183821691174,
+        "2": 0.3176224974891332,
+        "3": 0.16480367885570163,
+        "4": 0.04212326686108419
+      },
+      "area_weighted_cell_share_unanimously_lower": 0.04212326686108419,
+      "area_weighted_cell_share_with_any_higher_trajectory": 0.9578767331389156,
+      "area_weighted_share_of_global_common_support": 0.17976467138590593,
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 5824,
+      "latitude_band": "south_mid",
+      "lower_bound_degrees_north_inclusive": -40.0,
+      "unweighted_cell_share_at_least_three_lower": 0.20964972527472525,
+      "unweighted_cell_share_by_lower_trajectory_count": {
+        "0": 0.15882554945054944,
+        "1": 0.31387362637362637,
+        "2": 0.3176510989010989,
+        "3": 0.1660370879120879,
+        "4": 0.04361263736263736
+      },
+      "unweighted_cell_share_unanimously_lower": 0.04361263736263736,
+      "unweighted_cell_share_with_any_exactly_unchanged_trajectory": 0.0005151098901098901,
+      "unweighted_cell_share_with_any_higher_trajectory": 0.9563873626373627,
+      "upper_bound_degrees_north_exclusive": -20.0
+    },
+    {
+      "area_weighted_cell_share_at_least_three_lower": 0.22133069072610378,
+      "area_weighted_cell_share_by_lower_trajectory_count": {
+        "0": 0.1243946867058233,
+        "1": 0.33722034295089054,
+        "2": 0.3170542796171824,
+        "3": 0.1914019822097668,
+        "4": 0.029928708516336965
+      },
+      "area_weighted_cell_share_unanimously_lower": 0.029928708516336965,
+      "area_weighted_cell_share_with_any_higher_trajectory": 0.9698762428343314,
+      "area_weighted_share_of_global_common_support": 0.36843873781369096,
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 10441,
+      "latitude_band": "tropics",
+      "lower_bound_degrees_north_inclusive": -20.0,
+      "unweighted_cell_share_at_least_three_lower": 0.22028541327459056,
+      "unweighted_cell_share_by_lower_trajectory_count": {
+        "0": 0.12556268556651662,
+        "1": 0.3369409060434824,
+        "2": 0.3172109951154104,
+        "3": 0.19049899434920026,
+        "4": 0.029786418925390287
+      },
+      "unweighted_cell_share_unanimously_lower": 0.029786418925390287,
+      "unweighted_cell_share_with_any_exactly_unchanged_trajectory": 0.002011301599463653,
+      "unweighted_cell_share_with_any_higher_trajectory": 0.9700220285413275,
+      "upper_bound_degrees_north_exclusive": 20.0
+    },
+    {
+      "area_weighted_cell_share_at_least_three_lower": 0.23753304539291942,
+      "area_weighted_cell_share_by_lower_trajectory_count": {
+        "0": 0.22198997015975588,
+        "1": 0.25432540200521625,
+        "2": 0.2861515824421084,
+        "3": 0.15187830087882098,
+        "4": 0.08565474451409842
+      },
+      "area_weighted_cell_share_unanimously_lower": 0.08565474451409842,
+      "area_weighted_cell_share_with_any_higher_trajectory": 0.9143452554859015,
+      "area_weighted_share_of_global_common_support": 0.12464347790866188,
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 4005,
+      "latitude_band": "north_mid",
+      "lower_bound_degrees_north_inclusive": 20.0,
+      "unweighted_cell_share_at_least_three_lower": 0.24069912609238453,
+      "unweighted_cell_share_by_lower_trajectory_count": {
+        "0": 0.22072409488139824,
+        "1": 0.25218476903870163,
+        "2": 0.28639200998751563,
+        "3": 0.1543071161048689,
+        "4": 0.0863920099875156
+      },
+      "unweighted_cell_share_unanimously_lower": 0.0863920099875156,
+      "unweighted_cell_share_with_any_exactly_unchanged_trajectory": 0.05967540574282147,
+      "unweighted_cell_share_with_any_higher_trajectory": 0.9136079900124844,
+      "upper_bound_degrees_north_exclusive": 40.0
+    },
+    {
+      "area_weighted_cell_share_at_least_three_lower": 0.0876391209047269,
+      "area_weighted_cell_share_by_lower_trajectory_count": {
+        "0": 0.2573297079780498,
+        "1": 0.3735769931936915,
+        "2": 0.2814541779235317,
+        "3": 0.07776134807867119,
+        "4": 0.009877772826055719
+      },
+      "area_weighted_cell_share_unanimously_lower": 0.009877772826055719,
+      "area_weighted_cell_share_with_any_higher_trajectory": 0.9898641008015944,
+      "area_weighted_share_of_global_common_support": 0.10946320697637656,
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 9177,
+      "latitude_band": "north_high",
+      "lower_bound_degrees_north_inclusive": 40.0,
+      "unweighted_cell_share_at_least_three_lower": 0.04576659038901602,
+      "unweighted_cell_share_by_lower_trajectory_count": {
+        "0": 0.43184047074207255,
+        "1": 0.34499291707529695,
+        "2": 0.17740002179361447,
+        "3": 0.040971995205404815,
+        "4": 0.004794595183611202
+      },
+      "unweighted_cell_share_unanimously_lower": 0.004794595183611202,
+      "unweighted_cell_share_with_any_exactly_unchanged_trajectory": 0.515527950310559,
+      "unweighted_cell_share_with_any_higher_trajectory": 0.9948785005993244,
+      "upper_bound_degrees_north_exclusive": 90.0
+    }
+  ],
+  "scc_authorized": false,
+  "schema": "fishmip_control_adjusted_spatial_persistence_latitude_bands_v1",
+  "social_forcing_constant_across_historical_future_join": false,
+  "status": "validated_latitude_band_persistent_structural_spatial_sensitivity_only",
+  "support_rule": "intersection_across_all_20_frozen_files_and_all_registered_decades",
+  "welfare_estimated": false
+}
