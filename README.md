@@ -225,6 +225,17 @@ agreement while exposing material geographic heterogeneity. Latitude bands
 are not countries or EEZs and do not clear the allocation, welfare, pulse,
 damage, or SCC gates.
 
+The control-adjusted magnitude extension in
+[`FISHMIP_CONTROL_ADJUSTED_LATITUDE_BAND_MAGNITUDES.md`](FISHMIP_CONTROL_ADJUSTED_LATITUDE_BAND_MAGNITUDES.md)
+uses the fixed 2081--2090 window and separately normalizes every trajectory to
+its own global historical mean. Under SSP5-8.5, all four band means are
+negative in the southern midlatitudes, tropics, and northern midlatitudes;
+the ranges are -13.42 to -7.07, -15.02 to -7.27, and -28.57 to -5.35
+percentage points. High-latitude means retain one positive trajectory in each
+hemisphere. Under SSP1-2.6, all four means are negative only in the two
+Southern Hemisphere bands. These are structural magnitudes, not model
+probabilities or allocation, pulse, welfare, damage, or SCC evidence.
+
 ## Executable accounting scaffolding
 
 The repository currently provides two coefficient-free checks:
