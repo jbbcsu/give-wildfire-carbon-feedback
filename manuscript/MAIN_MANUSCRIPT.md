@@ -641,7 +641,11 @@ equivalence. A recent-boundary January 2019 extension retains the same two
 counties, 3,107-county source support, and 31 finite days; polygon-minus-
 official monthly rain is +0.0441 mm in Cuming and +0.4057 mm in Fresno. These
 nonzero differences continue to reject estimator equivalence or an estimator
-replacement.
+replacement. A fixed December-2019 extension retains 31 finite days and exact
+3,107-county support; polygon-minus-official monthly rain is -0.3216 mm in
+Cuming and +0.3431 mm in Fresno. All eight county-variable correlations are
+at least 0.999986, but the nonzero signed differences again prohibit an
+equivalence claim or route replacement.
 
 The current-hash, basis-before-weighting diagnostic covers 117,679 observed
 maize yields (102,847 consecutive pairs) and 47,922 observed soybean yields

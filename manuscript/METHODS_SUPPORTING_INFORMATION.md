@@ -113,8 +113,9 @@ vintage, full-period identity, and feature-equivalence gates remain open.
 We then compare the official county averages directly with the fixed 2019
 TIGER polygon-weight proxy for two preregistered counties (Cuming County,
 Nebraska, and Fresno County, California) in April 1990, July 2000, and July
-2012, with February 2000 and January 2019 calendar/boundary extensions. Each
-month requires exact common 3,107-county support, complete daily
+2012, with February 2000 and January 2019 calendar/boundary extensions and a
+fixed December 2019 recent-period seasonality extension. Each month requires
+exact common 3,107-county support, complete daily
 chronology, finite values, declared units and physical bounds, fixed positive
 unit-sum polygon weights, and identical county identities. Hash-bound inputs
 and daily difference metrics are recorded for every county-variable cell.

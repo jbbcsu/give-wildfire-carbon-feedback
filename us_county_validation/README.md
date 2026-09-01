@@ -228,6 +228,11 @@ finite days and exact 3,107-county support. Polygon-minus-official monthly rain
 is +0.0441 mm in Cuming and +0.4057 mm in Fresno. The tracked receipt remains
 a measurement sensitivity only and authorizes no route replacement, response,
 damage, or SCC use.
+The fixed December-2019 extension retains exact 3,107-county support and 31
+finite days. Polygon-minus-official monthly rain is -0.3216 mm in Cuming and
++0.3431 mm in Fresno; all eight county-variable correlations are at least
+0.999986. Nonzero signed differences continue to reject estimator equivalence
+and authorize no route replacement, response, damage, or SCC use.
 
 ## Primary design
 

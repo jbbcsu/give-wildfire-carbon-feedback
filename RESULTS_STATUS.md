@@ -189,6 +189,11 @@ January 2019 as a recent-boundary check. All four variables retain exact
 3,107-county support and 31 finite days; polygon-minus-official monthly rain is
 +0.0441 mm in Cuming and +0.4057 mm in Fresno. Nonzero differences continue
 to reject estimator equivalence and authorize no response, damage, or SCC use.
+The fixed December-2019 seasonality extension retains exact 3,107-county
+support and 31 finite days. Polygon-minus-official monthly rain is -0.3216 mm
+in Cuming and +0.3431 mm in Fresno, and all eight county-variable correlations
+are at least 0.999986. Nonzero signed differences continue to reject estimator
+equivalence and authorize no route replacement, response, damage, or SCC use.
 
 ## Completed empirical checks
 

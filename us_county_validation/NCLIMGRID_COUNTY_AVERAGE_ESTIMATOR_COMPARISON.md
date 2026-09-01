@@ -80,6 +80,17 @@ the small Cuming total makes its correlation more sensitive to tiny daily
 differences. The nonzero differences again reject estimator equivalence and
 authorize no response, damage, or SCC input.
 
+## December 2019 recent-period seasonality check
+
+The fixed Cuming/Fresno comparison now also covers December 2019. Official
+files retain exact 3,107-county support and both routes retain 31 finite days.
+Polygon-minus-official monthly precipitation is -0.3216 mm in Cuming and
++0.3431 mm in Fresno; daily precipitation correlations are 0.999999 and
+0.999991. Across all eight county-variable cells, the minimum correlation is
+0.999986. The nonzero signed differences reinforce the existing conclusion:
+close bounded agreement does not establish estimator equivalence or authorize
+a route replacement, response, damage, or SCC input.
+
 ## Reproduction and evidence boundary
 
 The executable is
@@ -96,7 +107,9 @@ with the drought-month extension in
 and the leap-month extension in
 `../data/provenance/us_nclimgrid_county_average_estimator_comparison_200002_20260901.json`,
 with the recent-boundary extension in
-`../data/provenance/us_nclimgrid_county_average_estimator_comparison_201901_20260901.json`.
+`../data/provenance/us_nclimgrid_county_average_estimator_comparison_201901_20260901.json`,
+and the recent-period seasonality extension in
+`../data/provenance/us_nclimgrid_county_average_estimator_comparison_201912_20260901.json`.
 
 This is a weather-measurement comparison only. It does not use yield outcomes,
 select an estimator, estimate a response, calculate damages, or authorize an
