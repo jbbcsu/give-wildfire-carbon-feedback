@@ -577,6 +577,10 @@ and reconciliation gates. Its exact-key comparison with SSP1-2.6 retains
 dry-spell, Rx1day, Rx5day, and mean-temperature differences. Coverage is
 54/60 files and twenty-seven blocks; the comparison is not a response or
 damage estimate and does not open the five-ESM, FAIR, or SCC gates.
+The corresponding UKESM SSP3-7.0 2091--2100 pair passes the identical gates
+and exact-key comparison. Coverage is 56/60 files and twenty-eight blocks;
+the remaining two SSP5-8.5 pairs are required before the five-ESM rerun, and
+no response, damage, welfare, or SCC use is authorized.
 For IPSL, the exact-key
 SSP3-7.0-minus-SSP1-2.6 midcentury comparison finds
 mean differences of +0.365 C, +13.22 mm seasonal precipitation, +0.93 wet days,

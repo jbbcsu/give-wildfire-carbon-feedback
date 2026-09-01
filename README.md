@@ -171,6 +171,12 @@ reconciliation. Relative to the exact-key SSP1-2.6 cell, means change by
 -0.53 mm Rx1day, and +1.60 mm Rx5day. Coverage is 54/60 files and twenty-seven
 blocks; this descriptive support contrast does not authorize a response,
 damage function, or SCC input.
+The matching UKESM SSP3-7.0 2091--2100 pair passes the same gates and raises
+coverage to 56/60 files and twenty-eight blocks. Relative to exact-key
+SSP1-2.6, mean changes are +4.293 C, +8.32 mm rain, +1.07 wet days, +0.60
+maximum-dry-spell days, +1.46 mm Rx1day, and +2.85 mm Rx5day. Only the two
+SSP5-8.5 UKESM pairs remain before the five-ESM later-century rerun; no
+response, damage, or SCC gate is opened.
 Against matched IPSL SSP1-2.6 cells, mean SSP3-7.0 differences at
 midcentury are +0.365 C, +13.22 mm seasonal rain, +0.93 wet days, -1.36
 maximum dry-spell days, +2.18 mm Rx1day, and +3.84 mm Rx5day. At end century,

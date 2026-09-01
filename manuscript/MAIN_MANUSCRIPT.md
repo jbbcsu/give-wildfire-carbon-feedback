@@ -428,7 +428,11 @@ same gates. Relative to the exact-key SSP1-2.6 cell, mean changes are +0.876 C,
 -6.76 mm seasonal rain, -0.72 wet days, +2.66 maximum-dry-spell days, -0.53 mm
 Rx1day, and +1.60 mm Rx5day. Coverage is 54/60 files and twenty-seven blocks.
 This is descriptive climate-feature support, not a response, damage function,
-or SCC input. For IPSL, SSP3-7.0 relative to matched SSP1-2.6
+or SCC input. The UKESM SSP3-7.0 end-century pair also passes; relative to
+exact-key SSP1-2.6, mean changes are +4.293 C, +8.32 mm rain, +1.07 wet days,
++0.60 maximum-dry-spell days, +1.46 mm Rx1day, and +2.85 mm Rx5day. Coverage
+is 56/60 files and twenty-eight blocks; only the two SSP5-8.5 UKESM pairs
+remain before the five-ESM rerun. For IPSL, SSP3-7.0 relative to matched SSP1-2.6
 cells has midcentury mean
 differences of +0.365 C, +13.22 mm seasonal rain, +0.93 wet
 days, -1.36 maximum dry-spell days, +2.18 mm Rx1day, and +3.84 mm Rx5day. The

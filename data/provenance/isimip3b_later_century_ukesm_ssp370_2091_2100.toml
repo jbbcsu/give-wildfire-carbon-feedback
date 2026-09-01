@@ -1,0 +1,123 @@
+schema_version = 1
+checked_utc_date = "2026-09-01"
+role = "ukesm_ssp370_endcentury_complete_pr_tas_gmst_and_bounded_feature_gate_not_response_damage_or_scc"
+source_catalogue = "https://data.isimip.org/api/v1/datasets/"
+resource_doi = "10.48364/ISIMIP.842396.1"
+rights = "CC0 1.0"
+dataset_version = "20210512"
+plan_config = "config/isimip3b_later_century_expansion_v1.toml"
+plan_config_sha256 = "d23e68a32ddf26194477acb7f2bca18cedbf050844ada859bc05fbbd7f27d963"
+plan_snapshot = "data/provenance/isimip3b_later_century_plan.csv"
+plan_snapshot_sha256 = "19a93485a9d51dade6328daadca540a48bb946a13d85cf276d3b77cc1f195767"
+esm = "UKESM1-0-LL"
+member = "r1i1p1f2"
+scenario = "ssp370"
+period_start_year = 2091
+period_end_year = 2100
+daily_timestamp_hour_utc = 0
+
+[precipitation]
+dataset_id = "92deba84-0382-45b8-b370-ef35ab564517"
+file_id = "d7323651-0c52-4297-bcc2-70cb03d2f2f4"
+file_name = "ukesm1-0-ll_r1i1p1f2_w5e5_ssp370_pr_global_daily_2091_2100.nc"
+bytes = 2181785595
+sha512 = "e016e5c3207488f23e9e0004ef8d8988e23ddeb7f2e7aab6e1d9144a5a65c69cb2d679379e28dc0025a5c159550a5c0555115dbed8249f6a4b38837a6cd056ee"
+content_audit = "data/interim/isimip3b/ukesm1-0-ll_ssp370_pr_2091_2100_content_audit.json"
+content_audit_sha256 = "30a4e79985d14edf79b7034a0416c19fe8c774f6f213a249b05d084334e8eb15"
+validator = "scripts/validate_isimip3b_pr_content.py"
+validator_sha256 = "1634ee42acce3392ac14d69eeb35c307924dcbef49499ff9b01cafd2a9312710"
+calendar = "proleptic_gregorian"
+start_time = "2091-01-01T00:00:00"
+end_time = "2100-12-31T00:00:00"
+daily_steps = 3652
+grid = "360 x 720 global 0.5 degree; latitude descending; longitude -179.75 to 179.75"
+units = "kg m-2 s-1"
+finite_values = 946598400
+missing_values = 0
+negative_values = 0
+zero_values = 335309584
+minimum_flux = 0.0
+maximum_flux = 0.0069444444961845875
+result = "passed"
+
+[paired_temperature]
+dataset_id = "fce39d22-a04f-4dc0-8d99-251a76613128"
+file_id = "2abfab8c-0fed-431f-8f23-2832e2596eae"
+file_name = "ukesm1-0-ll_r1i1p1f2_w5e5_ssp370_tas_global_daily_2091_2100.nc"
+bytes = 2059791050
+sha512 = "a2244c8faed2eb68de7bdb2766238250db8077d198f89cda21a2788bb8adc8cb9d002f26713f881bc074e4906137ea1ca2bce71e676989777f4887d2162cca7e"
+content_audit = "data/interim/isimip3b/ukesm1-0-ll_ssp370_tas_2091_2100_content_audit.json"
+content_audit_sha256 = "331f9c2ca3d2aa416480bb7e91dcca2965784485a77f10b3c9cc4574f61d1bd4"
+validator = "scripts/validate_isimip3b_tas_content.py"
+validator_sha256 = "d5876ecc3682d94c991659cb14dd7a582ec0684fdd77e3ecfb6c2bec8b503b0f"
+calendar = "proleptic_gregorian"
+start_time = "2091-01-01T00:00:00"
+end_time = "2100-12-31T00:00:00"
+daily_steps = 3652
+grid = "360 x 720 global 0.5 degree; latitude descending; longitude -179.75 to 179.75"
+units = "K"
+finite_values = 946598400
+missing_values = 0
+minimum_temperature_k = 197.12905883789062
+maximum_temperature_k = 323.75250244140625
+result = "passed"
+
+[same_realization_gmst]
+builder = "scripts/build_same_realization_gmst.py"
+builder_sha256 = "0857b59cf0721bb48277e8b8b392c6ad1f0bde0d83d1ee311b8b24b6ccb00e9b"
+source_id = "isimip3b-20210512-fce39d22-a04f-4dc0-8d99-251a76613128-2abfab8c-0fed-431f-8f23-2832e2596eae"
+output = "data/interim/isimip3b/ukesm1-0-ll_r1i1p1f2_ssp370_gmst_2091_2100.parquet"
+output_sha256 = "fd6bf731322ac9350ae7d040edb856c21c3395993554d8223a704cbdb9f7c883"
+years = [2091, 2092, 2093, 2094, 2095, 2096, 2097, 2098, 2099, 2100]
+daily_counts = [365, 366, 365, 365, 365, 366, 365, 365, 365, 365]
+gmst_values_k = [292.58318929262094, 292.5480239938285, 292.64952927751676, 292.8634910473337, 292.8433041287063, 292.84894349264226, 293.0738457018595, 293.1066235202371, 293.14542726161733, 293.340312339341]
+result = "passed"
+
+[bounded_crop_feature_smoke]
+crop = "mai"
+irrigation = "noirr"
+calendar_file = "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_mai_noirr.nc"
+harvest_years = [2092, 2093, 2094, 2095, 2096, 2097, 2098, 2099]
+latitude_index_start = 100
+latitude_index_stop_exclusive = 102
+season_rows = 5488
+stage_rows = 16464
+stage_count = 3
+season_output = "data/interim/isimip3b_ukesm_ssp370_2091_2100_smoke/mai_noirr_2092_2099_lat100_102_features.parquet"
+season_output_sha256 = "f8203ad46c19997a6902ba0e50223296b4abcff83dcba11a39c3ee6f5bd059e7"
+stage_output = "data/interim/isimip3b_ukesm_ssp370_2091_2100_smoke/mai_noirr_2092_2099_lat100_102_stages.parquet"
+stage_output_sha256 = "886fc61ecbd960bf9ceefebc0d947f7fcc76df8a813f4cb8424baa5aa4d3e3cc"
+reconciliation_audit = "data/interim/isimip3b_ukesm_ssp370_2091_2100_smoke/reconciliation_audit.json"
+reconciliation_audit_sha256 = "2aad84ddaea0d0f57b44b29534e53e65346bc60c049ab3cbe05f7e54d5fe9c88"
+reconciliation_max_absolute_differences = { stage_days = 0.0, precip_mm = 0.0, wet_days_n = 0.0, rx1day_mm = 0.0 }
+validated_metrics = ["seasonal precipitation quantity", "within-season stage quantity", "timing centroid", "concentration", "wet-day count", "maximum dry spell", "Rx1day", "Rx5day", "daily mean temperature"]
+result = "passed"
+
+[matched_ssp370_minus_ssp126_feature_comparison]
+reference = "UKESM1-0-LL SSP1-2.6 2091--2100"
+candidate = "UKESM1-0-LL SSP3-7.0 2091--2100"
+output = "data/interim/isimip3b_ukesm_ssp370_2091_2100_smoke/ssp370_minus_ssp126_feature_comparison.json"
+output_sha256 = "1527a339026e91dc0a876759371e4bd4e6b40bda7375b71897330342797ecdc4"
+matched_rows = 5488
+tmean_c = 4.292793123697748
+precip_mm = 8.31555123657732
+wet_days_n = 1.0650510204081634
+cdd_max_days = 0.5996720116618076
+rx1day_mm = 1.4634233307223712
+rx5day_mm = 2.8472418975554756
+timing_centroid = 0.014623190067300633
+concentration_hhi = 0.007402752452550622
+response_damage_or_scc_evidence = false
+
+[limitations]
+later_century_complete_file_gates = 56
+later_century_total_file_gates = 60
+bounded_feature_blocks = 28
+paired_pr_tas_complete = true
+same_realization_gmst_built = true
+crop_features_built = true
+whole_scenario_holdout_rerun = false
+whole_esm_holdout_rerun = false
+fair_baseline_pulse_feature_support_rerun = false
+production_emulator_authorized = false
+damage_or_scc_authorized = false

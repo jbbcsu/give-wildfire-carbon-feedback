@@ -170,6 +170,12 @@ spell days, -0.53 mm Rx1day, and +1.60 mm Rx5day. Coverage is 54/60 files and
 twenty-seven blocks; three UKESM pairs, the five-ESM rerun, FAIR feature
 support, response, damage, welfare, and SCC gates remain open.
 
+The matching UKESM SSP3-7.0 2091--2100 pair passes and raises coverage to
+56/60 files and twenty-eight blocks. Against exact-key SSP1-2.6, mean changes
+are +4.293 C, +8.32 mm rain, +1.07 wet days, +0.60 maximum-dry-spell days,
++1.46 mm Rx1day, and +2.85 mm Rx5day. Two SSP5-8.5 UKESM pairs and the
+five-ESM/FAIR/response/damage/welfare/SCC gates remain open.
+
 The fixed Cuming/Fresno official-NOAA-versus-polygon comparison now includes
 January 2019 as a recent-boundary check. All four variables retain exact
 3,107-county support and 31 finite days; polygon-minus-official monthly rain is
