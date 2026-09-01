@@ -628,7 +628,11 @@ still-high 0.999993 minimum in April. Daily precipitation correlations are at
 least 0.99983 except for Fresno's near-zero-rain July 2012 series (0.98533),
 and the largest monthly precipitation-total difference is 0.9926 mm. This
 supports close bounded agreement while explicitly rejecting general
-estimator equivalence or an estimator replacement.
+equivalence. A recent-boundary January 2019 extension retains the same two
+counties, 3,107-county source support, and 31 finite days; polygon-minus-
+official monthly rain is +0.0441 mm in Cuming and +0.4057 mm in Fresno. These
+nonzero differences continue to reject estimator equivalence or an estimator
+replacement.
 
 The current-hash, basis-before-weighting diagnostic covers 117,679 observed
 maize yields (102,847 consecutive pairs) and 47,922 observed soybean yields

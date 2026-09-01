@@ -170,6 +170,12 @@ spell days, -0.53 mm Rx1day, and +1.60 mm Rx5day. Coverage is 54/60 files and
 twenty-seven blocks; three UKESM pairs, the five-ESM rerun, FAIR feature
 support, response, damage, welfare, and SCC gates remain open.
 
+The fixed Cuming/Fresno official-NOAA-versus-polygon comparison now includes
+January 2019 as a recent-boundary check. All four variables retain exact
+3,107-county support and 31 finite days; polygon-minus-official monthly rain is
++0.0441 mm in Cuming and +0.4057 mm in Fresno. Nonzero differences continue
+to reject estimator equivalence and authorize no response, damage, or SCC use.
+
 ## Completed empirical checks
 
 Unless explicitly labeled current-hash and basis-before-weighting, response

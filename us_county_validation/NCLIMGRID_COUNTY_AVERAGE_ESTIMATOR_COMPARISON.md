@@ -69,6 +69,17 @@ Polygon-minus-official monthly precipitation is +0.2838 mm in Cuming and
 but again rejects exact estimator equivalence and authorizes no response,
 damage, or SCC input.
 
+## January 2019 recent-boundary check
+
+An outcome-blind January 2019 check retains the same counties and variables
+near the end of the acquired historical panel. All official files again have
+exact 3,107-county support and both estimators retain 31 finite days. Polygon-
+minus-official monthly precipitation is +0.0441 mm in Cuming and +0.4057 mm
+in Fresno. Precipitation correlations are 0.99976 and 0.999997, respectively;
+the small Cuming total makes its correlation more sensitive to tiny daily
+differences. The nonzero differences again reject estimator equivalence and
+authorize no response, damage, or SCC input.
+
 ## Reproduction and evidence boundary
 
 The executable is
@@ -83,7 +94,9 @@ and
 with the drought-month extension in
 `../data/provenance/us_nclimgrid_county_average_estimator_comparison_201207_20260831.json`
 and the leap-month extension in
-`../data/provenance/us_nclimgrid_county_average_estimator_comparison_200002_20260901.json`.
+`../data/provenance/us_nclimgrid_county_average_estimator_comparison_200002_20260901.json`,
+with the recent-boundary extension in
+`../data/provenance/us_nclimgrid_county_average_estimator_comparison_201901_20260901.json`.
 
 This is a weather-measurement comparison only. It does not use yield outcomes,
 select an estimator, estimate a response, calculate damages, or authorize an

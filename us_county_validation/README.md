@@ -223,6 +223,11 @@ Fresno. Its machine receipt is
 `../data/provenance/us_nclimgrid_county_average_estimator_comparison_201207_20260831.json`.
 Close agreement remains a bounded sensitivity and does not make the two
 estimators interchangeable.
+The same fixed comparison at the recent January-2019 boundary retains 31
+finite days and exact 3,107-county support. Polygon-minus-official monthly rain
+is +0.0441 mm in Cuming and +0.4057 mm in Fresno. The tracked receipt remains
+a measurement sensitivity only and authorizes no route replacement, response,
+damage, or SCC use.
 
 ## Primary design
 
