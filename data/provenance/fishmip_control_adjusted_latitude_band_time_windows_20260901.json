@@ -1,0 +1,2553 @@
+{
+  "absolute_model_levels_averaged": false,
+  "country_or_eez_allocation_performed": false,
+  "damage_estimated": false,
+  "disclaimer": "Temporal latitude-band magnitudes are structural FishMIP scenario diagnostics, not probabilities, country allocation, welfare, damages, or SCC evidence.",
+  "forced_response_estimated": false,
+  "future_periods": [
+    {
+      "end_year": 2030,
+      "start_year": 2021
+    },
+    {
+      "end_year": 2050,
+      "start_year": 2041
+    },
+    {
+      "end_year": 2090,
+      "start_year": 2081
+    }
+  ],
+  "implementation": {
+    "path": "scripts/evaluate_fishmip_control_adjusted_latitude_band_time_windows.py",
+    "sha256": "35d17497f7c677bf25f5f0dd52b7654ebf943da2e75e37735b17adcd73831998"
+  },
+  "inputs": [
+    {
+      "bytes": 90012681,
+      "climate_forcing": "gfdl-esm4",
+      "ecosystem_model": "boats",
+      "experiment": "forced_historical",
+      "path": "data/raw/fishmip/gfdl-esm4/boats/boats_gfdl-esm4_nobasd_historical_histsoc_default_tc_global_monthly_1950_2014.nc",
+      "sha512": "2ca08c5d40413e437b7d7215acf3029c2f69613e8afdce847a5aa62d8aaad0b658347557374a17daae43d6957a56e9aee6597b9fb4c8b4737ed7e1f578101411"
+    },
+    {
+      "bytes": 90196384,
+      "climate_forcing": "gfdl-esm4",
+      "ecosystem_model": "boats",
+      "experiment": "control_historical",
+      "path": "data/raw/fishmip/gfdl-esm4/boats/boats_gfdl-esm4_nobasd_picontrol_histsoc_default_tc_global_monthly_1950_2014.nc",
+      "sha512": "083e55e0f05c48b7e600b2df5bf05695692d0f934cfc581da5b57c04af491d1a8d479b7a2bad16cff75ffad21e312489b7e340b26a532f5056a29889ec3a6155"
+    },
+    {
+      "bytes": 153642534,
+      "climate_forcing": "gfdl-esm4",
+      "ecosystem_model": "boats",
+      "experiment": "control_future",
+      "path": "data/raw/fishmip/gfdl-esm4/boats/boats_gfdl-esm4_nobasd_picontrol_2015soc-from-histsoc_default_tc_global_monthly_2015_2100.nc",
+      "sha512": "9f9541ccdf842823e168b33387510021bd72ee1408b25fa305d467ddadb8a6f1e9f75ab2398138b855857f82ff0555a2c1c9f87555facf926e598a06fa8780ad"
+    },
+    {
+      "bytes": 153855617,
+      "climate_forcing": "gfdl-esm4",
+      "ecosystem_model": "boats",
+      "experiment": "ssp126_future",
+      "path": "data/raw/fishmip/gfdl-esm4/boats/boats_gfdl-esm4_nobasd_ssp126_2015soc-from-histsoc_default_tc_global_monthly_2015_2100.nc",
+      "sha512": "05308c6cedc17e284d2fa825533f1c8e3365c145bc196dcf5f71727f5bce34c1b4ce8fefbbcf4eecc427c720d02b2689c4f57cbf0756b6c7339fffb15aa04f9e"
+    },
+    {
+      "bytes": 153750026,
+      "climate_forcing": "gfdl-esm4",
+      "ecosystem_model": "boats",
+      "experiment": "ssp585_future",
+      "path": "data/raw/fishmip/gfdl-esm4/boats/boats_gfdl-esm4_nobasd_ssp585_2015soc-from-histsoc_default_tc_global_monthly_2015_2100.nc",
+      "sha512": "f3619e582b5d35f15f5a51a9580f1596342d3b99e1d5f859528e339624487f794c34cad6fc4a6b9d70f78013014523141bbeac69087063dccf14dc3e60f7df13"
+    },
+    {
+      "bytes": 116279679,
+      "climate_forcing": "gfdl-esm4",
+      "ecosystem_model": "ecoocean",
+      "experiment": "forced_historical",
+      "path": "data/raw/fishmip/gfdl-esm4/ecoocean/ecoocean_gfdl-esm4_nobasd_historical_histsoc_default_tc_global_monthly_1950_2014.nc",
+      "sha512": "d1da9d46305f9f53f88c0a5e7d9971b16bfb86bd14c2ce44964fd19473e9390e35a99fa1091956ad79456c87dc0f1f154fe416e59710ad9b7c720a90501cf420"
+    },
+    {
+      "bytes": 116388372,
+      "climate_forcing": "gfdl-esm4",
+      "ecosystem_model": "ecoocean",
+      "experiment": "control_historical",
+      "path": "data/raw/fishmip/gfdl-esm4/ecoocean/ecoocean_gfdl-esm4_nobasd_picontrol_histsoc_default_tc_global_monthly_1950_2014.nc",
+      "sha512": "50997d5015be2e8d9ada24b8267858bfa5f7e598965fc6a3c0c05d21b1e7e2a083636e113fd7b0044f0ac43f47db00ef50a197cf3bd1459471021fa11526a816"
+    },
+    {
+      "bytes": 153136364,
+      "climate_forcing": "gfdl-esm4",
+      "ecosystem_model": "ecoocean",
+      "experiment": "control_future",
+      "path": "data/raw/fishmip/gfdl-esm4/ecoocean/ecoocean_gfdl-esm4_nobasd_picontrol_2015soc-from-histsoc_default_tc_global_monthly_2015_2100.nc",
+      "sha512": "e645c805f0aa17c196156813cdaef8a7209faa0ed9207d2be05aaf3988ee19931fcc937b7fa56b1db871d062baf9a2068fa2eb848591dfcb99b93b0ab44aac8f"
+    },
+    {
+      "bytes": 153678794,
+      "climate_forcing": "gfdl-esm4",
+      "ecosystem_model": "ecoocean",
+      "experiment": "ssp126_future",
+      "path": "data/raw/fishmip/gfdl-esm4/ecoocean/ecoocean_gfdl-esm4_nobasd_ssp126_2015soc-from-histsoc_default_tc_global_monthly_2015_2100.nc",
+      "sha512": "eecf2457bc049c27e1cb0c8f2e1f7dd8e75a896a3ca89d651aa76b6f024bd73585906329983a0d2ebf44cf145da73e116c863cadd923c4a61fe395a49deb9cb8"
+    },
+    {
+      "bytes": 153831737,
+      "climate_forcing": "gfdl-esm4",
+      "ecosystem_model": "ecoocean",
+      "experiment": "ssp585_future",
+      "path": "data/raw/fishmip/gfdl-esm4/ecoocean/ecoocean_gfdl-esm4_nobasd_ssp585_2015soc-from-histsoc_default_tc_global_monthly_2015_2100.nc",
+      "sha512": "6a8250ff252993492a75fb81592a47f556bbb844703424fc2ded197939399f069e87ca20bd5134f238aab2998552618706a4c88f7a6c7e634e62bd3e37ab9cc1"
+    },
+    {
+      "bytes": 70395110,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "ecosystem_model": "boats",
+      "experiment": "forced_historical",
+      "path": "data/raw/fishmip/ipsl-cm6a-lr/boats/boats_ipsl-cm6a-lr_nobasd_historical_histsoc_default_tc_global_monthly_1950_2014.nc",
+      "sha512": "3d618ab7472077f611ef655dbc5a52e1bacd00d4e21fca7c78aec2e220851821cb43a8d172fd0b73dd24e6b68d20ab04b8538df44e6687d8e4abc3f66b1ff225"
+    },
+    {
+      "bytes": 70398404,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "ecosystem_model": "boats",
+      "experiment": "control_historical",
+      "path": "data/raw/fishmip/ipsl-cm6a-lr/boats/boats_ipsl-cm6a-lr_nobasd_picontrol_histsoc_default_tc_global_monthly_1950_2014.nc",
+      "sha512": "be4971d6508aed370a02e055859c928309d56373409ab088f0bcaa2ded91b5ffe7919740e9e8809cf6743281d0667bbeb3a0584987635f706e7bf076f7bfa542"
+    },
+    {
+      "bytes": 136301660,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "ecosystem_model": "boats",
+      "experiment": "control_future",
+      "path": "data/raw/fishmip/ipsl-cm6a-lr/boats/boats_ipsl-cm6a-lr_nobasd_picontrol_2015soc-from-histsoc_default_tc_global_monthly_2015_2100.nc",
+      "sha512": "29fcd31bd787545a41c4caab66c5b46bb0dad6a341d955bf8f9ced49eb5e6de242cc5902c8c516a184b61186dcf48d14e53c88e94761d82e2e42d6752a475298"
+    },
+    {
+      "bytes": 137262318,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "ecosystem_model": "boats",
+      "experiment": "ssp126_future",
+      "path": "data/raw/fishmip/ipsl-cm6a-lr/boats/boats_ipsl-cm6a-lr_nobasd_ssp126_2015soc-from-histsoc_default_tc_global_monthly_2015_2100.nc",
+      "sha512": "1cbf04f784b986d6733094f01c2df25641e8dbeeea17711e61e319d729745f713646de3457b7c5f93dd42c884b1e6264842f87102cfff47e7216a94a60094eef"
+    },
+    {
+      "bytes": 137262423,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "ecosystem_model": "boats",
+      "experiment": "ssp585_future",
+      "path": "data/raw/fishmip/ipsl-cm6a-lr/boats/boats_ipsl-cm6a-lr_nobasd_ssp585_2015soc-from-histsoc_default_tc_global_monthly_2015_2100.nc",
+      "sha512": "2bfb857e9bc71818a7c2b8acdeda662ef0c3ef3c035ccb4b1d0eab07319503530343c7d17bf946d013040687c776d53325b09ad22829488e83aa135a456ee447"
+    },
+    {
+      "bytes": 117489834,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "ecosystem_model": "ecoocean",
+      "experiment": "forced_historical",
+      "path": "data/raw/fishmip/ipsl-cm6a-lr/ecoocean/ecoocean_ipsl-cm6a-lr_nobasd_historical_histsoc_default_tc_global_monthly_1950_2014.nc",
+      "sha512": "00c27d0f05dcc3ab0061edb5f5207b32f240a29e41eaec062edcc4e8f18d14a8f2c858b95cca33e3916f8f922685cec81aa197dc9d9a421fd940e625e6b6de38"
+    },
+    {
+      "bytes": 117478143,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "ecosystem_model": "ecoocean",
+      "experiment": "control_historical",
+      "path": "data/raw/fishmip/ipsl-cm6a-lr/ecoocean/ecoocean_ipsl-cm6a-lr_nobasd_picontrol_histsoc_default_tc_global_monthly_1950_2014.nc",
+      "sha512": "73f3a298ec286fb5955add4a3a0de2f789656c602c0d7174bec4fdf1d67cd8ed8f845d7ea05893b887dae693ce3b35b8bab5b061c530a023b1bc8f1e820240e0"
+    },
+    {
+      "bytes": 154618055,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "ecosystem_model": "ecoocean",
+      "experiment": "control_future",
+      "path": "data/raw/fishmip/ipsl-cm6a-lr/ecoocean/ecoocean_ipsl-cm6a-lr_nobasd_picontrol_2015soc-from-histsoc_default_tc_global_monthly_2015_2100.nc",
+      "sha512": "74a8c33e84abcdbaf8c80f89b79b576ccc59f36c1f58c857875b4683f9859ca3a22194f3eda78d1f6b456850aaaf212560479acf868dcf454d2c6a7b278d8128"
+    },
+    {
+      "bytes": 154779013,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "ecosystem_model": "ecoocean",
+      "experiment": "ssp126_future",
+      "path": "data/raw/fishmip/ipsl-cm6a-lr/ecoocean/ecoocean_ipsl-cm6a-lr_nobasd_ssp126_2015soc-from-histsoc_default_tc_global_monthly_2015_2100.nc",
+      "sha512": "a8928dd3bef052e48d6a5b4180fd8d988efdb38c4d788e46ae193da056e8699f9e79a1bb6ffa594fa37f9990fe88139820b6905ffbf4aad6658726736a66c359"
+    },
+    {
+      "bytes": 154709291,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "ecosystem_model": "ecoocean",
+      "experiment": "ssp585_future",
+      "path": "data/raw/fishmip/ipsl-cm6a-lr/ecoocean/ecoocean_ipsl-cm6a-lr_nobasd_ssp585_2015soc-from-histsoc_default_tc_global_monthly_2015_2100.nc",
+      "sha512": "bce2e77b88c024215a49d36e10ab126ab7c4134076649670bc138fc188be8795c95f458aaab6f000151693c70d8f6e94056c6b2b49febc6aedd1ca17220cb3c9"
+    }
+  ],
+  "matched_co2_pulse": false,
+  "plan": {
+    "path": "data/provenance/fishmip_isimip3b_tc_acquisition_plan.csv",
+    "sha256": "7bf476e7b3832b5c9114d5455ebf0b15c71ff68f18d8eab0bd7151c9af554f25"
+  },
+  "reference_period": {
+    "end_year": 2014,
+    "start_year": 2005
+  },
+  "scc_authorized": false,
+  "schema": "fishmip_control_adjusted_latitude_band_time_windows_v1",
+  "status": "validated_temporal_latitude_band_structural_magnitude_sensitivity_only",
+  "support_rule": "intersection_across_all_20_frozen_files_and_all_registered_decades",
+  "temporal_band_summaries": [
+    {
+      "all_four_negative_in_every_window": true,
+      "climate_scenario": "ssp126",
+      "first_window_all_four_negative": {
+        "end_year": 2030,
+        "start_year": 2021
+      },
+      "latitude_band": "south_high",
+      "windows": [
+        {
+          "end_year": 2030,
+          "maximum_band_mean_normalized_change": -0.004088442209764493,
+          "minimum_band_mean_normalized_change": -0.0893105120209675,
+          "negative_trajectory_count": 4,
+          "start_year": 2021
+        },
+        {
+          "end_year": 2050,
+          "maximum_band_mean_normalized_change": -0.003973210602554307,
+          "minimum_band_mean_normalized_change": -0.08352467946223224,
+          "negative_trajectory_count": 4,
+          "start_year": 2041
+        },
+        {
+          "end_year": 2090,
+          "maximum_band_mean_normalized_change": -0.003382459867150018,
+          "minimum_band_mean_normalized_change": -0.12558738705139014,
+          "negative_trajectory_count": 4,
+          "start_year": 2081
+        }
+      ]
+    },
+    {
+      "all_four_negative_in_every_window": false,
+      "climate_scenario": "ssp126",
+      "first_window_all_four_negative": {
+        "end_year": 2090,
+        "start_year": 2081
+      },
+      "latitude_band": "south_mid",
+      "windows": [
+        {
+          "end_year": 2030,
+          "maximum_band_mean_normalized_change": 0.0036359593281852414,
+          "minimum_band_mean_normalized_change": -0.06067239022712679,
+          "negative_trajectory_count": 3,
+          "start_year": 2021
+        },
+        {
+          "end_year": 2050,
+          "maximum_band_mean_normalized_change": 0.010549200927003522,
+          "minimum_band_mean_normalized_change": -0.0898981896589287,
+          "negative_trajectory_count": 2,
+          "start_year": 2041
+        },
+        {
+          "end_year": 2090,
+          "maximum_band_mean_normalized_change": -0.008737468741937458,
+          "minimum_band_mean_normalized_change": -0.06228662222746143,
+          "negative_trajectory_count": 4,
+          "start_year": 2081
+        }
+      ]
+    },
+    {
+      "all_four_negative_in_every_window": false,
+      "climate_scenario": "ssp126",
+      "first_window_all_four_negative": null,
+      "latitude_band": "tropics",
+      "windows": [
+        {
+          "end_year": 2030,
+          "maximum_band_mean_normalized_change": 0.06880539514191501,
+          "minimum_band_mean_normalized_change": -0.0427202285811195,
+          "negative_trajectory_count": 3,
+          "start_year": 2021
+        },
+        {
+          "end_year": 2050,
+          "maximum_band_mean_normalized_change": 0.03817532949311186,
+          "minimum_band_mean_normalized_change": -0.042107593657692476,
+          "negative_trajectory_count": 3,
+          "start_year": 2041
+        },
+        {
+          "end_year": 2090,
+          "maximum_band_mean_normalized_change": 0.045468064237228226,
+          "minimum_band_mean_normalized_change": -0.047776776152934394,
+          "negative_trajectory_count": 3,
+          "start_year": 2081
+        }
+      ]
+    },
+    {
+      "all_four_negative_in_every_window": false,
+      "climate_scenario": "ssp126",
+      "first_window_all_four_negative": null,
+      "latitude_band": "north_mid",
+      "windows": [
+        {
+          "end_year": 2030,
+          "maximum_band_mean_normalized_change": 0.09340860159177182,
+          "minimum_band_mean_normalized_change": -0.08383948337489676,
+          "negative_trajectory_count": 3,
+          "start_year": 2021
+        },
+        {
+          "end_year": 2050,
+          "maximum_band_mean_normalized_change": 0.0964222801732203,
+          "minimum_band_mean_normalized_change": -0.11053034343980597,
+          "negative_trajectory_count": 3,
+          "start_year": 2041
+        },
+        {
+          "end_year": 2090,
+          "maximum_band_mean_normalized_change": 0.13679301881132838,
+          "minimum_band_mean_normalized_change": -0.08201456187222156,
+          "negative_trajectory_count": 3,
+          "start_year": 2081
+        }
+      ]
+    },
+    {
+      "all_four_negative_in_every_window": false,
+      "climate_scenario": "ssp126",
+      "first_window_all_four_negative": null,
+      "latitude_band": "north_high",
+      "windows": [
+        {
+          "end_year": 2030,
+          "maximum_band_mean_normalized_change": 0.1564632920954453,
+          "minimum_band_mean_normalized_change": -0.08563645933524645,
+          "negative_trajectory_count": 3,
+          "start_year": 2021
+        },
+        {
+          "end_year": 2050,
+          "maximum_band_mean_normalized_change": 0.13233618383388027,
+          "minimum_band_mean_normalized_change": -0.026993514191706904,
+          "negative_trajectory_count": 1,
+          "start_year": 2041
+        },
+        {
+          "end_year": 2090,
+          "maximum_band_mean_normalized_change": 0.08314481222094648,
+          "minimum_band_mean_normalized_change": -0.06681830760271756,
+          "negative_trajectory_count": 3,
+          "start_year": 2081
+        }
+      ]
+    },
+    {
+      "all_four_negative_in_every_window": false,
+      "climate_scenario": "ssp585",
+      "first_window_all_four_negative": {
+        "end_year": 2030,
+        "start_year": 2021
+      },
+      "latitude_band": "south_high",
+      "windows": [
+        {
+          "end_year": 2030,
+          "maximum_band_mean_normalized_change": -0.00041609473505163815,
+          "minimum_band_mean_normalized_change": -0.07379555789634601,
+          "negative_trajectory_count": 4,
+          "start_year": 2021
+        },
+        {
+          "end_year": 2050,
+          "maximum_band_mean_normalized_change": -0.01126884092618527,
+          "minimum_band_mean_normalized_change": -0.07877050831159911,
+          "negative_trajectory_count": 4,
+          "start_year": 2041
+        },
+        {
+          "end_year": 2090,
+          "maximum_band_mean_normalized_change": 0.0012285978241865375,
+          "minimum_band_mean_normalized_change": -0.09868530980513479,
+          "negative_trajectory_count": 3,
+          "start_year": 2081
+        }
+      ]
+    },
+    {
+      "all_four_negative_in_every_window": false,
+      "climate_scenario": "ssp585",
+      "first_window_all_four_negative": {
+        "end_year": 2050,
+        "start_year": 2041
+      },
+      "latitude_band": "south_mid",
+      "windows": [
+        {
+          "end_year": 2030,
+          "maximum_band_mean_normalized_change": 0.010731578153943887,
+          "minimum_band_mean_normalized_change": -0.053244010982491166,
+          "negative_trajectory_count": 3,
+          "start_year": 2021
+        },
+        {
+          "end_year": 2050,
+          "maximum_band_mean_normalized_change": -0.003265156139593843,
+          "minimum_band_mean_normalized_change": -0.12245669332370605,
+          "negative_trajectory_count": 4,
+          "start_year": 2041
+        },
+        {
+          "end_year": 2090,
+          "maximum_band_mean_normalized_change": -0.0706508827745372,
+          "minimum_band_mean_normalized_change": -0.13421475446852846,
+          "negative_trajectory_count": 4,
+          "start_year": 2081
+        }
+      ]
+    },
+    {
+      "all_four_negative_in_every_window": false,
+      "climate_scenario": "ssp585",
+      "first_window_all_four_negative": {
+        "end_year": 2090,
+        "start_year": 2081
+      },
+      "latitude_band": "tropics",
+      "windows": [
+        {
+          "end_year": 2030,
+          "maximum_band_mean_normalized_change": 0.07283514221541243,
+          "minimum_band_mean_normalized_change": -0.04132387623962066,
+          "negative_trajectory_count": 3,
+          "start_year": 2021
+        },
+        {
+          "end_year": 2050,
+          "maximum_band_mean_normalized_change": 0.007001701702713221,
+          "minimum_band_mean_normalized_change": -0.0600278690744324,
+          "negative_trajectory_count": 3,
+          "start_year": 2041
+        },
+        {
+          "end_year": 2090,
+          "maximum_band_mean_normalized_change": -0.07269120054944168,
+          "minimum_band_mean_normalized_change": -0.150219236965545,
+          "negative_trajectory_count": 4,
+          "start_year": 2081
+        }
+      ]
+    },
+    {
+      "all_four_negative_in_every_window": false,
+      "climate_scenario": "ssp585",
+      "first_window_all_four_negative": {
+        "end_year": 2090,
+        "start_year": 2081
+      },
+      "latitude_band": "north_mid",
+      "windows": [
+        {
+          "end_year": 2030,
+          "maximum_band_mean_normalized_change": 0.07343564518345605,
+          "minimum_band_mean_normalized_change": -0.049949575171602284,
+          "negative_trajectory_count": 3,
+          "start_year": 2021
+        },
+        {
+          "end_year": 2050,
+          "maximum_band_mean_normalized_change": 0.055613068819387865,
+          "minimum_band_mean_normalized_change": -0.12786461569854404,
+          "negative_trajectory_count": 3,
+          "start_year": 2041
+        },
+        {
+          "end_year": 2090,
+          "maximum_band_mean_normalized_change": -0.05354019405125413,
+          "minimum_band_mean_normalized_change": -0.2857351641814651,
+          "negative_trajectory_count": 4,
+          "start_year": 2081
+        }
+      ]
+    },
+    {
+      "all_four_negative_in_every_window": false,
+      "climate_scenario": "ssp585",
+      "first_window_all_four_negative": null,
+      "latitude_band": "north_high",
+      "windows": [
+        {
+          "end_year": 2030,
+          "maximum_band_mean_normalized_change": 0.115521545181789,
+          "minimum_band_mean_normalized_change": -0.1638005747997268,
+          "negative_trajectory_count": 3,
+          "start_year": 2021
+        },
+        {
+          "end_year": 2050,
+          "maximum_band_mean_normalized_change": 0.13209890307472533,
+          "minimum_band_mean_normalized_change": -0.03403588221098642,
+          "negative_trajectory_count": 1,
+          "start_year": 2041
+        },
+        {
+          "end_year": 2090,
+          "maximum_band_mean_normalized_change": 0.015689722303006522,
+          "minimum_band_mean_normalized_change": -0.19550856311404805,
+          "negative_trajectory_count": 3,
+          "start_year": 2081
+        }
+      ]
+    }
+  ],
+  "trajectory_results": [
+    {
+      "area_weighted_cell_share_negative": 0.5261355374504673,
+      "area_weighted_share_of_global_common_support": 0.21768990591536477,
+      "band_contribution_to_global_normalized_change": -0.0008900125999840387,
+      "band_mean_normalized_control_adjusted_change": -0.004088442209764493,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 10951,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2030,
+        "start_year": 2021
+      },
+      "latitude_band": "south_high",
+      "lower_bound_degrees_north_inclusive": -90.0,
+      "upper_bound_degrees_north_exclusive": -40.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.42411464386035314,
+      "area_weighted_share_of_global_common_support": 0.21768990591536477,
+      "band_contribution_to_global_normalized_change": -0.0029531672468044567,
+      "band_mean_normalized_control_adjusted_change": -0.013565935610963113,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 10951,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2030,
+        "start_year": 2021
+      },
+      "latitude_band": "south_high",
+      "lower_bound_degrees_north_inclusive": -90.0,
+      "upper_bound_degrees_north_exclusive": -40.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.4773150718731626,
+      "area_weighted_share_of_global_common_support": 0.21768990591536477,
+      "band_contribution_to_global_normalized_change": -0.0016756228541389107,
+      "band_mean_normalized_control_adjusted_change": -0.007697292380613976,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 10951,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2030,
+        "start_year": 2021
+      },
+      "latitude_band": "south_high",
+      "lower_bound_degrees_north_inclusive": -90.0,
+      "upper_bound_degrees_north_exclusive": -40.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.48750263485981843,
+      "area_weighted_share_of_global_common_support": 0.21768990591536477,
+      "band_contribution_to_global_normalized_change": -0.01944199695909747,
+      "band_mean_normalized_control_adjusted_change": -0.0893105120209675,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 10951,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2030,
+        "start_year": 2021
+      },
+      "latitude_band": "south_high",
+      "lower_bound_degrees_north_inclusive": -90.0,
+      "upper_bound_degrees_north_exclusive": -40.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.47533717512894064,
+      "area_weighted_share_of_global_common_support": 0.17976467138590593,
+      "band_contribution_to_global_normalized_change": 0.0006536170338037392,
+      "band_mean_normalized_control_adjusted_change": 0.0036359593281852414,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 5824,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2030,
+        "start_year": 2021
+      },
+      "latitude_band": "south_mid",
+      "lower_bound_degrees_north_inclusive": -40.0,
+      "upper_bound_degrees_north_exclusive": -20.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.5637496109800217,
+      "area_weighted_share_of_global_common_support": 0.17976467138590593,
+      "band_contribution_to_global_normalized_change": -0.0001274835033652351,
+      "band_mean_normalized_control_adjusted_change": -0.0007091688393631175,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 5824,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2030,
+        "start_year": 2021
+      },
+      "latitude_band": "south_mid",
+      "lower_bound_degrees_north_inclusive": -40.0,
+      "upper_bound_degrees_north_exclusive": -20.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.490808080778011,
+      "area_weighted_share_of_global_common_support": 0.17976467138590593,
+      "band_contribution_to_global_normalized_change": -0.0022054912443832614,
+      "band_mean_normalized_control_adjusted_change": -0.0122687690933925,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 5824,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2030,
+        "start_year": 2021
+      },
+      "latitude_band": "south_mid",
+      "lower_bound_degrees_north_inclusive": -40.0,
+      "upper_bound_degrees_north_exclusive": -20.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.5362137476170871,
+      "area_weighted_share_of_global_common_support": 0.17976467138590593,
+      "band_contribution_to_global_normalized_change": -0.010906752291376897,
+      "band_mean_normalized_control_adjusted_change": -0.06067239022712679,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 5824,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2030,
+        "start_year": 2021
+      },
+      "latitude_band": "south_mid",
+      "lower_bound_degrees_north_inclusive": -40.0,
+      "upper_bound_degrees_north_exclusive": -20.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.5887498292806873,
+      "area_weighted_share_of_global_common_support": 0.36843873781369096,
+      "band_contribution_to_global_normalized_change": -0.015739787097540033,
+      "band_mean_normalized_control_adjusted_change": -0.0427202285811195,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 10441,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2030,
+        "start_year": 2021
+      },
+      "latitude_band": "tropics",
+      "lower_bound_degrees_north_inclusive": -20.0,
+      "upper_bound_degrees_north_exclusive": 20.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.5596552298675515,
+      "area_weighted_share_of_global_common_support": 0.36843873781369096,
+      "band_contribution_to_global_normalized_change": -0.0026343226328786,
+      "band_mean_normalized_control_adjusted_change": -0.007149961072254847,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 10441,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2030,
+        "start_year": 2021
+      },
+      "latitude_band": "tropics",
+      "lower_bound_degrees_north_inclusive": -20.0,
+      "upper_bound_degrees_north_exclusive": 20.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.23794083085709503,
+      "area_weighted_share_of_global_common_support": 0.36843873781369096,
+      "band_contribution_to_global_normalized_change": 0.025350572940859434,
+      "band_mean_normalized_control_adjusted_change": 0.06880539514191501,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 10441,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2030,
+        "start_year": 2021
+      },
+      "latitude_band": "tropics",
+      "lower_bound_degrees_north_inclusive": -20.0,
+      "upper_bound_degrees_north_exclusive": 20.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.659101771660704,
+      "area_weighted_share_of_global_common_support": 0.36843873781369096,
+      "band_contribution_to_global_normalized_change": -0.0024199880711135505,
+      "band_mean_normalized_control_adjusted_change": -0.006568223758103497,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 10441,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2030,
+        "start_year": 2021
+      },
+      "latitude_band": "tropics",
+      "lower_bound_degrees_north_inclusive": -20.0,
+      "upper_bound_degrees_north_exclusive": 20.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.5992023279000513,
+      "area_weighted_share_of_global_common_support": 0.12464347790866188,
+      "band_contribution_to_global_normalized_change": -0.005098588343588119,
+      "band_mean_normalized_control_adjusted_change": -0.04090537611060836,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 4005,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2030,
+        "start_year": 2021
+      },
+      "latitude_band": "north_mid",
+      "lower_bound_degrees_north_inclusive": 20.0,
+      "upper_bound_degrees_north_exclusive": 40.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.4746654761596953,
+      "area_weighted_share_of_global_common_support": 0.12464347790866188,
+      "band_contribution_to_global_normalized_change": 0.011642772968983011,
+      "band_mean_normalized_control_adjusted_change": 0.09340860159177182,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 4005,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2030,
+        "start_year": 2021
+      },
+      "latitude_band": "north_mid",
+      "lower_bound_degrees_north_inclusive": 20.0,
+      "upper_bound_degrees_north_exclusive": 40.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.5289750741098758,
+      "area_weighted_share_of_global_common_support": 0.12464347790866188,
+      "band_contribution_to_global_normalized_change": -0.0065905627775829515,
+      "band_mean_normalized_control_adjusted_change": -0.05287531195505057,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 4005,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2030,
+        "start_year": 2021
+      },
+      "latitude_band": "north_mid",
+      "lower_bound_degrees_north_inclusive": 20.0,
+      "upper_bound_degrees_north_exclusive": 40.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.6852750026209008,
+      "area_weighted_share_of_global_common_support": 0.12464347790866188,
+      "band_contribution_to_global_normalized_change": -0.01045004479391257,
+      "band_mean_normalized_control_adjusted_change": -0.08383948337489676,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 4005,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2030,
+        "start_year": 2021
+      },
+      "latitude_band": "north_mid",
+      "lower_bound_degrees_north_inclusive": 20.0,
+      "upper_bound_degrees_north_exclusive": 40.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.5868898166178178,
+      "area_weighted_share_of_global_common_support": 0.10946320697637656,
+      "band_contribution_to_global_normalized_change": -0.003048815404814808,
+      "band_mean_normalized_control_adjusted_change": -0.027852421731740223,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 9177,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2030,
+        "start_year": 2021
+      },
+      "latitude_band": "north_high",
+      "lower_bound_degrees_north_inclusive": 40.0,
+      "upper_bound_degrees_north_exclusive": 90.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.5412655530435193,
+      "area_weighted_share_of_global_common_support": 0.10946320697637656,
+      "band_contribution_to_global_normalized_change": 0.01712697372684899,
+      "band_mean_normalized_control_adjusted_change": 0.1564632920954453,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 9177,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2030,
+        "start_year": 2021
+      },
+      "latitude_band": "north_high",
+      "lower_bound_degrees_north_inclusive": 40.0,
+      "upper_bound_degrees_north_exclusive": 90.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.42104589436327017,
+      "area_weighted_share_of_global_common_support": 0.10946320697637656,
+      "band_contribution_to_global_normalized_change": -0.004237228533445548,
+      "band_mean_normalized_control_adjusted_change": -0.03870915762919309,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 9177,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2030,
+        "start_year": 2021
+      },
+      "latitude_band": "north_high",
+      "lower_bound_degrees_north_inclusive": 40.0,
+      "upper_bound_degrees_north_exclusive": 90.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.44863012238037653,
+      "area_weighted_share_of_global_common_support": 0.10946320697637656,
+      "band_contribution_to_global_normalized_change": -0.009374041472938136,
+      "band_mean_normalized_control_adjusted_change": -0.08563645933524645,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 9177,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2030,
+        "start_year": 2021
+      },
+      "latitude_band": "north_high",
+      "lower_bound_degrees_north_inclusive": 40.0,
+      "upper_bound_degrees_north_exclusive": 90.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.4953494601415393,
+      "area_weighted_share_of_global_common_support": 0.21768990591536477,
+      "band_contribution_to_global_normalized_change": -9.057962372526974e-05,
+      "band_mean_normalized_control_adjusted_change": -0.00041609473505163815,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 10951,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2030,
+        "start_year": 2021
+      },
+      "latitude_band": "south_high",
+      "lower_bound_degrees_north_inclusive": -90.0,
+      "upper_bound_degrees_north_exclusive": -40.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.42088889025348136,
+      "area_weighted_share_of_global_common_support": 0.21768990591536477,
+      "band_contribution_to_global_normalized_change": -0.0027820505472027656,
+      "band_mean_normalized_control_adjusted_change": -0.012779878495075437,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 10951,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2030,
+        "start_year": 2021
+      },
+      "latitude_band": "south_high",
+      "lower_bound_degrees_north_inclusive": -90.0,
+      "upper_bound_degrees_north_exclusive": -40.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.46607382896213284,
+      "area_weighted_share_of_global_common_support": 0.21768990591536477,
+      "band_contribution_to_global_normalized_change": -0.0003942000991520147,
+      "band_mean_normalized_control_adjusted_change": -0.0018108331550534776,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 10951,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2030,
+        "start_year": 2021
+      },
+      "latitude_band": "south_high",
+      "lower_bound_degrees_north_inclusive": -90.0,
+      "upper_bound_degrees_north_exclusive": -40.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.48024280436624633,
+      "area_weighted_share_of_global_common_support": 0.21768990591536477,
+      "band_contribution_to_global_normalized_change": -0.016064548055427418,
+      "band_mean_normalized_control_adjusted_change": -0.07379555789634601,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 10951,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2030,
+        "start_year": 2021
+      },
+      "latitude_band": "south_high",
+      "lower_bound_degrees_north_inclusive": -90.0,
+      "upper_bound_degrees_north_exclusive": -40.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.4702503763877849,
+      "area_weighted_share_of_global_common_support": 0.17976467138590593,
+      "band_contribution_to_global_normalized_change": 0.0019291586202958898,
+      "band_mean_normalized_control_adjusted_change": 0.010731578153943887,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 5824,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2030,
+        "start_year": 2021
+      },
+      "latitude_band": "south_mid",
+      "lower_bound_degrees_north_inclusive": -40.0,
+      "upper_bound_degrees_north_exclusive": -20.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.6089676783715652,
+      "area_weighted_share_of_global_common_support": 0.17976467138590593,
+      "band_contribution_to_global_normalized_change": -0.0008657337655740345,
+      "band_mean_normalized_control_adjusted_change": -0.004815928285016244,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 5824,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2030,
+        "start_year": 2021
+      },
+      "latitude_band": "south_mid",
+      "lower_bound_degrees_north_inclusive": -40.0,
+      "upper_bound_degrees_north_exclusive": -20.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.5019431587123618,
+      "area_weighted_share_of_global_common_support": 0.17976467138590593,
+      "band_contribution_to_global_normalized_change": -0.003658896706680588,
+      "band_mean_normalized_control_adjusted_change": -0.020353814119716162,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 5824,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2030,
+        "start_year": 2021
+      },
+      "latitude_band": "south_mid",
+      "lower_bound_degrees_north_inclusive": -40.0,
+      "upper_bound_degrees_north_exclusive": -20.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.5334980638415655,
+      "area_weighted_share_of_global_common_support": 0.17976467138590593,
+      "band_contribution_to_global_normalized_change": -0.009571392137535089,
+      "band_mean_normalized_control_adjusted_change": -0.053244010982491166,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 5824,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2030,
+        "start_year": 2021
+      },
+      "latitude_band": "south_mid",
+      "lower_bound_degrees_north_inclusive": -40.0,
+      "upper_bound_degrees_north_exclusive": -20.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.6185828385845628,
+      "area_weighted_share_of_global_common_support": 0.36843873781369096,
+      "band_contribution_to_global_normalized_change": -0.015225316803295008,
+      "band_mean_normalized_control_adjusted_change": -0.04132387623962066,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 10441,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2030,
+        "start_year": 2021
+      },
+      "latitude_band": "tropics",
+      "lower_bound_degrees_north_inclusive": -20.0,
+      "upper_bound_degrees_north_exclusive": 20.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.5769924444787066,
+      "area_weighted_share_of_global_common_support": 0.36843873781369096,
+      "band_contribution_to_global_normalized_change": -0.005326922135598133,
+      "band_mean_normalized_control_adjusted_change": -0.014458094627095935,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 10441,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2030,
+        "start_year": 2021
+      },
+      "latitude_band": "tropics",
+      "lower_bound_degrees_north_inclusive": -20.0,
+      "upper_bound_degrees_north_exclusive": 20.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.19911005568992368,
+      "area_weighted_share_of_global_common_support": 0.36843873781369096,
+      "band_contribution_to_global_normalized_change": 0.026835287866327235,
+      "band_mean_normalized_control_adjusted_change": 0.07283514221541243,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 10441,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2030,
+        "start_year": 2021
+      },
+      "latitude_band": "tropics",
+      "lower_bound_degrees_north_inclusive": -20.0,
+      "upper_bound_degrees_north_exclusive": 20.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.6325806653639326,
+      "area_weighted_share_of_global_common_support": 0.36843873781369096,
+      "band_contribution_to_global_normalized_change": -0.00522328838521261,
+      "band_mean_normalized_control_adjusted_change": -0.014176816520997526,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 10441,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2030,
+        "start_year": 2021
+      },
+      "latitude_band": "tropics",
+      "lower_bound_degrees_north_inclusive": -20.0,
+      "upper_bound_degrees_north_exclusive": 20.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.5804618425883353,
+      "area_weighted_share_of_global_common_support": 0.12464347790866188,
+      "band_contribution_to_global_normalized_change": -0.0031713368933782536,
+      "band_mean_normalized_control_adjusted_change": -0.025443263832081075,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 4005,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2030,
+        "start_year": 2021
+      },
+      "latitude_band": "north_mid",
+      "lower_bound_degrees_north_inclusive": 20.0,
+      "upper_bound_degrees_north_exclusive": 40.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.43754777622488417,
+      "area_weighted_share_of_global_common_support": 0.12464347790866188,
+      "band_contribution_to_global_normalized_change": 0.009153274218132437,
+      "band_mean_normalized_control_adjusted_change": 0.07343564518345605,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 4005,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2030,
+        "start_year": 2021
+      },
+      "latitude_band": "north_mid",
+      "lower_bound_degrees_north_inclusive": 20.0,
+      "upper_bound_degrees_north_exclusive": 40.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.5098646833655619,
+      "area_weighted_share_of_global_common_support": 0.12464347790866188,
+      "band_contribution_to_global_normalized_change": -0.006225888769448656,
+      "band_mean_normalized_control_adjusted_change": -0.049949575171602284,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 4005,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2030,
+        "start_year": 2021
+      },
+      "latitude_band": "north_mid",
+      "lower_bound_degrees_north_inclusive": 20.0,
+      "upper_bound_degrees_north_exclusive": 40.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.5946593704411958,
+      "area_weighted_share_of_global_common_support": 0.12464347790866188,
+      "band_contribution_to_global_normalized_change": -0.005200126679487464,
+      "band_mean_normalized_control_adjusted_change": -0.041720006266979255,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 4005,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2030,
+        "start_year": 2021
+      },
+      "latitude_band": "north_mid",
+      "lower_bound_degrees_north_inclusive": 20.0,
+      "upper_bound_degrees_north_exclusive": 40.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.6015388515706124,
+      "area_weighted_share_of_global_common_support": 0.10946320697637656,
+      "band_contribution_to_global_normalized_change": -0.0032330853948296786,
+      "band_mean_normalized_control_adjusted_change": -0.029535818327773064,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 9177,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2030,
+        "start_year": 2021
+      },
+      "latitude_band": "north_high",
+      "lower_bound_degrees_north_inclusive": 40.0,
+      "upper_bound_degrees_north_exclusive": 90.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.5362979858573195,
+      "area_weighted_share_of_global_common_support": 0.10946320697637656,
+      "band_contribution_to_global_normalized_change": 0.012645358810465005,
+      "band_mean_normalized_control_adjusted_change": 0.115521545181789,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 9177,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2030,
+        "start_year": 2021
+      },
+      "latitude_band": "north_high",
+      "lower_bound_degrees_north_inclusive": 40.0,
+      "upper_bound_degrees_north_exclusive": 90.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.4312376435762417,
+      "area_weighted_share_of_global_common_support": 0.10946320697637656,
+      "band_contribution_to_global_normalized_change": -0.0028312707430539377,
+      "band_mean_normalized_control_adjusted_change": -0.025865044714658864,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 9177,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2030,
+        "start_year": 2021
+      },
+      "latitude_band": "north_high",
+      "lower_bound_degrees_north_inclusive": 40.0,
+      "upper_bound_degrees_north_exclusive": 90.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.47742177527979546,
+      "area_weighted_share_of_global_common_support": 0.10946320697637656,
+      "band_contribution_to_global_normalized_change": -0.017930136222151942,
+      "band_mean_normalized_control_adjusted_change": -0.1638005747997268,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 9177,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2030,
+        "start_year": 2021
+      },
+      "latitude_band": "north_high",
+      "lower_bound_degrees_north_inclusive": 40.0,
+      "upper_bound_degrees_north_exclusive": 90.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.5484663571390305,
+      "area_weighted_share_of_global_common_support": 0.21768990591536477,
+      "band_contribution_to_global_normalized_change": -0.003498342614765916,
+      "band_mean_normalized_control_adjusted_change": -0.016070302387498066,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 10951,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2050,
+        "start_year": 2041
+      },
+      "latitude_band": "south_high",
+      "lower_bound_degrees_north_inclusive": -90.0,
+      "upper_bound_degrees_north_exclusive": -40.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.5277412000468464,
+      "area_weighted_share_of_global_common_support": 0.21768990591536477,
+      "band_contribution_to_global_normalized_change": -0.0008649278422519769,
+      "band_mean_normalized_control_adjusted_change": -0.003973210602554307,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 10951,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2050,
+        "start_year": 2041
+      },
+      "latitude_band": "south_high",
+      "lower_bound_degrees_north_inclusive": -90.0,
+      "upper_bound_degrees_north_exclusive": -40.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.4973657449782274,
+      "area_weighted_share_of_global_common_support": 0.21768990591536477,
+      "band_contribution_to_global_normalized_change": -0.0015104219132068134,
+      "band_mean_normalized_control_adjusted_change": -0.006938410427693635,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 10951,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2050,
+        "start_year": 2041
+      },
+      "latitude_band": "south_high",
+      "lower_bound_degrees_north_inclusive": -90.0,
+      "upper_bound_degrees_north_exclusive": -40.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.4692363297585675,
+      "area_weighted_share_of_global_common_support": 0.21768990591536477,
+      "band_contribution_to_global_normalized_change": -0.018182479613744338,
+      "band_mean_normalized_control_adjusted_change": -0.08352467946223224,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 10951,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2050,
+        "start_year": 2041
+      },
+      "latitude_band": "south_high",
+      "lower_bound_degrees_north_inclusive": -90.0,
+      "upper_bound_degrees_north_exclusive": -40.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.4428881020132987,
+      "area_weighted_share_of_global_common_support": 0.17976467138590593,
+      "band_contribution_to_global_normalized_change": 0.0018963736380266825,
+      "band_mean_normalized_control_adjusted_change": 0.010549200927003522,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 5824,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2050,
+        "start_year": 2041
+      },
+      "latitude_band": "south_mid",
+      "lower_bound_degrees_north_inclusive": -40.0,
+      "upper_bound_degrees_north_exclusive": -20.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.5136301536749723,
+      "area_weighted_share_of_global_common_support": 0.17976467138590593,
+      "band_contribution_to_global_normalized_change": 0.001336440670095811,
+      "band_mean_normalized_control_adjusted_change": 0.007434389971024039,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 5824,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2050,
+        "start_year": 2041
+      },
+      "latitude_band": "south_mid",
+      "lower_bound_degrees_north_inclusive": -40.0,
+      "upper_bound_degrees_north_exclusive": -20.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.45583196946870763,
+      "area_weighted_share_of_global_common_support": 0.17976467138590593,
+      "band_contribution_to_global_normalized_change": -0.00518604141065674,
+      "band_mean_normalized_control_adjusted_change": -0.02884905788592753,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 5824,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2050,
+        "start_year": 2041
+      },
+      "latitude_band": "south_mid",
+      "lower_bound_degrees_north_inclusive": -40.0,
+      "upper_bound_degrees_north_exclusive": -20.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.6215852686955398,
+      "area_weighted_share_of_global_common_support": 0.17976467138590593,
+      "band_contribution_to_global_normalized_change": -0.016160518522225165,
+      "band_mean_normalized_control_adjusted_change": -0.0898981896589287,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 5824,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2050,
+        "start_year": 2041
+      },
+      "latitude_band": "south_mid",
+      "lower_bound_degrees_north_inclusive": -40.0,
+      "upper_bound_degrees_north_exclusive": -20.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.6218935497211886,
+      "area_weighted_share_of_global_common_support": 0.36843873781369096,
+      "band_contribution_to_global_normalized_change": -0.012171757479567814,
+      "band_mean_normalized_control_adjusted_change": -0.03303604162742173,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 10441,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2050,
+        "start_year": 2041
+      },
+      "latitude_band": "tropics",
+      "lower_bound_degrees_north_inclusive": -20.0,
+      "upper_bound_degrees_north_exclusive": 20.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.6832230468945866,
+      "area_weighted_share_of_global_common_support": 0.36843873781369096,
+      "band_contribution_to_global_normalized_change": -0.004825527099438433,
+      "band_mean_normalized_control_adjusted_change": -0.013097230568297532,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 10441,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2050,
+        "start_year": 2041
+      },
+      "latitude_band": "tropics",
+      "lower_bound_degrees_north_inclusive": -20.0,
+      "upper_bound_degrees_north_exclusive": 20.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.3211440213516029,
+      "area_weighted_share_of_global_common_support": 0.36843873781369096,
+      "band_contribution_to_global_normalized_change": 0.014065270214063905,
+      "band_mean_normalized_control_adjusted_change": 0.03817532949311186,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 10441,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2050,
+        "start_year": 2041
+      },
+      "latitude_band": "tropics",
+      "lower_bound_degrees_north_inclusive": -20.0,
+      "upper_bound_degrees_north_exclusive": 20.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.7654035286351893,
+      "area_weighted_share_of_global_common_support": 0.36843873781369096,
+      "band_contribution_to_global_normalized_change": -0.015514068659611994,
+      "band_mean_normalized_control_adjusted_change": -0.042107593657692476,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 10441,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2050,
+        "start_year": 2041
+      },
+      "latitude_band": "tropics",
+      "lower_bound_degrees_north_inclusive": -20.0,
+      "upper_bound_degrees_north_exclusive": 20.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.5489755768653516,
+      "area_weighted_share_of_global_common_support": 0.12464347790866188,
+      "band_contribution_to_global_normalized_change": -0.00375896470775219,
+      "band_mean_normalized_control_adjusted_change": -0.030157732845891384,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 4005,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2050,
+        "start_year": 2041
+      },
+      "latitude_band": "north_mid",
+      "lower_bound_degrees_north_inclusive": 20.0,
+      "upper_bound_degrees_north_exclusive": 40.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.3880844209462195,
+      "area_weighted_share_of_global_common_support": 0.12464347790866188,
+      "band_contribution_to_global_normalized_change": 0.012018408348673591,
+      "band_mean_normalized_control_adjusted_change": 0.0964222801732203,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 4005,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2050,
+        "start_year": 2041
+      },
+      "latitude_band": "north_mid",
+      "lower_bound_degrees_north_inclusive": 20.0,
+      "upper_bound_degrees_north_exclusive": 40.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.5271890680372743,
+      "area_weighted_share_of_global_common_support": 0.12464347790866188,
+      "band_contribution_to_global_normalized_change": -0.005697613256512202,
+      "band_mean_normalized_control_adjusted_change": -0.04571128270897081,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 4005,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2050,
+        "start_year": 2041
+      },
+      "latitude_band": "north_mid",
+      "lower_bound_degrees_north_inclusive": 20.0,
+      "upper_bound_degrees_north_exclusive": 40.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.6745100639249335,
+      "area_weighted_share_of_global_common_support": 0.12464347790866188,
+      "band_contribution_to_global_normalized_change": -0.013776886420776267,
+      "band_mean_normalized_control_adjusted_change": -0.11053034343980597,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 4005,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2050,
+        "start_year": 2041
+      },
+      "latitude_band": "north_mid",
+      "lower_bound_degrees_north_inclusive": 20.0,
+      "upper_bound_degrees_north_exclusive": 40.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.5997445970213171,
+      "area_weighted_share_of_global_common_support": 0.10946320697637656,
+      "band_contribution_to_global_normalized_change": -0.0029547966309865707,
+      "band_mean_normalized_control_adjusted_change": -0.026993514191706904,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 9177,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2050,
+        "start_year": 2041
+      },
+      "latitude_band": "north_high",
+      "lower_bound_degrees_north_inclusive": 40.0,
+      "upper_bound_degrees_north_exclusive": 90.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.44126711852902584,
+      "area_weighted_share_of_global_common_support": 0.10946320697637656,
+      "band_contribution_to_global_normalized_change": 0.014485943081471851,
+      "band_mean_normalized_control_adjusted_change": 0.13233618383388027,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 9177,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2050,
+        "start_year": 2041
+      },
+      "latitude_band": "north_high",
+      "lower_bound_degrees_north_inclusive": 40.0,
+      "upper_bound_degrees_north_exclusive": 90.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.3947065610061595,
+      "area_weighted_share_of_global_common_support": 0.10946320697637656,
+      "band_contribution_to_global_normalized_change": 6.248885997327966e-05,
+      "band_mean_normalized_control_adjusted_change": 0.0005708663367296144,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 9177,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2050,
+        "start_year": 2041
+      },
+      "latitude_band": "north_high",
+      "lower_bound_degrees_north_inclusive": 40.0,
+      "upper_bound_degrees_north_exclusive": 90.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.3357759098479658,
+      "area_weighted_share_of_global_common_support": 0.10946320697637656,
+      "band_contribution_to_global_normalized_change": 0.0015862540675742008,
+      "band_mean_normalized_control_adjusted_change": 0.014491207697911986,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 9177,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2050,
+        "start_year": 2041
+      },
+      "latitude_band": "north_high",
+      "lower_bound_degrees_north_inclusive": 40.0,
+      "upper_bound_degrees_north_exclusive": 90.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.5864851504138067,
+      "area_weighted_share_of_global_common_support": 0.21768990591536477,
+      "band_contribution_to_global_normalized_change": -0.005625065877538651,
+      "band_mean_normalized_control_adjusted_change": -0.02583981032049143,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 10951,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2050,
+        "start_year": 2041
+      },
+      "latitude_band": "south_high",
+      "lower_bound_degrees_north_inclusive": -90.0,
+      "upper_bound_degrees_north_exclusive": -40.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.49958910325124284,
+      "area_weighted_share_of_global_common_support": 0.21768990591536477,
+      "band_contribution_to_global_normalized_change": -0.0024531129209964834,
+      "band_mean_normalized_control_adjusted_change": -0.01126884092618527,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 10951,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2050,
+        "start_year": 2041
+      },
+      "latitude_band": "south_high",
+      "lower_bound_degrees_north_inclusive": -90.0,
+      "upper_bound_degrees_north_exclusive": -40.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.4943772083168601,
+      "area_weighted_share_of_global_common_support": 0.21768990591536477,
+      "band_contribution_to_global_normalized_change": -0.002640616739359393,
+      "band_mean_normalized_control_adjusted_change": -0.012130175389877897,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 10951,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2050,
+        "start_year": 2041
+      },
+      "latitude_band": "south_high",
+      "lower_bound_degrees_north_inclusive": -90.0,
+      "upper_bound_degrees_north_exclusive": -40.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.4591134617774116,
+      "area_weighted_share_of_global_common_support": 0.21768990591536477,
+      "band_contribution_to_global_normalized_change": -0.01714754454325747,
+      "band_mean_normalized_control_adjusted_change": -0.07877050831159911,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 10951,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2050,
+        "start_year": 2041
+      },
+      "latitude_band": "south_high",
+      "lower_bound_degrees_north_inclusive": -90.0,
+      "upper_bound_degrees_north_exclusive": -40.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.4477710350809995,
+      "area_weighted_share_of_global_common_support": 0.17976467138590593,
+      "band_contribution_to_global_normalized_change": -0.0005869597204577604,
+      "band_mean_normalized_control_adjusted_change": -0.003265156139593843,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 5824,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2050,
+        "start_year": 2041
+      },
+      "latitude_band": "south_mid",
+      "lower_bound_degrees_north_inclusive": -40.0,
+      "upper_bound_degrees_north_exclusive": -20.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.6902225976183748,
+      "area_weighted_share_of_global_common_support": 0.17976467138590593,
+      "band_contribution_to_global_normalized_change": -0.00452208587268414,
+      "band_mean_normalized_control_adjusted_change": -0.025155587234248322,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 5824,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2050,
+        "start_year": 2041
+      },
+      "latitude_band": "south_mid",
+      "lower_bound_degrees_north_inclusive": -40.0,
+      "upper_bound_degrees_north_exclusive": -20.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.49971645993149516,
+      "area_weighted_share_of_global_common_support": 0.17976467138590593,
+      "band_contribution_to_global_normalized_change": -0.011079633135624854,
+      "band_mean_normalized_control_adjusted_change": -0.06163409667876227,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 5824,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2050,
+        "start_year": 2041
+      },
+      "latitude_band": "south_mid",
+      "lower_bound_degrees_north_inclusive": -40.0,
+      "upper_bound_degrees_north_exclusive": -20.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.6143023022666477,
+      "area_weighted_share_of_global_common_support": 0.17976467138590593,
+      "band_contribution_to_global_normalized_change": -0.022013387234340678,
+      "band_mean_normalized_control_adjusted_change": -0.12245669332370605,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 5824,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2050,
+        "start_year": 2041
+      },
+      "latitude_band": "south_mid",
+      "lower_bound_degrees_north_inclusive": -40.0,
+      "upper_bound_degrees_north_exclusive": -20.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.6406637248318647,
+      "area_weighted_share_of_global_common_support": 0.36843873781369096,
+      "band_contribution_to_global_normalized_change": -0.014632005999711116,
+      "band_mean_normalized_control_adjusted_change": -0.03971353850177965,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 10441,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2050,
+        "start_year": 2041
+      },
+      "latitude_band": "tropics",
+      "lower_bound_degrees_north_inclusive": -20.0,
+      "upper_bound_degrees_north_exclusive": 20.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.719150682810312,
+      "area_weighted_share_of_global_common_support": 0.36843873781369096,
+      "band_contribution_to_global_normalized_change": -0.011789616300576651,
+      "band_mean_normalized_control_adjusted_change": -0.0319988510723276,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 10441,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2050,
+        "start_year": 2041
+      },
+      "latitude_band": "tropics",
+      "lower_bound_degrees_north_inclusive": -20.0,
+      "upper_bound_degrees_north_exclusive": 20.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.4199270490822077,
+      "area_weighted_share_of_global_common_support": 0.36843873781369096,
+      "band_contribution_to_global_normalized_change": 0.00257969813789563,
+      "band_mean_normalized_control_adjusted_change": 0.007001701702713221,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 10441,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2050,
+        "start_year": 2041
+      },
+      "latitude_band": "tropics",
+      "lower_bound_degrees_north_inclusive": -20.0,
+      "upper_bound_degrees_north_exclusive": 20.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.7910011593296635,
+      "area_weighted_share_of_global_common_support": 0.36843873781369096,
+      "band_contribution_to_global_normalized_change": -0.022116592315429368,
+      "band_mean_normalized_control_adjusted_change": -0.0600278690744324,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 10441,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2050,
+        "start_year": 2041
+      },
+      "latitude_band": "tropics",
+      "lower_bound_degrees_north_inclusive": -20.0,
+      "upper_bound_degrees_north_exclusive": 20.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.6155767276206141,
+      "area_weighted_share_of_global_common_support": 0.12464347790866188,
+      "band_contribution_to_global_normalized_change": -0.005083274554796653,
+      "band_mean_normalized_control_adjusted_change": -0.040782515379758986,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 4005,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2050,
+        "start_year": 2041
+      },
+      "latitude_band": "north_mid",
+      "lower_bound_degrees_north_inclusive": 20.0,
+      "upper_bound_degrees_north_exclusive": 40.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.5051030180656166,
+      "area_weighted_share_of_global_common_support": 0.12464347790866188,
+      "band_contribution_to_global_normalized_change": 0.006931806314822265,
+      "band_mean_normalized_control_adjusted_change": 0.055613068819387865,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 4005,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2050,
+        "start_year": 2041
+      },
+      "latitude_band": "north_mid",
+      "lower_bound_degrees_north_inclusive": 20.0,
+      "upper_bound_degrees_north_exclusive": 40.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.5085620038992836,
+      "area_weighted_share_of_global_common_support": 0.12464347790866188,
+      "band_contribution_to_global_normalized_change": -0.006398175344142577,
+      "band_mean_normalized_control_adjusted_change": -0.05133181014758853,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 4005,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2050,
+        "start_year": 2041
+      },
+      "latitude_band": "north_mid",
+      "lower_bound_degrees_north_inclusive": 20.0,
+      "upper_bound_degrees_north_exclusive": 40.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.6729002896368556,
+      "area_weighted_share_of_global_common_support": 0.12464347790866188,
+      "band_contribution_to_global_normalized_change": -0.015937490402121016,
+      "band_mean_normalized_control_adjusted_change": -0.12786461569854404,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 4005,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2050,
+        "start_year": 2041
+      },
+      "latitude_band": "north_mid",
+      "lower_bound_degrees_north_inclusive": 20.0,
+      "upper_bound_degrees_north_exclusive": 40.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.6218229631245866,
+      "area_weighted_share_of_global_common_support": 0.10946320697637656,
+      "band_contribution_to_global_normalized_change": -0.003725676819084779,
+      "band_mean_normalized_control_adjusted_change": -0.03403588221098642,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 9177,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2050,
+        "start_year": 2041
+      },
+      "latitude_band": "north_high",
+      "lower_bound_degrees_north_inclusive": 40.0,
+      "upper_bound_degrees_north_exclusive": 90.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.4627468352966885,
+      "area_weighted_share_of_global_common_support": 0.10946320697637656,
+      "band_contribution_to_global_normalized_change": 0.01413416887765265,
+      "band_mean_normalized_control_adjusted_change": 0.12912255421771965,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 9177,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2050,
+        "start_year": 2041
+      },
+      "latitude_band": "north_high",
+      "lower_bound_degrees_north_inclusive": 40.0,
+      "upper_bound_degrees_north_exclusive": 90.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.36675539105271376,
+      "area_weighted_share_of_global_common_support": 0.10946320697637656,
+      "band_contribution_to_global_normalized_change": 0.0008310327248156621,
+      "band_mean_normalized_control_adjusted_change": 0.007591890898966708,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 9177,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2050,
+        "start_year": 2041
+      },
+      "latitude_band": "north_high",
+      "lower_bound_degrees_north_inclusive": 40.0,
+      "upper_bound_degrees_north_exclusive": 90.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.25889658420574185,
+      "area_weighted_share_of_global_common_support": 0.10946320697637656,
+      "band_contribution_to_global_normalized_change": 0.014459969568620962,
+      "band_mean_normalized_control_adjusted_change": 0.13209890307472533,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 9177,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2050,
+        "start_year": 2041
+      },
+      "latitude_band": "north_high",
+      "lower_bound_degrees_north_inclusive": 40.0,
+      "upper_bound_degrees_north_exclusive": 90.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.5949188259838363,
+      "area_weighted_share_of_global_common_support": 0.21768990591536477,
+      "band_contribution_to_global_normalized_change": -0.004727518509880426,
+      "band_mean_normalized_control_adjusted_change": -0.021716755721868097,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 10951,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2090,
+        "start_year": 2081
+      },
+      "latitude_band": "south_high",
+      "lower_bound_degrees_north_inclusive": -90.0,
+      "upper_bound_degrees_north_exclusive": -40.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.6156558388873168,
+      "area_weighted_share_of_global_common_support": 0.21768990591536477,
+      "band_contribution_to_global_normalized_change": -0.0020492829050903377,
+      "band_mean_normalized_control_adjusted_change": -0.009413770916356012,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 10951,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2090,
+        "start_year": 2081
+      },
+      "latitude_band": "south_high",
+      "lower_bound_degrees_north_inclusive": -90.0,
+      "upper_bound_degrees_north_exclusive": -40.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.45904642526068706,
+      "area_weighted_share_of_global_common_support": 0.21768990591536477,
+      "band_contribution_to_global_normalized_change": -0.0007363273702423848,
+      "band_mean_normalized_control_adjusted_change": -0.003382459867150018,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 10951,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2090,
+        "start_year": 2081
+      },
+      "latitude_band": "south_high",
+      "lower_bound_degrees_north_inclusive": -90.0,
+      "upper_bound_degrees_north_exclusive": -40.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.49221254147209764,
+      "area_weighted_share_of_global_common_support": 0.21768990591536477,
+      "band_contribution_to_global_normalized_change": -0.027339106471373623,
+      "band_mean_normalized_control_adjusted_change": -0.12558738705139014,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 10951,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2090,
+        "start_year": 2081
+      },
+      "latitude_band": "south_high",
+      "lower_bound_degrees_north_inclusive": -90.0,
+      "upper_bound_degrees_north_exclusive": -40.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.5328967006545797,
+      "area_weighted_share_of_global_common_support": 0.17976467138590593,
+      "band_contribution_to_global_normalized_change": -0.003271592628788147,
+      "band_mean_normalized_control_adjusted_change": -0.018199308037366954,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 5824,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2090,
+        "start_year": 2081
+      },
+      "latitude_band": "south_mid",
+      "lower_bound_degrees_north_inclusive": -40.0,
+      "upper_bound_degrees_north_exclusive": -20.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.6393107575775896,
+      "area_weighted_share_of_global_common_support": 0.17976467138590593,
+      "band_contribution_to_global_normalized_change": -0.0017424296583113718,
+      "band_mean_normalized_control_adjusted_change": -0.009692837001163863,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 5824,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2090,
+        "start_year": 2081
+      },
+      "latitude_band": "south_mid",
+      "lower_bound_degrees_north_inclusive": -40.0,
+      "upper_bound_degrees_north_exclusive": -20.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.46745611357869166,
+      "area_weighted_share_of_global_common_support": 0.17976467138590593,
+      "band_contribution_to_global_normalized_change": -0.001570688197139012,
+      "band_mean_normalized_control_adjusted_change": -0.008737468741937458,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 5824,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2090,
+        "start_year": 2081
+      },
+      "latitude_band": "south_mid",
+      "lower_bound_degrees_north_inclusive": -40.0,
+      "upper_bound_degrees_north_exclusive": -20.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.5759821730835609,
+      "area_weighted_share_of_global_common_support": 0.17976467138590593,
+      "band_contribution_to_global_normalized_change": -0.011196934176457667,
+      "band_mean_normalized_control_adjusted_change": -0.06228662222746143,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 5824,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2090,
+        "start_year": 2081
+      },
+      "latitude_band": "south_mid",
+      "lower_bound_degrees_north_inclusive": -40.0,
+      "upper_bound_degrees_north_exclusive": -20.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.6339254488959408,
+      "area_weighted_share_of_global_common_support": 0.36843873781369096,
+      "band_contribution_to_global_normalized_change": -0.01712847397032589,
+      "band_mean_normalized_control_adjusted_change": -0.04648934059422186,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 10441,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2090,
+        "start_year": 2081
+      },
+      "latitude_band": "tropics",
+      "lower_bound_degrees_north_inclusive": -20.0,
+      "upper_bound_degrees_north_exclusive": 20.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.5494700827820587,
+      "area_weighted_share_of_global_common_support": 0.36843873781369096,
+      "band_contribution_to_global_normalized_change": -0.0011613213190554362,
+      "band_mean_normalized_control_adjusted_change": -0.0031520065613803174,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 10441,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2090,
+        "start_year": 2081
+      },
+      "latitude_band": "tropics",
+      "lower_bound_degrees_north_inclusive": -20.0,
+      "upper_bound_degrees_north_exclusive": 20.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.3321388430368283,
+      "area_weighted_share_of_global_common_support": 0.36843873781369096,
+      "band_contribution_to_global_normalized_change": 0.01675219619839619,
+      "band_mean_normalized_control_adjusted_change": 0.045468064237228226,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 10441,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2090,
+        "start_year": 2081
+      },
+      "latitude_band": "tropics",
+      "lower_bound_degrees_north_inclusive": -20.0,
+      "upper_bound_degrees_north_exclusive": 20.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.8275249553946212,
+      "area_weighted_share_of_global_common_support": 0.36843873781369096,
+      "band_contribution_to_global_normalized_change": -0.0176028151025944,
+      "band_mean_normalized_control_adjusted_change": -0.047776776152934394,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 10441,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2090,
+        "start_year": 2081
+      },
+      "latitude_band": "tropics",
+      "lower_bound_degrees_north_inclusive": -20.0,
+      "upper_bound_degrees_north_exclusive": 20.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.6539891586353164,
+      "area_weighted_share_of_global_common_support": 0.12464347790866188,
+      "band_contribution_to_global_normalized_change": -0.008951087929953673,
+      "band_mean_normalized_control_adjusted_change": -0.07181352831403649,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 4005,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2090,
+        "start_year": 2081
+      },
+      "latitude_band": "north_mid",
+      "lower_bound_degrees_north_inclusive": 20.0,
+      "upper_bound_degrees_north_exclusive": 40.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.5205221356930911,
+      "area_weighted_share_of_global_common_support": 0.12464347790866188,
+      "band_contribution_to_global_normalized_change": 0.01705035761826898,
+      "band_mean_normalized_control_adjusted_change": 0.13679301881132838,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 4005,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2090,
+        "start_year": 2081
+      },
+      "latitude_band": "north_mid",
+      "lower_bound_degrees_north_inclusive": 20.0,
+      "upper_bound_degrees_north_exclusive": 40.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.529271550439431,
+      "area_weighted_share_of_global_common_support": 0.12464347790866188,
+      "band_contribution_to_global_normalized_change": -0.005865146423870756,
+      "band_mean_normalized_control_adjusted_change": -0.04705538165557853,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 4005,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2090,
+        "start_year": 2081
+      },
+      "latitude_band": "north_mid",
+      "lower_bound_degrees_north_inclusive": 20.0,
+      "upper_bound_degrees_north_exclusive": 40.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.7052520103392536,
+      "area_weighted_share_of_global_common_support": 0.12464347790866188,
+      "band_contribution_to_global_normalized_change": -0.010222580230908832,
+      "band_mean_normalized_control_adjusted_change": -0.08201456187222156,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 4005,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2090,
+        "start_year": 2081
+      },
+      "latitude_band": "north_mid",
+      "lower_bound_degrees_north_inclusive": 20.0,
+      "upper_bound_degrees_north_exclusive": 40.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.6333968983581554,
+      "area_weighted_share_of_global_common_support": 0.10946320697637656,
+      "band_contribution_to_global_normalized_change": -0.005493862738878943,
+      "band_mean_normalized_control_adjusted_change": -0.05018912647118573,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 9177,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2090,
+        "start_year": 2081
+      },
+      "latitude_band": "north_high",
+      "lower_bound_degrees_north_inclusive": 40.0,
+      "upper_bound_degrees_north_exclusive": 90.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.5222503379432843,
+      "area_weighted_share_of_global_common_support": 0.10946320697637656,
+      "band_contribution_to_global_normalized_change": -0.0072179410376353795,
+      "band_mean_normalized_control_adjusted_change": -0.06593942601364763,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 9177,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2090,
+        "start_year": 2081
+      },
+      "latitude_band": "north_high",
+      "lower_bound_degrees_north_inclusive": 40.0,
+      "upper_bound_degrees_north_exclusive": 90.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.42177318131653674,
+      "area_weighted_share_of_global_common_support": 0.10946320697637656,
+      "band_contribution_to_global_normalized_change": -0.007314146234927467,
+      "band_mean_normalized_control_adjusted_change": -0.06681830760271756,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 9177,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2090,
+        "start_year": 2081
+      },
+      "latitude_band": "north_high",
+      "lower_bound_degrees_north_inclusive": 40.0,
+      "upper_bound_degrees_north_exclusive": 90.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.32342914733931183,
+      "area_weighted_share_of_global_common_support": 0.10946320697637656,
+      "band_contribution_to_global_normalized_change": 0.009101297789153426,
+      "band_mean_normalized_control_adjusted_change": 0.08314481222094648,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp126",
+      "common_finite_grid_cells": 9177,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2090,
+        "start_year": 2081
+      },
+      "latitude_band": "north_high",
+      "lower_bound_degrees_north_inclusive": 40.0,
+      "upper_bound_degrees_north_exclusive": 90.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.6775547457222292,
+      "area_weighted_share_of_global_common_support": 0.21768990591536477,
+      "band_contribution_to_global_normalized_change": -0.010331665380478748,
+      "band_mean_normalized_control_adjusted_change": -0.04746047060397727,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 10951,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2090,
+        "start_year": 2081
+      },
+      "latitude_band": "south_high",
+      "lower_bound_degrees_north_inclusive": -90.0,
+      "upper_bound_degrees_north_exclusive": -40.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.4155239187808156,
+      "area_weighted_share_of_global_common_support": 0.21768990591536477,
+      "band_contribution_to_global_normalized_change": -0.004112155803923804,
+      "band_mean_normalized_control_adjusted_change": -0.018889970054571853,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 10951,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2090,
+        "start_year": 2081
+      },
+      "latitude_band": "south_high",
+      "lower_bound_degrees_north_inclusive": -90.0,
+      "upper_bound_degrees_north_exclusive": -40.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.4404621524033965,
+      "area_weighted_share_of_global_common_support": 0.21768990591536477,
+      "band_contribution_to_global_normalized_change": 0.0002674533447549892,
+      "band_mean_normalized_control_adjusted_change": 0.0012285978241865375,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 10951,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2090,
+        "start_year": 2081
+      },
+      "latitude_band": "south_high",
+      "lower_bound_degrees_north_inclusive": -90.0,
+      "upper_bound_degrees_north_exclusive": -40.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.4000957816257546,
+      "area_weighted_share_of_global_common_support": 0.21768990591536477,
+      "band_contribution_to_global_normalized_change": -0.021482795806708418,
+      "band_mean_normalized_control_adjusted_change": -0.09868530980513479,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 10951,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2090,
+        "start_year": 2081
+      },
+      "latitude_band": "south_high",
+      "lower_bound_degrees_north_inclusive": -90.0,
+      "upper_bound_degrees_north_exclusive": -40.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.7104500697357603,
+      "area_weighted_share_of_global_common_support": 0.17976467138590593,
+      "band_contribution_to_global_normalized_change": -0.020473401750816453,
+      "band_mean_normalized_control_adjusted_change": -0.1138900185057253,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 5824,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2090,
+        "start_year": 2081
+      },
+      "latitude_band": "south_mid",
+      "lower_bound_degrees_north_inclusive": -40.0,
+      "upper_bound_degrees_north_exclusive": -20.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.814434508214664,
+      "area_weighted_share_of_global_common_support": 0.17976467138590593,
+      "band_contribution_to_global_normalized_change": -0.012700532725088838,
+      "band_mean_normalized_control_adjusted_change": -0.0706508827745372,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 5824,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2090,
+        "start_year": 2081
+      },
+      "latitude_band": "south_mid",
+      "lower_bound_degrees_north_inclusive": -40.0,
+      "upper_bound_degrees_north_exclusive": -20.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.6157162987572233,
+      "area_weighted_share_of_global_common_support": 0.17976467138590593,
+      "band_contribution_to_global_normalized_change": -0.021710156474217864,
+      "band_mean_normalized_control_adjusted_change": -0.12076987267210061,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 5824,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2090,
+        "start_year": 2081
+      },
+      "latitude_band": "south_mid",
+      "lower_bound_degrees_north_inclusive": -40.0,
+      "upper_bound_degrees_north_exclusive": -20.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.5598530426554706,
+      "area_weighted_share_of_global_common_support": 0.17976467138590593,
+      "band_contribution_to_global_normalized_change": -0.024127071232175067,
+      "band_mean_normalized_control_adjusted_change": -0.13421475446852846,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 5824,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2090,
+        "start_year": 2081
+      },
+      "latitude_band": "south_mid",
+      "lower_bound_degrees_north_inclusive": -40.0,
+      "upper_bound_degrees_north_exclusive": -20.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.8714245202005269,
+      "area_weighted_share_of_global_common_support": 0.36843873781369096,
+      "band_contribution_to_global_normalized_change": -0.05534658606292115,
+      "band_mean_normalized_control_adjusted_change": -0.150219236965545,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 10441,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2090,
+        "start_year": 2081
+      },
+      "latitude_band": "tropics",
+      "lower_bound_degrees_north_inclusive": -20.0,
+      "upper_bound_degrees_north_exclusive": 20.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.8349627411304709,
+      "area_weighted_share_of_global_common_support": 0.36843873781369096,
+      "band_contribution_to_global_normalized_change": -0.02678225418059817,
+      "band_mean_normalized_control_adjusted_change": -0.07269120054944168,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 10441,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2090,
+        "start_year": 2081
+      },
+      "latitude_band": "tropics",
+      "lower_bound_degrees_north_inclusive": -20.0,
+      "upper_bound_degrees_north_exclusive": 20.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.600153617797523,
+      "area_weighted_share_of_global_common_support": 0.36843873781369096,
+      "band_contribution_to_global_normalized_change": -0.034051375976048376,
+      "band_mean_normalized_control_adjusted_change": -0.09242072692493912,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 10441,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2090,
+        "start_year": 2081
+      },
+      "latitude_band": "tropics",
+      "lower_bound_degrees_north_inclusive": -20.0,
+      "upper_bound_degrees_north_exclusive": 20.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.8074103442387827,
+      "area_weighted_share_of_global_common_support": 0.36843873781369096,
+      "band_contribution_to_global_normalized_change": -0.040186353915877195,
+      "band_mean_normalized_control_adjusted_change": -0.10907201059894601,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 10441,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2090,
+        "start_year": 2081
+      },
+      "latitude_band": "tropics",
+      "lower_bound_degrees_north_inclusive": -20.0,
+      "upper_bound_degrees_north_exclusive": 20.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.7591852017093598,
+      "area_weighted_share_of_global_common_support": 0.12464347790866188,
+      "band_contribution_to_global_normalized_change": -0.017384570071441143,
+      "band_mean_normalized_control_adjusted_change": -0.13947436611308672,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 4005,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2090,
+        "start_year": 2081
+      },
+      "latitude_band": "north_mid",
+      "lower_bound_degrees_north_inclusive": 20.0,
+      "upper_bound_degrees_north_exclusive": 40.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.6187332296625191,
+      "area_weighted_share_of_global_common_support": 0.12464347790866188,
+      "band_contribution_to_global_normalized_change": -0.006673435994452965,
+      "band_mean_normalized_control_adjusted_change": -0.05354019405125413,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 4005,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2090,
+        "start_year": 2081
+      },
+      "latitude_band": "north_mid",
+      "lower_bound_degrees_north_inclusive": 20.0,
+      "upper_bound_degrees_north_exclusive": 40.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.47513269647923334,
+      "area_weighted_share_of_global_common_support": 0.12464347790866188,
+      "band_contribution_to_global_normalized_change": -0.010375918398853493,
+      "band_mean_normalized_control_adjusted_change": -0.083244776003899,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 4005,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2090,
+        "start_year": 2081
+      },
+      "latitude_band": "north_mid",
+      "lower_bound_degrees_north_inclusive": 20.0,
+      "upper_bound_degrees_north_exclusive": 40.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.6390185946312827,
+      "area_weighted_share_of_global_common_support": 0.12464347790866188,
+      "band_contribution_to_global_normalized_change": -0.03561502462438033,
+      "band_mean_normalized_control_adjusted_change": -0.2857351641814651,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 4005,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2090,
+        "start_year": 2081
+      },
+      "latitude_band": "north_mid",
+      "lower_bound_degrees_north_inclusive": 20.0,
+      "upper_bound_degrees_north_exclusive": 40.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.6799846689213728,
+      "area_weighted_share_of_global_common_support": 0.10946320697637656,
+      "band_contribution_to_global_normalized_change": -0.009004613482420225,
+      "band_mean_normalized_control_adjusted_change": -0.08226155373251147,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 9177,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2090,
+        "start_year": 2081
+      },
+      "latitude_band": "north_high",
+      "lower_bound_degrees_north_inclusive": 40.0,
+      "upper_bound_degrees_north_exclusive": 90.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.5098930367981483,
+      "area_weighted_share_of_global_common_support": 0.10946320697637656,
+      "band_contribution_to_global_normalized_change": -0.021400994309807016,
+      "band_mean_normalized_control_adjusted_change": -0.19550856311404805,
+      "climate_forcing": "gfdl-esm4",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 9177,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2090,
+        "start_year": 2081
+      },
+      "latitude_band": "north_high",
+      "lower_bound_degrees_north_inclusive": 40.0,
+      "upper_bound_degrees_north_exclusive": 90.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.4597453069675969,
+      "area_weighted_share_of_global_common_support": 0.10946320697637656,
+      "band_contribution_to_global_normalized_change": -0.009154532496084854,
+      "band_mean_normalized_control_adjusted_change": -0.08363113733786832,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 9177,
+      "ecosystem_model": "boats",
+      "future_period": {
+        "end_year": 2090,
+        "start_year": 2081
+      },
+      "latitude_band": "north_high",
+      "lower_bound_degrees_north_inclusive": 40.0,
+      "upper_bound_degrees_north_exclusive": 90.0
+    },
+    {
+      "area_weighted_cell_share_negative": 0.2905011671703393,
+      "area_weighted_share_of_global_common_support": 0.10946320697637656,
+      "band_contribution_to_global_normalized_change": 0.0017174473198558744,
+      "band_mean_normalized_control_adjusted_change": 0.015689722303006522,
+      "climate_forcing": "ipsl-cm6a-lr",
+      "climate_scenario": "ssp585",
+      "common_finite_grid_cells": 9177,
+      "ecosystem_model": "ecoocean",
+      "future_period": {
+        "end_year": 2090,
+        "start_year": 2081
+      },
+      "latitude_band": "north_high",
+      "lower_bound_degrees_north_inclusive": 40.0,
+      "upper_bound_degrees_north_exclusive": 90.0
+    }
+  ],
+  "welfare_estimated": false
+}

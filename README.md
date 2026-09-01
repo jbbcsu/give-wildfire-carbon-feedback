@@ -236,6 +236,15 @@ hemisphere. Under SSP1-2.6, all four means are negative only in the two
 Southern Hemisphere bands. These are structural magnitudes, not model
 probabilities or allocation, pulse, welfare, damage, or SCC evidence.
 
+The fixed-window extension in
+[`FISHMIP_CONTROL_ADJUSTED_LATITUDE_BAND_TIME_WINDOWS.md`](FISHMIP_CONTROL_ADJUSTED_LATITUDE_BAND_TIME_WINDOWS.md)
+shows that SSP5-8.5 reaches four negative trajectory means in the southern
+midlatitudes by 2041--2050 and in the tropics and northern midlatitudes by
+2081--2090. High latitudes remain mixed and nonmonotone. Under SSP1-2.6, only
+the southern high-latitude band is negative in all four trajectories in all
+three windows. This sharpens temporal/geographic heterogeneity without opening
+allocation, pulse, welfare, damage, or SCC gates.
+
 ## Executable accounting scaffolding
 
 The repository currently provides two coefficient-free checks:
