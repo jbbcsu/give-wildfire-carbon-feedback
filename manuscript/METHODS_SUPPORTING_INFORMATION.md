@@ -527,9 +527,15 @@ decoded-content, same-realization GMST, bounded feature, and stage/season
 reconciliation gates. The exact-key SSP3-7.0-minus-SSP1-2.6 comparison
 averages +2.928 C, +2.24 mm seasonal precipitation, -0.97 wet days, +2.41
 maximum-dry-spell days, +0.25 mm Rx1day, and +1.15 mm Rx5day across 5,488
-rows. These additions raise tracked progress to 40/60 files and twenty
-blocks. The absent MRI SSP5-8.5 end-century cell prevents a whole-scenario
-audit; response, damage, and SCC authorization remain false. For IPSL, the exact-key
+rows. The MRI SSP5-8.5 end-century pair and bounded block also pass these
+gates, raising tracked progress to 42/60 files and twenty-one blocks. The
+exact-key SSP5-8.5-minus-SSP1-2.6 comparison averages +4.591 C, -13.23 mm
+seasonal precipitation, -2.62 wet days, +5.44 maximum-dry-spell days, +0.75
+mm Rx1day, and +0.56 mm Rx5day. Its 181,104-row whole-scenario audit improves
+16/33 comparisons (median RMSE ratio 1.00006; maximum 1.06514), including 9/11
+for held-out SSP5-8.5, while 27,090 values (14.96%) lie outside exact support.
+This mixed, adverse result leaves response, damage, SCC, whole-ESM, and FAIR
+feature-support authorization false. For IPSL, the exact-key
 SSP3-7.0-minus-SSP1-2.6 midcentury comparison finds
 mean differences of +0.365 C, +13.22 mm seasonal precipitation, +0.93 wet days,
 -1.36 maximum dry-spell days, +2.18 mm Rx1day, and +3.84 mm Rx5day. The matching

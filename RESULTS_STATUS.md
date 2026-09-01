@@ -102,11 +102,15 @@ has median/maximum RMSE ratios of 1.00027/1.04233, and flags 21,236 values
 (11.73%) outside support. This adverse engineering result does not authorize a
 response, damage function, or SCC input. The MRI SSP1-2.6 and SSP3-7.0
 end-century pairs now pass the same complete-file, same-realization GMST,
-feature, and reconciliation gates, raising tracked progress to 40/60 files and
-twenty blocks. Matched SSP3-7.0 minus SSP1-2.6 means are +2.928 C, +2.24 mm
+feature, and reconciliation gates. Matched SSP3-7.0 minus SSP1-2.6 means are +2.928 C, +2.24 mm
 rain, -0.97 wet days, +2.41 maximum-dry-spell days, +0.25 mm Rx1day, and
-+1.15 mm Rx5day. SSP5-8.5 end century remains missing, so no MRI end-century
-whole-scenario result is claimed.
++1.15 mm Rx5day. The MRI SSP5-8.5 end-century pair and block also pass,
+raising tracked progress to 42/60 files and twenty-one blocks. Relative to
+SSP1-2.6, means are +4.591 C, -13.23 mm rain, -2.62 wet days, +5.44 maximum-
+dry-spell days, +0.75 mm Rx1day, and +0.56 mm Rx5day. The 181,104-row MRI end-
+century holdout improves 16/33 comparisons, has median/maximum RMSE ratios of
+1.00006/1.06514, and flags 27,090 values (14.96%) outside support. This mixed,
+adverse engineering result does not authorize a response, damage, or SCC input.
 
 ## Completed empirical checks
 

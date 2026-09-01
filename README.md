@@ -127,9 +127,15 @@ response, damage, and SCC gates remain closed. The MRI SSP1-2.6 and SSP3-7.0
 2091--2100 pairs now also pass exact complete-file, same-realization GMST,
 bounded feature, and reconciliation gates. SSP3-7.0 minus SSP1-2.6 averages
 +2.928 C, +2.24 mm seasonal rain, -0.97 wet days, +2.41 maximum-dry-spell
-days, +0.25 mm Rx1day, and +1.15 mm Rx5day. This raises progress to 40/60
-files and twenty blocks; the missing MRI SSP5-8.5 end-century cell keeps the
-end-century whole-scenario, response, damage, and SCC gates closed. Against matched
+days, +0.25 mm Rx1day, and +1.15 mm Rx5day. The MRI SSP5-8.5 end-century pair
+then passes the same gates, raising progress to 42/60 files and twenty-one
+blocks. SSP5-8.5 minus SSP1-2.6 averages +4.591 C, -13.23 mm seasonal rain,
+-2.62 wet days, +5.44 maximum-dry-spell days, +0.75 mm Rx1day, and +0.56 mm
+Rx5day. Its 181,104-row whole-scenario audit improves 16/33 comparisons
+(median RMSE ratio 1.00006; maximum 1.06514), including 9/11 for held-out
+SSP5-8.5, while 27,090 values (14.96%) fall outside support. This mixed,
+adverse engineering result keeps the response, damage, and SCC gates closed.
+Against matched
 IPSL SSP1-2.6 cells, mean SSP3-7.0 differences at
 midcentury are +0.365 C, +13.22 mm seasonal rain, +0.93 wet days, -1.36
 maximum dry-spell days, +2.18 mm Rx1day, and +3.84 mm Rx5day. At end century,

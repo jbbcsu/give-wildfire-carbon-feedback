@@ -1,4 +1,4 @@
-# MRI-ESM2-0 SSP1-2.6/SSP3-7.0 end-century validation
+# MRI-ESM2-0 three-scenario end-century validation
 
 The frozen MRI-ESM2-0 `r1i1p1f1` SSP1-2.6 and SSP3-7.0 precipitation and
 mean-temperature files for 2091--2100 pass exact byte, SHA-512, 3,652-day
@@ -21,6 +21,16 @@ two-latitude climate-feature diagnostics, not crop-response or damage effects.
 
 Together with the completed midcentury matrix, these two cells raise the
 registered expansion to 40 of 60 files and twenty bounded feature blocks.
-MRI SSP5-8.5 end century is still absent, so no end-century whole-scenario
-holdout is claimed. Whole-ESM support, FAIR baseline/pulse feature support,
-production response, damage, and SCC gates remain closed.
+The subsequently acquired SSP5-8.5 pair passes the same gates and adds a third
+5,488-season/16,464-stage block. Relative to SSP1-2.6, it averages +4.591 C,
+-13.229 mm seasonal rain, -2.623 wet days, +5.436 maximum-dry-spell days,
++0.754 mm Rx1day, and +0.560 mm Rx5day.
+
+The completed 181,104-row end-century matrix improves 16 of 33 whole-scenario
+GMST comparisons over the cell-mean benchmark. The median and maximum RMSE
+ratios are 1.00006 and 1.06514; 27,090 held-out feature values (14.96%) lie
+outside the two-scenario support envelope. SSP3-7.0 improves only 2 of 11
+comparisons. This adverse/mixed engineering result raises registered progress
+to 42 of 60 files and twenty-one bounded blocks but does not authorize a
+production emulator. Whole-ESM support, FAIR baseline/pulse feature support,
+response, damage, and SCC gates remain closed.
