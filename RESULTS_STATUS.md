@@ -162,6 +162,14 @@ and +2.48 mm Rx5day. They are descriptive period means, not a response or
 causal contrast. Coverage is 52/60 files and twenty-six blocks; four UKESM
 pairs and every production/damage/SCC gate remain open.
 
+The UKESM SSP3-7.0 2041--2050 pair passes exact catalogue bytes/SHA-512,
+explicit-midnight decoded content, same-realization GMST, and byte-identical
+5,488-season/16,464-stage reconciliation. Against the exact-key SSP1-2.6 cell,
+mean changes are +0.876 C, -6.76 mm rain, -0.72 wet days, +2.66 maximum-dry-
+spell days, -0.53 mm Rx1day, and +1.60 mm Rx5day. Coverage is 54/60 files and
+twenty-seven blocks; three UKESM pairs, the five-ESM rerun, FAIR feature
+support, response, damage, welfare, and SCC gates remain open.
+
 ## Completed empirical checks
 
 Unless explicitly labeled current-hash and basis-before-weighting, response

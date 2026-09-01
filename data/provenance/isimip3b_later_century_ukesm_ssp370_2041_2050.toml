@@ -1,0 +1,123 @@
+schema_version = 1
+checked_utc_date = "2026-09-01"
+role = "ukesm_ssp370_midcentury_complete_pr_tas_gmst_and_bounded_feature_gate_not_response_damage_or_scc"
+source_catalogue = "https://data.isimip.org/api/v1/datasets/"
+resource_doi = "10.48364/ISIMIP.842396.1"
+rights = "CC0 1.0"
+dataset_version = "20210512"
+plan_config = "config/isimip3b_later_century_expansion_v1.toml"
+plan_config_sha256 = "d23e68a32ddf26194477acb7f2bca18cedbf050844ada859bc05fbbd7f27d963"
+plan_snapshot = "data/provenance/isimip3b_later_century_plan.csv"
+plan_snapshot_sha256 = "19a93485a9d51dade6328daadca540a48bb946a13d85cf276d3b77cc1f195767"
+esm = "UKESM1-0-LL"
+member = "r1i1p1f2"
+scenario = "ssp370"
+period_start_year = 2041
+period_end_year = 2050
+daily_timestamp_hour_utc = 0
+
+[precipitation]
+dataset_id = "92deba84-0382-45b8-b370-ef35ab564517"
+file_id = "605731b0-cce2-4bd8-8f89-ae395c90c5f5"
+file_name = "ukesm1-0-ll_r1i1p1f2_w5e5_ssp370_pr_global_daily_2041_2050.nc"
+bytes = 2130116158
+sha512 = "2933282641424a01b007ddbd967576061d3a9aa669a8788f5843c9b2cdfb0bff88697cd68d281e97ea91410b7e7714caa8753422259004b4302d88176a693714"
+content_audit = "data/interim/isimip3b/ukesm1-0-ll_ssp370_pr_2041_2050_content_audit.json"
+content_audit_sha256 = "4e23f5e185bf00595ea1835b990d7e8abb8f493434decc59f5efcf2ca046c2bf"
+validator = "scripts/validate_isimip3b_pr_content.py"
+validator_sha256 = "1634ee42acce3392ac14d69eeb35c307924dcbef49499ff9b01cafd2a9312710"
+calendar = "proleptic_gregorian"
+start_time = "2041-01-01T00:00:00"
+end_time = "2050-12-31T00:00:00"
+daily_steps = 3652
+grid = "360 x 720 global 0.5 degree; latitude descending; longitude -179.75 to 179.75"
+units = "kg m-2 s-1"
+finite_values = 946598400
+missing_values = 0
+negative_values = 0
+zero_values = 352148613
+minimum_flux = 0.0
+maximum_flux = 0.0069444444961845875
+result = "passed"
+
+[paired_temperature]
+dataset_id = "fce39d22-a04f-4dc0-8d99-251a76613128"
+file_id = "8614f197-e795-4ef6-8587-21b3831e413d"
+file_name = "ukesm1-0-ll_r1i1p1f2_w5e5_ssp370_tas_global_daily_2041_2050.nc"
+bytes = 2061169412
+sha512 = "a9ab4a46899f522409a989771a0f985bbf8de111907050ef27d478d29f5804e47d990ec8d5896289fb12ee54be5704df1e4dccc79c7fa78a51e1c30b3cfb3eba"
+content_audit = "data/interim/isimip3b/ukesm1-0-ll_ssp370_tas_2041_2050_content_audit.json"
+content_audit_sha256 = "df449143c4641732e3f016a22d1cc3a5778f87ccff4cb3473d3c964d7ac71c9b"
+validator = "scripts/validate_isimip3b_tas_content.py"
+validator_sha256 = "d5876ecc3682d94c991659cb14dd7a582ec0684fdd77e3ecfb6c2bec8b503b0f"
+calendar = "proleptic_gregorian"
+start_time = "2041-01-01T00:00:00"
+end_time = "2050-12-31T00:00:00"
+daily_steps = 3652
+grid = "360 x 720 global 0.5 degree; latitude descending; longitude -179.75 to 179.75"
+units = "K"
+finite_values = 946598400
+missing_values = 0
+minimum_temperature_k = 193.70730590820312
+maximum_temperature_k = 321.9544677734375
+result = "passed"
+
+[same_realization_gmst]
+builder = "scripts/build_same_realization_gmst.py"
+builder_sha256 = "0857b59cf0721bb48277e8b8b392c6ad1f0bde0d83d1ee311b8b24b6ccb00e9b"
+source_id = "isimip3b-20210512-fce39d22-a04f-4dc0-8d99-251a76613128-8614f197-e795-4ef6-8587-21b3831e413d"
+output = "data/interim/isimip3b/ukesm1-0-ll_r1i1p1f2_ssp370_gmst_2041_2050.parquet"
+output_sha256 = "1f9291fbd763bab67678ff177caf0ddc3de269857982b5827d71ab614dcf7d53"
+years = [2041, 2042, 2043, 2044, 2045, 2046, 2047, 2048, 2049, 2050]
+daily_counts = [365, 365, 365, 366, 365, 365, 365, 366, 365, 365]
+gmst_values_k = [289.4869085835015, 289.5078118866418, 289.61165538828317, 289.63884999202736, 289.816215330402, 289.9750785642403, 289.8899287013223, 289.96259955096156, 290.06145078148893, 290.0932125204446]
+result = "passed"
+
+[bounded_crop_feature_smoke]
+crop = "mai"
+irrigation = "noirr"
+calendar_file = "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_mai_noirr.nc"
+harvest_years = [2042, 2043, 2044, 2045, 2046, 2047, 2048, 2049]
+latitude_index_start = 100
+latitude_index_stop_exclusive = 102
+season_rows = 5488
+stage_rows = 16464
+stage_count = 3
+season_output = "data/interim/isimip3b_ukesm_ssp370_2041_2050_smoke/mai_noirr_2042_2049_lat100_102_features.parquet"
+season_output_sha256 = "58cd2cebc5c856e14fc31179e933864abbaac5db0e2ac83984d5e07fa66e89c8"
+stage_output = "data/interim/isimip3b_ukesm_ssp370_2041_2050_smoke/mai_noirr_2042_2049_lat100_102_stages.parquet"
+stage_output_sha256 = "c267a25a2e83638871f2cd244f20aa2b32fb148e2b31114ac62aca2039b68a40"
+reconciliation_audit = "data/interim/isimip3b_ukesm_ssp370_2041_2050_smoke/reconciliation_audit.json"
+reconciliation_audit_sha256 = "2aad84ddaea0d0f57b44b29534e53e65346bc60c049ab3cbe05f7e54d5fe9c88"
+reconciliation_max_absolute_differences = { stage_days = 0.0, precip_mm = 0.0, wet_days_n = 0.0, rx1day_mm = 0.0 }
+validated_metrics = ["seasonal precipitation quantity", "within-season stage quantity", "timing centroid", "concentration", "wet-day count", "maximum dry spell", "Rx1day", "Rx5day", "daily mean temperature"]
+result = "passed"
+
+[matched_ssp370_minus_ssp126_feature_comparison]
+reference = "UKESM1-0-LL SSP1-2.6 2041--2050"
+candidate = "UKESM1-0-LL SSP3-7.0 2041--2050"
+output = "data/interim/isimip3b_ukesm_ssp370_2041_2050_smoke/ssp370_minus_ssp126_feature_comparison.json"
+output_sha256 = "01b9dfb0bae8e5d2f6e61c2008049791fde8dd9c4dce6ca0e704a80b83378575"
+matched_rows = 5488
+tmean_c = 0.8761331274584153
+precip_mm = -6.761408357332534
+wet_days_n = -0.7230320699708455
+cdd_max_days = 2.6605320699708455
+rx1day_mm = -0.5277737886631324
+rx5day_mm = 1.59893557061129
+timing_centroid = 0.004772257986863902
+concentration_hhi = 0.012260057115443247
+response_damage_or_scc_evidence = false
+
+[limitations]
+later_century_complete_file_gates = 54
+later_century_total_file_gates = 60
+bounded_feature_blocks = 27
+paired_pr_tas_complete = true
+same_realization_gmst_built = true
+crop_features_built = true
+whole_scenario_holdout_rerun = false
+whole_esm_holdout_rerun = false
+fair_baseline_pulse_feature_support_rerun = false
+production_emulator_authorized = false
+damage_or_scc_authorized = false

@@ -423,7 +423,12 @@ slice end-century-minus-midcentury means are +0.849 C, -3.19 mm rain, +0.33
 wet days, +0.49 maximum-dry-spell days, +0.69 mm Rx1day, and +2.48 mm Rx5day.
 These descriptive period means are not a yield response or causal contrast.
 Coverage is 52/60 files and twenty-six blocks; four UKESM pairs and every
-production gate remain open. For IPSL, SSP3-7.0 relative to matched SSP1-2.6
+production gate remain open. The UKESM SSP3-7.0 midcentury pair passes the
+same gates. Relative to the exact-key SSP1-2.6 cell, mean changes are +0.876 C,
+-6.76 mm seasonal rain, -0.72 wet days, +2.66 maximum-dry-spell days, -0.53 mm
+Rx1day, and +1.60 mm Rx5day. Coverage is 54/60 files and twenty-seven blocks.
+This is descriptive climate-feature support, not a response, damage function,
+or SCC input. For IPSL, SSP3-7.0 relative to matched SSP1-2.6
 cells has midcentury mean
 differences of +0.365 C, +13.22 mm seasonal rain, +0.93 wet
 days, -1.36 maximum dry-spell days, +2.18 mm Rx1day, and +3.84 mm Rx5day. The
