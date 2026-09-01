@@ -39,6 +39,8 @@ def validate(config_path: Path, root: Path) -> dict[str, object]:
     require(config.get("required_feature_families") == FEATURES, "feature-family order changed")
     require(config.get("required_esm_ids") == ESMS, "ESM set changed")
     require(config.get("required_scenarios") == SCENARIOS, "scenario set changed")
+    training_path = root / str(config.get("training_artifact"))
+    require(sha256(training_path) == config.get("training_artifact_sha256"), "training artifact hash changed")
 
     sources = config.get("source_receipts", [])
     require([source.get("role") for source in sources] == [
@@ -59,6 +61,8 @@ def validate(config_path: Path, root: Path) -> dict[str, object]:
     require(basis.get("standardize_within_training_fold_only") is True, "fold-local standardization is required")
     require(basis.get("gmst_change_requires_same_realization_previous_year") is True, "GMST change identity gate changed")
     require(basis.get("cross_block_gmst_differences_forbidden") is True, "cross-block GMST differences are forbidden")
+    require(basis.get("gmst_anomaly_reference") == "same_esm_2012_2014_historical_mean", "GMST anomaly reference changed")
+    require(basis.get("first_year_of_each_consecutive_block_excluded") is True, "block-edge change rows must be excluded")
     require(basis.get("unseen_esm_deviations_in_whole_esm_holdout") == "zero_global_backbone_only", "whole-ESM prediction rule changed")
 
     regularization = config.get("regularization", {})
@@ -66,12 +70,17 @@ def validate(config_path: Path, root: Path) -> dict[str, object]:
     require(regularization.get("lambda_grid") == [0.001, 0.01, 0.1, 1.0, 10.0, 100.0], "lambda grid changed")
     require(regularization.get("outer_holdouts_excluded_from_lambda_selection") is True, "outer holdout leaked into selection")
     require(regularization.get("probability_weights_assigned_to_esms") is False, "ESMs cannot be treated as probability draws")
+    require(regularization.get("lambda_selected_separately_by_feature_family") is True, "lambda selection grouping changed")
+    require(regularization.get("lambda_shared_across_grid_cells_within_feature_family") is True, "cell-specific lambda selection is forbidden")
+    require(regularization.get("inner_holdouts_for_outer_whole_esm") == "whole_future_scenario", "inner scenario holdouts changed")
+    require(regularization.get("inner_holdouts_for_outer_whole_scenario") == "whole_esm", "inner ESM holdouts changed")
 
     validation = config.get("validation", {})
     require(validation.get("outer_holdouts") == ["whole_esm", "whole_scenario"], "outer holdouts changed")
     for gate in ("required_common_random_numbers", "required_same_realization_gmst", "required_baseline_and_pulse_support_flags", "required_zero_pulse_identity", "required_pre_divergence_identity", "required_direct_centered_agreement", "required_multicrop_reporting", "required_rainfed_irrigated_calendar_reporting"):
         require(validation.get(gate) is True, f"validation gate changed: {gate}")
     require(validation.get("required_decreasing_positive_pulse_scales") >= 3, "at least three decreasing pulse scales are required")
+    require(validation.get("benchmark") == "training_fold_cell_feature_mean", "benchmark changed")
 
     promotion = config.get("promotion", {})
     require(float(promotion.get("maximum_outer_holdout_rmse_ratio_to_cell_mean", 2)) <= 1.0, "maximum holdout criterion weakened")
@@ -87,6 +96,7 @@ def validate(config_path: Path, root: Path) -> dict[str, object]:
         "config": {"path": config_path.resolve().relative_to(root.resolve()).as_posix(), "sha256": sha256(config_path)},
         "implementation": {"path": Path(__file__).resolve().relative_to(root.resolve()).as_posix(), "sha256": sha256(Path(__file__))},
         "source_receipts": checked_sources,
+        "training_artifact": {"path": config["training_artifact"], "sha256": config["training_artifact_sha256"]},
         "candidate": {"method": "ridge", "continuous_terms": CONTINUOUS_TERMS, "esm_partial_pooling": True, "scenario_categorical_effect": False},
         "whole_esm_holdout_required": True,
         "whole_scenario_holdout_required": True,

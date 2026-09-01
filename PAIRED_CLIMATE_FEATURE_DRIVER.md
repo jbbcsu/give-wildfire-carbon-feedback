@@ -392,7 +392,11 @@ basis uses continuous same-realization GMST level/change and time interactions,
 partially pooled ESM deviations, fold-local standardization, and no scenario
 categorical effect. Actual FAIR common-random-number support, zero/pre-
 divergence identity, and decreasing-pulse convergence remain mandatory. The
-contract is validated but no real fit or promotion has occurred.
+contract was validated before the real fit and no promotion occurred.
+The first real nested run improves 71/88 feature-by-holdout comparisons, with
+median/maximum RMSE ratios 0.99443/1.00703 and 85 negative predictions. It
+therefore fails the preregistered maximum, every-feature, and physical-bounds
+criteria. No actual FAIR pulse path is evaluated with this rejected fit.
 
 ## Sources
 

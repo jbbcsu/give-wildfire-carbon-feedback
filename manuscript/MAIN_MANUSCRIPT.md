@@ -758,6 +758,14 @@ not an irrigation treatment effect. Because this remains one ESM, one period,
 two latitude rows, and no yield response, it cannot promote the adverse
 aggregate emulator or enter damages or SCC calculations.
 
+The preregistered pathway-aware ridge candidate also fails promotion. It
+improves 71 of 88 nested whole-ESM/whole-scenario feature comparisons and its
+median RMSE ratio to the cell-mean benchmark is 0.99443, but the maximum ratio
+is 1.00703 and 85 predictions violate nonnegative feature bounds. The locked
+maximum, every-feature, and physical-bounds criteria therefore fail. We do not
+propagate this candidate through the actual FAIR pulse paths or into crop
+responses, damages, or SCC calculations.
+
 ### 6.3 Marginal damages and global SCC
 
 Report global agricultural marginal damages and SCC under each adaptation

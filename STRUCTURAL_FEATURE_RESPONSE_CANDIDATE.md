@@ -26,6 +26,12 @@ The contract is `config/isimip3b_structural_feature_response_v1.toml`, its
 validator is `scripts/validate_isimip3b_structural_feature_response_contract.py`,
 and the receipt is
 `data/provenance/isimip3b_structural_feature_response_contract_20260901.json`.
-No real candidate fit has been run. The contract authorizes neither a climate
-response, crop-yield response, damages, nor SCC use. MESMER-M-TP plus a
-published daily generator remains the fallback only.
+The first real nested evaluation covers 88 feature-by-holdout comparisons.
+The candidate beats the cell-mean benchmark in 71, with a median RMSE ratio of
+0.99443, but the maximum ratio is 1.00703 and 85 negative predictions violate
+physical feature bounds. Whole-ESM comparisons improve in 40/55 and whole-
+scenario comparisons in 31/33. The candidate therefore fails its locked
+maximum-RMSE, every-feature, and physical-bounds criteria and is not promoted.
+The contract authorizes neither a climate response, crop-yield response,
+damages, nor SCC use. MESMER-M-TP plus a published daily generator remains the
+fallback only.

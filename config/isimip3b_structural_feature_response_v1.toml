@@ -3,6 +3,8 @@ role = "outcome_blind_pathway_aware_candidate_not_promoted_response_damage_or_sc
 primary_climate_route = "direct_isimip3b_daily_feature_response"
 fallback_climate_route = "mesmer_m_tp_plus_published_daily_generator"
 training_target = "one_daily_derived_crop_feature_within_exact_crop_irrigation_grid_cell"
+training_artifact = "data/interim/isimip3b_expanded_fair_training/training.parquet"
+training_artifact_sha256 = "6d02baa5df280c91beff3a0e35b139460f73d00ae75b362e2a3755e9c213282d"
 scenario_categorical_effect = false
 production_promoted = false
 response_estimation_authorized = false
@@ -37,6 +39,8 @@ scenario_identity_as_predictor = false
 calendar_year_available_to_pulse_pair = true
 gmst_change_requires_same_realization_previous_year = true
 cross_block_gmst_differences_forbidden = true
+gmst_anomaly_reference = "same_esm_2012_2014_historical_mean"
+first_year_of_each_consecutive_block_excluded = true
 
 [regularization]
 method = "ridge"
@@ -44,6 +48,10 @@ lambda_grid = [0.001, 0.01, 0.1, 1.0, 10.0, 100.0]
 selection = "nested_training_fold_minimum_mean_rmse_then_larger_lambda_within_0.1_percent"
 outer_holdouts_excluded_from_lambda_selection = true
 probability_weights_assigned_to_esms = false
+lambda_selected_separately_by_feature_family = true
+lambda_shared_across_grid_cells_within_feature_family = true
+inner_holdouts_for_outer_whole_esm = "whole_future_scenario"
+inner_holdouts_for_outer_whole_scenario = "whole_esm"
 
 [validation]
 outer_holdouts = ["whole_esm", "whole_scenario"]
@@ -56,6 +64,7 @@ required_direct_centered_agreement = true
 required_decreasing_positive_pulse_scales = 3
 required_multicrop_reporting = true
 required_rainfed_irrigated_calendar_reporting = true
+benchmark = "training_fold_cell_feature_mean"
 
 [promotion]
 maximum_outer_holdout_rmse_ratio_to_cell_mean = 1.0

@@ -573,3 +573,12 @@ minus-SSP1-2.6 seasonal rainfall ranges from -38.27 mm (winter wheat) to
 -16.94 mm rain/-0.83 dry-spell days under SSP1-2.6 and -12.43 mm/-0.80 days
 under SSP5-8.5. These are bounded climate/calendar diagnostics, not yield,
 irrigation-treatment, damage, or SCC estimates.
+
+The preregistered pathway-aware ridge candidate has now been evaluated under
+nested whole-ESM and whole-scenario folds. It improves 71/88 feature-by-
+holdout comparisons and passes the median RMSE-ratio criterion at 0.99443, but
+fails the locked maximum criterion at 1.00703. It also produces 85 negative
+predictions for nonnegative features. Whole-ESM folds improve in 40/55 and
+whole-scenario folds in 31/33. The maximum, every-feature, and physical-bounds
+promotion gates therefore fail; the candidate is not run through the actual
+FAIR pulse path and no response, damage, or SCC input is authorized.

@@ -1230,6 +1230,15 @@ FAIR baseline/pulse support, exact zero/pre-divergence identity, decreasing-
 pulse convergence, and human review. The validated contract is not a fitted or
 promoted response.
 
+In the first real run, lambda selection is nested within each outer holdout and
+shared across grid cells separately by feature family. First years of each
+discontinuous climate block are excluded from one-year GMST changes. The 88
+outer comparisons improve on the cell-mean benchmark 71 times; median and
+maximum RMSE ratios are 0.99443 and 1.00703. Eighty-five predictions violate
+nonnegative feature bounds. Because the locked maximum, every-feature, and
+physical-bounds rules fail, actual FAIR pulse evaluation and promotion are not
+performed.
+
 ## S10. Scientific integrity and independent review
 
 Every quantitative statement is classified as observed source data, derived
