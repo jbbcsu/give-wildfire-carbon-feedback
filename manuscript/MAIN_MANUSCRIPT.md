@@ -437,6 +437,10 @@ passes; its exact-key SSP5-8.5-minus-SSP1-2.6 mean changes are +1.195 C,
 +5.16 mm rain, -0.19 wet days, +0.55 maximum-dry-spell days, +2.37 mm Rx1day,
 and +6.68 mm Rx5day. Coverage is 58/60 files and twenty-nine blocks; the last
 UKESM pair and every response, damage, welfare, and SCC gate remain open. For
+the complete UKESM midcentury three-scenario product, GMST adjustment improves
+only 13/33 whole-scenario feature comparisons over the cell-mean benchmark;
+the maximum RMSE ratio is 1.22120 and 12.21% of held-out values lie outside
+exact support. This adverse result prevents production promotion. For
 IPSL, SSP3-7.0 relative to matched SSP1-2.6
 cells has midcentury mean
 differences of +0.365 C, +13.22 mm seasonal rain, +0.93 wet

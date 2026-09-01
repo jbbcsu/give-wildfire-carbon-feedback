@@ -184,6 +184,12 @@ change by +1.195 C, +5.16 mm rain, -0.19 wet days, +0.55 maximum-dry-spell
 days, +2.37 mm Rx1day, and +6.68 mm Rx5day. Coverage is 58/60 files and
 twenty-nine blocks; the end-century UKESM pair and complete five-ESM reruns
 remain required, and no response, damage, welfare, or SCC use is authorized.
+The complete UKESM midcentury three-scenario product has 181,104 rows. Whole-
+scenario GMST adjustment improves 13/33 feature comparisons over the cell-mean
+benchmark (median RMSE ratio 1.00035; maximum 1.22120), while 22,115 values
+(12.21%) are outside exact two-scenario support. Held-out SSP3-7.0 improves
+only 1/11 comparisons. This adverse outcome-blind result keeps production,
+FAIR baseline/pulse, response, damage, welfare, and SCC gates closed.
 Against matched IPSL SSP1-2.6 cells, mean SSP3-7.0 differences at
 midcentury are +0.365 C, +13.22 mm seasonal rain, +0.93 wet days, -1.36
 maximum dry-spell days, +2.18 mm Rx1day, and +3.84 mm Rx5day. At end century,

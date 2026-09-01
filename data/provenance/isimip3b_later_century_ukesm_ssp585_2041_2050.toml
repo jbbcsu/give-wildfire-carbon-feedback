@@ -109,6 +109,25 @@ timing_centroid = 0.007117378610497416
 concentration_hhi = 0.020442650560494158
 response_damage_or_scc_evidence = false
 
+[three_scenario_midcentury_holdout]
+config = "config/isimip3b_ukesm_three_scenario_midcentury_holdout_v1.toml"
+config_sha256 = "0356896cd7edb5c0db159f6d34eefc9e5a60c880bd22404f48e2ca98477b1add"
+evaluator = "scripts/evaluate_isimip3b_gfdl_three_scenario_midcentury_holdout.py"
+evaluator_sha256 = "cdd749963b77f0c449a137a257e9e17fb414dd7f6b251123c75005b1f6db3cd8"
+audit = "data/provenance/isimip3b_ukesm_three_scenario_midcentury_holdout_20260901.json"
+audit_sha256 = "8a122617f50dba8c583516b96f5423f547ee582cbf77b71802b5ad05beff633a"
+training_rows = 181104
+comparison_count = 33
+gmst_model_better_than_cell_mean_count = 13
+median_rmse_ratio_to_cell_mean = 1.000348644813725
+maximum_rmse_ratio_to_cell_mean = 1.2212037687836168
+held_out_feature_values = 181104
+held_out_feature_values_outside_two_scenario_support = 22115
+held_out_feature_values_outside_two_scenario_support_share = 0.12211215655093206
+ssp585_holdout_comparison_count = 11
+ssp585_holdout_gmst_model_better_count = 6
+result = "passed_engineering_holdout_and_support_only"
+
 [limitations]
 later_century_complete_file_gates = 58
 later_century_total_file_gates = 60
@@ -116,7 +135,7 @@ bounded_feature_blocks = 29
 paired_pr_tas_complete = true
 same_realization_gmst_built = true
 crop_features_built = true
-whole_scenario_holdout_rerun = false
+whole_scenario_holdout_rerun = true
 whole_esm_holdout_rerun = false
 fair_baseline_pulse_feature_support_rerun = false
 production_emulator_authorized = false

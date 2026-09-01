@@ -587,6 +587,11 @@ midnight, decoded-content, same-realization GMST, bounded-feature, exact-key
 comparison, and reconciliation gates. Coverage is 58/60 files and twenty-nine
 blocks. The 2091--2100 UKESM SSP5-8.5 pair and the complete five-ESM reruns
 remain required; no response, damage, welfare, or SCC use is authorized.
+The UKESM midcentury three-scenario holdout then applies the same fixed
+leave-one-whole-scenario-out estimator and exact support flags to 181,104
+rows. It improves 13/33 comparisons over the cell-mean benchmark, with a
+maximum RMSE ratio of 1.22120 and 12.21% of held-out values outside support.
+This engineering audit does not authorize the emulator or any downstream use.
 For IPSL, the exact-key
 SSP3-7.0-minus-SSP1-2.6 midcentury comparison finds
 mean differences of +0.365 C, +13.22 mm seasonal precipitation, +0.93 wet days,

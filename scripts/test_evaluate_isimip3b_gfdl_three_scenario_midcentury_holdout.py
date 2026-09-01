@@ -54,6 +54,12 @@ mpi_endcentury_config = tomllib.loads(
 )
 assert validate_config(mpi_endcentury_config)["period"] == "endcentury"
 assert mpi_endcentury_config["selection"]["esm_id"] == "MPI-ESM1-2-HR"
+ukesm_config = tomllib.loads(
+    (ROOT / "config/isimip3b_ukesm_three_scenario_midcentury_holdout_v1.toml").read_text(encoding="utf-8")
+)
+assert validate_config(ukesm_config)["period"] == "midcentury"
+assert ukesm_config["selection"]["esm_id"] == "UKESM1-0-LL"
+assert ukesm_config["selection"]["member_id"] == "r1i1p1f2"
 bad = copy.deepcopy(config)
 bad["limitations"]["damage_or_scc_authorized"] = True
 try:

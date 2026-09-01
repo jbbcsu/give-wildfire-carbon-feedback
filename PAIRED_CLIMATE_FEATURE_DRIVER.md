@@ -306,6 +306,11 @@ exact-key SSP5-8.5-minus-SSP1-2.6 means are +1.195 C, +5.16 mm rain, -0.19 wet
 days, +0.55 maximum-dry-spell days, +2.37 mm Rx1day, and +6.68 mm Rx5day.
 Coverage is 58/60 files and twenty-nine blocks; the final UKESM end-century
 pair and all production gates remain open.
+The complete UKESM midcentury three-scenario holdout contains 181,104 rows.
+GMST adjustment improves only 13/33 comparisons over the cell-mean benchmark
+(median/maximum RMSE ratios 1.00035/1.22120); 22,115 values (12.21%) are
+outside exact two-scenario support, and held-out SSP3-7.0 improves only 1/11.
+The registered adverse result keeps all production gates closed.
 Relative to matched IPSL SSP1-2.6 cells, mean SSP3-7.0 differences at
 midcentury are +0.365 C, +13.22 mm seasonal rain, +0.93 wet days, -1.36
 maximum dry-spell days, +2.18 mm Rx1day, and +3.84 mm Rx5day. The end-century

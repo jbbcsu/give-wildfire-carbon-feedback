@@ -183,6 +183,11 @@ changes are +1.195 C, +5.16 mm rain, -0.19 wet days, +0.55 maximum-dry-spell
 days, +2.37 mm Rx1day, and +6.68 mm Rx5day. Coverage is 58/60 files and
 twenty-nine blocks; the last UKESM pair plus all five-ESM, FAIR, response,
 damage, welfare, and SCC gates remain open.
+The complete 181,104-row UKESM midcentury whole-scenario audit improves only
+13/33 comparisons over the cell-mean benchmark, with median/maximum RMSE
+ratios 1.00035/1.22120 and 22,115 values (12.21%) outside exact support.
+Held-out SSP3-7.0 improves only 1/11 comparisons. This outcome-blind adverse
+evidence leaves every production and SCC gate closed.
 
 The fixed Cuming/Fresno official-NOAA-versus-polygon comparison now includes
 January 2019 as a recent-boundary check. All four variables retain exact
