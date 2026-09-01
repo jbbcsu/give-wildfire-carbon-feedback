@@ -333,6 +333,14 @@ pre-divergence, direct/centered, and decreasing-pulse gates with maximum method
 disagreement `2.56e-13`. This closes bounded aggregate FAIR feature support,
 not the production response gate: one crop/regime, two latitude rows, adverse
 holdout evidence, and absent direct daily support after 2100 remain binding.
+The bounded UKESM midcentury multi-crop extension separately validates rainfed
+first- and second-season rice, soybean, spring wheat, and winter wheat plus a
+soybean irrigated-calendar cell. All declared crop-years and stages pass the
+same finite/bounded feature and exact reconciliation gates. SSP5-8.5-minus-
+SSP1-2.6 rainfall and dry-spell changes vary materially across crop calendars,
+and soybean's irrigated/rainfed exposure difference remains labeled calendar
+sensitivity rather than an irrigation effect. This narrows the maize-only
+support gap but does not promote a response surface or authorize damages/SCC.
 Relative to matched IPSL SSP1-2.6 cells, mean SSP3-7.0 differences at
 midcentury are +0.365 C, +13.22 mm seasonal rain, +0.93 wet days, -1.36
 maximum dry-spell days, +2.18 mm Rx1day, and +3.84 mm Rx5day. The end-century

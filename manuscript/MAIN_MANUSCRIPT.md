@@ -746,6 +746,18 @@ GIVE-aggregated agriculture damage paths remain zero. It therefore establishes
 execution/connectivity only and supplies no empirical response, paired marginal
 damage, or SCC evidence.
 
+Future-climate feature support is no longer evaluated on maize alone. A
+checksum-bound UKESM midcentury diagnostic adds first- and second-season rice,
+soybean, spring wheat, and winter wheat rainfed calendars plus a soybean
+irrigated calendar. Every cell passes finite/bounded rainfall, wet-day,
+dry-spell, Rx1day/Rx5day, complete-year, and exact seasonal/stage reconciliation
+checks. SSP5-8.5-minus-SSP1-2.6 mean rainfall ranges from -38.27 to +19.05 mm
+and maximum-dry-spell changes range from +0.46 to +9.56 days across rainfed
+crops. The soybean irrigation comparison is a calendar-exposure sensitivity,
+not an irrigation treatment effect. Because this remains one ESM, one period,
+two latitude rows, and no yield response, it cannot promote the adverse
+aggregate emulator or enter damages or SCC calculations.
+
 ### 6.3 Marginal damages and global SCC
 
 Report global agricultural marginal damages and SCC under each adaptation

@@ -1,0 +1,90 @@
+schema_version = 1
+role = "bounded_multicrop_and_calendar_support_not_yield_response_damage_or_scc"
+esm = "UKESM1-0-LL"
+member = "r1i1p1f2"
+reference_scenario = "ssp126"
+candidate_scenario = "ssp585"
+year_start = 2042
+year_end = 2049
+expected_season_rows_per_cell = 5488
+expected_stage_rows_per_cell = 16464
+expected_stages = 3
+required_cells = ["ri1_noirr", "ri2_noirr", "soy_noirr", "soy_firr", "swh_noirr", "wwh_noirr"]
+
+[[source_provenance]]
+scenario = "ssp126"
+path = "data/provenance/isimip3b_later_century_ukesm_ssp126_2041_2050.toml"
+sha256 = "a33ad8c781ea549961b4231e1c38ebdd14b0e7a6f074e22d92238bcb66c452b5"
+
+[[source_provenance]]
+scenario = "ssp585"
+path = "data/provenance/isimip3b_later_century_ukesm_ssp585_2041_2050.toml"
+sha256 = "f70398f29e7408d986e47eb029a48602c98dd0d6dd52f11143082e46a6cc9518"
+
+[[cells]]
+id = "ri1_noirr"
+crop = "ri1"
+irrigation = "noirr"
+calendar = "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_ri1_noirr.nc"
+calendar_sha256 = "1cd9a8fa665f91b660b7401ee978d34e3d376ce6cc740c3ebce12a7f876b5684"
+reference_season = "data/interim/isimip3b_ukesm_multicrop_ssp126_2041_2050/ri1_noirr/season.parquet"
+reference_stages = "data/interim/isimip3b_ukesm_multicrop_ssp126_2041_2050/ri1_noirr/stages.parquet"
+candidate_season = "data/interim/isimip3b_ukesm_multicrop_ssp585_2041_2050/ri1_noirr/season.parquet"
+candidate_stages = "data/interim/isimip3b_ukesm_multicrop_ssp585_2041_2050/ri1_noirr/stages.parquet"
+
+[[cells]]
+id = "ri2_noirr"
+crop = "ri2"
+irrigation = "noirr"
+expected_season_rows = 3264
+expected_stage_rows = 9792
+calendar = "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_ri2_noirr.nc"
+calendar_sha256 = "e8fbee16a2b86560409a90b11fe5af35f5886c1689ed534c41a7453c2ace6299"
+reference_season = "data/interim/isimip3b_ukesm_multicrop_ssp126_2041_2050/ri2_noirr/season.parquet"
+reference_stages = "data/interim/isimip3b_ukesm_multicrop_ssp126_2041_2050/ri2_noirr/stages.parquet"
+candidate_season = "data/interim/isimip3b_ukesm_multicrop_ssp585_2041_2050/ri2_noirr/season.parquet"
+candidate_stages = "data/interim/isimip3b_ukesm_multicrop_ssp585_2041_2050/ri2_noirr/stages.parquet"
+
+[[cells]]
+id = "soy_noirr"
+crop = "soy"
+irrigation = "noirr"
+calendar = "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_soy_noirr.nc"
+calendar_sha256 = "0c6d5fe1f5d6fc262e5c2e46d626204d36200a4890402f52ffd4f3b0d38834d3"
+reference_season = "data/interim/isimip3b_ukesm_multicrop_ssp126_2041_2050/soy_noirr/season.parquet"
+reference_stages = "data/interim/isimip3b_ukesm_multicrop_ssp126_2041_2050/soy_noirr/stages.parquet"
+candidate_season = "data/interim/isimip3b_ukesm_multicrop_ssp585_2041_2050/soy_noirr/season.parquet"
+candidate_stages = "data/interim/isimip3b_ukesm_multicrop_ssp585_2041_2050/soy_noirr/stages.parquet"
+
+[[cells]]
+id = "soy_firr"
+crop = "soy"
+irrigation = "firr"
+calendar = "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_soy_firr.nc"
+calendar_sha256 = "268eaa89d5cbfe2545f760dc65b44dc423bf47f0a508817cf279516ba9ad3ee3"
+reference_season = "data/interim/isimip3b_ukesm_multicrop_ssp126_2041_2050/soy_firr/season.parquet"
+reference_stages = "data/interim/isimip3b_ukesm_multicrop_ssp126_2041_2050/soy_firr/stages.parquet"
+candidate_season = "data/interim/isimip3b_ukesm_multicrop_ssp585_2041_2050/soy_firr/season.parquet"
+candidate_stages = "data/interim/isimip3b_ukesm_multicrop_ssp585_2041_2050/soy_firr/stages.parquet"
+
+[[cells]]
+id = "swh_noirr"
+crop = "swh"
+irrigation = "noirr"
+calendar = "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_swh_noirr.nc"
+calendar_sha256 = "2455984a6110f1e401c147f61fd3f6d032dd61cf25c42082ae9986ed63ead790"
+reference_season = "data/interim/isimip3b_ukesm_multicrop_ssp126_2041_2050/swh_noirr/season.parquet"
+reference_stages = "data/interim/isimip3b_ukesm_multicrop_ssp126_2041_2050/swh_noirr/stages.parquet"
+candidate_season = "data/interim/isimip3b_ukesm_multicrop_ssp585_2041_2050/swh_noirr/season.parquet"
+candidate_stages = "data/interim/isimip3b_ukesm_multicrop_ssp585_2041_2050/swh_noirr/stages.parquet"
+
+[[cells]]
+id = "wwh_noirr"
+crop = "wwh"
+irrigation = "noirr"
+calendar = "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_wwh_noirr.nc"
+calendar_sha256 = "9e8702d3e5899da442ab6f96b252aee5bcf2bb8b34e264887538510abe9e12ef"
+reference_season = "data/interim/isimip3b_ukesm_multicrop_ssp126_2041_2050/wwh_noirr/season.parquet"
+reference_stages = "data/interim/isimip3b_ukesm_multicrop_ssp126_2041_2050/wwh_noirr/stages.parquet"
+candidate_season = "data/interim/isimip3b_ukesm_multicrop_ssp585_2041_2050/wwh_noirr/season.parquet"
+candidate_stages = "data/interim/isimip3b_ukesm_multicrop_ssp585_2041_2050/wwh_noirr/stages.parquet"

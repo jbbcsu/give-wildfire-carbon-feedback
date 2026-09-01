@@ -562,3 +562,14 @@ nonrepresentative sample. Together, the later-period and support-sensitivity
 results favor the parsimonious quantity reference for continued work while
 leaving drought-index families as genuine competitors. They remain
 predictive, not causal or SCC evidence.
+
+The checksum-bound UKESM midcentury multi-crop support audit covers six
+crop/regime cells. Five have 5,488 seasonal rows; second-season rice has 3,264.
+All have three stage rows per season and exact reconciliation. Mean SSP5-8.5-
+minus-SSP1-2.6 seasonal rainfall ranges from -38.27 mm (winter wheat) to
++19.05 mm (second-season rice), maximum-dry-spell changes range from +0.46 to
++9.56 days across rainfed crops, and Rx5day changes range from -3.26 to
++10.37 mm. Soybean irrigated-calendar minus rainfed-calendar exposure is
+-16.94 mm rain/-0.83 dry-spell days under SSP1-2.6 and -12.43 mm/-0.80 days
+under SSP5-8.5. These are bounded climate/calendar diagnostics, not yield,
+irrigation-treatment, damage, or SCC estimates.

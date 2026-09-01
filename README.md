@@ -88,6 +88,16 @@ This closes a bounded aggregate feature-support engineering gate only: the
 affine surface was not promoted by holdout evidence, represents one crop/regime
 and two latitude rows, and has no direct daily support after 2100. Response,
 damage, welfare, and SCC use remains unauthorized.
+The first registered multi-crop expansion now adds first- and second-season
+rice, soybean, spring wheat, and winter wheat rainfed-calendar cells plus a
+soybean irrigated-calendar cell for UKESM midcentury SSP1-2.6/SSP5-8.5. All
+six pass exact seasonal/stage reconciliation and checksum-bound provenance;
+second-season rice's lower 3,264-row support is explicit. Rainfall, dry-spell,
+extreme-rain, and timing changes are heterogeneous across crops, while the
+soybean irrigation contrast is explicitly a calendar sensitivity rather than
+a treatment effect. See
+[ISIMIP3B_MULTICROP_SUPPORT_AUDIT.md](ISIMIP3B_MULTICROP_SUPPORT_AUDIT.md).
+No response, damage, or SCC gate is opened.
 A registered later-century expansion now fixes the next acquisition before any
 later-century feature or response result is examined. It selects exactly the
 2041--2050 and 2091--2100 `pr`/`tas` files for the full five-ESM by three-SSP

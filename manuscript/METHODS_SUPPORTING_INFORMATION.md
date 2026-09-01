@@ -1205,6 +1205,18 @@ descriptive only. Missing crops, duplicate results, stale configurations,
 inconsistent benchmark values, nonfinite metrics, and failed arithmetic stop
 the reporting workflow.
 
+The future-feature multi-crop support audit is separately frozen in
+`config/isimip3b_ukesm_multicrop_midcentury_support_v1.toml`. It binds the
+exact UKESM SSP1-2.6 and SSP5-8.5 source-provenance receipts and six crop-
+calendar files by SHA-256. For each declared crop/regime it requires the exact
+2042--2049 year set, declared row counts, crop and irrigation labels, three
+stage IDs, finite/nonnegative precipitation features, bounded wet-day and
+maximum-dry-spell counts, Rx1day/Rx5day ordering, identical scenario keys, and
+independent stage-to-season reconciliation. The receipt reports paired
+quantity, timing, dry-spell, and extreme-rain summaries and an exact-key
+soybean calendar sensitivity. It explicitly sets whole-scenario, whole-ESM,
+causal-yield, irrigation-treatment, damage, and SCC gates to false.
+
 ## S10. Scientific integrity and independent review
 
 Every quantitative statement is classified as observed source data, derived

@@ -91,6 +91,17 @@ Polygon-minus-official monthly precipitation is -0.3216 mm in Cuming and
 close bounded agreement does not establish estimator equivalence or authorize
 a route replacement, response, damage, or SCC input.
 
+## June 2019 growing-season check
+
+The fixed counties and variables now also cover June 2019, selected as a
+growing-season month without using yield outcomes. Official files retain exact
+3,107-county support and both routes retain 30 finite days. Polygon-minus-
+official monthly precipitation is +0.4135 mm in Cuming and +0.0449 mm in
+Fresno. Daily correlations are 0.99981 and 0.99995 for precipitation and at
+least 0.99999 for temperature. The largest daily difference is 0.2361 mm.
+These nonzero differences continue to reject general estimator equivalence and
+authorize no weather-route replacement, response, damage, or SCC input.
+
 ## Reproduction and evidence boundary
 
 The executable is
@@ -109,7 +120,9 @@ and the leap-month extension in
 with the recent-boundary extension in
 `../data/provenance/us_nclimgrid_county_average_estimator_comparison_201901_20260901.json`,
 and the recent-period seasonality extension in
-`../data/provenance/us_nclimgrid_county_average_estimator_comparison_201912_20260901.json`.
+`../data/provenance/us_nclimgrid_county_average_estimator_comparison_201912_20260901.json`,
+and the growing-season extension in
+`../data/provenance/us_nclimgrid_county_average_estimator_comparison_201906_20260901.json`.
 
 This is a weather-measurement comparison only. It does not use yield outcomes,
 select an estimator, estimate a response, calculate damages, or authorize an

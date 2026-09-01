@@ -1,0 +1,1571 @@
+{
+  "candidate_scenario": "ssp585",
+  "cells": [
+    {
+      "calendar": {
+        "path": "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_ri1_noirr.nc",
+        "sha256": "1cd9a8fa665f91b660b7401ee978d34e3d376ce6cc740c3ebce12a7f876b5684"
+      },
+      "candidate_minus_reference": {
+        "cdd_max_days": {
+          "candidate_mean": 39.09110787172012,
+          "candidate_median": 32.0,
+          "candidate_p05": 11.0,
+          "candidate_p95": 96.0,
+          "paired_mean_absolute_difference": 14.817602040816327,
+          "paired_mean_difference_candidate_minus_reference": 0.46446793002915454,
+          "paired_median_difference_candidate_minus_reference": 1.0,
+          "paired_pearson_correlation": 0.6678514290018063,
+          "paired_root_mean_square_difference": 21.242315537336204,
+          "reference_mean": 38.62663994169096,
+          "reference_median": 31.0,
+          "reference_p05": 11.0,
+          "reference_p95": 96.0,
+          "rows": 5488
+        },
+        "precip_mm": {
+          "candidate_mean": 240.41560624146553,
+          "candidate_median": 123.20512119680643,
+          "candidate_p05": 7.56337210983038,
+          "candidate_p95": 794.9062187526373,
+          "paired_mean_absolute_difference": 87.55547123613873,
+          "paired_mean_difference_candidate_minus_reference": 1.812633421326344,
+          "paired_median_difference_candidate_minus_reference": -0.7559494972229004,
+          "paired_pearson_correlation": 0.8657836634289745,
+          "paired_root_mean_square_difference": 140.32213897433343,
+          "reference_mean": 238.60297282013917,
+          "reference_median": 125.83955536037683,
+          "reference_p05": 8.012988199666143,
+          "reference_p95": 758.790152728185,
+          "rows": 5488
+        },
+        "precipitation_concentration_hhi": {
+          "candidate_mean": 0.4873582680835889,
+          "candidate_median": 0.4536573133902464,
+          "candidate_p05": 0.3410601531580983,
+          "candidate_p95": 0.7695597698191023,
+          "paired_mean_absolute_difference": 0.1182131314854068,
+          "paired_mean_difference_candidate_minus_reference": 0.0035771854026026397,
+          "paired_median_difference_candidate_minus_reference": 0.001664567071072598,
+          "paired_pearson_correlation": 0.2772220808632387,
+          "paired_root_mean_square_difference": 0.1629427401165746,
+          "reference_mean": 0.48378108268098624,
+          "reference_median": 0.44738922973309625,
+          "reference_p05": 0.34314890271639314,
+          "reference_p95": 0.7802913618171201,
+          "rows": 5488
+        },
+        "precipitation_timing_centroid": {
+          "candidate_mean": 0.5130765578441243,
+          "candidate_median": 0.5096115844941862,
+          "candidate_p05": 0.27831024107608743,
+          "candidate_p95": 0.7382712481526306,
+          "paired_mean_absolute_difference": 0.11824845923176774,
+          "paired_mean_difference_candidate_minus_reference": 0.02126526969752251,
+          "paired_median_difference_candidate_minus_reference": 0.020234767251936403,
+          "paired_pearson_correlation": 0.34236022804164595,
+          "paired_root_mean_square_difference": 0.15613743193364016,
+          "reference_mean": 0.49181128814660185,
+          "reference_median": 0.49439233941644195,
+          "reference_p05": 0.2622898610974656,
+          "reference_p95": 0.7262031260652545,
+          "rows": 5488
+        },
+        "rx1day_mm": {
+          "candidate_mean": 32.19131326358956,
+          "candidate_median": 19.4249906539917,
+          "candidate_p05": 2.873226606845856,
+          "candidate_p95": 103.51727333068848,
+          "paired_mean_absolute_difference": 14.92473491361506,
+          "paired_mean_difference_candidate_minus_reference": 1.4079209099816967,
+          "paired_median_difference_candidate_minus_reference": 0.08441269397735596,
+          "paired_pearson_correlation": 0.7301455918669773,
+          "paired_root_mean_square_difference": 24.901369220673864,
+          "reference_mean": 30.78339235360786,
+          "reference_median": 19.310132026672363,
+          "reference_p05": 2.545535135269165,
+          "reference_p95": 90.41966438293456,
+          "rows": 5488
+        },
+        "rx5day_mm": {
+          "candidate_mean": 60.27642805193369,
+          "candidate_median": 36.41019517928362,
+          "candidate_p05": 4.0736647374928,
+          "candidate_p95": 194.43179941177362,
+          "paired_mean_absolute_difference": 29.18743792317031,
+          "paired_mean_difference_candidate_minus_reference": 4.7889399487707145,
+          "paired_median_difference_candidate_minus_reference": 0.580695852637291,
+          "paired_pearson_correlation": 0.7069844878963926,
+          "paired_root_mean_square_difference": 50.78550372839312,
+          "reference_mean": 55.487488103162974,
+          "reference_median": 36.17325712740421,
+          "reference_p05": 3.745558071509005,
+          "reference_p95": 163.41527528762816,
+          "rows": 5488
+        },
+        "stage1_precip_share": {
+          "candidate_mean": 0.3149685278638722,
+          "candidate_median": 0.2693146424937686,
+          "candidate_p05": 0.024733712627749083,
+          "candidate_p95": 0.7712305450754097,
+          "paired_mean_absolute_difference": 0.18911247831183328,
+          "paired_mean_difference_candidate_minus_reference": -0.0271354112091781,
+          "paired_median_difference_candidate_minus_reference": -0.018418906632234583,
+          "paired_pearson_correlation": 0.43115863417722206,
+          "paired_root_mean_square_difference": 0.25222668801581094,
+          "reference_mean": 0.3421039390730503,
+          "reference_median": 0.3050599811074164,
+          "reference_p05": 0.028309738085897058,
+          "reference_p95": 0.789742310513146,
+          "rows": 5488
+        },
+        "stage2_precip_share": {
+          "candidate_mean": 0.330377731381282,
+          "candidate_median": 0.31305027571015875,
+          "candidate_p05": 0.02080122791746294,
+          "candidate_p95": 0.7269281798302378,
+          "paired_mean_absolute_difference": 0.17848024139387048,
+          "paired_mean_difference_candidate_minus_reference": -0.009524986674211313,
+          "paired_median_difference_candidate_minus_reference": -0.012698924211267129,
+          "paired_pearson_correlation": 0.3945172764027724,
+          "paired_root_mean_square_difference": 0.23812830320445605,
+          "reference_mean": 0.3399027180554934,
+          "reference_median": 0.3235845745255463,
+          "reference_p05": 0.023291526960291273,
+          "reference_p95": 0.7068721551479215,
+          "rows": 5488
+        },
+        "stage3_precip_share": {
+          "candidate_mean": 0.3544715250114055,
+          "candidate_median": 0.3067391168621083,
+          "candidate_p05": 0.05085392407247958,
+          "candidate_p95": 0.7854724195295508,
+          "paired_mean_absolute_difference": 0.2038000825335082,
+          "paired_mean_difference_candidate_minus_reference": 0.03666039788338942,
+          "paired_median_difference_candidate_minus_reference": 0.03785049579132038,
+          "paired_pearson_correlation": 0.27061864453570184,
+          "paired_root_mean_square_difference": 0.27199366206392167,
+          "reference_mean": 0.31781112712801607,
+          "reference_median": 0.2763691812220541,
+          "reference_p05": 0.02403574069108555,
+          "reference_p95": 0.7611598695215019,
+          "rows": 5488
+        },
+        "tmean_c": {
+          "candidate_mean": 23.656452305289122,
+          "candidate_median": 24.321155548095703,
+          "candidate_p05": 14.602329635620118,
+          "candidate_p95": 29.87068338394165,
+          "paired_mean_absolute_difference": 1.3947348697626905,
+          "paired_mean_difference_candidate_minus_reference": 1.3005066252050177,
+          "paired_median_difference_candidate_minus_reference": 1.2130765914916992,
+          "paired_pearson_correlation": 0.9677544466518417,
+          "paired_root_mean_square_difference": 1.7229469719434636,
+          "reference_mean": 22.355945680084105,
+          "reference_median": 22.821157455444336,
+          "reference_p05": 13.58398904800415,
+          "reference_p95": 28.944388580322265,
+          "rows": 5488
+        },
+        "wet_days_n": {
+          "candidate_mean": 26.52186588921283,
+          "candidate_median": 23.0,
+          "candidate_p05": 2.0,
+          "candidate_p95": 58.0,
+          "paired_mean_absolute_difference": 7.3449344023323615,
+          "paired_mean_difference_candidate_minus_reference": -0.23159620991253643,
+          "paired_median_difference_candidate_minus_reference": 0.0,
+          "paired_pearson_correlation": 0.8576448182913664,
+          "paired_root_mean_square_difference": 9.912104609226871,
+          "reference_mean": 26.753462099125365,
+          "reference_median": 23.0,
+          "reference_p05": 2.0,
+          "reference_p95": 60.0,
+          "rows": 5488
+        }
+      },
+      "crop": "ri1",
+      "id": "ri1_noirr",
+      "inputs": {
+        "candidate_season": {
+          "path": "data/interim/isimip3b_ukesm_multicrop_ssp585_2041_2050/ri1_noirr/season.parquet",
+          "sha256": "1b81cb010050ddd786ee3f5bf5c369d0d0001ce3ae35ca393127009709cacaa3"
+        },
+        "candidate_stages": {
+          "path": "data/interim/isimip3b_ukesm_multicrop_ssp585_2041_2050/ri1_noirr/stages.parquet",
+          "sha256": "166d13f1482373a63b13ae60ffeb4aa62383024cdc1ce3001a58a0d47e376866"
+        },
+        "reference_season": {
+          "path": "data/interim/isimip3b_ukesm_multicrop_ssp126_2041_2050/ri1_noirr/season.parquet",
+          "sha256": "4e72a685aa8ff15086d57c6fc43776575d0aa921840f0c0c90c3d4730b539e19"
+        },
+        "reference_stages": {
+          "path": "data/interim/isimip3b_ukesm_multicrop_ssp126_2041_2050/ri1_noirr/stages.parquet",
+          "sha256": "0c0173bc5aec3e4efc5c0227864742a59dc094592197df57339e913700e8a341"
+        }
+      },
+      "irrigation": "noirr",
+      "reconciliation_max_absolute_differences": {
+        "candidate": {
+          "precip_mm": 0.0,
+          "rx1day_mm": 0.0,
+          "stage_days": 0.0,
+          "wet_days_n": 0.0
+        },
+        "reference": {
+          "precip_mm": 0.0,
+          "rx1day_mm": 0.0,
+          "stage_days": 0.0,
+          "wet_days_n": 0.0
+        }
+      }
+    },
+    {
+      "calendar": {
+        "path": "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_ri2_noirr.nc",
+        "sha256": "e8fbee16a2b86560409a90b11fe5af35f5886c1689ed534c41a7453c2ace6299"
+      },
+      "candidate_minus_reference": {
+        "cdd_max_days": {
+          "candidate_mean": 38.37530637254902,
+          "candidate_median": 30.0,
+          "candidate_p05": 10.0,
+          "candidate_p95": 90.0,
+          "paired_mean_absolute_difference": 14.234375,
+          "paired_mean_difference_candidate_minus_reference": 0.9316789215686274,
+          "paired_median_difference_candidate_minus_reference": 0.0,
+          "paired_pearson_correlation": 0.7063083542796443,
+          "paired_root_mean_square_difference": 20.6381271356358,
+          "reference_mean": 37.443627450980394,
+          "reference_median": 29.0,
+          "reference_p05": 10.0,
+          "reference_p95": 95.0,
+          "rows": 3264
+        },
+        "precip_mm": {
+          "candidate_mean": 393.4074416249972,
+          "candidate_median": 327.9631075114012,
+          "candidate_p05": 27.345024468749763,
+          "candidate_p95": 952.6240647174415,
+          "paired_mean_absolute_difference": 119.49438195114536,
+          "paired_mean_difference_candidate_minus_reference": 19.046743432525545,
+          "paired_median_difference_candidate_minus_reference": 6.634930670261383,
+          "paired_pearson_correlation": 0.8286232311480759,
+          "paired_root_mean_square_difference": 181.22381066681055,
+          "reference_mean": 374.36069819247166,
+          "reference_median": 305.0367985367775,
+          "reference_p05": 27.273989760503174,
+          "reference_p95": 887.8145105894655,
+          "rows": 3264
+        },
+        "precipitation_concentration_hhi": {
+          "candidate_mean": 0.4634185363316446,
+          "candidate_median": 0.4299913511177873,
+          "candidate_p05": 0.34116167500925926,
+          "candidate_p95": 0.7062592661654625,
+          "paired_mean_absolute_difference": 0.08542341370811879,
+          "paired_mean_difference_candidate_minus_reference": 0.004151065648272909,
+          "paired_median_difference_candidate_minus_reference": -0.00369944564519456,
+          "paired_pearson_correlation": 0.41123788162384123,
+          "paired_root_mean_square_difference": 0.11844548520808554,
+          "reference_mean": 0.45926747068337165,
+          "reference_median": 0.4410818276364692,
+          "reference_p05": 0.3418711455361523,
+          "reference_p95": 0.6567644600370028,
+          "rows": 3264
+        },
+        "precipitation_timing_centroid": {
+          "candidate_mean": 0.5630504242852561,
+          "candidate_median": 0.5605821303251954,
+          "candidate_p05": 0.3461409984534762,
+          "candidate_p95": 0.7591319275002316,
+          "paired_mean_absolute_difference": 0.07237781652585898,
+          "paired_mean_difference_candidate_minus_reference": 0.0141635482779985,
+          "paired_median_difference_candidate_minus_reference": 0.015998771000594658,
+          "paired_pearson_correlation": 0.7302746854077805,
+          "paired_root_mean_square_difference": 0.0907911646544175,
+          "reference_mean": 0.5488868760072575,
+          "reference_median": 0.5413836090966357,
+          "reference_p05": 0.34364475520284476,
+          "reference_p95": 0.7345204826968456,
+          "rows": 3264
+        },
+        "rx1day_mm": {
+          "candidate_mean": 41.21405259753559,
+          "candidate_median": 32.9199275970459,
+          "candidate_p05": 5.6740567445755,
+          "candidate_p95": 107.56922760009765,
+          "paired_mean_absolute_difference": 16.193680866493604,
+          "paired_mean_difference_candidate_minus_reference": 2.9288130109289696,
+          "paired_median_difference_candidate_minus_reference": 0.5498495101928711,
+          "paired_pearson_correlation": 0.6988337069146197,
+          "paired_root_mean_square_difference": 25.75197601162037,
+          "reference_mean": 38.28523958660662,
+          "reference_median": 32.04937171936035,
+          "reference_p05": 5.1816664934158325,
+          "reference_p95": 90.75776023864745,
+          "rows": 3264
+        },
+        "rx5day_mm": {
+          "candidate_mean": 77.74981749983614,
+          "candidate_median": 60.64768007397652,
+          "candidate_p05": 8.534823975712062,
+          "candidate_p95": 219.93336509466167,
+          "paired_mean_absolute_difference": 33.36381105164194,
+          "paired_mean_difference_candidate_minus_reference": 10.367229581372264,
+          "paired_median_difference_candidate_minus_reference": 2.5076399967074394,
+          "paired_pearson_correlation": 0.6533450898156238,
+          "paired_root_mean_square_difference": 56.055332588223884,
+          "reference_mean": 67.38258791846387,
+          "reference_median": 55.6137318611145,
+          "reference_p05": 6.94554407671094,
+          "reference_p95": 171.93562676906583,
+          "rows": 3264
+        },
+        "stage1_precip_share": {
+          "candidate_mean": 0.21123052297203265,
+          "candidate_median": 0.1884092860449445,
+          "candidate_p05": 0.008048092938632467,
+          "candidate_p95": 0.5499444127128994,
+          "paired_mean_absolute_difference": 0.1002947989265093,
+          "paired_mean_difference_candidate_minus_reference": 0.002468268503311298,
+          "paired_median_difference_candidate_minus_reference": -0.008600522567797645,
+          "paired_pearson_correlation": 0.7035012610321334,
+          "paired_root_mean_square_difference": 0.13490707290094928,
+          "reference_mean": 0.20876225446872138,
+          "reference_median": 0.17651298988671205,
+          "reference_p05": 0.01715193125540806,
+          "reference_p95": 0.5304529745919765,
+          "rows": 3264
+        },
+        "stage2_precip_share": {
+          "candidate_mean": 0.38838768120016665,
+          "candidate_median": 0.3947376593242464,
+          "candidate_p05": 0.13650548210911687,
+          "candidate_p95": 0.6433897109852216,
+          "paired_mean_absolute_difference": 0.15719201351028997,
+          "paired_mean_difference_candidate_minus_reference": -0.047427181840618095,
+          "paired_median_difference_candidate_minus_reference": -0.05114445284080622,
+          "paired_pearson_correlation": 0.24787477449158324,
+          "paired_root_mean_square_difference": 0.19848131351230858,
+          "reference_mean": 0.43581486304078465,
+          "reference_median": 0.43466697777072216,
+          "reference_p05": 0.18729662233381028,
+          "reference_p95": 0.696654546552447,
+          "rows": 3264
+        },
+        "stage3_precip_share": {
+          "candidate_mean": 0.4003817958278008,
+          "candidate_median": 0.3768278303094056,
+          "candidate_p05": 0.05272829264697137,
+          "candidate_p95": 0.8073834761927542,
+          "paired_mean_absolute_difference": 0.15055206472771857,
+          "paired_mean_difference_candidate_minus_reference": 0.044958913337306804,
+          "paired_median_difference_candidate_minus_reference": 0.040286049071577096,
+          "paired_pearson_correlation": 0.6236235044553688,
+          "paired_root_mean_square_difference": 0.19644632268118073,
+          "reference_mean": 0.3554228824904939,
+          "reference_median": 0.3139356432724726,
+          "reference_p05": 0.03101181195184637,
+          "reference_p95": 0.7499266183428541,
+          "rows": 3264
+        },
+        "tmean_c": {
+          "candidate_mean": 16.529579178868694,
+          "candidate_median": 16.460041999816895,
+          "candidate_p05": 7.156648659706116,
+          "candidate_p95": 23.776366329193113,
+          "paired_mean_absolute_difference": 1.350763589062148,
+          "paired_mean_difference_candidate_minus_reference": 1.1941364257397842,
+          "paired_median_difference_candidate_minus_reference": 1.2561836242675781,
+          "paired_pearson_correlation": 0.9741212929504626,
+          "paired_root_mean_square_difference": 1.608338087958066,
+          "reference_mean": 15.33544275312891,
+          "reference_median": 15.171931743621826,
+          "reference_p05": 5.9063234567642215,
+          "reference_p95": 22.306685352325438,
+          "rows": 3264
+        },
+        "wet_days_n": {
+          "candidate_mean": 40.85906862745098,
+          "candidate_median": 41.0,
+          "candidate_p05": 6.0,
+          "candidate_p95": 80.0,
+          "paired_mean_absolute_difference": 8.556066176470589,
+          "paired_mean_difference_candidate_minus_reference": 0.5916053921568627,
+          "paired_median_difference_candidate_minus_reference": 1.0,
+          "paired_pearson_correlation": 0.8834662757191328,
+          "paired_root_mean_square_difference": 11.044098881214312,
+          "reference_mean": 40.267463235294116,
+          "reference_median": 39.0,
+          "reference_p05": 7.0,
+          "reference_p95": 77.0,
+          "rows": 3264
+        }
+      },
+      "crop": "ri2",
+      "id": "ri2_noirr",
+      "inputs": {
+        "candidate_season": {
+          "path": "data/interim/isimip3b_ukesm_multicrop_ssp585_2041_2050/ri2_noirr/season.parquet",
+          "sha256": "957a531aa085bf0b58f1e785fed6cac8db7fa25a0200575b2d3fbeeba986d051"
+        },
+        "candidate_stages": {
+          "path": "data/interim/isimip3b_ukesm_multicrop_ssp585_2041_2050/ri2_noirr/stages.parquet",
+          "sha256": "6f1d1bfc06febf23dd3ff829579709a16b79dbfb9eee8e79310b6040383072e7"
+        },
+        "reference_season": {
+          "path": "data/interim/isimip3b_ukesm_multicrop_ssp126_2041_2050/ri2_noirr/season.parquet",
+          "sha256": "98b0f7b6d7749588812f062840279dd1c618dcb0929f6681e28fd1de897a132f"
+        },
+        "reference_stages": {
+          "path": "data/interim/isimip3b_ukesm_multicrop_ssp126_2041_2050/ri2_noirr/stages.parquet",
+          "sha256": "c129748bf27b1f45c916c718b3cf5a01bffd26672d06cf8f9dcda61df4837c92"
+        }
+      },
+      "irrigation": "noirr",
+      "reconciliation_max_absolute_differences": {
+        "candidate": {
+          "precip_mm": 0.0,
+          "rx1day_mm": 0.0,
+          "stage_days": 0.0,
+          "wet_days_n": 0.0
+        },
+        "reference": {
+          "precip_mm": 0.0,
+          "rx1day_mm": 0.0,
+          "stage_days": 0.0,
+          "wet_days_n": 0.0
+        }
+      }
+    },
+    {
+      "calendar": {
+        "path": "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_soy_noirr.nc",
+        "sha256": "0c6d5fe1f5d6fc262e5c2e46d626204d36200a4890402f52ffd4f3b0d38834d3"
+      },
+      "candidate_minus_reference": {
+        "cdd_max_days": {
+          "candidate_mean": 36.962645772594755,
+          "candidate_median": 29.0,
+          "candidate_p05": 10.0,
+          "candidate_p95": 89.0,
+          "paired_mean_absolute_difference": 14.42201166180758,
+          "paired_mean_difference_candidate_minus_reference": 0.8524052478134111,
+          "paired_median_difference_candidate_minus_reference": 1.0,
+          "paired_pearson_correlation": 0.6606664470989393,
+          "paired_root_mean_square_difference": 21.00324492491799,
+          "reference_mean": 36.11024052478134,
+          "reference_median": 29.0,
+          "reference_p05": 10.0,
+          "reference_p95": 89.0,
+          "rows": 5488
+        },
+        "precip_mm": {
+          "candidate_mean": 225.95562504226908,
+          "candidate_median": 124.60509988665581,
+          "candidate_p05": 13.858617710694672,
+          "candidate_p95": 773.8993566449731,
+          "paired_mean_absolute_difference": 84.31506168068205,
+          "paired_mean_difference_candidate_minus_reference": 5.061985375870117,
+          "paired_median_difference_candidate_minus_reference": 1.341931663453579,
+          "paired_pearson_correlation": 0.8546390915741627,
+          "paired_root_mean_square_difference": 134.00345508142635,
+          "reference_mean": 220.89363966639894,
+          "reference_median": 123.88987484946847,
+          "reference_p05": 11.852448380738501,
+          "reference_p95": 713.5587856344875,
+          "rows": 5488
+        },
+        "precipitation_concentration_hhi": {
+          "candidate_mean": 0.4971828645933498,
+          "candidate_median": 0.458132680913105,
+          "candidate_p05": 0.34465794618582457,
+          "candidate_p95": 0.8361815418428912,
+          "paired_mean_absolute_difference": 0.1192108592324673,
+          "paired_mean_difference_candidate_minus_reference": 0.02085294999177476,
+          "paired_median_difference_candidate_minus_reference": 0.015744748974530515,
+          "paired_pearson_correlation": 0.3071585343792966,
+          "paired_root_mean_square_difference": 0.16725922196007728,
+          "reference_mean": 0.4763299146015751,
+          "reference_median": 0.436475902721802,
+          "reference_p05": 0.3398086851941309,
+          "reference_p95": 0.7691174347842022,
+          "rows": 5488
+        },
+        "precipitation_timing_centroid": {
+          "candidate_mean": 0.4726459967215538,
+          "candidate_median": 0.4857681722159751,
+          "candidate_p05": 0.23650123454310126,
+          "candidate_p95": 0.6772062159935694,
+          "paired_mean_absolute_difference": 0.10186802336442316,
+          "paired_mean_difference_candidate_minus_reference": 0.01088992588189072,
+          "paired_median_difference_candidate_minus_reference": 0.01051790975398148,
+          "paired_pearson_correlation": 0.42811098185448354,
+          "paired_root_mean_square_difference": 0.1360148578678926,
+          "reference_mean": 0.4617560708396631,
+          "reference_median": 0.4683937295359503,
+          "reference_p05": 0.2387838857661427,
+          "reference_p95": 0.6586792609445471,
+          "rows": 5488
+        },
+        "rx1day_mm": {
+          "candidate_mean": 31.39293043000173,
+          "candidate_median": 18.476021766662598,
+          "candidate_p05": 3.329813027381897,
+          "candidate_p95": 103.86355056762685,
+          "paired_mean_absolute_difference": 14.734955768831313,
+          "paired_mean_difference_candidate_minus_reference": 1.76912824014533,
+          "paired_median_difference_candidate_minus_reference": 0.6037254333496094,
+          "paired_pearson_correlation": 0.7313060198704819,
+          "paired_root_mean_square_difference": 24.698908662072306,
+          "reference_mean": 29.6238021898564,
+          "reference_median": 17.661054611206055,
+          "reference_p05": 2.8117122530937197,
+          "reference_p95": 89.43090629577634,
+          "rows": 5488
+        },
+        "rx5day_mm": {
+          "candidate_mean": 59.13613545790494,
+          "candidate_median": 35.13110074400902,
+          "candidate_p05": 5.066681601107121,
+          "candidate_p95": 194.17025985717757,
+          "paired_mean_absolute_difference": 28.709280422758365,
+          "paired_mean_difference_candidate_minus_reference": 5.705408766786989,
+          "paired_median_difference_candidate_minus_reference": 1.6442621946334839,
+          "paired_pearson_correlation": 0.7062652558777839,
+          "paired_root_mean_square_difference": 50.33671616390792,
+          "reference_mean": 53.43072669111795,
+          "reference_median": 34.24090060591698,
+          "reference_p05": 4.327227856963874,
+          "reference_p95": 160.3330424308777,
+          "rows": 5488
+        },
+        "stage1_precip_share": {
+          "candidate_mean": 0.34699596252830994,
+          "candidate_median": 0.296538477193108,
+          "candidate_p05": 0.03307643407161961,
+          "candidate_p95": 0.8407089913066086,
+          "paired_mean_absolute_difference": 0.19519095358767108,
+          "paired_mean_difference_candidate_minus_reference": -0.02610919573115406,
+          "paired_median_difference_candidate_minus_reference": -0.02784992914468382,
+          "paired_pearson_correlation": 0.4263337596309832,
+          "paired_root_mean_square_difference": 0.2618788951186719,
+          "reference_mean": 0.37310515825946394,
+          "reference_median": 0.34309439045773116,
+          "reference_p05": 0.0584501514372756,
+          "reference_p95": 0.836944416727472,
+          "rows": 5488
+        },
+        "stage2_precip_share": {
+          "candidate_mean": 0.38761454542011836,
+          "candidate_median": 0.38350375648045565,
+          "candidate_p05": 0.02993490548634997,
+          "candidate_p95": 0.80856723041167,
+          "paired_mean_absolute_difference": 0.1907314963946902,
+          "paired_mean_difference_candidate_minus_reference": 0.019548613816635953,
+          "paired_median_difference_candidate_minus_reference": 0.006846432352408283,
+          "paired_pearson_correlation": 0.34890834706998,
+          "paired_root_mean_square_difference": 0.2535643612343766,
+          "reference_mean": 0.3680659316034824,
+          "reference_median": 0.3609260539638015,
+          "reference_p05": 0.03867646926188105,
+          "reference_p95": 0.7369236212783182,
+          "rows": 5488
+        },
+        "stage3_precip_share": {
+          "candidate_mean": 0.26520727630813157,
+          "candidate_median": 0.23444403163603375,
+          "candidate_p05": 0.008257990879562685,
+          "candidate_p95": 0.6474308600013738,
+          "paired_mean_absolute_difference": 0.15751138081053612,
+          "paired_mean_difference_candidate_minus_reference": 0.006560581914518105,
+          "paired_median_difference_candidate_minus_reference": 0.002150159079343905,
+          "paired_pearson_correlation": 0.37986932589428307,
+          "paired_root_mean_square_difference": 0.21573148256754585,
+          "reference_mean": 0.25864669439361343,
+          "reference_median": 0.2378723214783836,
+          "reference_p05": 0.01050294764139334,
+          "reference_p95": 0.6167632557317783,
+          "rows": 5488
+        },
+        "tmean_c": {
+          "candidate_mean": 24.238881364160655,
+          "candidate_median": 24.720975875854492,
+          "candidate_p05": 15.630906438827516,
+          "candidate_p95": 30.967222309112543,
+          "paired_mean_absolute_difference": 1.3166593640782047,
+          "paired_mean_difference_candidate_minus_reference": 1.16739832755428,
+          "paired_median_difference_candidate_minus_reference": 1.1267929077148438,
+          "paired_pearson_correlation": 0.9688408545491449,
+          "paired_root_mean_square_difference": 1.6160073165598874,
+          "reference_mean": 23.071483036606374,
+          "reference_median": 23.508145332336426,
+          "reference_p05": 14.52530369758606,
+          "reference_p95": 30.197283267974854,
+          "rows": 5488
+        },
+        "wet_days_n": {
+          "candidate_mean": 25.272959183673468,
+          "candidate_median": 23.0,
+          "candidate_p05": 3.0,
+          "candidate_p95": 56.0,
+          "paired_mean_absolute_difference": 7.029336734693878,
+          "paired_mean_difference_candidate_minus_reference": 0.02022594752186589,
+          "paired_median_difference_candidate_minus_reference": 0.0,
+          "paired_pearson_correlation": 0.8438895131085166,
+          "paired_root_mean_square_difference": 9.165081804861096,
+          "reference_mean": 25.252733236151602,
+          "reference_median": 23.0,
+          "reference_p05": 3.0,
+          "reference_p95": 56.0,
+          "rows": 5488
+        }
+      },
+      "crop": "soy",
+      "id": "soy_noirr",
+      "inputs": {
+        "candidate_season": {
+          "path": "data/interim/isimip3b_ukesm_multicrop_ssp585_2041_2050/soy_noirr/season.parquet",
+          "sha256": "433f39cd8f8581966be7f1c81b078aadcaef63556d0e79ec49b30a56a609d7c8"
+        },
+        "candidate_stages": {
+          "path": "data/interim/isimip3b_ukesm_multicrop_ssp585_2041_2050/soy_noirr/stages.parquet",
+          "sha256": "d80f39de0fd41c8918553cfbf6eb6c6be6fe068288bbadd1ca3486dbce365a87"
+        },
+        "reference_season": {
+          "path": "data/interim/isimip3b_ukesm_multicrop_ssp126_2041_2050/soy_noirr/season.parquet",
+          "sha256": "20d25249adf3de5dbf33fbedd088e2d2dfb5aa8241c02c82d76ee1bc5e1838fb"
+        },
+        "reference_stages": {
+          "path": "data/interim/isimip3b_ukesm_multicrop_ssp126_2041_2050/soy_noirr/stages.parquet",
+          "sha256": "c5d77b088efeb3cfafbcb54cd16f2e6a678253e3a7af6c4c8313d6346686b80b"
+        }
+      },
+      "irrigation": "noirr",
+      "reconciliation_max_absolute_differences": {
+        "candidate": {
+          "precip_mm": 0.0,
+          "rx1day_mm": 0.0,
+          "stage_days": 0.0,
+          "wet_days_n": 0.0
+        },
+        "reference": {
+          "precip_mm": 0.0,
+          "rx1day_mm": 0.0,
+          "stage_days": 0.0,
+          "wet_days_n": 0.0
+        }
+      }
+    },
+    {
+      "calendar": {
+        "path": "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_soy_firr.nc",
+        "sha256": "268eaa89d5cbfe2545f760dc65b44dc423bf47f0a508817cf279516ba9ad3ee3"
+      },
+      "candidate_minus_reference": {
+        "cdd_max_days": {
+          "candidate_mean": 36.16326530612245,
+          "candidate_median": 29.0,
+          "candidate_p05": 11.0,
+          "candidate_p95": 85.0,
+          "paired_mean_absolute_difference": 13.775510204081632,
+          "paired_mean_difference_candidate_minus_reference": 0.885932944606414,
+          "paired_median_difference_candidate_minus_reference": 1.0,
+          "paired_pearson_correlation": 0.6624294991814956,
+          "paired_root_mean_square_difference": 19.604006105732218,
+          "reference_mean": 35.27733236151604,
+          "reference_median": 29.0,
+          "reference_p05": 10.0,
+          "reference_p95": 84.0,
+          "rows": 5488
+        },
+        "precip_mm": {
+          "candidate_mean": 213.5254675921734,
+          "candidate_median": 129.53801111504436,
+          "candidate_p05": 6.152151169255377,
+          "candidate_p95": 710.1586279328907,
+          "paired_mean_absolute_difference": 82.56917949633825,
+          "paired_mean_difference_candidate_minus_reference": 9.576220135930816,
+          "paired_median_difference_candidate_minus_reference": 2.209417425096035,
+          "paired_pearson_correlation": 0.838665849662517,
+          "paired_root_mean_square_difference": 130.32502926661192,
+          "reference_mean": 203.9492474562426,
+          "reference_median": 131.20505183190107,
+          "reference_p05": 5.3836881112307315,
+          "reference_p95": 603.020900741592,
+          "rows": 5488
+        },
+        "precipitation_concentration_hhi": {
+          "candidate_mean": 0.49545515164836357,
+          "candidate_median": 0.45953901376122763,
+          "candidate_p05": 0.346227235121259,
+          "candidate_p95": 0.8198040272288453,
+          "paired_mean_absolute_difference": 0.11467980120646758,
+          "paired_mean_difference_candidate_minus_reference": 0.021922015117140276,
+          "paired_median_difference_candidate_minus_reference": 0.014724539108734697,
+          "paired_pearson_correlation": 0.31088779203632,
+          "paired_root_mean_square_difference": 0.16113104423183988,
+          "reference_mean": 0.47353313653122336,
+          "reference_median": 0.438939123388233,
+          "reference_p05": 0.3406144781925629,
+          "reference_p95": 0.7553213202988646,
+          "rows": 5488
+        },
+        "precipitation_timing_centroid": {
+          "candidate_mean": 0.47650273035987123,
+          "candidate_median": 0.48745983940737536,
+          "candidate_p05": 0.24691155440059276,
+          "candidate_p95": 0.6804859501875599,
+          "paired_mean_absolute_difference": 0.10510022419463967,
+          "paired_mean_difference_candidate_minus_reference": 0.006713461532396095,
+          "paired_median_difference_candidate_minus_reference": 0.008310834185464105,
+          "paired_pearson_correlation": 0.36583026750806336,
+          "paired_root_mean_square_difference": 0.1410753791146618,
+          "reference_mean": 0.4697892688274751,
+          "reference_median": 0.47243434793227335,
+          "reference_p05": 0.2652740740130708,
+          "reference_p95": 0.6701181402237911,
+          "rows": 5488
+        },
+        "rx1day_mm": {
+          "candidate_mean": 30.62820626400091,
+          "candidate_median": 18.21580696105957,
+          "candidate_p05": 2.322793436050415,
+          "candidate_p95": 103.00278015136715,
+          "paired_mean_absolute_difference": 14.809514054437996,
+          "paired_mean_difference_candidate_minus_reference": 1.9926155362612197,
+          "paired_median_difference_candidate_minus_reference": 0.5633385181427002,
+          "paired_pearson_correlation": 0.7207348021505786,
+          "paired_root_mean_square_difference": 24.989290453600617,
+          "reference_mean": 28.63559072773969,
+          "reference_median": 17.571961402893066,
+          "reference_p05": 1.9735936582088471,
+          "reference_p95": 88.18835830688477,
+          "rows": 5488
+        },
+        "rx5day_mm": {
+          "candidate_mean": 57.98932994880548,
+          "candidate_median": 35.000616416335106,
+          "candidate_p05": 3.3283833757042887,
+          "candidate_p95": 193.46780875325194,
+          "paired_mean_absolute_difference": 28.508354702373865,
+          "paired_mean_difference_candidate_minus_reference": 6.2921673488211285,
+          "paired_median_difference_candidate_minus_reference": 1.2406676560640335,
+          "paired_pearson_correlation": 0.7036033118161433,
+          "paired_root_mean_square_difference": 50.34167380180748,
+          "reference_mean": 51.69716259998435,
+          "reference_median": 34.54816371202469,
+          "reference_p05": 2.7745785120874644,
+          "reference_p95": 147.94213473796842,
+          "rows": 5488
+        },
+        "stage1_precip_share": {
+          "candidate_mean": 0.3345185310703076,
+          "candidate_median": 0.2882490920142927,
+          "candidate_p05": 0.029102932039224854,
+          "candidate_p95": 0.8052863656445671,
+          "paired_mean_absolute_difference": 0.2034859031035825,
+          "paired_mean_difference_candidate_minus_reference": -0.018384194155214438,
+          "paired_median_difference_candidate_minus_reference": -0.022360146053230667,
+          "paired_pearson_correlation": 0.314074030940619,
+          "paired_root_mean_square_difference": 0.2739073948768279,
+          "reference_mean": 0.352902725225522,
+          "reference_median": 0.32469178856717607,
+          "reference_p05": 0.04668445595756936,
+          "reference_p95": 0.7788177581546856,
+          "rows": 5488
+        },
+        "stage2_precip_share": {
+          "candidate_mean": 0.4009992074211706,
+          "candidate_median": 0.3956852797078495,
+          "candidate_p05": 0.03398154014866393,
+          "candidate_p95": 0.815932651387953,
+          "paired_mean_absolute_difference": 0.20194665961095207,
+          "paired_mean_difference_candidate_minus_reference": 0.0166280037132406,
+          "paired_median_difference_candidate_minus_reference": 0.0075064709429511645,
+          "paired_pearson_correlation": 0.26720764149298537,
+          "paired_root_mean_square_difference": 0.26668076334945895,
+          "reference_mean": 0.38437120370792993,
+          "reference_median": 0.37960570145181216,
+          "reference_p05": 0.03638512693271428,
+          "reference_p95": 0.7409659039221301,
+          "rows": 5488
+        },
+        "stage3_precip_share": {
+          "candidate_mean": 0.2643000457650816,
+          "candidate_median": 0.23232626764243,
+          "candidate_p05": 0.00557023842439812,
+          "candidate_p95": 0.651380671875313,
+          "paired_mean_absolute_difference": 0.16052685129846717,
+          "paired_mean_difference_candidate_minus_reference": 0.0017561904419738405,
+          "paired_median_difference_candidate_minus_reference": 0.0026336104351646324,
+          "paired_pearson_correlation": 0.37742324038606406,
+          "paired_root_mean_square_difference": 0.22319774658189293,
+          "reference_mean": 0.26254385532310776,
+          "reference_median": 0.23385039497698035,
+          "reference_p05": 0.011161386371730817,
+          "reference_p95": 0.642770415889654,
+          "rows": 5488
+        },
+        "tmean_c": {
+          "candidate_mean": 24.396620209641082,
+          "candidate_median": 24.919508934020996,
+          "candidate_p05": 15.425978994369506,
+          "candidate_p95": 31.889458274841296,
+          "paired_mean_absolute_difference": 1.2816521771273877,
+          "paired_mean_difference_candidate_minus_reference": 1.126545546266845,
+          "paired_median_difference_candidate_minus_reference": 1.0822525024414062,
+          "paired_pearson_correlation": 0.9739538954917865,
+          "paired_root_mean_square_difference": 1.5704141777118363,
+          "reference_mean": 23.270074663374235,
+          "reference_median": 23.886272430419922,
+          "reference_p05": 14.419362831115723,
+          "reference_p95": 31.147520732879627,
+          "rows": 5488
+        },
+        "wet_days_n": {
+          "candidate_mean": 24.45134839650146,
+          "candidate_median": 24.0,
+          "candidate_p05": 2.0,
+          "candidate_p95": 49.0,
+          "paired_mean_absolute_difference": 6.937317784256559,
+          "paired_mean_difference_candidate_minus_reference": 0.20517492711370264,
+          "paired_median_difference_candidate_minus_reference": 0.0,
+          "paired_pearson_correlation": 0.8199047791649527,
+          "paired_root_mean_square_difference": 9.11859024447569,
+          "reference_mean": 24.246173469387756,
+          "reference_median": 24.0,
+          "reference_p05": 1.0,
+          "reference_p95": 50.0,
+          "rows": 5488
+        }
+      },
+      "crop": "soy",
+      "id": "soy_firr",
+      "inputs": {
+        "candidate_season": {
+          "path": "data/interim/isimip3b_ukesm_multicrop_ssp585_2041_2050/soy_firr/season.parquet",
+          "sha256": "1add255a8ab3698844c326f0fc5d4984e2eba6c25e65059f6e1249947b3a594c"
+        },
+        "candidate_stages": {
+          "path": "data/interim/isimip3b_ukesm_multicrop_ssp585_2041_2050/soy_firr/stages.parquet",
+          "sha256": "442a0eb737740342c4e3846263efce0f0c32d8d65787e36daf6093a7ee88446a"
+        },
+        "reference_season": {
+          "path": "data/interim/isimip3b_ukesm_multicrop_ssp126_2041_2050/soy_firr/season.parquet",
+          "sha256": "cd0ce7f90f89d2509bee9d57df41737dc3aa2dd527886633f61c64a42781ebfc"
+        },
+        "reference_stages": {
+          "path": "data/interim/isimip3b_ukesm_multicrop_ssp126_2041_2050/soy_firr/stages.parquet",
+          "sha256": "b5589cf1338edb0e69356dbf3fbfdc8fd29c6c2f7912ea773c94f9b738368b1f"
+        }
+      },
+      "irrigation": "firr",
+      "reconciliation_max_absolute_differences": {
+        "candidate": {
+          "precip_mm": 0.0,
+          "rx1day_mm": 0.0,
+          "stage_days": 0.0,
+          "wet_days_n": 0.0
+        },
+        "reference": {
+          "precip_mm": 0.0,
+          "rx1day_mm": 0.0,
+          "stage_days": 0.0,
+          "wet_days_n": 0.0
+        }
+      }
+    },
+    {
+      "calendar": {
+        "path": "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_swh_noirr.nc",
+        "sha256": "2455984a6110f1e401c147f61fd3f6d032dd61cf25c42082ae9986ed63ead790"
+      },
+      "candidate_minus_reference": {
+        "cdd_max_days": {
+          "candidate_mean": 37.0149416909621,
+          "candidate_median": 30.0,
+          "candidate_p05": 10.0,
+          "candidate_p95": 91.0,
+          "paired_mean_absolute_difference": 14.55466472303207,
+          "paired_mean_difference_candidate_minus_reference": 1.1395772594752187,
+          "paired_median_difference_candidate_minus_reference": 1.0,
+          "paired_pearson_correlation": 0.654871832899342,
+          "paired_root_mean_square_difference": 21.22426412752871,
+          "reference_mean": 35.87536443148688,
+          "reference_median": 29.0,
+          "reference_p05": 10.0,
+          "reference_p95": 90.0,
+          "rows": 5488
+        },
+        "precip_mm": {
+          "candidate_mean": 196.21276118539672,
+          "candidate_median": 116.0970209389925,
+          "candidate_p05": 11.666200648620725,
+          "candidate_p95": 646.2209213890135,
+          "paired_mean_absolute_difference": 73.23663424682714,
+          "paired_mean_difference_candidate_minus_reference": -1.5687938378757251,
+          "paired_median_difference_candidate_minus_reference": 0.06356213986873627,
+          "paired_pearson_correlation": 0.8768971562525766,
+          "paired_root_mean_square_difference": 113.02497689784758,
+          "reference_mean": 197.78155502327243,
+          "reference_median": 118.81998711079359,
+          "reference_p05": 10.053002975136042,
+          "reference_p95": 610.948578792065,
+          "rows": 5488
+        },
+        "precipitation_concentration_hhi": {
+          "candidate_mean": 0.506641516459476,
+          "candidate_median": 0.4788237093534771,
+          "candidate_p05": 0.34551684307802916,
+          "candidate_p95": 0.8022252675348744,
+          "paired_mean_absolute_difference": 0.11901762890100151,
+          "paired_mean_difference_candidate_minus_reference": 0.02605099503133621,
+          "paired_median_difference_candidate_minus_reference": 0.0206433187807262,
+          "paired_pearson_correlation": 0.3114060027949728,
+          "paired_root_mean_square_difference": 0.16003962115203016,
+          "reference_mean": 0.48059052142813974,
+          "reference_median": 0.4502183824136493,
+          "reference_p05": 0.34137949896109926,
+          "reference_p95": 0.7635601501793674,
+          "rows": 5488
+        },
+        "precipitation_timing_centroid": {
+          "candidate_mean": 0.47689441551994594,
+          "candidate_median": 0.48111808863745487,
+          "candidate_p05": 0.2311535406281834,
+          "candidate_p95": 0.7300503277629979,
+          "paired_mean_absolute_difference": 0.0969964318190094,
+          "paired_mean_difference_candidate_minus_reference": 0.010106070470984187,
+          "paired_median_difference_candidate_minus_reference": 0.007171952404048332,
+          "paired_pearson_correlation": 0.6119623072334319,
+          "paired_root_mean_square_difference": 0.1252144388492993,
+          "reference_mean": 0.4667883450489617,
+          "reference_median": 0.4584113013549984,
+          "reference_p05": 0.2428727555300905,
+          "reference_p95": 0.7049839630908717,
+          "rows": 5488
+        },
+        "rx1day_mm": {
+          "candidate_mean": 27.67349749456537,
+          "candidate_median": 17.505507469177246,
+          "candidate_p05": 3.353524208068848,
+          "candidate_p95": 84.5589069366455,
+          "paired_mean_absolute_difference": 12.876169016841343,
+          "paired_mean_difference_candidate_minus_reference": 1.0898644184875614,
+          "paired_median_difference_candidate_minus_reference": 0.34633398056030273,
+          "paired_pearson_correlation": 0.7368863277463992,
+          "paired_root_mean_square_difference": 21.243567585438797,
+          "reference_mean": 26.58363307607781,
+          "reference_median": 17.490142822265625,
+          "reference_p05": 2.8452476143836973,
+          "reference_p95": 76.11306381225582,
+          "rows": 5488
+        },
+        "rx5day_mm": {
+          "candidate_mean": 52.48359657169399,
+          "candidate_median": 32.97127430140972,
+          "candidate_p05": 4.777071999013424,
+          "candidate_p95": 162.5796368360514,
+          "paired_mean_absolute_difference": 25.475417293245705,
+          "paired_mean_difference_candidate_minus_reference": 4.022824394724362,
+          "paired_median_difference_candidate_minus_reference": 1.2561273574829102,
+          "paired_pearson_correlation": 0.7152207617524855,
+          "paired_root_mean_square_difference": 44.307408956038195,
+          "reference_mean": 48.46077217696962,
+          "reference_median": 33.15393405407667,
+          "reference_p05": 3.9878855869174004,
+          "reference_p95": 135.1051247820258,
+          "rows": 5488
+        },
+        "stage1_precip_share": {
+          "candidate_mean": 0.34078744538394024,
+          "candidate_median": 0.28541957009518604,
+          "candidate_p05": 0.018058838457761756,
+          "candidate_p95": 0.8456496248420657,
+          "paired_mean_absolute_difference": 0.17982648589916408,
+          "paired_mean_difference_candidate_minus_reference": -0.016820028536284764,
+          "paired_median_difference_candidate_minus_reference": -0.01222681456065933,
+          "paired_pearson_correlation": 0.5338150279839307,
+          "paired_root_mean_square_difference": 0.24115548295557282,
+          "reference_mean": 0.35760747392022496,
+          "reference_median": 0.33290025035367304,
+          "reference_p05": 0.025144290757457537,
+          "reference_p95": 0.8121282623809044,
+          "rows": 5488
+        },
+        "stage2_precip_share": {
+          "candidate_mean": 0.3877418626722818,
+          "candidate_median": 0.3840265247321012,
+          "candidate_p05": 0.050070348443191616,
+          "candidate_p95": 0.7664477175682095,
+          "paired_mean_absolute_difference": 0.20637558318479832,
+          "paired_mean_difference_candidate_minus_reference": 0.0033218456596169695,
+          "paired_median_difference_candidate_minus_reference": 0.0031490038845742307,
+          "paired_pearson_correlation": 0.1620950310770275,
+          "paired_root_mean_square_difference": 0.2644733065390213,
+          "reference_mean": 0.38442001701266487,
+          "reference_median": 0.3792954398673986,
+          "reference_p05": 0.06037650397658081,
+          "reference_p95": 0.7093343843909387,
+          "rows": 5488
+        },
+        "stage3_precip_share": {
+          "candidate_mean": 0.271470691943778,
+          "candidate_median": 0.22004509601604005,
+          "candidate_p05": 0.004598269534684004,
+          "candidate_p95": 0.750373943519298,
+          "paired_mean_absolute_difference": 0.1597699319133202,
+          "paired_mean_difference_candidate_minus_reference": 0.013498182876667798,
+          "paired_median_difference_candidate_minus_reference": 0.0,
+          "paired_pearson_correlation": 0.5196866517935106,
+          "paired_root_mean_square_difference": 0.2176489113454466,
+          "reference_mean": 0.25797250906711017,
+          "reference_median": 0.21231273823290941,
+          "reference_p05": 0.006404077073902682,
+          "reference_p95": 0.6878705400258137,
+          "rows": 5488
+        },
+        "tmean_c": {
+          "candidate_mean": 22.114315556269954,
+          "candidate_median": 22.616652488708496,
+          "candidate_p05": 12.025083684921265,
+          "candidate_p95": 30.543959522247313,
+          "paired_mean_absolute_difference": 1.4955379161929423,
+          "paired_mean_difference_candidate_minus_reference": 1.3206411852194513,
+          "paired_median_difference_candidate_minus_reference": 1.382573127746582,
+          "paired_pearson_correlation": 0.9721208623454718,
+          "paired_root_mean_square_difference": 1.820975993279748,
+          "reference_mean": 20.793674371050503,
+          "reference_median": 21.514530181884766,
+          "reference_p05": 10.937442255020143,
+          "reference_p95": 29.906267070770255,
+          "rows": 5488
+        },
+        "wet_days_n": {
+          "candidate_mean": 23.434948979591837,
+          "candidate_median": 22.0,
+          "candidate_p05": 3.0,
+          "candidate_p95": 51.0,
+          "paired_mean_absolute_difference": 6.720116618075802,
+          "paired_mean_difference_candidate_minus_reference": -0.28024781341107874,
+          "paired_median_difference_candidate_minus_reference": 0.0,
+          "paired_pearson_correlation": 0.8410973491651785,
+          "paired_root_mean_square_difference": 8.924182594805124,
+          "reference_mean": 23.715196793002914,
+          "reference_median": 22.0,
+          "reference_p05": 2.0,
+          "reference_p95": 51.0,
+          "rows": 5488
+        }
+      },
+      "crop": "swh",
+      "id": "swh_noirr",
+      "inputs": {
+        "candidate_season": {
+          "path": "data/interim/isimip3b_ukesm_multicrop_ssp585_2041_2050/swh_noirr/season.parquet",
+          "sha256": "679526a07beb5f30a854dc81b7f3db152f8fb5a780e59ab4dfac35aad29cdb17"
+        },
+        "candidate_stages": {
+          "path": "data/interim/isimip3b_ukesm_multicrop_ssp585_2041_2050/swh_noirr/stages.parquet",
+          "sha256": "84bf923b5506c9e9054ab8517830096e3388113449ab37578859689b0f53b962"
+        },
+        "reference_season": {
+          "path": "data/interim/isimip3b_ukesm_multicrop_ssp126_2041_2050/swh_noirr/season.parquet",
+          "sha256": "afe68ff90919bbb5ecbc606f49c898f920e1a798c12226a42b5b8075bd8d0931"
+        },
+        "reference_stages": {
+          "path": "data/interim/isimip3b_ukesm_multicrop_ssp126_2041_2050/swh_noirr/stages.parquet",
+          "sha256": "0057e9faf1919f8aa872a01894e41979d72961276272bb9a51c466be086c7ab8"
+        }
+      },
+      "irrigation": "noirr",
+      "reconciliation_max_absolute_differences": {
+        "candidate": {
+          "precip_mm": 0.0,
+          "rx1day_mm": 0.0,
+          "stage_days": 0.0,
+          "wet_days_n": 0.0
+        },
+        "reference": {
+          "precip_mm": 0.0,
+          "rx1day_mm": 0.0,
+          "stage_days": 0.0,
+          "wet_days_n": 0.0
+        }
+      }
+    },
+    {
+      "calendar": {
+        "path": "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_wwh_noirr.nc",
+        "sha256": "9e8702d3e5899da442ab6f96b252aee5bcf2bb8b34e264887538510abe9e12ef"
+      },
+      "candidate_minus_reference": {
+        "cdd_max_days": {
+          "candidate_mean": 56.55994897959184,
+          "candidate_median": 33.0,
+          "candidate_p05": 13.0,
+          "candidate_p95": 191.64999999999964,
+          "paired_mean_absolute_difference": 20.934402332361515,
+          "paired_mean_difference_candidate_minus_reference": 9.558673469387756,
+          "paired_median_difference_candidate_minus_reference": 4.0,
+          "paired_pearson_correlation": 0.7893315982153273,
+          "paired_root_mean_square_difference": 35.42234248237651,
+          "reference_mean": 47.00127551020408,
+          "reference_median": 29.0,
+          "reference_p05": 12.0,
+          "reference_p95": 148.0,
+          "rows": 5488
+        },
+        "precip_mm": {
+          "candidate_mean": 409.2072541172516,
+          "candidate_median": 335.66254890710115,
+          "candidate_p05": 19.186493961513044,
+          "candidate_p95": 1018.4575128555298,
+          "paired_mean_absolute_difference": 109.49786128701898,
+          "paired_mean_difference_candidate_minus_reference": -38.2711323686107,
+          "paired_median_difference_candidate_minus_reference": -19.262235447764397,
+          "paired_pearson_correlation": 0.8950719306204391,
+          "paired_root_mean_square_difference": 165.3701122019182,
+          "reference_mean": 447.47838648586225,
+          "reference_median": 374.7352328002453,
+          "reference_p05": 24.18426392674446,
+          "reference_p95": 1086.139354252815,
+          "rows": 5488
+        },
+        "precipitation_concentration_hhi": {
+          "candidate_mean": 0.42823365580718337,
+          "candidate_median": 0.402931943843341,
+          "candidate_p05": 0.33821693076474474,
+          "candidate_p95": 0.6173693658846044,
+          "paired_mean_absolute_difference": 0.07347220067466016,
+          "paired_mean_difference_candidate_minus_reference": 0.010035864936234115,
+          "paired_median_difference_candidate_minus_reference": 0.005300355273800433,
+          "paired_pearson_correlation": 0.2523563400490012,
+          "paired_root_mean_square_difference": 0.10491467321415572,
+          "reference_mean": 0.4181977908709493,
+          "reference_median": 0.3968401109641434,
+          "reference_p05": 0.3375201313846882,
+          "reference_p95": 0.5789770002027944,
+          "rows": 5488
+        },
+        "precipitation_timing_centroid": {
+          "candidate_mean": 0.5175701854106157,
+          "candidate_median": 0.5125637714559947,
+          "candidate_p05": 0.36119715462784535,
+          "candidate_p95": 0.6940568802891725,
+          "paired_mean_absolute_difference": 0.0829477904607423,
+          "paired_mean_difference_candidate_minus_reference": -0.0006490110522341606,
+          "paired_median_difference_candidate_minus_reference": 0.0020494007920813517,
+          "paired_pearson_correlation": 0.37722028800112434,
+          "paired_root_mean_square_difference": 0.11094840222003287,
+          "reference_mean": 0.5182191964628499,
+          "reference_median": 0.5133417198621346,
+          "reference_p05": 0.35977270629556707,
+          "reference_p95": 0.6897284701271126,
+          "rows": 5488
+        },
+        "rx1day_mm": {
+          "candidate_mean": 33.75036846304383,
+          "candidate_median": 27.192123413085938,
+          "candidate_p05": 4.772757220268249,
+          "candidate_p95": 80.2817771911621,
+          "paired_mean_absolute_difference": 12.791412235587922,
+          "paired_mean_difference_candidate_minus_reference": -0.9198254823641249,
+          "paired_median_difference_candidate_minus_reference": -1.1164084076881409,
+          "paired_pearson_correlation": 0.6759004504738901,
+          "paired_root_mean_square_difference": 20.62592239520701,
+          "reference_mean": 34.67019394540795,
+          "reference_median": 28.48115062713623,
+          "reference_p05": 4.888487911224365,
+          "reference_p95": 82.35055656433106,
+          "rows": 5488
+        },
+        "rx5day_mm": {
+          "candidate_mean": 61.60573090309869,
+          "candidate_median": 51.77916228026152,
+          "candidate_p05": 6.480999420583249,
+          "candidate_p95": 139.1568828821182,
+          "paired_mean_absolute_difference": 25.488725058443887,
+          "paired_mean_difference_candidate_minus_reference": -3.2641054296067784,
+          "paired_median_difference_candidate_minus_reference": -2.797570049762726,
+          "paired_pearson_correlation": 0.6621322396532314,
+          "paired_root_mean_square_difference": 42.08324991894408,
+          "reference_mean": 64.86983633270548,
+          "reference_median": 54.61729198694229,
+          "reference_p05": 6.6124956555664545,
+          "reference_p95": 154.4534181058406,
+          "rows": 5488
+        },
+        "stage1_precip_share": {
+          "candidate_mean": 0.3015788811843568,
+          "candidate_median": 0.2820926092798056,
+          "candidate_p05": 0.0770148138343467,
+          "candidate_p95": 0.5847772986322083,
+          "paired_mean_absolute_difference": 0.1382005251425135,
+          "paired_mean_difference_candidate_minus_reference": 0.0034661899331287194,
+          "paired_median_difference_candidate_minus_reference": -0.007148044607416956,
+          "paired_pearson_correlation": 0.2903807219955848,
+          "paired_root_mean_square_difference": 0.18170879225617378,
+          "reference_mean": 0.2981126912512281,
+          "reference_median": 0.27948410869061313,
+          "reference_p05": 0.08208413776972202,
+          "reference_p95": 0.5847176261339367,
+          "rows": 5488
+        },
+        "stage2_precip_share": {
+          "candidate_mean": 0.34413168139943934,
+          "candidate_median": 0.35922545489456337,
+          "candidate_p05": 0.050556959466389294,
+          "candidate_p95": 0.6350018887345772,
+          "paired_mean_absolute_difference": 0.12029497499211184,
+          "paired_mean_difference_candidate_minus_reference": -0.004985346709554958,
+          "paired_median_difference_candidate_minus_reference": -0.002614940645625216,
+          "paired_pearson_correlation": 0.5864457213491054,
+          "paired_root_mean_square_difference": 0.1558596271909296,
+          "reference_mean": 0.3491170281089943,
+          "reference_median": 0.36078194516397466,
+          "reference_p05": 0.08327214517574452,
+          "reference_p95": 0.6083792567295923,
+          "rows": 5488
+        },
+        "stage3_precip_share": {
+          "candidate_mean": 0.3542894374162039,
+          "candidate_median": 0.3307813856158593,
+          "candidate_p05": 0.07989622283447123,
+          "candidate_p95": 0.7222746068066883,
+          "paired_mean_absolute_difference": 0.14042897440810548,
+          "paired_mean_difference_candidate_minus_reference": 0.0015191567764262371,
+          "paired_median_difference_candidate_minus_reference": -0.0008600055846237631,
+          "paired_pearson_correlation": 0.5180723757414278,
+          "paired_root_mean_square_difference": 0.18579825701322475,
+          "reference_mean": 0.35277028063977767,
+          "reference_median": 0.33203113979381993,
+          "reference_p05": 0.08432400766933515,
+          "reference_p95": 0.694603900945161,
+          "rows": 5488
+        },
+        "tmean_c": {
+          "candidate_mean": 10.53083441688838,
+          "candidate_median": 11.40053939819336,
+          "candidate_p05": 1.666482043266297,
+          "candidate_p95": 16.21250410079956,
+          "paired_mean_absolute_difference": 1.231879003001175,
+          "paired_mean_difference_candidate_minus_reference": 1.1349107133871255,
+          "paired_median_difference_candidate_minus_reference": 0.9520547389984131,
+          "paired_pearson_correlation": 0.9700228760595326,
+          "paired_root_mean_square_difference": 1.5721387308291865,
+          "reference_mean": 9.395923703501255,
+          "reference_median": 10.17557668685913,
+          "reference_p05": 0.6266100436449056,
+          "reference_p95": 15.315220355987547,
+          "rows": 5488
+        },
+        "wet_days_n": {
+          "candidate_mean": 51.28389212827988,
+          "candidate_median": 52.0,
+          "candidate_p05": 5.0,
+          "candidate_p95": 101.0,
+          "paired_mean_absolute_difference": 10.309766763848396,
+          "paired_mean_difference_candidate_minus_reference": -3.7212099125364433,
+          "paired_median_difference_candidate_minus_reference": -3.0,
+          "paired_pearson_correlation": 0.9026126582759025,
+          "paired_root_mean_square_difference": 13.999817783070737,
+          "reference_mean": 55.005102040816325,
+          "reference_median": 56.0,
+          "reference_p05": 6.0,
+          "reference_p95": 105.0,
+          "rows": 5488
+        }
+      },
+      "crop": "wwh",
+      "id": "wwh_noirr",
+      "inputs": {
+        "candidate_season": {
+          "path": "data/interim/isimip3b_ukesm_multicrop_ssp585_2041_2050/wwh_noirr/season.parquet",
+          "sha256": "589a832ab01bf61b564608f74ebdd78aba9d32827a1900b75218dcc47479e506"
+        },
+        "candidate_stages": {
+          "path": "data/interim/isimip3b_ukesm_multicrop_ssp585_2041_2050/wwh_noirr/stages.parquet",
+          "sha256": "45a3ec630e43498bf5b50bc713447a15e229903c9f7323f4670b1b457be0a82e"
+        },
+        "reference_season": {
+          "path": "data/interim/isimip3b_ukesm_multicrop_ssp126_2041_2050/wwh_noirr/season.parquet",
+          "sha256": "806a0e0c2ecea3d1c0185e9d0fcd233a598bc871d2e2497e4fd5b45436fce968"
+        },
+        "reference_stages": {
+          "path": "data/interim/isimip3b_ukesm_multicrop_ssp126_2041_2050/wwh_noirr/stages.parquet",
+          "sha256": "72301920b7708eb58841dbeba4f0af323eceda9c46585050df22bd5f6b342e5f"
+        }
+      },
+      "irrigation": "noirr",
+      "reconciliation_max_absolute_differences": {
+        "candidate": {
+          "precip_mm": 0.0,
+          "rx1day_mm": 0.0,
+          "stage_days": 0.0,
+          "wet_days_n": 0.0
+        },
+        "reference": {
+          "precip_mm": 0.0,
+          "rx1day_mm": 0.0,
+          "stage_days": 0.0,
+          "wet_days_n": 0.0
+        }
+      }
+    }
+  ],
+  "config": {
+    "path": "config/isimip3b_ukesm_multicrop_midcentury_support_v1.toml",
+    "sha256": "709bda890e390dfce65535240d9ffaa2dcd4f5dec335812f23bff986582aaeae"
+  },
+  "esm": "UKESM1-0-LL",
+  "gates": {
+    "bounded_multicrop_feature_support": true,
+    "causal_yield_response": false,
+    "damage_or_scc_input": false,
+    "irrigation_treatment_effect": false,
+    "whole_esm_emulator_promoted": false,
+    "whole_scenario_emulator_promoted": false
+  },
+  "implementation": {
+    "audit": {
+      "path": "scripts/audit_isimip3b_multicrop_support.py",
+      "sha256": "b69833c887cef30409f34bb8b4c0e396774e7da3b62b9217d3bc0379255db6e6"
+    },
+    "comparison": {
+      "path": "scripts/compare_climate_feature_cells.py",
+      "sha256": "932bde5bb0eee83bcfd4f91861359284daf0cb4f7e6350717f3a311ba168e443"
+    },
+    "reconciliation": {
+      "path": "scripts/reconcile_stage_season_features.py",
+      "sha256": "129cb2f666e7fe030988966a3c00c1c81e8e3fa8958b817a4818a9a35b3cbc59"
+    }
+  },
+  "member": "r1i1p1f2",
+  "reference_scenario": "ssp126",
+  "result": "passed",
+  "role": "bounded_multicrop_and_calendar_support_not_yield_response_damage_or_scc",
+  "schema": "isimip3b_bounded_multicrop_support_audit_v1",
+  "source_provenance": [
+    {
+      "path": "data/provenance/isimip3b_later_century_ukesm_ssp126_2041_2050.toml",
+      "scenario": "ssp126",
+      "sha256": "a33ad8c781ea549961b4231e1c38ebdd14b0e7a6f074e22d92238bcb66c452b5"
+    },
+    {
+      "path": "data/provenance/isimip3b_later_century_ukesm_ssp585_2041_2050.toml",
+      "scenario": "ssp585",
+      "sha256": "f70398f29e7408d986e47eb029a48602c98dd0d6dd52f11143082e46a6cc9518"
+    }
+  ],
+  "soybean_calendar_sensitivity": [
+    {
+      "firr_minus_noirr": {
+        "cdd_max_days": {
+          "candidate_mean": 35.27733236151604,
+          "candidate_median": 29.0,
+          "candidate_p05": 10.0,
+          "candidate_p95": 84.0,
+          "paired_mean_absolute_difference": 1.4218294460641399,
+          "paired_mean_difference_candidate_minus_reference": -0.8329081632653061,
+          "paired_median_difference_candidate_minus_reference": 0.0,
+          "paired_pearson_correlation": 0.9784402974824735,
+          "paired_root_mean_square_difference": 5.487811169179515,
+          "reference_mean": 36.11024052478134,
+          "reference_median": 29.0,
+          "reference_p05": 10.0,
+          "reference_p95": 89.0,
+          "rows": 5488
+        },
+        "precip_mm": {
+          "candidate_mean": 203.9492474562426,
+          "candidate_median": 131.20505183190107,
+          "candidate_p05": 5.3836881112307315,
+          "candidate_p95": 603.020900741592,
+          "paired_mean_absolute_difference": 29.449281833456347,
+          "paired_mean_difference_candidate_minus_reference": -16.944392210156344,
+          "paired_median_difference_candidate_minus_reference": 0.0,
+          "paired_pearson_correlation": 0.9547820605351858,
+          "paired_root_mean_square_difference": 75.37184372696507,
+          "reference_mean": 220.89363966639894,
+          "reference_median": 123.88987484946847,
+          "reference_p05": 11.852448380738501,
+          "reference_p95": 713.5587856344875,
+          "rows": 5488
+        },
+        "rx1day_mm": {
+          "candidate_mean": 28.63559072773969,
+          "candidate_median": 17.571961402893066,
+          "candidate_p05": 1.9735936582088471,
+          "candidate_p95": 88.18835830688477,
+          "paired_mean_absolute_difference": 1.9560004089342609,
+          "paired_mean_difference_candidate_minus_reference": -0.9882114621167106,
+          "paired_median_difference_candidate_minus_reference": 0.0,
+          "paired_pearson_correlation": 0.9696567962689309,
+          "paired_root_mean_square_difference": 7.737900065792001,
+          "reference_mean": 29.6238021898564,
+          "reference_median": 17.661054611206055,
+          "reference_p05": 2.8117122530937197,
+          "reference_p95": 89.43090629577634,
+          "rows": 5488
+        },
+        "rx5day_mm": {
+          "candidate_mean": 51.69716259998435,
+          "candidate_median": 34.54816371202469,
+          "candidate_p05": 2.7745785120874644,
+          "candidate_p95": 147.94213473796842,
+          "paired_mean_absolute_difference": 3.5562677331657064,
+          "paired_mean_difference_candidate_minus_reference": -1.7335640911335999,
+          "paired_median_difference_candidate_minus_reference": 0.0,
+          "paired_pearson_correlation": 0.9657760772942912,
+          "paired_root_mean_square_difference": 15.109262738694591,
+          "reference_mean": 53.43072669111795,
+          "reference_median": 34.24090060591698,
+          "reference_p05": 4.327227856963874,
+          "reference_p95": 160.3330424308777,
+          "rows": 5488
+        },
+        "tmean_c": {
+          "candidate_mean": 23.270074663374235,
+          "candidate_median": 23.886272430419922,
+          "candidate_p05": 14.419362831115723,
+          "candidate_p95": 31.147520732879627,
+          "paired_mean_absolute_difference": 0.5646667355351128,
+          "paired_mean_difference_candidate_minus_reference": 0.19859162676786193,
+          "paired_median_difference_candidate_minus_reference": 0.0,
+          "paired_pearson_correlation": 0.9736477020089161,
+          "paired_root_mean_square_difference": 1.1180086254491886,
+          "reference_mean": 23.071483036606374,
+          "reference_median": 23.508145332336426,
+          "reference_p05": 14.52530369758606,
+          "reference_p95": 30.197283267974854,
+          "rows": 5488
+        },
+        "wet_days_n": {
+          "candidate_mean": 24.246173469387756,
+          "candidate_median": 24.0,
+          "candidate_p05": 1.0,
+          "candidate_p95": 50.0,
+          "paired_mean_absolute_difference": 3.0400874635568513,
+          "paired_mean_difference_candidate_minus_reference": -1.0065597667638484,
+          "paired_median_difference_candidate_minus_reference": 0.0,
+          "paired_pearson_correlation": 0.9175351011030165,
+          "paired_root_mean_square_difference": 6.645901211683175,
+          "reference_mean": 25.252733236151602,
+          "reference_median": 23.0,
+          "reference_p05": 3.0,
+          "reference_p95": 56.0,
+          "rows": 5488
+        }
+      },
+      "rows": 5488,
+      "scenario": "reference"
+    },
+    {
+      "firr_minus_noirr": {
+        "cdd_max_days": {
+          "candidate_mean": 36.16326530612245,
+          "candidate_median": 29.0,
+          "candidate_p05": 11.0,
+          "candidate_p95": 85.0,
+          "paired_mean_absolute_difference": 1.4145408163265305,
+          "paired_mean_difference_candidate_minus_reference": -0.7993804664723032,
+          "paired_median_difference_candidate_minus_reference": 0.0,
+          "paired_pearson_correlation": 0.9800158839135205,
+          "paired_root_mean_square_difference": 5.206644526979032,
+          "reference_mean": 36.962645772594755,
+          "reference_median": 29.0,
+          "reference_p05": 10.0,
+          "reference_p95": 89.0,
+          "rows": 5488
+        },
+        "precip_mm": {
+          "candidate_mean": 213.5254675921734,
+          "candidate_median": 129.53801111504436,
+          "candidate_p05": 6.152151169255377,
+          "candidate_p95": 710.1586279328907,
+          "paired_mean_absolute_difference": 25.83528268760282,
+          "paired_mean_difference_candidate_minus_reference": -12.430157450095644,
+          "paired_median_difference_candidate_minus_reference": 0.0,
+          "paired_pearson_correlation": 0.9688253156840764,
+          "paired_root_mean_square_difference": 64.46408919683758,
+          "reference_mean": 225.95562504226908,
+          "reference_median": 124.60509988665581,
+          "reference_p05": 13.858617710694672,
+          "reference_p95": 773.8993566449731,
+          "rows": 5488
+        },
+        "rx1day_mm": {
+          "candidate_mean": 30.62820626400091,
+          "candidate_median": 18.21580696105957,
+          "candidate_p05": 2.322793436050415,
+          "candidate_p95": 103.00278015136715,
+          "paired_mean_absolute_difference": 1.8950601691507758,
+          "paired_mean_difference_candidate_minus_reference": -0.7647241660008213,
+          "paired_median_difference_candidate_minus_reference": 0.0,
+          "paired_pearson_correlation": 0.9787889407496946,
+          "paired_root_mean_square_difference": 7.270232250935066,
+          "reference_mean": 31.39293043000173,
+          "reference_median": 18.476021766662598,
+          "reference_p05": 3.329813027381897,
+          "reference_p95": 103.86355056762685,
+          "rows": 5488
+        },
+        "rx5day_mm": {
+          "candidate_mean": 57.98932994880548,
+          "candidate_median": 35.000616416335106,
+          "candidate_p05": 3.3283833757042887,
+          "candidate_p95": 193.46780875325194,
+          "paired_mean_absolute_difference": 3.343956030115116,
+          "paired_mean_difference_candidate_minus_reference": -1.1468055090994598,
+          "paired_median_difference_candidate_minus_reference": 0.0,
+          "paired_pearson_correlation": 0.9832435766683928,
+          "paired_root_mean_square_difference": 12.778927986768036,
+          "reference_mean": 59.13613545790494,
+          "reference_median": 35.13110074400902,
+          "reference_p05": 5.066681601107121,
+          "reference_p95": 194.17025985717757,
+          "rows": 5488
+        },
+        "tmean_c": {
+          "candidate_mean": 24.396620209641082,
+          "candidate_median": 24.919508934020996,
+          "candidate_p05": 15.425978994369506,
+          "candidate_p95": 31.889458274841296,
+          "paired_mean_absolute_difference": 0.5415576807611537,
+          "paired_mean_difference_candidate_minus_reference": 0.15773884548042674,
+          "paired_median_difference_candidate_minus_reference": 0.0,
+          "paired_pearson_correlation": 0.9755651013363507,
+          "paired_root_mean_square_difference": 1.088897612881549,
+          "reference_mean": 24.238881364160655,
+          "reference_median": 24.720975875854492,
+          "reference_p05": 15.630906438827516,
+          "reference_p95": 30.967222309112543,
+          "rows": 5488
+        },
+        "wet_days_n": {
+          "candidate_mean": 24.45134839650146,
+          "candidate_median": 24.0,
+          "candidate_p05": 2.0,
+          "candidate_p95": 49.0,
+          "paired_mean_absolute_difference": 2.9535349854227406,
+          "paired_mean_difference_candidate_minus_reference": -0.8216107871720116,
+          "paired_median_difference_candidate_minus_reference": 0.0,
+          "paired_pearson_correlation": 0.9212627325634846,
+          "paired_root_mean_square_difference": 6.38489984762016,
+          "reference_mean": 25.272959183673468,
+          "reference_median": 23.0,
+          "reference_p05": 3.0,
+          "reference_p95": 56.0,
+          "rows": 5488
+        }
+      },
+      "rows": 5488,
+      "scenario": "candidate"
+    }
+  ],
+  "year_end": 2049,
+  "year_start": 2042
+}
