@@ -42,6 +42,22 @@ The summer check supports close bounded agreement while showing that absolute
 rainfall differences can be larger than in the April smoke. It still does not
 establish nationwide, seasonal, or boundary-vintage equivalence.
 
+## July 2012 drought-month stress test
+
+The same two counties and four variables were retained for July 2012, a dry
+summer month selected without reference to yield outcomes. All four official
+files again have exact common support for 3,107 counties and 31 finite daily
+values. Cuming County reports 0.0900 mm of official monthly precipitation
+versus 0.0977 mm from the polygon estimator; Fresno reports 0.0600 versus
+0.0706 mm. Temperature correlations exceed 0.99999. Fresno's precipitation
+correlation is lower (0.9853) because both estimators are near zero, while its
+maximum absolute daily precipitation difference is only 0.0056 mm.
+
+This drought-month check strengthens the evidence that the routes are closely
+aligned in the two fixed counties, but the nonzero monthly differences and
+bounded support still reject a declaration of estimator equivalence. It does
+not select a weather route or authorize a response, damage, or SCC input.
+
 ## Reproduction and evidence boundary
 
 The executable is
@@ -52,7 +68,9 @@ URLs and hashes, the local grid and polygon-weight hashes, and all metrics are
 recorded in
 `../data/provenance/us_nclimgrid_county_average_estimator_comparison_199004_20260830.json`
 and
-`../data/provenance/us_nclimgrid_county_average_estimator_comparison_200007_20260830.json`.
+`../data/provenance/us_nclimgrid_county_average_estimator_comparison_200007_20260830.json`,
+with the drought-month extension in
+`../data/provenance/us_nclimgrid_county_average_estimator_comparison_201207_20260831.json`.
 
 This is a weather-measurement comparison only. It does not use yield outcomes,
 select an estimator, estimate a response, calculate damages, or authorize an

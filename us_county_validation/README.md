@@ -215,6 +215,14 @@ Trigg County, Kentucky, and Adair County, Iowa. The two counties sum to 69.64
 and 115.50 mm monthly precipitation, respectively, and both retain the 0.005 C
 rounded midpoint bound. This narrows month/region/schema drift only; it does
 not establish full-panel identity or feature equivalence.
+The separate official-versus-polygon estimator audit retains Cuming and
+Fresno without outcome-based reselection in April 1990, July 2000, and July
+2012. The drought-month extension has exact 3,107-county support and reproduces
+0.0900 versus 0.0977 mm monthly rain in Cuming and 0.0600 versus 0.0706 mm in
+Fresno. Its machine receipt is
+`../data/provenance/us_nclimgrid_county_average_estimator_comparison_201207_20260831.json`.
+Close agreement remains a bounded sensitivity and does not make the two
+estimators interchangeable.
 
 ## Primary design
 

@@ -235,6 +235,12 @@ SSP5-8.5-minus-SSP1-2.6 means are +0.777 C, -8.81 mm rain, +0.28 wet days,
 21,236 values (11.73%) fall outside the two-scenario support envelope. This is
 adverse engineering evidence; end-century, whole-ESM, FAIR feature-support,
 response, damage, and SCC gates remain open.
+The MRI SSP1-2.6 and SSP3-7.0 end-century cells now also pass complete-file,
+same-realization GMST, feature, and exact-reconciliation gates. Their matched
+SSP3-7.0-minus-SSP1-2.6 means are +2.928 C, +2.24 mm seasonal rain, -0.97 wet
+days, +2.41 maximum-dry-spell days, +0.25 mm Rx1day, and +1.15 mm Rx5day.
+Tracked progress is 40/60 files and twenty bounded blocks. MRI SSP5-8.5 end
+century remains required before the registered whole-scenario audit can run.
 Relative to matched IPSL SSP1-2.6 cells, mean SSP3-7.0 differences at
 midcentury are +0.365 C, +13.22 mm seasonal rain, +0.93 wet days, -1.36
 maximum dry-spell days, +2.18 mm Rx1day, and +3.84 mm Rx5day. The end-century

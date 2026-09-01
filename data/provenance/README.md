@@ -54,6 +54,13 @@ County, Iowa. These receipts test source support, numeric code mapping, finite
 daily values, and temperature ordering; they do not replace the registered
 polygon-weight estimator or authorize a response, damage, or SCC input.
 
+`us_nclimgrid_county_average_estimator_comparison_*_*.json` directly compares
+the official county route with the fixed polygon-weight proxy for the same
+Cuming and Fresno counties in April 1990, July 2000, and drought-month July
+2012. The receipts bind all weather inputs and weights and record daily and
+monthly difference metrics. They are bounded measurement sensitivities, not
+evidence of general estimator equivalence or SCC eligibility.
+
 `nclimgrid_daily_1981_cuming_smoke.toml` pins the six exact May--October 1981
 monthly objects used in the Cuming County corn/soy engineering smoke. The
 resulting feature table is a county-weather construction check only: it does

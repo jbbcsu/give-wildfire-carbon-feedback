@@ -385,7 +385,13 @@ midcentury product improves 15/33 comparisons (median RMSE ratio 1.00027;
 maximum 1.04233), including 4/11 for held-out SSP5-8.5, and places 21,236
 values (11.73%) outside support. This adverse single-ESM result raises tracked
 progress to 36/60 files and eighteen blocks but does not authorize a response,
-damage, or SCC. For IPSL, SSP3-7.0 relative to matched SSP1-2.6 cells has midcentury mean
+damage, or SCC. MRI SSP1-2.6 and SSP3-7.0 end-century pairs now pass the same
+exact file, GMST, feature, and reconciliation gates. Matched SSP3-7.0 minus
+SSP1-2.6 means are +2.928 C, +2.24 mm seasonal rain, -0.97 wet days, +2.41
+maximum-dry-spell days, +0.25 mm Rx1day, and +1.15 mm Rx5day. This raises
+tracked progress to 40/60 files and twenty blocks, but missing MRI SSP5-8.5
+end century prevents a whole-scenario claim and leaves response, damage, and
+SCC gates closed. For IPSL, SSP3-7.0 relative to matched SSP1-2.6 cells has midcentury mean
 differences of +0.365 C, +13.22 mm seasonal rain, +0.93 wet
 days, -1.36 maximum dry-spell days, +2.18 mm Rx1day, and +3.84 mm Rx5day. The
 end-century means are +4.146 C, +25.70 mm seasonal rain, +2.85 wet days, -2.26
@@ -577,6 +583,14 @@ County, Iowa, under the same rules. This establishes
 a source-computed county-average alternative, not an estimator replacement:
 historical boundary vintage and equivalence to the registered polygon-area
 weights remain unvalidated.
+An outcome-blind direct comparison retains Cuming County, Nebraska, and
+Fresno County, California, in April 1990, July 2000, and drought-month July
+2012. Temperature series agree at correlations above 0.99999 except for a
+still-high 0.999993 minimum in April. Daily precipitation correlations are at
+least 0.99983 except for Fresno's near-zero-rain July 2012 series (0.98533),
+and the largest monthly precipitation-total difference is 0.9926 mm. This
+supports close bounded agreement while explicitly rejecting general
+estimator equivalence or an estimator replacement.
 
 The current-hash, basis-before-weighting diagnostic covers 117,679 observed
 maize yields (102,847 consecutive pairs) and 47,922 observed soybean yields

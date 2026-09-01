@@ -110,6 +110,18 @@ same mapping and value gates. These samples validate a source-computed county
 route but do not replace the
 registered polygon estimator; boundary
 vintage, full-period identity, and feature-equivalence gates remain open.
+We then compare the official county averages directly with the fixed 2019
+TIGER polygon-weight proxy for two preregistered counties (Cuming County,
+Nebraska, and Fresno County, California) in April 1990, July 2000, and July
+2012. Each month requires exact common 3,107-county support, complete daily
+chronology, finite values, declared units and physical bounds, fixed positive
+unit-sum polygon weights, and identical county identities. Hash-bound inputs
+and daily difference metrics are recorded for every county-variable cell.
+The largest monthly precipitation-total difference is 0.9926 mm; a near-zero
+Fresno precipitation series in July 2012 has the lowest correlation (0.98533),
+while temperature correlations otherwise remain above 0.99999 apart from an
+April minimum of 0.999993. These are measurement-route sensitivities, not an
+equivalence test, estimator selection, response estimate, or SCC input.
 
 A complete bounded acquisition now records all 468 canonical monthly objects
 for 1981--2019, totaling exactly 27,857,685,556 bytes (25.944 GiB). Before each
@@ -509,7 +521,15 @@ MRI contract and exact two-scenario support flags. Across 181,104 long feature
 rows it improves 15/33 comparisons (median RMSE ratio 1.00027; maximum
 1.04233), including 4/11 for held-out SSP5-8.5, while 21,236 values (11.73%)
 are outside support. These gates raise tracked progress to 36/60 files and
-eighteen blocks but remain engineering evidence only. For IPSL, the exact-key
+eighteen blocks but remain engineering evidence only. MRI SSP1-2.6 and
+SSP3-7.0 end-century pairs subsequently pass exact frozen-file identity, full
+decoded-content, same-realization GMST, bounded feature, and stage/season
+reconciliation gates. The exact-key SSP3-7.0-minus-SSP1-2.6 comparison
+averages +2.928 C, +2.24 mm seasonal precipitation, -0.97 wet days, +2.41
+maximum-dry-spell days, +0.25 mm Rx1day, and +1.15 mm Rx5day across 5,488
+rows. These additions raise tracked progress to 40/60 files and twenty
+blocks. The absent MRI SSP5-8.5 end-century cell prevents a whole-scenario
+audit; response, damage, and SCC authorization remain false. For IPSL, the exact-key
 SSP3-7.0-minus-SSP1-2.6 midcentury comparison finds
 mean differences of +0.365 C, +13.22 mm seasonal precipitation, +0.93 wet days,
 -1.36 maximum dry-spell days, +2.18 mm Rx1day, and +3.84 mm Rx5day. The matching
