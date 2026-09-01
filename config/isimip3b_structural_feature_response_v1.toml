@@ -1,0 +1,74 @@
+schema = "isimip3b_structural_feature_response_contract_v1"
+role = "outcome_blind_pathway_aware_candidate_not_promoted_response_damage_or_scc"
+primary_climate_route = "direct_isimip3b_daily_feature_response"
+fallback_climate_route = "mesmer_m_tp_plus_published_daily_generator"
+training_target = "one_daily_derived_crop_feature_within_exact_crop_irrigation_grid_cell"
+scenario_categorical_effect = false
+production_promoted = false
+response_estimation_authorized = false
+damage_or_scc_authorized = false
+
+required_feature_families = ["tmean_c", "precip_mm", "wet_days_n", "cdd_max_days", "rx1day_mm", "rx5day_mm", "stage1_precip_share", "stage2_precip_share", "stage3_precip_share", "precipitation_timing_centroid", "precipitation_concentration_hhi"]
+required_esm_ids = ["GFDL-ESM4", "IPSL-CM6A-LR", "MPI-ESM1-2-HR", "MRI-ESM2-0", "UKESM1-0-LL"]
+required_scenarios = ["historical", "ssp126", "ssp370", "ssp585"]
+
+[[source_receipts]]
+role = "complete_bounded_early_mid_end_training"
+path = "data/provenance/isimip3b_expanded_fair_training_20260901.json"
+sha256 = "a883f8e0c74d41c6996bc798c58565b4195b78a17b38e50509483f3a7e3bf90f"
+
+[[source_receipts]]
+role = "actual_give_fair_common_random_number_support"
+path = "data/provenance/fair_esm_alignment_later_century_20260901.json"
+sha256 = "52aa5758edcb40273138d314cbed7b467946ed3d4fdebd219acf2bf38c6c451a"
+
+[[source_receipts]]
+role = "bounded_multicrop_calendar_support"
+path = "data/provenance/isimip3b_ukesm_multicrop_midcentury_support_20260901.json"
+sha256 = "b6268b201084b3498d9b5242116f6cbd8be862f93ebe5a16255cd111707cb3b4"
+
+[predictor_basis]
+standardize_within_training_fold_only = true
+intercept_unpenalized = true
+continuous_terms = ["same_realization_gmst_anomaly_k", "same_realization_gmst_one_year_change_k", "years_since_2020", "gmst_anomaly_squared", "gmst_anomaly_x_one_year_change", "gmst_anomaly_x_years_since_2020"]
+esm_deviation_terms = ["intercept", "same_realization_gmst_anomaly_k", "same_realization_gmst_one_year_change_k"]
+unseen_esm_deviations_in_whole_esm_holdout = "zero_global_backbone_only"
+scenario_identity_as_predictor = false
+calendar_year_available_to_pulse_pair = true
+gmst_change_requires_same_realization_previous_year = true
+cross_block_gmst_differences_forbidden = true
+
+[regularization]
+method = "ridge"
+lambda_grid = [0.001, 0.01, 0.1, 1.0, 10.0, 100.0]
+selection = "nested_training_fold_minimum_mean_rmse_then_larger_lambda_within_0.1_percent"
+outer_holdouts_excluded_from_lambda_selection = true
+probability_weights_assigned_to_esms = false
+
+[validation]
+outer_holdouts = ["whole_esm", "whole_scenario"]
+required_common_random_numbers = true
+required_same_realization_gmst = true
+required_baseline_and_pulse_support_flags = true
+required_zero_pulse_identity = true
+required_pre_divergence_identity = true
+required_direct_centered_agreement = true
+required_decreasing_positive_pulse_scales = 3
+required_multicrop_reporting = true
+required_rainfed_irrigated_calendar_reporting = true
+
+[promotion]
+maximum_outer_holdout_rmse_ratio_to_cell_mean = 1.0
+median_outer_holdout_rmse_ratio_to_cell_mean = 0.995
+every_feature_family_must_pass_both_holdout_types = true
+actual_fair_baseline_and_pulse_must_be_within_support = true
+zero_pulse_and_pre_divergence_must_be_exact = true
+decreasing_pulse_convergence_must_pass = true
+human_review_required = true
+
+[limitations]
+no_causal_yield_response = true
+no_irrigation_treatment_effect = true
+no_probability_interpretation = true
+no_post_2100_daily_support = true
+no_damage_or_scc_input = true

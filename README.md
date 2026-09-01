@@ -98,6 +98,12 @@ soybean irrigation contrast is explicitly a calendar sensitivity rather than
 a treatment effect. See
 [ISIMIP3B_MULTICROP_SUPPORT_AUDIT.md](ISIMIP3B_MULTICROP_SUPPORT_AUDIT.md).
 No response, damage, or SCC gate is opened.
+The next response candidate is preregistered, not fitted: a pathway-aware
+ridge basis with continuous same-realization GMST level/change and time terms,
+partially pooled ESM deviations, no scenario categorical shortcut, nested
+whole-ESM/whole-scenario selection, and strict actual-FAIR pulse gates. See
+[STRUCTURAL_FEATURE_RESPONSE_CANDIDATE.md](STRUCTURAL_FEATURE_RESPONSE_CANDIDATE.md).
+All production gates remain closed.
 A registered later-century expansion now fixes the next acquisition before any
 later-century feature or response result is examined. It selects exactly the
 2041--2050 and 2091--2100 `pr`/`tas` files for the full five-ESM by three-SSP

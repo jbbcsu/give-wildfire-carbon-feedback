@@ -1217,6 +1217,19 @@ quantity, timing, dry-spell, and extreme-rain summaries and an exact-key
 soybean calendar sensitivity. It explicitly sets whole-scenario, whole-ESM,
 causal-yield, irrigation-treatment, damage, and SCC gates to false.
 
+Before inspecting a real fit, the next feature-response family is fixed as a
+ridge-regularized continuous pathway basis. It contains same-realization GMST
+anomaly and one-year change, years since 2020, a quadratic GMST term, and
+GMST-by-change and GMST-by-time interactions, with partially pooled ESM
+intercept/slope deviations. Scenario identity is not a predictor. Penalty
+selection and standardization occur only inside training folds; outer whole-
+ESM and whole-scenario holdouts remain untouched. The preregistered promotion
+rule requires every feature family to pass both holdout types, maximum and
+median RMSE ratios no greater than 1.0 and 0.995, respectively, complete actual
+FAIR baseline/pulse support, exact zero/pre-divergence identity, decreasing-
+pulse convergence, and human review. The validated contract is not a fitted or
+promoted response.
+
 ## S10. Scientific integrity and independent review
 
 Every quantitative statement is classified as observed source data, derived

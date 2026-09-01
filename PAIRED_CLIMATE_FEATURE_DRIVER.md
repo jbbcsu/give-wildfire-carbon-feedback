@@ -385,6 +385,15 @@ occurrence/amount generator, with monthly-total conservation and shared
 innovations.  If that also fails, pause rather than train a new ML weather
 emulator without a revised, pre-registered validation plan.
 
+The next direct-feature candidate is now preregistered in
+`config/isimip3b_structural_feature_response_v1.toml`. It replaces the adverse
+affine basis only if nested whole-ESM and whole-scenario tests pass. The ridge
+basis uses continuous same-realization GMST level/change and time interactions,
+partially pooled ESM deviations, fold-local standardization, and no scenario
+categorical effect. Actual FAIR common-random-number support, zero/pre-
+divergence identity, and decreasing-pulse convergence remain mandatory. The
+contract is validated but no real fit or promotion has occurred.
+
 ## Sources
 
 * ISIMIP3 input-data documentation: https://www.isimip.org/gettingstarted/input-data-bias-adjustment/
