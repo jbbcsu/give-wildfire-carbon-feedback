@@ -254,6 +254,15 @@ latitudes by 2081--2090; southern high latitudes remain split. This is a
 structural scenario diagnostic, not allocation, pulse, welfare, damage, or SCC
 evidence.
 
+The checksum-bound structural-contrast audit in
+[`FISHMIP_STRUCTURAL_CONTRAST_SENSITIVITY.md`](FISHMIP_STRUCTURAL_CONTRAST_SENSITIVITY.md)
+compares EcoOcean-minus-BOATS contrasts within forcing with
+IPSL-CM6A-LR-minus-GFDL-ESM4 contrasts within ecosystem model. Climate-forcing
+contrasts have the larger root-mean-square magnitude in 18/30 fixed
+scenario/window/latitude cells and ecosystem-model contrasts in 12/30. The
+split rejects treating either dimension as negligible; the four structures
+are not probability draws and the result is not a variance decomposition.
+
 ## Executable accounting scaffolding
 
 The repository currently provides two coefficient-free checks:
@@ -302,6 +311,7 @@ python3 test/test_fishmip_control_adjusted_scenario.py  # same environment requi
 python3 test/test_fishmip_control_adjusted_spatial_consensus.py  # same environment requirement
 python3 test/test_fishmip_control_adjusted_spatial_time_windows.py  # same environment requirement
 python3 test/test_fishmip_control_adjusted_spatial_persistence.py  # same environment requirement
+python3 test/test_fishmip_structural_contrast_sensitivity.py
 ```
 
 These scripts do not choose ecological or economic parameters, prove that an

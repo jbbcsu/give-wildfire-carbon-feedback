@@ -145,6 +145,13 @@ than SSP1-2.6 in 43/60 forcing/model/window/band cells. Separation is mixed in
 the forcing contrast without supplying causal attribution, country allocation,
 a matched pulse, welfare, damages, or SCC evidence.
 
+A separate two-by-two structural-contrast diagnostic finds climate-forcing
+contrasts larger in root-mean-square magnitude in 18/30 fixed
+scenario/window/latitude cells and ecosystem-model contrasts larger in 12/30.
+Neither dimension can be treated as negligible. This comparison is not a
+probability weighting or variance decomposition and opens no forced-response,
+allocation, pulse, welfare, damage, or SCC gate.
+
 ## Gate 4 — welfare translation and GIVE interface
 
 Translate changes in catch/availability into producer and consumer welfare,
