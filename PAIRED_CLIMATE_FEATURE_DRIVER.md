@@ -248,6 +248,29 @@ comparisons (median RMSE ratio 1.00006; maximum 1.06514), including 9/11 for
 held-out SSP5-8.5, and flags 27,090 values (14.96%) outside support. This
 mixed, adverse result does not authorize a response, damage function, or SCC
 input; whole-ESM and FAIR feature-support gates remain open.
+The remaining frozen MPI-ESM1-2-HR SSP3-7.0 mid- and end-century pairs and
+SSP5-8.5 end-century pair now pass exact bytes/SHA-512, decoded content,
+same-realization GMST, bounded maize/rainfed feature, and exact reconciliation
+gates, raising tracked progress to 48/60 files and twenty-four blocks. Relative
+to matched SSP1-2.6 cells, SSP3-7.0 changes from +0.447 C, -4.38 mm rain,
+-0.36 wet days, and +2.53 maximum-dry-spell days at midcentury to +3.273 C,
+-17.02 mm, -1.61 days, and +2.54 days at end century. End-century SSP5-8.5
+changes are +4.251 C, -13.20 mm, -1.43 wet days, and +2.18 dry-spell days.
+These are descriptive feature-cell contrasts. Whole-scenario, whole-ESM,
+FAIR feature-support, response, damage, and SCC authorization remain open.
+The registered 181,104-row MPI whole-scenario audits are also adverse. At
+midcentury, GMST adjustment improves 14/33 comparisons (median/maximum RMSE
+ratios 1.00163/1.05542) and 21,100 values (11.65%) are outside support. At end
+century it improves 15/33 (1.00028/1.09814) and 27,605 values (15.24%) are
+outside support. Neither result promotes the emulator.
+The registered four-ESM whole-ESM evaluator joins GFDL, IPSL, MPI, and MRI
+across the three SSPs. Each period has 724,416 rows and 44 whole-ESM
+comparisons. Midcentury improves 27/44 versus the cell-mean benchmark
+(median/maximum RMSE ratios 0.99954/1.00969) with 8.34% outside exact
+three-ESM support. End century improves only 12/44 (1.00040/1.06362) with
+9.47% outside support. UKESM is absent, so this adverse four-of-five audit
+does not complete the frozen whole-ESM gate or authorize FAIR feature support,
+a response, damage, or SCC input.
 Relative to matched IPSL SSP1-2.6 cells, mean SSP3-7.0 differences at
 midcentury are +0.365 C, +13.22 mm seasonal rain, +0.93 wet days, -1.36
 maximum dry-spell days, +2.18 mm Rx1day, and +3.84 mm Rx5day. The end-century

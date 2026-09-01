@@ -535,7 +535,25 @@ mm Rx1day, and +0.56 mm Rx5day. Its 181,104-row whole-scenario audit improves
 16/33 comparisons (median RMSE ratio 1.00006; maximum 1.06514), including 9/11
 for held-out SSP5-8.5, while 27,090 values (14.96%) lie outside exact support.
 This mixed, adverse result leaves response, damage, SCC, whole-ESM, and FAIR
-feature-support authorization false. For IPSL, the exact-key
+feature-support authorization false. The remaining frozen MPI-ESM1-2-HR
+SSP3-7.0 mid- and end-century pairs and SSP5-8.5 end-century pair pass the
+same exact file/content, same-realization GMST, bounded feature, and
+reconciliation gates. The resulting tracked coverage is 48/60 files and
+twenty-four blocks. Exact-key SSP3-7.0 minus SSP1-2.6 rain differences are
+-4.38 mm at midcentury and -17.02 mm at end century; end-century SSP5-8.5
+minus SSP1-2.6 is -13.20 mm. These are support diagnostics only; whole-ESM,
+FAIR feature-support, response, damage, and SCC authorization remain false.
+The deterministic MPI whole-scenario audits improve 14/33 comparisons at
+midcentury (median/maximum RMSE ratios 1.00163/1.05542; 11.65% outside
+support) and 15/33 at end century (1.00028/1.09814; 15.24% outside support).
+These adverse holdouts do not promote the emulator.
+The four-ESM whole-ESM evaluator binds exact GFDL, IPSL, MPI, and MRI source
+audits and training hashes. Each period contains 724,416 rows and 44 holdouts.
+Midcentury improves 27/44 comparisons (median/maximum RMSE ratios
+0.99954/1.00969) with 8.34% outside three-ESM support; end century improves
+12/44 (1.00040/1.06362) with 9.47% outside support. UKESM remains absent, so
+the five-ESM and FAIR feature-support gates remain false.
+For IPSL, the exact-key
 SSP3-7.0-minus-SSP1-2.6 midcentury comparison finds
 mean differences of +0.365 C, +13.22 mm seasonal precipitation, +0.93 wet days,
 -1.36 maximum dry-spell days, +2.18 mm Rx1day, and +3.84 mm Rx5day. The matching

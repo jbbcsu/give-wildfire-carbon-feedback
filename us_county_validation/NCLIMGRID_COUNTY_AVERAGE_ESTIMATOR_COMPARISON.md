@@ -58,6 +58,17 @@ aligned in the two fixed counties, but the nonzero monthly differences and
 bounded support still reject a declaration of estimator equivalence. It does
 not select a weather route or authorize a response, damage, or SCC input.
 
+## February 2000 leap-month stress test
+
+An outcome-blind February 2000 check retains the same two counties and four
+variables and adds the 29-day leap-year calendar edge. All official and polygon
+series contain exactly 29 finite days. Correlations are at least 0.999988.
+Polygon-minus-official monthly precipitation is +0.2838 mm in Cuming and
++0.6589 mm in Fresno; the largest daily difference across variables is
+0.1342 in the variable's native unit. This closes a leap-day decoding check
+but again rejects exact estimator equivalence and authorizes no response,
+damage, or SCC input.
+
 ## Reproduction and evidence boundary
 
 The executable is
@@ -70,7 +81,9 @@ recorded in
 and
 `../data/provenance/us_nclimgrid_county_average_estimator_comparison_200007_20260830.json`,
 with the drought-month extension in
-`../data/provenance/us_nclimgrid_county_average_estimator_comparison_201207_20260831.json`.
+`../data/provenance/us_nclimgrid_county_average_estimator_comparison_201207_20260831.json`
+and the leap-month extension in
+`../data/provenance/us_nclimgrid_county_average_estimator_comparison_200002_20260901.json`.
 
 This is a weather-measurement comparison only. It does not use yield outcomes,
 select an estimator, estimate a response, calculate damages, or authorize an

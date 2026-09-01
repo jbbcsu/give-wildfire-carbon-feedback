@@ -44,6 +44,16 @@ mri_endcentury_config = tomllib.loads(
 )
 assert validate_config(mri_endcentury_config)["period"] == "endcentury"
 assert mri_endcentury_config["selection"]["esm_id"] == "MRI-ESM2-0"
+mpi_config = tomllib.loads(
+    (ROOT / "config/isimip3b_mpi_three_scenario_midcentury_holdout_v1.toml").read_text(encoding="utf-8")
+)
+assert validate_config(mpi_config)["period"] == "midcentury"
+assert mpi_config["selection"]["esm_id"] == "MPI-ESM1-2-HR"
+mpi_endcentury_config = tomllib.loads(
+    (ROOT / "config/isimip3b_mpi_three_scenario_endcentury_holdout_v1.toml").read_text(encoding="utf-8")
+)
+assert validate_config(mpi_endcentury_config)["period"] == "endcentury"
+assert mpi_endcentury_config["selection"]["esm_id"] == "MPI-ESM1-2-HR"
 bad = copy.deepcopy(config)
 bad["limitations"]["damage_or_scc_authorized"] = True
 try:

@@ -1,0 +1,46 @@
+schema = "isimip3b_four_esm_later_century_holdout_config_v1"
+role = "outcome_blind_four_esm_three_scenario_whole_esm_holdout_and_support_not_complete_emulator_damage_or_scc"
+
+[selection]
+period = "endcentury"
+year_start = 2092
+year_end = 2099
+expected_esm_ids = ["GFDL-ESM4", "IPSL-CM6A-LR", "MPI-ESM1-2-HR", "MRI-ESM2-0"]
+expected_scenarios = ["ssp126", "ssp370", "ssp585"]
+expected_feature_families = ["tmean_c", "precip_mm", "wet_days_n", "cdd_max_days", "rx1day_mm", "rx5day_mm", "stage1_precip_share", "stage2_precip_share", "stage3_precip_share", "precipitation_timing_centroid", "precipitation_concentration_hhi"]
+
+[[training_products]]
+esm_id = "GFDL-ESM4"
+member_id = "r1i1p1f1"
+path = "data/interim/isimip3b_gfdl_three_scenario_endcentury_holdout/training.parquet"
+sha256 = "26e2b10cd43d2be3fcf8544a1b17ba6298eb1c609b8ec5738596c898335c9495"
+source_audit = "data/provenance/isimip3b_gfdl_three_scenario_endcentury_holdout_20260828.json"
+
+[[training_products]]
+esm_id = "IPSL-CM6A-LR"
+member_id = "r1i1p1f1"
+path = "data/interim/isimip3b_ipsl_three_scenario_2091_2100_training.parquet"
+sha256 = "8d6f03720f045afd388e9c1eedd3e5f901d88a82b607f80faafaef647fd70269"
+source_audit = "data/provenance/isimip3b_ipsl_three_scenario_endcentury_holdout_20260829.json"
+
+[[training_products]]
+esm_id = "MPI-ESM1-2-HR"
+member_id = "r1i1p1f1"
+path = "data/interim/isimip3b_mpi_three_scenario_endcentury_holdout/training.parquet"
+sha256 = "1b1f2536aea0c47a9837a71177b4629fab6cf899df353884c63258c9b7a4b0e1"
+source_audit = "data/provenance/isimip3b_mpi_three_scenario_endcentury_holdout_20260901.json"
+
+[[training_products]]
+esm_id = "MRI-ESM2-0"
+member_id = "r1i1p1f1"
+path = "data/interim/isimip3b_mri_three_scenario_endcentury/training_long.parquet"
+sha256 = "1a372582c0de580ef48e37a8b728cd1fe89d0b15857d84ea9c2c49532c098cbb"
+source_audit = "data/provenance/isimip3b_mri_three_scenario_endcentury_holdout_20260831.json"
+
+[limitations]
+complete_five_esm_matrix = false
+whole_esm_holdouts = true
+whole_scenario_holdouts = true
+fair_baseline_pulse_feature_support = false
+response_estimation_authorized = false
+damage_or_scc_authorized = false

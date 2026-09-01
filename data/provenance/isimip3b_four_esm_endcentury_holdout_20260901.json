@@ -1,0 +1,77 @@
+{
+  "comparison_count": 44,
+  "complete_five_esm_matrix": false,
+  "config_path": "config/isimip3b_four_esm_endcentury_holdout_v1.toml",
+  "config_sha256": "f7601ee1b5ea02223ba47c019c3683e5eec2f68a8992cb1dd7f475552356b5fe",
+  "damage_or_scc_authorized": false,
+  "esm_ids": [
+    "GFDL-ESM4",
+    "IPSL-CM6A-LR",
+    "MPI-ESM1-2-HR",
+    "MRI-ESM2-0"
+  ],
+  "fair_baseline_pulse_feature_support": false,
+  "gmst_model_better_than_cell_mean_count": 12,
+  "held_out_feature_values": 724416,
+  "held_out_feature_values_outside_three_esm_support": 68582,
+  "held_out_feature_values_outside_three_esm_support_share": 0.09467212209559148,
+  "implementation": {
+    "path": "scripts/evaluate_isimip3b_four_esm_later_century_holdout.py",
+    "sha256": "af25c3fd8742ba67430ca6561cdae8ea204334a8a63c6342e917c6b728f6db67"
+  },
+  "inputs": [
+    {
+      "esm_id": "GFDL-ESM4",
+      "member_id": "r1i1p1f1",
+      "path": "data/interim/isimip3b_gfdl_three_scenario_endcentury_holdout/training.parquet",
+      "sha256": "26e2b10cd43d2be3fcf8544a1b17ba6298eb1c609b8ec5738596c898335c9495",
+      "source_audit": "data/provenance/isimip3b_gfdl_three_scenario_endcentury_holdout_20260828.json",
+      "source_audit_sha256": "e6179ef316686a419ddcb9b496333363101e0b38cb4f1ad6ca8ad6d7868bcdef"
+    },
+    {
+      "esm_id": "IPSL-CM6A-LR",
+      "member_id": "r1i1p1f1",
+      "path": "data/interim/isimip3b_ipsl_three_scenario_2091_2100_training.parquet",
+      "sha256": "8d6f03720f045afd388e9c1eedd3e5f901d88a82b607f80faafaef647fd70269",
+      "source_audit": "data/provenance/isimip3b_ipsl_three_scenario_endcentury_holdout_20260829.json",
+      "source_audit_sha256": "b343f2571bdb3d2ab7feed982d5515a39a982bd8ecf48f06cd776e3f2a2057eb"
+    },
+    {
+      "esm_id": "MPI-ESM1-2-HR",
+      "member_id": "r1i1p1f1",
+      "path": "data/interim/isimip3b_mpi_three_scenario_endcentury_holdout/training.parquet",
+      "sha256": "1b1f2536aea0c47a9837a71177b4629fab6cf899df353884c63258c9b7a4b0e1",
+      "source_audit": "data/provenance/isimip3b_mpi_three_scenario_endcentury_holdout_20260901.json",
+      "source_audit_sha256": "eb04dcf5eb7743f15d219c43898cf27f54586bb4175e6a537d332dd348213a68"
+    },
+    {
+      "esm_id": "MRI-ESM2-0",
+      "member_id": "r1i1p1f1",
+      "path": "data/interim/isimip3b_mri_three_scenario_endcentury/training_long.parquet",
+      "sha256": "1a372582c0de580ef48e37a8b728cd1fe89d0b15857d84ea9c2c49532c098cbb",
+      "source_audit": "data/provenance/isimip3b_mri_three_scenario_endcentury_holdout_20260831.json",
+      "source_audit_sha256": "efaeff2dce00c915014fee38ea41c850578b063bb199143060f81f0985edbf0d"
+    }
+  ],
+  "limitation": "Four of five frozen ESMs, one crop/regime, and two latitude rows; UKESM and FAIR feature-path support remain absent.",
+  "maximum_rmse_ratio_to_cell_mean": 1.0636152091041668,
+  "median_rmse_ratio_to_cell_mean": 1.000404081020723,
+  "outputs": {
+    "holdouts_sha256": "eeae9f1468d5b4a2899ad46eabac9cd3ae202588f6b6611067aad154dde98bb3",
+    "support_sha256": "7299654ac94dd8cf6152784d55d17d5a028fd3d879426647100bc2ed36835a40",
+    "training_sha256": "1b65f341c879eda3e893b4c9d982255bc4f6d86708a2364ca62bca1a03e9fba8"
+  },
+  "period": "endcentury",
+  "response_estimation_authorized": false,
+  "result": "passed_four_of_five_esm_engineering_holdout_and_support_only",
+  "role": "outcome_blind_four_esm_three_scenario_whole_esm_holdout_and_support_not_complete_emulator_damage_or_scc",
+  "scenarios": [
+    "ssp126",
+    "ssp370",
+    "ssp585"
+  ],
+  "schema": "isimip3b_four_esm_later_century_holdout_audit_v1",
+  "training_rows": 724416,
+  "whole_esm_holdout": true,
+  "whole_scenario_holdout": true
+}

@@ -1,0 +1,105 @@
+schema_version = 1
+checked_utc_date = "2026-09-01"
+role = "mpi_ssp585_endcentury_complete_pr_tas_gmst_and_bounded_feature_gate_not_response_damage_or_scc"
+source_catalogue = "https://data.isimip.org/api/v1/datasets/"
+resource_doi = "10.48364/ISIMIP.842396.1"
+rights = "CC0 1.0"
+dataset_version = "20210512"
+plan_config = "config/isimip3b_later_century_expansion_v1.toml"
+plan_config_sha256 = "d23e68a32ddf26194477acb7f2bca18cedbf050844ada859bc05fbbd7f27d963"
+plan_snapshot = "data/provenance/isimip3b_later_century_plan.csv"
+plan_snapshot_sha256 = "19a93485a9d51dade6328daadca540a48bb946a13d85cf276d3b77cc1f195767"
+esm = "MPI-ESM1-2-HR"
+member = "r1i1p1f1"
+scenario = "ssp585"
+period_start_year = 2091
+period_end_year = 2100
+
+[precipitation]
+dataset_id = "9c04961f-4609-44b2-94bb-a33d20fc2762"
+file_id = "db749cbb-ff3d-42a6-b0ea-262c894ea15e"
+file_name = "mpi-esm1-2-hr_r1i1p1f1_w5e5_ssp585_pr_global_daily_2091_2100.nc"
+bytes = 2104890800
+sha512 = "2e44861cb56f610f3385c370841f7d7bb2493a6ce7df2c70a961fe98a0f1b046444168660029f9450b517663df6aa55feb8bba62c9d2be1d28722f8966bdc4d5"
+content_audit = "data/interim/isimip3b/mpi-esm1-2-hr_ssp585_pr_2091_2100_content_audit.json"
+content_audit_sha256 = "beaf490340fc675351e641264edc6c2c1a53120733833a74cb380bf274b632ce"
+finite_values = 946598400
+missing_values = 0
+negative_values = 0
+zero_values = 360089770
+minimum_flux = 0.0
+maximum_flux = 0.006529266480356455
+result = "passed"
+
+[paired_temperature]
+dataset_id = "04d01ea2-0201-4b8a-84e1-23f1f08d9d11"
+file_id = "2b94bc18-2138-487b-b0eb-fa79f259ff15"
+file_name = "mpi-esm1-2-hr_r1i1p1f1_w5e5_ssp585_tas_global_daily_2091_2100.nc"
+bytes = 2053671744
+sha512 = "9a41f0b8e27e0748dab397a6506827a9dbde902efbebac32d2daa21054dda5b845f618e037f7171ddeaa04ca6af2b77f6f058823a8ecce1f4ef83fec01218e6a"
+content_audit = "data/interim/isimip3b/mpi-esm1-2-hr_ssp585_tas_2091_2100_content_audit.json"
+content_audit_sha256 = "3c7e344f49de877588e44981cb4dd1febfb30874cec5136631ba49bfe7c5f02a"
+finite_values = 946598400
+missing_values = 0
+minimum_temperature_k = 197.09381103515625
+maximum_temperature_k = 321.7033386230469
+result = "passed"
+
+[decoded_content_contract]
+calendar = "proleptic_gregorian"
+start_time = "2091-01-01T12:00:00"
+end_time = "2100-12-31T12:00:00"
+daily_steps = 3652
+grid = "360 x 720 global 0.5 degree; latitude descending; longitude -179.75 to 179.75"
+precipitation_units = "kg m-2 s-1"
+temperature_units = "K"
+result = "passed"
+
+[same_realization_gmst]
+source_id = "isimip3b-20210512-04d01ea2-0201-4b8a-84e1-23f1f08d9d11-2b94bc18-2138-487b-b0eb-fa79f259ff15"
+output = "data/interim/isimip3b/mpi-esm1-2-hr_r1i1p1f1_ssp585_gmst_2091_2100.parquet"
+output_sha256 = "50605590be91c5ad5dba8309c0782c4542dcd27a5000855bb4d32e253b2d73a7"
+years = [2091, 2092, 2093, 2094, 2095, 2096, 2097, 2098, 2099, 2100]
+daily_counts = [365, 366, 365, 365, 365, 366, 365, 365, 365, 365]
+gmst_values_k = [290.8197186412019, 290.74166790974937, 290.7842658734182, 290.8157121840391, 290.874145568263, 290.9587310922178, 290.9749158464524, 291.04352628535145, 291.06471987642504, 291.0037891498312]
+result = "passed"
+
+[bounded_crop_feature_smoke]
+crop = "mai"
+irrigation = "noirr"
+harvest_years = [2092, 2093, 2094, 2095, 2096, 2097, 2098, 2099]
+latitude_index_start = 100
+latitude_index_stop_exclusive = 102
+season_rows = 5488
+stage_rows = 16464
+stage_count = 3
+season_output = "data/interim/isimip3b_mpi_ssp585_2091_2100_smoke/mai_noirr_2092_2099_lat100_102_features.parquet"
+season_output_sha256 = "6cc9c6f190166a71d1842373f9b39f0ae484b4fa85a850b192c57f0353a04c4f"
+stage_output = "data/interim/isimip3b_mpi_ssp585_2091_2100_smoke/mai_noirr_2092_2099_lat100_102_stages.parquet"
+stage_output_sha256 = "eeb8daf1c006402c18fb2e915705c3cbfe7484282a5c786bccff04751b8c9652"
+reconciliation_audit = "data/interim/isimip3b_mpi_ssp585_2091_2100_smoke/reconciliation_audit.json"
+reconciliation_audit_sha256 = "2aad84ddaea0d0f57b44b29534e53e65346bc60c049ab3cbe05f7e54d5fe9c88"
+reconciliation_max_absolute_differences = { stage_days = 0.0, precip_mm = 0.0, wet_days_n = 0.0, rx1day_mm = 0.0 }
+result = "passed"
+
+[paired_ssp585_minus_ssp126_comparison]
+role = "descriptive_feature_cell_comparison_not_emulator_holdout_yield_response_damage_or_scc"
+output = "data/interim/isimip3b_mpi_ssp585_2091_2100_smoke/ssp585_minus_ssp126_comparison.json"
+output_sha256 = "de4e4fdb3c28c6a56b0ae8c69b56441684fed2702f31527480bb1a1d0e318bc8"
+mean_temperature_difference_c = 4.250843047321185
+mean_precipitation_difference_mm = -13.198214892007455
+mean_wet_day_difference = -1.4345845481049562
+mean_maximum_dry_spell_difference_days = 2.1816690962099123
+mean_rx1day_difference_mm = -0.924514576834803
+mean_rx5day_difference_mm = -1.1123010932356554
+result = "passed"
+
+[limitations]
+later_century_complete_file_gates = 48
+later_century_total_file_gates = 60
+bounded_feature_blocks = 24
+whole_scenario_holdout_rerun = false
+whole_esm_holdout_rerun = false
+fair_baseline_pulse_feature_support_rerun = false
+production_emulator_authorized = false
+damage_or_scc_authorized = false

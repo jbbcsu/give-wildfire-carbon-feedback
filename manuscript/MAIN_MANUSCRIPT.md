@@ -396,7 +396,21 @@ and +0.56 mm Rx5day. The 181,104-row end-century whole-scenario audit improves
 16/33 comparisons (median RMSE ratio 1.00006; maximum 1.06514), including 9/11
 for held-out SSP5-8.5, and flags 27,090 values (14.96%) outside support. This
 mixed, adverse result leaves response, damage, SCC, whole-ESM, and FAIR
-feature-support gates open. For IPSL, SSP3-7.0 relative to matched SSP1-2.6 cells has midcentury mean
+feature-support gates open.
+The remaining registered MPI-ESM1-2-HR SSP3-7.0 mid- and end-century pairs and
+SSP5-8.5 end-century pair also pass exact file, content, same-realization GMST,
+bounded-feature, and reconciliation gates, raising tracked coverage to 48/60
+files and twenty-four blocks. Matched SSP3-7.0 minus SSP1-2.6 seasonal-rain
+differences are -4.38 mm at midcentury and -17.02 mm at end century; matched
+SSP5-8.5 minus SSP1-2.6 is -13.20 mm at end century. These climate-support
+contrasts are not yield responses or damage estimates and do not open any SCC
+gate. The corresponding MPI whole-scenario audits improve 14/33 feature
+comparisons at midcentury and 15/33 at end century, while 11.65% and 15.24%
+of held-out values are outside exact support. These adverse results do not
+promote the emulator. A four-ESM whole-ESM audit improves 27/44 comparisons at
+midcentury but only 12/44 at end century, with 8.34% and 9.47% of held-out
+values outside exact three-ESM support. Because UKESM remains absent, this
+does not complete the frozen five-ESM validation gate. For IPSL, SSP3-7.0 relative to matched SSP1-2.6 cells has midcentury mean
 differences of +0.365 C, +13.22 mm seasonal rain, +0.93 wet
 days, -1.36 maximum dry-spell days, +2.18 mm Rx1day, and +3.84 mm Rx5day. The
 end-century means are +4.146 C, +25.70 mm seasonal rain, +2.85 wet days, -2.26

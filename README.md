@@ -135,7 +135,23 @@ Rx5day. Its 181,104-row whole-scenario audit improves 16/33 comparisons
 (median RMSE ratio 1.00006; maximum 1.06514), including 9/11 for held-out
 SSP5-8.5, while 27,090 values (14.96%) fall outside support. This mixed,
 adverse engineering result keeps the response, damage, and SCC gates closed.
-Against matched
+The frozen MPI-ESM1-2-HR matrix is now complete for all three scenarios and
+both later-century periods. The six newly registered `pr`/`tas` files pass
+full checksum/content gates, and their three bounded blocks pass
+same-realization GMST and exact stage/season reconciliation, bringing the
+expansion to 48/60 files and twenty-four blocks. Matched MPI SSP3-7.0 minus
+SSP1-2.6 seasonal rain changes are -4.38 mm at midcentury and -17.02 mm at end
+century; end-century SSP5-8.5 minus SSP1-2.6 is -13.20 mm. These are climate
+diagnostics only; no response, damage, or SCC gate is opened. The matching
+MPI whole-scenario audits remain adverse: GMST adjustment
+improves 14/33 feature comparisons at midcentury and 15/33 at end century;
+11.65% and 15.24% of held-out feature values, respectively, are outside exact
+two-scenario support. The emulator is not promoted. The fail-closed four-ESM
+whole-ESM audit joins GFDL, IPSL, MPI, and MRI across
+all three SSPs. Midcentury improves 27/44 feature comparisons with 8.34% of
+held-out values outside exact three-ESM support; end century improves only
+12/44 with 9.47% outside support. UKESM remains missing, so the planned
+five-ESM and FAIR feature-support gates remain open. Against matched
 IPSL SSP1-2.6 cells, mean SSP3-7.0 differences at
 midcentury are +0.365 C, +13.22 mm seasonal rain, +0.93 wet days, -1.36
 maximum dry-spell days, +2.18 mm Rx1day, and +3.84 mm Rx5day. At end century,

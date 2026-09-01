@@ -51,6 +51,12 @@ described in their rows.
 | Trigg official fractional-water mask audit | The official 2019 Census TIGER/Line area-water archive has 2,123 hydrographic polygons whose `AWATER` attributes sum exactly to Trigg County's 102,999,105 m2 declaration. Attribute-weighted EPSG:5070 polygon/grid intersections place 81,538,947 m2 water and 127,512,062 m2 land in the 16 nClimGrid-masked cells. Removing water from both valid and masked areas yields 0.888503097 weather-valid fractional-land coverage. | The source-level correction remains below the unchanged 0.95 gate and strengthens the blocker. No threshold relaxation, county exclusion, weight partition, response, damage, or SCC input is authorized. |
 | Official nClimGrid county-average sensitivity samples | Exact January 1981, July 2000, and January 2019 NOAA county-average files for PRCP/TAVG/TMIN/TMAX each contain the same 3,107 county rows and are hash-bound with product-version receipts and the numeric NCEI-to-FIPS crosswalk. NCEI code 15221 maps to Trigg FIPS 21221 and all sampled real-day values are finite and ordered, with a 0.005 C maximum rounded TAVG midpoint error; Trigg monthly precipitation is 30.6, 69.64, and 105.75 mm in the three samples. July 2000 independently validates Adair County, Iowa (19001), with 115.50 mm precipitation and the same value gates. | Three-month source-route feasibility only. This narrows temporal, seasonal, and regional schema drift and bypasses the local polygon mask, but does not replace the registered estimator; historical boundary vintage, numeric-code review, full-panel source identity, and feature-equivalence validation remain open. No response, damage, or SCC use is authorized. |
 | Official-versus-polygon nClimGrid estimator sensitivity | The outcome-blind comparison retains Cuming County, Nebraska (31039), and Fresno County, California (06019), across April 1990, July 2000, and drought-month July 2012. Every month has exact 3,107-county support in PRCP/TAVG/TMIN/TMAX. Temperature correlations exceed 0.99999 except April's still-high 0.999993 minimum; precipitation correlations are at least 0.99983 except Fresno's near-zero-rain July 2012 value of 0.98533. The largest polygon-minus-official monthly rain difference is 0.9926 mm. | Bounded weather-measurement sensitivity only. Close daily agreement does not establish nationwide, seasonal, or historical-boundary equivalence, and the nonzero rainfall differences prohibit silently replacing either estimator. No yield response, damage, welfare, or SCC input is authorized. |
+
+The outcome-blind February 2000 leap-month extension retains the same counties
+and four variables, validates exactly 29 finite days, and has minimum daily
+correlation 0.999988. Polygon-minus-official monthly precipitation is +0.2838
+mm in Cuming and +0.6589 mm in Fresno. This closes a leap-day decoding check
+only; the nonzero differences continue to reject estimator equivalence.
 | Maize/rainfed blocked response audit, 1982–89 | **Legacy pre-purge audit:** 105,157 consecutive observed-yield pairs were evaluated under the superseded split/hash | Stale engineering history only; rerun required before predictive comparison, and no causal, global-response, or SCC claim is permitted |
 | Maize/MIRCA-2000 area-weighted response audit, 1982–89 | Legacy invalid-order output: nonlinear precipitation bases and interactions were constructed after rainfed/irrigated primitive-weather averaging. The previously listed RMSEs are withdrawn. | Superseded engineering artifact only; do not cite, compare, fit, or use for causal/damage/SCC work. Rerun requires regime-basis-before-area-weighting and a basis-preserving evaluator. |
 | Soybean/MIRCA-2000 area-weighted response audit, 1982–89 | Legacy invalid-order output: nonlinear precipitation bases and interactions were constructed after rainfed/irrigated primitive-weather averaging. The previously listed RMSEs are withdrawn. | Superseded engineering artifact only; do not cite, compare, fit, or use for causal/damage/SCC work. Rerun requires regime-basis-before-area-weighting and a basis-preserving evaluator. |
@@ -111,6 +117,33 @@ dry-spell days, +0.75 mm Rx1day, and +0.56 mm Rx5day. The 181,104-row MRI end-
 century holdout improves 16/33 comparisons, has median/maximum RMSE ratios of
 1.00006/1.06514, and flags 27,090 values (14.96%) outside support. This mixed,
 adverse engineering result does not authorize a response, damage, or SCC input.
+
+Post-table checkpoint (2026-09-01): the remaining frozen MPI-ESM1-2-HR
+SSP3-7.0 mid- and end-century pairs and SSP5-8.5 end-century pair pass exact
+catalogue bytes/SHA-512, full decoded-content, same-realization GMST, bounded
+maize/rainfed feature, and exact stage/season reconciliation gates. This raises
+tracked expansion to 48/60 files and twenty-four blocks. Relative to matched
+SSP1-2.6 cells, mean SSP3-7.0 differences are +0.447 C, -4.38 mm seasonal
+rain, -0.36 wet days, +2.53 maximum-dry-spell days, -1.17 mm Rx1day, and
++0.71 mm Rx5day at midcentury, and +3.273 C, -17.02 mm, -1.61 days, +2.54
+days, -2.49 mm, and -3.59 mm at end century. End-century SSP5-8.5 differences
+are +4.251 C, -13.20 mm, -1.43 days, +2.18 days, -0.92 mm, and -1.11 mm.
+These are descriptive support diagnostics; whole-scenario, whole-ESM, FAIR
+feature-support, response, damage, welfare, and SCC gates remain closed. The
+registered MPI whole-scenario audits are adverse: midcentury improves 14/33
+comparisons (median/maximum RMSE ratios 1.00163/1.05542) with 21,100/181,104
+(11.65%) values outside exact support; end century improves 15/33
+(1.00028/1.09814) with 27,605/181,104 (15.24%) outside support. Neither opens
+an emulator, response, damage, welfare, or SCC gate.
+
+The version-pinned four-ESM whole-ESM evaluator joins the GFDL, IPSL, MPI, and
+MRI three-scenario products with exact source-audit and training hashes. Each
+period has 724,416 rows and 44 comparisons. Midcentury improves 27/44
+(median/maximum RMSE ratios 0.99954/1.00969) and flags 60,393 values (8.34%)
+outside exact three-ESM support. End century improves only 12/44
+(1.00040/1.06362) and flags 68,582 (9.47%). Both complete reruns are
+byte-identical. UKESM remains absent; production emulator, FAIR feature-path,
+response, damage, welfare, and SCC gates remain closed.
 
 ## Completed empirical checks
 
