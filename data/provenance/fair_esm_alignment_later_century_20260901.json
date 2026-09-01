@@ -1,0 +1,918 @@
+{
+  "affine_method_equivalence": true,
+  "alignment_methods": [
+    "absolute_anomaly_mapping",
+    "centered_coordinate_mapping"
+  ],
+  "baseline_temperature_support_horizons": [
+    {
+      "esm_id": "GFDL-ESM4",
+      "first_above_year": null,
+      "first_within_year": 2012,
+      "last_below_year": null,
+      "last_within_year": 2300,
+      "within_year_count": 289
+    },
+    {
+      "esm_id": "IPSL-CM6A-LR",
+      "first_above_year": null,
+      "first_within_year": 2012,
+      "last_below_year": null,
+      "last_within_year": 2300,
+      "within_year_count": 289
+    },
+    {
+      "esm_id": "MPI-ESM1-2-HR",
+      "first_above_year": null,
+      "first_within_year": 2013,
+      "last_below_year": 2012,
+      "last_within_year": 2300,
+      "within_year_count": 288
+    },
+    {
+      "esm_id": "MRI-ESM2-0",
+      "first_above_year": null,
+      "first_within_year": 2012,
+      "last_below_year": null,
+      "last_within_year": 2300,
+      "within_year_count": 289
+    },
+    {
+      "esm_id": "UKESM1-0-LL",
+      "first_above_year": null,
+      "first_within_year": 2012,
+      "last_below_year": null,
+      "last_within_year": 2300,
+      "within_year_count": 289
+    }
+  ],
+  "common_zero_residual": true,
+  "config": {
+    "path": "config/fair_esm_alignment_later_century_v1.toml",
+    "sha256": "301270ef445f9609fbca35deb68838eb08cba7f1bc4896436dc66bd2a0091486"
+  },
+  "damage_or_scc_authorized": false,
+  "decreasing_pulse_convergence": true,
+  "direct_centered_agreement": true,
+  "equivalence_atol": 1e-10,
+  "evaluation_years": [
+    2012,
+    2300
+  ],
+  "fair_reference_temperature_c": 1.4683850540158,
+  "fair_temperature_audit": {
+    "baseline_path_identity_across_scales": true,
+    "config_sha256": "c28be8eff2d396fcafc82b0e3571da7c75c0d5721c24778d153f1506dbb9bb83",
+    "damage_or_scc_authorized": false,
+    "decreasing_pulse_convergence": true,
+    "fair_feature_path_authorized": false,
+    "first_nonzero_temperature_year": 2021,
+    "maximum_absolute_temperature_difference_k": {
+      "0.0001": 1.83684345289592e-07,
+      "2.5e-05": 4.5921631830481147e-08,
+      "5e-05": 9.184314087029577e-08
+    },
+    "maximum_smallest_scale_normalized_disagreement": 2.441069568701656e-07,
+    "paths_sha256": "aedf6b66dd296337e1cb6105d2aa56ec94f3e15e5ac92c2abcdf74b6a42b6067",
+    "pre_pulse_identity": true,
+    "pulse_sizes_gtc": [
+      0.0,
+      0.0001,
+      5e-05,
+      2.5e-05
+    ],
+    "pulse_year": 2020,
+    "result": "passed",
+    "rows": 2204,
+    "years": [
+      1750,
+      2300
+    ],
+    "zero_pulse_identity": true
+  },
+  "feature_families": [
+    "cdd_max_days",
+    "precip_mm",
+    "precipitation_concentration_hhi",
+    "precipitation_timing_centroid",
+    "rx1day_mm",
+    "rx5day_mm",
+    "stage1_precip_share",
+    "stage2_precip_share",
+    "stage3_precip_share",
+    "tmean_c",
+    "wet_days_n"
+  ],
+  "feature_support_counts": {
+    "absolute_anomaly_mapping": {
+      "baseline": {
+        "within": 63580
+      },
+      "pulse": {
+        "within": 63580
+      }
+    },
+    "centered_coordinate_mapping": {
+      "baseline": {
+        "within": 63580
+      },
+      "pulse": {
+        "within": 63580
+      }
+    }
+  },
+  "first_divergence_year": 2021,
+  "fits": [
+    {
+      "esm_id": "GFDL-ESM4",
+      "esm_reference_temperature_k": 287.80031591329754,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "cdd_max_days",
+      "intercept": -407.7821163611303,
+      "slope_per_k": 1.5492917183483792,
+      "training_feature_max": 57.23906705539358,
+      "training_feature_min": 30.517492711370263,
+      "training_rows": 63,
+      "training_temperature_max_k": 291.1894427486395,
+      "training_temperature_min_k": 287.67541181892705
+    },
+    {
+      "esm_id": "GFDL-ESM4",
+      "esm_reference_temperature_k": 287.80031591329754,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "precip_mm",
+      "intercept": 1211.3740779826235,
+      "slope_per_k": -3.4362220086822455,
+      "training_feature_max": 280.7291306979281,
+      "training_feature_min": 166.66994030706303,
+      "training_rows": 63,
+      "training_temperature_max_k": 291.1894427486395,
+      "training_temperature_min_k": 287.67541181892705
+    },
+    {
+      "esm_id": "GFDL-ESM4",
+      "esm_reference_temperature_k": 287.80031591329754,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "precipitation_concentration_hhi",
+      "intercept": -0.7766867944586362,
+      "slope_per_k": 0.004414425845002828,
+      "training_feature_max": 0.5721976156067273,
+      "training_feature_min": 0.4484453080084093,
+      "training_rows": 63,
+      "training_temperature_max_k": 291.1894427486395,
+      "training_temperature_min_k": 287.67541181892705
+    },
+    {
+      "esm_id": "GFDL-ESM4",
+      "esm_reference_temperature_k": 287.80031591329754,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "precipitation_timing_centroid",
+      "intercept": 1.432516174240036,
+      "slope_per_k": -0.003430323394155963,
+      "training_feature_max": 0.4971588105384524,
+      "training_feature_min": 0.39354026938641645,
+      "training_rows": 63,
+      "training_temperature_max_k": 291.1894427486395,
+      "training_temperature_min_k": 287.67541181892705
+    },
+    {
+      "esm_id": "GFDL-ESM4",
+      "esm_reference_temperature_k": 287.80031591329754,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "rx1day_mm",
+      "intercept": -86.67798328655104,
+      "slope_per_k": 0.40717906687860034,
+      "training_feature_max": 36.90650669647158,
+      "training_feature_min": 26.12709246929898,
+      "training_rows": 63,
+      "training_temperature_max_k": 291.1894427486395,
+      "training_temperature_min_k": 287.67541181892705
+    },
+    {
+      "esm_id": "GFDL-ESM4",
+      "esm_reference_temperature_k": 287.80031591329754,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "rx5day_mm",
+      "intercept": -132.4490272528726,
+      "slope_per_k": 0.6356840813393378,
+      "training_feature_max": 62.333125666891696,
+      "training_feature_min": 38.83818145242924,
+      "training_rows": 63,
+      "training_temperature_max_k": 291.1894427486395,
+      "training_temperature_min_k": 287.67541181892705
+    },
+    {
+      "esm_id": "GFDL-ESM4",
+      "esm_reference_temperature_k": 287.80031591329754,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "stage1_precip_share",
+      "intercept": -1.5803870529246995,
+      "slope_per_k": 0.006853161710583306,
+      "training_feature_max": 0.47956775702770443,
+      "training_feature_min": 0.30807822865961465,
+      "training_rows": 63,
+      "training_temperature_max_k": 291.1894427486395,
+      "training_temperature_min_k": 287.67541181892705
+    },
+    {
+      "esm_id": "GFDL-ESM4",
+      "esm_reference_temperature_k": 287.80031591329754,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "stage2_precip_share",
+      "intercept": 1.799623730912664,
+      "slope_per_k": -0.004931201560478181,
+      "training_feature_max": 0.4525600981306481,
+      "training_feature_min": 0.24967892099702912,
+      "training_rows": 63,
+      "training_temperature_max_k": 291.1894427486395,
+      "training_temperature_min_k": 287.67541181892705
+    },
+    {
+      "esm_id": "GFDL-ESM4",
+      "esm_reference_temperature_k": 287.80031591329754,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "stage3_precip_share",
+      "intercept": 0.9553225811253869,
+      "slope_per_k": -0.0025282994788169153,
+      "training_feature_max": 0.30924414427773056,
+      "training_feature_min": 0.15758879416750077,
+      "training_rows": 63,
+      "training_temperature_max_k": 291.1894427486395,
+      "training_temperature_min_k": 287.67541181892705
+    },
+    {
+      "esm_id": "GFDL-ESM4",
+      "esm_reference_temperature_k": 287.80031591329754,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "tmean_c",
+      "intercept": -396.7453451648933,
+      "slope_per_k": 1.451587579792973,
+      "training_feature_max": 26.029634363102147,
+      "training_feature_min": 20.365368970498746,
+      "training_rows": 63,
+      "training_temperature_max_k": 291.1894427486395,
+      "training_temperature_min_k": 287.67541181892705
+    },
+    {
+      "esm_id": "GFDL-ESM4",
+      "esm_reference_temperature_k": 287.80031591329754,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "wet_days_n",
+      "intercept": 254.3011396561229,
+      "slope_per_k": -0.791838022713741,
+      "training_feature_max": 29.666180758017493,
+      "training_feature_min": 19.169096209912535,
+      "training_rows": 63,
+      "training_temperature_max_k": 291.1894427486395,
+      "training_temperature_min_k": 287.67541181892705
+    },
+    {
+      "esm_id": "IPSL-CM6A-LR",
+      "esm_reference_temperature_k": 287.83480658029777,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "cdd_max_days",
+      "intercept": 21.68484636135849,
+      "slope_per_k": 0.05432514512418143,
+      "training_feature_max": 43.403790087463555,
+      "training_feature_min": 30.64723032069971,
+      "training_rows": 63,
+      "training_temperature_max_k": 293.40620983989754,
+      "training_temperature_min_k": 287.75875237540384
+    },
+    {
+      "esm_id": "IPSL-CM6A-LR",
+      "esm_reference_temperature_k": 287.83480658029777,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "precip_mm",
+      "intercept": -805.1043309342895,
+      "slope_per_k": 3.566201177460097,
+      "training_feature_max": 280.7556880494748,
+      "training_feature_min": 168.219034954634,
+      "training_rows": 63,
+      "training_temperature_max_k": 293.40620983989754,
+      "training_temperature_min_k": 287.75875237540384
+    },
+    {
+      "esm_id": "IPSL-CM6A-LR",
+      "esm_reference_temperature_k": 287.83480658029777,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "precipitation_concentration_hhi",
+      "intercept": 0.7009998952679355,
+      "slope_per_k": -0.0007572403220503102,
+      "training_feature_max": 0.5241692901970211,
+      "training_feature_min": 0.4504229694625708,
+      "training_rows": 63,
+      "training_temperature_max_k": 293.40620983989754,
+      "training_temperature_min_k": 287.75875237540384
+    },
+    {
+      "esm_id": "IPSL-CM6A-LR",
+      "esm_reference_temperature_k": 287.83480658029777,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "precipitation_timing_centroid",
+      "intercept": -0.054565298497421144,
+      "slope_per_k": 0.001726401140403887,
+      "training_feature_max": 0.4963608151524717,
+      "training_feature_min": 0.4011241238139746,
+      "training_rows": 63,
+      "training_temperature_max_k": 293.40620983989754,
+      "training_temperature_min_k": 287.75875237540384
+    },
+    {
+      "esm_id": "IPSL-CM6A-LR",
+      "esm_reference_temperature_k": 287.83480658029777,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "rx1day_mm",
+      "intercept": 5.483761101468225,
+      "slope_per_k": 0.0784235693510837,
+      "training_feature_max": 40.357510994544185,
+      "training_feature_min": 22.958696650085923,
+      "training_rows": 63,
+      "training_temperature_max_k": 293.40620983989754,
+      "training_temperature_min_k": 287.75875237540384
+    },
+    {
+      "esm_id": "IPSL-CM6A-LR",
+      "esm_reference_temperature_k": 287.83480658029777,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "rx5day_mm",
+      "intercept": -80.45210132869204,
+      "slope_per_k": 0.4514947447698598,
+      "training_feature_max": 65.89584351956583,
+      "training_feature_min": 37.365795411593105,
+      "training_rows": 63,
+      "training_temperature_max_k": 293.40620983989754,
+      "training_temperature_min_k": 287.75875237540384
+    },
+    {
+      "esm_id": "IPSL-CM6A-LR",
+      "esm_reference_temperature_k": 287.83480658029777,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "stage1_precip_share",
+      "intercept": 1.364907877408674,
+      "slope_per_k": -0.003370931853577418,
+      "training_feature_max": 0.47080746167171617,
+      "training_feature_min": 0.3163747534959744,
+      "training_rows": 63,
+      "training_temperature_max_k": 293.40620983989754,
+      "training_temperature_min_k": 287.75875237540384
+    },
+    {
+      "esm_id": "IPSL-CM6A-LR",
+      "esm_reference_temperature_k": 287.83480658029777,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "stage2_precip_share",
+      "intercept": 0.07944502772936668,
+      "slope_per_k": 0.001057393016611672,
+      "training_feature_max": 0.4536745523583789,
+      "training_feature_min": 0.326931763842777,
+      "training_rows": 63,
+      "training_temperature_max_k": 293.40620983989754,
+      "training_temperature_min_k": 287.75875237540384
+    },
+    {
+      "esm_id": "IPSL-CM6A-LR",
+      "esm_reference_temperature_k": 287.83480658029777,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "stage3_precip_share",
+      "intercept": -0.38612695031626154,
+      "slope_per_k": 0.0021114319292331496,
+      "training_feature_max": 0.3225493306901294,
+      "training_feature_min": 0.15810316568366686,
+      "training_rows": 63,
+      "training_temperature_max_k": 293.40620983989754,
+      "training_temperature_min_k": 287.75875237540384
+    },
+    {
+      "esm_id": "IPSL-CM6A-LR",
+      "esm_reference_temperature_k": 287.83480658029777,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "tmean_c",
+      "intercept": -402.94189278127374,
+      "slope_per_k": 1.4726358856769064,
+      "training_feature_max": 29.08759218958307,
+      "training_feature_min": 20.850417722027434,
+      "training_rows": 63,
+      "training_temperature_max_k": 293.40620983989754,
+      "training_temperature_min_k": 287.75875237540384
+    },
+    {
+      "esm_id": "IPSL-CM6A-LR",
+      "esm_reference_temperature_k": 287.83480658029777,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "wet_days_n",
+      "intercept": -141.44559116493514,
+      "slope_per_k": 0.5891200945885454,
+      "training_feature_max": 33.940233236151606,
+      "training_feature_min": 23.911078717201168,
+      "training_rows": 63,
+      "training_temperature_max_k": 293.40620983989754,
+      "training_temperature_min_k": 287.75875237540384
+    },
+    {
+      "esm_id": "MPI-ESM1-2-HR",
+      "esm_reference_temperature_k": 287.759412791804,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "cdd_max_days",
+      "intercept": -335.5903099245528,
+      "slope_per_k": 1.3063657877710868,
+      "training_feature_max": 50.50728862973761,
+      "training_feature_min": 31.34402332361516,
+      "training_rows": 63,
+      "training_temperature_max_k": 291.06471987642504,
+      "training_temperature_min_k": 287.7366363604439
+    },
+    {
+      "esm_id": "MPI-ESM1-2-HR",
+      "esm_reference_temperature_k": 287.759412791804,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "precip_mm",
+      "intercept": 1365.2423590725255,
+      "slope_per_k": -4.013042891526647,
+      "training_feature_max": 264.618339935953,
+      "training_feature_min": 152.4607262847831,
+      "training_rows": 63,
+      "training_temperature_max_k": 291.06471987642504,
+      "training_temperature_min_k": 287.7366363604439
+    },
+    {
+      "esm_id": "MPI-ESM1-2-HR",
+      "esm_reference_temperature_k": 287.759412791804,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "precipitation_concentration_hhi",
+      "intercept": -1.2955817065536,
+      "slope_per_k": 0.006243521199395239,
+      "training_feature_max": 0.5672468291881413,
+      "training_feature_min": 0.44954900550785354,
+      "training_rows": 63,
+      "training_temperature_max_k": 291.06471987642504,
+      "training_temperature_min_k": 287.7366363604439
+    },
+    {
+      "esm_id": "MPI-ESM1-2-HR",
+      "esm_reference_temperature_k": 287.759412791804,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "precipitation_timing_centroid",
+      "intercept": 1.1242340496815433,
+      "slope_per_k": -0.0023543947253066876,
+      "training_feature_max": 0.5136347408956852,
+      "training_feature_min": 0.3933156173175721,
+      "training_rows": 63,
+      "training_temperature_max_k": 291.06471987642504,
+      "training_temperature_min_k": 287.7366363604439
+    },
+    {
+      "esm_id": "MPI-ESM1-2-HR",
+      "esm_reference_temperature_k": 287.759412791804,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "rx1day_mm",
+      "intercept": 88.1265114678856,
+      "slope_per_k": -0.21246122722555125,
+      "training_feature_max": 31.98614659418865,
+      "training_feature_min": 21.53309612795059,
+      "training_rows": 63,
+      "training_temperature_max_k": 291.06471987642504,
+      "training_temperature_min_k": 287.7366363604439
+    },
+    {
+      "esm_id": "MPI-ESM1-2-HR",
+      "esm_reference_temperature_k": 287.759412791804,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "rx5day_mm",
+      "intercept": 102.2849839056365,
+      "slope_per_k": -0.18526904612040224,
+      "training_feature_max": 60.42534460842001,
+      "training_feature_min": 38.479456716219815,
+      "training_rows": 63,
+      "training_temperature_max_k": 291.06471987642504,
+      "training_temperature_min_k": 287.7366363604439
+    },
+    {
+      "esm_id": "MPI-ESM1-2-HR",
+      "esm_reference_temperature_k": 287.759412791804,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "stage1_precip_share",
+      "intercept": 1.2316398621851965,
+      "slope_per_k": -0.0028800786879658933,
+      "training_feature_max": 0.48746186981482176,
+      "training_feature_min": 0.2938450382196682,
+      "training_rows": 63,
+      "training_temperature_max_k": 291.06471987642504,
+      "training_temperature_min_k": 287.7366363604439
+    },
+    {
+      "esm_id": "MPI-ESM1-2-HR",
+      "esm_reference_temperature_k": 287.759412791804,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "stage2_precip_share",
+      "intercept": -3.193628821663354,
+      "slope_per_k": 0.012328864671620844,
+      "training_feature_max": 0.4656959827546309,
+      "training_feature_min": 0.2584651527564538,
+      "training_rows": 63,
+      "training_temperature_max_k": 291.06471987642504,
+      "training_temperature_min_k": 287.7366363604439
+    },
+    {
+      "esm_id": "MPI-ESM1-2-HR",
+      "esm_reference_temperature_k": 287.759412791804,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "stage3_precip_share",
+      "intercept": 3.018930180178825,
+      "slope_per_k": -0.009646576735747352,
+      "training_feature_max": 0.3435419220724982,
+      "training_feature_min": 0.158183176976307,
+      "training_rows": 63,
+      "training_temperature_max_k": 291.06471987642504,
+      "training_temperature_min_k": 287.7366363604439
+    },
+    {
+      "esm_id": "MPI-ESM1-2-HR",
+      "esm_reference_temperature_k": 287.759412791804,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "tmean_c",
+      "intercept": -429.63691082189916,
+      "slope_per_k": 1.5656750069621181,
+      "training_feature_max": 26.09033936314263,
+      "training_feature_min": 20.406462165042377,
+      "training_rows": 63,
+      "training_temperature_max_k": 291.06471987642504,
+      "training_temperature_min_k": 287.7366363604439
+    },
+    {
+      "esm_id": "MPI-ESM1-2-HR",
+      "esm_reference_temperature_k": 287.759412791804,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "wet_days_n",
+      "intercept": 205.16737986109274,
+      "slope_per_k": -0.6255586674964169,
+      "training_feature_max": 30.456268221574344,
+      "training_feature_min": 19.138483965014576,
+      "training_rows": 63,
+      "training_temperature_max_k": 291.06471987642504,
+      "training_temperature_min_k": 287.7366363604439
+    },
+    {
+      "esm_id": "MRI-ESM2-0",
+      "esm_reference_temperature_k": 287.75774791486265,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "cdd_max_days",
+      "intercept": -298.03458805148784,
+      "slope_per_k": 1.1628750296810897,
+      "training_feature_max": 52.475218658892125,
+      "training_feature_min": 28.854227405247812,
+      "training_rows": 63,
+      "training_temperature_max_k": 291.72874843352866,
+      "training_temperature_min_k": 287.7226835378648
+    },
+    {
+      "esm_id": "MRI-ESM2-0",
+      "esm_reference_temperature_k": 287.75774791486265,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "precip_mm",
+      "intercept": 361.12614501054827,
+      "slope_per_k": -0.45192171112440654,
+      "training_feature_max": 291.2802199907384,
+      "training_feature_min": 179.2885634538123,
+      "training_rows": 63,
+      "training_temperature_max_k": 291.72874843352866,
+      "training_temperature_min_k": 287.7226835378648
+    },
+    {
+      "esm_id": "MRI-ESM2-0",
+      "esm_reference_temperature_k": 287.75774791486265,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "precipitation_concentration_hhi",
+      "intercept": -0.8559105266606578,
+      "slope_per_k": 0.00463779324492161,
+      "training_feature_max": 0.5506458665850044,
+      "training_feature_min": 0.4487305187455748,
+      "training_rows": 63,
+      "training_temperature_max_k": 291.72874843352866,
+      "training_temperature_min_k": 287.7226835378648
+    },
+    {
+      "esm_id": "MRI-ESM2-0",
+      "esm_reference_temperature_k": 287.75774791486265,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "precipitation_timing_centroid",
+      "intercept": 0.8778809272361812,
+      "slope_per_k": -0.0015022932358223797,
+      "training_feature_max": 0.48392935948858123,
+      "training_feature_min": 0.3960225342826037,
+      "training_rows": 63,
+      "training_temperature_max_k": 291.72874843352866,
+      "training_temperature_min_k": 287.7226835378648
+    },
+    {
+      "esm_id": "MRI-ESM2-0",
+      "esm_reference_temperature_k": 287.75774791486265,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "rx1day_mm",
+      "intercept": -81.80859544335333,
+      "slope_per_k": 0.3782649716260876,
+      "training_feature_max": 32.602399168660966,
+      "training_feature_min": 21.751752651435034,
+      "training_rows": 63,
+      "training_temperature_max_k": 291.72874843352866,
+      "training_temperature_min_k": 287.7226835378648
+    },
+    {
+      "esm_id": "MRI-ESM2-0",
+      "esm_reference_temperature_k": 287.75774791486265,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "rx5day_mm",
+      "intercept": -176.20656998974556,
+      "slope_per_k": 0.7866284324202051,
+      "training_feature_max": 59.785903366689865,
+      "training_feature_min": 38.82314342335301,
+      "training_rows": 63,
+      "training_temperature_max_k": 291.72874843352866,
+      "training_temperature_min_k": 287.7226835378648
+    },
+    {
+      "esm_id": "MRI-ESM2-0",
+      "esm_reference_temperature_k": 287.75774791486265,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "stage1_precip_share",
+      "intercept": -0.5954084499168031,
+      "slope_per_k": 0.00343043065235674,
+      "training_feature_max": 0.47543757866813374,
+      "training_feature_min": 0.3169084885416097,
+      "training_rows": 63,
+      "training_temperature_max_k": 291.72874843352866,
+      "training_temperature_min_k": 287.7226835378648
+    },
+    {
+      "esm_id": "MRI-ESM2-0",
+      "esm_reference_temperature_k": 287.75774791486265,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "stage2_precip_share",
+      "intercept": 1.308349748856623,
+      "slope_per_k": -0.003228000546674543,
+      "training_feature_max": 0.44762800124161656,
+      "training_feature_min": 0.30925375076342915,
+      "training_rows": 63,
+      "training_temperature_max_k": 291.72874843352866,
+      "training_temperature_min_k": 287.7226835378648
+    },
+    {
+      "esm_id": "MRI-ESM2-0",
+      "esm_reference_temperature_k": 287.75774791486265,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "stage3_precip_share",
+      "intercept": 0.38752895335280435,
+      "slope_per_k": -0.0005520376854534785,
+      "training_feature_max": 0.2899360376713769,
+      "training_feature_min": 0.16350518151594484,
+      "training_rows": 63,
+      "training_temperature_max_k": 291.72874843352866,
+      "training_temperature_min_k": 287.7226835378648
+    },
+    {
+      "esm_id": "MRI-ESM2-0",
+      "esm_reference_temperature_k": 287.75774791486265,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "tmean_c",
+      "intercept": -375.85640805882286,
+      "slope_per_k": 1.379244936627165,
+      "training_feature_max": 26.7931997616159,
+      "training_feature_min": 20.70387928124854,
+      "training_rows": 63,
+      "training_temperature_max_k": 291.72874843352866,
+      "training_temperature_min_k": 287.7226835378648
+    },
+    {
+      "esm_id": "MRI-ESM2-0",
+      "esm_reference_temperature_k": 287.75774791486265,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "wet_days_n",
+      "intercept": 158.61605179439334,
+      "slope_per_k": -0.45682462497844933,
+      "training_feature_max": 32.16180758017493,
+      "training_feature_min": 20.657434402332363,
+      "training_rows": 63,
+      "training_temperature_max_k": 291.72874843352866,
+      "training_temperature_min_k": 287.7226835378648
+    },
+    {
+      "esm_id": "UKESM1-0-LL",
+      "esm_reference_temperature_k": 288.003224139862,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "cdd_max_days",
+      "intercept": -9.909713993981974,
+      "slope_per_k": 0.1649171656688614,
+      "training_feature_max": 53.673469387755105,
+      "training_feature_min": 29.38046647230321,
+      "training_rows": 63,
+      "training_temperature_max_k": 294.28612813284434,
+      "training_temperature_min_k": 287.9301188576839
+    },
+    {
+      "esm_id": "UKESM1-0-LL",
+      "esm_reference_temperature_k": 288.003224139862,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "precip_mm",
+      "intercept": -1012.0823824680584,
+      "slope_per_k": 4.305585463803403,
+      "training_feature_max": 293.44581181511455,
+      "training_feature_min": 197.11223762695278,
+      "training_rows": 63,
+      "training_temperature_max_k": 294.28612813284434,
+      "training_temperature_min_k": 287.9301188576839
+    },
+    {
+      "esm_id": "UKESM1-0-LL",
+      "esm_reference_temperature_k": 288.003224139862,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "precipitation_concentration_hhi",
+      "intercept": -0.2375854653089623,
+      "slope_per_k": 0.002518280985792382,
+      "training_feature_max": 0.5470341373720554,
+      "training_feature_min": 0.43073459327563096,
+      "training_rows": 63,
+      "training_temperature_max_k": 294.28612813284434,
+      "training_temperature_min_k": 287.9301188576839
+    },
+    {
+      "esm_id": "UKESM1-0-LL",
+      "esm_reference_temperature_k": 288.003224139862,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "precipitation_timing_centroid",
+      "intercept": -0.2929957453350708,
+      "slope_per_k": 0.0025343278450357986,
+      "training_feature_max": 0.4900030249278546,
+      "training_feature_min": 0.4046180339989059,
+      "training_rows": 63,
+      "training_temperature_max_k": 294.28612813284434,
+      "training_temperature_min_k": 287.9301188576839
+    },
+    {
+      "esm_id": "UKESM1-0-LL",
+      "esm_reference_temperature_k": 288.003224139862,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "rx1day_mm",
+      "intercept": -133.84927193713477,
+      "slope_per_k": 0.5675629562819687,
+      "training_feature_max": 38.51163567693866,
+      "training_feature_min": 24.541063811575707,
+      "training_rows": 63,
+      "training_temperature_max_k": 294.28612813284434,
+      "training_temperature_min_k": 287.9301188576839
+    },
+    {
+      "esm_id": "UKESM1-0-LL",
+      "esm_reference_temperature_k": 288.003224139862,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "rx5day_mm",
+      "intercept": -295.52279812535494,
+      "slope_per_k": 1.213640875997019,
+      "training_feature_max": 71.70550006109971,
+      "training_feature_min": 45.14405906332912,
+      "training_rows": 63,
+      "training_temperature_max_k": 294.28612813284434,
+      "training_temperature_min_k": 287.9301188576839
+    },
+    {
+      "esm_id": "UKESM1-0-LL",
+      "esm_reference_temperature_k": 288.003224139862,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "stage1_precip_share",
+      "intercept": 2.19029360670863,
+      "slope_per_k": -0.006186780307660299,
+      "training_feature_max": 0.4745294140895229,
+      "training_feature_min": 0.2875633845035101,
+      "training_rows": 63,
+      "training_temperature_max_k": 294.28612813284434,
+      "training_temperature_min_k": 287.9301188576839
+    },
+    {
+      "esm_id": "UKESM1-0-LL",
+      "esm_reference_temperature_k": 288.003224139862,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "stage2_precip_share",
+      "intercept": -0.9739424881300581,
+      "slope_per_k": 0.004674898350329632,
+      "training_feature_max": 0.4773599774001755,
+      "training_feature_min": 0.30361140677325765,
+      "training_rows": 63,
+      "training_temperature_max_k": 294.28612813284434,
+      "training_temperature_min_k": 287.9301188576839
+    },
+    {
+      "esm_id": "UKESM1-0-LL",
+      "esm_reference_temperature_k": 288.003224139862,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "stage3_precip_share",
+      "intercept": -0.20528812286577627,
+      "slope_per_k": 0.0014736104653772395,
+      "training_feature_max": 0.2820894737128027,
+      "training_feature_min": 0.16651276943687324,
+      "training_rows": 63,
+      "training_temperature_max_k": 294.28612813284434,
+      "training_temperature_min_k": 287.9301188576839
+    },
+    {
+      "esm_id": "UKESM1-0-LL",
+      "esm_reference_temperature_k": 288.003224139862,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "tmean_c",
+      "intercept": -383.9869786937802,
+      "slope_per_k": 1.4066263315656866,
+      "training_feature_max": 29.946430083961598,
+      "training_feature_min": 20.748551065911357,
+      "training_rows": 63,
+      "training_temperature_max_k": 294.28612813284434,
+      "training_temperature_min_k": 287.9301188576839
+    },
+    {
+      "esm_id": "UKESM1-0-LL",
+      "esm_reference_temperature_k": 288.003224139862,
+      "fair_reference_temperature_c": 1.4683850540158,
+      "feature_family": "wet_days_n",
+      "intercept": -124.89674424399716,
+      "slope_per_k": 0.5251188720082915,
+      "training_feature_max": 33.183673469387756,
+      "training_feature_min": 22.408163265306122,
+      "training_rows": 63,
+      "training_temperature_max_k": 294.28612813284434,
+      "training_temperature_min_k": 287.9301188576839
+    }
+  ],
+  "implementation": {
+    "path": "scripts/evaluate_fair_esm_alignment_sensitivity.py",
+    "sha256": "d0cad2cb144a76bdbe6105b6512963b19b484f3c61495bc4b03a0d4f0a8538fc"
+  },
+  "inputs": [
+    {
+      "name": "training",
+      "path": "data/interim/isimip3b_expanded_fair_training/training.parquet",
+      "sha256": "6d02baa5df280c91beff3a0e35b139460f73d00ae75b362e2a3755e9c213282d"
+    },
+    {
+      "name": "fair_paths",
+      "path": "data/interim/give_fair_temperature_path_smoke/temperature_paths.csv",
+      "sha256": "aedf6b66dd296337e1cb6105d2aa56ec94f3e15e5ac92c2abcdf74b6a42b6067"
+    },
+    {
+      "name": "fair_config",
+      "path": "config/give_fair_temperature_path_smoke_v1.toml",
+      "sha256": "c28be8eff2d396fcafc82b0e3571da7c75c0d5721c24778d153f1506dbb9bb83"
+    }
+  ],
+  "limitations": [
+    "The 2012--2014 reference window is an engineering sensitivity, not a production choice.",
+    "The affine aggregate feature surfaces were not promoted by holdout evidence.",
+    "The zero residual is shared exactly but is not a stochastic production weather path.",
+    "No yield response, damage, welfare, or SCC value is produced."
+  ],
+  "maximum_alignment_method_disagreement": 2.5579538487363607e-13,
+  "maximum_raw_level_vs_stable_pulse_feature_disagreement": 4.547473508864641e-13,
+  "members": {
+    "GFDL-ESM4": "r1i1p1f1",
+    "IPSL-CM6A-LR": "r1i1p1f1",
+    "MPI-ESM1-2-HR": "r1i1p1f1",
+    "MRI-ESM2-0": "r1i1p1f1",
+    "UKESM1-0-LL": "r1i1p1f2"
+  },
+  "pair_rows": 127160,
+  "pairing_pulse_scale_unit": "tonnes_C",
+  "pairs_output": {
+    "artifact_name": "pairs.parquet",
+    "sha256": "98946ff267c550c854566008d120cb2e833b8cb2a0e6a6eabe1e0b52ac1cde43"
+  },
+  "pre_divergence_identity": true,
+  "production_alignment_selected": false,
+  "production_emulator_authorized": false,
+  "reference_scenario": "historical",
+  "reference_years": [
+    2012,
+    2014
+  ],
+  "result": "passed",
+  "role": "bounded_affine_fair_to_esm_alignment_sensitivity_not_production_feature_response_damage_or_scc",
+  "schema": "fair_esm_alignment_sensitivity_v1",
+  "temperature_support_counts": {
+    "absolute_anomaly_mapping": {
+      "baseline": {
+        "below": 44,
+        "within": 63536
+      },
+      "pulse": {
+        "below": 44,
+        "within": 63536
+      }
+    },
+    "centered_coordinate_mapping": {
+      "baseline": {
+        "below": 44,
+        "within": 63536
+      },
+      "pulse": {
+        "below": 44,
+        "within": 63536
+      }
+    }
+  },
+  "zero_pulse_identity": true
+}

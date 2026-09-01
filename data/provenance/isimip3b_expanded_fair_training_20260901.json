@@ -1,0 +1,93 @@
+{
+  "config": {
+    "path": "config/isimip3b_expanded_fair_training_v1.toml",
+    "sha256": "6a02a6589f8b245b4b984a9a74d92e29fc6b5813d24753cfce538fc141a1f5ad"
+  },
+  "damage_or_scc_authorized": false,
+  "esm_ids": [
+    "GFDL-ESM4",
+    "IPSL-CM6A-LR",
+    "MPI-ESM1-2-HR",
+    "MRI-ESM2-0",
+    "UKESM1-0-LL"
+  ],
+  "feature_families": [
+    "cdd_max_days",
+    "precip_mm",
+    "precipitation_concentration_hhi",
+    "precipitation_timing_centroid",
+    "rx1day_mm",
+    "rx5day_mm",
+    "stage1_precip_share",
+    "stage2_precip_share",
+    "stage3_precip_share",
+    "tmean_c",
+    "wet_days_n"
+  ],
+  "implementation": {
+    "path": "scripts/assemble_isimip3b_expanded_fair_training.py",
+    "sha256": "687854c97ba69ea633b59f05adb35dcd87cd669053ce4fefa44940a42f74a4f9"
+  },
+  "inputs": [
+    {
+      "id": "historical_and_early_future",
+      "path": "data/interim/isimip3b_five_esm_four_scenario_holdout/training_long.parquet",
+      "rows": 565950,
+      "sha256": "2ed65370b02a5fd0e3330292e60ad92a00f7f7b7d5f7c11f58d74fa020aaeaab"
+    },
+    {
+      "id": "midcentury",
+      "path": "data/interim/isimip3b_five_esm_midcentury_holdout/training.parquet",
+      "rows": 905520,
+      "sha256": "874362b8040f441f4c49ada774d255f3a284d2c4ef8d6db97f3ea90732499e6a"
+    },
+    {
+      "id": "endcentury",
+      "path": "data/interim/isimip3b_five_esm_endcentury_holdout/training.parquet",
+      "rows": 905520,
+      "sha256": "0ea22bbabcf1af02dac40f20ff08af347f9ddd4d0d4422da7f92af98a7872441"
+    }
+  ],
+  "limitation": "One crop/regime and two latitude rows; joins climate-feature support only.",
+  "output": {
+    "artifact_name": "training.parquet",
+    "sha256": "6d02baa5df280c91beff3a0e35b139460f73d00ae75b362e2a3755e9c213282d"
+  },
+  "production_emulator_authorized": false,
+  "response_estimation_authorized": false,
+  "result": "passed_bounded_training_join_only",
+  "role": "bounded_five_esm_early_mid_endcentury_training_join_not_production_response_damage_or_scc",
+  "rows": 2376990,
+  "scenarios": [
+    "historical",
+    "ssp126",
+    "ssp370",
+    "ssp585"
+  ],
+  "schema": "isimip3b_expanded_fair_training_audit_v1",
+  "years": [
+    2012,
+    2013,
+    2014,
+    2016,
+    2017,
+    2018,
+    2019,
+    2042,
+    2043,
+    2044,
+    2045,
+    2046,
+    2047,
+    2048,
+    2049,
+    2092,
+    2093,
+    2094,
+    2095,
+    2096,
+    2097,
+    2098,
+    2099
+  ]
+}

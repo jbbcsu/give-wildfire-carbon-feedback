@@ -1,0 +1,32 @@
+schema = "fair_esm_alignment_sensitivity_config_v1"
+role = "bounded_affine_fair_to_esm_alignment_sensitivity_not_production_feature_response_damage_or_scc"
+
+[inputs]
+training_path = "data/interim/isimip3b_expanded_fair_training/training.parquet"
+training_sha256 = "6d02baa5df280c91beff3a0e35b139460f73d00ae75b362e2a3755e9c213282d"
+training_audit_path = "data/provenance/isimip3b_expanded_fair_training_20260901.json"
+training_audit_sha256 = "a883f8e0c74d41c6996bc798c58565b4195b78a17b38e50509483f3a7e3bf90f"
+fair_paths_path = "data/interim/give_fair_temperature_path_smoke/temperature_paths.csv"
+fair_paths_sha256 = "aedf6b66dd296337e1cb6105d2aa56ec94f3e15e5ac92c2abcdf74b6a42b6067"
+fair_config_path = "config/give_fair_temperature_path_smoke_v1.toml"
+fair_config_sha256 = "c28be8eff2d396fcafc82b0e3571da7c75c0d5721c24778d153f1506dbb9bb83"
+
+[alignment]
+reference_scenario = "historical"
+reference_start_year = 2012
+reference_end_year = 2014
+evaluation_start_year = 2012
+evaluation_end_year = 2300
+first_divergence_year = 2021
+methods = ["absolute_anomaly_mapping", "centered_coordinate_mapping"]
+equivalence_atol = 1e-10
+pairing_pulse_scale_unit = "tonnes_C"
+
+[limitations]
+feature_surface = "Affine aggregate feature-on-GMST sensitivity over the bounded early-, mid-, and end-century five-ESM product; not selected by holdout results."
+reference_window = "The 2012--2014 overlap is a predeclared engineering sensitivity window, not an approved production baseline."
+residuals = "Conditional-mean zero residual is shared exactly by baseline and pulse; no stochastic production residual path is claimed."
+direct_daily_support_after_2100 = false
+production_alignment_selected = false
+production_emulator_authorized = false
+damage_or_scc_authorized = false

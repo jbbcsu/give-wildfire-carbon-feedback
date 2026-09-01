@@ -451,7 +451,15 @@ end-century whole-scenario audit improves 17/33 comparisons, with 16.51% of
 values outside exact support. Across the complete five-ESM end-century product,
 GMST adjustment improves 30/55 comparisons and 7.14% of values lie outside
 exact four-ESM support. These are engineering support diagnostics; FAIR
-baseline/pulse, response, damage, welfare, and SCC gates remain open. For
+baseline/pulse, response, damage, welfare, and SCC gates remain open. For the
+deterministic 2,376,990-row early/mid/end-century join, the same matched FAIR
+temperature paths generate 127,160 common-random-number feature pairs. All
+63,580 feature levels per alignment method are within the enlarged bounded
+envelope, while 44 temperature rows (MPI in 2012) are below support. Zero-pulse
+and pre-divergence identity, direct/centered agreement, and decreasing-pulse
+convergence pass. This is a bounded one-crop/two-latitude engineering result;
+the affine response surface remains unpromoted and no damage or SCC use is
+authorized. For
 IPSL, SSP3-7.0 relative to matched SSP1-2.6
 cells has midcentury mean
 differences of +0.365 C, +13.22 mm seasonal rain, +0.93 wet

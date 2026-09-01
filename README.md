@@ -76,6 +76,18 @@ rows per formulation (5.95%) remain within the seven-year GMST training range;
 therefore diagnoses extrapolation rather than authorizing production use. The
 mapped FAIR baseline first exceeds bounded GMST support in 2021 for GFDL, 2027
 for MPI, and 2033 for IPSL, UKESM, and MRI.
+Joining the complete early-, mid-, and end-century bounded products yields a
+deterministic 2,376,990-row, 23-year training surface. Re-evaluating the same
+FAIR common-random-number paths against that enlarged surface produces 127,160
+paired rows. All 63,580 feature values per alignment method are within bounded
+feature support; 63,536/63,580 mapped temperature rows are within support, with
+only MPI in 2012 below its envelope. Zero-pulse and pre-divergence identity,
+separate baseline/pulse flags, direct/centered agreement, and decreasing-pulse
+convergence pass, and maximum alignment-method disagreement is `2.56e-13`.
+This closes a bounded aggregate feature-support engineering gate only: the
+affine surface was not promoted by holdout evidence, represents one crop/regime
+and two latitude rows, and has no direct daily support after 2100. Response,
+damage, welfare, and SCC use remains unauthorized.
 A registered later-century expansion now fixes the next acquisition before any
 later-century feature or response result is examined. It selects exactly the
 2041--2050 and 2091--2100 `pr`/`tas` files for the full five-ESM by three-SSP

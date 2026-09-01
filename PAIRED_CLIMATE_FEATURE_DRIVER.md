@@ -324,6 +324,15 @@ of values outside exact support. The complete five-ESM end-century audit
 improves 30/55 comparisons (median/maximum RMSE ratios 0.99982/1.01357), with
 64,665 values (7.14%) outside exact four-ESM support. FAIR baseline/pulse
 feature-support, response, damage, welfare, and SCC gates remain open.
+The pinned early-, mid-, and end-century join then provides 2,376,990 bounded
+rows across 23 years for the existing FAIR alignment sensitivity. All 63,580
+feature levels per alignment method lie within the enlarged feature envelope;
+63,536 temperature rows are within support and 44 rows, all MPI in 2012, are
+below. The 127,160 paired rows pass common-residual, zero-pulse,
+pre-divergence, direct/centered, and decreasing-pulse gates with maximum method
+disagreement `2.56e-13`. This closes bounded aggregate FAIR feature support,
+not the production response gate: one crop/regime, two latitude rows, adverse
+holdout evidence, and absent direct daily support after 2100 remain binding.
 Relative to matched IPSL SSP1-2.6 cells, mean SSP3-7.0 differences at
 midcentury are +0.365 C, +13.22 mm seasonal rain, +0.93 wet days, -1.36
 maximum dry-spell days, +2.18 mm Rx1day, and +3.84 mm Rx5day. The end-century

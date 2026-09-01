@@ -603,6 +603,16 @@ places 16.51% of values outside exact two-scenario support. The complete
 median/maximum RMSE ratios are 0.99982/1.01357 and 7.14% of held-out values
 are outside exact four-ESM support. FAIR baseline/pulse feature-support
 validation remains required before any response or damage use.
+We then concatenate the exact-hash early, midcentury, and end-century bounded
+products after normalizing only ESM identifier case, yielding 2,376,990 rows
+over 23 training years. The previously registered FAIR alignment sensitivity
+is rerun without changing its 2012--2014 reference window or pulse paths. Its
+127,160 paired rows retain common residual identifiers and pass zero-pulse,
+pre-divergence, direct/centered, and decreasing-pulse checks. All feature
+levels are within the enlarged bounded envelope; 44 mapped temperature rows
+for MPI in 2012 are below its envelope. These checks establish bounded
+aggregate numerical support only, not a selected production emulator or any
+response, damage, welfare, or SCC estimate.
 For IPSL, the exact-key
 SSP3-7.0-minus-SSP1-2.6 midcentury comparison finds
 mean differences of +0.365 C, +13.22 mm seasonal precipitation, +0.93 wet days,
