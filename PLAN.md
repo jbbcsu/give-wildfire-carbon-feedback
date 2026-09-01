@@ -137,6 +137,14 @@ persistent unanimity is 2.82% and 3.35%. Increasing aggregate sign agreement
 through time therefore does not imply stable cross-model agreement at the same
 locations. The same structural-sensitivity and non-SCC boundaries apply.
 
+A matched latitude-band scenario-separation audit finds SSP5-8.5 more negative
+than SSP1-2.6 in 43/60 forcing/model/window/band cells. Separation is mixed in
+2021--2030, unanimous across all four structures in the three central bands by
+2041--2050, and unanimous there plus the northern high latitudes by
+2081--2090. Southern high latitudes remain split at end century. This narrows
+the forcing contrast without supplying causal attribution, country allocation,
+a matched pulse, welfare, damages, or SCC evidence.
+
 ## Gate 4 — welfare translation and GIVE interface
 
 Translate changes in catch/availability into producer and consumer welfare,

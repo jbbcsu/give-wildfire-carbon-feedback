@@ -245,6 +245,15 @@ the southern high-latitude band is negative in all four trajectories in all
 three windows. This sharpens temporal/geographic heterogeneity without opening
 allocation, pulse, welfare, damage, or SCC gates.
 
+The matched scenario-separation audit in
+[`FISHMIP_CONTROL_ADJUSTED_LATITUDE_SCENARIO_SEPARATION.md`](FISHMIP_CONTROL_ADJUSTED_LATITUDE_SCENARIO_SEPARATION.md)
+finds SSP5-8.5 more negative than SSP1-2.6 in 43/60 exact
+forcing/model/window/band cells. All four structures separate in the three
+central latitude bands by 2041--2050 and in those bands plus the northern high
+latitudes by 2081--2090; southern high latitudes remain split. This is a
+structural scenario diagnostic, not allocation, pulse, welfare, damage, or SCC
+evidence.
+
 ## Executable accounting scaffolding
 
 The repository currently provides two coefficient-free checks:
