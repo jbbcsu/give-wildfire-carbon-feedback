@@ -151,8 +151,14 @@ whole-ESM audit joins GFDL, IPSL, MPI, and MRI across
 all three SSPs. Midcentury improves 27/44 feature comparisons with 8.34% of
 held-out values outside exact three-ESM support; end century improves only
 12/44 with 9.47% outside support. UKESM remains missing, so the planned
-five-ESM and FAIR feature-support gates remain open. Against matched
-IPSL SSP1-2.6 cells, mean SSP3-7.0 differences at
+five-ESM and FAIR feature-support gates remain open. The frozen UKESM1-0-LL
+SSP1-2.6 2041--2050 `pr`/`tas` pair now passes exact catalogue bytes/SHA-512,
+complete midnight daily chronology, decoded-content, same-realization GMST,
+bounded maize/rainfed feature, and exact reconciliation gates. This brings
+later-century coverage to 50/60 files and twenty-five blocks. UKESM's
+remaining scenarios/period and the resulting five-ESM holdout are not yet
+complete, so the emulator and every response/damage/SCC gate stay closed.
+Against matched IPSL SSP1-2.6 cells, mean SSP3-7.0 differences at
 midcentury are +0.365 C, +13.22 mm seasonal rain, +0.93 wet days, -1.36
 maximum dry-spell days, +2.18 mm Rx1day, and +3.84 mm Rx5day. At end century,
 the matched means are +4.146 C, +25.70 mm seasonal rain, +2.85 wet days, -2.26

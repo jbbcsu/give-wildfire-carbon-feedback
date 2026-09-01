@@ -553,6 +553,15 @@ Midcentury improves 27/44 comparisons (median/maximum RMSE ratios
 0.99954/1.00969) with 8.34% outside three-ESM support; end century improves
 12/44 (1.00040/1.06362) with 9.47% outside support. UKESM remains absent, so
 the five-ESM and FAIR feature-support gates remain false.
+The first later-century UKESM1-0-LL pair (SSP1-2.6, 2041--2050) uses the same
+version-pinned content validators with an explicit expected hour of 00:00 UTC,
+matching UKESM's catalogued daily coordinate; the validators' default noon
+contract rejects this pair. Exact bytes/SHA-512, all 3,652 daily timestamps,
+946,598,400 finite values per field, same-realization GMST, and the bounded
+5,488-season/16,464-stage feature and zero-error reconciliation gates pass.
+Coverage is 50/60 files and twenty-five blocks; the remaining UKESM cells and
+complete five-ESM holdout remain required before FAIR feature support or any
+response, damage, welfare, or SCC use.
 For IPSL, the exact-key
 SSP3-7.0-minus-SSP1-2.6 midcentury comparison finds
 mean differences of +0.365 C, +13.22 mm seasonal precipitation, +0.93 wet days,

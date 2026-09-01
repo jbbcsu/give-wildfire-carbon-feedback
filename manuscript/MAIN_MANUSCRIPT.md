@@ -410,7 +410,14 @@ of held-out values are outside exact support. These adverse results do not
 promote the emulator. A four-ESM whole-ESM audit improves 27/44 comparisons at
 midcentury but only 12/44 at end century, with 8.34% and 9.47% of held-out
 values outside exact three-ESM support. Because UKESM remains absent, this
-does not complete the frozen five-ESM validation gate. For IPSL, SSP3-7.0 relative to matched SSP1-2.6 cells has midcentury mean
+does not complete the frozen five-ESM validation gate. The first later-century
+UKESM1-0-LL pair, SSP1-2.6 at midcentury, passes exact catalogue bytes/SHA-512,
+complete ESM-specific midnight chronology, full decoded content, same-
+realization GMST, and exact seasonal/stage reconciliation for the bounded
+maize/rainfed block. This raises coverage to 50/60 files and twenty-five
+blocks, but five UKESM pairs and the complete five-ESM holdout are still
+missing; response, damage, welfare, and SCC authorization remains false. For
+IPSL, SSP3-7.0 relative to matched SSP1-2.6 cells has midcentury mean
 differences of +0.365 C, +13.22 mm seasonal rain, +0.93 wet
 days, -1.36 maximum dry-spell days, +2.18 mm Rx1day, and +3.84 mm Rx5day. The
 end-century means are +4.146 C, +25.70 mm seasonal rain, +2.85 wet days, -2.26

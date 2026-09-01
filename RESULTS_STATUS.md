@@ -145,6 +145,15 @@ outside exact three-ESM support. End century improves only 12/44
 byte-identical. UKESM remains absent; production emulator, FAIR feature-path,
 response, damage, welfare, and SCC gates remain closed.
 
+The first later-century UKESM1-0-LL pair (SSP1-2.6, 2041--2050) passes exact
+catalogue bytes/SHA-512 and all 946,598,400 decoded values per field, with no
+missing values or negative precipitation. Its exact midnight chronology is a
+registered ESM-specific boundary, not a shifted or inferred date; the same-
+realization GMST and 5,488-season/16,464-stage maize block reproduce byte-
+identically and reconcile exactly. Coverage is now 50/60 files and twenty-
+five blocks. Five UKESM pairs, the complete five-ESM holdout, FAIR feature
+support, response, damage, welfare, and SCC gates remain closed.
+
 ## Completed empirical checks
 
 Unless explicitly labeled current-hash and basis-before-weighting, response

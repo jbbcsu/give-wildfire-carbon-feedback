@@ -271,6 +271,15 @@ three-ESM support. End century improves only 12/44 (1.00040/1.06362) with
 9.47% outside support. UKESM is absent, so this adverse four-of-five audit
 does not complete the frozen whole-ESM gate or authorize FAIR feature support,
 a response, damage, or SCC input.
+The first frozen UKESM1-0-LL later-century pair, SSP1-2.6 at midcentury, now
+passes exact bytes/SHA-512, complete decoded-content, same-realization GMST,
+bounded maize/rainfed feature, and exact reconciliation gates. Unlike the
+other four ESM products, both UKESM fields are timestamped at 00:00 UTC; the
+version-pinned validator's explicit midnight path passes and its default noon
+path rejects the files. Tracked expansion is therefore 50/60 files and
+twenty-five bounded blocks. The remaining five UKESM pairs and a complete
+five-ESM holdout are still absent, so no production, response, damage,
+welfare, or SCC gate is opened.
 Relative to matched IPSL SSP1-2.6 cells, mean SSP3-7.0 differences at
 midcentury are +0.365 C, +13.22 mm seasonal rain, +0.93 wet days, -1.36
 maximum dry-spell days, +2.18 mm Rx1day, and +3.84 mm Rx5day. The end-century
