@@ -128,6 +128,25 @@ ssp585_holdout_comparison_count = 11
 ssp585_holdout_gmst_model_better_count = 6
 result = "passed_engineering_holdout_and_support_only"
 
+[five_esm_midcentury_holdout]
+config = "config/isimip3b_five_esm_midcentury_holdout_v1.toml"
+config_sha256 = "a0a093ec4b0880a95da6c9aed2096a5f47aa03add46e2ccfc69cd04bd3369bb3"
+evaluator = "scripts/evaluate_isimip3b_four_esm_later_century_holdout.py"
+evaluator_sha256 = "cf836bfaf6d382ad3427cf2bf32475631b42e31929d76d0f667bd156cabc3cf3"
+audit = "data/provenance/isimip3b_five_esm_midcentury_holdout_20260901.json"
+audit_sha256 = "c3634a4efefa1e74b157a2a79b7f9706cd18c2f2516da93e61f539898f5e2bc9"
+training_rows = 905520
+comparison_count = 55
+gmst_model_better_than_cell_mean_count = 32
+median_rmse_ratio_to_cell_mean = 0.9996914367513665
+maximum_rmse_ratio_to_cell_mean = 1.0853302136316045
+held_out_feature_values = 905520
+held_out_feature_values_outside_four_esm_support = 58580
+held_out_feature_values_outside_four_esm_support_share = 0.06469211061047796
+whole_esm_holdout_complete = true
+fair_baseline_pulse_feature_support = false
+response_damage_or_scc_authorized = false
+
 [limitations]
 later_century_complete_file_gates = 58
 later_century_total_file_gates = 60
@@ -136,7 +155,7 @@ paired_pr_tas_complete = true
 same_realization_gmst_built = true
 crop_features_built = true
 whole_scenario_holdout_rerun = true
-whole_esm_holdout_rerun = false
+whole_esm_holdout_rerun = true
 fair_baseline_pulse_feature_support_rerun = false
 production_emulator_authorized = false
 damage_or_scc_authorized = false

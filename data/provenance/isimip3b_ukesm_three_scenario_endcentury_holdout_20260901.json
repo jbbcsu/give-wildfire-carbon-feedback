@@ -1,0 +1,118 @@
+{
+  "comparison_count": 33,
+  "config_path": "config/isimip3b_ukesm_three_scenario_endcentury_holdout_v1.toml",
+  "config_sha256": "0166463ed52a3d2f323ebf7d297c326ca56b1af8d0c143afeb09f089fc304a91",
+  "damage_or_scc_authorized": false,
+  "esm_id": "UKESM1-0-LL",
+  "fair_baseline_pulse_feature_support": false,
+  "feature_families": [
+    "tmean_c",
+    "precip_mm",
+    "wet_days_n",
+    "cdd_max_days",
+    "rx1day_mm",
+    "rx5day_mm",
+    "stage1_precip_share",
+    "stage2_precip_share",
+    "stage3_precip_share",
+    "precipitation_timing_centroid",
+    "precipitation_concentration_hhi"
+  ],
+  "gmst_model_better_than_cell_mean_count": 17,
+  "held_out_feature_values": 181104,
+  "held_out_feature_values_outside_two_scenario_support": 29898,
+  "held_out_feature_values_outside_two_scenario_support_share": 0.1650874635568513,
+  "holdout_rows": 33,
+  "implementation": {
+    "path": "scripts/evaluate_isimip3b_gfdl_three_scenario_midcentury_holdout.py",
+    "sha256": "cdd749963b77f0c449a137a257e9e17fb414dd7f6b251123c75005b1f6db3cd8"
+  },
+  "inputs": [
+    {
+      "canonical_esm_id": "UKESM1-0-LL",
+      "gmst_path": "data/interim/isimip3b/ukesm1-0-ll_r1i1p1f2_ssp126_gmst_2091_2100.parquet",
+      "gmst_sha256": "5ffd7fa199e93dc1736d476be8d0f3e73a643bb16cfdd132b682d160cf6d722b",
+      "observed_gmst_esm_ids": [
+        "UKESM1-0-LL"
+      ],
+      "scenario": "ssp126",
+      "season_path": "data/interim/isimip3b_ukesm_ssp126_2091_2100_smoke/mai_noirr_2092_2099_lat100_102_features.parquet",
+      "season_sha256": "39c60969ddb2413e3fd9eacee48ec0f62e45d156d467c26d5a5d5bfb203280d1",
+      "stage_path": "data/interim/isimip3b_ukesm_ssp126_2091_2100_smoke/mai_noirr_2092_2099_lat100_102_stages.parquet",
+      "stage_sha256": "6b9085dee0348bfd135783fb834a997a7c7373ac98a9c825e50af18f235f0938"
+    },
+    {
+      "canonical_esm_id": "UKESM1-0-LL",
+      "gmst_path": "data/interim/isimip3b/ukesm1-0-ll_r1i1p1f2_ssp370_gmst_2091_2100.parquet",
+      "gmst_sha256": "fd6bf731322ac9350ae7d040edb856c21c3395993554d8223a704cbdb9f7c883",
+      "observed_gmst_esm_ids": [
+        "UKESM1-0-LL"
+      ],
+      "scenario": "ssp370",
+      "season_path": "data/interim/isimip3b_ukesm_ssp370_2091_2100_smoke/mai_noirr_2092_2099_lat100_102_features.parquet",
+      "season_sha256": "f8203ad46c19997a6902ba0e50223296b4abcff83dcba11a39c3ee6f5bd059e7",
+      "stage_path": "data/interim/isimip3b_ukesm_ssp370_2091_2100_smoke/mai_noirr_2092_2099_lat100_102_stages.parquet",
+      "stage_sha256": "886fc61ecbd960bf9ceefebc0d947f7fcc76df8a813f4cb8424baa5aa4d3e3cc"
+    },
+    {
+      "canonical_esm_id": "UKESM1-0-LL",
+      "gmst_path": "data/interim/isimip3b/ukesm1-0-ll_r1i1p1f2_ssp585_gmst_2091_2100.parquet",
+      "gmst_sha256": "762302f8fcd71ab8c3100361f60399096553befd3cc061d687d3308093a7751e",
+      "observed_gmst_esm_ids": [
+        "UKESM1-0-LL"
+      ],
+      "scenario": "ssp585",
+      "season_path": "data/interim/isimip3b_ukesm_ssp585_2091_2100_smoke/mai_noirr_2092_2099_lat100_102_features.parquet",
+      "season_sha256": "a6981b24b002d72d8197081243818b6633035892992461112946a64fb67096d2",
+      "stage_path": "data/interim/isimip3b_ukesm_ssp585_2091_2100_smoke/mai_noirr_2092_2099_lat100_102_stages.parquet",
+      "stage_sha256": "414d1807b65915eef746c2d9882134da484932caa2fa8ded4cc0ce951d76b020"
+    }
+  ],
+  "limitation": "Support flags apply to held-out climate-scenario feature values only, not FAIR baseline/pulse evaluation or an agricultural response.",
+  "maximum_rmse_ratio_to_cell_mean": 1.0617017207813138,
+  "median_rmse_ratio_to_cell_mean": 0.9995778558470209,
+  "member_id": "r1i1p1f2",
+  "outputs": {
+    "holdouts_sha256": "f5ddd93d87a2bf9bd7f51f94ee7215b0bb54f00361cf3fd6065fe3c6eed41eee",
+    "support_sha256": "f775c43fcfb06ccf2117c0718cb4f773da480482787e7c8c2f9a8c66f02cb1d0",
+    "training_sha256": "d68041a48cf8fa8df5803792c71edbc9473c2963be31885daeb6a98e9d548aae"
+  },
+  "paired_baseline_pulse_paths": false,
+  "period": "endcentury",
+  "response_estimation_authorized": false,
+  "result": "passed_engineering_holdout_and_support_only",
+  "role": "outcome_blind_joined_ukesm_three_scenario_endcentury_feature_holdout_and_support_audit_not_emulator_damage_or_scc",
+  "scenario_summaries": {
+    "ssp126": {
+      "comparisons": 11,
+      "gmst_model_better_count": 5,
+      "maximum_rmse_ratio_to_cell_mean": 1.0617017207813138,
+      "median_rmse_ratio_to_cell_mean": 1.0017935145571397,
+      "outside_support_share": 0.22043135435992578,
+      "outside_support_values": 13307
+    },
+    "ssp370": {
+      "comparisons": 11,
+      "gmst_model_better_count": 3,
+      "maximum_rmse_ratio_to_cell_mean": 1.0079668441688314,
+      "median_rmse_ratio_to_cell_mean": 1.0002824180795358,
+      "outside_support_share": 0.10200768619135966,
+      "outside_support_values": 6158
+    },
+    "ssp585": {
+      "comparisons": 11,
+      "gmst_model_better_count": 9,
+      "maximum_rmse_ratio_to_cell_mean": 1.007297594848092,
+      "median_rmse_ratio_to_cell_mean": 0.9958034110954803,
+      "outside_support_share": 0.1728233501192685,
+      "outside_support_values": 10433
+    }
+  },
+  "schema": "isimip3b_ukesm_three_scenario_endcentury_holdout_audit_v1",
+  "support_summary_rows": 33,
+  "training_rows": 181104,
+  "whole_esm_holdout": false,
+  "whole_scenario_holdout": true,
+  "year_end": 2099,
+  "year_start": 2092
+}

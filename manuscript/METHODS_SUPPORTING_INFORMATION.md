@@ -592,6 +592,17 @@ leave-one-whole-scenario-out estimator and exact support flags to 181,104
 rows. It improves 13/33 comparisons over the cell-mean benchmark, with a
 maximum RMSE ratio of 1.22120 and 12.21% of held-out values outside support.
 This engineering audit does not authorize the emulator or any downstream use.
+The complete five-ESM midcentury join then applies the identical frozen whole-
+ESM estimator to 905,520 rows and 55 comparisons. It improves 32/55 against
+the cell-mean benchmark, with 6.47% of held-out values outside exact four-ESM
+support. The UKESM SSP5-8.5 2091--2100 pair completes 60/60 registered file
+gates and thirty bounded feature blocks. The same frozen whole-scenario audit
+on the 181,104-row UKESM end-century product improves 17/33 comparisons and
+places 16.51% of values outside exact two-scenario support. The complete
+905,520-row five-ESM end-century join improves 30/55 comparisons; its
+median/maximum RMSE ratios are 0.99982/1.01357 and 7.14% of held-out values
+are outside exact four-ESM support. FAIR baseline/pulse feature-support
+validation remains required before any response or damage use.
 For IPSL, the exact-key
 SSP3-7.0-minus-SSP1-2.6 midcentury comparison finds
 mean differences of +0.365 C, +13.22 mm seasonal precipitation, +0.93 wet days,

@@ -14,10 +14,19 @@ import pandas as pd
 from evaluate_isimip3b_five_esm_holdout_smoke import CELL_KEYS, FEATURES, evaluate_leave_one_esm_out, sha256
 
 
-EXPECTED_ESMS = {"GFDL-ESM4", "IPSL-CM6A-LR", "MPI-ESM1-2-HR", "MRI-ESM2-0"}
+FOUR_ESMS = {"GFDL-ESM4", "IPSL-CM6A-LR", "MPI-ESM1-2-HR", "MRI-ESM2-0"}
+FIVE_ESMS = FOUR_ESMS | {"UKESM1-0-LL"}
 EXPECTED_SCENARIOS = {"ssp126", "ssp370", "ssp585"}
-CONFIG_SCHEMA = "isimip3b_four_esm_later_century_holdout_config_v1"
-CONFIG_ROLE = "outcome_blind_four_esm_three_scenario_whole_esm_holdout_and_support_not_complete_emulator_damage_or_scc"
+CONFIG_CONTRACTS = {
+    (
+        "isimip3b_four_esm_later_century_holdout_config_v1",
+        "outcome_blind_four_esm_three_scenario_whole_esm_holdout_and_support_not_complete_emulator_damage_or_scc",
+    ): {"esms": FOUR_ESMS, "complete": False, "audit_schema": "isimip3b_four_esm_later_century_holdout_audit_v1"},
+    (
+        "isimip3b_five_esm_later_century_holdout_config_v1",
+        "outcome_blind_five_esm_three_scenario_whole_esm_holdout_and_support_not_emulator_damage_or_scc",
+    ): {"esms": FIVE_ESMS, "complete": True, "audit_schema": "isimip3b_five_esm_later_century_holdout_audit_v1"},
+}
 PERIODS = {"midcentury": (2042, 2049), "endcentury": (2092, 2099)}
 
 
@@ -26,27 +35,31 @@ def require(condition: bool, message: str) -> None:
         raise ValueError(message)
 
 
-def validate_config(config: dict) -> None:
-    require(config.get("schema") == CONFIG_SCHEMA and config.get("role") == CONFIG_ROLE, "four-ESM config identity changed")
+def validate_config(config: dict) -> dict[str, object]:
+    identity = (str(config.get("schema", "")), str(config.get("role", "")))
+    require(identity in CONFIG_CONTRACTS, "later-century ESM config identity changed")
+    contract = CONFIG_CONTRACTS[identity]
+    expected_esms = set(contract["esms"])
     selection = config.get("selection", {})
     period = str(selection.get("period", ""))
     require(period in PERIODS, "later-century period changed")
     require((int(selection.get("year_start", -1)), int(selection.get("year_end", -1))) == PERIODS[period], "harvest-year block changed")
-    require(set(map(str, selection.get("expected_esm_ids", []))) == EXPECTED_ESMS, "ESM set changed")
+    require(set(map(str, selection.get("expected_esm_ids", []))) == expected_esms, "ESM set changed")
     require(set(map(str, selection.get("expected_scenarios", []))) == EXPECTED_SCENARIOS, "scenario set changed")
     require(list(map(str, selection.get("expected_feature_families", []))) == FEATURES, "feature-family order changed")
     products = config.get("training_products", [])
-    require(len(products) == 4 and {str(row.get("esm_id")) for row in products} == EXPECTED_ESMS, "training products are incomplete")
+    require(len(products) == len(expected_esms) and {str(row.get("esm_id")) for row in products} == expected_esms, "training products are incomplete")
     limits = config.get("limitations", {})
     required = {
-        "complete_five_esm_matrix": False,
+        "complete_five_esm_matrix": bool(contract["complete"]),
         "whole_esm_holdouts": True,
         "whole_scenario_holdouts": True,
         "fair_baseline_pulse_feature_support": False,
         "response_estimation_authorized": False,
         "damage_or_scc_authorized": False,
     }
-    require(all(limits.get(key) is value for key, value in required.items()), "four-ESM limitations changed")
+    require(all(limits.get(key) is value for key, value in required.items()), "later-century ESM limitations changed")
+    return contract
 
 
 def project_path(root: Path, value: str) -> Path:
@@ -57,7 +70,7 @@ def project_path(root: Path, value: str) -> Path:
 
 def assemble(config_path: Path) -> tuple[pd.DataFrame, dict]:
     config = tomllib.loads(config_path.read_text(encoding="utf-8"))
-    validate_config(config)
+    contract = validate_config(config)
     root = config_path.parent.parent
     frames: list[pd.DataFrame] = []
     receipts: list[dict[str, object]] = []
@@ -85,12 +98,12 @@ def assemble(config_path: Path) -> tuple[pd.DataFrame, dict]:
     require(not training.duplicated(keys).any(), "duplicate ESM/scenario/feature/cell-year keys")
     require(np.isfinite(training[["feature_value", "gmst_value_k"]].to_numpy(float)).all(), "training values are nonfinite")
     require((training.esm_id.astype(str).str.upper() == training.gmst_esm_id.astype(str).str.upper()).all(), "feature/GMST ESM identity differs")
-    return training, {"config_path": str(config_path.relative_to(root)), "config_sha256": sha256(config_path), "inputs": receipts, "period": config["selection"]["period"]}
+    return training, {"config_path": str(config_path.relative_to(root)), "config_sha256": sha256(config_path), "inputs": receipts, "period": config["selection"]["period"], "contract": contract}
 
 
-def evaluate_support(training: pd.DataFrame) -> pd.DataFrame:
+def evaluate_support(training: pd.DataFrame, expected_esms: set[str]) -> pd.DataFrame:
     rows: list[dict[str, object]] = []
-    for holdout in sorted(EXPECTED_ESMS):
+    for holdout in sorted(expected_esms):
         train = training.loc[training.esm_id.astype(str).str.upper() != holdout.upper()]
         test = training.loc[training.esm_id.astype(str).str.upper() == holdout.upper()]
         for family in FEATURES:
@@ -102,7 +115,7 @@ def evaluate_support(training: pd.DataFrame) -> pd.DataFrame:
             above = score.feature_value > score.support_max
             rows.append({"holdout_id": holdout, "feature_family": family, "n_test": len(score), "below_support": int(below.sum()), "within_support": int((~below & ~above).sum()), "above_support": int(above.sum()), "outside_support": int((below | above).sum())})
     output = pd.DataFrame(rows)
-    require(len(output) == 4 * len(FEATURES), "whole-ESM support product is incomplete")
+    require(len(output) == len(expected_esms) * len(FEATURES), "whole-ESM support product is incomplete")
     output["outside_support_share"] = output.outside_support / output.n_test
     return output
 
@@ -117,41 +130,57 @@ def main() -> None:
     args = parser.parse_args()
     config_path = args.config.resolve()
     training, metadata = assemble(config_path)
+    contract = metadata.pop("contract")
+    expected_esms = set(contract["esms"])
     holdouts = evaluate_leave_one_esm_out(training)
-    support = evaluate_support(training)
+    support = evaluate_support(training, expected_esms)
     for path in (args.training_out, args.holdouts_out, args.support_out, args.audit_out):
         path.parent.mkdir(parents=True, exist_ok=True)
     training.to_parquet(args.training_out, index=False)
     holdouts.to_csv(args.holdouts_out, index=False)
     support.to_csv(args.support_out, index=False)
     ratios = holdouts.rmse / holdouts.benchmark_rmse
+    outside_count = int(support.outside_support.sum())
+    outside_share = float(outside_count / support.n_test.sum())
+    if contract["complete"]:
+        support_audit = {
+            "support_training_esm_count": len(expected_esms) - 1,
+            "held_out_feature_values_outside_other_esm_support": outside_count,
+            "held_out_feature_values_outside_other_esm_support_share": outside_share,
+        }
+    else:
+        # Preserve the registered four-ESM audit schema for deterministic
+        # reproduction of the earlier incomplete-matrix receipts.
+        support_audit = {
+            "held_out_feature_values_outside_three_esm_support": outside_count,
+            "held_out_feature_values_outside_three_esm_support_share": outside_share,
+        }
     audit = {
-        "schema": "isimip3b_four_esm_later_century_holdout_audit_v1",
-        "role": CONFIG_ROLE,
-        "result": "passed_four_of_five_esm_engineering_holdout_and_support_only",
+        "schema": contract["audit_schema"],
+        "role": tomllib.loads(config_path.read_text(encoding="utf-8"))["role"],
+        "result": "passed_complete_five_esm_engineering_holdout_and_support_only" if contract["complete"] else "passed_four_of_five_esm_engineering_holdout_and_support_only",
         **metadata,
         "implementation": {"path": str(Path(__file__).resolve().relative_to(config_path.parent.parent)), "sha256": sha256(Path(__file__).resolve())},
         "training_rows": len(training),
-        "esm_ids": sorted(EXPECTED_ESMS),
+        "esm_ids": sorted(expected_esms),
         "scenarios": sorted(EXPECTED_SCENARIOS),
         "comparison_count": len(holdouts),
         "gmst_model_better_than_cell_mean_count": int((holdouts.rmse < holdouts.benchmark_rmse).sum()),
         "median_rmse_ratio_to_cell_mean": float(ratios.median()),
         "maximum_rmse_ratio_to_cell_mean": float(ratios.max()),
         "held_out_feature_values": int(support.n_test.sum()),
-        "held_out_feature_values_outside_three_esm_support": int(support.outside_support.sum()),
-        "held_out_feature_values_outside_three_esm_support_share": float(support.outside_support.sum() / support.n_test.sum()),
+        **support_audit,
         "outputs": {"training_sha256": sha256(args.training_out), "holdouts_sha256": sha256(args.holdouts_out), "support_sha256": sha256(args.support_out)},
-        "complete_five_esm_matrix": False,
+        "complete_five_esm_matrix": bool(contract["complete"]),
         "whole_esm_holdout": True,
         "whole_scenario_holdout": True,
         "fair_baseline_pulse_feature_support": False,
         "response_estimation_authorized": False,
         "damage_or_scc_authorized": False,
-        "limitation": "Four of five frozen ESMs, one crop/regime, and two latitude rows; UKESM and FAIR feature-path support remain absent.",
+        "limitation": "Five frozen ESMs, one crop/regime, and two latitude rows; FAIR baseline/pulse feature-path support remains absent." if contract["complete"] else "Four of five frozen ESMs, one crop/regime, and two latitude rows; UKESM and FAIR feature-path support remain absent.",
     }
     args.audit_out.write_text(json.dumps(audit, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-    print(f"four-ESM {metadata['period']} audit passed: {len(training)} rows, improved {audit['gmst_model_better_than_cell_mean_count']}/{len(holdouts)}, outside {audit['held_out_feature_values_outside_three_esm_support']}/{audit['held_out_feature_values']}")
+    print(f"{len(expected_esms)}-ESM {metadata['period']} audit passed: {len(training)} rows, improved {audit['gmst_model_better_than_cell_mean_count']}/{len(holdouts)}, outside {outside_count}/{audit['held_out_feature_values']}")
 
 
 if __name__ == "__main__":

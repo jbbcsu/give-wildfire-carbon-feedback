@@ -190,6 +190,22 @@ benchmark (median RMSE ratio 1.00035; maximum 1.22120), while 22,115 values
 (12.21%) are outside exact two-scenario support. Held-out SSP3-7.0 improves
 only 1/11 comparisons. This adverse outcome-blind result keeps production,
 FAIR baseline/pulse, response, damage, welfare, and SCC gates closed.
+The complete five-ESM midcentury product contains 905,520 rows and 55 whole-
+ESM comparisons. GMST adjustment improves 32/55 over the cell-mean benchmark
+(median/maximum RMSE ratios 0.99969/1.08533), while 58,580 values (6.47%) lie
+outside exact four-ESM support. This completes the registered midcentury
+whole-ESM engineering gate. The final UKESM SSP5-8.5 2091--2100 pair brings
+coverage to 60/60 files and thirty bounded feature blocks. Relative to the
+matched SSP1-2.6 cell, mean changes are +5.918 C, +29.61 mm seasonal rain,
++2.46 wet days, +0.93 maximum-dry-spell days, +2.44 mm Rx1day, and +4.68 mm
+Rx5day. The complete UKESM end-century whole-scenario audit improves 17/33
+comparisons, with median/maximum RMSE ratios 0.99958/1.06170 and 29,898 values
+(16.51%) outside exact two-scenario support. The complete five-ESM end-century
+product has 905,520 rows: GMST adjustment improves 30/55 comparisons, with
+median/maximum RMSE ratios 0.99982/1.01357 and 64,665 values (7.14%) outside
+exact four-ESM support. These results complete the registered acquisition and
+whole-scenario/whole-ESM engineering matrix, but FAIR baseline/pulse feature
+support remains open; no response, damage, or SCC use is authorized.
 Against matched IPSL SSP1-2.6 cells, mean SSP3-7.0 differences at
 midcentury are +0.365 C, +13.22 mm seasonal rain, +0.93 wet days, -1.36
 maximum dry-spell days, +2.18 mm Rx1day, and +3.84 mm Rx5day. At end century,

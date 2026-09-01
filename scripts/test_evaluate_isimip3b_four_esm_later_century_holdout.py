@@ -16,6 +16,17 @@ for name, period in (("isimip3b_four_esm_midcentury_holdout_v1.toml", "midcentur
     validate_config(config)
     assert config["selection"]["period"] == period
 
+five_config = tomllib.loads(
+    (ROOT / "config/isimip3b_five_esm_midcentury_holdout_v1.toml").read_text(encoding="utf-8")
+)
+assert validate_config(five_config)["complete"] is True
+assert len(five_config["training_products"]) == 5
+five_end_config = tomllib.loads(
+    (ROOT / "config/isimip3b_five_esm_endcentury_holdout_v1.toml").read_text(encoding="utf-8")
+)
+assert validate_config(five_end_config)["complete"] is True
+assert five_end_config["selection"]["period"] == "endcentury"
+
 bad = copy.deepcopy(config)
 bad["limitations"]["damage_or_scc_authorized"] = True
 try:

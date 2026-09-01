@@ -1,0 +1,87 @@
+{
+  "comparison_count": 55,
+  "complete_five_esm_matrix": true,
+  "config_path": "config/isimip3b_five_esm_midcentury_holdout_v1.toml",
+  "config_sha256": "a0a093ec4b0880a95da6c9aed2096a5f47aa03add46e2ccfc69cd04bd3369bb3",
+  "damage_or_scc_authorized": false,
+  "esm_ids": [
+    "GFDL-ESM4",
+    "IPSL-CM6A-LR",
+    "MPI-ESM1-2-HR",
+    "MRI-ESM2-0",
+    "UKESM1-0-LL"
+  ],
+  "fair_baseline_pulse_feature_support": false,
+  "gmst_model_better_than_cell_mean_count": 32,
+  "held_out_feature_values": 905520,
+  "held_out_feature_values_outside_other_esm_support": 58580,
+  "held_out_feature_values_outside_other_esm_support_share": 0.06469211061047796,
+  "implementation": {
+    "path": "scripts/evaluate_isimip3b_four_esm_later_century_holdout.py",
+    "sha256": "cf836bfaf6d382ad3427cf2bf32475631b42e31929d76d0f667bd156cabc3cf3"
+  },
+  "inputs": [
+    {
+      "esm_id": "GFDL-ESM4",
+      "member_id": "r1i1p1f1",
+      "path": "data/interim/isimip3b_gfdl_three_scenario_midcentury_holdout/training.parquet",
+      "sha256": "290001047de5d0fafd9b753c6ff73eb8bad454a126609e6e5b18bca32822f361",
+      "source_audit": "data/provenance/isimip3b_gfdl_three_scenario_midcentury_holdout_20260828.json",
+      "source_audit_sha256": "ca80b79d3c4df595d336d31b9789fb499e25cfb57dcef876e94a7c4f90982361"
+    },
+    {
+      "esm_id": "IPSL-CM6A-LR",
+      "member_id": "r1i1p1f1",
+      "path": "data/interim/isimip3b_ipsl_three_scenario_2041_2050_training.parquet",
+      "sha256": "585dfd717cf40c63d9d48c03cdbbc20d60d7e0d1239f0c58c661e3475d465ef8",
+      "source_audit": "data/provenance/isimip3b_ipsl_three_scenario_midcentury_holdout_20260828.json",
+      "source_audit_sha256": "11acc5ea283d67b7f2fe2eb23bfd4123d38f4dedd56b78b0543c5dcd596e480f"
+    },
+    {
+      "esm_id": "MPI-ESM1-2-HR",
+      "member_id": "r1i1p1f1",
+      "path": "data/interim/isimip3b_mpi_three_scenario_midcentury_holdout/training.parquet",
+      "sha256": "33edf487d323039b7311f210cad642c2a31e8a6d0e57a08dc3181821b1e7e458",
+      "source_audit": "data/provenance/isimip3b_mpi_three_scenario_midcentury_holdout_20260901.json",
+      "source_audit_sha256": "c0e93b95ca0c1abed6bab2440652e3e3d360db614cac46bcc6c99dcee1de6b50"
+    },
+    {
+      "esm_id": "MRI-ESM2-0",
+      "member_id": "r1i1p1f1",
+      "path": "data/interim/isimip3b_mri_three_scenario_midcentury_holdout/training.parquet",
+      "sha256": "f58fde5cb18e3ed38c26253789e2b392afdd71c71c625c9b6dbff989fb3d466a",
+      "source_audit": "data/provenance/isimip3b_mri_three_scenario_midcentury_holdout_20260831.json",
+      "source_audit_sha256": "9be8ab9e8489cc855bd17749669b0390ef38a62813394f3660ba5d1b0ae5bec9"
+    },
+    {
+      "esm_id": "UKESM1-0-LL",
+      "member_id": "r1i1p1f2",
+      "path": "data/interim/isimip3b_ukesm_three_scenario_2041_2050_training.parquet",
+      "sha256": "726000a216539dbc29741666e497014fb40025f75cd4b046f94972a098e42ce3",
+      "source_audit": "data/provenance/isimip3b_ukesm_three_scenario_midcentury_holdout_20260901.json",
+      "source_audit_sha256": "8a122617f50dba8c583516b96f5423f547ee582cbf77b71802b5ad05beff633a"
+    }
+  ],
+  "limitation": "Five frozen ESMs, one crop/regime, and two latitude rows; FAIR baseline/pulse feature-path support remains absent.",
+  "maximum_rmse_ratio_to_cell_mean": 1.0853302136316045,
+  "median_rmse_ratio_to_cell_mean": 0.9996914367513665,
+  "outputs": {
+    "holdouts_sha256": "36d4d5ce5b4e712d6e78e76631bb18094efe95e8111bf7154a60e1d65bc2b0bd",
+    "support_sha256": "40ef468fde160b94f07a9e000bbe897de46d7b2a536875d46edbe2f61b00c6e2",
+    "training_sha256": "874362b8040f441f4c49ada774d255f3a284d2c4ef8d6db97f3ea90732499e6a"
+  },
+  "period": "midcentury",
+  "response_estimation_authorized": false,
+  "result": "passed_complete_five_esm_engineering_holdout_and_support_only",
+  "role": "outcome_blind_five_esm_three_scenario_whole_esm_holdout_and_support_not_emulator_damage_or_scc",
+  "scenarios": [
+    "ssp126",
+    "ssp370",
+    "ssp585"
+  ],
+  "schema": "isimip3b_five_esm_later_century_holdout_audit_v1",
+  "support_training_esm_count": 4,
+  "training_rows": 905520,
+  "whole_esm_holdout": true,
+  "whole_scenario_holdout": true
+}

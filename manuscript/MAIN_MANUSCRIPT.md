@@ -441,6 +441,17 @@ the complete UKESM midcentury three-scenario product, GMST adjustment improves
 only 13/33 whole-scenario feature comparisons over the cell-mean benchmark;
 the maximum RMSE ratio is 1.22120 and 12.21% of held-out values lie outside
 exact support. This adverse result prevents production promotion. For
+the five-ESM midcentury product, GMST adjustment improves 32/55 whole-ESM
+comparisons, but the maximum RMSE ratio remains 1.08533 and 6.47% of values
+lie outside exact four-ESM support. The final UKESM SSP5-8.5 end-century pair
+completes all 60 file gates and thirty bounded feature blocks. Its matched
+SSP5-8.5-minus-SSP1-2.6 means are +5.918 C, +29.61 mm rain, +2.46 wet days,
++0.93 maximum-dry-spell days, +2.44 mm Rx1day, and +4.68 mm Rx5day. The UKESM
+end-century whole-scenario audit improves 17/33 comparisons, with 16.51% of
+values outside exact support. Across the complete five-ESM end-century product,
+GMST adjustment improves 30/55 comparisons and 7.14% of values lie outside
+exact four-ESM support. These are engineering support diagnostics; FAIR
+baseline/pulse, response, damage, welfare, and SCC gates remain open. For
 IPSL, SSP3-7.0 relative to matched SSP1-2.6
 cells has midcentury mean
 differences of +0.365 C, +13.22 mm seasonal rain, +0.93 wet
