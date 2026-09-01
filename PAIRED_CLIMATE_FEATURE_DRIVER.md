@@ -300,6 +300,12 @@ exact-key SSP3-7.0-minus-SSP1-2.6 means are +4.293 C, +8.32 mm rain, +1.07 wet
 days, +0.60 maximum-dry-spell days, +1.46 mm Rx1day, and +2.85 mm Rx5day.
 Coverage is 56/60 files and twenty-eight blocks; the two SSP5-8.5 UKESM pairs
 and all production gates remain open.
+The UKESM SSP5-8.5 midcentury pair also passes and reproduces the same-
+realization GMST and exact 5,488-season/16,464-stage reconciliation. Its
+exact-key SSP5-8.5-minus-SSP1-2.6 means are +1.195 C, +5.16 mm rain, -0.19 wet
+days, +0.55 maximum-dry-spell days, +2.37 mm Rx1day, and +6.68 mm Rx5day.
+Coverage is 58/60 files and twenty-nine blocks; the final UKESM end-century
+pair and all production gates remain open.
 Relative to matched IPSL SSP1-2.6 cells, mean SSP3-7.0 differences at
 midcentury are +0.365 C, +13.22 mm seasonal rain, +0.93 wet days, -1.36
 maximum dry-spell days, +2.18 mm Rx1day, and +3.84 mm Rx5day. The end-century

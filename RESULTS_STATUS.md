@@ -176,6 +176,14 @@ are +4.293 C, +8.32 mm rain, +1.07 wet days, +0.60 maximum-dry-spell days,
 +1.46 mm Rx1day, and +2.85 mm Rx5day. Two SSP5-8.5 UKESM pairs and the
 five-ESM/FAIR/response/damage/welfare/SCC gates remain open.
 
+The UKESM SSP5-8.5 2041--2050 pair passes exact catalogue bytes/SHA-512,
+explicit-midnight decoded content, same-realization GMST, and byte-identical
+5,488-season/16,464-stage reconciliation. Against exact-key SSP1-2.6, mean
+changes are +1.195 C, +5.16 mm rain, -0.19 wet days, +0.55 maximum-dry-spell
+days, +2.37 mm Rx1day, and +6.68 mm Rx5day. Coverage is 58/60 files and
+twenty-nine blocks; the last UKESM pair plus all five-ESM, FAIR, response,
+damage, welfare, and SCC gates remain open.
+
 The fixed Cuming/Fresno official-NOAA-versus-polygon comparison now includes
 January 2019 as a recent-boundary check. All four variables retain exact
 3,107-county support and 31 finite days; polygon-minus-official monthly rain is

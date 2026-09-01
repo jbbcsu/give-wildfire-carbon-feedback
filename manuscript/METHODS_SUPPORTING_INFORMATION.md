@@ -581,6 +581,11 @@ The corresponding UKESM SSP3-7.0 2091--2100 pair passes the identical gates
 and exact-key comparison. Coverage is 56/60 files and twenty-eight blocks;
 the remaining two SSP5-8.5 pairs are required before the five-ESM rerun, and
 no response, damage, welfare, or SCC use is authorized.
+The UKESM SSP5-8.5 2041--2050 pair passes the same exact file, explicit-
+midnight, decoded-content, same-realization GMST, bounded-feature, exact-key
+comparison, and reconciliation gates. Coverage is 58/60 files and twenty-nine
+blocks. The 2091--2100 UKESM SSP5-8.5 pair and the complete five-ESM reruns
+remain required; no response, damage, welfare, or SCC use is authorized.
 For IPSL, the exact-key
 SSP3-7.0-minus-SSP1-2.6 midcentury comparison finds
 mean differences of +0.365 C, +13.22 mm seasonal precipitation, +0.93 wet days,

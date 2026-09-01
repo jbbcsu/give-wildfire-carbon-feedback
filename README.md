@@ -177,6 +177,13 @@ SSP1-2.6, mean changes are +4.293 C, +8.32 mm rain, +1.07 wet days, +0.60
 maximum-dry-spell days, +1.46 mm Rx1day, and +2.85 mm Rx5day. Only the two
 SSP5-8.5 UKESM pairs remain before the five-ESM later-century rerun; no
 response, damage, or SCC gate is opened.
+The UKESM SSP5-8.5 2041--2050 pair now passes the same exact catalogue,
+midnight chronology, decoded-content, same-realization GMST, bounded-feature,
+and reconciliation gates. Relative to the exact-key SSP1-2.6 cell, means
+change by +1.195 C, +5.16 mm rain, -0.19 wet days, +0.55 maximum-dry-spell
+days, +2.37 mm Rx1day, and +6.68 mm Rx5day. Coverage is 58/60 files and
+twenty-nine blocks; the end-century UKESM pair and complete five-ESM reruns
+remain required, and no response, damage, welfare, or SCC use is authorized.
 Against matched IPSL SSP1-2.6 cells, mean SSP3-7.0 differences at
 midcentury are +0.365 C, +13.22 mm seasonal rain, +0.93 wet days, -1.36
 maximum dry-spell days, +2.18 mm Rx1day, and +3.84 mm Rx5day. At end century,
