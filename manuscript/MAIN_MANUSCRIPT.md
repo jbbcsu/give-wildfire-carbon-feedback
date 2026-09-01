@@ -416,8 +416,15 @@ complete ESM-specific midnight chronology, full decoded content, same-
 realization GMST, and exact seasonal/stage reconciliation for the bounded
 maize/rainfed block. This raises coverage to 50/60 files and twenty-five
 blocks, but five UKESM pairs and the complete five-ESM holdout are still
-missing; response, damage, welfare, and SCC authorization remains false. For
-IPSL, SSP3-7.0 relative to matched SSP1-2.6 cells has midcentury mean
+missing; response, damage, welfare, and SCC authorization remains false.
+The matching UKESM SSP1-2.6 end-century pair also passes, with byte-identical
+GMST, 5,488-season/16,464-stage feature, and reconciliation reruns. Separate-
+slice end-century-minus-midcentury means are +0.849 C, -3.19 mm rain, +0.33
+wet days, +0.49 maximum-dry-spell days, +0.69 mm Rx1day, and +2.48 mm Rx5day.
+These descriptive period means are not a yield response or causal contrast.
+Coverage is 52/60 files and twenty-six blocks; four UKESM pairs and every
+production gate remain open. For IPSL, SSP3-7.0 relative to matched SSP1-2.6
+cells has midcentury mean
 differences of +0.365 C, +13.22 mm seasonal rain, +0.93 wet
 days, -1.36 maximum dry-spell days, +2.18 mm Rx1day, and +3.84 mm Rx5day. The
 end-century means are +4.146 C, +25.70 mm seasonal rain, +2.85 wet days, -2.26

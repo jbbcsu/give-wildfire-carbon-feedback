@@ -280,6 +280,13 @@ path rejects the files. Tracked expansion is therefore 50/60 files and
 twenty-five bounded blocks. The remaining five UKESM pairs and a complete
 five-ESM holdout are still absent, so no production, response, damage,
 welfare, or SCC gate is opened.
+The matching UKESM SSP1-2.6 end-century pair then passes the same gates and
+reproduces GMST, 5,488 seasonal rows, 16,464 stage rows, and reconciliation
+byte-for-byte. End-century minus midcentury means over the separate fixed
+maize slices are +0.849 C, -3.19 mm rain, +0.33 wet days, +0.49 maximum-dry-
+spell days, +0.69 mm Rx1day, and +2.48 mm Rx5day. These are descriptive
+period means, not an exact-key response. Coverage is 52/60 files and twenty-
+six blocks; four UKESM pairs and all production gates remain open.
 Relative to matched IPSL SSP1-2.6 cells, mean SSP3-7.0 differences at
 midcentury are +0.365 C, +13.22 mm seasonal rain, +0.93 wet days, -1.36
 maximum dry-spell days, +2.18 mm Rx1day, and +3.84 mm Rx5day. The end-century

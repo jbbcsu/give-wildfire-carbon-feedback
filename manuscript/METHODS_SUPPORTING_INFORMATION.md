@@ -562,6 +562,13 @@ contract rejects this pair. Exact bytes/SHA-512, all 3,652 daily timestamps,
 Coverage is 50/60 files and twenty-five blocks; the remaining UKESM cells and
 complete five-ESM holdout remain required before FAIR feature support or any
 response, damage, welfare, or SCC use.
+The matching 2091--2100 UKESM SSP1-2.6 pair passes the same midnight,
+checksum, decoded-content, same-realization GMST, bounded feature, and exact
+reconciliation gates. A full rebuild reproduces the GMST and feature Parquet
+files byte-for-byte. Separate fixed-slice end-century-minus-midcentury means
+are reported only as descriptive climate diagnostics. Coverage is 52/60 files
+and twenty-six blocks; four UKESM pairs and the complete five-ESM holdout
+remain required before any production use.
 For IPSL, the exact-key
 SSP3-7.0-minus-SSP1-2.6 midcentury comparison finds
 mean differences of +0.365 C, +13.22 mm seasonal precipitation, +0.93 wet days,

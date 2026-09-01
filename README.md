@@ -158,6 +158,12 @@ bounded maize/rainfed feature, and exact reconciliation gates. This brings
 later-century coverage to 50/60 files and twenty-five blocks. UKESM's
 remaining scenarios/period and the resulting five-ESM holdout are not yet
 complete, so the emulator and every response/damage/SCC gate stay closed.
+The matching UKESM SSP1-2.6 2091--2100 pair passes the same gates and raises
+coverage to 52/60 files and twenty-six blocks. Over separate fixed maize
+slices, end-century minus midcentury means are +0.849 C, -3.19 mm rain, +0.33
+wet days, +0.49 maximum-dry-spell days, +0.69 mm Rx1day, and +2.48 mm Rx5day.
+These are descriptive period means, not an exact-key response; four UKESM
+pairs and all production gates remain open.
 Against matched IPSL SSP1-2.6 cells, mean SSP3-7.0 differences at
 midcentury are +0.365 C, +13.22 mm seasonal rain, +0.93 wet days, -1.36
 maximum dry-spell days, +2.18 mm Rx1day, and +3.84 mm Rx5day. At end century,

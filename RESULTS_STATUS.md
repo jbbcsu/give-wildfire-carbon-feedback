@@ -154,6 +154,14 @@ identically and reconcile exactly. Coverage is now 50/60 files and twenty-
 five blocks. Five UKESM pairs, the complete five-ESM holdout, FAIR feature
 support, response, damage, welfare, and SCC gates remain closed.
 
+The matching UKESM SSP1-2.6 2091--2100 pair also passes and reproduces its
+same-realization GMST and 5,488-season/16,464-stage block byte-identically.
+Separate-slice end-century-minus-midcentury means are +0.849 C, -3.19 mm
+seasonal rain, +0.33 wet days, +0.49 maximum-dry-spell days, +0.69 mm Rx1day,
+and +2.48 mm Rx5day. They are descriptive period means, not a response or
+causal contrast. Coverage is 52/60 files and twenty-six blocks; four UKESM
+pairs and every production/damage/SCC gate remain open.
+
 ## Completed empirical checks
 
 Unless explicitly labeled current-hash and basis-before-weighting, response
