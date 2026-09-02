@@ -666,6 +666,20 @@ Aggregate growing-season precipitation results are additionally benchmarked
 against OSCAR-crop v1.0; that published model does not validate daily timing
 or extreme-weather effects.
 
+Annual precipitation totals receive a second external check against the
+USEPA `pattern-scaled-climate-variables` repository at reviewed commit
+`dac5503549d5158e0257894012293acff45c0cb4`. Its scripts read precomputed PEEPS
+annual precipitation--GMST slopes and aggregate them to 184 GIVE countries
+with area, GDP, or population weights. Our exact comparison first reproduces
+area-weighted annual country slopes on common units, then checks the three
+overlapping primary ESMs (MPI-ESM1-2-HR, MRI-ESM2-0, and UKESM1-0-LL) and the
+broader EPA ensemble distribution. Crop harvested-area/value weights remain
+the agricultural default. A separate outcome-blind sensitivity may pair FAIR
+draws and spatial patterns by 2100 GMST rank, following the logic of the EPA
+temperature workflow; same-realization ESM/member construction remains
+primary. Neither benchmark supplies daily timing, drought, crop response,
+welfare, or SCC evidence.
+
 For each stage, calculate mean temperature; precipitation total; wet-day
 count; maximum consecutive dry days; Rx1day and Rx5day; and, after a specified
 method, water balance. Calculate maximum-temperature days and degree-days only

@@ -1,0 +1,41 @@
+schema_version = 1
+status = "reviewed_external_benchmark_not_damage_or_scc_input"
+review_date = "2026-09-02"
+repository = "https://github.com/USEPA/pattern-scaled-climate-variables"
+commit = "dac5503549d5158e0257894012293acff45c0cb4"
+software_license = "MIT"
+repository_declared_data_figure_license = "CC-BY-4.0"
+
+[reviewed_files]
+readme_sha256 = "7847b0e7a5d3f0eeead371c5898cf224960480811528efcbe807e4ff1f174a84"
+gridded_precipitation_script_sha256 = "4245ecacf9a769a295d15a4030dcf6621810e9d66e150ff2587b6ec2f3c6afc9"
+give_aggregation_script_sha256 = "a4651abe5a743d7aa1fd2a22050ba3a3c267601524da4b9243a1a58967231241"
+fair_gcm_pairing_script_sha256 = "308bc79ddcd5aeafd04270e0a6c02cfa84e0b4accccc3b3ca16eb86d9688ac7a"
+country_output_sha256 = "131fa989f43f3d9354da23eecf1cb647dc5c24399671e78fab93230d8902a013"
+
+[verified_country_output]
+rows = 23920
+countries = 184
+climate_models = 26
+scenario_labels = 5
+country_model_groups = 4784
+area_pattern_groups_changing_across_scenario_labels = 0
+
+[method]
+climate_variable = "annual_mean_precipitation"
+predictor = "global_mean_surface_temperature"
+pattern_source = "precomputed_PEEPS_CMIP6_slope"
+give_precipitation_pattern_file_filter = "ssp245_pr"
+aggregations = ["area", "gdp_2000", "population_2000", "gdp_2100", "population_2100"]
+primary_use = "external_annual_total_spatial_benchmark"
+
+[overlap]
+primary_esm_count = 3
+primary_esms = ["MPI-ESM1-2-HR", "MRI-ESM2-0", "UKESM1-0-LL"]
+
+[authorization]
+primary_climate_driver = false
+crop_response = false
+damage = false
+welfare = false
+scc = false

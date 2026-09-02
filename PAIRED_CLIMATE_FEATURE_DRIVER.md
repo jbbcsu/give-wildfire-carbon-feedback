@@ -147,6 +147,11 @@ The driver cannot supply a GIVE SCC input unless all apply:
 2. **Aggregate benchmark:** compare seasonal precipitation and temperature
    feature responses to OSCAR-crop's aggregate climate inputs; explain, rather
    than silently absorb, departures attributable to timing/extremes.
+   Separately compare annual area-weighted country precipitation slopes against
+   the USEPA/PEEPS pattern-scaling ensemble under the exact source/model/unit
+   contract in `EPA_PATTERN_SCALING_BENCHMARK.md`. That comparison validates
+   annual spatial response only and cannot replace crop-area weighting or the
+   daily feature driver.
 3. **Sequence benchmark:** compare selected direct-feature distributions with
    STITCHES and, if used, MESMER-M-TP plus a daily generator.  A daily generator
    is not promoted merely because it has realistic unconditional weather.
@@ -159,6 +164,11 @@ The driver cannot supply a GIVE SCC input unless all apply:
 6. **Accounting gate:** this driver feeds the replacement agriculture module
    only.  It does not create a separate flood, temperature, CO2 fertilization,
    or agricultural add-on.
+7. **Pairing sensitivity:** retain same-realization ESM/member pairing as the
+   primary construction. Test a preregistered 2100-GMST rank-pairing
+   sensitivity inspired by the USEPA workflow, preserving full spatial
+   patterns and never choosing pairings from agricultural outcomes or SCC
+   magnitude.
 
 `scripts/validate_paired_feature_emulator.py` makes the design gates
 executable. It requires the complete ESM/scenario/feature training product,

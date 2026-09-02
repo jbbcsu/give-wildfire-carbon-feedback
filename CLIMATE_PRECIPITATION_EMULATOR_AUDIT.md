@@ -1,6 +1,6 @@
 # Literature audit: climate-to-precipitation emulation
 
-Updated: 2026-08-26
+Updated: 2026-09-02
 
 ## Decision
 
@@ -38,6 +38,7 @@ precipitation emulation itself is new.
 | fldgen v2.0, Snyder et al. (2019), https://doi.org/10.1371/journal.pone.0223542 | Joint annual gridded temperature--precipitation realizations with internal variability and space/time/cross-variable covariance. | Annual covariance and uncertainty benchmark. | Annual resolution cannot support within-season agricultural timing. |
 | Global-WGEN, Sommer and Kaplan (2017), https://doi.org/10.5194/gmd-10-3771-2017 | Globally calibrated stochastic generator of daily precipitation, minimum/maximum temperature, cloud, and wind from monthly inputs; intended for crop, ecosystem, and hydrology models. | Transparent global daily disaggregation benchmark and fallback implementation. | Does not emulate the forced monthly climate response and lacks spatially autocorrelated multipoint precipitation. |
 | RIME-X v1.0, Schwind et al. (2026), https://doi.org/10.5194/gmd-19-6797-2026; exact paper archive https://doi.org/10.5281/zenodo.21061984 | Links simple-climate-model warming distributions to gridded or regional CMIP/ISIMIP climate and impact indicators through 0.1 K warming-level conditional distributions, 101 quantiles, and linear interpolation; includes held-out-scenario validation. | Closest published direct indicator-response benchmark for daily-derived crop features; its version-pinned GIVE contract and synthetic pulse smoke are in `RIMEX_FEATURE_RESPONSE_BENCHMARK.md`. The preregistered GFDL/SSP1-2.6 2031--2060 pilot now supplies eight valid centered outputs. | The bounded mechanics pass only one ESM, one scenario, one crop, one irrigation regime, and two latitude rows. Other ESMs/scenarios and a validated joint-dependence design remain absent. Published quantile maps are univariate. Real fitting and FAIR evaluation remain closed. |
+| USEPA pattern-scaled climate variables (2023 repository, reviewed commit `dac5503`), https://github.com/USEPA/pattern-scaled-climate-variables | Applies precomputed PEEPS annual CMIP6 precipitation-versus-GMST slopes and aggregates them to 184 GIVE countries using area, GDP, or population weights across 26 models. | External annual-total spatial benchmark; motivates a preregistered FAIR--GCM rank-pairing sensitivity and explicit continuity screen. See `EPA_PATTERN_SCALING_BENCHMARK.md`. | Annual mean only: no crop calendar, daily timing, wet/dry persistence, extremes, drought, yields, welfare, or SCC. The checked GIVE script reads SSP2-4.5 precipitation slopes for every socioeconomic-weight label, so those labels are not distinct precipitation-response scenarios. |
 
 ## Closest integrated crop-model precedent
 
@@ -166,3 +167,10 @@ crop-calendar and stage-specific daily precipitation distributions, (ii)
 observationally estimated crop responses separated from heat, CO2, irrigation,
 and adaptation, and (iii) matched marginal-emissions welfare accounting in
 GIVE.
+
+The EPA repository reinforces this boundary. Annual local precipitation
+pattern scaling and country aggregation are established tools and are not
+claimed as new here. EPA/PEEPS is retained as an external annual-total
+benchmark; our proposed contribution remains daily crop-stage exposure, joint
+distributional dependence, observational agricultural response, adaptation,
+and matched marginal welfare accounting.

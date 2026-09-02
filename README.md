@@ -22,6 +22,10 @@ for the isolated Mimi component contract.  The literature-first recommendation
 and ML contingency are in [AGRICULTURE_RESEARCH.md](AGRICULTURE_RESEARCH.md).
 The climate-emulation literature and published-method reuse decision are in
 [CLIMATE_PRECIPITATION_EMULATOR_AUDIT.md](CLIMATE_PRECIPITATION_EMULATOR_AUDIT.md).
+The reviewed USEPA annual pattern-scaling workflow is retained as a distinct
+external benchmark and FAIR--GCM pairing sensitivity in
+[EPA_PATTERN_SCALING_BENCHMARK.md](EPA_PATTERN_SCALING_BENCHMARK.md); it is not
+the primary crop-feature driver or an additional damage term.
 The primary matched baseline/pulse route and its acquisition/validation gates
 are fixed in [PAIRED_CLIMATE_FEATURE_DRIVER.md](PAIRED_CLIMATE_FEATURE_DRIVER.md):
 derive the exact crop features from version-pinned daily ISIMIP3b fields, fit

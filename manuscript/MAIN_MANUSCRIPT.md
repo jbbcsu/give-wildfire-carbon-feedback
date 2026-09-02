@@ -798,6 +798,17 @@ published 21-year smoothing support, and univariate quantile maps do not
 preserve the joint dependence among rainfall quantity, timing, dry spells,
 extremes, heat, and drought. Whole-ESM, whole-scenario, actual FAIR, damage,
 and SCC gates remain closed.
+
+We additionally retain the USEPA pattern-scaled climate-variable workflow as
+an external annual-total benchmark. That implementation applies precomputed
+PEEPS annual precipitation--GMST slopes and aggregates them to GIVE countries
+using area, GDP, or population weights. It does not construct daily or
+crop-stage precipitation distributions or agricultural damages. We therefore
+compare the annual spatial response and a preregistered FAIR--GCM rank-pairing
+sensitivity, while retaining daily crop-calendar features, crop-area/value
+weights, and joint agriculture replacement as the primary analysis. Annual
+pattern scaling and country aggregation are not novelty claims of this paper.
+
 Before acquiring any additional daily fields, we froze a one-ESM/one-scenario
 contiguous-support pilot. GFDL-ESM4 SSP1-2.6 precipitation and temperature for
 2031--2060 provide crop-feature years 2032--2059 and eight centered 21-year

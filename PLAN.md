@@ -78,6 +78,14 @@ the primary route. MESMER-X remains an Rx1day benchmark and STITCHES a daily
 multivariate sequence benchmark. RIG and ACE2-SOM remain external candidates
 until their crop-feature and small-pulse behavior can be tested.
 
+The USEPA `pattern-scaled-climate-variables` workflow is an additional
+annual-mean benchmark, not the primary route. Its PEEPS precipitation slopes,
+country aggregation, model-continuity screen, and FAIR--GCM rank-pairing idea
+will be tested under the fixed contract in `EPA_PATTERN_SCALING_BENCHMARK.md`.
+Agricultural results continue to use crop-calendar daily features and
+crop-area/value weights; annual area/GDP/population-weighted patterns cannot
+substitute for the joint crop response.
+
 The primary feature-response chain is driven by each matched FAIR
 forcing/temperature draw, according to its validated input contract:
 
