@@ -164,6 +164,16 @@ seasonal rain ranges from -22.21 to +13.80 mm across crops, while both rice
 pairs remain identical. The three completed GFDL scenarios provide only 24
 center-year templates, still below the locked 51-template dependence minimum
 and without a whole-ESM holdout; this remains support evidence only.
+The first cross-ESM contiguous replication, IPSL-CM6A-LR `r1i1p1f1`
+SSP1-2.6, now passes the same six-file 2031--2060 content gate and all 12
+crop-by-calendar feature gates. It adds 214,928 seasonal, 644,784 stage,
+61,408 centered seasonal, and 184,224 centered stage rows, with a common
+30-year same-realization GMST series and a byte-identical aggregate audit.
+Centered `firr` minus `noirr` seasonal-rain differences range from -23.71 to
++12.66 mm across crops; the two rice pairs are identical. Across the three
+GFDL scenarios and this IPSL scenario, only 32 centered templates exist, so a
+balanced whole-ESM/scenario holdout, response, damage, and SCC claim remains
+closed.
 A pre-acquisition contiguous holdout matrix now pins all 90 version-`20210512`
 files needed for five ESMs, three scenarios, `pr`/`tas`, and 2031--2060. The
 public, unrestricted CC0 matrix totals 187.139 GB. If every content and feature

@@ -846,6 +846,14 @@ across crops and the two rice pairs remain identical. These are calendar-date
 sensitivities, not irrigation effects. The matrix is still below the
 51-template joint-dependence minimum and provides neither a whole-ESM holdout
 nor evidence for a crop response, damage function, or SCC calculation.
+The first cross-ESM contiguous replication uses IPSL-CM6A-LR `r1i1p1f1`
+SSP1-2.6. Its six version-pinned daily files, 30-year same-realization GMST,
+and all 12 crop-by-calendar cells pass the same content, chronology,
+reconciliation, and deterministic-audit gates. It adds eight centered-year
+templates; `firr` minus `noirr` centered seasonal-rain differences range from
+-23.71 to +12.66 mm across crops, with identical rice pairs. The four completed
+ESM-scenario cells provide 32 templates and are unbalanced across ESMs, so
+whole-ESM/scenario validation, response, damage, and SCC gates remain closed.
 The next metadata-only contract pins the 90 official daily files required to
 replicate this contiguous design across five ESMs and three scenarios. If all
 187.139 GB pass content and feature validation, the matrix contains 120

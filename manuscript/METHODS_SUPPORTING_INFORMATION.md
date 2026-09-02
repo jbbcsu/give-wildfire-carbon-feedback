@@ -1334,6 +1334,16 @@ Byte-identical audit reruns pass. The three completed GFDL scenarios therefore
 supply 24 centered templates, still below the 51-template dependence threshold
 and with no held-out ESM; response, damage, welfare, and SCC gates remain
 closed.
+The first cross-ESM replication binds IPSL-CM6A-LR `r1i1p1f1` SSP1-2.6 to
+six version-`20210512` daily files covering 2031--2060. All six pass exact
+catalogue byte/SHA-512 and full decoded-content checks. A 30-row annual GMST
+series is computed from those same temperature files. The preregistered
+12-cell feature build passes 214,928 seasonal and 644,784 stage rows before
+centering and 61,408 seasonal and 184,224 stage rows after 21-year centering;
+every cell shares the same centered GMST identity and the aggregate audit is
+byte-identical on rerun. With 24 GFDL and eight IPSL centered templates, the
+available 32-template design remains below the 51-template dependence minimum
+and cannot support a balanced whole-ESM or whole-scenario exclusion.
 The subsequent metadata-only acquisition contract pins all 90 official
 version-`20210512` files required for five ESMs, three SSPs, `pr`/`tas`, and
 2031--2060. They total 187,138,935,135 catalogue bytes and are public,
