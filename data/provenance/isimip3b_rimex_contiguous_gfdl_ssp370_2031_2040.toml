@@ -1,0 +1,72 @@
+schema_version = 1
+checked_utc_date = "2026-09-02"
+role = "first_contiguous_ssp370_decade_complete_pr_tas_not_response_damage_or_scc"
+source_catalogue = "https://data.isimip.org/api/v1/datasets/"
+resource_doi = "10.48364/ISIMIP.842396.1"
+rights = "CC0 1.0"
+dataset_version = "20210512"
+matrix_contract = "config/isimip3b_rimex_contiguous_holdout_matrix_v1.toml"
+matrix_plan = "data/provenance/isimip3b_rimex_contiguous_holdout_matrix_plan.csv"
+esm = "GFDL-ESM4"
+member = "r1i1p1f1"
+scenario = "ssp370"
+period_start_year = 2031
+period_end_year = 2040
+
+[precipitation]
+dataset_id = "5fe132b1-6f3e-4a9d-a613-ac3752109e03"
+file_id = "9c631bd3-5342-4773-bfe6-5097badf1d60"
+file_name = "gfdl-esm4_r1i1p1f1_w5e5_ssp370_pr_global_daily_2031_2040.nc"
+bytes = 2063295260
+sha512 = "8e2e5075b3498e7305aac652dc03720b4460b90eb766376c5fe6565b6c106431991a5eabe7e6562835b765090cbaec20132b3fb01b9a5556e8345d8d6bd44c96"
+content_audit = "data/interim/isimip3b_contiguous_gfdl_ssp370/pr_2031_2040_content_audit.json"
+content_audit_sha256 = "4cfaf1c49aac5c988087e26a07bf4edf396b704e5ea913c771b0e398276234e2"
+validator = "scripts/validate_isimip3b_pr_content.py"
+validator_sha256 = "1634ee42acce3392ac14d69eeb35c307924dcbef49499ff9b01cafd2a9312710"
+calendar = "proleptic_gregorian"
+start_time = "2031-01-01T00:00:00"
+end_time = "2040-12-31T00:00:00"
+daily_steps = 3653
+grid = "360 x 720 global 0.5 degree; latitude descending; longitude -179.75 to 179.75"
+units = "kg m-2 s-1"
+finite_values = 946857600
+missing_values = 0
+negative_values = 0
+zero_values = 359815174
+minimum_flux = 0.0
+maximum_flux = 0.0069444444961845875
+result = "passed"
+
+[paired_temperature]
+dataset_id = "5614ea49-3a01-4fad-85d2-baea38727038"
+file_id = "0c682748-ad62-4596-af36-8c0e450c3528"
+file_name = "gfdl-esm4_r1i1p1f1_w5e5_ssp370_tas_global_daily_2031_2040.nc"
+bytes = 2053005056
+sha512 = "ab9881cf4647d5b8e65b44f923f041d94b4313ddd5341b197eccca57922d48bc9216492f61e679999ed3d53bfa95705f28acacb33aa7bb9014b9001bd01b6b33"
+content_audit = "data/interim/isimip3b_contiguous_gfdl_ssp370/tas_2031_2040_content_audit.json"
+content_audit_sha256 = "8102fa231e39696cae675c37cda85b18603d90f7127a10dce4f76927b49122b7"
+validator = "scripts/validate_isimip3b_tas_content.py"
+validator_sha256 = "d5876ecc3682d94c991659cb14dd7a582ec0684fdd77e3ecfb6c2bec8b503b0f"
+calendar = "proleptic_gregorian"
+start_time = "2031-01-01T00:00:00"
+end_time = "2040-12-31T00:00:00"
+daily_steps = 3653
+grid = "360 x 720 global 0.5 degree; latitude descending; longitude -179.75 to 179.75"
+units = "K"
+finite_values = 946857600
+missing_values = 0
+minimum_temperature_k = 193.67567443847656
+maximum_temperature_k = 318.05792236328125
+result = "passed"
+
+[limitations]
+first_bracketing_decade_complete = true
+middle_decade_complete = true
+second_bracketing_decade_complete = false
+contiguous_2031_2060_support_complete = false
+same_realization_gmst_built = false
+multicrop_features_built = false
+joint_dependence_validated = false
+whole_esm_or_scenario_promotion_authorized = false
+fair_feature_response_authorized = false
+damage_or_scc_authorized = false
