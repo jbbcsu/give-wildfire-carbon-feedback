@@ -140,6 +140,13 @@ extreme, temperature, and stage-composition coordinates. Synthetic mechanics
 preserve every marginal multiset and the complete rank template with zero
 physical failures. The pilot has only eight distinct templates versus the
 locked 51-template minimum, so real dependence and FAIR gates remain closed.
+Before constructing another feature table, the complete six-crop by two-
+calendar-regime expansion on this same contiguous realization is fixed in
+[RIMEX_CONTIGUOUS_MULTICROP_REGIME.md](RIMEX_CONTIGUOUS_MULTICROP_REGIME.md).
+It locks all 12 calendar hashes, bounded support counts, 28 annual feature
+years, eight centered years, common same-realization GMST, and exact
+reconciliation. Irrigated/rainfed contrasts remain calendar sensitivity checks,
+not treatment effects; all response, damage, and SCC gates remain closed.
 A registered later-century expansion now fixes the next acquisition before any
 later-century feature or response result is examined. It selects exactly the
 2041--2050 and 2091--2100 `pr`/`tas` files for the full five-ESM by three-SSP
