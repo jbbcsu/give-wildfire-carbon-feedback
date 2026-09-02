@@ -56,3 +56,16 @@ supported GUI export. The GUI-menu output must still be generated with symbols
 enabled and reconciled against this independent extract. Marine-tonnage
 filtering, vessel-flag/EEZ allocation, observed FishMIP validation, welfare,
 damage, and SCC gates remain closed.
+
+A separate post-export descriptive audit now reports the shape of the eventual
+FishMIP overlap without authorizing the filter. For marine `Q_tlw` records,
+reported positive totals rise from 17.316 million tonnes in 1950 to 80.463
+million tonnes in 2014 and peak at 87.687 million tonnes in 1996. Active ISO3
+support rises from 159 to 195, active species from 546 to 1,772, and active FAO
+areas from 15 to 19. Missing-status cells fall from 22,953 to 10,434. No
+suppressed `Q` cell occurs in 1950--2014 within this specific slice, while
+not-significant `N` cells remain distinct from zero absence. Blank-ISO3
+positive tonnage never exceeds 0.474 percent of the annual total (1980), but
+the underlying vessel-flag/EEZ and historical-entity crosswalk problem remains.
+These are nominal-landing support diagnostics, not effort or biomass trends,
+model calibration, allocation, welfare, damages, or an SCC input.
