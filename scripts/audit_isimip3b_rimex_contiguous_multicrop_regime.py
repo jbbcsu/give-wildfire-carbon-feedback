@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Audit the preregistered contiguous GFDL crop × calendar-regime expansion."""
+"""Audit a preregistered contiguous GFDL crop × calendar-regime expansion."""
 from __future__ import annotations
 
 import argparse
@@ -93,7 +93,11 @@ def audit(config_path: Path, root: Path) -> dict[str, object]:
     config = tomllib.loads(config_path.read_text(encoding="utf-8"))
     require(config.get("schema") == "isimip3b_rimex_contiguous_multicrop_regime_contract_v1", "contract schema changed")
     window = int(config["centered_window_years"])
-    base = root / "data/interim/isimip3b_gfdl_ssp126_2031_2060_contiguous_multicrop"
+    base = root / str(config.get(
+        "output_root", "data/interim/isimip3b_gfdl_ssp126_2031_2060_contiguous_multicrop"
+    ))
+    feature_years = list(range(int(config["feature_year_start"]), int(config["feature_year_end"]) + 1))
+    center_years = list(range(int(config["center_year_start"]), int(config["center_year_end"]) + 1))
     gmst_hashes: set[str] = set()
     internal: dict[str, dict[str, pd.DataFrame]] = {}
     results = []
@@ -109,18 +113,18 @@ def audit(config_path: Path, root: Path) -> dict[str, object]:
         require(all(path.is_file() for path in paths.values()), f"{cell_id} output set is incomplete")
         frames = {name: pd.read_parquet(path) for name, path in paths.items() if name != "center_audit"}
         expected_cells = int(cell["valid_calendar_cells"])
-        require(len(frames["season"]) == expected_cells * 28 and len(frames["stages"]) == expected_cells * 28 * 3, f"{cell_id} raw row counts changed")
-        require(len(frames["center_season"]) == expected_cells * 8 and len(frames["center_stages"]) == expected_cells * 8 * 3, f"{cell_id} centered row counts changed")
-        require(len(frames["center_gmst"]) == 8, f"{cell_id} centered GMST count changed")
+        require(len(frames["season"]) == expected_cells * len(feature_years) and len(frames["stages"]) == expected_cells * len(feature_years) * 3, f"{cell_id} raw row counts changed")
+        require(len(frames["center_season"]) == expected_cells * len(center_years) and len(frames["center_stages"]) == expected_cells * len(center_years) * 3, f"{cell_id} centered row counts changed")
+        require(len(frames["center_gmst"]) == len(center_years), f"{cell_id} centered GMST count changed")
         for name in ("season", "stages"):
             require(set(frames[name].crop.unique()) == {cell["crop"]} and set(frames[name].irrigation.unique()) == {cell["irrigation"]}, f"{cell_id} identity changed")
-        exact_group_years(frames["season"], ["lat", "lon_360", "crop", "irrigation"], "harvest_year", list(range(2032, 2060)), f"{cell_id} season")
-        exact_group_years(frames["center_season"], ["lat", "lon_360", "crop", "irrigation"], "center_year", list(range(2042, 2050)), f"{cell_id} centered season")
+        exact_group_years(frames["season"], ["lat", "lon_360", "crop", "irrigation"], "harvest_year", feature_years, f"{cell_id} season")
+        exact_group_years(frames["center_season"], ["lat", "lon_360", "crop", "irrigation"], "center_year", center_years, f"{cell_id} centered season")
         require(set(frames["stages"].stage_id.unique()) == {1, 2, 3} and set(frames["center_stages"].stage_id.unique()) == {1, 2, 3}, f"{cell_id} stage IDs changed")
         physical_raw(frames["season"])
         differences = reconcile_raw(frames["season"], frames["stages"])
         centered_receipt = json.loads(paths["center_audit"].read_text(encoding="utf-8"))
-        require(centered_receipt.get("result") == "passed" and centered_receipt.get("center_years") == list(range(2042, 2050)), f"{cell_id} centered reconciliation failed")
+        require(centered_receipt.get("result") == "passed" and centered_receipt.get("center_years") == center_years, f"{cell_id} centered reconciliation failed")
         gmst_hashes.add(sha256(paths["center_gmst"]))
         internal[cell_id] = frames
         results.append({
@@ -161,7 +165,7 @@ def main() -> None:
     result = audit(args.config.resolve(), args.root.resolve())
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-    print("contiguous GFDL 12-cell crop × calendar-regime audit passed")
+    print("contiguous 12-cell crop × calendar-regime audit passed")
 
 
 if __name__ == "__main__":

@@ -28,4 +28,16 @@ with tempfile.TemporaryDirectory() as temporary:
     else:
         raise AssertionError("tampered contract opened the damage/SCC gate")
 
+with tempfile.TemporaryDirectory() as temporary:
+    tampered = Path(temporary) / "contract.toml"
+    tampered.write_text(config.read_text().replace(
+        'scenario = "ssp126"', 'scenario = "ssp370"'
+    ), encoding="utf-8")
+    try:
+        validate(tampered, root)
+    except ValueError as error:
+        assert "source receipt realization differs" in str(error)
+    else:
+        raise AssertionError("contract accepted a source receipt from another scenario")
+
 print("contiguous GFDL multi-crop contract tests passed")

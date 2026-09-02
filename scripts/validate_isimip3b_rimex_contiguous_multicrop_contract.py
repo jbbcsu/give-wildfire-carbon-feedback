@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate the preregistered contiguous GFDL crop × calendar-regime contract."""
+"""Validate a preregistered contiguous GFDL crop × calendar-regime contract."""
 from __future__ import annotations
 
 import argparse
@@ -33,8 +33,9 @@ def sha256(path: Path) -> str:
 def validate(config_path: Path, root: Path) -> dict[str, object]:
     config = tomllib.loads(config_path.read_text(encoding="utf-8"))
     require(config.get("schema") == SCHEMA, "contract schema changed")
-    require((config.get("esm"), config.get("member"), config.get("scenario")) ==
-            ("GFDL-ESM4", "r1i1p1f1", "ssp126"), "realization identity changed")
+    require((config.get("esm"), config.get("member")) ==
+            ("GFDL-ESM4", "r1i1p1f1"), "realization identity changed")
+    require(config.get("scenario") in {"ssp126", "ssp370", "ssp585"}, "scenario is outside the frozen matrix")
     require((config.get("source_year_start"), config.get("source_year_end")) == (2031, 2060), "source years changed")
     require((config.get("feature_year_start"), config.get("feature_year_end")) == (2032, 2059), "feature years changed")
     require((config.get("centered_window_years"), config.get("center_year_start"), config.get("center_year_end")) ==
@@ -73,9 +74,27 @@ def validate(config_path: Path, root: Path) -> dict[str, object]:
         path = root / str(source["path"])
         observed = sha256(path)
         require(observed == source.get("sha256"), "source receipt hash changed")
+        receipt = tomllib.loads(path.read_text(encoding="utf-8"))
+        require(
+            (receipt.get("esm"), receipt.get("member"), receipt.get("scenario")) ==
+            (config["esm"], config["member"], config["scenario"]),
+            "source receipt realization differs from contract",
+        )
+        require(
+            receipt.get("daily_support_years") == [config["source_year_start"], config["source_year_end"]],
+            "source receipt years differ from contract",
+        )
+        require(receipt.get("all_six_catalogue_files_byte_and_sha512_validated") is True,
+                "source receipt lacks complete byte/checksum gates")
+        require(receipt.get("all_six_files_full_content_validated") is True,
+                "source receipt lacks complete content gates")
         sources.append({"path": source["path"], "sha256": observed})
+    require(len(sources) == 1, "contract must bind exactly one complete contiguous source receipt")
     validation = config.get("validation", {})
-    require(validation.get("expected_feature_years") == 28 and validation.get("expected_center_years") == 8, "year counts changed")
+    expected_feature_years = config["feature_year_end"] - config["feature_year_start"] + 1
+    expected_center_years = config["center_year_end"] - config["center_year_start"] + 1
+    require(validation.get("expected_feature_years") == expected_feature_years and
+            validation.get("expected_center_years") == expected_center_years, "year counts changed")
     for gate in ("require_exact_year_sequences", "require_exact_stage_season_reconciliation", "require_common_same_realization_gmst", "require_all_crop_regime_pairs", "calendar_pair_is_not_irrigation_treatment"):
         require(validation.get(gate) is True, f"validation gate changed: {gate}")
     return {
@@ -101,7 +120,7 @@ def main() -> None:
     result = validate(args.config, args.root)
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-    print("contiguous GFDL 12-cell crop × calendar-regime contract passed")
+    print("contiguous 12-cell crop × calendar-regime contract passed")
 
 
 if __name__ == "__main__":
