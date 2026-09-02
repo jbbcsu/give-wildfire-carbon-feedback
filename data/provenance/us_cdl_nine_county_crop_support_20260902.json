@@ -1,0 +1,52 @@
+{
+  "schema": "us_cdl_nine_county_crop_support_audit_v1",
+  "role": "post_exploratory_fixed_sample_crop_mask_support_not_weather_response_damage_or_scc",
+  "sample": {
+    "path": "us_county_validation/nclimgrid_estimator_spatiotemporal_sample_v1.toml",
+    "sha256": "b909d2384abfad18819fd149c0c9afc9fa8b05e4b5e3fec78bfbb33c1b3379da",
+    "selection_boundary": "reuses a previously frozen outcome-free nine-state weather-estimator sample; this crop-support diagnostic was not separately preregistered before its exploratory run"
+  },
+  "implementation": {
+    "path": "us_county_validation/scripts/build_cdl_nclimgrid_crop_weights.py",
+    "sha256": "9e3b2848ee0fd3f8ecc8e8d728c40677d6da2097bbcfb43824670a8cb475a39e"
+  },
+  "inputs": {
+    "tiger_2019_county_zip_sha256": "4a2cdcc8a5d58caf88f9dc6595c4d89c51fdb56de738f615a8c5e3814dfcdea5",
+    "nclimgrid_2019_01_sha256": "67b850d051c0449a70483b5233f302faadbad729e6054baf0a4e8177574f1152",
+    "cdl_2017_archive_sha256": "ad1a029ded004f53520d4a6b7d2994267d8bbd5e9dc000f730e8152a37125ce5",
+    "cdl_2017_archive_sha512": "a2423a5a9cb45e029d7cb1aa3ccaa9fc3fd8e2aedf593ccf430d04a044e62633cd1997f1fe73c9ba20073309c80a9adcf910ff372ad98b4abfe3120ab553e55f",
+    "mask_temporal_role": "retrospective_2017_mask_sensitivity"
+  },
+  "summary": {
+    "county_crop_cells": 18,
+    "positive_support_cells": 16,
+    "zero_support_cells": 2,
+    "corn_counties_with_positive_support": 9,
+    "soy_counties_with_positive_support": 7,
+    "positive_cells_with_complete_nclimgrid_mapping": 16
+  },
+  "cells": [
+    {"county_geoid":"01001","state":"AL","county_name":"Autauga","crop":"corn_grain","support":"positive","in_county_pixels":3097,"mapped_weather_pixels":3097,"coverage_fraction":1.0,"positive_weather_cells":96},
+    {"county_geoid":"01001","state":"AL","county_name":"Autauga","crop":"soybeans","support":"positive","in_county_pixels":4837,"mapped_weather_pixels":4837,"coverage_fraction":1.0,"positive_weather_cells":101},
+    {"county_geoid":"05001","state":"AR","county_name":"Arkansas","crop":"corn_grain","support":"positive","in_county_pixels":201423,"mapped_weather_pixels":201423,"coverage_fraction":1.0,"positive_weather_cells":153},
+    {"county_geoid":"05001","state":"AR","county_name":"Arkansas","crop":"soybeans","support":"positive","in_county_pixels":1000052,"mapped_weather_pixels":1000052,"coverage_fraction":1.0,"positive_weather_cells":174},
+    {"county_geoid":"06019","state":"CA","county_name":"Fresno","crop":"corn_grain","support":"positive","in_county_pixels":10734,"mapped_weather_pixels":10734,"coverage_fraction":1.0,"positive_weather_cells":193},
+    {"county_geoid":"06019","state":"CA","county_name":"Fresno","crop":"soybeans","support":"zero","reason":"no_mapped_2017_cdl_class_5_pixels"},
+    {"county_geoid":"16019","state":"ID","county_name":"Bonneville","crop":"corn_grain","support":"positive","in_county_pixels":17809,"mapped_weather_pixels":17809,"coverage_fraction":1.0,"positive_weather_cells":76},
+    {"county_geoid":"16019","state":"ID","county_name":"Bonneville","crop":"soybeans","support":"zero","reason":"no_mapped_2017_cdl_class_5_pixels"},
+    {"county_geoid":"18113","state":"IN","county_name":"Noble","crop":"corn_grain","support":"positive","in_county_pixels":277001,"mapped_weather_pixels":277001,"coverage_fraction":1.0,"positive_weather_cells":81},
+    {"county_geoid":"18113","state":"IN","county_name":"Noble","crop":"soybeans","support":"positive","in_county_pixels":301656,"mapped_weather_pixels":301656,"coverage_fraction":1.0,"positive_weather_cells":81},
+    {"county_geoid":"19003","state":"IA","county_name":"Adams","crop":"corn_grain","support":"positive","in_county_pixels":365906,"mapped_weather_pixels":365906,"coverage_fraction":1.0,"positive_weather_cells":84},
+    {"county_geoid":"19003","state":"IA","county_name":"Adams","crop":"soybeans","support":"positive","in_county_pixels":322484,"mapped_weather_pixels":322484,"coverage_fraction":1.0,"positive_weather_cells":84},
+    {"county_geoid":"20111","state":"KS","county_name":"Lyon","crop":"corn_grain","support":"positive","in_county_pixels":124794,"mapped_weather_pixels":124794,"coverage_fraction":1.0,"positive_weather_cells":140},
+    {"county_geoid":"20111","state":"KS","county_name":"Lyon","crop":"soybeans","support":"positive","in_county_pixels":367045,"mapped_weather_pixels":367045,"coverage_fraction":1.0,"positive_weather_cells":148},
+    {"county_geoid":"21001","state":"KY","county_name":"Adair","crop":"corn_grain","support":"positive","in_county_pixels":35456,"mapped_weather_pixels":35456,"coverage_fraction":1.0,"positive_weather_cells":76},
+    {"county_geoid":"21001","state":"KY","county_name":"Adair","crop":"soybeans","support":"positive","in_county_pixels":40236,"mapped_weather_pixels":40236,"coverage_fraction":1.0,"positive_weather_cells":77},
+    {"county_geoid":"31039","state":"NE","county_name":"Cuming","crop":"corn_grain","support":"positive","in_county_pixels":706394,"mapped_weather_pixels":706394,"coverage_fraction":1.0,"positive_weather_cells":120},
+    {"county_geoid":"31039","state":"NE","county_name":"Cuming","crop":"soybeans","support":"positive","in_county_pixels":582110,"mapped_weather_pixels":582110,"coverage_fraction":1.0,"positive_weather_cells":120}
+  ],
+  "outcomes_read": false,
+  "crop_mask_route_replaced": false,
+  "response_estimation_authorized": false,
+  "damage_or_scc_authorized": false
+}

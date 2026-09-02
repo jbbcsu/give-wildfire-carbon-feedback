@@ -188,3 +188,19 @@ Sources:
   construction now exist. Full multi-county/multi-year acquisition,
   preregistered model selection, and every yield-response estimate remain
   pending.
+
+### Fixed nine-county CDL support diagnostic
+
+An outcome-free sample frozen earlier for the county weather-estimator audit
+was reused for a post-exploratory 2017 CDL crop-support diagnostic. All nine
+counties contain positive corn class-1 pixels. Seven contain positive soybean
+class-5 pixels; Fresno County, California, and Bonneville County, Idaho, have
+none. Every positive county-crop cell maps 100 percent of its selected pixels
+to the nClimGrid grid, with 76--193 positive weather cells. This 16-of-18
+support result is a crop-mask availability diagnostic, not a representative
+national rate: it was not separately preregistered before the exploratory run,
+and the counties came from an earlier measurement sample rather than crop
+production. A national gate must therefore preserve explicit unsupported
+county-crop cells instead of treating zero mapped pixels as zero exposure or
+silently dropping them. No yield outcome was read and no weather response,
+damage, or SCC input is authorized.
