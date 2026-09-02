@@ -262,6 +262,12 @@ contrasts have the larger root-mean-square magnitude in 18/30 fixed
 scenario/window/latitude cells and ecosystem-model contrasts in 12/30. The
 split rejects treating either dimension as negligible; the four structures
 are not probability draws and the result is not a variance decomposition.
+The preregistered dominance-stability extension finds that only 15/30 cells
+have a larger-to-smaller RMS ratio of at least 1.25. Winner identity agrees
+across scenarios in 13/15 matched window/latitude pairs but across all three
+windows in only 3/10 scenario/latitude groups. The 18/12 split therefore masks
+near ties and temporal instability; neither axis can be discarded or weighted
+probabilistically.
 
 ## Executable accounting scaffolding
 

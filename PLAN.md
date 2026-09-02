@@ -152,6 +152,13 @@ Neither dimension can be treated as negligible. This comparison is not a
 probability weighting or variance decomposition and opens no forced-response,
 allocation, pulse, welfare, damage, or SCC gate.
 
+The predeclared 1.25-ratio dominance-stability check qualifies that count:
+only 15/30 cells show material separation and 15 are near ties. The larger
+axis is stable across scenarios in 13/15 window/latitude pairs but across all
+three windows in only 3/10 scenario/latitude groups. This reinforces the need
+to retain both structural dimensions and supplies no probability or variance
+interpretation.
+
 ## Gate 4 — welfare translation and GIVE interface
 
 Translate changes in catch/availability into producer and consumer welfare,

@@ -28,7 +28,7 @@ def require(condition: bool, message: str) -> None:
 
 def evaluate(source: dict[str, object], material_ratio: float = 1.25) -> dict[str, object]:
     require(source.get("schema") == "fishmip_structural_contrast_sensitivity_v1", "source schema changed")
-    require(source.get("status") == "validated_structural_sensitivity_not_probability_variance_or_scc", "source status changed")
+    require(source.get("status") == "validated_factor_contrasts_structural_sensitivity_only", "source status changed")
     require(source.get("probability_or_variance_decomposition") is False, "source claims probability or variance decomposition")
     require(material_ratio > 1, "material dominance ratio must exceed one")
     cells = source.get("cells", [])

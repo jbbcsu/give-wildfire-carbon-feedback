@@ -3,9 +3,12 @@
 from __future__ import annotations
 
 import json
+import sys
 from pathlib import Path
 
-from scripts.evaluate_fishmip_structural_dominance_stability import BANDS, SCENARIOS, WINDOWS, evaluate
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
+
+from evaluate_fishmip_structural_dominance_stability import BANDS, SCENARIOS, WINDOWS, evaluate  # noqa: E402
 
 
 def source() -> dict[str, object]:
@@ -25,7 +28,7 @@ def source() -> dict[str, object]:
                 })
     return {
         "schema": "fishmip_structural_contrast_sensitivity_v1",
-        "status": "validated_structural_sensitivity_not_probability_variance_or_scc",
+        "status": "validated_factor_contrasts_structural_sensitivity_only",
         "probability_or_variance_decomposition": False,
         "cells": cells,
     }
