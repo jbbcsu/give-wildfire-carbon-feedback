@@ -1,0 +1,45 @@
+schema = "fao_fishstat_global_capture_source_contract_v1"
+role = "official_observed_capture_source_gate_not_fishmip_calibration_welfare_damage_or_scc"
+checked_utc_date = "2026-09-02"
+
+[source]
+provider = "Food and Agriculture Organization of the United Nations"
+workspace_name = "FAO Global Fishery and Aquaculture Production Statistics"
+workspace_version = "2026.1.0"
+capture_dataset_title = "FishStat: Global capture production 1950-2024"
+url = "https://www.fao.org/fishery/static/FishStatJ/FAO_FI_Global_Production_2026.1.0.fws"
+landing_page = "https://www.fao.org/fishery/static/FishStatJ/"
+release_page = "https://www.fao.org/statistics/events/events-detail/global-production.-march-2026-update/en"
+release_date = "2026-03-31"
+last_modified_http = "Tue, 31 Mar 2026 09:21:38 GMT"
+etag_http = '"15edf42-64e4e7e97fb54"'
+content_length_bytes = 22994754
+sha512 = "87c5557eb436997244371f2fa40c23f9807a2af008457a9db3931c65b6ea71614011128c31f50d37530f5f732802c90170ee15248cc2be55427b84f770bbc4e3"
+license = "CC-BY-4.0"
+local_path = "data/raw/fao/FAO_FI_Global_Production_2026.1.0.fws"
+
+[content]
+workspace_xml = "ws2.xml"
+capture_notes = "att/Capture_E.html"
+expected_archive_members = 639
+annual_start_year = 1950
+annual_end_year = 2024
+primary_quantity_unit = "tonnes live weight"
+country_assignment = "flag of fishing vessel performing the essential fishing operation unless contracts indicate otherwise"
+includes = "nominal landings for commercial industrial recreational and subsistence purposes from inland brackish marine and high-seas areas"
+excludes = "discards live escapements and losses prior to landings"
+status_flags_required = ["A", "B", "E", "F", "G", "I", "P", "S", "U", "V", "X", "L", "M", "N", "O", "Q"]
+
+[validation]
+archive_integrity_required = true
+workspace_identity_required = true
+embedded_capture_notes_required = true
+missing_suppressed_flags_preserved = true
+record_export_completed = false
+marine_only_filter_validated = false
+country_iso3_crosswalk_validated = false
+fao_area_crosswalk_validated = false
+fishmip_grid_or_eez_allocation_validated = false
+effort_or_management_identified = false
+welfare_translation_authorized = false
+damage_or_scc_authorized = false

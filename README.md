@@ -47,6 +47,15 @@ authorize cross-sector code or data inside this repository.
 
 ## Reviewed FishMIP catalogue snapshot
 
+The observed-validation track now also pins the official FAO FishStat Global
+Production workspace 2026.1.0. Its Global Capture Production 1950--2024 notes,
+CC-BY-4.0 license, 22,994,754-byte HTTP identity, local SHA-512, and 639-member
+archive integrity pass. [FAO_FISHSTAT_OBSERVED_CATCH_GATE.md](FAO_FISHSTAT_OBSERVED_CATCH_GATE.md)
+documents why nominal landings, vessel-flag attribution, inland/marine mixing,
+and observation-status flags require a guarded export before FishMIP
+validation. No observed calibration, allocation, welfare, damage, or SCC gate
+is opened.
+
 The ISIMIP3b public catalogue currently exposes 20 global monthly total-catch
 density (`tc`) datasets in a balanced grid of BOATS and EcoOcean, forced by
 GFDL-ESM4 and IPSL-CM6A-LR, with historical, preindustrial-control, SSP1-2.6,

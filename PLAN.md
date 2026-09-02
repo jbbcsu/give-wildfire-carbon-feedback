@@ -49,6 +49,16 @@ historical/future pairs are also acquired and fully validated. This completes
 the 20-file pinned catalogue but does not clear matched-pulse, welfare, or
 production gates.
 
+Observed-catch validation now has an official source gate. FAO FishStat Global
+Production workspace 2026.1.0 (Global Capture Production 1950--2024) is
+acquired under CC-BY-4.0 and passes exact-byte/SHA-512, ZIP integrity,
+workspace-identity, and embedded capture-metadata checks. It records nominal
+landings rather than discard-adjusted catch, assigns country mainly by vessel
+flag rather than EEZ, mixes inland and marine capture until filtered, and
+preserves missing/suppressed status codes. Record export, marine filtering,
+country/area crosswalks, effort/management identification, and FishMIP
+comparison remain pending; no missing value is treated as zero.
+
 The all-file acquisition plan is now version-pinned and executable against a
 fresh catalogue response. Its outcome-blind content smoke is limited to the
 four BOATS/EcoOcean historical and SSP1-2.6 files under GFDL-ESM4 (513,826,771
