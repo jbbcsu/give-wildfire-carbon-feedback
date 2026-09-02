@@ -20,6 +20,16 @@ extends the official-NOAA-versus-polygon comparison from two counties to nine
 production counties in nine states. All 36 county-variable cells pass, but
 nonzero rainfall differences continue to reject estimator interchangeability
 and route replacement.
+The fixed seasonal-anchor extension holds those nine counties constant across
+January, June, and December 2019. All 108 county-variable-month cells pass;
+the audit remains outcome-free and does not replace the polygon route. Run:
+
+```bash
+../.venv/bin/python scripts/run_nclimgrid_estimator_spatiotemporal_sample.py \
+  --contract nclimgrid_estimator_spatiotemporal_sample_v1.toml \
+  --root .. \
+  --out ../data/provenance/us_nclimgrid_estimator_spatiotemporal_sample_2019_20260902.json
+```
 
 The supplied [Blumberg (2026) appendix](BLUMBERG_2026_APPENDIX_NOTE.md)
 adds a complementary agricultural-functional-form benchmark.  It locks a

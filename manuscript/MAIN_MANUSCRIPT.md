@@ -812,6 +812,12 @@ cells retain complete daily support; minimum correlation is 0.999812, while
 polygon-minus-official monthly rainfall-total differences range from -0.8305
 to +0.4135 mm. These nonzero differences reinforce that the estimators are
 close but not interchangeable and do not estimate a yield response.
+Holding those nine counties fixed, a preregistered January/June/December 2019
+expansion retains complete support in all 108 county-variable-month cells.
+Every cell has a nonzero maximum difference; minimum defined correlation is
+0.999758 and monthly rainfall differences range from -0.8305 to +0.6192 mm.
+This remains outcome-free measurement validation and does not identify a yield
+response or replace the registered polygon estimator.
 
 ### 6.3 Marginal damages and global SCC
 

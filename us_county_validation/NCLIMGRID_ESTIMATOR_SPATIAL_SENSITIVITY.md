@@ -24,3 +24,15 @@ estimators are close but not interchangeable. The registered polygon route is
 retained as a historical county-average proxy; the official product remains a
 source-level validation reference. Neither is relabeled as crop-pixel or
 average-farm weather.
+
+## Fixed seasonal-anchor expansion
+
+Before evaluating additional cells, the same nine-county sample was frozen for
+January, June, and December 2019, using only official county-average files that
+had already been acquired. All 108 county-variable-month cells have complete
+daily support and nonzero maximum differences. The minimum defined daily
+correlation is 0.999758; polygon-minus-official monthly rainfall differences
+range from -0.830529 to +0.619192 mm, and the maximum daily absolute difference
+remains 0.325871 mm. The expansion reads no yield outcome, defines no
+equivalence threshold, and does not replace the registered polygon route or
+authorize response, damage, or SCC use.

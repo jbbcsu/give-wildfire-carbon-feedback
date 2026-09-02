@@ -1285,6 +1285,14 @@ are required for PRCP/TAVG/TMIN/TMAX. The resulting 36 cells have minimum
 defined daily correlation 0.999812; polygon-minus-official monthly rainfall
 totals range from -0.830529 to +0.413524 mm. No equivalence threshold was
 defined, yield outcomes were not read, and the polygon route was not replaced.
+The subsequent temporal expansion holds the county sample fixed and adds
+January and December 2019 to the preregistered June comparison. It requires
+the same nine counties, four variables, official national support, exact month
+lengths, and registered polygon weights in all three months. The resulting 108
+cells all have nonzero maximum differences; minimum defined correlation is
+0.999758, and polygon-minus-official monthly rainfall differences range from
+-0.830529 to +0.619192 mm. No yield outcome or equivalence threshold enters
+the selection or audit.
 
 ## S10. Scientific integrity and independent review
 
