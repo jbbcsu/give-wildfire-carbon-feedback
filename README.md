@@ -268,6 +268,12 @@ across scenarios in 13/15 matched window/latitude pairs but across all three
 windows in only 3/10 scenario/latitude groups. The 18/12 split therefore masks
 near ties and temporal instability; neither axis can be discarded or weighted
 probabilistically.
+The preregistered metric-robustness check in
+[`FISHMIP_STRUCTURAL_METRIC_ROBUSTNESS.md`](FISHMIP_STRUCTURAL_METRIC_ROBUSTNESS.md)
+finds that RMS and mean absolute magnitude agree on the larger structural axis
+in 20/30 cells. Mean absolute magnitude produces eight exact ties and changes
+the label in ten cells, so the structural conclusion is metric-sensitive and
+does not support choosing weights or dropping either dimension.
 
 ## Executable accounting scaffolding
 

@@ -159,6 +159,13 @@ three windows in only 3/10 scenario/latitude groups. This reinforces the need
 to retain both structural dimensions and supplies no probability or variance
 interpretation.
 
+The frozen RMS-versus-mean-absolute robustness check agrees on the larger
+structural axis in 20/30 cells. The mean-absolute summary yields eight exact
+ties and changes ten labels relative to RMS. Summary-metric choice therefore
+does not justify dropping a forcing or ecosystem-model dimension and supplies
+no probability, variance, forced-response, allocation, welfare, damage, or SCC
+interpretation.
+
 ## Gate 4 — welfare translation and GIVE interface
 
 Translate changes in catch/availability into producer and consumer welfare,

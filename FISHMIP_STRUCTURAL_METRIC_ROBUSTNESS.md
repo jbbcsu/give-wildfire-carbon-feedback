@@ -1,6 +1,6 @@
 # Preregistered FishMIP structural-metric robustness audit
 
-Status: preregistered, not yet evaluated; structural sensitivity only.
+Status: evaluated from the frozen input; structural sensitivity only.
 
 The existing exact two-by-two structural audit compares the root-mean-square
 (RMS) magnitude of two EcoOcean-minus-BOATS contrasts with two
@@ -22,3 +22,18 @@ This audit does not assign model probabilities, estimate variance shares,
 identify a causal forced response, allocate catch to countries or EEZs, use
 observed catch, construct a matched carbon pulse, or estimate welfare, damages,
 or SCC.
+
+## Result
+
+The larger-axis label agrees between RMS and mean absolute magnitude in 20 of
+30 fixed cells and changes in 10. RMS labels climate forcing as larger in 18
+cells and ecosystem model as larger in 12. Mean absolute magnitude labels
+climate forcing as larger in 17 cells, ecosystem model as larger in 5, and
+produces 8 exact ties. This dependence on the summary metric reinforces the
+requirement to retain both structural dimensions; it does not rank the metrics
+or justify probabilistic weights.
+
+The machine-readable receipt is
+`data/provenance/fishmip_structural_metric_robustness_20260902.json`. It binds
+the frozen source checksum, recomputed cell results, implementation checksum,
+closed interpretation gates, and the 20/30 agreement count.
