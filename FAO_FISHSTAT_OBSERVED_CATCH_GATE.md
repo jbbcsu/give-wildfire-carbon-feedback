@@ -26,3 +26,14 @@ capture from inland and non-tonnage records; and reconcile country keys before
 any comparison with FishMIP. The workspace supplies neither effort/management
 identification nor grid/EEZ allocation, trade incidence, welfare, a matched
 carbon pulse, damages, or SCC.
+
+The export route is now version-pinned. FAO's official manifest selects
+FishStatJ 4.04.11 for macOS; the 146,552,898-byte bundle matches the frozen
+local SHA-512, passes ZIP integrity, and its bundled Temurin OpenJDK 11.0.15
+runtime executes locally. Read-only class inspection identifies the Derby
+capture table `TSD_CAPTURE_QUANTITY`, keys `COUNTRY`, `SPECIES`, `AREA`, and
+`MEASURE`, and paired value/symbol columns for every 1950--2024 year. The FAO
+manual's supported route is **File > Export selection (CSV file)**, with symbol
+export controlled by preferences. A guarded record export and independent
+row/value/flag reconciliation are still required; runtime availability alone
+does not validate observations.

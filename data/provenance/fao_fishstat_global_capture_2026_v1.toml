@@ -30,6 +30,26 @@ includes = "nominal landings for commercial industrial recreational and subsiste
 excludes = "discards live escapements and losses prior to landings"
 status_flags_required = ["A", "B", "E", "F", "G", "I", "P", "S", "U", "V", "X", "L", "M", "N", "O", "Q"]
 
+[export_runtime]
+official_version_manifest = "https://www.fao.org/fishery/static/FishStatJ/current_versionFAO.xml"
+fishstatj_version = "4.04.11"
+manifest_date = "2025-07-11"
+macos_bundle_url = "https://www.fao.org/fishery/static/FishStatJ/FishStatJ_4.04.11_app.zip"
+last_modified_http = "Wed, 02 Apr 2025 14:26:06 GMT"
+etag_http = '"8bc3842-631cc6f08db18"'
+content_length_bytes = 146552898
+sha512 = "d66e0b4297a837f5aee9474f50020337cc0669ed6ac79ea8634d3eda18511d9c4739f054c0e5b2a7f07f3ca59aeb4f99a0cd33bc185fbeabb6d4bc11f2893382"
+zip_integrity = "passed"
+bundled_runtime = "OpenJDK Temurin 11.0.15+10"
+bundled_runtime_smoke = "passed"
+embedded_database = "Apache Derby"
+capture_table = "TSD_CAPTURE_QUANTITY"
+wide_record_keys = ["COUNTRY", "SPECIES", "AREA", "MEASURE"]
+annual_value_and_symbol_columns = "VALUE_Y1950/SYMBOL_Y1950 through VALUE_Y2024/SYMBOL_Y2024"
+manual_url = "https://www.fao.org/fishery/static/FishStatJ/FishStatJ_4.03.05-Manual.pdf"
+manual_export_route = "File > Export selection (CSV file); preserve configured data symbols"
+headless_record_export_completed = false
+
 [validation]
 archive_integrity_required = true
 workspace_identity_required = true
