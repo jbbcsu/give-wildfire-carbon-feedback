@@ -1,0 +1,45 @@
+schema = "isimip3b_rimex_contiguous_holdout_matrix_contract_v1"
+role = "outcome_blind_contiguous_daily_holdout_matrix_metadata_not_content_response_damage_or_scc"
+registered_utc_date = "2026-09-02"
+primary_climate_route = "direct_isimip3b_daily_feature_response"
+fallback_climate_route = "mesmer_m_tp_plus_published_daily_generator"
+
+[source]
+catalogue_api = "https://data.isimip.org/api/v1/datasets"
+catalog_snapshot = "data/provenance/isimip3b_daily_catalog_selection.csv"
+catalog_snapshot_sha256 = "c9f4af14b1cc8d3d4f2b532b154a850c814ba5309eb17a5c7e015dba2d3a9547"
+dataset_version = "20210512"
+resource_doi = "10.48364/ISIMIP.842396.1"
+rights = "CC0 1.0"
+
+[selection]
+esms = ["gfdl-esm4", "ipsl-cm6a-lr", "mpi-esm1-2-hr", "mri-esm2-0", "ukesm1-0-ll"]
+scenarios = ["ssp126", "ssp370", "ssp585"]
+variables = ["pr", "tas"]
+file_periods = ["2031_2040", "2041_2050", "2051_2060"]
+feature_year_start = 2032
+feature_year_end = 2059
+centered_window_years = 21
+center_year_start = 2042
+center_year_end = 2049
+
+[design]
+expected_datasets = 30
+expected_files = 90
+expected_complete_templates = 120
+minimum_joint_templates = 51
+whole_esm_holdout_templates = 96
+whole_scenario_holdout_templates = 80
+all_12_crop_regime_cells_required_per_template = true
+held_out_templates_excluded_from_training = true
+
+[limitations]
+metadata_matrix_pinned = false
+all_files_acquired = false
+all_files_content_validated = false
+all_features_built = false
+joint_dependence_validated = false
+whole_esm_holdouts_passed = false
+whole_scenario_holdouts_passed = false
+fair_feature_response_authorized = false
+damage_or_scc_authorized = false
