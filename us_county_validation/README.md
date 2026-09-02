@@ -14,6 +14,13 @@ chain is daily climate -> precipitation-pattern exposure -> county yield ->
 agricultural damage validation. National/global welfare translation remains
 in the global track.
 
+The fixed June-2019 spatial estimator audit in
+[NCLIMGRID_ESTIMATOR_SPATIAL_SENSITIVITY.md](NCLIMGRID_ESTIMATOR_SPATIAL_SENSITIVITY.md)
+extends the official-NOAA-versus-polygon comparison from two counties to nine
+production counties in nine states. All 36 county-variable cells pass, but
+nonzero rainfall differences continue to reject estimator interchangeability
+and route replacement.
+
 The supplied [Blumberg (2026) appendix](BLUMBERG_2026_APPENDIX_NOTE.md)
 adds a complementary agricultural-functional-form benchmark.  It locks a
 comparison of seasonal-total, distribution, extremes, binned, and constrained

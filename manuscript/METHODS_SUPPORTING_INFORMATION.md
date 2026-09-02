@@ -1270,6 +1270,15 @@ preserve the joint rainfall, timing, persistence, extremes, heat, and drought
 dependence required by the crop response. Whole-ESM, whole-scenario, actual
 FAIR, crop-response, damage, and SCC gates therefore remain closed.
 
+A separately preregistered U.S. spatial sensitivity uses June 2019 because the
+official NOAA county-average and registered gridded inputs were already locally
+validated, and fixes nine production counties across nine state FIPS codes
+before comparison. Exact official 3,107-county support and 30-day chronology
+are required for PRCP/TAVG/TMIN/TMAX. The resulting 36 cells have minimum
+defined daily correlation 0.999812; polygon-minus-official monthly rainfall
+totals range from -0.830529 to +0.413524 mm. No equivalence threshold was
+defined, yield outcomes were not read, and the polygon route was not replaced.
+
 ## S10. Scientific integrity and independent review
 
 Every quantitative statement is classified as observed source data, derived

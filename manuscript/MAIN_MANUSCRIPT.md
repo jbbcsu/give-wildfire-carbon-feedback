@@ -799,6 +799,14 @@ preserve the joint dependence among rainfall quantity, timing, dry spells,
 extremes, heat, and drought. Whole-ESM, whole-scenario, actual FAIR, damage,
 and SCC gates remain closed.
 
+The U.S. measurement validation also expands spatially. A sample fixed before
+output compares official NOAA county averages with the registered polygon
+proxy for June 2019 in nine counties across nine states. All 36 county-variable
+cells retain complete daily support; minimum correlation is 0.999812, while
+polygon-minus-official monthly rainfall-total differences range from -0.8305
+to +0.4135 mm. These nonzero differences reinforce that the estimators are
+close but not interchangeable and do not estimate a yield response.
+
 ### 6.3 Marginal damages and global SCC
 
 Report global agricultural marginal damages and SCC under each adaptation

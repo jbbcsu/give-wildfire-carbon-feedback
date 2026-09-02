@@ -7,7 +7,7 @@ import json
 import tomllib
 from pathlib import Path
 
-from compare_nclimgrid_county_average_estimators import compare
+from compare_nclimgrid_county_average_estimators import compare, sha256
 
 
 COUNTIES = ["01001", "05001", "06019", "16019", "18113", "19003", "20111", "21001", "31039"]
@@ -49,7 +49,12 @@ def run(contract_path: Path, root: Path) -> dict[str, object]:
     result["status"] = "validated_nine_county_measurement_sensitivity_not_estimator_equivalence"
     result["contract"] = {
         "path": contract_path.resolve().relative_to(root.resolve()).as_posix(),
+        "sha256": sha256(contract_path),
         "selection_rule": contract["selection_rule"],
+    }
+    result["implementation"] = {
+        "path": Path(__file__).resolve().relative_to(root.resolve()).as_posix(),
+        "sha256": sha256(Path(__file__).resolve()),
     }
     return result
 
