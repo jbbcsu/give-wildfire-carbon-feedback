@@ -800,14 +800,14 @@ extremes, heat, and drought. Whole-ESM, whole-scenario, actual FAIR, damage,
 and SCC gates remain closed.
 Before acquiring any additional daily fields, we froze a one-ESM/one-scenario
 contiguous-support pilot. GFDL-ESM4 SSP1-2.6 precipitation and temperature for
-2031--2060 would provide crop-feature years 2032--2059 and eight centered
-21-year outputs for 2042--2049. This is an acquisition and mechanics gate
-only; it does not satisfy whole-ESM, whole-scenario, multi-crop, dependence,
-response, damage, or SCC requirements.
-The first bracketing `2031--2040` pair passes exact checksum and decoded-content
-gates, same-realization GMST, and a 5,488-season/16,464-stage bounded maize
-feature build with exact stage/season reconciliation. The 2051--2060 pair and
-the complete centered-window analysis remain open.
+2031--2060 provide crop-feature years 2032--2059 and eight centered 21-year
+outputs for 2042--2049. All six files pass exact catalogue byte/SHA-512 and
+full decoded-content gates. The bounded maize/rainfed build has 19,208 season
+and 57,624 stage rows with exact unsmoothed reconciliation; its eight centered
+windows preserve additive stage/season precipitation and wet-day identities
+to numerical precision. This is a mechanics gate only; it cannot authorize a
+response or substitute for whole-ESM, whole-scenario, multi-crop,
+rainfed/irrigated, dependence, and FAIR pulse validation.
 
 The U.S. measurement validation also expands spatially. A sample fixed before
 output compares official NOAA county averages with the registered polygon

@@ -129,8 +129,9 @@ The first outcome-blind repair is metadata-pinned before acquisition: a
 GFDL-ESM4/SSP1-2.6 `pr`/`tas` pilot spanning 2031--2060. Its 28 consecutive
 crop-feature years can yield exactly eight centered 21-year outputs for
 2042--2049. The six official CC0 version-`20210512` files total 12.385 GB;
-the first two bracketing files now pass full content, same-realization GMST,
-and bounded feature/reconciliation gates; the 2051--2060 pair remains open.
+all six files, 30 annual same-realization GMST values, 28 crop years, exact
+unsmoothed reconciliation, and the centered-window mechanics now pass the
+bounded gate.
 This pilot cannot by itself clear whole-ESM, whole-scenario, joint-dependence,
 response, damage, or SCC gates; see [RIMEX_CONTIGUOUS_PILOT.md](RIMEX_CONTIGUOUS_PILOT.md).
 A registered later-century expansion now fixes the next acquisition before any

@@ -37,12 +37,12 @@ Neither substitution is authorized. A real benchmark requires contiguous
 daily-derived feature windows plus a separately preregistered and validated
 joint-dependence treatment.
 
-The first outcome-blind contiguous-support repair is now pinned in
-`RIMEX_CONTIGUOUS_PILOT.md`: one GFDL-ESM4/SSP1-2.6 `pr`/`tas` pilot covering
-2031--2060. Its 28 potential crop-feature years support exactly eight centered
-21-year outputs, 2042--2049. This is a metadata/acquisition pilot only and does
-not weaken the multi-ESM, multi-scenario, multi-crop, dependence, or pulse
-gates.
+The first outcome-blind contiguous-support repair in
+`RIMEX_CONTIGUOUS_PILOT.md` now passes bounded mechanics. One
+GFDL-ESM4/SSP1-2.6 `pr`/`tas` realization supplies every daily year from
+2031--2060, all 28 crop-feature years, and exactly eight valid centered
+21-year outputs for 2042--2049. This does not weaken the multi-ESM,
+multi-scenario, multi-crop, dependence, or pulse gates.
 
 ## Bounded engineering smoke
 

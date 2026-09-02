@@ -1,0 +1,98 @@
+schema_version = 1
+checked_utc_date = "2026-09-02"
+role = "complete_bounded_contiguous_rimex_mechanics_pilot_not_response_damage_or_scc"
+pilot_contract = "config/isimip3b_rimex_contiguous_gfdl_ssp126_pilot_v1.toml"
+metadata_receipt = "data/provenance/isimip3b_rimex_contiguous_gfdl_ssp126_metadata_20260902.json"
+file_plan = "data/provenance/isimip3b_rimex_contiguous_gfdl_ssp126_plan.csv"
+resource_doi = "10.48364/ISIMIP.842396.1"
+dataset_version = "20210512"
+rights = "CC0 1.0"
+esm = "GFDL-ESM4"
+member = "r1i1p1f1"
+scenario = "ssp126"
+daily_support_years = [2031, 2060]
+crop_feature_years = [2032, 2059]
+centered_output_years = [2042, 2043, 2044, 2045, 2046, 2047, 2048, 2049]
+all_six_catalogue_files_byte_and_sha512_validated = true
+all_six_files_full_content_validated = true
+
+[second_bracketing_decade.precipitation]
+dataset_id = "24cb1007-3c96-4b59-a0dc-42d94a8cff8c"
+file_id = "1897cb72-a5f5-4385-ba0b-f3f7c419bb81"
+file_name = "gfdl-esm4_r1i1p1f1_w5e5_ssp126_pr_global_daily_2051_2060.nc"
+bytes = 2076225131
+sha512 = "924563a0834dd49a68563fc165dd5230b6ea50d02db3ef113159436fdef005b1fe228fae866c46fad112bb4127b78a8f5389d3afe7c17113a4bb81023819564c"
+content_audit = "data/interim/isimip3b/gfdl-esm4_ssp126_pr_2051_2060_content_audit.json"
+content_audit_sha256 = "41e99c29769d666d92527dcd7d9d2b902307e664576612123026fbfa03b682c2"
+daily_steps = 3653
+finite_values = 946857600
+missing_values = 0
+negative_values = 0
+zero_values = 356001032
+minimum_flux = 0.0
+maximum_flux = 0.0069444444961845875
+result = "passed"
+
+[second_bracketing_decade.temperature]
+dataset_id = "f741da2d-9d21-4c86-be9b-484396303e33"
+file_id = "235b4b8b-c141-4c0a-8b14-a46b72c234e6"
+file_name = "gfdl-esm4_r1i1p1f1_w5e5_ssp126_tas_global_daily_2051_2060.nc"
+bytes = 2053021365
+sha512 = "a4cd47dbf2ecf6c1f439c67a02ff23b4a51ec9d99cd119b8ae00ae8e04e7012e5623faf6d265c306a4988a86d762b1dffc79cd915dd2f4b00dd0178965ed545b"
+content_audit = "data/interim/isimip3b/gfdl-esm4_ssp126_tas_2051_2060_content_audit.json"
+content_audit_sha256 = "ed641eb0037b0ca9a3ea5d902339ace0116cc2509fe9573f49d8aa65acd13e03"
+daily_steps = 3653
+finite_values = 946857600
+missing_values = 0
+minimum_temperature_k = 192.76551818847656
+maximum_temperature_k = 317.96392822265625
+result = "passed"
+
+[second_bracketing_decade.features]
+gmst_output_sha256 = "ec8b25cf29501fc29781cfdb4e0585b4fe56b23bbf8c71f933a2cfd9ae26e9c8"
+season_rows = 5488
+season_output_sha256 = "b880805e45801b6803effc74bd17ff16a346e57ac68bd29d9f077d164ee777b1"
+stage_rows = 16464
+stage_output_sha256 = "07812e8103ec02cd0a259d5a348771957bc60995544e6de686d9cedddd477061"
+reconciliation_audit_sha256 = "2aad84ddaea0d0f57b44b29534e53e65346bc60c049ab3cbe05f7e54d5fe9c88"
+result = "passed"
+
+[contiguous_features]
+same_realization_gmst_years = 30
+same_realization_gmst_sha256 = "008554f0ffefb706316b600e3e74ec3bee83726fd2475f2892ec2d222682753b"
+season_rows = 19208
+season_output_sha256 = "5a7ce0a5b495572282e8bd1195248ee13788f6bd132bcf7351f622c9bf07a508"
+stage_rows = 57624
+stage_output_sha256 = "0032cf46c90e1d524c5d71089863d7975e72993779592455dc8cc3ecac92754b"
+reconciliation_audit_sha256 = "0069c709cf52e714a4657afb1bc6d5d2c1ee8dee0eda832a7c7fb10aaedf4f9d"
+reconciliation_max_absolute_differences = { stage_days = 0.0, precip_mm = 0.0, wet_days_n = 0.0, rx1day_mm = 0.0 }
+result = "passed"
+
+[centered_21_year_means]
+builder = "scripts/build_rimex_centered_feature_means.py"
+builder_sha256 = "0c1c47f29a51512382e03ee528bf2fe86d9fd8d6543a256d86f0a5762ff83d7d"
+window_years = 21
+endpoint_padding = false
+cross_gap_adjacency = false
+season_rows = 5488
+season_output_sha256 = "28eeaf4e3c9b3e2d1c4b07d8bfda75ecfdf770399954e18808587a3b393c0c39"
+stage_rows = 16464
+stage_output_sha256 = "d1a458bb772b5811bd161edf50c8fa05d59f5dc8a5774a1fcbfc0a9530f832cc"
+gmst_rows = 8
+gmst_output_sha256 = "96e9d07c0d93e99dcee4e93f13bd186b9bdb5df6e5e0c871b45b0b65d16ebe53"
+gmst_values_k = [288.2863765582163, 288.29446545245315, 288.2986471956897, 288.3071244047191, 288.32122731561776, 288.3290099415193, 288.32596953107867, 288.3304310461309]
+audit_sha256 = "34f56ffc76f18ffe1b9ba46614089fdcbe87a33d551954b5cd03ae770e942d7e"
+stage_season_additive_max_absolute_differences = { precip_mm = 2.2737367544323206e-13, wet_days_n = 1.4210854715202004e-14 }
+result = "passed"
+
+[limitations]
+one_esm = true
+one_scenario = true
+one_crop = true
+one_irrigation_regime = true
+two_latitude_rows = true
+joint_dependence_preserved = false
+whole_esm_or_scenario_promotion_authorized = false
+real_rimex_fit_authorized = false
+fair_feature_response_authorized = false
+damage_or_scc_authorized = false

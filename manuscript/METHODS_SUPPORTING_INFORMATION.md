@@ -1273,15 +1273,16 @@ The first preregistered contiguous-support pilot fixes GFDL-ESM4 `r1i1p1f1`
 under SSP1-2.6 and daily `pr`/`tas` for 2031--2060. Cross-year crop seasons
 then yield 28 consecutive feature years (2032--2059), of which 2042--2049 have
 ten real feature years on each side for a centered 21-year mean. Endpoint
-padding and cross-gap smoothing are forbidden. This pilot remains insufficient
+padding and cross-gap smoothing are forbidden. All six files pass complete
+source/content validation; the eight centered outputs retain same-realization
+GMST and reconcile additive stage/season precipitation and wet-day means to
+numerical precision. This pilot remains insufficient
 for whole-ESM, whole-scenario, multi-crop, joint-dependence, FAIR, response,
 damage, welfare, or SCC promotion.
-For the first bracketing decade, both 2031--2040 files match their official
-byte counts and SHA-512 values and contain 3,653 complete midnight daily steps
-with 946,857,600 finite values per variable, no missing values, and no negative
-precipitation. Ten same-realization GMST rows and 5,488 seasonal plus 16,464
-stage rows for harvest years 2032--2039 pass exact reconciliation. This does
-not establish the still-incomplete 2031--2060 window.
+The complete 2031--2060 input has 10,958 complete midnight daily steps per
+variable. The bounded panel contains 19,208 seasonal plus 57,624 stage rows
+for every harvest year 2032--2059 and passes exact unsmoothed reconciliation.
+The centered operation emits only the eight complete registered windows.
 
 A separately preregistered U.S. spatial sensitivity uses June 2019 because the
 official NOAA county-average and registered gridded inputs were already locally
