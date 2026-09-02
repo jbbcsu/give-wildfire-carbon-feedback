@@ -134,6 +134,12 @@ unsmoothed reconciliation, and the centered-window mechanics now pass the
 bounded gate.
 This pilot cannot by itself clear whole-ESM, whole-scenario, joint-dependence,
 response, damage, or SCC gates; see [RIMEX_CONTIGUOUS_PILOT.md](RIMEX_CONTIGUOUS_PILOT.md).
+Before any joint fit, [RIMEX_JOINT_DEPENDENCE.md](RIMEX_JOINT_DEPENDENCE.md)
+registers ECC-Q empirical-copula coupling on physically constrained rainfall,
+extreme, temperature, and stage-composition coordinates. Synthetic mechanics
+preserve every marginal multiset and the complete rank template with zero
+physical failures. The pilot has only eight distinct templates versus the
+locked 51-template minimum, so real dependence and FAIR gates remain closed.
 A registered later-century expansion now fixes the next acquisition before any
 later-century feature or response result is examined. It selects exactly the
 2041--2050 and 2091--2100 `pr`/`tas` files for the full five-ESM by three-SSP

@@ -808,6 +808,15 @@ windows preserve additive stage/season precipitation and wet-day identities
 to numerical precision. This is a mechanics gate only; it cannot authorize a
 response or substitute for whole-ESM, whole-scenario, multi-crop,
 rainfed/irrigated, dependence, and FAIR pulse validation.
+Before examining a real joint fit, we preregister ECC-Q empirical-copula
+coupling. Complete ESM--member--scenario--center-year fields provide the rank
+templates; separately calibrated marginal quantiles are reordered on physical
+coordinates for seasonal quantity, wet frequency, dry-spell fraction,
+Rx5/total, Rx1/Rx5, temperature, and stage-rain composition. Baseline and pulse
+reuse the same template identities. Synthetic tests reproduce marginal
+multisets and the template Spearman matrix exactly with no physical failures.
+The pilot has eight templates, below the preregistered minimum of 51, and thus
+cannot establish real joint dependence.
 
 The U.S. measurement validation also expands spatially. A sample fixed before
 output compares official NOAA county averages with the registered polygon

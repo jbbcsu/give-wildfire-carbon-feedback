@@ -1284,6 +1284,20 @@ variable. The bounded panel contains 19,208 seasonal plus 57,624 stage rows
 for every harvest year 2032--2059 and passes exact unsmoothed reconciliation.
 The centered operation emits only the eight complete registered windows.
 
+The joint-dependence extension is registered before fitting. It uses ECC-Q
+(Schefzik et al., 2013) to reorder 51 separately mapped marginal samples by
+the empirical ranks of complete climate-model templates. A template is one
+indivisible ESM--member--scenario--center-year field across cells, crops,
+irrigation regimes, stages, and linked features; held-out ESM or scenario
+templates never enter training. Physical coordinates use log seasonal rain,
+epsilon-open logits for wet frequency, dry-spell fraction, Rx5/total, and
+Rx1/Rx5, identity temperature, and two reversible additive-log-ratios for
+stage-rain composition. Derived timing and concentration are reconstructed,
+not sampled independently. The synthetic gate reproduces marginal multisets
+and rank correlations exactly and preserves the rainfall ordering and unit-sum
+composition. The current eight-template pilot is below the fixed 51-template
+minimum; no empirical coupling, FAIR feature response, or SCC use is opened.
+
 A separately preregistered U.S. spatial sensitivity uses June 2019 because the
 official NOAA county-average and registered gridded inputs were already locally
 validated, and fixes nine production counties across nine state FIPS codes

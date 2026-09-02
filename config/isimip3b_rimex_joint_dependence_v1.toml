@@ -1,0 +1,83 @@
+schema = "isimip3b_rimex_joint_dependence_contract_v1"
+role = "outcome_blind_empirical_copula_preregistration_not_real_fit_response_damage_or_scc"
+registered_utc_date = "2026-09-02"
+primary_climate_route = "direct_isimip3b_daily_feature_response"
+fallback_climate_route = "mesmer_m_tp_plus_published_daily_generator"
+real_joint_fit_authorized = false
+fair_feature_response_authorized = false
+response_estimation_authorized = false
+damage_or_scc_authorized = false
+
+[[source_receipts]]
+role = "bounded_contiguous_centered_mechanics_pilot"
+path = "data/provenance/isimip3b_rimex_contiguous_gfdl_ssp126_complete_20260902.toml"
+sha256 = "c4e8ce9dcf82956cf7711f1765c035eeb55c63cba47d28721c0c2ec574489bdc"
+
+[method]
+name = "ECC-Q empirical-copula coupling"
+primary_reference_doi = "10.1214/13-STS443"
+schaake_shuffle_reference_doi = "10.1175/1525-7541(2004)005<0243:TSSAMF>2.0.CO;2"
+selection_reason = "preserve an empirical multivariate rank template while retaining separately calibrated RIME-X marginal quantiles"
+independent_marginal_sampling_allowed = false
+one_shared_rank_for_all_features_allowed = false
+gaussian_copula_substitution_allowed = false
+implementation = "independent minimal ECC-Q mechanics; no third-party code vendored"
+
+[template]
+unit = "one complete ESM-member-scenario-centered-year field across every included grid cell crop irrigation regime stage and transformed feature"
+split_fields_or_cells_across_template_ids = false
+centered_window_years = 21
+joint_draw_count = 51
+minimum_distinct_training_templates = 51
+pilot_distinct_templates = 8
+pilot_mechanics_only = true
+whole_esm_holdout_required = true
+whole_scenario_holdout_required = true
+held_out_templates_excluded_from_training = true
+template_selection = "without replacement from eligible training templates using sorted SHA-256 scores"
+template_seed = "give-rimex-eccq-v1-20260902"
+tie_break = "SHA-256 of template seed feature coordinate and complete template identity; ties change order only never values"
+scenario_identity_as_predictor = false
+
+[physical_coordinates]
+boundary_epsilon = 1e-6
+temperature = "identity tmean_c"
+seasonal_quantity = "log precip_mm; strictly positive centered mean required"
+wet_frequency = "epsilon-open logit of wet_days_n / season_days"
+dry_spell_fraction = "epsilon-open logit of cdd_max_days / season_days"
+rx5_fraction = "epsilon-open logit of rx5day_mm / precip_mm"
+rx1_given_rx5 = "epsilon-open logit of rx1day_mm / rx5day_mm"
+stage_precipitation_composition = "two additive-log-ratios after an exact reversible epsilon pseudocount on the three closed stage shares"
+timing_centroid = "derived from reconstructed stage shares; never sampled independently"
+concentration_hhi = "derived from reconstructed stage shares; never sampled independently"
+structural_zero_rule = "a nonpositive centered seasonal total or nonpositive Rx5 support fails closed; it is not replaced by a positive draw"
+required_future_extensions = ["crop-specific heat extremes", "drought index with source-complete support", "longer-duration rainfall and drought"]
+
+[pairing]
+common_template_ids_baseline_pulse = true
+common_marginal_probability_grid_baseline_pulse = true
+separate_baseline_pulse_support_flags = true
+zero_pulse_identity = true
+pre_divergence_identity = true
+decreasing_positive_pulse_scales = [0.01, 0.005, 0.0025]
+out_of_support_extrapolation_forbidden = true
+
+[validation]
+rank_dependence_metrics = ["pairwise_spearman_mae", "pairwise_spearman_max_abs", "pairwise_kendall_tau_mae", "lower_tail_cooccurrence_error", "upper_tail_cooccurrence_error", "energy_score"]
+physical_failures_allowed = 0
+marginal_multiset_tolerance = 1e-12
+simplex_sum_tolerance = 1e-12
+whole_esm_and_whole_scenario_results_must_both_pass = true
+multicrop_required = ["mai", "soy", "ri1", "ri2", "swh", "wwh"]
+irrigation_regimes_required = ["noirr", "firr"]
+actual_fair_forbidden_until_all_holdouts_pass = true
+
+[limitations]
+bounded_pilot_does_not_meet_template_minimum = true
+current_pilot_has_one_esm = true
+current_pilot_has_one_scenario = true
+current_pilot_has_one_crop_and_regime = true
+joint_dependence_preserved_in_real_data = false
+production_promoted = false
+causal_yield_response = false
+damage_or_scc_input = false
