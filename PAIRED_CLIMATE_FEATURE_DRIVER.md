@@ -398,6 +398,17 @@ median/maximum RMSE ratios 0.99443/1.00703 and 85 negative predictions. It
 therefore fails the preregistered maximum, every-feature, and physical-bounds
 criteria. No actual FAIR pulse path is evaluated with this rejected fit.
 
+The outcome-blind successor is preregistered before fitting in
+`config/isimip3b_physical_link_feature_response_v1.toml`. It keeps the same
+continuous GMST pathway basis, fold-local standardization, nested whole-ESM
+and whole-scenario selection, and no-scenario-shortcut rule. Positive rainfall,
+count, dry-spell, and extreme features use log links; bounded timing metrics
+use logits; and the three stage shares use one centered-log-ratio composition
+with a shared penalty. All selection and promotion metrics are computed after
+inverse transformation on the original physical scale. The actual FAIR path
+and every response, damage, welfare, and SCC gate remain closed pending the
+locked holdout result.
+
 ## Sources
 
 * ISIMIP3 input-data documentation: https://www.isimip.org/gettingstarted/input-data-bias-adjustment/

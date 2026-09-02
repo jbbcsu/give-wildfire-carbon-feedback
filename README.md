@@ -107,6 +107,14 @@ The first nested real evaluation improves 71/88 comparisons and passes the
 median criterion (RMSE ratio 0.99443), but fails the maximum criterion (1.00703)
 and produces 85 negative feature predictions. It is not promoted. All
 production gates remain closed.
+Before examining another fit, a physical-link successor is now frozen in
+[PHYSICAL_LINK_FEATURE_RESPONSE_CANDIDATE.md](PHYSICAL_LINK_FEATURE_RESPONSE_CANDIDATE.md).
+It retains the same continuous pathway basis and nested whole-ESM/whole-
+scenario design, but uses positive log links, bounded logits, and a joint
+centered-log-ratio stage-share composition. Lambda selection and promotion are
+scored after inversion on the original physical scale. It is preregistered,
+not fitted or promoted; actual FAIR pulse evaluation remains forbidden unless
+every locked holdout and physical-domain gate passes.
 A registered later-century expansion now fixes the next acquisition before any
 later-century feature or response result is examined. It selects exactly the
 2041--2050 and 2091--2100 `pr`/`tas` files for the full five-ESM by three-SSP
