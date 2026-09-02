@@ -112,9 +112,8 @@ registered polygon estimator; boundary
 vintage, full-period identity, and feature-equivalence gates remain open.
 We then compare the official county averages directly with the fixed 2019
 TIGER polygon-weight proxy for two preregistered counties (Cuming County,
-Nebraska, and Fresno County, California) in April 1990, July 2000, and July
-2012, with February 2000 and January 2019 calendar/boundary extensions and a
-fixed December 2019 recent-period seasonality extension. Each month requires
+Nebraska, and Fresno County, California) in April 1990, February and July 2000,
+July 2012, and January, June, and December 2019. Each month requires
 exact common 3,107-county support, complete daily
 chronology, finite values, declared units and physical bounds, fixed positive
 unit-sum polygon weights, and identical county identities. Hash-bound inputs
@@ -122,7 +121,10 @@ and daily difference metrics are recorded for every county-variable cell.
 The largest monthly precipitation-total difference is 0.9926 mm; a near-zero
 Fresno precipitation series in July 2012 has the lowest correlation (0.98533),
 while temperature correlations otherwise remain above 0.99999 apart from an
-April minimum of 0.999993. These are measurement-route sensitivities, not an
+April minimum of 0.999993. A hash-bound series gate requires all 56 selected
+county-variable-month cells. Fifty-five have nonzero maximum differences; the
+remaining dry Fresno July-2000 rainfall pair is an exact constant match with
+undefined correlation. These are measurement-route sensitivities, not an
 equivalence test, estimator selection, response estimate, or SCC input.
 
 A complete bounded acquisition now records all 468 canonical monthly objects
@@ -1238,6 +1240,16 @@ maximum RMSE ratios are 0.99443 and 1.00703. Eighty-five predictions violate
 nonnegative feature bounds. Because the locked maximum, every-feature, and
 physical-bounds rules fail, actual FAIR pulse evaluation and promotion are not
 performed.
+
+Before examining a successor fit, we froze positive log links for rainfall,
+count, dry-spell, and extreme features; bounded logits for timing metrics; and
+a centered-log-ratio link with shared regularization for the three stage
+shares. Nested selection and holdout scoring are performed after inverse
+transformation on the original scale. The locked run improves 34/88
+comparisons, with median/maximum RMSE ratios 1.00775/1.13855. It has zero
+negative or above-one predictions and maximum stage-sum error `3.33e-16`, but
+the maximum, median, and every-feature predictive criteria fail. Actual FAIR
+pulse evaluation and promotion are not performed.
 
 ## S10. Scientific integrity and independent review
 

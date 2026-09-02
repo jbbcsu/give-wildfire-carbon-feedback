@@ -1,0 +1,214 @@
+{
+  "comparisons": 56,
+  "counties": [
+    "06019",
+    "31039"
+  ],
+  "disclaimer": "Seven selected months in two counties diagnose temporal measurement sensitivity only; they do not establish national estimator equivalence or a climate-yield response.",
+  "estimators_declared_equivalent": false,
+  "fixed_months": [
+    {
+      "month": 4,
+      "year": 1990
+    },
+    {
+      "month": 2,
+      "year": 2000
+    },
+    {
+      "month": 7,
+      "year": 2000
+    },
+    {
+      "month": 7,
+      "year": 2012
+    },
+    {
+      "month": 1,
+      "year": 2019
+    },
+    {
+      "month": 6,
+      "year": 2019
+    },
+    {
+      "month": 12,
+      "year": 2019
+    }
+  ],
+  "implementation": {
+    "path": "/Users/jbb/Dropbox/GIVE/precipitation_scc/us_county_validation/scripts/audit_nclimgrid_estimator_comparison_series.py",
+    "sha256": "d3aa6d00db328e30af99b31f76938c2709550b98ec6fcfb17207b4ccc5f8992b"
+  },
+  "inputs": [
+    {
+      "month": 4,
+      "path": "data/provenance/us_nclimgrid_county_average_estimator_comparison_199004_20260830.json",
+      "sha256": "0bb14af52f02f5e1af0ea3ee7d196fcaf30c88ffa13a34b1b0ab541cf7d90fdb",
+      "year": 1990
+    },
+    {
+      "month": 2,
+      "path": "data/provenance/us_nclimgrid_county_average_estimator_comparison_200002_20260901.json",
+      "sha256": "05390e1a1a0be9c04f49a892ef101dc6de52bdb541815ec047e3919427fb4fb6",
+      "year": 2000
+    },
+    {
+      "month": 7,
+      "path": "data/provenance/us_nclimgrid_county_average_estimator_comparison_200007_20260830.json",
+      "sha256": "53c7ce47096124376329adddc55a975ff60efec75e2cc7f77928bd9fd30a6b23",
+      "year": 2000
+    },
+    {
+      "month": 7,
+      "path": "data/provenance/us_nclimgrid_county_average_estimator_comparison_201207_20260831.json",
+      "sha256": "fa96c54bf1533ffa40c70cc7324c3f95208f205b10787cada99ba31a319beb3c",
+      "year": 2012
+    },
+    {
+      "month": 1,
+      "path": "data/provenance/us_nclimgrid_county_average_estimator_comparison_201901_20260901.json",
+      "sha256": "c2afa6b79a03759503e696f01385a901ac81b2dd10557a5715cd9a76262e311f",
+      "year": 2019
+    },
+    {
+      "month": 6,
+      "path": "data/provenance/us_nclimgrid_county_average_estimator_comparison_201906_20260901.json",
+      "sha256": "46b3d523fcb2cb1e133f5b30dce01fa59cdf8692ddc3642851dd38ea8126fe19",
+      "year": 2019
+    },
+    {
+      "month": 12,
+      "path": "data/provenance/us_nclimgrid_county_average_estimator_comparison_201912_20260901.json",
+      "sha256": "64ba35284a328707914fa0cd8b79c3fb949c1e1b05ea63414afacca7ece44fa8",
+      "year": 2019
+    }
+  ],
+  "minimum_correlation_all_defined_comparisons": 0.985332431934,
+  "nonzero_difference_comparisons": 55,
+  "registered_polygon_route_replaced": false,
+  "relationship_estimated": false,
+  "response_damage_or_scc_authorized": false,
+  "schema": "us_nclimgrid_county_average_estimator_comparison_series_v1",
+  "status": "validated_bounded_temporal_measurement_sensitivity_not_estimator_equivalence",
+  "summaries": [
+    {
+      "county_geoid": "06019",
+      "maximum_absolute_daily_difference": 0.189796368216,
+      "maximum_absolute_monthly_total_difference": 0.658896883081,
+      "maximum_daily_rmse": 0.042766471115,
+      "mean_difference_sign_stable": false,
+      "mean_difference_signs": [
+        0,
+        1
+      ],
+      "minimum_pearson_correlation": 0.985332431934,
+      "months": 7,
+      "undefined_correlation_exact_constant_matches": 1,
+      "variable": "PRCP"
+    },
+    {
+      "county_geoid": "06019",
+      "maximum_absolute_daily_difference": 0.062734231565,
+      "maximum_daily_rmse": 0.048115786668,
+      "mean_difference_sign_stable": true,
+      "mean_difference_signs": [
+        -1
+      ],
+      "minimum_pearson_correlation": 0.99998832778,
+      "months": 7,
+      "undefined_correlation_exact_constant_matches": 0,
+      "variable": "TAVG"
+    },
+    {
+      "county_geoid": "06019",
+      "maximum_absolute_daily_difference": 0.062898572711,
+      "maximum_daily_rmse": 0.046419399551,
+      "mean_difference_sign_stable": true,
+      "mean_difference_signs": [
+        -1
+      ],
+      "minimum_pearson_correlation": 0.99998866104,
+      "months": 7,
+      "undefined_correlation_exact_constant_matches": 0,
+      "variable": "TMIN"
+    },
+    {
+      "county_geoid": "06019",
+      "maximum_absolute_daily_difference": 0.071634412369,
+      "maximum_daily_rmse": 0.055669542172,
+      "mean_difference_sign_stable": true,
+      "mean_difference_signs": [
+        -1
+      ],
+      "minimum_pearson_correlation": 0.999993292277,
+      "months": 7,
+      "undefined_correlation_exact_constant_matches": 0,
+      "variable": "TMAX"
+    },
+    {
+      "county_geoid": "31039",
+      "maximum_absolute_daily_difference": 0.656414215531,
+      "maximum_absolute_monthly_total_difference": 0.992592880605,
+      "maximum_daily_rmse": 0.132964796904,
+      "mean_difference_sign_stable": false,
+      "mean_difference_signs": [
+        -1,
+        1
+      ],
+      "minimum_pearson_correlation": 0.999758055357,
+      "months": 7,
+      "undefined_correlation_exact_constant_matches": 0,
+      "variable": "PRCP"
+    },
+    {
+      "county_geoid": "31039",
+      "maximum_absolute_daily_difference": 0.053055573921,
+      "maximum_daily_rmse": 0.020803858602,
+      "mean_difference_sign_stable": false,
+      "mean_difference_signs": [
+        -1,
+        1
+      ],
+      "minimum_pearson_correlation": 0.999991906227,
+      "months": 7,
+      "undefined_correlation_exact_constant_matches": 0,
+      "variable": "TAVG"
+    },
+    {
+      "county_geoid": "31039",
+      "maximum_absolute_daily_difference": 0.057013243006,
+      "maximum_daily_rmse": 0.027825069,
+      "mean_difference_sign_stable": false,
+      "mean_difference_signs": [
+        -1,
+        1
+      ],
+      "minimum_pearson_correlation": 0.999986020992,
+      "months": 7,
+      "undefined_correlation_exact_constant_matches": 0,
+      "variable": "TMIN"
+    },
+    {
+      "county_geoid": "31039",
+      "maximum_absolute_daily_difference": 0.073568973176,
+      "maximum_daily_rmse": 0.026015204327,
+      "mean_difference_sign_stable": false,
+      "mean_difference_signs": [
+        -1,
+        1
+      ],
+      "minimum_pearson_correlation": 0.999990098904,
+      "months": 7,
+      "undefined_correlation_exact_constant_matches": 0,
+      "variable": "TMAX"
+    }
+  ],
+  "undefined_correlation_exact_constant_matches": 1,
+  "variables": [
+    "PRCP",
+    "TAVG",
+    "TMIN",
+    "TMAX"
+  ]
+}

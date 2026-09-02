@@ -670,6 +670,15 @@ Cuming and +0.3431 mm in Fresno. All eight county-variable correlations are
 at least 0.999986, but the nonzero signed differences again prohibit an
 equivalence claim or route replacement.
 
+A fixed June-2019 growing-season comparison adds 30 days with the same source
+support; polygon-minus-official monthly rain is +0.4135 mm in Cuming and
++0.0449 mm in Fresno. A checksum-bound synthesis of all seven selected months
+requires 56 county-variable cells: 55 have nonzero maximum differences, while
+the dry Fresno July-2000 rainfall pair is an exact constant match with
+undefined correlation. The minimum defined correlation is 0.98533 and the
+largest monthly rainfall-total difference is 0.9926 mm. This temporal evidence
+continues to reject general estimator equivalence and route replacement.
+
 The current-hash, basis-before-weighting diagnostic covers 117,679 observed
 maize yields (102,847 consecutive pairs) and 47,922 observed soybean yields
 (41,915 pairs) during 1982--1989. Temporal and extreme training sets are
@@ -765,6 +774,15 @@ is 1.00703 and 85 predictions violate nonnegative feature bounds. The locked
 maximum, every-feature, and physical-bounds criteria therefore fail. We do not
 propagate this candidate through the actual FAIR pulse paths or into crop
 responses, damages, or SCC calculations.
+
+The outcome-blind physical-link successor likewise fails. Positive log and
+bounded-logit links plus a joint centered-log-ratio stage composition remove
+all negative and above-one predictions and preserve stage sums to `3.33e-16`,
+but only 34 of 88 original-scale comparisons beat the cell-mean benchmark.
+Median and maximum RMSE ratios are 1.00775 and 1.13855; none of the stage-share
+or precipitation-concentration-HHI comparisons improves. We therefore withhold
+the actual FAIR pulse evaluation and all downstream response, damage, and SCC
+use.
 
 ### 6.3 Marginal damages and global SCC
 

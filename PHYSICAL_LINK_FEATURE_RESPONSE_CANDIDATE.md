@@ -1,7 +1,7 @@
 # Physical-link feature-response candidate
 
-Status: outcome-blind preregistration; not fitted, promoted, or authorized for
-crop response, damage, welfare, or SCC use.
+Status: preregistered and evaluated; rejected, not promoted, and not authorized
+for crop response, damage, welfare, or SCC use.
 
 This candidate retains the frozen continuous same-realization GMST basis,
 partially pooled ESM deviations, nested whole-ESM and whole-scenario holdouts,
@@ -35,3 +35,15 @@ baseline/pulse route must later pass common-random-number support, zero-pulse,
 pre-divergence, direct/centered, and decreasing-pulse convergence gates. The
 configuration is
 `config/isimip3b_physical_link_feature_response_v1.toml`.
+
+## Locked holdout result
+
+The real nested evaluation contains 88 feature-by-holdout comparisons. The
+physical-link candidate beats the original-scale cell-mean benchmark in only
+34, with median and maximum RMSE ratios of 1.00775 and 1.13855. Whole-ESM
+folds improve in 17/55 and whole-scenario folds in 17/33. Temperature passes
+all eight comparisons, but none of the eight comparisons for any stage share
+or precipitation concentration HHI improves on the benchmark. The inverse
+links produce no negative or above-one values, and the maximum stage-share sum
+error is `3.33e-16`, so physical-domain gates pass while all predictive
+promotion criteria fail. The actual FAIR pulse path was not evaluated.

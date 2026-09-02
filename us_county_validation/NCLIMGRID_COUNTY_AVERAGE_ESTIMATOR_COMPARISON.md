@@ -102,6 +102,17 @@ least 0.99999 for temperature. The largest daily difference is 0.2361 mm.
 These nonzero differences continue to reject general estimator equivalence and
 authorize no weather-route replacement, response, damage, or SCC input.
 
+## Seven-month temporal synthesis
+
+The seven checksum-bound receipts are now validated as one exact 56-cell
+county-variable-month product. Fifty-five cells have nonzero maximum
+differences. Fresno July-2000 precipitation is the only exact constant match,
+so its correlation is undefined; the minimum defined correlation is 0.985332
+for near-zero Fresno July-2012 rain. The largest monthly rainfall-total
+difference is 0.9926 mm. Signed mean differences are not stable across both
+counties and variables. These results reject a general equivalence or route-
+replacement claim despite close bounded agreement.
+
 ## Reproduction and evidence boundary
 
 The executable is
@@ -123,6 +134,8 @@ and the recent-period seasonality extension in
 `../data/provenance/us_nclimgrid_county_average_estimator_comparison_201912_20260901.json`,
 and the growing-season extension in
 `../data/provenance/us_nclimgrid_county_average_estimator_comparison_201906_20260901.json`.
+The cross-month receipt is
+`../data/provenance/us_nclimgrid_county_average_estimator_comparison_series_20260901.json`.
 
 This is a weather-measurement comparison only. It does not use yield outcomes,
 select an estimator, estimate a response, calculate damages, or authorize an

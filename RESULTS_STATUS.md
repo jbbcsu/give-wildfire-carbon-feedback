@@ -582,3 +582,13 @@ predictions for nonnegative features. Whole-ESM folds improve in 40/55 and
 whole-scenario folds in 31/33. The maximum, every-feature, and physical-bounds
 promotion gates therefore fail; the candidate is not run through the actual
 FAIR pulse path and no response, damage, or SCC input is authorized.
+
+The separately preregistered physical-link successor also fails promotion. It
+uses positive log links, bounded logits, and a joint centered-log-ratio stage
+composition, with all nested selection and evaluation on the inverse-transformed
+physical scale. Only 34/88 comparisons improve; median and maximum RMSE ratios
+are 1.00775 and 1.13855. Whole-ESM and whole-scenario folds each improve in 17
+comparisons. Bounds pass with zero negative/above-one predictions and maximum
+stage-sum error `3.33e-16`, but no stage-share or concentration-HHI comparison
+beats the benchmark. Predictive gates fail, FAIR pulse evaluation is withheld,
+and no response, damage, welfare, or SCC input is authorized.

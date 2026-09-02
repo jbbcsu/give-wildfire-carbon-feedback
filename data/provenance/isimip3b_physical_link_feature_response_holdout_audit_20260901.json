@@ -1,0 +1,47 @@
+{
+  "actual_fair_candidate_path_evaluated": false,
+  "all_holdout_criteria_passed": false,
+  "contract": {
+    "path": "config/isimip3b_physical_link_feature_response_v1.toml",
+    "sha256": "071c92bce0c3d76e410b58de4fa8d7140009b948c1e89fc5900bdb9d49daba7a"
+  },
+  "damage_or_scc_authorized": false,
+  "holdouts": {
+    "artifact_name": "isimip3b_physical_link_feature_response_holdouts_20260901.csv",
+    "comparisons": 88,
+    "sha256": "0deac7d17a00139065fa381ba3a976c7a011ec59ecb37d179f01169a68f80f43"
+  },
+  "human_review_completed": false,
+  "implementation": {
+    "path": "scripts/evaluate_isimip3b_physical_link_feature_response.py",
+    "sha256": "1e3f9d66d1e046a3a4d069b4de6ee6c4e5366431c2b98abd23d1d58355014d7e"
+  },
+  "production_promoted": false,
+  "promotion_criteria": {
+    "every_feature_both_holdout_types_passed": false,
+    "maximum_rmse_ratio_passed": false,
+    "median_rmse_ratio_passed": false,
+    "physical_prediction_bounds_passed": true,
+    "stage_composition_sum_passed": true
+  },
+  "response_estimation_authorized": false,
+  "results": {
+    "above_one_prediction_count": 0,
+    "maximum_rmse_ratio_to_cell_mean": 1.1385544705868553,
+    "maximum_stage_composition_sum_error": 3.3306690738754696e-16,
+    "median_rmse_ratio_to_cell_mean": 1.00775292204463,
+    "negative_prediction_count": 0,
+    "physical_link_model_better_than_cell_mean_count": 34
+  },
+  "schema": "isimip3b_physical_link_feature_response_holdout_audit_v1",
+  "status": "evaluated_not_promoted",
+  "training": {
+    "all_zero_stage_compositions": 71,
+    "cells": 686,
+    "input_rows": 2376990,
+    "path": "data/interim/isimip3b_expanded_fair_training/training.parquet",
+    "response_values": 1999690,
+    "retained_observations": 265,
+    "sha256": "6d02baa5df280c91beff3a0e35b139460f73d00ae75b362e2a3755e9c213282d"
+  }
+}

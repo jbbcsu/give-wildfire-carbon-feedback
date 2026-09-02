@@ -234,6 +234,12 @@ finite days. Polygon-minus-official monthly rain is -0.3216 mm in Cuming and
 0.999986. Nonzero signed differences continue to reject estimator equivalence
 and authorize no route replacement, response, damage, or SCC use.
 
+A fail-closed temporal synthesis now binds all seven selected months into 56
+county-variable cells. Fifty-five have nonzero maximum differences; the only
+exact constant match is dry Fresno precipitation in July 2000. The minimum
+defined correlation is 0.985332 and the largest monthly rainfall-total
+difference is 0.9926 mm. The two routes remain non-interchangeable.
+
 ## Primary design
 
 1. Begin with a **high-rainfed-share county sample** for maize, soybean, and
