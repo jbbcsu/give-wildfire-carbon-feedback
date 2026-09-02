@@ -804,6 +804,10 @@ contiguous-support pilot. GFDL-ESM4 SSP1-2.6 precipitation and temperature for
 21-year outputs for 2042--2049. This is an acquisition and mechanics gate
 only; it does not satisfy whole-ESM, whole-scenario, multi-crop, dependence,
 response, damage, or SCC requirements.
+The first bracketing `2031--2040` pair passes exact checksum and decoded-content
+gates, same-realization GMST, and a 5,488-season/16,464-stage bounded maize
+feature build with exact stage/season reconciliation. The 2051--2060 pair and
+the complete centered-window analysis remain open.
 
 The U.S. measurement validation also expands spatially. A sample fixed before
 output compares official NOAA county averages with the registered polygon

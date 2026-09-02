@@ -1276,6 +1276,12 @@ ten real feature years on each side for a centered 21-year mean. Endpoint
 padding and cross-gap smoothing are forbidden. This pilot remains insufficient
 for whole-ESM, whole-scenario, multi-crop, joint-dependence, FAIR, response,
 damage, welfare, or SCC promotion.
+For the first bracketing decade, both 2031--2040 files match their official
+byte counts and SHA-512 values and contain 3,653 complete midnight daily steps
+with 946,857,600 finite values per variable, no missing values, and no negative
+precipitation. Ten same-realization GMST rows and 5,488 seasonal plus 16,464
+stage rows for harvest years 2032--2039 pass exact reconciliation. This does
+not establish the still-incomplete 2031--2060 window.
 
 A separately preregistered U.S. spatial sensitivity uses June 2019 because the
 official NOAA county-average and registered gridded inputs were already locally
