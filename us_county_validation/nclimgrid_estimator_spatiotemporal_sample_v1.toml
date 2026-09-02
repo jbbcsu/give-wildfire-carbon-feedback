@@ -1,0 +1,27 @@
+schema = "us_nclimgrid_estimator_spatiotemporal_sample_contract_v1"
+role = "outcome_free_nine_county_three_month_weather_measurement_sensitivity_not_response_damage_or_scc"
+year = 2019
+months = [1, 6, 12]
+county_geoids = ["01001", "05001", "06019", "16019", "18113", "19003", "20111", "21001", "31039"]
+selection_rule = "reuse the preregistered nine-state county sample and fixed winter-summer-winter anchor months whose official files were acquired before comparison output"
+minimum_unique_state_fips = 9
+variables = ["PRCP", "TAVG", "TMIN", "TMAX"]
+
+[inputs]
+grid_template = "data/raw/us_county/nclimgrid_daily/ncdd-{year}{month:02d}-grd-scaled.nc"
+county_average_template = "data/raw/us_county/nclimgrid_county_averages/{year}/{variable_lower}-{year}{month:02d}-cty-scaled.csv"
+version_template = "data/raw/us_county/nclimgrid_county_averages/{year}/ncdd-{year}{month:02d}-version.txt"
+state_crosswalk = "data/raw/us_county/nclimgrid_county_averages/us-state-codes_ncei-to-fips.csv"
+weight_root = "data/interim/us_county/nclimgrid_polygon_weights_national_all_practice_v1"
+
+[validation]
+exact_county_order_required = true
+complete_official_support_required = true
+complete_daily_month_required = true
+registered_polygon_weights_required = true
+exact_month_order_required = true
+outcomes_read = false
+estimator_equivalence_threshold_defined = false
+registered_polygon_route_replaced = false
+relationship_estimation_authorized = false
+damage_or_scc_authorized = false
