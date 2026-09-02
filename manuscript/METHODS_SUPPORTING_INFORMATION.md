@@ -1269,6 +1269,13 @@ published 21-year smoothing support, and univariate quantile maps do not
 preserve the joint rainfall, timing, persistence, extremes, heat, and drought
 dependence required by the crop response. Whole-ESM, whole-scenario, actual
 FAIR, crop-response, damage, and SCC gates therefore remain closed.
+The first preregistered contiguous-support pilot fixes GFDL-ESM4 `r1i1p1f1`
+under SSP1-2.6 and daily `pr`/`tas` for 2031--2060. Cross-year crop seasons
+then yield 28 consecutive feature years (2032--2059), of which 2042--2049 have
+ten real feature years on each side for a centered 21-year mean. Endpoint
+padding and cross-gap smoothing are forbidden. This pilot remains insufficient
+for whole-ESM, whole-scenario, multi-crop, joint-dependence, FAIR, response,
+damage, welfare, or SCC promotion.
 
 A separately preregistered U.S. spatial sensitivity uses June 2019 because the
 official NOAA county-average and registered gridded inputs were already locally

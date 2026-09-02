@@ -798,6 +798,12 @@ published 21-year smoothing support, and univariate quantile maps do not
 preserve the joint dependence among rainfall quantity, timing, dry spells,
 extremes, heat, and drought. Whole-ESM, whole-scenario, actual FAIR, damage,
 and SCC gates remain closed.
+Before acquiring any additional daily fields, we froze a one-ESM/one-scenario
+contiguous-support pilot. GFDL-ESM4 SSP1-2.6 precipitation and temperature for
+2031--2060 would provide crop-feature years 2032--2059 and eight centered
+21-year outputs for 2042--2049. This is an acquisition and mechanics gate
+only; it does not satisfy whole-ESM, whole-scenario, multi-crop, dependence,
+response, damage, or SCC requirements.
 
 The U.S. measurement validation also expands spatially. A sample fixed before
 output compares official NOAA county averages with the registered polygon

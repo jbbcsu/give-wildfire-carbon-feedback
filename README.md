@@ -125,6 +125,13 @@ The real fit is deliberately blocked: the published method uses 21-year
 smoothing but the bounded training years are discontinuous, and its univariate
 quantile maps do not preserve the joint crop-feature dependence needed for
 agriculture. No FAIR feature response, damage, or SCC gate is opened.
+The first outcome-blind repair is metadata-pinned before acquisition: a
+GFDL-ESM4/SSP1-2.6 `pr`/`tas` pilot spanning 2031--2060. Its 28 consecutive
+crop-feature years can yield exactly eight centered 21-year outputs for
+2042--2049. The six official CC0 version-`20210512` files total 12.385 GB;
+four bracketing files still require acquisition and full content validation.
+This pilot cannot by itself clear whole-ESM, whole-scenario, joint-dependence,
+response, damage, or SCC gates; see [RIMEX_CONTIGUOUS_PILOT.md](RIMEX_CONTIGUOUS_PILOT.md).
 A registered later-century expansion now fixes the next acquisition before any
 later-century feature or response result is examined. It selects exactly the
 2041--2050 and 2091--2100 `pr`/`tas` files for the full five-ESM by three-SSP
