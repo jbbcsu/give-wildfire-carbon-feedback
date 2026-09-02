@@ -1309,6 +1309,14 @@ centering. It also handles leap-year changes in cross-year season/stage
 durations by averaging that geometry within the registered window. The paired
 calendar comparisons are descriptive calendar sensitivity only and do not
 identify irrigation treatment effects.
+The subsequent metadata-only acquisition contract pins all 90 official
+version-`20210512` files required for five ESMs, three SSPs, `pr`/`tas`, and
+2031--2060. They total 187,138,935,135 catalogue bytes and are public,
+unrestricted CC0 inputs. If all content and feature gates pass, the design
+contains 120 centered templates; whole-ESM and whole-scenario exclusions retain
+96 and 80 training templates, respectively, above the locked 51-template
+minimum. These counts do not imply that files were acquired or that holdout
+performance passed.
 
 A separately preregistered U.S. spatial sensitivity uses June 2019 because the
 official NOAA county-average and registered gridded inputs were already locally

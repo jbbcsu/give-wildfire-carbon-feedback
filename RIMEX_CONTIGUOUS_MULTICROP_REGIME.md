@@ -43,3 +43,11 @@ for spring wheat, and -23.33 mm for winter wheat; the two rice calendars are
 identical on this bounded support. Timing-centroid differences range from zero
 to +0.0060. These are consequences of selecting different growing-season dates
 on the same climate realization, not effects of applied irrigation water.
+
+The next acquisition boundary is now metadata-pinned across five ESMs and
+three SSPs. Ninety exact ISIMIP files (30 datasets) cover `pr` and `tas` in the
+three contiguous decades and total 187,138,935,135 catalogue bytes. Complete
+validation would provide 120 centered templates; leaving out one ESM retains
+96 and leaving out one scenario retains 80, both above the preregistered
+51-template minimum. These are prospective support counts only: the additional
+files, features, empirical dependence, and holdout predictions do not yet pass.

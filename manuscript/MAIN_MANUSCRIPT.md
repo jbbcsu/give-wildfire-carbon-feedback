@@ -826,6 +826,12 @@ seasonal-rain differences range from -23.33 to +14.60 mm across crops; both
 rice pairs are identical on this bounded support. These contrasts isolate
 calendar-date sensitivity on one climate realization, not applied-irrigation
 effects, and do not expand ESM/scenario or response support.
+The next metadata-only contract pins the 90 official daily files required to
+replicate this contiguous design across five ESMs and three scenarios. If all
+187.139 GB pass content and feature validation, the matrix contains 120
+complete centered templates; whole-ESM and whole-scenario exclusions retain 96
+and 80 training templates, respectively. No additional matrix content or
+holdout performance is claimed here.
 
 The U.S. measurement validation also expands spatially. A sample fixed before
 output compares official NOAA county averages with the registered polygon

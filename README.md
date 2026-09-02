@@ -151,6 +151,13 @@ not treatment effects. All 214,928 seasonal and 644,784 stage rows pass, as do
 contrasts are heterogeneous across crops, while the two rice pairs are
 identical on this bounded support. All response, damage, and SCC gates remain
 closed.
+A pre-acquisition contiguous holdout matrix now pins all 90 version-`20210512`
+files needed for five ESMs, three scenarios, `pr`/`tas`, and 2031--2060. The
+public, unrestricted CC0 matrix totals 187.139 GB. If every content and feature
+gate passes, it yields 120 complete centered templates; a whole-ESM holdout
+retains 96 training templates and a whole-scenario holdout retains 80, both
+above the locked 51-template minimum. No new matrix files were acquired and no
+holdout, response, damage, or SCC gate is yet open.
 A registered later-century expansion now fixes the next acquisition before any
 later-century feature or response result is examined. It selects exactly the
 2041--2050 and 2091--2100 `pr`/`tas` files for the full five-ESM by three-SSP
