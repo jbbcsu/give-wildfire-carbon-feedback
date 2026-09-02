@@ -60,8 +60,12 @@ country/area crosswalks, effort/management identification, and FishMIP
 comparison remain pending; no missing value is treated as zero.
 The official FishStatJ 4.04.11 macOS export runtime is also frozen and passes
 bundle integrity plus a bundled-Java smoke. Its Derby capture schema exposes
-country/species/area/measure keys and separate annual values and symbols, but
-no record is accepted until a supported CSV export is independently reconciled.
+country/species/area/measure keys and separate annual values and symbols. A
+disposable-copy headless export now independently reconciles 30,918 records
+and 2,318,850 value/status pairs without treating missing or suppressed zeros
+as observed absence. The supported FishStat GUI-menu export still must be
+generated with symbols enabled and compared against the headless extract
+before accepting a production observed-catch panel.
 
 The all-file acquisition plan is now version-pinned and executable against a
 fresh catalogue response. Its outcome-blind content smoke is limited to the

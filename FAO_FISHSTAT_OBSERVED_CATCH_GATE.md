@@ -1,8 +1,8 @@
 # FAO FishStat observed-catch source gate
 
-Status: official workspace acquired and container/metadata validated; record
-export, marine filtering, crosswalks, model validation, welfare, damages, and
-SCC use remain closed.
+Status: official workspace and an independent symbol-preserving headless table
+export validated; FishStat GUI-menu reconciliation, marine filtering,
+crosswalks, model validation, welfare, damages, and SCC use remain closed.
 
 The official FAO FishStat Global Production workspace version 2026.1.0 was
 retrieved from FAO's public FishStat directory. The 22,994,754-byte archive
@@ -37,3 +37,22 @@ manual's supported route is **File > Export selection (CSV file)**, with symbol
 export controlled by preferences. A guarded record export and independent
 row/value/flag reconciliation are still required; runtime availability alone
 does not validate observations.
+
+An independent headless integrity export now reads only a disposable Derby
+copy and resolves every one of the 30,918 wide capture records to FAO country,
+species, area, environment, and measure references. The deterministic
+29,413,192-byte CSV preserves all 2,318,850 annual 1950--2024 value/status
+pairs and has SHA-256 `ca58247c4f6044948b01048e4a808d21a4975c9f4171e3d0d1fbc321e46ebb52`.
+An independently implemented Python pass reproduces the record, annual-cell,
+environment, measure, value, and status counts: 28,305 records are marine,
+2,613 inland, 30,164 use tonnes live weight, and 754 use number. Stored zero
+values include 1,266,653 `O` missing cells, 281 `Q` suppressed cells, and
+32,808 `N` not-significant cells, so zero is not treated as observed absence.
+Historical/reference entities leave 158 country ISO3 values and 493 species
+common names blank; those are preserved rather than invented.
+
+This headless export is an integrity and feasibility result, not the manual's
+supported GUI export. The GUI-menu output must still be generated with symbols
+enabled and reconciled against this independent extract. Marine-tonnage
+filtering, vessel-flag/EEZ allocation, observed FishMIP validation, welfare,
+damage, and SCC gates remain closed.

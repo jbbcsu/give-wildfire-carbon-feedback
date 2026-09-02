@@ -1,0 +1,37 @@
+schema = "fao_fishstat_capture_headless_export_contract_v1"
+role = "observed_capture_record_integrity_gate_not_fishmip_calibration_allocation_welfare_damage_or_scc"
+checked_utc_date = "2026-09-02"
+
+[source]
+provider = "Food and Agriculture Organization of the United Nations"
+workspace_version = "2026.1.0"
+capture_table = "FISHSTAT.TSD_CAPTURE_QUANTITY"
+wide_record_count = 30918
+annual_start_year = 1950
+annual_end_year = 2024
+workspace_sha512 = "87c5557eb436997244371f2fa40c23f9807a2af008457a9db3931c65b6ea71614011128c31f50d37530f5f732802c90170ee15248cc2be55427b84f770bbc4e3"
+
+[export]
+format = "UTF-8 RFC-4180-compatible CSV with LF records"
+canonical_filename = "fishstat_capture_wide_1950_2024.csv"
+sort_key = "source_record_id"
+wide_keys = ["country_un_m49", "species_asfis_code", "fao_area_code", "measure_code"]
+resolved_fields = ["country_iso3", "country_name", "species_scientific_name", "species_name", "fao_area_name", "environment_class", "measure_name", "unit", "unit_multiplier"]
+nullable_resolved_fields = ["country_iso3", "species_name"]
+annual_pair_pattern = "value_YYYY,status_YYYY"
+required_status_codes = ["A", "B", "E", "F", "G", "I", "P", "S", "U", "V", "X", "L", "M", "N", "O", "Q"]
+missing_status_codes = ["L", "M", "O", "Q"]
+not_significant_status_code = "N"
+observed_or_quality_status_codes = ["A", "B", "E", "F", "G", "I", "P", "S", "U", "V", "X"]
+allowed_measure_codes = ["Q_tlw", "Q_no_1"]
+allowed_environment_classes = ["inland", "marine"]
+require_complete_reference_joins = true
+require_nonblank_value_status_pairs = true
+
+[boundaries]
+fishstat_gui_menu_export_reconciled = false
+marine_tonnage_filter_authorized = false
+country_or_eez_allocation_authorized = false
+fishmip_observed_calibration_authorized = false
+welfare_translation_authorized = false
+damage_or_scc_authorized = false

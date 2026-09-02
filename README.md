@@ -55,10 +55,14 @@ documents why nominal landings, vessel-flag attribution, inland/marine mixing,
 and observation-status flags require a guarded export before FishMIP
 validation. No observed calibration, allocation, welfare, damage, or SCC gate
 is opened.
-FAO's official FishStatJ 4.04.11 macOS bundle is now checksum-pinned and its
-bundled OpenJDK runtime passes locally. Schema inspection confirms separate
-1950--2024 value/symbol fields, but the supported CSV export and independent
-record reconciliation remain open.
+FAO's official FishStatJ 4.04.11 macOS bundle is checksum-pinned and its
+bundled OpenJDK runtime passes locally. A disposable-database headless export
+now preserves and independently reconciles all 30,918 wide capture records and
+2,318,850 annual 1950--2024 value/status pairs. Its 29,413,192-byte CSV has
+SHA-256 `ca58247c4f6044948b01048e4a808d21a4975c9f4171e3d0d1fbc321e46ebb52`.
+The FishStat GUI-menu export comparison, marine-tonnage filter, historical
+country reconciliation, allocation, welfare, damage, and SCC gates remain
+open.
 
 The ISIMIP3b public catalogue currently exposes 20 global monthly total-catch
 density (`tc`) datasets in a balanced grid of BOATS and EcoOcean, forced by
