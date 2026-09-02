@@ -32,3 +32,20 @@ monthly rainfall-total differences are 0.6589 mm in Fresno and 0.9926 mm in
 Cuming. Cuming temperature mean-difference signs are stable and negative over
 all seven months, while Fresno temperature signs and both rainfall signs vary.
 This supports close bounded agreement but rejects interchangeability.
+
+## Fixed nine-county 2019 expansion
+
+A separate preregistered expansion holds the previously selected nine-state
+county sample fixed and adds April and September to the January, June, and
+December anchors before acquiring the official comparison series. All 180
+county-variable-month cells have complete daily support. The minimum defined
+daily correlation is 0.999425 and the largest absolute daily difference is
+0.8486 in source units. Polygon-minus-official monthly precipitation totals
+range from -2.7068 to +1.2868 mm; 179 of 180 cells have a nonzero maximum
+difference.
+
+The larger bounded sample reinforces close agreement while continuing to
+reject exact interchangeability. It reads no outcomes, does not replace the
+registered polygon route, and supplies no relationship, damage, or SCC
+estimate. The checksum-bound audit is
+`data/provenance/us_nclimgrid_estimator_spatiotemporal_expansion_2019_20260902.json`.

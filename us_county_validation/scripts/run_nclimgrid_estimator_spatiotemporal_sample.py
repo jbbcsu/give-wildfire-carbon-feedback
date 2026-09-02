@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run the fixed nine-county, three-month nClimGrid estimator comparison."""
+"""Run a preregistered nine-county nClimGrid estimator comparison."""
 from __future__ import annotations
 
 import argparse
@@ -12,7 +12,10 @@ from compare_nclimgrid_county_average_estimators import compare, sha256
 
 
 COUNTIES = ["01001", "05001", "06019", "16019", "18113", "19003", "20111", "21001", "31039"]
-MONTHS = [1, 6, 12]
+MONTH_SETS = {
+    "us_nclimgrid_estimator_spatiotemporal_sample_contract_v1": [1, 6, 12],
+    "us_nclimgrid_estimator_spatiotemporal_expansion_contract_v2": [1, 4, 6, 9, 12],
+}
 VARIABLES = ["PRCP", "TAVG", "TMIN", "TMAX"]
 
 
@@ -27,8 +30,12 @@ def render(template: str, year: int, month: int, variable: str = "") -> str:
 
 def run(contract_path: Path, root: Path) -> dict[str, object]:
     contract = tomllib.loads(contract_path.read_text(encoding="utf-8"))
-    require(contract.get("schema") == "us_nclimgrid_estimator_spatiotemporal_sample_contract_v1", "contract schema changed")
-    require(contract.get("year") == 2019 and contract.get("months") == MONTHS, "registered months changed")
+    schema = str(contract.get("schema"))
+    require(schema in MONTH_SETS, "contract schema changed")
+    months = MONTH_SETS[schema]
+    require(contract.get("year") == 2019 and contract.get("months") == months, "registered months changed")
+    if schema.endswith("_v2"):
+        require(contract.get("new_months") == [4, 9], "registered new months changed")
     require(contract.get("county_geoids") == COUNTIES, "registered county sample changed")
     require(len({county[:2] for county in COUNTIES}) == contract.get("minimum_unique_state_fips") == 9, "state dispersion gate changed")
     require(contract.get("variables") == VARIABLES, "variable set changed")
@@ -46,7 +53,7 @@ def run(contract_path: Path, root: Path) -> dict[str, object]:
 
     monthly: list[dict] = []
     flat_results: list[dict] = []
-    for month in MONTHS:
+    for month in months:
         grid = root / render(str(inputs["grid_template"]), 2019, month)
         version = root / render(str(inputs["version_template"]), 2019, month)
         sources = {variable: root / render(str(inputs["county_average_template"]), 2019, month, variable) for variable in VARIABLES}
@@ -63,9 +70,9 @@ def run(contract_path: Path, root: Path) -> dict[str, object]:
     rain = [row for row in flat_results if row["variable"] == "PRCP"]
     return {
         "schema": "us_nclimgrid_estimator_spatiotemporal_sample_audit_v1",
-        "status": "validated_fixed_nine_county_three_month_measurement_sensitivity_not_estimator_equivalence",
+        "status": f"validated_fixed_nine_county_{len(months)}_month_measurement_sensitivity_not_estimator_equivalence",
         "year": 2019,
-        "months": MONTHS,
+        "months": months,
         "counties": COUNTIES,
         "variables": VARIABLES,
         "result_cells": len(flat_results),
