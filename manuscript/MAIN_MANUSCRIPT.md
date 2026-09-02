@@ -783,6 +783,10 @@ Median and maximum RMSE ratios are 1.00775 and 1.13855; none of the stage-share
 or precipitation-concentration-HHI comparisons improves. We therefore withhold
 the actual FAIR pulse evaluation and all downstream response, damage, and SCC
 use.
+On exact holdout keys, the physical-link candidate improves on the rejected
+identity-link form in only 9/88 comparisons, rescues none of its benchmark
+failures, and loses 37 of its benchmark successes. Thus enforcing feature
+domains does not resolve the structural predictive failure.
 
 ### 6.3 Marginal damages and global SCC
 

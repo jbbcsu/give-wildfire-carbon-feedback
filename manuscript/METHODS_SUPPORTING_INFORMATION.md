@@ -1250,6 +1250,10 @@ comparisons, with median/maximum RMSE ratios 1.00775/1.13855. It has zero
 negative or above-one predictions and maximum stage-sum error `3.33e-16`, but
 the maximum, median, and every-feature predictive criteria fail. Actual FAIR
 pulse evaluation and promotion are not performed.
+An exact-key comparison against the rejected identity-link candidate finds
+only 9/88 lower physical-link RMSE ratios, zero rescued benchmark failures, and
+37 lost identity-link successes. The comparison is diagnostic only and does
+not select a third candidate.
 
 ## S10. Scientific integrity and independent review
 

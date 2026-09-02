@@ -592,3 +592,10 @@ comparisons. Bounds pass with zero negative/above-one predictions and maximum
 stage-sum error `3.33e-16`, but no stage-share or concentration-HHI comparison
 beats the benchmark. Predictive gates fail, FAIR pulse evaluation is withheld,
 and no response, damage, welfare, or SCC input is authorized.
+
+The exact-key rejected-candidate comparison finds the physical-link form
+better than the identity-link form in only 9/88 comparisons. It rescues zero
+identity-link benchmark failures and loses 37 identity-link successes; the two
+forms jointly beat the cell mean in only the 34 comparisons retained by the
+physical-link model. Physical-domain repair is therefore not predictive
+repair, and no adaptive relinking or FAIR pulse evaluation follows.

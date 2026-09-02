@@ -47,3 +47,10 @@ or precipitation concentration HHI improves on the benchmark. The inverse
 links produce no negative or above-one values, and the maximum stage-share sum
 error is `3.33e-16`, so physical-domain gates pass while all predictive
 promotion criteria fail. The actual FAIR pulse path was not evaluated.
+
+An exact-key comparison with the rejected identity-link candidate shows that
+the physical links improve only 9/88 matched RMSE ratios, rescue none of the
+17 identity-link failures, and turn 37 identity-link successes into failures.
+Both candidates beat the cell mean in the same 34 comparisons retained by the
+physical-link fit. The domain repair is therefore not a predictive repair and
+does not justify another FAIR evaluation or an outcome-adaptive link tweak.
