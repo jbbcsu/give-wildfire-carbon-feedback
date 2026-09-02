@@ -96,9 +96,9 @@ def validate(config_path: Path, root: Path) -> dict[str, object]:
         require(receipt.get("all_six_files_full_content_validated") is True,
                 "source receipt lacks complete content gates")
         file_records = receipt.get("files")
-        if config["scenario"] != "ssp126":
-            require(isinstance(file_records, list) and len(file_records) == 6,
-                    "expanded scenario receipt must enumerate six validated files")
+        if isinstance(file_records, list):
+            require(len(file_records) == 6,
+                    "complete contiguous receipt must enumerate six validated files")
             expected_file_cells = {
                 (variable, start, start + 9)
                 for variable in ("pr", "tas") for start in (2031, 2041, 2051)
@@ -115,6 +115,9 @@ def validate(config_path: Path, root: Path) -> dict[str, object]:
                 require(audit.get("file_name") == item["file_name"], "source content-audit filename changed")
                 require(audit.get("bytes") == item["bytes"] and audit.get("sha512") == item["sha512"],
                         "source content-audit identity changed")
+        else:
+            require(config["scenario"] == "ssp126",
+                    "expanded scenario receipt must enumerate six validated files")
         sources.append({"path": source["path"], "sha256": observed})
     require(len(sources) == 1, "contract must bind exactly one complete contiguous source receipt")
     validation = config.get("validation", {})
