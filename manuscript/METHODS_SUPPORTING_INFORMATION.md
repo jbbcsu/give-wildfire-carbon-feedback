@@ -1255,6 +1255,21 @@ only 9/88 lower physical-link RMSE ratios, zero rescued benchmark failures, and
 37 lost identity-link successes. The comparison is diagnostic only and does
 not select a third candidate.
 
+The subsequent literature-constrained review selects RIME-X v1.0 (Schwind et
+al., 2026) as a published direct-indicator benchmark, not as a promoted third
+fit. The method represents indicator distributions on 0.1 K warming-level and
+101-quantile maps and interpolates them onto simple-climate-model temperature
+paths. Its exact paper archive and the project contract are version-pinned.
+Only independently implemented synthetic interpolation mechanics were tested:
+within-feature common random numbers, separate support flags, zero-pulse and
+pre-divergence identity, rejection of extrapolation, and three decreasing
+pulse sizes pass. A real fit is withheld because the current daily-derived
+feature artifact contains three discontinuous short blocks rather than the
+published 21-year smoothing support, and univariate quantile maps do not
+preserve the joint rainfall, timing, persistence, extremes, heat, and drought
+dependence required by the crop response. Whole-ESM, whole-scenario, actual
+FAIR, crop-response, damage, and SCC gates therefore remain closed.
+
 ## S10. Scientific integrity and independent review
 
 Every quantitative statement is classified as observed source data, derived

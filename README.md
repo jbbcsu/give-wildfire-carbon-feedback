@@ -116,6 +116,15 @@ scored after inversion on the original physical scale. Its locked evaluation
 improves only 34/88 comparisons; median and maximum RMSE ratios are 1.00775 and
 1.13855. Physical bounds and stage-share sums pass, but predictive promotion
 criteria fail. It is rejected, and the actual FAIR pulse path was not run.
+A literature-constrained review now selects published RIME-X v1.0 as the next
+direct-feature benchmark rather than tuning a third response to these results.
+Its exact article/software identities and a synthetic common-random-number
+interpolation smoke are frozen in
+[RIMEX_FEATURE_RESPONSE_BENCHMARK.md](RIMEX_FEATURE_RESPONSE_BENCHMARK.md).
+The real fit is deliberately blocked: the published method uses 21-year
+smoothing but the bounded training years are discontinuous, and its univariate
+quantile maps do not preserve the joint crop-feature dependence needed for
+agriculture. No FAIR feature response, damage, or SCC gate is opened.
 A registered later-century expansion now fixes the next acquisition before any
 later-century feature or response result is examined. It selects exactly the
 2041--2050 and 2091--2100 `pr`/`tas` files for the full five-ESM by three-SSP

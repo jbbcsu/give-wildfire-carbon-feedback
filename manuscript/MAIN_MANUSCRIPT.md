@@ -788,6 +788,17 @@ identity-link form in only 9/88 comparisons, rescues none of its benchmark
 failures, and loses 37 of its benchmark successes. Thus enforcing feature
 domains does not resolve the structural predictive failure.
 
+The literature-constrained next benchmark is RIME-X v1.0, which derives
+warming-level conditional quantile maps for climate or impact indicators and
+interpolates them onto simple-climate-model temperature paths. We pin the
+published article and exact software archive and validate only independent
+synthetic interpolation mechanics. A real crop-feature fit is not attempted:
+the bounded ISIMIP3b artifact has discontinuous short blocks rather than the
+published 21-year smoothing support, and univariate quantile maps do not
+preserve the joint dependence among rainfall quantity, timing, dry spells,
+extremes, heat, and drought. Whole-ESM, whole-scenario, actual FAIR, damage,
+and SCC gates remain closed.
+
 ### 6.3 Marginal damages and global SCC
 
 Report global agricultural marginal damages and SCC under each adaptation

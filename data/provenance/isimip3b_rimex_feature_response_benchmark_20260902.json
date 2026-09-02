@@ -1,0 +1,72 @@
+{
+  "actual_fair_feature_response_authorized": false,
+  "config": {
+    "path": "config/isimip3b_rimex_feature_response_benchmark_v1.toml",
+    "sha256": "be0e45347010121718a2d218de422af285f222c5194eb6f52ef55b7b05726d87"
+  },
+  "damage_or_scc_authorized": false,
+  "engineering_smoke": {
+    "baseline_support_count": 4,
+    "decreasing_positive_pulse_scales": [
+      0.04,
+      0.02,
+      0.01
+    ],
+    "fixed_common_random_quantile": 0.37,
+    "maximum_normalized_pulse_disagreement": 1.0658141036401503e-12,
+    "out_of_support_extrapolation_rejected": true,
+    "pre_divergence_identity": true,
+    "pulse_support_counts": [
+      4,
+      4,
+      4
+    ],
+    "quantile_count": 101,
+    "schema": "isimip3b_rimex_quantile_map_engineering_smoke_v1",
+    "status": "validated_synthetic_interpolation_and_pulse_mechanics_only",
+    "time_steps": 4,
+    "warming_levels": [
+      -0.1,
+      0.0,
+      0.1
+    ],
+    "zero_pulse_identity": true
+  },
+  "implementation": {
+    "path": "scripts/validate_isimip3b_rimex_feature_response_benchmark.py",
+    "sha256": "1cc1163c4e948074809bedfd119f3f64578da4525b9b96fa6261aa54046a0c48"
+  },
+  "production_promoted": false,
+  "published_method": {
+    "article_doi": "10.5194/gmd-19-6797-2026",
+    "article_publication_date": "2026-07-30",
+    "article_version": "v1.0",
+    "implementation_rule": "independent_minimal_mechanics_smoke_only_no_vendored_rimex_code",
+    "name": "RIME-X",
+    "reviewed_repository_head": "22f992114fdc8808710b1f5ef100d01d011aa6a6",
+    "reviewed_repository_head_date": "2026-08-06",
+    "reviewed_repository_url": "https://github.com/iiasa/rimeX",
+    "software_concept_doi": "10.5281/zenodo.17491734",
+    "software_exact_archive_doi": "10.5281/zenodo.21061984",
+    "software_license": "AGPL-3.0-or-later",
+    "software_version": "1.0.0"
+  },
+  "real_feature_fit_authorized": false,
+  "response_estimation_authorized": false,
+  "schema": "isimip3b_rimex_feature_response_benchmark_validation_v1",
+  "source_receipts": [
+    {
+      "path": "data/provenance/isimip3b_expanded_fair_training_20260901.json",
+      "role": "complete_bounded_early_mid_end_training",
+      "sha256": "a883f8e0c74d41c6996bc798c58565b4195b78a17b38e50509483f3a7e3bf90f"
+    },
+    {
+      "path": "data/provenance/fair_esm_alignment_later_century_20260901.json",
+      "role": "actual_give_fair_common_random_number_support",
+      "sha256": "52aa5758edcb40273138d314cbed7b467946ed3d4fdebd219acf2bf38c6c451a"
+    }
+  ],
+  "status": "validated_preregistered_benchmark_real_fit_blocked_by_contiguous_support_and_joint_dependence",
+  "whole_esm_holdout_completed": false,
+  "whole_scenario_holdout_completed": false
+}

@@ -1,0 +1,85 @@
+schema = "isimip3b_rimex_feature_response_benchmark_contract_v1"
+role = "literature_constrained_direct_isimip3b_feature_response_benchmark_not_production_candidate"
+primary_climate_route = "direct_isimip3b_daily_feature_response"
+fallback_climate_route = "mesmer_m_tp_plus_published_daily_generator"
+production_promoted = false
+real_feature_fit_authorized = false
+fair_feature_response_authorized = false
+response_estimation_authorized = false
+damage_or_scc_authorized = false
+
+required_feature_families = ["tmean_c", "precip_mm", "wet_days_n", "cdd_max_days", "rx1day_mm", "rx5day_mm", "stage1_precip_share", "stage2_precip_share", "stage3_precip_share", "precipitation_timing_centroid", "precipitation_concentration_hhi"]
+required_esm_ids = ["GFDL-ESM4", "IPSL-CM6A-LR", "MPI-ESM1-2-HR", "MRI-ESM2-0", "UKESM1-0-LL"]
+required_scenarios = ["historical", "ssp126", "ssp370", "ssp585"]
+
+[[source_receipts]]
+role = "complete_bounded_early_mid_end_training"
+path = "data/provenance/isimip3b_expanded_fair_training_20260901.json"
+sha256 = "a883f8e0c74d41c6996bc798c58565b4195b78a17b38e50509483f3a7e3bf90f"
+
+[[source_receipts]]
+role = "actual_give_fair_common_random_number_support"
+path = "data/provenance/fair_esm_alignment_later_century_20260901.json"
+sha256 = "52aa5758edcb40273138d314cbed7b467946ed3d4fdebd219acf2bf38c6c451a"
+
+[published_method]
+name = "RIME-X"
+article_version = "v1.0"
+article_doi = "10.5194/gmd-19-6797-2026"
+article_publication_date = "2026-07-30"
+software_version = "1.0.0"
+software_concept_doi = "10.5281/zenodo.17491734"
+software_exact_archive_doi = "10.5281/zenodo.21061984"
+reviewed_repository_url = "https://github.com/iiasa/rimeX"
+reviewed_repository_head = "22f992114fdc8808710b1f5ef100d01d011aa6a6"
+reviewed_repository_head_date = "2026-08-06"
+software_license = "AGPL-3.0-or-later"
+implementation_rule = "independent_minimal_mechanics_smoke_only_no_vendored_rimex_code"
+
+[quantile_map]
+warming_level_step_k = 0.1
+quantile_count = 101
+quantile_min = 0.0
+quantile_max = 1.0
+warming_level_interpolation = "linear_between_two_nearest_supported_levels"
+quantile_interpolation = "linear_between_two_nearest_supported_quantiles"
+running_mean_years = 21
+same_realization_gmst_required = true
+scenario_identity_as_predictor = false
+extrapolation_forbidden = true
+
+[current_training_support]
+training_artifact = "data/interim/isimip3b_expanded_fair_training/training.parquet"
+training_artifact_sha256 = "6d02baa5df280c91beff3a0e35b139460f73d00ae75b362e2a3755e9c213282d"
+available_year_blocks = ["2012-2014", "2042-2049", "2092-2099"]
+available_unique_years = 23
+required_contiguous_years_for_published_smoothing = 21
+published_running_mean_supported = false
+reason_real_fit_blocked = "bounded training has three discontinuous blocks and cannot form the published 21-year running mean without unregistered cross-gap smoothing"
+
+[dependence_boundary]
+published_quantile_maps_are_univariate = true
+joint_crop_feature_dependence_preserved = false
+shared_quantile_rank_substitution_allowed = false
+multivariate_production_sampling_authorized = false
+reason = "crop damages require coherent rainfall quantity timing dry-spell extreme-rain heat and drought draws; independent maps or forced comonotonic ranks are not validated substitutes"
+
+[validation]
+engineering_smoke_scope = "synthetic_quantile_and_warming_level_interpolation_only"
+outer_holdouts_required_before_real_promotion = ["whole_esm", "whole_scenario"]
+common_random_numbers_within_feature_required = true
+separate_baseline_and_pulse_support_flags_required = true
+zero_pulse_identity_required = true
+pre_divergence_identity_required = true
+decreasing_positive_pulse_scales_required = 3
+multicrop_validation_required = true
+rainfed_irrigated_validation_required = true
+actual_fair_evaluation_forbidden_until_real_holdouts_pass = true
+
+[limitations]
+not_a_third_outcome_adaptively_tuned_response = true
+no_cross_feature_joint_draw = true
+no_contiguous_21_year_real_training_window = true
+no_post_2100_daily_support = true
+no_causal_yield_response = true
+no_damage_or_scc_input = true
