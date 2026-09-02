@@ -1298,6 +1298,18 @@ and rank correlations exactly and preserves the rainfall ordering and unit-sum
 composition. The current eight-template pilot is below the fixed 51-template
 minimum; no empirical coupling, FAIR feature response, or SCC use is opened.
 
+Before constructing additional contiguous features, a separate contract fixes
+the complete Cartesian product of maize, soybean, first- and second-season
+rice, spring wheat, and winter wheat with `noirr` and `firr` calendars on the
+same bounded GFDL realization. All 12 calendar hashes, valid-cell counts,
+2032--2059 annual support, 2042--2049 centered support, and same-realization
+GMST identity are required. The audit passes 214,928 seasonal and 644,784
+stage rows before centering and 61,408 seasonal and 184,224 stage rows after
+centering. It also handles leap-year changes in cross-year season/stage
+durations by averaging that geometry within the registered window. The paired
+calendar comparisons are descriptive calendar sensitivity only and do not
+identify irrigation treatment effects.
+
 A separately preregistered U.S. spatial sensitivity uses June 2019 because the
 official NOAA county-average and registered gridded inputs were already locally
 validated, and fixes nine production counties across nine state FIPS codes
@@ -1314,6 +1326,11 @@ cells all have nonzero maximum differences; minimum defined correlation is
 0.999758, and polygon-minus-official monthly rainfall differences range from
 -0.830529 to +0.619192 mm. No yield outcome or equivalence threshold enters
 the selection or audit.
+The next fixed expansion adds April and September before acquiring their
+official county series. Across the resulting 180 cells, minimum defined daily
+correlation is 0.999425 and polygon-minus-official monthly rainfall differences
+range from -2.706813 to +1.286771 mm. No outcome is read, the polygon route is
+not replaced, and no relationship or SCC gate is opened.
 
 ## S10. Scientific integrity and independent review
 

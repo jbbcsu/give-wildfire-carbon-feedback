@@ -25,3 +25,21 @@ such an effect.
 This work expands daily-feature engineering support only. It does not supply
 new ESMs or scenarios, meet the 51-template joint-dependence minimum, estimate
 a crop response, or authorize damages or SCC use.
+
+## Result
+
+All 12 preregistered crop/calendar cells pass. The audit validates 214,928 raw
+season rows and 644,784 raw stage rows, then 61,408 centered season rows and
+184,224 centered stage rows. Every cell contains the exact 28 raw years and
+eight centered years; raw and centered additive reconciliation passes, and all
+cells share one byte-identical same-realization centered-GMST table. The
+centering implementation now treats leap-year-driven season and stage duration
+changes as numeric calendar geometry to be averaged, rather than incorrectly
+requiring those durations to be constant.
+
+The paired calendar contrasts are heterogeneous. Mean `firr` minus `noirr`
+centered seasonal rain is +0.82 mm for maize, -15.04 mm for soybean, +14.60 mm
+for spring wheat, and -23.33 mm for winter wheat; the two rice calendars are
+identical on this bounded support. Timing-centroid differences range from zero
+to +0.0060. These are consequences of selecting different growing-season dates
+on the same climate realization, not effects of applied irrigation water.

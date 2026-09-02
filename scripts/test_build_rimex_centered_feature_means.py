@@ -18,13 +18,15 @@ for year in years:
         "tmean_c": float(year), "precip_mm": float(3 * year), "wet_days_n": float(3 * (year - 1999)),
         "cdd_max_days": 4.0, "rx1day_mm": 6.0, "rx5day_mm": 10.0,
     }
-    season_rows.append({**base, "plant_doy": 300, "maturity_doy": 100, "season_days": 166,
+    leap_geometry = int(year % 4 == 0)
+    season_rows.append({**base, "plant_doy": 300, "maturity_doy": 100, "season_days": 166 + leap_geometry,
                         "wet_day_threshold_mm": 1.0, **metrics})
     for stage_id in (1, 2, 3):
+        extra = leap_geometry if stage_id == 3 else 0
         stage_rows.append({
             **base, "stage_id": stage_id, "stage_start_offset_day": 1 + (stage_id - 1) * 55,
-            "stage_end_offset_day": stage_id * 55 if stage_id < 3 else 166,
-            "stage_days": 55 if stage_id < 3 else 56, "stage_fractions": "0,0.3,0.7,1",
+            "stage_end_offset_day": stage_id * 55 if stage_id < 3 else 166 + extra,
+            "stage_days": 55 if stage_id < 3 else 56 + extra, "stage_fractions": "0,0.3,0.7,1",
             "tmean_c": float(year), "precip_mm": float(year), "wet_days_n": float(year - 1999),
             "cdd_max_days": 2.0, "rx1day_mm": 2.0, "rx5day_mm": 3.0,
         })
@@ -39,9 +41,11 @@ gmst_mean = smooth_gmst(gmst, first_feature_year=2000, last_feature_year=2023, w
 assert season.center_year.tolist() == [2010, 2011, 2012, 2013]
 assert gmst_mean.center_year.tolist() == [2010, 2011, 2012, 2013]
 assert season.loc[0, "precip_mm_21yr_mean"] == 3 * 2010
+assert season.loc[0, "season_days_21yr_mean"] > 166
 audit = reconcile(season, stage, gmst_mean, window=21)
 assert audit["center_years"] == [2010, 2011, 2012, 2013]
 assert audit["stage_season_additive_max_absolute_differences"]["precip_mm"] == 0
+assert audit["stage_season_additive_max_absolute_differences"]["stage_days"] == 0
 
 broken = pd.DataFrame(season_rows).query("harvest_year != 2005")
 try:

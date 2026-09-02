@@ -817,6 +817,15 @@ reuse the same template identities. Synthetic tests reproduce marginal
 multisets and the template Spearman matrix exactly with no physical failures.
 The pilot has eight templates, below the preregistered minimum of 51, and thus
 cannot establish real joint dependence.
+The same contiguous realization is then expanded, under a contract frozen
+before feature construction, to all 12 combinations of six crops and rainfed
+or fully irrigated calendars. Exact annual, physical, additive-reconciliation,
+and common-GMST gates pass for 214,928 seasonal and 644,784 stage rows and for
+61,408 seasonal and 184,224 stage rows after centering. Paired-calendar
+seasonal-rain differences range from -23.33 to +14.60 mm across crops; both
+rice pairs are identical on this bounded support. These contrasts isolate
+calendar-date sensitivity on one climate realization, not applied-irrigation
+effects, and do not expand ESM/scenario or response support.
 
 The U.S. measurement validation also expands spatially. A sample fixed before
 output compares official NOAA county averages with the registered polygon
@@ -831,6 +840,12 @@ Every cell has a nonzero maximum difference; minimum defined correlation is
 0.999758 and monthly rainfall differences range from -0.8305 to +0.6192 mm.
 This remains outcome-free measurement validation and does not identify a yield
 response or replace the registered polygon estimator.
+A further preregistered April/September shoulder-month expansion raises the
+same fixed sample to 180 complete cells. Minimum defined correlation is
+0.999425, while polygon-minus-official monthly precipitation differences range
+from -2.7068 to +1.2868 mm. The expanded evidence continues to reject exact
+interchangeability without reading yield outcomes or changing the registered
+polygon route.
 
 ### 6.3 Marginal damages and global SCC
 

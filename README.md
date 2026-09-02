@@ -146,7 +146,11 @@ calendar-regime expansion on this same contiguous realization is fixed in
 It locks all 12 calendar hashes, bounded support counts, 28 annual feature
 years, eight centered years, common same-realization GMST, and exact
 reconciliation. Irrigated/rainfed contrasts remain calendar sensitivity checks,
-not treatment effects; all response, damage, and SCC gates remain closed.
+not treatment effects. All 214,928 seasonal and 644,784 stage rows pass, as do
+61,408 centered seasonal and 184,224 centered stage rows. The paired calendar
+contrasts are heterogeneous across crops, while the two rice pairs are
+identical on this bounded support. All response, damage, and SCC gates remain
+closed.
 A registered later-century expansion now fixes the next acquisition before any
 later-century feature or response result is examined. It selects exactly the
 2041--2050 and 2091--2100 `pr`/`tas` files for the full five-ESM by three-SSP
