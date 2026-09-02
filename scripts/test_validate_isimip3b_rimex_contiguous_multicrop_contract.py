@@ -16,6 +16,13 @@ assert sum(cell["expected_season_rows"] for cell in result["cells"]) == 214_928
 assert sum(cell["expected_centered_season_rows"] for cell in result["cells"]) == 61_408
 assert result["irrigation_treatment_effect_authorized"] is False
 
+expanded_config = root / "config/isimip3b_rimex_contiguous_multicrop_regime_gfdl_ssp370_v1.toml"
+expanded = validate(expanded_config, root)
+assert expanded["realization"] == {
+    "esm": "GFDL-ESM4", "member": "r1i1p1f1", "scenario": "ssp370"
+}
+assert len(expanded["cells"]) == 12
+
 with tempfile.TemporaryDirectory() as temporary:
     tampered = Path(temporary) / "contract.toml"
     tampered.write_text(config.read_text().replace(

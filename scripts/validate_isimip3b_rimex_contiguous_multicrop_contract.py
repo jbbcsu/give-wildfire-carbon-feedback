@@ -88,6 +88,26 @@ def validate(config_path: Path, root: Path) -> dict[str, object]:
                 "source receipt lacks complete byte/checksum gates")
         require(receipt.get("all_six_files_full_content_validated") is True,
                 "source receipt lacks complete content gates")
+        file_records = receipt.get("files")
+        if config["scenario"] != "ssp126":
+            require(isinstance(file_records, list) and len(file_records) == 6,
+                    "expanded scenario receipt must enumerate six validated files")
+            expected_file_cells = {
+                (variable, start, start + 9)
+                for variable in ("pr", "tas") for start in (2031, 2041, 2051)
+            }
+            require({(item.get("variable"), *item.get("years", [])) for item in file_records} == expected_file_cells,
+                    "expanded scenario receipt file matrix is incomplete")
+            for item in file_records:
+                audit_path = root / str(item["content_audit"])
+                require(sha256(audit_path) == item.get("content_audit_sha256"),
+                        "source content-audit hash changed")
+                audit = json.loads(audit_path.read_text(encoding="utf-8"))
+                require(audit.get("result") == "passed" and audit.get("variable") == item["variable"],
+                        "source content audit did not pass")
+                require(audit.get("file_name") == item["file_name"], "source content-audit filename changed")
+                require(audit.get("bytes") == item["bytes"] and audit.get("sha512") == item["sha512"],
+                        "source content-audit identity changed")
         sources.append({"path": source["path"], "sha256": observed})
     require(len(sources) == 1, "contract must bind exactly one complete contiguous source receipt")
     validation = config.get("validation", {})

@@ -422,6 +422,13 @@ median/maximum original-scale RMSE ratios of 1.00775/1.13855. Physical-domain
 and composition-sum gates pass, but the maximum, median, and every-feature
 criteria fail. No actual FAIR pulse path is evaluated with this rejected fit.
 
+The contiguous successor now has complete, content-validated 2031--2060
+GFDL-ESM4 `r1i1p1f1` feature cells for SSP1-2.6 and SSP3-7.0. Each scenario
+passes the fixed six-crop by two-calendar audit and contributes eight centered
+same-realization GMST templates. Sixteen templates are insufficient for the
+locked 51-template joint-dependence threshold and cannot furnish a whole-ESM
+holdout, so no FAIR feature, response, damage, or SCC promotion follows.
+
 ## Sources
 
 * ISIMIP3 input-data documentation: https://www.isimip.org/gettingstarted/input-data-bias-adjustment/

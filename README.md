@@ -155,6 +155,13 @@ not treatment effects. All 214,928 seasonal and 644,784 stage rows pass, as do
 contrasts are heterogeneous across crops, while the two rice pairs are
 identical on this bounded support. All response, damage, and SCC gates remain
 closed.
+The preregistered GFDL-ESM4/SSP3-7.0 replication now passes the same complete
+2031--2060 source, feature, reconciliation, and calendar-regime gates. Its 12
+cells contain the same 214,928 seasonal, 644,784 stage, 61,408 centered
+seasonal, and 184,224 centered stage rows, all tied to one same-realization
+GMST series. Together the two completed GFDL scenarios provide only 16
+center-year templates, still below the locked 51-template dependence minimum
+and without a whole-ESM holdout; this remains support evidence only.
 A pre-acquisition contiguous holdout matrix now pins all 90 version-`20210512`
 files needed for five ESMs, three scenarios, `pr`/`tas`, and 2031--2060. The
 public, unrestricted CC0 matrix totals 187.139 GB. If every content and feature

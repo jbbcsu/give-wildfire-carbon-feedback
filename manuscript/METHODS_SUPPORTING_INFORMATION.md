@@ -1323,6 +1323,16 @@ centering. It also handles leap-year changes in cross-year season/stage
 durations by averaging that geometry within the registered window. The paired
 calendar comparisons are descriptive calendar sensitivity only and do not
 identify irrigation treatment effects.
+The preregistered replication replaces only the scenario label with SSP3-7.0
+while retaining GFDL-ESM4 `r1i1p1f1`, the six crop/calendar definitions, and
+the same 2031--2060 and 2042--2049 support rules. All six daily files pass
+catalogue byte/SHA-512 and decoded-content checks. The deterministic audit
+again passes 214,928 seasonal and 644,784 stage rows before centering and
+61,408 seasonal and 184,224 stage rows after centering, with one common
+same-realization GMST identity across all 12 cells. A byte-identical audit
+rerun passes. The two completed GFDL scenarios therefore supply 16 centered
+templates, still below the 51-template dependence threshold and with no
+held-out ESM; response, damage, welfare, and SCC gates remain closed.
 The subsequent metadata-only acquisition contract pins all 90 official
 version-`20210512` files required for five ESMs, three SSPs, `pr`/`tas`, and
 2031--2060. They total 187,138,935,135 catalogue bytes and are public,

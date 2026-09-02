@@ -837,6 +837,12 @@ seasonal-rain differences range from -23.33 to +14.60 mm across crops; both
 rice pairs are identical on this bounded support. These contrasts isolate
 calendar-date sensitivity on one climate realization, not applied-irrigation
 effects, and do not expand ESM/scenario or response support.
+The preregistered SSP3-7.0 replication on the same GFDL member also passes
+complete 2031--2060 content, feature, reconciliation, and 12-cell calendar
+gates. It contributes eight additional centered years, for 16 templates across
+the two completed GFDL scenarios. This is still below the 51-template joint-
+dependence minimum and provides neither a whole-ESM holdout nor evidence for a
+crop response, damage function, or SCC calculation.
 The next metadata-only contract pins the 90 official daily files required to
 replicate this contiguous design across five ESMs and three scenarios. If all
 187.139 GB pass content and feature validation, the matrix contains 120
