@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate a preregistered contiguous GFDL crop × calendar-regime contract."""
+"""Validate a preregistered contiguous crop × calendar-regime contract."""
 from __future__ import annotations
 
 import argparse
@@ -15,6 +15,13 @@ import xarray as xr
 SCHEMA = "isimip3b_rimex_contiguous_multicrop_regime_contract_v1"
 CROPS = ["mai", "soy", "ri1", "ri2", "swh", "wwh"]
 REGIMES = ["noirr", "firr"]
+FROZEN_REALIZATIONS = {
+    ("GFDL-ESM4", "r1i1p1f1"),
+    ("IPSL-CM6A-LR", "r1i1p1f1"),
+    ("MPI-ESM1-2-HR", "r1i1p1f1"),
+    ("MRI-ESM2-0", "r1i1p1f1"),
+    ("UKESM1-0-LL", "r1i1p1f2"),
+}
 
 
 def require(condition: bool, message: str) -> None:
@@ -33,8 +40,8 @@ def sha256(path: Path) -> str:
 def validate(config_path: Path, root: Path) -> dict[str, object]:
     config = tomllib.loads(config_path.read_text(encoding="utf-8"))
     require(config.get("schema") == SCHEMA, "contract schema changed")
-    require((config.get("esm"), config.get("member")) ==
-            ("GFDL-ESM4", "r1i1p1f1"), "realization identity changed")
+    require((config.get("esm"), config.get("member")) in FROZEN_REALIZATIONS,
+            "realization is outside the frozen ESM/member matrix")
     require(config.get("scenario") in {"ssp126", "ssp370", "ssp585"}, "scenario is outside the frozen matrix")
     require((config.get("source_year_start"), config.get("source_year_end")) == (2031, 2060), "source years changed")
     require((config.get("feature_year_start"), config.get("feature_year_end")) == (2032, 2059), "feature years changed")

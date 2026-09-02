@@ -47,4 +47,16 @@ with tempfile.TemporaryDirectory() as temporary:
     else:
         raise AssertionError("contract accepted a source receipt from another scenario")
 
-print("contiguous GFDL multi-crop contract tests passed")
+with tempfile.TemporaryDirectory() as temporary:
+    tampered = Path(temporary) / "contract.toml"
+    tampered.write_text(config.read_text().replace(
+        'esm = "GFDL-ESM4"', 'esm = "Unfrozen-ESM"'
+    ), encoding="utf-8")
+    try:
+        validate(tampered, root)
+    except ValueError as error:
+        assert "frozen ESM/member matrix" in str(error)
+    else:
+        raise AssertionError("contract accepted an ESM outside the frozen matrix")
+
+print("contiguous multi-ESM multi-crop contract tests passed")
