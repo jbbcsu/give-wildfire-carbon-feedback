@@ -163,3 +163,11 @@ codes as historical, and does not authorize welfare weights or redistribution.
 historical/projection `pr` and `tas` boundary, exact checksums, and the four
 historical same-realization GMST values. It is an engineering gate for one
 MRI-ESM2-0 member and SSP3-7.0, not whole-ensemble validation or an SCC input.
+
+`isimip3b_rimex_contiguous_completed_matrix_audit_20260903.json` is the
+deterministic inventory of all completed contiguous RIME-X crop/calendar
+feature cells. It binds 11 config/audit pairs by SHA-256, counts 88 completed
+scenario-year templates, reports the training/test counts for every planned
+whole-ESM and whole-scenario exclusion, and names the four missing cells. It is
+an inventory-only gate: joint dependence, holdout promotion, response, damage,
+and SCC authorization remain false.
