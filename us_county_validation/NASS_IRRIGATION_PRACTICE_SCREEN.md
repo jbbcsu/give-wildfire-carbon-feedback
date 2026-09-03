@@ -120,6 +120,11 @@ annual retained support ranges from 296 to 424 corn counties and 283 to 391
 soybean counties. The large, threshold-sensitive coverage loss must be carried
 into national response validation; it is not evidence of an irrigation effect
 and does not authorize response, damage, or SCC use.
+At the primary 10% threshold, an outcome-blind state-FIPS audit retains 28 of
+41 reported corn states and 28 of 31 reported soybean states. The five largest
+retained states supply 42.96% and 42.15% of selected corn and soybean
+county-years, respectively. This requires state/region-blocked validation and
+does not convert the selected panel into a nationally representative sample.
 
 ## Reproducible commands and fail-closed rules
 
@@ -156,6 +161,11 @@ Audit the fixed selector across Census vintages:
 Audit counts-only selector retention in the national panel:
 
     .venv/bin/python us_county_validation/scripts/audit_national_irrigation_selector_support.py --panel data/interim/us_county/nass_national_all_practice_panel_1981_2019.parquet --out data/provenance/us_national_irrigation_selector_support_20260903.json
+
+Audit the same frozen selectors' geographic concentration without reading
+yield magnitudes:
+
+    .venv/bin/python us_county_validation/scripts/audit_national_irrigation_selector_geography.py --panel data/interim/us_county/nass_national_all_practice_panel_1981_2019.parquet --out data/provenance/us_national_irrigation_selector_geography_20260903.json
 
 ## Next empirical use
 

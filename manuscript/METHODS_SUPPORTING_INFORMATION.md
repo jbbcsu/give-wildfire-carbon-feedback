@@ -61,6 +61,11 @@ and 23.65%/27.97%/30.16% of reported soybean county-years. At 10%, annual
 retained support spans 296--424 corn and 283--391 soybean counties. The audit
 does not read yield magnitudes, change the primary 2017 selector, identify an
 irrigation effect, or authorize response, damage, welfare, or SCC use.
+The companion outcome-blind state-FIPS audit retains 28 of 41 reported corn
+states and 28 of 31 reported soybean states at the 10% selector. Top-five-state
+county-year shares are 42.96% and 42.15%, respectively. This result fixes
+state/region-blocked holdouts as a necessary national validation gate without
+reading yield magnitudes or altering the selector.
 All API queries, counts, checksums, and coverage appear in
 `data/provenance/nass_irrigation_practice_screen.toml`. No county response is
 estimated until the full county-polygon primary exposure, CDL sensitivity,

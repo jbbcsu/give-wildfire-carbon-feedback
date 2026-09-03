@@ -581,6 +581,11 @@ thresholds, retained reported county-years are 15,772/19,832/22,219 for corn
 counties and 283 to 391 soybean counties. This material, threshold-sensitive
 attrition must be reported in any national validation and supplies no
 irrigation effect, response, damage, or SCC estimate.
+At the primary 10% threshold, an outcome-blind geographic audit retains 28 of
+41 reported corn states and 28 of 31 reported soybean states; the five largest
+retained states contribute 42.96% and 42.15% of selected county-years. National
+validation must therefore keep state/region holdouts rather than treating a
+large county-year count as geographically representative.
 
 **Regional U.S. competing-moisture diagnostic.** The registered NASS/
 nClimGrid/PDSI comparison retains 23,722 corn/soy crop--county--practice-year
