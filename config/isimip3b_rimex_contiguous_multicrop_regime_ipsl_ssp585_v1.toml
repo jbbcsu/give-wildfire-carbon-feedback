@@ -1,0 +1,133 @@
+schema = "isimip3b_rimex_contiguous_multicrop_regime_contract_v1"
+role = "outcome_blind_contiguous_multicrop_calendar_support_not_response_damage_or_scc"
+registered_utc_date = "2026-09-02"
+esm = "IPSL-CM6A-LR"
+member = "r1i1p1f1"
+scenario = "ssp585"
+source_year_start = 2031
+source_year_end = 2060
+feature_year_start = 2032
+feature_year_end = 2059
+centered_window_years = 21
+center_year_start = 2042
+center_year_end = 2049
+lat_start = 100
+lat_stop = 102
+wet_day_threshold_mm = 1.0
+output_root = "data/interim/isimip3b_ipsl_ssp585_2031_2060_contiguous_multicrop"
+required_cells = ["mai_noirr", "mai_firr", "soy_noirr", "soy_firr", "ri1_noirr", "ri1_firr", "ri2_noirr", "ri2_firr", "swh_noirr", "swh_firr", "wwh_noirr", "wwh_firr"]
+response_estimation_authorized = false
+whole_esm_emulator_promoted = false
+whole_scenario_emulator_promoted = false
+irrigation_treatment_effect_authorized = false
+damage_or_scc_authorized = false
+
+[[source_receipts]]
+path = "data/provenance/isimip3b_rimex_contiguous_ipsl_ssp585_complete_20260902.toml"
+sha256 = "866da496b192db378a418375bcb95b70bdb64d7f4aa50f9aea9aa4b0b49fb33d"
+
+[[cells]]
+id = "mai_noirr"
+crop = "mai"
+irrigation = "noirr"
+calendar = "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_mai_noirr.nc"
+calendar_sha256 = "ef077df795c8048aa25b5a9790bce842328170c11354da379f4c424ad60d80df"
+valid_calendar_cells = 686
+
+[[cells]]
+id = "mai_firr"
+crop = "mai"
+irrigation = "firr"
+calendar = "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_mai_firr.nc"
+calendar_sha256 = "a4c5900459acfbd706b102e271c5accff5964f3df90dedeafa28caab165c4b9e"
+valid_calendar_cells = 686
+
+[[cells]]
+id = "soy_noirr"
+crop = "soy"
+irrigation = "noirr"
+calendar = "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_soy_noirr.nc"
+calendar_sha256 = "0c6d5fe1f5d6fc262e5c2e46d626204d36200a4890402f52ffd4f3b0d38834d3"
+valid_calendar_cells = 686
+
+[[cells]]
+id = "soy_firr"
+crop = "soy"
+irrigation = "firr"
+calendar = "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_soy_firr.nc"
+calendar_sha256 = "268eaa89d5cbfe2545f760dc65b44dc423bf47f0a508817cf279516ba9ad3ee3"
+valid_calendar_cells = 686
+
+[[cells]]
+id = "ri1_noirr"
+crop = "ri1"
+irrigation = "noirr"
+calendar = "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_ri1_noirr.nc"
+calendar_sha256 = "1cd9a8fa665f91b660b7401ee978d34e3d376ce6cc740c3ebce12a7f876b5684"
+valid_calendar_cells = 686
+
+[[cells]]
+id = "ri1_firr"
+crop = "ri1"
+irrigation = "firr"
+calendar = "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_ri1_firr.nc"
+calendar_sha256 = "d738f23dc3bed40098a145538d08306c5cb75d8d4a2ee6057e4f65c3b93c81b4"
+valid_calendar_cells = 686
+
+[[cells]]
+id = "ri2_noirr"
+crop = "ri2"
+irrigation = "noirr"
+calendar = "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_ri2_noirr.nc"
+calendar_sha256 = "e8fbee16a2b86560409a90b11fe5af35f5886c1689ed534c41a7453c2ace6299"
+valid_calendar_cells = 408
+
+[[cells]]
+id = "ri2_firr"
+crop = "ri2"
+irrigation = "firr"
+calendar = "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_ri2_firr.nc"
+calendar_sha256 = "22468e93f3aaed3c0a25a451132a9497b0175d67ae30d872c9453af79523fab7"
+valid_calendar_cells = 408
+
+[[cells]]
+id = "swh_noirr"
+crop = "swh"
+irrigation = "noirr"
+calendar = "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_swh_noirr.nc"
+calendar_sha256 = "2455984a6110f1e401c147f61fd3f6d032dd61cf25c42082ae9986ed63ead790"
+valid_calendar_cells = 686
+
+[[cells]]
+id = "swh_firr"
+crop = "swh"
+irrigation = "firr"
+calendar = "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_swh_firr.nc"
+calendar_sha256 = "bb83ca1cae169c57677eabd58614f51da47874f16fe7cd055c3340a99269e6db"
+valid_calendar_cells = 686
+
+[[cells]]
+id = "wwh_noirr"
+crop = "wwh"
+irrigation = "noirr"
+calendar = "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_wwh_noirr.nc"
+calendar_sha256 = "9e8702d3e5899da442ab6f96b252aee5bcf2bb8b34e264887538510abe9e12ef"
+valid_calendar_cells = 686
+
+[[cells]]
+id = "wwh_firr"
+crop = "wwh"
+irrigation = "firr"
+calendar = "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_wwh_firr.nc"
+calendar_sha256 = "49f2429172e62cc308f32da8de60a087a450be2a54a87ecf0ae74fc98d92349d"
+valid_calendar_cells = 686
+
+[validation]
+expected_feature_years = 28
+expected_center_years = 8
+expected_stages = 3
+require_exact_year_sequences = true
+require_exact_stage_season_reconciliation = true
+require_common_same_realization_gmst = true
+require_all_crop_regime_pairs = true
+calendar_pair_is_not_irrigation_treatment = true
