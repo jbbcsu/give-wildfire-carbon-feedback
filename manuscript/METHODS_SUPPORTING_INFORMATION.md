@@ -1390,6 +1390,17 @@ to +11.22 mm, with identical rice pairs. Across 64 templates, every whole-ESM
 or whole-scenario exclusion retains only 40--48, below the locked 51-template
 minimum, so joint dependence and all response, damage, welfare, and SCC gates
 remain closed.
+The preregistered MPI SSP5-8.5 cell then passes all six exact checksum and
+decoded-content gates, a 30-row same-realization GMST, the same 12-cell
+raw/centered feature and exact-reconciliation gates, and a byte-identical
+aggregate-audit rerun. It contributes the same 214,928/644,784 raw and
+61,408/184,224 centered row counts. Calendar-only `firr` minus `noirr`
+centered seasonal-rain differences are +0.85 mm for maize, -14.35 mm for
+soybean, zero for both rice seasons, +12.62 mm for spring wheat, and -23.99 mm
+for winter wheat. The partial matrix contains 72 templates, but every
+whole-ESM or whole-scenario exclusion retains 48, below the locked 51-template
+minimum. Joint dependence and all response, damage, welfare, and SCC gates
+therefore remain closed.
 The subsequent metadata-only acquisition contract pins all 90 official
 version-`20210512` files required for five ESMs, three SSPs, `pr`/`tas`, and
 2031--2060. They total 187,138,935,135 catalogue bytes and are public,

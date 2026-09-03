@@ -897,6 +897,14 @@ pairs are identical. The resulting 64 templates still leave only 40--48 after
 any whole-ESM or whole-scenario exclusion, below the locked 51-template
 minimum. Joint dependence, holdout promotion, response, damage, and SCC use
 remain closed.
+The preregistered MPI SSP5-8.5 replication passes the same six-file content,
+30-year same-realization GMST, all-crop/calendar, exact-reconciliation, and
+byte-identical audit gates, adding the same raw and centered row counts.
+Calendar-only `firr` minus `noirr` centered seasonal-rain differences range
+from -23.99 to +12.62 mm; both rice pairs are identical. The resulting 72
+templates leave 48 after every whole-ESM or whole-scenario exclusion, still
+below the locked 51-template minimum. No joint dependence, response, damage,
+or SCC result is estimated from this incomplete matrix.
 The next metadata-only contract pins the 90 official daily files required to
 replicate this contiguous design across five ESMs and three scenarios. If all
 187.139 GB pass content and feature validation, the matrix contains 120

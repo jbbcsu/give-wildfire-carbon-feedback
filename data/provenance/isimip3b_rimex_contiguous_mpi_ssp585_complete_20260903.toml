@@ -1,0 +1,85 @@
+schema_version = 1
+checked_utc_date = "2026-09-03"
+role = "complete_contiguous_mpi_ssp585_daily_support_not_response_damage_or_scc"
+source_catalogue = "https://data.isimip.org/api/v1/datasets/"
+resource_doi = "10.48364/ISIMIP.842396.1"
+rights = "CC0 1.0"
+dataset_version = "20210512"
+matrix_contract = "config/isimip3b_rimex_contiguous_holdout_matrix_v1.toml"
+matrix_plan = "data/provenance/isimip3b_rimex_contiguous_holdout_matrix_plan.csv"
+esm = "MPI-ESM1-2-HR"
+member = "r1i1p1f1"
+scenario = "ssp585"
+daily_support_years = [2031, 2060]
+crop_feature_years = [2032, 2059]
+centered_output_years = [2042, 2043, 2044, 2045, 2046, 2047, 2048, 2049]
+all_six_catalogue_files_byte_and_sha512_validated = true
+all_six_files_full_content_validated = true
+
+[[files]]
+variable = "pr"
+years = [2031, 2040]
+file_name = "mpi-esm1-2-hr_r1i1p1f1_w5e5_ssp585_pr_global_daily_2031_2040.nc"
+bytes = 2093176452
+sha512 = "2d712dc0229556c45e1cd8ee513c7c27f6cd77077e9df6f9151d3e6d327d2e918b8305e9d629756f97d23a4604e1a448e589ed6d6f7256baaaaf609021000289"
+content_audit = "data/interim/isimip3b/mpi-esm1-2-hr_ssp585_pr_2031_2040_content_audit.json"
+content_audit_sha256 = "99d86b5756d934e81148a3b30119dc5655e7d34b3f40c25d7b85a39f0e8619f3"
+
+[[files]]
+variable = "pr"
+years = [2041, 2050]
+file_name = "mpi-esm1-2-hr_r1i1p1f1_w5e5_ssp585_pr_global_daily_2041_2050.nc"
+bytes = 2099228160
+sha512 = "cb3fafeca870a0298153710abbf8564c95fbcabf0632f4e066f895b6a8ce4e3932adbd533eb877d20ec8b12ae95cd1ad500d708f7427d67433d1601536a19601"
+content_audit = "data/interim/isimip3b/mpi-esm1-2-hr_ssp585_pr_2041_2050_content_audit.json"
+content_audit_sha256 = "c04655158c8737c63586c052a2b30affaedd30ce32d2f56be0e7ce1f95e33ead"
+
+[[files]]
+variable = "pr"
+years = [2051, 2060]
+file_name = "mpi-esm1-2-hr_r1i1p1f1_w5e5_ssp585_pr_global_daily_2051_2060.nc"
+bytes = 2095581381
+sha512 = "264f432e3f3b4af0c3199866dcf469d9beaebefe40261006f7992f671732697ba8e3c1e414ae7c430f04aa82b7a0096bcd4466c145333813c787d6a06994efdb"
+content_audit = "data/interim/isimip3b/mpi-esm1-2-hr_ssp585_pr_2051_2060_content_audit.json"
+content_audit_sha256 = "4bb3dc198a67953ce93e8d56d97aec7b58bfbbd3f1eb87d75f17975c6a0d245d"
+
+[[files]]
+variable = "tas"
+years = [2031, 2040]
+file_name = "mpi-esm1-2-hr_r1i1p1f1_w5e5_ssp585_tas_global_daily_2031_2040.nc"
+bytes = 2056270640
+sha512 = "92d0c5e0f654371a37602b14994af4becdf33b08fbe2171282f750f3e37a9255a99b689ca52d01df4657344339d8957fd0d91a64f6927400cd8ea2ea0017117c"
+content_audit = "data/interim/isimip3b/mpi-esm1-2-hr_ssp585_tas_2031_2040_content_audit.json"
+content_audit_sha256 = "4129a2f671f87607da44c87e67ff080ca8faf02f37947abac90f930590a6cc5e"
+
+[[files]]
+variable = "tas"
+years = [2041, 2050]
+file_name = "mpi-esm1-2-hr_r1i1p1f1_w5e5_ssp585_tas_global_daily_2041_2050.nc"
+bytes = 2056282995
+sha512 = "6ebb7d7fc3e2e038d4e04c6eb9d8c33d6b59a2313bf6fcf777c799d8e3722d9ec06b53890a81e53ef9e678687918baa3c407a581e8202a639557f33ba0fb83aa"
+content_audit = "data/interim/isimip3b/mpi-esm1-2-hr_ssp585_tas_2041_2050_content_audit.json"
+content_audit_sha256 = "23f2255076b8c7265e6941a8a948124bd94a6a1d11fc7660584d037a78ba1beb"
+
+[[files]]
+variable = "tas"
+years = [2051, 2060]
+file_name = "mpi-esm1-2-hr_r1i1p1f1_w5e5_ssp585_tas_global_daily_2051_2060.nc"
+bytes = 2055616231
+sha512 = "f81ab2344fdd4656ba1a0959829ca8b6ebccef901526c1d97d2c03d67f975ad1fa5e744d232e244c79c29025d371f4b39c5412cc5703b2e1dba911a831007594"
+content_audit = "data/interim/isimip3b/mpi-esm1-2-hr_ssp585_tas_2051_2060_content_audit.json"
+content_audit_sha256 = "5d6eff38f896df3a3e98cb5a20e0acdc3d976d1ec6ee3ad4ecfcb3e9531e1725"
+
+[same_realization_gmst]
+output = "data/interim/isimip3b_contiguous_mpi_ssp585/gmst_2031_2060.parquet"
+output_sha256 = "7f31933312e7ffaed60f62d99cfb95e642a039c57bd59efce4009f084090f531"
+rows = 30
+year_start = 2031
+year_end = 2060
+result = "passed"
+
+[limitations]
+joint_dependence_validated = false
+whole_esm_or_scenario_holdouts_passed = false
+fair_feature_response_authorized = false
+damage_or_scc_authorized = false

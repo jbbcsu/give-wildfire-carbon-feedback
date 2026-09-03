@@ -211,6 +211,15 @@ from -21.76 to +11.22 mm across crops, with both rice pairs identical. The
 matrix now has 64 templates, but every whole-ESM or whole-scenario exclusion
 retains only 40--48, below the locked 51-template minimum. Joint dependence,
 holdout promotion, response, damage, and SCC use therefore remain closed.
+The preregistered MPI SSP5-8.5 cell also passes all six checksum/content,
+30-year same-realization GMST, 12-cell feature, exact reconciliation, and
+byte-identical aggregate-audit gates. It contributes the same raw and centered
+row counts. Calendar-only `firr` minus `noirr` centered seasonal-rain
+differences are +0.85 mm for maize, -14.35 mm for soybean, zero for both rice
+seasons, +12.62 mm for spring wheat, and -23.99 mm for winter wheat. The
+matrix now has 72 templates, but excluding any ESM or scenario retains only 48,
+below the locked 51-template minimum. Joint-dependence fitting, whole-ESM and
+whole-scenario promotion, response, damage, and SCC use remain closed.
 A pre-acquisition contiguous holdout matrix now pins all 90 version-`20210512`
 files needed for five ESMs, three scenarios, `pr`/`tas`, and 2031--2060. The
 public, unrestricted CC0 matrix totals 187.139 GB. If every content and feature
