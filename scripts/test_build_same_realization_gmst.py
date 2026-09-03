@@ -59,6 +59,32 @@ with tempfile.TemporaryDirectory() as directory:
     assert output["daily_count"].tolist() == [365, 366]
     assert output["gmst_source_id"].nunique() == 1
 
+    # The bounded reducer must be invariant to block size, including blocks
+    # that cross the input-file boundary.
+    one_day = build(
+        [str(first), str(second)],
+        esm_id="mri-esm2-0",
+        member_id="r1i1p1f1",
+        scenario="historical",
+        source_id="pinned-tas-files-sha512-set",
+        year_start=2019,
+        year_end=2020,
+        block_days=1,
+    )
+    boundary_crossing = build(
+        [str(first), str(second)],
+        esm_id="mri-esm2-0",
+        member_id="r1i1p1f1",
+        scenario="historical",
+        source_id="pinned-tas-files-sha512-set",
+        year_start=2019,
+        year_end=2020,
+        block_days=400,
+    )
+    pd.testing.assert_frame_equal(output, one_day)
+    pd.testing.assert_frame_equal(output, boundary_crossing)
+    failure([str(first), str(second)], "block_days", block_days=0)
+
     gap = root / "tas_gap.nc"
     write(gap, dates.delete(10), values[np.arange(len(dates)) != 10])
     failure([str(gap)], "daily")

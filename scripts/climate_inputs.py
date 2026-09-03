@@ -101,6 +101,18 @@ def daily_series_coordinates(
     )
 
 
+def open_checked_daily_file_arrays(
+    stack: ExitStack, paths: list[str], preferred: str
+) -> tuple[list[xr.DataArray], list[np.ndarray]]:
+    """Return separately opened arrays after full cross-file coordinate checks.
+
+    This interface is for global reductions that must stream each source file
+    independently.  It deliberately avoids :func:`xr.concat`, whose indexed
+    reductions can materialize unexpectedly large multi-file payloads.
+    """
+    return _open_checked_daily_arrays(stack, paths, preferred)
+
+
 def open_daily_series(stack: ExitStack, paths: list[str], preferred: str) -> xr.DataArray:
     """Return a coordinate-checked concatenation of daily input files.
 
