@@ -63,6 +63,11 @@ SHA-256 `ca58247c4f6044948b01048e4a808d21a4975c9f4171e3d0d1fbc321e46ebb52`.
 The FishStat GUI-menu export comparison, marine-tonnage filter, historical
 country reconciliation, allocation, welfare, damage, and SCC gates remain
 open.
+A separate positive-tonnage concentration audit finds that top-five
+vessel-flag-country and reported-species shares fall from 51.34% and 37.71% in
+1950 to 41.07% and 24.23% in 2014, while the top-five FAO-area share remains
+70.84% in 2014. This is descriptive support for retaining explicit
+country/species/area structure, not an observed calibration or allocation.
 
 The ISIMIP3b public catalogue currently exposes 20 global monthly total-catch
 density (`tc`) datasets in a balanced grid of BOATS and EcoOcean, forced by

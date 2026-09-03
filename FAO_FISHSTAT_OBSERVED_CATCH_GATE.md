@@ -69,3 +69,13 @@ positive tonnage never exceeds 0.474 percent of the annual total (1980), but
 the underlying vessel-flag/EEZ and historical-entity crosswalk problem remains.
 These are nominal-landing support diagnostics, not effort or biomass trends,
 model calibration, allocation, welfare, damages, or an SCC input.
+
+A deterministic concentration audit further shows why a single global scaling
+factor is not defensible. From 1950 to 2014, the top-five vessel-flag-country
+share falls from 51.34% to 41.07%, while the top-five reported-species share
+falls from 37.71% to 24.23%; the corresponding Herfindahl indices fall from
+0.0750 to 0.0571 and from 0.0407 to 0.0212. FAO-area concentration remains
+high: the top five areas account for 78.71% in 1950 and 70.84% in 2014. These
+descriptive changes reinforce the need for explicit country/species/area and
+effort structure. They do not reconcile the GUI export, assign catch to EEZs,
+calibrate FishMIP, identify welfare, or authorize damage or SCC use.

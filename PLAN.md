@@ -58,6 +58,12 @@ flag rather than EEZ, mixes inland and marine capture until filtered, and
 preserves missing/suppressed status codes. Record export, marine filtering,
 country/area crosswalks, effort/management identification, and FishMIP
 comparison remain pending; no missing value is treated as zero.
+A post-export concentration audit finds material compositional change over the
+FishMIP historical overlap: top-five vessel-flag-country and species shares
+decline from 51.34%/37.71% in 1950 to 41.07%/24.23% in 2014, while the
+top-five FAO-area share remains 70.84%. This rejects a composition-invariant
+global scaling shortcut but does not authorize filtering, allocation,
+calibration, welfare, damage, or SCC use.
 The official FishStatJ 4.04.11 macOS export runtime is also frozen and passes
 bundle integrity plus a bundled-Java smoke. Its Derby capture schema exposes
 country/species/area/measure keys and separate annual values and symbols. A
