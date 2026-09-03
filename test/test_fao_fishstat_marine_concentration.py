@@ -46,18 +46,30 @@ def capture(path: Path, invalid_missing: bool = False) -> None:
 
 with tempfile.TemporaryDirectory() as folder:
     root = Path(folder)
-    contract_path, csv_path = root / "contract.toml", root / "capture.csv"
+    contract_path, validation_path, csv_path = root / "contract.toml", root / "validation.json", root / "capture.csv"
     contract(contract_path)
     capture(csv_path)
-    result = MODULE.audit(contract_path, csv_path)
+    validation_path.write_text(__import__("json").dumps({
+        "schema": "fao_fishstat_capture_headless_export_validation_v1",
+        "status": "wide_export_reconciled_value_and_status_pairs_preserved",
+        "contract": {"sha256": MODULE.sha256(contract_path)},
+        "export": {"sha256": MODULE.sha256(csv_path), "bytes": csv_path.stat().st_size},
+    }), encoding="utf-8")
+    result = MODULE.audit(contract_path, validation_path, csv_path)
     first = result["results"][0]["concentration_excluding_blank_iso3"]["country_iso3"]
     assert first["top1_share"] == 0.8
     assert first["top5_share"] == 1.0
     assert abs(first["herfindahl_index"] - 0.68) < 1e-12
 
     capture(csv_path, invalid_missing=True)
+    validation_path.write_text(__import__("json").dumps({
+        "schema": "fao_fishstat_capture_headless_export_validation_v1",
+        "status": "wide_export_reconciled_value_and_status_pairs_preserved",
+        "contract": {"sha256": MODULE.sha256(contract_path)},
+        "export": {"sha256": MODULE.sha256(csv_path), "bytes": csv_path.stat().st_size},
+    }), encoding="utf-8")
     try:
-        MODULE.audit(contract_path, csv_path)
+        MODULE.audit(contract_path, validation_path, csv_path)
     except ValueError as error:
         assert "missing-status" in str(error)
     else:

@@ -42,13 +42,20 @@ def concentration(values: dict[str, float]) -> dict[str, float | int]:
     }
 
 
-def audit(contract_path: Path, csv_path: Path) -> dict[str, object]:
+def audit(contract_path: Path, validation_path: Path, csv_path: Path) -> dict[str, object]:
     contract = tomllib.loads(contract_path.read_text(encoding="utf-8"))
     require(contract.get("schema") == EXPECTED_SCHEMA, "headless export schema changed")
     require(contract["source"]["annual_start_year"] <= min(YEARS), "requested years precede the export")
     require(contract["source"]["annual_end_year"] >= max(YEARS), "requested years exceed the export")
     required_status = set(contract["export"]["required_status_codes"])
     missing_status = set(contract["export"]["missing_status_codes"])
+    validation = json.loads(validation_path.read_text(encoding="utf-8"))
+    require(validation.get("schema") == "fao_fishstat_capture_headless_export_validation_v1", "export validation schema changed")
+    require(validation.get("status") == "wide_export_reconciled_value_and_status_pairs_preserved", "headless export validation did not pass")
+    require(validation.get("contract", {}).get("sha256") == sha256(contract_path), "export validation contract hash changed")
+    csv_hash = sha256(csv_path)
+    require(validation.get("export", {}).get("sha256") == csv_hash, "capture CSV differs from the validated headless export")
+    require(validation.get("export", {}).get("bytes") == csv_path.stat().st_size, "capture CSV byte size changed")
 
     totals = {year: 0.0 for year in YEARS}
     blank_iso3 = {year: 0.0 for year in YEARS}
@@ -100,7 +107,11 @@ def audit(contract_path: Path, csv_path: Path) -> dict[str, object]:
     return {
         "schema": "fao_fishstat_marine_concentration_audit_v1",
         "role": "descriptive_reported_capture_concentration_not_allocation_calibration_welfare_damage_or_scc",
-        "input": {"contract_sha256": sha256(contract_path), "csv_sha256": sha256(csv_path)},
+        "input": {
+            "contract_sha256": sha256(contract_path),
+            "validation_sha256": sha256(validation_path),
+            "csv_sha256": csv_hash,
+        },
         "filter": "environment_class=marine; measure_code=Q_tlw; positive reported tonnage only",
         "records": records,
         "results": results,
@@ -115,10 +126,11 @@ def audit(contract_path: Path, csv_path: Path) -> dict[str, object]:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--contract", type=Path, required=True)
+    parser.add_argument("--validation", type=Path, required=True)
     parser.add_argument("--csv", type=Path, required=True)
     parser.add_argument("--out", type=Path, required=True)
     args = parser.parse_args()
-    result = audit(args.contract, args.csv)
+    result = audit(args.contract, args.validation, args.csv)
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print("FAO marine-capture concentration audit passed")
