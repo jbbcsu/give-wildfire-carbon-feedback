@@ -565,6 +565,14 @@ zeroes, but their temporal and geographic concentration prevents treating
 them as a generic crop-failure signal; it does not choose a two-part outcome
 model or estimate a response.
 
+Across counties with numeric crop-specific irrigation shares in the 2012,
+2017, and 2022 Censuses, an outcome-free descriptive audit finds 2017--2022
+agreement of 92.28% for corn, 92.64% for soybeans, and 84.16% for wheat under
+the 10% high-rainfed selector. Corresponding share correlations are 0.938,
+0.954, and 0.834. Census vintage is therefore a material wheat sensitivity;
+the audit does not change the primary pre-outcome 2017 selector, identify an
+irrigation effect, or authorize a response, damage function, or SCC input.
+
 **Regional U.S. competing-moisture diagnostic.** The registered NASS/
 nClimGrid/PDSI comparison retains 23,722 corn/soy crop--county--practice-year
 levels and 20,228 consecutive-year log-yield changes on exact common support.

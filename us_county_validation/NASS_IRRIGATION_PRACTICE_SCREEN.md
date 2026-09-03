@@ -100,6 +100,17 @@ acquired 2018--2022 aggregate-yield panel. The 2012 and 2022 vintages are
 required temporal sensitivities. Threshold counts above are diagnostics, not
 a silently chosen primary threshold; 10%, 20%, and 30% must all be reported.
 
+An outcome-free, post-acquisition stability audit intersects counties with a
+numeric share in all three vintages. At the 10% selector, 2017--2022 agreement
+is 92.28% for corn (751 common counties), 92.64% for soybeans (516), and
+84.16% for wheat (303); the corresponding share correlations are 0.938,
+0.954, and 0.834. The weaker wheat stability makes Census vintage a material
+wheat sensitivity. These are descriptive selector diagnostics, not irrigation
+effects, and they do not alter the primary 2017 selector or authorize a
+response, damage function, or SCC input. Reproduce them with
+`audit_irrigation_share_vintage_stability.py`; the tracked result is
+`data/provenance/us_irrigation_share_vintage_stability_20260903.json`.
+
 ## Reproducible commands and fail-closed rules
 
 Acquire the all-years practice-specific yield records:
@@ -127,6 +138,10 @@ Build and geography-screen the complete 1981--2019 direct-practice support:
     .venv/bin/python us_county_validation/scripts/audit_nass_direct_practice_geography.py --panel PANEL.parquet --tiger-counties TIGER.shp --change-1980 1980.html --change-1990 1990.html --change-2000 2000.html --change-2010 2010.html --out GATE.csv --audit-out GATE.audit.json
 
 Both commands explicitly leave response and SCC authorization false.
+
+Audit the fixed selector across Census vintages:
+
+    .venv/bin/python us_county_validation/scripts/audit_irrigation_share_vintage_stability.py --shares-2012 data/interim/us_county/nass_2012_crop_irrigation_shares.csv --shares-2017 data/interim/us_county/nass_2017_crop_irrigation_shares.csv --shares-2022 data/interim/us_county/nass_2022_crop_irrigation_shares.csv --out data/provenance/us_irrigation_share_vintage_stability_20260903.json
 
 ## Next empirical use
 

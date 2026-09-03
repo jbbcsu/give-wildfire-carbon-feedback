@@ -1,0 +1,251 @@
+{
+  "inputs": [
+    {
+      "census_year": 2012,
+      "path": "data/interim/us_county/nass_2012_crop_irrigation_shares.csv",
+      "sha256": "661a9d8079e73efc157bed9a069ef889b626e3d1506360978a410c56ea430331"
+    },
+    {
+      "census_year": 2017,
+      "path": "data/interim/us_county/nass_2017_crop_irrigation_shares.csv",
+      "sha256": "21f5c2a2dd7e41a88945f5a67511b3cb942b4f13b3581d63aeafb8f0974eabc3"
+    },
+    {
+      "census_year": 2022,
+      "path": "data/interim/us_county/nass_2022_crop_irrigation_shares.csv",
+      "sha256": "b1a3185639c8cf9df2cf0c25d765f33ef969dcb49c847293e9b43f1c5ed3ad3c"
+    }
+  ],
+  "interpretation": "Common-county agreement quantifies sensitivity of fixed share selectors to Census vintage; it does not identify irrigation effects.",
+  "primary_2017_selector_changed": false,
+  "response_damage_or_scc_authorized": false,
+  "results": [
+    {
+      "common_numeric_counties": 751,
+      "crop": "corn",
+      "pairs": [
+        {
+          "left_year": 2012,
+          "mean_absolute_share_difference": 0.066608134754939,
+          "pearson_correlation": 0.938035213515118,
+          "right_year": 2017,
+          "thresholds": [
+            {
+              "agreement_fraction": 0.9201065246338216,
+              "irrigation_share_at_most_percent": 10,
+              "switching_counties": 60
+            },
+            {
+              "agreement_fraction": 0.9374167776298269,
+              "irrigation_share_at_most_percent": 20,
+              "switching_counties": 47
+            },
+            {
+              "agreement_fraction": 0.9387483355525965,
+              "irrigation_share_at_most_percent": 30,
+              "switching_counties": 46
+            }
+          ]
+        },
+        {
+          "left_year": 2017,
+          "mean_absolute_share_difference": 0.06436562676028802,
+          "pearson_correlation": 0.9384783507880889,
+          "right_year": 2022,
+          "thresholds": [
+            {
+              "agreement_fraction": 0.9227696404793608,
+              "irrigation_share_at_most_percent": 10,
+              "switching_counties": 58
+            },
+            {
+              "agreement_fraction": 0.9280958721704394,
+              "irrigation_share_at_most_percent": 20,
+              "switching_counties": 54
+            },
+            {
+              "agreement_fraction": 0.9320905459387483,
+              "irrigation_share_at_most_percent": 30,
+              "switching_counties": 51
+            }
+          ]
+        },
+        {
+          "left_year": 2012,
+          "mean_absolute_share_difference": 0.085218730621025,
+          "pearson_correlation": 0.9069775489530826,
+          "right_year": 2022,
+          "thresholds": [
+            {
+              "agreement_fraction": 0.9067909454061251,
+              "irrigation_share_at_most_percent": 10,
+              "switching_counties": 70
+            },
+            {
+              "agreement_fraction": 0.9107856191744341,
+              "irrigation_share_at_most_percent": 20,
+              "switching_counties": 67
+            },
+            {
+              "agreement_fraction": 0.9134487350199734,
+              "irrigation_share_at_most_percent": 30,
+              "switching_counties": 65
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "common_numeric_counties": 516,
+      "crop": "soybeans",
+      "pairs": [
+        {
+          "left_year": 2012,
+          "mean_absolute_share_difference": 0.047700689621249404,
+          "pearson_correlation": 0.9525546466561381,
+          "right_year": 2017,
+          "thresholds": [
+            {
+              "agreement_fraction": 0.937984496124031,
+              "irrigation_share_at_most_percent": 10,
+              "switching_counties": 32
+            },
+            {
+              "agreement_fraction": 0.9321705426356589,
+              "irrigation_share_at_most_percent": 20,
+              "switching_counties": 35
+            },
+            {
+              "agreement_fraction": 0.937984496124031,
+              "irrigation_share_at_most_percent": 30,
+              "switching_counties": 32
+            }
+          ]
+        },
+        {
+          "left_year": 2017,
+          "mean_absolute_share_difference": 0.046283140027427776,
+          "pearson_correlation": 0.9538884463679966,
+          "right_year": 2022,
+          "thresholds": [
+            {
+              "agreement_fraction": 0.9263565891472868,
+              "irrigation_share_at_most_percent": 10,
+              "switching_counties": 38
+            },
+            {
+              "agreement_fraction": 0.9476744186046512,
+              "irrigation_share_at_most_percent": 20,
+              "switching_counties": 27
+            },
+            {
+              "agreement_fraction": 0.9437984496124031,
+              "irrigation_share_at_most_percent": 30,
+              "switching_counties": 29
+            }
+          ]
+        },
+        {
+          "left_year": 2012,
+          "mean_absolute_share_difference": 0.06289950921092817,
+          "pearson_correlation": 0.9191664478271714,
+          "right_year": 2022,
+          "thresholds": [
+            {
+              "agreement_fraction": 0.9224806201550387,
+              "irrigation_share_at_most_percent": 10,
+              "switching_counties": 40
+            },
+            {
+              "agreement_fraction": 0.9263565891472868,
+              "irrigation_share_at_most_percent": 20,
+              "switching_counties": 38
+            },
+            {
+              "agreement_fraction": 0.9205426356589147,
+              "irrigation_share_at_most_percent": 30,
+              "switching_counties": 41
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "common_numeric_counties": 303,
+      "crop": "wheat",
+      "pairs": [
+        {
+          "left_year": 2012,
+          "mean_absolute_share_difference": 0.07035971719454108,
+          "pearson_correlation": 0.8962376786420293,
+          "right_year": 2017,
+          "thresholds": [
+            {
+              "agreement_fraction": 0.8844884488448845,
+              "irrigation_share_at_most_percent": 10,
+              "switching_counties": 35
+            },
+            {
+              "agreement_fraction": 0.8877887788778878,
+              "irrigation_share_at_most_percent": 20,
+              "switching_counties": 34
+            },
+            {
+              "agreement_fraction": 0.8943894389438944,
+              "irrigation_share_at_most_percent": 30,
+              "switching_counties": 32
+            }
+          ]
+        },
+        {
+          "left_year": 2017,
+          "mean_absolute_share_difference": 0.08500113473536744,
+          "pearson_correlation": 0.8341405070907306,
+          "right_year": 2022,
+          "thresholds": [
+            {
+              "agreement_fraction": 0.8415841584158416,
+              "irrigation_share_at_most_percent": 10,
+              "switching_counties": 48
+            },
+            {
+              "agreement_fraction": 0.8646864686468647,
+              "irrigation_share_at_most_percent": 20,
+              "switching_counties": 41
+            },
+            {
+              "agreement_fraction": 0.8646864686468647,
+              "irrigation_share_at_most_percent": 30,
+              "switching_counties": 41
+            }
+          ]
+        },
+        {
+          "left_year": 2012,
+          "mean_absolute_share_difference": 0.09378794683004812,
+          "pearson_correlation": 0.8011677660466915,
+          "right_year": 2022,
+          "thresholds": [
+            {
+              "agreement_fraction": 0.8382838283828383,
+              "irrigation_share_at_most_percent": 10,
+              "switching_counties": 49
+            },
+            {
+              "agreement_fraction": 0.858085808580858,
+              "irrigation_share_at_most_percent": 20,
+              "switching_counties": 43
+            },
+            {
+              "agreement_fraction": 0.8514851485148515,
+              "irrigation_share_at_most_percent": 30,
+              "switching_counties": 45
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "schema": "us_irrigation_share_vintage_stability_v1",
+  "status": "validated_descriptive_selector_stability_not_irrigation_effect_response_damage_or_scc"
+}

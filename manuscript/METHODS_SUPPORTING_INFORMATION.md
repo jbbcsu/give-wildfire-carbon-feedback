@@ -48,6 +48,12 @@ all-years, all-classes screen acquired paired `IRRIGATED` and
 practice-yield support is regional rather than national. The 2017 Census share
 is the pre-outcome national selector, with 2012/2022 vintages as sensitivities;
 missing or suppressed irrigated acreage is excluded, never zero-filled.
+For counties with numeric shares in all three vintages, a descriptive
+outcome-free audit reports 2017--2022 10%-selector agreement of 92.28% for
+corn, 92.64% for soybeans, and 84.16% for wheat. The corresponding correlations
+are 0.938, 0.954, and 0.834. The primary 2017 selector is unchanged, while
+wheat requires explicit vintage sensitivity; no irrigation effect, response,
+damage, or SCC claim follows from this diagnostic.
 All API queries, counts, checksums, and coverage appear in
 `data/provenance/nass_irrigation_practice_screen.toml`. No county response is
 estimated until the full county-polygon primary exposure, CDL sensitivity,
