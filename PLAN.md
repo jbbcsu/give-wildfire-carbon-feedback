@@ -221,10 +221,14 @@ pending; no geometry has been acquired into this repository.
 The official named GeoPackage request endpoints have been resolved for both
 products. They return provider registration forms, not files, and require a
 name, organisation, email, country, user category, purpose, and explicit
-disclaimer acceptance. No personal data were invented or submitted and no
-terms were accepted by the automation. Acquisition is therefore blocked on an
-authorized human submission or a provider-supplied non-personal access route;
-the exact downloadable object remains unpinned.
+disclaimer acceptance. The official WFS metadata route was also checked. Its
+capabilities identify `MarineRegions:eez` as EEZ v12 and its schema exposes
+polygon type, territory/sovereign ISO slots, and MultiSurface geometry, but the
+service access constraint asks users to contact VLIZ before using a layer. No
+geometry was requested, no personal data were invented or submitted, no
+provider contact was made, and no terms were accepted by the automation.
+Acquisition therefore remains blocked on authorized human terms acceptance or
+provider permission; the exact geometry object remains unpinned.
 
 The Blue-SCC audit sharpens this gate. A first benchmark can use its published
 country temperature damage coefficients only after source-license and exact-

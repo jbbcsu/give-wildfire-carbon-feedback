@@ -321,7 +321,11 @@ The named EEZ and High Seas GeoPackage request endpoints are now resolved,
 but each returns a provider form requiring personal registration fields and
 explicit disclaimer acceptance before supplying the file. The automation has
 not submitted personal data or accepted terms. Acquisition remains blocked on
-an authorized human request or a provider-approved non-personal route.
+an authorized human request or a provider-approved non-personal route. The
+official WFS metadata route does expose EEZ v12 and the allocation-relevant
+polygon/territory/sovereign/ISO schema, but its capabilities document asks
+users to contact VLIZ before using a layer. No geometry was requested and this
+metadata check does not remove the authorization gate.
 
 Run the synthetic checks with:
 
