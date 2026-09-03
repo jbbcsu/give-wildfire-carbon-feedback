@@ -1423,6 +1423,19 @@ templates leave 56--72 after whole-ESM exclusions and 56 after SSP3-7.0 or
 SSP5-8.5 exclusion, but only 48 after SSP1-2.6 exclusion. The balanced matrix
 remains incomplete, so joint dependence and all response, damage, welfare, and
 SCC gates remain closed.
+The MRI-ESM2-0 `r1i1p1f1` SSP3-7.0 cell subsequently passes the frozen
+six-file checksum/content, 30-row same-realization GMST, 12-cell raw/centered,
+exact-reconciliation, and byte-identical aggregate-audit gates. It contributes
+214,928 seasonal, 644,784 stage, 61,408 centered-seasonal, and 184,224
+centered-stage rows. Calendar-only `firr` minus `noirr` centered seasonal-rain
+differences are +0.92 mm for maize, -15.78 mm for soybean, zero for both rice
+seasons, +13.08 mm for spring wheat, and -22.93 mm for winter wheat; they do
+not identify irrigation effects. The 88 available templates leave 64--72
+training templates after excluding a represented ESM and 56--64 after
+excluding a scenario, above the locked 51-template minimum in every currently
+represented exclusion. UKESM1-0-LL nevertheless has no contiguous feature
+templates, so the balanced five-ESM matrix is incomplete and joint dependence,
+holdout promotion, response, damage, welfare, and SCC gates remain closed.
 The subsequent metadata-only acquisition contract pins all 90 official
 version-`20210512` files required for five ESMs, three SSPs, `pr`/`tas`, and
 2031--2060. They total 187,138,935,135 catalogue bytes and are public,

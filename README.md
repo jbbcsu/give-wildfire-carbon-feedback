@@ -229,6 +229,19 @@ exclusions retain 56--72 templates and SSP3-7.0 or SSP5-8.5 exclusions retain
 56, but an SSP1-2.6 exclusion retains only 48. The balanced preregistered
 matrix remains incomplete, so joint dependence, holdout promotion, response,
 damage, and SCC use remain closed.
+The MRI-ESM2-0 `r1i1p1f1` SSP3-7.0 cell also passes the frozen six-file
+checksum/content, same-realization 30-year GMST, 12-cell raw/centered,
+exact-reconciliation, and byte-identical aggregate-audit gates. It contributes
+214,928 seasonal, 644,784 stage, 61,408 centered-seasonal, and 184,224
+centered-stage rows. Calendar-only `firr` minus `noirr` centered seasonal-rain
+differences range from -22.93 to +13.08 mm, with both rice pairs identical;
+these are calendar contrasts, not irrigation treatment effects. The available
+matrix now has 88 templates. Excluding any represented ESM leaves 64--72
+training templates, while excluding a scenario leaves 56--64, so every
+currently represented exclusion is numerically above the locked 51-template
+minimum. UKESM1-0-LL still has no contiguous feature templates and the balanced
+five-ESM matrix remains incomplete; joint dependence, holdout promotion,
+response, damage, and SCC use therefore remain closed.
 A pre-acquisition contiguous holdout matrix now pins all 90 version-`20210512`
 files needed for five ESMs, three scenarios, `pr`/`tas`, and 2031--2060. The
 public, unrestricted CC0 matrix totals 187.139 GB. If every content and feature

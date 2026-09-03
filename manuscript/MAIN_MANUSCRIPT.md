@@ -928,6 +928,18 @@ templates leave 56--72 after whole-ESM exclusions and 56 after SSP3-7.0 or
 SSP5-8.5 exclusion, but only 48 after SSP1-2.6 exclusion. The preregistered
 balanced matrix remains incomplete, so no joint dependence, response, damage,
 or SCC result is estimated.
+The MRI-ESM2-0 `r1i1p1f1` SSP3-7.0 replication also passes the frozen six-file
+checksum/content, 30-year same-realization GMST, all-crop/calendar,
+exact-reconciliation, and byte-identical audit gates. It adds 214,928 seasonal,
+644,784 stage, 61,408 centered-seasonal, and 184,224 centered-stage rows.
+Calendar-only `firr` minus `noirr` centered seasonal-rain differences range
+from -22.93 to +13.08 mm, with identical rice pairs; these are not irrigation
+treatment effects. The resulting 88 templates leave 64--72 after excluding a
+represented ESM and 56--64 after excluding a scenario, placing every currently
+represented exclusion above the locked 51-template minimum. However,
+UKESM1-0-LL has no contiguous feature templates and the preregistered balanced
+five-ESM matrix remains incomplete. No joint dependence, response, damage, or
+SCC result is estimated from the incomplete matrix.
 The next metadata-only contract pins the 90 official daily files required to
 replicate this contiguous design across five ESMs and three scenarios. If all
 187.139 GB pass content and feature validation, the matrix contains 120
