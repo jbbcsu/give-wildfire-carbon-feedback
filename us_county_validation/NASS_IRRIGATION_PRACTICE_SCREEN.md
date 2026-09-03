@@ -111,6 +111,16 @@ response, damage function, or SCC input. Reproduce them with
 `audit_irrigation_share_vintage_stability.py`; the tracked result is
 `data/provenance/us_irrigation_share_vintage_stability_20260903.json`.
 
+A counts-only audit next applies the fixed 2017 selectors to the locked
+1981--2019 national all-practice panel without reading yield magnitudes. The
+10/20/30% thresholds retain 15,772/19,832/22,219 reported corn county-years
+(20.80%/26.15%/29.30% of the national panel) and
+14,652/17,328/18,685 soybean county-years (23.65%/27.97%/30.16%). At 10%,
+annual retained support ranges from 296 to 424 corn counties and 283 to 391
+soybean counties. The large, threshold-sensitive coverage loss must be carried
+into national response validation; it is not evidence of an irrigation effect
+and does not authorize response, damage, or SCC use.
+
 ## Reproducible commands and fail-closed rules
 
 Acquire the all-years practice-specific yield records:
@@ -142,6 +152,10 @@ Both commands explicitly leave response and SCC authorization false.
 Audit the fixed selector across Census vintages:
 
     .venv/bin/python us_county_validation/scripts/audit_irrigation_share_vintage_stability.py --shares-2012 data/interim/us_county/nass_2012_crop_irrigation_shares.csv --shares-2017 data/interim/us_county/nass_2017_crop_irrigation_shares.csv --shares-2022 data/interim/us_county/nass_2022_crop_irrigation_shares.csv --out data/provenance/us_irrigation_share_vintage_stability_20260903.json
+
+Audit counts-only selector retention in the national panel:
+
+    .venv/bin/python us_county_validation/scripts/audit_national_irrigation_selector_support.py --panel data/interim/us_county/nass_national_all_practice_panel_1981_2019.parquet --out data/provenance/us_national_irrigation_selector_support_20260903.json
 
 ## Next empirical use
 

@@ -54,6 +54,13 @@ corn, 92.64% for soybeans, and 84.16% for wheat. The corresponding correlations
 are 0.938, 0.954, and 0.834. The primary 2017 selector is unchanged, while
 wheat requires explicit vintage sensitivity; no irrigation effect, response,
 damage, or SCC claim follows from this diagnostic.
+A counts-only selector audit then reads only crop, county, year, fixed-share,
+and eligibility fields from the locked 1981--2019 national panel. The
+10/20/30% thresholds retain 20.80%/26.15%/29.30% of reported corn county-years
+and 23.65%/27.97%/30.16% of reported soybean county-years. At 10%, annual
+retained support spans 296--424 corn and 283--391 soybean counties. The audit
+does not read yield magnitudes, change the primary 2017 selector, identify an
+irrigation effect, or authorize response, damage, welfare, or SCC use.
 All API queries, counts, checksums, and coverage appear in
 `data/provenance/nass_irrigation_practice_screen.toml`. No county response is
 estimated until the full county-polygon primary exposure, CDL sensitivity,

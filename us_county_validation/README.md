@@ -133,6 +133,13 @@ audit finds 2017--2022 10%-selector agreement of 92.28% for corn, 92.64% for
 soybeans, and 84.16% for wheat. The lower wheat agreement requires an explicit
 vintage sensitivity; it does not change the primary 2017 selector or authorize
 an effect, response, damage function, or SCC input.
+A separate counts-only audit applies the fixed 2017 selectors to the locked
+1981--2019 national panel without reading yield magnitudes. The 10/20/30%
+thresholds retain 20.80%/26.15%/29.30% of reported corn county-years and
+23.65%/27.97%/30.16% of reported soybean county-years. At the 10% threshold,
+annual support ranges from 296 to 424 corn counties and 283 to 391 soybean
+counties. This threshold-sensitive attrition is a required validation result,
+not an irrigation effect or authorization for response, damage, or SCC use.
 
 This is a bounded acquisition fallback, not authorization to mix NASS series
 or call aggregate county yield non-irrigated. Run

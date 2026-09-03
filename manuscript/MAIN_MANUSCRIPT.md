@@ -573,6 +573,15 @@ the 10% high-rainfed selector. Corresponding share correlations are 0.938,
 the audit does not change the primary pre-outcome 2017 selector, identify an
 irrigation effect, or authorize a response, damage function, or SCC input.
 
+A counts-only support audit applies the fixed 2017 selector to the locked
+1981--2019 national panel without reading yield magnitudes. Across 10/20/30%
+thresholds, retained reported county-years are 15,772/19,832/22,219 for corn
+(20.80%/26.15%/29.30%) and 14,652/17,328/18,685 for soybean
+(23.65%/27.97%/30.16%). At 10%, annual support ranges from 296 to 424 corn
+counties and 283 to 391 soybean counties. This material, threshold-sensitive
+attrition must be reported in any national validation and supplies no
+irrigation effect, response, damage, or SCC estimate.
+
 **Regional U.S. competing-moisture diagnostic.** The registered NASS/
 nClimGrid/PDSI comparison retains 23,722 corn/soy crop--county--practice-year
 levels and 20,228 consecutive-year log-yield changes on exact common support.
