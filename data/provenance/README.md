@@ -4,6 +4,13 @@ One TOML record per acquired source. A record must include the exact file URL,
 catalogue/landing page, version, license, checksum, retrieval date, coverage,
 and the approved use boundary. Commit records, never raw source files.
 
+`local_isimip3b_raw_eviction_20260903.json` records the deliberate local
+deletion of 60 public, reproducible ISIMIP files after exact receipt, byte,
+SHA-512, content-audit, and derived-GMST checks. It is a storage-management
+receipt, not a deletion of unique evidence. Code must treat its paths as
+intentionally evicted and may reacquire them only under the registered source
+identity for a specific unfinished calculation.
+
 `climate_emulator_candidates.toml` records third-party climate and crop
 emulators assessed for reuse or benchmarking, including audited repository
 commits and licenses. It is a decision/provenance record, not vendored code and

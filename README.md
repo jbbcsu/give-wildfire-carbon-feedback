@@ -26,6 +26,14 @@ The reviewed USEPA annual pattern-scaling workflow is retained as a distinct
 external benchmark and FAIR--GCM pairing sensitivity in
 [EPA_PATTERN_SCALING_BENCHMARK.md](EPA_PATTERN_SCALING_BENCHMARK.md); it is not
 the primary crop-feature driver or an additional damage term.
+Local storage is governed by the machine-readable eviction receipt at
+`data/provenance/local_isimip3b_raw_eviction_20260903.json`. Sixty completed,
+checksum-verified public ISIMIP source files were removed after their derived
+features and provenance were preserved, reclaiming 124.6 GB. Their absence is
+intentional and must not trigger automatic reacquisition. Rehydrate a recorded
+file only for a specific unfinished downstream calculation, verify it against
+the retained byte/SHA-512 contract, process it sequentially, and evict it again
+after the new derived output is validated.
 The primary matched baseline/pulse route and its acquisition/validation gates
 are fixed in [PAIRED_CLIMATE_FEATURE_DRIVER.md](PAIRED_CLIMATE_FEATURE_DRIVER.md):
 derive the exact crop features from version-pinned daily ISIMIP3b fields, fit
