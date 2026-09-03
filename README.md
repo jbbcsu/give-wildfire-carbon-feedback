@@ -203,6 +203,14 @@ but it remains unbalanced: holding out MPI leaves 48 templates, holding out
 GFDL or IPSL leaves 32, and holding out SSP1-2.6 leaves 32. Joint-dependence
 fitting, whole-ESM/scenario promotion, response, damage, and SCC use remain
 closed until the registered balanced holdouts can be run.
+The matched preregistered MPI SSP3-7.0 cell now passes the same six-file,
+same-realization GMST, 12-cell, reconciliation, and deterministic-rerun gates,
+with the same 214,928/644,784 raw and 61,408/184,224 centered row counts.
+Calendar-only `firr` minus `noirr` centered seasonal-rain differences range
+from -21.76 to +11.22 mm across crops, with both rice pairs identical. The
+matrix now has 64 templates, but every whole-ESM or whole-scenario exclusion
+retains only 40--48, below the locked 51-template minimum. Joint dependence,
+holdout promotion, response, damage, and SCC use therefore remain closed.
 A pre-acquisition contiguous holdout matrix now pins all 90 version-`20210512`
 files needed for five ESMs, three scenarios, `pr`/`tas`, and 2031--2060. The
 public, unrestricted CC0 matrix totals 187.139 GB. If every content and feature

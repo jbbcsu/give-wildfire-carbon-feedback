@@ -1381,6 +1381,15 @@ templates but does not satisfy the registered holdout design: an MPI exclusion
 retains 48 templates, a GFDL or IPSL exclusion retains 32, and an SSP1-2.6
 exclusion retains 32. Joint-dependence fitting and all response, damage,
 welfare, and SCC uses remain closed.
+The matched MPI SSP3-7.0 replication passes the same six-file checksum and
+decoded-content gates, 30-row same-realization GMST, 12-cell raw/centered
+feature reconciliation, and byte-identical aggregate-audit rerun. Its
+214,928/644,784 raw and 61,408/184,224 centered rows add eight templates;
+calendar-only `firr` minus `noirr` seasonal-rain differences range from -21.76
+to +11.22 mm, with identical rice pairs. Across 64 templates, every whole-ESM
+or whole-scenario exclusion retains only 40--48, below the locked 51-template
+minimum, so joint dependence and all response, damage, welfare, and SCC gates
+remain closed.
 The subsequent metadata-only acquisition contract pins all 90 official
 version-`20210512` files required for five ESMs, three SSPs, `pr`/`tas`, and
 2031--2060. They total 187,138,935,135 catalogue bytes and are public,

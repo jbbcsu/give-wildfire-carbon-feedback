@@ -889,6 +889,14 @@ identical. Although the resulting 56 templates exceed the unconditional
 holdouts: excluding MPI retains 48 templates, excluding either complete ESM
 retains 32, and excluding SSP1-2.6 retains 32. No joint dependence, crop
 response, damage, or SCC result is estimated from this unbalanced support.
+The matched preregistered MPI SSP3-7.0 cell also passes six-file content,
+same-realization GMST, all-crop/calendar, reconciliation, and byte-identical
+audit gates with the same row counts. Its calendar-only `firr` minus `noirr`
+centered seasonal-rain differences span -21.76 to +11.22 mm, and both rice
+pairs are identical. The resulting 64 templates still leave only 40--48 after
+any whole-ESM or whole-scenario exclusion, below the locked 51-template
+minimum. Joint dependence, holdout promotion, response, damage, and SCC use
+remain closed.
 The next metadata-only contract pins the 90 official daily files required to
 replicate this contiguous design across five ESMs and three scenarios. If all
 187.139 GB pass content and feature validation, the matrix contains 120
