@@ -179,10 +179,19 @@ The matching IPSL-CM6A-LR SSP3-7.0 replication now passes the same six-file,
 It adds another 214,928 seasonal, 644,784 stage, 61,408 centered seasonal, and
 184,224 centered stage rows. Centered `firr` minus `noirr` seasonal-rain
 differences range from -25.10 to +12.80 mm across crops, while both rice pairs
-remain identical. The completed contiguous design therefore contains 40
-center-year templates, still below the locked 51-template dependence minimum
-and unbalanced across ESMs and scenarios; response, damage, and SCC use remains
-closed.
+remain identical. The IPSL-CM6A-LR SSP5-8.5 replication subsequently passes
+the same gates and row counts with its own same-realization GMST series and a
+byte-identical aggregate-audit rerun. Its centered calendar-only seasonal-rain
+differences range from -25.94 to +12.50 mm, again with identical rice pairs.
+In the exact-key 2032--2059 comparison with IPSL SSP1-2.6, SSP5-8.5 is
+0.580--0.836 C warmer and seasonal rain changes range from -5.07 to +12.62 mm
+across the 12 cells; these are descriptive climate-feature differences, not
+crop responses.
+The completed contiguous design therefore contains 48 center-year templates:
+three scenarios for each of two ESMs. It is still below the locked 51-template
+dependence minimum, and holding out either ESM leaves only 24 training
+templates while holding out one scenario leaves 32. Joint-dependence,
+whole-ESM/scenario response, damage, and SCC use therefore remain closed.
 A pre-acquisition contiguous holdout matrix now pins all 90 version-`20210512`
 files needed for five ESMs, three scenarios, `pr`/`tas`, and 2031--2060. The
 public, unrestricted CC0 matrix totals 187.139 GB. If every content and feature

@@ -859,8 +859,17 @@ same-realization GMST, 12-cell feature, reconciliation, and deterministic-audit
 gates. It contributes eight additional centered-year templates. Across crops,
 the `firr` minus `noirr` centered seasonal-rain difference ranges from -25.10
 to +12.80 mm, with identical rice pairs. The five completed ESM-scenario cells
-provide only 40 templates and remain unbalanced, so joint-dependence,
-whole-ESM/scenario response, damage, and SCC gates remain closed.
+provide 40 templates. The matched SSP5-8.5 cell subsequently passes the same
+gates and row counts, including a byte-identical aggregate-audit rerun; its
+calendar-only seasonal-rain differences range from -25.94 to +12.50 mm and
+both rice pairs remain identical. The six completed ESM-scenario cells provide
+48 templates. Its exact-key 2032--2059 comparison with IPSL SSP1-2.6 yields
+cell-mean warming of 0.580--0.836 C and seasonal-rain changes of -5.07 to
++12.62 mm; these are descriptive climate-feature changes, not yield effects.
+The matrix remains below the 51-template dependence threshold, and an
+ESM holdout leaves only 24 training templates while a scenario holdout leaves
+32. Joint-dependence, whole-ESM/scenario response, damage, and SCC gates remain
+closed.
 The next metadata-only contract pins the 90 official daily files required to
 replicate this contiguous design across five ESMs and three scenarios. If all
 187.139 GB pass content and feature validation, the matrix contains 120

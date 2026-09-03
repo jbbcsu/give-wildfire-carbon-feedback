@@ -1350,9 +1350,19 @@ content, chronology, 30-row same-realization GMST, and every preregistered
 12-cell feature and reconciliation gate pass. The build adds 214,928 seasonal
 and 644,784 stage rows before centering and 61,408 seasonal and 184,224 stage
 rows after 21-year centering; its aggregate audit reproduces byte-identically.
-Together the completed matrix has 40 centered templates, below the 51-template
-dependence minimum and still unsuitable for balanced whole-ESM or
-whole-scenario exclusion.
+The matching SSP5-8.5 cell then binds and validates six additional files and
+passes the same GMST, row-count, reconciliation, and deterministic-audit gates.
+Its `firr` minus `noirr` centered seasonal-rain differences range from -25.94
+to +12.50 mm across crops, with both rice pairs identical; these remain
+calendar-date sensitivities rather than irrigation effects. Together the two
+complete three-scenario ESMs provide 48 centered templates. An exact-key
+2032--2059 SSP5-8.5-minus-SSP1-2.6 comparison passes for all 12 cells; mean
+temperature changes range from +0.580 to +0.836 C and seasonal-precipitation
+changes from -5.07 to +12.62 mm. These are climate-feature comparisons, not
+response estimates. The matrix is below the 51-template dependence minimum;
+holding out either ESM retains only 24 training templates, and holding out one
+scenario retains 32, so whole-ESM and whole-scenario response validation remain
+closed.
 The subsequent metadata-only acquisition contract pins all 90 official
 version-`20210512` files required for five ESMs, three SSPs, `pr`/`tas`, and
 2031--2060. They total 187,138,935,135 catalogue bytes and are public,
