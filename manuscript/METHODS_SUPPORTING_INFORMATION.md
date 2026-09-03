@@ -1408,6 +1408,16 @@ for winter wheat. The partial matrix contains 72 templates, but every
 whole-ESM or whole-scenario exclusion retains 48, below the locked 51-template
 minimum. Joint dependence and all response, damage, welfare, and SCC gates
 therefore remain closed.
+The MRI-ESM2-0 `r1i1p1f1` SSP1-2.6 cell subsequently passes the same six-file
+checksum/content, 30-row same-realization GMST, 12-cell raw/centered,
+exact-reconciliation, and byte-identical aggregate-audit gates. It contributes
+the same row counts. Calendar-only `firr` minus `noirr` centered seasonal-rain
+differences are +0.84 mm for maize, -15.19 mm for soybean, zero for both rice
+seasons, +13.80 mm for spring wheat, and -28.16 mm for winter wheat. The 80
+templates leave 56--72 after whole-ESM exclusions and 56 after SSP3-7.0 or
+SSP5-8.5 exclusion, but only 48 after SSP1-2.6 exclusion. The balanced matrix
+remains incomplete, so joint dependence and all response, damage, welfare, and
+SCC gates remain closed.
 The subsequent metadata-only acquisition contract pins all 90 official
 version-`20210512` files required for five ESMs, three SSPs, `pr`/`tas`, and
 2031--2060. They total 187,138,935,135 catalogue bytes and are public,

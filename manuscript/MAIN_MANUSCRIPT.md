@@ -914,6 +914,15 @@ from -23.99 to +12.62 mm; both rice pairs are identical. The resulting 72
 templates leave 48 after every whole-ESM or whole-scenario exclusion, still
 below the locked 51-template minimum. No joint dependence, response, damage,
 or SCC result is estimated from this incomplete matrix.
+The MRI-ESM2-0 `r1i1p1f1` SSP1-2.6 replication then passes the same six-file
+content, 30-year same-realization GMST, all-crop/calendar,
+exact-reconciliation, and byte-identical audit gates. It adds the same raw and
+centered row counts; calendar-only `firr` minus `noirr` centered seasonal-rain
+differences range from -28.16 to +13.80 mm, with identical rice pairs. The 80
+templates leave 56--72 after whole-ESM exclusions and 56 after SSP3-7.0 or
+SSP5-8.5 exclusion, but only 48 after SSP1-2.6 exclusion. The preregistered
+balanced matrix remains incomplete, so no joint dependence, response, damage,
+or SCC result is estimated.
 The next metadata-only contract pins the 90 official daily files required to
 replicate this contiguous design across five ESMs and three scenarios. If all
 187.139 GB pass content and feature validation, the matrix contains 120

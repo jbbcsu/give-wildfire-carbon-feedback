@@ -220,6 +220,15 @@ seasons, +12.62 mm for spring wheat, and -23.99 mm for winter wheat. The
 matrix now has 72 templates, but excluding any ESM or scenario retains only 48,
 below the locked 51-template minimum. Joint-dependence fitting, whole-ESM and
 whole-scenario promotion, response, damage, and SCC use remain closed.
+The MRI-ESM2-0 `r1i1p1f1` SSP1-2.6 cell next passes the same six-file,
+same-realization GMST, 12-cell, exact-reconciliation, and deterministic-rerun
+gates, adding the same raw and centered row counts. Calendar-only `firr` minus
+`noirr` centered seasonal-rain differences range from -28.16 to +13.80 mm,
+with both rice pairs identical. The matrix now has 80 templates. Whole-ESM
+exclusions retain 56--72 templates and SSP3-7.0 or SSP5-8.5 exclusions retain
+56, but an SSP1-2.6 exclusion retains only 48. The balanced preregistered
+matrix remains incomplete, so joint dependence, holdout promotion, response,
+damage, and SCC use remain closed.
 A pre-acquisition contiguous holdout matrix now pins all 90 version-`20210512`
 files needed for five ESMs, three scenarios, `pr`/`tas`, and 2031--2060. The
 public, unrestricted CC0 matrix totals 187.139 GB. If every content and feature

@@ -1,0 +1,85 @@
+schema_version = 1
+checked_utc_date = "2026-09-03"
+role = "complete_contiguous_mri_ssp126_daily_support_not_response_damage_or_scc"
+source_catalogue = "https://data.isimip.org/api/v1/datasets/"
+resource_doi = "10.48364/ISIMIP.842396.1"
+rights = "CC0 1.0"
+dataset_version = "20210512"
+matrix_contract = "config/isimip3b_rimex_contiguous_holdout_matrix_v1.toml"
+matrix_plan = "data/provenance/isimip3b_rimex_contiguous_holdout_matrix_plan.csv"
+esm = "MRI-ESM2-0"
+member = "r1i1p1f1"
+scenario = "ssp126"
+daily_support_years = [2031, 2060]
+crop_feature_years = [2032, 2059]
+centered_output_years = [2042, 2043, 2044, 2045, 2046, 2047, 2048, 2049]
+all_six_catalogue_files_byte_and_sha512_validated = true
+all_six_files_full_content_validated = true
+
+[[files]]
+variable = "pr"
+years = [2031, 2040]
+file_name = "mri-esm2-0_r1i1p1f1_w5e5_ssp126_pr_global_daily_2031_2040.nc"
+bytes = 2075528938
+sha512 = "9d77f476399214a4d6f8ac177b2e1cc4bc480573bf8376d165db3d4bdb3c759c73794af8ebdd86a6048c5894bd7ac7e0951cbe1e9ccafc84679c82cc8e4de326"
+content_audit = "data/interim/isimip3b/mri-esm2-0_ssp126_pr_2031_2040_content_audit.json"
+content_audit_sha256 = "d17cd2c75ef1ae6525457f31008aab4945d07c80372052db86b44435ef09e170"
+
+[[files]]
+variable = "pr"
+years = [2041, 2050]
+file_name = "mri-esm2-0_r1i1p1f1_w5e5_ssp126_pr_global_daily_2041_2050.nc"
+bytes = 2081538646
+sha512 = "f13e73dd1cc5f3b06f988734c6c21e3d64ae58fd290a3309ccd67ccc67249826c7c98df2f2d9b587d0c136915613d6e2cedfc764a2f99faff2966d2e3fc4cd89"
+content_audit = "data/interim/isimip3b/mri-esm2-0_ssp126_pr_2041_2050_content_audit.json"
+content_audit_sha256 = "a5a91247ea5aa780775ce569bdd8f069afde865615f679ed4fc728c6172dfc12"
+
+[[files]]
+variable = "pr"
+years = [2051, 2060]
+file_name = "mri-esm2-0_r1i1p1f1_w5e5_ssp126_pr_global_daily_2051_2060.nc"
+bytes = 2086073630
+sha512 = "c1ca993f749593630ab2f4e1ac651ffc727b20fd5e6babe0b6c4efaf7693d07f081cc3c0df2f13a201d2b0382ee25830c9d44e407afb9bd1d47d27c7f8031ef7"
+content_audit = "data/interim/isimip3b/mri-esm2-0_ssp126_pr_2051_2060_content_audit.json"
+content_audit_sha256 = "4b44e40492ea6ffb04734c0fab80c030b251571dbc9a5009fdae308f1b1751a1"
+
+[[files]]
+variable = "tas"
+years = [2031, 2040]
+file_name = "mri-esm2-0_r1i1p1f1_w5e5_ssp126_tas_global_daily_2031_2040.nc"
+bytes = 2047429927
+sha512 = "f4d88e2acce771fa209e286f0f824f0da8f78c8ee2f766e7152569850c7a8401fd1885840e46f70cfe6f80af011a9016cfc9b651486aa4dd74517d076fe9f41a"
+content_audit = "data/interim/isimip3b/mri-esm2-0_ssp126_tas_2031_2040_content_audit.json"
+content_audit_sha256 = "8fbbcee061a366ed1dbb7091dd9a18664b6c4923a695dfe25ef48ea6cdfad8b3"
+
+[[files]]
+variable = "tas"
+years = [2041, 2050]
+file_name = "mri-esm2-0_r1i1p1f1_w5e5_ssp126_tas_global_daily_2041_2050.nc"
+bytes = 2047282501
+sha512 = "f515e4f63499020d407eb761597102af92382b7883b6c51af893ffb8f8bb658ae92876c15237e9960919c4db0578bfe76a2feef63ada8cf97b6a087f6f45d2f7"
+content_audit = "data/interim/isimip3b/mri-esm2-0_ssp126_tas_2041_2050_content_audit.json"
+content_audit_sha256 = "fbfd8a2ba577a916939b55fa72408e7ab95ef211399eea3c81e876864f838ab8"
+
+[[files]]
+variable = "tas"
+years = [2051, 2060]
+file_name = "mri-esm2-0_r1i1p1f1_w5e5_ssp126_tas_global_daily_2051_2060.nc"
+bytes = 2047503727
+sha512 = "d7c45d37603005668941f5958052caa4926ec4253d3f0834fd1d15ac48a05fdad6196611bcffc5ef3550c013923fc683b0a875715a2b9fd2f58800db13ecf8d5"
+content_audit = "data/interim/isimip3b/mri-esm2-0_ssp126_tas_2051_2060_content_audit.json"
+content_audit_sha256 = "8373982aab9dcb49cdd2fca1bfa3bb0b3efdfeee354351d7334243b7da699425"
+
+[same_realization_gmst]
+output = "data/interim/isimip3b_contiguous_mri_ssp126/gmst_2031_2060.parquet"
+output_sha256 = "435c13d16702a71fbf3195412c273d9b861c8e206a4619c27af48cfd4f54203c"
+rows = 30
+year_start = 2031
+year_end = 2060
+result = "passed"
+
+[limitations]
+joint_dependence_validated = false
+whole_esm_or_scenario_holdouts_passed = false
+fair_feature_response_authorized = false
+damage_or_scc_authorized = false
