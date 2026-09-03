@@ -1344,6 +1344,15 @@ every cell shares the same centered GMST identity and the aggregate audit is
 byte-identical on rerun. With 24 GFDL and eight IPSL centered templates, the
 available 32-template design remains below the 51-template dependence minimum
 and cannot support a balanced whole-ESM or whole-scenario exclusion.
+The corresponding IPSL-CM6A-LR `r1i1p1f1` SSP3-7.0 cell binds six more exact
+version-`20210512` daily files covering 2031--2060. Full checksum, decoded
+content, chronology, 30-row same-realization GMST, and every preregistered
+12-cell feature and reconciliation gate pass. The build adds 214,928 seasonal
+and 644,784 stage rows before centering and 61,408 seasonal and 184,224 stage
+rows after 21-year centering; its aggregate audit reproduces byte-identically.
+Together the completed matrix has 40 centered templates, below the 51-template
+dependence minimum and still unsuitable for balanced whole-ESM or
+whole-scenario exclusion.
 The subsequent metadata-only acquisition contract pins all 90 official
 version-`20210512` files required for five ESMs, three SSPs, `pr`/`tas`, and
 2031--2060. They total 187,138,935,135 catalogue bytes and are public,

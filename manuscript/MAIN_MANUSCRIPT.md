@@ -854,6 +854,13 @@ templates; `firr` minus `noirr` centered seasonal-rain differences range from
 -23.71 to +12.66 mm across crops, with identical rice pairs. The four completed
 ESM-scenario cells provide 32 templates and are unbalanced across ESMs, so
 whole-ESM/scenario validation, response, damage, and SCC gates remain closed.
+The matched IPSL-CM6A-LR SSP3-7.0 replication also passes all six daily-file,
+same-realization GMST, 12-cell feature, reconciliation, and deterministic-audit
+gates. It contributes eight additional centered-year templates. Across crops,
+the `firr` minus `noirr` centered seasonal-rain difference ranges from -25.10
+to +12.80 mm, with identical rice pairs. The five completed ESM-scenario cells
+provide only 40 templates and remain unbalanced, so joint-dependence,
+whole-ESM/scenario response, damage, and SCC gates remain closed.
 The next metadata-only contract pins the 90 official daily files required to
 replicate this contiguous design across five ESMs and three scenarios. If all
 187.139 GB pass content and feature validation, the matrix contains 120
