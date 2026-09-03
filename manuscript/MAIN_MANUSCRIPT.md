@@ -396,7 +396,7 @@ and +0.56 mm Rx5day. The 181,104-row end-century whole-scenario audit improves
 16/33 comparisons (median RMSE ratio 1.00006; maximum 1.06514), including 9/11
 for held-out SSP5-8.5, and flags 27,090 values (14.96%) outside support. This
 mixed, adverse result leaves response, damage, SCC, whole-ESM, and FAIR
-feature-support gates open.
+feature-support gates closed.
 The remaining registered MPI-ESM1-2-HR SSP3-7.0 mid- and end-century pairs and
 SSP5-8.5 end-century pair also pass exact file, content, same-realization GMST,
 bounded-feature, and reconciliation gates, raising tracked coverage to 48/60
@@ -870,6 +870,17 @@ The matrix remains below the 51-template dependence threshold, and an
 ESM holdout leaves only 24 training templates while a scenario holdout leaves
 32. Joint-dependence, whole-ESM/scenario response, damage, and SCC gates remain
 closed.
+The preregistered MPI-ESM1-2-HR `r1i1p1f1` SSP1-2.6 replication next passes
+all six checksum/content gates, a 30-year same-realization GMST build, and the
+same deterministic 12-cell feature and reconciliation audit. It adds 214,928
+seasonal and 644,784 stage rows before centering and 61,408 seasonal and
+184,224 stage rows after centering. Calendar-only `firr` minus `noirr`
+seasonal-rain differences range from -22.48 to +14.72 mm; both rice pairs are
+identical. Although the resulting 56 templates exceed the unconditional
+51-template minimum, the partial matrix cannot support the preregistered
+holdouts: excluding MPI retains 48 templates, excluding either complete ESM
+retains 32, and excluding SSP1-2.6 retains 32. No joint dependence, crop
+response, damage, or SCC result is estimated from this unbalanced support.
 The next metadata-only contract pins the 90 official daily files required to
 replicate this contiguous design across five ESMs and three scenarios. If all
 187.139 GB pass content and feature validation, the matrix contains 120

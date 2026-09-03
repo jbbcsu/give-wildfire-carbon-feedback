@@ -192,6 +192,17 @@ three scenarios for each of two ESMs. It is still below the locked 51-template
 dependence minimum, and holding out either ESM leaves only 24 training
 templates while holding out one scenario leaves 32. Joint-dependence,
 whole-ESM/scenario response, damage, and SCC use therefore remain closed.
+The preregistered MPI-ESM1-2-HR `r1i1p1f1` SSP1-2.6 cell now passes the same
+six-file checksum/content, 30-year same-realization GMST, 12-cell feature,
+reconciliation, and byte-identical aggregate-audit gates. It adds 214,928
+seasonal, 644,784 stage, 61,408 centered seasonal, and 184,224 centered stage
+rows. Centered `firr` minus `noirr` seasonal-rain differences range from
+-22.48 to +14.72 mm across crops, with both rice pairs identical. The matrix
+now has 56 templates in total, above the unconditional 51-template minimum,
+but it remains unbalanced: holding out MPI leaves 48 templates, holding out
+GFDL or IPSL leaves 32, and holding out SSP1-2.6 leaves 32. Joint-dependence
+fitting, whole-ESM/scenario promotion, response, damage, and SCC use remain
+closed until the registered balanced holdouts can be run.
 A pre-acquisition contiguous holdout matrix now pins all 90 version-`20210512`
 files needed for five ESMs, three scenarios, `pr`/`tas`, and 2031--2060. The
 public, unrestricted CC0 matrix totals 187.139 GB. If every content and feature

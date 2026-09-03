@@ -1363,6 +1363,18 @@ response estimates. The matrix is below the 51-template dependence minimum;
 holding out either ESM retains only 24 training templates, and holding out one
 scenario retains 32, so whole-ESM and whole-scenario response validation remain
 closed.
+The next preregistered cell adds MPI-ESM1-2-HR `r1i1p1f1` SSP1-2.6. Its six
+version-`20210512` files pass exact bytes/SHA-512, full decoded daily-content,
+and model-specific noon-chronology checks; the same temperature realization
+yields 30 annual GMST rows. The deterministic 12-cell build passes 214,928
+seasonal, 644,784 stage, 61,408 centered-seasonal, and 184,224 centered-stage
+rows, exact reconciliation, and a byte-identical aggregate-audit rerun.
+Calendar-only `firr` minus `noirr` seasonal-rain differences range from -22.48
+to +14.72 mm, with identical rice pairs. This brings the partial matrix to 56
+templates but does not satisfy the registered holdout design: an MPI exclusion
+retains 48 templates, a GFDL or IPSL exclusion retains 32, and an SSP1-2.6
+exclusion retains 32. Joint-dependence fitting and all response, damage,
+welfare, and SCC uses remain closed.
 The subsequent metadata-only acquisition contract pins all 90 official
 version-`20210512` files required for five ESMs, three SSPs, `pr`/`tas`, and
 2031--2060. They total 187,138,935,135 catalogue bytes and are public,
