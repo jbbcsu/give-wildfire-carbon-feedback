@@ -68,6 +68,12 @@ vessel-flag-country and reported-species shares fall from 51.34% and 37.71% in
 1950 to 41.07% and 24.23% in 2014, while the top-five FAO-area share remains
 70.84% in 2014. This is descriptive support for retaining explicit
 country/species/area structure, not an observed calibration or allocation.
+Adjacent-checkpoint composition turnover is also material: total-variation
+distance spans 0.253--0.357 for vessel-flag countries, 0.315--0.448 for
+reported species, and 0.138--0.314 for FAO areas. Only two of the 1990 top-five
+countries remain top-five in 2014. A time-invariant observed-catch allocation
+is therefore rejected; GUI reconciliation, EEZ allocation, calibration,
+welfare, damage, and SCC gates remain closed.
 
 The ISIMIP3b public catalogue currently exposes 20 global monthly total-catch
 density (`tc`) datasets in a balanced grid of BOATS and EcoOcean, forced by

@@ -64,6 +64,10 @@ decline from 51.34%/37.71% in 1950 to 41.07%/24.23% in 2014, while the
 top-five FAO-area share remains 70.84%. This rejects a composition-invariant
 global scaling shortcut but does not authorize filtering, allocation,
 calibration, welfare, damage, or SCC use.
+A fixed-checkpoint turnover audit further finds adjacent-period composition
+total-variation distances of 0.253--0.357 for countries, 0.315--0.448 for
+species, and 0.138--0.314 for FAO areas. This closes only the descriptive
+time-invariance screen: production allocation and calibration remain open.
 The official FishStatJ 4.04.11 macOS export runtime is also frozen and passes
 bundle integrity plus a bundled-Java smoke. Its Derby capture schema exposes
 country/species/area/measure keys and separate annual values and symbols. A

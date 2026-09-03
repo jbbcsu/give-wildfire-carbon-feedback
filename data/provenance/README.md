@@ -123,6 +123,12 @@ exact declared FishMIP support coverage and per-cell area conservation while
 keeping joint/disputed waters and high seas outside country aggregation. No
 production allocation or new empirical source is included yet.
 
+`fao_fishstat_marine_composition_turnover_20260903.json` is bound to the
+validated symbol-preserving headless export and compares fixed 1950, 1970,
+1990, and 2014 country/species/area compositions. It is a descriptive rejection
+of time-invariant allocation, not GUI reconciliation, EEZ allocation, FishMIP
+calibration, welfare, damage, or SCC evidence.
+
 `marine_regions_eez_source_decision_20260828.toml` preregisters Marine Regions
 Maritime Boundaries/EEZ version 12 (doi:10.14284/632, CC-BY) as the candidate
 spatial source before any overlay result is inspected. The geometry is not

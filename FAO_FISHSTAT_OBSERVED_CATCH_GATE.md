@@ -79,3 +79,10 @@ high: the top five areas account for 78.71% in 1950 and 70.84% in 2014. These
 descriptive changes reinforce the need for explicit country/species/area and
 effort structure. They do not reconcile the GUI export, assign catch to EEZs,
 calibrate FishMIP, identify welfare, or authorize damage or SCC use.
+
+A separate fixed-checkpoint turnover audit compares 1950--1970, 1970--1990,
+and 1990--2014 normalized compositions. Total-variation distances are
+0.253--0.357 for vessel-flag countries, 0.315--0.448 for reported species, and
+0.138--0.314 for FAO areas; only two 1990 top-five countries remain in the
+2014 top five. The result rejects a time-invariant allocation shortcut but is
+not an EEZ crosswalk, FishMIP calibration, welfare estimate, damage, or SCC.
