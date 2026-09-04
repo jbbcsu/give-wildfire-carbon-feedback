@@ -1,0 +1,80 @@
+schema = "isimip3b_rimex_dependence_stability_contract_v1"
+role = "outcome_blind_represented_template_dependence_stability_preregistration_not_joint_fit_response_damage_or_scc"
+registered_utc_date = "2026-09-03"
+primary_climate_route = "direct_isimip3b_daily_feature_response"
+fallback_climate_route = "mesmer_m_tp_plus_published_daily_generator"
+real_joint_fit_authorized = false
+fair_feature_response_authorized = false
+response_estimation_authorized = false
+damage_or_scc_authorized = false
+
+[[source_receipts]]
+role = "completed_contiguous_template_inventory"
+path = "data/provenance/isimip3b_rimex_contiguous_completed_matrix_audit_20260903.json"
+sha256 = "f65d921feabc92947732eba0cc48723450f36bed56a298a21e43539250efbe34"
+
+[[source_receipts]]
+role = "previously_registered_ecc_q_mechanics"
+path = "config/isimip3b_rimex_joint_dependence_v1.toml"
+sha256 = "6e60ad8ece138670bcd2e72282058dc2b7307c06d17d58c4e5dc7d7beea76358"
+
+[sample]
+completed_templates_required = 88
+center_years = [2042, 2043, 2044, 2045, 2046, 2047, 2048, 2049]
+crops_required = ["mai", "soy", "ri1", "ri2", "swh", "wwh"]
+irrigation_regimes_required = ["noirr", "firr"]
+expected_rows_per_template = 7676
+minimum_training_templates = 51
+balanced_five_esm_three_scenario_matrix_required_for_promotion = true
+represented_whole_esm_holdouts = ["GFDL-ESM4", "IPSL-CM6A-LR", "MPI-ESM1-2-HR", "MRI-ESM2-0"]
+represented_whole_scenario_holdouts = ["ssp126", "ssp370", "ssp585"]
+ukesm_zero_test_template_holdout_excluded = true
+
+[method]
+name = "linked-coordinate within-template Spearman stability diagnostic"
+unit = "one complete ESM-member-scenario-centered-year field across all registered crop calendar cells and regimes"
+linked_coordinates = ["tmean_c", "log_precip", "wet_logit", "cdd_logit", "rx5_share_logit", "rx1_given_rx5_logit", "stage_alr1", "stage_alr2"]
+stage_shares_derived_from_centered_stage_precipitation = true
+one_centered_season_and_stage_file_pair_read_at_a_time = true
+explicit_center_year_blocks = true
+whole_esm_holdout_required = true
+whole_scenario_holdout_required = true
+held_out_templates_excluded_from_training = true
+scenario_identity_as_predictor = false
+outcome_columns_forbidden = true
+model_fit_forbidden = true
+
+[physical]
+boundary_epsilon = 1e-6
+nonpositive_seasonal_precipitation_fails_closed = true
+nonpositive_rx5day_fails_closed = true
+rainfall_extreme_order_required = true
+day_fraction_bounds_required = true
+stage_simplex_tolerance = 1e-12
+
+[diagnostic]
+pairwise_coordinate_pairs = 28
+training_test_summary = "coordinate-pair median Spearman correlation across complete templates"
+mean_absolute_difference_max = 0.05
+maximum_absolute_difference_max = 0.15
+strong_pair_absolute_training_median = 0.20
+strong_pair_sign_flips_allowed = 0
+every_represented_holdout_must_pass = true
+diagnostic_pass_does_not_authorize_promotion = true
+
+[resources]
+maximum_peak_resident_memory_bytes = 2147483648
+large_downloads_forbidden = true
+raw_rehydration_forbidden = true
+global_daily_inputs_forbidden = true
+derived_parquet_columns_only = true
+
+[limitations]
+balanced_matrix_currently_incomplete = true
+missing_cells = ["MRI-ESM2-0/ssp585", "UKESM1-0-LL/ssp126", "UKESM1-0-LL/ssp370", "UKESM1-0-LL/ssp585"]
+heat_extremes_not_in_current_template = true
+drought_not_in_current_template = true
+real_joint_fit_authorized = false
+production_promoted = false
+causal_yield_response = false
+damage_or_scc_input = false
