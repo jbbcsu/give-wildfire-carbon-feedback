@@ -1,0 +1,31 @@
+{
+  "config_sha256": "229bd0f3893d525bcccd2b28c908817e0bcdd305c2778014694f0041c5d4bfaa",
+  "damage_or_scc_authorized": false,
+  "dependence_fit_authorized": false,
+  "fair_feature_response_authorized": false,
+  "focal_esm": "MRI-ESM2-0",
+  "implementation_sha256": "b729a4efad282f5d0e88f0adf1639ed5d031a86b82a57b6bf329b51354695ef2",
+  "schema": "isimip3b_rimex_mri_stability_decomposition_preregistration_v1",
+  "shared_scenarios": [
+    "ssp126",
+    "ssp370"
+  ],
+  "sources": [
+    {
+      "path": "data/provenance/isimip3b_rimex_contiguous_completed_matrix_audit_20260903.json",
+      "role": "completed_contiguous_template_inventory",
+      "sha256": "f65d921feabc92947732eba0cc48723450f36bed56a298a21e43539250efbe34"
+    },
+    {
+      "path": "data/provenance/isimip3b_rimex_dependence_stability_audit_20260903.json",
+      "role": "locked_adverse_dependence_audit",
+      "sha256": "da3750843fe07e14432edb3b4b5955f7f1cded4a728293fdb9cb5fe203348385"
+    },
+    {
+      "path": "data/provenance/isimip3b_rimex_template_spearman_20260903.csv",
+      "role": "locked_template_spearman_values",
+      "sha256": "7a395b8ed5d4f829d99eaf8bfea5b5cc089e0efedaf9471592eb435ece3be02c"
+    }
+  ],
+  "status": "validated_before_mri_decomposition_outputs"
+}

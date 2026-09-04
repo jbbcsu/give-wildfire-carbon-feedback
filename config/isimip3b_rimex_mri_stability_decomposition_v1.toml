@@ -1,0 +1,81 @@
+schema = "isimip3b_rimex_mri_stability_decomposition_contract_v1"
+role = "outcome_blind_diagnostic_decomposition_of_locked_mri_dependence_failure_not_retuning_fit_response_damage_or_scc"
+registered_utc_date = "2026-09-04"
+primary_climate_route = "direct_isimip3b_daily_feature_response"
+fallback_climate_route = "mesmer_m_tp_plus_published_daily_generator"
+dependence_fit_authorized = false
+fair_feature_response_authorized = false
+response_estimation_authorized = false
+damage_or_scc_authorized = false
+
+[[source_receipts]]
+role = "completed_contiguous_template_inventory"
+path = "data/provenance/isimip3b_rimex_contiguous_completed_matrix_audit_20260903.json"
+sha256 = "f65d921feabc92947732eba0cc48723450f36bed56a298a21e43539250efbe34"
+
+[[source_receipts]]
+role = "locked_adverse_dependence_audit"
+path = "data/provenance/isimip3b_rimex_dependence_stability_audit_20260903.json"
+sha256 = "da3750843fe07e14432edb3b4b5955f7f1cded4a728293fdb9cb5fe203348385"
+
+[[source_receipts]]
+role = "locked_template_spearman_values"
+path = "data/provenance/isimip3b_rimex_template_spearman_20260903.csv"
+sha256 = "7a395b8ed5d4f829d99eaf8bfea5b5cc089e0efedaf9471592eb435ece3be02c"
+
+[sample]
+completed_templates_required = 88
+focal_esm = "MRI-ESM2-0"
+focal_esm_templates_required = 16
+nonfocal_templates_required = 72
+shared_scenarios = ["ssp126", "ssp370"]
+focal_templates_per_shared_scenario = 8
+nonfocal_templates_per_shared_scenario = 24
+center_years = [2042, 2043, 2044, 2045, 2046, 2047, 2048, 2049]
+crops_required = ["mai", "soy", "ri1", "ri2", "swh", "wwh"]
+irrigation_regimes_required = ["noirr", "firr"]
+crop_regime_cells_required = 12
+missing_focal_scenario = "ssp585"
+
+[method]
+focal_coordinate_left = "wet_logit"
+focal_coordinate_right = "rx1_given_rx5_logit"
+locked_original_maximum_difference_gate = 0.15
+locked_original_failure_difference = 0.19231787881198553
+full_sample_failure_must_reproduce = true
+scenario_matched_primary_test = "median focal-pair Spearman for MRI templates versus non-MRI templates restricted to SSP1-2.6 and SSP3-7.0"
+scenario_imbalance_sufficient_definition = "scenario-matched aggregate absolute difference is at most the unchanged 0.15 gate"
+scenario_specific_diagnostics_required = true
+center_year_diagnostics_required = true
+crop_regime_diagnostics_required = true
+cell_correlations_use_each_complete_centered_crop_regime_field = true
+descriptive_only_no_p_values = true
+no_tolerance_retuning = true
+no_model_fit = true
+outcome_columns_forbidden = true
+
+[outputs]
+scenario_matched_aggregate_required = true
+shared_scenario_rows_required = 2
+center_year_rows_required = 8
+crop_regime_rows_required = 12
+cell_template_rows_required = 1056
+report_minimum_cell_rows = true
+report_peak_resident_memory = true
+
+[resources]
+maximum_peak_resident_memory_bytes = 2147483648
+large_downloads_forbidden = true
+raw_rehydration_forbidden = true
+global_daily_inputs_forbidden = true
+derived_parquet_columns_only = true
+one_centered_season_and_stage_file_pair_read_at_a_time = true
+
+[limitations]
+balanced_matrix_currently_incomplete = true
+missing_cells = ["MRI-ESM2-0/ssp585", "UKESM1-0-LL/ssp126", "UKESM1-0-LL/ssp370", "UKESM1-0-LL/ssp585"]
+decomposition_cannot_promote_dependence_model = true
+heat_extremes_not_in_current_template = true
+drought_not_in_current_template = true
+causal_yield_response = false
+damage_or_scc_input = false
