@@ -1,0 +1,74 @@
+schema = "isimip3b_rimex_dependence_pool_decision_contract_v1"
+role = "outcome_blind_no_fit_sample_sufficiency_decision_for_pooled_versus_esm_conditional_dependence"
+registered_utc_date = "2026-09-04"
+primary_climate_route = "direct_isimip3b_daily_feature_response"
+fallback_climate_route = "mesmer_m_tp_plus_published_daily_generator"
+dependence_fit_authorized = false
+fair_feature_response_authorized = false
+response_estimation_authorized = false
+damage_or_scc_authorized = false
+
+[[source_receipts]]
+role = "completed_contiguous_template_inventory"
+path = "data/provenance/isimip3b_rimex_contiguous_completed_matrix_audit_20260903.json"
+sha256 = "f65d921feabc92947732eba0cc48723450f36bed56a298a21e43539250efbe34"
+
+[[source_receipts]]
+role = "locked_adverse_dependence_stability_audit"
+path = "data/provenance/isimip3b_rimex_dependence_stability_audit_20260903.json"
+sha256 = "da3750843fe07e14432edb3b4b5955f7f1cded4a728293fdb9cb5fe203348385"
+
+[[source_receipts]]
+role = "locked_mri_failure_decomposition"
+path = "data/provenance/isimip3b_rimex_mri_stability_decomposition_audit_20260904.json"
+sha256 = "d2117a978a5cd90a9d23af29a1a63788efb2c8ac8d4e5114655dbdd14eaac179"
+
+[matrix]
+expected_esms = ["GFDL-ESM4", "IPSL-CM6A-LR", "MPI-ESM1-2-HR", "MRI-ESM2-0", "UKESM1-0-LL"]
+expected_scenarios = ["ssp126", "ssp370", "ssp585"]
+center_years = [2042, 2043, 2044, 2045, 2046, 2047, 2048, 2049]
+templates_per_dataset_cell = 8
+expected_dataset_cells = 15
+expected_balanced_templates = 120
+completed_templates_required = 88
+balanced_five_esm_three_scenario_matrix_required = true
+
+[decision]
+candidate_pool_types = ["pooled_across_esms", "esm_conditional"]
+minimum_distinct_training_templates_per_permitted_pool = 51
+pool_must_cover_all_expected_scenarios = true
+pooled_pool_must_cover_all_expected_esms = true
+esm_conditional_pool_must_cover_exactly_one_expected_esm = true
+adverse_stability_gate_must_be_resolved_before_fit = true
+locked_adverse_esm = "MRI-ESM2-0"
+locked_adverse_coordinate_pair = "wet_logit|rx1_given_rx5_logit"
+locked_maximum_difference_gate = 0.15
+locked_scenario_matched_difference = 0.17365415357199204
+no_fit_if_any_gate_fails = true
+no_outcome_columns = true
+
+[outputs]
+pooled_row_required = true
+esm_conditional_rows_required = 5
+report_current_and_complete_design_template_counts = true
+report_template_shortfall = true
+report_structural_feasibility_under_frozen_eight_center_year_design = true
+report_missing_dataset_cells = true
+
+[resources]
+maximum_peak_resident_memory_bytes = 2147483648
+large_downloads_forbidden = true
+raw_rehydration_forbidden = true
+global_daily_inputs_forbidden = true
+derived_parquet_inputs_forbidden = true
+receipt_json_inputs_only = true
+
+[limitations]
+current_matrix_incomplete = true
+missing_cells = ["MRI-ESM2-0/ssp585", "UKESM1-0-LL/ssp126", "UKESM1-0-LL/ssp370", "UKESM1-0-LL/ssp585"]
+overlapping_centered_windows_are_not_assumed_independent = true
+additional_templates_require_separate_preregistration_and_support_validation = true
+heat_extremes_not_in_current_template = true
+drought_not_in_current_template = true
+causal_yield_response = false
+damage_or_scc_input = false
