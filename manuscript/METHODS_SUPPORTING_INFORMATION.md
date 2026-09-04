@@ -1458,6 +1458,23 @@ deterministic runs is 187,662,336 bytes, well below the registered 2 GiB
 ceiling. The failed gate is not retuned. The
 diagnostic is not an ECC-Q fit, does not validate missing UKESM or MRI SSP5-8.5
 support, and does not authorize FAIR, response, damage, welfare, or SCC use.
+
+We preregistered the MRI failure decomposition before reading its outputs. The
+focal pair, original 0.15 maximum-difference gate, two common scenarios, eight
+center years, six crops, and two calendar regimes were fixed. The primary test
+recomputed held-out versus comparison medians after restricting both sides to
+SSP1-2.6 and SSP3-7.0. Its absolute difference is 0.173654 versus 0.192318 in
+the original unbalanced comparison, so the locked failure persists. The
+scenario-specific differences are 0.163224 and 0.204990, and each of the eight
+center-year differences exceeds 0.15. A second descriptive layer calculates
+the focal correlation separately within all 1,056 complete
+crop/regime/ESM/scenario/center-year fields. Ten of twelve scenario-matched
+crop/regime differences exceed 0.15; irrigated- and rainfed-calendar winter
+wheat are 0.070128 and 0.084917, while second-season rice is largest at
+0.239124 for both calendars. No p-values, tolerance updates, model fitting, or
+promotion decisions are permitted by the contract. All 264 inputs are derived
+Parquet files read as sequential season/stage pairs; observed peak RSS remained
+below 174 MiB across verification runs.
 The subsequent metadata-only acquisition contract pins all 90 official
 version-`20210512` files required for five ESMs, three SSPs, `pr`/`tas`, and
 2031--2060. They total 187,138,935,135 catalogue bytes and are public,

@@ -267,6 +267,17 @@ observed peak RSS across two deterministic runs is 187,662,336 bytes, below the
 2 GiB gate. This adverse structural diagnostic
 is not an ECC-Q fit and does not open joint-dependence, FAIR, response, damage,
 or SCC gates; no tolerance was retuned.
+The locked follow-up decomposition then tests whether MRI's missing SSP5-8.5
+cell alone explains that failure. Restricting both MRI and the other three ESMs
+to their common SSP1-2.6/SSP3-7.0 support reduces the focal difference only
+from 0.192318 to 0.173654, still above the unchanged 0.15 gate. The two
+scenario-specific differences are 0.163224 and 0.204990; all eight center-year
+comparisons exceed 0.15. Ten of twelve crop/calendar-regime cells also exceed
+the gate, while both winter-wheat cells are below it (0.070128 irrigated
+calendar and 0.084917 rainfed calendar). Scenario imbalance is therefore not
+sufficient to explain the MRI instability, although crop heterogeneity is
+material. This remains a descriptive decomposition and opens no downstream
+gate.
 A pre-acquisition contiguous holdout matrix now pins all 90 version-`20210512`
 files needed for five ESMs, three scenarios, `pr`/`tas`, and 2031--2060. The
 public, unrestricted CC0 matrix totals 187.139 GB. If every content and feature

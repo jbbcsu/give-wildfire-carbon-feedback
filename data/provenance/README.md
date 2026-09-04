@@ -187,3 +187,14 @@ real evaluation. `isimip3b_rimex_template_spearman_20260903.csv` stores one
 `isimip3b_rimex_dependence_stability_audit_20260903.json` records the seven
 holdouts. MRI-ESM2-0 fails the locked maximum-difference gate; the diagnostic
 is not retuned and opens no joint-fit, FAIR, response, damage, or SCC gate.
+
+`isimip3b_rimex_mri_stability_decomposition_preregistration_20260904.json`
+binds the storage-light diagnostic that tests the locked MRI failure after
+matching on the two scenarios available for MRI. The corresponding
+`isimip3b_rimex_mri_crop_regime_template_spearman_20260904.csv` stores 1,056
+crop/regime template correlations, and
+`isimip3b_rimex_mri_stability_decomposition_audit_20260904.json` records the
+scenario-matched, scenario-specific, center-year, and crop/regime summaries.
+The MRI difference remains above the unchanged gate after matching; the result
+does not authorize fitting, FAIR evaluation, response, damage, welfare, or SCC
+use.

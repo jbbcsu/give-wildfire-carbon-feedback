@@ -55,3 +55,25 @@ missing MRI SSP5-8.5 and all three UKESM cells. Therefore this is adverse
 structural stability evidence, not an ECC-Q or RIME-X marginal fit, and no
 joint-dependence or downstream promotion gate opens. Heat extremes, drought,
 and longer-duration rainfall/drought features remain required extensions.
+
+## Locked MRI failure decomposition
+
+Before reading further outputs, a follow-up contract fixed the failed
+wet-frequency--Rx1-given-Rx5 pair, the unchanged 0.15 maximum-difference gate,
+and scenario-matched, scenario-specific, center-year, and crop/regime
+summaries. The primary comparison restricts MRI and the other three ESMs to
+their shared SSP1-2.6 and SSP3-7.0 templates. That restriction reduces the
+absolute median-correlation difference from 0.192318 to 0.173654, so the
+missing MRI SSP5-8.5 cell is not sufficient to explain the locked failure.
+Separate differences are 0.163224 for SSP1-2.6 and 0.204990 for SSP3-7.0, and
+all eight center-year comparisons remain above 0.15.
+
+The same checksum-bound pass computes one focal correlation for each complete
+crop/regime/ESM/scenario/center-year field. Ten of twelve scenario-matched
+crop/regime differences exceed 0.15. Both winter-wheat calendar cells are
+exceptions, at 0.070128 for the irrigated calendar and 0.084917 for the
+rainfed calendar; the maximum is 0.239124 for either second-season-rice
+calendar. This heterogeneity is descriptive. The evaluator reads 264 derived
+Parquet files sequentially, remained below 174 MiB RSS across verification
+runs, and performs no fit or tolerance change. The balanced matrix is still
+incomplete and every downstream gate remains closed.

@@ -155,6 +155,17 @@ sign. All three scenario exclusions pass. The failure is retained without
 retuning; this is structural stability evidence only, not a joint fit or a
 response, damage, welfare, or SCC input.
 
+A separately preregistered decomposition preserves that failed pair and the
+0.15 gate. Matching the other ESMs to MRI's observed SSP1-2.6/SSP3-7.0 mix
+reduces the absolute median-correlation difference from 0.192318 to 0.173654,
+so the missing MRI SSP5-8.5 cell is not sufficient to explain the failure.
+SSP-specific differences are 0.163224 and 0.204990, and all eight center-year
+differences remain above 0.15. Ten of twelve crop/regime differences exceed
+0.15; the exceptions are irrigated- and rainfed-calendar winter wheat at
+0.070128 and 0.084917. These are diagnostic correlations, not evidence for an
+irrigation treatment or a fitted dependence, response, damage, welfare, or SCC
+model.
+
 The first later-century UKESM1-0-LL pair (SSP1-2.6, 2041--2050) passes exact
 catalogue bytes/SHA-512 and all 946,598,400 decoded values per field, with no
 missing values or negative precipitation. Its exact midnight chronology is a

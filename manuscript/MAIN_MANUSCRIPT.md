@@ -952,6 +952,16 @@ pair reverses sign. This result is retained without retuning. It is a
 structural diagnostic rather than an empirical-copula or marginal response
 fit, and it leaves joint dependence, FAIR feature response, crop response,
 damage, and SCC use closed.
+A follow-up diagnostic was also committed before its outputs were read. It
+retained the failed wet-frequency--Rx1-given-Rx5 pair and the 0.15 gate, then
+matched the other ESMs to MRI's available SSP1-2.6 and SSP3-7.0 support. The
+absolute difference falls only from 0.192318 to 0.173654. Scenario-specific
+differences are 0.163224 and 0.204990, all eight center-year differences exceed
+0.15, and ten of twelve crop/regime differences exceed 0.15. Only the two
+winter-wheat calendar cells are below the gate. Thus scenario imbalance is not
+sufficient to explain the MRI result, while crop heterogeneity remains
+material. The decomposition is descriptive and does not fit or authorize a
+dependence model or any downstream response.
 The next metadata-only contract pins the 90 official daily files required to
 replicate this contiguous design across five ESMs and three scenarios. If all
 187.139 GB pass content and feature validation, the matrix contains 120
