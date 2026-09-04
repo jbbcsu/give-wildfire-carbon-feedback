@@ -1436,6 +1436,28 @@ excluding a scenario, above the locked 51-template minimum in every currently
 represented exclusion. UKESM1-0-LL nevertheless has no contiguous feature
 templates, so the balanced five-ESM matrix is incomplete and joint dependence,
 holdout promotion, response, damage, welfare, and SCC gates remain closed.
+We next preregistered a represented-template dependence-stability diagnostic
+before reading its outputs. Each of the 88 ESM--scenario--center-year templates
+contains 7,676 aligned crop-calendar cells. Seasonal rain, wet frequency,
+maximum dry-spell fraction, Rx5/total, Rx1/Rx5, temperature, and two stage-rain
+additive-log-ratio coordinates are constructed from the centered derived
+files. The implementation reads one season/stage file pair at a time in
+explicit center-year blocks, forms one within-template Spearman matrix, and
+compares the median matrix in training templates with the held-out median for
+four represented whole-ESM and three whole-scenario exclusions. Locked
+tolerances are 0.05 for mean absolute difference, 0.15 for maximum absolute
+difference, and zero sign reversals when the absolute training median is at
+least 0.20.
+
+The MRI-ESM2-0 exclusion is the only failure. Its mean absolute difference is
+0.043330, but the wet-frequency--Rx1-given-Rx5 pair differs by 0.192318 and
+exceeds the maximum gate. The other three ESM and all three scenario exclusions
+pass; no strong pair reverses sign. The computation reads 264 checksum-bound
+derived Parquet files sequentially; maximum observed peak RSS across two
+deterministic runs is 187,662,336 bytes, well below the registered 2 GiB
+ceiling. The failed gate is not retuned. The
+diagnostic is not an ECC-Q fit, does not validate missing UKESM or MRI SSP5-8.5
+support, and does not authorize FAIR, response, damage, welfare, or SCC use.
 The subsequent metadata-only acquisition contract pins all 90 official
 version-`20210512` files required for five ESMs, three SSPs, `pr`/`tas`, and
 2031--2060. They total 187,138,935,135 catalogue bytes and are public,

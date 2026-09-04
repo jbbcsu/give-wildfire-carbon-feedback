@@ -1,8 +1,8 @@
 # Preregistered RIME-X joint-dependence treatment
 
-Status: outcome-blind contract and synthetic mechanics only. Real dependence
-fitting, FAIR feature response, crop response, damage, welfare, and SCC use are
-closed.
+Status: outcome-blind contract, synthetic mechanics, and a failed represented-
+template stability diagnostic. Real dependence fitting, FAIR feature response,
+crop response, damage, welfare, and SCC use are closed.
 
 RIME-X supplies univariate warming-level conditional quantiles. The registered
 extension uses ECC-Q empirical-copula coupling (Schefzik, Thorarinsdottir, and
@@ -27,7 +27,31 @@ independently. This enforces `Rx1 <= Rx5 <= total` and a unit-sum stage
 composition. Nonpositive centered total or Rx5 support fails closed.
 
 The production minimum is 51 distinct training templates, matching 51 joint
-draws. The current bounded contiguous pilot has only eight templates, one ESM,
-one scenario, one crop/regime, and two latitude rows. It can validate mechanics
-but cannot fit or promote real dependence. Heat extremes, drought, and
-longer-duration rainfall/drought features also remain required extensions.
+draws. The original bounded contiguous pilot has only eight templates, one
+ESM, one scenario, one crop/regime, and two latitude rows. It validates
+mechanics but cannot fit or promote real dependence.
+
+A later outcome-blind diagnostic locks 88 completed multicrop/calendar
+templates before evaluation. For every ESM--scenario--center-year template it
+derives the eight linked physical coordinates over all 7,676 registered
+crop-calendar cells and records the within-template Spearman matrix. It then
+compares training and held-out median matrices for each represented whole-ESM
+and whole-scenario exclusion. The fixed pass rule requires mean absolute
+correlation difference at most 0.05, maximum absolute difference at most 0.15,
+and no sign reversal for a pair whose absolute training median is at least
+0.20.
+
+Six of seven represented exclusions pass. GFDL-ESM4, IPSL-CM6A-LR,
+MPI-ESM1-2-HR, and all three SSP exclusions remain within both magnitude gates
+with no strong-pair sign reversals. MRI-ESM2-0 fails because the held-out versus
+training median correlation for wet frequency and Rx1 conditional on Rx5
+differs by 0.192318. Its mean absolute difference is 0.043330 and no strong
+pair changes sign, but the preregistered maximum gate controls. The run reads
+264 derived Parquet files sequentially; maximum observed peak RSS across two
+deterministic runs is 187,662,336 bytes.
+
+No threshold is changed after this result. The balanced matrix is also still
+missing MRI SSP5-8.5 and all three UKESM cells. Therefore this is adverse
+structural stability evidence, not an ECC-Q or RIME-X marginal fit, and no
+joint-dependence or downstream promotion gate opens. Heat extremes, drought,
+and longer-duration rainfall/drought features remain required extensions.

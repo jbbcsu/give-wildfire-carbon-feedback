@@ -145,6 +145,16 @@ outside exact three-ESM support. End century improves only 12/44
 byte-identical. UKESM remains absent; production emulator, FAIR feature-path,
 response, damage, welfare, and SCC gates remain closed.
 
+The separately preregistered 88-template dependence-stability diagnostic reads
+only checksum-bound centered derived files and compares median within-template
+Spearman matrices under four represented whole-ESM and three whole-scenario
+exclusions. Six exclusions pass the fixed tolerances, but MRI-ESM2-0 fails the
+maximum gate: wet frequency versus Rx1 conditional on Rx5 differs by 0.192318,
+above 0.15. Its mean absolute difference is 0.043330, and no strong pair changes
+sign. All three scenario exclusions pass. The failure is retained without
+retuning; this is structural stability evidence only, not a joint fit or a
+response, damage, welfare, or SCC input.
+
 The first later-century UKESM1-0-LL pair (SSP1-2.6, 2041--2050) passes exact
 catalogue bytes/SHA-512 and all 946,598,400 decoded values per field, with no
 missing values or negative precipitation. Its exact midnight chronology is a

@@ -940,6 +940,18 @@ represented exclusion above the locked 51-template minimum. However,
 UKESM1-0-LL has no contiguous feature templates and the preregistered balanced
 five-ESM matrix remains incomplete. No joint dependence, response, damage, or
 SCC result is estimated from the incomplete matrix.
+Before inspecting dependence results, we fixed a storage-bounded diagnostic of
+within-template Spearman stability over the eight linked physical coordinates
+and committed its implementation. It uses all 88 available centered-year
+templates and excludes each represented ESM or scenario in turn. Six of seven
+exclusions pass the fixed mean, maximum, and strong-pair sign gates. The
+MRI-ESM2-0 exclusion fails: the median wet-frequency--Rx1-given-Rx5 correlation
+differs from training by 0.192318, above the registered 0.15 maximum. All three
+scenario exclusions and the other three ESM exclusions pass, and no strong
+pair reverses sign. This result is retained without retuning. It is a
+structural diagnostic rather than an empirical-copula or marginal response
+fit, and it leaves joint dependence, FAIR feature response, crop response,
+damage, and SCC use closed.
 The next metadata-only contract pins the 90 official daily files required to
 replicate this contiguous design across five ESMs and three scenarios. If all
 187.139 GB pass content and feature validation, the matrix contains 120

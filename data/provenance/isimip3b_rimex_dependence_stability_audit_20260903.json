@@ -1,0 +1,144 @@
+{
+  "all_represented_holdouts_passed": false,
+  "balanced_five_esm_three_scenario_matrix_complete": false,
+  "completed_templates": 88,
+  "damage_or_scc_authorized": false,
+  "derived_parquet_files_read_sequentially": 264,
+  "fair_feature_response_authorized": false,
+  "holdouts": [
+    {
+      "holdout": "GFDL-ESM4",
+      "holdout_type": "esm",
+      "pairwise_spearman_median_maximum_absolute_difference": 0.10476532603187369,
+      "pairwise_spearman_median_mean_absolute_difference": 0.026277416539401962,
+      "passed_preregistered_stability_tolerances": true,
+      "strong_pair_sign_flips": 0,
+      "test_templates": 24,
+      "training_templates": 64,
+      "worst_coordinate_pair": [
+        "log_precip",
+        "rx1_given_rx5_logit"
+      ]
+    },
+    {
+      "holdout": "IPSL-CM6A-LR",
+      "holdout_type": "esm",
+      "pairwise_spearman_median_maximum_absolute_difference": 0.08320283620746693,
+      "pairwise_spearman_median_mean_absolute_difference": 0.026962442084221987,
+      "passed_preregistered_stability_tolerances": true,
+      "strong_pair_sign_flips": 0,
+      "test_templates": 24,
+      "training_templates": 64,
+      "worst_coordinate_pair": [
+        "tmean_c",
+        "wet_logit"
+      ]
+    },
+    {
+      "holdout": "MPI-ESM1-2-HR",
+      "holdout_type": "esm",
+      "pairwise_spearman_median_maximum_absolute_difference": 0.11499395241208837,
+      "pairwise_spearman_median_mean_absolute_difference": 0.024302413191146906,
+      "passed_preregistered_stability_tolerances": true,
+      "strong_pair_sign_flips": 0,
+      "test_templates": 24,
+      "training_templates": 64,
+      "worst_coordinate_pair": [
+        "rx1_given_rx5_logit",
+        "stage_alr1"
+      ]
+    },
+    {
+      "holdout": "MRI-ESM2-0",
+      "holdout_type": "esm",
+      "pairwise_spearman_median_maximum_absolute_difference": 0.19231787881198553,
+      "pairwise_spearman_median_mean_absolute_difference": 0.04333010003182301,
+      "passed_preregistered_stability_tolerances": false,
+      "strong_pair_sign_flips": 0,
+      "test_templates": 16,
+      "training_templates": 72,
+      "worst_coordinate_pair": [
+        "wet_logit",
+        "rx1_given_rx5_logit"
+      ]
+    },
+    {
+      "holdout": "ssp126",
+      "holdout_type": "scenario",
+      "pairwise_spearman_median_maximum_absolute_difference": 0.06360232782471753,
+      "pairwise_spearman_median_mean_absolute_difference": 0.014878352372204555,
+      "passed_preregistered_stability_tolerances": true,
+      "strong_pair_sign_flips": 0,
+      "test_templates": 32,
+      "training_templates": 56,
+      "worst_coordinate_pair": [
+        "log_precip",
+        "rx1_given_rx5_logit"
+      ]
+    },
+    {
+      "holdout": "ssp370",
+      "holdout_type": "scenario",
+      "pairwise_spearman_median_maximum_absolute_difference": 0.041642423818041285,
+      "pairwise_spearman_median_mean_absolute_difference": 0.012786906658189915,
+      "passed_preregistered_stability_tolerances": true,
+      "strong_pair_sign_flips": 0,
+      "test_templates": 32,
+      "training_templates": 56,
+      "worst_coordinate_pair": [
+        "log_precip",
+        "stage_alr2"
+      ]
+    },
+    {
+      "holdout": "ssp585",
+      "holdout_type": "scenario",
+      "pairwise_spearman_median_maximum_absolute_difference": 0.09724870535682834,
+      "pairwise_spearman_median_mean_absolute_difference": 0.019858514588301533,
+      "passed_preregistered_stability_tolerances": true,
+      "strong_pair_sign_flips": 0,
+      "test_templates": 24,
+      "training_templates": 64,
+      "worst_coordinate_pair": [
+        "rx5_share_logit",
+        "rx1_given_rx5_logit"
+      ]
+    }
+  ],
+  "implementation_sha256": "80ab6218dae3fc600ec075130b1b21b5605045e4b5229abde2b41bec0b77b17e",
+  "interpretation": "Outcome-blind dependence stability diagnostic over represented completed templates only; not a marginal fit, joint climate response, crop-yield response, damage, welfare, or SCC result.",
+  "missing_dataset_cells": [
+    {
+      "esm": "MRI-ESM2-0",
+      "scenario": "ssp585"
+    },
+    {
+      "esm": "UKESM1-0-LL",
+      "scenario": "ssp126"
+    },
+    {
+      "esm": "UKESM1-0-LL",
+      "scenario": "ssp370"
+    },
+    {
+      "esm": "UKESM1-0-LL",
+      "scenario": "ssp585"
+    }
+  ],
+  "peak_rss_gate_bytes": 2147483648,
+  "peak_rss_gate_passed": true,
+  "preregistration": {
+    "config_sha256": "8642a935a1f68a06e67c406cb3f1891a830e0c25fd9848e0b435863454a36d18",
+    "path": "data/provenance/isimip3b_rimex_dependence_stability_preregistration_20260903.json",
+    "sha256": "c2936bb1461f451c01f9ef6179df05f4e774424dee4ae654e7fc574baf04797a"
+  },
+  "real_joint_fit_authorized": false,
+  "response_estimation_authorized": false,
+  "rows_per_template": 7676,
+  "schema": "isimip3b_rimex_dependence_stability_audit_v1",
+  "status": "failed_represented_template_stability_balanced_matrix_incomplete",
+  "template_spearman_csv": {
+    "path": "data/provenance/isimip3b_rimex_template_spearman_20260903.csv",
+    "sha256": "7a395b8ed5d4f829d99eaf8bfea5b5cc089e0efedaf9471592eb435ece3be02c"
+  }
+}

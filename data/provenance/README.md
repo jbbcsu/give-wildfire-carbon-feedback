@@ -178,3 +178,12 @@ scenario-year templates, reports the training/test counts for every planned
 whole-ESM and whole-scenario exclusion, and names the four missing cells. It is
 an inventory-only gate: joint dependence, holdout promotion, response, damage,
 and SCC authorization remain false.
+
+`isimip3b_rimex_dependence_stability_preregistration_20260903.json` binds the
+outcome-blind represented-template Spearman diagnostic, its fixed tolerances,
+the 88-template inventory, and the pre-existing ECC-Q mechanics contract before
+real evaluation. `isimip3b_rimex_template_spearman_20260903.csv` stores one
+28-pair correlation fingerprint for each complete template, and
+`isimip3b_rimex_dependence_stability_audit_20260903.json` records the seven
+holdouts. MRI-ESM2-0 fails the locked maximum-difference gate; the diagnostic
+is not retuned and opens no joint-fit, FAIR, response, damage, or SCC gate.
