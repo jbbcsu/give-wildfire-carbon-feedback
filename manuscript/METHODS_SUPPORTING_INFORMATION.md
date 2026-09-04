@@ -7,6 +7,28 @@ agriculture pathway in GIVE. Raw data are excluded from Git; exact records are
 stored in `data/provenance/`. The project has no wildfire inputs or code
 dependencies.
 
+### September 4 regional robustness additions
+
+The source-hash-validated regional panel was fitted under original controls,
+additional stage-average daily maximum-temperature linear/quadratic controls,
+and a 2000–2018 period restriction. Both rainfall forms and both irrigation
+practices were retained for corn/soybeans (24 fits). Protocol and scripts:
+`us_county_validation/US_REPORTING_HEAT_SENSITIVITY_20260904.md` and
+`us_county_validation/scripts/run_reporting_heat_sensitivity.py`.
+An independent QR coefficient/covariance audit checked these 24 fits using
+the same residualized design; it was not an independent sample replication.
+
+For non-irrigated crops, a subsequent exploratory state-influence check
+retained the previously selected crop-specific forms and omitted each state
+under original and added Tmax controls (30 omissions plus four references).
+Quantity contrasts use the unchanged full-sample median rainfall. This is
+coefficient influence analysis, not held-out prediction or spatial inference.
+See `us_county_validation/US_STATE_INFLUENCE_PROTOCOL_20260904.md` and
+`us_county_validation/scripts/run_state_influence.py`. No omission-fit
+uncertainty claims are made. Every omission and failure status is preserved.
+Both analyses use existing inputs, sequential fits and the sampled job-group
+memory monitor described in `LOW_MEMORY_WORKFLOW.md`.
+
 ## S2. Data acquisition and provenance
 
 The outcome panel uses GDHY v1.2/v1.3 (Iizumi and Sakai, 2020), with the

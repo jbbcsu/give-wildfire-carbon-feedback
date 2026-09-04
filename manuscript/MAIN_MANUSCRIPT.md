@@ -1,5 +1,21 @@
 # Precipitation patterns, global agricultural damages, and the social cost of carbon
 
+## September 4 regional robustness update
+
+In the reported non-irrigated sample, adding stage-average daily maximum
+temperature and squared terms attenuates the fitted +100 mm seasonal-rainfall
+association at median rainfall from 7.72% to 6.91% for corn and from 4.46%
+to 3.99% for soybeans. Omitting each state in turn yields ranges of
+5.87–7.61% and 2.53–5.69%, respectively, with these added controls. The
+soybean rainfall-timing contrast remains positive in all omissions, ranging
+from 2.95–5.06% for a ten-percentage-point shift from stage 3 to stage 2.
+These are exploratory regional historical associations; omission ranges
+are not confidence intervals. Average maximum temperature does not replace
+daily extreme-heat exposure. Climate-attributed damages and SCC remain
+unestimated. Detailed evidence and limitations are in
+`us_county_validation/US_REPORTING_HEAT_RESULTS_20260904.md` and
+`us_county_validation/US_STATE_INFLUENCE_RESULTS_20260904.md`.
+
 ## Abstract
 
 Climate change alters not only mean precipitation but also the timing,

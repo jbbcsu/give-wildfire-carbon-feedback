@@ -1,0 +1,823 @@
+{
+  "schema": "us_state_influence_v1",
+  "input": {
+    "path": "data/interim/us_county/nass_direct_practice_nclimgrid_1981_2019.parquet",
+    "sha256": "205a94ae92c12810026c9c5d0ac0fa3760e46ebc39669e528ba20a125a0c46d7",
+    "rows": 23714
+  },
+  "config_sha256": "8318893d555a20d68de85591aa3a148a88aa33e2f3e9e05bc5792f657c78bcb9",
+  "code_sha256": "d94b203f60c6594444cc0beb119e612f06f96718399ef3c3fff5c4961420c471",
+  "estimator_sha256": "bb93a2dab7798b2c1083728b09ec11b0691fb64a03345ecda7428b5cec0bb591",
+  "primitives_sha256": "b309d64a1d213a77eb5b24f38ec47f29e4a8718ef641c2bc9fe778e593ff0572",
+  "protocol_sha256": "225af24d89e4bae6ac0d73aa1d4b12abaf22445c881020be25cfe6dc9b5de83a",
+  "role": "exploratory_coefficient_influence_not_out_of_sample_validation",
+  "causal_or_scc_result": false,
+  "estimates": [
+    {
+      "variant": "baseline",
+      "crop": "corn_grain",
+      "form": "quantity",
+      "omitted_state": null,
+      "reference_precipitation_mm": 400.736480294439,
+      "states_remaining": [
+        "CO",
+        "DE",
+        "KS",
+        "ND",
+        "NE",
+        "NM",
+        "OK",
+        "SD",
+        "TX",
+        "WY"
+      ],
+      "rows": 7013,
+      "status": "estimated",
+      "counties": 361,
+      "contrasts": {
+        "quantity_log_difference": 0.0744004965823141,
+        "quantity_percent_difference": 7.723814931173011
+      }
+    },
+    {
+      "variant": "baseline",
+      "crop": "corn_grain",
+      "form": "quantity",
+      "omitted_state": "CO",
+      "reference_precipitation_mm": 400.736480294439,
+      "states_remaining": [
+        "DE",
+        "KS",
+        "ND",
+        "NE",
+        "NM",
+        "OK",
+        "SD",
+        "TX",
+        "WY"
+      ],
+      "rows": 6693,
+      "status": "estimated",
+      "counties": 343,
+      "contrasts": {
+        "quantity_log_difference": 0.07429635759229486,
+        "quantity_percent_difference": 7.712597265993358
+      }
+    },
+    {
+      "variant": "baseline",
+      "crop": "corn_grain",
+      "form": "quantity",
+      "omitted_state": "DE",
+      "reference_precipitation_mm": 400.736480294439,
+      "states_remaining": [
+        "CO",
+        "KS",
+        "ND",
+        "NE",
+        "NM",
+        "OK",
+        "SD",
+        "TX",
+        "WY"
+      ],
+      "rows": 7001,
+      "status": "estimated",
+      "counties": 358,
+      "contrasts": {
+        "quantity_log_difference": 0.07438540177753206,
+        "quantity_percent_difference": 7.722188873488791
+      }
+    },
+    {
+      "variant": "baseline",
+      "crop": "corn_grain",
+      "form": "quantity",
+      "omitted_state": "KS",
+      "reference_precipitation_mm": 400.736480294439,
+      "states_remaining": [
+        "CO",
+        "DE",
+        "ND",
+        "NE",
+        "NM",
+        "OK",
+        "SD",
+        "TX",
+        "WY"
+      ],
+      "rows": 4954,
+      "status": "estimated",
+      "counties": 258,
+      "contrasts": {
+        "quantity_log_difference": 0.06497496446158571,
+        "quantity_percent_difference": 6.7132307817876695
+      }
+    },
+    {
+      "variant": "baseline",
+      "crop": "corn_grain",
+      "form": "quantity",
+      "omitted_state": "ND",
+      "reference_precipitation_mm": 400.736480294439,
+      "states_remaining": [
+        "CO",
+        "DE",
+        "KS",
+        "NE",
+        "NM",
+        "OK",
+        "SD",
+        "TX",
+        "WY"
+      ],
+      "rows": 6404,
+      "status": "estimated",
+      "counties": 320,
+      "contrasts": {
+        "quantity_log_difference": 0.0784850069929226,
+        "quantity_percent_difference": 8.16471378975105
+      }
+    },
+    {
+      "variant": "baseline",
+      "crop": "corn_grain",
+      "form": "quantity",
+      "omitted_state": "NE",
+      "reference_precipitation_mm": 400.736480294439,
+      "states_remaining": [
+        "CO",
+        "DE",
+        "KS",
+        "ND",
+        "NM",
+        "OK",
+        "SD",
+        "TX",
+        "WY"
+      ],
+      "rows": 4005,
+      "status": "estimated",
+      "counties": 270,
+      "contrasts": {
+        "quantity_log_difference": 0.07892719565733988,
+        "quantity_percent_difference": 8.212553576404986
+      }
+    },
+    {
+      "variant": "baseline",
+      "crop": "corn_grain",
+      "form": "quantity",
+      "omitted_state": "NM",
+      "reference_precipitation_mm": 400.736480294439,
+      "states_remaining": [
+        "CO",
+        "DE",
+        "KS",
+        "ND",
+        "NE",
+        "OK",
+        "SD",
+        "TX",
+        "WY"
+      ],
+      "rows": 6983,
+      "status": "estimated",
+      "counties": 353,
+      "contrasts": {
+        "quantity_log_difference": 0.07418208812320717,
+        "quantity_percent_difference": 7.700289707892175
+      }
+    },
+    {
+      "variant": "baseline",
+      "crop": "corn_grain",
+      "form": "quantity",
+      "omitted_state": "OK",
+      "reference_precipitation_mm": 400.736480294439,
+      "states_remaining": [
+        "CO",
+        "DE",
+        "KS",
+        "ND",
+        "NE",
+        "NM",
+        "SD",
+        "TX",
+        "WY"
+      ],
+      "rows": 7012,
+      "status": "estimated",
+      "counties": 360,
+      "contrasts": {
+        "quantity_log_difference": 0.07440049658231387,
+        "quantity_percent_difference": 7.723814931172987
+      }
+    },
+    {
+      "variant": "baseline",
+      "crop": "corn_grain",
+      "form": "quantity",
+      "omitted_state": "SD",
+      "reference_precipitation_mm": 400.736480294439,
+      "states_remaining": [
+        "CO",
+        "DE",
+        "KS",
+        "ND",
+        "NE",
+        "NM",
+        "OK",
+        "TX",
+        "WY"
+      ],
+      "rows": 6229,
+      "status": "estimated",
+      "counties": 316,
+      "contrasts": {
+        "quantity_log_difference": 0.07540657096751338,
+        "quantity_percent_difference": 7.8322476385897675
+      }
+    },
+    {
+      "variant": "baseline",
+      "crop": "corn_grain",
+      "form": "quantity",
+      "omitted_state": "TX",
+      "reference_precipitation_mm": 400.736480294439,
+      "states_remaining": [
+        "CO",
+        "DE",
+        "KS",
+        "ND",
+        "NE",
+        "NM",
+        "OK",
+        "SD",
+        "WY"
+      ],
+      "rows": 6849,
+      "status": "estimated",
+      "counties": 315,
+      "contrasts": {
+        "quantity_log_difference": 0.07442277970021496,
+        "quantity_percent_difference": 7.7262153803865
+      }
+    },
+    {
+      "variant": "baseline",
+      "crop": "corn_grain",
+      "form": "quantity",
+      "omitted_state": "WY",
+      "reference_precipitation_mm": 400.736480294439,
+      "states_remaining": [
+        "CO",
+        "DE",
+        "KS",
+        "ND",
+        "NE",
+        "NM",
+        "OK",
+        "SD",
+        "TX"
+      ],
+      "rows": 6987,
+      "status": "estimated",
+      "counties": 356,
+      "contrasts": {
+        "quantity_log_difference": 0.07440848540473252,
+        "quantity_percent_difference": 7.724675521038277
+      }
+    },
+    {
+      "variant": "baseline",
+      "crop": "soybeans",
+      "form": "quantity_timing",
+      "omitted_state": null,
+      "reference_precipitation_mm": 397.16907805291095,
+      "states_remaining": [
+        "AR",
+        "DE",
+        "KS",
+        "NE",
+        "TX"
+      ],
+      "rows": 4844,
+      "status": "estimated",
+      "counties": 255,
+      "contrasts": {
+        "quantity_log_difference": 0.043679005022641576,
+        "quantity_percent_difference": 4.4646974631665115,
+        "timing_percent_difference": 4.7326656324898
+      }
+    },
+    {
+      "variant": "baseline",
+      "crop": "soybeans",
+      "form": "quantity_timing",
+      "omitted_state": "AR",
+      "reference_precipitation_mm": 397.16907805291095,
+      "states_remaining": [
+        "DE",
+        "KS",
+        "NE",
+        "TX"
+      ],
+      "rows": 3676,
+      "status": "estimated",
+      "counties": 208,
+      "contrasts": {
+        "quantity_log_difference": 0.04514240069429776,
+        "quantity_percent_difference": 4.6176825608380545,
+        "timing_percent_difference": 5.080169315014142
+      }
+    },
+    {
+      "variant": "baseline",
+      "crop": "soybeans",
+      "form": "quantity_timing",
+      "omitted_state": "DE",
+      "reference_precipitation_mm": 397.16907805291095,
+      "states_remaining": [
+        "AR",
+        "KS",
+        "NE",
+        "TX"
+      ],
+      "rows": 4838,
+      "status": "estimated",
+      "counties": 252,
+      "contrasts": {
+        "quantity_log_difference": 0.04367900502264141,
+        "quantity_percent_difference": 4.464697463166494,
+        "timing_percent_difference": 4.732665632489789
+      }
+    },
+    {
+      "variant": "baseline",
+      "crop": "soybeans",
+      "form": "quantity_timing",
+      "omitted_state": "KS",
+      "reference_precipitation_mm": 397.16907805291095,
+      "states_remaining": [
+        "AR",
+        "DE",
+        "NE",
+        "TX"
+      ],
+      "rows": 3508,
+      "status": "estimated",
+      "counties": 152,
+      "contrasts": {
+        "quantity_log_difference": 0.032583107573805836,
+        "quantity_percent_difference": 3.3119749652104633,
+        "timing_percent_difference": 5.162670635517616
+      }
+    },
+    {
+      "variant": "baseline",
+      "crop": "soybeans",
+      "form": "quantity_timing",
+      "omitted_state": "NE",
+      "reference_precipitation_mm": 397.16907805291095,
+      "states_remaining": [
+        "AR",
+        "DE",
+        "KS",
+        "TX"
+      ],
+      "rows": 2586,
+      "status": "estimated",
+      "counties": 179,
+      "contrasts": {
+        "quantity_log_difference": 0.05448757596197293,
+        "quantity_percent_difference": 5.599935655606181,
+        "timing_percent_difference": 3.780055348915843
+      }
+    },
+    {
+      "variant": "baseline",
+      "crop": "soybeans",
+      "form": "quantity_timing",
+      "omitted_state": "TX",
+      "reference_precipitation_mm": 397.16907805291095,
+      "states_remaining": [
+        "AR",
+        "DE",
+        "KS",
+        "NE"
+      ],
+      "rows": 4768,
+      "status": "estimated",
+      "counties": 229,
+      "contrasts": {
+        "quantity_log_difference": 0.044535576932589194,
+        "quantity_percent_difference": 4.55421732321988,
+        "timing_percent_difference": 4.944144461817509
+      }
+    },
+    {
+      "variant": "additional_stage_tmax",
+      "crop": "corn_grain",
+      "form": "quantity",
+      "omitted_state": null,
+      "reference_precipitation_mm": 400.736480294439,
+      "states_remaining": [
+        "CO",
+        "DE",
+        "KS",
+        "ND",
+        "NE",
+        "NM",
+        "OK",
+        "SD",
+        "TX",
+        "WY"
+      ],
+      "rows": 7013,
+      "status": "estimated",
+      "counties": 361,
+      "contrasts": {
+        "quantity_log_difference": 0.06679068110422051,
+        "quantity_percent_difference": 6.90716778494823
+      }
+    },
+    {
+      "variant": "additional_stage_tmax",
+      "crop": "corn_grain",
+      "form": "quantity",
+      "omitted_state": "CO",
+      "reference_precipitation_mm": 400.736480294439,
+      "states_remaining": [
+        "DE",
+        "KS",
+        "ND",
+        "NE",
+        "NM",
+        "OK",
+        "SD",
+        "TX",
+        "WY"
+      ],
+      "rows": 6693,
+      "status": "estimated",
+      "counties": 343,
+      "contrasts": {
+        "quantity_log_difference": 0.06576387144959123,
+        "quantity_percent_difference": 6.797450811781133
+      }
+    },
+    {
+      "variant": "additional_stage_tmax",
+      "crop": "corn_grain",
+      "form": "quantity",
+      "omitted_state": "DE",
+      "reference_precipitation_mm": 400.736480294439,
+      "states_remaining": [
+        "CO",
+        "KS",
+        "ND",
+        "NE",
+        "NM",
+        "OK",
+        "SD",
+        "TX",
+        "WY"
+      ],
+      "rows": 7001,
+      "status": "estimated",
+      "counties": 358,
+      "contrasts": {
+        "quantity_log_difference": 0.06675308352540119,
+        "quantity_percent_difference": 6.903148409840944
+      }
+    },
+    {
+      "variant": "additional_stage_tmax",
+      "crop": "corn_grain",
+      "form": "quantity",
+      "omitted_state": "KS",
+      "reference_precipitation_mm": 400.736480294439,
+      "states_remaining": [
+        "CO",
+        "DE",
+        "ND",
+        "NE",
+        "NM",
+        "OK",
+        "SD",
+        "TX",
+        "WY"
+      ],
+      "rows": 4954,
+      "status": "estimated",
+      "counties": 258,
+      "contrasts": {
+        "quantity_log_difference": 0.05704936116636414,
+        "quantity_percent_difference": 5.870806817082114
+      }
+    },
+    {
+      "variant": "additional_stage_tmax",
+      "crop": "corn_grain",
+      "form": "quantity",
+      "omitted_state": "ND",
+      "reference_precipitation_mm": 400.736480294439,
+      "states_remaining": [
+        "CO",
+        "DE",
+        "KS",
+        "NE",
+        "NM",
+        "OK",
+        "SD",
+        "TX",
+        "WY"
+      ],
+      "rows": 6404,
+      "status": "estimated",
+      "counties": 320,
+      "contrasts": {
+        "quantity_log_difference": 0.06960929574661859,
+        "quantity_percent_difference": 7.208922959444123
+      }
+    },
+    {
+      "variant": "additional_stage_tmax",
+      "crop": "corn_grain",
+      "form": "quantity",
+      "omitted_state": "NE",
+      "reference_precipitation_mm": 400.736480294439,
+      "states_remaining": [
+        "CO",
+        "DE",
+        "KS",
+        "ND",
+        "NM",
+        "OK",
+        "SD",
+        "TX",
+        "WY"
+      ],
+      "rows": 4005,
+      "status": "estimated",
+      "counties": 270,
+      "contrasts": {
+        "quantity_log_difference": 0.07329825652792524,
+        "quantity_percent_difference": 7.605142842124131
+      }
+    },
+    {
+      "variant": "additional_stage_tmax",
+      "crop": "corn_grain",
+      "form": "quantity",
+      "omitted_state": "NM",
+      "reference_precipitation_mm": 400.736480294439,
+      "states_remaining": [
+        "CO",
+        "DE",
+        "KS",
+        "ND",
+        "NE",
+        "OK",
+        "SD",
+        "TX",
+        "WY"
+      ],
+      "rows": 6983,
+      "status": "estimated",
+      "counties": 353,
+      "contrasts": {
+        "quantity_log_difference": 0.06631610850212946,
+        "quantity_percent_difference": 6.856444609017122
+      }
+    },
+    {
+      "variant": "additional_stage_tmax",
+      "crop": "corn_grain",
+      "form": "quantity",
+      "omitted_state": "OK",
+      "reference_precipitation_mm": 400.736480294439,
+      "states_remaining": [
+        "CO",
+        "DE",
+        "KS",
+        "ND",
+        "NE",
+        "NM",
+        "SD",
+        "TX",
+        "WY"
+      ],
+      "rows": 7012,
+      "status": "estimated",
+      "counties": 360,
+      "contrasts": {
+        "quantity_log_difference": 0.0667906811042207,
+        "quantity_percent_difference": 6.907167784948251
+      }
+    },
+    {
+      "variant": "additional_stage_tmax",
+      "crop": "corn_grain",
+      "form": "quantity",
+      "omitted_state": "SD",
+      "reference_precipitation_mm": 400.736480294439,
+      "states_remaining": [
+        "CO",
+        "DE",
+        "KS",
+        "ND",
+        "NE",
+        "NM",
+        "OK",
+        "TX",
+        "WY"
+      ],
+      "rows": 6229,
+      "status": "estimated",
+      "counties": 316,
+      "contrasts": {
+        "quantity_log_difference": 0.07044805782894675,
+        "quantity_percent_difference": 7.298883461364607
+      }
+    },
+    {
+      "variant": "additional_stage_tmax",
+      "crop": "corn_grain",
+      "form": "quantity",
+      "omitted_state": "TX",
+      "reference_precipitation_mm": 400.736480294439,
+      "states_remaining": [
+        "CO",
+        "DE",
+        "KS",
+        "ND",
+        "NE",
+        "NM",
+        "OK",
+        "SD",
+        "WY"
+      ],
+      "rows": 6849,
+      "status": "estimated",
+      "counties": 315,
+      "contrasts": {
+        "quantity_log_difference": 0.06611533668237954,
+        "quantity_percent_difference": 6.834992999692342
+      }
+    },
+    {
+      "variant": "additional_stage_tmax",
+      "crop": "corn_grain",
+      "form": "quantity",
+      "omitted_state": "WY",
+      "reference_precipitation_mm": 400.736480294439,
+      "states_remaining": [
+        "CO",
+        "DE",
+        "KS",
+        "ND",
+        "NE",
+        "NM",
+        "OK",
+        "SD",
+        "TX"
+      ],
+      "rows": 6987,
+      "status": "estimated",
+      "counties": 356,
+      "contrasts": {
+        "quantity_log_difference": 0.06678175168420789,
+        "quantity_percent_difference": 6.906213170206803
+      }
+    },
+    {
+      "variant": "additional_stage_tmax",
+      "crop": "soybeans",
+      "form": "quantity_timing",
+      "omitted_state": null,
+      "reference_precipitation_mm": 397.16907805291095,
+      "states_remaining": [
+        "AR",
+        "DE",
+        "KS",
+        "NE",
+        "TX"
+      ],
+      "rows": 4844,
+      "status": "estimated",
+      "counties": 255,
+      "contrasts": {
+        "quantity_log_difference": 0.039163535470928934,
+        "quantity_percent_difference": 3.9940536910350573,
+        "timing_percent_difference": 4.136921753937144
+      }
+    },
+    {
+      "variant": "additional_stage_tmax",
+      "crop": "soybeans",
+      "form": "quantity_timing",
+      "omitted_state": "AR",
+      "reference_precipitation_mm": 397.16907805291095,
+      "states_remaining": [
+        "DE",
+        "KS",
+        "NE",
+        "TX"
+      ],
+      "rows": 3676,
+      "status": "estimated",
+      "counties": 208,
+      "contrasts": {
+        "quantity_log_difference": 0.03972680066743761,
+        "quantity_percent_difference": 4.052646422197056,
+        "timing_percent_difference": 4.402244857525744
+      }
+    },
+    {
+      "variant": "additional_stage_tmax",
+      "crop": "soybeans",
+      "form": "quantity_timing",
+      "omitted_state": "DE",
+      "reference_precipitation_mm": 397.16907805291095,
+      "states_remaining": [
+        "AR",
+        "KS",
+        "NE",
+        "TX"
+      ],
+      "rows": 4838,
+      "status": "estimated",
+      "counties": 252,
+      "contrasts": {
+        "quantity_log_difference": 0.03916353547092896,
+        "quantity_percent_difference": 3.99405369103506,
+        "timing_percent_difference": 4.136921753937135
+      }
+    },
+    {
+      "variant": "additional_stage_tmax",
+      "crop": "soybeans",
+      "form": "quantity_timing",
+      "omitted_state": "KS",
+      "reference_precipitation_mm": 397.16907805291095,
+      "states_remaining": [
+        "AR",
+        "DE",
+        "NE",
+        "TX"
+      ],
+      "rows": 3508,
+      "status": "estimated",
+      "counties": 152,
+      "contrasts": {
+        "quantity_log_difference": 0.024973224052048215,
+        "quantity_percent_difference": 2.528766710767477,
+        "timing_percent_difference": 5.056103388009789
+      }
+    },
+    {
+      "variant": "additional_stage_tmax",
+      "crop": "soybeans",
+      "form": "quantity_timing",
+      "omitted_state": "NE",
+      "reference_precipitation_mm": 397.16907805291095,
+      "states_remaining": [
+        "AR",
+        "DE",
+        "KS",
+        "TX"
+      ],
+      "rows": 2586,
+      "status": "estimated",
+      "counties": 179,
+      "contrasts": {
+        "quantity_log_difference": 0.055319156740827935,
+        "quantity_percent_difference": 5.687787055050664,
+        "timing_percent_difference": 2.949130999640289
+      }
+    },
+    {
+      "variant": "additional_stage_tmax",
+      "crop": "soybeans",
+      "form": "quantity_timing",
+      "omitted_state": "TX",
+      "reference_precipitation_mm": 397.16907805291095,
+      "states_remaining": [
+        "AR",
+        "DE",
+        "KS",
+        "NE"
+      ],
+      "rows": 4768,
+      "status": "estimated",
+      "counties": 229,
+      "contrasts": {
+        "quantity_log_difference": 0.04025877360308952,
+        "quantity_percent_difference": 4.108014339787715,
+        "timing_percent_difference": 4.242659500547276
+      }
+    }
+  ]
+}
