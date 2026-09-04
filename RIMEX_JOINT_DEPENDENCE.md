@@ -77,3 +77,17 @@ calendar. This heterogeneity is descriptive. The evaluator reads 264 derived
 Parquet files sequentially, remained below 174 MiB RSS across verification
 runs, and performs no fit or tolerance change. The balanced matrix is still
 incomplete and every downstream gate remains closed.
+
+## Pooled versus ESM-conditional decision gate
+
+The next contract was committed before its receipt-only audit. It requires a
+complete five-ESM/three-scenario matrix and at least 51 distinct templates in
+every permitted pool, preserves the unresolved MRI stability failure, and
+forbids derived Parquet and daily inputs. The pooled sample has 88 templates
+and therefore clears the count alone, but it is incomplete and fails the
+stability gate. An ESM-conditional pool has at most three scenarios times eight
+center years, or 24 templates, even after the current matrix is completed.
+That is 27 below the locked minimum for each ESM. Consequently no pooled or
+ESM-conditional dependence fit is permitted. Any expansion of conditional
+templates requires a separate outcome-blind design and cannot assume that
+overlapping 21-year centered windows are independent.

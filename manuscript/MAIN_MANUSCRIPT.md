@@ -968,6 +968,15 @@ winter-wheat calendar cells are below the gate. Thus scenario imbalance is not
 sufficient to explain the MRI result, while crop heterogeneity remains
 material. The decomposition is descriptive and does not fit or authorize a
 dependence model or any downstream response.
+A no-fit decision audit was registered next and reads only those three
+checksum-bound receipts. Pooling the 88 available templates clears the count
+threshold but fails the complete five-ESM/three-scenario requirement and the
+unresolved MRI stability gate. Conditioning on ESM does not solve the design:
+three scenarios by eight center years supply only 24 templates per complete
+ESM, 27 fewer than the locked minimum of 51. Thus neither pooled nor
+ESM-conditional dependence is authorized; additional templates would require
+a separate preregistration that does not assume overlapping centered windows
+are independent.
 The next metadata-only contract pins the 90 official daily files required to
 replicate this contiguous design across five ESMs and three scenarios. If all
 187.139 GB pass content and feature validation, the matrix contains 120

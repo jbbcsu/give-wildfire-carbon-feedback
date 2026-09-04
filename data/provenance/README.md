@@ -199,6 +199,14 @@ The MRI difference remains above the unchanged gate after matching; the result
 does not authorize fitting, FAIR evaluation, response, damage, welfare, or SCC
 use.
 
+`isimip3b_rimex_dependence_pool_decision_preregistration_20260904.json` binds
+the receipt-only pooled-versus-ESM-conditional sample-sufficiency gate.
+`isimip3b_rimex_dependence_pool_decision_audit_20260904.json` records that the
+88-template pooled sample is incomplete and stability-adverse, while every
+complete frozen-design ESM pool has only 24 templates versus the required 51.
+It reads no Parquet or daily climate input and authorizes no fit, FAIR run,
+response, damage, welfare, or SCC use.
+
 `us_national_cross_crop_selector_overlap_20260904.json` is a key-only audit of
 common corn/soybean support under the already fixed 2017 irrigation-share
 selectors. It reads no yield magnitudes and records intersections and annual

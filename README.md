@@ -278,6 +278,14 @@ calendar and 0.084917 rainfed calendar). Scenario imbalance is therefore not
 sufficient to explain the MRI instability, although crop heterogeneity is
 material. This remains a descriptive decomposition and opens no downstream
 gate.
+A separately preregistered receipt-only decision audit then compares pooled
+and ESM-conditional dependence pools without reading derived Parquet or fitting
+a model. The pooled sample has 88 templates, above 51, but fails the complete
+five-ESM/three-scenario requirement and retains the unresolved MRI stability
+failure. Each complete ESM-conditional pool would contain only 24 templates
+under the frozen eight-center-year design, 27 below the locked 51-template
+minimum. No current pool is permitted for dependence fitting, FAIR evaluation,
+response estimation, damage, or SCC use.
 A pre-acquisition contiguous holdout matrix now pins all 90 version-`20210512`
 files needed for five ESMs, three scenarios, `pr`/`tas`, and 2031--2060. The
 public, unrestricted CC0 matrix totals 187.139 GB. If every content and feature

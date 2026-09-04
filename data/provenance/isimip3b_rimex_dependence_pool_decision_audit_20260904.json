@@ -1,0 +1,140 @@
+{
+  "damage_or_scc_authorized": false,
+  "decision": "no_pool_permitted_for_dependence_fit",
+  "dependence_fit_authorized": false,
+  "derived_parquet_files_read": 0,
+  "esm_conditional_pools": [
+    {
+      "all_expected_scenarios_present": true,
+      "complete_design_can_meet_minimum": false,
+      "complete_design_templates": 24,
+      "current_scenarios": [
+        "ssp126",
+        "ssp370",
+        "ssp585"
+      ],
+      "current_template_count_gate_passed": false,
+      "current_templates": 24,
+      "esm": "GFDL-ESM4",
+      "existing_esm_holdout_stability_gate_passed": true,
+      "minimum_templates": 51,
+      "permitted_for_dependence_fit": false,
+      "stability_evidence_gate_resolved": true,
+      "template_shortfall_from_complete_design": 27
+    },
+    {
+      "all_expected_scenarios_present": true,
+      "complete_design_can_meet_minimum": false,
+      "complete_design_templates": 24,
+      "current_scenarios": [
+        "ssp126",
+        "ssp370",
+        "ssp585"
+      ],
+      "current_template_count_gate_passed": false,
+      "current_templates": 24,
+      "esm": "IPSL-CM6A-LR",
+      "existing_esm_holdout_stability_gate_passed": true,
+      "minimum_templates": 51,
+      "permitted_for_dependence_fit": false,
+      "stability_evidence_gate_resolved": true,
+      "template_shortfall_from_complete_design": 27
+    },
+    {
+      "all_expected_scenarios_present": true,
+      "complete_design_can_meet_minimum": false,
+      "complete_design_templates": 24,
+      "current_scenarios": [
+        "ssp126",
+        "ssp370",
+        "ssp585"
+      ],
+      "current_template_count_gate_passed": false,
+      "current_templates": 24,
+      "esm": "MPI-ESM1-2-HR",
+      "existing_esm_holdout_stability_gate_passed": true,
+      "minimum_templates": 51,
+      "permitted_for_dependence_fit": false,
+      "stability_evidence_gate_resolved": true,
+      "template_shortfall_from_complete_design": 27
+    },
+    {
+      "all_expected_scenarios_present": false,
+      "complete_design_can_meet_minimum": false,
+      "complete_design_templates": 24,
+      "current_scenarios": [
+        "ssp126",
+        "ssp370"
+      ],
+      "current_template_count_gate_passed": false,
+      "current_templates": 16,
+      "esm": "MRI-ESM2-0",
+      "existing_esm_holdout_stability_gate_passed": false,
+      "minimum_templates": 51,
+      "permitted_for_dependence_fit": false,
+      "stability_evidence_gate_resolved": false,
+      "template_shortfall_from_complete_design": 27
+    },
+    {
+      "all_expected_scenarios_present": false,
+      "complete_design_can_meet_minimum": false,
+      "complete_design_templates": 24,
+      "current_scenarios": [],
+      "current_template_count_gate_passed": false,
+      "current_templates": 0,
+      "esm": "UKESM1-0-LL",
+      "existing_esm_holdout_stability_gate_passed": null,
+      "minimum_templates": 51,
+      "permitted_for_dependence_fit": false,
+      "stability_evidence_gate_resolved": false,
+      "template_shortfall_from_complete_design": 27
+    }
+  ],
+  "esm_conditional_structurally_sufficient_under_frozen_design": false,
+  "fair_feature_response_authorized": false,
+  "global_daily_files_read": 0,
+  "implementation_sha256": "93c97647e8e87b006b017e22670c131ff9aaff74d79d63cb686b135305fb80e1",
+  "interpretation": "No-fit receipt-level decision audit. The incomplete pooled matrix and unresolved MRI stability failure block pooling; every complete ESM-conditional pool has only 24 templates under the frozen design, 27 below the locked 51-template minimum.",
+  "minimum_additional_distinct_templates_needed_per_complete_esm_pool": 27,
+  "missing_dataset_cells": [
+    {
+      "esm": "MRI-ESM2-0",
+      "scenario": "ssp585"
+    },
+    {
+      "esm": "UKESM1-0-LL",
+      "scenario": "ssp126"
+    },
+    {
+      "esm": "UKESM1-0-LL",
+      "scenario": "ssp370"
+    },
+    {
+      "esm": "UKESM1-0-LL",
+      "scenario": "ssp585"
+    }
+  ],
+  "peak_rss_gate_bytes": 2147483648,
+  "peak_rss_gate_passed": true,
+  "peak_rss_observed_rounded_up_to_64_mib_bytes": 67108864,
+  "permitted_pool_count": 0,
+  "pooled_pool": {
+    "adverse_stability_gate_resolved": false,
+    "complete_balanced_matrix_gate_passed": false,
+    "complete_design_templates": 120,
+    "current_template_count_gate_passed": true,
+    "current_templates": 88,
+    "minimum_templates": 51,
+    "permitted_for_dependence_fit": false,
+    "pool_type": "pooled_across_esms"
+  },
+  "preregistration": {
+    "config_sha256": "eaee649e9de694910da42ab3116ad66f46ca7b8884ed6b0099704ed9bfdf1026",
+    "path": "data/provenance/isimip3b_rimex_dependence_pool_decision_preregistration_20260904.json",
+    "sha256": "a8156492d29d938fdff2fa97d74dfe39b06e564f0bf25355f99cf71553f757b7"
+  },
+  "receipt_json_files_read": 3,
+  "response_estimation_authorized": false,
+  "schema": "isimip3b_rimex_dependence_pool_decision_audit_v1",
+  "status": "no_pool_permitted_for_dependence_fit"
+}

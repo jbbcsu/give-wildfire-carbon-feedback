@@ -1482,6 +1482,17 @@ wheat are 0.070128 and 0.084917, while second-season rice is largest at
 promotion decisions are permitted by the contract. All 264 inputs are derived
 Parquet files read as sequential season/stage pairs; observed peak RSS remained
 below 174 MiB across verification runs.
+We then preregistered a receipt-only sample-sufficiency decision before
+generating its output. It evaluates exactly two pool types: all ESMs pooled and
+one ESM at a time. A pool must have at least 51 distinct templates, full
+required scenario coverage, and resolved stability evidence; the pooled pool
+also requires the complete five-ESM matrix. The current pooled count is 88 but
+the matrix and MRI gates fail. A complete conditional pool has only 24
+templates under the frozen three-scenario by eight-center-year design, so each
+has a 27-template shortfall even after matrix completion. The audit reads three
+JSON receipts, no derived Parquet or daily climate file, and performs no fit.
+Overlapping 21-year windows are not counted as independent new support without
+a separately registered design.
 The subsequent metadata-only acquisition contract pins all 90 official
 version-`20210512` files required for five ESMs, three SSPs, `pr`/`tas`, and
 2031--2060. They total 187,138,935,135 catalogue bytes and are public,

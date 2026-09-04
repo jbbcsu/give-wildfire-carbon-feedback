@@ -167,6 +167,14 @@ differences remain above 0.15. Ten of twelve crop/regime differences exceed
 irrigation treatment or a fitted dependence, response, damage, welfare, or SCC
 model.
 
+A preregistered no-fit pool decision audit reads only the completed-matrix,
+stability, and MRI-decomposition receipts. The 88-template pooled sample clears
+the numeric 51-template threshold but fails the complete balanced-matrix and
+adverse-stability gates. Under the frozen eight-center-year design, a complete
+ESM-conditional pool contains only 24 templates, a 27-template shortfall. Zero
+pools are authorized for dependence fitting or any FAIR, response, damage,
+welfare, or SCC use.
+
 The first later-century UKESM1-0-LL pair (SSP1-2.6, 2041--2050) passes exact
 catalogue bytes/SHA-512 and all 946,598,400 decoded values per field, with no
 missing values or negative precipitation. Its exact midnight chronology is a
