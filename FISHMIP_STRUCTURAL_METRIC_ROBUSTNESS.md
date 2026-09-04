@@ -45,3 +45,11 @@ cells, seven are near ties and 13 are materially dominant. Disagreement is
 therefore concentrated among near ties but does not disappear when the fixed
 materiality screen is applied. The cross-audit still selects no metric or
 probability weight and performs no allocation or welfare calculation.
+
+The next checksum-bound intersection requires both scenarios in a matched
+window/latitude pair to pass metric agreement and material dominance. Only
+five of fifteen pairs pass in both SSP1-2.6 and SSP5-8.5. All five retain the
+same larger axis across scenarios: four climate-forcing and one ecosystem-
+model contrast. Ten pairs fail the dual-scenario robustness intersection, so
+the subset is not used to select a common metric, discard a structural axis,
+or construct probabilities or welfare weights.

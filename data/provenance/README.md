@@ -135,6 +135,12 @@ RMS-ratio dominance screen. It reports only a cross-tabulation and ratio ranges;
 it selects no metric, assigns no probabilities, and opens no allocation,
 welfare, damage, or SCC gate.
 
+`fishmip_robust_scenario_pair_stability_20260904.json` intersects metric
+agreement and fixed material dominance across matched SSP1-2.6/SSP5-8.5
+window/latitude pairs. Only five of fifteen pairs pass in both scenarios; the
+receipt selects no common structural axis, probability, allocation, welfare,
+damage, or SCC input.
+
 `marine_regions_eez_source_decision_20260828.toml` preregisters Marine Regions
 Maritime Boundaries/EEZ version 12 (doi:10.14284/632, CC-BY) as the candidate
 spatial source before any overlay result is inspected. The geometry is not

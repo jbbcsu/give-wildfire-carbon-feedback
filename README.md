@@ -308,6 +308,12 @@ but two remain materially separated. By comparison, 13 of the 20
 metric-agreement cells are materially separated. Metric disagreement is thus
 concentrated among near ties but is not confined to them; no preferred metric,
 structural weight, allocation, welfare, damage, or SCC result follows.
+A further exact-key intersection requires both scenarios in a matched
+window/latitude pair to have metric agreement and material dominance. Only
+5/15 pairs pass both cell-level gates; all five retain the same larger axis
+across scenarios, with four favoring climate forcing and one the ecosystem
+model. The other ten pairs prevent a common structural-axis choice, probability
+weight, allocation, welfare, damage, or SCC inference.
 
 ## Executable accounting scaffolding
 
