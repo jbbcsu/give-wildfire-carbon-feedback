@@ -37,3 +37,11 @@ The machine-readable receipt is
 `data/provenance/fishmip_structural_metric_robustness_20260902.json`. It binds
 the frozen source checksum, recomputed cell results, implementation checksum,
 closed interpretation gates, and the 20/30 agreement count.
+
+A subsequent exact-key cross-audit joins these cells to the separately locked
+1.25 RMS-ratio dominance classification. Eight of ten metric-disagreement cells
+are near ties and two are materially dominant; among the 20 metric-agreement
+cells, seven are near ties and 13 are materially dominant. Disagreement is
+therefore concentrated among near ties but does not disappear when the fixed
+materiality screen is applied. The cross-audit still selects no metric or
+probability weight and performs no allocation or welfare calculation.

@@ -302,6 +302,12 @@ finds that RMS and mean absolute magnitude agree on the larger structural axis
 in 20/30 cells. Mean absolute magnitude produces eight exact ties and changes
 the label in ten cells, so the structural conclusion is metric-sensitive and
 does not support choosing weights or dropping either dimension.
+A checksum-bound cross-audit shows that eight of those ten metric-disagreement
+cells are near ties under the separately preregistered 1.25 RMS-ratio rule,
+but two remain materially separated. By comparison, 13 of the 20
+metric-agreement cells are materially separated. Metric disagreement is thus
+concentrated among near ties but is not confined to them; no preferred metric,
+structural weight, allocation, welfare, damage, or SCC result follows.
 
 ## Executable accounting scaffolding
 

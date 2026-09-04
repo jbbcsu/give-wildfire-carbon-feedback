@@ -129,6 +129,12 @@ validated symbol-preserving headless export and compares fixed 1950, 1970,
 of time-invariant allocation, not GUI reconciliation, EEZ allocation, FishMIP
 calibration, welfare, damage, or SCC evidence.
 
+`fishmip_metric_disagreement_materiality_20260904.json` joins the exact 30
+structural-metric robustness cells to the independently preregistered 1.25
+RMS-ratio dominance screen. It reports only a cross-tabulation and ratio ranges;
+it selects no metric, assigns no probabilities, and opens no allocation,
+welfare, damage, or SCC gate.
+
 `marine_regions_eez_source_decision_20260828.toml` preregisters Marine Regions
 Maritime Boundaries/EEZ version 12 (doi:10.14284/632, CC-BY) as the candidate
 spatial source before any overlay result is inspected. The geometry is not
