@@ -140,6 +140,14 @@ thresholds retain 20.80%/26.15%/29.30% of reported corn county-years and
 annual support ranges from 296 to 424 corn counties and 283 to 391 soybean
 counties. This threshold-sensitive attrition is a required validation result,
 not an irrigation effect or authorization for response, damage, or SCC use.
+A key-only cross-crop audit shows that the primary 10% selector has 9,715
+common corn/soybean county-years across 264 counties, 66.30% of the smaller
+soybean selected panel; annual common support ranges from 161 to 263 counties
+and the selected county-set Jaccard index is 0.475. At the 20% and 30%
+sensitivities, common county-years rise to 12,968 and 14,559. A future joint
+corn/soybean validation must use the actual intersection rather than either
+crop's marginal support count. No yield magnitude is read and no response or
+irrigation effect is estimated.
 An outcome-blind geographic audit shows that the 10% selector retains 28 of
 41 reported corn states and 28 of 31 reported soybean states. The five largest
 retained states account for 42.96% of corn and 42.15% of soybean selected

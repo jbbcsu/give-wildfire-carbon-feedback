@@ -61,6 +61,13 @@ and 23.65%/27.97%/30.16% of reported soybean county-years. At 10%, annual
 retained support spans 296--424 corn and 283--391 soybean counties. The audit
 does not read yield magnitudes, change the primary 2017 selector, identify an
 irrigation effect, or authorize response, damage, welfare, or SCC use.
+A key-only companion audit intersects the two crop panels without reading
+yield magnitudes. At the primary 10% selector it retains 9,715 common
+corn/soybean county-years across 264 counties, or 66.30% of the smaller
+selected crop panel. Annual overlap ranges from 161 to 263 counties and the
+county-set Jaccard index is 0.475. The 20% and 30% sensitivities retain 12,968
+and 14,559 common county-years. These counts define feasible joint-crop support
+only; they do not identify an irrigation effect or response.
 The companion outcome-blind state-FIPS audit retains 28 of 41 reported corn
 states and 28 of 31 reported soybean states at the 10% selector. Top-five-state
 county-year shares are 42.96% and 42.15%, respectively. This result fixes

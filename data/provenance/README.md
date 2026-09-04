@@ -198,3 +198,8 @@ scenario-matched, scenario-specific, center-year, and crop/regime summaries.
 The MRI difference remains above the unchanged gate after matching; the result
 does not authorize fitting, FAIR evaluation, response, damage, welfare, or SCC
 use.
+
+`us_national_cross_crop_selector_overlap_20260904.json` is a key-only audit of
+common corn/soybean support under the already fixed 2017 irrigation-share
+selectors. It reads no yield magnitudes and records intersections and annual
+counts only; it is not an irrigation effect, response, damage, or SCC input.
