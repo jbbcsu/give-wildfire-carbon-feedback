@@ -1003,6 +1003,13 @@ same fixed sample to 180 complete cells. Minimum defined correlation is
 from -2.7068 to +1.2868 mm. The expanded evidence continues to reject exact
 interchangeability without reading yield outcomes or changing the registered
 polygon route.
+For the national fixed-2017 10% selector, a key-only audit of the corn/soy
+intersection finds 9,715 county-years in 264 counties and 22 states. Median
+coverage and the median longest consecutive run are 38 of 39 years, and 105
+counties in 17 states are complete. The minimum is eight years. These counts do
+not favor complete-case restriction; later joint validation must declare its
+missingness and clustering treatment without using outcome magnitudes to choose
+the sample.
 
 ### 6.3 Marginal damages and global SCC
 

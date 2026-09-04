@@ -1493,6 +1493,13 @@ has a 27-template shortfall even after matrix completion. The audit reads three
 JSON receipts, no derived Parquet or daily climate file, and performs no fit.
 Overlapping 21-year windows are not counted as independent new support without
 a separately registered design.
+The national joint-crop temporal-support audit reads only county, crop, year,
+eligibility, and the already fixed 2017 10% selector flag from the checksum-
+bound national panel. After exact corn/soy county-year intersection, it reports
+per-county year counts and longest consecutive runs without reading yield
+magnitudes. Of 264 common counties, 105 have all 39 years from 1981--2019;
+median count and longest run are 38, and the minimum count is eight. This is a
+support diagnostic, not a requirement to analyze only balanced counties.
 The subsequent metadata-only acquisition contract pins all 90 official
 version-`20210512` files required for five ESMs, three SSPs, `pr`/`tas`, and
 2031--2060. They total 187,138,935,135 catalogue bytes and are public,

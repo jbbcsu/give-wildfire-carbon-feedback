@@ -282,6 +282,15 @@ exact constant match is dry Fresno precipitation in July 2000. The minimum
 defined correlation is 0.985332 and the largest monthly rainfall-total
 difference is 0.9926 mm. The two routes remain non-interchangeable.
 
+The fixed-2017, 10% rainfed-selector corn/soy key intersection contains 9,715
+county-years across 264 counties and 22 states. A key-only temporal audit finds
+a median 38 of 39 years and a median longest run of 38 years; 105 counties in
+17 states have all 39 years, while the minimum county support is eight years.
+Future joint validation is not required to use a balanced subset: missingness,
+geography, clustering, and overlap must be handled explicitly. Yield magnitudes
+were not read, and this is not an irrigation effect, response, damage, or SCC
+result.
+
 ## Primary design
 
 1. Begin with a **high-rainfed-share county sample** for maize, soybean, and

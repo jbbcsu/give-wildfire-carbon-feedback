@@ -211,3 +211,8 @@ response, damage, welfare, or SCC use.
 common corn/soybean support under the already fixed 2017 irrigation-share
 selectors. It reads no yield magnitudes and records intersections and annual
 counts only; it is not an irrigation effect, response, damage, or SCC input.
+
+`us_national_joint_crop_temporal_support_20260904.json` profiles year counts
+and longest consecutive runs inside the fixed 10% corn/soy county-year
+intersection. It reads no yield magnitude and does not authorize complete-case
+selection, an irrigation effect, response, damage, or SCC use.
