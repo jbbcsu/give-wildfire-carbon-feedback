@@ -1005,11 +1005,23 @@ holdouts retain at most 12 and 10. The 2,376,990 legacy early/mid/end rows
 contribute zero compatible templates. Pairwise nonoverlap is not treated as
 proof of independence, and no dependence, FAIR, response, damage, or SCC gate
 is opened.
+A separately preregistered metadata-only feasibility audit then solves the
+count constraint without fitting. Seven ESM-member tracks across three SSPs
+and four pairwise-nonoverlapping 21-year windows yield 84 compatible
+templates. Whole-member, worst-case whole-ESM-family under a two-member family
+cap, and whole-scenario holdouts retain 72, 60, and 56 templates, respectively;
+six member tracks retain only 48 after the limiting family or scenario
+holdout. This is structural arithmetic, not a selected ensemble: candidate
+members, catalogue availability, storage volume, member independence, and
+holdout performance remain unverified, and no acquisition or downstream gate
+opens.
 The next metadata-only contract pins the 90 official daily files required to
 replicate this contiguous design across five ESMs and three scenarios. If all
 187.139 GB pass content and feature validation, the matrix contains 120
 complete centered templates; whole-ESM and whole-scenario exclusions retain 96
-and 80 training templates, respectively. No additional matrix content or
+and 80 nominal training templates, respectively. The corrected distinctness
+audit does not treat the overlapping centers as independent support. No
+additional matrix content or
 holdout performance is claimed here.
 
 The U.S. measurement validation also expands spatially. A sample fixed before

@@ -297,12 +297,23 @@ whole-ESM and whole-scenario bounds would be 12 and 10. The 2,376,990 legacy
 early/mid/end rows contribute zero compatible dependence templates. Pairwise
 nonoverlap is itself only an upper bound on independence, and no fit or
 downstream gate opens.
+A separately preregistered metadata-only feasibility audit identifies the
+smallest balanced expansion that can clear the locked count after structural
+holdouts: seven ESM-member tracks, three SSPs, and four pairwise-nonoverlapping
+21-year windows produce 84 compatible templates. Whole-member, worst-case
+whole-ESM-family (with at most two members from one family), and whole-scenario
+holdouts retain 72, 60, and 56 templates. Six tracks retain only 48 after the
+limiting family or scenario holdout. This arithmetic selects no ESM member or
+file, checks no new catalogue availability, estimates no bytes, and authorizes
+no acquisition, fit, response, damage, or SCC work.
 A pre-acquisition contiguous holdout matrix now pins all 90 version-`20210512`
 files needed for five ESMs, three scenarios, `pr`/`tas`, and 2031--2060. The
 public, unrestricted CC0 matrix totals 187.139 GB. If every content and feature
 gate passes, it yields 120 complete centered templates; a whole-ESM holdout
 retains 96 training templates and a whole-scenario holdout retains 80, both
-above the locked 51-template minimum. No new matrix files were acquired and no
+above the locked 51-template minimum nominally. Because the eight centers
+overlap, the corrected distinctness audit does not count these as independent
+support. No new matrix files were acquired and no
 holdout, response, damage, or SCC gate is yet open.
 A registered later-century expansion now fixes the next acquisition before any
 later-century feature or response result is examined. It selects exactly the

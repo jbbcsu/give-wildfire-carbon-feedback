@@ -176,6 +176,17 @@ ESM-conditional pool contains only 24 templates, a 27-template shortfall. Zero
 pools are authorized for dependence fitting or any FAIR, response, damage,
 welfare, or SCC use.
 
+The corrected compatibility-first audit reduces the 88 overlapping nominal
+templates to an upper bound of 11 pairwise-nonoverlapping templates, or 15 in
+the complete five-ESM/three-scenario matrix. A separately preregistered
+metadata-only feasibility calculation shows that the smallest design under a
+four-window and at-most-two-members-per-ESM-family rule has seven member
+tracks. Its 84 compatible templates leave 72 after a whole-member holdout, 60
+after the worst whole-family holdout, and 56 after a whole-scenario holdout;
+six tracks leave only 48 at the limiting gates. Candidate members, catalogue
+availability, bytes, storage, independence, and performance remain unverified,
+so no acquisition, fit, FAIR, response, damage, welfare, or SCC gate opens.
+
 The first later-century UKESM1-0-LL pair (SSP1-2.6, 2041--2050) passes exact
 catalogue bytes/SHA-512 and all 946,598,400 decoded values per field, with no
 missing values or negative precipitation. Its exact midnight chronology is a

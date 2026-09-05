@@ -1,0 +1,54 @@
+{
+  "acquisition_authorized": false,
+  "adverse_mri_stability_resolved": false,
+  "candidate_esm_members_selected": false,
+  "damage_or_scc_authorized": false,
+  "dataset_bytes_estimated": false,
+  "dependence_fit_authorized": false,
+  "derived_parquet_files_read": 0,
+  "design": {
+    "esm_families_at_least": 4,
+    "esm_member_tracks": 7,
+    "largest_esm_family_member_share": 0.2857142857142857,
+    "maximum_members_per_esm_family": 2,
+    "pairwise_nonoverlapping_windows_per_track": 4,
+    "scenarios": 3,
+    "total_compatible_templates": 84
+  },
+  "fair_feature_response_authorized": false,
+  "global_daily_files_read": 0,
+  "holdout_gates_strictly_exceed_minimum": {
+    "whole_esm_member": true,
+    "whole_scenario": true,
+    "worst_case_whole_esm_family": true
+  },
+  "holdout_training_templates": {
+    "whole_esm_member": 72,
+    "whole_scenario": 56,
+    "worst_case_whole_esm_family": 60
+  },
+  "implementation_sha256": "f3f6e3abb956418724dda7a9cf25ae03d74c839ac7e2313b8c7622ffc145321d",
+  "interpretation": "A balanced seven-member, three-scenario design with four pairwise-nonoverlapping 21-year windows contains 84 compatible templates. Whole-member, worst-case whole-ESM-family, and whole-scenario holdouts retain 72, 60, and 56 templates, each strictly above 51. Six members retain only 48 after the limiting family or scenario holdout, proving seven is the minimum under the locked four-window and two-members-per-family constraints. This is arithmetic feasibility only: no members, catalogue files, byte volume, storage plan, independence evidence, fit, response, damage, or SCC are authorized.",
+  "member_independence_established": false,
+  "minimum_distinct_training_templates_per_holdout": 51,
+  "official_catalogue_availability_verified": false,
+  "peak_rss_gate_bytes": 2147483648,
+  "peak_rss_gate_passed": true,
+  "peak_rss_observed_rounded_up_to_64_mib_bytes": 67108864,
+  "preregistration": {
+    "config_sha256": "947f1d0f1443a538c6b1719d172b9c1e6cba75d299c9055b63f86422cde89e4e",
+    "path": "data/provenance/isimip3b_rimex_compatible_expansion_feasibility_preregistration_20260905.json",
+    "sha256": "4ee3b08e06950b7de6438ea97b435a6af315e7a09930f8aebae8f29f9c63fee3"
+  },
+  "receipt_json_files_read": 2,
+  "response_estimation_authorized": false,
+  "schema": "isimip3b_rimex_compatible_expansion_feasibility_audit_v1",
+  "six_track_minimality_check": {
+    "whole_scenario_strict_gate_passed": false,
+    "whole_scenario_training_templates": 48,
+    "worst_case_whole_esm_family_strict_gate_passed": false,
+    "worst_case_whole_esm_family_training_templates": 48
+  },
+  "status": "structurally_feasible_but_selection_catalogue_and_storage_unverified",
+  "storage_plan_authorized": false
+}

@@ -1532,6 +1532,19 @@ whole-scenario holdout bounds are 12 and 10. The four legacy receipts contain
 reads 17 JSON receipts, no Parquet or daily data, and performs no fit.
 Pairwise nonoverlap remains only an upper bound, not evidence of independence;
 every FAIR, response, damage, welfare, and SCC gate remains closed.
+A subsequent preregistration fixes a purely arithmetic expansion-feasibility
+test. It requires the same centered 21-year linked multicrop/regime unit, four
+pairwise-nonoverlapping windows within every ESM-member--scenario track, three
+SSPs, at least seven member tracks from at least four ESM families, and no more
+than two members from one family. The resulting 84-template balanced design
+retains 72 training templates after a whole-member holdout, 60 after the
+worst-case whole-family holdout, and 56 after a whole-scenario holdout, all
+strictly above 51. The corresponding six-member design retains 48 after the
+limiting family and scenario exclusions and therefore fails. The evaluator
+reads two checksum-bound JSON receipts, no Parquet or daily climate file, and
+performs no fit. It does not select members, query new catalogue availability,
+estimate bytes, approve storage or acquisition, establish member independence,
+or resolve the adverse MRI stability result.
 The national joint-crop temporal-support audit reads only county, crop, year,
 eligibility, and the already fixed 2017 10% selector flag from the checksum-
 bound national panel. After exact corn/soy county-year intersection, it reports
@@ -1544,8 +1557,9 @@ version-`20210512` files required for five ESMs, three SSPs, `pr`/`tas`, and
 2031--2060. They total 187,138,935,135 catalogue bytes and are public,
 unrestricted CC0 inputs. If all content and feature gates pass, the design
 contains 120 centered templates; whole-ESM and whole-scenario exclusions retain
-96 and 80 training templates, respectively, above the locked 51-template
-minimum. These counts do not imply that files were acquired or that holdout
+96 and 80 nominal training templates, respectively. The corrected audit does
+not treat the overlapping centers as distinct support. These counts do not
+imply that files were acquired or that holdout
 performance passed.
 
 A separately preregistered U.S. spatial sensitivity uses June 2019 because the
