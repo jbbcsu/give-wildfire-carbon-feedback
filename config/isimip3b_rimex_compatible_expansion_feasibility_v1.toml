@@ -1,0 +1,79 @@
+schema = "isimip3b_rimex_compatible_expansion_feasibility_contract_v1"
+role = "outcome_blind_no_fit_metadata_only_compatible_expansion_feasibility"
+registered_utc_date = "2026-09-05"
+primary_climate_route = "direct_isimip3b_daily_feature_response"
+fallback_climate_route = "mesmer_m_tp_plus_published_daily_generator"
+dependence_fit_authorized = false
+catalogue_selection_authorized = false
+acquisition_authorized = false
+fair_feature_response_authorized = false
+response_estimation_authorized = false
+damage_or_scc_authorized = false
+
+[[source_receipts]]
+role = "corrected_compatible_template_distinctness_audit"
+path = "data/provenance/isimip3b_rimex_template_compatibility_distinctness_audit_v2_20260904.json"
+sha256 = "6976541957d43e85f3ed79a43f5cce9f7dcc1803b8b9c4d791ed8f3dc97b1579"
+
+[[source_receipts]]
+role = "prior_official_catalogue_matrix_metadata"
+path = "data/provenance/isimip3b_rimex_contiguous_holdout_matrix_metadata_20260902.json"
+sha256 = "c42d335dff64ad1aecb2fba57d867fcc06a87d05131536cf6cc0ce2691c3688c"
+
+[compatible_template]
+unit = "centered_21yr_linked_multicrop_regime_physical_field"
+centered_window_years = 21
+pairwise_nonoverlap_required_within_esm_member_scenario_track = true
+pairwise_nonoverlap_is_only_an_upper_bound_not_independence_evidence = true
+required_crops = ["mai", "soy", "ri1", "ri2", "swh", "wwh"]
+required_calendar_regimes = ["noirr", "firr"]
+
+[minimal_design]
+minimum_esm_member_tracks = 7
+minimum_esm_families = 4
+maximum_members_per_esm_family = 2
+scenarios = ["ssp126", "ssp370", "ssp585"]
+pairwise_nonoverlapping_windows_per_track = 4
+example_center_years = [2025, 2046, 2067, 2088]
+example_window_starts = [2015, 2036, 2057, 2078]
+example_window_ends = [2035, 2056, 2077, 2098]
+same_esm_member_required_across_scenarios_and_windows = true
+balanced_member_scenario_window_matrix_required = true
+
+[decision]
+minimum_distinct_training_templates_per_holdout = 51
+whole_esm_member_holdout_required = true
+whole_esm_family_holdout_required = true
+whole_scenario_holdout_required = true
+strictly_exceed_minimum_required = true
+six_track_design_must_fail_whole_scenario_gate = true
+no_fit_if_any_gate_fails = true
+no_outcome_columns = true
+
+[outputs]
+report_total_templates = true
+report_whole_member_training_templates = true
+report_worst_case_whole_family_training_templates = true
+report_whole_scenario_training_templates = true
+report_six_track_minimality_check = true
+report_largest_esm_family_share = true
+
+[resources]
+maximum_peak_resident_memory_bytes = 2147483648
+large_downloads_forbidden = true
+raw_rehydration_forbidden = true
+global_daily_inputs_forbidden = true
+derived_parquet_inputs_forbidden = true
+receipt_json_inputs_only = true
+
+[limitations]
+candidate_esm_members_not_selected = true
+official_catalogue_availability_not_checked = true
+dataset_bytes_not_estimated = true
+storage_plan_not_authorized = true
+member_independence_not_established = true
+heat_extremes_not_in_current_template = true
+drought_not_in_current_template = true
+adverse_mri_stability_unresolved = true
+causal_yield_response = false
+damage_or_scc_input = false
