@@ -1,0 +1,135 @@
+{
+  "by_future_window": [
+    {
+      "future_period": {
+        "end_year": 2030,
+        "start_year": 2021
+      },
+      "robust_scenario_stable_latitude_band_count": 2,
+      "robust_scenario_stable_latitude_bands": [
+        "south_mid",
+        "tropics"
+      ]
+    },
+    {
+      "future_period": {
+        "end_year": 2050,
+        "start_year": 2041
+      },
+      "robust_scenario_stable_latitude_band_count": 3,
+      "robust_scenario_stable_latitude_bands": [
+        "south_mid",
+        "north_mid",
+        "north_high"
+      ]
+    },
+    {
+      "future_period": {
+        "end_year": 2090,
+        "start_year": 2081
+      },
+      "robust_scenario_stable_latitude_band_count": 0,
+      "robust_scenario_stable_latitude_bands": []
+    }
+  ],
+  "by_latitude_band": [
+    {
+      "all_three_windows_robust_and_scenario_stable": false,
+      "latitude_band": "south_high",
+      "robust_scenario_stable_window_count": 0,
+      "robust_scenario_stable_windows": [],
+      "robust_window_axes": []
+    },
+    {
+      "all_three_windows_robust_and_scenario_stable": false,
+      "latitude_band": "south_mid",
+      "robust_scenario_stable_window_count": 2,
+      "robust_scenario_stable_windows": [
+        {
+          "end_year": 2030,
+          "start_year": 2021
+        },
+        {
+          "end_year": 2050,
+          "start_year": 2041
+        }
+      ],
+      "robust_window_axes": [
+        "climate_forcing"
+      ]
+    },
+    {
+      "all_three_windows_robust_and_scenario_stable": false,
+      "latitude_band": "tropics",
+      "robust_scenario_stable_window_count": 1,
+      "robust_scenario_stable_windows": [
+        {
+          "end_year": 2030,
+          "start_year": 2021
+        }
+      ],
+      "robust_window_axes": [
+        "climate_forcing"
+      ]
+    },
+    {
+      "all_three_windows_robust_and_scenario_stable": false,
+      "latitude_band": "north_mid",
+      "robust_scenario_stable_window_count": 1,
+      "robust_scenario_stable_windows": [
+        {
+          "end_year": 2050,
+          "start_year": 2041
+        }
+      ],
+      "robust_window_axes": [
+        "climate_forcing"
+      ]
+    },
+    {
+      "all_three_windows_robust_and_scenario_stable": false,
+      "latitude_band": "north_high",
+      "robust_scenario_stable_window_count": 1,
+      "robust_scenario_stable_windows": [
+        {
+          "end_year": 2050,
+          "start_year": 2041
+        }
+      ],
+      "robust_window_axes": [
+        "ecosystem_model"
+      ]
+    }
+  ],
+  "common_structural_axis_selected": false,
+  "country_or_eez_allocation_performed": false,
+  "damage_or_scc_authorized": false,
+  "fixed_material_dominance_ratio": 1.25,
+  "future_windows": [
+    {
+      "end_year": 2030,
+      "start_year": 2021
+    },
+    {
+      "end_year": 2050,
+      "start_year": 2041
+    },
+    {
+      "end_year": 2090,
+      "start_year": 2081
+    }
+  ],
+  "interpretation": "None of the five latitude bands is metric-agreeing, materially dominant, and scenario-stable in all three future windows. The five previously robust scenario pairs occur only in 2021-2030 or 2041-2050; zero occur in 2081-2090. This descriptive intersection does not select a metric or structural axis and does not support probabilities, allocation, welfare, damage, or SCC use.",
+  "latitude_band_count": 5,
+  "latitude_bands_robust_and_scenario_stable_in_all_windows": [],
+  "preferred_metric_selected": false,
+  "probability_or_variance_decomposition": false,
+  "schema": "fishmip_temporal_robustness_persistence_audit_v1",
+  "source": {
+    "path": "data/provenance/fishmip_robust_scenario_pair_stability_20260904.json",
+    "sha256": "8a3aaca2bb3d20f81c795f7f0fc5e22c538404ddfe21997cc725793521199315"
+  },
+  "status": "descriptive_cross_audit_no_temporally_persistent_robust_latitude_band",
+  "temporally_persistent_latitude_band_count": 0,
+  "welfare_estimated": false
+}

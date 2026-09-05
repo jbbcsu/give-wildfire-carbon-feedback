@@ -141,6 +141,13 @@ window/latitude pairs. Only five of fifteen pairs pass in both scenarios; the
 receipt selects no common structural axis, probability, allocation, welfare,
 damage, or SCC input.
 
+`fishmip_temporal_robustness_persistence_20260905.json` intersects those five
+already-robust scenario pairs across the three fixed future windows. Zero of
+five latitude bands passes in all three windows, and zero bands pass in the
+2081--2090 window. This is a descriptive cross-audit, not a metric or axis
+selection, probability model, allocation, welfare estimate, damage, or SCC
+input.
+
 `marine_regions_eez_source_decision_20260828.toml` preregisters Marine Regions
 Maritime Boundaries/EEZ version 12 (doi:10.14284/632, CC-BY) as the candidate
 spatial source before any overlay result is inspected. The geometry is not

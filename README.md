@@ -314,6 +314,12 @@ window/latitude pair to have metric agreement and material dominance. Only
 across scenarios, with four favoring climate forcing and one the ecosystem
 model. The other ten pairs prevent a common structural-axis choice, probability
 weight, allocation, welfare, damage, or SCC inference.
+A checksum-bound descriptive temporal cross-audit finds that none of the five
+latitude bands passes those same metric, materiality, and scenario-stability
+conditions in all three future windows. The five passing pairs are confined to
+2021--2030 (two bands) and 2041--2050 (three bands); no latitude band passes in
+2081--2090. This does not select a metric or structural axis and leaves every
+allocation, probability, welfare, damage, and SCC gate closed.
 
 ## Executable accounting scaffolding
 
@@ -368,6 +374,7 @@ python3 test/test_fishmip_control_adjusted_spatial_consensus.py  # same environm
 python3 test/test_fishmip_control_adjusted_spatial_time_windows.py  # same environment requirement
 python3 test/test_fishmip_control_adjusted_spatial_persistence.py  # same environment requirement
 python3 test/test_fishmip_structural_contrast_sensitivity.py
+python3 test/test_fishmip_temporal_robustness_persistence.py
 ```
 
 These scripts do not choose ecological or economic parameters, prove that an
