@@ -286,15 +286,16 @@ failure. Each complete ESM-conditional pool would contain only 24 templates
 under the frozen eight-center-year design, 27 below the locked 51-template
 minimum. No current pool is permitted for dependence fitting, FAIR evaluation,
 response estimation, damage, or SCC use.
-A preregistered receipt-only temporal-distinctness audit then tests whether the
-already validated early-, mid-, and end-century products can close that count
-gap without treating overlapping 21-year centered windows as independent.
-They contain 300 nominal future ESM--scenario--center-year labels, but the
-maximum pairwise-nonoverlapping subset is only 45 even under the permissive
-assumption that different scenario branches count separately. Adding the
-historical labels raises this diagnostic upper bound to 50, still below 51;
-future whole-ESM and whole-scenario holdout training bounds are 36 and 30.
-Pairwise nonoverlap is itself only an upper bound on independence, so no fit or
+An initial receipt-only temporal count is explicitly withdrawn because it
+incorrectly assigned 21-year windows to legacy annual one-crop/regime holdout
+rows. The corrected, separately preregistered compatibility-first audit counts
+only the centered 21-year linked multicrop/regime RIME-X products. Their 88
+nominal templates comprise eight overlapping center years in each of 11
+completed ESM--scenario cells, so at most 11 are pairwise nonoverlapping.
+Completing all 15 cells would raise that upper bound only to 15; future
+whole-ESM and whole-scenario bounds would be 12 and 10. The 2,376,990 legacy
+early/mid/end rows contribute zero compatible dependence templates. Pairwise
+nonoverlap is itself only an upper bound on independence, and no fit or
 downstream gate opens.
 A pre-acquisition contiguous holdout matrix now pins all 90 version-`20210512`
 files needed for five ESMs, three scenarios, `pr`/`tas`, and 2031--2060. The

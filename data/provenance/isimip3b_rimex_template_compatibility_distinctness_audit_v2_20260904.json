@@ -1,0 +1,61 @@
+{
+  "compatible_inventory": {
+    "complete_design_dataset_cells": 15,
+    "complete_design_maximum_pairwise_nonoverlapping_templates": 15,
+    "complete_design_nominal_centered_templates": 120,
+    "current_dataset_cells": 11,
+    "maximum_pairwise_nonoverlapping_templates": 11,
+    "nominal_centered_templates": 88,
+    "selected_center_year_per_track": [
+      2042
+    ]
+  },
+  "complete_design_upper_bound_gate_passed": false,
+  "complete_design_upper_bound_shortfall": 36,
+  "complete_design_whole_esm_holdout_nonoverlap_upper_bound": 12,
+  "complete_design_whole_scenario_holdout_nonoverlap_upper_bound": 10,
+  "current_upper_bound_gate_passed": false,
+  "current_upper_bound_shortfall": 40,
+  "current_whole_esm_holdout_nonoverlap_upper_bounds": {
+    "GFDL-ESM4": 8,
+    "IPSL-CM6A-LR": 8,
+    "MPI-ESM1-2-HR": 8,
+    "MRI-ESM2-0": 9,
+    "UKESM1-0-LL": 11
+  },
+  "current_whole_scenario_holdout_nonoverlap_upper_bounds": {
+    "ssp126": 7,
+    "ssp370": 7,
+    "ssp585": 8
+  },
+  "damage_or_scc_authorized": false,
+  "decision": "no_compatible_pool_meets_locked_distinct_template_minimum",
+  "dependence_fit_authorized": false,
+  "derived_parquet_files_read": 0,
+  "fair_feature_response_authorized": false,
+  "global_daily_files_read": 0,
+  "implementation_sha256": "1b8b4783717eb75f14547fe9526399e4205f6205f0529a0125aae4a0a8ea25f3",
+  "incompatible_candidate_products": {
+    "combined_rows": 2376990,
+    "compatible_centered_multicrop_regime_templates_contributed": 0,
+    "nominal_exact_year_labels": 315,
+    "reason": "annual one_crop_regime_two_latitude holdout rows are not registered as centered_21yr linked multicrop_regime dependence templates",
+    "receipt_count": 4
+  },
+  "interpretation": "Only the 88 nominal centered multicrop/regime RIME-X templates are compatible with the registered dependence unit. Their eight 21-year windows overlap within every ESM-member-scenario track, leaving at most one pairwise-nonoverlapping window per completed dataset cell: 11 now and 15 after matrix completion, versus the locked minimum of 51. The 2,376,990 legacy early/mid/end holdout rows contribute zero compatible templates because they are not registered as centered 21-year linked multicrop/regime fields.",
+  "minimum_distinct_training_templates": 51,
+  "nested_compatible_receipt_json_files_read": 11,
+  "peak_rss_gate_bytes": 2147483648,
+  "peak_rss_gate_passed": true,
+  "peak_rss_observed_rounded_up_to_64_mib_bytes": 67108864,
+  "preregistration": {
+    "config_sha256": "8a7d4a1a2e7fca2370623c5cffb3f92cbf5ad1f8300933f46c9b1c9a56444aa7",
+    "path": "data/provenance/isimip3b_rimex_template_compatibility_distinctness_preregistration_v2_20260904.json",
+    "sha256": "e1c495afe1ed539e810c3bc3f5518c0e9ed8e287fed4f2ce02939d23d8c3f83f"
+  },
+  "response_estimation_authorized": false,
+  "schema": "isimip3b_rimex_template_compatibility_distinctness_audit_v2",
+  "status": "no_compatible_pool_meets_locked_distinct_template_minimum",
+  "supersedes_withdrawn_v1_audit": "data/provenance/isimip3b_rimex_temporal_distinctness_audit_20260904.json",
+  "top_level_receipt_json_files_read": 6
+}

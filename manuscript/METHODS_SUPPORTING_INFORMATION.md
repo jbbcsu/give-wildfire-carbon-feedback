@@ -1515,21 +1515,23 @@ has a 27-template shortfall even after matrix completion. The audit reads three
 JSON receipts, no derived Parquet or daily climate file, and performs no fit.
 Overlapping 21-year windows are not counted as independent new support without
 a separately registered design.
-We therefore preregistered a receipt-only temporal-distinctness audit before
-calculating any multi-period count. The audit verifies the exact-hash complete
-five-ESM early, midcentury, and end-century receipts and their 15 nested ESM
-receipts, then represents every center year as a closed 21-year support
-interval. Within each ESM--member--scenario track, a greedy interval schedule
-computes the maximum-cardinality pairwise-nonoverlapping subset. This is a
-permissive upper bound because different scenario branches are counted
-separately and pairwise nonoverlap is not evidence of stochastic independence.
-The 300 nominal future labels reduce to 45 eligible nonoverlapping labels; the
-15 historical labels contribute at most five more. Thus the future-only and
-historical-augmented bounds are six and one below the locked 51-template
-minimum. Future whole-ESM and whole-scenario holdout training bounds are only
-36 and 30. The audit reads 19 JSON receipts, no Parquet or daily data, and
-performs no fit; every FAIR, response, damage, welfare, and SCC gate remains
-closed.
+An initial receipt-only temporal count is withdrawn in a checksum-bound
+sidecar because it assigned 21-year intervals to legacy annual one-crop/regime
+holdout rows. Those rows are not registered as centered linked
+multicrop/regime dependence templates, so their exact year labels cannot be
+counted toward this gate. A corrected compatibility-first contract was then
+preregistered before evaluation. It verifies the 11 current RIME-X cell
+receipts and requires all six crops, both calendar regimes, the centered
+21-year product identity, and eight center years. A greedy closed-interval
+schedule retains at most one of the eight overlapping windows in each
+ESM--member--scenario cell. The current 88 nominal templates therefore have an
+upper bound of 11 pairwise-nonoverlapping templates; a complete 120-template,
+15-cell matrix has an upper bound of only 15. Complete-design whole-ESM and
+whole-scenario holdout bounds are 12 and 10. The four legacy receipts contain
+2,376,990 rows but contribute zero compatible templates. The corrected audit
+reads 17 JSON receipts, no Parquet or daily data, and performs no fit.
+Pairwise nonoverlap remains only an upper bound, not evidence of independence;
+every FAIR, response, damage, welfare, and SCC gate remains closed.
 The national joint-crop temporal-support audit reads only county, crop, year,
 eligibility, and the already fixed 2017 10% selector flag from the checksum-
 bound national panel. After exact corn/soy county-year intersection, it reports

@@ -993,17 +993,18 @@ ESM, 27 fewer than the locked minimum of 51. Thus neither pooled nor
 ESM-conditional dependence is authorized; additional templates would require
 a separate preregistration that does not assume overlapping centered windows
 are independent.
-A preregistered receipt-only follow-up evaluates that temporal issue using the
-complete legacy early-, mid-, and end-century products. Although their exact
-labels imply 300 future ESM--scenario--center-year combinations, each label
-summarizes a 21-year centered window. Requiring pairwise-nonoverlapping closed
-windows within each ESM--member--scenario track leaves a permissive upper bound
-of 45 future templates, six below the fixed 51-template minimum. Counting five
-historical windows as a diagnostic raises the bound only to 50; future
-whole-ESM and whole-scenario holdouts retain at most 36 and 30. Different
-scenario branches are counted separately in these bounds, and nonoverlap is
-not treated as proof of independence. No dependence, FAIR, response, damage,
-or SCC gate is opened.
+An initial receipt-only temporal count is withdrawn because it incorrectly
+treated the legacy annual one-crop/regime holdout rows as centered 21-year
+linked multicrop/regime dependence templates. The corrected audit was
+separately preregistered and applies compatibility before counting. The 88
+nominal RIME-X templates comprise eight overlapping center years in each of 11
+completed ESM--scenario cells, leaving at most 11 pairwise-nonoverlapping
+templates. Even a complete 15-cell matrix raises this upper bound only to 15,
+36 below the fixed minimum of 51; complete-design whole-ESM and whole-scenario
+holdouts retain at most 12 and 10. The 2,376,990 legacy early/mid/end rows
+contribute zero compatible templates. Pairwise nonoverlap is not treated as
+proof of independence, and no dependence, FAIR, response, damage, or SCC gate
+is opened.
 The next metadata-only contract pins the 90 official daily files required to
 replicate this contiguous design across five ESMs and three scenarios. If all
 187.139 GB pass content and feature validation, the matrix contains 120
