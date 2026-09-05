@@ -1559,6 +1559,19 @@ reads two checksum-bound JSON receipts, no Parquet or daily climate file, and
 performs no fit. It does not select members, query new catalogue availability,
 estimate bytes, approve storage or acquisition, establish member independence,
 or resolve the adverse MRI stability result.
+A following contract preregisters an official-catalogue-only candidate screen.
+Six queries cover the Cartesian product of SSP1-2.6, SSP3-7.0, and SSP5-8.5
+with daily `pr` and `tas`; neither climate forcing nor ensemble member is a
+query filter. A track is eligible only when one ESM-member identity is present
+in all six cells, every dataset is public, unrestricted, CC0, and version
+`20210512`, every required source file exposes a positive byte count and
+SHA-512, and continuous daily metadata cover 2015--2035, 2036--2056,
+2057--2077, and 2078--2098. The live catalogue contains five eligible tracks
+from five families, 30 datasets, and 270 unique source files totaling
+536,861,000,440 bytes. Because the contract requires at least seven tracks,
+the catalogue gate fails. The audit reads API metadata only, selects no final
+ensemble, downloads zero climate bytes, and leaves storage, independence, MRI
+stability, fitting, FAIR, response, damage, welfare, and SCC gates closed.
 The national joint-crop temporal-support audit reads only county, crop, year,
 eligibility, and the already fixed 2017 10% selector flag from the checksum-
 bound national panel. After exact corn/soy county-year intersection, it reports

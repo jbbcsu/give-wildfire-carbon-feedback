@@ -306,6 +306,14 @@ holdouts retain 72, 60, and 56 templates. Six tracks retain only 48 after the
 limiting family or scenario holdout. This arithmetic selects no ESM member or
 file, checks no new catalogue availability, estimates no bytes, and authorizes
 no acquisition, fit, response, damage, or SCC work.
+A separately preregistered live official-catalogue screen then queried all six
+SSP-by-variable cells without pre-filtering climate forcing or ensemble member.
+Only five complete ESM-member tracks are available across SSP1-2.6, SSP3-7.0,
+SSP5-8.5, daily `pr`/`tas`, and the four nonoverlapping 21-year windows, versus
+the locked minimum of seven. The complete five-track pool comprises 30 datasets
+and 270 public, unrestricted CC0 version-`20210512` files totaling
+536,861,000,440 catalogue bytes. The track-count gate therefore fails before
+storage or fitting; no ensemble is selected and no payload is downloaded.
 A pre-acquisition contiguous holdout matrix now pins all 90 version-`20210512`
 files needed for five ESMs, three scenarios, `pr`/`tas`, and 2031--2060. The
 public, unrestricted CC0 matrix totals 187.139 GB. If every content and feature

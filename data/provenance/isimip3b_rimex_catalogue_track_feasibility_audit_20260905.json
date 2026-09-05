@@ -1,0 +1,94 @@
+{
+  "acquisition_authorized": false,
+  "adverse_mri_stability_resolved": false,
+  "all_metadata_public_unrestricted_cc0": true,
+  "balanced_dataset_count": 30,
+  "climate_payload_bytes_downloaded": 0,
+  "config": {
+    "path": "config/isimip3b_rimex_catalogue_track_feasibility_v1.toml",
+    "sha256": "68658aa1c6b8d52169ba15a35bb922c3e391e29b0c75a8209529cbb9485a2ad2"
+  },
+  "damage_or_scc_authorized": false,
+  "dependence_fit_authorized": false,
+  "eligible_complete_esm_member_tracks": [
+    {
+      "esm_id": "gfdl-esm4",
+      "member_id": "r1i1p1f1"
+    },
+    {
+      "esm_id": "ipsl-cm6a-lr",
+      "member_id": "r1i1p1f1"
+    },
+    {
+      "esm_id": "mpi-esm1-2-hr",
+      "member_id": "r1i1p1f1"
+    },
+    {
+      "esm_id": "mri-esm2-0",
+      "member_id": "r1i1p1f1"
+    },
+    {
+      "esm_id": "ukesm1-0-ll",
+      "member_id": "r1i1p1f2"
+    }
+  ],
+  "eligible_complete_track_count": 5,
+  "eligible_esm_family_count": 5,
+  "eligible_track_capacity_after_two_member_family_cap": 5,
+  "fair_feature_response_authorized": false,
+  "final_ensemble_selected": false,
+  "global_daily_files_read": 0,
+  "implementation": {
+    "path": "scripts/snapshot_isimip3b_rimex_catalogue_track_feasibility.py",
+    "sha256": "d88bffaae78c6d3e050310d83aa7108c4899317a93f6d7a36fc33c96e63152d4"
+  },
+  "incomplete_track_count": 0,
+  "incomplete_tracks": [],
+  "interpretation": "The official catalogue exposes 5 complete ESM-member tracks across all three registered SSPs, daily pr/tas, and four pairwise-nonoverlapping 21-year windows. The locked design requires at least 7 tracks from at least 4 families. This metadata screen selects no ensemble and authorizes no acquisition, fit, FAIR response, crop response, damage, or SCC calculation.",
+  "member_independence_established": false,
+  "minimum_required_families": 4,
+  "minimum_required_tracks": 7,
+  "official_catalogue_api": "https://data.isimip.org/api/v1/datasets/",
+  "peak_rss_gate_bytes": 2147483648,
+  "peak_rss_gate_passed": true,
+  "peak_rss_observed_rounded_up_to_64_mib_bytes": 67108864,
+  "plan": {
+    "path": "data/provenance/isimip3b_rimex_catalogue_track_feasibility_plan_20260905.csv",
+    "sha256": "e39d91be06299e0f4f7a3fc703a4ebff5728d9ddf132c0fd034bc1006c518cfb"
+  },
+  "preregistration": {
+    "path": "data/provenance/isimip3b_rimex_catalogue_track_feasibility_preregistration_20260905.json",
+    "sha256": "fa013863edce01a7bc57364f5c396e942378b9a5ca80d97ff059d8bc6f1b5443"
+  },
+  "query_count": 6,
+  "query_counts": {
+    "ssp126/pr": 5,
+    "ssp126/tas": 5,
+    "ssp370/pr": 5,
+    "ssp370/tas": 5,
+    "ssp585/pr": 5,
+    "ssp585/tas": 5
+  },
+  "query_filters_excluded": [
+    "climate_forcing",
+    "ensemble_member"
+  ],
+  "response_estimation_authorized": false,
+  "schema": "isimip3b_rimex_catalogue_track_feasibility_audit_v1",
+  "status": "catalogue_track_gate_failed_insufficient_complete_tracks",
+  "storage_plan_authorized": false,
+  "unique_required_source_file_catalogue_bytes": 536861000440,
+  "unique_required_source_file_count": 270,
+  "window_ends": [
+    2035,
+    2056,
+    2077,
+    2098
+  ],
+  "window_starts": [
+    2015,
+    2036,
+    2057,
+    2078
+  ]
+}

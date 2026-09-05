@@ -1029,6 +1029,15 @@ holdout. This is structural arithmetic, not a selected ensemble: candidate
 members, catalogue availability, storage volume, member independence, and
 holdout performance remain unverified, and no acquisition or downstream gate
 opens.
+The preregistered official-catalogue screen then queried the complete three-SSP
+by daily-`pr`/`tas` matrix without filtering climate forcing or member. It finds
+only five complete ESM-member tracks spanning the four nonoverlapping 21-year
+windows, below the locked minimum of seven. Their 30 datasets contain 270
+public, unrestricted CC0 version-`20210512` source files totaling
+536,861,000,440 catalogue bytes. The track-count gate therefore fails before
+storage or model fitting. No ensemble was selected and no climate payload was
+downloaded; member independence, adverse MRI stability, FAIR, response,
+damage, and SCC gates remain closed.
 The next metadata-only contract pins the 90 official daily files required to
 replicate this contiguous design across five ESMs and three scenarios. If all
 187.139 GB pass content and feature validation, the matrix contains 120

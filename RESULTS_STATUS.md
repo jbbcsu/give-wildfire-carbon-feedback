@@ -187,6 +187,17 @@ six tracks leave only 48 at the limiting gates. Candidate members, catalogue
 availability, bytes, storage, independence, and performance remain unverified,
 so no acquisition, fit, FAIR, response, damage, welfare, or SCC gate opens.
 
+The preregistered official-catalogue screen now resolves the candidate-count
+gate without reading climate content. Queries across all three SSPs and daily
+`pr`/`tas`, with no forcing or member pre-filter, return exactly five complete
+ESM-member tracks: GFDL-ESM4, IPSL-CM6A-LR, MPI-ESM1-2-HR, MRI-ESM2-0, and
+UKESM1-0-LL. Their four-window source support comprises 30 datasets and 270
+public, unrestricted CC0 version-`20210512` files totaling 536,861,000,440
+catalogue bytes. Five is below the locked seven-track minimum, so the catalogue
+track gate fails. No final ensemble is selected, no climate payload is
+downloaded, and storage, independence, MRI stability, fitting, FAIR, response,
+damage, welfare, and SCC gates remain closed.
+
 The first later-century UKESM1-0-LL pair (SSP1-2.6, 2041--2050) passes exact
 catalogue bytes/SHA-512 and all 946,598,400 decoded values per field, with no
 missing values or negative precipitation. Its exact midnight chronology is a
