@@ -1,0 +1,81 @@
+schema = "isimip3b_rimex_template_compatibility_distinctness_contract_v2"
+role = "outcome_blind_no_fit_receipt_only_compatible_template_distinctness_gate"
+registered_utc_date = "2026-09-04"
+supersedes_withdrawn_contract = "config/isimip3b_rimex_temporal_distinctness_v1.toml"
+withdrawal_reason = "legacy early_mid_end holdout rows are not registered as centered_21yr_multicrop_regime_dependence_templates"
+dependence_fit_authorized = false
+fair_feature_response_authorized = false
+response_estimation_authorized = false
+damage_or_scc_authorized = false
+
+[[source_receipts]]
+role = "compatible_centered_multicrop_regime_inventory"
+path = "data/provenance/isimip3b_rimex_contiguous_completed_matrix_audit_20260903.json"
+sha256 = "f65d921feabc92947732eba0cc48723450f36bed56a298a21e43539250efbe34"
+
+[[source_receipts]]
+role = "locked_pool_decision"
+path = "data/provenance/isimip3b_rimex_dependence_pool_decision_audit_20260904.json"
+sha256 = "b689a7ef65e7980b75e3bcb5f9aff48694c62273ce542826a1cb78559bcb0de4"
+
+[[incompatible_candidate_receipts]]
+period = "historical_and_early_future"
+path = "data/provenance/isimip3b_five_esm_four_scenario_holdout_20260827.json"
+sha256 = "53332e572f4d7a0327bd808462bca35b8b119acccf7d7da18f7ad1b4bdde8bbc"
+
+[[incompatible_candidate_receipts]]
+period = "midcentury"
+path = "data/provenance/isimip3b_five_esm_midcentury_holdout_20260901.json"
+sha256 = "c3634a4efefa1e74b157a2a79b7f9706cd18c2f2516da93e61f539898f5e2bc9"
+
+[[incompatible_candidate_receipts]]
+period = "endcentury"
+path = "data/provenance/isimip3b_five_esm_endcentury_holdout_20260901.json"
+sha256 = "94e812b315ad1758f3370fad4154f0bb208a37297c4be580a61c6510e802f16b"
+
+[[incompatible_candidate_receipts]]
+period = "combined_period_inventory"
+path = "data/provenance/isimip3b_expanded_fair_training_20260901.json"
+sha256 = "a883f8e0c74d41c6996bc798c58565b4195b78a17b38e50509483f3a7e3bf90f"
+
+[target_template]
+unit = "centered_21yr_linked_multicrop_regime_physical_field"
+centered_window_years = 21
+window_year_radius = 10
+required_center_years = [2042, 2043, 2044, 2045, 2046, 2047, 2048, 2049]
+required_crops = ["mai", "soy", "ri1", "ri2", "swh", "wwh"]
+required_calendar_regimes = ["noirr", "firr"]
+same_esm_member_scenario_windows_must_be_pairwise_nonoverlapping = true
+
+[matrix]
+expected_esms = ["GFDL-ESM4", "IPSL-CM6A-LR", "MPI-ESM1-2-HR", "MRI-ESM2-0", "UKESM1-0-LL"]
+expected_scenarios = ["ssp126", "ssp370", "ssp585"]
+current_compatible_dataset_cells = 11
+current_nominal_compatible_templates = 88
+complete_design_dataset_cells = 15
+complete_design_nominal_templates = 120
+
+[decision]
+minimum_distinct_training_templates_per_permitted_pool = 51
+incompatible_candidate_receipts_contribute_zero_templates = true
+pairwise_nonoverlap_is_only_an_upper_bound_not_independence_evidence = true
+whole_esm_holdout_training_count_required = true
+whole_scenario_holdout_training_count_required = true
+no_fit_if_any_gate_fails = true
+no_outcome_columns = true
+
+[resources]
+maximum_peak_resident_memory_bytes = 2147483648
+large_downloads_forbidden = true
+raw_rehydration_forbidden = true
+global_daily_inputs_forbidden = true
+derived_parquet_inputs_forbidden = true
+receipt_json_inputs_only = true
+
+[limitations]
+heat_extremes_not_in_current_template = true
+drought_not_in_current_template = true
+adverse_mri_stability_unresolved = true
+balanced_matrix_incomplete = true
+causal_yield_response = false
+damage_or_scc_input = false
