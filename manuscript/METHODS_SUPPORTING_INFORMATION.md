@@ -29,6 +29,20 @@ uncertainty claims are made. Every omission and failure status is preserved.
 Both analyses use existing inputs, sequential fits and the sampled job-group
 memory monitor described in `LOW_MEMORY_WORKFLOW.md`.
 
+### September 5 competing-moisture predictive sensitivity
+
+The hash-verified common first-difference panel and original validation splits
+were reused for an exploratory maximum-temperature sensitivity. Differences
+of stage-average Tmax levels and of their squared levels were added to every
+model family; no direct rainfall and PDSI features were stacked. Training-only
+scaling and purging of shared outcome endpoints were retained. The 240
+aggregate metrics cover both original and modified controls. These previously
+examined splits are not independent confirmation. See
+`us_county_validation/US_MOISTURE_TMAX_PROTOCOL_20260905.md` and
+`us_county_validation/scripts/evaluate_moisture_tmax_sensitivity.py`.
+The verified result weakens the earlier soybean distribution-promotion claim;
+all split outcomes, including failed materiality criteria, are retained.
+
 ## S2. Data acquisition and provenance
 
 The outcome panel uses GDHY v1.2/v1.3 (Iizumi and Sakai, 2020), with the

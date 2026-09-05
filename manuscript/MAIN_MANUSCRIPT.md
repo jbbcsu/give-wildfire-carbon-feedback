@@ -1,5 +1,19 @@
 # Precipitation patterns, global agricultural damages, and the social cost of carbon
 
+## September 5 predictive robustness qualification
+
+Adding stage-average maximum-temperature controls changes the regional
+moisture-model comparison. Neither soybean practice continues to meet the
+predeclared geographic materiality criterion for the full rainfall-distribution
+extension, although non-irrigated soybean improvements remain positive in
+each eligible state. PDSI models have the lowest non-irrigated crop RMSE in
+the previously examined terminal-time tests with these controls; rankings are
+not universal across geographic tests. Thus earlier distribution-selection
+results below apply only to their original control specification and should
+not be read as robust to temperature-control choice. This is exploratory
+predictive evidence, not precipitation attribution or SCC. See
+`us_county_validation/US_MOISTURE_TMAX_RESULTS_20260905.md`.
+
 ## September 4 regional robustness update
 
 In the reported non-irrigated sample, adding stage-average daily maximum
