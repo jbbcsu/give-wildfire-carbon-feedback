@@ -1,0 +1,45 @@
+{
+  "acquisition_authorized": false,
+  "config_sha256": "68658aa1c6b8d52169ba15a35bb922c3e391e29b0c75a8209529cbb9485a2ad2",
+  "damage_or_scc_authorized": false,
+  "dependence_fit_authorized": false,
+  "fair_feature_response_authorized": false,
+  "final_ensemble_selection_authorized": false,
+  "implementation_sha256": "596559ba399719902a7c48077f251783b606fd857e23907e26e795885b7536ed",
+  "minimum_esm_member_tracks": 7,
+  "scenarios": [
+    "ssp126",
+    "ssp370",
+    "ssp585"
+  ],
+  "schema": "isimip3b_rimex_catalogue_track_feasibility_preregistration_v1",
+  "sources": [
+    {
+      "path": "data/provenance/isimip3b_rimex_compatible_expansion_feasibility_audit_20260905.json",
+      "role": "compatible_expansion_arithmetic",
+      "sha256": "bfe80d357a7599f0f8e65f5810790e0ac08d6ede42ef461c2a1275bd09d80e54"
+    },
+    {
+      "path": "data/provenance/isimip3b_daily_catalog_selection.csv",
+      "role": "prior_complete_official_catalogue_snapshot",
+      "sha256": "c9f4af14b1cc8d3d4f2b532b154a850c814ba5309eb17a5c7e015dba2d3a9547"
+    }
+  ],
+  "status": "validated_before_official_catalogue_metadata_query",
+  "variables": [
+    "pr",
+    "tas"
+  ],
+  "window_ends": [
+    2035,
+    2056,
+    2077,
+    2098
+  ],
+  "window_starts": [
+    2015,
+    2036,
+    2057,
+    2078
+  ]
+}

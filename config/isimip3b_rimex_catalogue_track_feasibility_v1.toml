@@ -1,0 +1,80 @@
+schema = "isimip3b_rimex_catalogue_track_feasibility_contract_v1"
+role = "outcome_blind_no_fit_official_catalogue_metadata_only_track_screen"
+registered_utc_date = "2026-09-05"
+primary_climate_route = "direct_isimip3b_daily_feature_response"
+fallback_climate_route = "mesmer_m_tp_plus_published_daily_generator"
+candidate_ensemble_selection_authorized = false
+acquisition_authorized = false
+dependence_fit_authorized = false
+fair_feature_response_authorized = false
+response_estimation_authorized = false
+damage_or_scc_authorized = false
+
+[[source_receipts]]
+role = "compatible_expansion_arithmetic"
+path = "data/provenance/isimip3b_rimex_compatible_expansion_feasibility_audit_20260905.json"
+sha256 = "bfe80d357a7599f0f8e65f5810790e0ac08d6ede42ef461c2a1275bd09d80e54"
+
+[[source_receipts]]
+role = "prior_complete_official_catalogue_snapshot"
+path = "data/provenance/isimip3b_daily_catalog_selection.csv"
+sha256 = "c9f4af14b1cc8d3d4f2b532b154a850c814ba5309eb17a5c7e015dba2d3a9547"
+
+[source]
+catalogue_api = "https://data.isimip.org/api/v1/datasets/"
+simulation_round = "ISIMIP3b"
+product = "InputData"
+region = "global"
+time_step = "daily"
+bias_adjustment = "w5e5"
+dataset_version = "20210512"
+rights = "CC0 1.0"
+resource_doi = "10.48364/ISIMIP.842396.1"
+user_agent = "GIVE-RIMEX-catalogue-track-feasibility/1"
+query_must_not_filter_climate_forcing = true
+query_must_not_filter_ensemble_member = true
+
+[screen]
+scenarios = ["ssp126", "ssp370", "ssp585"]
+variables = ["pr", "tas"]
+window_centers = [2025, 2046, 2067, 2088]
+window_starts = [2015, 2036, 2057, 2078]
+window_ends = [2035, 2056, 2077, 2098]
+minimum_esm_member_tracks = 7
+minimum_esm_families = 4
+maximum_members_per_esm_family = 2
+same_esm_member_required_across_all_scenarios_variables_and_windows = true
+balanced_catalogue_matrix_required = true
+public_unrestricted_cc0_required = true
+complete_daily_coverage_required = true
+exact_file_bytes_and_sha512_required = true
+report_all_eligible_tracks_without_selecting_final_ensemble = true
+report_unique_required_source_files_and_catalogue_bytes = true
+
+[decision]
+if_fewer_than_seven_tracks = "catalogue_track_gate_failed_no_acquisition_or_fit"
+if_seven_or_more_tracks = "metadata_feasible_only_storage_and_scientific_gates_still_required"
+strictly_exceed_51_templates_after_whole_member_family_scenario_holdouts_required = true
+member_independence_must_be_established_separately = true
+adverse_mri_stability_must_be_resolved_separately = true
+storage_retention_review_required_before_acquisition = true
+no_outcome_columns = true
+
+[resources]
+maximum_peak_resident_memory_bytes = 2147483648
+large_downloads_forbidden = true
+raw_rehydration_forbidden = true
+global_daily_inputs_forbidden = true
+derived_parquet_inputs_forbidden = true
+metadata_payloads_only = true
+minimum_free_disk_bytes_before_any_future_acquisition = 161061273600
+
+[limitations]
+final_ensemble_not_selected = true
+member_independence_not_established = true
+adverse_mri_stability_unresolved = true
+storage_plan_not_authorized = true
+heat_extremes_not_in_current_template = true
+drought_not_in_current_template = true
+causal_yield_response = false
+damage_or_scc_input = false
