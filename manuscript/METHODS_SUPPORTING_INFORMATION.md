@@ -1515,6 +1515,21 @@ has a 27-template shortfall even after matrix completion. The audit reads three
 JSON receipts, no derived Parquet or daily climate file, and performs no fit.
 Overlapping 21-year windows are not counted as independent new support without
 a separately registered design.
+We therefore preregistered a receipt-only temporal-distinctness audit before
+calculating any multi-period count. The audit verifies the exact-hash complete
+five-ESM early, midcentury, and end-century receipts and their 15 nested ESM
+receipts, then represents every center year as a closed 21-year support
+interval. Within each ESM--member--scenario track, a greedy interval schedule
+computes the maximum-cardinality pairwise-nonoverlapping subset. This is a
+permissive upper bound because different scenario branches are counted
+separately and pairwise nonoverlap is not evidence of stochastic independence.
+The 300 nominal future labels reduce to 45 eligible nonoverlapping labels; the
+15 historical labels contribute at most five more. Thus the future-only and
+historical-augmented bounds are six and one below the locked 51-template
+minimum. Future whole-ESM and whole-scenario holdout training bounds are only
+36 and 30. The audit reads 19 JSON receipts, no Parquet or daily data, and
+performs no fit; every FAIR, response, damage, welfare, and SCC gate remains
+closed.
 The national joint-crop temporal-support audit reads only county, crop, year,
 eligibility, and the already fixed 2017 10% selector flag from the checksum-
 bound national panel. After exact corn/soy county-year intersection, it reports

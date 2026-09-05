@@ -993,6 +993,17 @@ ESM, 27 fewer than the locked minimum of 51. Thus neither pooled nor
 ESM-conditional dependence is authorized; additional templates would require
 a separate preregistration that does not assume overlapping centered windows
 are independent.
+A preregistered receipt-only follow-up evaluates that temporal issue using the
+complete legacy early-, mid-, and end-century products. Although their exact
+labels imply 300 future ESM--scenario--center-year combinations, each label
+summarizes a 21-year centered window. Requiring pairwise-nonoverlapping closed
+windows within each ESM--member--scenario track leaves a permissive upper bound
+of 45 future templates, six below the fixed 51-template minimum. Counting five
+historical windows as a diagnostic raises the bound only to 50; future
+whole-ESM and whole-scenario holdouts retain at most 36 and 30. Different
+scenario branches are counted separately in these bounds, and nonoverlap is
+not treated as proof of independence. No dependence, FAIR, response, damage,
+or SCC gate is opened.
 The next metadata-only contract pins the 90 official daily files required to
 replicate this contiguous design across five ESMs and three scenarios. If all
 187.139 GB pass content and feature validation, the matrix contains 120
