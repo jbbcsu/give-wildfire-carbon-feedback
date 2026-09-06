@@ -61,3 +61,15 @@ The verified run completed in 5.73 seconds at 235,094,016 bytes sampled
 process-group RSS (224.2 MiB), under the 1 GiB monitor. A first verification
 attempt stopped on a key-check dtype mismatch; the final check compares
 actual ordered key values and the rerun passed. No source data changed.
+
+A separately preregistered aggregate-artifact audit then checked the tracked
+verified JSON without reading raw/interim panels or refitting. It verified all
+240 unique metric rows, eight comparison summaries, identical scored support,
+full-rank retained designs, endpoint-purge and sample-count accounting, current
+source hashes, and every reported promotion/materiality result. Recomputed
+summary differences agree exactly at saved precision, including the terminal
+RMSE table and the positive AR/KS/NE non-irrigated soybean improvements with
+only Nebraska below the materiality floor. See
+`scripts/validate_moisture_tmax_artifact.py` and
+`../data/provenance/us_moisture_tmax_artifact_audit_20260906.json`. This is an
+internal aggregate-result audit, not an independent empirical replication.

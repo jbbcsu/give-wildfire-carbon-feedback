@@ -42,6 +42,14 @@ examined splits are not independent confirmation. See
 `us_county_validation/scripts/evaluate_moisture_tmax_sensitivity.py`.
 The verified result weakens the earlier soybean distribution-promotion claim;
 all split outcomes, including failed materiality criteria, are retained.
+A preregistered pure-standard-library follow-up independently validates the
+tracked aggregate JSON and its written claims without reopening raw/interim
+panels or refitting. It requires exact 240-row metric support, eight summaries,
+full-rank retained designs, endpoint-purge and sample-count reconciliation,
+source hashes, and direct recomputation of every promotion comparison. The
+saved reconciliation error is zero at artifact precision. This checks internal
+aggregate-result integrity, not sample construction, exposure construction,
+model fitting, or causal identification.
 
 ## S2. Data acquisition and provenance
 

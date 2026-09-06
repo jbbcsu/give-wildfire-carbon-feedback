@@ -1,0 +1,87 @@
+{
+  "all_first_difference_endpoints_disjoint": true,
+  "all_retained_designs_full_rank": true,
+  "audit_code_sha256": "e89e9f78ddd39ece3abc9b8227b5dd16d46fb69956e683fbb14e33c9fcd54b18",
+  "audit_protocol_sha256": "de954227ddcda3ae9fc8dd457c05e4961561edc58bacccd27766bd53a86cb967",
+  "causal_effect_estimated": false,
+  "coefficients_or_row_predictions_emitted": false,
+  "comparison_summaries_total": 8,
+  "damage_calculated": false,
+  "inputs": {
+    "evaluator_sha256": "815cde686eb6758eeb3b2745b88b03b7cf723a1f7b19a459c7a61a57c4f03334",
+    "independent_audit_sha256": "3e159b495336257869d01698657375a772bfa71a99150c1758e2bdbe797f5283",
+    "model_protocol_sha256": "11ccd161c0f2f467e42b8ca9ecc1731b276db4edd52d77a9eb3931380ee70b2a",
+    "sensitivity_code_sha256": "98038bfa180f7a00f6eb4288d736b2971ecdd90ae16282c71cbc7ec5ca0a7d80",
+    "sensitivity_protocol_sha256": "7ebca64a98faafcb716ac014ef4f4b8ec1e88af84ceec18dfa5e8889fa9b282e",
+    "verified_artifact_sha256": "49aa943d48dddfb2f5e6b946525127d50fe695783e6272d580bddccedf1524dd"
+  },
+  "interpretation": "Internal aggregate-artifact and written-claim audit only; not an independent empirical replication.",
+  "maximum_absolute_summary_reconciliation_error": 0.0,
+  "metric_rows_per_specification": 120,
+  "metric_rows_total": 240,
+  "model_refit": false,
+  "promotion_states": {
+    "additional_stage_tmax": {
+      "corn_grain/irrigated": false,
+      "corn_grain/non_irrigated": false,
+      "soybeans/irrigated": false,
+      "soybeans/non_irrigated": false
+    },
+    "baseline": {
+      "corn_grain/irrigated": false,
+      "corn_grain/non_irrigated": false,
+      "soybeans/irrigated": true,
+      "soybeans/non_irrigated": true
+    }
+  },
+  "raw_or_interim_data_read": false,
+  "richer_tmax_non_irrigated_soybean_excess_over_floor": {
+    "AR": 0.003429744441082114,
+    "KS": 0.007839043584663823,
+    "NE": -0.0010845694626248274
+  },
+  "richer_tmax_non_irrigated_soybean_improvements": {
+    "AR": 0.006221617552949421,
+    "KS": 0.011439792869594512,
+    "NE": 0.0017020875095857257
+  },
+  "scc_calculated": false,
+  "schema": "us_moisture_tmax_artifact_audit_v1",
+  "scored_support_identical": true,
+  "status": "passed_saved_aggregate_artifact_and_claim_reconciliation",
+  "terminal_non_irrigated_rmse": {
+    "additional_stage_tmax": {
+      "corn_grain": {
+        "controls_only": 0.43566969443786596,
+        "direct_quantity": 0.43046018131518826,
+        "direct_quantity_distribution": 0.3984871143007662,
+        "pdsi_season_mean": 0.3903730572185265,
+        "pdsi_stage_sensitivity": 0.391426970078945
+      },
+      "soybeans": {
+        "controls_only": 0.31562163537520255,
+        "direct_quantity": 0.3183413478308526,
+        "direct_quantity_distribution": 0.30458459740493304,
+        "pdsi_season_mean": 0.2987822878093466,
+        "pdsi_stage_sensitivity": 0.29669455799526234
+      }
+    },
+    "baseline": {
+      "corn_grain": {
+        "controls_only": 0.6128024777776548,
+        "direct_quantity": 0.5160057590590524,
+        "direct_quantity_distribution": 0.4556641562624821,
+        "pdsi_season_mean": 0.4667896530851508,
+        "pdsi_stage_sensitivity": 0.4709709042226771
+      },
+      "soybeans": {
+        "controls_only": 0.44577858383582614,
+        "direct_quantity": 0.39182815493291073,
+        "direct_quantity_distribution": 0.33356019533315806,
+        "pdsi_season_mean": 0.36646848660059883,
+        "pdsi_stage_sensitivity": 0.35603579991764267
+      }
+    }
+  },
+  "welfare_calculated": false
+}

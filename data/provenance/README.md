@@ -126,6 +126,16 @@ only point checks. All artifact paths are relative; it contains no fitted
 coefficient, row prediction, row loss, or bootstrap draw and does not alter
 the point protocol, promotion gate, causal boundary, damages, or SCC.
 
+`us_moisture_tmax_artifact_audit_20260906.json` is the preregistered,
+pure-standard-library integrity audit of the tracked September 5 aggregate
+temperature-control sensitivity. It binds the verified artifact and source
+hashes, checks 240 unique metric rows and eight summaries, requires identical
+scored support, full-rank designs and endpoint-purge accounting, and recomputes
+every promotion, materiality, terminal, tail, and seasonal-PDSI comparison
+with zero discrepancy at saved precision. It reads no raw/interim panel,
+refits no model, emits no coefficient or row prediction, and authorizes no
+causal effect, damage, welfare, or SCC use.
+
 `census_county_changes_1980_2019.toml` pins the official 1980s--2010s Census
 county-change pages and their scope statement. They provide a conservative
 historical-boundary review screen, not an automatically inferred crosswalk;
