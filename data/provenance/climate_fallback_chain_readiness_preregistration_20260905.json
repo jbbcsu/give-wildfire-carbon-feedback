@@ -1,0 +1,35 @@
+{
+  "climate_payload_acquisition_authorized": false,
+  "component_ids": [
+    "mesmer_m_tp",
+    "kemsley_markov_gamma",
+    "mesmer_x_rx1day",
+    "stitches"
+  ],
+  "config_sha256": "6f50c360f1774d722572989b552154e2e34764f0abcb99843201939d53d281d2",
+  "damage_or_scc_authorized": false,
+  "emulator_fit_authorized": false,
+  "fair_feature_response_authorized": false,
+  "fallback_selection_authorized": false,
+  "implementation_sha256": "fee8cd79606dbc55bc6bc50cb49841382f5e1574c73fd41a345c7d59e7dbf61a",
+  "schema": "climate_fallback_chain_readiness_preregistration_v1",
+  "software_acquisition_authorized": false,
+  "sources": [
+    {
+      "path": "data/provenance/climate_emulator_candidates.toml",
+      "role": "existing_candidate_inventory",
+      "sha256": "4093023e4b7966f17900714ab3acafec3da6639f092248a0ed83aabfeaa6bbf0"
+    },
+    {
+      "path": "CLIMATE_PRECIPITATION_EMULATOR_AUDIT.md",
+      "role": "existing_literature_audit",
+      "sha256": "53bd3d3d6977ce31029ac5229f2d420ff07e28df6d5078c24b7ca837fcb61195"
+    },
+    {
+      "path": "data/provenance/isimip3b_rimex_catalogue_track_feasibility_audit_20260905.json",
+      "role": "failed_direct_catalogue_expansion",
+      "sha256": "6425b0082b7be486fbf27349f8a3d26218a97b7815a8fe5c42087fb25f71264a"
+    }
+  ],
+  "status": "validated_before_fallback_source_metadata_snapshot"
+}

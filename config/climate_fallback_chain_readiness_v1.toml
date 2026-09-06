@@ -1,0 +1,101 @@
+schema = "climate_fallback_chain_readiness_contract_v1"
+role = "outcome_blind_metadata_only_mesmer_m_tp_daily_generator_readiness_screen"
+registered_utc_date = "2026-09-05"
+primary_climate_route = "direct_isimip3b_daily_feature_response"
+fallback_climate_route = "mesmer_m_tp_plus_kemsley_markov_gamma_daily_generator"
+fallback_selection_authorized = false
+software_acquisition_authorized = false
+climate_payload_acquisition_authorized = false
+emulator_fit_authorized = false
+fair_feature_response_authorized = false
+response_estimation_authorized = false
+damage_or_scc_authorized = false
+
+[[source_receipts]]
+role = "existing_candidate_inventory"
+path = "data/provenance/climate_emulator_candidates.toml"
+sha256 = "4093023e4b7966f17900714ab3acafec3da6639f092248a0ed83aabfeaa6bbf0"
+
+[[source_receipts]]
+role = "existing_literature_audit"
+path = "CLIMATE_PRECIPITATION_EMULATOR_AUDIT.md"
+sha256 = "53bd3d3d6977ce31029ac5229f2d420ff07e28df6d5078c24b7ca837fcb61195"
+
+[[source_receipts]]
+role = "failed_direct_catalogue_expansion"
+path = "data/provenance/isimip3b_rimex_catalogue_track_feasibility_audit_20260905.json"
+sha256 = "6425b0082b7be486fbf27349f8a3d26218a97b7815a8fe5c42087fb25f71264a"
+
+[components.monthly_backbone]
+id = "mesmer_m_tp"
+paper_doi = "10.5194/gmd-17-8283-2024"
+repository = "https://github.com/sarasita/mesmer-m-tp"
+archived_release_doi = "10.5281/zenodo.11086167"
+required_role = "joint_monthly_land_temperature_precipitation_backbone"
+
+[components.daily_generator]
+id = "kemsley_markov_gamma"
+paper_doi = "10.1002/joc.8320"
+required_role = "daily_precipitation_occurrence_and_amount_generator"
+
+[components.heavy_rain_benchmark]
+id = "mesmer_x_rx1day"
+paper_doi = "10.1088/1748-9326/ae5fad"
+repository = "https://github.com/l-pierini/mesmer"
+archived_release_doi = "10.5281/zenodo.19095277"
+required_role = "independent_rx1day_tail_benchmark"
+
+[components.sequence_benchmark]
+id = "stitches"
+paper_doi = "10.5194/esd-13-1557-2022"
+repository = "https://github.com/JGCRI/stitches"
+archived_release_doi = "10.5281/zenodo.6463264"
+required_role = "sequence_preserving_multivariate_daily_benchmark"
+
+[screen]
+component_ids = ["mesmer_m_tp", "kemsley_markov_gamma", "mesmer_x_rx1day", "stitches"]
+public_source_or_archive_required = true
+license_identity_required = true
+peer_reviewed_method_required = true
+pinned_code_identity_required_for_executable_components = true
+monthly_precipitation_backbone_required = true
+daily_occurrence_and_amount_required = true
+exact_monthly_precipitation_conservation_required = true
+daily_temperature_precipitation_joint_draws_required = true
+spatially_coherent_daily_precipitation_required = true
+wet_day_frequency_required = true
+consecutive_dry_days_required = true
+rx1day_required = true
+rx5day_required = true
+crop_stage_timing_required = true
+whole_esm_holdout_required = true
+whole_scenario_holdout_required = true
+common_random_number_fair_pairs_required = true
+shrinking_pulse_convergence_required = true
+direct_daily_reference_required = true
+
+[decision]
+if_any_executable_component_lacks_pinned_public_code = "fallback_not_executable_no_fit"
+if_any_end_to_end_capability_is_unestablished = "fallback_not_promoted_validation_plan_only"
+if_all_metadata_gates_pass = "metadata_ready_only_fit_and_downstream_gates_still_closed"
+no_component_substitution_after_preregistration = true
+no_outcome_columns = true
+no_empirical_coefficients = true
+
+[resources]
+maximum_peak_resident_memory_bytes = 2147483648
+minimum_free_disk_bytes_before_any_future_acquisition = 161061273600
+metadata_payloads_only = true
+large_downloads_forbidden = true
+raw_rehydration_forbidden = true
+global_daily_inputs_forbidden = true
+derived_parquet_inputs_forbidden = true
+
+[limitations]
+fallback_chain_not_selected = true
+daily_generator_code_availability_unresolved_before_evaluation = true
+monthly_to_daily_conservation_unresolved_before_evaluation = true
+joint_daily_temperature_precipitation_unresolved_before_evaluation = true
+spatial_daily_dependence_unresolved_before_evaluation = true
+crop_feature_validation_unresolved_before_evaluation = true
+fair_pulse_behavior_unresolved_before_evaluation = true
