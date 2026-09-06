@@ -64,9 +64,14 @@ outpredict rainfall quantity in every eligible state and in terminal/extreme
 tests; the direct distribution extension improves four of five states but
 fails its frozen uniform-state rule. For non-irrigated soybean, the
 distribution extension improves all three eligible states plus the terminal
-and extreme tests. Irrigated rankings are less stable. A clean-room QR audit
-reproduces all 120 aggregate metrics. These U.S. results are historical
-prediction evidence, not causal effects or SCC inputs. Primary SPEI
+and extreme tests under the original temperature controls. With additional
+stage-average Tmax and squared-level controls, neither soybean practice passes
+the same frozen geographic materiality rule, although all three non-irrigated
+soybean improvements remain positive. Irrigated rankings are less stable. A
+clean-room QR audit reproduces the original 120 aggregate metrics, and a
+separate preregistered artifact audit reconciles all 240 original/richer-control
+metrics and eight summaries exactly at saved precision. These U.S. results are
+historical prediction evidence, not causal effects or SCC inputs. Primary SPEI
 construction is source-locked but has not yet been executed.
 We pre-specify fixed,
 trend, and upper adaptation scenarios and retain climate, response, calendar,
