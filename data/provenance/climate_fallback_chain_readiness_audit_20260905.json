@@ -1,0 +1,68 @@
+{
+  "climate_payload_acquisition_authorized": false,
+  "climate_payload_bytes_downloaded": 0,
+  "component_ids": [
+    "mesmer_m_tp",
+    "kemsley_markov_gamma",
+    "mesmer_x_rx1day",
+    "stitches"
+  ],
+  "config": {
+    "path": "config/climate_fallback_chain_readiness_v1.toml",
+    "sha256": "6f50c360f1774d722572989b552154e2e34764f0abcb99843201939d53d281d2"
+  },
+  "damage_or_scc_authorized": false,
+  "emulator_fit_authorized": false,
+  "end_to_end_capabilities_unresolved": [
+    "daily_occurrence_and_amount",
+    "exact_monthly_precipitation_conservation",
+    "daily_temperature_precipitation_joint_draws",
+    "spatially_coherent_daily_precipitation",
+    "wet_day_frequency",
+    "consecutive_dry_days",
+    "rx1day",
+    "rx5day",
+    "crop_stage_timing",
+    "whole_esm_holdout",
+    "whole_scenario_holdout",
+    "common_random_number_fair_pairs",
+    "shrinking_pulse_convergence",
+    "direct_daily_reference"
+  ],
+  "end_to_end_capability_count": 15,
+  "end_to_end_capability_pass_count": 1,
+  "executable_chain_component_ids": [
+    "mesmer_m_tp",
+    "kemsley_markov_gamma"
+  ],
+  "fair_feature_response_authorized": false,
+  "fallback_selected": false,
+  "interpretation": "MESMER-M-TP remains a reproducible monthly backbone and the benchmark components are archived, but the preregistered Kemsley daily generator has no identified pinned public executable source. Fourteen of fifteen end-to-end capabilities remain unestablished, including monthly conservation, joint daily temperature-precipitation draws, spatial daily dependence, Rx5day, crop-stage fidelity, whole-ESM/scenario holdouts, and matched FAIR pulse convergence. The fallback is retained as a validation plan but is not executable or promoted.",
+  "method_capabilities_supported": [
+    "monthly_precipitation_backbone",
+    "daily_occurrence_and_amount",
+    "wet_day_frequency",
+    "consecutive_dry_days",
+    "rx1day",
+    "direct_daily_reference"
+  ],
+  "peak_rss_gate_bytes": 2147483648,
+  "peak_rss_gate_passed": true,
+  "peak_rss_observed_rounded_up_to_64_mib_bytes": 67108864,
+  "preregistration": {
+    "path": "data/provenance/climate_fallback_chain_readiness_preregistration_20260905.json",
+    "sha256": "c79ed6871a05f2d3b380052e5d1b3316c2d4aee38d64333a976a27e093aca25d"
+  },
+  "public_executable_code_missing": [
+    "kemsley_markov_gamma"
+  ],
+  "response_estimation_authorized": false,
+  "schema": "climate_fallback_chain_readiness_audit_v1",
+  "software_acquisition_authorized": false,
+  "software_archives_downloaded": 0,
+  "source_snapshot": {
+    "path": "data/provenance/climate_fallback_chain_source_snapshot_20260905.toml",
+    "sha256": "bc436a359fa4f57b32f7b4a91b91c1468c7d20ed42cb3699cc8b675c700e815f"
+  },
+  "status": "fallback_not_executable_no_fit"
+}

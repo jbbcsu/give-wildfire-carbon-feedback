@@ -1611,6 +1611,29 @@ correlation is 0.999425 and polygon-minus-official monthly rainfall differences
 range from -2.706813 to +1.286771 mm. No outcome is read, the polygon route is
 not replaced, and no relationship or SCC gate is opened.
 
+### S9.11 Published fallback-chain readiness
+
+The fallback source screen was preregistered before the primary-source
+metadata snapshot. It fixes four named components: MESMER-M-TP as the monthly
+temperature--precipitation backbone, Kemsley et al.'s first-order Markov--gamma
+method as the daily precipitation generator, MESMER-X Rx1day as the heavy-rain
+benchmark, and STITCHES as the sequence-preserving multivariable benchmark.
+Substitution after registration is prohibited. Each executable component must
+have peer-reviewed method support, a public or archived implementation, a
+license identity, and a pinned code identity before any fit.
+
+The audit records public pinned implementations for MESMER-M-TP and both
+benchmarks, but no repository or software archive for the fixed Kemsley daily
+method. It separately requires exact monthly precipitation conservation,
+joint daily temperature--precipitation innovations, spatially coherent daily
+rainfall, wet-day frequency, consecutive dry days, Rx1day, Rx5day, crop-stage
+timing, whole-ESM and whole-scenario holdouts, direct-daily comparison, and
+common-random-number FAIR pulse convergence. Fourteen of fifteen end-to-end
+requirements remain unestablished, so the audit exits with
+`fallback_not_executable_no_fit`. It reads only metadata and authorizes no
+software or climate-payload acquisition, fitting, FAIR evaluation, response,
+damage, welfare, or SCC calculation.
+
 ## S10. Scientific integrity and independent review
 
 Every quantitative statement is classified as observed source data, derived

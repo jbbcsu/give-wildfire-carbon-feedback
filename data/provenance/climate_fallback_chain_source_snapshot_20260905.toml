@@ -1,0 +1,163 @@
+schema = "climate_fallback_chain_source_snapshot_v1"
+audited_utc_date = "2026-09-05"
+role = "primary_source_metadata_snapshot_not_software_or_climate_payload"
+climate_payload_bytes_downloaded = 0
+software_archives_downloaded = 0
+fit_or_emulation_run = false
+
+[[component]]
+id = "mesmer_m_tp"
+role = "monthly_backbone"
+peer_reviewed_method = true
+paper_url = "https://doi.org/10.5194/gmd-17-8283-2024"
+public_executable_source = true
+repository_url = "https://github.com/sarasita/mesmer-m-tp"
+pinned_code_identity = "64c4be909f094b4cfa3874abdc55a609790722c8"
+archived_release_url = "https://doi.org/10.5281/zenodo.11086168"
+archived_release_version = "MESMER-M-TPv0.1.0"
+license_identity = "GPL-3.0 repository; CC-BY-4.0 Zenodo archive metadata"
+source_observation = "Peer-reviewed paper and public repository/archive identify a coupled monthly temperature-precipitation emulator; the frozen repository is path-configured research code rather than a packaged daily generator."
+
+[[component]]
+id = "kemsley_markov_gamma"
+role = "daily_generator"
+peer_reviewed_method = true
+paper_url = "https://doi.org/10.1002/joc.8320"
+public_executable_source = false
+repository_url = ""
+pinned_code_identity = ""
+archived_release_url = ""
+archived_release_version = ""
+license_identity = "CC-BY article copy in the UEA institutional repository"
+source_observation = "The published method demonstrates first-order Markov occurrence and gamma wet-day amounts at two stations using one ESM; the institutional record identifies no code repository or software archive, and a targeted GitHub repository search returned zero matches on the audit date."
+
+[[component]]
+id = "mesmer_x_rx1day"
+role = "heavy_rain_benchmark"
+peer_reviewed_method = true
+paper_url = "https://doi.org/10.1088/1748-9326/ae5fad"
+public_executable_source = true
+repository_url = "https://github.com/l-pierini/mesmer"
+pinned_code_identity = "ce29d9f8385c3b5ca83022dec2b505e97a08de53"
+archived_release_url = "https://doi.org/10.5281/zenodo.19095278"
+archived_release_version = "v1.0.0"
+license_identity = "GPL-3.0"
+source_observation = "The paper-specific fork and archive emulate annual Rx1day along warming trajectories; they do not generate full daily precipitation sequences, Rx5day, crop timing, or dry spells."
+
+[[component]]
+id = "stitches"
+role = "sequence_benchmark"
+peer_reviewed_method = true
+paper_url = "https://doi.org/10.5194/esd-13-1557-2022"
+public_executable_source = true
+repository_url = "https://github.com/JGCRI/stitches"
+pinned_code_identity = "ef7f9f8defb23fc5e27ca3e371482109a190a2cd"
+archived_release_url = "https://doi.org/10.5281/zenodo.6463264"
+archived_release_version = "v0.9.0"
+license_identity = "BSD-2-Clause repository; CC-BY-4.0 Zenodo archive metadata"
+source_observation = "The frozen software preserves archived multivariable ESM sequences at their stored frequency by joining nine-year windows; it still depends on CMIP archive coverage and does not establish a smooth infinitesimal matched-pulse response."
+
+[[capability]]
+id = "monthly_precipitation_backbone"
+method_component_support = true
+end_to_end_fallback_established = true
+evidence_components = ["mesmer_m_tp"]
+reason = "MESMER-M-TP supplies monthly land precipitation conditional on monthly temperature."
+
+[[capability]]
+id = "daily_occurrence_and_amount"
+method_component_support = true
+end_to_end_fallback_established = false
+evidence_components = ["kemsley_markov_gamma"]
+reason = "The method is published, but no pinned public executable implementation is identified."
+
+[[capability]]
+id = "exact_monthly_precipitation_conservation"
+method_component_support = false
+end_to_end_fallback_established = false
+evidence_components = []
+reason = "No reviewed source establishes exact reconciliation of generated daily amounts to the MESMER-M-TP monthly field."
+
+[[capability]]
+id = "daily_temperature_precipitation_joint_draws"
+method_component_support = false
+end_to_end_fallback_established = false
+evidence_components = []
+reason = "The daily generator is precipitation-only and no daily temperature coupling is specified."
+
+[[capability]]
+id = "spatially_coherent_daily_precipitation"
+method_component_support = false
+end_to_end_fallback_established = false
+evidence_components = []
+reason = "The demonstrated generator is station-scale and supplies no multipoint spatial dependence mechanism."
+
+[[capability]]
+id = "wet_day_frequency"
+method_component_support = true
+end_to_end_fallback_established = false
+evidence_components = ["kemsley_markov_gamma"]
+reason = "Wet-day occurrence is modeled, but not yet integrated or globally validated."
+
+[[capability]]
+id = "consecutive_dry_days"
+method_component_support = true
+end_to_end_fallback_established = false
+evidence_components = ["kemsley_markov_gamma"]
+reason = "First-order Markov persistence can generate dry spells, but global and long-memory validation is absent."
+
+[[capability]]
+id = "rx1day"
+method_component_support = true
+end_to_end_fallback_established = false
+evidence_components = ["mesmer_x_rx1day"]
+reason = "An independent Rx1day benchmark exists, but it is not an integrated daily-sequence component."
+
+[[capability]]
+id = "rx5day"
+method_component_support = false
+end_to_end_fallback_established = false
+evidence_components = []
+reason = "No chain component supplies or validates Rx5day."
+
+[[capability]]
+id = "crop_stage_timing"
+method_component_support = false
+end_to_end_fallback_established = false
+evidence_components = []
+reason = "No component has been validated against crop-calendar stage totals and shares."
+
+[[capability]]
+id = "whole_esm_holdout"
+method_component_support = false
+end_to_end_fallback_established = false
+evidence_components = []
+reason = "No integrated chain holdout has been run."
+
+[[capability]]
+id = "whole_scenario_holdout"
+method_component_support = false
+end_to_end_fallback_established = false
+evidence_components = []
+reason = "No integrated chain holdout has been run."
+
+[[capability]]
+id = "common_random_number_fair_pairs"
+method_component_support = false
+end_to_end_fallback_established = false
+evidence_components = []
+reason = "No common-innovation baseline/pulse implementation is specified for the full chain."
+
+[[capability]]
+id = "shrinking_pulse_convergence"
+method_component_support = false
+end_to_end_fallback_established = false
+evidence_components = []
+reason = "No end-to-end marginal-pulse convergence result exists."
+
+[[capability]]
+id = "direct_daily_reference"
+method_component_support = true
+end_to_end_fallback_established = false
+evidence_components = ["stitches"]
+reason = "STITCHES is a sequence-preserving benchmark when source ESM variables exist, but the required archive and comparison have not been assembled."

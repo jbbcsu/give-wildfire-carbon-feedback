@@ -1074,6 +1074,17 @@ not favor complete-case restriction; later joint validation must declare its
 missingness and clustering treatment without using outcome magnitudes to choose
 the sample.
 
+The retained published-method climate fallback is not yet executable as a
+production chain. A preregistered metadata-only audit confirms archived public
+implementations for the MESMER-M-TP monthly backbone, MESMER-X Rx1day, and the
+STITCHES sequence benchmark, but finds no pinned public software for the fixed
+Kemsley Markov--gamma daily generator. Only the monthly-backbone requirement is
+established end to end; monthly-to-daily conservation, joint daily temperature
+and precipitation, spatial dependence, Rx5day, crop-stage fidelity, whole-model
+and whole-scenario holdouts, and matched-pulse convergence remain unresolved.
+We therefore retain this chain as a validation plan without substituting a new
+generator or promoting any climate, response, damage, or SCC result.
+
 ### 6.3 Marginal damages and global SCC
 
 Report global agricultural marginal damages and SCC under each adaptation

@@ -652,3 +652,13 @@ identity-link benchmark failures and loses 37 identity-link successes; the two
 forms jointly beat the cell mean in only the 34 comparisons retained by the
 physical-link model. Physical-domain repair is therefore not predictive
 repair, and no adaptive relinking or FAIR pulse evaluation follows.
+
+The preregistered metadata-only fallback audit fixes MESMER-M-TP, the Kemsley
+Markov--gamma daily method, MESMER-X Rx1day, and STITCHES. Six method-level
+capabilities have published support, but only the monthly precipitation
+backbone is established end to end. The fixed daily generator has no
+identified pinned public executable source, and fourteen of fifteen chain
+requirements remain unresolved. The recorded status is
+`fallback_not_executable_no_fit`; no component was substituted, no archive or
+climate payload was downloaded, and no emulator, FAIR, response, damage,
+welfare, or SCC gate was promoted.

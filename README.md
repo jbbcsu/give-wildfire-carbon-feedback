@@ -784,3 +784,18 @@ Rebuild the ignored source and fixed-2000 table with:
 adapted ensemble/validation design benchmark used for the next specification.
 The high-resolution US validation track is isolated in
 [us_county_validation/README.md](us_county_validation/README.md).
+
+## Fallback-chain readiness gate
+
+After the official ISIMIP catalogue exposed only five complete member tracks
+against the locked minimum of seven, a separate metadata-only audit evaluated
+the retained MESMER-M-TP plus published daily-generator fallback. The monthly
+MESMER-M-TP backbone and the MESMER-X Rx1day and STITCHES benchmarks have
+pinned public archives. The fixed Kemsley Markov--gamma daily method has no
+identified pinned public executable source, and fourteen of fifteen required
+end-to-end capabilities remain unestablished. The status is therefore
+`fallback_not_executable_no_fit`: the chain remains a validation plan, not a
+selected emulator. No software archive or climate payload was downloaded, and
+no fit, FAIR response, crop response, damage, welfare, or SCC gate was opened.
+See [CLIMATE_PRECIPITATION_EMULATOR_AUDIT.md](CLIMATE_PRECIPITATION_EMULATOR_AUDIT.md)
+and `data/provenance/climate_fallback_chain_readiness_audit_20260905.json`.

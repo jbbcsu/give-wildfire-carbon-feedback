@@ -216,3 +216,14 @@ counts only; it is not an irrigation effect, response, damage, or SCC input.
 and longest consecutive runs inside the fixed 10% corn/soy county-year
 intersection. It reads no yield magnitude and does not authorize complete-case
 selection, an irrigation effect, response, damage, or SCC use.
+
+`climate_fallback_chain_readiness_preregistration_20260905.json` binds the
+named MESMER-M-TP, Kemsley Markov--gamma, MESMER-X Rx1day, and STITCHES chain
+before source evaluation. `climate_fallback_chain_source_snapshot_20260905.toml`
+records only primary-paper, repository, and archive metadata, while
+`climate_fallback_chain_readiness_audit_20260905.json` applies the fixed
+executability and end-to-end capability gates. The daily generator lacks a
+pinned public executable source and fourteen of fifteen chain capabilities are
+unresolved, so the fallback is retained but not executable or promoted. No
+software archive, climate payload, fit, FAIR path, response, damage, welfare,
+or SCC result is authorized.
