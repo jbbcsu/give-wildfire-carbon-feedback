@@ -1,0 +1,114 @@
+schema = "climate_daily_pair_interface_contract_v1"
+role = "outcome_blind_metadata_method_interface_for_conservative_common_innovation_daily_precipitation_pairs"
+registered_utc_date = "2026-09-06"
+primary_climate_route = "direct_isimip3b_daily_feature_response"
+fallback_climate_route = "mesmer_m_tp_plus_kemsley_markov_gamma_daily_generator"
+daily_generator_id = "kemsley_markov_gamma"
+daily_generator_paper_doi = "10.1002/joc.8320"
+daily_generator_pinned_public_executable_source_available = false
+generator_implementation_authorized = false
+component_substitution_authorized = false
+software_acquisition_authorized = false
+climate_payload_acquisition_authorized = false
+emulator_fit_authorized = false
+fair_feature_response_authorized = false
+response_estimation_authorized = false
+damage_or_scc_authorized = false
+
+[[source_receipts]]
+role = "fallback_readiness_gate"
+path = "data/provenance/climate_fallback_chain_readiness_audit_20260905.json"
+sha256 = "153ffa10d6d61957e493ba6732a7c64b49dff48b1d8397f8b3aa8b7d8fb9a00c"
+
+[[source_receipts]]
+role = "matched_give_fair_temperature_gate"
+path = "data/provenance/give_fair_temperature_path_smoke_20260827.json"
+sha256 = "a406ac1978b13df17fc519923ec4f38e5d4cb1ac3ac4ab67b8e395a25fc2fd33"
+
+[identity]
+pair_key = ["climate_draw_id", "esm_id", "member_id", "grid_id", "calendar", "year", "month", "pulse_scale_tonnes_c"]
+monthly_record_key = ["climate_draw_id", "esm_id", "member_id", "grid_id", "calendar", "year", "month", "pulse_scale_tonnes_c", "path_role"]
+daily_record_key = ["climate_draw_id", "esm_id", "member_id", "grid_id", "calendar", "date_or_model_day", "pulse_scale_tonnes_c", "path_role"]
+path_roles = ["baseline", "pulse"]
+required_zero_pulse_controls = 1
+minimum_distinct_decreasing_positive_pulse_scales = 3
+same_realization_gmst_required = true
+duplicate_keys_forbidden = true
+missing_months_forbidden = true
+missing_days_forbidden = true
+
+[monthly_input]
+precipitation_unit = "mm_month-1"
+temperature_unit = "degC"
+finite_values_required = true
+nonnegative_precipitation_required = true
+calendar_specific_days_in_month_required = true
+monthly_backbone_identity_and_version_required = true
+monthly_parameter_bundle_sha256_required = true
+separate_baseline_and_pulse_values_required = true
+
+[innovations]
+rng_requirement = "counter_based_or_equivalent_keyed_random_access"
+seed_namespace_identity_required = true
+rng_algorithm_and_version_required = true
+innovation_families = ["wet_state_uniform", "wet_amount_uniform", "spatial_dependence_latent"]
+innovation_value_domain = "open_unit_interval"
+key_fields = ["seed_namespace", "generator_code_identity", "parameter_bundle_sha256", "climate_draw_id", "esm_id", "member_id", "grid_id", "calendar", "year", "month", "date_or_model_day", "innovation_family", "innovation_slot"]
+excluded_key_fields = ["path_role", "pulse_scale_tonnes_c", "monthly_precipitation_mm", "monthly_temperature_degc", "path_specific_parameter_value"]
+same_key_same_value_required = true
+path_independent_call_count_required = true
+monthly_innovation_digest_required = true
+baseline_pulse_digest_identity_required = true
+cross_pulse_scale_digest_identity_required = true
+
+[conservation]
+apply_separately_to_each_path = true
+provisional_daily_values_finite_and_nonnegative_required = true
+zero_month_requires_all_daily_zero = true
+positive_month_requires_positive_provisional_month_sum = true
+positive_month_rescaling = "multiply_each_positive_provisional_amount_by_monthly_target_divided_by_provisional_sum"
+wet_dry_occurrence_unchanged_by_rescaling = true
+roundoff_residual_assignment = "last_positive_wet_day_in_calendar_order"
+post_residual_nonnegative_required = true
+absolute_tolerance_mm = 1e-9
+relative_tolerance = 1e-12
+monthly_sum_tolerance_rule = "absolute_error_lte_max_absolute_tolerance_or_relative_tolerance_times_monthly_target"
+
+[pair_validation]
+common_innovations_do_not_imply_equal_path_parameters = true
+common_innovations_do_not_imply_equal_daily_occurrence = true
+each_path_must_pass_monthly_conservation = true
+zero_pulse_daily_identity_required = true
+pre_divergence_daily_identity_required = true
+separate_baseline_and_pulse_support_flags_required = true
+direct_daily_reference_benchmark_required_before_promotion = true
+wet_day_frequency_required_before_promotion = true
+consecutive_dry_days_required_before_promotion = true
+rx1day_required_before_promotion = true
+rx5day_required_before_promotion = true
+crop_stage_feature_reconciliation_required_before_promotion = true
+whole_esm_holdout_required_before_promotion = true
+whole_scenario_holdout_required_before_promotion = true
+shrinking_pulse_normalized_feature_convergence_required_before_promotion = true
+
+[future_receipt]
+required_fields = ["contract_sha256", "generator_code_identity", "paper_doi", "parameter_bundle_sha256", "monthly_input_sha256", "rng_algorithm", "rng_version", "seed_namespace", "monthly_innovation_digest", "daily_output_sha256", "maximum_monthly_mass_error_mm", "peak_resident_memory_bytes"]
+blank_or_missing_receipt_field_fails = true
+receipt_is_not_validation = true
+
+[resources]
+maximum_peak_resident_memory_bytes = 2147483648
+minimum_free_disk_bytes_before_any_future_acquisition = 161061273600
+metadata_only = true
+large_downloads_forbidden = true
+raw_rehydration_forbidden = true
+global_daily_inputs_forbidden = true
+derived_parquet_inputs_forbidden = true
+
+[decision]
+current_status = "interface_preregistered_no_generator_implementation"
+missing_pinned_generator_code_is_hard_no_fit_blocker = true
+interface_validation_does_not_authorize_implementation = true
+interface_validation_does_not_establish_scientific_validity = true
+no_outcome_columns = true
+no_empirical_coefficients = true

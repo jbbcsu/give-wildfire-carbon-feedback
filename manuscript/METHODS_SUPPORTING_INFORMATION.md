@@ -1634,6 +1634,41 @@ requirements remain unestablished, so the audit exits with
 software or climate-payload acquisition, fitting, FAIR evaluation, response,
 damage, welfare, or SCC calculation.
 
+### S9.12 Conservative common-innovation daily-pair interface
+
+Before any daily-generator implementation, we preregistered an
+algorithm-independent interface for matched FAIR baseline and pulse paths.
+The pair identity fixes climate draw, ESM, member, grid, calendar, month, and
+pulse size; path role distinguishes the two monthly and daily records. A
+counter-based or equivalently keyed random-access stream supplies separate
+wet-state, wet-amount, and spatial-dependence innovations. Its key includes
+the seed namespace, generator and parameter-bundle identities, climate draw,
+ESM/member/grid/calendar/day, innovation family, and slot. It excludes path
+role, pulse size, monthly climate values, and path-specific parameters. Thus
+baseline and every pulse size can have different thresholds and distributions
+without consuming a different subsequent random stream. Matching monthly
+innovation digests are required across path roles and pulse sizes.
+
+For each path separately, provisional daily precipitation must be finite and
+nonnegative. A zero monthly target requires all daily values to be zero. For a
+positive target, the provisional monthly sum must be positive; every positive
+provisional amount is multiplied by the target-to-provisional-sum ratio, which
+preserves the wet/dry sequence. Any floating-point residual is assigned to the
+last positive wet day in calendar order and the corrected amount must remain
+nonnegative. The final monthly error cannot exceed the larger of `1e-9` mm or
+`1e-12` times the monthly target. Each path must pass this gate independently.
+
+The interface also requires exact zero-pulse and pre-divergence daily identity,
+separate support flags, at least three decreasing positive pulse sizes,
+direct-daily and crop-stage feature comparisons, whole-ESM and whole-scenario
+holdouts, and convergence of pulse-normalized feature differences. A future
+receipt must bind code, paper, parameters, monthly inputs, RNG identity and
+namespace, innovation digests, output hash, maximum mass error, and peak
+resident memory. The current status is
+`interface_preregistered_no_generator_implementation`: schema validation is
+not scientific validation or permission to implement, and the absent pinned
+Kemsley source remains a hard no-fit blocker.
+
 ## S10. Scientific integrity and independent review
 
 Every quantitative statement is classified as observed source data, derived

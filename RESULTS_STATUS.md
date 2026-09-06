@@ -662,3 +662,14 @@ requirements remain unresolved. The recorded status is
 `fallback_not_executable_no_fit`; no component was substituted, no archive or
 climate payload was downloaded, and no emulator, FAIR, response, damage,
 welfare, or SCC gate was promoted.
+
+The subsequent metadata/method-only daily-pair interface is preregistered but
+not implemented. It requires counter-based or equivalently keyed occurrence,
+amount, and spatial innovations whose keys exclude path role, pulse size, and
+path-specific climate values. Baseline and all pulse sizes must share exact
+monthly innovation digests, while each path separately conserves its monthly
+precipitation total and preserves its generated wet/dry occurrence pattern.
+Zero-pulse and pre-divergence daily identity, direct-daily benchmarks,
+crop-stage reconciliation, whole-ESM/scenario holdouts, and shrinking-pulse
+normalized-feature convergence remain mandatory. This specification creates
+no generated daily values and does not relax the missing-code no-fit blocker.

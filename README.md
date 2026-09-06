@@ -799,3 +799,19 @@ selected emulator. No software archive or climate payload was downloaded, and
 no fit, FAIR response, crop response, damage, welfare, or SCC gate was opened.
 See [CLIMATE_PRECIPITATION_EMULATOR_AUDIT.md](CLIMATE_PRECIPITATION_EMULATOR_AUDIT.md)
 and `data/provenance/climate_fallback_chain_readiness_audit_20260905.json`.
+
+The follow-on metadata/method preregistration fixes the interface that any
+future daily implementation would have to satisfy without implementing or
+selecting one. Baseline, zero-pulse, and each positive-pulse path must use the
+same keyed occurrence, amount, and spatial innovations while retaining
+path-specific monthly inputs and parameters. Every path must conserve its own
+monthly precipitation total after a nonnegative occurrence-preserving
+rescaling, with zero-pulse and pre-divergence daily identity. Random keys must
+exclude path role, pulse size, and path-specific climate values so divergent
+wet/dry decisions cannot shift a mutable random-number stream. The contract
+also fixes fail-closed future receipt fields and all direct-daily, crop-feature,
+whole-ESM/scenario, and shrinking-pulse promotion gates. Its present status is
+`interface_preregistered_no_generator_implementation`; the missing pinned
+Kemsley implementation remains a hard no-fit blocker. See
+`config/climate_daily_pair_interface_v1.toml` and
+`data/provenance/climate_daily_pair_interface_preregistration_20260906.json`.

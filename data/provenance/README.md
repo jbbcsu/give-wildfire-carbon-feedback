@@ -227,3 +227,14 @@ pinned public executable source and fourteen of fifteen chain capabilities are
 unresolved, so the fallback is retained but not executable or promoted. No
 software archive, climate payload, fit, FAIR path, response, damage, welfare,
 or SCC result is authorized.
+
+`climate_daily_pair_interface_preregistration_20260906.json` binds the
+metadata/method-only interface for exact monthly precipitation conservation
+and shared stochastic innovations before any daily-generator implementation.
+Its contract requires keyed wet-state, wet-amount, and spatial innovations
+shared across baseline and pulse sizes, but excludes path role, pulse size, and
+path-specific climate values from the random key. It requires separate monthly
+mass conservation for each path, zero-pulse and pre-divergence daily identity,
+and fail-closed future receipts and promotion gates. It creates no daily data,
+does not select or substitute a component, and preserves the missing pinned
+Kemsley implementation as a hard no-fit blocker.

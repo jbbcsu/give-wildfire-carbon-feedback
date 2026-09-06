@@ -1,0 +1,56 @@
+{
+  "climate_payload_acquisition_authorized": false,
+  "common_innovations_required": true,
+  "config_sha256": "2e5c4e57f33931f32bcde3c0bc0673c012820ccd4723ace28a8197a8333d8b39",
+  "daily_generator_id": "kemsley_markov_gamma",
+  "daily_generator_pinned_public_executable_source_available": false,
+  "damage_or_scc_authorized": false,
+  "emulator_fit_authorized": false,
+  "exact_monthly_conservation_required": true,
+  "fair_feature_response_authorized": false,
+  "generator_implementation_authorized": false,
+  "implementation_sha256": "b3a8d51f795fc1084241bde7ebcc810f2b3860865d98c316ecbcad6c04d7fb5d",
+  "innovation_excluded_key_fields": [
+    "path_role",
+    "pulse_scale_tonnes_c",
+    "monthly_precipitation_mm",
+    "monthly_temperature_degc",
+    "path_specific_parameter_value"
+  ],
+  "innovation_families": [
+    "wet_state_uniform",
+    "wet_amount_uniform",
+    "spatial_dependence_latent"
+  ],
+  "innovation_key_fields": [
+    "seed_namespace",
+    "generator_code_identity",
+    "parameter_bundle_sha256",
+    "climate_draw_id",
+    "esm_id",
+    "member_id",
+    "grid_id",
+    "calendar",
+    "year",
+    "month",
+    "date_or_model_day",
+    "innovation_family",
+    "innovation_slot"
+  ],
+  "response_estimation_authorized": false,
+  "schema": "climate_daily_pair_interface_preregistration_v1",
+  "software_acquisition_authorized": false,
+  "source_receipts": [
+    {
+      "path": "data/provenance/climate_fallback_chain_readiness_audit_20260905.json",
+      "role": "fallback_readiness_gate",
+      "sha256": "153ffa10d6d61957e493ba6732a7c64b49dff48b1d8397f8b3aa8b7d8fb9a00c"
+    },
+    {
+      "path": "data/provenance/give_fair_temperature_path_smoke_20260827.json",
+      "role": "matched_give_fair_temperature_gate",
+      "sha256": "a406ac1978b13df17fc519923ec4f38e5d4cb1ac3ac4ab67b8e395a25fc2fd33"
+    }
+  ],
+  "status": "interface_preregistered_no_generator_implementation"
+}

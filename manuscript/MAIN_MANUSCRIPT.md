@@ -1085,6 +1085,17 @@ and whole-scenario holdouts, and matched-pulse convergence remain unresolved.
 We therefore retain this chain as a validation plan without substituting a new
 generator or promoting any climate, response, damage, or SCC result.
 
+We preregistered the numerical interface for a possible future implementation.
+It requires keyed occurrence, wet-amount, and spatial innovations shared by
+baseline and all pulse sizes, with path role, pulse size, monthly climate, and
+path-specific parameters excluded from the random key. Each path must conserve
+its own monthly precipitation total through a nonnegative,
+occurrence-preserving rescaling, and zero-pulse and pre-divergence daily paths
+must be identical. The interface also preserves separate support flags and the
+existing direct-daily, whole-model, whole-scenario, crop-stage, and
+shrinking-pulse gates. No daily sequence was generated and the absent pinned
+Kemsley implementation remains a hard no-fit blocker.
+
 ### 6.3 Marginal damages and global SCC
 
 Report global agricultural marginal damages and SCC under each adaptation
