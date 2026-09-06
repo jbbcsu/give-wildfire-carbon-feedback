@@ -1,0 +1,42 @@
+{
+  "climate_payload_acquisition_authorized": false,
+  "damage_or_scc_authorized": false,
+  "failure_modes_rejected": [
+    "missing_receipt_field",
+    "duplicate_monthly_record_key",
+    "baseline_pulse_innovation_digest_mismatch",
+    "cross_pulse_scale_innovation_digest_mismatch",
+    "separate_monthly_conservation_failure",
+    "zero_pulse_daily_identity_failure",
+    "pre_divergence_daily_identity_failure",
+    "missing_calendar_day",
+    "unknown_monthly_record_field",
+    "receipt_maximum_mass_error_mismatch",
+    "peak_resident_memory_above_two_gib",
+    "canonical_daily_output_hash_mismatch"
+  ],
+  "generator_implementation_authorized": false,
+  "parent_interface_sha256": "2e5c4e57f33931f32bcde3c0bc0673c012820ccd4723ace28a8197a8333d8b39",
+  "preregistered_output_schema_sha256": "745f9b16085b0acf7646f7522d904e64bb7050a77ae2f1f3c7903f01ad66ef5c",
+  "response_estimation_authorized": false,
+  "schema": "climate_daily_pair_output_validator_synthetic_audit_v1",
+  "status": "schema_and_synthetic_failure_mode_gates_passed_no_generator_or_real_output",
+  "synthetic_success_fixture": {
+    "calendar": "proleptic_gregorian",
+    "cross_pulse_month_count": 1,
+    "daily_records_per_monthly_record": 28,
+    "fixture_persisted_as_climate_output": false,
+    "maximum_monthly_mass_error_mm": 0.0,
+    "monthly_record_count": 8,
+    "pair_count": 4,
+    "pulse_scales_tonnes_c": [
+      0.0,
+      1.0,
+      2.0,
+      4.0
+    ],
+    "synthetic_values_only": true
+  },
+  "test_sha256": "34e6e9533f771d7d35520c8ed65da8f07004ee130e477b20ff7d4eff2d62c6b3",
+  "validator_sha256": "8efef2c6b6bae12f2927fd539a75d6f0d0395e39b1deb4f87707bb927b3c8765"
+}

@@ -1669,6 +1669,35 @@ resident memory. The current status is
 not scientific validation or permission to implement, and the absent pinned
 Kemsley source remains a hard no-fit blocker.
 
+### S9.13 Future daily-pair output schema gate
+
+Before any generator output exists, we separately preregistered its exact JSON
+boundary. A bundle contains only a schema tag, receipt, and nonempty monthly
+records. The receipt binds the parent interface, generator/paper/parameter and
+monthly-input identities, RNG identity and namespace, canonical daily-output
+hash, observed maximum monthly mass error, and peak resident memory. Blank,
+missing, or additional receipt fields fail; memory above 2 GiB fails.
+
+Each monthly record is keyed by climate draw, ESM, member, grid, calendar,
+year, month, pulse scale, and path role. Each pair must contain exactly one
+baseline and one pulse record. Each climate-month group must contain exactly
+one zero scale and at least three distinct positive scales. Daily rows must
+contain only the date/model-day and nonnegative precipitation, cover the exact
+calendar month in increasing order, and sum to the path-specific monthly target
+within `max(1e-9 mm, 1e-12 * target)`. The validator also requires matching
+baseline/pulse and cross-scale innovation digests, an invariant baseline daily
+path across scales, exact zero-pulse identity, and exact equality on every day
+before the registered divergence date.
+
+The in-memory synthetic fixture uses one 28-day proleptic-Gregorian month, four
+pulse scales, and eight monthly records. It passes with zero maximum mass error.
+Twelve single-purpose corruptions verify fail-closed behavior for receipt,
+key, digest, conservation, identity, day coverage, field, resource, and hash
+errors. Synthetic test values are not persisted as climate output. This gate
+does not implement or substitute the unavailable generator, validate its
+science, or authorize software/climate acquisition, fitting, FAIR evaluation,
+response estimation, damages, welfare, or SCC use.
+
 ## S10. Scientific integrity and independent review
 
 Every quantitative statement is classified as observed source data, derived

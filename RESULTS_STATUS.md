@@ -673,3 +673,15 @@ Zero-pulse and pre-divergence daily identity, direct-daily benchmarks,
 crop-stage reconciliation, whole-ESM/scenario holdouts, and shrinking-pulse
 normalized-feature convergence remain mandatory. This specification creates
 no generated daily values and does not relax the missing-code no-fit blocker.
+
+The preregistered future-output schema has now been implemented as a
+schema/numerical-identity validator without a generator. A tiny in-memory
+synthetic bundle contains eight monthly records (four matched scales, including
+zero) and 28 daily values per record. It passes exact keys, canonical hash,
+common innovation digests, separate baseline/pulse conservation, and
+zero/pre-divergence identity with zero maximum mass error. Twelve deliberate
+corruptions are rejected, including missing receipts, duplicate keys, digest
+mismatch, mass error, identity failure, missing days, unregistered fields,
+memory-limit excess, and output-hash mismatch. This is software-validation
+evidence only; it creates no real daily climate path and opens no fit, FAIR,
+response, damage, welfare, or SCC gate.

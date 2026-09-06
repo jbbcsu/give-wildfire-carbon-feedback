@@ -1096,6 +1096,16 @@ existing direct-daily, whole-model, whole-scenario, crop-stage, and
 shrinking-pulse gates. No daily sequence was generated and the absent pinned
 Kemsley implementation remains a hard no-fit blocker.
 
+We subsequently froze and implemented only the future output schema and its
+fail-closed validator. The schema binds exact receipt, monthly-record, and
+daily-record fields; canonical record hashing; unique pair keys; complete
+calendar days; shared innovation digests; separate pathwise mass conservation;
+one zero and at least three positive pulse scales; and exact zero-pulse and
+pre-divergence daily identity. A tiny synthetic fixture passes all checks with
+zero mass error, while twelve targeted corruptions fail. This validates the
+proposed data boundary and numerical identities, not a generator or climate
+response; no real daily values or downstream estimates were produced.
+
 ### 6.3 Marginal damages and global SCC
 
 Report global agricultural marginal damages and SCC under each adaptation

@@ -238,3 +238,14 @@ mass conservation for each path, zero-pulse and pre-divergence daily identity,
 and fail-closed future receipts and promotion gates. It creates no daily data,
 does not select or substitute a component, and preserves the missing pinned
 Kemsley implementation as a hard no-fit blocker.
+
+`climate_daily_pair_output_schema_preregistration_20260906.json` binds the
+separately committed exact future JSON bundle, receipt, pair/month/day keys,
+calendar coverage, canonical hashing, conservation, innovation-digest, and
+identity rules before the output validator was added.
+`climate_daily_pair_output_validator_synthetic_audit_20260906.json` records the
+subsequent pure-standard-library validator result: an in-memory eight-record
+synthetic fixture passes with zero mass error and twelve targeted corruptions
+fail. No synthetic fixture is persisted as climate output, no real climate
+value was created, and no generator, fit, FAIR, response, damage, welfare, or
+SCC gate was opened.
