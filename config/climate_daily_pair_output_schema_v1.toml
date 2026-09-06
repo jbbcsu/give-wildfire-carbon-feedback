@@ -27,6 +27,7 @@ exact_fields_required = true
 blank_or_missing_field_fails = true
 contract_sha256_must_match_parent_interface = true
 paper_doi_must_match_registered_generator = true
+monthly_input_sha256_must_match_canonical_projection = true
 daily_output_sha256_covers_canonical_records = true
 maximum_monthly_mass_error_must_reconcile = true
 peak_resident_memory_must_not_exceed_interface_ceiling = true
@@ -74,6 +75,12 @@ separate_baseline_and_pulse_support_flags_required = true
 
 [hashing]
 algorithm = "sha256"
+monthly_input_projection_fields = ["climate_draw_id", "esm_id", "member_id", "grid_id", "calendar", "year", "month", "pulse_scale_tonnes_c", "path_role", "first_divergence_date_or_model_day", "monthly_precipitation_mm", "monthly_temperature_degc", "parameter_bundle_sha256", "support_flag"]
+monthly_input_excluded_fields = ["monthly_innovation_digest", "daily"]
+monthly_input_sort_key_fields = ["climate_draw_id", "esm_id", "member_id", "grid_id", "calendar", "year", "month", "pulse_scale_tonnes_c", "path_role"]
+monthly_input_canonicalization = "project_fields_sort_by_monthly_key_utf8_json_sort_keys_true_separators_comma_colon_allow_nan_false"
+monthly_input_record_order_invariant = true
+monthly_input_record_count_must_match_output_records = true
 records_canonicalization = "utf8_json_sort_keys_true_separators_comma_colon_allow_nan_false"
 hex_digest_length = 64
 

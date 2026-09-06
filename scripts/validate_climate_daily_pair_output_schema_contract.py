@@ -29,6 +29,12 @@ MONTHLY_KEY = [
 ]
 PAIR_KEY = MONTHLY_KEY[:-1]
 CROSS_PULSE_KEY = MONTHLY_KEY[:7]
+MONTHLY_INPUT_FIELDS = [
+    "climate_draw_id", "esm_id", "member_id", "grid_id", "calendar", "year", "month",
+    "pulse_scale_tonnes_c", "path_role", "first_divergence_date_or_model_day",
+    "monthly_precipitation_mm", "monthly_temperature_degc", "parameter_bundle_sha256",
+    "support_flag",
+]
 
 
 def require(condition: bool, message: str) -> None:
@@ -73,7 +79,8 @@ def validate(config_path: Path, root: Path) -> dict[str, object]:
     require(receipt.get("required_fields") == RECEIPT_FIELDS, "receipt fields changed")
     for gate in (
         "exact_fields_required", "blank_or_missing_field_fails", "contract_sha256_must_match_parent_interface",
-        "paper_doi_must_match_registered_generator", "daily_output_sha256_covers_canonical_records",
+        "paper_doi_must_match_registered_generator", "monthly_input_sha256_must_match_canonical_projection",
+        "daily_output_sha256_covers_canonical_records",
         "maximum_monthly_mass_error_must_reconcile", "peak_resident_memory_must_not_exceed_interface_ceiling",
         "receipt_is_not_scientific_validation",
     ):
@@ -122,6 +129,16 @@ def validate(config_path: Path, root: Path) -> dict[str, object]:
 
     hashing = config.get("hashing", {})
     require(hashing.get("algorithm") == "sha256", "hash algorithm changed")
+    require(hashing.get("monthly_input_projection_fields") == MONTHLY_INPUT_FIELDS, "monthly-input projection fields changed")
+    require(hashing.get("monthly_input_excluded_fields") == ["monthly_innovation_digest", "daily"], "monthly-input excluded fields changed")
+    require(hashing.get("monthly_input_sort_key_fields") == MONTHLY_KEY, "monthly-input sort key changed")
+    require(
+        hashing.get("monthly_input_canonicalization")
+        == "project_fields_sort_by_monthly_key_utf8_json_sort_keys_true_separators_comma_colon_allow_nan_false",
+        "monthly-input canonicalization changed",
+    )
+    for gate in ("monthly_input_record_order_invariant", "monthly_input_record_count_must_match_output_records"):
+        require(hashing.get(gate) is True, f"monthly-input hash gate changed: {gate}")
     require(hashing.get("records_canonicalization") == "utf8_json_sort_keys_true_separators_comma_colon_allow_nan_false", "canonicalization changed")
     require(hashing.get("hex_digest_length") == 64, "digest length changed")
 
@@ -152,6 +169,8 @@ def validate(config_path: Path, root: Path) -> dict[str, object]:
         "parent_interface_sha256": PARENT_SHA256,
         "future_bundle_schema": "climate_daily_pair_output_bundle_v1",
         "receipt_fields": RECEIPT_FIELDS,
+        "monthly_input_projection_fields": MONTHLY_INPUT_FIELDS,
+        "monthly_input_excluded_fields": ["monthly_innovation_digest", "daily"],
         "monthly_record_fields": MONTHLY_FIELDS,
         "daily_record_fields": ["date_or_model_day", "precipitation_mm"],
         "generator_implementation_authorized": False,
