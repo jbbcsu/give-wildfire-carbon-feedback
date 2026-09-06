@@ -3,9 +3,15 @@
 from __future__ import annotations
 
 from copy import deepcopy
+import hashlib
+import math
 from pathlib import Path
 
-from validate_climate_daily_pair_output import canonical_records_sha256, validate_bundle
+from validate_climate_daily_pair_output import (
+    canonical_monthly_inputs_sha256,
+    canonical_records_sha256,
+    validate_bundle,
+)
 
 
 root = Path(__file__).resolve().parents[1]
@@ -14,45 +20,67 @@ parameter_sha = "b" * 64
 innovation_sha = "d" * 64
 
 
-def daily(value_before: float, value_after: float) -> list[dict[str, object]]:
+def daily(
+    calendar_name: str,
+    year: int,
+    month: int,
+    day_count: int,
+    value_before: float,
+    value_after: float,
+) -> list[dict[str, object]]:
     return [
         {
-            "date_or_model_day": f"2001-02-{day:02d}",
+            "date_or_model_day": f"{year:04d}-{month:02d}-{day:02d}",
             "precipitation_mm": value_before if day < 15 else value_after,
         }
-        for day in range(1, 29)
+        for day in range(1, day_count + 1)
     ]
 
 
-def record(scale: float, role: str, target: float, values: list[dict[str, object]]) -> dict[str, object]:
+def record(
+    group_id: str,
+    calendar_name: str,
+    year: int,
+    month: int,
+    scale: float,
+    role: str,
+    values: list[dict[str, object]],
+) -> dict[str, object]:
     return {
         "climate_draw_id": "synthetic-draw-001",
         "esm_id": "synthetic-esm",
         "member_id": "synthetic-member",
-        "grid_id": "synthetic-grid",
-        "calendar": "proleptic_gregorian",
-        "year": 2001,
-        "month": 2,
+        "grid_id": f"synthetic-grid-{group_id}",
+        "calendar": calendar_name,
+        "year": year,
+        "month": month,
         "pulse_scale_tonnes_c": scale,
         "path_role": role,
-        "first_divergence_date_or_model_day": "2001-02-15",
-        "monthly_precipitation_mm": target,
+        "first_divergence_date_or_model_day": f"{year:04d}-{month:02d}-15",
+        "monthly_precipitation_mm": math.fsum(float(item["precipitation_mm"]) for item in values),
         "monthly_temperature_degc": 20.0,
         "parameter_bundle_sha256": parameter_sha,
-        "monthly_innovation_digest": innovation_sha,
+        "monthly_innovation_digest": hashlib.sha256(group_id.encode("utf-8")).hexdigest(),
         "support_flag": "within",
         "daily": values,
     }
 
 
 def valid_bundle() -> dict[str, object]:
-    baseline = daily(2.0, 2.0)
-    cases = [(0.0, 56.0, 2.0), (4.0, 57.75, 2.125), (2.0, 56.875, 2.0625), (1.0, 56.4375, 2.03125)]
     records: list[dict[str, object]] = []
-    for scale, target, after in cases:
-        records.append(record(scale, "baseline", 56.0, deepcopy(baseline)))
-        pulse_values = deepcopy(baseline) if scale == 0 else daily(2.0, after)
-        records.append(record(scale, "pulse", target, pulse_values))
+    groups = [
+        ("gregorian-leap", "proleptic_gregorian", 2000, 2, 29, 2.0),
+        ("noleap", "noleap", 2000, 2, 28, 2.0),
+        ("360-day", "360_day", 2001, 2, 30, 2.0),
+        ("zero-month", "gregorian", 2001, 4, 30, 0.0),
+    ]
+    for group_id, calendar_name, year, month, day_count, baseline_amount in groups:
+        baseline = daily(calendar_name, year, month, day_count, baseline_amount, baseline_amount)
+        for scale in (0.0, 4.0, 2.0, 1.0):
+            records.append(record(group_id, calendar_name, year, month, scale, "baseline", deepcopy(baseline)))
+            after = baseline_amount if scale == 0 or baseline_amount == 0 else baseline_amount + scale / 32.0
+            pulse_values = daily(calendar_name, year, month, day_count, baseline_amount, after)
+            records.append(record(group_id, calendar_name, year, month, scale, "pulse", pulse_values))
     bundle: dict[str, object] = {
         "schema": "climate_daily_pair_output_bundle_v1",
         "receipt": {
@@ -60,7 +88,7 @@ def valid_bundle() -> dict[str, object]:
             "generator_code_identity": "synthetic-fixture-no-generator-implementation",
             "paper_doi": "10.1002/joc.8320",
             "parameter_bundle_sha256": parameter_sha,
-            "monthly_input_sha256": "c" * 64,
+            "monthly_input_sha256": canonical_monthly_inputs_sha256(records),
             "rng_algorithm": "synthetic-keyed-fixture",
             "rng_version": "test-only-v1",
             "seed_namespace": "synthetic-schema-gate",
@@ -102,10 +130,11 @@ def conserve_but_break_identity(bundle: dict[str, object], record_index: int, fi
 
 
 result = validate_bundle(valid_bundle(), config, root)
-assert result["record_count"] == 8
-assert result["pair_count"] == 4
-assert result["cross_pulse_month_count"] == 1
+assert result["record_count"] == 32
+assert result["pair_count"] == 16
+assert result["cross_pulse_month_count"] == 4
 assert result["maximum_monthly_mass_error_mm"] == 0
+assert result["monthly_input_sha256"] == valid_bundle()["receipt"]["monthly_input_sha256"]
 assert result["generator_implementation_authorized"] is False
 assert result["scientific_validity_established"] is False
 assert result["damage_or_scc_authorized"] is False
@@ -122,5 +151,41 @@ expect_failure(lambda bundle: bundle["records"][0].update(unregistered_field=Tru
 expect_failure(lambda bundle: bundle["receipt"].update(maximum_monthly_mass_error_mm=1e-6), "does not reconcile")
 expect_failure(lambda bundle: bundle["receipt"].update(peak_resident_memory_bytes=2147483649), "exceeds interface ceiling")
 expect_failure(lambda bundle: bundle["receipt"].update(daily_output_sha256="0" * 64), "daily output hash", refresh_hash=False)
+
+
+def assert_daily_values_are_excluded() -> None:
+    bundle = valid_bundle()
+    original_input_hash = bundle["receipt"]["monthly_input_sha256"]
+    conserve_but_break_identity(bundle, 3, 20, 21)
+    rehash(bundle)
+    result = validate_bundle(bundle, config, root)
+    assert result["monthly_input_sha256"] == original_input_hash
+
+
+def assert_innovation_digest_is_excluded() -> None:
+    bundle = valid_bundle()
+    original_input_hash = bundle["receipt"]["monthly_input_sha256"]
+    group = bundle["records"][:8]
+    for item in group:
+        item["monthly_innovation_digest"] = innovation_sha
+    rehash(bundle)
+    result = validate_bundle(bundle, config, root)
+    assert result["monthly_input_sha256"] == original_input_hash
+
+
+def assert_record_order_is_excluded() -> None:
+    bundle = valid_bundle()
+    original_input_hash = bundle["receipt"]["monthly_input_sha256"]
+    bundle["records"].reverse()
+    rehash(bundle)
+    result = validate_bundle(bundle, config, root)
+    assert result["monthly_input_sha256"] == original_input_hash
+
+
+assert_daily_values_are_excluded()
+assert_innovation_digest_is_excluded()
+assert_record_order_is_excluded()
+expect_failure(lambda bundle: bundle["records"][0].update(monthly_temperature_degc=20.25), "monthly input hash")
+expect_failure(lambda bundle: bundle["records"][0].update(support_flag="above"), "monthly input hash")
 
 print("climate daily-pair output synthetic schema tests passed")

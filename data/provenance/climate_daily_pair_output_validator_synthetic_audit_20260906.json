@@ -13,30 +13,49 @@
     "unknown_monthly_record_field",
     "receipt_maximum_mass_error_mismatch",
     "peak_resident_memory_above_two_gib",
-    "canonical_daily_output_hash_mismatch"
+    "canonical_daily_output_hash_mismatch",
+    "canonical_monthly_input_target_hash_mismatch",
+    "canonical_monthly_input_support_hash_mismatch"
   ],
   "generator_implementation_authorized": false,
+  "monthly_input_hash_invariance_checks": {
+    "daily_values_excluded": true,
+    "monthly_innovation_digest_excluded": true,
+    "record_order_invariant": true
+  },
   "parent_interface_sha256": "2e5c4e57f33931f32bcde3c0bc0673c012820ccd4723ace28a8197a8333d8b39",
-  "preregistered_output_schema_sha256": "745f9b16085b0acf7646f7522d904e64bb7050a77ae2f1f3c7903f01ad66ef5c",
+  "preregistered_output_schema_sha256": "eaa9387935e12e0e0f248cc624659d7b0ded3fd9ffc4c7d347d79e07576da9fa",
   "response_estimation_authorized": false,
   "schema": "climate_daily_pair_output_validator_synthetic_audit_v1",
   "status": "schema_and_synthetic_failure_mode_gates_passed_no_generator_or_real_output",
   "synthetic_success_fixture": {
-    "calendar": "proleptic_gregorian",
-    "cross_pulse_month_count": 1,
-    "daily_records_per_monthly_record": 28,
+    "calendars": [
+      "proleptic_gregorian",
+      "noleap",
+      "360_day",
+      "gregorian"
+    ],
+    "canonical_monthly_input_sha256": "e9f61efc679eb845f934d27d763106c54eb5b7e98e29be4ea4a554084b7df72e",
+    "cross_pulse_month_count": 4,
+    "daily_records_per_monthly_record": [
+      29,
+      28,
+      30,
+      30
+    ],
     "fixture_persisted_as_climate_output": false,
     "maximum_monthly_mass_error_mm": 0.0,
-    "monthly_record_count": 8,
-    "pair_count": 4,
+    "monthly_record_count": 32,
+    "pair_count": 16,
     "pulse_scales_tonnes_c": [
       0.0,
       1.0,
       2.0,
       4.0
     ],
-    "synthetic_values_only": true
+    "synthetic_values_only": true,
+    "zero_month_group_count": 1
   },
-  "test_sha256": "34e6e9533f771d7d35520c8ed65da8f07004ee130e477b20ff7d4eff2d62c6b3",
-  "validator_sha256": "8efef2c6b6bae12f2927fd539a75d6f0d0395e39b1deb4f87707bb927b3c8765"
+  "test_sha256": "c83e7cbd626bf2acd70935f90cf33e7d144b8f176664523ea73fb97a36575fc8",
+  "validator_sha256": "7caa8ad95e9d538a40d74a209b3e46884df0455e3858cbecc3f033cfe8991934"
 }

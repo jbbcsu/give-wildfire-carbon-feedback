@@ -676,12 +676,12 @@ no generated daily values and does not relax the missing-code no-fit blocker.
 
 The preregistered future-output schema has now been implemented as a
 schema/numerical-identity validator without a generator. A tiny in-memory
-synthetic bundle contains eight monthly records (four matched scales, including
-zero) and 28 daily values per record. It passes exact keys, canonical hash,
-common innovation digests, separate baseline/pulse conservation, and
-zero/pre-divergence identity with zero maximum mass error. Twelve deliberate
-corruptions are rejected, including missing receipts, duplicate keys, digest
-mismatch, mass error, identity failure, missing days, unregistered fields,
-memory-limit excess, and output-hash mismatch. This is software-validation
-evidence only; it creates no real daily climate path and opens no fit, FAIR,
-response, damage, welfare, or SCC gate.
+synthetic bundle contains 32 monthly records across leap Gregorian, noleap,
+360-day, and all-zero months, with four matched scales per month. It passes
+exact keys, canonical daily-output and monthly-input hashes, common innovation
+digests, separate baseline/pulse conservation, and zero/pre-divergence identity
+with zero maximum mass error. The monthly-input hash is invariant to record
+order, innovation digests, and daily values, but changes to a monthly target or
+support flag are rejected. Fourteen deliberate corruptions now fail. This is
+software-validation evidence only; it creates no real daily climate path and
+opens no fit, FAIR, response, damage, welfare, or SCC gate.

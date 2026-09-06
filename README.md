@@ -818,13 +818,17 @@ Kemsley implementation remains a hard no-fit blocker. See
 
 The separately committed future-output schema now has a pure-standard-library,
 fail-closed validator. It requires exact bundle, receipt, monthly-record, and
-daily-record fields; unique pair/record keys; a complete calendar-specific day
-sequence; canonical output hashing; one baseline and pulse record per scale;
+daily-record fields; unique pair/record keys; complete calendar-specific day
+sequences; canonical output hashing; one baseline and pulse record per scale;
 one zero and at least three positive pulse scales; common innovation digests;
 separate monthly conservation; and exact zero-pulse and pre-divergence daily
-identity. An eight-record, 28-day in-memory synthetic fixture passes with zero
-mass error, and twelve targeted corruptions fail. No generator was implemented,
-no real daily climate output was created, and the missing pinned Kemsley code
-continues to block fitting and every downstream gate. See
+identity. Its receipt now also binds a canonical, record-order-invariant hash
+of monthly identities, path targets, parameter-bundle identity, and support
+flags. Innovation digests and daily values are deliberately outside that
+monthly-input projection and remain covered by their own gates and output hash.
+A 32-record in-memory fixture spans leap Gregorian, noleap, 360-day, and zero
+months with zero mass error; fourteen targeted corruptions fail. No generator
+was implemented, no real daily climate output was created, and the missing
+pinned Kemsley code continues to block fitting and every downstream gate. See
 `config/climate_daily_pair_output_schema_v1.toml` and
 `data/provenance/climate_daily_pair_output_validator_synthetic_audit_20260906.json`.

@@ -1101,10 +1101,13 @@ fail-closed validator. The schema binds exact receipt, monthly-record, and
 daily-record fields; canonical record hashing; unique pair keys; complete
 calendar days; shared innovation digests; separate pathwise mass conservation;
 one zero and at least three positive pulse scales; and exact zero-pulse and
-pre-divergence daily identity. A tiny synthetic fixture passes all checks with
-zero mass error, while twelve targeted corruptions fail. This validates the
-proposed data boundary and numerical identities, not a generator or climate
-response; no real daily values or downstream estimates were produced.
+pre-divergence daily identity. A second canonical hash now binds monthly
+identities, path targets, parameter-bundle identity, and support flags while
+excluding record order, innovation digests, and daily values. A 32-record tiny
+fixture covers leap Gregorian, noleap, 360-day, and all-zero months with zero
+mass error; fourteen targeted corruptions fail. This validates the proposed
+data boundary and numerical identities, not a generator or climate response;
+no real daily values or downstream estimates were produced.
 
 ### 6.3 Marginal damages and global SCC
 

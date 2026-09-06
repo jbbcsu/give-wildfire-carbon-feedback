@@ -1675,8 +1675,15 @@ Before any generator output exists, we separately preregistered its exact JSON
 boundary. A bundle contains only a schema tag, receipt, and nonempty monthly
 records. The receipt binds the parent interface, generator/paper/parameter and
 monthly-input identities, RNG identity and namespace, canonical daily-output
-hash, observed maximum monthly mass error, and peak resident memory. Blank,
-missing, or additional receipt fields fail; memory above 2 GiB fails.
+hash, observed maximum monthly mass error, and peak resident memory. The
+monthly-input digest is the SHA-256 of UTF-8 JSON with sorted object keys,
+compact separators, and nonfinite values forbidden after projecting every
+record to climate draw, ESM, member, grid, calendar, year, month, pulse scale,
+path role, divergence key, monthly precipitation and temperature targets,
+parameter-bundle identity, and support flag, then sorting by the exact monthly
+record key. Record order, monthly innovation digests, and daily values are
+excluded. Blank, missing, or additional receipt fields fail; memory above 2
+GiB fails.
 
 Each monthly record is keyed by climate draw, ESM, member, grid, calendar,
 year, month, pulse scale, and path role. Each pair must contain exactly one
@@ -1689,14 +1696,17 @@ baseline/pulse and cross-scale innovation digests, an invariant baseline daily
 path across scales, exact zero-pulse identity, and exact equality on every day
 before the registered divergence date.
 
-The in-memory synthetic fixture uses one 28-day proleptic-Gregorian month, four
-pulse scales, and eight monthly records. It passes with zero maximum mass error.
-Twelve single-purpose corruptions verify fail-closed behavior for receipt,
-key, digest, conservation, identity, day coverage, field, resource, and hash
-errors. Synthetic test values are not persisted as climate output. This gate
-does not implement or substitute the unavailable generator, validate its
-science, or authorize software/climate acquisition, fitting, FAIR evaluation,
-response estimation, damages, welfare, or SCC use.
+The in-memory synthetic fixture uses leap Gregorian, noleap, 360-day, and
+all-zero calendar months, four pulse scales per month, and 32 monthly records.
+It passes with zero maximum mass error. Invariance checks confirm that record
+order, innovation digests, and daily values do not change the monthly-input
+digest; monthly-target and support-flag changes fail. Fourteen single-purpose
+corruptions verify fail-closed behavior for receipt, key, digest, conservation,
+identity, day coverage, field, resource, and both hashes. Synthetic test values
+are not persisted as climate output. This gate does not implement or substitute
+the unavailable generator, validate its science, or authorize software/climate
+acquisition, fitting, FAIR evaluation, response estimation, damages, welfare,
+or SCC use.
 
 ## S10. Scientific integrity and independent review
 

@@ -18,7 +18,10 @@ import re
 import tomllib
 from typing import Any
 
-from validate_climate_daily_pair_output_schema_contract import validate as validate_contract
+from validate_climate_daily_pair_output_schema_contract import (
+    MONTHLY_INPUT_FIELDS,
+    validate as validate_contract,
+)
 
 
 BUNDLE_SCHEMA = "climate_daily_pair_output_bundle_v1"
@@ -56,6 +59,14 @@ def finite_number(value: Any) -> bool:
 
 def canonical_records_sha256(records: list[dict[str, Any]]) -> str:
     payload = json.dumps(records, sort_keys=True, separators=(",", ":"), allow_nan=False).encode("utf-8")
+    return hashlib.sha256(payload).hexdigest()
+
+
+def canonical_monthly_inputs_sha256(records: list[dict[str, Any]]) -> str:
+    """Hash monthly identities, targets, parameters, and support without daily outputs."""
+    projected = [{field: record[field] for field in MONTHLY_INPUT_FIELDS} for record in records]
+    projected.sort(key=lambda record: tuple(record[field] for field in MONTHLY_KEY))
+    payload = json.dumps(projected, sort_keys=True, separators=(",", ":"), allow_nan=False).encode("utf-8")
     return hashlib.sha256(payload).hexdigest()
 
 
@@ -211,6 +222,11 @@ def validate_bundle(bundle: dict[str, Any], config_path: Path, root: Path) -> di
         baseline_daily = baselines[0]["daily"]
         require(all(record["daily"] == baseline_daily for record in baselines[1:]), f"month {month_key} baseline daily path changes across pulse scales")
 
+    observed_monthly_input_hash = canonical_monthly_inputs_sha256(records)
+    require(
+        receipt["monthly_input_sha256"] == observed_monthly_input_hash,
+        "monthly input hash does not match canonical monthly projection",
+    )
     require(math.isclose(float(recorded_error), maximum_error, rel_tol=0, abs_tol=1e-15), "receipt maximum monthly mass error does not reconcile")
     return {
         "schema": "climate_daily_pair_output_validation_v1",
@@ -219,6 +235,7 @@ def validate_bundle(bundle: dict[str, Any], config_path: Path, root: Path) -> di
         "pair_count": len(pair_groups),
         "cross_pulse_month_count": len(cross_pulse_groups),
         "maximum_monthly_mass_error_mm": maximum_error,
+        "monthly_input_sha256": observed_monthly_input_hash,
         "daily_output_sha256": observed_output_hash,
         "peak_resident_memory_bytes": peak,
         "generator_implementation_authorized": False,

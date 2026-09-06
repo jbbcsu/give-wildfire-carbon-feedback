@@ -242,10 +242,15 @@ Kemsley implementation as a hard no-fit blocker.
 `climate_daily_pair_output_schema_preregistration_20260906.json` binds the
 separately committed exact future JSON bundle, receipt, pair/month/day keys,
 calendar coverage, canonical hashing, conservation, innovation-digest, and
-identity rules before the output validator was added.
+identity rules before the output validator was added. Its committed extension
+freezes a record-order-invariant monthly-input projection over monthly
+identities, targets, parameter-bundle identity, and support flag; innovation
+digests and daily values are explicitly excluded from that projection.
 `climate_daily_pair_output_validator_synthetic_audit_20260906.json` records the
-subsequent pure-standard-library validator result: an in-memory eight-record
-synthetic fixture passes with zero mass error and twelve targeted corruptions
-fail. No synthetic fixture is persisted as climate output, no real climate
-value was created, and no generator, fit, FAIR, response, damage, welfare, or
-SCC gate was opened.
+subsequent pure-standard-library validator result: a 32-record in-memory
+fixture spans leap Gregorian, noleap, 360-day, and all-zero months, passes with
+zero mass error, and rejects fourteen targeted corruptions. It also verifies
+that record order, innovation digests, and daily values cannot alter the
+monthly-input hash. No synthetic fixture is persisted as climate output, no
+real climate value was created, and no generator, fit, FAIR, response, damage,
+welfare, or SCC gate was opened.
