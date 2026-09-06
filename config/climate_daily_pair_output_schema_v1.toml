@@ -1,0 +1,97 @@
+schema = "climate_daily_pair_output_schema_contract_v1"
+role = "schema_only_future_output_gate_for_conservative_common_innovation_daily_precipitation_pairs"
+registered_utc_date = "2026-09-06"
+parent_interface_path = "config/climate_daily_pair_interface_v1.toml"
+parent_interface_sha256 = "2e5c4e57f33931f32bcde3c0bc0673c012820ccd4723ace28a8197a8333d8b39"
+future_bundle_schema = "climate_daily_pair_output_bundle_v1"
+daily_generator_id = "kemsley_markov_gamma"
+daily_generator_paper_doi = "10.1002/joc.8320"
+daily_generator_pinned_public_executable_source_available = false
+generator_implementation_authorized = false
+component_substitution_authorized = false
+software_acquisition_authorized = false
+climate_payload_acquisition_authorized = false
+emulator_fit_authorized = false
+fair_feature_response_authorized = false
+response_estimation_authorized = false
+damage_or_scc_authorized = false
+
+[bundle]
+exact_top_level_fields = ["schema", "receipt", "records"]
+records_must_be_nonempty = true
+unknown_top_level_fields_forbidden = true
+
+[receipt]
+required_fields = ["contract_sha256", "generator_code_identity", "paper_doi", "parameter_bundle_sha256", "monthly_input_sha256", "rng_algorithm", "rng_version", "seed_namespace", "daily_output_sha256", "maximum_monthly_mass_error_mm", "peak_resident_memory_bytes"]
+exact_fields_required = true
+blank_or_missing_field_fails = true
+contract_sha256_must_match_parent_interface = true
+paper_doi_must_match_registered_generator = true
+daily_output_sha256_covers_canonical_records = true
+maximum_monthly_mass_error_must_reconcile = true
+peak_resident_memory_must_not_exceed_interface_ceiling = true
+receipt_is_not_scientific_validation = true
+
+[monthly_record]
+exact_fields = ["climate_draw_id", "esm_id", "member_id", "grid_id", "calendar", "year", "month", "pulse_scale_tonnes_c", "path_role", "first_divergence_date_or_model_day", "monthly_precipitation_mm", "monthly_temperature_degc", "parameter_bundle_sha256", "monthly_innovation_digest", "support_flag", "daily"]
+key_fields = ["climate_draw_id", "esm_id", "member_id", "grid_id", "calendar", "year", "month", "pulse_scale_tonnes_c", "path_role"]
+pair_key_fields = ["climate_draw_id", "esm_id", "member_id", "grid_id", "calendar", "year", "month", "pulse_scale_tonnes_c"]
+cross_pulse_month_key_fields = ["climate_draw_id", "esm_id", "member_id", "grid_id", "calendar", "year", "month"]
+path_roles = ["baseline", "pulse"]
+support_flags = ["within", "below", "above"]
+precipitation_unit = "mm_month-1"
+temperature_unit = "degC"
+finite_numeric_fields_required = true
+nonnegative_precipitation_and_pulse_required = true
+parameter_bundle_must_match_receipt = true
+duplicate_record_keys_forbidden = true
+exactly_one_record_per_path_role_per_pair = true
+minimum_distinct_decreasing_positive_pulse_scales = 3
+exactly_one_zero_pulse_scale = true
+
+[daily_record]
+exact_fields = ["date_or_model_day", "precipitation_mm"]
+date_key = "date_or_model_day"
+precipitation_unit = "mm_day-1"
+finite_nonnegative_values_required = true
+calendar_specific_complete_month_required = true
+duplicate_or_missing_days_forbidden = true
+daily_order_must_be_strictly_increasing = true
+
+[pair_checks]
+monthly_innovation_digest_nonblank_required = true
+baseline_pulse_innovation_digest_identity_required = true
+cross_pulse_scale_innovation_digest_identity_required = true
+baseline_daily_path_identity_across_pulse_scales_required = true
+separate_baseline_and_pulse_monthly_conservation_required = true
+absolute_conservation_tolerance_mm = 1e-9
+relative_conservation_tolerance = 1e-12
+zero_month_requires_all_daily_zero = true
+positive_month_requires_at_least_one_positive_daily_value = true
+zero_pulse_daily_identity_required = true
+pre_divergence_daily_identity_required = true
+separate_baseline_and_pulse_support_flags_required = true
+
+[hashing]
+algorithm = "sha256"
+records_canonicalization = "utf8_json_sort_keys_true_separators_comma_colon_allow_nan_false"
+hex_digest_length = 64
+
+[resources]
+metadata_and_schema_only = true
+synthetic_fixture_only = true
+maximum_peak_resident_memory_bytes = 2147483648
+minimum_free_disk_bytes_before_any_future_acquisition = 161061273600
+large_downloads_forbidden = true
+raw_rehydration_forbidden = true
+global_daily_inputs_forbidden = true
+derived_parquet_inputs_forbidden = true
+
+[decision]
+current_status = "output_schema_preregistered_no_generator_or_real_output"
+schema_validation_does_not_authorize_generator_implementation = true
+schema_validation_does_not_establish_scientific_validity = true
+missing_pinned_generator_code_is_hard_no_fit_blocker = true
+no_outcome_columns = true
+no_empirical_coefficients = true
+no_real_daily_climate_values = true
