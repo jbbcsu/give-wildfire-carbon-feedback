@@ -1,6 +1,6 @@
 # Active continuation checkpoint
 
-Updated September 7, 2026 after future weighted rainfall inputs and range comparison. The project
+Updated September 7, 2026 after the approval-gated cutout workflow implementation. The project
 is **not complete**. At this checkpoint all jobs listed below have finished;
 there is no deliberately detached analysis process. The active five-minute
 in-task continuation should resume substantive work, not report this status
@@ -55,16 +55,26 @@ another run. Chain successive bounded steps within an active turn.
    `FUTURE_WEIGHTED_PRECIPITATION_RESULTS_20260907.md` contains both calculations,
    restrictions and reproduction. These are not yield projections. Existing
    historical builders remain unchanged. Do not reconstruct or repeat them.
+9. `scripts/run_authorized_heat_subset_pilot.py` now implements the capped
+   acquisition-to-season/stage-heat chain, with an explicit matching user
+   approval record required before any network request. No real approval
+   record has been created and no archive downloaded. See
+   `AUTHORIZED_HEAT_SUBSET_WORKFLOW_20260907.md` for invocation, safety checks
+   and synthetic-test limits. Four test groups pass; the final run sampled
+   75.06MiB peak group RSS. No acquisition process is running. Do not rebuild
+   this workflow or repeat its tests as unfinished.
 
 ## Next useful executable step
 
 Check whether the user approved the async request for a one-file12.3MiB
 climate-cutout download with64MiB maximum additional disk occupancy. If yes,
-implement bounded streamed acquisition, inspect ZIP members/sizes before
+use the now-implemented bounded workflow, inspect ZIP members/sizes before
 extraction, validate real coordinates/dates/units and derive/reconcile
 maize/noirr2042–2049 seasonal and stage heat with29C threshold. Read
 `LOW_STORAGE_HEAT_SUBSET_PILOT_20260907.md` first. Do not download before this
-exception is approved; do not reinterpret server completion as content
+exception is approved; also read `AUTHORIZED_HEAT_SUBSET_WORKFLOW_20260907.md`
+and record only the user's actual approval, never a synthetic authorization.
+Do not reinterpret server completion as content
 validation. Both archive and uncompressed member must fit the64MiB cap.
 No full global raw files, imputation or bulk expansion. The existing job is
 finished; don't poll it repeatedly. Its URL may expire after the service TTL.

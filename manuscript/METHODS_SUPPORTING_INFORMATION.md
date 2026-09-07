@@ -1,5 +1,21 @@
 # Methods Supporting Information
 
+## Bounded acquisition-to-heat execution
+
+`scripts/run_authorized_heat_subset_pilot.py` now implements the single-cutout
+chain, but has not acquired real climate output. A separately recorded actual
+user approval must match the job, config hash and64MiB disk cap before any
+network request. It revalidates source metadata, rejects changed archive
+length/ETag and redirects, streams256KiB blocks, verifies safe ZIP members and
+space for archive plus extracted data, and then checks exact dates, grid,
+units and finite daily temperatures. Sequential seasonal/stage construction,
+validation and reconciliation must also match the retained rainfall calendar
+keys exactly. Source/code/output hashes and partial failures are preserved.
+Four synthetic test groups pass with network access disabled; they are not
+evidence of real server-content validity. Operational reproduction and the
+remaining real-data approval boundary are in
+`AUTHORIZED_HEAT_SUBSET_WORKFLOW_20260907.md`.
+
 ## Future nonlinear rainfall basis and marginal-range comparison
 
 The registered future input construction reuses unchanged historical
