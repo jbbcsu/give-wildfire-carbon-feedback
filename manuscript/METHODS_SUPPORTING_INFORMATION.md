@@ -104,6 +104,17 @@ not hourly degree days, crop-pixel exposures or estimated damage responses.
 
 ## S2. Data acquisition and provenance
 
+**September 7 daily-heat association update:** a separate exploratory
+24-cell matrix preserves the original regional 1981–2018 county/state-year
+fixed-effect model, adds stage heat-exceedance sums/counts with linear and
+quadratic terms at either 29 or 30 C, and retains both crop/practice and
+rainfall forms. Identical support is enforced. QR/triangular-solve covariance
+reproduces baseline coefficients/SEs; county-cluster normal intervals remain
+conditional, not full spatial/causal uncertainty. A subsequent 34-cell
+non-irrigated state-influence matrix evaluates at unchanged full-sample
+median rainfall. Protocols, aggregate outputs and tests are documented in
+`us_county_validation/US_DAILY_HEAT_ASSOCIATION_RESULTS_20260907.md`.
+
 The outcome panel uses GDHY v1.2/v1.3 (Iizumi and Sakai, 2020), with the
 downloaded archive checksum in its TOML record. Daily historical climate uses
 ISIMIP3a GSWP3-W5E5; projections use ISIMIP3b CMIP6 bias-adjusted daily

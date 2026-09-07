@@ -77,6 +77,16 @@ unestimated. Detailed evidence and limitations are in
 
 ## Abstract
 
+**Latest empirical qualification (September 7):** the U.S. fixed-effect
+rainfall associations now include validated daily heat controls. Non-irrigated
+corn's illustrative +100 mm contrast near median rainfall attenuates from
+7.72% to 5.68–5.77%; soybean's from 4.46% to 3.82–3.90%. State omissions
+retain positive direction but variable magnitudes. Positive timing coefficients
+do not overturn the failure of the separate daily-heat predictive materiality
+criterion. These are regional historical associations, not causal climate
+damages or SCC. `PRELIMINARY_EVIDENCE_20260907.md` consolidates the findings
+and outstanding climate/welfare links.
+
 Climate change alters not only mean precipitation but also the timing,
 seasonality, dry spells, and heavy-rainfall exposures that govern crop water
 stress and excess-water damage. Existing GIVE agriculture in this checkout is
