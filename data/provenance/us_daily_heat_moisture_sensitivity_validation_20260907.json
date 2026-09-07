@@ -1,0 +1,99 @@
+{
+  "schema": "us_daily_heat_moisture_sensitivity_validation_v1",
+  "status": "validated_daily_heat_controls_remove_soybean_diagnostic_promotion",
+  "artifact_sha256": "a25ced6d0feb6024ac4cc739f3ac1350a681a12d59f6b6043f31823388f8f4fe",
+  "baseline_reproduced_exactly": true,
+  "metric_rows_reconciled": 360,
+  "selection_decisions": {
+    "baseline": {
+      "corn_grain/irrigated": false,
+      "corn_grain/non_irrigated": false,
+      "soybeans/irrigated": true,
+      "soybeans/non_irrigated": true
+    },
+    "daily_heat_29c": {
+      "corn_grain/irrigated": false,
+      "corn_grain/non_irrigated": false,
+      "soybeans/irrigated": false,
+      "soybeans/non_irrigated": false
+    },
+    "daily_heat_30c": {
+      "corn_grain/irrigated": false,
+      "corn_grain/non_irrigated": false,
+      "soybeans/irrigated": false,
+      "soybeans/non_irrigated": false
+    }
+  },
+  "comparison_summaries": {
+    "baseline": {
+      "corn_grain/irrigated": {
+        "mean_leave_state_out_improvement": -0.0015309592366939573,
+        "terminal_improvement": -0.002851909066574357,
+        "direct_quantity_minus_pdsi_terminal": 0.0006901780251750006
+      },
+      "corn_grain/non_irrigated": {
+        "mean_leave_state_out_improvement": 0.005853964710593374,
+        "terminal_improvement": 0.06034160279657036,
+        "direct_quantity_minus_pdsi_terminal": 0.049216105973901636
+      },
+      "soybeans/irrigated": {
+        "mean_leave_state_out_improvement": 0.0038623014751239157,
+        "terminal_improvement": -0.012311849958152404,
+        "direct_quantity_minus_pdsi_terminal": 0.00225314155521579
+      },
+      "soybeans/non_irrigated": {
+        "mean_leave_state_out_improvement": 0.012279465613131757,
+        "terminal_improvement": 0.05826795959975267,
+        "direct_quantity_minus_pdsi_terminal": 0.025359668332311902
+      }
+    },
+    "daily_heat_29c": {
+      "corn_grain/irrigated": {
+        "mean_leave_state_out_improvement": -0.0012079043080710477,
+        "terminal_improvement": -0.0036877288857254387,
+        "direct_quantity_minus_pdsi_terminal": 0.0009559667883740769
+      },
+      "corn_grain/non_irrigated": {
+        "mean_leave_state_out_improvement": 0.007217378326112522,
+        "terminal_improvement": 0.030502247878820665,
+        "direct_quantity_minus_pdsi_terminal": 0.039813864350086936
+      },
+      "soybeans/irrigated": {
+        "mean_leave_state_out_improvement": 0.0007828025108522207,
+        "terminal_improvement": -0.006155557483521104,
+        "direct_quantity_minus_pdsi_terminal": 0.002431054922328202
+      },
+      "soybeans/non_irrigated": {
+        "mean_leave_state_out_improvement": 0.005615256901091548,
+        "terminal_improvement": 0.03357168431549307,
+        "direct_quantity_minus_pdsi_terminal": 0.02534557849225405
+      }
+    },
+    "daily_heat_30c": {
+      "corn_grain/irrigated": {
+        "mean_leave_state_out_improvement": -0.0009773207395577439,
+        "terminal_improvement": -0.004241532388746347,
+        "direct_quantity_minus_pdsi_terminal": 0.0013933080744342324
+      },
+      "corn_grain/non_irrigated": {
+        "mean_leave_state_out_improvement": 0.007501836677538276,
+        "terminal_improvement": 0.029405019293373247,
+        "direct_quantity_minus_pdsi_terminal": 0.03794160831246224
+      },
+      "soybeans/irrigated": {
+        "mean_leave_state_out_improvement": 0.0005857723575641016,
+        "terminal_improvement": -0.006911481424758559,
+        "direct_quantity_minus_pdsi_terminal": 0.0017048577036396922
+      },
+      "soybeans/non_irrigated": {
+        "mean_leave_state_out_improvement": 0.007462679780799582,
+        "terminal_improvement": 0.03880718537595196,
+        "direct_quantity_minus_pdsi_terminal": 0.025613991729724617
+      }
+    }
+  },
+  "coefficients_checked": false,
+  "refit_performed": false,
+  "causal_response_authorized": false,
+  "damage_or_scc_authorized": false
+}

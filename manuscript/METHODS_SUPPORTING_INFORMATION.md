@@ -88,15 +88,19 @@ peak sampled process-group RSS. See
 
 ### September 7 U.S. daily heat-control construction
 
-A separate single-county/year pilot constructs daily Tmax exceedance in
+A single-county/year pilot first constructed daily Tmax exceedance in
 Celsius-days and above-threshold days at 29 and 30 C, applying thresholds
 cell-first before county-polygon weighting. All original stage Tmax means
-and stage/season totals reconcile. This closes the construction step only:
-existing fitted U.S. models still use stage-average controls until the new
-basis is expanded and validated on their full support. See
-`us_county_validation/US_DAILY_HEAT_PILOT_RESULTS_20260907.md` and
-`us_county_validation/scripts/build_daily_heat_pilot.py`. These are not
-hourly degree days, crop-pixel exposures or estimated damage responses.
+and stage/season totals reconcile. The basis was then expanded to all 11,861
+corn/soy county/crop/year keys in the 1981--2019 direct-practice support. The
+1 GiB monitor stopped the full-year route in 1984; a frozen amendment used 149
+disjoint groups of at most 64 counties, with a 453.1 MiB maximum peak. Exact
+keys, calendars, hashes, weights and all 64 pilot values reconcile. An
+exploratory sensitivity added stage heat sums and counts at 29 and 30 C
+separately to every moisture model on the unchanged 20,228 differences.
+Neither threshold retains the original soybean distribution promotion. See
+`us_county_validation/US_DAILY_HEAT_EXPANSION_RESULTS_20260907.md`. These are
+not hourly degree days, crop-pixel exposures or estimated damage responses.
 
 ## S2. Data acquisition and provenance
 

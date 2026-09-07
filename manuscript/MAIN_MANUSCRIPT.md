@@ -16,6 +16,20 @@ spatial/GDHY dependence. No model is promoted and no response, future climate,
 damage, welfare, or SCC gate is opened. See
 `GLOBAL_CONTINUOUS_GEOGRAPHIC_CLUSTER_RESULTS_20260907.md`.
 
+## September 7 U.S. daily-heat sensitivity
+
+Cell-first daily Tmax exceedance and above-threshold counts at 29 and 30 C
+were expanded to the complete 11,861-key corn/soy direct-practice weather
+support. The full-year route exceeded the 1 GiB monitor; all 149 amended
+64-county checkpoints completed below 454 MiB. On the unchanged 20,228
+first-difference observations and reused validation splits, both daily-heat
+control variants remove the original diagnostic rainfall-distribution
+promotion for irrigated and non-irrigated soybean; corn continues to fail the
+uniform-state rule. The U.S. distribution ranking is therefore sensitive to
+temperature-control basis. This does not identify a causal precipitation or
+heat response. See
+`us_county_validation/US_DAILY_HEAT_EXPANSION_RESULTS_20260907.md`.
+
 ## September 6 continuous historical benchmark
 
 An exploratory retrospective temporal comparison now uses the continuous
@@ -98,7 +112,9 @@ distribution extension improves all three eligible states plus the terminal
 and extreme tests under the original temperature controls. With additional
 stage-average Tmax and squared-level controls, neither soybean practice passes
 the same frozen geographic materiality rule, although all three non-irrigated
-soybean improvements remain positive. Irrigated rankings are less stable. A
+soybean improvements remain positive. Daily heat controls based on 29 or 30 C
+stage exceedance sums and counts also reject both soybean promotions on the
+same reused splits. Irrigated rankings are less stable. A
 clean-room QR audit reproduces the original 120 aggregate metrics, and a
 separate preregistered artifact audit reconciles all 240 original/richer-control
 metrics and eight summaries exactly at saved precision. These U.S. results are
