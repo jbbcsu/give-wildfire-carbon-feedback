@@ -1,6 +1,6 @@
 # Active continuation checkpoint
 
-Updated September 7, 2026 after remote heat cutout and normalized economic sensitivity. The project
+Updated September 7, 2026 after future weighted rainfall inputs and range comparison. The project
 is **not complete**. At this checkpoint all jobs listed below have finished;
 there is no deliberately detached analysis process. The active five-minute
 in-task continuation should resume substantive work, not report this status
@@ -47,6 +47,14 @@ another run. Chain successive bounded steps within an active turn.
    `--calendar-by-coordinates` added to both heat builders; two synthetic tests
    reproduce full-grid outputs exactly below214MiB sampled RSS. Do not repeat
    submission or these tests as unfinished.
+8. Future nonlinear rainfall basis completed on18balanced maize/soy ×
+   GFDL/IPSL/MPI × SSP126/370/585 products,208,404rows,500/327supported cells.
+   Six new synthetic tests pass. Historical marginal-range comparison also
+   completed:292/149cells have observed historical exposure ranges; stage2
+   mean temperature is outside those ranges in46–73% of SSP585 crop-years.
+   `FUTURE_WEIGHTED_PRECIPITATION_RESULTS_20260907.md` contains both calculations,
+   restrictions and reproduction. These are not yield projections. Existing
+   historical builders remain unchanged. Do not reconstruct or repeat them.
 
 ## Next useful executable step
 
@@ -60,6 +68,14 @@ exception is approved; do not reinterpret server completion as content
 validation. Both archive and uncompressed member must fit the64MiB cap.
 No full global raw files, imputation or bulk expansion. The existing job is
 finished; don't poll it repeatedly. Its URL may expire after the service TTL.
+After heat construction, join it to the newly completed regime-basis pilot
+using exact crop/grid/year/member/scenario/calendar identities. Never fill
+missing Tmax with stage mean T or multiply rainfall means by response slopes.
+The range results now quantify substantial temperature extrapolation, so a
+joint climate-to-yield projection still needs an explicit transport strategy.
+Do not silently clip temperatures or treat marginal inside-range diagnostics
+as validation. No new user approval for the download has arrived as of this
+checkpoint; the existing request remains pending and should not be repeated.
 
 While that decision is pending, continue the missing economic/response link
 using existing small inputs or read-only public metadata. The six published
@@ -76,8 +92,9 @@ substitute a figure or another audit for those missing links. The future
 climate inventory now shows stage mean T in all 132 consumed longer-period
 source sets, but no daily Tmax threshold integrals in their stage schemas.
 Existing early GFDL heat products cover only 2016–2019 maize/rainfed. A
-defensible joint projection also requires regime-specific nonlinear bases
-before fixed-area weighting, transport validation, CO2/adaptation treatment,
+defensible joint projection now has regime-specific nonlinear rainfall bases
+before fixed-area weighting for the balanced two-crop pilot, but still requires
+transport validation, CO2/adaptation treatment,
 and a matched marginal CO2 path. Do not multiply scenario rainfall means by
 the historical log-rain-index slope. Document a bounded source/subsetting
 route for missing heat before seeking any new bulk acquisition authority.
@@ -94,7 +111,7 @@ while that decision is unchanged. Other work can proceed independently.
 - One monitored analysis process; one numerical thread. Maximum allowed
   sampled group RSS4GiB, but use smaller proven budgets. Latest climate jobs
   needed only 225–326MiB. Sampled limits are not kernel-enforced caps.
-- Latest free disk about133.64GiB. Below150GiB: no downloads, raw climate
+- Latest free disk about133.61GiB. Below150GiB: no downloads, raw climate
   rehydration or large climate work. Small existing-data outputs may reserve
   starting free disk minus at most64MiB. Do not delete unique/derived inputs.
 - The long comparison initially failed the new1e-5°C temperature check;

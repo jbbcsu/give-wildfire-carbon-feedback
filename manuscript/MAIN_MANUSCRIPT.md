@@ -1,5 +1,27 @@
 # Precipitation patterns, global agricultural damages, and the social cost of carbon
 
+## September 7 future-basis construction and extrapolation limits
+
+Future climate now uses the same nonlinear rainfall transformations as the
+historical direct-response basis, calculated within irrigation-calendar regime
+before fixed MIRCA2000 weighting. Eighteen tables cover208,404crop-year rows
+in the balanced GFDL/IPSL/MPI scenario pilot. Geographic support is limited to
+500maize and327soybean cells in two latitude rows. In MPI soybean, SSP5-8.5
+minus SSP1-2.6 reduces average seasonal rain by1.81mm but increases the
+weighted log1p-rain index by0.00788, illustrating why mean-rain changes cannot
+be substituted directly into a nonlinear response basis.
+
+Historical observed-yield/direct-exposure ranges cover only292of those maize
+cells and149soybean cells. Under SSP5-8.5, roughly46–73% of evaluable future
+crop-years fall outside their cell-specific1982–2010 range for second-stage
+mean temperature, versus5–11% for seasonal rainfall totals across these crops
+and models. These marginal-range diagnostics neither establish joint support
+nor estimate damages; the observed historical yield relationship cannot yet
+be treated as an unqualified future response. Complete results, denominators,
+scenario contrasts and limitations are in
+`FUTURE_WEIGHTED_PRECIPITATION_RESULTS_20260907.md`. Daily Tmax controls,
+transport validation, CO2/adaptation and welfare links remain incomplete.
+
 ## September 7 economic sensitivity and low-storage climate continuation
 
 The independent market-accounting prototype now evaluates all six published

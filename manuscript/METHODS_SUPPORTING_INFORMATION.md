@@ -1,5 +1,32 @@
 # Methods Supporting Information
 
+## Future nonlinear rainfall basis and marginal-range comparison
+
+The registered future input construction reuses unchanged historical
+`build_regime_candidate_basis` and fixed-share allocation arithmetic on
+hash-verified season/stage derivatives. Every future outcome is explicitly
+missing in the utility's required schema; no outcome is simulated and outcome
+fields are dropped before writing climate-only products. Missing MIRCA cells
+are counted and excluded, with no renormalization. Both calendar regimes and
+all28harvest years must be present. Basis-before-weighting Jensen checks,
+calendar reconciliation and exact scenario keys pass for all18products.
+Six direct predictors, stage3share, seasonal rain, three stage temperatures
+and the weighted zero-rain flag are preserved. Share/HHI scenario contrasts
+exclude cells with any positive-weight zero-rain regime-year in either path.
+
+Historical ranges use only1982–2010 direct-basis rows with positive observed
+yields at the same two latitudes. Per-feature cell minima/maxima require
+two usable years; actual retained cells have28–29. Undefined zero-rain shapes
+are excluded independently of quantities. Every future feature is compared
+with its own cell range using fixed absolute boundary tolerance1e-10;
+missing ranges, undefined future shapes, below/above counts and the union on
+common evaluable rows are reported separately. No significance threshold,
+trimming, causal claim or extrapolation repair is inferred from these ranges.
+This is not the exact common heat/drought fit sample and does not test joint
+climate support. Two separately registered protocols, six synthetic tests,
+all products/comparisons and reproduction instructions are documented in
+`FUTURE_WEIGHTED_PRECIPITATION_RESULTS_20260907.md`.
+
 ## Normalized economic sensitivity and server-cutout heat route
 
 The registered economic sensitivity uses all six rounded point-estimate

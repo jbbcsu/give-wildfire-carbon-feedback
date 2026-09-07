@@ -1,0 +1,2341 @@
+{
+  "role": "future_weighted_climate_inputs_not_yield_projection",
+  "crop_yield_estimated": false,
+  "causal_or_scc_result": false,
+  "local_raw_downloads": 0,
+  "years": [
+    2032,
+    2033,
+    2034,
+    2035,
+    2036,
+    2037,
+    2038,
+    2039,
+    2040,
+    2041,
+    2042,
+    2043,
+    2044,
+    2045,
+    2046,
+    2047,
+    2048,
+    2049,
+    2050,
+    2051,
+    2052,
+    2053,
+    2054,
+    2055,
+    2056,
+    2057,
+    2058,
+    2059
+  ],
+  "latitudes": [
+    39.25,
+    39.75
+  ],
+  "weight_sha256": "7512ffc580928a03f75bbce5f3d4263c9bb2c631a8ff04075973acb4b149e4ba",
+  "matrix_sha256": "f65d921feabc92947732eba0cc48723450f36bed56a298a21e43539250efbe34",
+  "protocol_sha256": "39971499d830977b423c63a74eec4aaa5a3b0e59607ff23ee65394619bd483d1",
+  "code_hashes": {
+    "scripts/build_future_weighted_precipitation.py": "57f0c5bf23a35adbec515e3ae2d4476c9549c5d89b8efa1fec789783684742ca",
+    "scripts/allocate_irrigation_distribution_basis.py": "3f59168ba4fa7a58f48c56041778dfeef63fb90c32a8845ae2734fc7d513058f",
+    "scripts/allocate_outcome_exposures.py": "c76bf7b52a30c78668d1e684fa80b644c18793c6a4ed766392fc2fde16157b57",
+    "scripts/summarize_contiguous_climate_contrasts.py": "a5a23192c874f8e420814e3248686526700efa62a932443e76c469f489b65a72",
+    "scripts/evaluate_isimip3b_five_esm_holdout_smoke.py": "34c5007921700086604dc54de22600055fad632ff69e8cfaabce2c130feab3a5"
+  },
+  "products": [
+    {
+      "crop": "mai",
+      "esm": "GFDL-ESM4",
+      "scenario": "ssp126",
+      "member": "r1i1p1f1",
+      "path": "data/interim/future_weighted_precipitation_20260907/mai_GFDL-ESM4_ssp126.parquet",
+      "sha256": "f64c785bc17264c5c6303f12d81c93d2118edf59889ad4a36a609e56b609d19c",
+      "bytes": 1292640,
+      "inputs": [
+        {
+          "season": {
+            "path": "data/interim/isimip3b_gfdl_ssp126_2031_2060_contiguous_multicrop/mai_noirr/season.parquet",
+            "sha256": "5a7ce0a5b495572282e8bd1195248ee13788f6bd132bcf7351f622c9bf07a508"
+          },
+          "stages": {
+            "path": "data/interim/isimip3b_gfdl_ssp126_2031_2060_contiguous_multicrop/mai_noirr/stages.parquet",
+            "sha256": "0032cf46c90e1d524c5d71089863d7975e72993779592455dc8cc3ecac92754b"
+          }
+        },
+        {
+          "season": {
+            "path": "data/interim/isimip3b_gfdl_ssp126_2031_2060_contiguous_multicrop/mai_firr/season.parquet",
+            "sha256": "7b69087c6141a73e3d7ae57875387d289430c680857159f7859fa989c5826df8"
+          },
+          "stages": {
+            "path": "data/interim/isimip3b_gfdl_ssp126_2031_2060_contiguous_multicrop/mai_firr/stages.parquet",
+            "sha256": "fac327e8fb81482c1b490c226c80d41afcd1e4468f01177796a9b3f0637adcfc"
+          }
+        }
+      ],
+      "allocation": {
+        "schema_version": 1,
+        "purpose": "Prevent duplicated aggregate yield outcomes across irrigation exposures.",
+        "boundary": "Data-contract output only; no response coefficient or SCC use is authorized.",
+        "original_input_rows": 38416,
+        "original_outcome_keys": 19208,
+        "original_observed_outcomes": 0,
+        "input_rows": 28000,
+        "output_rows": 14000,
+        "outcome_keys": 14000,
+        "observed_outcomes": 0,
+        "irrigation_labels": [
+          "noirr",
+          "firr"
+        ],
+        "features": [
+          "log1p_precip_mm",
+          "stage1_precip_share",
+          "stage2_precip_share",
+          "cdd_max_days",
+          "rx5day_mm",
+          "precipitation_concentration_hhi",
+          "stage3_precip_share",
+          "precip_mm",
+          "stage1_tmean_c",
+          "stage2_tmean_c",
+          "stage3_tmean_c",
+          "zero_precipitation_season"
+        ],
+        "weight_source_id": "MIRCA-OS_v2_March_2026_AHAG_30arcmin_2000",
+        "weight_vintage": "fixed_2000",
+        "weight_source_role": "independent_fixed_baseline_crop_area_share",
+        "weights_fixed_across_years": true,
+        "production_eligibility_required": true,
+        "season_specific_weights_required": true,
+        "missing_weight_policy": "exclude_entire_crop_grid_year_outcome_without_infill_or_renormalization",
+        "excluded_outcome_keys_missing_weight": 5208,
+        "excluded_observed_outcomes_missing_weight": 0,
+        "excluded_missing_weight_by_crop": {
+          "mai": {
+            "outcome_keys": 5208,
+            "observed_outcomes": 0,
+            "grid_cells": 186
+          }
+        },
+        "one_row_per_outcome": true,
+        "scc_authorized": false,
+        "jensen_gap_min": -8.881784197001252e-16,
+        "jensen_gap_mean": 0.0004924604461956384,
+        "jensen_gap_max": 0.5529978971142104,
+        "future_outcomes_present": false
+      }
+    },
+    {
+      "crop": "mai",
+      "esm": "GFDL-ESM4",
+      "scenario": "ssp370",
+      "member": "r1i1p1f1",
+      "path": "data/interim/future_weighted_precipitation_20260907/mai_GFDL-ESM4_ssp370.parquet",
+      "sha256": "f588e4306c8f1e7f72cc1bbe77d448a63975a98244a1f475737734c51aef586d",
+      "bytes": 1290043,
+      "inputs": [
+        {
+          "season": {
+            "path": "data/interim/isimip3b_gfdl_ssp370_2031_2060_contiguous_multicrop/mai_noirr/season.parquet",
+            "sha256": "e0d1bd3378f7c4400615bcaf6cb1d86d46b3162099a7f7484549ba8224faf53f"
+          },
+          "stages": {
+            "path": "data/interim/isimip3b_gfdl_ssp370_2031_2060_contiguous_multicrop/mai_noirr/stages.parquet",
+            "sha256": "e38901f65b83a275fac4a5414082c7eef0b94514baccb9c8e5dfaa6ed0b9e705"
+          }
+        },
+        {
+          "season": {
+            "path": "data/interim/isimip3b_gfdl_ssp370_2031_2060_contiguous_multicrop/mai_firr/season.parquet",
+            "sha256": "031ad826cbb24cc817daf9650105de19ffcda6a553a510af590ba3547e36b797"
+          },
+          "stages": {
+            "path": "data/interim/isimip3b_gfdl_ssp370_2031_2060_contiguous_multicrop/mai_firr/stages.parquet",
+            "sha256": "4f36cd60ca3dbfa56ddc7a90fb3c9739df1d892004571d0105fdcf0eddaaf488"
+          }
+        }
+      ],
+      "allocation": {
+        "schema_version": 1,
+        "purpose": "Prevent duplicated aggregate yield outcomes across irrigation exposures.",
+        "boundary": "Data-contract output only; no response coefficient or SCC use is authorized.",
+        "original_input_rows": 38416,
+        "original_outcome_keys": 19208,
+        "original_observed_outcomes": 0,
+        "input_rows": 28000,
+        "output_rows": 14000,
+        "outcome_keys": 14000,
+        "observed_outcomes": 0,
+        "irrigation_labels": [
+          "noirr",
+          "firr"
+        ],
+        "features": [
+          "log1p_precip_mm",
+          "stage1_precip_share",
+          "stage2_precip_share",
+          "cdd_max_days",
+          "rx5day_mm",
+          "precipitation_concentration_hhi",
+          "stage3_precip_share",
+          "precip_mm",
+          "stage1_tmean_c",
+          "stage2_tmean_c",
+          "stage3_tmean_c",
+          "zero_precipitation_season"
+        ],
+        "weight_source_id": "MIRCA-OS_v2_March_2026_AHAG_30arcmin_2000",
+        "weight_vintage": "fixed_2000",
+        "weight_source_role": "independent_fixed_baseline_crop_area_share",
+        "weights_fixed_across_years": true,
+        "production_eligibility_required": true,
+        "season_specific_weights_required": true,
+        "missing_weight_policy": "exclude_entire_crop_grid_year_outcome_without_infill_or_renormalization",
+        "excluded_outcome_keys_missing_weight": 5208,
+        "excluded_observed_outcomes_missing_weight": 0,
+        "excluded_missing_weight_by_crop": {
+          "mai": {
+            "outcome_keys": 5208,
+            "observed_outcomes": 0,
+            "grid_cells": 186
+          }
+        },
+        "one_row_per_outcome": true,
+        "scc_authorized": false,
+        "jensen_gap_min": -8.881784197001252e-16,
+        "jensen_gap_mean": 0.000659652828965151,
+        "jensen_gap_max": 1.7001484040112524,
+        "future_outcomes_present": false
+      }
+    },
+    {
+      "crop": "mai",
+      "esm": "GFDL-ESM4",
+      "scenario": "ssp585",
+      "member": "r1i1p1f1",
+      "path": "data/interim/future_weighted_precipitation_20260907/mai_GFDL-ESM4_ssp585.parquet",
+      "sha256": "04dd20215bb7a89e57eae4e773306ea025b83571ca6f6551af81cce47d95a3e8",
+      "bytes": 1290958,
+      "inputs": [
+        {
+          "season": {
+            "path": "data/interim/isimip3b_gfdl_ssp585_2031_2060_contiguous_multicrop/mai_noirr/season.parquet",
+            "sha256": "efee590c1cd71e67cac360d9dd350bf869ff053546b7774eecc1620072afc29b"
+          },
+          "stages": {
+            "path": "data/interim/isimip3b_gfdl_ssp585_2031_2060_contiguous_multicrop/mai_noirr/stages.parquet",
+            "sha256": "9c56bb1ba64bb43c7aff762f1898c8285818f4230bc29c0b25ec025a3a3e7fc4"
+          }
+        },
+        {
+          "season": {
+            "path": "data/interim/isimip3b_gfdl_ssp585_2031_2060_contiguous_multicrop/mai_firr/season.parquet",
+            "sha256": "762c70c61eeeaf3af64b978896ae747d4ee6eb1193692bc243de7bcbbc141720"
+          },
+          "stages": {
+            "path": "data/interim/isimip3b_gfdl_ssp585_2031_2060_contiguous_multicrop/mai_firr/stages.parquet",
+            "sha256": "f62828ea648da7105a3fa25f1a94f1492a389fc2d7ae1557bcb311b4e6ca80ee"
+          }
+        }
+      ],
+      "allocation": {
+        "schema_version": 1,
+        "purpose": "Prevent duplicated aggregate yield outcomes across irrigation exposures.",
+        "boundary": "Data-contract output only; no response coefficient or SCC use is authorized.",
+        "original_input_rows": 38416,
+        "original_outcome_keys": 19208,
+        "original_observed_outcomes": 0,
+        "input_rows": 28000,
+        "output_rows": 14000,
+        "outcome_keys": 14000,
+        "observed_outcomes": 0,
+        "irrigation_labels": [
+          "noirr",
+          "firr"
+        ],
+        "features": [
+          "log1p_precip_mm",
+          "stage1_precip_share",
+          "stage2_precip_share",
+          "cdd_max_days",
+          "rx5day_mm",
+          "precipitation_concentration_hhi",
+          "stage3_precip_share",
+          "precip_mm",
+          "stage1_tmean_c",
+          "stage2_tmean_c",
+          "stage3_tmean_c",
+          "zero_precipitation_season"
+        ],
+        "weight_source_id": "MIRCA-OS_v2_March_2026_AHAG_30arcmin_2000",
+        "weight_vintage": "fixed_2000",
+        "weight_source_role": "independent_fixed_baseline_crop_area_share",
+        "weights_fixed_across_years": true,
+        "production_eligibility_required": true,
+        "season_specific_weights_required": true,
+        "missing_weight_policy": "exclude_entire_crop_grid_year_outcome_without_infill_or_renormalization",
+        "excluded_outcome_keys_missing_weight": 5208,
+        "excluded_observed_outcomes_missing_weight": 0,
+        "excluded_missing_weight_by_crop": {
+          "mai": {
+            "outcome_keys": 5208,
+            "observed_outcomes": 0,
+            "grid_cells": 186
+          }
+        },
+        "one_row_per_outcome": true,
+        "scc_authorized": false,
+        "jensen_gap_min": -8.881784197001252e-16,
+        "jensen_gap_mean": 0.0005155491129552857,
+        "jensen_gap_max": 0.6474002779797701,
+        "future_outcomes_present": false
+      }
+    },
+    {
+      "crop": "mai",
+      "esm": "IPSL-CM6A-LR",
+      "scenario": "ssp126",
+      "member": "r1i1p1f1",
+      "path": "data/interim/future_weighted_precipitation_20260907/mai_IPSL-CM6A-LR_ssp126.parquet",
+      "sha256": "ac83f9939fca1b3da02e74d538f1cc5128d89098d2dc626a237388032fcef937",
+      "bytes": 1292041,
+      "inputs": [
+        {
+          "season": {
+            "path": "data/interim/isimip3b_ipsl_ssp126_2031_2060_contiguous_multicrop/mai_noirr/season.parquet",
+            "sha256": "228d3c15e9da0d7d0ac7c1f0d7484cd61a8bed8fbab04133af14d9a664b27e9d"
+          },
+          "stages": {
+            "path": "data/interim/isimip3b_ipsl_ssp126_2031_2060_contiguous_multicrop/mai_noirr/stages.parquet",
+            "sha256": "950b363bfc82351b71e0ac3f9c9a7e7741bbb2102741338c37793528e4169e54"
+          }
+        },
+        {
+          "season": {
+            "path": "data/interim/isimip3b_ipsl_ssp126_2031_2060_contiguous_multicrop/mai_firr/season.parquet",
+            "sha256": "93fcf9a8b751b3bbdb0be2b1d7f3d41970938a56888632f57bf2e1e597feaed9"
+          },
+          "stages": {
+            "path": "data/interim/isimip3b_ipsl_ssp126_2031_2060_contiguous_multicrop/mai_firr/stages.parquet",
+            "sha256": "ee2838b22250b2187cdb462b99a092a228f9e173051c2cead0acea6d0ca9f172"
+          }
+        }
+      ],
+      "allocation": {
+        "schema_version": 1,
+        "purpose": "Prevent duplicated aggregate yield outcomes across irrigation exposures.",
+        "boundary": "Data-contract output only; no response coefficient or SCC use is authorized.",
+        "original_input_rows": 38416,
+        "original_outcome_keys": 19208,
+        "original_observed_outcomes": 0,
+        "input_rows": 28000,
+        "output_rows": 14000,
+        "outcome_keys": 14000,
+        "observed_outcomes": 0,
+        "irrigation_labels": [
+          "noirr",
+          "firr"
+        ],
+        "features": [
+          "log1p_precip_mm",
+          "stage1_precip_share",
+          "stage2_precip_share",
+          "cdd_max_days",
+          "rx5day_mm",
+          "precipitation_concentration_hhi",
+          "stage3_precip_share",
+          "precip_mm",
+          "stage1_tmean_c",
+          "stage2_tmean_c",
+          "stage3_tmean_c",
+          "zero_precipitation_season"
+        ],
+        "weight_source_id": "MIRCA-OS_v2_March_2026_AHAG_30arcmin_2000",
+        "weight_vintage": "fixed_2000",
+        "weight_source_role": "independent_fixed_baseline_crop_area_share",
+        "weights_fixed_across_years": true,
+        "production_eligibility_required": true,
+        "season_specific_weights_required": true,
+        "missing_weight_policy": "exclude_entire_crop_grid_year_outcome_without_infill_or_renormalization",
+        "excluded_outcome_keys_missing_weight": 5208,
+        "excluded_observed_outcomes_missing_weight": 0,
+        "excluded_missing_weight_by_crop": {
+          "mai": {
+            "outcome_keys": 5208,
+            "observed_outcomes": 0,
+            "grid_cells": 186
+          }
+        },
+        "one_row_per_outcome": true,
+        "scc_authorized": false,
+        "jensen_gap_min": -8.881784197001252e-16,
+        "jensen_gap_mean": 0.0004082798891991417,
+        "jensen_gap_max": 0.31798466951669013,
+        "future_outcomes_present": false
+      }
+    },
+    {
+      "crop": "mai",
+      "esm": "IPSL-CM6A-LR",
+      "scenario": "ssp370",
+      "member": "r1i1p1f1",
+      "path": "data/interim/future_weighted_precipitation_20260907/mai_IPSL-CM6A-LR_ssp370.parquet",
+      "sha256": "ca15acadc44502b6753afc2dcda94e506b308335517fce73559c17dedfa8a34f",
+      "bytes": 1293867,
+      "inputs": [
+        {
+          "season": {
+            "path": "data/interim/isimip3b_ipsl_ssp370_2031_2060_contiguous_multicrop/mai_noirr/season.parquet",
+            "sha256": "2ed90fc264c8f93862e44de921abe85880b68a68ba569df2aa3d3c93fe80ece4"
+          },
+          "stages": {
+            "path": "data/interim/isimip3b_ipsl_ssp370_2031_2060_contiguous_multicrop/mai_noirr/stages.parquet",
+            "sha256": "f077e2d5f6f40dca6fef39d8f234c18b05f017d2e1bb29167b66dd903e20b58e"
+          }
+        },
+        {
+          "season": {
+            "path": "data/interim/isimip3b_ipsl_ssp370_2031_2060_contiguous_multicrop/mai_firr/season.parquet",
+            "sha256": "7a959c8922c8f9e2f45c3317a9cd6c185c094866340285df7c08c10c9fbe40ae"
+          },
+          "stages": {
+            "path": "data/interim/isimip3b_ipsl_ssp370_2031_2060_contiguous_multicrop/mai_firr/stages.parquet",
+            "sha256": "ac12fe6e4fdd5a1b074d5764d59042828e8c927436838a3b3643ccfbf067b35f"
+          }
+        }
+      ],
+      "allocation": {
+        "schema_version": 1,
+        "purpose": "Prevent duplicated aggregate yield outcomes across irrigation exposures.",
+        "boundary": "Data-contract output only; no response coefficient or SCC use is authorized.",
+        "original_input_rows": 38416,
+        "original_outcome_keys": 19208,
+        "original_observed_outcomes": 0,
+        "input_rows": 28000,
+        "output_rows": 14000,
+        "outcome_keys": 14000,
+        "observed_outcomes": 0,
+        "irrigation_labels": [
+          "noirr",
+          "firr"
+        ],
+        "features": [
+          "log1p_precip_mm",
+          "stage1_precip_share",
+          "stage2_precip_share",
+          "cdd_max_days",
+          "rx5day_mm",
+          "precipitation_concentration_hhi",
+          "stage3_precip_share",
+          "precip_mm",
+          "stage1_tmean_c",
+          "stage2_tmean_c",
+          "stage3_tmean_c",
+          "zero_precipitation_season"
+        ],
+        "weight_source_id": "MIRCA-OS_v2_March_2026_AHAG_30arcmin_2000",
+        "weight_vintage": "fixed_2000",
+        "weight_source_role": "independent_fixed_baseline_crop_area_share",
+        "weights_fixed_across_years": true,
+        "production_eligibility_required": true,
+        "season_specific_weights_required": true,
+        "missing_weight_policy": "exclude_entire_crop_grid_year_outcome_without_infill_or_renormalization",
+        "excluded_outcome_keys_missing_weight": 5208,
+        "excluded_observed_outcomes_missing_weight": 0,
+        "excluded_missing_weight_by_crop": {
+          "mai": {
+            "outcome_keys": 5208,
+            "observed_outcomes": 0,
+            "grid_cells": 186
+          }
+        },
+        "one_row_per_outcome": true,
+        "scc_authorized": false,
+        "jensen_gap_min": -8.881784197001252e-16,
+        "jensen_gap_mean": 0.0005690805765810201,
+        "jensen_gap_max": 1.093934116001543,
+        "future_outcomes_present": false
+      }
+    },
+    {
+      "crop": "mai",
+      "esm": "IPSL-CM6A-LR",
+      "scenario": "ssp585",
+      "member": "r1i1p1f1",
+      "path": "data/interim/future_weighted_precipitation_20260907/mai_IPSL-CM6A-LR_ssp585.parquet",
+      "sha256": "b696ee20e12b8a52fbb566f7bfd3545438e1851c7f26b32f118264d2929b6d34",
+      "bytes": 1292304,
+      "inputs": [
+        {
+          "season": {
+            "path": "data/interim/isimip3b_ipsl_ssp585_2031_2060_contiguous_multicrop/mai_noirr/season.parquet",
+            "sha256": "711213d11824b0259ad5a509e8755c78d8b4e069375b72c3d5551003f5c58c81"
+          },
+          "stages": {
+            "path": "data/interim/isimip3b_ipsl_ssp585_2031_2060_contiguous_multicrop/mai_noirr/stages.parquet",
+            "sha256": "48a2575f71bd32eaab14ef7532d32e0b7b6c09d6c7883bd46681e486324c5811"
+          }
+        },
+        {
+          "season": {
+            "path": "data/interim/isimip3b_ipsl_ssp585_2031_2060_contiguous_multicrop/mai_firr/season.parquet",
+            "sha256": "1bf5be5a47a3bc036ae05468ece8fa9c12776b2fca6e28191a207ec45719f2c4"
+          },
+          "stages": {
+            "path": "data/interim/isimip3b_ipsl_ssp585_2031_2060_contiguous_multicrop/mai_firr/stages.parquet",
+            "sha256": "770246a2fbc53651075376c02bf896b91b60e62cd6d668468a8bab470d5958ac"
+          }
+        }
+      ],
+      "allocation": {
+        "schema_version": 1,
+        "purpose": "Prevent duplicated aggregate yield outcomes across irrigation exposures.",
+        "boundary": "Data-contract output only; no response coefficient or SCC use is authorized.",
+        "original_input_rows": 38416,
+        "original_outcome_keys": 19208,
+        "original_observed_outcomes": 0,
+        "input_rows": 28000,
+        "output_rows": 14000,
+        "outcome_keys": 14000,
+        "observed_outcomes": 0,
+        "irrigation_labels": [
+          "noirr",
+          "firr"
+        ],
+        "features": [
+          "log1p_precip_mm",
+          "stage1_precip_share",
+          "stage2_precip_share",
+          "cdd_max_days",
+          "rx5day_mm",
+          "precipitation_concentration_hhi",
+          "stage3_precip_share",
+          "precip_mm",
+          "stage1_tmean_c",
+          "stage2_tmean_c",
+          "stage3_tmean_c",
+          "zero_precipitation_season"
+        ],
+        "weight_source_id": "MIRCA-OS_v2_March_2026_AHAG_30arcmin_2000",
+        "weight_vintage": "fixed_2000",
+        "weight_source_role": "independent_fixed_baseline_crop_area_share",
+        "weights_fixed_across_years": true,
+        "production_eligibility_required": true,
+        "season_specific_weights_required": true,
+        "missing_weight_policy": "exclude_entire_crop_grid_year_outcome_without_infill_or_renormalization",
+        "excluded_outcome_keys_missing_weight": 5208,
+        "excluded_observed_outcomes_missing_weight": 0,
+        "excluded_missing_weight_by_crop": {
+          "mai": {
+            "outcome_keys": 5208,
+            "observed_outcomes": 0,
+            "grid_cells": 186
+          }
+        },
+        "one_row_per_outcome": true,
+        "scc_authorized": false,
+        "jensen_gap_min": -8.881784197001252e-16,
+        "jensen_gap_mean": 0.0005014508508263209,
+        "jensen_gap_max": 0.32088240986314753,
+        "future_outcomes_present": false
+      }
+    },
+    {
+      "crop": "mai",
+      "esm": "MPI-ESM1-2-HR",
+      "scenario": "ssp126",
+      "member": "r1i1p1f1",
+      "path": "data/interim/future_weighted_precipitation_20260907/mai_MPI-ESM1-2-HR_ssp126.parquet",
+      "sha256": "694ae3a2de2a3ab6973eb0a7d502178793d372fecf14ec2e437b49bada87d9e1",
+      "bytes": 1291832,
+      "inputs": [
+        {
+          "season": {
+            "path": "data/interim/isimip3b_mpi_ssp126_2031_2060_contiguous_multicrop/mai_noirr/season.parquet",
+            "sha256": "b63f0bda6fccb9cc85b2dfa149a08768a0c4a7205c4d85d8b2a2ee933147610d"
+          },
+          "stages": {
+            "path": "data/interim/isimip3b_mpi_ssp126_2031_2060_contiguous_multicrop/mai_noirr/stages.parquet",
+            "sha256": "d1b54f18ad06ca317be2f5aad16023c58c91d8be7c07733622bd19d09278292e"
+          }
+        },
+        {
+          "season": {
+            "path": "data/interim/isimip3b_mpi_ssp126_2031_2060_contiguous_multicrop/mai_firr/season.parquet",
+            "sha256": "ddc9e14b3c8732a27c1b45254806abb13e84a05302722a845c31104c540a16e3"
+          },
+          "stages": {
+            "path": "data/interim/isimip3b_mpi_ssp126_2031_2060_contiguous_multicrop/mai_firr/stages.parquet",
+            "sha256": "c6dee15307a0c8dd0d1a79d359a98958f7910dd32d70e92899eb11ad46bbec69"
+          }
+        }
+      ],
+      "allocation": {
+        "schema_version": 1,
+        "purpose": "Prevent duplicated aggregate yield outcomes across irrigation exposures.",
+        "boundary": "Data-contract output only; no response coefficient or SCC use is authorized.",
+        "original_input_rows": 38416,
+        "original_outcome_keys": 19208,
+        "original_observed_outcomes": 0,
+        "input_rows": 28000,
+        "output_rows": 14000,
+        "outcome_keys": 14000,
+        "observed_outcomes": 0,
+        "irrigation_labels": [
+          "noirr",
+          "firr"
+        ],
+        "features": [
+          "log1p_precip_mm",
+          "stage1_precip_share",
+          "stage2_precip_share",
+          "cdd_max_days",
+          "rx5day_mm",
+          "precipitation_concentration_hhi",
+          "stage3_precip_share",
+          "precip_mm",
+          "stage1_tmean_c",
+          "stage2_tmean_c",
+          "stage3_tmean_c",
+          "zero_precipitation_season"
+        ],
+        "weight_source_id": "MIRCA-OS_v2_March_2026_AHAG_30arcmin_2000",
+        "weight_vintage": "fixed_2000",
+        "weight_source_role": "independent_fixed_baseline_crop_area_share",
+        "weights_fixed_across_years": true,
+        "production_eligibility_required": true,
+        "season_specific_weights_required": true,
+        "missing_weight_policy": "exclude_entire_crop_grid_year_outcome_without_infill_or_renormalization",
+        "excluded_outcome_keys_missing_weight": 5208,
+        "excluded_observed_outcomes_missing_weight": 0,
+        "excluded_missing_weight_by_crop": {
+          "mai": {
+            "outcome_keys": 5208,
+            "observed_outcomes": 0,
+            "grid_cells": 186
+          }
+        },
+        "one_row_per_outcome": true,
+        "scc_authorized": false,
+        "jensen_gap_min": -8.881784197001252e-16,
+        "jensen_gap_mean": 0.000648635919768267,
+        "jensen_gap_max": 0.7900902341142437,
+        "future_outcomes_present": false
+      }
+    },
+    {
+      "crop": "mai",
+      "esm": "MPI-ESM1-2-HR",
+      "scenario": "ssp370",
+      "member": "r1i1p1f1",
+      "path": "data/interim/future_weighted_precipitation_20260907/mai_MPI-ESM1-2-HR_ssp370.parquet",
+      "sha256": "26fd4985c2b729a138b3091fe6e989c028ddf361ed406cde2a1aa8a9ddfe80a8",
+      "bytes": 1292309,
+      "inputs": [
+        {
+          "season": {
+            "path": "data/interim/isimip3b_mpi_ssp370_2031_2060_contiguous_multicrop/mai_noirr/season.parquet",
+            "sha256": "9cfe9f570331201ef7e6ff354c5adae9aa7b7ca21478918f356be681ee5891e7"
+          },
+          "stages": {
+            "path": "data/interim/isimip3b_mpi_ssp370_2031_2060_contiguous_multicrop/mai_noirr/stages.parquet",
+            "sha256": "b670328824f52719c13c775c9e95dc60e60c565c6ff7df17c9bec0de4017727a"
+          }
+        },
+        {
+          "season": {
+            "path": "data/interim/isimip3b_mpi_ssp370_2031_2060_contiguous_multicrop/mai_firr/season.parquet",
+            "sha256": "36071e21adff85d701619caac808f6a178605a1419418b01c54279d3a3d8dcbd"
+          },
+          "stages": {
+            "path": "data/interim/isimip3b_mpi_ssp370_2031_2060_contiguous_multicrop/mai_firr/stages.parquet",
+            "sha256": "f03bcfe94062acdfd0a59bfdb989138bc494186db295a1547794c59df016a661"
+          }
+        }
+      ],
+      "allocation": {
+        "schema_version": 1,
+        "purpose": "Prevent duplicated aggregate yield outcomes across irrigation exposures.",
+        "boundary": "Data-contract output only; no response coefficient or SCC use is authorized.",
+        "original_input_rows": 38416,
+        "original_outcome_keys": 19208,
+        "original_observed_outcomes": 0,
+        "input_rows": 28000,
+        "output_rows": 14000,
+        "outcome_keys": 14000,
+        "observed_outcomes": 0,
+        "irrigation_labels": [
+          "noirr",
+          "firr"
+        ],
+        "features": [
+          "log1p_precip_mm",
+          "stage1_precip_share",
+          "stage2_precip_share",
+          "cdd_max_days",
+          "rx5day_mm",
+          "precipitation_concentration_hhi",
+          "stage3_precip_share",
+          "precip_mm",
+          "stage1_tmean_c",
+          "stage2_tmean_c",
+          "stage3_tmean_c",
+          "zero_precipitation_season"
+        ],
+        "weight_source_id": "MIRCA-OS_v2_March_2026_AHAG_30arcmin_2000",
+        "weight_vintage": "fixed_2000",
+        "weight_source_role": "independent_fixed_baseline_crop_area_share",
+        "weights_fixed_across_years": true,
+        "production_eligibility_required": true,
+        "season_specific_weights_required": true,
+        "missing_weight_policy": "exclude_entire_crop_grid_year_outcome_without_infill_or_renormalization",
+        "excluded_outcome_keys_missing_weight": 5208,
+        "excluded_observed_outcomes_missing_weight": 0,
+        "excluded_missing_weight_by_crop": {
+          "mai": {
+            "outcome_keys": 5208,
+            "observed_outcomes": 0,
+            "grid_cells": 186
+          }
+        },
+        "one_row_per_outcome": true,
+        "scc_authorized": false,
+        "jensen_gap_min": -8.881784197001252e-16,
+        "jensen_gap_mean": 0.0006946332031410018,
+        "jensen_gap_max": 0.5027484844001027,
+        "future_outcomes_present": false
+      }
+    },
+    {
+      "crop": "mai",
+      "esm": "MPI-ESM1-2-HR",
+      "scenario": "ssp585",
+      "member": "r1i1p1f1",
+      "path": "data/interim/future_weighted_precipitation_20260907/mai_MPI-ESM1-2-HR_ssp585.parquet",
+      "sha256": "48a3fd1caa623675a9dfe9b69701ce6a65fcfa12781a01caa138c76f54974cc5",
+      "bytes": 1291726,
+      "inputs": [
+        {
+          "season": {
+            "path": "data/interim/isimip3b_mpi_ssp585_2031_2060_contiguous_multicrop/mai_noirr/season.parquet",
+            "sha256": "bd0b47447c6903cbddf020e814d072a13ef512850209ef71547440f6849c590a"
+          },
+          "stages": {
+            "path": "data/interim/isimip3b_mpi_ssp585_2031_2060_contiguous_multicrop/mai_noirr/stages.parquet",
+            "sha256": "a1bcfd68aa0d8f4f4d295c07ed3b97b0308de4c6f696797a4a0aae6e16f2613a"
+          }
+        },
+        {
+          "season": {
+            "path": "data/interim/isimip3b_mpi_ssp585_2031_2060_contiguous_multicrop/mai_firr/season.parquet",
+            "sha256": "f9e6b0e771f062684b232e433b25708cd4d146ca12d9066986ee0cf0275241cf"
+          },
+          "stages": {
+            "path": "data/interim/isimip3b_mpi_ssp585_2031_2060_contiguous_multicrop/mai_firr/stages.parquet",
+            "sha256": "5aa5b1ae3d050126d9358320478bc02752c0671143bf5b674a2f655d3adc11d3"
+          }
+        }
+      ],
+      "allocation": {
+        "schema_version": 1,
+        "purpose": "Prevent duplicated aggregate yield outcomes across irrigation exposures.",
+        "boundary": "Data-contract output only; no response coefficient or SCC use is authorized.",
+        "original_input_rows": 38416,
+        "original_outcome_keys": 19208,
+        "original_observed_outcomes": 0,
+        "input_rows": 28000,
+        "output_rows": 14000,
+        "outcome_keys": 14000,
+        "observed_outcomes": 0,
+        "irrigation_labels": [
+          "noirr",
+          "firr"
+        ],
+        "features": [
+          "log1p_precip_mm",
+          "stage1_precip_share",
+          "stage2_precip_share",
+          "cdd_max_days",
+          "rx5day_mm",
+          "precipitation_concentration_hhi",
+          "stage3_precip_share",
+          "precip_mm",
+          "stage1_tmean_c",
+          "stage2_tmean_c",
+          "stage3_tmean_c",
+          "zero_precipitation_season"
+        ],
+        "weight_source_id": "MIRCA-OS_v2_March_2026_AHAG_30arcmin_2000",
+        "weight_vintage": "fixed_2000",
+        "weight_source_role": "independent_fixed_baseline_crop_area_share",
+        "weights_fixed_across_years": true,
+        "production_eligibility_required": true,
+        "season_specific_weights_required": true,
+        "missing_weight_policy": "exclude_entire_crop_grid_year_outcome_without_infill_or_renormalization",
+        "excluded_outcome_keys_missing_weight": 5208,
+        "excluded_observed_outcomes_missing_weight": 0,
+        "excluded_missing_weight_by_crop": {
+          "mai": {
+            "outcome_keys": 5208,
+            "observed_outcomes": 0,
+            "grid_cells": 186
+          }
+        },
+        "one_row_per_outcome": true,
+        "scc_authorized": false,
+        "jensen_gap_min": -8.881784197001252e-16,
+        "jensen_gap_mean": 0.0005653344322200601,
+        "jensen_gap_max": 0.5481731348898027,
+        "future_outcomes_present": false
+      }
+    },
+    {
+      "crop": "soy",
+      "esm": "GFDL-ESM4",
+      "scenario": "ssp126",
+      "member": "r1i1p1f1",
+      "path": "data/interim/future_weighted_precipitation_20260907/soy_GFDL-ESM4_ssp126.parquet",
+      "sha256": "57fe15b0aa98d53a8e59c42e3c1eb48aac3fadc4f48625f564a8f14c7f2cdbf9",
+      "bytes": 865703,
+      "inputs": [
+        {
+          "season": {
+            "path": "data/interim/isimip3b_gfdl_ssp126_2031_2060_contiguous_multicrop/soy_noirr/season.parquet",
+            "sha256": "409aef5a49790aec9e7aebbb022bd5547eb9d0bb8b45f931fc303d83cd3a7a60"
+          },
+          "stages": {
+            "path": "data/interim/isimip3b_gfdl_ssp126_2031_2060_contiguous_multicrop/soy_noirr/stages.parquet",
+            "sha256": "50165ce0f142c62097d740ef352d65b89deacbab9260cf4d077a457b3344e038"
+          }
+        },
+        {
+          "season": {
+            "path": "data/interim/isimip3b_gfdl_ssp126_2031_2060_contiguous_multicrop/soy_firr/season.parquet",
+            "sha256": "2ec6d36a2996fd7e762217141188338c8958db81a331aec1885cf4f2ae89a740"
+          },
+          "stages": {
+            "path": "data/interim/isimip3b_gfdl_ssp126_2031_2060_contiguous_multicrop/soy_firr/stages.parquet",
+            "sha256": "a6918c9a2940d7f83c802b6dd13ac2836a595499057b0cab59ef4717bfd52cdf"
+          }
+        }
+      ],
+      "allocation": {
+        "schema_version": 1,
+        "purpose": "Prevent duplicated aggregate yield outcomes across irrigation exposures.",
+        "boundary": "Data-contract output only; no response coefficient or SCC use is authorized.",
+        "original_input_rows": 38416,
+        "original_outcome_keys": 19208,
+        "original_observed_outcomes": 0,
+        "input_rows": 18312,
+        "output_rows": 9156,
+        "outcome_keys": 9156,
+        "observed_outcomes": 0,
+        "irrigation_labels": [
+          "noirr",
+          "firr"
+        ],
+        "features": [
+          "log1p_precip_mm",
+          "stage1_precip_share",
+          "stage2_precip_share",
+          "cdd_max_days",
+          "rx5day_mm",
+          "precipitation_concentration_hhi",
+          "stage3_precip_share",
+          "precip_mm",
+          "stage1_tmean_c",
+          "stage2_tmean_c",
+          "stage3_tmean_c",
+          "zero_precipitation_season"
+        ],
+        "weight_source_id": "MIRCA-OS_v2_March_2026_AHAG_30arcmin_2000",
+        "weight_vintage": "fixed_2000",
+        "weight_source_role": "independent_fixed_baseline_crop_area_share",
+        "weights_fixed_across_years": true,
+        "production_eligibility_required": true,
+        "season_specific_weights_required": true,
+        "missing_weight_policy": "exclude_entire_crop_grid_year_outcome_without_infill_or_renormalization",
+        "excluded_outcome_keys_missing_weight": 10052,
+        "excluded_observed_outcomes_missing_weight": 0,
+        "excluded_missing_weight_by_crop": {
+          "soy": {
+            "outcome_keys": 10052,
+            "observed_outcomes": 0,
+            "grid_cells": 359
+          }
+        },
+        "one_row_per_outcome": true,
+        "scc_authorized": false,
+        "jensen_gap_min": -8.881784197001252e-16,
+        "jensen_gap_mean": 0.001184657938955246,
+        "jensen_gap_max": 0.2396706097577681,
+        "future_outcomes_present": false
+      }
+    },
+    {
+      "crop": "soy",
+      "esm": "GFDL-ESM4",
+      "scenario": "ssp370",
+      "member": "r1i1p1f1",
+      "path": "data/interim/future_weighted_precipitation_20260907/soy_GFDL-ESM4_ssp370.parquet",
+      "sha256": "32c1818b6cdc283a6f9d6ecdc66e450de78f5cb397747f024d3709937a70ce7d",
+      "bytes": 865929,
+      "inputs": [
+        {
+          "season": {
+            "path": "data/interim/isimip3b_gfdl_ssp370_2031_2060_contiguous_multicrop/soy_noirr/season.parquet",
+            "sha256": "cd543a8e58a976b3722a6a3d49e03cb4ed6d3f3381c4e4536cb9ee5226b255c0"
+          },
+          "stages": {
+            "path": "data/interim/isimip3b_gfdl_ssp370_2031_2060_contiguous_multicrop/soy_noirr/stages.parquet",
+            "sha256": "b68df7d912a8f2dff8da342c26c2e36820efcbcf0cb1ab27bc7366d50014f486"
+          }
+        },
+        {
+          "season": {
+            "path": "data/interim/isimip3b_gfdl_ssp370_2031_2060_contiguous_multicrop/soy_firr/season.parquet",
+            "sha256": "ac51bfd3bc2fb0fccb29d8a743cb98ead28f6c43e404f581afb85748110f159d"
+          },
+          "stages": {
+            "path": "data/interim/isimip3b_gfdl_ssp370_2031_2060_contiguous_multicrop/soy_firr/stages.parquet",
+            "sha256": "4062f960d1938f2da48340e73b3d75d7a1e4f5ab932d405f581806c6eb8e3409"
+          }
+        }
+      ],
+      "allocation": {
+        "schema_version": 1,
+        "purpose": "Prevent duplicated aggregate yield outcomes across irrigation exposures.",
+        "boundary": "Data-contract output only; no response coefficient or SCC use is authorized.",
+        "original_input_rows": 38416,
+        "original_outcome_keys": 19208,
+        "original_observed_outcomes": 0,
+        "input_rows": 18312,
+        "output_rows": 9156,
+        "outcome_keys": 9156,
+        "observed_outcomes": 0,
+        "irrigation_labels": [
+          "noirr",
+          "firr"
+        ],
+        "features": [
+          "log1p_precip_mm",
+          "stage1_precip_share",
+          "stage2_precip_share",
+          "cdd_max_days",
+          "rx5day_mm",
+          "precipitation_concentration_hhi",
+          "stage3_precip_share",
+          "precip_mm",
+          "stage1_tmean_c",
+          "stage2_tmean_c",
+          "stage3_tmean_c",
+          "zero_precipitation_season"
+        ],
+        "weight_source_id": "MIRCA-OS_v2_March_2026_AHAG_30arcmin_2000",
+        "weight_vintage": "fixed_2000",
+        "weight_source_role": "independent_fixed_baseline_crop_area_share",
+        "weights_fixed_across_years": true,
+        "production_eligibility_required": true,
+        "season_specific_weights_required": true,
+        "missing_weight_policy": "exclude_entire_crop_grid_year_outcome_without_infill_or_renormalization",
+        "excluded_outcome_keys_missing_weight": 10052,
+        "excluded_observed_outcomes_missing_weight": 0,
+        "excluded_missing_weight_by_crop": {
+          "soy": {
+            "outcome_keys": 10052,
+            "observed_outcomes": 0,
+            "grid_cells": 359
+          }
+        },
+        "one_row_per_outcome": true,
+        "scc_authorized": false,
+        "jensen_gap_min": -8.881784197001252e-16,
+        "jensen_gap_mean": 0.0014441196574912674,
+        "jensen_gap_max": 0.34478365995081406,
+        "future_outcomes_present": false
+      }
+    },
+    {
+      "crop": "soy",
+      "esm": "GFDL-ESM4",
+      "scenario": "ssp585",
+      "member": "r1i1p1f1",
+      "path": "data/interim/future_weighted_precipitation_20260907/soy_GFDL-ESM4_ssp585.parquet",
+      "sha256": "00098fa5e5517de2fc13cd3e38ba7522b34cc23429b326ee6d163bdde33a372f",
+      "bytes": 865860,
+      "inputs": [
+        {
+          "season": {
+            "path": "data/interim/isimip3b_gfdl_ssp585_2031_2060_contiguous_multicrop/soy_noirr/season.parquet",
+            "sha256": "aa73a82f0b086cdb2f865a1c77ef00cf458f9b9b47b2a9f2b627627fe1d58066"
+          },
+          "stages": {
+            "path": "data/interim/isimip3b_gfdl_ssp585_2031_2060_contiguous_multicrop/soy_noirr/stages.parquet",
+            "sha256": "99a9d1453fd46c47b904d269ed24a0d5139e8bd95fccd0a6783317cfc98de5ea"
+          }
+        },
+        {
+          "season": {
+            "path": "data/interim/isimip3b_gfdl_ssp585_2031_2060_contiguous_multicrop/soy_firr/season.parquet",
+            "sha256": "6741db7dd766e8dfaeba9f0deb74ef541f51b255eb64f41e01f1aa06a50ec7db"
+          },
+          "stages": {
+            "path": "data/interim/isimip3b_gfdl_ssp585_2031_2060_contiguous_multicrop/soy_firr/stages.parquet",
+            "sha256": "3e9caa5c9f352f449cc43458b7122a38f54b8b21d978bd2ecfbc41437a03eb01"
+          }
+        }
+      ],
+      "allocation": {
+        "schema_version": 1,
+        "purpose": "Prevent duplicated aggregate yield outcomes across irrigation exposures.",
+        "boundary": "Data-contract output only; no response coefficient or SCC use is authorized.",
+        "original_input_rows": 38416,
+        "original_outcome_keys": 19208,
+        "original_observed_outcomes": 0,
+        "input_rows": 18312,
+        "output_rows": 9156,
+        "outcome_keys": 9156,
+        "observed_outcomes": 0,
+        "irrigation_labels": [
+          "noirr",
+          "firr"
+        ],
+        "features": [
+          "log1p_precip_mm",
+          "stage1_precip_share",
+          "stage2_precip_share",
+          "cdd_max_days",
+          "rx5day_mm",
+          "precipitation_concentration_hhi",
+          "stage3_precip_share",
+          "precip_mm",
+          "stage1_tmean_c",
+          "stage2_tmean_c",
+          "stage3_tmean_c",
+          "zero_precipitation_season"
+        ],
+        "weight_source_id": "MIRCA-OS_v2_March_2026_AHAG_30arcmin_2000",
+        "weight_vintage": "fixed_2000",
+        "weight_source_role": "independent_fixed_baseline_crop_area_share",
+        "weights_fixed_across_years": true,
+        "production_eligibility_required": true,
+        "season_specific_weights_required": true,
+        "missing_weight_policy": "exclude_entire_crop_grid_year_outcome_without_infill_or_renormalization",
+        "excluded_outcome_keys_missing_weight": 10052,
+        "excluded_observed_outcomes_missing_weight": 0,
+        "excluded_missing_weight_by_crop": {
+          "soy": {
+            "outcome_keys": 10052,
+            "observed_outcomes": 0,
+            "grid_cells": 359
+          }
+        },
+        "one_row_per_outcome": true,
+        "scc_authorized": false,
+        "jensen_gap_min": -8.881784197001252e-16,
+        "jensen_gap_mean": 0.0012624337903241432,
+        "jensen_gap_max": 0.41587783161663827,
+        "future_outcomes_present": false
+      }
+    },
+    {
+      "crop": "soy",
+      "esm": "IPSL-CM6A-LR",
+      "scenario": "ssp126",
+      "member": "r1i1p1f1",
+      "path": "data/interim/future_weighted_precipitation_20260907/soy_IPSL-CM6A-LR_ssp126.parquet",
+      "sha256": "dc8d72c9817924f3bad4243e6e019fbcadd1dc2de94c31a8c3b1375aadc4a699",
+      "bytes": 866197,
+      "inputs": [
+        {
+          "season": {
+            "path": "data/interim/isimip3b_ipsl_ssp126_2031_2060_contiguous_multicrop/soy_noirr/season.parquet",
+            "sha256": "078365ca6279fc905d817e67d049ff94c65331a19b8db3ab189b2f01697eb336"
+          },
+          "stages": {
+            "path": "data/interim/isimip3b_ipsl_ssp126_2031_2060_contiguous_multicrop/soy_noirr/stages.parquet",
+            "sha256": "f0dbc1158bf722f739da7b57e8cc52fa45d745f9b1ea2887765be9f96a28970d"
+          }
+        },
+        {
+          "season": {
+            "path": "data/interim/isimip3b_ipsl_ssp126_2031_2060_contiguous_multicrop/soy_firr/season.parquet",
+            "sha256": "637b49dfd941ecb15230009f25cf109109120159bb5c227c8c8afabd45052f90"
+          },
+          "stages": {
+            "path": "data/interim/isimip3b_ipsl_ssp126_2031_2060_contiguous_multicrop/soy_firr/stages.parquet",
+            "sha256": "7cb28fc584c6678cd79bc9e3977464550c567b36fb214127895b557f8dc36b7d"
+          }
+        }
+      ],
+      "allocation": {
+        "schema_version": 1,
+        "purpose": "Prevent duplicated aggregate yield outcomes across irrigation exposures.",
+        "boundary": "Data-contract output only; no response coefficient or SCC use is authorized.",
+        "original_input_rows": 38416,
+        "original_outcome_keys": 19208,
+        "original_observed_outcomes": 0,
+        "input_rows": 18312,
+        "output_rows": 9156,
+        "outcome_keys": 9156,
+        "observed_outcomes": 0,
+        "irrigation_labels": [
+          "noirr",
+          "firr"
+        ],
+        "features": [
+          "log1p_precip_mm",
+          "stage1_precip_share",
+          "stage2_precip_share",
+          "cdd_max_days",
+          "rx5day_mm",
+          "precipitation_concentration_hhi",
+          "stage3_precip_share",
+          "precip_mm",
+          "stage1_tmean_c",
+          "stage2_tmean_c",
+          "stage3_tmean_c",
+          "zero_precipitation_season"
+        ],
+        "weight_source_id": "MIRCA-OS_v2_March_2026_AHAG_30arcmin_2000",
+        "weight_vintage": "fixed_2000",
+        "weight_source_role": "independent_fixed_baseline_crop_area_share",
+        "weights_fixed_across_years": true,
+        "production_eligibility_required": true,
+        "season_specific_weights_required": true,
+        "missing_weight_policy": "exclude_entire_crop_grid_year_outcome_without_infill_or_renormalization",
+        "excluded_outcome_keys_missing_weight": 10052,
+        "excluded_observed_outcomes_missing_weight": 0,
+        "excluded_missing_weight_by_crop": {
+          "soy": {
+            "outcome_keys": 10052,
+            "observed_outcomes": 0,
+            "grid_cells": 359
+          }
+        },
+        "one_row_per_outcome": true,
+        "scc_authorized": false,
+        "jensen_gap_min": -8.881784197001252e-16,
+        "jensen_gap_mean": 0.0011105066067616301,
+        "jensen_gap_max": 0.43723974110510744,
+        "future_outcomes_present": false
+      }
+    },
+    {
+      "crop": "soy",
+      "esm": "IPSL-CM6A-LR",
+      "scenario": "ssp370",
+      "member": "r1i1p1f1",
+      "path": "data/interim/future_weighted_precipitation_20260907/soy_IPSL-CM6A-LR_ssp370.parquet",
+      "sha256": "b1105205d2a827ea561b78ca001f331270cd86bab78fcb98657b4e854fc1a92e",
+      "bytes": 865798,
+      "inputs": [
+        {
+          "season": {
+            "path": "data/interim/isimip3b_ipsl_ssp370_2031_2060_contiguous_multicrop/soy_noirr/season.parquet",
+            "sha256": "e25d9e4d1c21eb809b1fb8b04c0e2d85ee7fbe393ed4fa7b3a096e747a9eebcf"
+          },
+          "stages": {
+            "path": "data/interim/isimip3b_ipsl_ssp370_2031_2060_contiguous_multicrop/soy_noirr/stages.parquet",
+            "sha256": "40b0bd341e40fc5cdc5d8c25a4b5c03c7b8f10244148212a325ac6794a6e1ce5"
+          }
+        },
+        {
+          "season": {
+            "path": "data/interim/isimip3b_ipsl_ssp370_2031_2060_contiguous_multicrop/soy_firr/season.parquet",
+            "sha256": "9f6779893331ba3434d4efa3f6541ae682b6ca18b12a82dc0fbf3ceba8209281"
+          },
+          "stages": {
+            "path": "data/interim/isimip3b_ipsl_ssp370_2031_2060_contiguous_multicrop/soy_firr/stages.parquet",
+            "sha256": "a2dad1823396349fdbb6eed1fe1af9ac12d104834283b3389dffcae9df845b08"
+          }
+        }
+      ],
+      "allocation": {
+        "schema_version": 1,
+        "purpose": "Prevent duplicated aggregate yield outcomes across irrigation exposures.",
+        "boundary": "Data-contract output only; no response coefficient or SCC use is authorized.",
+        "original_input_rows": 38416,
+        "original_outcome_keys": 19208,
+        "original_observed_outcomes": 0,
+        "input_rows": 18312,
+        "output_rows": 9156,
+        "outcome_keys": 9156,
+        "observed_outcomes": 0,
+        "irrigation_labels": [
+          "noirr",
+          "firr"
+        ],
+        "features": [
+          "log1p_precip_mm",
+          "stage1_precip_share",
+          "stage2_precip_share",
+          "cdd_max_days",
+          "rx5day_mm",
+          "precipitation_concentration_hhi",
+          "stage3_precip_share",
+          "precip_mm",
+          "stage1_tmean_c",
+          "stage2_tmean_c",
+          "stage3_tmean_c",
+          "zero_precipitation_season"
+        ],
+        "weight_source_id": "MIRCA-OS_v2_March_2026_AHAG_30arcmin_2000",
+        "weight_vintage": "fixed_2000",
+        "weight_source_role": "independent_fixed_baseline_crop_area_share",
+        "weights_fixed_across_years": true,
+        "production_eligibility_required": true,
+        "season_specific_weights_required": true,
+        "missing_weight_policy": "exclude_entire_crop_grid_year_outcome_without_infill_or_renormalization",
+        "excluded_outcome_keys_missing_weight": 10052,
+        "excluded_observed_outcomes_missing_weight": 0,
+        "excluded_missing_weight_by_crop": {
+          "soy": {
+            "outcome_keys": 10052,
+            "observed_outcomes": 0,
+            "grid_cells": 359
+          }
+        },
+        "one_row_per_outcome": true,
+        "scc_authorized": false,
+        "jensen_gap_min": -8.881784197001252e-16,
+        "jensen_gap_mean": 0.0010142257371188494,
+        "jensen_gap_max": 0.15429359265567122,
+        "future_outcomes_present": false
+      }
+    },
+    {
+      "crop": "soy",
+      "esm": "IPSL-CM6A-LR",
+      "scenario": "ssp585",
+      "member": "r1i1p1f1",
+      "path": "data/interim/future_weighted_precipitation_20260907/soy_IPSL-CM6A-LR_ssp585.parquet",
+      "sha256": "ba6a9fadfafa660add62e4f14610285f28555429f80b09cd48ab18565543e4a3",
+      "bytes": 866353,
+      "inputs": [
+        {
+          "season": {
+            "path": "data/interim/isimip3b_ipsl_ssp585_2031_2060_contiguous_multicrop/soy_noirr/season.parquet",
+            "sha256": "aafe5bdc74c8d6af8b20cf96f652450618fa9d09e15f43c78e9d368954525769"
+          },
+          "stages": {
+            "path": "data/interim/isimip3b_ipsl_ssp585_2031_2060_contiguous_multicrop/soy_noirr/stages.parquet",
+            "sha256": "4f7dac2517a373397832103b2df2470208cf165b4c922478e5aa6342b1c4163c"
+          }
+        },
+        {
+          "season": {
+            "path": "data/interim/isimip3b_ipsl_ssp585_2031_2060_contiguous_multicrop/soy_firr/season.parquet",
+            "sha256": "dd879397313548f38b5371232cf3ca11c1ab51bb6342cfdc3548b3a86c64204b"
+          },
+          "stages": {
+            "path": "data/interim/isimip3b_ipsl_ssp585_2031_2060_contiguous_multicrop/soy_firr/stages.parquet",
+            "sha256": "7a50ce156c11d5b5ab41a654c229030cf0420192e04258abddbe3206769dad84"
+          }
+        }
+      ],
+      "allocation": {
+        "schema_version": 1,
+        "purpose": "Prevent duplicated aggregate yield outcomes across irrigation exposures.",
+        "boundary": "Data-contract output only; no response coefficient or SCC use is authorized.",
+        "original_input_rows": 38416,
+        "original_outcome_keys": 19208,
+        "original_observed_outcomes": 0,
+        "input_rows": 18312,
+        "output_rows": 9156,
+        "outcome_keys": 9156,
+        "observed_outcomes": 0,
+        "irrigation_labels": [
+          "noirr",
+          "firr"
+        ],
+        "features": [
+          "log1p_precip_mm",
+          "stage1_precip_share",
+          "stage2_precip_share",
+          "cdd_max_days",
+          "rx5day_mm",
+          "precipitation_concentration_hhi",
+          "stage3_precip_share",
+          "precip_mm",
+          "stage1_tmean_c",
+          "stage2_tmean_c",
+          "stage3_tmean_c",
+          "zero_precipitation_season"
+        ],
+        "weight_source_id": "MIRCA-OS_v2_March_2026_AHAG_30arcmin_2000",
+        "weight_vintage": "fixed_2000",
+        "weight_source_role": "independent_fixed_baseline_crop_area_share",
+        "weights_fixed_across_years": true,
+        "production_eligibility_required": true,
+        "season_specific_weights_required": true,
+        "missing_weight_policy": "exclude_entire_crop_grid_year_outcome_without_infill_or_renormalization",
+        "excluded_outcome_keys_missing_weight": 10052,
+        "excluded_observed_outcomes_missing_weight": 0,
+        "excluded_missing_weight_by_crop": {
+          "soy": {
+            "outcome_keys": 10052,
+            "observed_outcomes": 0,
+            "grid_cells": 359
+          }
+        },
+        "one_row_per_outcome": true,
+        "scc_authorized": false,
+        "jensen_gap_min": -8.881784197001252e-16,
+        "jensen_gap_mean": 0.0012218430288720916,
+        "jensen_gap_max": 0.31472118275306915,
+        "future_outcomes_present": false
+      }
+    },
+    {
+      "crop": "soy",
+      "esm": "MPI-ESM1-2-HR",
+      "scenario": "ssp126",
+      "member": "r1i1p1f1",
+      "path": "data/interim/future_weighted_precipitation_20260907/soy_MPI-ESM1-2-HR_ssp126.parquet",
+      "sha256": "5268b9cacce22c2707c02b4a65108e7199dc217db2ed92208c9e49ccc6f463b4",
+      "bytes": 866722,
+      "inputs": [
+        {
+          "season": {
+            "path": "data/interim/isimip3b_mpi_ssp126_2031_2060_contiguous_multicrop/soy_noirr/season.parquet",
+            "sha256": "e71aca9260556caf7ffc47a978f7103cfad36dfa127e39ff2cd4a24fd3b17ed8"
+          },
+          "stages": {
+            "path": "data/interim/isimip3b_mpi_ssp126_2031_2060_contiguous_multicrop/soy_noirr/stages.parquet",
+            "sha256": "44e462e7b0c971079f281284f8fc8594d0bc0381255ae46ebc7b066270d2f3da"
+          }
+        },
+        {
+          "season": {
+            "path": "data/interim/isimip3b_mpi_ssp126_2031_2060_contiguous_multicrop/soy_firr/season.parquet",
+            "sha256": "66877b20ef92eb821c25d4260bd639cba829a9558734042d79114f2a38477d81"
+          },
+          "stages": {
+            "path": "data/interim/isimip3b_mpi_ssp126_2031_2060_contiguous_multicrop/soy_firr/stages.parquet",
+            "sha256": "e1b8fcc323a65674546cab5fea5f18c67e9b602d1597ec4755dc53cd9678d7b3"
+          }
+        }
+      ],
+      "allocation": {
+        "schema_version": 1,
+        "purpose": "Prevent duplicated aggregate yield outcomes across irrigation exposures.",
+        "boundary": "Data-contract output only; no response coefficient or SCC use is authorized.",
+        "original_input_rows": 38416,
+        "original_outcome_keys": 19208,
+        "original_observed_outcomes": 0,
+        "input_rows": 18312,
+        "output_rows": 9156,
+        "outcome_keys": 9156,
+        "observed_outcomes": 0,
+        "irrigation_labels": [
+          "noirr",
+          "firr"
+        ],
+        "features": [
+          "log1p_precip_mm",
+          "stage1_precip_share",
+          "stage2_precip_share",
+          "cdd_max_days",
+          "rx5day_mm",
+          "precipitation_concentration_hhi",
+          "stage3_precip_share",
+          "precip_mm",
+          "stage1_tmean_c",
+          "stage2_tmean_c",
+          "stage3_tmean_c",
+          "zero_precipitation_season"
+        ],
+        "weight_source_id": "MIRCA-OS_v2_March_2026_AHAG_30arcmin_2000",
+        "weight_vintage": "fixed_2000",
+        "weight_source_role": "independent_fixed_baseline_crop_area_share",
+        "weights_fixed_across_years": true,
+        "production_eligibility_required": true,
+        "season_specific_weights_required": true,
+        "missing_weight_policy": "exclude_entire_crop_grid_year_outcome_without_infill_or_renormalization",
+        "excluded_outcome_keys_missing_weight": 10052,
+        "excluded_observed_outcomes_missing_weight": 0,
+        "excluded_missing_weight_by_crop": {
+          "soy": {
+            "outcome_keys": 10052,
+            "observed_outcomes": 0,
+            "grid_cells": 359
+          }
+        },
+        "one_row_per_outcome": true,
+        "scc_authorized": false,
+        "jensen_gap_min": -8.881784197001252e-16,
+        "jensen_gap_mean": 0.0014663086848175604,
+        "jensen_gap_max": 0.8552255845333887,
+        "future_outcomes_present": false
+      }
+    },
+    {
+      "crop": "soy",
+      "esm": "MPI-ESM1-2-HR",
+      "scenario": "ssp370",
+      "member": "r1i1p1f1",
+      "path": "data/interim/future_weighted_precipitation_20260907/soy_MPI-ESM1-2-HR_ssp370.parquet",
+      "sha256": "7d619a8c5eca0005f219201155b41b61b5738412698b7586f2c16994dc579d2d",
+      "bytes": 866050,
+      "inputs": [
+        {
+          "season": {
+            "path": "data/interim/isimip3b_mpi_ssp370_2031_2060_contiguous_multicrop/soy_noirr/season.parquet",
+            "sha256": "3dffaa6fbb7be958399f06acb85986e8d84cbe6a5d052782916f09f39d0a7f44"
+          },
+          "stages": {
+            "path": "data/interim/isimip3b_mpi_ssp370_2031_2060_contiguous_multicrop/soy_noirr/stages.parquet",
+            "sha256": "6ffe09b23f302d99505bfd77552354a39556cf05c53d513a0a76d120e9100ec5"
+          }
+        },
+        {
+          "season": {
+            "path": "data/interim/isimip3b_mpi_ssp370_2031_2060_contiguous_multicrop/soy_firr/season.parquet",
+            "sha256": "bfc26564880102d672e513553ff0d1fea387c9845e8778021309194b349ffea0"
+          },
+          "stages": {
+            "path": "data/interim/isimip3b_mpi_ssp370_2031_2060_contiguous_multicrop/soy_firr/stages.parquet",
+            "sha256": "2f9ae6ce16d602ad97ac3c496663547e53e1391f08f4cbc7301aad0e9f757b26"
+          }
+        }
+      ],
+      "allocation": {
+        "schema_version": 1,
+        "purpose": "Prevent duplicated aggregate yield outcomes across irrigation exposures.",
+        "boundary": "Data-contract output only; no response coefficient or SCC use is authorized.",
+        "original_input_rows": 38416,
+        "original_outcome_keys": 19208,
+        "original_observed_outcomes": 0,
+        "input_rows": 18312,
+        "output_rows": 9156,
+        "outcome_keys": 9156,
+        "observed_outcomes": 0,
+        "irrigation_labels": [
+          "noirr",
+          "firr"
+        ],
+        "features": [
+          "log1p_precip_mm",
+          "stage1_precip_share",
+          "stage2_precip_share",
+          "cdd_max_days",
+          "rx5day_mm",
+          "precipitation_concentration_hhi",
+          "stage3_precip_share",
+          "precip_mm",
+          "stage1_tmean_c",
+          "stage2_tmean_c",
+          "stage3_tmean_c",
+          "zero_precipitation_season"
+        ],
+        "weight_source_id": "MIRCA-OS_v2_March_2026_AHAG_30arcmin_2000",
+        "weight_vintage": "fixed_2000",
+        "weight_source_role": "independent_fixed_baseline_crop_area_share",
+        "weights_fixed_across_years": true,
+        "production_eligibility_required": true,
+        "season_specific_weights_required": true,
+        "missing_weight_policy": "exclude_entire_crop_grid_year_outcome_without_infill_or_renormalization",
+        "excluded_outcome_keys_missing_weight": 10052,
+        "excluded_observed_outcomes_missing_weight": 0,
+        "excluded_missing_weight_by_crop": {
+          "soy": {
+            "outcome_keys": 10052,
+            "observed_outcomes": 0,
+            "grid_cells": 359
+          }
+        },
+        "one_row_per_outcome": true,
+        "scc_authorized": false,
+        "jensen_gap_min": -8.881784197001252e-16,
+        "jensen_gap_mean": 0.0018190833480888618,
+        "jensen_gap_max": 1.1173493954639442,
+        "future_outcomes_present": false
+      }
+    },
+    {
+      "crop": "soy",
+      "esm": "MPI-ESM1-2-HR",
+      "scenario": "ssp585",
+      "member": "r1i1p1f1",
+      "path": "data/interim/future_weighted_precipitation_20260907/soy_MPI-ESM1-2-HR_ssp585.parquet",
+      "sha256": "2bee2d729f92e2854e8b893fdf8ba953a9cf4864c4eb0fb89b57af52806682ba",
+      "bytes": 865976,
+      "inputs": [
+        {
+          "season": {
+            "path": "data/interim/isimip3b_mpi_ssp585_2031_2060_contiguous_multicrop/soy_noirr/season.parquet",
+            "sha256": "6e2e9bc88e7b3f66c22ac7c58e6c47a53ab31220de5339cdccf7f769b6440716"
+          },
+          "stages": {
+            "path": "data/interim/isimip3b_mpi_ssp585_2031_2060_contiguous_multicrop/soy_noirr/stages.parquet",
+            "sha256": "fbc985c1a79d3bab29fc3efd724bf38ab5b8fc71aec199de2381a0f7328cb08c"
+          }
+        },
+        {
+          "season": {
+            "path": "data/interim/isimip3b_mpi_ssp585_2031_2060_contiguous_multicrop/soy_firr/season.parquet",
+            "sha256": "61037b47b9582aa9e9a5f9f23ec50fcce0c6f2d1057db3188eaee1803bede34e"
+          },
+          "stages": {
+            "path": "data/interim/isimip3b_mpi_ssp585_2031_2060_contiguous_multicrop/soy_firr/stages.parquet",
+            "sha256": "3ea3a8ae69d517c122fd0e275ef23f6b33fc5b90e88cf1ab986305094da96f2c"
+          }
+        }
+      ],
+      "allocation": {
+        "schema_version": 1,
+        "purpose": "Prevent duplicated aggregate yield outcomes across irrigation exposures.",
+        "boundary": "Data-contract output only; no response coefficient or SCC use is authorized.",
+        "original_input_rows": 38416,
+        "original_outcome_keys": 19208,
+        "original_observed_outcomes": 0,
+        "input_rows": 18312,
+        "output_rows": 9156,
+        "outcome_keys": 9156,
+        "observed_outcomes": 0,
+        "irrigation_labels": [
+          "noirr",
+          "firr"
+        ],
+        "features": [
+          "log1p_precip_mm",
+          "stage1_precip_share",
+          "stage2_precip_share",
+          "cdd_max_days",
+          "rx5day_mm",
+          "precipitation_concentration_hhi",
+          "stage3_precip_share",
+          "precip_mm",
+          "stage1_tmean_c",
+          "stage2_tmean_c",
+          "stage3_tmean_c",
+          "zero_precipitation_season"
+        ],
+        "weight_source_id": "MIRCA-OS_v2_March_2026_AHAG_30arcmin_2000",
+        "weight_vintage": "fixed_2000",
+        "weight_source_role": "independent_fixed_baseline_crop_area_share",
+        "weights_fixed_across_years": true,
+        "production_eligibility_required": true,
+        "season_specific_weights_required": true,
+        "missing_weight_policy": "exclude_entire_crop_grid_year_outcome_without_infill_or_renormalization",
+        "excluded_outcome_keys_missing_weight": 10052,
+        "excluded_observed_outcomes_missing_weight": 0,
+        "excluded_missing_weight_by_crop": {
+          "soy": {
+            "outcome_keys": 10052,
+            "observed_outcomes": 0,
+            "grid_cells": 359
+          }
+        },
+        "one_row_per_outcome": true,
+        "scc_authorized": false,
+        "jensen_gap_min": -8.881784197001252e-16,
+        "jensen_gap_mean": 0.0015346635743272517,
+        "jensen_gap_max": 0.7120146110776517,
+        "future_outcomes_present": false
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "crop": "mai",
+      "esm": "GFDL-ESM4",
+      "reference_scenario": "ssp126",
+      "candidate_scenario": "ssp370",
+      "cells": 500,
+      "shape_cells": 495,
+      "shape_excluded_cells": 5,
+      "features": {
+        "log1p_precip_mm": {
+          "mean": -0.13995347329720578,
+          "cell_p10": -0.39517062512304446,
+          "cell_p90": 0.014645258491427145
+        },
+        "stage1_precip_share": {
+          "mean": 0.0004824557830255761,
+          "cell_p10": -0.05518911642250522,
+          "cell_p90": 0.05328891556419275
+        },
+        "stage2_precip_share": {
+          "mean": 0.0036739524529777385,
+          "cell_p10": -0.0495949348899857,
+          "cell_p90": 0.05707141589882351
+        },
+        "cdd_max_days": {
+          "mean": 2.5233611307495902,
+          "cell_p10": -1.3571428571428565,
+          "cell_p90": 8.782142857142864
+        },
+        "rx5day_mm": {
+          "mean": -4.126945862486101,
+          "cell_p10": -13.849939260791453,
+          "cell_p90": 3.901069022209521
+        },
+        "precipitation_concentration_hhi": {
+          "mean": 0.0034939951093824234,
+          "cell_p10": -0.02819042131036787,
+          "cell_p90": 0.03714187911088198
+        },
+        "stage3_precip_share": {
+          "mean": -0.004156408236003316,
+          "cell_p10": -0.0491088477558829,
+          "cell_p90": 0.03556710965176216
+        },
+        "precip_mm": {
+          "mean": -26.942943684786673,
+          "cell_p10": -65.53298245442232,
+          "cell_p90": 4.799394800886513
+        },
+        "stage1_tmean_c": {
+          "mean": 0.37852195489556245,
+          "cell_p10": -0.0023910522460937307,
+          "cell_p90": 0.8953912598746164
+        },
+        "stage2_tmean_c": {
+          "mean": 0.5366757195954791,
+          "cell_p10": 0.05026297569274903,
+          "cell_p90": 1.0950300421033587
+        },
+        "stage3_tmean_c": {
+          "mean": 0.5501891093970634,
+          "cell_p10": 0.19988736425127301,
+          "cell_p90": 0.9456302779061455
+        }
+      }
+    },
+    {
+      "crop": "mai",
+      "esm": "GFDL-ESM4",
+      "reference_scenario": "ssp126",
+      "candidate_scenario": "ssp585",
+      "cells": 500,
+      "shape_cells": 495,
+      "shape_excluded_cells": 5,
+      "features": {
+        "log1p_precip_mm": {
+          "mean": -0.09857679353453404,
+          "cell_p10": -0.22625614675396744,
+          "cell_p90": 0.03962609698147801
+        },
+        "stage1_precip_share": {
+          "mean": 0.012469469542100722,
+          "cell_p10": -0.03999798071227397,
+          "cell_p90": 0.05806420129511426
+        },
+        "stage2_precip_share": {
+          "mean": -0.0092012692673059,
+          "cell_p10": -0.05847886278083476,
+          "cell_p90": 0.0402503789951884
+        },
+        "cdd_max_days": {
+          "mean": 1.716028103526801,
+          "cell_p10": -1.682142857142857,
+          "cell_p90": 6.253571428571429
+        },
+        "rx5day_mm": {
+          "mean": -4.27243145989006,
+          "cell_p10": -13.961152061287846,
+          "cell_p90": 2.6756169679578843
+        },
+        "precipitation_concentration_hhi": {
+          "mean": 0.005020422235758783,
+          "cell_p10": -0.02149030983459061,
+          "cell_p90": 0.035484054128343726
+        },
+        "stage3_precip_share": {
+          "mean": -0.003268200274794823,
+          "cell_p10": -0.04298247672166416,
+          "cell_p90": 0.043373803759556386
+        },
+        "precip_mm": {
+          "mean": -23.996880143429408,
+          "cell_p10": -79.92741536668237,
+          "cell_p90": 9.176558827582221
+        },
+        "stage1_tmean_c": {
+          "mean": 0.4329920275248047,
+          "cell_p10": 0.03990331159456373,
+          "cell_p90": 0.8469989231654576
+        },
+        "stage2_tmean_c": {
+          "mean": 0.6872310704450201,
+          "cell_p10": 0.15198872429983926,
+          "cell_p90": 1.3579842976161414
+        },
+        "stage3_tmean_c": {
+          "mean": 0.756495908874802,
+          "cell_p10": 0.22258880819593163,
+          "cell_p90": 1.3166535471388308
+        }
+      }
+    },
+    {
+      "crop": "mai",
+      "esm": "IPSL-CM6A-LR",
+      "reference_scenario": "ssp126",
+      "candidate_scenario": "ssp370",
+      "cells": 500,
+      "shape_cells": 494,
+      "shape_excluded_cells": 6,
+      "features": {
+        "log1p_precip_mm": {
+          "mean": 0.014365805091543329,
+          "cell_p10": -0.0754480376962166,
+          "cell_p90": 0.11063596791893457
+        },
+        "stage1_precip_share": {
+          "mean": -0.0034462276547509536,
+          "cell_p10": -0.05208856126335387,
+          "cell_p90": 0.03552482619330063
+        },
+        "stage2_precip_share": {
+          "mean": 0.0032124767309550184,
+          "cell_p10": -0.032612198524733106,
+          "cell_p90": 0.045268452258001246
+        },
+        "cdd_max_days": {
+          "mean": -0.5177505066364322,
+          "cell_p10": -4.646428571428571,
+          "cell_p90": 3.0464285714285735
+        },
+        "rx5day_mm": {
+          "mean": -0.35705815707042504,
+          "cell_p10": -5.9764158281098485,
+          "cell_p90": 6.635983693919012
+        },
+        "precipitation_concentration_hhi": {
+          "mean": -0.009365736085854129,
+          "cell_p10": -0.03802228127515377,
+          "cell_p90": 0.017556470112716733
+        },
+        "stage3_precip_share": {
+          "mean": 0.000233750923795936,
+          "cell_p10": -0.03966302970494745,
+          "cell_p90": 0.03679294954567953
+        },
+        "precip_mm": {
+          "mean": -3.2791352975463104,
+          "cell_p10": -27.487653900230566,
+          "cell_p90": 14.19271192433579
+        },
+        "stage1_tmean_c": {
+          "mean": 0.5022864228413348,
+          "cell_p10": 0.014298302786690878,
+          "cell_p90": 0.9366865600858416
+        },
+        "stage2_tmean_c": {
+          "mean": 0.35195975953641534,
+          "cell_p10": -0.027321044112799255,
+          "cell_p90": 0.6730899571189446
+        },
+        "stage3_tmean_c": {
+          "mean": 0.5380761218153886,
+          "cell_p10": 0.22790667670113698,
+          "cell_p90": 1.0827697012947564
+        }
+      }
+    },
+    {
+      "crop": "mai",
+      "esm": "IPSL-CM6A-LR",
+      "reference_scenario": "ssp126",
+      "candidate_scenario": "ssp585",
+      "cells": 500,
+      "shape_cells": 494,
+      "shape_excluded_cells": 6,
+      "features": {
+        "log1p_precip_mm": {
+          "mean": -0.01021622900175216,
+          "cell_p10": -0.12841478090207914,
+          "cell_p90": 0.09550503006028264
+        },
+        "stage1_precip_share": {
+          "mean": -0.002000798970679517,
+          "cell_p10": -0.06641819889619394,
+          "cell_p90": 0.05074855439161387
+        },
+        "stage2_precip_share": {
+          "mean": 0.0026246011941177113,
+          "cell_p10": -0.04725039502165932,
+          "cell_p90": 0.06904716407321637
+        },
+        "cdd_max_days": {
+          "mean": 0.22257749605757493,
+          "cell_p10": -3.392857142857143,
+          "cell_p90": 5.428571428571429
+        },
+        "rx5day_mm": {
+          "mean": -1.2031808009916998,
+          "cell_p10": -8.646188447837318,
+          "cell_p90": 4.37797934574034
+        },
+        "precipitation_concentration_hhi": {
+          "mean": -0.0056737186183387885,
+          "cell_p10": -0.0338779496820943,
+          "cell_p90": 0.023680048447688257
+        },
+        "stage3_precip_share": {
+          "mean": -0.0006238022234381932,
+          "cell_p10": -0.04339146722509766,
+          "cell_p90": 0.0424982807416212
+        },
+        "precip_mm": {
+          "mean": -3.496725269862418,
+          "cell_p10": -25.30127065418554,
+          "cell_p90": 15.040861048629244
+        },
+        "stage1_tmean_c": {
+          "mean": 0.6568336740896207,
+          "cell_p10": 0.31518588406699044,
+          "cell_p90": 0.9937392439161032
+        },
+        "stage2_tmean_c": {
+          "mean": 0.7614686946864153,
+          "cell_p10": 0.39718703542436873,
+          "cell_p90": 1.1924620214230217
+        },
+        "stage3_tmean_c": {
+          "mean": 0.9642195190132203,
+          "cell_p10": 0.5509101728680583,
+          "cell_p90": 1.3176033564976284
+        }
+      }
+    },
+    {
+      "crop": "mai",
+      "esm": "MPI-ESM1-2-HR",
+      "reference_scenario": "ssp126",
+      "candidate_scenario": "ssp370",
+      "cells": 500,
+      "shape_cells": 493,
+      "shape_excluded_cells": 7,
+      "features": {
+        "log1p_precip_mm": {
+          "mean": -0.06021043368110078,
+          "cell_p10": -0.21351126396771855,
+          "cell_p90": 0.05670770339790333
+        },
+        "stage1_precip_share": {
+          "mean": -0.001718976714475361,
+          "cell_p10": -0.06230474499654929,
+          "cell_p90": 0.047498809835565585
+        },
+        "stage2_precip_share": {
+          "mean": -0.006792552999874646,
+          "cell_p10": -0.04979118210055878,
+          "cell_p90": 0.03989937645365344
+        },
+        "cdd_max_days": {
+          "mean": 1.1281183422686067,
+          "cell_p10": -2.7857142857142856,
+          "cell_p90": 5.432142857142858
+        },
+        "rx5day_mm": {
+          "mean": -1.57000110545479,
+          "cell_p10": -10.695360175653228,
+          "cell_p90": 6.308861540204713
+        },
+        "precipitation_concentration_hhi": {
+          "mean": -0.0024968870000971763,
+          "cell_p10": -0.034803066414481804,
+          "cell_p90": 0.02791291171728114
+        },
+        "stage3_precip_share": {
+          "mean": 0.008511529714350005,
+          "cell_p10": -0.03528130248483003,
+          "cell_p90": 0.06672642480175907
+        },
+        "precip_mm": {
+          "mean": -15.06298493357343,
+          "cell_p10": -42.83574846781281,
+          "cell_p90": 4.945148915797477
+        },
+        "stage1_tmean_c": {
+          "mean": 0.5266471063231384,
+          "cell_p10": 0.13040378434317457,
+          "cell_p90": 1.0562707764761794
+        },
+        "stage2_tmean_c": {
+          "mean": 0.6511343292249021,
+          "cell_p10": 0.16177913802010666,
+          "cell_p90": 1.1516715322222029
+        },
+        "stage3_tmean_c": {
+          "mean": 0.6278024257896905,
+          "cell_p10": 0.20052945954459075,
+          "cell_p90": 1.0193586553846088
+        }
+      }
+    },
+    {
+      "crop": "mai",
+      "esm": "MPI-ESM1-2-HR",
+      "reference_scenario": "ssp126",
+      "candidate_scenario": "ssp585",
+      "cells": 500,
+      "shape_cells": 494,
+      "shape_excluded_cells": 6,
+      "features": {
+        "log1p_precip_mm": {
+          "mean": -0.042161203581249126,
+          "cell_p10": -0.20454003386361272,
+          "cell_p90": 0.07231816917542698
+        },
+        "stage1_precip_share": {
+          "mean": -0.01563140864304638,
+          "cell_p10": -0.0790137780107099,
+          "cell_p90": 0.04323307446663927
+        },
+        "stage2_precip_share": {
+          "mean": 0.0029340893434895853,
+          "cell_p10": -0.055586264792501006,
+          "cell_p90": 0.05459396125629944
+        },
+        "cdd_max_days": {
+          "mean": 1.3400002408879896,
+          "cell_p10": -2.539285714285714,
+          "cell_p90": 5.728571428571432
+        },
+        "rx5day_mm": {
+          "mean": 0.9666503054136595,
+          "cell_p10": -6.9026485085753455,
+          "cell_p90": 8.655549661282985
+        },
+        "precipitation_concentration_hhi": {
+          "mean": -0.0005629994829127897,
+          "cell_p10": -0.034395073062761544,
+          "cell_p90": 0.0325465841116601
+        },
+        "stage3_precip_share": {
+          "mean": 0.012697319299556795,
+          "cell_p10": -0.04058112767905556,
+          "cell_p90": 0.06770705513674495
+        },
+        "precip_mm": {
+          "mean": -6.950439401012762,
+          "cell_p10": -28.34031113947609,
+          "cell_p90": 11.957403589590983
+        },
+        "stage1_tmean_c": {
+          "mean": 0.5231889460212501,
+          "cell_p10": 0.10957687411989483,
+          "cell_p90": 0.9844027485166278
+        },
+        "stage2_tmean_c": {
+          "mean": 0.6068697753857091,
+          "cell_p10": 0.23342985425676643,
+          "cell_p90": 0.9567201989037649
+        },
+        "stage3_tmean_c": {
+          "mean": 0.557778989100492,
+          "cell_p10": 0.2268350683758229,
+          "cell_p90": 0.9238104854311264
+        }
+      }
+    },
+    {
+      "crop": "soy",
+      "esm": "GFDL-ESM4",
+      "reference_scenario": "ssp126",
+      "candidate_scenario": "ssp370",
+      "cells": 327,
+      "shape_cells": 326,
+      "shape_excluded_cells": 1,
+      "features": {
+        "log1p_precip_mm": {
+          "mean": -0.09103046440090833,
+          "cell_p10": -0.2211116723707421,
+          "cell_p90": 0.05224634500047958
+        },
+        "stage1_precip_share": {
+          "mean": -0.0071072730749574455,
+          "cell_p10": -0.05027519134834016,
+          "cell_p90": 0.03040624160051
+        },
+        "stage2_precip_share": {
+          "mean": 0.005095265311808053,
+          "cell_p10": -0.034320389634228066,
+          "cell_p90": 0.04943512867838813
+        },
+        "cdd_max_days": {
+          "mean": 1.3466902297384145,
+          "cell_p10": -1.7642857142857142,
+          "cell_p90": 5.764285714285715
+        },
+        "rx5day_mm": {
+          "mean": -4.662771916973039,
+          "cell_p10": -19.123761106176037,
+          "cell_p90": 4.963343012492573
+        },
+        "precipitation_concentration_hhi": {
+          "mean": 0.006980361645741335,
+          "cell_p10": -0.024661562803239372,
+          "cell_p90": 0.035776703918566966
+        },
+        "stage3_precip_share": {
+          "mean": 0.002012007763149392,
+          "cell_p10": -0.03602824357212078,
+          "cell_p90": 0.03513845842354899
+        },
+        "precip_mm": {
+          "mean": -30.976919613791786,
+          "cell_p10": -76.3915575933236,
+          "cell_p90": 2.693898281455046
+        },
+        "stage1_tmean_c": {
+          "mean": 0.28518248641000765,
+          "cell_p10": -0.026684575277938816,
+          "cell_p90": 0.7002195791328243
+        },
+        "stage2_tmean_c": {
+          "mean": 0.45281078135261593,
+          "cell_p10": -0.05163298348067529,
+          "cell_p90": 0.9989765361899492
+        },
+        "stage3_tmean_c": {
+          "mean": 0.5016034658577134,
+          "cell_p10": 0.19172017079494433,
+          "cell_p90": 0.8089412076132638
+        }
+      }
+    },
+    {
+      "crop": "soy",
+      "esm": "GFDL-ESM4",
+      "reference_scenario": "ssp126",
+      "candidate_scenario": "ssp585",
+      "cells": 327,
+      "shape_cells": 327,
+      "shape_excluded_cells": 0,
+      "features": {
+        "log1p_precip_mm": {
+          "mean": -0.10768021017592616,
+          "cell_p10": -0.2148626206031426,
+          "cell_p90": 0.016064837599335233
+        },
+        "stage1_precip_share": {
+          "mean": -0.001808190747928039,
+          "cell_p10": -0.0471002187540062,
+          "cell_p90": 0.03530326243545021
+        },
+        "stage2_precip_share": {
+          "mean": -0.004828668347187819,
+          "cell_p10": -0.05444977620201036,
+          "cell_p90": 0.045520978326466406
+        },
+        "cdd_max_days": {
+          "mean": 1.1959621506993252,
+          "cell_p10": -1.1428571428571428,
+          "cell_p90": 4.607142857142857
+        },
+        "rx5day_mm": {
+          "mean": -6.099241360195993,
+          "cell_p10": -16.330258774521802,
+          "cell_p90": 1.7140730001564548
+        },
+        "precipitation_concentration_hhi": {
+          "mean": 0.002387469821344485,
+          "cell_p10": -0.021887115805888195,
+          "cell_p90": 0.02805402193457838
+        },
+        "stage3_precip_share": {
+          "mean": 0.006636859095115857,
+          "cell_p10": -0.03151250394726265,
+          "cell_p90": 0.05213301785468911
+        },
+        "precip_mm": {
+          "mean": -31.74311473651487,
+          "cell_p10": -87.19351978745979,
+          "cell_p90": 2.852615434889286
+        },
+        "stage1_tmean_c": {
+          "mean": 0.5108616156049185,
+          "cell_p10": 0.0070350000513350955,
+          "cell_p90": 0.9325464112418049
+        },
+        "stage2_tmean_c": {
+          "mean": 0.6738258589218284,
+          "cell_p10": 0.1368595532008582,
+          "cell_p90": 1.2968700340815955
+        },
+        "stage3_tmean_c": {
+          "mean": 0.7393080373345523,
+          "cell_p10": 0.32399934301729655,
+          "cell_p90": 1.3114893504551486
+        }
+      }
+    },
+    {
+      "crop": "soy",
+      "esm": "IPSL-CM6A-LR",
+      "reference_scenario": "ssp126",
+      "candidate_scenario": "ssp370",
+      "cells": 327,
+      "shape_cells": 327,
+      "shape_excluded_cells": 0,
+      "features": {
+        "log1p_precip_mm": {
+          "mean": -0.0039857625002541735,
+          "cell_p10": -0.08089233361530537,
+          "cell_p90": 0.08667004665089556
+        },
+        "stage1_precip_share": {
+          "mean": 0.005844573121995102,
+          "cell_p10": -0.03929567369772266,
+          "cell_p90": 0.049887115956290556
+        },
+        "stage2_precip_share": {
+          "mean": 0.002817150720540302,
+          "cell_p10": -0.032414822504459255,
+          "cell_p90": 0.041051989065894544
+        },
+        "cdd_max_days": {
+          "mean": -0.2714939319020696,
+          "cell_p10": -2.7499999999999996,
+          "cell_p90": 1.992857142857145
+        },
+        "rx5day_mm": {
+          "mean": -2.0005313998127408,
+          "cell_p10": -10.869432341203115,
+          "cell_p90": 5.637265904120143
+        },
+        "precipitation_concentration_hhi": {
+          "mean": -0.006179425662553641,
+          "cell_p10": -0.02950499467076544,
+          "cell_p90": 0.01388966689122543
+        },
+        "stage3_precip_share": {
+          "mean": -0.008661723842535402,
+          "cell_p10": -0.05803427770687911,
+          "cell_p90": 0.042083775920074264
+        },
+        "precip_mm": {
+          "mean": -6.5652381795150445,
+          "cell_p10": -34.463541669231695,
+          "cell_p90": 14.064786053608573
+        },
+        "stage1_tmean_c": {
+          "mean": 0.39387225559402494,
+          "cell_p10": -0.02345826285226004,
+          "cell_p90": 0.839470329798499
+        },
+        "stage2_tmean_c": {
+          "mean": 0.3800891167703814,
+          "cell_p10": 0.053959819248744385,
+          "cell_p90": 0.6751032877478483
+        },
+        "stage3_tmean_c": {
+          "mean": 0.5847405491027705,
+          "cell_p10": 0.2386237961905347,
+          "cell_p90": 1.0520736962400046
+        }
+      }
+    },
+    {
+      "crop": "soy",
+      "esm": "IPSL-CM6A-LR",
+      "reference_scenario": "ssp126",
+      "candidate_scenario": "ssp585",
+      "cells": 327,
+      "shape_cells": 327,
+      "shape_excluded_cells": 0,
+      "features": {
+        "log1p_precip_mm": {
+          "mean": -0.011370296122898648,
+          "cell_p10": -0.11103582700349507,
+          "cell_p90": 0.075260265563912
+        },
+        "stage1_precip_share": {
+          "mean": 0.005323453771735131,
+          "cell_p10": -0.037026337705493656,
+          "cell_p90": 0.05847089199756552
+        },
+        "stage2_precip_share": {
+          "mean": 0.00045690021108337365,
+          "cell_p10": -0.04124704687977813,
+          "cell_p90": 0.04596742563481434
+        },
+        "cdd_max_days": {
+          "mean": 0.3272911836467523,
+          "cell_p10": -2.050187827921387,
+          "cell_p90": 2.7590937634760384
+        },
+        "rx5day_mm": {
+          "mean": -2.0499388096579523,
+          "cell_p10": -12.400494980652418,
+          "cell_p90": 6.553552186116581
+        },
+        "precipitation_concentration_hhi": {
+          "mean": -0.005096154781492733,
+          "cell_p10": -0.02868957698196307,
+          "cell_p90": 0.016898657733546124
+        },
+        "stage3_precip_share": {
+          "mean": -0.005780353982818506,
+          "cell_p10": -0.06285117141189635,
+          "cell_p90": 0.04337155421908981
+        },
+        "precip_mm": {
+          "mean": -4.148667426131564,
+          "cell_p10": -30.863752343992143,
+          "cell_p90": 16.883429085729382
+        },
+        "stage1_tmean_c": {
+          "mean": 0.5837531536585274,
+          "cell_p10": 0.2312882559640067,
+          "cell_p90": 0.8796295662512731
+        },
+        "stage2_tmean_c": {
+          "mean": 0.7548716018110668,
+          "cell_p10": 0.45358598102510783,
+          "cell_p90": 1.0594295433589391
+        },
+        "stage3_tmean_c": {
+          "mean": 1.0170770397976356,
+          "cell_p10": 0.6199118205479213,
+          "cell_p90": 1.3635249817538442
+        }
+      }
+    },
+    {
+      "crop": "soy",
+      "esm": "MPI-ESM1-2-HR",
+      "reference_scenario": "ssp126",
+      "candidate_scenario": "ssp370",
+      "cells": 327,
+      "shape_cells": 327,
+      "shape_excluded_cells": 0,
+      "features": {
+        "log1p_precip_mm": {
+          "mean": -0.05757945679800883,
+          "cell_p10": -0.16720057268964605,
+          "cell_p90": 0.0300097601879654
+        },
+        "stage1_precip_share": {
+          "mean": -0.00018703210107988503,
+          "cell_p10": -0.030757884271150806,
+          "cell_p90": 0.0287779901672481
+        },
+        "stage2_precip_share": {
+          "mean": -0.0110485041423859,
+          "cell_p10": -0.06299076402319836,
+          "cell_p90": 0.03981433443731415
+        },
+        "cdd_max_days": {
+          "mean": 1.0788541452248976,
+          "cell_p10": -1.7744573447402803,
+          "cell_p90": 4.0
+        },
+        "rx5day_mm": {
+          "mean": -1.1184972254695134,
+          "cell_p10": -8.972480423854067,
+          "cell_p90": 6.961395126581196
+        },
+        "precipitation_concentration_hhi": {
+          "mean": 0.00593992083121374,
+          "cell_p10": -0.01672849115765349,
+          "cell_p90": 0.02676658387336993
+        },
+        "stage3_precip_share": {
+          "mean": 0.011235536243465785,
+          "cell_p10": -0.03101323437531971,
+          "cell_p90": 0.061474953424118975
+        },
+        "precip_mm": {
+          "mean": -16.31344239070621,
+          "cell_p10": -45.34833238779434,
+          "cell_p90": 5.675181405033401
+        },
+        "stage1_tmean_c": {
+          "mean": 0.47532961999912837,
+          "cell_p10": 0.11595302309308726,
+          "cell_p90": 1.0138258525303432
+        },
+        "stage2_tmean_c": {
+          "mean": 0.6581733893896466,
+          "cell_p10": 0.17514916828700447,
+          "cell_p90": 1.1614127022879466
+        },
+        "stage3_tmean_c": {
+          "mean": 0.6483258522340563,
+          "cell_p10": 0.29077807835170183,
+          "cell_p90": 0.9350489343915668
+        }
+      }
+    },
+    {
+      "crop": "soy",
+      "esm": "MPI-ESM1-2-HR",
+      "reference_scenario": "ssp126",
+      "candidate_scenario": "ssp585",
+      "cells": 327,
+      "shape_cells": 327,
+      "shape_excluded_cells": 0,
+      "features": {
+        "log1p_precip_mm": {
+          "mean": 0.007881451467914767,
+          "cell_p10": -0.08567101411477766,
+          "cell_p90": 0.10816425609830693
+        },
+        "stage1_precip_share": {
+          "mean": -0.0040003564051796555,
+          "cell_p10": -0.04666574085300441,
+          "cell_p90": 0.03233238221948254
+        },
+        "stage2_precip_share": {
+          "mean": -0.010706176447859622,
+          "cell_p10": -0.08130950727519984,
+          "cell_p90": 0.06028836722804064
+        },
+        "cdd_max_days": {
+          "mean": 0.9187671704405383,
+          "cell_p10": -2.0364532013249885,
+          "cell_p90": 3.9289473682795393
+        },
+        "rx5day_mm": {
+          "mean": 3.105751737008231,
+          "cell_p10": -5.023786561670048,
+          "cell_p90": 11.577783763170627
+        },
+        "precipitation_concentration_hhi": {
+          "mean": 0.007158282508984384,
+          "cell_p10": -0.01992746030029364,
+          "cell_p90": 0.03247893547530354
+        },
+        "stage3_precip_share": {
+          "mean": 0.014706532853039278,
+          "cell_p10": -0.039392246186894235,
+          "cell_p90": 0.07139938799539208
+        },
+        "precip_mm": {
+          "mean": -1.8076407571795587,
+          "cell_p10": -20.899583559939995,
+          "cell_p90": 23.0918059611427
+        },
+        "stage1_tmean_c": {
+          "mean": 0.4804387643637996,
+          "cell_p10": -0.048871300684257366,
+          "cell_p90": 0.925595269884382
+        },
+        "stage2_tmean_c": {
+          "mean": 0.5943214901907267,
+          "cell_p10": 0.27091372353689996,
+          "cell_p90": 0.9183885369982038
+        },
+        "stage3_tmean_c": {
+          "mean": 0.5963808442817303,
+          "cell_p10": 0.27478792154311066,
+          "cell_p90": 0.9032528275566413
+        }
+      }
+    }
+  ],
+  "output_parquet_bytes": 19422308
+}

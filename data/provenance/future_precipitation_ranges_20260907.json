@@ -1,0 +1,1864 @@
+{
+  "role": "marginal_historical_range_diagnostic_only",
+  "causal_or_scc_result": false,
+  "crop_yield_estimated": false,
+  "inside_range_is_not_joint_transport_validation": true,
+  "historical_years": [
+    1982,
+    2010
+  ],
+  "minimum_usable_years": 2,
+  "absolute_boundary_tolerance": 1e-10,
+  "parent_receipt_sha256": "a8973f354b5ab24f4c0f4c92d5c6fe6944ff0411a731f54b87c42262c84edf14",
+  "protocol_sha256": "42e388ce4d03bc69f93baa96effa10d3e27ce9cca01709848fdb22febd094ffa",
+  "code_hashes": {
+    "scripts/compare_future_precipitation_ranges.py": "785030f6a3dd76ddc20f9b3c8d93633ffda4d4efe79142b257589f851db9ddee",
+    "scripts/build_future_weighted_precipitation.py": "57f0c5bf23a35adbec515e3ae2d4476c9549c5d89b8efa1fec789783684742ca"
+  },
+  "historical_sources": [
+    {
+      "crop": "mai",
+      "input": {
+        "bytes": 301808574,
+        "observed_outcomes": 500129,
+        "path": "data/interim/continuous_global_panel_1982_2016_v1/continuous_candidates/maize_1982_2016_direct.parquet",
+        "rows": 1161685,
+        "sha256": "6be40f66363a2de8840ace25b2e80817fece1598cad2682e42e22ee6075b8ed3"
+      },
+      "input_receipt_sha256": "e287bda7f42b99ab7a28e16846c3b47affc3549dd78561cdbc583b6b247d2972",
+      "observed_rows": 8465,
+      "cells": 292,
+      "years_per_cell_min": 28,
+      "years_per_cell_median": 29.0,
+      "years_per_cell_max": 29,
+      "range_output": {
+        "path": "data/interim/future_precipitation_ranges_20260907/mai_historical_ranges.parquet",
+        "sha256": "a399ed20e29e7fd2482253cffcff05f286211e4908edb09959aa0ef9f80c95d0",
+        "bytes": 75902
+      }
+    },
+    {
+      "crop": "soy",
+      "input": {
+        "bytes": 224668565,
+        "observed_outcomes": 206087,
+        "path": "data/interim/continuous_global_panel_1982_2016_v1/continuous_candidates/soy_1982_2016_direct.parquet",
+        "rows": 837690,
+        "sha256": "ce26936cd3d175c56c89333c9f5805e242b6a32961e41babe67e8f55117518dd"
+      },
+      "input_receipt_sha256": "50462d0e14e0e6a6972e088119552f370627e64d7cceeb0c11b845e5d6d908d0",
+      "observed_rows": 4321,
+      "cells": 149,
+      "years_per_cell_min": 29,
+      "years_per_cell_median": 29.0,
+      "years_per_cell_max": 29,
+      "range_output": {
+        "path": "data/interim/future_precipitation_ranges_20260907/soy_historical_ranges.parquet",
+        "sha256": "2aca0836d463c6781d2352d5b0f9648bba7bdf4724d11401345bd4252f25c066",
+        "bytes": 51613
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "crop": "mai",
+      "esm": "GFDL-ESM4",
+      "scenario": "ssp126",
+      "future_rows": 14000,
+      "future_cells": 500,
+      "features": {
+        "log1p_precip_mm": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 371,
+          "above_range_rows": 479,
+          "outside_range_fraction": 0.1039628180039139
+        },
+        "stage1_precip_share": {
+          "evaluated_rows": 8174,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 3,
+          "below_range_rows": 320,
+          "above_range_rows": 290,
+          "outside_range_fraction": 0.07462686567164178
+        },
+        "stage2_precip_share": {
+          "evaluated_rows": 8174,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 3,
+          "below_range_rows": 466,
+          "above_range_rows": 311,
+          "outside_range_fraction": 0.09505749938830438
+        },
+        "cdd_max_days": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 135,
+          "above_range_rows": 353,
+          "outside_range_fraction": 0.05968688845401174
+        },
+        "rx5day_mm": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 177,
+          "above_range_rows": 689,
+          "outside_range_fraction": 0.10591976516634051
+        },
+        "precipitation_concentration_hhi": {
+          "evaluated_rows": 8174,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 3,
+          "below_range_rows": 225,
+          "above_range_rows": 331,
+          "outside_range_fraction": 0.06802055297284071
+        },
+        "stage3_precip_share": {
+          "evaluated_rows": 8174,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 3,
+          "below_range_rows": 314,
+          "above_range_rows": 312,
+          "outside_range_fraction": 0.07658429165647174
+        },
+        "precip_mm": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 371,
+          "above_range_rows": 480,
+          "outside_range_fraction": 0.10408512720156556
+        },
+        "stage1_tmean_c": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 5,
+          "above_range_rows": 2297,
+          "outside_range_fraction": 0.28155577299412915
+        },
+        "stage2_tmean_c": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 3,
+          "above_range_rows": 3389,
+          "outside_range_fraction": 0.41487279843444225
+        },
+        "stage3_tmean_c": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 50,
+          "above_range_rows": 3523,
+          "outside_range_fraction": 0.43701076320939336
+        }
+      },
+      "common_evaluable_rows": 8174,
+      "any_feature_outside_rows": 6541,
+      "any_feature_outside_fraction": 0.8002202104232934
+    },
+    {
+      "crop": "mai",
+      "esm": "GFDL-ESM4",
+      "scenario": "ssp370",
+      "future_rows": 14000,
+      "future_cells": 500,
+      "features": {
+        "log1p_precip_mm": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 463,
+          "above_range_rows": 205,
+          "outside_range_fraction": 0.08170254403131115
+        },
+        "stage1_precip_share": {
+          "evaluated_rows": 8173,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 6,
+          "below_range_rows": 321,
+          "above_range_rows": 356,
+          "outside_range_fraction": 0.08283372078796036
+        },
+        "stage2_precip_share": {
+          "evaluated_rows": 8173,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 6,
+          "below_range_rows": 459,
+          "above_range_rows": 412,
+          "outside_range_fraction": 0.1065704147803744
+        },
+        "cdd_max_days": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 78,
+          "above_range_rows": 531,
+          "outside_range_fraction": 0.07448630136986302
+        },
+        "rx5day_mm": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 300,
+          "above_range_rows": 491,
+          "outside_range_fraction": 0.09674657534246575
+        },
+        "precipitation_concentration_hhi": {
+          "evaluated_rows": 8173,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 6,
+          "below_range_rows": 253,
+          "above_range_rows": 473,
+          "outside_range_fraction": 0.08882907133243607
+        },
+        "stage3_precip_share": {
+          "evaluated_rows": 8173,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 6,
+          "below_range_rows": 377,
+          "above_range_rows": 349,
+          "outside_range_fraction": 0.08882907133243607
+        },
+        "precip_mm": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 462,
+          "above_range_rows": 205,
+          "outside_range_fraction": 0.08158023483365949
+        },
+        "stage1_tmean_c": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 7,
+          "above_range_rows": 3028,
+          "outside_range_fraction": 0.37120841487279843
+        },
+        "stage2_tmean_c": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 0,
+          "above_range_rows": 4921,
+          "outside_range_fraction": 0.6018835616438356
+        },
+        "stage3_tmean_c": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 3,
+          "above_range_rows": 4880,
+          "outside_range_fraction": 0.5972358121330724
+        }
+      },
+      "common_evaluable_rows": 8173,
+      "any_feature_outside_rows": 7146,
+      "any_feature_outside_fraction": 0.8743423467514988
+    },
+    {
+      "crop": "mai",
+      "esm": "GFDL-ESM4",
+      "scenario": "ssp585",
+      "future_rows": 14000,
+      "future_cells": 500,
+      "features": {
+        "log1p_precip_mm": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 595,
+          "above_range_rows": 208,
+          "outside_range_fraction": 0.09821428571428571
+        },
+        "stage1_precip_share": {
+          "evaluated_rows": 8173,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 4,
+          "below_range_rows": 246,
+          "above_range_rows": 374,
+          "outside_range_fraction": 0.07585953750152942
+        },
+        "stage2_precip_share": {
+          "evaluated_rows": 8173,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 4,
+          "below_range_rows": 557,
+          "above_range_rows": 418,
+          "outside_range_fraction": 0.11929524042579225
+        },
+        "cdd_max_days": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 83,
+          "above_range_rows": 511,
+          "outside_range_fraction": 0.07265166340508807
+        },
+        "rx5day_mm": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 348,
+          "above_range_rows": 506,
+          "outside_range_fraction": 0.10445205479452055
+        },
+        "precipitation_concentration_hhi": {
+          "evaluated_rows": 8173,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 4,
+          "below_range_rows": 229,
+          "above_range_rows": 464,
+          "outside_range_fraction": 0.0847913862718708
+        },
+        "stage3_precip_share": {
+          "evaluated_rows": 8173,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 4,
+          "below_range_rows": 426,
+          "above_range_rows": 364,
+          "outside_range_fraction": 0.09665973326807782
+        },
+        "precip_mm": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 595,
+          "above_range_rows": 208,
+          "outside_range_fraction": 0.09821428571428571
+        },
+        "stage1_tmean_c": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 0,
+          "above_range_rows": 3203,
+          "outside_range_fraction": 0.3917563600782779
+        },
+        "stage2_tmean_c": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 0,
+          "above_range_rows": 5515,
+          "outside_range_fraction": 0.6745352250489237
+        },
+        "stage3_tmean_c": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 11,
+          "above_range_rows": 5053,
+          "outside_range_fraction": 0.6193737769080235
+        }
+      },
+      "common_evaluable_rows": 8173,
+      "any_feature_outside_rows": 7561,
+      "any_feature_outside_fraction": 0.9251192952404258
+    },
+    {
+      "crop": "mai",
+      "esm": "IPSL-CM6A-LR",
+      "scenario": "ssp126",
+      "future_rows": 14000,
+      "future_cells": 500,
+      "features": {
+        "log1p_precip_mm": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 184,
+          "above_range_rows": 248,
+          "outside_range_fraction": 0.05283757338551859
+        },
+        "stage1_precip_share": {
+          "evaluated_rows": 8174,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 5,
+          "below_range_rows": 255,
+          "above_range_rows": 216,
+          "outside_range_fraction": 0.057621727428431614
+        },
+        "stage2_precip_share": {
+          "evaluated_rows": 8174,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 5,
+          "below_range_rows": 263,
+          "above_range_rows": 324,
+          "outside_range_fraction": 0.07181306581844873
+        },
+        "cdd_max_days": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 224,
+          "above_range_rows": 204,
+          "outside_range_fraction": 0.052348336594911934
+        },
+        "rx5day_mm": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 207,
+          "above_range_rows": 324,
+          "outside_range_fraction": 0.06494618395303327
+        },
+        "precipitation_concentration_hhi": {
+          "evaluated_rows": 8174,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 5,
+          "below_range_rows": 324,
+          "above_range_rows": 247,
+          "outside_range_fraction": 0.0698556398336188
+        },
+        "stage3_precip_share": {
+          "evaluated_rows": 8174,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 5,
+          "below_range_rows": 253,
+          "above_range_rows": 236,
+          "outside_range_fraction": 0.059823831661365304
+        },
+        "precip_mm": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 184,
+          "above_range_rows": 249,
+          "outside_range_fraction": 0.052959882583170255
+        },
+        "stage1_tmean_c": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 7,
+          "above_range_rows": 2752,
+          "outside_range_fraction": 0.33745107632093935
+        },
+        "stage2_tmean_c": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 0,
+          "above_range_rows": 4254,
+          "outside_range_fraction": 0.5203033268101761
+        },
+        "stage3_tmean_c": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 3,
+          "above_range_rows": 4534,
+          "outside_range_fraction": 0.5549168297455969
+        }
+      },
+      "common_evaluable_rows": 8174,
+      "any_feature_outside_rows": 6822,
+      "any_feature_outside_fraction": 0.8345975042818693
+    },
+    {
+      "crop": "mai",
+      "esm": "IPSL-CM6A-LR",
+      "scenario": "ssp370",
+      "future_rows": 14000,
+      "future_cells": 500,
+      "features": {
+        "log1p_precip_mm": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 190,
+          "above_range_rows": 332,
+          "outside_range_fraction": 0.0638454011741683
+        },
+        "stage1_precip_share": {
+          "evaluated_rows": 8175,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 1,
+          "below_range_rows": 214,
+          "above_range_rows": 198,
+          "outside_range_fraction": 0.05039755351681957
+        },
+        "stage2_precip_share": {
+          "evaluated_rows": 8175,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 1,
+          "below_range_rows": 180,
+          "above_range_rows": 251,
+          "outside_range_fraction": 0.0527217125382263
+        },
+        "cdd_max_days": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 214,
+          "above_range_rows": 213,
+          "outside_range_fraction": 0.052226027397260275
+        },
+        "rx5day_mm": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 226,
+          "above_range_rows": 404,
+          "outside_range_fraction": 0.07705479452054795
+        },
+        "precipitation_concentration_hhi": {
+          "evaluated_rows": 8175,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 1,
+          "below_range_rows": 267,
+          "above_range_rows": 199,
+          "outside_range_fraction": 0.05700305810397553
+        },
+        "stage3_precip_share": {
+          "evaluated_rows": 8175,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 1,
+          "below_range_rows": 191,
+          "above_range_rows": 221,
+          "outside_range_fraction": 0.05039755351681957
+        },
+        "precip_mm": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 190,
+          "above_range_rows": 332,
+          "outside_range_fraction": 0.0638454011741683
+        },
+        "stage1_tmean_c": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 6,
+          "above_range_rows": 4087,
+          "outside_range_fraction": 0.5006115459882583
+        },
+        "stage2_tmean_c": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 0,
+          "above_range_rows": 5269,
+          "outside_range_fraction": 0.6444471624266145
+        },
+        "stage3_tmean_c": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 0,
+          "above_range_rows": 6091,
+          "outside_range_fraction": 0.7449853228962818
+        }
+      },
+      "common_evaluable_rows": 8175,
+      "any_feature_outside_rows": 7511,
+      "any_feature_outside_fraction": 0.9187767584097859
+    },
+    {
+      "crop": "mai",
+      "esm": "IPSL-CM6A-LR",
+      "scenario": "ssp585",
+      "future_rows": 14000,
+      "future_cells": 500,
+      "features": {
+        "log1p_precip_mm": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 263,
+          "above_range_rows": 308,
+          "outside_range_fraction": 0.0698385518590998
+        },
+        "stage1_precip_share": {
+          "evaluated_rows": 8174,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 3,
+          "below_range_rows": 223,
+          "above_range_rows": 282,
+          "outside_range_fraction": 0.061781257646195256
+        },
+        "stage2_precip_share": {
+          "evaluated_rows": 8174,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 3,
+          "below_range_rows": 260,
+          "above_range_rows": 324,
+          "outside_range_fraction": 0.07144604844629313
+        },
+        "cdd_max_days": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 195,
+          "above_range_rows": 243,
+          "outside_range_fraction": 0.05357142857142857
+        },
+        "rx5day_mm": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 291,
+          "above_range_rows": 355,
+          "outside_range_fraction": 0.07901174168297456
+        },
+        "precipitation_concentration_hhi": {
+          "evaluated_rows": 8174,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 3,
+          "below_range_rows": 310,
+          "above_range_rows": 270,
+          "outside_range_fraction": 0.07095669195008564
+        },
+        "stage3_precip_share": {
+          "evaluated_rows": 8174,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 3,
+          "below_range_rows": 267,
+          "above_range_rows": 278,
+          "outside_range_fraction": 0.06667482260827012
+        },
+        "precip_mm": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 263,
+          "above_range_rows": 308,
+          "outside_range_fraction": 0.0698385518590998
+        },
+        "stage1_tmean_c": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 2,
+          "above_range_rows": 4329,
+          "outside_range_fraction": 0.5297211350293543
+        },
+        "stage2_tmean_c": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 0,
+          "above_range_rows": 5971,
+          "outside_range_fraction": 0.7303082191780822
+        },
+        "stage3_tmean_c": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 0,
+          "above_range_rows": 6558,
+          "outside_range_fraction": 0.8021037181996086
+        }
+      },
+      "common_evaluable_rows": 8174,
+      "any_feature_outside_rows": 7675,
+      "any_feature_outside_fraction": 0.938952777098116
+    },
+    {
+      "crop": "mai",
+      "esm": "MPI-ESM1-2-HR",
+      "scenario": "ssp126",
+      "future_rows": 14000,
+      "future_cells": 500,
+      "features": {
+        "log1p_precip_mm": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 593,
+          "above_range_rows": 283,
+          "outside_range_fraction": 0.10714285714285714
+        },
+        "stage1_precip_share": {
+          "evaluated_rows": 8170,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 7,
+          "below_range_rows": 238,
+          "above_range_rows": 450,
+          "outside_range_fraction": 0.08421052631578947
+        },
+        "stage2_precip_share": {
+          "evaluated_rows": 8170,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 7,
+          "below_range_rows": 519,
+          "above_range_rows": 299,
+          "outside_range_fraction": 0.10012239902080783
+        },
+        "cdd_max_days": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 113,
+          "above_range_rows": 674,
+          "outside_range_fraction": 0.0962573385518591
+        },
+        "rx5day_mm": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 319,
+          "above_range_rows": 370,
+          "outside_range_fraction": 0.08427103718199609
+        },
+        "precipitation_concentration_hhi": {
+          "evaluated_rows": 8170,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 7,
+          "below_range_rows": 253,
+          "above_range_rows": 481,
+          "outside_range_fraction": 0.08984088127294981
+        },
+        "stage3_precip_share": {
+          "evaluated_rows": 8170,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 7,
+          "below_range_rows": 439,
+          "above_range_rows": 332,
+          "outside_range_fraction": 0.09436964504283965
+        },
+        "precip_mm": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 592,
+          "above_range_rows": 283,
+          "outside_range_fraction": 0.10702054794520548
+        },
+        "stage1_tmean_c": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 79,
+          "above_range_rows": 1541,
+          "outside_range_fraction": 0.19814090019569472
+        },
+        "stage2_tmean_c": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 28,
+          "above_range_rows": 3087,
+          "outside_range_fraction": 0.3809931506849315
+        },
+        "stage3_tmean_c": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 4,
+          "above_range_rows": 3538,
+          "outside_range_fraction": 0.4332191780821918
+        }
+      },
+      "common_evaluable_rows": 8170,
+      "any_feature_outside_rows": 6274,
+      "any_feature_outside_fraction": 0.7679314565483476
+    },
+    {
+      "crop": "mai",
+      "esm": "MPI-ESM1-2-HR",
+      "scenario": "ssp370",
+      "future_rows": 14000,
+      "future_cells": 500,
+      "features": {
+        "log1p_precip_mm": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 780,
+          "above_range_rows": 186,
+          "outside_range_fraction": 0.11815068493150685
+        },
+        "stage1_precip_share": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 1,
+          "below_range_rows": 230,
+          "above_range_rows": 530,
+          "outside_range_fraction": 0.09295499021526418
+        },
+        "stage2_precip_share": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 1,
+          "below_range_rows": 623,
+          "above_range_rows": 319,
+          "outside_range_fraction": 0.11521526418786693
+        },
+        "cdd_max_days": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 75,
+          "above_range_rows": 891,
+          "outside_range_fraction": 0.11815068493150685
+        },
+        "rx5day_mm": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 340,
+          "above_range_rows": 322,
+          "outside_range_fraction": 0.08096868884540118
+        },
+        "precipitation_concentration_hhi": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 1,
+          "below_range_rows": 266,
+          "above_range_rows": 584,
+          "outside_range_fraction": 0.1039628180039139
+        },
+        "stage3_precip_share": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 1,
+          "below_range_rows": 458,
+          "above_range_rows": 337,
+          "outside_range_fraction": 0.0972358121330724
+        },
+        "precip_mm": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 779,
+          "above_range_rows": 186,
+          "outside_range_fraction": 0.11802837573385519
+        },
+        "stage1_tmean_c": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 20,
+          "above_range_rows": 2284,
+          "outside_range_fraction": 0.28180039138943247
+        },
+        "stage2_tmean_c": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 12,
+          "above_range_rows": 5022,
+          "outside_range_fraction": 0.6157045009784736
+        },
+        "stage3_tmean_c": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 3,
+          "above_range_rows": 5049,
+          "outside_range_fraction": 0.6179060665362035
+        }
+      },
+      "common_evaluable_rows": 8176,
+      "any_feature_outside_rows": 7151,
+      "any_feature_outside_fraction": 0.874633072407045
+    },
+    {
+      "crop": "mai",
+      "esm": "MPI-ESM1-2-HR",
+      "scenario": "ssp585",
+      "future_rows": 14000,
+      "future_cells": 500,
+      "features": {
+        "log1p_precip_mm": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 690,
+          "above_range_rows": 213,
+          "outside_range_fraction": 0.11044520547945205
+        },
+        "stage1_precip_share": {
+          "evaluated_rows": 8174,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 3,
+          "below_range_rows": 419,
+          "above_range_rows": 420,
+          "outside_range_fraction": 0.10264252507952043
+        },
+        "stage2_precip_share": {
+          "evaluated_rows": 8174,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 3,
+          "below_range_rows": 478,
+          "above_range_rows": 396,
+          "outside_range_fraction": 0.10692439442133594
+        },
+        "cdd_max_days": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 56,
+          "above_range_rows": 764,
+          "outside_range_fraction": 0.10029354207436399
+        },
+        "rx5day_mm": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 357,
+          "above_range_rows": 440,
+          "outside_range_fraction": 0.09748043052837574
+        },
+        "precipitation_concentration_hhi": {
+          "evaluated_rows": 8174,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 3,
+          "below_range_rows": 274,
+          "above_range_rows": 567,
+          "outside_range_fraction": 0.10288720332762417
+        },
+        "stage3_precip_share": {
+          "evaluated_rows": 8174,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 3,
+          "below_range_rows": 448,
+          "above_range_rows": 414,
+          "outside_range_fraction": 0.10545632493271348
+        },
+        "precip_mm": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 688,
+          "above_range_rows": 214,
+          "outside_range_fraction": 0.11032289628180039
+        },
+        "stage1_tmean_c": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 29,
+          "above_range_rows": 2464,
+          "outside_range_fraction": 0.30491682974559686
+        },
+        "stage2_tmean_c": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 1,
+          "above_range_rows": 4684,
+          "outside_range_fraction": 0.5730185909980431
+        },
+        "stage3_tmean_c": {
+          "evaluated_rows": 8176,
+          "range_unavailable_rows": 5824,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 1,
+          "above_range_rows": 4976,
+          "outside_range_fraction": 0.6087328767123288
+        }
+      },
+      "common_evaluable_rows": 8174,
+      "any_feature_outside_rows": 7197,
+      "any_feature_outside_fraction": 0.8804746758013212
+    },
+    {
+      "crop": "soy",
+      "esm": "GFDL-ESM4",
+      "scenario": "ssp126",
+      "future_rows": 9156,
+      "future_cells": 327,
+      "features": {
+        "log1p_precip_mm": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 134,
+          "above_range_rows": 290,
+          "outside_range_fraction": 0.10162991371045062
+        },
+        "stage1_precip_share": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 92,
+          "above_range_rows": 132,
+          "outside_range_fraction": 0.053691275167785234
+        },
+        "stage2_precip_share": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 178,
+          "above_range_rows": 154,
+          "outside_range_fraction": 0.07957813998082454
+        },
+        "cdd_max_days": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 51,
+          "above_range_rows": 168,
+          "outside_range_fraction": 0.0524928092042186
+        },
+        "rx5day_mm": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 55,
+          "above_range_rows": 482,
+          "outside_range_fraction": 0.12871524448705657
+        },
+        "precipitation_concentration_hhi": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 146,
+          "above_range_rows": 163,
+          "outside_range_fraction": 0.07406519654841802
+        },
+        "stage3_precip_share": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 246,
+          "above_range_rows": 149,
+          "outside_range_fraction": 0.09467881112176414
+        },
+        "precip_mm": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 133,
+          "above_range_rows": 289,
+          "outside_range_fraction": 0.10115052732502397
+        },
+        "stage1_tmean_c": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 0,
+          "above_range_rows": 898,
+          "outside_range_fraction": 0.2152444870565676
+        },
+        "stage2_tmean_c": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 3,
+          "above_range_rows": 1256,
+          "outside_range_fraction": 0.3017737296260786
+        },
+        "stage3_tmean_c": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 21,
+          "above_range_rows": 1245,
+          "outside_range_fraction": 0.3034515819750719
+        }
+      },
+      "common_evaluable_rows": 4172,
+      "any_feature_outside_rows": 3060,
+      "any_feature_outside_fraction": 0.7334611697027804
+    },
+    {
+      "crop": "soy",
+      "esm": "GFDL-ESM4",
+      "scenario": "ssp370",
+      "future_rows": 9156,
+      "future_cells": 327,
+      "features": {
+        "log1p_precip_mm": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 133,
+          "above_range_rows": 85,
+          "outside_range_fraction": 0.05225311601150527
+        },
+        "stage1_precip_share": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 1,
+          "below_range_rows": 177,
+          "above_range_rows": 132,
+          "outside_range_fraction": 0.07406519654841802
+        },
+        "stage2_precip_share": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 1,
+          "below_range_rows": 202,
+          "above_range_rows": 261,
+          "outside_range_fraction": 0.11097794822627037
+        },
+        "cdd_max_days": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 24,
+          "above_range_rows": 238,
+          "outside_range_fraction": 0.06279961649089166
+        },
+        "rx5day_mm": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 84,
+          "above_range_rows": 333,
+          "outside_range_fraction": 0.09995206136145733
+        },
+        "precipitation_concentration_hhi": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 1,
+          "below_range_rows": 125,
+          "above_range_rows": 288,
+          "outside_range_fraction": 0.09899328859060402
+        },
+        "stage3_precip_share": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 1,
+          "below_range_rows": 209,
+          "above_range_rows": 187,
+          "outside_range_fraction": 0.09491850431447747
+        },
+        "precip_mm": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 133,
+          "above_range_rows": 85,
+          "outside_range_fraction": 0.05225311601150527
+        },
+        "stage1_tmean_c": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 0,
+          "above_range_rows": 1341,
+          "outside_range_fraction": 0.32142857142857145
+        },
+        "stage2_tmean_c": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 0,
+          "above_range_rows": 1889,
+          "outside_range_fraction": 0.4527804410354746
+        },
+        "stage3_tmean_c": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 2,
+          "above_range_rows": 1764,
+          "outside_range_fraction": 0.4232981783317354
+        }
+      },
+      "common_evaluable_rows": 4172,
+      "any_feature_outside_rows": 3264,
+      "any_feature_outside_fraction": 0.7823585810162992
+    },
+    {
+      "crop": "soy",
+      "esm": "GFDL-ESM4",
+      "scenario": "ssp585",
+      "future_rows": 9156,
+      "future_cells": 327,
+      "features": {
+        "log1p_precip_mm": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 297,
+          "above_range_rows": 74,
+          "outside_range_fraction": 0.08892617449664429
+        },
+        "stage1_precip_share": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 72,
+          "above_range_rows": 131,
+          "outside_range_fraction": 0.04865771812080537
+        },
+        "stage2_precip_share": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 261,
+          "above_range_rows": 274,
+          "outside_range_fraction": 0.1282358581016299
+        },
+        "cdd_max_days": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 36,
+          "above_range_rows": 252,
+          "outside_range_fraction": 0.06903163950143816
+        },
+        "rx5day_mm": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 150,
+          "above_range_rows": 324,
+          "outside_range_fraction": 0.11361457334611696
+        },
+        "precipitation_concentration_hhi": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 126,
+          "above_range_rows": 269,
+          "outside_range_fraction": 0.09467881112176414
+        },
+        "stage3_precip_share": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 227,
+          "above_range_rows": 193,
+          "outside_range_fraction": 0.10067114093959731
+        },
+        "precip_mm": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 296,
+          "above_range_rows": 74,
+          "outside_range_fraction": 0.08868648130393098
+        },
+        "stage1_tmean_c": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 0,
+          "above_range_rows": 1601,
+          "outside_range_fraction": 0.38374880153403645
+        },
+        "stage2_tmean_c": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 0,
+          "above_range_rows": 2416,
+          "outside_range_fraction": 0.5790987535953979
+        },
+        "stage3_tmean_c": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 9,
+          "above_range_rows": 1785,
+          "outside_range_fraction": 0.43000958772770853
+        }
+      },
+      "common_evaluable_rows": 4172,
+      "any_feature_outside_rows": 3676,
+      "any_feature_outside_fraction": 0.8811121764141898
+    },
+    {
+      "crop": "soy",
+      "esm": "IPSL-CM6A-LR",
+      "scenario": "ssp126",
+      "future_rows": 9156,
+      "future_cells": 327,
+      "features": {
+        "log1p_precip_mm": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 29,
+          "above_range_rows": 143,
+          "outside_range_fraction": 0.04122722914669223
+        },
+        "stage1_precip_share": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 72,
+          "above_range_rows": 99,
+          "outside_range_fraction": 0.04098753595397891
+        },
+        "stage2_precip_share": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 123,
+          "above_range_rows": 208,
+          "outside_range_fraction": 0.07933844678811122
+        },
+        "cdd_max_days": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 88,
+          "above_range_rows": 105,
+          "outside_range_fraction": 0.0462607861936721
+        },
+        "rx5day_mm": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 73,
+          "above_range_rows": 215,
+          "outside_range_fraction": 0.06903163950143816
+        },
+        "precipitation_concentration_hhi": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 142,
+          "above_range_rows": 194,
+          "outside_range_fraction": 0.08053691275167785
+        },
+        "stage3_precip_share": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 154,
+          "above_range_rows": 83,
+          "outside_range_fraction": 0.05680728667305848
+        },
+        "precip_mm": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 29,
+          "above_range_rows": 143,
+          "outside_range_fraction": 0.04122722914669223
+        },
+        "stage1_tmean_c": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 0,
+          "above_range_rows": 1485,
+          "outside_range_fraction": 0.3559443911792905
+        },
+        "stage2_tmean_c": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 0,
+          "above_range_rows": 1803,
+          "outside_range_fraction": 0.43216682646212845
+        },
+        "stage3_tmean_c": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 0,
+          "above_range_rows": 1806,
+          "outside_range_fraction": 0.43288590604026844
+        }
+      },
+      "common_evaluable_rows": 4172,
+      "any_feature_outside_rows": 3243,
+      "any_feature_outside_fraction": 0.7773250239693192
+    },
+    {
+      "crop": "soy",
+      "esm": "IPSL-CM6A-LR",
+      "scenario": "ssp370",
+      "future_rows": 9156,
+      "future_cells": 327,
+      "features": {
+        "log1p_precip_mm": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 68,
+          "above_range_rows": 153,
+          "outside_range_fraction": 0.052972195589645256
+        },
+        "stage1_precip_share": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 62,
+          "above_range_rows": 39,
+          "outside_range_fraction": 0.024209012464046022
+        },
+        "stage2_precip_share": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 60,
+          "above_range_rows": 153,
+          "outside_range_fraction": 0.05105465004793864
+        },
+        "cdd_max_days": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 88,
+          "above_range_rows": 113,
+          "outside_range_fraction": 0.048178331735378714
+        },
+        "rx5day_mm": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 86,
+          "above_range_rows": 247,
+          "outside_range_fraction": 0.07981783317353787
+        },
+        "precipitation_concentration_hhi": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 125,
+          "above_range_rows": 133,
+          "outside_range_fraction": 0.06184084372003835
+        },
+        "stage3_precip_share": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 143,
+          "above_range_rows": 55,
+          "outside_range_fraction": 0.047459252157238736
+        },
+        "precip_mm": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 68,
+          "above_range_rows": 153,
+          "outside_range_fraction": 0.052972195589645256
+        },
+        "stage1_tmean_c": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 0,
+          "above_range_rows": 2184,
+          "outside_range_fraction": 0.5234899328859061
+        },
+        "stage2_tmean_c": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 0,
+          "above_range_rows": 2339,
+          "outside_range_fraction": 0.5606423777564717
+        },
+        "stage3_tmean_c": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 0,
+          "above_range_rows": 2731,
+          "outside_range_fraction": 0.6546021093000959
+        }
+      },
+      "common_evaluable_rows": 4172,
+      "any_feature_outside_rows": 3662,
+      "any_feature_outside_fraction": 0.8777564717162033
+    },
+    {
+      "crop": "soy",
+      "esm": "IPSL-CM6A-LR",
+      "scenario": "ssp585",
+      "future_rows": 9156,
+      "future_cells": 327,
+      "features": {
+        "log1p_precip_mm": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 63,
+          "above_range_rows": 156,
+          "outside_range_fraction": 0.0524928092042186
+        },
+        "stage1_precip_share": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 55,
+          "above_range_rows": 77,
+          "outside_range_fraction": 0.031639501438159155
+        },
+        "stage2_precip_share": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 129,
+          "above_range_rows": 183,
+          "outside_range_fraction": 0.07478427612655801
+        },
+        "cdd_max_days": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 67,
+          "above_range_rows": 95,
+          "outside_range_fraction": 0.03883029721955897
+        },
+        "rx5day_mm": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 110,
+          "above_range_rows": 223,
+          "outside_range_fraction": 0.07981783317353787
+        },
+        "precipitation_concentration_hhi": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 145,
+          "above_range_rows": 170,
+          "outside_range_fraction": 0.07550335570469799
+        },
+        "stage3_precip_share": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 139,
+          "above_range_rows": 97,
+          "outside_range_fraction": 0.05656759348034516
+        },
+        "precip_mm": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 63,
+          "above_range_rows": 157,
+          "outside_range_fraction": 0.052732502396931925
+        },
+        "stage1_tmean_c": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 0,
+          "above_range_rows": 2293,
+          "outside_range_fraction": 0.5496164908916586
+        },
+        "stage2_tmean_c": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 0,
+          "above_range_rows": 2759,
+          "outside_range_fraction": 0.661313518696069
+        },
+        "stage3_tmean_c": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 0,
+          "above_range_rows": 3027,
+          "outside_range_fraction": 0.7255512943432406
+        }
+      },
+      "common_evaluable_rows": 4172,
+      "any_feature_outside_rows": 3741,
+      "any_feature_outside_fraction": 0.8966922339405561
+    },
+    {
+      "crop": "soy",
+      "esm": "MPI-ESM1-2-HR",
+      "scenario": "ssp126",
+      "future_rows": 9156,
+      "future_cells": 327,
+      "features": {
+        "log1p_precip_mm": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 210,
+          "above_range_rows": 116,
+          "outside_range_fraction": 0.07813998082454458
+        },
+        "stage1_precip_share": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 71,
+          "above_range_rows": 150,
+          "outside_range_fraction": 0.052972195589645256
+        },
+        "stage2_precip_share": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 243,
+          "above_range_rows": 187,
+          "outside_range_fraction": 0.10306807286673059
+        },
+        "cdd_max_days": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 51,
+          "above_range_rows": 364,
+          "outside_range_fraction": 0.09947267497603068
+        },
+        "rx5day_mm": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 80,
+          "above_range_rows": 177,
+          "outside_range_fraction": 0.061601150527325024
+        },
+        "precipitation_concentration_hhi": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 126,
+          "above_range_rows": 229,
+          "outside_range_fraction": 0.08509108341323106
+        },
+        "stage3_precip_share": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 297,
+          "above_range_rows": 173,
+          "outside_range_fraction": 0.11265580057526366
+        },
+        "precip_mm": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 209,
+          "above_range_rows": 116,
+          "outside_range_fraction": 0.07790028763183125
+        },
+        "stage1_tmean_c": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 97,
+          "above_range_rows": 870,
+          "outside_range_fraction": 0.23178331735378715
+        },
+        "stage2_tmean_c": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 0,
+          "above_range_rows": 1264,
+          "outside_range_fraction": 0.3029721955896453
+        },
+        "stage3_tmean_c": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 6,
+          "above_range_rows": 1301,
+          "outside_range_fraction": 0.3132790028763183
+        }
+      },
+      "common_evaluable_rows": 4172,
+      "any_feature_outside_rows": 2884,
+      "any_feature_outside_fraction": 0.6912751677852349
+    },
+    {
+      "crop": "soy",
+      "esm": "MPI-ESM1-2-HR",
+      "scenario": "ssp370",
+      "future_rows": 9156,
+      "future_cells": 327,
+      "features": {
+        "log1p_precip_mm": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 299,
+          "above_range_rows": 58,
+          "outside_range_fraction": 0.08557046979865772
+        },
+        "stage1_precip_share": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 105,
+          "above_range_rows": 197,
+          "outside_range_fraction": 0.07238734419942473
+        },
+        "stage2_precip_share": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 254,
+          "above_range_rows": 260,
+          "outside_range_fraction": 0.12320230105465005
+        },
+        "cdd_max_days": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 23,
+          "above_range_rows": 527,
+          "outside_range_fraction": 0.1318312559923298
+        },
+        "rx5day_mm": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 168,
+          "above_range_rows": 157,
+          "outside_range_fraction": 0.07790028763183125
+        },
+        "precipitation_concentration_hhi": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 155,
+          "above_range_rows": 336,
+          "outside_range_fraction": 0.11768935762224353
+        },
+        "stage3_precip_share": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 375,
+          "above_range_rows": 141,
+          "outside_range_fraction": 0.1236816874400767
+        },
+        "precip_mm": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 299,
+          "above_range_rows": 58,
+          "outside_range_fraction": 0.08557046979865772
+        },
+        "stage1_tmean_c": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 9,
+          "above_range_rows": 997,
+          "outside_range_fraction": 0.2411313518696069
+        },
+        "stage2_tmean_c": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 5,
+          "above_range_rows": 2276,
+          "outside_range_fraction": 0.5467401725790988
+        },
+        "stage3_tmean_c": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 1,
+          "above_range_rows": 2034,
+          "outside_range_fraction": 0.4877756471716203
+        }
+      },
+      "common_evaluable_rows": 4172,
+      "any_feature_outside_rows": 3456,
+      "any_feature_outside_fraction": 0.8283796740172579
+    },
+    {
+      "crop": "soy",
+      "esm": "MPI-ESM1-2-HR",
+      "scenario": "ssp585",
+      "future_rows": 9156,
+      "future_cells": 327,
+      "features": {
+        "log1p_precip_mm": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 227,
+          "above_range_rows": 72,
+          "outside_range_fraction": 0.07166826462128476
+        },
+        "stage1_precip_share": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 165,
+          "above_range_rows": 180,
+          "outside_range_fraction": 0.0826941514860978
+        },
+        "stage2_precip_share": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 178,
+          "above_range_rows": 270,
+          "outside_range_fraction": 0.10738255033557047
+        },
+        "cdd_max_days": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 16,
+          "above_range_rows": 421,
+          "outside_range_fraction": 0.10474592521572387
+        },
+        "rx5day_mm": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 106,
+          "above_range_rows": 230,
+          "outside_range_fraction": 0.08053691275167785
+        },
+        "precipitation_concentration_hhi": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 105,
+          "above_range_rows": 359,
+          "outside_range_fraction": 0.1112176414189837
+        },
+        "stage3_precip_share": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 378,
+          "above_range_rows": 154,
+          "outside_range_fraction": 0.12751677852348994
+        },
+        "precip_mm": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 227,
+          "above_range_rows": 72,
+          "outside_range_fraction": 0.07166826462128476
+        },
+        "stage1_tmean_c": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 0,
+          "above_range_rows": 1150,
+          "outside_range_fraction": 0.275647171620326
+        },
+        "stage2_tmean_c": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 0,
+          "above_range_rows": 1918,
+          "outside_range_fraction": 0.4597315436241611
+        },
+        "stage3_tmean_c": {
+          "evaluated_rows": 4172,
+          "range_unavailable_rows": 4984,
+          "undefined_future_shape_rows": 0,
+          "below_range_rows": 0,
+          "above_range_rows": 2051,
+          "outside_range_fraction": 0.49161073825503354
+        }
+      },
+      "common_evaluable_rows": 4172,
+      "any_feature_outside_rows": 3466,
+      "any_feature_outside_fraction": 0.8307766059443912
+    }
+  ]
+}

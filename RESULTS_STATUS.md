@@ -3,6 +3,15 @@
 Updated: 2026-09-07. This file records completed computational milestones; it
 does not report final response estimates or SCC values.
 
+Latest substantive continuation:18future fixed-MIRCA nonlinear climate-basis
+tables constructed,208,404rows across maize/soybean and a balanced three-ESM,
+three-scenario pilot. Six new synthetic tests pass. The ensuing historical
+range comparison shows substantial stage-temperature extrapolation and
+missing historical coverage, not projected crop losses. Both jobs completed
+below510MiB sampled RSS with less than19MiB derived-data storage. See
+`FUTURE_WEIGHTED_PRECIPITATION_RESULTS_20260907.md`. No response or SCC gate
+is promoted; aligned future Tmax remains missing.
+
 Latest data-access milestone: the official ISIMIP server completed one daily
 Tmax latitude-band cutout, with12,891,438bytes reported by HEAD instead of the
 2,064,668,768byte global parent. No climate bytes were downloaded locally.
