@@ -1,5 +1,29 @@
 # Methods Supporting Information
 
+## September 7 exploratory global association supplement
+
+`GLOBAL_HISTORICAL_ASSOCIATION_PROTOCOL_20260907.md` defines a separate
+descriptive extension; it does not release predictive coefficients for SCC.
+The estimator streams the same source-hash-verified common-support tables,
+retains consecutive log-yield differences ending in 1983–2010, and compares
+four separate moisture families under quadratic time controls and annual
+intercepts. Six stage temperature/heat terms are common to every fit.
+For each 10- or 20-degree spatial cluster, it accumulates X'X and X'y, solves
+the scale-normalized pooled system, then computes cluster scores
+X_g'y_g − X_g'X_g beta. CR1 covariance multiplies the sandwich by
+G/(G−1) × (N−1)/(N−K). Partial log contrasts c'beta use variance c'Vc;
+normal intervals are transformed monotonically by 100 × (exp(x)−1).
+The two block definitions alter covariance, not fitted point contrasts.
+
+This construction preserves basis-before-irrigation-weighting and does not
+duplicate GDHY outcomes. It uses neither terminal test outcomes nor spatial
+holdout scores for model selection. Full definitions, all 32 covariance
+records, sample counts, limitations, run resources and reproducibility paths
+are in `GLOBAL_HISTORICAL_ASSOCIATION_RESULTS_20260907.md`. Tests compare
+sufficient-statistic algebra with direct synthetic OLS/cluster covariance,
+reject rank failures and terminal-year inputs, and verify contrast design.
+No future response bundle or monetary result is emitted.
+
 ## S1. Reproducibility scope
 
 This document specifies a reproducible replacement for the temperature-indexed

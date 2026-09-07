@@ -1,5 +1,26 @@
 # Precipitation patterns, global agricultural damages, and the social cost of carbon
 
+## September 7 global historical association estimates
+
+Separate exploratory training-period regressions now quantify moisture–yield
+associations, alongside—not in place of—the predictive tests below. With
+annual intercepts, the maize fitted contrast for +0.1 in the fixed-weight
+log-rain index is +0.658% [0.285, 1.032], versus +0.420% [-0.041, 0.884]
+for soybean, using conditional normal intervals clustered in 20-degree
+blocks. The index contrast is not exactly a 10% rainfall increase. Seasonal
+scPDSI +1 contrasts are +1.389% [0.449, 2.338] and +0.648%
+[-0.005, 1.305], respectively. Soybean results attenuate with unrestricted
+annual shocks relative to quadratic time controls. These are historical,
+equal-grid-pair partial associations, not causal effects, rainfed-only
+responses, or future climate damages. All specifications, exact definitions,
+sample limits and numerical checks are in
+`GLOBAL_HISTORICAL_ASSOCIATION_RESULTS_20260907.md`.
+
+The yield-to-welfare link remains uncalibrated. The newly documented
+published partial-equilibrium candidate offers a route to examine without
+inventing a new welfare emulator; it is not a completed economic model.
+See `PUBLISHED_WELFARE_ROUTE_ASSESSMENT_20260907.md`.
+
 ## September 7 geographic robustness audit
 
 The preregistered continuous-panel follow-up excludes each held-out 10-degree

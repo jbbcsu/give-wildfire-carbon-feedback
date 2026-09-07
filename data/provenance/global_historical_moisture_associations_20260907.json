@@ -1,0 +1,700 @@
+{
+  "role": "exploratory_historical_partial_associations",
+  "causal_or_scc_result": false,
+  "production_response_export": false,
+  "interval_kind": "normal_CR1_conditional_spatial_block_sensitivity",
+  "protocol_sha256": "d1edbd41df5c2cbe71b5b3a1e9c970c3654ca8569729274a1fcf4f69332cffbf",
+  "code_sha256": "fae0dc0af458eecb113279f2aaa23a128058cfd1e6a2acfe13f9cefccfe91907",
+  "helper_sha256": "56036d47240ea8e2b8be0e42b9c5c2e70f1724552cc116e630b08f54fc91eb17",
+  "input_registry_sha256": "43db7061f04a0d0289e6f4f545fef5e9cf5a0d3b13ad5b5196664d8e5c3d3769",
+  "crops": {
+    "maize": {
+      "input_hashes": {
+        "direct": {
+          "receipt_sha256": "e287bda7f42b99ab7a28e16846c3b47affc3549dd78561cdbc583b6b247d2972",
+          "data_sha256": "6be40f66363a2de8840ace25b2e80817fece1598cad2682e42e22ee6075b8ed3"
+        },
+        "heat": {
+          "receipt_sha256": "a58623c87faec1901ba727f9bf02a3e6345de7db3c0377390642a8f4c2cada5a",
+          "data_sha256": "bc312795def993bc7c769f2378046074684a7de294b737b80db85bc4ae2166f1"
+        },
+        "scpdsi": {
+          "receipt_sha256": "1ebbcb6656ebcbf56ce3fb846a0351b5844b206596ee9048de44f4e8178617fc",
+          "data_sha256": "d7f81a99a1fe1ed84aa947843a3eb8b26a31bfb1388927c242a401ab4d154fce"
+        }
+      },
+      "bands": [
+        {
+          "lat_min": -50,
+          "pairs": 84
+        },
+        {
+          "lat_min": -40,
+          "pairs": 17964
+        },
+        {
+          "lat_min": -30,
+          "pairs": 37583
+        },
+        {
+          "lat_min": -20,
+          "pairs": 53482
+        },
+        {
+          "lat_min": -10,
+          "pairs": 33222
+        },
+        {
+          "lat_min": 0,
+          "pairs": 49389
+        },
+        {
+          "lat_min": 10,
+          "pairs": 38149
+        },
+        {
+          "lat_min": 20,
+          "pairs": 32334
+        },
+        {
+          "lat_min": 30,
+          "pairs": 69546
+        },
+        {
+          "lat_min": 40,
+          "pairs": 72022
+        },
+        {
+          "lat_min": 50,
+          "pairs": 896
+        }
+      ],
+      "fits": [
+        {
+          "time_controls": "quadratic_year",
+          "moisture_family": "quantity",
+          "cluster_width_degrees": 10,
+          "status": "completed",
+          "pairs": 404671,
+          "parameters": 10,
+          "clusters": 127,
+          "scaled_gram_condition": 15.536107686641923,
+          "contrasts": {
+            "rain_index_plus_0.1": {
+              "log_yield_contrast": 0.006783701239541317,
+              "cluster_standard_error": 0.0014136338858743642,
+              "log_yield_interval": [
+                0.004012978823227563,
+                0.009554423655855071
+              ],
+              "fitted_percent_contrast": 0.6806762658561315,
+              "fitted_percent_interval": [
+                0.4021041604394377,
+                0.9600212875235872
+              ]
+            }
+          }
+        },
+        {
+          "time_controls": "quadratic_year",
+          "moisture_family": "quantity",
+          "cluster_width_degrees": 20,
+          "status": "completed",
+          "pairs": 404671,
+          "parameters": 10,
+          "clusters": 47,
+          "scaled_gram_condition": 15.53610768664183,
+          "contrasts": {
+            "rain_index_plus_0.1": {
+              "log_yield_contrast": 0.006783701239541297,
+              "cluster_standard_error": 0.0019049411832520436,
+              "log_yield_interval": [
+                0.003050016520367292,
+                0.010517385958715302
+              ],
+              "fitted_percent_contrast": 0.6806762658561295,
+              "fitted_percent_interval": [
+                0.3054672553210189,
+                1.0572888070804336
+              ]
+            }
+          }
+        },
+        {
+          "time_controls": "quadratic_year",
+          "moisture_family": "quantity_distribution",
+          "cluster_width_degrees": 10,
+          "status": "completed",
+          "pairs": 404671,
+          "parameters": 15,
+          "clusters": 127,
+          "scaled_gram_condition": 16.471705305476434,
+          "contrasts": {
+            "rain_index_plus_0.1": {
+              "log_yield_contrast": 0.007660228295519872,
+              "cluster_standard_error": 0.0014878818425682317,
+              "log_yield_interval": [
+                0.004743979884086138,
+                0.010576476706953606
+              ],
+              "fitted_percent_contrast": 0.7689642903858436,
+              "fitted_percent_interval": [
+                0.4755250371931029,
+                1.0632605343261563
+              ]
+            },
+            "stage3_to_stage2_share_0.1": {
+              "log_yield_contrast": 0.010062186324350044,
+              "cluster_standard_error": 0.0023710271274545646,
+              "log_yield_interval": [
+                0.005414973154539098,
+                0.014709399494160991
+              ],
+              "fitted_percent_contrast": 1.0112980344510818,
+              "fitted_percent_interval": [
+                0.5429660620448593,
+                1.4818115103972196
+              ]
+            }
+          }
+        },
+        {
+          "time_controls": "quadratic_year",
+          "moisture_family": "quantity_distribution",
+          "cluster_width_degrees": 20,
+          "status": "completed",
+          "pairs": 404671,
+          "parameters": 15,
+          "clusters": 47,
+          "scaled_gram_condition": 16.471705305476277,
+          "contrasts": {
+            "rain_index_plus_0.1": {
+              "log_yield_contrast": 0.007660228295519854,
+              "cluster_standard_error": 0.0019551007485320046,
+              "log_yield_interval": [
+                0.003828230828397125,
+                0.011492225762642583
+              ],
+              "fitted_percent_contrast": 0.7689642903858418,
+              "fitted_percent_interval": [
+                0.383556786366879,
+                1.1558515083032694
+              ]
+            },
+            "stage3_to_stage2_share_0.1": {
+              "log_yield_contrast": 0.010062186324350068,
+              "cluster_standard_error": 0.0028405404588789387,
+              "log_yield_interval": [
+                0.0044947270249473485,
+                0.01562964562375279
+              ],
+              "fitted_percent_contrast": 1.0112980344510842,
+              "fitted_percent_interval": [
+                0.4504843461656701,
+                1.575242737932846
+              ]
+            }
+          }
+        },
+        {
+          "time_controls": "quadratic_year",
+          "moisture_family": "scpdsi_mean",
+          "cluster_width_degrees": 10,
+          "status": "completed",
+          "pairs": 404671,
+          "parameters": 10,
+          "clusters": 127,
+          "scaled_gram_condition": 15.676770707815384,
+          "contrasts": {
+            "scpdsi_plus_1": {
+              "log_yield_contrast": 0.014775493910742173,
+              "cluster_standard_error": 0.00360448268358995,
+              "log_yield_interval": [
+                0.007710707850905872,
+                0.021840279970578476
+              ],
+              "fitted_percent_contrast": 1.4885191131877054,
+              "fitted_percent_interval": [
+                0.7740511912910977,
+                2.2080524701381274
+              ]
+            }
+          }
+        },
+        {
+          "time_controls": "quadratic_year",
+          "moisture_family": "scpdsi_mean",
+          "cluster_width_degrees": 20,
+          "status": "completed",
+          "pairs": 404671,
+          "parameters": 10,
+          "clusters": 47,
+          "scaled_gram_condition": 15.676770707815344,
+          "contrasts": {
+            "scpdsi_plus_1": {
+              "log_yield_contrast": 0.014775493910742125,
+              "cluster_standard_error": 0.0048386137085057275,
+              "log_yield_interval": [
+                0.005291811042070899,
+                0.02425917677941335
+              ],
+              "fitted_percent_contrast": 1.4885191131877005,
+              "fitted_percent_interval": [
+                0.530583740482932,
+                2.4555824561492403
+              ]
+            }
+          }
+        },
+        {
+          "time_controls": "quadratic_year",
+          "moisture_family": "scpdsi_stages",
+          "cluster_width_degrees": 10,
+          "status": "completed",
+          "pairs": 404671,
+          "parameters": 12,
+          "clusters": 127,
+          "scaled_gram_condition": 45.30081653252413,
+          "contrasts": {
+            "all_stage_scpdsi_plus_1": {
+              "log_yield_contrast": 0.014462412957241072,
+              "cluster_standard_error": 0.003590992640634472,
+              "log_yield_interval": [
+                0.007424067381597507,
+                0.021500758532884637
+              ],
+              "fitted_percent_contrast": 1.4567499642715511,
+              "fitted_percent_interval": [
+                0.7451694095050143,
+                2.1733565355596713
+              ]
+            }
+          }
+        },
+        {
+          "time_controls": "quadratic_year",
+          "moisture_family": "scpdsi_stages",
+          "cluster_width_degrees": 20,
+          "status": "completed",
+          "pairs": 404671,
+          "parameters": 12,
+          "clusters": 47,
+          "scaled_gram_condition": 45.30081653252485,
+          "contrasts": {
+            "all_stage_scpdsi_plus_1": {
+              "log_yield_contrast": 0.014462412957241023,
+              "cluster_standard_error": 0.004808862468116681,
+              "log_yield_interval": [
+                0.005037042519732329,
+                0.023887783394749718
+              ],
+              "fitted_percent_contrast": 1.4567499642715465,
+              "fitted_percent_interval": [
+                0.5049749745057843,
+                2.4175381957337856
+              ]
+            }
+          }
+        },
+        {
+          "time_controls": "year_intercepts",
+          "moisture_family": "quantity",
+          "cluster_width_degrees": 10,
+          "status": "failed",
+          "reason": "divide by zero encountered in matmul"
+        },
+        {
+          "time_controls": "year_intercepts",
+          "moisture_family": "quantity",
+          "cluster_width_degrees": 20,
+          "status": "failed",
+          "reason": "divide by zero encountered in matmul"
+        },
+        {
+          "time_controls": "year_intercepts",
+          "moisture_family": "quantity_distribution",
+          "cluster_width_degrees": 10,
+          "status": "failed",
+          "reason": "divide by zero encountered in matmul"
+        },
+        {
+          "time_controls": "year_intercepts",
+          "moisture_family": "quantity_distribution",
+          "cluster_width_degrees": 20,
+          "status": "failed",
+          "reason": "divide by zero encountered in matmul"
+        },
+        {
+          "time_controls": "year_intercepts",
+          "moisture_family": "scpdsi_mean",
+          "cluster_width_degrees": 10,
+          "status": "failed",
+          "reason": "divide by zero encountered in matmul"
+        },
+        {
+          "time_controls": "year_intercepts",
+          "moisture_family": "scpdsi_mean",
+          "cluster_width_degrees": 20,
+          "status": "failed",
+          "reason": "divide by zero encountered in matmul"
+        },
+        {
+          "time_controls": "year_intercepts",
+          "moisture_family": "scpdsi_stages",
+          "cluster_width_degrees": 10,
+          "status": "failed",
+          "reason": "divide by zero encountered in matmul"
+        },
+        {
+          "time_controls": "year_intercepts",
+          "moisture_family": "scpdsi_stages",
+          "cluster_width_degrees": 20,
+          "status": "failed",
+          "reason": "divide by zero encountered in matmul"
+        }
+      ]
+    },
+    "soy": {
+      "input_hashes": {
+        "direct": {
+          "receipt_sha256": "50462d0e14e0e6a6972e088119552f370627e64d7cceeb0c11b845e5d6d908d0",
+          "data_sha256": "ce26936cd3d175c56c89333c9f5805e242b6a32961e41babe67e8f55117518dd"
+        },
+        "heat": {
+          "receipt_sha256": "6039edf8b2f14fd0ceb390cc9811a31bc186cbd33e4a1161fd12b5063fb2a2e8",
+          "data_sha256": "a949b4b1fa62708775fad10ba9f01105d5fe3e29dd5472d6792dea9b19a4c100"
+        },
+        "scpdsi": {
+          "receipt_sha256": "dacbef432471f4561db9b1a105d069c999e40a1d607d77862b1bceab33d7e31a",
+          "data_sha256": "e686440825910e4ef36f80677085561e70448993d6f8479b34cf1479f944cbc2"
+        }
+      },
+      "bands": [
+        {
+          "lat_min": -40,
+          "pairs": 12960
+        },
+        {
+          "lat_min": -30,
+          "pairs": 22706
+        },
+        {
+          "lat_min": -20,
+          "pairs": 16796
+        },
+        {
+          "lat_min": -10,
+          "pairs": 420
+        },
+        {
+          "lat_min": 0,
+          "pairs": 5346
+        },
+        {
+          "lat_min": 10,
+          "pairs": 4867
+        },
+        {
+          "lat_min": 20,
+          "pairs": 29359
+        },
+        {
+          "lat_min": 30,
+          "pairs": 37415
+        },
+        {
+          "lat_min": 40,
+          "pairs": 35405
+        },
+        {
+          "lat_min": 50,
+          "pairs": 1596
+        }
+      ],
+      "fits": [
+        {
+          "time_controls": "quadratic_year",
+          "moisture_family": "quantity",
+          "cluster_width_degrees": 10,
+          "status": "completed",
+          "pairs": 166870,
+          "parameters": 10,
+          "clusters": 56,
+          "scaled_gram_condition": 15.390114558886825,
+          "contrasts": {
+            "rain_index_plus_0.1": {
+              "log_yield_contrast": 0.005834879499895753,
+              "cluster_standard_error": 0.002210924458536157,
+              "log_yield_interval": [
+                0.0015014675611648848,
+                0.01016829143862662
+              ],
+              "fitted_percent_contrast": 0.5851935566512902,
+              "fitted_percent_interval": [
+                0.150259532794795,
+                1.0220164183998734
+              ]
+            }
+          }
+        },
+        {
+          "time_controls": "quadratic_year",
+          "moisture_family": "quantity",
+          "cluster_width_degrees": 20,
+          "status": "completed",
+          "pairs": 166870,
+          "parameters": 10,
+          "clusters": 28,
+          "scaled_gram_condition": 15.390114558886692,
+          "contrasts": {
+            "rain_index_plus_0.1": {
+              "log_yield_contrast": 0.005834879499895713,
+              "cluster_standard_error": 0.002339634007302606,
+              "log_yield_interval": [
+                0.001249196845582605,
+                0.01042056215420882
+              ],
+              "fitted_percent_contrast": 0.5851935566512861,
+              "fitted_percent_interval": [
+                0.12499774169573731,
+                1.047504529588151
+              ]
+            }
+          }
+        },
+        {
+          "time_controls": "quadratic_year",
+          "moisture_family": "quantity_distribution",
+          "cluster_width_degrees": 10,
+          "status": "completed",
+          "pairs": 166870,
+          "parameters": 15,
+          "clusters": 56,
+          "scaled_gram_condition": 16.58018524849069,
+          "contrasts": {
+            "rain_index_plus_0.1": {
+              "log_yield_contrast": 0.008717018613382066,
+              "cluster_standard_error": 0.0025696470936071346,
+              "log_yield_interval": [
+                0.003680510309912082,
+                0.01375352691685205
+              ],
+              "fitted_percent_contrast": 0.8755122456965905,
+              "fitted_percent_interval": [
+                0.3687291705095385,
+                1.3848541764895528
+              ]
+            },
+            "stage3_to_stage2_share_0.1": {
+              "log_yield_contrast": 0.013457732076987087,
+              "cluster_standard_error": 0.003195411330827725,
+              "log_yield_interval": [
+                0.007194725868564746,
+                0.019720738285409427
+              ],
+              "fitted_percent_contrast": 1.3548694946593904,
+              "fitted_percent_interval": [
+                0.7220670091928785,
+                1.9916476628884099
+              ]
+            }
+          }
+        },
+        {
+          "time_controls": "quadratic_year",
+          "moisture_family": "quantity_distribution",
+          "cluster_width_degrees": 20,
+          "status": "completed",
+          "pairs": 166870,
+          "parameters": 15,
+          "clusters": 28,
+          "scaled_gram_condition": 16.580185248490597,
+          "contrasts": {
+            "rain_index_plus_0.1": {
+              "log_yield_contrast": 0.008717018613382017,
+              "cluster_standard_error": 0.0028009060025598795,
+              "log_yield_interval": [
+                0.0032272428483646537,
+                0.01420679437839938
+              ],
+              "fitted_percent_contrast": 0.8755122456965856,
+              "fitted_percent_interval": [
+                0.3232456003096056,
+                1.4308190483849164
+              ]
+            },
+            "stage3_to_stage2_share_0.1": {
+              "log_yield_contrast": 0.013457732076987132,
+              "cluster_standard_error": 0.004471333693485485,
+              "log_yield_interval": [
+                0.004693918037755582,
+                0.022221546116218682
+              ],
+              "fitted_percent_contrast": 1.354869494659395,
+              "fitted_percent_interval": [
+                0.47049517280190856,
+                2.2470283699802214
+              ]
+            }
+          }
+        },
+        {
+          "time_controls": "quadratic_year",
+          "moisture_family": "scpdsi_mean",
+          "cluster_width_degrees": 10,
+          "status": "completed",
+          "pairs": 166870,
+          "parameters": 10,
+          "clusters": 56,
+          "scaled_gram_condition": 15.069931695922655,
+          "contrasts": {
+            "scpdsi_plus_1": {
+              "log_yield_contrast": 0.010071844705067294,
+              "cluster_standard_error": 0.003523065602862258,
+              "log_yield_interval": [
+                0.0031666361234572683,
+                0.01697705328667732
+              ],
+              "fitted_percent_contrast": 1.0122736447356424,
+              "fitted_percent_interval": [
+                0.3171655212103934,
+                1.7121982450909572
+              ]
+            }
+          }
+        },
+        {
+          "time_controls": "quadratic_year",
+          "moisture_family": "scpdsi_mean",
+          "cluster_width_degrees": 20,
+          "status": "completed",
+          "pairs": 166870,
+          "parameters": 10,
+          "clusters": 28,
+          "scaled_gram_condition": 15.069931695922604,
+          "contrasts": {
+            "scpdsi_plus_1": {
+              "log_yield_contrast": 0.010071844705067248,
+              "cluster_standard_error": 0.003916298455177714,
+              "log_yield_interval": [
+                0.0023958997329189295,
+                0.017747789677215565
+              ],
+              "fitted_percent_contrast": 1.0122736447356375,
+              "fitted_percent_interval": [
+                0.2398772194269059,
+                1.7906217556846435
+              ]
+            }
+          }
+        },
+        {
+          "time_controls": "quadratic_year",
+          "moisture_family": "scpdsi_stages",
+          "cluster_width_degrees": 10,
+          "status": "completed",
+          "pairs": 166870,
+          "parameters": 12,
+          "clusters": 56,
+          "scaled_gram_condition": 34.473321577513445,
+          "contrasts": {
+            "all_stage_scpdsi_plus_1": {
+              "log_yield_contrast": 0.009662414543847826,
+              "cluster_standard_error": 0.003606856886985851,
+              "log_yield_interval": [
+                0.002592975045355558,
+                0.016731854042340094
+              ],
+              "fitted_percent_contrast": 0.97092463859488,
+              "fitted_percent_interval": [
+                0.2596339712686109,
+                1.6872615482959263
+              ]
+            }
+          }
+        },
+        {
+          "time_controls": "quadratic_year",
+          "moisture_family": "scpdsi_stages",
+          "cluster_width_degrees": 20,
+          "status": "completed",
+          "pairs": 166870,
+          "parameters": 12,
+          "clusters": 28,
+          "scaled_gram_condition": 34.473321577513126,
+          "contrasts": {
+            "all_stage_scpdsi_plus_1": {
+              "log_yield_contrast": 0.00966241454384776,
+              "cluster_standard_error": 0.004018145928050893,
+              "log_yield_interval": [
+                0.001786848524868009,
+                0.01753798056282751
+              ],
+              "fitted_percent_contrast": 0.9709246385948734,
+              "fitted_percent_interval": [
+                0.17884458899682248,
+                1.7692673957290836
+              ]
+            }
+          }
+        },
+        {
+          "time_controls": "year_intercepts",
+          "moisture_family": "quantity",
+          "cluster_width_degrees": 10,
+          "status": "failed",
+          "reason": "divide by zero encountered in matmul"
+        },
+        {
+          "time_controls": "year_intercepts",
+          "moisture_family": "quantity",
+          "cluster_width_degrees": 20,
+          "status": "failed",
+          "reason": "divide by zero encountered in matmul"
+        },
+        {
+          "time_controls": "year_intercepts",
+          "moisture_family": "quantity_distribution",
+          "cluster_width_degrees": 10,
+          "status": "failed",
+          "reason": "divide by zero encountered in matmul"
+        },
+        {
+          "time_controls": "year_intercepts",
+          "moisture_family": "quantity_distribution",
+          "cluster_width_degrees": 20,
+          "status": "failed",
+          "reason": "divide by zero encountered in matmul"
+        },
+        {
+          "time_controls": "year_intercepts",
+          "moisture_family": "scpdsi_mean",
+          "cluster_width_degrees": 10,
+          "status": "failed",
+          "reason": "divide by zero encountered in matmul"
+        },
+        {
+          "time_controls": "year_intercepts",
+          "moisture_family": "scpdsi_mean",
+          "cluster_width_degrees": 20,
+          "status": "failed",
+          "reason": "divide by zero encountered in matmul"
+        },
+        {
+          "time_controls": "year_intercepts",
+          "moisture_family": "scpdsi_stages",
+          "cluster_width_degrees": 10,
+          "status": "failed",
+          "reason": "divide by zero encountered in matmul"
+        },
+        {
+          "time_controls": "year_intercepts",
+          "moisture_family": "scpdsi_stages",
+          "cluster_width_degrees": 20,
+          "status": "failed",
+          "reason": "divide by zero encountered in matmul"
+        }
+      ]
+    }
+  }
+}

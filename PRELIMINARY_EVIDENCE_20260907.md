@@ -7,6 +7,15 @@ the implications for SCC without double counting legacy agriculture.
 
 ## What the current estimates say
 
+**New global association fits are complete.** On the original 1983–2010
+training support, maize rainfall and scPDSI partial contrasts are positive;
+soybean quantity and drought intervals include zero after unrestricted annual
+controls under 20-degree block uncertainty. Positive timing associations do
+not reverse the weak/uncertain out-of-sample improvements. These are
+equal-grid-pair, aggregate-irrigation historical fits, not future-climate
+effects or global production-weighted gains. Exact contrasts, all 16 fits and
+two clustering variants: `GLOBAL_HISTORICAL_ASSOCIATION_RESULTS_20260907.md`.
+
 **Regional U.S. rainfall–yield associations persist after daily heat controls.**
 For reported non-irrigated corn, the illustrative fitted +100 mm seasonal-rain
 contrast near median rainfall is about +5.7% yield; for soybeans it is about
@@ -60,6 +69,12 @@ scenario route if it avoids an unnecessary emulator dependency, without
 weakening source, attribution or welfare requirements. Explicitly document
 the unrepresented crop/sector residual before replacing all GIVE agriculture.
 Do not add unrelated sectors or repeatedly rerun completed audit suites.
+
+The next distinct implementation step is the published partial-equilibrium
+welfare-route review in `PUBLISHED_WELFARE_ROUTE_ASSESSMENT_20260907.md`:
+read the detailed published equations and inspect replication components,
+then implement tested economic accounting without inventing calibration inputs.
+This proceeds independently of the unavailable daily-generator implementation.
 
 The active task now chains safe steps, with a five-minute in-task follow-up
 instead of the previous four-hour standalone schedule. One monitored job at

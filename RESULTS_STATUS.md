@@ -3,6 +3,15 @@
 Updated: 2026-09-07. This file records completed computational milestones; it
 does not report final response estimates or SCC values.
 
+New historical association milestone: 16 global maize/soy training-period
+fits completed, each with 10- and 20-degree cluster-covariance variants.
+All original training counts and current implementation hashes verify.
+Soybean quantity/drought intervals include zero with annual intercepts and
+20-degree blocks; no production response is promoted. See
+`GLOBAL_HISTORICAL_ASSOCIATION_RESULTS_20260907.md`. The next independent
+economic-link task is specified in
+`PUBLISHED_WELFARE_ROUTE_ASSESSMENT_20260907.md`; SCC remains unavailable.
+
 **Legacy-response notice.** Every real response metric generated before the
 2026-08-26 endpoint-disjoint purge and response-specification hash revision is
 stale. The historical values below are retained only to document pipeline
