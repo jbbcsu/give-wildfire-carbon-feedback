@@ -22,6 +22,15 @@ for the isolated Mimi component contract.  The literature-first recommendation
 and ML contingency are in [AGRICULTURE_RESEARCH.md](AGRICULTURE_RESEARCH.md).
 The climate-emulation literature and published-method reuse decision are in
 [CLIMATE_PRECIPITATION_EMULATOR_AUDIT.md](CLIMATE_PRECIPITATION_EMULATOR_AUDIT.md).
+The latest retained-panel check is the preregistered five-fold geographic and
+source-cluster audit in
+[GLOBAL_CONTINUOUS_GEOGRAPHIC_CLUSTER_RESULTS_20260907.md](GLOBAL_CONTINUOUS_GEOGRAPHIC_CLUSTER_RESULTS_20260907.md).
+It reproduces the September 6 temporal support but excludes each held-out
+10-degree source block from training. Rainfall-quantity improvements over heat
+controls and soybean distribution over quantity have descriptive block-
+bootstrap intervals that cross zero; historical scPDSI is worse than quantity
+for soybean under this audit. No model, response, damage, or SCC input is
+promoted.
 The reviewed USEPA annual pattern-scaling workflow is retained as a distinct
 external benchmark and FAIR--GCM pairing sensitivity in
 [EPA_PATTERN_SCALING_BENCHMARK.md](EPA_PATTERN_SCALING_BENCHMARK.md); it is not

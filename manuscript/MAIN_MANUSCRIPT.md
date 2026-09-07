@@ -1,5 +1,21 @@
 # Precipitation patterns, global agricultural damages, and the social cost of carbon
 
+## September 7 geographic robustness audit
+
+The preregistered continuous-panel follow-up excludes each held-out 10-degree
+source block from its fold's training sample while retaining the September 6
+temporal endpoints and exact common support. Rainfall quantity reduces pooled
+held-out RMSE by 0.001040 for maize and 0.000950 for soybean relative to heat
+controls, but paired 5,000-draw source-block intervals cross zero for both.
+Soybean quantity plus distribution similarly improves RMSE by 0.001012 versus
+quantity, with an interval that crosses zero. Historical scPDSI is
+descriptively worse than quantity for soybean under both seasonal and stage
+forms; maize scPDSI differences remain uncertain. These retrospective,
+equal-grid-pair diagnostics do not define a random population or resolve all
+spatial/GDHY dependence. No model is promoted and no response, future climate,
+damage, welfare, or SCC gate is opened. See
+`GLOBAL_CONTINUOUS_GEOGRAPHIC_CLUSTER_RESULTS_20260907.md`.
+
 ## September 6 continuous historical benchmark
 
 An exploratory retrospective temporal comparison now uses the continuous
@@ -12,7 +28,8 @@ beats quantity for either crop. These modest predictive gains differ from
 the U.S. rankings and do not establish climate-attributable damages. Counts
 of 57,767 maize and 26,004 soybean test pairs are not independent observation
 counts. See `GLOBAL_CONTINUOUS_TEMPORAL_RESULTS_20260906.md`; geographic
-validation, uncertainty, welfare and SCC remain unfinished.
+validation now has the limited descriptive audit above, while causal
+uncertainty, welfare, and SCC remain unfinished.
 
 ## September 5 predictive robustness qualification
 

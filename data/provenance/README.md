@@ -265,6 +265,21 @@ monthly-input hash. No synthetic fixture is persisted as climate output, no
 real climate value was created, and no generator, fit, FAIR, response, damage,
 welfare, or SCC gate was opened.
 
+`global_continuous_geographic_cluster_preregistration_20260907.json` binds the
+five outcome-blind geographic folds, exact parent support, fixed feature
+families, 10-degree source clusters, paired 5,000-draw bootstrap, input receipt
+hashes, coefficient suppression, and closed promotion/downstream gates before
+the empirical audit. `global_continuous_geographic_cluster_audit_20260907.json`
+contains only aggregate fold/pooled RMSE, source-block counts, and paired
+contrast intervals. `global_continuous_geographic_cluster_resource_20260907.json`
+records the 394,936,320-byte peak sampled RSS, sub-1 MiB output, below-floor
+large-work prohibition, and byte-identical rerun. The independent
+`global_continuous_geographic_cluster_validation_20260907.json` binds the
+result hash and verifies exact temporal support, folds, input hashes, condition
+numbers, output suppression, memory/result ceilings, and six tamper classes.
+No coefficient, significance claim, model promotion, response, future
+projection, FAIR, damage, welfare, or SCC use is authorized.
+
 `climate_daily_parameter_bundle_preregistration_20260907.json` binds the exact
 future parameter object, named Markov-occurrence and gamma-amount fields,
 component hashes, key, canonicalization, and output-linkage rules before the

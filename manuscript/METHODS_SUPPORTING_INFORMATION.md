@@ -67,6 +67,25 @@ See `GLOBAL_CONTINUOUS_TEMPORAL_PROTOCOL_20260906.md` and
 calibration makes this retrospective. No spatial inference or causal
 interpretation is authorized by this diagnostic.
 
+### September 7 geographic/source-cluster audit
+
+Before evaluation, we froze five outcome-blind folds defined from 10-degree
+latitude/longitude source blocks. Each fold is trained on 1983--2010
+consecutive differences outside its blocks and scored on 2012--2016
+differences inside them; 2011 endpoints remain purged, and terminal cells must
+have at least one earlier consecutive difference. The five feature
+specifications and exact three-family common support are unchanged. We read
+one derived Parquet file at a time in separate historical and terminal blocks,
+accumulate scale-normalized training cross-products, and suppress coefficients
+and row predictions. Paired 5,000-draw PCG64 resampling retains all losses
+within each selected 10-degree block and resamples blocks within folds. The
+resulting percentile ranges are descriptive uncertainty conditional on the
+five fixed fits, not causal confidence intervals or a full spatial-dependence
+model. The aggregate result is byte-reproducible and used 394,936,320 bytes
+peak sampled process-group RSS. See
+`GLOBAL_CONTINUOUS_GEOGRAPHIC_CLUSTER_PROTOCOL_20260907.md` and
+`scripts/global_continuous_geographic_cluster_audit.py`.
+
 ## S2. Data acquisition and provenance
 
 The outcome panel uses GDHY v1.2/v1.3 (Iizumi and Sakai, 2020), with the
