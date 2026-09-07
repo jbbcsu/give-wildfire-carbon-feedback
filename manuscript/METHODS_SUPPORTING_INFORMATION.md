@@ -1,5 +1,17 @@
 # Methods Supporting Information
 
+## Uncalibrated economic-accounting implementation
+
+The independent closed-market constant-elasticity accounting module in
+`src/constant_elasticity_market.py` has passed seven synthetic tests, including
+numerical integration and stable infinitesimal supply changes. It does not
+consume empirical yield responses or emissions. Definitions, independently
+derived equations, alternative yield-to-supply conventions and calibration
+gaps are specified in `WELFARE_ACCOUNTING_PROTOTYPE.md`. The exact published
+valuation equations have not yet been verified, and this is not a replication
+claim or a welfare/SCC result. No adaptation-cost or currency conversion is
+silently supplied, and GIVE's agriculture producer has not been changed.
+
 ## September 7 exploratory global association supplement
 
 `GLOBAL_HISTORICAL_ASSOCIATION_PROTOCOL_20260907.md` defines a separate

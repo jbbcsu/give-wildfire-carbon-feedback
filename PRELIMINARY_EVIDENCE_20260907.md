@@ -76,6 +76,14 @@ read the detailed published equations and inspect replication components,
 then implement tested economic accounting without inventing calibration inputs.
 This proceeds independently of the unavailable daily-generator implementation.
 
+Follow-up: the independent market-accounting core now passes seven synthetic
+tests, including stable tiny-increment surplus calculations. It is not
+calibrated, and no SCC gate is opened. Detailed supplement review is blocked
+by the web reader's 34.8 MB size limit and the local no-download rule below
+150 GiB; a bounded document exception or supplied readable copy would unblock
+that review. See `WELFARE_ACCOUNTING_PROTOTYPE.md`; do not repeat the same
+failed PDF searches on subsequent follow-ups.
+
 The active task now chains safe steps, with a five-minute in-task follow-up
 instead of the previous four-hour standalone schedule. One monitored job at
 a time; up to 4 GiB with current memory-pressure checks. Low-output existing-

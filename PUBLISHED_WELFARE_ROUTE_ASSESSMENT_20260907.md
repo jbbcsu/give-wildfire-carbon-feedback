@@ -1,5 +1,12 @@
 # Published welfare route: assessment and next implementation step
 
+Follow-up: an independent, uncalibrated closed-market accounting core and
+seven synthetic tests are now implemented. The supplement's 34.8 MB size
+exceeded the web reader limit; its exact equations remain unverified. A
+bounded public notebook inspection found calorie/GMST figure construction,
+not a verified monetary-valuation routine. See
+`WELFARE_ACCOUNTING_PROTOTYPE.md` for equations, limitations and the next step.
+
 ## What exists
 
 Moore et al. translate crop-productivity shocks through GTAP, including trade
