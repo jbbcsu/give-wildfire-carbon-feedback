@@ -1,6 +1,6 @@
 # Active continuation checkpoint
 
-Updated September 7, 2026 after the direct climate comparisons. The project
+Updated September 7, 2026 after U.S. curves and paired irrigation contrasts. The project
 is **not complete**. At this checkpoint all jobs listed below have finished;
 there is no deliberately detached analysis process. The active five-minute
 in-task continuation should resume substantive work, not report this status
@@ -26,32 +26,33 @@ another run. Chain successive bounded steps within an active turn.
 4. Independent constant-elasticity welfare-accounting core: seven synthetic
    tests pass, but no empirical calibration or exact published-equation
    replication. `WELFARE_ACCOUNTING_PROTOTYPE.md`.
+5. U.S. supported-range rainfall curves reproduce all 24 original fits exactly.
+   Twelve paired irrigation-practice difference fits recover all original slope
+   differences within 3.22e-15 and account for shared county/year errors.
+   Seven new synthetic tests pass. Three scientific figures were rendered and
+   visually inspected. Full results:
+   `us_county_validation/US_RAINFALL_CURVE_AND_IRRIGATION_RESULTS_20260907.md`.
+   Do not rerun these as unfinished. Raw/per-observation predictions were not
+   exported. Non-irrigated associations are stronger, but are not causal
+   irrigation benefits or adaptation values; within-county support is limited.
 
 ## Next useful executable step
 
-Prepare supported-range U.S. rainfall-response curves and finite rainfall
-contrasts from the **completed, unchanged daily-heat specifications**. This
-makes the preliminary estimates interpretable beyond a single +100 mm
-contrast at the median, without changing a model to improve its result.
+Advance the published market-elasticity route in
+`WELFARE_ELASTICITY_SOURCE_CHECKPOINT_20260907.md`. The Roberts–Schlenker AER
+publisher page is verified and has replication-package/appendix links. Follow
+those links with read-only web tools, inspect exact version, license, equations
+and parameter uncertainty, and evaluate compatibility with the independent
+constant-elasticity core. Do not use search-snippet numbers as calibration or
+assume a working paper matches the published version. The separate NBER
+summary returned403; do not repeat that failed request. This is an independent
+route while the Hultgren document exception remains pending. If a verified
+published equation/parameter mapping is available, implement a narrowly
+tested, clearly labeled sensitivity without consuming unvalidated yield
+shocks or promoting SCC. Otherwise record the exact remaining evidence gap.
 
-First inspect
-`us_county_validation/scripts/estimate_daily_heat_rainfall_associations.py`
-and `estimate_us_direct_practice_precipitation_association.py` in that same
-directory. The saved aggregate result has coefficient/SE/selected contrasts,
-not the full covariance matrix. Do not infer missing covariances from SEs.
-If needed, refit the frozen small panel only to export covariance/curve
-summaries, and require reproduction of all existing coefficients and SEs.
-Register curve support before calculation: observed per-crop/practice rainfall
-5th–95th percentiles, median reference, both quantity forms and all existing
-heat variants; no outcome-driven form selection. Report sample/irrigation
-coverage, hold other regressors fixed, and label intervals as conditional
-pointwise normal approximations, not simultaneous bands or causal effects.
-Test quadratic contrast algebra and covariance propagation independently.
-No new model search, holdout reuse for selection, downloads or presentation
-deck is needed. A clean scientific figure is useful if the supported-range
-curves and uncertainty checks succeed.
-
-Then continue the actual global response/attribution/welfare work. Do not
+In parallel with source review where safely possible, continue the actual
+global response/attribution/welfare work. Do not
 substitute a figure or another audit for those missing links. The future
 climate inventory now shows stage mean T in all 132 consumed longer-period
 source sets, but no daily Tmax threshold integrals in their stage schemas.

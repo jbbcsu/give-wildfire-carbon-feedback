@@ -1,5 +1,27 @@
 # Precipitation patterns, global agricultural damages, and the social cost of carbon
 
+## September 7 U.S. rainfall curves and irrigation-practice differences
+
+Supported-range summaries of the unchanged U.S. models show stronger rainfall
+associations for reported non-irrigated yields. In the quantity-only 29°C
+heat-control variant, moving from median to 10th-percentile rainfall gives
+exponentiated fitted log-yield contrasts of -12.88% [-14.66, -11.06] for non-irrigated
+corn and -10.18% [-12.16, -8.15] for non-irrigated soybean. Corresponding
+irrigated contrasts are -0.68% and -1.01%. These are selected regional samples
+(361 corn and 255 soybean counties), not national estimates. Only 49.6% of corn
+and 62.4% of soybean counties span both rainfall values in their observed ranges.
+
+Paired log-yield-difference regressions account for shared county/year errors
+and reproduce the difference between separate-practice coefficients. They
+show increases of 14.00% [11.51, 16.55] and 10.22% [7.76, 12.73] in the fitted
+irrigated/non-irrigated yield ratio for that dry contrast. These ratios are
+not percentage-point yield differences or causal irrigation benefits. All
+forms and thresholds are retained; the illustration does not select a new
+primary specification or overturn predictive nulls. Soil, management,
+selection and exposure differences remain, and no adaptation cost or SCC is
+estimated. Reproduction, figures and all sensitivity estimates are in
+`us_county_validation/US_RAINFALL_CURVE_AND_IRRIGATION_RESULTS_20260907.md`.
+
 ## September 7 direct climate-scenario pilot
 
 The longer-period extension uses 28 distinct harvest years (2032–2059) for

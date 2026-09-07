@@ -3,6 +3,13 @@
 Updated: 2026-09-07. This file records completed computational milestones; it
 does not report final response estimates or SCC values.
 
+Latest U.S. milestone: supported-range rainfall curves reproduce all 24 saved
+fits exactly; 12 paired irrigation-practice difference fits account for shared
+county/year errors. Non-irrigated dry-weather associations are substantially
+larger in these selected counties, but marginal within-county support is
+limited and irrigation effects remain noncausal. Seven new synthetic tests
+pass. See `us_county_validation/US_RAINFALL_CURVE_AND_IRRIGATION_RESULTS_20260907.md`.
+
 Latest climate milestone: 60 direct five-ESM scenario/period/subset comparisons
 completed on the retained two-latitude maize-calendar pilot. Late-century
 SSP5-8.5 minus SSP1-2.6 lengthens band-average maximum dry spells in all five

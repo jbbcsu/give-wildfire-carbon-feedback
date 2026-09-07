@@ -1,5 +1,30 @@
 # Methods Supporting Information
 
+## U.S. supported-range curves and paired practice contrasts
+
+The curve protocol freezes the existing 24 fits and exports the complete 2×2
+rainfall-coefficient covariance only after exact sample and coefficient/SE
+reproduction. With p=P/100 and median p0, the contrast vector is
+(p-p0, (p-p0)(p+p0)); its covariance quadratic form supplies the log-contrast
+SE. Values are transformed with100*expm1 and pointwise normal intervals.
+Curves span pooled 5th–95th rainfall percentiles with fixed median reference.
+Each point additionally records the share of counties whose observed min–max
+range contains both that point and the reference; this is not joint-support
+validation. No per-observation predictions or model selection are performed.
+
+The exploratory paired extension was registered after viewing separate curves,
+before estimating paired uncertainty. Exact county/year practice pairs and
+identical raw designs are required. Regressing log(Y_irrigated/Y_non_irrigated)
+on the same fixed effects/design yields the difference in original slopes;
+all 12 identities agree within 3.22e-15. County-cluster covariance comes from
+paired residuals, retaining their cross-practice dependence. Exponentiated
+contrasts describe changes in the fitted yield ratio, not causal effects of
+irrigation or adoption values. Both analyses preserve the existing conditional
+covariance convention and its limitations. Seven synthetic tests pass, including
+direct covariance algebra and pairing failures. Protocols, source hashes,
+complete results, figure reproduction and restrictions are documented in
+`us_county_validation/US_RAINFALL_CURVE_AND_IRRIGATION_RESULTS_20260907.md`.
+
 ## Direct climate-feature scenario comparison
 
 The longer-period extension in `CLIMATE_CONTIGUOUS_CONTRAST_PROTOCOL_20260907.md`

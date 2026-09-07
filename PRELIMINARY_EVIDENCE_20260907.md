@@ -58,6 +58,14 @@ See `GLOBAL_CONTINUOUS_GEOGRAPHIC_CLUSTER_RESULTS_20260907.md`.
 
 ## What is NOT estimated yet
 
+**The U.S. irrigation distinction is now quantified with paired uncertainty.**
+Supported-range curves and exact county/year practice-difference regressions
+show much stronger dry-weather associations for reported non-irrigated yields.
+All original model forms/heat variants are retained. This is not irrigation's
+causal benefit or an adaptation valuation, and many counties do not span both
+rainfall reference values. See
+`us_county_validation/US_RAINFALL_CURVE_AND_IRRIGATION_RESULTS_20260907.md`.
+
 **Limited future climate contrasts are now available.** Five ESMs, both
 rainfall totals and distribution, two eight-year periods, and three reporting
 subsets have been compared directly from retained features. The geographic

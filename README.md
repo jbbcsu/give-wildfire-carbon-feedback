@@ -8,6 +8,10 @@ they are intentionally not wired into the baseline model.
 
 ## Current boundary
 
+The [U.S. rainfall curves and paired irrigation-practice results](us_county_validation/US_RAINFALL_CURVE_AND_IRRIGATION_RESULTS_20260907.md)
+now quantify conditional dry-weather associations and their uncertainty,
+including within-county support limits. They are not causal irrigation benefits.
+
 September 7 direct climate results now include a
 [five-model short-period pilot](CLIMATE_SCENARIO_CONTRAST_RESULTS_20260907.md)
 and a [28-year multi-crop comparison](CLIMATE_CONTIGUOUS_CONTRAST_RESULTS_20260907.md).
