@@ -86,6 +86,18 @@ peak sampled process-group RSS. See
 `GLOBAL_CONTINUOUS_GEOGRAPHIC_CLUSTER_PROTOCOL_20260907.md` and
 `scripts/global_continuous_geographic_cluster_audit.py`.
 
+### September 7 U.S. daily heat-control construction
+
+A separate single-county/year pilot constructs daily Tmax exceedance in
+Celsius-days and above-threshold days at 29 and 30 C, applying thresholds
+cell-first before county-polygon weighting. All original stage Tmax means
+and stage/season totals reconcile. This closes the construction step only:
+existing fitted U.S. models still use stage-average controls until the new
+basis is expanded and validated on their full support. See
+`us_county_validation/US_DAILY_HEAT_PILOT_RESULTS_20260907.md` and
+`us_county_validation/scripts/build_daily_heat_pilot.py`. These are not
+hourly degree days, crop-pixel exposures or estimated damage responses.
+
 ## S2. Data acquisition and provenance
 
 The outcome panel uses GDHY v1.2/v1.3 (Iizumi and Sakai, 2020), with the
