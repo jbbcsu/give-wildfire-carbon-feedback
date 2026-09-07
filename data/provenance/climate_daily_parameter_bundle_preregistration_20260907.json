@@ -1,0 +1,63 @@
+{
+  "climate_payload_acquisition_authorized": false,
+  "config_sha256": "4e44035cdb9b84c5c5ed9d22b030e23a310aebb280f10d019dff22f6e671ea48",
+  "damage_or_scc_authorized": false,
+  "fair_feature_response_authorized": false,
+  "future_schema": "climate_daily_parameter_bundle_v1",
+  "generator_implementation_authorized": false,
+  "implementation_sha256": "5cd4c64eb3a4bfa98105627641cf8027d4d7cefd4fbc3152a40cd38fd232e670",
+  "output_schema_sha256": "eaa9387935e12e0e0f248cc624659d7b0ded3fd9ffc4c7d347d79e07576da9fa",
+  "parameter_key_fields": [
+    "climate_draw_id",
+    "esm_id",
+    "member_id",
+    "grid_id",
+    "calendar",
+    "year",
+    "month",
+    "pulse_scale_tonnes_c",
+    "path_role"
+  ],
+  "parameter_record_fields": [
+    "climate_draw_id",
+    "esm_id",
+    "member_id",
+    "grid_id",
+    "calendar",
+    "year",
+    "month",
+    "pulse_scale_tonnes_c",
+    "path_role",
+    "wet_probability_given_previous_dry",
+    "wet_probability_given_previous_wet",
+    "wet_amount_gamma_shape",
+    "wet_amount_gamma_scale_mm",
+    "spatial_dependence_parameter_sha256",
+    "temperature_precipitation_coupling_parameter_sha256",
+    "support_flag"
+  ],
+  "parent_interface_sha256": "2e5c4e57f33931f32bcde3c0bc0673c012820ccd4723ace28a8197a8333d8b39",
+  "probability_fields": [
+    "wet_probability_given_previous_dry",
+    "wet_probability_given_previous_wet"
+  ],
+  "response_estimation_authorized": false,
+  "schema": "climate_daily_parameter_bundle_preregistration_v1",
+  "sha256_fields": [
+    "spatial_dependence_parameter_sha256",
+    "temperature_precipitation_coupling_parameter_sha256"
+  ],
+  "status": "parameter_bundle_schema_preregistered_no_generator_or_real_parameters",
+  "strictly_positive_fields": [
+    "wet_amount_gamma_shape",
+    "wet_amount_gamma_scale_mm"
+  ],
+  "top_level_fields": [
+    "schema",
+    "generator_id",
+    "paper_doi",
+    "generator_code_identity",
+    "parameterization_id",
+    "records"
+  ]
+}

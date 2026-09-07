@@ -1,0 +1,71 @@
+schema = "climate_daily_parameter_bundle_contract_v1"
+role = "synthetic_only_canonical_named_parameter_boundary_for_future_kemsley_daily_pairs"
+registered_utc_date = "2026-09-07"
+parent_interface_path = "config/climate_daily_pair_interface_v1.toml"
+parent_interface_sha256 = "2e5c4e57f33931f32bcde3c0bc0673c012820ccd4723ace28a8197a8333d8b39"
+output_schema_path = "config/climate_daily_pair_output_schema_v1.toml"
+output_schema_sha256 = "eaa9387935e12e0e0f248cc624659d7b0ded3fd9ffc4c7d347d79e07576da9fa"
+daily_generator_id = "kemsley_markov_gamma"
+daily_generator_paper_doi = "10.1002/joc.8320"
+daily_generator_pinned_public_executable_source_available = false
+generator_implementation_authorized = false
+component_substitution_authorized = false
+software_acquisition_authorized = false
+climate_payload_acquisition_authorized = false
+emulator_fit_authorized = false
+fair_feature_response_authorized = false
+response_estimation_authorized = false
+damage_or_scc_authorized = false
+
+[bundle]
+future_schema = "climate_daily_parameter_bundle_v1"
+exact_top_level_fields = ["schema", "generator_id", "paper_doi", "generator_code_identity", "parameterization_id", "records"]
+records_must_be_nonempty = true
+unknown_top_level_fields_forbidden = true
+
+[parameter_record]
+exact_fields = ["climate_draw_id", "esm_id", "member_id", "grid_id", "calendar", "year", "month", "pulse_scale_tonnes_c", "path_role", "wet_probability_given_previous_dry", "wet_probability_given_previous_wet", "wet_amount_gamma_shape", "wet_amount_gamma_scale_mm", "spatial_dependence_parameter_sha256", "temperature_precipitation_coupling_parameter_sha256", "support_flag"]
+key_fields = ["climate_draw_id", "esm_id", "member_id", "grid_id", "calendar", "year", "month", "pulse_scale_tonnes_c", "path_role"]
+path_roles = ["baseline", "pulse"]
+support_flags = ["within", "below", "above"]
+probability_fields = ["wet_probability_given_previous_dry", "wet_probability_given_previous_wet"]
+strictly_positive_fields = ["wet_amount_gamma_shape", "wet_amount_gamma_scale_mm"]
+sha256_fields = ["spatial_dependence_parameter_sha256", "temperature_precipitation_coupling_parameter_sha256"]
+finite_numeric_fields_required = true
+probabilities_must_be_closed_unit_interval = true
+gamma_parameters_must_be_strictly_positive = true
+duplicate_record_keys_forbidden = true
+
+[hashing]
+algorithm = "sha256"
+canonicalization = "sort_records_by_parameter_key_then_utf8_json_sort_keys_true_separators_comma_colon_allow_nan_false"
+record_order_invariant = true
+all_top_level_and_record_fields_included = true
+hex_digest_length = 64
+
+[output_linkage]
+parameter_bundle_sha256_must_match_canonical_bundle = true
+generator_code_identity_must_match_output_receipt = true
+record_keys_must_exactly_match_output_monthly_record_keys = true
+support_flags_must_match_output_records = true
+parameter_hash_must_match_every_output_monthly_record = true
+missing_or_extra_parameter_records_forbidden = true
+
+[resources]
+metadata_and_schema_only = true
+synthetic_fixture_only = true
+maximum_peak_resident_memory_bytes = 2147483648
+minimum_free_disk_bytes_before_any_future_acquisition = 161061273600
+large_downloads_forbidden = true
+raw_rehydration_forbidden = true
+global_daily_inputs_forbidden = true
+derived_parquet_inputs_forbidden = true
+
+[decision]
+current_status = "parameter_bundle_schema_preregistered_no_generator_or_real_parameters"
+schema_validation_does_not_authorize_generator_implementation = true
+schema_validation_does_not_establish_scientific_validity = true
+missing_pinned_generator_code_is_hard_no_fit_blocker = true
+no_outcome_columns = true
+no_empirical_coefficients = true
+no_fitted_or_real_generator_parameters = true
