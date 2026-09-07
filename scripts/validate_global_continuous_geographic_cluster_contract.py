@@ -50,6 +50,7 @@ def validate(config_path: Path, root: Path) -> dict[str, object]:
     require(support.get("train_end_years") == [1983, 2010], "training years changed")
     require(support.get("excluded_end_year") == 2011, "endpoint purge changed")
     require(support.get("test_end_years") == [2012, 2016], "test years changed")
+    require(support.get("terminal_cells_require_any_training_difference") is True, "terminal-cell support changed")
 
     folds = config.get("geographic_folds", {})
     require(folds.get("count") == 5, "fold count changed")

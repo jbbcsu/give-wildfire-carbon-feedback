@@ -11,7 +11,10 @@ and harvest-year keys. Require identical positive observed yield and finite
 registered features. Form consecutive-year log-yield changes within exact
 source grid cells. Training differences end in 1983--2010; terminal test
 differences end in 2012--2016; differences ending in 2011 are excluded so
-train and test do not share a yield-level endpoint.
+train and test do not share a yield-level endpoint. As in the parent temporal
+benchmark, a terminal source grid cell must have at least one 1983--2010
+consecutive difference; this is an availability gate only, not an outcome-
+magnitude screen.
 
 Assign every 10-degree latitude-by-longitude source block to one of five folds
 before reading outcomes. Latitude block is `floor((lat + 90) / 10)`, longitude

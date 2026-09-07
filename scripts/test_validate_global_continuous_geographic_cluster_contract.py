@@ -38,5 +38,6 @@ expect_failure("replicates = 5000", "replicates = 4999", "bootstrap lock")
 expect_failure("one_parquet_file_at_a_time = true", "one_parquet_file_at_a_time = false", "resource gate")
 expect_failure("model_promotion_authorized = false", "model_promotion_authorized = true", "closed gate")
 expect_failure("excluded_end_year = 2011", "excluded_end_year = 2010", "endpoint purge")
+expect_failure("terminal_cells_require_any_training_difference = true", "terminal_cells_require_any_training_difference = false", "terminal-cell support")
 
 print("global continuous geographic/source-cluster contract tests passed")
