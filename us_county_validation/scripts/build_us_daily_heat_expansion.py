@@ -57,9 +57,13 @@ def load_contract(path: Path) -> dict[str, Any]:
         raise ValueError("daily-heat key fields changed")
     resources = contract.get("resources", {})
     decisions = contract.get("decision", {})
-    for gate in ("existing_local_data_only", "download_forbidden", "raw_rehydration_forbidden", "one_harvest_year_per_checkpoint"):
+    for gate in ("existing_local_data_only", "download_forbidden", "raw_rehydration_forbidden", "one_bounded_county_group_per_checkpoint"):
         if resources.get(gate) is not True:
             raise ValueError(f"resource gate changed: {gate}")
+    if resources.get("one_harvest_year_per_checkpoint") is not False:
+        raise ValueError("resource amendment does not close full-year checkpoints")
+    if int(resources.get("maximum_counties_per_checkpoint", 0)) != 64:
+        raise ValueError("daily-heat county batch size changed")
     for gate in (
         "coefficients_emitted", "row_predictions_emitted", "model_promotion_authorized",
         "causal_response_authorized", "future_projection_authorized", "fair_run_authorized",
@@ -73,6 +77,18 @@ def load_contract(path: Path) -> dict[str, Any]:
 def year_paths(directory: Path, year: int) -> tuple[Path, Path]:
     target = directory / f"harvest_year={year}"
     return target / "features.parquet", target / "receipt.json"
+
+
+def batch_paths(directory: Path, year: int, batch_index: int) -> tuple[Path, Path]:
+    target = directory / f"harvest_year={year}" / f"batch={batch_index:03d}"
+    return target / "features.parquet", target / "receipt.json"
+
+
+def county_batches(counties: list[str], maximum: int) -> list[list[str]]:
+    ordered = sorted(counties)
+    if not ordered or len(ordered) != len(set(ordered)) or maximum < 1:
+        raise ValueError("invalid county batch support")
+    return [ordered[start:start + maximum] for start in range(0, len(ordered), maximum)]
 
 
 def load_source_year(source_dir: Path, year: int) -> tuple[pd.DataFrame, dict[str, Any], Path, Path]:
@@ -102,8 +118,8 @@ def load_bound_weights(weight_dir: Path, source_receipt: dict[str, Any], countie
     if not isinstance(records, list):
         raise ValueError("source receipt lacks weight lineage")
     by_county = {str(record.get("county_geoid")): record for record in records}
-    if set(by_county) != set(counties) or len(by_county) != len(records):
-        raise ValueError("source receipt weight support differs from source counties")
+    if not set(counties).issubset(by_county) or len(by_county) != len(records):
+        raise ValueError("source receipt does not cover the requested county batch")
     frames: list[pd.DataFrame] = []
     identities: list[dict[str, Any]] = []
     for geoid in counties:
@@ -204,15 +220,20 @@ def validate_heat_partition(frame: pd.DataFrame, expected_keys: pd.DataFrame, th
             raise ValueError(f"heat checkpoint opens closed gate {gate}")
 
 
-def build_year(year: int, contract_path: Path, source_dir: Path, weight_dir: Path, output_dir: Path) -> tuple[pd.DataFrame, dict[str, Any]]:
+def build_year(year: int, batch_index: int, contract_path: Path, source_dir: Path, weight_dir: Path, output_dir: Path) -> tuple[pd.DataFrame, dict[str, Any]]:
     contract = load_contract(contract_path)
     source, source_receipt, source_path, source_receipt_path = load_source_year(source_dir, year)
     shared_columns = ["state", "season_start", "season_end", "stage1_days", "stage2_days", "stage3_days", "tmax_mean_c", "stage1_tmax_mean_c", "stage2_tmax_mean_c", "stage3_tmax_mean_c"]
     for column in shared_columns:
         if source.groupby(PAIR_KEYS, observed=True)[column].nunique(dropna=False).ne(1).any():
             raise ValueError(f"source weather field differs across practices: {column}")
-    pairs = source.drop_duplicates(PAIR_KEYS).sort_values(PAIR_KEYS).reset_index(drop=True)
-    counties = sorted(pairs.county_geoid.astype(str).unique().tolist())
+    all_counties = sorted(source.county_geoid.astype(str).unique().tolist())
+    batches = county_batches(all_counties, int(contract["resources"]["maximum_counties_per_checkpoint"]))
+    if not 0 <= batch_index < len(batches):
+        raise ValueError(f"batch index must lie in [0,{len(batches) - 1}] for {year}")
+    counties = batches[batch_index]
+    source_subset = source.loc[source.county_geoid.astype(str).isin(counties)].copy()
+    pairs = source_subset.drop_duplicates(PAIR_KEYS).sort_values(PAIR_KEYS).reset_index(drop=True)
     weights, weight_identities = load_bound_weights(weight_dir, source_receipt, counties)
     cells = weights[["grid_lat_index", "grid_lon_index", "grid_lat", "grid_lon"]].drop_duplicates().sort_values(["grid_lat_index", "grid_lon_index"]).reset_index(drop=True)
     month_records = source_receipt.get("input_identity", {}).get("weather_months")
@@ -267,7 +288,8 @@ def build_year(year: int, contract_path: Path, source_dir: Path, weight_dir: Pat
     frame = pd.DataFrame(records).sort_values(PAIR_KEYS).reset_index(drop=True)
     validate_heat_partition(frame, pairs[PAIR_KEYS], contract["thresholds_c"])
     identity = {
-        "schema": SCHEMA, "year": year,
+        "schema": SCHEMA, "year": year, "batch_index": batch_index,
+        "total_batches": len(batches), "county_geoids": counties,
         "contract_sha256": sha256_file(contract_path), "code_sha256": sha256_file(SCRIPT),
         "protocol_sha256": sha256_file(PROJECT_ROOT / contract["protocol_path"]),
         "source_feature_sha256": sha256_file(source_path),
@@ -278,7 +300,8 @@ def build_year(year: int, contract_path: Path, source_dir: Path, weight_dir: Pat
     }
     receipt = {
         "schema": SCHEMA, "status": "validated_heat_measurement_checkpoint_not_response",
-        "harvest_year": year, "input_identity": identity,
+        "harvest_year": year, "batch_index": batch_index, "total_batches": len(batches),
+        "county_geoids": counties, "input_identity": identity,
         "input_fingerprint_sha256": canonical_sha256(identity),
         "rows": int(len(frame)), "counties": int(frame.county_geoid.nunique()),
         "thresholds_c": contract["thresholds_c"], "cell_first_nonlinear_basis": True,
@@ -298,19 +321,24 @@ def assemble(contract_path: Path, source_assembly: Path, source_receipt_path: Pa
     frames: list[pd.DataFrame] = []
     partitions: list[dict[str, Any]] = []
     for year in range(int(contract["year_min"]), int(contract["year_max"]) + 1):
-        path, receipt_path = year_paths(output_dir, year)
-        if not path.is_file() or not receipt_path.is_file():
-            raise ValueError(f"daily-heat checkpoint is absent for {year}")
-        receipt = json.loads(receipt_path.read_text(encoding="utf-8"))
-        frame = pd.read_parquet(path)
-        expected = pairs.loc[pairs.harvest_year.eq(year), PAIR_KEYS]
-        validate_heat_partition(frame, expected, contract["thresholds_c"])
-        if receipt.get("schema") != SCHEMA or receipt.get("output_sha256") != sha256_file(path):
-            raise ValueError(f"daily-heat checkpoint receipt changed for {year}")
-        if receipt.get("input_fingerprint_sha256") != canonical_sha256(receipt.get("input_identity")):
-            raise ValueError(f"daily-heat checkpoint fingerprint changed for {year}")
-        frames.append(frame)
-        partitions.append({"year": year, "rows": len(frame), "output_sha256": receipt["output_sha256"], "receipt_sha256": sha256_file(receipt_path)})
+        year_pairs = pairs.loc[pairs.harvest_year.eq(year)].copy()
+        batches = county_batches(sorted(year_pairs.county_geoid.astype(str).unique()), int(contract["resources"]["maximum_counties_per_checkpoint"]))
+        for batch_index, counties in enumerate(batches):
+            path, receipt_path = batch_paths(output_dir, year, batch_index)
+            if not path.is_file() or not receipt_path.is_file():
+                raise ValueError(f"daily-heat checkpoint is absent for {year} batch {batch_index}")
+            receipt = json.loads(receipt_path.read_text(encoding="utf-8"))
+            frame = pd.read_parquet(path)
+            expected = year_pairs.loc[year_pairs.county_geoid.astype(str).isin(counties), PAIR_KEYS]
+            validate_heat_partition(frame, expected, contract["thresholds_c"])
+            if receipt.get("schema") != SCHEMA or receipt.get("output_sha256") != sha256_file(path):
+                raise ValueError(f"daily-heat checkpoint receipt changed for {year} batch {batch_index}")
+            if receipt.get("input_fingerprint_sha256") != canonical_sha256(receipt.get("input_identity")):
+                raise ValueError(f"daily-heat checkpoint fingerprint changed for {year} batch {batch_index}")
+            if receipt.get("county_geoids") != counties or receipt.get("batch_index") != batch_index or receipt.get("total_batches") != len(batches):
+                raise ValueError(f"daily-heat batch partition changed for {year} batch {batch_index}")
+            frames.append(frame)
+            partitions.append({"year": year, "batch_index": batch_index, "rows": len(frame), "output_sha256": receipt["output_sha256"], "receipt_sha256": sha256_file(receipt_path)})
     combined = pd.concat(frames, ignore_index=True).sort_values(PAIR_KEYS).reset_index(drop=True)
     validate_heat_partition(combined, pairs[PAIR_KEYS], contract["thresholds_c"])
     joined = source.merge(combined, on=PAIR_KEYS, how="left", validate="many_to_one", suffixes=("", "_heat"))
@@ -340,6 +368,7 @@ def main() -> None:
     parser.add_argument("--weight-dir", type=Path, default=DEFAULT_WEIGHT_DIR)
     parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT_DIR)
     parser.add_argument("--year", type=int)
+    parser.add_argument("--batch-index", type=int)
     parser.add_argument("--assemble", action="store_true")
     parser.add_argument("--assembly-out", type=Path, default=DEFAULT_ASSEMBLY)
     parser.add_argument("--assembly-receipt", type=Path, default=DEFAULT_ASSEMBLY_RECEIPT)
@@ -359,16 +388,18 @@ def main() -> None:
     contract = load_contract(args.contract)
     if not int(contract["year_min"]) <= args.year <= int(contract["year_max"]):
         raise ValueError("year lies outside the frozen heat contract")
-    output, receipt_path = year_paths(args.output_dir, args.year)
+    if args.batch_index is None:
+        parser.error("--year requires --batch-index after the resource-safety amendment")
+    output, receipt_path = batch_paths(args.output_dir, args.year, args.batch_index)
     if output.exists() or receipt_path.exists():
         raise ValueError("year checkpoint already exists")
-    frame, receipt = build_year(args.year, args.contract, args.source_dir, args.weight_dir, args.output_dir)
+    frame, receipt = build_year(args.year, args.batch_index, args.contract, args.source_dir, args.weight_dir, args.output_dir)
     atomic_write_parquet(output, frame)
     receipt["output_path"] = str(output)
     receipt["output_sha256"] = sha256_file(output)
     receipt["output_key_sha256"] = sha256_records(frame, PAIR_KEYS)
     atomic_write_json(receipt_path, receipt)
-    print(f"wrote {len(frame)} heat rows for {args.year}; no response, damage, or SCC")
+    print(f"wrote {len(frame)} heat rows for {args.year} batch {args.batch_index}; no response, damage, or SCC")
 
 
 if __name__ == "__main__":

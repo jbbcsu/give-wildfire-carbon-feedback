@@ -2,7 +2,7 @@
 """Synthetic invariants for the daily-heat expansion checkpoint."""
 import pandas as pd
 
-from build_us_daily_heat_expansion import metric_names, validate_heat_partition
+from build_us_daily_heat_expansion import county_batches, metric_names, validate_heat_partition
 
 
 def fixture():
@@ -28,6 +28,13 @@ def rejected(frame, message):
 
 
 def main():
+    assert county_batches(["01003", "01001", "01005"], 2) == [["01001", "01003"], ["01005"]]
+    try:
+        county_batches(["01001", "01001"], 2)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("duplicate county support accepted")
     frame = fixture()
     validate_heat_partition(frame, frame[["county_geoid", "outcome_crop", "harvest_year"]], [29.0, 30.0])
     bad = frame.copy()
