@@ -1,0 +1,34 @@
+schema = "us_daily_heat_expansion_contract_v1"
+role = "historical_heat_measurement_input_not_response"
+source_feature_dir = "data/interim/us_county/nclimgrid_features_national_v1"
+source_assembly_path = "data/interim/us_county/nass_direct_practice_nclimgrid_1981_2019.parquet"
+source_assembly_receipt = "outputs/us_county/national_nclimgrid_features_v1/assembly_validation.json"
+protocol_path = "us_county_validation/US_DAILY_HEAT_EXPANSION_PROTOCOL_20260907.md"
+output_dir = "data/interim/us_county/daily_heat_national_v1"
+year_min = 1981
+year_max = 2019
+thresholds_c = [29.0, 30.0]
+key_fields = ["county_geoid", "outcome_crop", "harvest_year"]
+practice_values = ["irrigated", "non_irrigated"]
+stage_definition = "equal_duration_0_30_70_100_engineering_proxy"
+nonlinear_order = "daily_grid_cell_first_then_county_polygon_area_weight"
+weather_exposure_shared_across_practices = true
+
+[resources]
+existing_local_data_only = true
+download_forbidden = true
+raw_rehydration_forbidden = true
+one_harvest_year_per_checkpoint = true
+sampled_peak_resident_memory_bytes_maximum = 1073741824
+maximum_total_new_output_bytes = 67108864
+numerical_threads = 1
+
+[decision]
+coefficients_emitted = false
+row_predictions_emitted = false
+model_promotion_authorized = false
+causal_response_authorized = false
+future_projection_authorized = false
+fair_run_authorized = false
+damage_or_welfare_authorized = false
+scc_authorized = false
