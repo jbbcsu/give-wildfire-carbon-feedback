@@ -1,0 +1,25 @@
+{
+  "role": "synthetic_full_grid_cutout_heat_parity",
+  "tests_passed": 2,
+  "seasonal_rows_each": 4,
+  "stage_rows_each": 12,
+  "exact_frame_equality": true,
+  "empirical_cutout_validated": false,
+  "damage_or_scc_authorized": false,
+  "resource_receipt": {
+    "status": "completed",
+    "returncode": 0,
+    "sampled_peak_group_rss_bytes": 223608832,
+    "max_mib": 1024.0,
+    "min_free_gib": 133.58101272583008,
+    "sampling_interval_seconds": 0.2,
+    "wall_seconds": 4.7686047079914715,
+    "limit_kind": "sampled_process_group_not_kernel_limit"
+  },
+  "sha256": {
+    "scripts/align_cutout_calendar.py": "4f2bd1ffc7f42677a1ed7ed12bca10398fc5f3c07c00d8ecf2f979d2ea94462c",
+    "scripts/test_cutout_calendar.py": "a03d2389a985c3a36cb7428bd87bce3d3322550a1f6f471f10267ac88f007895",
+    "scripts/build_crop_heat_features.py": "6d07c3a8605e4fcab73a950886a543987aaf75adcdb154adf83c391c498b1bdd",
+    "scripts/build_crop_stage_heat_features.py": "1457eb6cb53d46d73808cbb35ab4a102a616ae3ba595c0e9c71faef82484d57d"
+  }
+}

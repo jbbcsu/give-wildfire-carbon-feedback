@@ -17,6 +17,7 @@ import xarray as xr
 from build_crop_heat_features import threshold_name
 from build_crop_year_features import date_from_doy, normalize_temperature
 from climate_inputs import open_daily_crop_window
+from align_cutout_calendar import align_calendar
 
 
 BASE_COLUMNS = [
@@ -49,6 +50,8 @@ def main() -> None:
     parser.add_argument("--year-end", type=int, required=True)
     parser.add_argument("--lat-start", type=int, required=True)
     parser.add_argument("--lat-stop", type=int, required=True)
+    parser.add_argument("--calendar-by-coordinates", action="store_true",
+                        help="exact calendar selection for a spatial climate cutout; latitude indices refer to climate")
     parser.add_argument("--threshold-c", action="append", type=float, required=True)
     parser.add_argument("--stage-fractions", default="0,0.3,0.7,1")
     parser.add_argument("--out", required=True)
@@ -69,7 +72,8 @@ def main() -> None:
             stack, args.tasmax, "tasmax", args.year_start, args.year_end,
             args.lat_start, args.lat_stop,
         )
-        cal = calendar.isel(lat=slice(args.lat_start, args.lat_stop))
+        cal = (align_calendar(calendar, maximum) if args.calendar_by_coordinates
+               else calendar.isel(lat=slice(args.lat_start, args.lat_stop)))
         required = {"planting_day", "maturity_day"}
         if missing := required - set(cal.data_vars):
             raise ValueError(f"Calendar missing {sorted(missing)}")

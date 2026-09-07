@@ -1,5 +1,36 @@
 # Methods Supporting Information
 
+## Normalized economic sensitivity and server-cutout heat route
+
+The registered economic sensitivity uses all six rounded point-estimate
+columns of Roberts–Schlenker TableA8 (FAS alternative, not the main FAO
+baseline), positive supply elasticity and the negative of signed demand
+elasticity. For Qs=exp(s)P^es and Qd=P^-ed with baseline value1, the two
+predeclared mappings are s=log(a) and s=(1+es)log(a). All36combinations of
+column, mapping and a in{0.99,1,1.01} are retained. Rounded printed reciprocal
+elasticity multipliers must overlap the intervals induced by rounded inputs;
+parameters are not adjusted to force exact agreement. Market clearing,
+surplus-component accounting and nonzero-state analytic/finite-difference
+derivatives are checked. No independent-normal parameter draws are invented
+from marginal standard errors. Source verification limits, the caught and
+corrected wrapper derivative error, complete results and reproduction are in
+`WELFARE_NORMALIZED_SENSITIVITY_RESULTS_20260907.md`. No actual crop shock,
+currency conversion or empirical welfare calibration enters this calculation.
+
+The separate low-storage pilot validates one public ISIMIP3b dataset/file
+contract before requesting `select_bbox` on the official server. The request
+preserves daily resolution and all longitudes in a one-degree latitude band;
+it does not compute spatial means. A completed server job and archive HEAD
+length establish availability, not content validity. Real local acquisition
+and inspection remain pending. Exact-coordinate calendar selection is opt-in
+in both heat builders and never interpolates; synthetic full-grid/cutout
+outputs agree exactly across a leap-year-crossing season, two heat thresholds
+and three stages. Two tests pass in4.77seconds under a1GiB sampled monitor,
+with213.25MiB sampled peak group RSS. The parent catalogue hash cannot verify
+the subset bytes; future acquisition must record a distinct child hash and
+server-derived lineage. Full storage, date, coordinate, license and feature
+checks are specified in `LOW_STORAGE_HEAT_SUBSET_PILOT_20260907.md`.
+
 ## U.S. supported-range curves and paired practice contrasts
 
 The curve protocol freezes the existing 24 fits and exports the complete 2×2

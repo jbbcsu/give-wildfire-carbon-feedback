@@ -1,6 +1,6 @@
 # Active continuation checkpoint
 
-Updated September 7, 2026 after U.S. curves and paired irrigation contrasts. The project
+Updated September 7, 2026 after remote heat cutout and normalized economic sensitivity. The project
 is **not complete**. At this checkpoint all jobs listed below have finished;
 there is no deliberately detached analysis process. The active five-minute
 in-task continuation should resume substantive work, not report this status
@@ -35,21 +35,40 @@ another run. Chain successive bounded steps within an active turn.
    Do not rerun these as unfinished. Raw/per-observation predictions were not
    exported. Non-irrigated associations are stronger, but are not causal
    irrigation benefits or adaptation values; within-county support is limited.
+6. All36normalized hypothetical market states using six published
+   Roberts–Schlenker TableA8 alternative elasticity columns pass checks.
+   `WELFARE_NORMALIZED_SENSITIVITY_RESULTS_20260907.md`. These are not empirical
+   damages or calibration. Three synthetic tests pass after a caught wrapper
+   derivative correction; failed logs retained. Do not repeat source searches
+   or treat this as a finished welfare link.
+7. One official ISIMIP server cutout job finished with no errors; archive HEAD
+   length12,891,438bytes. No local climate bytes downloaded. Job receipt:
+   `data/provenance/heat_subset_server_completion_20260907.json`.
+   `--calendar-by-coordinates` added to both heat builders; two synthetic tests
+   reproduce full-grid outputs exactly below214MiB sampled RSS. Do not repeat
+   submission or these tests as unfinished.
 
 ## Next useful executable step
 
-Advance the published market-elasticity route in
-`WELFARE_ELASTICITY_SOURCE_CHECKPOINT_20260907.md`. The Roberts–Schlenker AER
-publisher page is verified and has replication-package/appendix links. Follow
-those links with read-only web tools, inspect exact version, license, equations
-and parameter uncertainty, and evaluate compatibility with the independent
-constant-elasticity core. Do not use search-snippet numbers as calibration or
-assume a working paper matches the published version. The separate NBER
-summary returned403; do not repeat that failed request. This is an independent
-route while the Hultgren document exception remains pending. If a verified
-published equation/parameter mapping is available, implement a narrowly
-tested, clearly labeled sensitivity without consuming unvalidated yield
-shocks or promoting SCC. Otherwise record the exact remaining evidence gap.
+Check whether the user approved the async request for a one-file12.3MiB
+climate-cutout download with64MiB maximum additional disk occupancy. If yes,
+implement bounded streamed acquisition, inspect ZIP members/sizes before
+extraction, validate real coordinates/dates/units and derive/reconcile
+maize/noirr2042–2049 seasonal and stage heat with29C threshold. Read
+`LOW_STORAGE_HEAT_SUBSET_PILOT_20260907.md` first. Do not download before this
+exception is approved; do not reinterpret server completion as content
+validation. Both archive and uncompressed member must fit the64MiB cap.
+No full global raw files, imputation or bulk expansion. The existing job is
+finished; don't poll it repeatedly. Its URL may expire after the service TTL.
+
+While that decision is pending, continue the missing economic/response link
+using existing small inputs or read-only public metadata. The six published
+elasticities are a sensitivity, not selected production parameters. Exact
+aggregation and baseline market-value scope, transferability and joint
+uncertainty remain unresolved. Replication DOI10.3886/E112674V1 is located,
+but license/code contents are unverified; previous license/download and
+documents-folder web clicks failed. Do not retry unchanged failure paths or
+substitute a figure or another broad audit for missing model work.
 
 In parallel with source review where safely possible, continue the actual
 global response/attribution/welfare work. Do not
@@ -75,7 +94,7 @@ while that decision is unchanged. Other work can proceed independently.
 - One monitored analysis process; one numerical thread. Maximum allowed
   sampled group RSS4GiB, but use smaller proven budgets. Latest climate jobs
   needed only 225–326MiB. Sampled limits are not kernel-enforced caps.
-- Latest free disk about133.77GiB. Below150GiB: no downloads, raw climate
+- Latest free disk about133.64GiB. Below150GiB: no downloads, raw climate
   rehydration or large climate work. Small existing-data outputs may reserve
   starting free disk minus at most64MiB. Do not delete unique/derived inputs.
 - The long comparison initially failed the new1e-5°C temperature check;

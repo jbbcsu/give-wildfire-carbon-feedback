@@ -1,5 +1,29 @@
 # Precipitation patterns, global agricultural damages, and the social cost of carbon
 
+## September 7 economic sensitivity and low-storage climate continuation
+
+The independent market-accounting prototype now evaluates all six published
+FAS-alternative elasticity specifications from Roberts and Schlenker's AER
+appendix under hypothetical productivity factors0.99,1 and1.01. A hypothetical
+1% productivity loss yields total-surplus losses of0.917–0.933% or1.030–1.042%
+of baseline market value, depending on the output-shift convention. These are
+normalized sensitivity calculations, not empirical agricultural damages,
+dollar values or SCC; neither convention is empirically selected. Parameter
+covariance, baseline value and transferability remain unresolved. The appendix
+was text-inspected but not visually verified. Exact source links, all36states,
+numerical checks and limitations are in
+`WELFARE_NORMALIZED_SENSITIVITY_RESULTS_20260907.md`.
+
+To address storage constraints without changing climate resolution, a single
+ISIMIP server-side Tmax cutout has completed. Its ZIP is12.29MiB versus a
+1.92GiB global parent file. No climate output has been downloaded locally;
+content and empirical feature validation remain pending a bounded download
+exception. Exact-coordinate calendar selection passes synthetic full-grid
+versus cutout parity for seasonal and crop-stage heat features. This prepares
+the missing future heat inputs but does not expand geographic coverage or
+complete a climate-to-yield projection. See
+`LOW_STORAGE_HEAT_SUBSET_PILOT_20260907.md`.
+
 ## September 7 U.S. rainfall curves and irrigation-practice differences
 
 Supported-range summaries of the unchanged U.S. models show stronger rainfall
