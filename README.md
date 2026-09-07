@@ -832,3 +832,18 @@ was implemented, no real daily climate output was created, and the missing
 pinned Kemsley code continues to block fitting and every downstream gate. See
 `config/climate_daily_pair_output_schema_v1.toml` and
 `data/provenance/climate_daily_pair_output_validator_synthetic_audit_20260906.json`.
+
+A separately preregistered parameter-bundle boundary now prevents the receipt's
+`parameter_bundle_sha256` from acting as an unchecked label. The canonical
+object binds generator/code identities and one named parameter record per exact
+monthly output key: dry-to-wet and wet-to-wet transition probabilities, gamma
+shape and scale for wet amounts, spatial-dependence and joint-temperature-
+precipitation component hashes, and the support flag. The validator requires
+finite in-domain values, unique and exactly matching output keys, matching
+support flags and code identity, the canonical hash in the receipt and every
+monthly record, and record-order invariance. Tiny synthetic fixtures reject ten
+targeted corruptions and link all 32 existing calendar/output records. No real
+parameter was estimated or persisted, and no generator, fit, FAIR, response,
+damage, welfare, or SCC gate opened. See
+`config/climate_daily_parameter_bundle_v1.toml` and
+`data/provenance/climate_daily_parameter_bundle_validator_synthetic_audit_20260907.json`.

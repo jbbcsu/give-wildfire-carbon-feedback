@@ -12,12 +12,15 @@ from validate_climate_daily_pair_output import (
     canonical_records_sha256,
     validate_bundle,
 )
+from validate_climate_daily_parameter_bundle import canonical_parameter_bundle_sha256
 
 
 root = Path(__file__).resolve().parents[1]
 config = root / "config/climate_daily_pair_output_schema_v1.toml"
 parameter_sha = "b" * 64
 innovation_sha = "d" * 64
+spatial_sha = "a" * 64
+coupling_sha = "c" * 64
 
 
 def daily(
@@ -66,7 +69,7 @@ def record(
     }
 
 
-def valid_bundle() -> dict[str, object]:
+def valid_fixture() -> tuple[dict[str, object], dict[str, object]]:
     records: list[dict[str, object]] = []
     groups = [
         ("gregorian-leap", "proleptic_gregorian", 2000, 2, 29, 2.0),
@@ -81,13 +84,39 @@ def valid_bundle() -> dict[str, object]:
             after = baseline_amount if scale == 0 or baseline_amount == 0 else baseline_amount + scale / 32.0
             pulse_values = daily(calendar_name, year, month, day_count, baseline_amount, after)
             records.append(record(group_id, calendar_name, year, month, scale, "pulse", pulse_values))
+    parameter_bundle: dict[str, object] = {
+        "schema": "climate_daily_parameter_bundle_v1",
+        "generator_id": "kemsley_markov_gamma",
+        "paper_doi": "10.1002/joc.8320",
+        "generator_code_identity": "synthetic-fixture-no-generator-implementation",
+        "parameterization_id": "synthetic-named-parameters-v1",
+        "records": [
+            {
+                **{field: item[field] for field in (
+                    "climate_draw_id", "esm_id", "member_id", "grid_id", "calendar", "year", "month",
+                    "pulse_scale_tonnes_c", "path_role",
+                )},
+                "wet_probability_given_previous_dry": 0.25,
+                "wet_probability_given_previous_wet": 0.60,
+                "wet_amount_gamma_shape": 2.0,
+                "wet_amount_gamma_scale_mm": 4.0,
+                "spatial_dependence_parameter_sha256": spatial_sha,
+                "temperature_precipitation_coupling_parameter_sha256": coupling_sha,
+                "support_flag": item["support_flag"],
+            }
+            for item in records
+        ],
+    }
+    observed_parameter_sha = canonical_parameter_bundle_sha256(parameter_bundle)
+    for item in records:
+        item["parameter_bundle_sha256"] = observed_parameter_sha
     bundle: dict[str, object] = {
         "schema": "climate_daily_pair_output_bundle_v1",
         "receipt": {
             "contract_sha256": "2e5c4e57f33931f32bcde3c0bc0673c012820ccd4723ace28a8197a8333d8b39",
             "generator_code_identity": "synthetic-fixture-no-generator-implementation",
             "paper_doi": "10.1002/joc.8320",
-            "parameter_bundle_sha256": parameter_sha,
+            "parameter_bundle_sha256": observed_parameter_sha,
             "monthly_input_sha256": canonical_monthly_inputs_sha256(records),
             "rng_algorithm": "synthetic-keyed-fixture",
             "rng_version": "test-only-v1",
@@ -98,7 +127,11 @@ def valid_bundle() -> dict[str, object]:
         },
         "records": records,
     }
-    return bundle
+    return bundle, parameter_bundle
+
+
+def valid_bundle() -> dict[str, object]:
+    return valid_fixture()[0]
 
 
 def rehash(bundle: dict[str, object]) -> None:
@@ -106,12 +139,12 @@ def rehash(bundle: dict[str, object]) -> None:
 
 
 def expect_failure(mutator, message: str, *, refresh_hash: bool = True) -> None:
-    bundle = valid_bundle()
+    bundle, parameter_bundle = valid_fixture()
     mutator(bundle)
     if refresh_hash:
         rehash(bundle)
     try:
-        validate_bundle(bundle, config, root)
+        validate_bundle(bundle, config, root, parameter_bundle)
     except ValueError as error:
         assert message in str(error), str(error)
     else:
@@ -129,12 +162,15 @@ def conserve_but_break_identity(bundle: dict[str, object], record_index: int, fi
     daily_records[second_day]["precipitation_mm"] -= 0.125
 
 
-result = validate_bundle(valid_bundle(), config, root)
+fixture_bundle, fixture_parameters = valid_fixture()
+result = validate_bundle(fixture_bundle, config, root, fixture_parameters)
 assert result["record_count"] == 32
 assert result["pair_count"] == 16
 assert result["cross_pulse_month_count"] == 4
 assert result["maximum_monthly_mass_error_mm"] == 0
 assert result["monthly_input_sha256"] == valid_bundle()["receipt"]["monthly_input_sha256"]
+assert result["parameter_record_count"] == 32
+assert result["parameter_bundle_sha256"] == fixture_bundle["receipt"]["parameter_bundle_sha256"]
 assert result["generator_implementation_authorized"] is False
 assert result["scientific_validity_established"] is False
 assert result["damage_or_scc_authorized"] is False
@@ -154,31 +190,31 @@ expect_failure(lambda bundle: bundle["receipt"].update(daily_output_sha256="0" *
 
 
 def assert_daily_values_are_excluded() -> None:
-    bundle = valid_bundle()
+    bundle, parameter_bundle = valid_fixture()
     original_input_hash = bundle["receipt"]["monthly_input_sha256"]
     conserve_but_break_identity(bundle, 3, 20, 21)
     rehash(bundle)
-    result = validate_bundle(bundle, config, root)
+    result = validate_bundle(bundle, config, root, parameter_bundle)
     assert result["monthly_input_sha256"] == original_input_hash
 
 
 def assert_innovation_digest_is_excluded() -> None:
-    bundle = valid_bundle()
+    bundle, parameter_bundle = valid_fixture()
     original_input_hash = bundle["receipt"]["monthly_input_sha256"]
     group = bundle["records"][:8]
     for item in group:
         item["monthly_innovation_digest"] = innovation_sha
     rehash(bundle)
-    result = validate_bundle(bundle, config, root)
+    result = validate_bundle(bundle, config, root, parameter_bundle)
     assert result["monthly_input_sha256"] == original_input_hash
 
 
 def assert_record_order_is_excluded() -> None:
-    bundle = valid_bundle()
+    bundle, parameter_bundle = valid_fixture()
     original_input_hash = bundle["receipt"]["monthly_input_sha256"]
     bundle["records"].reverse()
     rehash(bundle)
-    result = validate_bundle(bundle, config, root)
+    result = validate_bundle(bundle, config, root, parameter_bundle)
     assert result["monthly_input_sha256"] == original_input_hash
 
 

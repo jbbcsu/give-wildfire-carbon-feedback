@@ -264,3 +264,14 @@ that record order, innovation digests, and daily values cannot alter the
 monthly-input hash. No synthetic fixture is persisted as climate output, no
 real climate value was created, and no generator, fit, FAIR, response, damage,
 welfare, or SCC gate was opened.
+
+`climate_daily_parameter_bundle_preregistration_20260907.json` binds the exact
+future parameter object, named Markov-occurrence and gamma-amount fields,
+component hashes, key, canonicalization, and output-linkage rules before the
+validator was added. `climate_daily_parameter_bundle_validator_synthetic_audit_20260907.json`
+records the subsequent pure-standard-library checks: the parameter object hash
+is record-order invariant; parameter and monthly-output keys and support flags
+match exactly; receipt, monthly records, and generator code identity agree; and
+ten targeted corruptions fail. The 32-record output fixture links to 32 named
+parameter records without persisting real parameters or authorizing generator,
+fit, FAIR, response, damage, welfare, or SCC work.

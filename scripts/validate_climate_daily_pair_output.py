@@ -22,6 +22,7 @@ from validate_climate_daily_pair_output_schema_contract import (
     MONTHLY_INPUT_FIELDS,
     validate as validate_contract,
 )
+from validate_climate_daily_parameter_bundle import validate_parameter_bundle
 
 
 BUNDLE_SCHEMA = "climate_daily_pair_output_bundle_v1"
@@ -110,7 +111,13 @@ def _tuple(record: dict[str, Any], fields: list[str]) -> tuple[Any, ...]:
     return tuple(record[field] for field in fields)
 
 
-def validate_bundle(bundle: dict[str, Any], config_path: Path, root: Path) -> dict[str, Any]:
+def validate_bundle(
+    bundle: dict[str, Any],
+    config_path: Path,
+    root: Path,
+    parameter_bundle: dict[str, Any],
+    parameter_config_path: Path | None = None,
+) -> dict[str, Any]:
     validate_contract(config_path, root)
     config = tomllib.loads(config_path.read_text(encoding="utf-8"))
     require(isinstance(bundle, dict), "bundle must be an object")
@@ -228,6 +235,12 @@ def validate_bundle(bundle: dict[str, Any], config_path: Path, root: Path) -> di
         "monthly input hash does not match canonical monthly projection",
     )
     require(math.isclose(float(recorded_error), maximum_error, rel_tol=0, abs_tol=1e-15), "receipt maximum monthly mass error does not reconcile")
+    parameter_result = validate_parameter_bundle(
+        parameter_bundle,
+        bundle,
+        parameter_config_path or root / "config/climate_daily_parameter_bundle_v1.toml",
+        root,
+    )
     return {
         "schema": "climate_daily_pair_output_validation_v1",
         "status": "schema_and_numerical_identity_checks_passed_synthetic_or_future_output_only",
@@ -237,6 +250,8 @@ def validate_bundle(bundle: dict[str, Any], config_path: Path, root: Path) -> di
         "maximum_monthly_mass_error_mm": maximum_error,
         "monthly_input_sha256": observed_monthly_input_hash,
         "daily_output_sha256": observed_output_hash,
+        "parameter_bundle_sha256": parameter_result["parameter_bundle_sha256"],
+        "parameter_record_count": parameter_result["parameter_record_count"],
         "peak_resident_memory_bytes": peak,
         "generator_implementation_authorized": False,
         "scientific_validity_established": False,
@@ -247,12 +262,21 @@ def validate_bundle(bundle: dict[str, Any], config_path: Path, root: Path) -> di
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("bundle", type=Path)
+    parser.add_argument("--parameter-bundle", type=Path, required=True)
     parser.add_argument("--config", type=Path, default=Path("config/climate_daily_pair_output_schema_v1.toml"))
+    parser.add_argument("--parameter-config", type=Path, default=Path("config/climate_daily_parameter_bundle_v1.toml"))
     parser.add_argument("--root", type=Path, default=Path("."))
     parser.add_argument("--out", type=Path)
     args = parser.parse_args()
     bundle = json.loads(args.bundle.read_text(encoding="utf-8"))
-    result = validate_bundle(bundle, args.config.resolve(), args.root.resolve())
+    parameter_bundle = json.loads(args.parameter_bundle.read_text(encoding="utf-8"))
+    result = validate_bundle(
+        bundle,
+        args.config.resolve(),
+        args.root.resolve(),
+        parameter_bundle,
+        args.parameter_config.resolve(),
+    )
     if args.out:
         args.out.parent.mkdir(parents=True, exist_ok=True)
         args.out.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")

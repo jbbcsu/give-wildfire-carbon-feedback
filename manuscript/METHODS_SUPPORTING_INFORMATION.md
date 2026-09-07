@@ -1732,6 +1732,31 @@ the unavailable generator, validate its science, or authorize software/climate
 acquisition, fitting, FAIR evaluation, response estimation, damages, welfare,
 or SCC use.
 
+### S9.14 Canonical daily-generator parameter boundary
+
+Before allowing `parameter_bundle_sha256` to identify future parameters, we
+separately preregistered its exact object and canonicalization. The object binds
+the generator, paper, code, and parameterization identities plus one record for
+every monthly output key. Each record contains dry-to-wet and wet-to-wet
+transition probabilities on the closed unit interval; strictly positive gamma
+shape and millimetre-scale parameters for wet amounts; SHA-256 identities for
+the spatial-dependence and joint temperature--precipitation components; and the
+support flag. Records are sorted by climate draw, ESM, member, grid, calendar,
+year, month, pulse scale, and path role before compact UTF-8 JSON hashing with
+sorted object keys and nonfinite values forbidden.
+
+The validator requires unique parameter keys that exactly equal the monthly
+output keys, identical support flags, matching generator code identity, and the
+canonical parameter hash in both the output receipt and every monthly record.
+It rejects missing or extra records, out-of-domain probabilities, nonpositive
+gamma values, invalid component hashes, identity mismatches, and parameter
+changes hidden behind a stale digest. Record order leaves the hash unchanged.
+A two-record synthetic unit fixture rejects ten targeted corruptions, and the
+existing 32-record four-calendar output fixture links to 32 parameter records.
+These are schema and identity checks only: no parameter is fitted or presented
+as empirical, and the missing pinned generator still blocks implementation,
+FAIR evaluation, response estimation, damages, welfare, and SCC use.
+
 ## S10. Scientific integrity and independent review
 
 Every quantitative statement is classified as observed source data, derived

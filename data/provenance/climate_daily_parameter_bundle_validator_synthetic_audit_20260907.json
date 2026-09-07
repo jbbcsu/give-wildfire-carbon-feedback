@@ -1,0 +1,50 @@
+{
+  "climate_payload_acquisition_authorized": false,
+  "damage_or_scc_authorized": false,
+  "failure_modes_rejected": [
+    "unknown_parameter_bundle_top_level_field",
+    "duplicate_parameter_record_key",
+    "probability_outside_closed_unit_interval",
+    "nonpositive_gamma_parameter",
+    "invalid_component_sha256",
+    "missing_parameter_record_for_output_key",
+    "parameter_output_support_flag_mismatch",
+    "generator_code_identity_mismatch",
+    "canonical_parameter_bundle_hash_mismatch_after_value_tamper",
+    "output_monthly_record_parameter_hash_mismatch"
+  ],
+  "generator_implementation_authorized": false,
+  "named_parameter_fields": [
+    "wet_probability_given_previous_dry",
+    "wet_probability_given_previous_wet",
+    "wet_amount_gamma_shape",
+    "wet_amount_gamma_scale_mm",
+    "spatial_dependence_parameter_sha256",
+    "temperature_precipitation_coupling_parameter_sha256"
+  ],
+  "output_validator_integration": {
+    "canonical_parameter_bundle_sha256": "d6eb70bab14777592d3a75ae31f085264f12056fb288ff19d382ec98853f85d9",
+    "monthly_output_record_count": 32,
+    "parameter_record_count": 32,
+    "record_keys_match_exactly": true,
+    "support_flags_match": true
+  },
+  "output_validator_sha256": "4a28109ff048d1ef5b9ebd59e172b1ea26ac51a5f65f19ac8ba723a91224f67c",
+  "output_validator_test_sha256": "de1a27c10f744eb5f12b39609db153ec37eed2eb542b1cd7e4e42d36d8b0c492",
+  "parameter_bundle_hash_record_order_invariant": true,
+  "parameter_bundle_preregistration_receipt_sha256": "53af0630bfc3478ec76e81ce650ed9f0fcf2cb7231917dfccc36064d9132389e",
+  "parameter_bundle_test_sha256": "b65b208732ed8626922805806bcf60f84114ef585f3cd50d9c7f1dd756f7116d",
+  "parameter_bundle_validator_sha256": "79934bcc179c5a7672ce6c67703d30e5caf00563681e4b9f489787008cb9b20c",
+  "response_estimation_authorized": false,
+  "schema": "climate_daily_parameter_bundle_validator_synthetic_audit_v1",
+  "scientific_validity_established": false,
+  "status": "canonical_named_parameter_and_output_linkage_checks_passed_synthetic_only",
+  "synthetic_parameter_fixture": {
+    "parameter_record_count": 2,
+    "path_roles": [
+      "baseline",
+      "pulse"
+    ],
+    "synthetic_values_only": true
+  }
+}

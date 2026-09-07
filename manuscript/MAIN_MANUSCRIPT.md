@@ -1128,6 +1128,17 @@ mass error; fourteen targeted corruptions fail. This validates the proposed
 data boundary and numerical identities, not a generator or climate response;
 no real daily values or downstream estimates were produced.
 
+We then preregistered and implemented only a canonical boundary for the
+parameter identity referenced by that schema. One parameter record is required
+for every exact monthly output key and names the dry-to-wet and wet-to-wet
+transition probabilities, gamma shape and scale for wet-day amounts, spatial-
+dependence and temperature--precipitation component hashes, and support flag.
+The full object is hashed after sorting by the monthly key; the receipt and all
+monthly output records must carry that hash, with exact key, support, and code-
+identity agreement. Synthetic fixtures reject ten corruptions and link the 32
+calendar test records one-to-one. No real parameter estimation, generator
+implementation, or downstream climate or damage calculation is implied.
+
 ### 6.3 Marginal damages and global SCC
 
 Report global agricultural marginal damages and SCC under each adaptation

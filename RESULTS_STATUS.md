@@ -686,3 +686,16 @@ order, innovation digests, and daily values, but changes to a monthly target or
 support flag are rejected. Fourteen deliberate corruptions now fail. This is
 software-validation evidence only; it creates no real daily climate path and
 opens no fit, FAIR, response, damage, welfare, or SCC gate.
+
+The formerly label-only parameter identity now has a separately preregistered,
+synthetic-only canonical object and validator. Each future monthly output key
+must have exactly one named record containing two first-order wet-state
+transition probabilities, wet-amount gamma shape and scale, component hashes
+for spatial dependence and joint temperature--precipitation coupling, and the
+same support flag. The receipt and every output record must carry the SHA-256 of
+the full record-order-invariant object, and the generator code identity and key
+sets must match exactly. A two-record unit fixture rejects ten corruptions; the
+existing 32-record four-calendar fixture links one-to-one. These checks bind
+metadata and numbers but do not validate their estimation or scientific use;
+the unavailable pinned generator remains a hard no-fit blocker and all
+downstream gates remain closed.
