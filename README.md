@@ -8,6 +8,14 @@ they are intentionally not wired into the baseline model.
 
 ## Current boundary
 
+September 7 direct climate results now include a
+[five-model short-period pilot](CLIMATE_SCENARIO_CONTRAST_RESULTS_20260907.md)
+and a [28-year multi-crop comparison](CLIMATE_CONTIGUOUS_CONTRAST_RESULTS_20260907.md).
+Both quantify totals and distribution, but their two-latitude geography is
+limited and neither is a crop-damage or SCC estimate. The source-overlap check
+passes exactly. Historical crop associations and remaining empirical links
+are summarized in [PRELIMINARY_EVIDENCE_20260907.md](PRELIMINARY_EVIDENCE_20260907.md).
+
 The first build prioritizes **global agricultural damages from precipitation
 patterns**—seasonality, timing, dry spells, wet-day frequency, and extremes—in
 a joint temperature--precipitation response. Coastal storm-surge and

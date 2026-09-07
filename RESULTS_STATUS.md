@@ -3,6 +3,20 @@
 Updated: 2026-09-07. This file records completed computational milestones; it
 does not report final response estimates or SCC values.
 
+Latest climate milestone: 60 direct five-ESM scenario/period/subset comparisons
+completed on the retained two-latitude maize-calendar pilot. Late-century
+SSP5-8.5 minus SSP1-2.6 lengthens band-average maximum dry spells in all five
+models, while total-rainfall differences disagree in sign. No global coverage,
+yield impact or SCC is implied. See `CLIMATE_SCENARIO_CONTRAST_RESULTS_20260907.md`.
+
+The immediate follow-up added 252 longer-period (2032–2059) comparisons across
+six crop-season definitions and both calendars, with the incomplete ESM matrix
+explicit. All 60,368 overlapping maize crop-year records agree exactly with the
+short assembly. Stage mean temperatures exist; aligned future Tmax integrals
+are missing from the consumed products. See
+`CLIMATE_CONTIGUOUS_CONTRAST_RESULTS_20260907.md`. Climate-to-yield and SCC
+requirements are not bypassed.
+
 Latest sensitivity: country-year controls now estimated on identical mapped
 support, 352,301 maize and 157,003 soybean pairs. The soybean quantity
 association attenuates to near zero; maize stays positive but smaller.

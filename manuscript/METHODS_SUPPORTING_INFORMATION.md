@@ -1,5 +1,44 @@
 # Methods Supporting Information
 
+## Direct climate-feature scenario comparison
+
+The longer-period extension in `CLIMATE_CONTIGUOUS_CONTRAST_PROTOCOL_20260907.md`
+uses 2032–2059 annual features once each, not overlapping smoothed windows.
+Source matrix, configs, audits and consumed season/stage files are hash-checked
+before one crop/calendar scenario pair is read. GFDL, IPSL and MPI form the
+common SSP3-7.0/SSP5-8.5 comparison set; MRI's SSP3-7.0 result is separate.
+No missing model/scenario is filled. All six crop-season definitions and both
+calendars are retained; precipitation features are not irrigation treatments.
+The initial 1e-5 °C temperature-reconciliation check failed on a 1.00336e-5 °C
+discrepancy. The protocol transparently records the float32-precision diagnosis,
+revised 1e-4 °C numerical tolerance, synthetic boundary tests, and failed runs.
+Actual maximum residuals are retained, not silently corrected. The short and
+long source assemblies agree exactly over 60,368 common maize crop-year
+records for every feature. Stage mean temperatures are present, but aligned
+midcentury Tmax threshold integrals are absent from these consumed schemas.
+Results therefore do not feed a joint agricultural response. Full reproduction
+and the complete aggregate artifact are in
+`CLIMATE_CONTIGUOUS_CONTRAST_RESULTS_20260907.md`.
+
+`CLIMATE_SCENARIO_CONTRAST_PROTOCOL_20260907.md` prespecifies direct SSP3-7.0
+and SSP5-8.5 minus SSP1-2.6 differences, without fitting an emulator or using
+outcomes. For five ESM/member pairs, exact cell/year matches are averaged
+within 2042–2049 or 2092–2099 and then equally across calendar-support cells
+at 39.25°N and 39.75°N. USA/CHN singleton-country-proxy subsets remain
+cross-sections, not national coverage. The 11-feature table is hash-pinned;
+one ESM is read at a time in 8,192-row batches. Composition, finiteness,
+support, scenario/member and GMST identity checks must pass. Shape summaries
+exclude cells with any zero-rain season on either path, with counts retained.
+The legacy timing index uses weights (1/6, 1/2, 5/6) on shares from windows
+with boundaries (0, 0.3, 0.7, 1); it is not an exact day-based centroid.
+HHI describes three-window concentration, not daily concentration or measured
+phenology. Model medians/ranges are
+descriptive, not confidence intervals. Eight-year windows, internal variability,
+joint forcing differences and unequal agricultural relevance limit inference.
+The calculation does not feed historical coefficients, welfare or SCC.
+`CLIMATE_SCENARIO_CONTRAST_RESULTS_20260907.md` provides reproduction commands,
+test outcomes, resource use and the complete aggregate-result artifact.
+
 ## Country-specific annual-shock sensitivity
 
 The separate `GLOBAL_COUNTRY_CONTROL_PROTOCOL_20260907.md` registers a

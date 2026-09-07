@@ -1,5 +1,31 @@
 # Precipitation patterns, global agricultural damages, and the social cost of carbon
 
+## September 7 direct climate-scenario pilot
+
+The longer-period extension uses 28 distinct harvest years (2032–2059) for
+six crop-season definitions and both calendar regimes. In the common GFDL,
+IPSL and MPI sample, SSP5-8.5 minus SSP1-2.6 reduces maize-calendar seasonal
+rainfall by a median 5.79 mm (model range 2.02–18.84 mm reduction) and
+lengthens the maximum dry spell by 1.45 days (range 0.01–1.65). Soybean
+changes are -2.83 mm and +1.29 days. The geography remains the same narrow
+band; model ranges are not confidence intervals, and the USA-labeled subset
+does not have universal dry-spell sign agreement. This direct forcing-scenario
+comparison does not supply an aligned joint yield response or a marginal CO2
+effect. All 252 comparisons and their limitations are in
+`CLIMATE_CONTIGUOUS_CONTRAST_RESULTS_20260907.md`.
+
+A direct comparison of retained ISIMIP3b features—not an emulator—now
+quantifies both rainfall totals and temporal distribution. In a two-latitude
+maize-calendar band (39.25°N and 39.75°N), all five ESMs lengthen the mean
+maximum growing-season dry spell for SSP5-8.5 relative to SSP1-2.6 in
+2092–2099: median +2.18 days, model range +0.93 to +6.11. Rainfall totals
+disagree in sign: median -13.20 mm, range -39.72 to +29.61 mm. This agreement
+on dry spells is not universal across periods or regional subsets. Eight-year
+windows retain internal variability; neither scenario is a no-climate-change
+counterfactual. These are limited geographic climate contrasts, not global
+projections, crop impacts or marginal CO2 effects. Full results and limitations
+are in `CLIMATE_SCENARIO_CONTRAST_RESULTS_20260907.md`.
+
 ## September 7 country-specific annual-shock sensitivity
 
 The global soybean rainfall-quantity association is not robust to stronger

@@ -58,6 +58,20 @@ See `GLOBAL_CONTINUOUS_GEOGRAPHIC_CLUSTER_RESULTS_20260907.md`.
 
 ## What is NOT estimated yet
 
+**Limited future climate contrasts are now available.** Five ESMs, both
+rainfall totals and distribution, two eight-year periods, and three reporting
+subsets have been compared directly from retained features. The geographic
+support is just two latitude rows, not global or nationally representative.
+See `CLIMATE_SCENARIO_CONTRAST_RESULTS_20260907.md`. These results do not fill
+the attribution, yield-transport or marginal-pulse gaps below.
+
+The subsequent 28-year multi-crop comparison is complete as well:
+`CLIMATE_CONTIGUOUS_CONTRAST_RESULTS_20260907.md`. It extends the period and
+calendars, not geographic coverage. All 60,368 shared maize crop-year records
+agree exactly across the two assemblies. Neither comparison supplies the
+missing aligned future heat controls or validates transporting historical
+yield associations to future climates.
+
 1. Globally transferable causal yield responses, including a defensible
    long-run adaptation interpretation and joint-driver counterfactual.
 2. Agricultural losses attributable to projected climate-induced rainfall
