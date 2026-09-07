@@ -1,0 +1,106 @@
+schema = "global_continuous_geographic_cluster_contract_v1"
+role = "exploratory_geographic_validation_and_source_cluster_uncertainty_only"
+parent_result_path = "data/provenance/global_continuous_temporal_benchmark_20260906.json"
+parent_result_sha256 = "1fff3faca5d93f2784dd3fb0d740aa084a04c07061a9858a537f13e7bb28cca9"
+parent_protocol_path = "GLOBAL_CONTINUOUS_TEMPORAL_PROTOCOL_20260906.md"
+parent_protocol_sha256 = "941d56aee754ad8b00ded71bf5f7bcf26954ba55a98dccf76befeea9110f7d4d"
+parent_implementation_path = "scripts/global_continuous_temporal_benchmark.py"
+parent_implementation_sha256 = "43b12bd0389e224beeeca6bb057c68aedb250a4bb15569890ae4514dfc34fb98"
+protocol_path = "GLOBAL_CONTINUOUS_GEOGRAPHIC_CLUSTER_PROTOCOL_20260907.md"
+
+[support]
+key_fields = ["crop", "lat", "lon_360", "harvest_year"]
+families = ["direct", "heat", "scpdsi"]
+exact_inner_join = true
+positive_identical_outcomes_required = true
+finite_registered_features_required = true
+consecutive_year_differences_only = true
+train_end_years = [1983, 2010]
+excluded_end_year = 2011
+test_end_years = [2012, 2016]
+
+[geographic_folds]
+count = 5
+latitude_block_degrees = 10
+longitude_block_degrees = 10
+assignment = "(37*floor((lat+90)/10)+17*floor(lon_360/10)+20260907)%5"
+outcome_blind = true
+held_out_blocks_absent_from_training = true
+minimum_blocks_per_fold = 2
+minimum_blocks_per_crop = 10
+
+[models]
+ordered_names = ["controls_only", "quantity", "quantity_distribution", "scpdsi_mean", "scpdsi_stages"]
+moisture_families_mutually_exclusive = true
+condition_number_maximum = 1.0e10
+coefficient_export_forbidden = true
+row_prediction_export_forbidden = true
+
+[uncertainty]
+cluster = "crop_specific_10_degree_latitude_longitude_source_block"
+resampling = "paired_within_fold_cluster_bootstrap"
+replicates = 5000
+generator = "numpy.random.Generator(PCG64)"
+seed = 20260907
+quantiles = [0.025, 0.5, 0.975]
+contrasts = ["quantity_minus_controls_only", "quantity_distribution_minus_quantity", "scpdsi_mean_minus_quantity", "scpdsi_stages_minus_quantity"]
+retain_all_pairs_within_selected_cluster = true
+conditional_on_fixed_fits = true
+significance_claim_forbidden = true
+
+[resources]
+existing_derived_inputs_only = true
+download_forbidden = true
+raw_rehydration_forbidden = true
+one_parquet_file_at_a_time = true
+batch_rows = 8192
+latitude_block_degrees = 10
+sampled_peak_resident_memory_bytes_maximum = 1073741824
+result_bytes_maximum = 1048576
+large_climate_computation_forbidden = true
+
+[decision]
+coefficient_export_authorized = false
+model_promotion_authorized = false
+causal_response_authorized = false
+future_projection_authorized = false
+fair_run_authorized = false
+damage_or_welfare_authorized = false
+scc_authorized = false
+all_results_remain_exploratory = true
+
+[[inputs]]
+crop = "maize"
+family = "direct"
+receipt_path = "outputs/continuous_global_panel_1982_2016_v1/maize_1982_2016_direct_assembly_receipt.json"
+receipt_sha256 = "e287bda7f42b99ab7a28e16846c3b47affc3549dd78561cdbc583b6b247d2972"
+
+[[inputs]]
+crop = "maize"
+family = "heat"
+receipt_path = "outputs/continuous_global_panel_1982_2016_v1/maize_1982_2016_heat_assembly_receipt.json"
+receipt_sha256 = "a58623c87faec1901ba727f9bf02a3e6345de7db3c0377390642a8f4c2cada5a"
+
+[[inputs]]
+crop = "maize"
+family = "scpdsi"
+receipt_path = "outputs/continuous_global_panel_1982_2016_v1/maize_1982_2016_scpdsi_assembly_receipt.json"
+receipt_sha256 = "1ebbcb6656ebcbf56ce3fb846a0351b5844b206596ee9048de44f4e8178617fc"
+
+[[inputs]]
+crop = "soy"
+family = "direct"
+receipt_path = "outputs/continuous_global_panel_1982_2016_v1/soy_1982_2016_direct_assembly_receipt.json"
+receipt_sha256 = "50462d0e14e0e6a6972e088119552f370627e64d7cceeb0c11b845e5d6d908d0"
+
+[[inputs]]
+crop = "soy"
+family = "heat"
+receipt_path = "outputs/continuous_global_panel_1982_2016_v1/soy_1982_2016_heat_assembly_receipt.json"
+receipt_sha256 = "6039edf8b2f14fd0ceb390cc9811a31bc186cbd33e4a1161fd12b5063fb2a2e8"
+
+[[inputs]]
+crop = "soy"
+family = "scpdsi"
+receipt_path = "outputs/continuous_global_panel_1982_2016_v1/soy_1982_2016_scpdsi_assembly_receipt.json"
+receipt_sha256 = "dacbef432471f4561db9b1a105d069c999e40a1d607d77862b1bceab33d7e31a"
