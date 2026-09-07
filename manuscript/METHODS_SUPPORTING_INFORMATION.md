@@ -51,6 +51,22 @@ saved reconciliation error is zero at artifact precision. This checks internal
 aggregate-result integrity, not sample construction, exposure construction,
 model fitting, or causal identification.
 
+### September 6 continuous temporal benchmark
+
+The retained assembly-hash-verified global maize/soy tables were read in
+8,192-row batches and joined in ten-degree latitude bands on exact
+crop/grid/year keys. Matched positive yields and consecutive years define
+the common first-difference support. Training ends in 2010; terminal test
+differences start in 2012, avoiding a shared 2011 outcome endpoint. Test
+cells must have training differences. All models include stage mean
+temperatures, crop-specific stage Tmax degree days, and deterministic year
+terms; moisture families remain separate. Scale-normalized accumulated
+cross-products yield aggregate test loss without storing global predictions.
+See `GLOBAL_CONTINUOUS_TEMPORAL_PROTOCOL_20260906.md` and
+`scripts/global_continuous_temporal_benchmark.py`. Full-record scPDSI
+calibration makes this retrospective. No spatial inference or causal
+interpretation is authorized by this diagnostic.
+
 ## S2. Data acquisition and provenance
 
 The outcome panel uses GDHY v1.2/v1.3 (Iizumi and Sakai, 2020), with the

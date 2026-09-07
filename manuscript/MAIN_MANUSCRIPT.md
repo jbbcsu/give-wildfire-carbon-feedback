@@ -1,5 +1,19 @@
 # Precipitation patterns, global agricultural damages, and the social cost of carbon
 
+## September 6 continuous historical benchmark
+
+An exploratory retrospective temporal comparison now uses the continuous
+1982–2016 global maize/soy inputs, with training differences ending in
+1983–2010 and test differences ending in 2012–2016. On identical support,
+seasonal quantity has the lowest maize RMSE (.292338); adding distribution
+slightly worsens it. Quantity plus distribution has the lowest soybean RMSE
+(.177279), a roughly 0.44% improvement over quantity. Neither scPDSI family
+beats quantity for either crop. These modest predictive gains differ from
+the U.S. rankings and do not establish climate-attributable damages. Counts
+of 57,767 maize and 26,004 soybean test pairs are not independent observation
+counts. See `GLOBAL_CONTINUOUS_TEMPORAL_RESULTS_20260906.md`; geographic
+validation, uncertainty, welfare and SCC remain unfinished.
+
 ## September 5 predictive robustness qualification
 
 Adding stage-average maximum-temperature controls changes the regional
