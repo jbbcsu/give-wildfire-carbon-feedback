@@ -1,5 +1,26 @@
 # Methods Supporting Information
 
+## Country-specific annual-shock sensitivity
+
+The separate `GLOBAL_COUNTRY_CONTROL_PROTOCOL_20260907.md` registers a
+conservative, outcome-independent label assignment from retained MapSPAM
+footprint coordinates: a half-degree cell receives a country proxy only when
+all included five-minute cells agree. Country codes are checked against the
+retained official sources; ambiguous and absent cells are not guessed.
+This is not independent administrative geometry, and the circa-2000
+agricultural-footprint selection is a limitation.
+
+On identical mapped training differences, global-year or country-year
+intercepts are absorbed by group-demeaning outcome and regressors. OLS slopes
+and cluster-score covariance are compared with explicit dummy-variable
+synthetic calculations. CR1 uses G/(G-1)*(N-1)/(N-H-K), counting H absorbed
+groups and K slopes. Country and 20-degree clusters are separate conditional
+sensitivities. Singleton groups remain zero-contribution demeaned rows;
+nominal cluster counts do not imply equal information or independence.
+No terminal outcomes, welfare weights, climate projections or coefficient
+draw exports enter this fit. `GLOBAL_COUNTRY_CONTROL_RESULTS_20260907.md`
+records every fit, support loss, limitation and reproduction path.
+
 ## Uncalibrated economic-accounting implementation
 
 The independent closed-market constant-elasticity accounting module in

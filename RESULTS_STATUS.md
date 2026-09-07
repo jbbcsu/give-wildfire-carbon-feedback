@@ -3,6 +3,12 @@
 Updated: 2026-09-07. This file records completed computational milestones; it
 does not report final response estimates or SCC values.
 
+Latest sensitivity: country-year controls now estimated on identical mapped
+support, 352,301 maize and 157,003 soybean pairs. The soybean quantity
+association attenuates to near zero; maize stays positive but smaller.
+All 16 fits and two covariance variants pass computational checks, without
+causal/predictive/SCC promotion. See `GLOBAL_COUNTRY_CONTROL_RESULTS_20260907.md`.
+
 New historical association milestone: 16 global maize/soy training-period
 fits completed, each with 10- and 20-degree cluster-covariance variants.
 All original training counts and current implementation hashes verify.

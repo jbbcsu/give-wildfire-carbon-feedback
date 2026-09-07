@@ -1,5 +1,19 @@
 # Precipitation patterns, global agricultural damages, and the social cost of carbon
 
+## September 7 country-specific annual-shock sensitivity
+
+The global soybean rainfall-quantity association is not robust to stronger
+annual controls. On identical country-mapped training support, country-year
+instead of global-year intercepts reduce its +0.1 weighted log-rain-index
+contrast from 0.381% to 0.014% (country-clustered conditional interval
+[-0.543, 0.574]). The analogous maize contrast falls from 0.574% to 0.367%
+[0.135, 0.600]. Soybean scPDSI intervals also span zero. Partial timing
+associations remain positive but do not establish robust incremental prediction
+or transport to future climate. The country proxy, its sample restriction and
+limited effective independence constrain interpretation. This is an
+exploratory sensitivity, not causal identification. See
+`GLOBAL_COUNTRY_CONTROL_RESULTS_20260907.md` for the full comparison matrix.
+
 ## September 7 global historical association estimates
 
 Separate exploratory training-period regressions now quantify moisture–yield

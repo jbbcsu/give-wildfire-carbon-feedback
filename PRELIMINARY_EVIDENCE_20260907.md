@@ -7,6 +7,14 @@ the implications for SCC without double counting legacy agriculture.
 
 ## What the current estimates say
 
+**Country-specific annual shocks materially weaken the global soybean
+quantity result.** On a fixed country-mapped sample, the fitted +0.1 log-rain
+index contrast drops from 0.381% to 0.014% for soybean (interval spans zero),
+and from 0.574% to 0.367% for maize (positive conditional interval). Soybean
+drought contrasts also span zero. Country labels come from a conservative
+crop-footprint proxy, not verified GDHY source-unit boundaries. All definitions,
+sample exclusions and 16 fits: `GLOBAL_COUNTRY_CONTROL_RESULTS_20260907.md`.
+
 **New global association fits are complete.** On the original 1983–2010
 training support, maize rainfall and scPDSI partial contrasts are positive;
 soybean quantity and drought intervals include zero after unrestricted annual
