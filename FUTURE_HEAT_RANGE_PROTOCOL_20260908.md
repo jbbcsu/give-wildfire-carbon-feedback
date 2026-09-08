@@ -1,5 +1,18 @@
 # Historical range check for the real two-crop heat pilot
 
+## Prospective 30°C extension (after the completed 29°C calculation)
+
+Before constructing the new soybean30°C input, register an otherwise identical
+range check using explicitly named30°C fields in the historical heat basis.
+Do not reinterpret29°C degree days as30°C. The same validated calendar and
+fixed-weight pipeline will build two new soybean calendar outputs from the
+resident cutout, without overwriting29°C products or redownloading. Exact-join
+and range tests must reject substituted29°C fields. Report this result
+separately; it matches the locked soybean control threshold but does not
+establish future-response transport. Count prior pilot and29°C extension
+directories in the same64MiB combined ceiling. Default29°C behavior remains
+unchanged; do not rerun completed29°C real jobs.
+
 Registered before calculation, September 8, 2026 UTC. Compare the six newly
 available stage Tmax29°C day-count/degree-day fields with cell-specific
 1982–2010 historical heat-basis minima/maxima. Stream historical Parquet in

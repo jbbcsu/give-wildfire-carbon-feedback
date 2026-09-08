@@ -1,5 +1,23 @@
 # Precipitation patterns, global agricultural damages, and the social cost of carbon
 
+## September 8 follow-through: soybean threshold and published valuation
+
+The missing30°C soybean control is now built from the same daily cutout and
+joined on exact keys; prior rainfall fields remain unchanged. Its historical
+heat-range check has703of1,192evaluable crop-years(58.98%) outside at least one
+of six ranges, all above historical maxima. This remains a limited input/
+extrapolation diagnostic, not projected crop loss (`SOY_HEAT30_RESULTS_20260908.md`).
+
+Section K of the published Hultgren et al. supplement is now fully reviewed,
+including visual verification of equations. It distinguishes anticipated
+planting responses from unanticipated weather and a price-level storage
+adjustment. An independent price/quantity-only implementation passes four
+synthetic test groups, but is not a full welfare replication. Expectation-
+window and additional-adaptation descriptions contain ambiguities requiring
+source-code resolution; neither is silently selected. See
+`HULTGREN_WELFARE_SOURCE_REVIEW_20260908.md`. No empirical welfare or SCC result
+has been added.
+
 ## September 8 real future heat-input validation
 
 The bounded download and real-content checks now succeed. One 12.29 MiB

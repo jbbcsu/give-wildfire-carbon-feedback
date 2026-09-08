@@ -21,28 +21,39 @@ FEATURES = heat_basis_feature_names([29.], 3)
 HEAT = [x for x in FEATURES if not x.endswith('tmean_c')]
 
 
-def exact_join(rain, heat):
+def exact_join(rain, heat, threshold=29.):
+    features=heat_basis_feature_names([threshold],3)
+    heat_columns=[x for x in features if not x.endswith('tmean_c')]
     if rain.duplicated(KEYS).any() or heat.duplicated(KEYS).any():
         raise ValueError('duplicate climate key')
     a=rain.set_index(KEYS).sort_index(); b=heat.set_index(KEYS).sort_index()
     if not a.index.equals(b.index):
         raise ValueError('rain/heat key support differs')
-    if not np.isfinite(b[FEATURES].to_numpy()).all():
+    if not np.isfinite(b[features].to_numpy()).all():
         raise ValueError('nonfinite heat basis')
     for stage in (1,2,3):
         col=f'stage{stage}_tmean_c'
         if not np.array_equal(a[col].to_numpy(),b[col].to_numpy()):
             raise ValueError('weighted stage mean temperature differs')
-    if set(HEAT)&set(a.columns):
+    if set(heat_columns)&set(a.columns):
         raise ValueError('heat fields already present')
-    return a.join(b[HEAT],validate='one_to_one').reset_index()
+    return a.join(b[heat_columns],validate='one_to_one').reset_index()
 
 
 def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--pilot',type=Path,required=True)
     parser.add_argument('--out-dir',type=Path,required=True)
+    parser.add_argument('--crops',nargs='+',choices=['mai','soy'],default=['mai','soy'])
+    parser.add_argument('--threshold-c',type=int,choices=[29,30],default=29)
+    parser.add_argument('--accounted-dir',type=Path,action='append',default=[])
     args=parser.parse_args(); pilot=args.pilot.resolve(); out=args.out_dir.resolve()
+    if len(set(args.crops))!=len(args.crops):raise ValueError('duplicate crop')
+    features=heat_basis_feature_names([args.threshold_c],3)
+    accounted=[p.resolve() for p in args.accounted_dir]
+    if any(not p.is_relative_to(ROOT/'data/interim') or not p.is_dir() for p in accounted):
+        raise ValueError('accounted directories must be existing project intermediates')
+    if len(set([pilot,out]+accounted))!=len([pilot,out]+accounted):raise ValueError('duplicate accounted directory')
     if not pilot.is_relative_to(ROOT/'data/interim') or not out.is_relative_to(ROOT/'data/interim') or out.exists():
         raise ValueError('use existing ignored pilot and new ignored output directory')
     receipt_path=pilot/'receipt.json'; pilot_receipt=json.loads(receipt_path.read_text())
@@ -57,7 +68,8 @@ def main():
     weights_path=checked(dict(path='data/interim/mirca_os_v2/irrigation_shares_2000.parquet',sha256=WEIGHT_HASH))
     weights=pq.read_table(weights_path,filters=[('lat','in',[39.25,39.75]),('crop','in',['mai','soy'])],use_threads=False).to_pandas()
     result=dict(status='started',role='joint_climate_inputs_only',crop_yield_estimated=False,
-                causal_or_scc_result=False,new_downloads=0,pilot_receipt_sha256=sha256(receipt_path),
+                causal_or_scc_result=False,new_downloads=0,threshold_c=args.threshold_c,
+                requested_crops=args.crops,pilot_receipt_sha256=sha256(receipt_path),
                 future_receipt_sha256=sha256(future_path),weight_sha256=WEIGHT_HASH,
                 calendar_manifest_sha256=sha256(manifest_path),products=[],calendars={},
                 code_hashes={p:sha256(ROOT/'scripts'/p) for p in (
@@ -65,7 +77,7 @@ def main():
                     'allocate_outcome_exposures.py','build_future_weighted_precipitation.py',
                     'build_crop_heat_features.py','build_crop_stage_heat_features.py')})
     def budget():
-        used=sum(p.stat().st_size for d in (pilot,out) for p in d.rglob('*') if p.is_file())
+        used=sum(p.stat().st_size for d in [pilot,out]+accounted for p in d.rglob('*') if p.is_file())
         if used>64*2**20-128*1024 or shutil.disk_usage(ROOT).free<pilot_receipt['initial_free_bytes']-64*2**20:
             raise ValueError('original 64 MiB combined disk ceiling breached')
         return used
@@ -75,7 +87,7 @@ def main():
     out.mkdir()
     try:
         save()
-        for crop in ('mai','soy'):
+        for crop in args.crops:
             product=[p for p in future['products'] if (p['crop'],p['esm'],p['scenario'])==(crop,'GFDL-ESM4','ssp126')]
             if len(product)!=1 or product[0]['member']!='r1i1p1f1':raise ValueError('realization differs')
             product=product[0]; bases=[]; source_hashes=[]
@@ -92,11 +104,11 @@ def main():
                 tables={k:pd.read_parquet(checked(inputs[k])) for k in ('season','stages')}
                 tables={k:v.loc[v.harvest_year.between(2042,2049)].copy() for k,v in tables.items()}
                 panel=join_season_stages(tables['season'],tables['stages'])
-                dest=pilot if (crop,regime)==('mai','noirr') else out/f'{crop}_{regime}'
+                dest=pilot if (crop,regime,args.threshold_c)==('mai','noirr',29) else out/f'{crop}_{regime}'
                 if dest!=pilot:
                     dest.mkdir(); common=['--tasmax',str(pilot/'tasmax_cutout.nc'),'--calendar',str(calendar),
                         '--crop',crop,'--irrigation',regime,'--year-start','2042','--year-end','2049',
-                        '--lat-start','0','--lat-stop','2','--calendar-by-coordinates','--threshold-c','29']
+                        '--lat-start','0','--lat-stop','2','--calendar-by-coordinates','--threshold-c',str(args.threshold_c)]
                     for script,filename in [('build_crop_heat_features.py','season_heat.parquet'),
                                             ('build_crop_stage_heat_features.py','stage_heat.parquet')]:
                         budget();subprocess.run([sys.executable,str(ROOT/'scripts'/script),*common,'--out',str(dest/filename)],check=True);budget()
@@ -106,13 +118,13 @@ def main():
                         raise ValueError('incomplete heat/calendar coverage')
                 scope=dict(crop=crop,irrigation=regime,year_start=2042,year_end=2049,stages=3)
                 panel=_validate_panel(panel,**scope)
-                basis,fractions,audit=_regime_heat_basis(panel,season,stage,thresholds=[29.],**scope)
+                basis,fractions,audit=_regime_heat_basis(panel,season,stage,thresholds=[args.threshold_c],**scope)
                 if fractions!='0,0.3,0.7,1':raise ValueError('stage fractions differ')
                 bases.append(basis)
-            weighted,allocation=allocate(pd.concat(bases,ignore_index=True),weights,FEATURES,['noirr','firr'],exclude_missing_weight_cells=True)
+            weighted,allocation=allocate(pd.concat(bases,ignore_index=True),weights,features,['noirr','firr'],exclude_missing_weight_cells=True)
             if weighted.yield_observed.any() or weighted.yield_t_ha.notna().any():raise ValueError('future outcomes present')
             rain=pd.read_parquet(checked(product));rain=rain.loc[rain.harvest_year.between(2042,2049)]
-            joined=exact_join(rain,weighted)
+            joined=exact_join(rain,weighted,args.threshold_c)
             path=out/f'{crop}_GFDL-ESM4_ssp126_joint_climate.parquet'; budget();joined.to_parquet(path,index=False);budget()
             result['products'].append(dict(crop=crop,esm='GFDL-ESM4',member='r1i1p1f1',scenario='ssp126',
                 years=list(range(2042,2050)),rows=len(joined),cells=len(joined[['lat','lon_360']].drop_duplicates()),
@@ -120,7 +132,7 @@ def main():
                 rainfall_sha256=product['sha256'],regime_sources=source_hashes,allocation=allocation))
             save()
         result['artifacts']={str(p.relative_to(out)):sha256(p) for p in out.rglob('*.parquet')}
-        result['status']='two_crop_joint_climate_inputs_validated';save()
+        result['status']='two_crop_joint_climate_inputs_validated' if set(args.crops)=={'mai','soy'} else 'joint_climate_inputs_validated';save()
         print(result['status'],[(p['crop'],p['rows']) for p in result['products']])
     except Exception as error:
         result.update(status='failed_preserved',error_type=type(error).__name__,error=str(error));save();raise

@@ -1,5 +1,33 @@
 # Methods Supporting Information
 
+## September 8 soybean30°C completion and valuation source review
+
+The future heat wrapper now accepts an explicit29/30°C threshold and crop
+subset while preserving its original29°C default. New soybean30°C outputs
+were computed from the resident file, not by transforming29°C integrals.
+Exact keys, calendar fields, stage lengths and seasonal/stage reconciliation
+are required before the same fixed MIRCA weighting. The original29°C products
+are preserved. A separate real-data comparison checks unchanged rainfall/
+temperature fields and cross-threshold degree-day/count inequalities. The
+range protocol was extended prospectively to30°C, retaining historical period,
+missing-range treatment and numerical tolerance. Results and reproduction:
+`SOY_HEAT30_RESULTS_20260908.md`.
+
+The public publisher welfare supplement was streamed in256KiB chunks with
+exact34,800,087byte length and PDF-header checks, and independently hashed.
+Complete Section K (PDF79–88; printed SI-76–85) was text-extracted and visually
+inspected. Its market scenarios and storage coefficient are explicitly
+source-located in`config/hultgren_k6_market_scenarios_20260908.json`; none is
+a newly estimated or production-selected coefficient. The independent
+`src/anticipated_weather_market.py` implements anticipated equilibrium,
+unanticipated production, arithmetic price-level shrinkage and final demand
+quantity. Expected supply is an input, not an invented13/15year smoother.
+Four synthetic test groups cover direct equations, fully anticipated limits
+against the independent market core, storage endpoints and invalid domains.
+It exports no surplus, damages, adaptation adjustments or SCC. Published
+ambiguities and missing cost/inventory/aggregation conventions remain recorded
+in`HULTGREN_WELFARE_SOURCE_REVIEW_20260908.md`.
+
 ## September 8 real acquisition, two-crop join and heat-range check
 
 The separately authorized single-file workflow has now run successfully on

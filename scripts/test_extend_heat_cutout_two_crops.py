@@ -19,5 +19,11 @@ class TestJoin(unittest.TestCase):
         for col,value in ((HEAT[0],float('nan')),('stage1_tmean_c',20.0001)):
             heat=self.heat.copy();heat.loc[0,col]=value
             with self.assertRaises(ValueError):exact_join(self.rain,heat)
+    def test_30c_not_29c(self):
+        heat=self.heat.rename(columns={c:c.replace('29c','30c') for c in HEAT})
+        out=exact_join(self.rain,heat,30.)
+        self.assertIn('stage1_tmax_30c_degree_days',out)
+        self.assertNotIn('stage1_tmax_29c_degree_days',out)
+        with self.assertRaises(KeyError):exact_join(self.rain,self.heat,30.)
 
 if __name__=='__main__':unittest.main()

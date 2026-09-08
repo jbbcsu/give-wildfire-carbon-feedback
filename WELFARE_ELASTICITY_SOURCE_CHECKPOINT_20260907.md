@@ -1,5 +1,17 @@
 # Published market-elasticity route: source checkpoint
 
+## September8 superseding source-access update
+
+The Hultgren supplement is now downloaded under standing authorization and
+Section K fully text/visually reviewed. Its three elasticity scenarios,
+price-level storage formula and stated aggregation assumptions are verified.
+The new price/quantity-only independent component passes four test groups;
+it does not implement full welfare or reproduce reported SCC. Read
+`HULTGREN_WELFARE_SOURCE_REVIEW_20260908.md` for13/15year and55% arithmetic
+ambiguities, current public replication-directory findings and next work.
+No pending permission blocker remains. Older pending-PDF statements below
+describe historical state only; do not repeat those requests/searches.
+
 ## Current checkpoint: September7, after the completed candidate sensitivity
 
 The original lead below has been followed. All six published AppendixTableA8

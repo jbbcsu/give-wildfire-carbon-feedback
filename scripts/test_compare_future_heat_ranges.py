@@ -18,5 +18,9 @@ class TestRanges(unittest.TestCase):
         with self.assertRaises(ValueError):diagnose(pd.concat([self.h,self.h]),self.f)
         self.h.loc[0,HEAT[0]]=float('nan')
         with self.assertRaises(ValueError):diagnose(self.h,self.f)
+    def test_30c_explicit_fields(self):
+        mapping={c:c.replace('29c','30c') for c in HEAT}
+        r=diagnose(self.h.rename(columns=mapping),self.f.rename(columns=mapping),list(mapping.values()))
+        self.assertEqual(set(r['features']),set(mapping.values()))
 
 if __name__=='__main__':unittest.main()

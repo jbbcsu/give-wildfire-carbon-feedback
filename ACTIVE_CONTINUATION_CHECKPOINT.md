@@ -1,5 +1,44 @@
 # Active continuation checkpoint
 
+## Latest completed work and next executable step (September8, later run)
+
+Soybean30°C heat, both calendars, is COMPLETED from the resident SSP126 file.
+Exact rainfall/control identity and degree-day/count bounds versus29°C pass;
+2,616joint climate rows. Historical30°C ranges:703/1,192evaluable rows outside
+at least one feature(58.98%), not damages. Eight wrapper/range tests pass.
+Read`SOY_HEAT30_RESULTS_20260908.md`; do not rebuild30°C as unfinished.
+
+Hultgren95page supplement ACQUIRED (34,800,087bytes) and Section K fully
+text/visually reviewed(PDF79–88, SI-76–85). Its3published market scenarios and
+39% price-level storage shrinkage are verified. Independent price/quantity-
+only component`src/anticipated_weather_market.py` passes4test groups; no
+surplus/damage/SCC result.13vs15year expectation window and55%vs57.25% listed-
+number arithmetic remain explicit ambiguities. Source/code scope findings:
+`HULTGREN_WELFARE_SOURCE_REVIEW_20260908.md`. Public GitLab API works, but
+inspected main-figure/Table1 directories did not locate monetary K.4 code.
+Do not redownload the supplement or repeat the completed section review.
+
+NEXT executable climate task: prepare and acquire the matching small
+GFDL-ESM4 SSP585 daily Tmax2041–2050 spatial cutout, same member/version/grid
+and four calendars, under STANDING authorization. Read the existing
+`prepare_heat_subset_pilot.py` and its config/receipts; use a NEW scenario-
+specific config/receipt and validate official catalogue identity/rights before
+submission. Do not mutate/relabel the SSP126 config, child or recorded approval.
+Generalize acquisition for the registered new job with clear standing-
+authorization provenance, retaining byte caps/no unsafe ZIP extraction/no
+automatic uncertain-request retry. Process sequentially with <=1GiB sampled
+RAM, <=64MiB new disk per batch and >=130GiB free; no per-file permission
+question. Then build29°C maize/30°C soybean joint inputs and exact paired
+scenario differences. These are not no-climate-change or marginal-CO2 paths.
+
+Next economic task: locate the actual monetary-replication source/license or
+document a separately justified cost/inventory convention; do not feed the
+new storage-adjusted prices into old equilibrium-surplus code. Baseline
+calorie/revenue and transport/CO2/adaptation links remain unfinished. All jobs
+from this run finished; no detached analysis process remains. Scheduled
+continuation remains active with routine notifications muted. Older next-step
+and permission-pending text below is historical and superseded by this block.
+
 ## September 8 standing download authorization — supersedes older approval blockers
 
 User instruction: "hide the continuation notices. Don't ask for approval to
