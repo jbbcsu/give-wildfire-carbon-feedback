@@ -10,8 +10,18 @@ from allocate_irrigation_heat_basis import heat_basis_feature_names
 from build_future_weighted_precipitation import FEATURES,SHAPES,ZERO,WEIGHT_HASH
 from extend_heat_cutout_two_crops import exact_join
 from summarize_contiguous_climate_contrasts import ROOT,checked,sha256
+from build_historical_climate_benchmark import MODELS
 
 GRID=['crop','lat','lon_360']
+
+
+def validate_product(product,crop,model,scenario):
+    if model not in MODELS:raise ValueError('unregistered comparison model')
+    expected=(crop,MODELS[model]['esm'],'r1i1p1f1',scenario)
+    if tuple(product.get(k) for k in ('crop','esm','member','scenario'))!=expected:
+        raise ValueError('comparison product realization differs')
+    years=list(range(1982,2011)) if scenario=='historical' else list(range(2032,2060))
+    if product.get('years')!=years:raise ValueError('comparison product period differs')
 
 
 def distribution_difference(reference,candidate,columns):
@@ -59,18 +69,20 @@ def observed(crop,label,threshold):
 
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--out',type=Path,required=True);args=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('--out',type=Path,required=True)
+    p.add_argument('--model',choices=sorted(MODELS),default='gfdl');args=p.parse_args()
     if args.out.exists():raise ValueError('new comparison receipt required')
     result=dict(role='historical_distribution_source_benchmark_not_causal_bias_correction',
         observed_weather_years_paired=False,crop_yield_estimated=False,causal_or_scc_result=False,
         periods=dict(historical=[1982,2010],future=[2032,2059]),comparisons=[],
-        protocol_sha256=sha256(ROOT/'HISTORICAL_CLIMATE_BENCHMARK_PROTOCOL_20260908.md'),
+        esm=MODELS[args.model]['esm'],protocol_sha256=sha256(ROOT/MODELS[args.model]['protocol']),
         code_sha256=sha256(Path(__file__)))
     for crop,label,threshold in [('mai','maize',29),('soy','soy',30)]:
         obs,observed_sources=observed(crop,label,threshold)
-        rp=ROOT/f'data/interim/gfdl_historical_{crop}_joint_20260908/receipt.json';r=json.loads(rp.read_text())
+        rp=ROOT/f'data/interim/{args.model}_historical_{crop}_joint_20260908/receipt.json';r=json.loads(rp.read_text())
         if r['status']!='historical_joint_climate_inputs_validated' or r['weight_sha256']!=WEIGHT_HASH:raise ValueError('unvalidated historical climate')
         if len(r['products'])!=1 or r['products'][0]['crop']!=crop:raise ValueError('historical crop differs')
+        validate_product(r['products'][0],crop,args.model,'historical')
         model=pd.read_parquet(checked(r['products'][0]));common=pd.MultiIndex.from_frame(obs[GRID].drop_duplicates())
         model=model.loc[pd.MultiIndex.from_frame(model[GRID]).isin(common)].copy()
         if not pd.MultiIndex.from_frame(obs[KEYS]).isin(pd.MultiIndex.from_frame(model[KEYS])).all():raise ValueError('observed keys absent from model historical coverage')
@@ -83,10 +95,10 @@ def main():
             historical_model_minus_observed=distribution_difference(obs,model,core),
             availability_matched_model_minus_observed=distribution_difference(obs,sampled,core),scenarios=[])
         for scenario in ('ssp126','ssp585'):
-            fp=ROOT/f'data/interim/gfdl_{scenario}_{crop}_full_heat_20260908/receipt.json';fr=json.loads(fp.read_text())
+            fp=ROOT/f'data/interim/{args.model}_{scenario}_{crop}_full_heat_20260908/receipt.json';fr=json.loads(fp.read_text())
             if fr['status']!='joint_climate_inputs_validated' or fr['calendars']!=r['calendars'] or fr['weight_sha256']!=r['weight_sha256']:raise ValueError('future lineage differs')
-            product=fr['products'][0]
-            if (product['crop'],product['esm'],product['member'],product['scenario'])!=(crop,'GFDL-ESM4','r1i1p1f1',scenario):raise ValueError('future realization differs')
+            if len(fr['products'])!=1:raise ValueError('future product count differs')
+            product=fr['products'][0];validate_product(product,crop,args.model,scenario)
             future=pd.read_parquet(checked(product));future=future.loc[pd.MultiIndex.from_frame(future[GRID]).isin(common)].copy()
             if not future.groupby(GRID).harvest_year.agg(set).map(lambda v:v==set(range(2032,2060))).all():raise ValueError('future years incomplete')
             changes=distribution_difference(model,future,core);total=distribution_difference(obs,future,core)

@@ -21,20 +21,30 @@ from heat_cutout_dates import registered_years
 from run_authorized_heat_subset_pilot import validate_cutout
 from summarize_contiguous_climate_contrasts import ROOT,sha256,checked
 
-DATASETS={'pr':'3b37bbd1-d18d-4283-9e96-bf429c02479c','tas':'ecf92220-2f67-41d9-a427-a3ebef1255e9',
-          'tasmax':'ad8ae7de-b41e-4f69-b683-daa5c0f21509'}
+MODELS={
+    'gfdl':dict(esm='GFDL-ESM4',datasets={
+        'pr':'3b37bbd1-d18d-4283-9e96-bf429c02479c','tas':'ecf92220-2f67-41d9-a427-a3ebef1255e9',
+        'tasmax':'ad8ae7de-b41e-4f69-b683-daa5c0f21509'},
+        protocol='HISTORICAL_CLIMATE_BENCHMARK_PROTOCOL_20260908.md'),
+    'ipsl':dict(esm='IPSL-CM6A-LR',datasets={
+        'pr':'eb089d41-82a4-4e41-81aa-a05f33dc9fb7','tas':'ffade380-1650-4179-b522-b185712ed9fd',
+        'tasmax':'40d6892f-6fab-42f7-b0ef-2bd5cd33bae3'},
+        protocol='IPSL_HISTORICAL_CLIMATE_BENCHMARK_PROTOCOL_20260908.md')}
+DATASETS=MODELS['gfdl']['datasets']  # Preserve the original public default.
 YEARS=list(range(1982,2011))
 
 
-def validate_contracts(configs):
-    expected={(v,a) for v in DATASETS for a in (1981,1991,2001)};seen=set()
+def validate_contracts(configs,model='gfdl'):
+    if model not in MODELS:raise ValueError('unregistered historical model')
+    datasets=MODELS[model]['datasets'];esm=MODELS[model]['esm']
+    expected={(v,a) for v in datasets for a in (1981,1991,2001)};seen=set()
     for c in configs:
         s=c['specifiers'];v=s['climate_variable'];a,b=registered_years(c)
         identity=dict(simulation_round='ISIMIP3b',product='InputData',region='global',time_step='daily',
-            climate_forcing='gfdl-esm4',ensemble_member='r1i1p1f1',climate_scenario='historical',bias_adjustment='w5e5')
-        if any(s.get(k)!=x for k,x in identity.items()) or v not in DATASETS:
+            climate_forcing=esm.lower(),ensemble_member='r1i1p1f1',climate_scenario='historical',bias_adjustment='w5e5')
+        if any(s.get(k)!=x for k,x in identity.items()) or v not in datasets:
             raise ValueError('historical realization differs')
-        if c['dataset_id']!=DATASETS[v] or c['dataset_version']!='20210512' or c['resource_doi']!='10.48364/ISIMIP.842396.1':
+        if c['dataset_id']!=datasets[v] or c['dataset_version']!='20210512' or c['resource_doi']!='10.48364/ISIMIP.842396.1':
             raise ValueError('historical dataset lineage differs')
         if (v,a) not in expected or b!=a+9 or (v,a) in seen:raise ValueError('historical blocks missing or duplicated')
         seen.add((v,a))
@@ -43,13 +53,15 @@ def validate_contracts(configs):
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--crop',choices=['mai','soy'],required=True)
+    p.add_argument('--model',choices=sorted(MODELS),default='gfdl')
     p.add_argument('--out-dir',type=Path,required=True);args=p.parse_args();out=args.out_dir.resolve()
+    datasets=MODELS[args.model]['datasets'];esm=MODELS[args.model]['esm']
     if out.exists() or not out.is_relative_to(ROOT/'data/interim'):raise ValueError('new ignored output required')
     threshold={'mai':29,'soy':30}[args.crop];sources={};configs=[];source_records=[]
-    for var in DATASETS:
+    for var in datasets:
         sources[var]=[]
         for first in (1981,1991,2001):
-            d=ROOT/f'data/interim/gfdl_historical_{var}_{first}_20260908'
+            d=ROOT/f'data/interim/{args.model}_historical_{var}_{first}_20260908'
             receipt=d/'receipt.json';r=json.loads(receipt.read_text())
             if r['status']!='climate_content_validated':raise ValueError('unvalidated daily source')
             cp=ROOT/r['config_path']
@@ -60,12 +72,12 @@ def main():
             content=validate_cutout(file,*registered_years(c),variable=var)
             sources[var].append(file);source_records.append(dict(path=str(receipt.relative_to(ROOT)),
                 sha256=sha256(receipt),daily_sha256=sha256(file),content=content))
-    validate_contracts(configs)
+    validate_contracts(configs,args.model)
     # Simultaneous variables must refer to the same grid/instant; no nearest matching.
     previous_last=None;mean_above_max=0
     for index in range(3):
         with ExitStack() as stack:
-            ds={v:stack.enter_context(xr.open_dataset(sources[v][index],engine='h5netcdf')) for v in DATASETS}
+            ds={v:stack.enter_context(xr.open_dataset(sources[v][index],engine='h5netcdf')) for v in datasets}
             ref=ds['pr']
             for other in ('tas','tasmax'):
                 if not all(np.array_equal(ref[k],ds[other][k]) for k in ('time','lat','lon')):
@@ -87,7 +99,7 @@ def main():
         sources=source_records,weight_sha256=WEIGHT_HASH,calendar_manifest_sha256=sha256(manifest_path),
         calendars={},products=[],initial_free_bytes=initial,daily_mean_above_max_count=0,
         daily_mean_max_tolerance_c=1e-5,construction_latitude_rows_per_child=1,
-        protocol_sha256=sha256(ROOT/'HISTORICAL_CLIMATE_BENCHMARK_PROTOCOL_20260908.md'),
+        protocol_sha256=sha256(ROOT/MODELS[args.model]['protocol']),
         code_hashes={n:sha256(ROOT/'scripts'/n) for n in ('build_historical_climate_benchmark.py','build_crop_year_features.py',
             'build_crop_stage_features.py','build_crop_heat_features.py','build_crop_stage_heat_features.py',
             'build_future_weighted_precipitation.py','extend_heat_cutout_two_crops.py','climate_inputs.py',
@@ -131,8 +143,8 @@ def main():
         heat,heat_audit=allocate(pd.concat(bases,ignore_index=True),weights,features,['noirr','firr'],exclude_missing_weight_cells=True)
         joint=exact_join(rain,heat,threshold)
         if len(joint)!={'mai':500,'soy':327}[args.crop]*29:raise ValueError('weighted historical support differs')
-        path=out/f'{args.crop}_GFDL-ESM4_historical_joint_climate.parquet';joint.to_parquet(path,index=False);budget()
-        result['products']=[dict(crop=args.crop,esm='GFDL-ESM4',member='r1i1p1f1',scenario='historical',years=YEARS,
+        path=out/f'{args.crop}_{esm}_historical_joint_climate.parquet';joint.to_parquet(path,index=False);budget()
+        result['products']=[dict(crop=args.crop,esm=esm,member='r1i1p1f1',scenario='historical',years=YEARS,
             rows=len(joint),cells=len(joint[['lat','lon_360']].drop_duplicates()),path=str(path.relative_to(ROOT)),sha256=sha256(path),
             rainfall_allocation=rain_audit,heat_allocation=heat_audit)]
         result.update(status='historical_joint_climate_inputs_validated',artifacts={str(p.relative_to(out)):sha256(p) for p in out.rglob('*.parquet')})

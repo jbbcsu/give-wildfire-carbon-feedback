@@ -1,5 +1,18 @@
 # Precipitation patterns, global agricultural damages, and the social cost of carbon
 
+## September8 independent historical benchmark qualification
+
+IPSL now provides the same historical benchmark as GFDL. Historical dry-spell
+and five-day precipitation offsets are smaller in IPSL, but threshold-heat
+offsets are larger. Future-minus-own-history precipitation differs in sign
+for maize:−3.42mm in GFDL versus+15.98mm in IPSL underSSP585, on292shared
+observed-supported cells. This is not the higher-minus-lower-scenario contrast.
+Warming and threshold heat increase in both models, with70%maize/64%soy IPSL
+future rows outside at least one model-historical marginal heat range.
+The benchmarks do not remove the crop-response transport problem or establish
+global damages. See`IPSL_HISTORICAL_CLIMATE_BENCHMARK_RESULTS_20260908.md`.
+Earlier source-benchmark next-step statements below are now superseded.
+
 ## September8 historical source comparison
 
 The first source-matched historical benchmark is now complete. GFDL's1982–2010

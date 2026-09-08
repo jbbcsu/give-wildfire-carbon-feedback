@@ -1,5 +1,30 @@
 # Methods Supporting Information
 
+## September8 independent historical model implementation
+
+The historical wrapper and comparator now accept explicit`--model gfdl/ipsl`,
+binding model-specific source datasets, paths and protocol hashes. Cross-model
+relabeling is rejected by tests; product crop/member/scenario/period are also
+checked before comparison. The prospective IPSL protocol applies the same
+calendar, fixed-weight, stage, observed-support and distributional comparison
+design as GFDL without changing completed GFDL outputs. All nine independently
+registered IPSL daily files and both crop builds passed;8targeted tests passed.
+Peak sampled RAM746.70MiB, new raw+derived248.85MiB. Complete denominators,
+shape exclusions, baseline contrasts, checks and source hashes:
+`IPSL_HISTORICAL_CLIMATE_BENCHMARK_RESULTS_20260908.md` and
+`data/provenance/ipsl_historical_climate_benchmark_20260908.json`.
+No correction, yield prediction, welfare or SCC follows from this comparison.
+
+## September8 published counterfactual-method assessment
+
+ATTRICI supplies a published historical detrending route with seasonally varying
+precipitation occurrence/intensity; it does not establish anthropogenic forcing
+attribution ([Mengel et al.,2021](https://gmd.copernicus.org/articles/14/5269/2021/index.html)).
+The project-specific feasibility, threshold, sequence-dependence and transport
+checks are specified in `ATTRICI_METHOD_ASSESSMENT_20260908.md`. No counterclim
+product or inferred crop effect has been used yet. This is an alternative to
+evaluate, not a replacement for failed validation criteria.
+
 ## September8 model-historical distribution benchmark
 
 Source clarification: pr is total water-equivalent precipitation, including

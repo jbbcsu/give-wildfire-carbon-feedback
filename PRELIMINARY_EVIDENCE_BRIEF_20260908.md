@@ -69,6 +69,16 @@ This is why the baseline and data source matter; the whole latter difference
 cannot be labeled a climate-change effect. Heat extrapolation remains large
 against either history. See`HISTORICAL_CLIMATE_BENCHMARK_RESULTS_20260908.md`.
 
+The independent IPSL historical benchmark is now complete too. Its historical
+precipitation-pattern offsets are smaller, but future changes still depend on
+model and baseline: maize precipitation underSSP585 rises relative to IPSL's
+history and falls slightly relative to GFDL's history on the same292cells.
+This is not a contradiction with the higher-minus-lower-scenario comparison;
+they ask different questions. Source-matched heat extrapolation remains large.
+See`IPSL_HISTORICAL_CLIMATE_BENCHMARK_RESULTS_20260908.md`. A published
+historical counterclimate alternative is being assessed before any new custom
+counterfactual model (`ATTRICI_METHOD_ASSESSMENT_20260908.md`).
+
 ## 4. What separates this evidence from a defensible SCC result?
 
 We still need a defensible joint crop-response specification and transport

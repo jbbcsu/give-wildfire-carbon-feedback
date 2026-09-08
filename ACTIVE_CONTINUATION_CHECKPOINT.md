@@ -1,5 +1,51 @@
 # Active continuation checkpoint
 
+## Latest: independent IPSL historical benchmark COMPLETE
+
+After a36da21, registered/acquired nine IPSL historical pr/tas/tasmax1981–2010
+cutouts and generalized the historical wrappers with explicit model-specific
+IDs/paths/protocols. Eight targeted tests pass, including rejection of merely
+relabeled GFDL sources. Built14,500mai/9,483soy rows, both calendars, exact
+dates/axes/dailymean<=maximum, one latitude row per child. All real jobs passed
+first execution. Peak sampledRAM746.70MiB; new retained248.85MiB, cumulative
+with preceding GFDLhistory/future724.24MiB;132.70GiBfree at export. No process
+remains running at this checkpoint. Do NOT repeat either historical benchmark.
+
+Results:`IPSL_HISTORICAL_CLIMATE_BENCHMARK_RESULTS_20260908.md`, durableaggregate
+`data/provenance/ipsl_historical_climate_benchmark_20260908.json`. Same292/149
+observed-supported cells as GFDL. IPSL historical dry spells+.55/+.76days and
+Rx5+1.12/+1.84mm vs observed source, smaller offsets than GFDL; thresholdheat
+offsets larger. SSP585future minus ownhistory precipitation+15.98/+30.39mm,
+versusGFDL−3.42/+.05. These are NOT higher-minus-lower-scenario comparisons.
+Ownhistory any6heatoutside fractions70.02%mai/63.64%soySSP585. No yielddamage,
+correction, causal attribution or SCC. Manuscript/SI/evidencebrief updated.
+
+NEXT: published ATTRICI counterclimate route, not a new custom emulator yet.
+Read`ATTRICI_METHOD_ASSESSMENT_20260908.md`. Main-text methods/discussion read:
+historical trend removal, seasonal occurrence/intensity, not anthropogenic
+forcing/SCC, and not proven storm-persistence attribution. Code/supplement
+not audited. LLAAE2021 is an additional ABSTRACT-only reviewed literaturelead.
+Metadata feasibility COMPLETE via`inspect_counterclim_catalogue.py`; exact
+six dataset/18file records in`data/provenance/counterclim_catalogue_feasibility_20260908.json`.
+No counterclim bytes downloaded or subset requested. AllpublicCC0; nineobsclim
+1981–2010hashes/sizes match retained factualmanifest. Obsclimversion20211021,
+counterclim20220506; allcite10.48364/ISIMIP.982724.3. Resolve exactcounterclim
+construction lineage using officialresource metadata/version notes before
+attribution. Public resourceAPI866694bb-84ad-461f-952a-fc64ac72b4ed hasDataCite
+descriptions (do notdumpwholecontributorspayload). Do not repeat completed
+catalogue discovery; use retainedIDs/hashes. Then register small pairedfactual/
+counterclim two-row climate-only diagnostic with samecalendars/featurechecks,
+no fake outcomes. Existing acquisition validator accepts arbitrary registered
+publicsourceidentity but historicalbuilder intentionally onlyGFDL/IPSL; add
+separate observational-counterclim wrapper/contract, never relabelmodeldata.
+Counterfactualversion label alone does not establisha newreference mismatch.
+Response transport, CO2/adaptation/welfare/GIVEpulse remain independent gates.
+
+Routine continuation notifications are muted; standinglawfuldata authorization
+applies without perfileapproval. Keep1024MiB provenmonitorbudget(onejob/thread),
+<=64MiBnewdisk perbatch and>=130GiBfree. No newpresentation or sectors. Earlier
+NEXT blocks below are superseded by this one.
+
 ## Latest: GFDL historical source benchmark COMPLETE
 
 After1da44bd: acquired nine small1981–2010historical pr/tas/tasmax cutouts,
