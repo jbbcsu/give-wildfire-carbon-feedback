@@ -1,5 +1,30 @@
 # Active continuation checkpoint
 
+## September 8 standing download authorization — supersedes older approval blockers
+
+User instruction: "hide the continuation notices. Don't ask for approval to
+download data." The existing heartbeat is still ACTIVE, with routine
+notifications muted through `notificationPolicy=failed_runs_only`; failure
+notifications can still appear. Its schedule and target are unchanged. This
+setting does not claim to remove already-rendered continuation cards/history.
+
+Necessary project data and research inputs may now be acquired without
+per-file approval. Old one-file-only and pending-download-approval statements
+below are historical, not current blockers (including the small welfare
+methods supplement). Preserve truthful authorization records: the original
+pilot approval remains unchanged; document this standing direction for new
+acquisitions rather than inventing a new user quotation for each file.
+
+Memory, lawful-access, provenance, isolation and storage safeguards remain.
+Operational conservative default: below150GiB free, stream small cutouts or
+research inputs, at most64MiB new disk per acquisition/processing batch,
+tracking cumulative retained bytes and preserving at least130GiB free. The
+130GiB floor is an assistant-selected safeguard, not a number requested by the
+user. No full-global downloads, evicted raw-climate rehydration, new purchases
+or restricted-access circumvention. If an acquisition cannot safely fit,
+continue existing-data/model work rather than repeatedly asking for download
+permission. The next scientific step remains resident-file soybean30C heat.
+
 Updated September 8, 2026 UTC after real cutout acquisition, two-crop heat joining
 and historical heat-range comparison. The project
 is **not complete**. At this checkpoint all jobs listed below have finished;
