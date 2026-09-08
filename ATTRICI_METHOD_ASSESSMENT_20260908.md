@@ -1,7 +1,8 @@
 # Published historical counterfactual route: ATTRICI
 
-Literature-first assessment; no counterfactual climate data acquired or crop effects
-estimated in this assessment. Main-text methods and discussion were read;
+Literature-first assessment; crop effects have not been estimated. The later
+bounded acquisition is registered in FACTUAL_COUNTERCLIM_PILOT_PROTOCOL_20260908.md
+with its explicit domain amendment. Main-text methods and discussion were read;
 the supplement and implementation code were not audited.
 
 ## Published evidence
@@ -45,7 +46,7 @@ Label any eventual result as conditional historical-trend attribution, not
 anthropogenic emissions attribution or SCC. Future marginal-emissions climate
 response, adaptation, welfare and GIVE-pulse validation remain separate gates.
 
-Next: catalogue/lineage feasibility, then a small paired-climate diagnostic.
+Next: the registered small paired-climate diagnostic after factual parity checks.
 No claim of a new emulator, literature novelty, or completed yield damages.
 
 ### Public catalogue feasibility completed

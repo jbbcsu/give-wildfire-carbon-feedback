@@ -81,6 +81,16 @@ counterfactual model (`ATTRICI_METHOD_ASSESSMENT_20260908.md`).
 
 ## 4. What separates this evidence from a defensible SCC result?
 
+A separate historical comparison now uses published factual and detrended
+daily climate rather than future scenarios. On the two-row crop support,
+factual crop-season precipitation is8.70mm higher for maize and12.47mm higher
+for soy than in the counterclimate, with dry spells0.41/0.66days shorter.
+Timing shares and wet extremes also change, alongside warmer conditions.
+This is conditional on the published historical detrending method—not proof
+of net agricultural benefits,anthropogenic forcing effects or global damage.
+See`FACTUAL_COUNTERCLIM_RESULTS_20260908.md` for its audited domain and
+numerical-precision checks. The crop-response link below is still unfinished.
+
 We still need a defensible joint crop-response specification and transport
 test, historically matched climate-model/source-bias checks, explicit CO2 and
 adaptation treatment, production/revenue and market-welfare calibration,

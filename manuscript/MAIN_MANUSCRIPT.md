@@ -1,5 +1,20 @@
 # Precipitation patterns, global agricultural damages, and the social cost of carbon
 
+## September8 paired historical counterclimate evidence
+
+Using published GSWP3-W5E5 detrended climate, the two-row pilot now has a
+validated factual-minus-counterclim comparison for1982–2010. Equal-cell mean
+crop-season precipitation differences are+8.70mm maize/+12.47mm soy, while
+longest dry spells are0.41/0.66days shorter. Stage shares and wet extremes also
+change, alongside increased heat. This is neither uniform drying nor evidence
+of net crop benefits. Geographic dispersion is substantial and this500/327cell
+sample is not globally representative. The calculation conditions on the
+published detrending method, not a no-anthropogenic-emissions experiment.
+No crop-response coefficients,damages,welfare or SCC have been applied.
+The complete domain/precision reconciliation audit and numerical results are
+in`FACTUAL_COUNTERCLIM_RESULTS_20260908.md`. Both precipitation quantity and
+timing are represented without training a new climate emulator.
+
 ## September8 independent historical benchmark qualification
 
 IPSL now provides the same historical benchmark as GFDL. Historical dry-spell

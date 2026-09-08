@@ -32,6 +32,7 @@ def main():
     parser.add_argument('--config',type=Path,required=True)
     parser.add_argument('--request-receipt',type=Path,required=True)
     parser.add_argument('--out-dir',type=Path,required=True)
+    parser.add_argument('--counterclim-crop-domain',action='store_true',help='Source-specific exact crop mask; full-grid gate stays default')
     args=parser.parse_args();out=args.out_dir.resolve();config_path=args.config.resolve()
     if not out.is_relative_to(ROOT/'data/interim') or out.exists() or not config_path.is_relative_to(ROOT/'config'):
         raise ValueError('new ignored directory and registered config required')
@@ -83,8 +84,15 @@ def main():
             member=inspect_archive(archive,length);result['archive_member']=member.filename
             with archive.open(member) as stream:
                 result['climate_sha256']=stream_copy(stream,out/climate_name,member.file_size,budget)
-        result['content_validation']=validate_cutout(out/climate_name,*registered_years(config),variable=variable)
-        result.update(status='climate_content_validated',artifact_hashes={p.name:sha256(p) for p in out.iterdir() if p.suffix in ('.nc','.zip')})
+        if args.counterclim_crop_domain:
+            from validate_counterclim_crop_domain import validate_counterclim
+            result['content_validation']=validate_counterclim(out/climate_name,config)
+            result['code_hashes']['validate_counterclim_crop_domain.py']=sha256(ROOT/'scripts/validate_counterclim_crop_domain.py')
+            status='crop_domain_climate_content_validated'
+        else:
+            result['content_validation']=validate_cutout(out/climate_name,*registered_years(config),variable=variable)
+            status='climate_content_validated'
+        result.update(status=status,artifact_hashes={p.name:sha256(p) for p in out.iterdir() if p.suffix in ('.nc','.zip')})
         save();print('registered cutout validated',length,'archive bytes; no yield/SCC result')
     except Exception as error:
         result.update(status='failed_preserved',error_type=type(error).__name__,error=str(error))

@@ -1,0 +1,39 @@
+{
+  "role": "single_public_server_side_subset_request_source_contract",
+  "config_sha256": "d54092e6b2a8ac6d71ce317a7e98bcb44e4d0a160b3dbe0d61f8f08adf9e0699",
+  "config_path": "config/isimip3a_counterclim_tasmax_2001_cutout_20260908.json",
+  "code_sha256": "b9173084058d7ba3a3a6ce5e45946312fac81f27d60c92902fc8179a51b5f8d0",
+  "catalogue_url": "https://data.isimip.org/api/v1/datasets/db109b0d-5f70-489d-9ae9-36a0c343279f/",
+  "catalogue_response_sha256": "9f21209d9656b99de760669a0d9baad9f607609a3accf27bb6afbcd11286bba8",
+  "payload": {
+    "paths": [
+      "ISIMIP3a/InputData/climate/atmosphere/counterclim/global/daily/historical/GSWP3-W5E5/gswp3-w5e5_counterclim_tasmax_global_daily_2001_2010.nc"
+    ],
+    "operations": [
+      {
+        "operation": "select_bbox",
+        "bbox": [
+          -180,
+          180,
+          39,
+          40
+        ],
+        "compute_mean": false,
+        "output_csv": false
+      }
+    ]
+  },
+  "request_sha256": "e51545f4079e0899a6e618e83adfe7bb78056d0e62f61c0eb61e891350a9d74b",
+  "source_checks_passed": true,
+  "local_climate_bytes_downloaded": 0,
+  "local_download_authorized": false,
+  "status": "server_request_returned",
+  "service_response": {
+    "id": "8d912a2eca6c9eda1848b7ff4f81405d22c50f5c",
+    "job_url": "https://files.isimip.org/api/v2/8d912a2eca6c9eda1848b7ff4f81405d22c50f5c",
+    "meta": {},
+    "status": "queued",
+    "ttl": 604800
+  },
+  "service_response_sha256": "c90aa05676ae9a3b12e9b1a76a18a7083895c5e332d39363447997cbddebbed1"
+}

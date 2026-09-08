@@ -1,5 +1,59 @@
 # Active continuation checkpoint
 
+## Latest: paired factual/counterclim climate diagnostic COMPLETE
+
+After dcf9169, acquired18smallpublicGSWP3-W5E5obsclim/counterclim daily
+pr/tas/tasmax1981–2010cutouts and built both crops/bothcalendars for eachpath.
+All four builds firstexecutionpassed;47,966jointrows total. Final paired
+diagnostic validated after exact-domain and numerical-reference audits below.
+Read`FACTUAL_COUNTERCLIM_RESULTS_20260908.md`; aggregatewithFAILURES preserved:
+`data/provenance/factual_counterclim_pilot_20260908.json`. Finalignoredoutput:
+`data/interim/counterclim_soy_joint_20260908/paired_comparison.json`.
+Factual-minus-counterclim1982–2010full500/327cells:precip+8.70/+12.47mm,
+dryspells−.411/−.656days,Rx5+.501/+.385mm,stage2Tmean+.982/+.800°C,
+stage2DD+14.66/+9.19°Cdays. Shape488/325cells. These are conditionalhistorical
+climate-inputdifferences,NOTanthropogenicforcing/yielddamages/SCC/globalmeans.
+Do NOT repeat acquisition/builds/pairedcomparison or previousGFDL/IPSL work.
+
+Important resolved failures, not permission blockers:
+1. Firstcounterclimpr1981fullgridvalidationfailed on2,753,608NaNs. Exactaudit
+shows754alwaysmissing NONCROPcells,686alwaysfinitecells exactlyall4calendars,
+no missingcropvalues. Separate`validate_counterclim_crop_domain.py` requires
+thisexactmaskdaily,source-specificIDs/version andall4calendarhashes; keeps
+fullgridgate unchanged. Sourceacqflag`--counterclim-crop-domain`; newstatus
+`crop_domain_climate_content_validated`. Firstpayloadreusedwithoutdownload
+withNEWcrop_domain_receipt.json; originalreceipt/failure untouched. Amendment
+`FACTUAL_COUNTERCLIM_DOMAIN_AMENDMENT_20260908.md` records post-failurechange.
+2. Two tinytestattempts stopped onvolume-free-spacedelta. Noanalysisrunning
+probe showedfree-spacechangeselsewhere; causeNOTattributedtoDropbox. Added
+optionalOWNEDoutput/scratchaccounting to`run_bounded_job.run`, same64MiBcap,
+130GiBfloor,1024MiBsampledRAM. FreshTMPDIR,bytecodewritesdisabled. Tests3pass,
+fullgridregressiontestused95,632newbytes. Oldfailurespreserved. See
+`OWNED_DISK_ACCOUNTING_20260908.md`. Use thismodeforownedexisting-datajobs;
+declareALLoutputs/scratch, neverhydrateevictedraworwriteoutsidewatchedpaths.
+3. Strictfactualparity failed atlogP,totals<.0001mm different. Initialuniform
+earlyfloat32reconstructionfailed. Actualhash-boundearlypanels:rainfedfloat32,
+irrigatedfloat64, bothcrops. EVERYoldprimitiveequalsoneexactdocumentedsum,
+EVERYnewfloat64season/stagesumexactlyreproducedfromresidentdailypr. Rebuilt
+legacyweightedfeaturesZEROresidual on8,465/4,321observedkeys. No tolerance
+increase; olddataunchanged. `reconcile_factual_precision.py`, receipt
+`data/interim/obsclim_soy_joint_20260908/precision_reconciliation.json`;
+`FACTUAL_PARITY_PRECISION_RECONCILIATION_20260908.md` logs bothhypothesistests.
+Finalcomparatorrequiresthis source/code/protocol-boundproof plus unchanged
+strictchecks onallunaffectedfeatures. Originalstrictfailedstatusretained.
+
+Eighteendistincttargetedtests passed. Peak sampledRAM786.52MiB;newretained
+407.95MiB,cumulativeprecedingclimatestages1,132.19MiB,159.16GiBfreeatexport.
+No analysisprocess remainsrunning atthischeckpoint. Allpubliccode/docs only
+to precipitation-scc branch;raw/interim/outputs stayignored. Next: explicit
+jointcrop-response/transport design, first a SMALLexisting-data paired-cohort
+jointweather-support diagnostic (no barredcoefficients, no causal/SCCclaims)
+on292/149positive-yieldobservedcells, then a separate justifiedresponsecontract.
+Avoid assuming an observedtrends counterclimate suppliesanthropogenicforcing
+or futureFAIRpulse. Preservequantity-first/nulltiming,droughtcompetingfamilies,
+CO2/adaptation,welfare andrepresentativecoverage gates. No newdownloadneeded.
+EarlierNEXT blocks below are superseded. Notifications remainmuted.
+
 ## Latest: independent IPSL historical benchmark COMPLETE
 
 After a36da21, registered/acquired nine IPSL historical pr/tas/tasmax1981–2010

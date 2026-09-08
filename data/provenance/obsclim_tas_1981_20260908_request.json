@@ -1,0 +1,39 @@
+{
+  "role": "single_public_server_side_subset_request_source_contract",
+  "config_sha256": "38847fd87290b24171e52d24cc4254e5ab681c3364b1d8ba5021736179fae6f2",
+  "config_path": "config/isimip3a_obsclim_tas_1981_cutout_20260908.json",
+  "code_sha256": "b9173084058d7ba3a3a6ce5e45946312fac81f27d60c92902fc8179a51b5f8d0",
+  "catalogue_url": "https://data.isimip.org/api/v1/datasets/ae8ab033-cea9-4fca-a275-5c46533ec970/",
+  "catalogue_response_sha256": "6574c053aa04940178e1a30c363a1999e5f6504319fa05c4c25c6089793e6776",
+  "payload": {
+    "paths": [
+      "ISIMIP3a/InputData/climate/atmosphere/obsclim/global/daily/historical/GSWP3-W5E5/gswp3-w5e5_obsclim_tas_global_daily_1981_1990.nc"
+    ],
+    "operations": [
+      {
+        "operation": "select_bbox",
+        "bbox": [
+          -180,
+          180,
+          39,
+          40
+        ],
+        "compute_mean": false,
+        "output_csv": false
+      }
+    ]
+  },
+  "request_sha256": "e03007979e9f89b6e1faca3be112a32fda7aeb517a5f9b6128248b5d5e26c92d",
+  "source_checks_passed": true,
+  "local_climate_bytes_downloaded": 0,
+  "local_download_authorized": false,
+  "status": "server_request_returned",
+  "service_response": {
+    "id": "30ef43cf46cbcd7570107eb7a8a376bce090ee95",
+    "job_url": "https://files.isimip.org/api/v2/30ef43cf46cbcd7570107eb7a8a376bce090ee95",
+    "meta": {},
+    "status": "queued",
+    "ttl": 604800
+  },
+  "service_response_sha256": "11fe3f822b517c71722f4895f08fa92a4ef4eb0e2f578c81265be754b2766b7e"
+}

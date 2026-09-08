@@ -1,5 +1,27 @@
 # Methods Supporting Information
 
+## September8 paired historical counterclimate implementation
+
+The source-bound observational wrapper constructs both published paths from
+daily pr/tas/tasmax and the same four calendars and fixed irrigation weights.
+Unlike a free-running GCM comparison, factual/counterclim cell-years are paired
+because counterclim is derived from the factual sequence. Exact daily axes,
+crop coverage and precision-reconciled factual feature parity precede any
+contrast. Core features retain500maize/327soy cells; shape comparisons retain
+488/325cells after predeclared zero-regime exclusions on both paths. Cell-year
+differences are averaged within cell then equally across cells; spatial
+quantiles are dispersion, not uncertainty intervals. Predeclared periods are
+1982–2010,1982–1991and2001–2010. Both inputs use float64 precipitation sums.
+
+The static noncrop mask and legacy numerical precision required explicit
+documented amendments, not silent imputation/tolerance changes. Original
+failures remain in the aggregate audit. Eighteen targeted tests pass, along
+with exact reconstructed raw-daily primitive sums and reassembled legacy
+features. Resources,full denominators,reproduction commands and limitations:
+`FACTUAL_COUNTERCLIM_RESULTS_20260908.md` and
+`data/provenance/factual_counterclim_pilot_20260908.json`. This validates climate
+inputs only; anthropogenic attribution and crop-response transport remain open.
+
 ## September8 independent historical model implementation
 
 The historical wrapper and comparator now accept explicit`--model gfdl/ipsl`,
