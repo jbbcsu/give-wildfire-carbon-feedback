@@ -1,5 +1,29 @@
 # Published market-elasticity route: source checkpoint
 
+## Current checkpoint: September7, after the completed candidate sensitivity
+
+The original lead below has been followed. All six published AppendixTableA8
+FAS-alternative columns were text-inspected and used only in the explicitly
+hypothetical sensitivity documented in
+`WELFARE_NORMALIZED_SENSITIVITY_RESULTS_20260907.md`. That calculation is
+complete; do not repeat it or interpret the older prospective wording below
+as an unfinished instruction. Exact main-baseline calibration, economic
+aggregation and transferability remain unverified.
+
+A subsequent read-only search followed the author's current
+[research page](https://wolfram-schlenker.info/research.html). Its article link
+leads to the already-known publisher access route, not an independently
+accessible final-paper copy. Search also identified
+[NBER working paper15921](https://www.nber.org/system/files/working_papers/w15921/w15921.pdf),
+but opening that PDF returned403. No working-paper equations or parameters
+were extracted, and a search snippet was not substituted for the final paper.
+Do not retry this PDF endpoint or the previously failing NBER summary route
+without new access information. No local PDF was downloaded. The existing
+Hultgren supplement exception remains pending; no new permission request is
+needed for this unchanged condition.
+
+## Original lead (historical, superseded by the completed sensitivity)
+
 The AER publisher confirms Roberts and Schlenker (2013), *Identifying Supply
 and Demand Elasticities of Agricultural Commodities: Implications for the US
 Ethanol Mandate*, 103(6):2265–2295. Its abstract describes identification using

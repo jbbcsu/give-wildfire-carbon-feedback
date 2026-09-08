@@ -1,9 +1,32 @@
 # Methods Supporting Information
 
+## September 8 real acquisition, two-crop join and heat-range check
+
+The separately authorized single-file workflow has now run successfully on
+real climate data. Archive/NetCDF identity, dates, coordinates, units and all
+daily values pass validation. Four resident calendars are hash-verified and
+processed sequentially; the completed maize/noirr product is reused. Existing
+heat-basis validation checks calendar identity, stage duration and seasonal
+reconciliation before fixed MIRCA2000 weighting. Exact weighted stage mean
+temperatures and crop/grid/year keys match prior rainfall products. New exports
+are climate-only, with no synthetic outcomes or response estimates.
+
+`HEAT_CUTOUT_TWO_CROP_PROTOCOL_20260908.md` and
+`FUTURE_HEAT_RANGE_PROTOCOL_20260908.md` were registered before their respective
+calculations. The latter streams historical heat in8192row batches, uses only
+1982–2010 positive-observed-yield rows, requires at least two years per cell,
+and compares six stage29°C metrics using fixed1e-10 absolute boundary tolerance.
+Missing ranges remain unclassified. It is neither the exact common drought
+response sample nor a joint-support/causal-transport test; soybean29°C is not
+the locked30°C response control. Six new synthetic tests and all real jobs
+pass. Full results, original receipts, source/code hashes and reproduction are
+indexed in`REAL_HEAT_CUTOUT_RESULTS_20260908.md`. The older pending-acquisition
+description immediately below records the pre-execution state only.
+
 ## Bounded acquisition-to-heat execution
 
 `scripts/run_authorized_heat_subset_pilot.py` now implements the single-cutout
-chain, but has not acquired real climate output. A separately recorded actual
+chain; before September8 it had not acquired real climate output. A separately recorded actual
 user approval must match the job, config hash and64MiB disk cap before any
 network request. It revalidates source metadata, rejects changed archive
 length/ETag and redirects, streams256KiB blocks, verifies safe ZIP members and

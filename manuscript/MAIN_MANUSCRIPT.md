@@ -1,5 +1,19 @@
 # Precipitation patterns, global agricultural damages, and the social cost of carbon
 
+## September 8 real future heat-input validation
+
+The bounded download and real-content checks now succeed. One 12.29 MiB
+ISIMIP cutout supplies daily Tmax for both maize and soybean irrigation
+calendars. Matched rainfall/heat tables contain4,000maize and2,616soybean
+crop-years in2042–2049, GFDL-ESM4 SSP126, at39.25/39.75N. This is an input
+pilot, not a global projection or yield-loss estimate. Among cells with
+historical observed-yield exposure ranges,64.34% of maize and57.97% of soybean
+future crop-years are outside at least one of six stage29°C heat ranges.
+Marginal-range checks do not establish joint support or distinguish forcing
+from climate-source differences. The29°C soybean check is a sensitivity, not
+its locked30°C response control. Source lineage, denominators, resource use,
+validation and remaining limitations are in`REAL_HEAT_CUTOUT_RESULTS_20260908.md`.
+
 ## September 7 future-basis construction and extrapolation limits
 
 Future climate now uses the same nonlinear rainfall transformations as the
@@ -38,9 +52,9 @@ numerical checks and limitations are in
 
 To address storage constraints without changing climate resolution, a single
 ISIMIP server-side Tmax cutout has completed. Its ZIP is12.29MiB versus a
-1.92GiB global parent file. No climate output has been downloaded locally;
-content and empirical feature validation remain pending a bounded download
-exception. Exact-coordinate calendar selection passes synthetic full-grid
+1.92GiB global parent file. At the September7 checkpoint no climate output had
+been downloaded; this status is superseded by the September8 real-data results
+above. Exact-coordinate calendar selection passes synthetic full-grid
 versus cutout parity for seasonal and crop-stage heat features. This prepares
 the missing future heat inputs but does not expand geographic coverage or
 complete a climate-to-yield projection. See

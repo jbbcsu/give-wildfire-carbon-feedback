@@ -1,6 +1,7 @@
 # Active continuation checkpoint
 
-Updated September 7, 2026 after the approval-gated cutout workflow implementation. The project
+Updated September 8, 2026 UTC after real cutout acquisition, two-crop heat joining
+and historical heat-range comparison. The project
 is **not complete**. At this checkpoint all jobs listed below have finished;
 there is no deliberately detached analysis process. The active five-minute
 in-task continuation should resume substantive work, not report this status
@@ -66,6 +67,33 @@ another run. Chain successive bounded steps within an active turn.
 
 ## Next useful executable step
 
+**September8 superseding state:** User replied "yes" to the single12.3MiB
+download/64MiB total disk exception. Actual approval is recorded only in ignored
+`data/interim/heat_cutout_authorization_20260908.json`. Acquisition and all
+real validation succeeded; do not download or rerun the original pilot again.
+Same-file two-crop/four-calendar29C heat is built and joined to rainfall:
+4,000maize/2,616soy rows,500/327cells,2042–2049,GFDL-ESM4 SSP126. Historical
+heat-range diagnostic also completed; any-of-six outside fractions64.34%/57.97%
+on2,336/1,192evaluable rows. Six new synthetic tests pass. Peak512.03MiB sampled
+RSS across the real jobs, combined pilot outputs27.00MiB. All jobs finished;
+none deliberately detached. See`REAL_HEAT_CUTOUT_RESULTS_20260908.md`.
+
+**Next executable:** Build soybean30C seasonal/stage heat from the SAME resident
+`data/interim/authorized_heat_subset_real_20260908/tasmax_cutout.nc`, both
+calendars, without another download. Preserve existing29C outputs; use new
+paths, reconcile and weight as for the completed29C products. Historical
+soybean locked controls use30C, so29C cannot substitute. The existing
+`scripts/extend_heat_cutout_two_crops.py` is deliberately29C and already run;
+do not pretend it supplies30C or rerun it unchanged. Keep all combined new
+outputs within the original64MiB budget and monitor at1GiB sampled RSS.
+Then prepare a tightly scoped matched second-scenario acquisition proposal;
+the user approved ONE file only, not unrestricted climate downloads. No yield
+projection/causal attribution is enabled by these input diagnostics. The
+separate Hultgren PDF download request remains unanswered.
+
+The following September7 approval-pending text is historical and superseded
+ONLY for the one climate cutout and its completed same-file processing:
+
 Check whether the user approved the async request for a one-file12.3MiB
 climate-cutout download with64MiB maximum additional disk occupancy. If yes,
 use the now-implemented bounded workflow, inspect ZIP members/sizes before
@@ -95,6 +123,14 @@ uncertainty remain unresolved. Replication DOI10.3886/E112674V1 is located,
 but license/code contents are unverified; previous license/download and
 documents-folder web clicks failed. Do not retry unchanged failure paths or
 substitute a figure or another broad audit for missing model work.
+The later author-research-page search did not supply an accessible final
+paper; the NBER working-paper PDF at
+`https://www.nber.org/system/files/working_papers/w15921/w15921.pdf` also
+returned403. No new equations/parameters were extracted. The source checkpoint
+now distinguishes the completed A8 sensitivity from its superseded lead.
+Do not repeat these searches or create additional synthetic exercises merely
+to fill scheduled runs. Both requested local-download exceptions remain
+unanswered; no new analysis process was launched during this source check.
 
 In parallel with source review where safely possible, continue the actual
 global response/attribution/welfare work. Do not
