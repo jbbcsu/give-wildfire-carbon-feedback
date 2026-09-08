@@ -13,6 +13,7 @@ import urllib.request
 import zipfile
 
 from prepare_heat_subset_pilot import json_request,validate_and_prepare
+from heat_cutout_dates import registered_years
 from run_authorized_heat_subset_pilot import stream_copy,inspect_archive,validate_cutout,NoRedirect
 from summarize_contiguous_climate_contrasts import ROOT,sha256
 
@@ -62,7 +63,7 @@ def main():
         source_contract=config,initial_free_bytes=initial,additional_disk_budget_bytes=BUDGET,
         authorization='standing project data download authorization; user instruction September 8, 2026 UTC',
         source_request_gate_is_not_acquisition_authority=True,causal_or_scc_result=False,
-        code_hashes={p:sha256(ROOT/'scripts'/p) for p in ('acquire_registered_heat_cutout.py','run_authorized_heat_subset_pilot.py','prepare_heat_subset_pilot.py')})
+        code_hashes={p:sha256(ROOT/'scripts'/p) for p in ('acquire_registered_heat_cutout.py','run_authorized_heat_subset_pilot.py','prepare_heat_subset_pilot.py','heat_cutout_dates.py')})
     def budget(incoming=0):
         used=sum(p.stat().st_size for p in out.iterdir() if p.is_file())
         if used+incoming>BUDGET-128*1024 or shutil.disk_usage(ROOT).free-incoming<max(initial-BUDGET+128*1024,130*2**30):
@@ -79,7 +80,7 @@ def main():
             member=inspect_archive(archive,length);result['archive_member']=member.filename
             with archive.open(member) as stream:
                 result['climate_sha256']=stream_copy(stream,out/'tasmax_cutout.nc',member.file_size,budget)
-        result['content_validation']=validate_cutout(out/'tasmax_cutout.nc')
+        result['content_validation']=validate_cutout(out/'tasmax_cutout.nc',*registered_years(config))
         result.update(status='climate_content_validated',artifact_hashes={p.name:sha256(p) for p in out.iterdir() if p.suffix in ('.nc','.zip')})
         save();print('registered cutout validated',length,'archive bytes; no yield/SCC result')
     except Exception as error:

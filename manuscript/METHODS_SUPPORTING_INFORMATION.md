@@ -1,5 +1,34 @@
 # Methods Supporting Information
 
+## September8 full-period heat extension and exact overlap
+
+`FULL_PERIOD_HEAT_PROTOCOL_20260908.md` registers2032–2059harvest years and
+ordered2031–2040/2041–2050/2051–2060Tmax files. The independent IPSL extension
+has its own prospective protocol. Eight missing public CC0 source-bound
+cutouts were acquired; four middle-decade cutouts reused. Source identity,
+Gregorian leap-day counts, exact common grid and adjoining timestamps must
+pass before calendar-specific construction. Every crop/scenario uses both
+irrigation calendars, fixed MIRCA2000 shares,29°Cmaize/30°Csoy thresholds and
+0/.3/.7/1stage fractions. Nonlinear terms are built before area weighting.
+Season/stage heat sums reconcile; rainfall/heat keys and weighted stage Tmean
+match exactly. All26,464overlapping old rows match across every column.
+
+Eight joint tables contain92,624rows on500maize/327soy cells, two latitudes
+only. Paired means first average annual differences within cell then give
+cells equal weight. Spatial quantiles are dispersion, not uncertainty intervals.
+Historical positive-yield1982–2010heat ranges cover292maize/149soy cells;
+six marginal heat fields use1e-10absolute comparison tolerance. Missing ranges
+are reported, never imputed. These do not establish joint or causal transport.
+
+Full results, source access, observed resource use and preserved synthetic-
+fixture/server-wait events are in `FULL_PERIOD_HEAT_RESULTS_20260908.md`;
+aggregate receipts and hashes are in `data/provenance/full_period_heat_20260908.json`.
+One monitored job/thread,1024MiB sampled RAM and64MiB incremental disk per
+batch were used, protecting130GiB free. Existing inputs are separately counted
+from new processing outputs. The next baseline comparison must use historical
+model distributions, not assume simulated weather is paired with observed
+annual weather (`RESPONSE_TRANSPORT_NEXT_STAGE_20260908.md`).
+
 ## September 8 independent-model and temporal-window check
 
 Two separately source-bound IPSL cutouts provide the same model/member,

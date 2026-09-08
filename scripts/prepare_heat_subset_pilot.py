@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 import urllib.parse
 import urllib.request
+from heat_cutout_dates import registered_years
 
 ROOT=Path(__file__).resolve().parents[1]
 CONFIG=ROOT/'config/isimip3b_heat_subset_pilot_20260907.json'
@@ -31,6 +32,7 @@ def json_request(url,payload=None):
 
 
 def validate_and_prepare(config,dataset):
+    registered_years(config)
     for gate in ('local_download_authorized','local_feature_construction_authorized','damage_or_scc_authorized'):
         if config[gate] is not False:
             raise ValueError('pilot unexpectedly opens a local data or scientific gate')

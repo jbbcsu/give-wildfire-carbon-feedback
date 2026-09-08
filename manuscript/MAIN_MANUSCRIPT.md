@@ -1,5 +1,21 @@
 # Precipitation patterns, global agricultural damages, and the social cost of carbon
 
+## September8 full-period matched climate evidence
+
+Matched daily heat and rainfall now span2032–2059 for both GFDL-ESM4 and
+IPSL-CM6A-LR, SSP126/585, maize/soybean. On the limited two-row fixed-weight
+support, seasonal rainfall is lower and longest dry spells longer in both
+models over this period; magnitudes differ substantially. Mid-season threshold
+heat rises about28–30°C·days for maize and27°C·days for soybean. All eight
+overlaps reproduce previous2042–2049products exactly. However, about80–81%
+of evaluable maize and75–76% of soybean SSP585crop-years exceed at least one
+historical marginal heat range. These diagnostics are not global averages,
+climate-attributable yields or SCC. Complete results and denominators:
+`FULL_PERIOD_HEAT_RESULTS_20260908.md`. The next step is a source-matched
+historical benchmark before response transport, not multiplying historical
+rainfall associations by these scenario differences. A concise evidence map
+for discussion is `PRELIMINARY_EVIDENCE_BRIEF_20260908.md`.
+
 ## September 8 independent-model and window-sensitivity qualification
 
 The second matched model, IPSL-CM6A-LR, reverses GFDL's2042–2049rainfall/dry-

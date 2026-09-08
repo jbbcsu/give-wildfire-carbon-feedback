@@ -1,5 +1,41 @@
 # Active continuation checkpoint
 
+## Latest: GFDL/IPSL full28year matched heat COMPLETE
+
+September8 after5631e13: acquired eight small missing2031–2040/2051–2060
+Tmax cutouts under standing authorization, reused four2041–2050files, and
+built all eight model/scenario/crop joint2032–2059tables.92,624rows total;
+500mai/327soy cells, two latitude rows only. All eight2042–2049overlaps match
+every column exactly (26,464oldrows). Full paired climate comparisons and
+eight historical heat-range diagnostics completed; no empirical damages/SCC.
+GFDL/IPSL stage2heat rises29.61/28.47°C·days for maize29°C and26.83/26.69for
+soy30°C; existing full-period rainfall differences reproduce exactly.
+SSP585 any-six-heat-range outside shares80.49/81.46%mai,75.74/75.12%soy.
+Read`FULL_PERIOD_HEAT_RESULTS_20260908.md` and the new preliminary evidence
+brief. Aggregate receipts:`data/provenance/full_period_heat_20260908.json`.
+Twenty tests pass. One legacy synthetic fixture needed dated source fields;
+original failed test log retained. First IPSL server-status check returned
+started without downloading; later acquired the same completed job (v2log),
+no resubmission. All real construction/validation jobs passed first execution.
+Peak sampled RAM801.08MiB; new raw+derived retained228.97MiB; free133.24GiB
+at export. All jobs finished, no detached analysis process. Raw data ignored.
+
+NEXT executable priority is`RESPONSE_TRANSPORT_NEXT_STAGE_20260908.md`:
+source-matched historical climate benchmark, starting with GFDL before IPSL.
+Inspect retained manifests then resolve official historical daily pr/tas/
+tasmax1981–2010source blocks for harvest1982–2010, same39.25/39.75N grid,
+member/version/calendars/weights. Existing historical smoke is only2012–2014
+maize/noirr and is not the required benchmark. Do not hydrate evicted global
+raw inputs. Use registered small cutouts under existing safeguards/standing
+authorization; build a separate historical wrapper with distributional—not
+observed-year weather-paired—comparison. Existing future wrapper intentionally
+rejects undocumented periods. Historical-source differences must be assessed
+before attributing all future out-of-range heat to forced warming. No need
+to rerun completed future calculations or broaden the two-row pilot first.
+Response transport, CO2/adaptation, welfare and GIVE pulse links still remain.
+Do not export barred diagnostic coefficients or loosen failed promotion gates.
+Older NEXT/permission text below is superseded by this block.
+
 ## Latest: independent IPSL pair and exploratory window check COMPLETE
 
 After b413412, two public IPSL cutouts were acquired and four crop/scenario

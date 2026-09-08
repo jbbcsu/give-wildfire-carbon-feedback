@@ -93,7 +93,9 @@ def inspect_archive(archive,archive_bytes):
     return member
 
 
-def validate_cutout(path):
+def validate_cutout(path, start_year=2041, end_year=2050):
+    from heat_cutout_dates import date_contract
+    first_date,last_date,expected_days=date_contract(start_year,end_year)
     with xr.open_dataset(path,engine='h5netcdf') as dataset:
         if 'tasmax' not in dataset or dataset.tasmax.dims!=('time','lat','lon'):
             raise ValueError('cutout variable/dimension contract differs')
@@ -106,9 +108,9 @@ def validate_cutout(path):
         if calendar not in ('standard','gregorian','proleptic_gregorian'):
             raise ValueError('unregistered time calendar')
         dates=pd.DatetimeIndex(field.time.values)
-        expected=pd.date_range('2041-01-01','2050-12-31')
+        expected=pd.date_range(first_date,last_date)
         if not dates.normalize().equals(expected) or not np.all(np.diff(dates.values)==np.timedelta64(1,'D')):
-            raise ValueError('cutout must contain exact contiguous 2041–2050 daily dates')
+            raise ValueError(f'cutout must contain exact contiguous {start_year}–{end_year} daily dates')
         units=str(field.attrs.get('units',''))
         validate_daily_units('tasmax',units)
         missing=0;minimum=np.inf;maximum=-np.inf
@@ -119,7 +121,8 @@ def validate_cutout(path):
             if len(finite):minimum=min(minimum,float(finite.min()));maximum=max(maximum,float(finite.max()))
         if missing:
             raise ValueError(f'cutout contains {missing} nonfinite daily values; no imputation')
-        return dict(days=len(dates),latitudes=field.lat.values.tolist(),longitude_count=len(field.lon),
+        return dict(days=len(dates),first_date=first_date,last_date=last_date,
+            latitudes=field.lat.values.tolist(),longitude_count=len(field.lon),
             calendar=calendar,source_units=units,minimum_c=minimum,maximum_c=maximum,
             missing_values=missing,all_parent_payload_bytes_verified=False)
 
