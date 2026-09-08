@@ -1,5 +1,19 @@
 # Precipitation patterns, global agricultural damages, and the social cost of carbon
 
+## September 8 literature and next empirical comparison
+
+Global machine-learning comparisons of precipitation amount and extremes
+already exist: [Jin et al. (2026)](https://doi.org/10.1016/j.jclepro.2026.147663)
+report annual precipitation as their highest-ranked indicator. We do not claim
+priority for that comparison; their full methods have not yet been audited.
+[Parkes et al. (2019)](https://doi.org/10.1088/1748-9326/ab5ebb) also document
+agricultural response uncertainty associated with weather-source choice in
+India. Our next registered diagnostic holds U.S. NASS outcomes and county-years
+fixed and estimates separate factual GSWP and nClimGrid associations with the
+same heat controls. It is not a new untouched validation or an SCC estimate.
+See `PRECIPITATION_LITERATURE_UPDATE_20260908.md` and
+`US_SOURCE_MATCHED_RESPONSE_PROTOCOL_20260908.md`.
+
 ## September8 NASS-calendar county climate benchmark
 
 The paired climate pilot now uses actual county polygons and the same NASS

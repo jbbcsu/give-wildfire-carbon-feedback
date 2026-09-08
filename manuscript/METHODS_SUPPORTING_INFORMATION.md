@@ -2233,6 +2233,22 @@ These are schema and identity checks only: no parameter is fitted or presented
 as empirical, and the missing pinned generator still blocks implementation,
 FAIR evaluation, response estimation, damages, welfare, and SCC use.
 
+## S9.15 Source-matched U.S. response diagnostic registered September 8
+
+`US_SOURCE_MATCHED_RESPONSE_PROTOCOL_20260908.md` freezes a new exploratory
+comparison before regional climate completion and response fitting. The two
+factual weather products are fitted separately on identical 1982–2010 NASS
+county/crop/practice/year observations. Quantity is primary; stage shares are
+an incremental candidate with matched samples and nonlinear heat controls.
+The protocol fixes model complexity, thresholds, sample and numerical gates,
+zero-rain handling, source-binding steps and failure reporting. No counterclim
+weather enters training; no coefficient transport or damage calculation is
+authorized. In-sample fit is not out-of-sample validation, and previously
+inspected historical years are not described as untouched. Formal source-
+difference uncertainty requires a paired procedure, not independence of the
+two fitted estimates. At registration, the input chain is still running and
+no fit under this new contract has been executed.
+
 ## S10. Scientific integrity and independent review
 
 Every quantitative statement is classified as observed source data, derived

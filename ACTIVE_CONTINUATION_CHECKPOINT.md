@@ -1,5 +1,28 @@
 # Active continuation checkpoint
 
+## September 8 source-matched response contract registered while chain runs
+
+Regional chain PID15641 confirmed live at07:47UTC (one small controller);
+state last refreshed07:39UTC with17/54validated cutouts. These are historical
+snapshots: check actual state/PID before starting any numerical child. No new
+analysis job was started during this literature/design update.
+
+Read `US_SOURCE_MATCHED_RESPONSE_PROTOCOL_20260908.md` after climate-chain
+completion: it now freezes the next source-matched NASS association diagnostic
+(separate factual GSWP/nClimGrid, same sample, quantity primary, both heat
+thresholds, timing secondary, no counterclim training or SCC). No fits have
+been executed under it. Next: review completed regional climate/parity/coverage,
+aggregate resources, bind actual completed input hashes, implement the separate
+estimator and targeted tests, then run the registered finite fits. Do not
+repeat design from scratch or wait for new user approval. Do not run numerical
+tests beside the active chain. Previously used outcome years are NOT untouched.
+
+`PRECIPITATION_LITERATURE_UPDATE_20260908.md` records new close overlap from
+Jin et al.2026 (global ML precipitation metrics; no novelty claim) and Parkes
+et al.2019 (weather-source response uncertainty). Abstract/indexed excerpts
+only, full Methods/code not audited; manuscript/SI now reflect those limits.
+No old data, code, coefficient or evidence gate was changed by this update.
+
 ## Latest: persistent regional acquisition -> features -> comparison chain RUNNING
 
 Afterd128a11, added and tested the regional county builder/comparator and
