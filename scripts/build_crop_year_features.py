@@ -18,6 +18,7 @@ import pandas as pd
 import xarray as xr
 
 from climate_inputs import open_daily_crop_window, validate_daily_units
+from align_cutout_calendar import align_calendar
 
 FEATURE_COLUMNS = [
     "harvest_year", "plant_year", "lat", "lon", "lon_360", "crop", "irrigation", "cross_year",
@@ -79,6 +80,8 @@ def main() -> None:
     parser.add_argument("--year-end", required=True, type=int)
     parser.add_argument("--lat-start", required=True, type=int)
     parser.add_argument("--lat-stop", required=True, type=int)
+    parser.add_argument("--calendar-by-coordinates", action="store_true",
+                        help="Select exact calendar coordinates for a spatial climate cutout")
     parser.add_argument("--out", required=True)
     parser.add_argument("--wet-day-mm", type=float, default=1.0)
     args = parser.parse_args()
@@ -97,11 +100,12 @@ def main() -> None:
             stack, args.temperature, "tas", args.year_start, args.year_end,
             args.lat_start, args.lat_stop,
         )
-        cal = calendar.isel(lat=slice(args.lat_start, args.lat_stop))
+        cal = (align_calendar(calendar,pr) if args.calendar_by_coordinates
+               else calendar.isel(lat=slice(args.lat_start, args.lat_stop)))
         if not (np.array_equal(pr.lat, cal.lat) and np.array_equal(pr.lon, cal.lon)):
             raise ValueError("Climate and calendar coordinates differ; regrid explicitly before feature construction")
-        if not np.array_equal(pr.time, tas.time):
-            raise ValueError("Precipitation and temperature time axes differ")
+        if not all(np.array_equal(pr[k],tas[k]) for k in ('time','lat','lon')):
+            raise ValueError("Precipitation and temperature axes differ")
 
         # Crop calendars are date (DOY) based.  ISIMIP daily timestamps can be
         # stamped at noon, so compare calendar dates rather than instants;

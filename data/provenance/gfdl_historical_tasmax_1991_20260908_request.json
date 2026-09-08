@@ -1,0 +1,39 @@
+{
+  "role": "single_public_server_side_subset_request_source_contract",
+  "config_sha256": "bbaad45e70a00df5a14ed70844d860bb6880d481d72dde0eceaa07a6ba5bffc5",
+  "config_path": "config/isimip3b_gfdl_historical_tasmax_1991_cutout_20260908.json",
+  "code_sha256": "b9173084058d7ba3a3a6ce5e45946312fac81f27d60c92902fc8179a51b5f8d0",
+  "catalogue_url": "https://data.isimip.org/api/v1/datasets/ad8ae7de-b41e-4f69-b683-daa5c0f21509/",
+  "catalogue_response_sha256": "cdc9254c7e0fe4aa9e12a0bd9d21951b7953fee7a4dc457257792d0fb7b612ee",
+  "payload": {
+    "paths": [
+      "ISIMIP3b/InputData/climate/atmosphere/bias-adjusted/global/daily/historical/GFDL-ESM4/gfdl-esm4_r1i1p1f1_w5e5_historical_tasmax_global_daily_1991_2000.nc"
+    ],
+    "operations": [
+      {
+        "operation": "select_bbox",
+        "bbox": [
+          -180,
+          180,
+          39,
+          40
+        ],
+        "compute_mean": false,
+        "output_csv": false
+      }
+    ]
+  },
+  "request_sha256": "dd4d2db4f2ca22a8e21b0cb5b18562a63f9af480706b69291a673bb9ef92709c",
+  "source_checks_passed": true,
+  "local_climate_bytes_downloaded": 0,
+  "local_download_authorized": false,
+  "status": "server_request_returned",
+  "service_response": {
+    "id": "7ab5599ce26b84c3af0e4f6d14fdc09c882b2a54",
+    "job_url": "https://files.isimip.org/api/v2/7ab5599ce26b84c3af0e4f6d14fdc09c882b2a54",
+    "meta": {},
+    "status": "queued",
+    "ttl": 604800
+  },
+  "service_response_sha256": "dda8e487703e0bb98e1932156408e360bcb830c97249d03a53879ce0c6e6048d"
+}

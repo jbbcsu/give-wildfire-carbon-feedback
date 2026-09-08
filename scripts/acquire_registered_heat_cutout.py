@@ -36,6 +36,9 @@ def main():
     if not out.is_relative_to(ROOT/'data/interim') or out.exists() or not config_path.is_relative_to(ROOT/'config'):
         raise ValueError('new ignored directory and registered config required')
     config=json.loads(config_path.read_text());req=json.loads(args.request_receipt.read_text())
+    variable=config['specifiers']['climate_variable']
+    if variable not in ('pr','tas','tasmax'):raise ValueError('unregistered daily variable')
+    climate_name=f'{variable}_cutout.nc'
     if req['config_sha256']!=sha256(config_path) or req['source_checks_passed'] is not True:
         raise ValueError('request/config lineage differs')
     dataset,dataset_hash=json_request(f'https://data.isimip.org/api/v1/datasets/{config["dataset_id"]}/')
@@ -79,8 +82,8 @@ def main():
         with zipfile.ZipFile(out/'cutout.zip') as archive:
             member=inspect_archive(archive,length);result['archive_member']=member.filename
             with archive.open(member) as stream:
-                result['climate_sha256']=stream_copy(stream,out/'tasmax_cutout.nc',member.file_size,budget)
-        result['content_validation']=validate_cutout(out/'tasmax_cutout.nc',*registered_years(config))
+                result['climate_sha256']=stream_copy(stream,out/climate_name,member.file_size,budget)
+        result['content_validation']=validate_cutout(out/climate_name,*registered_years(config),variable=variable)
         result.update(status='climate_content_validated',artifact_hashes={p.name:sha256(p) for p in out.iterdir() if p.suffix in ('.nc','.zip')})
         save();print('registered cutout validated',length,'archive bytes; no yield/SCC result')
     except Exception as error:

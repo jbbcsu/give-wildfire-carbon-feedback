@@ -1,5 +1,51 @@
 # Active continuation checkpoint
 
+## Latest: GFDL historical source benchmark COMPLETE
+
+After1da44bd: acquired nine small1981–2010historical pr/tas/tasmax cutouts,
+validated source/chronology/grid/units and daily tas<=tasmax(1e-5°Ctolerance),
+built29year maize/soy joint inputs on both calendars, one latitude per child.
+14,500mai/9,483soy rows; source comparison on292/149observed-supported cells.
+Historical model-minus-observed-source dry spells+1.86/+1.88days and Rx5day
++6.09/+10.77mm; stage2Tmean offsets only+.048/+.101°C. UnderSSP585 soybean
+dry spells change−.20days vs model history but+1.68vs observed-source history.
+No simulated year is paired as observed weather. Heat extrapolation persists
+against model-history ranges:78.82%mai/78.50%soy SSP585future rows outsideat
+least1of6heat ranges. No bias correction/yield effects/damages/SCC estimated.
+All real jobs passed first execution;13unittesttests plus multifile testscript
+passed. Peak sampledRAM743.78MiB;246.42MiB retainedhistorical,475.39MiB combined
+with precedingfutureextension,132.96GiBfree at export. All jobs finished.
+Read`HISTORICAL_CLIMATE_BENCHMARK_RESULTS_20260908.md`; durableaggregate:
+`data/provenance/historical_climate_benchmark_20260908.json`. Do NOT rebuild
+GFDLhistorical/future or repeat the completed distribution comparisons.
+
+Reference check COMPLETE:`OBSERVED_CLIMATE_REFERENCE_CHECK_20260908.md`.
+Observed GSWP3-W5E5 v1.3 uses W5E5 v2.0 for1979–2019 per officialDataCite;
+ISIMIP3b adjustment uses W5E5 v2.0 perauthorfactsheet. Retained1981–2010pr
+hashes/sizes match officialdailyversion20211021. Do not infer nominalversion
+mismatch from residual pattern offsets. pr includes snow; rainfallshorthand
+is totalwater-equivalentprecipitation. Fact sheet relevantpagestextread,
+visualscreenshotsnotavailable; no full40pagereviewclaimed. No rawrehydration.
+
+NEXT: register the independent IPSL-CM6A-LR historical pr/tas/tasmax1981–2010
+benchmark, same version/member/two rows, reusing tested cutout workflows.
+Catalogue filtering works:api/v1/datasets/?simulation_round=ISIMIP3b&climate_forcing=ipsl-cm6a-lr&climate_scenario=historical&climate_variable=VARIABLE.
+Validate returned IDs/specifiers/rights rather than assuming them. Current
+`build_historical_climate_benchmark.py` deliberately binds GFDL IDs andpaths;
+generalize with explicit model/source tests before IPSL (never merely relabel).
+One row per child and1024MiB monitoredRAM sufficed for simultaneouspr/tas;
+keep<=64MiB newdisk perbatch and>=130GiBfree, no perdownloadapproval. Compare
+historical distributions, not simulated/observed weather-year errors. Defer
+any empirical correction until reference compatibility and independent-model
+checks are assessed. Newly discovered published ATTRICI v1.1 counterclim
+ISIMIP3a route deserves a bounded literature-first assessment for historical
+precipitation-pattern attribution (rg found no prior ATTRICI/counterclim docs
+inthisproject). Do not assume it provides futureSCC or removes all changes
+insequence dependence; inspect primarymethod before using. Response,
+CO2/adaptation, welfare and GIVE pulse remain
+unfinished; do not weaken model-promotion or causal/SCC gates. Earlier NEXT
+blocks are superseded by this one.
+
 ## Latest: GFDL/IPSL full28year matched heat COMPLETE
 
 September8 after5631e13: acquired eight small missing2031–2040/2051–2060

@@ -45,6 +45,8 @@ def main() -> None:
     parser.add_argument("--year-end", required=True, type=int)
     parser.add_argument("--lat-start", required=True, type=int)
     parser.add_argument("--lat-stop", required=True, type=int)
+    parser.add_argument("--calendar-by-coordinates", action="store_true",
+                        help="Select exact calendar coordinates for a spatial climate cutout")
     parser.add_argument("--out", required=True)
     parser.add_argument("--stage-fractions", default="0,0.3,0.7,1")
     parser.add_argument("--wet-day-mm", type=float, default=1.0)
@@ -70,7 +72,11 @@ def main() -> None:
             stack, args.temperature, "tas", args.year_start, args.year_end,
             args.lat_start, args.lat_stop,
         )
-        cal = calendar.isel(lat=slice(args.lat_start, args.lat_stop))
+        from align_cutout_calendar import align_calendar
+        cal = (align_calendar(calendar,pr) if args.calendar_by_coordinates
+               else calendar.isel(lat=slice(args.lat_start, args.lat_stop)))
+        if not all(np.array_equal(pr[k],tas[k]) for k in ('time','lat','lon')):
+            raise ValueError('Precipitation and temperature axes differ')
         if not (np.array_equal(pr.lat, cal.lat) and np.array_equal(pr.lon, cal.lon) and np.array_equal(pr.time, tas.time)):
             raise ValueError("Climate/calendar coordinates or time axes differ")
         # Crop calendars are date (DOY) based.  ISIMIP daily timestamps can be

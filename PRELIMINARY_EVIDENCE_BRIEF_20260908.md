@@ -61,6 +61,14 @@ The new full-period daily-heat inputs address a missing temperature control,
 not crop damages. See `FULL_PERIOD_HEAT_RESULTS_20260908.md` for their final
 matched comparisons, exact-overlap checks and extrapolation limits.
 
+The first historical source check is also complete. GFDL has dry spells
+about1.9days longer than the observed-source historical series, even before
+comparing future periods. For soybean, the future dry-spell change is slightly
+negative against model history but positive against observed-source history.
+This is why the baseline and data source matter; the whole latter difference
+cannot be labeled a climate-change effect. Heat extrapolation remains large
+against either history. See`HISTORICAL_CLIMATE_BENCHMARK_RESULTS_20260908.md`.
+
 ## 4. What separates this evidence from a defensible SCC result?
 
 We still need a defensible joint crop-response specification and transport

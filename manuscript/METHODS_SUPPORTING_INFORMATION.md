@@ -1,5 +1,36 @@
 # Methods Supporting Information
 
+## September8 model-historical distribution benchmark
+
+Source clarification: pr is total water-equivalent precipitation, including
+snow, not liquid rainfall alone. The observed GSWP3-W5E5 product and model
+adjustment nominally share W5E5 v2.0 for the study period; they are not paired
+weather sequences. Primary-source details and review scope are recorded in
+`OBSERVED_CLIMATE_REFERENCE_CHECK_20260908.md`.
+
+The prospective`HISTORICAL_CLIMATE_BENCHMARK_PROTOCOL_20260908.md` now has a
+completed GFDL implementation. Nine registered pr/tas/tasmax cutouts span
+1981–2010, with exact dates/grids/units/nonnegative rain checks and consistent
+daily mean/max temperatures. One latitude row per child limits RAM while
+preserving the same half-degree grid. Both crop/irrigation calendars produce
+29complete harvest years, then existing validated within-regime nonlinear
+bases are combined using fixed MIRCA2000 shares. No outcome values are created.
+
+Comparison with historical observed-source exposures uses exact shared cells
+and positive-observed-yield availability, not observed/simulated yearwise
+weather errors. Per-cell means and temporal quantiles are computed separately
+for each source before equally averaging cell differences. A second historical
+model calculation restricts years to observed availability solely to assess
+sampling composition. Four shape features exclude any cell with a zero-rain
+regime in the relevant observed/historical/future comparison; denominators
+are reported per scenario. Future-minus-observed mean differences reconcile
+to future-minus-model-history plus model-history-minus-observed differences;
+this algebra is not a causal decomposition. Marginal heat ranges are also
+recomputed against the model's own29year history on the observed-supported
+cohort. No bias correction or response transport is performed. Results and
+execution details:`HISTORICAL_CLIMATE_BENCHMARK_RESULTS_20260908.md`; aggregate
+receipts:`data/provenance/historical_climate_benchmark_20260908.json`.
+
 ## September8 full-period heat extension and exact overlap
 
 `FULL_PERIOD_HEAT_PROTOCOL_20260908.md` registers2032–2059harvest years and

@@ -1,5 +1,21 @@
 # Precipitation patterns, global agricultural damages, and the social cost of carbon
 
+## September8 historical source comparison
+
+The first source-matched historical benchmark is now complete. GFDL's1982–2010
+rainfall-pattern distributions differ from the observed-source exposures:
+longest dry spells average about1.9days longer and five-day rainfall maxima
+6–11mm higher, despite stage2mean temperature offsets below0.11°C. Comparing
+future exposures directly with the observed-source history can therefore mix
+historical source offsets with period changes. Soybean's SSP585longest dry
+spell is0.20days shorter than the model-historical mean but1.68days longer
+than the observed-source mean on the same149cells. These are distributional
+comparisons, not paired weather realizations or forced-change estimates.
+Heat extrapolation remains large against the model's own history (~79% of
+evaluable SSP585rows outside at least one of six heat ranges for both crops).
+See`HISTORICAL_CLIMATE_BENCHMARK_RESULTS_20260908.md` for denominators and
+limitations. No empirical agricultural damage or SCC calculation follows yet.
+
 ## September8 full-period matched climate evidence
 
 Matched daily heat and rainfall now span2032–2059 for both GFDL-ESM4 and

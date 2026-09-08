@@ -22,7 +22,7 @@ import pandas as pd
 import xarray as xr
 
 from prepare_heat_subset_pilot import json_request, validate_and_prepare
-from build_crop_year_features import normalize_temperature
+from build_crop_year_features import normalize_temperature, normalize_precip
 from climate_inputs import validate_daily_units
 from summarize_contiguous_climate_contrasts import checked, local_path, sha256
 
@@ -93,13 +93,14 @@ def inspect_archive(archive,archive_bytes):
     return member
 
 
-def validate_cutout(path, start_year=2041, end_year=2050):
+def validate_cutout(path, start_year=2041, end_year=2050, variable='tasmax'):
     from heat_cutout_dates import date_contract
     first_date,last_date,expected_days=date_contract(start_year,end_year)
+    if variable not in ('pr','tas','tasmax'):raise ValueError('unregistered daily variable')
     with xr.open_dataset(path,engine='h5netcdf') as dataset:
-        if 'tasmax' not in dataset or dataset.tasmax.dims!=('time','lat','lon'):
+        if variable not in dataset or dataset[variable].dims!=('time','lat','lon'):
             raise ValueError('cutout variable/dimension contract differs')
-        field=dataset.tasmax
+        field=dataset[variable]
         if not np.array_equal(np.sort(field.lat.values),[39.25,39.75]):
             raise ValueError('cutout is not the two registered latitude centers')
         if not np.array_equal(np.sort(field.lon.values),np.arange(-179.75,180.,.5)):
@@ -112,18 +113,22 @@ def validate_cutout(path, start_year=2041, end_year=2050):
         if not dates.normalize().equals(expected) or not np.all(np.diff(dates.values)==np.timedelta64(1,'D')):
             raise ValueError(f'cutout must contain exact contiguous {start_year}–{end_year} daily dates')
         units=str(field.attrs.get('units',''))
-        validate_daily_units('tasmax',units)
+        validate_daily_units(variable,units)
         missing=0;minimum=np.inf;maximum=-np.inf
         for first in range(0,len(dates),365):
-            values=normalize_temperature(field.isel(time=slice(first,first+365)).values,units)
+            normalizer=normalize_precip if variable=='pr' else normalize_temperature
+            values=normalizer(field.isel(time=slice(first,first+365)).values,units)
+            if variable=='pr' and np.any(values<0):raise ValueError('negative daily precipitation; no clipping')
             missing+=int((~np.isfinite(values)).sum())
             finite=values[np.isfinite(values)]
             if len(finite):minimum=min(minimum,float(finite.min()));maximum=max(maximum,float(finite.max()))
         if missing:
             raise ValueError(f'cutout contains {missing} nonfinite daily values; no imputation')
-        return dict(days=len(dates),first_date=first_date,last_date=last_date,
+        extrema=({'minimum_mm_day':minimum,'maximum_mm_day':maximum} if variable=='pr'
+                 else {'minimum_c':minimum,'maximum_c':maximum})
+        return dict(variable=variable,days=len(dates),first_date=first_date,last_date=last_date,
             latitudes=field.lat.values.tolist(),longitude_count=len(field.lon),
-            calendar=calendar,source_units=units,minimum_c=minimum,maximum_c=maximum,
+            calendar=calendar,source_units=units,**extrema,
             missing_values=missing,all_parent_payload_bytes_verified=False)
 
 
