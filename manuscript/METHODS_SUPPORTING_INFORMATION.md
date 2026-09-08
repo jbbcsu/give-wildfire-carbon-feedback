@@ -1,5 +1,23 @@
 # Methods Supporting Information
 
+## September8 county-calendar paired climate bridge
+
+`US_PAIRED_CLIMATE_OVERLAP_PROTOCOL_20260908.md` defines exact-polygon coverage
+and the already-used validation-year inventory. The subsequent county climate
+protocol builds new half-degree county-area weights only for wholly covered
+counties, independently of the earlier nClimGrid and MIRCA weights. Using
+NASS2010usual-date calendars,573county/crop/year keys are constructed on each
+paired climate path with cell-first nonlinear metrics and no fake Tmin. A
+second contrast uses the same keys/calendar against retained nClimGrid inputs;
+source-day labels remain unshifted. County means are averaged equally, with
+annual means and county dispersion retained separately. No shape rows require
+zero-rain exclusion. Nine tests and all three real stages passed; highest
+sampled analysis RSS301.84MiB. Full source/protocol/implementation/resource
+evidence: `data/provenance/us_paired_county_climate_20260908.json`. No new
+independent holdout or response fit is claimed. The regional acquisition
+protocol extends coverage in bounded bands while preserving prior sample,
+source, causal and SCC gates.
+
 ## September8 paired empirical weather-support diagnostic
 
 The prospective `PAIRED_WEATHER_SUPPORT_PROTOCOL_20260908.md` fixes exact

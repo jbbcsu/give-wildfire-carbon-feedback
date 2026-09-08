@@ -1,0 +1,2297 @@
+{
+  "role": "county_calendar_climate_source_and_detrending_benchmark",
+  "causal_or_scc_result": false,
+  "inventory": {
+    "path": "data/interim/us_paired_overlap_20260908/result.json",
+    "sha256": "2cdc499e64b9a59d628c93481dc7771eac229557dd99ef806954ee822f983fb3",
+    "content": {
+      "status": "existing_us_paired_climate_overlap_inventoried",
+      "role": "geographic_and_time_support_feasibility_not_response_fit",
+      "crop_yield_estimated": false,
+      "causal_or_scc_result": false,
+      "new_holdout_identified": false,
+      "climate_years": [
+        1982,
+        2010
+      ],
+      "climate_valid_half_degree_cells": 686,
+      "full_direct_weather_rows": 23722,
+      "unique_crop_county_years": 11861,
+      "counties": 419,
+      "association_period": [
+        1981,
+        2018
+      ],
+      "association_input": {
+        "path": "data/interim/us_county/nass_direct_practice_nclimgrid_1981_2019.parquet",
+        "sha256": "205a94ae92c12810026c9c5d0ac0fa3760e46ebc39669e528ba20a125a0c46d7",
+        "rows": 23714
+      },
+      "previously_evaluated_predictive_period": [
+        1981,
+        2019
+      ],
+      "previously_evaluated_terminal_period": [
+        2012,
+        2019
+      ],
+      "available_weather_years_not_in_evaluated_period": [],
+      "years": [
+        {
+          "harvest_year": 1981,
+          "crop": "corn_grain",
+          "crop_county_years": 159,
+          "counties": 159
+        },
+        {
+          "harvest_year": 1981,
+          "crop": "soybeans",
+          "crop_county_years": 93,
+          "counties": 93
+        },
+        {
+          "harvest_year": 1982,
+          "crop": "corn_grain",
+          "crop_county_years": 215,
+          "counties": 215
+        },
+        {
+          "harvest_year": 1982,
+          "crop": "soybeans",
+          "crop_county_years": 111,
+          "counties": 111
+        },
+        {
+          "harvest_year": 1983,
+          "crop": "corn_grain",
+          "crop_county_years": 215,
+          "counties": 215
+        },
+        {
+          "harvest_year": 1983,
+          "crop": "soybeans",
+          "crop_county_years": 115,
+          "counties": 115
+        },
+        {
+          "harvest_year": 1984,
+          "crop": "corn_grain",
+          "crop_county_years": 244,
+          "counties": 244
+        },
+        {
+          "harvest_year": 1984,
+          "crop": "soybeans",
+          "crop_county_years": 195,
+          "counties": 195
+        },
+        {
+          "harvest_year": 1985,
+          "crop": "corn_grain",
+          "crop_county_years": 244,
+          "counties": 244
+        },
+        {
+          "harvest_year": 1985,
+          "crop": "soybeans",
+          "crop_county_years": 184,
+          "counties": 184
+        },
+        {
+          "harvest_year": 1986,
+          "crop": "corn_grain",
+          "crop_county_years": 245,
+          "counties": 245
+        },
+        {
+          "harvest_year": 1986,
+          "crop": "soybeans",
+          "crop_county_years": 204,
+          "counties": 204
+        },
+        {
+          "harvest_year": 1987,
+          "crop": "corn_grain",
+          "crop_county_years": 223,
+          "counties": 223
+        },
+        {
+          "harvest_year": 1987,
+          "crop": "soybeans",
+          "crop_county_years": 190,
+          "counties": 190
+        },
+        {
+          "harvest_year": 1988,
+          "crop": "corn_grain",
+          "crop_county_years": 242,
+          "counties": 242
+        },
+        {
+          "harvest_year": 1988,
+          "crop": "soybeans",
+          "crop_county_years": 178,
+          "counties": 178
+        },
+        {
+          "harvest_year": 1989,
+          "crop": "corn_grain",
+          "crop_county_years": 230,
+          "counties": 230
+        },
+        {
+          "harvest_year": 1989,
+          "crop": "soybeans",
+          "crop_county_years": 194,
+          "counties": 194
+        },
+        {
+          "harvest_year": 1990,
+          "crop": "corn_grain",
+          "crop_county_years": 239,
+          "counties": 239
+        },
+        {
+          "harvest_year": 1990,
+          "crop": "soybeans",
+          "crop_county_years": 169,
+          "counties": 169
+        },
+        {
+          "harvest_year": 1991,
+          "crop": "corn_grain",
+          "crop_county_years": 250,
+          "counties": 250
+        },
+        {
+          "harvest_year": 1991,
+          "crop": "soybeans",
+          "crop_county_years": 177,
+          "counties": 177
+        },
+        {
+          "harvest_year": 1992,
+          "crop": "corn_grain",
+          "crop_county_years": 248,
+          "counties": 248
+        },
+        {
+          "harvest_year": 1992,
+          "crop": "soybeans",
+          "crop_county_years": 182,
+          "counties": 182
+        },
+        {
+          "harvest_year": 1993,
+          "crop": "corn_grain",
+          "crop_county_years": 244,
+          "counties": 244
+        },
+        {
+          "harvest_year": 1993,
+          "crop": "soybeans",
+          "crop_county_years": 186,
+          "counties": 186
+        },
+        {
+          "harvest_year": 1994,
+          "crop": "corn_grain",
+          "crop_county_years": 246,
+          "counties": 246
+        },
+        {
+          "harvest_year": 1994,
+          "crop": "soybeans",
+          "crop_county_years": 168,
+          "counties": 168
+        },
+        {
+          "harvest_year": 1995,
+          "crop": "corn_grain",
+          "crop_county_years": 238,
+          "counties": 238
+        },
+        {
+          "harvest_year": 1995,
+          "crop": "soybeans",
+          "crop_county_years": 174,
+          "counties": 174
+        },
+        {
+          "harvest_year": 1996,
+          "crop": "corn_grain",
+          "crop_county_years": 196,
+          "counties": 196
+        },
+        {
+          "harvest_year": 1996,
+          "crop": "soybeans",
+          "crop_county_years": 132,
+          "counties": 132
+        },
+        {
+          "harvest_year": 1997,
+          "crop": "corn_grain",
+          "crop_county_years": 211,
+          "counties": 211
+        },
+        {
+          "harvest_year": 1997,
+          "crop": "soybeans",
+          "crop_county_years": 134,
+          "counties": 134
+        },
+        {
+          "harvest_year": 1998,
+          "crop": "corn_grain",
+          "crop_county_years": 226,
+          "counties": 226
+        },
+        {
+          "harvest_year": 1998,
+          "crop": "soybeans",
+          "crop_county_years": 141,
+          "counties": 141
+        },
+        {
+          "harvest_year": 1999,
+          "crop": "corn_grain",
+          "crop_county_years": 200,
+          "counties": 200
+        },
+        {
+          "harvest_year": 1999,
+          "crop": "soybeans",
+          "crop_county_years": 140,
+          "counties": 140
+        },
+        {
+          "harvest_year": 2000,
+          "crop": "corn_grain",
+          "crop_county_years": 220,
+          "counties": 220
+        },
+        {
+          "harvest_year": 2000,
+          "crop": "soybeans",
+          "crop_county_years": 135,
+          "counties": 135
+        },
+        {
+          "harvest_year": 2001,
+          "crop": "corn_grain",
+          "crop_county_years": 206,
+          "counties": 206
+        },
+        {
+          "harvest_year": 2001,
+          "crop": "soybeans",
+          "crop_county_years": 149,
+          "counties": 149
+        },
+        {
+          "harvest_year": 2002,
+          "crop": "corn_grain",
+          "crop_county_years": 199,
+          "counties": 199
+        },
+        {
+          "harvest_year": 2002,
+          "crop": "soybeans",
+          "crop_county_years": 120,
+          "counties": 120
+        },
+        {
+          "harvest_year": 2003,
+          "crop": "corn_grain",
+          "crop_county_years": 184,
+          "counties": 184
+        },
+        {
+          "harvest_year": 2003,
+          "crop": "soybeans",
+          "crop_county_years": 151,
+          "counties": 151
+        },
+        {
+          "harvest_year": 2004,
+          "crop": "corn_grain",
+          "crop_county_years": 181,
+          "counties": 181
+        },
+        {
+          "harvest_year": 2004,
+          "crop": "soybeans",
+          "crop_county_years": 117,
+          "counties": 117
+        },
+        {
+          "harvest_year": 2005,
+          "crop": "corn_grain",
+          "crop_county_years": 201,
+          "counties": 201
+        },
+        {
+          "harvest_year": 2005,
+          "crop": "soybeans",
+          "crop_county_years": 137,
+          "counties": 137
+        },
+        {
+          "harvest_year": 2006,
+          "crop": "corn_grain",
+          "crop_county_years": 194,
+          "counties": 194
+        },
+        {
+          "harvest_year": 2006,
+          "crop": "soybeans",
+          "crop_county_years": 140,
+          "counties": 140
+        },
+        {
+          "harvest_year": 2007,
+          "crop": "corn_grain",
+          "crop_county_years": 192,
+          "counties": 192
+        },
+        {
+          "harvest_year": 2007,
+          "crop": "soybeans",
+          "crop_county_years": 124,
+          "counties": 124
+        },
+        {
+          "harvest_year": 2008,
+          "crop": "corn_grain",
+          "crop_county_years": 112,
+          "counties": 112
+        },
+        {
+          "harvest_year": 2008,
+          "crop": "soybeans",
+          "crop_county_years": 89,
+          "counties": 89
+        },
+        {
+          "harvest_year": 2009,
+          "crop": "corn_grain",
+          "crop_county_years": 120,
+          "counties": 120
+        },
+        {
+          "harvest_year": 2009,
+          "crop": "soybeans",
+          "crop_county_years": 93,
+          "counties": 93
+        },
+        {
+          "harvest_year": 2010,
+          "crop": "corn_grain",
+          "crop_county_years": 129,
+          "counties": 129
+        },
+        {
+          "harvest_year": 2010,
+          "crop": "soybeans",
+          "crop_county_years": 79,
+          "counties": 79
+        },
+        {
+          "harvest_year": 2011,
+          "crop": "corn_grain",
+          "crop_county_years": 120,
+          "counties": 120
+        },
+        {
+          "harvest_year": 2011,
+          "crop": "soybeans",
+          "crop_county_years": 76,
+          "counties": 76
+        },
+        {
+          "harvest_year": 2012,
+          "crop": "corn_grain",
+          "crop_county_years": 115,
+          "counties": 115
+        },
+        {
+          "harvest_year": 2012,
+          "crop": "soybeans",
+          "crop_county_years": 67,
+          "counties": 67
+        },
+        {
+          "harvest_year": 2013,
+          "crop": "corn_grain",
+          "crop_county_years": 102,
+          "counties": 102
+        },
+        {
+          "harvest_year": 2013,
+          "crop": "soybeans",
+          "crop_county_years": 56,
+          "counties": 56
+        },
+        {
+          "harvest_year": 2014,
+          "crop": "corn_grain",
+          "crop_county_years": 94,
+          "counties": 94
+        },
+        {
+          "harvest_year": 2014,
+          "crop": "soybeans",
+          "crop_county_years": 64,
+          "counties": 64
+        },
+        {
+          "harvest_year": 2015,
+          "crop": "corn_grain",
+          "crop_county_years": 79,
+          "counties": 79
+        },
+        {
+          "harvest_year": 2015,
+          "crop": "soybeans",
+          "crop_county_years": 51,
+          "counties": 51
+        },
+        {
+          "harvest_year": 2016,
+          "crop": "corn_grain",
+          "crop_county_years": 98,
+          "counties": 98
+        },
+        {
+          "harvest_year": 2016,
+          "crop": "soybeans",
+          "crop_county_years": 66,
+          "counties": 66
+        },
+        {
+          "harvest_year": 2017,
+          "crop": "corn_grain",
+          "crop_county_years": 89,
+          "counties": 89
+        },
+        {
+          "harvest_year": 2017,
+          "crop": "soybeans",
+          "crop_county_years": 38,
+          "counties": 38
+        },
+        {
+          "harvest_year": 2018,
+          "crop": "corn_grain",
+          "crop_county_years": 63,
+          "counties": 63
+        },
+        {
+          "harvest_year": 2018,
+          "crop": "soybeans",
+          "crop_county_years": 25,
+          "counties": 25
+        },
+        {
+          "harvest_year": 2019,
+          "crop": "corn_grain",
+          "crop_county_years": 3,
+          "counties": 3
+        },
+        {
+          "harvest_year": 2019,
+          "crop": "soybeans",
+          "crop_county_years": 1,
+          "counties": 1
+        }
+      ],
+      "comparisons": [
+        {
+          "crop": "corn_grain",
+          "crop_county_years": 6094,
+          "counties": 346,
+          "classifications": {
+            "strip_coverage": {
+              "full": {
+                "crop_county_years": 346,
+                "counties": 16
+              },
+              "partial": {
+                "crop_county_years": 640,
+                "counties": 34
+              },
+              "none": {
+                "crop_county_years": 5108,
+                "counties": 296
+              }
+            },
+            "finite_climate_coverage": {
+              "full": {
+                "crop_county_years": 346,
+                "counties": 16
+              },
+              "partial": {
+                "crop_county_years": 640,
+                "counties": 34
+              },
+              "none": {
+                "crop_county_years": 5108,
+                "counties": 296
+              }
+            }
+          },
+          "full_climate_county_geoids": [
+            "08063",
+            "20005",
+            "20027",
+            "20029",
+            "20043",
+            "20065",
+            "20085",
+            "20087",
+            "20123",
+            "20141",
+            "20149",
+            "20161",
+            "20163",
+            "20179",
+            "20181",
+            "20193"
+          ]
+        },
+        {
+          "crop": "soybeans",
+          "crop_county_years": 4308,
+          "counties": 252,
+          "classifications": {
+            "strip_coverage": {
+              "full": {
+                "crop_county_years": 227,
+                "counties": 15
+              },
+              "partial": {
+                "crop_county_years": 358,
+                "counties": 28
+              },
+              "none": {
+                "crop_county_years": 3723,
+                "counties": 209
+              }
+            },
+            "finite_climate_coverage": {
+              "full": {
+                "crop_county_years": 227,
+                "counties": 15
+              },
+              "partial": {
+                "crop_county_years": 358,
+                "counties": 28
+              },
+              "none": {
+                "crop_county_years": 3723,
+                "counties": 209
+              }
+            }
+          },
+          "full_climate_county_geoids": [
+            "20005",
+            "20027",
+            "20029",
+            "20043",
+            "20065",
+            "20085",
+            "20087",
+            "20123",
+            "20141",
+            "20149",
+            "20161",
+            "20163",
+            "20179",
+            "20181",
+            "20193"
+          ]
+        }
+      ],
+      "input_sources": [
+        {
+          "path": "us_county_validation/us_direct_practice_precipitation_association_v1.toml",
+          "sha256": "8318893d555a20d68de85591aa3a148a88aa33e2f3e9e05bc5792f657c78bcb9",
+          "bytes": 2541
+        },
+        {
+          "path": "outputs/us_county/competing_moisture_predictive_v1/direct_source_validation.json",
+          "sha256": "992371e452b0aa97f3dffce6e8f53ae2e2183e8754cfcd2b5a8bd5ae48563f2e",
+          "bytes": 1776
+        },
+        {
+          "path": "data/interim/us_county/nass_direct_practice_nclimgrid_1981_2019.parquet",
+          "sha256": "205a94ae92c12810026c9c5d0ac0fa3760e46ebc39669e528ba20a125a0c46d7",
+          "bytes": 5300890
+        },
+        {
+          "path": "data/provenance/us_daily_heat_expansion_20260907.json",
+          "sha256": "f27f0487a43b64be39adf264a4a954fbe7e2b9b17eedc09eefed35659443fcf1",
+          "bytes": 39540
+        },
+        {
+          "path": "data/interim/us_county/nass_direct_practice_daily_heat_1981_2019.parquet",
+          "sha256": "380735986e48291c092b83b588bf0a96b335bccf632bff033988795338ffe4df",
+          "bytes": 3614184
+        },
+        {
+          "path": "data/interim/us_county/nclimgrid_polygon_weights_national_v1/county_geoid=20199/receipt.json",
+          "sha256": "373b2e52bbbb63e2053302945c25e302a9fced4dc0ad2fd6a218d50452de00f3",
+          "bytes": 3912
+        },
+        {
+          "path": "us_county_validation/us_competing_moisture_predictive_v1.toml",
+          "sha256": "11ccd161c0f2f467e42b8ca9ecc1731b276db4edd52d77a9eb3931380ee70b2a",
+          "bytes": 4192
+        },
+        {
+          "path": "data/provenance/nass_irrigation_practice_screen.toml",
+          "sha256": "45052871becfb4ee5db2904ea221fa6d77608d37e95d53a80545af2a615e9965",
+          "bytes": 9399
+        }
+      ],
+      "tiger_components": [
+        {
+          "path": "data/raw/us_county/tigerline/tl_2019_us_county/tl_2019_us_county.dbf",
+          "sha256": "7250428e9b6b0fa9e3c16d16f7d5bbeb2c0ab3b1f16395a954fcbad4624bf5e6",
+          "bytes": 947847
+        },
+        {
+          "path": "data/raw/us_county/tigerline/tl_2019_us_county/tl_2019_us_county.prj",
+          "sha256": "0b9041e921d9ebb43247d314608fe9e38a0b008ee793067fc1806199ea1fb9dd",
+          "bytes": 165
+        },
+        {
+          "path": "data/raw/us_county/tigerline/tl_2019_us_county/tl_2019_us_county.shp",
+          "sha256": "0b102f2e292be5a81f46ecb2956136e93da03de692980714fabc16e1925e0b51",
+          "bytes": 127354224
+        },
+        {
+          "path": "data/raw/us_county/tigerline/tl_2019_us_county/tl_2019_us_county.shx",
+          "sha256": "fb4263d31f02ccc9d7c1b0affd030cd528b6a2d13f3c1611e41e7dbc5fb57c9d",
+          "bytes": 25964
+        }
+      ],
+      "climate_receipt": {
+        "path": "data/interim/counterclim_mai_joint_20260908/receipt.json",
+        "sha256": "952b6c62d8c609a5d147cc0e2c44e7f0cdc11840a8c8376a4187df58df3833bb"
+      },
+      "daily_source": {
+        "path": "data/interim/counterclim_pr_1981_20260908/crop_domain_receipt.json",
+        "sha256": "bc85a625bb47b123b258e2005f2ea55a76053d16d6da476b80fd96642f73ad29",
+        "daily_sha256": "c641bc6dbf76137bb2f57aead7e6a6538d31c27292058136b5312f50fb56b141",
+        "content": {
+          "variable": "pr",
+          "days": 3652,
+          "first_date": "1981-01-01",
+          "last_date": "1990-12-31",
+          "latitudes": [
+            39.75,
+            39.25
+          ],
+          "longitude_count": 720,
+          "calendar": "proleptic_gregorian",
+          "source_units": "kg m-2 s-1",
+          "minimum_mm_day": 0.0,
+          "maximum_mm_day": 203.9364471435547,
+          "missing_values": 2753608,
+          "crop_missing_values": 0,
+          "crop_cells": 686,
+          "static_missing_noncrop_cells": 754,
+          "imputation_performed": false,
+          "validation_domain": "exact_four_calendar_crop_support",
+          "calendar_hashes": {
+            "ggcmi-crop-calendar-phase3_2015soc_mai_noirr.nc": "30aba2e000a712328bdfdd1c161c55390bcd6b34e876e92465b0972ac1361a1d039857a99926be9d73cc2baf0936ae10860e47823f8d67ad7e6fb284a1edbf1e",
+            "ggcmi-crop-calendar-phase3_2015soc_mai_firr.nc": "adf315cc07d478d106215407462ad11cfd2850fd2643a4193620de1fecf8b781c650bec7e814deb69d9b79be492bb1ef18b8a46a8e22826db7477b3d36dcba02",
+            "ggcmi-crop-calendar-phase3_2015soc_soy_noirr.nc": "11e4bef2cd3e6716965bafd785e37f9293c48305d4cf91340b61e5f8baa37d0cc008624158a6c0797e1cf498b0833ca5e657519da763f7d32ff850936f1130c2",
+            "ggcmi-crop-calendar-phase3_2015soc_soy_firr.nc": "4cf1492d9a331e40e55633f2d36ea15067f9d4cff3cb69e18ace85e2b0c5ded1f39da166315ed4e3ce93079c3596f6ad35b0c33fed0e4833d9347c3f878cda88"
+          },
+          "calendar_manifest_sha256": "7d637597f1836b41bd2faebdfa70a8ae67daf3a5faa179d32dd72dd11d7a1b3f",
+          "domain_amendment_sha256": "a8276334b4e68804270cca5119bbc2cd64faa83a3abfaf6cbca920d5c280a96c",
+          "all_parent_payload_bytes_verified": false
+        }
+      },
+      "protocol_sha256": "60e3088c4f01fc1cd26357cd557e14339a976fb394f221dbce4dbd0587f3f4bb",
+      "code_sha256": "72e955cc11bdeafa74a8fdf1bf515a9022a8a892dd2e11c3664f4f9cd0c3bf1c",
+      "county_bounds_inventory": {
+        "west": -109.046954,
+        "east": -74.98416499999999,
+        "south": 25.837163999999998,
+        "north": 49.000692,
+        "counties_by_state_fips": {
+          "05": 47,
+          "08": 18,
+          "10": 3,
+          "20": 103,
+          "31": 91,
+          "35": 8,
+          "38": 41,
+          "40": 1,
+          "46": 45,
+          "48": 57,
+          "56": 5
+        }
+      }
+    }
+  },
+  "climate": {
+    "path": "data/interim/us_paired_county_climate_20260908/receipt.json",
+    "sha256": "be4f150ff45948d6b4e596fb962fb41d4c58b3dddb19fdf5e14edd197ddd52ca",
+    "content": {
+      "status": "us_paired_county_climate_inputs_validated",
+      "crop_yield_estimated": false,
+      "causal_or_scc_result": false,
+      "inventory": {
+        "path": "data/interim/us_paired_overlap_20260908/result.json",
+        "sha256": "2cdc499e64b9a59d628c93481dc7771eac229557dd99ef806954ee822f983fb3",
+        "bytes": 129408
+      },
+      "input": {
+        "path": "data/interim/us_county/nass_direct_practice_nclimgrid_1981_2019.parquet",
+        "sha256": "205a94ae92c12810026c9c5d0ac0fa3760e46ebc39669e528ba20a125a0c46d7",
+        "rows": 23714
+      },
+      "protocol_sha256": "a36a34aee3c9e1478439f7784d6a0e358f2fe4fc386189bac93eded0c491c7f3",
+      "code_sha256": "7a675a2c450583c20778e92e5640200bcfe677bfb3cc56502df3d67f4519a24a",
+      "helper_sha256": "143cbe6907d50aa01ec7206b70926fefd4ac6e7663d13e1ccce6944b088709cb",
+      "selected_daily_cells": 36,
+      "area_audits": {
+        "20043": {
+          "projected_partition_area_m2": 1031529899.458673,
+          "projected_original_area_m2": 1031529899.4662604,
+          "partition_relative_difference": -7.35556060504905e-12,
+          "declared_area_m2": 1031529865,
+          "declared_relative_difference": 3.340540510876622e-08
+        },
+        "20161": {
+          "projected_partition_area_m2": 1611119231.0741193,
+          "projected_original_area_m2": 1611119231.067957,
+          "partition_relative_difference": 3.824940364438589e-12,
+          "declared_area_m2": 1611119131,
+          "declared_relative_difference": 6.211466141436972e-08
+        },
+        "20149": {
+          "projected_partition_area_m2": 2231656572.8369565,
+          "projected_original_area_m2": 2231656572.8378086,
+          "partition_relative_difference": -3.8180569816859133e-13,
+          "declared_area_m2": 2231656459,
+          "declared_relative_difference": 5.101007194419083e-08
+        },
+        "20181": {
+          "projected_partition_area_m2": 2735741753.963283,
+          "projected_original_area_m2": 2735741753.9691114,
+          "partition_relative_difference": -2.130406961953213e-12,
+          "declared_area_m2": 2735741497,
+          "declared_relative_difference": 9.392820321529882e-08
+        },
+        "20005": {
+          "projected_partition_area_m2": 1123587696.670567,
+          "projected_original_area_m2": 1123587696.5080225,
+          "partition_relative_difference": 1.446656128223367e-10,
+          "declared_area_m2": 1123587660,
+          "declared_relative_difference": 3.263703263201023e-08
+        },
+        "20029": {
+          "projected_partition_area_m2": 1859586586.484892,
+          "projected_original_area_m2": 1859586586.4003892,
+          "partition_relative_difference": 4.544165044251258e-11,
+          "declared_area_m2": 1859586538,
+          "declared_relative_difference": 2.607294202761068e-08
+        },
+        "20123": {
+          "projected_partition_area_m2": 1862613003.3082626,
+          "projected_original_area_m2": 1862613000.750326,
+          "partition_relative_difference": 1.3733054693432223e-09,
+          "declared_area_m2": 1862612911,
+          "declared_relative_difference": 4.9558478876221557e-08
+        },
+        "20065": {
+          "projected_partition_area_m2": 2327773291.222918,
+          "projected_original_area_m2": 2327773291.2296567,
+          "partition_relative_difference": -2.8949065367100957e-12,
+          "declared_area_m2": 2327773210,
+          "declared_relative_difference": 3.489296873659953e-08
+        },
+        "20027": {
+          "projected_partition_area_m2": 1698016623.105675,
+          "projected_original_area_m2": 1698016623.094747,
+          "partition_relative_difference": 6.4357408291471074e-12,
+          "declared_area_m2": 1698016618,
+          "declared_relative_difference": 3.0068463274801616e-09
+        },
+        "20087": {
+          "projected_partition_area_m2": 1441787702.4052339,
+          "projected_original_area_m2": 1441787702.5197191,
+          "partition_relative_difference": -7.940503810033306e-11,
+          "declared_area_m2": 1441787660,
+          "declared_relative_difference": 2.9411566737636008e-08
+        },
+        "20193": {
+          "projected_partition_area_m2": 2783713504.137237,
+          "projected_original_area_m2": 2783713504.137333,
+          "partition_relative_difference": -3.441691376337985e-14,
+          "declared_area_m2": 2783713368,
+          "declared_relative_difference": 4.890490479247944e-08
+        },
+        "20141": {
+          "projected_partition_area_m2": 2316411287.475214,
+          "projected_original_area_m2": 2316411287.4789367,
+          "partition_relative_difference": -1.607047828144914e-12,
+          "declared_area_m2": 2316411202,
+          "declared_relative_difference": 3.689984495736098e-08
+        },
+        "08063": {
+          "projected_partition_area_m2": 5598754540.8594265,
+          "projected_original_area_m2": 5598754541.397067,
+          "partition_relative_difference": -9.602862949265045e-11,
+          "declared_area_m2": 5598753868,
+          "declared_relative_difference": 1.2018021200432827e-07
+        },
+        "20179": {
+          "projected_partition_area_m2": 2321165735.7700806,
+          "projected_original_area_m2": 2321165735.5220885,
+          "partition_relative_difference": 1.0683942619493791e-10,
+          "declared_area_m2": 2321165646,
+          "declared_relative_difference": 3.8674568880736615e-08
+        },
+        "20163": {
+          "projected_partition_area_m2": 2318416571.434555,
+          "projected_original_area_m2": 2318416571.433145,
+          "partition_relative_difference": 6.081801728896608e-13,
+          "declared_area_m2": 2318416455,
+          "declared_relative_difference": 5.022158755529915e-08
+        },
+        "20085": {
+          "projected_partition_area_m2": 1704266868.8574536,
+          "projected_original_area_m2": 1704266868.6579607,
+          "partition_relative_difference": 1.1705503233372383e-10,
+          "declared_area_m2": 1704266862,
+          "declared_relative_difference": 4.023697153243688e-09
+        }
+      },
+      "sources": [
+        {
+          "scenario": "obsclim",
+          "variable": "pr",
+          "first_year": 1981,
+          "receipt": {
+            "path": "data/interim/obsclim_pr_1981_20260908/receipt.json",
+            "sha256": "9e2b2e63f4f1e57b2571933ff01c321178045026193790517929093af71b7f26",
+            "daily_sha256": "f43e5e5f0cde84939b641f85f49d68e0b250edf04829118a00c5529987923ead",
+            "content": {
+              "variable": "pr",
+              "days": 3652,
+              "first_date": "1981-01-01",
+              "last_date": "1990-12-31",
+              "latitudes": [
+                39.75,
+                39.25
+              ],
+              "longitude_count": 720,
+              "calendar": "proleptic_gregorian",
+              "source_units": "kg m-2 s-1",
+              "minimum_mm_day": 0.0,
+              "maximum_mm_day": 218.07797241210938,
+              "missing_values": 0,
+              "all_parent_payload_bytes_verified": false
+            }
+          },
+          "climate_sha256": "f43e5e5f0cde84939b641f85f49d68e0b250edf04829118a00c5529987923ead"
+        },
+        {
+          "scenario": "obsclim",
+          "variable": "tas",
+          "first_year": 1981,
+          "receipt": {
+            "path": "data/interim/obsclim_tas_1981_20260908/receipt.json",
+            "sha256": "a68b502e8e11247cd6b553d8297d6f2a97d9434738dbf853136e982dee36a95c",
+            "daily_sha256": "8cd89503d213ed9d5eda965536135727d49fc4f3c8aa2b3d9ea05e78ff9b846d",
+            "content": {
+              "variable": "tas",
+              "days": 3652,
+              "first_date": "1981-01-01",
+              "last_date": "1990-12-31",
+              "latitudes": [
+                39.75,
+                39.25
+              ],
+              "longitude_count": 720,
+              "calendar": "proleptic_gregorian",
+              "source_units": "K",
+              "minimum_c": -33.62239074707031,
+              "maximum_c": 37.271240234375,
+              "missing_values": 0,
+              "all_parent_payload_bytes_verified": false
+            }
+          },
+          "climate_sha256": "8cd89503d213ed9d5eda965536135727d49fc4f3c8aa2b3d9ea05e78ff9b846d"
+        },
+        {
+          "scenario": "obsclim",
+          "variable": "tasmax",
+          "first_year": 1981,
+          "receipt": {
+            "path": "data/interim/obsclim_tasmax_1981_20260908/receipt.json",
+            "sha256": "a9c99f37adba13b4545899fe308247e6e03938f67950babb19376c48afaed205",
+            "daily_sha256": "913a6d3e0a739ab2b744e7dbc87308dc4687eadd8731c0b1b359106b6064f279",
+            "content": {
+              "variable": "tasmax",
+              "days": 3652,
+              "first_date": "1981-01-01",
+              "last_date": "1990-12-31",
+              "latitudes": [
+                39.75,
+                39.25
+              ],
+              "longitude_count": 720,
+              "calendar": "proleptic_gregorian",
+              "source_units": "K",
+              "minimum_c": -27.107955932617188,
+              "maximum_c": 46.5699462890625,
+              "missing_values": 0,
+              "all_parent_payload_bytes_verified": false
+            }
+          },
+          "climate_sha256": "913a6d3e0a739ab2b744e7dbc87308dc4687eadd8731c0b1b359106b6064f279"
+        },
+        {
+          "scenario": "obsclim",
+          "variable": "pr",
+          "first_year": 1991,
+          "receipt": {
+            "path": "data/interim/obsclim_pr_1991_20260908/receipt.json",
+            "sha256": "83b146aacaf2085b1b26e26c0d719ad5c6d1dbd62766338d82ad3f4fe33e4cd2",
+            "daily_sha256": "ba78bbbcde72f8fd91733059045135108b82f56249a8a71767ebcb527f4c7afb",
+            "content": {
+              "variable": "pr",
+              "days": 3653,
+              "first_date": "1991-01-01",
+              "last_date": "2000-12-31",
+              "latitudes": [
+                39.75,
+                39.25
+              ],
+              "longitude_count": 720,
+              "calendar": "proleptic_gregorian",
+              "source_units": "kg m-2 s-1",
+              "minimum_mm_day": 0.0,
+              "maximum_mm_day": 247.8838348388672,
+              "missing_values": 0,
+              "all_parent_payload_bytes_verified": false
+            }
+          },
+          "climate_sha256": "ba78bbbcde72f8fd91733059045135108b82f56249a8a71767ebcb527f4c7afb"
+        },
+        {
+          "scenario": "obsclim",
+          "variable": "tas",
+          "first_year": 1991,
+          "receipt": {
+            "path": "data/interim/obsclim_tas_1991_20260908/receipt.json",
+            "sha256": "1e124bc4eb4675634b568a124b124eca45f06eb97073253b8c9a23de8376434b",
+            "daily_sha256": "47f1a506574b223d27c1ea59f60ed19e13131f5876a44709f835fe391d988611",
+            "content": {
+              "variable": "tas",
+              "days": 3653,
+              "first_date": "1991-01-01",
+              "last_date": "2000-12-31",
+              "latitudes": [
+                39.75,
+                39.25
+              ],
+              "longitude_count": 720,
+              "calendar": "proleptic_gregorian",
+              "source_units": "K",
+              "minimum_c": -32.33274841308594,
+              "maximum_c": 38.53973388671875,
+              "missing_values": 0,
+              "all_parent_payload_bytes_verified": false
+            }
+          },
+          "climate_sha256": "47f1a506574b223d27c1ea59f60ed19e13131f5876a44709f835fe391d988611"
+        },
+        {
+          "scenario": "obsclim",
+          "variable": "tasmax",
+          "first_year": 1991,
+          "receipt": {
+            "path": "data/interim/obsclim_tasmax_1991_20260908/receipt.json",
+            "sha256": "5bfdf3ffdf6d94bf2d43dbb23ed4d71ba859ded2118553b10f9e3c72c6b746bc",
+            "daily_sha256": "286ec7ef46c9ac67f9a2436f6a91442b3abc5c71af37f781e5aef76f01128205",
+            "content": {
+              "variable": "tasmax",
+              "days": 3653,
+              "first_date": "1991-01-01",
+              "last_date": "2000-12-31",
+              "latitudes": [
+                39.75,
+                39.25
+              ],
+              "longitude_count": 720,
+              "calendar": "proleptic_gregorian",
+              "source_units": "K",
+              "minimum_c": -25.90277099609375,
+              "maximum_c": 46.194000244140625,
+              "missing_values": 0,
+              "all_parent_payload_bytes_verified": false
+            }
+          },
+          "climate_sha256": "286ec7ef46c9ac67f9a2436f6a91442b3abc5c71af37f781e5aef76f01128205"
+        },
+        {
+          "scenario": "obsclim",
+          "variable": "pr",
+          "first_year": 2001,
+          "receipt": {
+            "path": "data/interim/obsclim_pr_2001_20260908/receipt.json",
+            "sha256": "0d60e55cc75514db8635240919e778e34c44945a833ceaf2272ef5a8b4a98776",
+            "daily_sha256": "bc464948c1943c166daa5c56e46395a2b89554e9797052cab5dae10b911c8474",
+            "content": {
+              "variable": "pr",
+              "days": 3652,
+              "first_date": "2001-01-01",
+              "last_date": "2010-12-31",
+              "latitudes": [
+                39.75,
+                39.25
+              ],
+              "longitude_count": 720,
+              "calendar": "proleptic_gregorian",
+              "source_units": "kg m-2 s-1",
+              "minimum_mm_day": 0.0,
+              "maximum_mm_day": 214.26119995117188,
+              "missing_values": 0,
+              "all_parent_payload_bytes_verified": false
+            }
+          },
+          "climate_sha256": "bc464948c1943c166daa5c56e46395a2b89554e9797052cab5dae10b911c8474"
+        },
+        {
+          "scenario": "obsclim",
+          "variable": "tas",
+          "first_year": 2001,
+          "receipt": {
+            "path": "data/interim/obsclim_tas_2001_20260908/receipt.json",
+            "sha256": "a721ebb384ceb164fa1f726a4cc0ec7da2cace2aa2af7bd1f26f28077c5cdd0c",
+            "daily_sha256": "5a7d00d5d43d8a5d71688ddb0b024dd5862388fdf5323018989e7c3fc257516a",
+            "content": {
+              "variable": "tas",
+              "days": 3652,
+              "first_date": "2001-01-01",
+              "last_date": "2010-12-31",
+              "latitudes": [
+                39.75,
+                39.25
+              ],
+              "longitude_count": 720,
+              "calendar": "proleptic_gregorian",
+              "source_units": "K",
+              "minimum_c": -35.13287353515625,
+              "maximum_c": 38.358612060546875,
+              "missing_values": 0,
+              "all_parent_payload_bytes_verified": false
+            }
+          },
+          "climate_sha256": "5a7d00d5d43d8a5d71688ddb0b024dd5862388fdf5323018989e7c3fc257516a"
+        },
+        {
+          "scenario": "obsclim",
+          "variable": "tasmax",
+          "first_year": 2001,
+          "receipt": {
+            "path": "data/interim/obsclim_tasmax_2001_20260908/receipt.json",
+            "sha256": "2aff79a00aa7f787d319e15d5eb47c3a29fb0b7f10ffe3ea57b537d54d8be2dc",
+            "daily_sha256": "b4a977d577761dd12bfbb9e0e1e1b00e368b8f49ce6a19f897c030dde160a53d",
+            "content": {
+              "variable": "tasmax",
+              "days": 3652,
+              "first_date": "2001-01-01",
+              "last_date": "2010-12-31",
+              "latitudes": [
+                39.75,
+                39.25
+              ],
+              "longitude_count": 720,
+              "calendar": "proleptic_gregorian",
+              "source_units": "K",
+              "minimum_c": -31.261581420898438,
+              "maximum_c": 46.30303955078125,
+              "missing_values": 0,
+              "all_parent_payload_bytes_verified": false
+            }
+          },
+          "climate_sha256": "b4a977d577761dd12bfbb9e0e1e1b00e368b8f49ce6a19f897c030dde160a53d"
+        },
+        {
+          "scenario": "counterclim",
+          "variable": "pr",
+          "first_year": 1981,
+          "receipt": {
+            "path": "data/interim/counterclim_pr_1981_20260908/crop_domain_receipt.json",
+            "sha256": "bc85a625bb47b123b258e2005f2ea55a76053d16d6da476b80fd96642f73ad29",
+            "daily_sha256": "c641bc6dbf76137bb2f57aead7e6a6538d31c27292058136b5312f50fb56b141",
+            "content": {
+              "variable": "pr",
+              "days": 3652,
+              "first_date": "1981-01-01",
+              "last_date": "1990-12-31",
+              "latitudes": [
+                39.75,
+                39.25
+              ],
+              "longitude_count": 720,
+              "calendar": "proleptic_gregorian",
+              "source_units": "kg m-2 s-1",
+              "minimum_mm_day": 0.0,
+              "maximum_mm_day": 203.9364471435547,
+              "missing_values": 2753608,
+              "crop_missing_values": 0,
+              "crop_cells": 686,
+              "static_missing_noncrop_cells": 754,
+              "imputation_performed": false,
+              "validation_domain": "exact_four_calendar_crop_support",
+              "calendar_hashes": {
+                "ggcmi-crop-calendar-phase3_2015soc_mai_noirr.nc": "30aba2e000a712328bdfdd1c161c55390bcd6b34e876e92465b0972ac1361a1d039857a99926be9d73cc2baf0936ae10860e47823f8d67ad7e6fb284a1edbf1e",
+                "ggcmi-crop-calendar-phase3_2015soc_mai_firr.nc": "adf315cc07d478d106215407462ad11cfd2850fd2643a4193620de1fecf8b781c650bec7e814deb69d9b79be492bb1ef18b8a46a8e22826db7477b3d36dcba02",
+                "ggcmi-crop-calendar-phase3_2015soc_soy_noirr.nc": "11e4bef2cd3e6716965bafd785e37f9293c48305d4cf91340b61e5f8baa37d0cc008624158a6c0797e1cf498b0833ca5e657519da763f7d32ff850936f1130c2",
+                "ggcmi-crop-calendar-phase3_2015soc_soy_firr.nc": "4cf1492d9a331e40e55633f2d36ea15067f9d4cff3cb69e18ace85e2b0c5ded1f39da166315ed4e3ce93079c3596f6ad35b0c33fed0e4833d9347c3f878cda88"
+              },
+              "calendar_manifest_sha256": "7d637597f1836b41bd2faebdfa70a8ae67daf3a5faa179d32dd72dd11d7a1b3f",
+              "domain_amendment_sha256": "a8276334b4e68804270cca5119bbc2cd64faa83a3abfaf6cbca920d5c280a96c",
+              "all_parent_payload_bytes_verified": false
+            }
+          },
+          "climate_sha256": "c641bc6dbf76137bb2f57aead7e6a6538d31c27292058136b5312f50fb56b141"
+        },
+        {
+          "scenario": "counterclim",
+          "variable": "tas",
+          "first_year": 1981,
+          "receipt": {
+            "path": "data/interim/counterclim_tas_1981_20260908/receipt.json",
+            "sha256": "1139c2addc1a4d4cd9835f26808a952a6e9f4044c870555fa2c5b229de0ce279",
+            "daily_sha256": "a4e420145f61f5a4fc9dd56e8f1bcd89df3c82ace6baae6000ed9e17e4d1b2c3",
+            "content": {
+              "variable": "tas",
+              "days": 3652,
+              "first_date": "1981-01-01",
+              "last_date": "1990-12-31",
+              "latitudes": [
+                39.75,
+                39.25
+              ],
+              "longitude_count": 720,
+              "calendar": "proleptic_gregorian",
+              "source_units": "K",
+              "minimum_c": -34.15284729003906,
+              "maximum_c": 36.3167724609375,
+              "missing_values": 2753608,
+              "crop_missing_values": 0,
+              "crop_cells": 686,
+              "static_missing_noncrop_cells": 754,
+              "imputation_performed": false,
+              "validation_domain": "exact_four_calendar_crop_support",
+              "calendar_hashes": {
+                "ggcmi-crop-calendar-phase3_2015soc_mai_noirr.nc": "30aba2e000a712328bdfdd1c161c55390bcd6b34e876e92465b0972ac1361a1d039857a99926be9d73cc2baf0936ae10860e47823f8d67ad7e6fb284a1edbf1e",
+                "ggcmi-crop-calendar-phase3_2015soc_mai_firr.nc": "adf315cc07d478d106215407462ad11cfd2850fd2643a4193620de1fecf8b781c650bec7e814deb69d9b79be492bb1ef18b8a46a8e22826db7477b3d36dcba02",
+                "ggcmi-crop-calendar-phase3_2015soc_soy_noirr.nc": "11e4bef2cd3e6716965bafd785e37f9293c48305d4cf91340b61e5f8baa37d0cc008624158a6c0797e1cf498b0833ca5e657519da763f7d32ff850936f1130c2",
+                "ggcmi-crop-calendar-phase3_2015soc_soy_firr.nc": "4cf1492d9a331e40e55633f2d36ea15067f9d4cff3cb69e18ace85e2b0c5ded1f39da166315ed4e3ce93079c3596f6ad35b0c33fed0e4833d9347c3f878cda88"
+              },
+              "calendar_manifest_sha256": "7d637597f1836b41bd2faebdfa70a8ae67daf3a5faa179d32dd72dd11d7a1b3f",
+              "domain_amendment_sha256": "a8276334b4e68804270cca5119bbc2cd64faa83a3abfaf6cbca920d5c280a96c",
+              "all_parent_payload_bytes_verified": false
+            }
+          },
+          "climate_sha256": "a4e420145f61f5a4fc9dd56e8f1bcd89df3c82ace6baae6000ed9e17e4d1b2c3"
+        },
+        {
+          "scenario": "counterclim",
+          "variable": "tasmax",
+          "first_year": 1981,
+          "receipt": {
+            "path": "data/interim/counterclim_tasmax_1981_20260908/receipt.json",
+            "sha256": "8419dc441f2d3d8984ac8e7af0d344c9e6d91bdd779e2240a34d9001b9ff687c",
+            "daily_sha256": "d67963a5a012cafdaf4f4c06b74666e57759204b9a2997b907957c395dd687ab",
+            "content": {
+              "variable": "tasmax",
+              "days": 3652,
+              "first_date": "1981-01-01",
+              "last_date": "1990-12-31",
+              "latitudes": [
+                39.75,
+                39.25
+              ],
+              "longitude_count": 720,
+              "calendar": "proleptic_gregorian",
+              "source_units": "K",
+              "minimum_c": -28.95770263671875,
+              "maximum_c": 47.026092529296875,
+              "missing_values": 2753608,
+              "crop_missing_values": 0,
+              "crop_cells": 686,
+              "static_missing_noncrop_cells": 754,
+              "imputation_performed": false,
+              "validation_domain": "exact_four_calendar_crop_support",
+              "calendar_hashes": {
+                "ggcmi-crop-calendar-phase3_2015soc_mai_noirr.nc": "30aba2e000a712328bdfdd1c161c55390bcd6b34e876e92465b0972ac1361a1d039857a99926be9d73cc2baf0936ae10860e47823f8d67ad7e6fb284a1edbf1e",
+                "ggcmi-crop-calendar-phase3_2015soc_mai_firr.nc": "adf315cc07d478d106215407462ad11cfd2850fd2643a4193620de1fecf8b781c650bec7e814deb69d9b79be492bb1ef18b8a46a8e22826db7477b3d36dcba02",
+                "ggcmi-crop-calendar-phase3_2015soc_soy_noirr.nc": "11e4bef2cd3e6716965bafd785e37f9293c48305d4cf91340b61e5f8baa37d0cc008624158a6c0797e1cf498b0833ca5e657519da763f7d32ff850936f1130c2",
+                "ggcmi-crop-calendar-phase3_2015soc_soy_firr.nc": "4cf1492d9a331e40e55633f2d36ea15067f9d4cff3cb69e18ace85e2b0c5ded1f39da166315ed4e3ce93079c3596f6ad35b0c33fed0e4833d9347c3f878cda88"
+              },
+              "calendar_manifest_sha256": "7d637597f1836b41bd2faebdfa70a8ae67daf3a5faa179d32dd72dd11d7a1b3f",
+              "domain_amendment_sha256": "a8276334b4e68804270cca5119bbc2cd64faa83a3abfaf6cbca920d5c280a96c",
+              "all_parent_payload_bytes_verified": false
+            }
+          },
+          "climate_sha256": "d67963a5a012cafdaf4f4c06b74666e57759204b9a2997b907957c395dd687ab"
+        },
+        {
+          "scenario": "counterclim",
+          "variable": "pr",
+          "first_year": 1991,
+          "receipt": {
+            "path": "data/interim/counterclim_pr_1991_20260908/receipt.json",
+            "sha256": "39d4a7cb5c2ddc095177b9d42ea768ecc9c23064da2a0de51e74ed64c867f347",
+            "daily_sha256": "84f8bd5bd37bbcbe259610f7f59bce752525328d7e25ac4d1423be531c1e0ad8",
+            "content": {
+              "variable": "pr",
+              "days": 3653,
+              "first_date": "1991-01-01",
+              "last_date": "2000-12-31",
+              "latitudes": [
+                39.75,
+                39.25
+              ],
+              "longitude_count": 720,
+              "calendar": "proleptic_gregorian",
+              "source_units": "kg m-2 s-1",
+              "minimum_mm_day": 0.0,
+              "maximum_mm_day": 238.60581970214844,
+              "missing_values": 2754362,
+              "crop_missing_values": 0,
+              "crop_cells": 686,
+              "static_missing_noncrop_cells": 754,
+              "imputation_performed": false,
+              "validation_domain": "exact_four_calendar_crop_support",
+              "calendar_hashes": {
+                "ggcmi-crop-calendar-phase3_2015soc_mai_noirr.nc": "30aba2e000a712328bdfdd1c161c55390bcd6b34e876e92465b0972ac1361a1d039857a99926be9d73cc2baf0936ae10860e47823f8d67ad7e6fb284a1edbf1e",
+                "ggcmi-crop-calendar-phase3_2015soc_mai_firr.nc": "adf315cc07d478d106215407462ad11cfd2850fd2643a4193620de1fecf8b781c650bec7e814deb69d9b79be492bb1ef18b8a46a8e22826db7477b3d36dcba02",
+                "ggcmi-crop-calendar-phase3_2015soc_soy_noirr.nc": "11e4bef2cd3e6716965bafd785e37f9293c48305d4cf91340b61e5f8baa37d0cc008624158a6c0797e1cf498b0833ca5e657519da763f7d32ff850936f1130c2",
+                "ggcmi-crop-calendar-phase3_2015soc_soy_firr.nc": "4cf1492d9a331e40e55633f2d36ea15067f9d4cff3cb69e18ace85e2b0c5ded1f39da166315ed4e3ce93079c3596f6ad35b0c33fed0e4833d9347c3f878cda88"
+              },
+              "calendar_manifest_sha256": "7d637597f1836b41bd2faebdfa70a8ae67daf3a5faa179d32dd72dd11d7a1b3f",
+              "domain_amendment_sha256": "a8276334b4e68804270cca5119bbc2cd64faa83a3abfaf6cbca920d5c280a96c",
+              "all_parent_payload_bytes_verified": false
+            }
+          },
+          "climate_sha256": "84f8bd5bd37bbcbe259610f7f59bce752525328d7e25ac4d1423be531c1e0ad8"
+        },
+        {
+          "scenario": "counterclim",
+          "variable": "tas",
+          "first_year": 1991,
+          "receipt": {
+            "path": "data/interim/counterclim_tas_1991_20260908/receipt.json",
+            "sha256": "3c2fca985638eb12651b702dbdaaa5cf8242c38ff622284eca1c55126ce8d0af",
+            "daily_sha256": "d2a223967ecd783cefdb655a3f71f4762fa9f29038f523b33f400b93a6ac5a4c",
+            "content": {
+              "variable": "tas",
+              "days": 3653,
+              "first_date": "1991-01-01",
+              "last_date": "2000-12-31",
+              "latitudes": [
+                39.75,
+                39.25
+              ],
+              "longitude_count": 720,
+              "calendar": "proleptic_gregorian",
+              "source_units": "K",
+              "minimum_c": -32.93031311035156,
+              "maximum_c": 37.072174072265625,
+              "missing_values": 2754362,
+              "crop_missing_values": 0,
+              "crop_cells": 686,
+              "static_missing_noncrop_cells": 754,
+              "imputation_performed": false,
+              "validation_domain": "exact_four_calendar_crop_support",
+              "calendar_hashes": {
+                "ggcmi-crop-calendar-phase3_2015soc_mai_noirr.nc": "30aba2e000a712328bdfdd1c161c55390bcd6b34e876e92465b0972ac1361a1d039857a99926be9d73cc2baf0936ae10860e47823f8d67ad7e6fb284a1edbf1e",
+                "ggcmi-crop-calendar-phase3_2015soc_mai_firr.nc": "adf315cc07d478d106215407462ad11cfd2850fd2643a4193620de1fecf8b781c650bec7e814deb69d9b79be492bb1ef18b8a46a8e22826db7477b3d36dcba02",
+                "ggcmi-crop-calendar-phase3_2015soc_soy_noirr.nc": "11e4bef2cd3e6716965bafd785e37f9293c48305d4cf91340b61e5f8baa37d0cc008624158a6c0797e1cf498b0833ca5e657519da763f7d32ff850936f1130c2",
+                "ggcmi-crop-calendar-phase3_2015soc_soy_firr.nc": "4cf1492d9a331e40e55633f2d36ea15067f9d4cff3cb69e18ace85e2b0c5ded1f39da166315ed4e3ce93079c3596f6ad35b0c33fed0e4833d9347c3f878cda88"
+              },
+              "calendar_manifest_sha256": "7d637597f1836b41bd2faebdfa70a8ae67daf3a5faa179d32dd72dd11d7a1b3f",
+              "domain_amendment_sha256": "a8276334b4e68804270cca5119bbc2cd64faa83a3abfaf6cbca920d5c280a96c",
+              "all_parent_payload_bytes_verified": false
+            }
+          },
+          "climate_sha256": "d2a223967ecd783cefdb655a3f71f4762fa9f29038f523b33f400b93a6ac5a4c"
+        },
+        {
+          "scenario": "counterclim",
+          "variable": "tasmax",
+          "first_year": 1991,
+          "receipt": {
+            "path": "data/interim/counterclim_tasmax_1991_20260908/receipt.json",
+            "sha256": "d18816b5317f1765f6106150b0fed0520cee02bbd2f12a000282674611c6c1eb",
+            "daily_sha256": "9f0e9d165644be6cb273f6596ec9bfc48b8db4785e191fa439d3213d8d890924",
+            "content": {
+              "variable": "tasmax",
+              "days": 3653,
+              "first_date": "1991-01-01",
+              "last_date": "2000-12-31",
+              "latitudes": [
+                39.75,
+                39.25
+              ],
+              "longitude_count": 720,
+              "calendar": "proleptic_gregorian",
+              "source_units": "K",
+              "minimum_c": -26.554977416992188,
+              "maximum_c": 45.44903564453125,
+              "missing_values": 2754362,
+              "crop_missing_values": 0,
+              "crop_cells": 686,
+              "static_missing_noncrop_cells": 754,
+              "imputation_performed": false,
+              "validation_domain": "exact_four_calendar_crop_support",
+              "calendar_hashes": {
+                "ggcmi-crop-calendar-phase3_2015soc_mai_noirr.nc": "30aba2e000a712328bdfdd1c161c55390bcd6b34e876e92465b0972ac1361a1d039857a99926be9d73cc2baf0936ae10860e47823f8d67ad7e6fb284a1edbf1e",
+                "ggcmi-crop-calendar-phase3_2015soc_mai_firr.nc": "adf315cc07d478d106215407462ad11cfd2850fd2643a4193620de1fecf8b781c650bec7e814deb69d9b79be492bb1ef18b8a46a8e22826db7477b3d36dcba02",
+                "ggcmi-crop-calendar-phase3_2015soc_soy_noirr.nc": "11e4bef2cd3e6716965bafd785e37f9293c48305d4cf91340b61e5f8baa37d0cc008624158a6c0797e1cf498b0833ca5e657519da763f7d32ff850936f1130c2",
+                "ggcmi-crop-calendar-phase3_2015soc_soy_firr.nc": "4cf1492d9a331e40e55633f2d36ea15067f9d4cff3cb69e18ace85e2b0c5ded1f39da166315ed4e3ce93079c3596f6ad35b0c33fed0e4833d9347c3f878cda88"
+              },
+              "calendar_manifest_sha256": "7d637597f1836b41bd2faebdfa70a8ae67daf3a5faa179d32dd72dd11d7a1b3f",
+              "domain_amendment_sha256": "a8276334b4e68804270cca5119bbc2cd64faa83a3abfaf6cbca920d5c280a96c",
+              "all_parent_payload_bytes_verified": false
+            }
+          },
+          "climate_sha256": "9f0e9d165644be6cb273f6596ec9bfc48b8db4785e191fa439d3213d8d890924"
+        },
+        {
+          "scenario": "counterclim",
+          "variable": "pr",
+          "first_year": 2001,
+          "receipt": {
+            "path": "data/interim/counterclim_pr_2001_20260908/receipt.json",
+            "sha256": "f578b127cbca2b8ffa16b59567000bdbffcc176c947d5068da6df881767df793",
+            "daily_sha256": "794f0e27207e9013ed884d941e96361885960a87a539ae28fc778e6ee6612eae",
+            "content": {
+              "variable": "pr",
+              "days": 3652,
+              "first_date": "2001-01-01",
+              "last_date": "2010-12-31",
+              "latitudes": [
+                39.75,
+                39.25
+              ],
+              "longitude_count": 720,
+              "calendar": "proleptic_gregorian",
+              "source_units": "kg m-2 s-1",
+              "minimum_mm_day": 0.0,
+              "maximum_mm_day": 192.75527954101562,
+              "missing_values": 2753608,
+              "crop_missing_values": 0,
+              "crop_cells": 686,
+              "static_missing_noncrop_cells": 754,
+              "imputation_performed": false,
+              "validation_domain": "exact_four_calendar_crop_support",
+              "calendar_hashes": {
+                "ggcmi-crop-calendar-phase3_2015soc_mai_noirr.nc": "30aba2e000a712328bdfdd1c161c55390bcd6b34e876e92465b0972ac1361a1d039857a99926be9d73cc2baf0936ae10860e47823f8d67ad7e6fb284a1edbf1e",
+                "ggcmi-crop-calendar-phase3_2015soc_mai_firr.nc": "adf315cc07d478d106215407462ad11cfd2850fd2643a4193620de1fecf8b781c650bec7e814deb69d9b79be492bb1ef18b8a46a8e22826db7477b3d36dcba02",
+                "ggcmi-crop-calendar-phase3_2015soc_soy_noirr.nc": "11e4bef2cd3e6716965bafd785e37f9293c48305d4cf91340b61e5f8baa37d0cc008624158a6c0797e1cf498b0833ca5e657519da763f7d32ff850936f1130c2",
+                "ggcmi-crop-calendar-phase3_2015soc_soy_firr.nc": "4cf1492d9a331e40e55633f2d36ea15067f9d4cff3cb69e18ace85e2b0c5ded1f39da166315ed4e3ce93079c3596f6ad35b0c33fed0e4833d9347c3f878cda88"
+              },
+              "calendar_manifest_sha256": "7d637597f1836b41bd2faebdfa70a8ae67daf3a5faa179d32dd72dd11d7a1b3f",
+              "domain_amendment_sha256": "a8276334b4e68804270cca5119bbc2cd64faa83a3abfaf6cbca920d5c280a96c",
+              "all_parent_payload_bytes_verified": false
+            }
+          },
+          "climate_sha256": "794f0e27207e9013ed884d941e96361885960a87a539ae28fc778e6ee6612eae"
+        },
+        {
+          "scenario": "counterclim",
+          "variable": "tas",
+          "first_year": 2001,
+          "receipt": {
+            "path": "data/interim/counterclim_tas_2001_20260908/receipt.json",
+            "sha256": "f9c71bc40371d8f2d2a201fe4eee48effa1d1c980e0687521a7738d6705563f1",
+            "daily_sha256": "b3d2087caaf7647e6660a1dfae0ac82e20421500df34a96ca5e66d4f31ad06f9",
+            "content": {
+              "variable": "tas",
+              "days": 3652,
+              "first_date": "2001-01-01",
+              "last_date": "2010-12-31",
+              "latitudes": [
+                39.75,
+                39.25
+              ],
+              "longitude_count": 720,
+              "calendar": "proleptic_gregorian",
+              "source_units": "K",
+              "minimum_c": -37.697845458984375,
+              "maximum_c": 36.86077880859375,
+              "missing_values": 2753608,
+              "crop_missing_values": 0,
+              "crop_cells": 686,
+              "static_missing_noncrop_cells": 754,
+              "imputation_performed": false,
+              "validation_domain": "exact_four_calendar_crop_support",
+              "calendar_hashes": {
+                "ggcmi-crop-calendar-phase3_2015soc_mai_noirr.nc": "30aba2e000a712328bdfdd1c161c55390bcd6b34e876e92465b0972ac1361a1d039857a99926be9d73cc2baf0936ae10860e47823f8d67ad7e6fb284a1edbf1e",
+                "ggcmi-crop-calendar-phase3_2015soc_mai_firr.nc": "adf315cc07d478d106215407462ad11cfd2850fd2643a4193620de1fecf8b781c650bec7e814deb69d9b79be492bb1ef18b8a46a8e22826db7477b3d36dcba02",
+                "ggcmi-crop-calendar-phase3_2015soc_soy_noirr.nc": "11e4bef2cd3e6716965bafd785e37f9293c48305d4cf91340b61e5f8baa37d0cc008624158a6c0797e1cf498b0833ca5e657519da763f7d32ff850936f1130c2",
+                "ggcmi-crop-calendar-phase3_2015soc_soy_firr.nc": "4cf1492d9a331e40e55633f2d36ea15067f9d4cff3cb69e18ace85e2b0c5ded1f39da166315ed4e3ce93079c3596f6ad35b0c33fed0e4833d9347c3f878cda88"
+              },
+              "calendar_manifest_sha256": "7d637597f1836b41bd2faebdfa70a8ae67daf3a5faa179d32dd72dd11d7a1b3f",
+              "domain_amendment_sha256": "a8276334b4e68804270cca5119bbc2cd64faa83a3abfaf6cbca920d5c280a96c",
+              "all_parent_payload_bytes_verified": false
+            }
+          },
+          "climate_sha256": "b3d2087caaf7647e6660a1dfae0ac82e20421500df34a96ca5e66d4f31ad06f9"
+        },
+        {
+          "scenario": "counterclim",
+          "variable": "tasmax",
+          "first_year": 2001,
+          "receipt": {
+            "path": "data/interim/counterclim_tasmax_2001_20260908/receipt.json",
+            "sha256": "a7967b7d3667938c4d124e223daa07f8bfd0116670835bc65640acccf9a51236",
+            "daily_sha256": "29541cb96c9d8131b48220bb9a701484e3c0ed1d5a91e109c833325dc61a5b42",
+            "content": {
+              "variable": "tasmax",
+              "days": 3652,
+              "first_date": "2001-01-01",
+              "last_date": "2010-12-31",
+              "latitudes": [
+                39.75,
+                39.25
+              ],
+              "longitude_count": 720,
+              "calendar": "proleptic_gregorian",
+              "source_units": "K",
+              "minimum_c": -33.53089904785156,
+              "maximum_c": 45.371795654296875,
+              "missing_values": 2753608,
+              "crop_missing_values": 0,
+              "crop_cells": 686,
+              "static_missing_noncrop_cells": 754,
+              "imputation_performed": false,
+              "validation_domain": "exact_four_calendar_crop_support",
+              "calendar_hashes": {
+                "ggcmi-crop-calendar-phase3_2015soc_mai_noirr.nc": "30aba2e000a712328bdfdd1c161c55390bcd6b34e876e92465b0972ac1361a1d039857a99926be9d73cc2baf0936ae10860e47823f8d67ad7e6fb284a1edbf1e",
+                "ggcmi-crop-calendar-phase3_2015soc_mai_firr.nc": "adf315cc07d478d106215407462ad11cfd2850fd2643a4193620de1fecf8b781c650bec7e814deb69d9b79be492bb1ef18b8a46a8e22826db7477b3d36dcba02",
+                "ggcmi-crop-calendar-phase3_2015soc_soy_noirr.nc": "11e4bef2cd3e6716965bafd785e37f9293c48305d4cf91340b61e5f8baa37d0cc008624158a6c0797e1cf498b0833ca5e657519da763f7d32ff850936f1130c2",
+                "ggcmi-crop-calendar-phase3_2015soc_soy_firr.nc": "4cf1492d9a331e40e55633f2d36ea15067f9d4cff3cb69e18ace85e2b0c5ded1f39da166315ed4e3ce93079c3596f6ad35b0c33fed0e4833d9347c3f878cda88"
+              },
+              "calendar_manifest_sha256": "7d637597f1836b41bd2faebdfa70a8ae67daf3a5faa179d32dd72dd11d7a1b3f",
+              "domain_amendment_sha256": "a8276334b4e68804270cca5119bbc2cd64faa83a3abfaf6cbca920d5c280a96c",
+              "all_parent_payload_bytes_verified": false
+            }
+          },
+          "climate_sha256": "29541cb96c9d8131b48220bb9a701484e3c0ed1d5a91e109c833325dc61a5b42"
+        }
+      ],
+      "products": [
+        {
+          "path": "data/interim/us_paired_county_climate_20260908/obsclim_county_climate.parquet",
+          "sha256": "f447abb43edd7ab3811e784b1cf5a4215243ba81e76d20e6d25ec6ba0029125d",
+          "bytes": 137059,
+          "scenario": "obsclim",
+          "rows": 573
+        },
+        {
+          "path": "data/interim/us_paired_county_climate_20260908/counterclim_county_climate.parquet",
+          "sha256": "2e27ddd53dc30e860e34bb3be43380a584d06f381a5fa1dbd69043610fd37b3e",
+          "bytes": 136949,
+          "scenario": "counterclim",
+          "rows": 573
+        }
+      ],
+      "calendar_role": "fixed_NASS_2010_not_GGCMI",
+      "weight_role": "county_polygon_proxy_including_water_not_crop_area",
+      "weight_rows": 66
+    }
+  },
+  "comparison": {
+    "path": "data/interim/us_paired_county_climate_20260908/comparison.json",
+    "sha256": "6731e68d4553fb51ddcfd70680d520532da08ee23ee50354366404553ba8019e",
+    "content": {
+      "status": "us_paired_county_climate_comparison_validated",
+      "crop_yield_estimated": false,
+      "causal_or_scc_result": false,
+      "geographically_representative": false,
+      "independently_untouched_holdout": false,
+      "climate_receipt": {
+        "path": "data/interim/us_paired_county_climate_20260908/receipt.json",
+        "sha256": "be4f150ff45948d6b4e596fb962fb41d4c58b3dddb19fdf5e14edd197ddd52ca",
+        "bytes": 43798
+      },
+      "nclimgrid_source": {
+        "path": "data/interim/us_county/nass_direct_practice_nclimgrid_1981_2019.parquet",
+        "sha256": "205a94ae92c12810026c9c5d0ac0fa3760e46ebc39669e528ba20a125a0c46d7",
+        "rows": 23714
+      },
+      "heat_receipt": {
+        "path": "data/provenance/us_daily_heat_expansion_20260907.json",
+        "sha256": "f27f0487a43b64be39adf264a4a954fbe7e2b9b17eedc09eefed35659443fcf1",
+        "bytes": 39540
+      },
+      "code_sha256": "a22d3ba2a4293059367008637e4158a4759f30c68e7b9d78edb19c9537cbfbe2",
+      "protocol_sha256": "a36a34aee3c9e1478439f7784d6a0e358f2fe4fc386189bac93eded0c491c7f3",
+      "comparisons": [
+        {
+          "crop": "corn_grain",
+          "shape_excluded_county_years": 0,
+          "contrasts": [
+            {
+              "name": "factual_minus_counterclim",
+              "core": {
+                "rows": 346,
+                "counties": 16,
+                "differences": {
+                  "precip_mm": {
+                    "equal_county_mean": 26.09550015766159,
+                    "county_p10": 10.787147675343904,
+                    "county_p90": 40.15558102724487,
+                    "pooled_county_year_mean": 25.996588498557063
+                  },
+                  "cdd_max_days": {
+                    "equal_county_mean": -2.283568522029498,
+                    "county_p10": -3.437622041355306,
+                    "county_p90": -1.4949773231142958,
+                    "pooled_county_year_mean": -2.275520960656544
+                  },
+                  "rx5day_mm": {
+                    "equal_county_mean": -0.7753684944108712,
+                    "county_p10": -3.4524713180612308,
+                    "county_p90": 2.4206597584923717,
+                    "pooled_county_year_mean": -0.7075528859748129
+                  },
+                  "stage1_tmean_c": {
+                    "equal_county_mean": 0.9808656238745882,
+                    "county_p10": 0.6910030662792048,
+                    "county_p90": 1.2378169393660774,
+                    "pooled_county_year_mean": 0.966463171249207
+                  },
+                  "stage2_tmean_c": {
+                    "equal_county_mean": 0.667801936309402,
+                    "county_p10": 0.2465306929919377,
+                    "county_p90": 1.1123312468922038,
+                    "pooled_county_year_mean": 0.6897648592776564
+                  },
+                  "stage3_tmean_c": {
+                    "equal_county_mean": 0.40886839987735335,
+                    "county_p10": 0.0012241728049539845,
+                    "county_p90": 0.8019551500966515,
+                    "pooled_county_year_mean": 0.39737751965961693
+                  },
+                  "stage1_tmax_exceedance_29c_c_days": {
+                    "equal_county_mean": 11.547221203140511,
+                    "county_p10": 8.347562378583923,
+                    "county_p90": 15.145371672967098,
+                    "pooled_county_year_mean": 12.110529873394
+                  },
+                  "stage1_tmax_days_gt_29c": {
+                    "equal_county_mean": 2.907661947441648,
+                    "county_p10": 1.92945113584328,
+                    "county_p90": 3.753790029595252,
+                    "pooled_county_year_mean": 2.9017777774760627
+                  },
+                  "stage1_tmax_exceedance_30c_c_days": {
+                    "equal_county_mean": 8.71548102359662,
+                    "county_p10": 5.482000559101861,
+                    "county_p90": 11.898903605026057,
+                    "pooled_county_year_mean": 9.309178128534889
+                  },
+                  "stage1_tmax_days_gt_30c": {
+                    "equal_county_mean": 2.715927547248725,
+                    "county_p10": 1.7343529353137954,
+                    "county_p90": 3.57744980937881,
+                    "pooled_county_year_mean": 2.7173219352597524
+                  },
+                  "stage2_tmax_exceedance_29c_c_days": {
+                    "equal_county_mean": 22.60647224589541,
+                    "county_p10": -0.8633227894334481,
+                    "county_p90": 52.2629113840743,
+                    "pooled_county_year_mean": 25.644142614135664
+                  },
+                  "stage2_tmax_days_gt_29c": {
+                    "equal_county_mean": 2.2765881489362356,
+                    "county_p10": 0.2611435172822206,
+                    "county_p90": 4.936167890538352,
+                    "pooled_county_year_mean": 2.4879780591517284
+                  },
+                  "stage2_tmax_exceedance_30c_c_days": {
+                    "equal_county_mean": 20.210072323442102,
+                    "county_p10": -1.1026140098114547,
+                    "county_p90": 47.048193371487415,
+                    "pooled_county_year_mean": 22.99850766632934
+                  },
+                  "stage2_tmax_days_gt_30c": {
+                    "equal_county_mean": 2.5627483501859576,
+                    "county_p10": 0.010466023023779372,
+                    "county_p90": 5.146217251869386,
+                    "pooled_county_year_mean": 2.811001043698359
+                  },
+                  "stage3_tmax_exceedance_29c_c_days": {
+                    "equal_county_mean": 5.1404356952539,
+                    "county_p10": -2.8513391286882896,
+                    "county_p90": 10.843297728891152,
+                    "pooled_county_year_mean": 5.03542588340596
+                  },
+                  "stage3_tmax_days_gt_29c": {
+                    "equal_county_mean": 0.8343288298793589,
+                    "county_p10": -0.29613774156103295,
+                    "county_p90": 2.027638463975784,
+                    "pooled_county_year_mean": 0.8358199810888949
+                  },
+                  "stage3_tmax_exceedance_30c_c_days": {
+                    "equal_county_mean": 4.275443325246091,
+                    "county_p10": -2.431200295110945,
+                    "county_p90": 9.168848369523785,
+                    "pooled_county_year_mean": 4.19293505619297
+                  },
+                  "stage3_tmax_days_gt_30c": {
+                    "equal_county_mean": 0.8324817816104997,
+                    "county_p10": -0.42394773996730273,
+                    "county_p90": 1.8998079824353549,
+                    "pooled_county_year_mean": 0.8177299681684731
+                  }
+                }
+              },
+              "shape": {
+                "rows": 346,
+                "counties": 16,
+                "differences": {
+                  "stage1_precip_share": {
+                    "equal_county_mean": -0.008311045770579846,
+                    "county_p10": -0.021623622398622557,
+                    "county_p90": 0.0002546628360482302,
+                    "pooled_county_year_mean": -0.008087825758861985
+                  },
+                  "stage2_precip_share": {
+                    "equal_county_mean": 0.002027876823842485,
+                    "county_p10": -0.013530117631490795,
+                    "county_p90": 0.010014610085058082,
+                    "pooled_county_year_mean": 0.0011865697688451117
+                  },
+                  "stage3_precip_share": {
+                    "equal_county_mean": 0.006283168946737357,
+                    "county_p10": -0.00396415153425777,
+                    "county_p90": 0.018362417803041146,
+                    "pooled_county_year_mean": 0.006901255990016871
+                  },
+                  "precipitation_concentration_hhi": {
+                    "equal_county_mean": -0.008768976181739017,
+                    "county_p10": -0.012204253570993015,
+                    "county_p90": -0.005757442090324733,
+                    "pooled_county_year_mean": -0.008727743870637898
+                  }
+                }
+              }
+            },
+            {
+              "name": "gswp_factual_minus_nclimgrid",
+              "core": {
+                "rows": 346,
+                "counties": 16,
+                "differences": {
+                  "precip_mm": {
+                    "equal_county_mean": 31.86581783805839,
+                    "county_p10": 22.433847888055883,
+                    "county_p90": 42.702083782211695,
+                    "pooled_county_year_mean": 31.071718573092994
+                  },
+                  "cdd_max_days": {
+                    "equal_county_mean": -1.2936579862086521,
+                    "county_p10": -2.031713650132938,
+                    "county_p90": -0.4670793480462616,
+                    "pooled_county_year_mean": -1.4258099356198495
+                  },
+                  "rx5day_mm": {
+                    "equal_county_mean": 4.809991604198521,
+                    "county_p10": 2.54465589495832,
+                    "county_p90": 6.3495649756309955,
+                    "pooled_county_year_mean": 4.943122281463349
+                  },
+                  "stage1_tmean_c": {
+                    "equal_county_mean": 0.41390168152712553,
+                    "county_p10": 0.12887584595711654,
+                    "county_p90": 0.7130843686745054,
+                    "pooled_county_year_mean": 0.36785141312664116
+                  },
+                  "stage2_tmean_c": {
+                    "equal_county_mean": 0.42274696163910946,
+                    "county_p10": 0.1819752405969746,
+                    "county_p90": 0.6755492038033891,
+                    "pooled_county_year_mean": 0.38460448354441884
+                  },
+                  "stage3_tmean_c": {
+                    "equal_county_mean": 0.3961843541444499,
+                    "county_p10": 0.003676613526119978,
+                    "county_p90": 0.8122546430487001,
+                    "pooled_county_year_mean": 0.3400637265492013
+                  },
+                  "stage1_tmax_exceedance_29c_c_days": {
+                    "equal_county_mean": 7.42861354963581,
+                    "county_p10": 3.179356809075788,
+                    "county_p90": 12.159926193522594,
+                    "pooled_county_year_mean": 7.046281002124054
+                  },
+                  "stage1_tmax_days_gt_29c": {
+                    "equal_county_mean": 2.4774139479508164,
+                    "county_p10": 0.8922610769477366,
+                    "county_p90": 4.155745834495185,
+                    "pooled_county_year_mean": 2.3107026894251304
+                  },
+                  "stage1_tmax_exceedance_30c_c_days": {
+                    "equal_county_mean": 5.029621490183617,
+                    "county_p10": 2.04439767687664,
+                    "county_p90": 8.150182423628785,
+                    "pooled_county_year_mean": 4.7969893511183965
+                  },
+                  "stage1_tmax_days_gt_30c": {
+                    "equal_county_mean": 2.3003588159631034,
+                    "county_p10": 1.2273847899173789,
+                    "county_p90": 3.558931753015994,
+                    "pooled_county_year_mean": 2.1658370647824277
+                  },
+                  "stage2_tmax_exceedance_29c_c_days": {
+                    "equal_county_mean": 34.511420486542704,
+                    "county_p10": 23.903923488047898,
+                    "county_p90": 47.54419178101446,
+                    "pooled_county_year_mean": 32.83876610261738
+                  },
+                  "stage2_tmax_days_gt_29c": {
+                    "equal_county_mean": 4.681751649305037,
+                    "county_p10": 3.8225822435718553,
+                    "county_p90": 5.426092449268014,
+                    "pooled_county_year_mean": 4.660543577711194
+                  },
+                  "stage2_tmax_exceedance_30c_c_days": {
+                    "equal_county_mean": 29.6833495179255,
+                    "county_p10": 19.886624771634004,
+                    "county_p90": 41.32859981322495,
+                    "pooled_county_year_mean": 28.053469688755506
+                  },
+                  "stage2_tmax_days_gt_30c": {
+                    "equal_county_mean": 5.0665984715359285,
+                    "county_p10": 3.928570359736306,
+                    "county_p90": 6.597330361603255,
+                    "pooled_county_year_mean": 4.965086714905256
+                  },
+                  "stage3_tmax_exceedance_29c_c_days": {
+                    "equal_county_mean": 17.568066601301226,
+                    "county_p10": 11.876322611221958,
+                    "county_p90": 25.555119997783258,
+                    "pooled_county_year_mean": 16.259926053921884
+                  },
+                  "stage3_tmax_days_gt_29c": {
+                    "equal_county_mean": 3.801962627679841,
+                    "county_p10": 2.7650264466867895,
+                    "county_p90": 5.048016106515949,
+                    "pooled_county_year_mean": 3.6498929455193188
+                  },
+                  "stage3_tmax_exceedance_30c_c_days": {
+                    "equal_county_mean": 13.866030189093841,
+                    "county_p10": 9.01228946249917,
+                    "county_p90": 20.41808341043231,
+                    "pooled_county_year_mean": 12.705243337967264
+                  },
+                  "stage3_tmax_days_gt_30c": {
+                    "equal_county_mean": 3.6540077607763024,
+                    "county_p10": 2.8085845631605806,
+                    "county_p90": 4.750958899166855,
+                    "pooled_county_year_mean": 3.5207526856528863
+                  }
+                }
+              },
+              "shape": {
+                "rows": 346,
+                "counties": 16,
+                "differences": {
+                  "stage1_precip_share": {
+                    "equal_county_mean": 0.007459847063656327,
+                    "county_p10": -0.006808352156857956,
+                    "county_p90": 0.02220658574288897,
+                    "pooled_county_year_mean": 0.005440708011977422
+                  },
+                  "stage2_precip_share": {
+                    "equal_county_mean": -0.006433205959174516,
+                    "county_p10": -0.025792316097332936,
+                    "county_p90": 0.017327521308377034,
+                    "pooled_county_year_mean": -0.0034760183749247275
+                  },
+                  "stage3_precip_share": {
+                    "equal_county_mean": -0.0010266411044818039,
+                    "county_p10": -0.01188245204486502,
+                    "county_p90": 0.010857114457644113,
+                    "pooled_county_year_mean": -0.001964689637052678
+                  },
+                  "precipitation_concentration_hhi": {
+                    "equal_county_mean": -0.0023876377591346507,
+                    "county_p10": -0.009601000679587537,
+                    "county_p90": 0.0068111847222347335,
+                    "pooled_county_year_mean": -0.0029178187065998563
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "crop": "soybeans",
+          "shape_excluded_county_years": 0,
+          "contrasts": [
+            {
+              "name": "factual_minus_counterclim",
+              "core": {
+                "rows": 227,
+                "counties": 15,
+                "differences": {
+                  "precip_mm": {
+                    "equal_county_mean": 24.47945071018699,
+                    "county_p10": 10.493123176806195,
+                    "county_p90": 37.2708886164107,
+                    "pooled_county_year_mean": 27.196009264295725
+                  },
+                  "cdd_max_days": {
+                    "equal_county_mean": -2.6148016415998097,
+                    "county_p10": -3.2259319132167246,
+                    "county_p90": -2.149811313298489,
+                    "pooled_county_year_mean": -2.714062291952095
+                  },
+                  "rx5day_mm": {
+                    "equal_county_mean": -0.8465785873173445,
+                    "county_p10": -3.1207657345817825,
+                    "county_p90": 2.221240743615647,
+                    "pooled_county_year_mean": -0.3092935981629961
+                  },
+                  "stage1_tmean_c": {
+                    "equal_county_mean": 0.9183109812132024,
+                    "county_p10": 0.5026604431776365,
+                    "county_p90": 1.2131937100143093,
+                    "pooled_county_year_mean": 0.887959987939979
+                  },
+                  "stage2_tmean_c": {
+                    "equal_county_mean": 0.4057412274577986,
+                    "county_p10": 0.0520309076813753,
+                    "county_p90": 0.7283493081731612,
+                    "pooled_county_year_mean": 0.3724381960959211
+                  },
+                  "stage3_tmean_c": {
+                    "equal_county_mean": 0.29630008939404157,
+                    "county_p10": -0.0873171569543063,
+                    "county_p90": 0.6832799172781197,
+                    "pooled_county_year_mean": 0.2560621360610577
+                  },
+                  "stage1_tmax_exceedance_29c_c_days": {
+                    "equal_county_mean": 21.58161587229232,
+                    "county_p10": 9.350287095975833,
+                    "county_p90": 35.27728076094304,
+                    "pooled_county_year_mean": 21.775558788041987
+                  },
+                  "stage1_tmax_days_gt_29c": {
+                    "equal_county_mean": 2.918708711951824,
+                    "county_p10": 1.3517521410155096,
+                    "county_p90": 4.384863817879117,
+                    "pooled_county_year_mean": 2.9174360210939643
+                  },
+                  "stage1_tmax_exceedance_30c_c_days": {
+                    "equal_county_mean": 18.463613844866583,
+                    "county_p10": 7.884455305773724,
+                    "county_p90": 30.935811275609737,
+                    "pooled_county_year_mean": 18.692165954189246
+                  },
+                  "stage1_tmax_days_gt_30c": {
+                    "equal_county_mean": 3.1632149942511627,
+                    "county_p10": 1.4936574012532966,
+                    "county_p90": 4.3855595040432345,
+                    "pooled_county_year_mean": 3.185399556411643
+                  },
+                  "stage2_tmax_exceedance_29c_c_days": {
+                    "equal_county_mean": 6.846571468125058,
+                    "county_p10": -9.503667333195299,
+                    "county_p90": 22.62253055461415,
+                    "pooled_county_year_mean": 6.175862927030471
+                  },
+                  "stage2_tmax_days_gt_29c": {
+                    "equal_county_mean": 0.7331545729562003,
+                    "county_p10": -0.46247042801816723,
+                    "county_p90": 1.7868647100832376,
+                    "pooled_county_year_mean": 0.6462869915101089
+                  },
+                  "stage2_tmax_exceedance_30c_c_days": {
+                    "equal_county_mean": 6.104133341783197,
+                    "county_p10": -8.941987786235865,
+                    "county_p90": 20.25027421362366,
+                    "pooled_county_year_mean": 5.514754976620148
+                  },
+                  "stage2_tmax_days_gt_30c": {
+                    "equal_county_mean": 0.8264009430472208,
+                    "county_p10": -0.7746563606408781,
+                    "county_p90": 1.948680242347908,
+                    "pooled_county_year_mean": 0.7327633752006631
+                  },
+                  "stage3_tmax_exceedance_29c_c_days": {
+                    "equal_county_mean": 2.1437643187024866,
+                    "county_p10": -1.9415767425763426,
+                    "county_p90": 5.405819532380728,
+                    "pooled_county_year_mean": 1.895132898820237
+                  },
+                  "stage3_tmax_days_gt_29c": {
+                    "equal_county_mean": 0.40188019905290545,
+                    "county_p10": -0.287228155724172,
+                    "county_p90": 1.2173356101647772,
+                    "pooled_county_year_mean": 0.4161106725626418
+                  },
+                  "stage3_tmax_exceedance_30c_c_days": {
+                    "equal_county_mean": 1.7097325622792519,
+                    "county_p10": -1.4629950072201419,
+                    "county_p90": 4.285991893206672,
+                    "pooled_county_year_mean": 1.5038912204153085
+                  },
+                  "stage3_tmax_days_gt_30c": {
+                    "equal_county_mean": 0.4160762422352336,
+                    "county_p10": -0.49632411811273164,
+                    "county_p90": 1.0978644946806335,
+                    "pooled_county_year_mean": 0.37337836808435676
+                  }
+                }
+              },
+              "shape": {
+                "rows": 227,
+                "counties": 15,
+                "differences": {
+                  "stage1_precip_share": {
+                    "equal_county_mean": -0.007013497859042134,
+                    "county_p10": -0.023750171904740627,
+                    "county_p90": 0.003156412531924613,
+                    "pooled_county_year_mean": -0.010278920428142498
+                  },
+                  "stage2_precip_share": {
+                    "equal_county_mean": -0.0004432189500345734,
+                    "county_p10": -0.015235992140740342,
+                    "county_p90": 0.01896387278905236,
+                    "pooled_county_year_mean": 0.00327530326676442
+                  },
+                  "stage3_precip_share": {
+                    "equal_county_mean": 0.007456716809076716,
+                    "county_p10": 0.0012683044803226823,
+                    "county_p90": 0.01782483518242205,
+                    "pooled_county_year_mean": 0.0070036171613780855
+                  },
+                  "precipitation_concentration_hhi": {
+                    "equal_county_mean": -0.010335209352369012,
+                    "county_p10": -0.01677473614548926,
+                    "county_p90": -0.005553213581832505,
+                    "pooled_county_year_mean": -0.010455892254046802
+                  }
+                }
+              }
+            },
+            {
+              "name": "gswp_factual_minus_nclimgrid",
+              "core": {
+                "rows": 227,
+                "counties": 15,
+                "differences": {
+                  "precip_mm": {
+                    "equal_county_mean": 32.25142428298545,
+                    "county_p10": 21.984646042344256,
+                    "county_p90": 43.615399860132705,
+                    "pooled_county_year_mean": 31.804876172645457
+                  },
+                  "cdd_max_days": {
+                    "equal_county_mean": -1.0465074982072926,
+                    "county_p10": -2.5105130349543896,
+                    "county_p90": 0.7919124324151514,
+                    "pooled_county_year_mean": -1.458113328838345
+                  },
+                  "rx5day_mm": {
+                    "equal_county_mean": 7.808339430746656,
+                    "county_p10": 1.6536090314491902,
+                    "county_p90": 12.617689107152978,
+                    "pooled_county_year_mean": 7.397507962600619
+                  },
+                  "stage1_tmean_c": {
+                    "equal_county_mean": 0.47347125537661583,
+                    "county_p10": 0.23944301470908907,
+                    "county_p90": 0.7299377400665518,
+                    "pooled_county_year_mean": 0.4761589466857147
+                  },
+                  "stage2_tmean_c": {
+                    "equal_county_mean": 0.4214775026745034,
+                    "county_p10": 0.1042715535922964,
+                    "county_p90": 0.7096103776564886,
+                    "pooled_county_year_mean": 0.4253347396854723
+                  },
+                  "stage3_tmean_c": {
+                    "equal_county_mean": 0.4785503201016406,
+                    "county_p10": 0.025497238559275034,
+                    "county_p90": 0.8698736665141543,
+                    "pooled_county_year_mean": 0.47803396878012927
+                  },
+                  "stage1_tmax_exceedance_29c_c_days": {
+                    "equal_county_mean": 21.497067651542825,
+                    "county_p10": 12.502073110184368,
+                    "county_p90": 31.831970684224295,
+                    "pooled_county_year_mean": 20.65506073778052
+                  },
+                  "stage1_tmax_days_gt_29c": {
+                    "equal_county_mean": 3.598363945703084,
+                    "county_p10": 2.1014793231609428,
+                    "county_p90": 4.870813568498232,
+                    "pooled_county_year_mean": 3.476563051166752
+                  },
+                  "stage1_tmax_exceedance_30c_c_days": {
+                    "equal_county_mean": 17.875733270645824,
+                    "county_p10": 10.071002042798643,
+                    "county_p90": 27.21090247129681,
+                    "pooled_county_year_mean": 17.122148131073466
+                  },
+                  "stage1_tmax_days_gt_30c": {
+                    "equal_county_mean": 3.6489281403774254,
+                    "county_p10": 2.3963780875765948,
+                    "county_p90": 4.830047750642873,
+                    "pooled_county_year_mean": 3.585857788915803
+                  },
+                  "stage2_tmax_exceedance_29c_c_days": {
+                    "equal_county_mean": 31.028541511264905,
+                    "county_p10": 18.20749011868548,
+                    "county_p90": 42.52705636249336,
+                    "pooled_county_year_mean": 30.076543031032916
+                  },
+                  "stage2_tmax_days_gt_29c": {
+                    "equal_county_mean": 4.450399913453333,
+                    "county_p10": 3.7161113437304545,
+                    "county_p90": 5.432402629404697,
+                    "pooled_county_year_mean": 4.373824054669547
+                  },
+                  "stage2_tmax_exceedance_30c_c_days": {
+                    "equal_county_mean": 26.42315662385229,
+                    "county_p10": 15.091718012516566,
+                    "county_p90": 37.02932508974075,
+                    "pooled_county_year_mean": 25.58013668365674
+                  },
+                  "stage2_tmax_days_gt_30c": {
+                    "equal_county_mean": 4.874560213770682,
+                    "county_p10": 3.5084756090627756,
+                    "county_p90": 6.449798996892303,
+                    "pooled_county_year_mean": 4.733717560866058
+                  },
+                  "stage3_tmax_exceedance_29c_c_days": {
+                    "equal_county_mean": 11.316725156878386,
+                    "county_p10": 6.915180192834642,
+                    "county_p90": 15.869539717642056,
+                    "pooled_county_year_mean": 10.533407738631986
+                  },
+                  "stage3_tmax_days_gt_29c": {
+                    "equal_county_mean": 3.0322922309511706,
+                    "county_p10": 1.966849358048447,
+                    "county_p90": 4.0604768819332575,
+                    "pooled_county_year_mean": 2.9069407958933353
+                  },
+                  "stage3_tmax_exceedance_30c_c_days": {
+                    "equal_county_mean": 8.44262199565502,
+                    "county_p10": 4.852684045786294,
+                    "county_p90": 12.143083509329964,
+                    "pooled_county_year_mean": 7.794827470579192
+                  },
+                  "stage3_tmax_days_gt_30c": {
+                    "equal_county_mean": 2.6176252664459176,
+                    "county_p10": 1.9263310364892121,
+                    "county_p90": 3.1021115258995517,
+                    "pooled_county_year_mean": 2.533646175971489
+                  }
+                }
+              },
+              "shape": {
+                "rows": 227,
+                "counties": 15,
+                "differences": {
+                  "stage1_precip_share": {
+                    "equal_county_mean": -0.001186853156636489,
+                    "county_p10": -0.02615841719753221,
+                    "county_p90": 0.013741583862917166,
+                    "pooled_county_year_mean": 0.0005771591510479603
+                  },
+                  "stage2_precip_share": {
+                    "equal_county_mean": -0.006007614062232639,
+                    "county_p10": -0.022578763591084315,
+                    "county_p90": 0.006740618044320095,
+                    "pooled_county_year_mean": -0.005674197060237171
+                  },
+                  "stage3_precip_share": {
+                    "equal_county_mean": 0.007194467218869133,
+                    "county_p10": -0.0020830119199449783,
+                    "county_p90": 0.023437735420761805,
+                    "pooled_county_year_mean": 0.005097037909189236
+                  },
+                  "precipitation_concentration_hhi": {
+                    "equal_county_mean": -0.0023439349030325205,
+                    "county_p10": -0.013404414854986616,
+                    "county_p90": 0.003970199739896101,
+                    "pooled_county_year_mean": -0.0006410060067613353
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "publication_projection": "Annual series remain in the hash-bound ignored original; aggregate contrasts retained here."
+  },
+  "jobs": [
+    {
+      "path": "outputs/us_paired_overlap_tests_20260908_resource.json",
+      "sha256": "070b78a6a1444b0b2ae8cad4846fa52629fdd39cbc5c472ce6971b07f10b8b54",
+      "content": {
+        "status": "completed",
+        "returncode": 0,
+        "sampled_peak_group_rss_bytes": 119177216,
+        "max_mib": 1024,
+        "min_free_gib": 130,
+        "sampling_interval_seconds": 0.2,
+        "wall_seconds": 1.1409094579994417,
+        "limit_kind": "sampled_process_group_not_kernel_limit",
+        "sampled_peak_new_disk_bytes": 101,
+        "max_new_disk_mib": 64,
+        "write_paths": [
+          "data/interim/job_scratch/us_paired_overlap_tests_20260908"
+        ],
+        "disk_accounting": "sampled_owned_paths_plus_log_with_128KiB_receipt_reserve",
+        "scratch_dir": "data/interim/job_scratch/us_paired_overlap_tests_20260908"
+      },
+      "log_sha256": "7f651a454b7b284efe70fac28605ab5d9c389d39a8b6c9aae1f2193f021e78e2"
+    },
+    {
+      "path": "outputs/us_paired_overlap_20260908_resource.json",
+      "sha256": "d6cd2077fdba74e2e088f053bb3a6fe4a98c72e9fd8b555f62f305777f718b9f",
+      "content": {
+        "status": "completed",
+        "returncode": 0,
+        "sampled_peak_group_rss_bytes": 235962368,
+        "max_mib": 1024,
+        "min_free_gib": 130,
+        "sampling_interval_seconds": 0.2,
+        "wall_seconds": 2.4817500420003853,
+        "limit_kind": "sampled_process_group_not_kernel_limit",
+        "sampled_peak_new_disk_bytes": 131446,
+        "max_new_disk_mib": 64,
+        "write_paths": [
+          "data/interim/us_paired_overlap_20260908/result.json",
+          "data/interim/job_scratch/us_paired_overlap_20260908"
+        ],
+        "disk_accounting": "sampled_owned_paths_plus_log_with_128KiB_receipt_reserve",
+        "scratch_dir": "data/interim/job_scratch/us_paired_overlap_20260908"
+      },
+      "log_sha256": "f736c5050045a7ce78075e1401b32e20570f5e8f42cb10b16e827148ef0407a4"
+    },
+    {
+      "path": "outputs/us_paired_county_climate_tests_20260908_resource.json",
+      "sha256": "4a478fa902efcc8a6aa5f8daca8437e186344a751ddef265fb48997db3aee62c",
+      "content": {
+        "status": "completed",
+        "returncode": 0,
+        "sampled_peak_group_rss_bytes": 120160256,
+        "max_mib": 1024,
+        "min_free_gib": 130,
+        "sampling_interval_seconds": 0.2,
+        "wall_seconds": 0.7022142499999973,
+        "limit_kind": "sampled_process_group_not_kernel_limit",
+        "sampled_peak_new_disk_bytes": 102,
+        "max_new_disk_mib": 64,
+        "write_paths": [
+          "data/interim/job_scratch/us_paired_county_climate_tests_20260908"
+        ],
+        "disk_accounting": "sampled_owned_paths_plus_log_with_128KiB_receipt_reserve",
+        "scratch_dir": "data/interim/job_scratch/us_paired_county_climate_tests_20260908"
+      },
+      "log_sha256": "56e03afda220e7ba78bbcecf9a2e53a0149cfc3e311fa10bbd01b25e8e5ba671"
+    },
+    {
+      "path": "outputs/us_paired_county_climate_20260908_resource.json",
+      "sha256": "47aed629f7c160bb2447361b8e93f6e32952a1e9ec24cd0a82fbc278d1db799e",
+      "content": {
+        "status": "completed",
+        "returncode": 0,
+        "sampled_peak_group_rss_bytes": 316506112,
+        "max_mib": 1024,
+        "min_free_gib": 130,
+        "sampling_interval_seconds": 0.2,
+        "wall_seconds": 3.5793566669999564,
+        "limit_kind": "sampled_process_group_not_kernel_limit",
+        "sampled_peak_new_disk_bytes": 317886,
+        "max_new_disk_mib": 64,
+        "write_paths": [
+          "data/interim/us_paired_county_climate_20260908",
+          "data/interim/job_scratch/us_paired_county_climate_20260908"
+        ],
+        "disk_accounting": "sampled_owned_paths_plus_log_with_128KiB_receipt_reserve",
+        "scratch_dir": "data/interim/job_scratch/us_paired_county_climate_20260908"
+      },
+      "log_sha256": "15b60a090a6d40a9dafe2102debb32475dbef0a2de66feda3295429c5db3e41b"
+    },
+    {
+      "path": "outputs/us_county_climate_comparison_tests_20260908_resource.json",
+      "sha256": "a170110967cc0177a7e6321670e8e3b25cda18f599e3fb564b9492da1b358742",
+      "content": {
+        "status": "completed",
+        "returncode": 0,
+        "sampled_peak_group_rss_bytes": 87080960,
+        "max_mib": 1024,
+        "min_free_gib": 130,
+        "sampling_interval_seconds": 0.2,
+        "wall_seconds": 0.4465642079994723,
+        "limit_kind": "sampled_process_group_not_kernel_limit",
+        "sampled_peak_new_disk_bytes": 100,
+        "max_new_disk_mib": 64,
+        "write_paths": [
+          "data/interim/job_scratch/us_county_climate_comparison_tests_20260908"
+        ],
+        "disk_accounting": "sampled_owned_paths_plus_log_with_128KiB_receipt_reserve",
+        "scratch_dir": "data/interim/job_scratch/us_county_climate_comparison_tests_20260908"
+      },
+      "log_sha256": "ad61be9b74efb8a4b8ae7d0427622d79c722d44dc55c2f4aeb51140568dfc278"
+    },
+    {
+      "path": "outputs/us_county_climate_comparison_20260908_resource.json",
+      "sha256": "1b27e618cc1e78bc13dc92909022d079c53f5378db8b206e22424661ef28855a",
+      "content": {
+        "status": "completed",
+        "returncode": 0,
+        "sampled_peak_group_rss_bytes": 213368832,
+        "max_mib": 1024,
+        "min_free_gib": 130,
+        "sampling_interval_seconds": 0.2,
+        "wall_seconds": 0.6862436659994273,
+        "limit_kind": "sampled_process_group_not_kernel_limit",
+        "sampled_peak_new_disk_bytes": 202955,
+        "max_new_disk_mib": 64,
+        "write_paths": [
+          "data/interim/us_paired_county_climate_20260908/comparison.json",
+          "data/interim/job_scratch/us_county_climate_comparison_20260908"
+        ],
+        "disk_accounting": "sampled_owned_paths_plus_log_with_128KiB_receipt_reserve",
+        "scratch_dir": "data/interim/job_scratch/us_county_climate_comparison_20260908"
+      },
+      "log_sha256": "faca020a9e1155b1911e2241c1aa674ef11f6b8333ff9ce0f8a634f6ad10f427"
+    }
+  ],
+  "test_scripts": {
+    "test_us_paired_climate_overlap.py": "ee32efeb5808fe68a66b80654a91acebb09d34b756782c9b9de13b42c59cc5c6",
+    "test_us_paired_county_climate.py": "248f1eaa1f227d45dbbad2fce8fc86862056816dd76568c26a96f5044777aa3e",
+    "test_us_county_climate_comparison.py": "a15d8b6b2b8b3e16b92d717a4a9a015a0ed7d854d45ce771daa928e0774ddee3"
+  },
+  "retained_new_analysis_bytes_before_export": 933248,
+  "free_bytes_at_export": 170092355584,
+  "code_sha256": "b269aa906bde29a2cbf05fe5c8819b25b35d22532313139b3cdb8e21465f6993"
+}

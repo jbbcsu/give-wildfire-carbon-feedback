@@ -5,6 +5,15 @@ account for rainfall quantity, timing, drought and irrigation, without adding
 the same agricultural damage twice. This is an unfinished research project;
 there is **no empirical precipitation SCC estimate yet**.
 
+New U.S. climate bridge: on the small16corn/15soy county sample fully covered
+by the pilot, the factual climate has about26/24mm more seasonal precipitation
+and2.3/2.6days shorter dry spells than the detrended climate. Heat also rises.
+But using a different observed-weather product changes measured seasonal
+precipitation by about32mm. We are expanding source-matched climate coverage
+before translating weather responses into climate impacts; these figures are
+not crop benefits or national estimates. See
+`US_PAIRED_COUNTY_CLIMATE_RESULTS_20260908.md`.
+
 Latest qualification: the historical counterclimate often combines weather
 outside an individual cell's observed ranges when heat is included (about
 50% of maize and 47% of soy crop-years). A joint-distance screen flags fewer

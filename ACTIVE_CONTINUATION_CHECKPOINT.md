@@ -1,5 +1,58 @@
 # Active continuation checkpoint
 
+## Latest: U.S. paired county climate benchmark COMPLETE; regional queue ACTIVE
+
+After6f146a6, completed the existing-input/geometry inventory and immediately
+built and compared paired climate features on the exact NASS calendars and
+county polygons. See `US_PAIRED_COUNTY_CLIMATE_RESULTS_20260908.md` and
+`data/provenance/us_paired_county_climate_20260908.json`. Full ignored data:
+`data/interim/us_paired_overlap_20260908/result.json` and
+`data/interim/us_paired_county_climate_20260908/` (receipt, two573row climate
+tables, comparison). 16corn/15soy counties;346/227county-years,36daily cells.
+Factual-minus-counterclim precipitation+26.10/+24.48mm,dryspells−2.28/−2.61days.
+GSWPfactual-minus-nClimGrid precipitation+31.87/+32.25mm on same keys/calendars.
+No crop response fit, new holdout, national damage or SCC. Nine targeted tests
+passed; all real stages first-pass; max301.84MiB sampledRAM,649,211bytes before
+publication exports. Do NOT repeat these completed stages.
+
+The narrow strip fails the existing response sample minimum(25counties,
+500rows/practice). Instead of lowering it, registered54regional source
+cutouts over the retained419counties' geometry envelope. Three bands:
+south25.5–33.5,central33.5–41.5,north41.5–49.5N; all109.5–74.5W,16x70cells.
+Same18parent sources/dates/rights/IDs, no new climate source. New child configs
+`config/isimip3a_us_{band}_{scenario}_{var}_{first}_20260908.json` reference
+UNCHANGED original parent configs/hashes. Old validators unchanged. Read
+`US_PAIRED_REGIONAL_ACQUISITION_PROTOCOL_20260908.md`; four regional-contract
+tests passed incl real syntheticNetCDF validation. Counterclim domain must
+equal all4hash-bound calendar masks daily; no static/intermittent imputation.
+
+Acquisition driver `scripts/continue_us_paired_regional_acquisition.py` runs
+one bounded child at a time and at most2unfinished server requests, preserving
+pending jobs/uncertain POSTs/failures. First queue slice COMPLETE:5/54 validated,
+79,468,075retained regional bytes. Second slice is ACTIVE at checkpoint write
+(unified command session55971); do not launch another analysis while it runs.
+Use process check and receipts to determine actual state after interruption,
+not this historical session number. Currently completed central counterclim:
+pr1981/1991/2001 andtas1981/1991. Counts may have advanced since this write.
+
+NEXT: finish all54regional acquisitions with
+`.venv/bin/python scripts/continue_us_paired_regional_acquisition.py --max-actions 108 --max-seconds 600`
+after checking for an active driver/child. It resumes validated outputs and
+saved server requests; no perfile user approval. Requests normally live in
+`data/interim/us_paired_regional_requests_20260908/`; FIRST centralcounterclim
+pr1981request is the special retainedpath insideus_paired_county_climate directory
+handled bydriver. Outputs:`data/interim/us_{band}_{scenario}_{var}_{first}_20260908/`.
+Do not treat pending command return0 as download completion; require receipt
+status`regional_paired_climate_content_validated`. All attempts use unique
+resource/log names; source caps16MiBarchive/64MiBtotal remain enforced.
+Then aggregate receipts/resources/cumulative storage; inspect complete finite
+county support across3bands and generalize the new county-calendar builder to
+this region in a separate registered stage (current builder intentionally
+requires the original16/15county573row pilot). No barred coefficients may be
+exported; then freeze source-matched joint response/validation contract.
+Keep one1024MiBsampled job,64MiBowned disk,130GiBfloor. No new user decision.
+Earlier NEXT blocks below are superseded; routine notifications remain muted.
+
 ## Latest: paired empirical weather-support diagnostic COMPLETE
 
 After 39458f4, registered and completed the small existing-data support check.

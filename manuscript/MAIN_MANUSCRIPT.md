@@ -1,5 +1,19 @@
 # Precipitation patterns, global agricultural damages, and the social cost of carbon
 
+## September8 NASS-calendar county climate benchmark
+
+The paired climate pilot now uses actual county polygons and the same NASS
+crop calendars as the U.S. yield analysis. On16corn/15soy fully covered
+counties, factual-minus-counterclim seasonal precipitation is+26.10/+24.48mm
+and longest dry spells are2.28/2.61days shorter, alongside greater heat.
+However, factual GSWP-minus-nClimGrid precipitation differs by+31.87/+32.25mm
+on those same county-years. Such source differences caution against direct
+transport of the existing regression coefficients. This is a selected Kansas/
+Colorado exposure benchmark, not a yield-damage estimate or national result.
+The sample is too small for the earlier response contract; wider paired
+climate coverage is being acquired without lowering its sample requirements.
+See `US_PAIRED_COUNTY_CLIMATE_RESULTS_20260908.md`.
+
 ## September8 counterclimate weather-support qualification
 
 On the exact positive-yield cohort, 50.25% of maize and 46.59% of soybean
