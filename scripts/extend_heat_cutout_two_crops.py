@@ -19,6 +19,15 @@ from summarize_contiguous_climate_contrasts import ROOT, checked, sha256
 
 FEATURES = heat_basis_feature_names([29.], 3)
 HEAT = [x for x in FEATURES if not x.endswith('tmean_c')]
+ESM_FORCING={'GFDL-ESM4':'gfdl-esm4','IPSL-CM6A-LR':'ipsl-cm6a-lr'}
+
+
+def validate_realization(config,esm,member,scenario):
+    identity=config['specifiers']
+    expected=(scenario,ESM_FORCING[esm],member,'tasmax','w5e5','ISIMIP3b','daily','global')
+    actual=tuple(identity[k] for k in ('climate_scenario','climate_forcing','ensemble_member',
+        'climate_variable','bias_adjustment','simulation_round','time_step','region'))
+    if actual!=expected:raise ValueError('requested realization differs from registered cutout lineage')
 
 
 def exact_join(rain, heat, threshold=29.):
@@ -47,6 +56,8 @@ def main():
     parser.add_argument('--crops',nargs='+',choices=['mai','soy'],default=['mai','soy'])
     parser.add_argument('--threshold-c',type=int,choices=[29,30],default=29)
     parser.add_argument('--scenario',choices=['ssp126','ssp585'],default='ssp126')
+    parser.add_argument('--esm',choices=list(ESM_FORCING),default='GFDL-ESM4')
+    parser.add_argument('--member',default='r1i1p1f1')
     parser.add_argument('--accounted-dir',type=Path,action='append',default=[])
     args=parser.parse_args(); pilot=args.pilot.resolve(); out=args.out_dir.resolve()
     if len(set(args.crops))!=len(args.crops):raise ValueError('duplicate crop')
@@ -63,9 +74,7 @@ def main():
     config_path=ROOT/pilot_receipt.get('config_path','config/isimip3b_heat_subset_pilot_20260907.json')
     if sha256(config_path)!=pilot_receipt['config_sha256']:raise ValueError('cutout config changed')
     climate_config=json.loads(config_path.read_text())
-    identity=climate_config['specifiers']
-    if (identity['climate_scenario'],identity['climate_forcing'],identity['ensemble_member'])!=(args.scenario,'gfdl-esm4','r1i1p1f1'):
-        raise ValueError('requested future realization differs from cutout lineage')
+    validate_realization(climate_config,args.esm,args.member,args.scenario)
     for name,digest in pilot_receipt['artifact_hashes'].items():
         if sha256(pilot/name)!=digest: raise ValueError('pilot artifact changed')
     manifest_path=ROOT/'data/provenance/isimip_crop_calendar_2015soc.toml'
@@ -95,8 +104,8 @@ def main():
     try:
         save()
         for crop in args.crops:
-            product=[p for p in future['products'] if (p['crop'],p['esm'],p['scenario'])==(crop,'GFDL-ESM4',args.scenario)]
-            if len(product)!=1 or product[0]['member']!='r1i1p1f1':raise ValueError('realization differs')
+            product=[p for p in future['products'] if (p['crop'],p['esm'],p['scenario'])==(crop,args.esm,args.scenario)]
+            if len(product)!=1 or product[0]['member']!=args.member:raise ValueError('realization differs')
             product=product[0]; bases=[]; source_hashes=[]
             for regime in ('noirr','firr'):
                 name=f'ggcmi-crop-calendar-phase3_2015soc_{crop}_{regime}.nc'
@@ -133,8 +142,8 @@ def main():
             if weighted.yield_observed.any() or weighted.yield_t_ha.notna().any():raise ValueError('future outcomes present')
             rain=pd.read_parquet(checked(product));rain=rain.loc[rain.harvest_year.between(2042,2049)]
             joined=exact_join(rain,weighted,args.threshold_c)
-            path=out/f'{crop}_GFDL-ESM4_{args.scenario}_joint_climate.parquet'; budget();joined.to_parquet(path,index=False);budget()
-            result['products'].append(dict(crop=crop,esm='GFDL-ESM4',member='r1i1p1f1',scenario=args.scenario,
+            path=out/f'{crop}_{args.esm}_{args.scenario}_joint_climate.parquet'; budget();joined.to_parquet(path,index=False);budget()
+            result['products'].append(dict(crop=crop,esm=args.esm,member=args.member,scenario=args.scenario,
                 years=list(range(2042,2050)),rows=len(joined),cells=len(joined[['lat','lon_360']].drop_duplicates()),
                 path=str(path.relative_to(ROOT)),sha256=sha256(path),bytes=path.stat().st_size,
                 rainfall_sha256=product['sha256'],regime_sources=source_hashes,allocation=allocation))

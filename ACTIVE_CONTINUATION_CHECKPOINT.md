@@ -1,5 +1,41 @@
 # Active continuation checkpoint
 
+## Latest: independent IPSL pair and exploratory window check COMPLETE
+
+After b413412, two public IPSL cutouts were acquired and four crop/scenario
+joint products validated (same29°Cmai/30°Csoy,2042–2049,two latitude rows).
+IPSL reverses GFDL rainfall/dry-spell signs: rain+22.63/+26.23mm and dry
+spell−1.33/−0.38days for mai/soy. Stage2heat rises+12.16/+12.67°C·days.
+Do not promote one-model direction as robust. The new18comparison window
+sensitivity uses resident GFDL/IPSL/MPI rainfall over2032–39,2042–49,2052–59;
+IPSL/MPI change signs in the middle window. Previously saved full28year rain
+differences are negative for all3models/bothcrops. Shared middle-window
+rainfall summaries match the completed joint-climate calculations EXACTLY.
+Read`IPSL_AND_WINDOW_RESULTS_20260908.md`. These remain climate diagnostics,
+not yield losses or SCC. All real jobs and10wrapper/comparison/window tests
+passed; maximum sampled RAM486.83MiB. New IPSL batches27.12/27.18MiB each.
+All jobs have finished; no detached analysis process. Do not redo this work.
+
+NEXT executable priority: extend matched daily-heat inputs to2032–2059,
+starting with GFDL SSP126/SSP585 missing2031–2040and2051–2060decades. The
+2041–2050cutouts are resident and must be reused. Query exact source catalogue
+metadata; do not infer source IDs/hashes. Keep two-row server cutouts, same
+model/member/version and bounded sequential acquisition. `validate_cutout`
+currently hardcodes2041–2050 dates: generalize with explicit registered
+start/end dates and chronology tests before using other decades. Existing
+heat builders already accept multiple daily files, but the new source-bound
+wrapper must validate every file's lineage, common grid and contiguous dates
+before constructing28year crop windows. Preserve original pilot outputs.
+Measure RAM and use1GiB first (up to approved4GiB if scientifically justified),
+one numeric thread,<=64MiB new disk per bounded batch and>=130GiB free.
+Do not request individual download approval. Retained full28year nonlinear
+rainfall tables are already built; do not reconstruct them.
+
+The short-window sign sensitivity makes this higher value than adding more
+eight-year pilot fits. Monetary-source/cost/inventory and global-response
+transport work remain unfinished and independent. All older next-step or
+approval-pending statements below are historical and superseded.
+
 ## Latest: matched SSP585/SSP126 inputs and comparisons COMPLETE
 
 September8 after commit84b3e6f: acquired the separate registered SSP585 cutout

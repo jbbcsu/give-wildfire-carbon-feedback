@@ -1,5 +1,18 @@
 # Precipitation patterns, global agricultural damages, and the social cost of carbon
 
+## September 8 independent-model and window-sensitivity qualification
+
+The second matched model, IPSL-CM6A-LR, reverses GFDL's2042–2049rainfall/dry-
+spell direction on the same fixed-weight support: IPSL rainfall differences
+are+22.63/+26.23mm(maize/soy), versus GFDL−9.86/−19.98mm. Mid-season heat
+increases in both models. An exploratory check across three eight-year windows
+in the existing28year basis shows that IPSL and MPI rainfall signs reverse
+in the middle window, while all three models' retained28year mean rainfall
+differences are negative. The overlapping midperiod summaries agree exactly.
+This motivates longer matched heat coverage, not choosing a preferred model
+or claiming robust precipitation damages. Scope, all windows and limitations:
+`IPSL_AND_WINDOW_RESULTS_20260908.md`.
+
 ## September 8 matched higher/lower-scenario heat and rainfall
 
 The first matched joint-climate comparison is complete for GFDL-ESM4 SSP585

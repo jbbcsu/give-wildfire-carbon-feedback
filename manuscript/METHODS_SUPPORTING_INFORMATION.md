@@ -1,5 +1,24 @@
 # Methods Supporting Information
 
+## September 8 independent-model and temporal-window check
+
+Two separately source-bound IPSL cutouts provide the same model/member,
+calendar, threshold, geography and years within each scenario pair. The heat
+wrapper now validates explicit ESM/forcing/member/scenario as well as variable,
+bias adjustment and time frequency. Config and child-file hashes remain
+bound to acquisition; pairing additionally compares calendar hashes and fixed
+irrigation weights. Existing GFDL defaults and outputs are preserved.
+
+After seeing opposing short-window rainfall signs, a transparently exploratory
+diagnostic evaluates2032–2039,2042–2049and2052–2059using the existing balanced
+GFDL/IPSL/MPI rainfall products. It reuses the unchanged paired-comparison
+arithmetic and previously saved28year reference values, without refitting or
+selecting models. Four shared rainfall statistics in the midperiod overlap
+match all completed GFDL/IPSL crop comparisons exactly. No heat is imputed for
+MPI and no causal decomposition of forced change versus variability is claimed.
+The two prospective calculation protocols, numerical checks and all results
+are indexed in`IPSL_AND_WINDOW_RESULTS_20260908.md`.
+
 ## September 8 matched SSP585 acquisition and joint-climate comparison
 
 Under standing download authorization, a new catalogue-bound SSP585 contract

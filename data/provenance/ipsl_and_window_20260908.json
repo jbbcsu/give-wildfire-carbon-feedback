@@ -1,0 +1,2217 @@
+{
+  "role": "independent_model_and_exploratory_window_climate_diagnostics",
+  "causal_or_scc_result": false,
+  "code_sha256": "47156c582bd8c79b0b2d0b8eefc6cc57db6e63608c96faad4428b9870fc877a1",
+  "receipts": [
+    {
+      "path": "data/interim/ipsl_ssp126_heat_cutout_20260908/receipt.json",
+      "sha256": "bc21752c4454463ed950d97b1c5efbb59311eed6a965308e84ee1afb11700677",
+      "content": {
+        "status": "climate_content_validated",
+        "config_path": "config/isimip3b_ipsl_ssp126_heat_cutout_20260908.json",
+        "config_sha256": "b344f39576491381d46e97ba92c7cce2cd9e2510a88764c9ed253e5ff679e40e",
+        "request_receipt_sha256": "07b16c991f10f86af41cf04a50d773d4a9bc639a35667ed96acd7e7968bfd495",
+        "catalogue_response_sha256": "489822e577c833b4bb80148099ce8a4e412e2efe7df58f264e88e7ebd8e1448b",
+        "job_response_sha256": "5454807bb9d561328301d5601a5c890966f9a233e8e8f26eefa085f69d263b52",
+        "job_id": "188e5534012164cbcaeff91af6ca3ec0a3e58d50",
+        "job_response": {
+          "file_name": "isimip-download-188e5534012164cbcaeff91af6ca3ec0a3e58d50.zip",
+          "file_url": "https://files.isimip.org/api/v2/output/isimip-download-188e5534012164cbcaeff91af6ca3ec0a3e58d50.zip",
+          "id": "188e5534012164cbcaeff91af6ca3ec0a3e58d50",
+          "job_url": "https://files.isimip.org/api/v2/188e5534012164cbcaeff91af6ca3ec0a3e58d50",
+          "meta": {
+            "created_files": 1,
+            "errors": {},
+            "total_files": 1
+          },
+          "status": "finished",
+          "ttl": 604800
+        },
+        "archive_url": "https://files.isimip.org/api/v2/output/isimip-download-188e5534012164cbcaeff91af6ca3ec0a3e58d50.zip",
+        "archive_bytes": 12958146,
+        "archive_etag": "\"6a9f83f8-c5b9c2\"",
+        "source_contract": {
+          "role": "single_public_server_side_subset_request_source_contract",
+          "dataset_id": "22791b2f-5d4a-405d-8be9-d33f7782c083",
+          "dataset_version": "20210512",
+          "resource_doi": "10.48364/ISIMIP.842396.1",
+          "file_id": "6e926104-7b30-4d58-bebd-05f3d8338ef8",
+          "file_name": "ipsl-cm6a-lr_r1i1p1f1_w5e5_ssp126_tasmax_global_daily_2041_2050.nc",
+          "source_bytes": 2075664689,
+          "source_sha512": "640f11d12fbf3d8b4ae2d89d5475398dff79b416d89708e7cb1b7e3a484d603a8cf5f480f3c0a54e1aa3c8d666712f71f12d01ca7a95cc3abfde0c8443059708",
+          "source_path": "ISIMIP3b/InputData/climate/atmosphere/bias-adjusted/global/daily/ssp126/IPSL-CM6A-LR/ipsl-cm6a-lr_r1i1p1f1_w5e5_ssp126_tasmax_global_daily_2041_2050.nc",
+          "specifiers": {
+            "simulation_round": "ISIMIP3b",
+            "product": "InputData",
+            "region": "global",
+            "time_step": "daily",
+            "climate_forcing": "ipsl-cm6a-lr",
+            "ensemble_member": "r1i1p1f1",
+            "climate_scenario": "ssp126",
+            "climate_variable": "tasmax",
+            "bias_adjustment": "w5e5"
+          },
+          "bbox_west_east_south_north": [
+            -180,
+            180,
+            39,
+            40
+          ],
+          "expected_latitude_centers": [
+            39.25,
+            39.75
+          ],
+          "expected_longitude_count": 720,
+          "expected_gregorian_daily_count": 3652,
+          "local_download_authorized": false,
+          "local_feature_construction_authorized": false,
+          "damage_or_scc_authorized": false,
+          "authorization_note": "This source/request contract does not itself authorize downloads. Separate standing user authorization from September 8, 2026 applies to the bounded acquisition workflow.",
+          "discovery_query_response_sha256": "4a74c0afca68ad147beaaa87c164f4ad664d22e2028aabde89089bac97422798"
+        },
+        "initial_free_bytes": 143435919360,
+        "additional_disk_budget_bytes": 67108864,
+        "authorization": "standing project data download authorization; user instruction September 8, 2026 UTC",
+        "source_request_gate_is_not_acquisition_authority": true,
+        "causal_or_scc_result": false,
+        "code_hashes": {
+          "acquire_registered_heat_cutout.py": "bca0ba0c904435629f4b3d46cd48d92797ae253eda11da892d29bcb06e11b2e6",
+          "run_authorized_heat_subset_pilot.py": "66a7519c764c214d26d9302e95dcfc73befe61753f237a5886171c9f8d28dc35",
+          "prepare_heat_subset_pilot.py": "3f244209aaada228c71c8b0a061c19766ce6beffc50125d4ea3ca530bf7b369a"
+        },
+        "archive_sha256": "2df48e60ccfd7587bbb1ab90fbec2a7e539f35d80a569ca051e8cd430a2d89df",
+        "archive_member": "ipsl-cm6a-lr_r1i1p1f1_w5e5_ssp126_tasmax_lon-180.0to180.0lat39.0to40.0_daily_2041_2050.nc",
+        "climate_sha256": "6a9ce8b1eded30f8644c3e84b966170660b7c2456eb28ff138ff66e0ae42a734",
+        "content_validation": {
+          "days": 3652,
+          "latitudes": [
+            39.75,
+            39.25
+          ],
+          "longitude_count": 720,
+          "calendar": "proleptic_gregorian",
+          "source_units": "K",
+          "minimum_c": -27.8057861328125,
+          "maximum_c": 49.737640380859375,
+          "missing_values": 0,
+          "all_parent_payload_bytes_verified": false
+        },
+        "artifact_hashes": {
+          "cutout.zip": "2df48e60ccfd7587bbb1ab90fbec2a7e539f35d80a569ca051e8cd430a2d89df",
+          "tasmax_cutout.nc": "6a9ce8b1eded30f8644c3e84b966170660b7c2456eb28ff138ff66e0ae42a734"
+        }
+      }
+    },
+    {
+      "path": "data/interim/ipsl_ssp126_maize_heat29_20260908/receipt.json",
+      "sha256": "763754711db6f175520bf806250c486f5fa2934bea50fa02b3f23da0e982f3c5",
+      "content": {
+        "status": "joint_climate_inputs_validated",
+        "role": "joint_climate_inputs_only",
+        "crop_yield_estimated": false,
+        "causal_or_scc_result": false,
+        "new_downloads": 0,
+        "threshold_c": 29,
+        "requested_crops": [
+          "mai"
+        ],
+        "pilot_receipt_sha256": "bc21752c4454463ed950d97b1c5efbb59311eed6a965308e84ee1afb11700677",
+        "future_receipt_sha256": "a8973f354b5ab24f4c0f4c92d5c6fe6944ff0411a731f54b87c42262c84edf14",
+        "weight_sha256": "7512ffc580928a03f75bbce5f3d4263c9bb2c631a8ff04075973acb4b149e4ba",
+        "calendar_manifest_sha256": "7d637597f1836b41bd2faebdfa70a8ae67daf3a5faa179d32dd72dd11d7a1b3f",
+        "products": [
+          {
+            "crop": "mai",
+            "esm": "IPSL-CM6A-LR",
+            "member": "r1i1p1f1",
+            "scenario": "ssp126",
+            "years": [
+              2042,
+              2043,
+              2044,
+              2045,
+              2046,
+              2047,
+              2048,
+              2049
+            ],
+            "rows": 4000,
+            "cells": 500,
+            "path": "data/interim/ipsl_ssp126_maize_heat29_20260908/mai_IPSL-CM6A-LR_ssp126_joint_climate.parquet",
+            "sha256": "2a180a194ea99d59cc67c8a8846cb4aa2b9027087accabd8f1112b15d2ecd0ef",
+            "bytes": 478237,
+            "rainfall_sha256": "ac83f9939fca1b3da02e74d538f1cc5128d89098d2dc626a237388032fcef937",
+            "regime_sources": [
+              {
+                "season": {
+                  "path": "data/interim/isimip3b_ipsl_ssp126_2031_2060_contiguous_multicrop/mai_noirr/season.parquet",
+                  "sha256": "228d3c15e9da0d7d0ac7c1f0d7484cd61a8bed8fbab04133af14d9a664b27e9d"
+                },
+                "stages": {
+                  "path": "data/interim/isimip3b_ipsl_ssp126_2031_2060_contiguous_multicrop/mai_noirr/stages.parquet",
+                  "sha256": "950b363bfc82351b71e0ac3f9c9a7e7741bbb2102741338c37793528e4169e54"
+                }
+              },
+              {
+                "season": {
+                  "path": "data/interim/isimip3b_ipsl_ssp126_2031_2060_contiguous_multicrop/mai_firr/season.parquet",
+                  "sha256": "93fcf9a8b751b3bbdb0be2b1d7f3d41970938a56888632f57bf2e1e597feaed9"
+                },
+                "stages": {
+                  "path": "data/interim/isimip3b_ipsl_ssp126_2031_2060_contiguous_multicrop/mai_firr/stages.parquet",
+                  "sha256": "ee2838b22250b2187cdb462b99a092a228f9e173051c2cead0acea6d0ca9f172"
+                }
+              }
+            ],
+            "allocation": {
+              "schema_version": 1,
+              "purpose": "Prevent duplicated aggregate yield outcomes across irrigation exposures.",
+              "boundary": "Data-contract output only; no response coefficient or SCC use is authorized.",
+              "original_input_rows": 10976,
+              "original_outcome_keys": 5488,
+              "original_observed_outcomes": 0,
+              "input_rows": 8000,
+              "output_rows": 4000,
+              "outcome_keys": 4000,
+              "observed_outcomes": 0,
+              "irrigation_labels": [
+                "noirr",
+                "firr"
+              ],
+              "features": [
+                "stage1_tmean_c",
+                "stage1_tmax_29c_days",
+                "stage1_tmax_29c_degree_days",
+                "stage2_tmean_c",
+                "stage2_tmax_29c_days",
+                "stage2_tmax_29c_degree_days",
+                "stage3_tmean_c",
+                "stage3_tmax_29c_days",
+                "stage3_tmax_29c_degree_days"
+              ],
+              "weight_source_id": "MIRCA-OS_v2_March_2026_AHAG_30arcmin_2000",
+              "weight_vintage": "fixed_2000",
+              "weight_source_role": "independent_fixed_baseline_crop_area_share",
+              "weights_fixed_across_years": true,
+              "production_eligibility_required": true,
+              "season_specific_weights_required": true,
+              "missing_weight_policy": "exclude_entire_crop_grid_year_outcome_without_infill_or_renormalization",
+              "excluded_outcome_keys_missing_weight": 1488,
+              "excluded_observed_outcomes_missing_weight": 0,
+              "excluded_missing_weight_by_crop": {
+                "mai": {
+                  "outcome_keys": 1488,
+                  "observed_outcomes": 0,
+                  "grid_cells": 186
+                }
+              },
+              "one_row_per_outcome": true,
+              "scc_authorized": false
+            }
+          }
+        ],
+        "calendars": {
+          "ggcmi-crop-calendar-phase3_2015soc_mai_noirr.nc": "30aba2e000a712328bdfdd1c161c55390bcd6b34e876e92465b0972ac1361a1d039857a99926be9d73cc2baf0936ae10860e47823f8d67ad7e6fb284a1edbf1e",
+          "ggcmi-crop-calendar-phase3_2015soc_mai_firr.nc": "adf315cc07d478d106215407462ad11cfd2850fd2643a4193620de1fecf8b781c650bec7e814deb69d9b79be492bb1ef18b8a46a8e22826db7477b3d36dcba02"
+        },
+        "code_hashes": {
+          "extend_heat_cutout_two_crops.py": "0dadb00118cb37525a304f9dde8a7285f02a0f12986c97175ea54d14fd94953a",
+          "allocate_irrigation_heat_basis.py": "75a72c683ed19a6550101f0b49012062d55f873ecb55c953a79bd48476387701",
+          "allocate_outcome_exposures.py": "c76bf7b52a30c78668d1e684fa80b644c18793c6a4ed766392fc2fde16157b57",
+          "build_future_weighted_precipitation.py": "57f0c5bf23a35adbec515e3ae2d4476c9549c5d89b8efa1fec789783684742ca",
+          "build_crop_heat_features.py": "6d07c3a8605e4fcab73a950886a543987aaf75adcdb154adf83c391c498b1bdd",
+          "build_crop_stage_heat_features.py": "1457eb6cb53d46d73808cbb35ab4a102a616ae3ba595c0e9c71faef82484d57d"
+        },
+        "combined_pilot_output_bytes": 27265158,
+        "artifacts": {
+          "mai_IPSL-CM6A-LR_ssp126_joint_climate.parquet": "2a180a194ea99d59cc67c8a8846cb4aa2b9027087accabd8f1112b15d2ecd0ef",
+          "mai_firr/season_heat.parquet": "0e5085e7051f8868ac329a02d88f48c88d952955cbfdfb9c3f968798edbfed05",
+          "mai_firr/stage_heat.parquet": "15ce1e32b2f61dcbab92244a9a8c20f1be7bd03c7381cb61d576f60db5d9c477",
+          "mai_noirr/season_heat.parquet": "1384f8bbf52bbbcca994e7896910f2b76d55d40ba23c334d4bd99c25dedc65e4",
+          "mai_noirr/stage_heat.parquet": "30aa88a80cc4e874410077057b1d1a87556efc2044f7d38c4d44903d664bd605"
+        }
+      }
+    },
+    {
+      "path": "data/interim/ipsl_ssp126_soy_heat30_20260908/receipt.json",
+      "sha256": "247668cbc0516419cebbe2c939a4620370b8c6e6805efd0677c9d78dc4049f26",
+      "content": {
+        "status": "joint_climate_inputs_validated",
+        "role": "joint_climate_inputs_only",
+        "crop_yield_estimated": false,
+        "causal_or_scc_result": false,
+        "new_downloads": 0,
+        "threshold_c": 30,
+        "requested_crops": [
+          "soy"
+        ],
+        "pilot_receipt_sha256": "bc21752c4454463ed950d97b1c5efbb59311eed6a965308e84ee1afb11700677",
+        "future_receipt_sha256": "a8973f354b5ab24f4c0f4c92d5c6fe6944ff0411a731f54b87c42262c84edf14",
+        "weight_sha256": "7512ffc580928a03f75bbce5f3d4263c9bb2c631a8ff04075973acb4b149e4ba",
+        "calendar_manifest_sha256": "7d637597f1836b41bd2faebdfa70a8ae67daf3a5faa179d32dd72dd11d7a1b3f",
+        "products": [
+          {
+            "crop": "soy",
+            "esm": "IPSL-CM6A-LR",
+            "member": "r1i1p1f1",
+            "scenario": "ssp126",
+            "years": [
+              2042,
+              2043,
+              2044,
+              2045,
+              2046,
+              2047,
+              2048,
+              2049
+            ],
+            "rows": 2616,
+            "cells": 327,
+            "path": "data/interim/ipsl_ssp126_soy_heat30_20260908/soy_IPSL-CM6A-LR_ssp126_joint_climate.parquet",
+            "sha256": "103b967591ddc015a125c143a0994136337f9661bee20091119f1678fc051e91",
+            "bytes": 334613,
+            "rainfall_sha256": "dc8d72c9817924f3bad4243e6e019fbcadd1dc2de94c31a8c3b1375aadc4a699",
+            "regime_sources": [
+              {
+                "season": {
+                  "path": "data/interim/isimip3b_ipsl_ssp126_2031_2060_contiguous_multicrop/soy_noirr/season.parquet",
+                  "sha256": "078365ca6279fc905d817e67d049ff94c65331a19b8db3ab189b2f01697eb336"
+                },
+                "stages": {
+                  "path": "data/interim/isimip3b_ipsl_ssp126_2031_2060_contiguous_multicrop/soy_noirr/stages.parquet",
+                  "sha256": "f0dbc1158bf722f739da7b57e8cc52fa45d745f9b1ea2887765be9f96a28970d"
+                }
+              },
+              {
+                "season": {
+                  "path": "data/interim/isimip3b_ipsl_ssp126_2031_2060_contiguous_multicrop/soy_firr/season.parquet",
+                  "sha256": "637b49dfd941ecb15230009f25cf109109120159bb5c227c8c8afabd45052f90"
+                },
+                "stages": {
+                  "path": "data/interim/isimip3b_ipsl_ssp126_2031_2060_contiguous_multicrop/soy_firr/stages.parquet",
+                  "sha256": "7cb28fc584c6678cd79bc9e3977464550c567b36fb214127895b557f8dc36b7d"
+                }
+              }
+            ],
+            "allocation": {
+              "schema_version": 1,
+              "purpose": "Prevent duplicated aggregate yield outcomes across irrigation exposures.",
+              "boundary": "Data-contract output only; no response coefficient or SCC use is authorized.",
+              "original_input_rows": 10976,
+              "original_outcome_keys": 5488,
+              "original_observed_outcomes": 0,
+              "input_rows": 5232,
+              "output_rows": 2616,
+              "outcome_keys": 2616,
+              "observed_outcomes": 0,
+              "irrigation_labels": [
+                "noirr",
+                "firr"
+              ],
+              "features": [
+                "stage1_tmean_c",
+                "stage1_tmax_30c_days",
+                "stage1_tmax_30c_degree_days",
+                "stage2_tmean_c",
+                "stage2_tmax_30c_days",
+                "stage2_tmax_30c_degree_days",
+                "stage3_tmean_c",
+                "stage3_tmax_30c_days",
+                "stage3_tmax_30c_degree_days"
+              ],
+              "weight_source_id": "MIRCA-OS_v2_March_2026_AHAG_30arcmin_2000",
+              "weight_vintage": "fixed_2000",
+              "weight_source_role": "independent_fixed_baseline_crop_area_share",
+              "weights_fixed_across_years": true,
+              "production_eligibility_required": true,
+              "season_specific_weights_required": true,
+              "missing_weight_policy": "exclude_entire_crop_grid_year_outcome_without_infill_or_renormalization",
+              "excluded_outcome_keys_missing_weight": 2872,
+              "excluded_observed_outcomes_missing_weight": 0,
+              "excluded_missing_weight_by_crop": {
+                "soy": {
+                  "outcome_keys": 2872,
+                  "observed_outcomes": 0,
+                  "grid_cells": 359
+                }
+              },
+              "one_row_per_outcome": true,
+              "scc_authorized": false
+            }
+          }
+        ],
+        "calendars": {
+          "ggcmi-crop-calendar-phase3_2015soc_soy_noirr.nc": "11e4bef2cd3e6716965bafd785e37f9293c48305d4cf91340b61e5f8baa37d0cc008624158a6c0797e1cf498b0833ca5e657519da763f7d32ff850936f1130c2",
+          "ggcmi-crop-calendar-phase3_2015soc_soy_firr.nc": "4cf1492d9a331e40e55633f2d36ea15067f9d4cff3cb69e18ace85e2b0c5ded1f39da166315ed4e3ce93079c3596f6ad35b0c33fed0e4833d9347c3f878cda88"
+        },
+        "code_hashes": {
+          "extend_heat_cutout_two_crops.py": "0dadb00118cb37525a304f9dde8a7285f02a0f12986c97175ea54d14fd94953a",
+          "allocate_irrigation_heat_basis.py": "75a72c683ed19a6550101f0b49012062d55f873ecb55c953a79bd48476387701",
+          "allocate_outcome_exposures.py": "c76bf7b52a30c78668d1e684fa80b644c18793c6a4ed766392fc2fde16157b57",
+          "build_future_weighted_precipitation.py": "57f0c5bf23a35adbec515e3ae2d4476c9549c5d89b8efa1fec789783684742ca",
+          "build_crop_heat_features.py": "6d07c3a8605e4fcab73a950886a543987aaf75adcdb154adf83c391c498b1bdd",
+          "build_crop_stage_heat_features.py": "1457eb6cb53d46d73808cbb35ab4a102a616ae3ba595c0e9c71faef82484d57d"
+        },
+        "combined_pilot_output_bytes": 28436926,
+        "artifacts": {
+          "soy_IPSL-CM6A-LR_ssp126_joint_climate.parquet": "103b967591ddc015a125c143a0994136337f9661bee20091119f1678fc051e91",
+          "soy_firr/season_heat.parquet": "51b83bee1662c37c29f76fb2d1dfbc4f63fa453d582ef2aa7711c36977a466f5",
+          "soy_firr/stage_heat.parquet": "c5a308ffda329b03161dba7cd18ed5f4864f0cda3906c4474954b0e48389d4c0",
+          "soy_noirr/season_heat.parquet": "a82692fd2b8d68bf99b9b9e365dfb84675fa1d0442e6e0034bd4412724e2f5c1",
+          "soy_noirr/stage_heat.parquet": "30fa98e7b21834f260b3171e2838d047f660d75a1826b7e8072dc3930ae12af4"
+        }
+      }
+    },
+    {
+      "path": "data/interim/ipsl_ssp585_heat_cutout_20260908/receipt.json",
+      "sha256": "87f5bdcdbbf399ab1c5f2d2e6bc82508d7c4913168a69741e52929d36ad47197",
+      "content": {
+        "status": "climate_content_validated",
+        "config_path": "config/isimip3b_ipsl_ssp585_heat_cutout_20260908.json",
+        "config_sha256": "ed7ba24ec1c9b05ccf9a87d7f948727816c0caedbce5b7b67a36d6bb6103ffcd",
+        "request_receipt_sha256": "4fa469a1f3203b15f02208dfa79b9ce8f29ac256113a40247cfc94994b8d0f53",
+        "catalogue_response_sha256": "827d44b9e843c070b137d62ae7cb292592dc14bd2afc56e2a9c1674adc831410",
+        "job_response_sha256": "d4b955f15df2c6a44a4a02e9f2ace76113bbb0fbac5be01a9639fd9f504cb6c6",
+        "job_id": "e8a68e9f83cc69fb149af6702170954561e60c7e",
+        "job_response": {
+          "file_name": "isimip-download-e8a68e9f83cc69fb149af6702170954561e60c7e.zip",
+          "file_url": "https://files.isimip.org/api/v2/output/isimip-download-e8a68e9f83cc69fb149af6702170954561e60c7e.zip",
+          "id": "e8a68e9f83cc69fb149af6702170954561e60c7e",
+          "job_url": "https://files.isimip.org/api/v2/e8a68e9f83cc69fb149af6702170954561e60c7e",
+          "meta": {
+            "created_files": 1,
+            "errors": {},
+            "total_files": 1
+          },
+          "status": "finished",
+          "ttl": 604800
+        },
+        "archive_url": "https://files.isimip.org/api/v2/output/isimip-download-e8a68e9f83cc69fb149af6702170954561e60c7e.zip",
+        "archive_bytes": 12960376,
+        "archive_etag": "\"6a9f83f9-c5c278\"",
+        "source_contract": {
+          "role": "single_public_server_side_subset_request_source_contract",
+          "dataset_id": "1dc615ca-83b8-4d8b-9f5b-25752056eca5",
+          "dataset_version": "20210512",
+          "resource_doi": "10.48364/ISIMIP.842396.1",
+          "file_id": "ae9149fb-134d-449e-83da-e11a13006b01",
+          "file_name": "ipsl-cm6a-lr_r1i1p1f1_w5e5_ssp585_tasmax_global_daily_2041_2050.nc",
+          "source_bytes": 2075435452,
+          "source_sha512": "d6d5384fe3f053bd80ffc58d163fbf9a3256261e4788fbbae52bfd6a69154883c79e9073180884dc9135db18705ab338c4bdc2fe0bf4867895e318fea9687bd6",
+          "source_path": "ISIMIP3b/InputData/climate/atmosphere/bias-adjusted/global/daily/ssp585/IPSL-CM6A-LR/ipsl-cm6a-lr_r1i1p1f1_w5e5_ssp585_tasmax_global_daily_2041_2050.nc",
+          "specifiers": {
+            "simulation_round": "ISIMIP3b",
+            "product": "InputData",
+            "region": "global",
+            "time_step": "daily",
+            "climate_forcing": "ipsl-cm6a-lr",
+            "ensemble_member": "r1i1p1f1",
+            "climate_scenario": "ssp585",
+            "climate_variable": "tasmax",
+            "bias_adjustment": "w5e5"
+          },
+          "bbox_west_east_south_north": [
+            -180,
+            180,
+            39,
+            40
+          ],
+          "expected_latitude_centers": [
+            39.25,
+            39.75
+          ],
+          "expected_longitude_count": 720,
+          "expected_gregorian_daily_count": 3652,
+          "local_download_authorized": false,
+          "local_feature_construction_authorized": false,
+          "damage_or_scc_authorized": false,
+          "authorization_note": "This source/request contract does not itself authorize downloads. Separate standing user authorization from September 8, 2026 applies to the bounded acquisition workflow.",
+          "discovery_query_response_sha256": "088eb0f4c63086f39a2ea3a34340060665d673d044d508f5f96efd08db348902"
+        },
+        "initial_free_bytes": 143406362624,
+        "additional_disk_budget_bytes": 67108864,
+        "authorization": "standing project data download authorization; user instruction September 8, 2026 UTC",
+        "source_request_gate_is_not_acquisition_authority": true,
+        "causal_or_scc_result": false,
+        "code_hashes": {
+          "acquire_registered_heat_cutout.py": "bca0ba0c904435629f4b3d46cd48d92797ae253eda11da892d29bcb06e11b2e6",
+          "run_authorized_heat_subset_pilot.py": "66a7519c764c214d26d9302e95dcfc73befe61753f237a5886171c9f8d28dc35",
+          "prepare_heat_subset_pilot.py": "3f244209aaada228c71c8b0a061c19766ce6beffc50125d4ea3ca530bf7b369a"
+        },
+        "archive_sha256": "5bbeb6f838a55a39f4b6e17d172a8ba4554aeb63104051e1bd53913c7209ff4c",
+        "archive_member": "ipsl-cm6a-lr_r1i1p1f1_w5e5_ssp585_tasmax_lon-180.0to180.0lat39.0to40.0_daily_2041_2050.nc",
+        "climate_sha256": "25271bd2db16e9809ba6be80924d8e08a0fda75addd9cfee84547fdb4e7f6dbf",
+        "content_validation": {
+          "days": 3652,
+          "latitudes": [
+            39.75,
+            39.25
+          ],
+          "longitude_count": 720,
+          "calendar": "proleptic_gregorian",
+          "source_units": "K",
+          "minimum_c": -26.245437622070312,
+          "maximum_c": 50.342315673828125,
+          "missing_values": 0,
+          "all_parent_payload_bytes_verified": false
+        },
+        "artifact_hashes": {
+          "cutout.zip": "5bbeb6f838a55a39f4b6e17d172a8ba4554aeb63104051e1bd53913c7209ff4c",
+          "tasmax_cutout.nc": "25271bd2db16e9809ba6be80924d8e08a0fda75addd9cfee84547fdb4e7f6dbf"
+        }
+      }
+    },
+    {
+      "path": "data/interim/ipsl_ssp585_maize_heat29_20260908/receipt.json",
+      "sha256": "a0eff56abcfa6d4a02c850d65b19d776137648ed64069f63a79c9ed2d44cd909",
+      "content": {
+        "status": "joint_climate_inputs_validated",
+        "role": "joint_climate_inputs_only",
+        "crop_yield_estimated": false,
+        "causal_or_scc_result": false,
+        "new_downloads": 0,
+        "threshold_c": 29,
+        "requested_crops": [
+          "mai"
+        ],
+        "pilot_receipt_sha256": "87f5bdcdbbf399ab1c5f2d2e6bc82508d7c4913168a69741e52929d36ad47197",
+        "future_receipt_sha256": "a8973f354b5ab24f4c0f4c92d5c6fe6944ff0411a731f54b87c42262c84edf14",
+        "weight_sha256": "7512ffc580928a03f75bbce5f3d4263c9bb2c631a8ff04075973acb4b149e4ba",
+        "calendar_manifest_sha256": "7d637597f1836b41bd2faebdfa70a8ae67daf3a5faa179d32dd72dd11d7a1b3f",
+        "products": [
+          {
+            "crop": "mai",
+            "esm": "IPSL-CM6A-LR",
+            "member": "r1i1p1f1",
+            "scenario": "ssp585",
+            "years": [
+              2042,
+              2043,
+              2044,
+              2045,
+              2046,
+              2047,
+              2048,
+              2049
+            ],
+            "rows": 4000,
+            "cells": 500,
+            "path": "data/interim/ipsl_ssp585_maize_heat29_20260908/mai_IPSL-CM6A-LR_ssp585_joint_climate.parquet",
+            "sha256": "122e08cc2110f95df4517f064738fb9513f0631f786b6a5abdc4c76d70ad9e5f",
+            "bytes": 479916,
+            "rainfall_sha256": "b696ee20e12b8a52fbb566f7bfd3545438e1851c7f26b32f118264d2929b6d34",
+            "regime_sources": [
+              {
+                "season": {
+                  "path": "data/interim/isimip3b_ipsl_ssp585_2031_2060_contiguous_multicrop/mai_noirr/season.parquet",
+                  "sha256": "711213d11824b0259ad5a509e8755c78d8b4e069375b72c3d5551003f5c58c81"
+                },
+                "stages": {
+                  "path": "data/interim/isimip3b_ipsl_ssp585_2031_2060_contiguous_multicrop/mai_noirr/stages.parquet",
+                  "sha256": "48a2575f71bd32eaab14ef7532d32e0b7b6c09d6c7883bd46681e486324c5811"
+                }
+              },
+              {
+                "season": {
+                  "path": "data/interim/isimip3b_ipsl_ssp585_2031_2060_contiguous_multicrop/mai_firr/season.parquet",
+                  "sha256": "1bf5be5a47a3bc036ae05468ece8fa9c12776b2fca6e28191a207ec45719f2c4"
+                },
+                "stages": {
+                  "path": "data/interim/isimip3b_ipsl_ssp585_2031_2060_contiguous_multicrop/mai_firr/stages.parquet",
+                  "sha256": "770246a2fbc53651075376c02bf896b91b60e62cd6d668468a8bab470d5958ac"
+                }
+              }
+            ],
+            "allocation": {
+              "schema_version": 1,
+              "purpose": "Prevent duplicated aggregate yield outcomes across irrigation exposures.",
+              "boundary": "Data-contract output only; no response coefficient or SCC use is authorized.",
+              "original_input_rows": 10976,
+              "original_outcome_keys": 5488,
+              "original_observed_outcomes": 0,
+              "input_rows": 8000,
+              "output_rows": 4000,
+              "outcome_keys": 4000,
+              "observed_outcomes": 0,
+              "irrigation_labels": [
+                "noirr",
+                "firr"
+              ],
+              "features": [
+                "stage1_tmean_c",
+                "stage1_tmax_29c_days",
+                "stage1_tmax_29c_degree_days",
+                "stage2_tmean_c",
+                "stage2_tmax_29c_days",
+                "stage2_tmax_29c_degree_days",
+                "stage3_tmean_c",
+                "stage3_tmax_29c_days",
+                "stage3_tmax_29c_degree_days"
+              ],
+              "weight_source_id": "MIRCA-OS_v2_March_2026_AHAG_30arcmin_2000",
+              "weight_vintage": "fixed_2000",
+              "weight_source_role": "independent_fixed_baseline_crop_area_share",
+              "weights_fixed_across_years": true,
+              "production_eligibility_required": true,
+              "season_specific_weights_required": true,
+              "missing_weight_policy": "exclude_entire_crop_grid_year_outcome_without_infill_or_renormalization",
+              "excluded_outcome_keys_missing_weight": 1488,
+              "excluded_observed_outcomes_missing_weight": 0,
+              "excluded_missing_weight_by_crop": {
+                "mai": {
+                  "outcome_keys": 1488,
+                  "observed_outcomes": 0,
+                  "grid_cells": 186
+                }
+              },
+              "one_row_per_outcome": true,
+              "scc_authorized": false
+            }
+          }
+        ],
+        "calendars": {
+          "ggcmi-crop-calendar-phase3_2015soc_mai_noirr.nc": "30aba2e000a712328bdfdd1c161c55390bcd6b34e876e92465b0972ac1361a1d039857a99926be9d73cc2baf0936ae10860e47823f8d67ad7e6fb284a1edbf1e",
+          "ggcmi-crop-calendar-phase3_2015soc_mai_firr.nc": "adf315cc07d478d106215407462ad11cfd2850fd2643a4193620de1fecf8b781c650bec7e814deb69d9b79be492bb1ef18b8a46a8e22826db7477b3d36dcba02"
+        },
+        "code_hashes": {
+          "extend_heat_cutout_two_crops.py": "0dadb00118cb37525a304f9dde8a7285f02a0f12986c97175ea54d14fd94953a",
+          "allocate_irrigation_heat_basis.py": "75a72c683ed19a6550101f0b49012062d55f873ecb55c953a79bd48476387701",
+          "allocate_outcome_exposures.py": "c76bf7b52a30c78668d1e684fa80b644c18793c6a4ed766392fc2fde16157b57",
+          "build_future_weighted_precipitation.py": "57f0c5bf23a35adbec515e3ae2d4476c9549c5d89b8efa1fec789783684742ca",
+          "build_crop_heat_features.py": "6d07c3a8605e4fcab73a950886a543987aaf75adcdb154adf83c391c498b1bdd",
+          "build_crop_stage_heat_features.py": "1457eb6cb53d46d73808cbb35ab4a102a616ae3ba595c0e9c71faef82484d57d"
+        },
+        "combined_pilot_output_bytes": 27275680,
+        "artifacts": {
+          "mai_IPSL-CM6A-LR_ssp585_joint_climate.parquet": "122e08cc2110f95df4517f064738fb9513f0631f786b6a5abdc4c76d70ad9e5f",
+          "mai_firr/season_heat.parquet": "f973040e9a34e8a4808f9863974db40853ad662941fe662f61905fde2d509409",
+          "mai_firr/stage_heat.parquet": "810738bd55bcdeca1bac731ef9de879b58d1a0a0c1e3456c2b784081ff3f59f4",
+          "mai_noirr/season_heat.parquet": "81889787d91a0f31deafc6e7a57f2b1d9a729d3501d952cf313ae5a5ae177bee",
+          "mai_noirr/stage_heat.parquet": "082d11fd89d974c5f9788c21e0cb9898707131b97f723bade398cb81e964de84"
+        }
+      }
+    },
+    {
+      "path": "data/interim/ipsl_ssp585_soy_heat30_20260908/receipt.json",
+      "sha256": "f60c3b88a1c7c4bc8a3feed9269705977a96078fd995f918dc8dd1fed9db61d9",
+      "content": {
+        "status": "joint_climate_inputs_validated",
+        "role": "joint_climate_inputs_only",
+        "crop_yield_estimated": false,
+        "causal_or_scc_result": false,
+        "new_downloads": 0,
+        "threshold_c": 30,
+        "requested_crops": [
+          "soy"
+        ],
+        "pilot_receipt_sha256": "87f5bdcdbbf399ab1c5f2d2e6bc82508d7c4913168a69741e52929d36ad47197",
+        "future_receipt_sha256": "a8973f354b5ab24f4c0f4c92d5c6fe6944ff0411a731f54b87c42262c84edf14",
+        "weight_sha256": "7512ffc580928a03f75bbce5f3d4263c9bb2c631a8ff04075973acb4b149e4ba",
+        "calendar_manifest_sha256": "7d637597f1836b41bd2faebdfa70a8ae67daf3a5faa179d32dd72dd11d7a1b3f",
+        "products": [
+          {
+            "crop": "soy",
+            "esm": "IPSL-CM6A-LR",
+            "member": "r1i1p1f1",
+            "scenario": "ssp585",
+            "years": [
+              2042,
+              2043,
+              2044,
+              2045,
+              2046,
+              2047,
+              2048,
+              2049
+            ],
+            "rows": 2616,
+            "cells": 327,
+            "path": "data/interim/ipsl_ssp585_soy_heat30_20260908/soy_IPSL-CM6A-LR_ssp585_joint_climate.parquet",
+            "sha256": "5fb6e5c2c8db70945c3f3766cf7d1228f7dc3c2b292172b10c6a73baf34df090",
+            "bytes": 335734,
+            "rainfall_sha256": "ba6a9fadfafa660add62e4f14610285f28555429f80b09cd48ab18565543e4a3",
+            "regime_sources": [
+              {
+                "season": {
+                  "path": "data/interim/isimip3b_ipsl_ssp585_2031_2060_contiguous_multicrop/soy_noirr/season.parquet",
+                  "sha256": "aafe5bdc74c8d6af8b20cf96f652450618fa9d09e15f43c78e9d368954525769"
+                },
+                "stages": {
+                  "path": "data/interim/isimip3b_ipsl_ssp585_2031_2060_contiguous_multicrop/soy_noirr/stages.parquet",
+                  "sha256": "4f7dac2517a373397832103b2df2470208cf165b4c922478e5aa6342b1c4163c"
+                }
+              },
+              {
+                "season": {
+                  "path": "data/interim/isimip3b_ipsl_ssp585_2031_2060_contiguous_multicrop/soy_firr/season.parquet",
+                  "sha256": "dd879397313548f38b5371232cf3ca11c1ab51bb6342cfdc3548b3a86c64204b"
+                },
+                "stages": {
+                  "path": "data/interim/isimip3b_ipsl_ssp585_2031_2060_contiguous_multicrop/soy_firr/stages.parquet",
+                  "sha256": "7a50ce156c11d5b5ab41a654c229030cf0420192e04258abddbe3206769dad84"
+                }
+              }
+            ],
+            "allocation": {
+              "schema_version": 1,
+              "purpose": "Prevent duplicated aggregate yield outcomes across irrigation exposures.",
+              "boundary": "Data-contract output only; no response coefficient or SCC use is authorized.",
+              "original_input_rows": 10976,
+              "original_outcome_keys": 5488,
+              "original_observed_outcomes": 0,
+              "input_rows": 5232,
+              "output_rows": 2616,
+              "outcome_keys": 2616,
+              "observed_outcomes": 0,
+              "irrigation_labels": [
+                "noirr",
+                "firr"
+              ],
+              "features": [
+                "stage1_tmean_c",
+                "stage1_tmax_30c_days",
+                "stage1_tmax_30c_degree_days",
+                "stage2_tmean_c",
+                "stage2_tmax_30c_days",
+                "stage2_tmax_30c_degree_days",
+                "stage3_tmean_c",
+                "stage3_tmax_30c_days",
+                "stage3_tmax_30c_degree_days"
+              ],
+              "weight_source_id": "MIRCA-OS_v2_March_2026_AHAG_30arcmin_2000",
+              "weight_vintage": "fixed_2000",
+              "weight_source_role": "independent_fixed_baseline_crop_area_share",
+              "weights_fixed_across_years": true,
+              "production_eligibility_required": true,
+              "season_specific_weights_required": true,
+              "missing_weight_policy": "exclude_entire_crop_grid_year_outcome_without_infill_or_renormalization",
+              "excluded_outcome_keys_missing_weight": 2872,
+              "excluded_observed_outcomes_missing_weight": 0,
+              "excluded_missing_weight_by_crop": {
+                "soy": {
+                  "outcome_keys": 2872,
+                  "observed_outcomes": 0,
+                  "grid_cells": 359
+                }
+              },
+              "one_row_per_outcome": true,
+              "scc_authorized": false
+            }
+          }
+        ],
+        "calendars": {
+          "ggcmi-crop-calendar-phase3_2015soc_soy_noirr.nc": "11e4bef2cd3e6716965bafd785e37f9293c48305d4cf91340b61e5f8baa37d0cc008624158a6c0797e1cf498b0833ca5e657519da763f7d32ff850936f1130c2",
+          "ggcmi-crop-calendar-phase3_2015soc_soy_firr.nc": "4cf1492d9a331e40e55633f2d36ea15067f9d4cff3cb69e18ace85e2b0c5ded1f39da166315ed4e3ce93079c3596f6ad35b0c33fed0e4833d9347c3f878cda88"
+        },
+        "code_hashes": {
+          "extend_heat_cutout_two_crops.py": "0dadb00118cb37525a304f9dde8a7285f02a0f12986c97175ea54d14fd94953a",
+          "allocate_irrigation_heat_basis.py": "75a72c683ed19a6550101f0b49012062d55f873ecb55c953a79bd48476387701",
+          "allocate_outcome_exposures.py": "c76bf7b52a30c78668d1e684fa80b644c18793c6a4ed766392fc2fde16157b57",
+          "build_future_weighted_precipitation.py": "57f0c5bf23a35adbec515e3ae2d4476c9549c5d89b8efa1fec789783684742ca",
+          "build_crop_heat_features.py": "6d07c3a8605e4fcab73a950886a543987aaf75adcdb154adf83c391c498b1bdd",
+          "build_crop_stage_heat_features.py": "1457eb6cb53d46d73808cbb35ab4a102a616ae3ba595c0e9c71faef82484d57d"
+        },
+        "combined_pilot_output_bytes": 28458425,
+        "artifacts": {
+          "soy_IPSL-CM6A-LR_ssp585_joint_climate.parquet": "5fb6e5c2c8db70945c3f3766cf7d1228f7dc3c2b292172b10c6a73baf34df090",
+          "soy_firr/season_heat.parquet": "ef9713ceda22689cf420c6d05e9c3973431e74edfea539bbf1e5d2053cfc19b7",
+          "soy_firr/stage_heat.parquet": "2bc36775b09a0c3850420777abf713f3e4fe16ea3a2163dc5a0a061d340b577a",
+          "soy_noirr/season_heat.parquet": "d43c5283b038c5a40ccf8d1a9473c3c76f06f7376cca938f510babde25757cb8",
+          "soy_noirr/stage_heat.parquet": "ac034c62faeffc3b79656e704b373fc1eb532d05e34d81e38da47d5541ba1009"
+        }
+      }
+    },
+    {
+      "path": "data/interim/ipsl_ssp585_heat_cutout_20260908/paired_climate_comparison.json",
+      "sha256": "37fd71049d361d898044d8502cee455180ae8eb5e97a9d92543acebf5ffe25d7",
+      "content": {
+        "role": "matched_SSP585_minus_SSP126_climate_inputs_only",
+        "causal_or_scc_result": false,
+        "crop_yield_estimated": false,
+        "geographic_scope": "39.25/39.75N only; not global or country-representative",
+        "dispersion_is_not_confidence_interval": true,
+        "years": [
+          2042,
+          2043,
+          2044,
+          2045,
+          2046,
+          2047,
+          2048,
+          2049
+        ],
+        "comparisons": [
+          {
+            "crop": "mai",
+            "esm": "IPSL-CM6A-LR",
+            "member": "r1i1p1f1",
+            "threshold_c": 29,
+            "source_receipts": [
+              {
+                "receipt_path": "data/interim/ipsl_ssp126_maize_heat29_20260908/receipt.json",
+                "receipt_sha256": "763754711db6f175520bf806250c486f5fa2934bea50fa02b3f23da0e982f3c5",
+                "product_path": "data/interim/ipsl_ssp126_maize_heat29_20260908/mai_IPSL-CM6A-LR_ssp126_joint_climate.parquet",
+                "product_sha256": "2a180a194ea99d59cc67c8a8846cb4aa2b9027087accabd8f1112b15d2ecd0ef"
+              },
+              {
+                "receipt_path": "data/interim/ipsl_ssp585_maize_heat29_20260908/receipt.json",
+                "receipt_sha256": "a0eff56abcfa6d4a02c850d65b19d776137648ed64069f63a79c9ed2d44cd909",
+                "product_path": "data/interim/ipsl_ssp585_maize_heat29_20260908/mai_IPSL-CM6A-LR_ssp585_joint_climate.parquet",
+                "product_sha256": "122e08cc2110f95df4517f064738fb9513f0631f786b6a5abdc4c76d70ad9e5f"
+              }
+            ],
+            "weight_sha256": "7512ffc580928a03f75bbce5f3d4263c9bb2c631a8ff04075973acb4b149e4ba",
+            "paired_crop_years": 4000,
+            "cells": 500,
+            "features": {
+              "precip_mm": {
+                "equal_cell_mean": 22.630304544929555,
+                "cell_p10": -21.50141767757014,
+                "cell_p90": 76.80683132614942,
+                "cells_positive": 391,
+                "cells_negative": 109,
+                "cells_zero": 0
+              },
+              "log1p_precip_mm": {
+                "equal_cell_mean": 0.11929479359211628,
+                "cell_p10": -0.09855766088964019,
+                "cell_p90": 0.3712903653106823,
+                "cells_positive": 369,
+                "cells_negative": 131,
+                "cells_zero": 0
+              },
+              "cdd_max_days": {
+                "equal_cell_mean": -1.3309279999504455,
+                "cell_p10": -9.249999999999998,
+                "cell_p90": 5.875,
+                "cells_positive": 197,
+                "cells_negative": 300,
+                "cells_zero": 3
+              },
+              "rx5day_mm": {
+                "equal_cell_mean": 3.5298094105234603,
+                "cell_p10": -8.049132621474563,
+                "cell_p90": 16.906387302838265,
+                "cells_positive": 314,
+                "cells_negative": 186,
+                "cells_zero": 0
+              },
+              "stage1_tmean_c": {
+                "equal_cell_mean": 0.4813816448213026,
+                "cell_p10": -0.25340549945831337,
+                "cell_p90": 1.3890478968620301,
+                "cells_positive": 378,
+                "cells_negative": 122,
+                "cells_zero": 0
+              },
+              "stage1_tmax_29c_days": {
+                "equal_cell_mean": 0.9601861554124479,
+                "cell_p10": -0.75,
+                "cell_p90": 3.25,
+                "cells_positive": 323,
+                "cells_negative": 114,
+                "cells_zero": 63
+              },
+              "stage1_tmax_29c_degree_days": {
+                "equal_cell_mean": 2.549332001579695,
+                "cell_p10": -6.084854888916015,
+                "cell_p90": 13.828325465886468,
+                "cells_positive": 287,
+                "cells_negative": 166,
+                "cells_zero": 47
+              },
+              "stage2_tmean_c": {
+                "equal_cell_mean": 0.4740156263520294,
+                "cell_p10": -0.165210469055809,
+                "cell_p90": 0.9473675012588506,
+                "cells_positive": 410,
+                "cells_negative": 90,
+                "cells_zero": 0
+              },
+              "stage2_tmax_29c_days": {
+                "equal_cell_mean": 1.0056122193542953,
+                "cell_p10": -1.511669058877329,
+                "cell_p90": 4.5,
+                "cells_positive": 322,
+                "cells_negative": 149,
+                "cells_zero": 29
+              },
+              "stage2_tmax_29c_degree_days": {
+                "equal_cell_mean": 12.155353801999244,
+                "cell_p10": -19.48426838041344,
+                "cell_p90": 46.35683937072754,
+                "cells_positive": 342,
+                "cells_negative": 145,
+                "cells_zero": 13
+              },
+              "stage3_tmean_c": {
+                "equal_cell_mean": 0.7594007021805697,
+                "cell_p10": 0.219363808631897,
+                "cell_p90": 1.352472494377694,
+                "cells_positive": 462,
+                "cells_negative": 38,
+                "cells_zero": 0
+              },
+              "stage3_tmax_29c_days": {
+                "equal_cell_mean": 1.8713536719860826,
+                "cell_p10": -0.625,
+                "cell_p90": 4.995597409567938,
+                "cells_positive": 374,
+                "cells_negative": 96,
+                "cells_zero": 30
+              },
+              "stage3_tmax_29c_degree_days": {
+                "equal_cell_mean": 17.415387053782524,
+                "cell_p10": -4.263017654418944,
+                "cell_p90": 40.11931228637697,
+                "cells_positive": 413,
+                "cells_negative": 77,
+                "cells_zero": 10
+              }
+            }
+          },
+          {
+            "crop": "soy",
+            "esm": "IPSL-CM6A-LR",
+            "member": "r1i1p1f1",
+            "threshold_c": 30,
+            "source_receipts": [
+              {
+                "receipt_path": "data/interim/ipsl_ssp126_soy_heat30_20260908/receipt.json",
+                "receipt_sha256": "247668cbc0516419cebbe2c939a4620370b8c6e6805efd0677c9d78dc4049f26",
+                "product_path": "data/interim/ipsl_ssp126_soy_heat30_20260908/soy_IPSL-CM6A-LR_ssp126_joint_climate.parquet",
+                "product_sha256": "103b967591ddc015a125c143a0994136337f9661bee20091119f1678fc051e91"
+              },
+              {
+                "receipt_path": "data/interim/ipsl_ssp585_soy_heat30_20260908/receipt.json",
+                "receipt_sha256": "f60c3b88a1c7c4bc8a3feed9269705977a96078fd995f918dc8dd1fed9db61d9",
+                "product_path": "data/interim/ipsl_ssp585_soy_heat30_20260908/soy_IPSL-CM6A-LR_ssp585_joint_climate.parquet",
+                "product_sha256": "5fb6e5c2c8db70945c3f3766cf7d1228f7dc3c2b292172b10c6a73baf34df090"
+              }
+            ],
+            "weight_sha256": "7512ffc580928a03f75bbce5f3d4263c9bb2c631a8ff04075973acb4b149e4ba",
+            "paired_crop_years": 2616,
+            "cells": 327,
+            "features": {
+              "precip_mm": {
+                "equal_cell_mean": 26.227928946794922,
+                "cell_p10": -22.353890880045803,
+                "cell_p90": 88.71311696413903,
+                "cells_positive": 236,
+                "cells_negative": 91,
+                "cells_zero": 0
+              },
+              "log1p_precip_mm": {
+                "equal_cell_mean": 0.059179838296380446,
+                "cell_p10": -0.18055788369205053,
+                "cell_p90": 0.31115160392803987,
+                "cells_positive": 216,
+                "cells_negative": 111,
+                "cells_zero": 0
+              },
+              "cdd_max_days": {
+                "equal_cell_mean": -0.37978665986645277,
+                "cell_p10": -4.8500000000000005,
+                "cell_p90": 4.425000000000004,
+                "cells_positive": 145,
+                "cells_negative": 180,
+                "cells_zero": 2
+              },
+              "rx5day_mm": {
+                "equal_cell_mean": 3.749971325073071,
+                "cell_p10": -12.197738796187826,
+                "cell_p90": 20.85088624872662,
+                "cells_positive": 193,
+                "cells_negative": 134,
+                "cells_zero": 0
+              },
+              "stage1_tmean_c": {
+                "equal_cell_mean": 0.2549136412284677,
+                "cell_p10": -0.5908275604248048,
+                "cell_p90": 0.9942639827728272,
+                "cells_positive": 207,
+                "cells_negative": 120,
+                "cells_zero": 0
+              },
+              "stage1_tmax_30c_days": {
+                "equal_cell_mean": 0.3346489336107575,
+                "cell_p10": -1.875,
+                "cell_p90": 2.0717396130377117,
+                "cells_positive": 206,
+                "cells_negative": 85,
+                "cells_zero": 36
+              },
+              "stage1_tmax_30c_degree_days": {
+                "equal_cell_mean": -2.3554403231971586,
+                "cell_p10": -17.142724609374998,
+                "cell_p90": 10.255314636230505,
+                "cells_positive": 171,
+                "cells_negative": 124,
+                "cells_zero": 32
+              },
+              "stage2_tmean_c": {
+                "equal_cell_mean": 0.4642143119967441,
+                "cell_p10": -0.11969079971313476,
+                "cell_p90": 0.9121972084045412,
+                "cells_positive": 275,
+                "cells_negative": 52,
+                "cells_zero": 0
+              },
+              "stage2_tmax_30c_days": {
+                "equal_cell_mean": 1.0741923986066066,
+                "cell_p10": -1.9229000883113216,
+                "cell_p90": 4.920666876248942,
+                "cells_positive": 200,
+                "cells_negative": 107,
+                "cells_zero": 20
+              },
+              "stage2_tmax_30c_degree_days": {
+                "equal_cell_mean": 12.665893472304186,
+                "cell_p10": -13.076145142817214,
+                "cell_p90": 41.15631720458457,
+                "cells_positive": 227,
+                "cells_negative": 85,
+                "cells_zero": 15
+              },
+              "stage3_tmean_c": {
+                "equal_cell_mean": 0.8654539860730838,
+                "cell_p10": 0.4220853326401704,
+                "cell_p90": 1.3823646068573,
+                "cells_positive": 326,
+                "cells_negative": 1,
+                "cells_zero": 0
+              },
+              "stage3_tmax_30c_days": {
+                "equal_cell_mean": 2.3607990470524447,
+                "cell_p10": 0.0,
+                "cell_p90": 4.799007733372218,
+                "cells_positive": 278,
+                "cells_negative": 25,
+                "cells_zero": 24
+              },
+              "stage3_tmax_30c_degree_days": {
+                "equal_cell_mean": 15.308523158268468,
+                "cell_p10": 0.0,
+                "cell_p90": 32.00997231118558,
+                "cells_positive": 293,
+                "cells_negative": 15,
+                "cells_zero": 19
+              }
+            }
+          }
+        ],
+        "protocol_sha256": "e87120a3298389f05873cf38b56df1b158c8769a64a2d4c37fd5894d4fbeb75d",
+        "code_sha256": "18f522d6d8d3da1ceaa4004a3e2feae535e83132756825dad4d039274f31f1f5",
+        "pairs_config_sha256": "ea243cd4fa6853ff875e51271aa30b4d882f78380ac11f1bec987c646c18c839"
+      }
+    },
+    {
+      "path": "data/interim/ipsl_ssp585_heat_cutout_20260908/precipitation_window_sensitivity.json",
+      "sha256": "e2a6b7961856bc3835a4000078aa0e615df3f39152aba608ee98fa9581511a0a",
+      "content": {
+        "role": "post_disagreement_exploratory_window_sensitivity",
+        "causal_or_scc_result": false,
+        "parent_sha256": "a8973f354b5ab24f4c0f4c92d5c6fe6944ff0411a731f54b87c42262c84edf14",
+        "protocol_sha256": "34189d7e8da0097b67307409c82f38845ced67614f5db46dbb5c4d4af212d277",
+        "code_sha256": "34a7bbe49975e40b78f9f49b171333f0c6d128cfceee098de541225b4b39103e",
+        "comparisons": [
+          {
+            "crop": "mai",
+            "esm": "GFDL-ESM4",
+            "input_hashes": [
+              "f64c785bc17264c5c6303f12d81c93d2118edf59889ad4a36a609e56b609d19c",
+              "04dd20215bb7a89e57eae4e773306ea025b83571ca6f6551af81cce47d95a3e8"
+            ],
+            "windows": [
+              {
+                "year_start": 2032,
+                "year_end": 2039,
+                "cells": 500,
+                "features": {
+                  "precip_mm": {
+                    "mean": -28.13471225954129,
+                    "cell_p10": -114.15146409175296,
+                    "cell_p90": 27.143799521680922
+                  },
+                  "log1p_precip_mm": {
+                    "mean": -0.07861417226094748,
+                    "cell_p10": -0.3534871567800945,
+                    "cell_p90": 0.22760690183767798
+                  },
+                  "cdd_max_days": {
+                    "mean": 2.354690690745014,
+                    "cell_p10": -4.875,
+                    "cell_p90": 11.137500000000003
+                  },
+                  "rx5day_mm": {
+                    "mean": -6.109278859479932,
+                    "cell_p10": -25.93343839154457,
+                    "cell_p90": 7.9152067970942666
+                  }
+                }
+              },
+              {
+                "year_start": 2042,
+                "year_end": 2049,
+                "cells": 500,
+                "features": {
+                  "precip_mm": {
+                    "mean": -9.855590228884388,
+                    "cell_p10": -89.21359801601783,
+                    "cell_p90": 34.03432905562222
+                  },
+                  "log1p_precip_mm": {
+                    "mean": -0.02289112050235134,
+                    "cell_p10": -0.3067164623455659,
+                    "cell_p90": 0.21570520026536508
+                  },
+                  "cdd_max_days": {
+                    "mean": 0.8461111947912404,
+                    "cell_p10": -5.512499999999999,
+                    "cell_p90": 7.875
+                  },
+                  "rx5day_mm": {
+                    "mean": -2.028618337157311,
+                    "cell_p10": -19.501157550844525,
+                    "cell_p90": 11.387270350567999
+                  }
+                }
+              },
+              {
+                "year_start": 2052,
+                "year_end": 2059,
+                "cells": 500,
+                "features": {
+                  "precip_mm": {
+                    "mean": -23.86693596681379,
+                    "cell_p10": -70.09511276806401,
+                    "cell_p90": 19.532125878054657
+                  },
+                  "log1p_precip_mm": {
+                    "mean": -0.16541710596096243,
+                    "cell_p10": -0.4429976157738805,
+                    "cell_p90": 0.08306670144490527
+                  },
+                  "cdd_max_days": {
+                    "mean": 1.331528396547973,
+                    "cell_p10": -5.5,
+                    "cell_p90": 10.510872651256443
+                  },
+                  "rx5day_mm": {
+                    "mean": -4.285434056821716,
+                    "cell_p10": -16.593691605422645,
+                    "cell_p90": 8.953301611728962
+                  }
+                }
+              }
+            ],
+            "retained_28year_reference": {
+              "crop": "mai",
+              "esm": "GFDL-ESM4",
+              "reference_scenario": "ssp126",
+              "candidate_scenario": "ssp585",
+              "cells": 500,
+              "shape_cells": 495,
+              "shape_excluded_cells": 5,
+              "features": {
+                "log1p_precip_mm": {
+                  "mean": -0.09857679353453404,
+                  "cell_p10": -0.22625614675396744,
+                  "cell_p90": 0.03962609698147801
+                },
+                "stage1_precip_share": {
+                  "mean": 0.012469469542100722,
+                  "cell_p10": -0.03999798071227397,
+                  "cell_p90": 0.05806420129511426
+                },
+                "stage2_precip_share": {
+                  "mean": -0.0092012692673059,
+                  "cell_p10": -0.05847886278083476,
+                  "cell_p90": 0.0402503789951884
+                },
+                "cdd_max_days": {
+                  "mean": 1.716028103526801,
+                  "cell_p10": -1.682142857142857,
+                  "cell_p90": 6.253571428571429
+                },
+                "rx5day_mm": {
+                  "mean": -4.27243145989006,
+                  "cell_p10": -13.961152061287846,
+                  "cell_p90": 2.6756169679578843
+                },
+                "precipitation_concentration_hhi": {
+                  "mean": 0.005020422235758783,
+                  "cell_p10": -0.02149030983459061,
+                  "cell_p90": 0.035484054128343726
+                },
+                "stage3_precip_share": {
+                  "mean": -0.003268200274794823,
+                  "cell_p10": -0.04298247672166416,
+                  "cell_p90": 0.043373803759556386
+                },
+                "precip_mm": {
+                  "mean": -23.996880143429408,
+                  "cell_p10": -79.92741536668237,
+                  "cell_p90": 9.176558827582221
+                },
+                "stage1_tmean_c": {
+                  "mean": 0.4329920275248047,
+                  "cell_p10": 0.03990331159456373,
+                  "cell_p90": 0.8469989231654576
+                },
+                "stage2_tmean_c": {
+                  "mean": 0.6872310704450201,
+                  "cell_p10": 0.15198872429983926,
+                  "cell_p90": 1.3579842976161414
+                },
+                "stage3_tmean_c": {
+                  "mean": 0.756495908874802,
+                  "cell_p10": 0.22258880819593163,
+                  "cell_p90": 1.3166535471388308
+                }
+              }
+            },
+            "joint_reference": {
+              "path": "data/interim/ssp585_heat_cutout_20260908/paired_climate_comparison.json",
+              "sha256": "3fced801e68c0e967b5ae6621b991e08dad59739c3596e49c78b5e965929be1a"
+            }
+          },
+          {
+            "crop": "mai",
+            "esm": "IPSL-CM6A-LR",
+            "input_hashes": [
+              "ac83f9939fca1b3da02e74d538f1cc5128d89098d2dc626a237388032fcef937",
+              "b696ee20e12b8a52fbb566f7bfd3545438e1851c7f26b32f118264d2929b6d34"
+            ],
+            "windows": [
+              {
+                "year_start": 2032,
+                "year_end": 2039,
+                "cells": 500,
+                "features": {
+                  "precip_mm": {
+                    "mean": -14.677739786884969,
+                    "cell_p10": -59.16569307679308,
+                    "cell_p90": 21.119776210002605
+                  },
+                  "log1p_precip_mm": {
+                    "mean": -0.048416506248169525,
+                    "cell_p10": -0.22608220745956872,
+                    "cell_p90": 0.15779352598499924
+                  },
+                  "cdd_max_days": {
+                    "mean": 0.24181032991221804,
+                    "cell_p10": -7.262499999999999,
+                    "cell_p90": 6.400000000000006
+                  },
+                  "rx5day_mm": {
+                    "mean": -1.1983685068318892,
+                    "cell_p10": -16.01396339982748,
+                    "cell_p90": 11.141689751856031
+                  }
+                }
+              },
+              {
+                "year_start": 2042,
+                "year_end": 2049,
+                "cells": 500,
+                "features": {
+                  "precip_mm": {
+                    "mean": 22.630304544929555,
+                    "cell_p10": -21.50141767757014,
+                    "cell_p90": 76.80683132614942
+                  },
+                  "log1p_precip_mm": {
+                    "mean": 0.11929479359211628,
+                    "cell_p10": -0.09855766088964019,
+                    "cell_p90": 0.3712903653106823
+                  },
+                  "cdd_max_days": {
+                    "mean": -1.3309279999504455,
+                    "cell_p10": -9.249999999999998,
+                    "cell_p90": 5.875
+                  },
+                  "rx5day_mm": {
+                    "mean": 3.5298094105234603,
+                    "cell_p10": -8.049132621474563,
+                    "cell_p90": 16.906387302838265
+                  }
+                }
+              },
+              {
+                "year_start": 2052,
+                "year_end": 2059,
+                "cells": 500,
+                "features": {
+                  "precip_mm": {
+                    "mean": -9.491793032358437,
+                    "cell_p10": -60.091073353681715,
+                    "cell_p90": 29.523982192575957
+                  },
+                  "log1p_precip_mm": {
+                    "mean": -0.059464056468840724,
+                    "cell_p10": -0.28677300904623915,
+                    "cell_p90": 0.17963506491587283
+                  },
+                  "cdd_max_days": {
+                    "mean": 1.363070508844503,
+                    "cell_p10": -4.137499999999999,
+                    "cell_p90": 9.0
+                  },
+                  "rx5day_mm": {
+                    "mean": -4.529087128722887,
+                    "cell_p10": -20.657387094199656,
+                    "cell_p90": 8.528592816182135
+                  }
+                }
+              }
+            ],
+            "retained_28year_reference": {
+              "crop": "mai",
+              "esm": "IPSL-CM6A-LR",
+              "reference_scenario": "ssp126",
+              "candidate_scenario": "ssp585",
+              "cells": 500,
+              "shape_cells": 494,
+              "shape_excluded_cells": 6,
+              "features": {
+                "log1p_precip_mm": {
+                  "mean": -0.01021622900175216,
+                  "cell_p10": -0.12841478090207914,
+                  "cell_p90": 0.09550503006028264
+                },
+                "stage1_precip_share": {
+                  "mean": -0.002000798970679517,
+                  "cell_p10": -0.06641819889619394,
+                  "cell_p90": 0.05074855439161387
+                },
+                "stage2_precip_share": {
+                  "mean": 0.0026246011941177113,
+                  "cell_p10": -0.04725039502165932,
+                  "cell_p90": 0.06904716407321637
+                },
+                "cdd_max_days": {
+                  "mean": 0.22257749605757493,
+                  "cell_p10": -3.392857142857143,
+                  "cell_p90": 5.428571428571429
+                },
+                "rx5day_mm": {
+                  "mean": -1.2031808009916998,
+                  "cell_p10": -8.646188447837318,
+                  "cell_p90": 4.37797934574034
+                },
+                "precipitation_concentration_hhi": {
+                  "mean": -0.0056737186183387885,
+                  "cell_p10": -0.0338779496820943,
+                  "cell_p90": 0.023680048447688257
+                },
+                "stage3_precip_share": {
+                  "mean": -0.0006238022234381932,
+                  "cell_p10": -0.04339146722509766,
+                  "cell_p90": 0.0424982807416212
+                },
+                "precip_mm": {
+                  "mean": -3.496725269862418,
+                  "cell_p10": -25.30127065418554,
+                  "cell_p90": 15.040861048629244
+                },
+                "stage1_tmean_c": {
+                  "mean": 0.6568336740896207,
+                  "cell_p10": 0.31518588406699044,
+                  "cell_p90": 0.9937392439161032
+                },
+                "stage2_tmean_c": {
+                  "mean": 0.7614686946864153,
+                  "cell_p10": 0.39718703542436873,
+                  "cell_p90": 1.1924620214230217
+                },
+                "stage3_tmean_c": {
+                  "mean": 0.9642195190132203,
+                  "cell_p10": 0.5509101728680583,
+                  "cell_p90": 1.3176033564976284
+                }
+              }
+            },
+            "joint_reference": {
+              "path": "data/interim/ipsl_ssp585_heat_cutout_20260908/paired_climate_comparison.json",
+              "sha256": "37fd71049d361d898044d8502cee455180ae8eb5e97a9d92543acebf5ffe25d7"
+            }
+          },
+          {
+            "crop": "mai",
+            "esm": "MPI-ESM1-2-HR",
+            "input_hashes": [
+              "694ae3a2de2a3ab6973eb0a7d502178793d372fecf14ec2e437b49bada87d9e1",
+              "48a3fd1caa623675a9dfe9b69701ce6a65fcfa12781a01caa138c76f54974cc5"
+            ],
+            "windows": [
+              {
+                "year_start": 2032,
+                "year_end": 2039,
+                "cells": 500,
+                "features": {
+                  "precip_mm": {
+                    "mean": -18.95920704449261,
+                    "cell_p10": -68.08871307950467,
+                    "cell_p90": 20.55155647667125
+                  },
+                  "log1p_precip_mm": {
+                    "mean": -0.06222090875219863,
+                    "cell_p10": -0.2743809563215666,
+                    "cell_p90": 0.18201925740089195
+                  },
+                  "cdd_max_days": {
+                    "mean": 1.3382039997243642,
+                    "cell_p10": -6.387499999999998,
+                    "cell_p90": 8.762500000000003
+                  },
+                  "rx5day_mm": {
+                    "mean": 0.0755838115377356,
+                    "cell_p10": -10.749460802040991,
+                    "cell_p90": 13.92513506570832
+                  }
+                }
+              },
+              {
+                "year_start": 2042,
+                "year_end": 2049,
+                "cells": 500,
+                "features": {
+                  "precip_mm": {
+                    "mean": 22.902541380568515,
+                    "cell_p10": -24.871695234412623,
+                    "cell_p90": 77.30960102570027
+                  },
+                  "log1p_precip_mm": {
+                    "mean": 0.13336260667063662,
+                    "cell_p10": -0.14415888623969708,
+                    "cell_p90": 0.45315723271193437
+                  },
+                  "cdd_max_days": {
+                    "mean": -0.8833590411932987,
+                    "cell_p10": -10.75,
+                    "cell_p90": 5.874999999999999
+                  },
+                  "rx5day_mm": {
+                    "mean": 8.476878746675032,
+                    "cell_p10": -8.268086073640733,
+                    "cell_p90": 24.47443761918694
+                  }
+                }
+              },
+              {
+                "year_start": 2052,
+                "year_end": 2059,
+                "cells": 500,
+                "features": {
+                  "precip_mm": {
+                    "mean": -12.724234674323302,
+                    "cell_p10": -55.61478959176859,
+                    "cell_p90": 29.230960543275415
+                  },
+                  "log1p_precip_mm": {
+                    "mean": -0.12140494646421682,
+                    "cell_p10": -0.4444048969957403,
+                    "cell_p90": 0.141714150362992
+                  },
+                  "cdd_max_days": {
+                    "mean": 2.7378449134280443,
+                    "cell_p10": -3.5124999999999993,
+                    "cell_p90": 10.749999999999996
+                  },
+                  "rx5day_mm": {
+                    "mean": -0.01889675768835612,
+                    "cell_p10": -14.090407231915743,
+                    "cell_p90": 13.539652218576531
+                  }
+                }
+              }
+            ],
+            "retained_28year_reference": {
+              "crop": "mai",
+              "esm": "MPI-ESM1-2-HR",
+              "reference_scenario": "ssp126",
+              "candidate_scenario": "ssp585",
+              "cells": 500,
+              "shape_cells": 494,
+              "shape_excluded_cells": 6,
+              "features": {
+                "log1p_precip_mm": {
+                  "mean": -0.042161203581249126,
+                  "cell_p10": -0.20454003386361272,
+                  "cell_p90": 0.07231816917542698
+                },
+                "stage1_precip_share": {
+                  "mean": -0.01563140864304638,
+                  "cell_p10": -0.0790137780107099,
+                  "cell_p90": 0.04323307446663927
+                },
+                "stage2_precip_share": {
+                  "mean": 0.0029340893434895853,
+                  "cell_p10": -0.055586264792501006,
+                  "cell_p90": 0.05459396125629944
+                },
+                "cdd_max_days": {
+                  "mean": 1.3400002408879896,
+                  "cell_p10": -2.539285714285714,
+                  "cell_p90": 5.728571428571432
+                },
+                "rx5day_mm": {
+                  "mean": 0.9666503054136595,
+                  "cell_p10": -6.9026485085753455,
+                  "cell_p90": 8.655549661282985
+                },
+                "precipitation_concentration_hhi": {
+                  "mean": -0.0005629994829127897,
+                  "cell_p10": -0.034395073062761544,
+                  "cell_p90": 0.0325465841116601
+                },
+                "stage3_precip_share": {
+                  "mean": 0.012697319299556795,
+                  "cell_p10": -0.04058112767905556,
+                  "cell_p90": 0.06770705513674495
+                },
+                "precip_mm": {
+                  "mean": -6.950439401012762,
+                  "cell_p10": -28.34031113947609,
+                  "cell_p90": 11.957403589590983
+                },
+                "stage1_tmean_c": {
+                  "mean": 0.5231889460212501,
+                  "cell_p10": 0.10957687411989483,
+                  "cell_p90": 0.9844027485166278
+                },
+                "stage2_tmean_c": {
+                  "mean": 0.6068697753857091,
+                  "cell_p10": 0.23342985425676643,
+                  "cell_p90": 0.9567201989037649
+                },
+                "stage3_tmean_c": {
+                  "mean": 0.557778989100492,
+                  "cell_p10": 0.2268350683758229,
+                  "cell_p90": 0.9238104854311264
+                }
+              }
+            }
+          },
+          {
+            "crop": "soy",
+            "esm": "GFDL-ESM4",
+            "input_hashes": [
+              "57fe15b0aa98d53a8e59c42e3c1eb48aac3fadc4f48625f564a8f14c7f2cdbf9",
+              "00098fa5e5517de2fc13cd3e38ba7522b34cc23429b326ee6d163bdde33a372f"
+            ],
+            "windows": [
+              {
+                "year_start": 2032,
+                "year_end": 2039,
+                "cells": 327,
+                "features": {
+                  "precip_mm": {
+                    "mean": -36.275560213773176,
+                    "cell_p10": -127.69651944890374,
+                    "cell_p90": 29.14345648884774
+                  },
+                  "log1p_precip_mm": {
+                    "mean": -0.09076284205935319,
+                    "cell_p10": -0.3520166261259036,
+                    "cell_p90": 0.2130200261717125
+                  },
+                  "cdd_max_days": {
+                    "mean": 0.8164076514738667,
+                    "cell_p10": -4.925000000000001,
+                    "cell_p90": 5.75
+                  },
+                  "rx5day_mm": {
+                    "mean": -10.037334244297028,
+                    "cell_p10": -34.58530918090625,
+                    "cell_p90": 6.517538382112999
+                  }
+                }
+              },
+              {
+                "year_start": 2042,
+                "year_end": 2049,
+                "cells": 327,
+                "features": {
+                  "precip_mm": {
+                    "mean": -19.976807626123197,
+                    "cell_p10": -105.7440352866723,
+                    "cell_p90": 22.848036403767782
+                  },
+                  "log1p_precip_mm": {
+                    "mean": -0.05163788359558421,
+                    "cell_p10": -0.2488259867685397,
+                    "cell_p90": 0.1364178268885664
+                  },
+                  "cdd_max_days": {
+                    "mean": 1.0452454764697159,
+                    "cell_p10": -3.8,
+                    "cell_p90": 6.925000000000004
+                  },
+                  "rx5day_mm": {
+                    "mean": -3.997766324922754,
+                    "cell_p10": -27.39995644615743,
+                    "cell_p90": 12.597577242634312
+                  }
+                }
+              },
+              {
+                "year_start": 2052,
+                "year_end": 2059,
+                "cells": 327,
+                "features": {
+                  "precip_mm": {
+                    "mean": -25.07807878684121,
+                    "cell_p10": -86.87704296586554,
+                    "cell_p90": 36.76257458254701
+                  },
+                  "log1p_precip_mm": {
+                    "mean": -0.11377267852814023,
+                    "cell_p10": -0.34431121269155424,
+                    "cell_p90": 0.10211344495493123
+                  },
+                  "cdd_max_days": {
+                    "mean": 0.7778262443011403,
+                    "cell_p10": -4.175,
+                    "cell_p90": 7.053947362229439
+                  },
+                  "rx5day_mm": {
+                    "mean": -3.2283706366191063,
+                    "cell_p10": -17.88440461107524,
+                    "cell_p90": 11.762190998345629
+                  }
+                }
+              }
+            ],
+            "retained_28year_reference": {
+              "crop": "soy",
+              "esm": "GFDL-ESM4",
+              "reference_scenario": "ssp126",
+              "candidate_scenario": "ssp585",
+              "cells": 327,
+              "shape_cells": 327,
+              "shape_excluded_cells": 0,
+              "features": {
+                "log1p_precip_mm": {
+                  "mean": -0.10768021017592616,
+                  "cell_p10": -0.2148626206031426,
+                  "cell_p90": 0.016064837599335233
+                },
+                "stage1_precip_share": {
+                  "mean": -0.001808190747928039,
+                  "cell_p10": -0.0471002187540062,
+                  "cell_p90": 0.03530326243545021
+                },
+                "stage2_precip_share": {
+                  "mean": -0.004828668347187819,
+                  "cell_p10": -0.05444977620201036,
+                  "cell_p90": 0.045520978326466406
+                },
+                "cdd_max_days": {
+                  "mean": 1.1959621506993252,
+                  "cell_p10": -1.1428571428571428,
+                  "cell_p90": 4.607142857142857
+                },
+                "rx5day_mm": {
+                  "mean": -6.099241360195993,
+                  "cell_p10": -16.330258774521802,
+                  "cell_p90": 1.7140730001564548
+                },
+                "precipitation_concentration_hhi": {
+                  "mean": 0.002387469821344485,
+                  "cell_p10": -0.021887115805888195,
+                  "cell_p90": 0.02805402193457838
+                },
+                "stage3_precip_share": {
+                  "mean": 0.006636859095115857,
+                  "cell_p10": -0.03151250394726265,
+                  "cell_p90": 0.05213301785468911
+                },
+                "precip_mm": {
+                  "mean": -31.74311473651487,
+                  "cell_p10": -87.19351978745979,
+                  "cell_p90": 2.852615434889286
+                },
+                "stage1_tmean_c": {
+                  "mean": 0.5108616156049185,
+                  "cell_p10": 0.0070350000513350955,
+                  "cell_p90": 0.9325464112418049
+                },
+                "stage2_tmean_c": {
+                  "mean": 0.6738258589218284,
+                  "cell_p10": 0.1368595532008582,
+                  "cell_p90": 1.2968700340815955
+                },
+                "stage3_tmean_c": {
+                  "mean": 0.7393080373345523,
+                  "cell_p10": 0.32399934301729655,
+                  "cell_p90": 1.3114893504551486
+                }
+              }
+            },
+            "joint_reference": {
+              "path": "data/interim/ssp585_heat_cutout_20260908/paired_climate_comparison.json",
+              "sha256": "3fced801e68c0e967b5ae6621b991e08dad59739c3596e49c78b5e965929be1a"
+            }
+          },
+          {
+            "crop": "soy",
+            "esm": "IPSL-CM6A-LR",
+            "input_hashes": [
+              "dc8d72c9817924f3bad4243e6e019fbcadd1dc2de94c31a8c3b1375aadc4a699",
+              "ba6a9fadfafa660add62e4f14610285f28555429f80b09cd48ab18565543e4a3"
+            ],
+            "windows": [
+              {
+                "year_start": 2032,
+                "year_end": 2039,
+                "cells": 327,
+                "features": {
+                  "precip_mm": {
+                    "mean": -16.973983331567904,
+                    "cell_p10": -64.43211253539425,
+                    "cell_p90": 20.07667904730193
+                  },
+                  "log1p_precip_mm": {
+                    "mean": -0.016337077810368174,
+                    "cell_p10": -0.16387037263542853,
+                    "cell_p90": 0.1774262650730147
+                  },
+                  "cdd_max_days": {
+                    "mean": 0.20151240202438317,
+                    "cell_p10": -4.7749999999999995,
+                    "cell_p90": 4.793095279901914
+                  },
+                  "rx5day_mm": {
+                    "mean": -2.09488011790843,
+                    "cell_p10": -18.829475579783317,
+                    "cell_p90": 11.910991428407353
+                  }
+                }
+              },
+              {
+                "year_start": 2042,
+                "year_end": 2049,
+                "cells": 327,
+                "features": {
+                  "precip_mm": {
+                    "mean": 26.227928946794922,
+                    "cell_p10": -22.353890880045803,
+                    "cell_p90": 88.71311696413903
+                  },
+                  "log1p_precip_mm": {
+                    "mean": 0.059179838296380446,
+                    "cell_p10": -0.18055788369205053,
+                    "cell_p90": 0.31115160392803987
+                  },
+                  "cdd_max_days": {
+                    "mean": -0.37978665986645277,
+                    "cell_p10": -4.8500000000000005,
+                    "cell_p90": 4.425000000000004
+                  },
+                  "rx5day_mm": {
+                    "mean": 3.749971325073071,
+                    "cell_p10": -12.197738796187826,
+                    "cell_p90": 20.85088624872662
+                  }
+                }
+              },
+              {
+                "year_start": 2052,
+                "year_end": 2059,
+                "cells": 327,
+                "features": {
+                  "precip_mm": {
+                    "mean": -13.98708070307581,
+                    "cell_p10": -63.425011070265654,
+                    "cell_p90": 31.410819344862528
+                  },
+                  "log1p_precip_mm": {
+                    "mean": -0.06947850193877034,
+                    "cell_p10": -0.23975992308670238,
+                    "cell_p90": 0.10917241955487837
+                  },
+                  "cdd_max_days": {
+                    "mean": 1.417375261796816,
+                    "cell_p10": -2.55,
+                    "cell_p90": 7.3500000000000085
+                  },
+                  "rx5day_mm": {
+                    "mean": -6.771709756041612,
+                    "cell_p10": -25.185393228009342,
+                    "cell_p90": 6.5715527005493755
+                  }
+                }
+              }
+            ],
+            "retained_28year_reference": {
+              "crop": "soy",
+              "esm": "IPSL-CM6A-LR",
+              "reference_scenario": "ssp126",
+              "candidate_scenario": "ssp585",
+              "cells": 327,
+              "shape_cells": 327,
+              "shape_excluded_cells": 0,
+              "features": {
+                "log1p_precip_mm": {
+                  "mean": -0.011370296122898648,
+                  "cell_p10": -0.11103582700349507,
+                  "cell_p90": 0.075260265563912
+                },
+                "stage1_precip_share": {
+                  "mean": 0.005323453771735131,
+                  "cell_p10": -0.037026337705493656,
+                  "cell_p90": 0.05847089199756552
+                },
+                "stage2_precip_share": {
+                  "mean": 0.00045690021108337365,
+                  "cell_p10": -0.04124704687977813,
+                  "cell_p90": 0.04596742563481434
+                },
+                "cdd_max_days": {
+                  "mean": 0.3272911836467523,
+                  "cell_p10": -2.050187827921387,
+                  "cell_p90": 2.7590937634760384
+                },
+                "rx5day_mm": {
+                  "mean": -2.0499388096579523,
+                  "cell_p10": -12.400494980652418,
+                  "cell_p90": 6.553552186116581
+                },
+                "precipitation_concentration_hhi": {
+                  "mean": -0.005096154781492733,
+                  "cell_p10": -0.02868957698196307,
+                  "cell_p90": 0.016898657733546124
+                },
+                "stage3_precip_share": {
+                  "mean": -0.005780353982818506,
+                  "cell_p10": -0.06285117141189635,
+                  "cell_p90": 0.04337155421908981
+                },
+                "precip_mm": {
+                  "mean": -4.148667426131564,
+                  "cell_p10": -30.863752343992143,
+                  "cell_p90": 16.883429085729382
+                },
+                "stage1_tmean_c": {
+                  "mean": 0.5837531536585274,
+                  "cell_p10": 0.2312882559640067,
+                  "cell_p90": 0.8796295662512731
+                },
+                "stage2_tmean_c": {
+                  "mean": 0.7548716018110668,
+                  "cell_p10": 0.45358598102510783,
+                  "cell_p90": 1.0594295433589391
+                },
+                "stage3_tmean_c": {
+                  "mean": 1.0170770397976356,
+                  "cell_p10": 0.6199118205479213,
+                  "cell_p90": 1.3635249817538442
+                }
+              }
+            },
+            "joint_reference": {
+              "path": "data/interim/ipsl_ssp585_heat_cutout_20260908/paired_climate_comparison.json",
+              "sha256": "37fd71049d361d898044d8502cee455180ae8eb5e97a9d92543acebf5ffe25d7"
+            }
+          },
+          {
+            "crop": "soy",
+            "esm": "MPI-ESM1-2-HR",
+            "input_hashes": [
+              "5268b9cacce22c2707c02b4a65108e7199dc217db2ed92208c9e49ccc6f463b4",
+              "2bee2d729f92e2854e8b893fdf8ba953a9cf4864c4eb0fb89b57af52806682ba"
+            ],
+            "windows": [
+              {
+                "year_start": 2032,
+                "year_end": 2039,
+                "cells": 327,
+                "features": {
+                  "precip_mm": {
+                    "mean": -17.072241091335687,
+                    "cell_p10": -76.7383256951148,
+                    "cell_p90": 35.76779667232189
+                  },
+                  "log1p_precip_mm": {
+                    "mean": -0.01500247672364343,
+                    "cell_p10": -0.20331434015447183,
+                    "cell_p90": 0.25806752895645746
+                  },
+                  "cdd_max_days": {
+                    "mean": 1.2277313688131832,
+                    "cell_p10": -4.500573213858972,
+                    "cell_p90": 7.625
+                  },
+                  "rx5day_mm": {
+                    "mean": 2.0176855464050534,
+                    "cell_p10": -11.0128383566839,
+                    "cell_p90": 20.264537815004594
+                  }
+                }
+              },
+              {
+                "year_start": 2042,
+                "year_end": 2049,
+                "cells": 327,
+                "features": {
+                  "precip_mm": {
+                    "mean": 28.47631977438507,
+                    "cell_p10": -25.247200967743996,
+                    "cell_p90": 92.19077704186992
+                  },
+                  "log1p_precip_mm": {
+                    "mean": 0.10066194515012751,
+                    "cell_p10": -0.13435903167965077,
+                    "cell_p90": 0.32371589005231277
+                  },
+                  "cdd_max_days": {
+                    "mean": -0.011666993549670162,
+                    "cell_p10": -4.5,
+                    "cell_p90": 5.050000000000003
+                  },
+                  "rx5day_mm": {
+                    "mean": 12.91035472360423,
+                    "cell_p10": -9.058940890189273,
+                    "cell_p90": 36.726029382764565
+                  }
+                }
+              },
+              {
+                "year_start": 2052,
+                "year_end": 2059,
+                "cells": 327,
+                "features": {
+                  "precip_mm": {
+                    "mean": -6.816594745457993,
+                    "cell_p10": -56.53602979928255,
+                    "cell_p90": 45.112164219468895
+                  },
+                  "log1p_precip_mm": {
+                    "mean": -0.03756201770333545,
+                    "cell_p10": -0.32883537562417925,
+                    "cell_p90": 0.2125867532979622
+                  },
+                  "cdd_max_days": {
+                    "mean": 1.442544542142006,
+                    "cell_p10": -3.162931034748534,
+                    "cell_p90": 6.625
+                  },
+                  "rx5day_mm": {
+                    "mean": 0.5576717355754223,
+                    "cell_p10": -14.87767971527307,
+                    "cell_p90": 15.499436141550545
+                  }
+                }
+              }
+            ],
+            "retained_28year_reference": {
+              "crop": "soy",
+              "esm": "MPI-ESM1-2-HR",
+              "reference_scenario": "ssp126",
+              "candidate_scenario": "ssp585",
+              "cells": 327,
+              "shape_cells": 327,
+              "shape_excluded_cells": 0,
+              "features": {
+                "log1p_precip_mm": {
+                  "mean": 0.007881451467914767,
+                  "cell_p10": -0.08567101411477766,
+                  "cell_p90": 0.10816425609830693
+                },
+                "stage1_precip_share": {
+                  "mean": -0.0040003564051796555,
+                  "cell_p10": -0.04666574085300441,
+                  "cell_p90": 0.03233238221948254
+                },
+                "stage2_precip_share": {
+                  "mean": -0.010706176447859622,
+                  "cell_p10": -0.08130950727519984,
+                  "cell_p90": 0.06028836722804064
+                },
+                "cdd_max_days": {
+                  "mean": 0.9187671704405383,
+                  "cell_p10": -2.0364532013249885,
+                  "cell_p90": 3.9289473682795393
+                },
+                "rx5day_mm": {
+                  "mean": 3.105751737008231,
+                  "cell_p10": -5.023786561670048,
+                  "cell_p90": 11.577783763170627
+                },
+                "precipitation_concentration_hhi": {
+                  "mean": 0.007158282508984384,
+                  "cell_p10": -0.01992746030029364,
+                  "cell_p90": 0.03247893547530354
+                },
+                "stage3_precip_share": {
+                  "mean": 0.014706532853039278,
+                  "cell_p10": -0.039392246186894235,
+                  "cell_p90": 0.07139938799539208
+                },
+                "precip_mm": {
+                  "mean": -1.8076407571795587,
+                  "cell_p10": -20.899583559939995,
+                  "cell_p90": 23.0918059611427
+                },
+                "stage1_tmean_c": {
+                  "mean": 0.4804387643637996,
+                  "cell_p10": -0.048871300684257366,
+                  "cell_p90": 0.925595269884382
+                },
+                "stage2_tmean_c": {
+                  "mean": 0.5943214901907267,
+                  "cell_p10": 0.27091372353689996,
+                  "cell_p90": 0.9183885369982038
+                },
+                "stage3_tmean_c": {
+                  "mean": 0.5963808442817303,
+                  "cell_p10": 0.27478792154311066,
+                  "cell_p90": 0.9032528275566413
+                }
+              }
+            }
+          }
+        ],
+        "maximum_joint_overlap_difference": 0.0
+      }
+    },
+    {
+      "path": "outputs/ipsl_realization_join_tests_20260908_resource.json",
+      "sha256": "48e7b8966c716fc1ae13c8cd85bc39b6c6efd8c2fcb5da900dc39c88a10b80a1",
+      "content": {
+        "status": "completed",
+        "returncode": 0,
+        "sampled_peak_group_rss_bytes": 93732864,
+        "max_mib": 512.0,
+        "min_free_gib": 133.57835006713867,
+        "sampling_interval_seconds": 0.2,
+        "wall_seconds": 0.6887680000218097,
+        "limit_kind": "sampled_process_group_not_kernel_limit"
+      }
+    },
+    {
+      "path": "outputs/ipsl_pair_comparison_tests_20260908_resource.json",
+      "sha256": "4e97767a791a79e7ba70a7511ae13e9a8159424831c1edee3f9744571946c592",
+      "content": {
+        "status": "completed",
+        "returncode": 0,
+        "sampled_peak_group_rss_bytes": 88178688,
+        "max_mib": 512.0,
+        "min_free_gib": 133.52071380615234,
+        "sampling_interval_seconds": 0.2,
+        "wall_seconds": 0.4652491250017192,
+        "limit_kind": "sampled_process_group_not_kernel_limit"
+      }
+    },
+    {
+      "path": "outputs/ipsl_paired_heat_climate_20260908_resource.json",
+      "sha256": "8cfee7b9483d8728a5d002adf5331c8e69bfd4c263dfa483d5f4130b9f66dd32",
+      "content": {
+        "status": "completed",
+        "returncode": 0,
+        "sampled_peak_group_rss_bytes": 88178688,
+        "max_mib": 512.0,
+        "min_free_gib": 133.52071380615234,
+        "sampling_interval_seconds": 0.2,
+        "wall_seconds": 0.465981457993621,
+        "limit_kind": "sampled_process_group_not_kernel_limit"
+      }
+    },
+    {
+      "path": "outputs/precip_window_tests_20260908_resource.json",
+      "sha256": "e1bd8a884eda5b4410d9901ebc3bb88efa4fd1b4e94f9c66a3fb9f848d1df95c",
+      "content": {
+        "status": "completed",
+        "returncode": 0,
+        "sampled_peak_group_rss_bytes": 88965120,
+        "max_mib": 512.0,
+        "min_free_gib": 133.5240249633789,
+        "sampling_interval_seconds": 0.2,
+        "wall_seconds": 0.4722199169918895,
+        "limit_kind": "sampled_process_group_not_kernel_limit"
+      }
+    },
+    {
+      "path": "outputs/precip_window_sensitivity_20260908_resource.json",
+      "sha256": "5bdcab165492effc3d21a015b525681a489c3e015f400d93e113a8549467f0bb",
+      "content": {
+        "status": "completed",
+        "returncode": 0,
+        "sampled_peak_group_rss_bytes": 121896960,
+        "max_mib": 512.0,
+        "min_free_gib": 133.5240249633789,
+        "sampling_interval_seconds": 0.2,
+        "wall_seconds": 0.6821820409968495,
+        "limit_kind": "sampled_process_group_not_kernel_limit"
+      }
+    },
+    {
+      "path": "outputs/ipsl_ssp126_heat_request_20260908_resource.json",
+      "sha256": "8e409da9f062ccbcb702f0f7a455a41baa774b0f3bfdfa1ffbcc2ddcb3a5e2a6",
+      "content": {
+        "status": "completed",
+        "returncode": 0,
+        "sampled_peak_group_rss_bytes": 30392320,
+        "max_mib": 256.0,
+        "min_free_gib": 133.56979751586914,
+        "sampling_interval_seconds": 0.2,
+        "wall_seconds": 2.0747945409966633,
+        "limit_kind": "sampled_process_group_not_kernel_limit"
+      }
+    },
+    {
+      "path": "outputs/ipsl_ssp126_acquisition_20260908_resource.json",
+      "sha256": "cf4e74bb513f2ec2fdcb07194f33b3ec94a38d7d3f2888914cbc32663289cbe5",
+      "content": {
+        "status": "completed",
+        "returncode": 0,
+        "sampled_peak_group_rss_bytes": 139624448,
+        "max_mib": 1024.0,
+        "min_free_gib": 133.52268981933594,
+        "sampling_interval_seconds": 0.2,
+        "wall_seconds": 6.859386291995179,
+        "limit_kind": "sampled_process_group_not_kernel_limit"
+      }
+    },
+    {
+      "path": "outputs/ipsl_ssp126_maize_heat29_20260908_resource.json",
+      "sha256": "3a315217d50eeb8613f5ce2a5dddee9e7cd7e210349bc97667b12e1ef141e4a5",
+      "content": {
+        "status": "completed",
+        "returncode": 0,
+        "sampled_peak_group_rss_bytes": 496271360,
+        "max_mib": 1024.0,
+        "min_free_gib": 133.52268981933594,
+        "sampling_interval_seconds": 0.2,
+        "wall_seconds": 5.204434749990469,
+        "limit_kind": "sampled_process_group_not_kernel_limit"
+      }
+    },
+    {
+      "path": "outputs/ipsl_ssp126_soy_heat30_20260908_resource.json",
+      "sha256": "143fc224a8b5360e42f18802d9311973fa1d661c65fdba8b62fb96382f686147",
+      "content": {
+        "status": "completed",
+        "returncode": 0,
+        "sampled_peak_group_rss_bytes": 507559936,
+        "max_mib": 1024.0,
+        "min_free_gib": 133.52268981933594,
+        "sampling_interval_seconds": 0.2,
+        "wall_seconds": 4.966059792001033,
+        "limit_kind": "sampled_process_group_not_kernel_limit"
+      }
+    },
+    {
+      "path": "outputs/ipsl_ssp585_heat_request_20260908_resource.json",
+      "sha256": "7ec660851cdc14a9af83796d3ab173896b02cf4f67d22fc23916629b03b0bacc",
+      "content": {
+        "status": "completed",
+        "returncode": 0,
+        "sampled_peak_group_rss_bytes": 30572544,
+        "max_mib": 256.0,
+        "min_free_gib": 133.56979751586914,
+        "sampling_interval_seconds": 0.2,
+        "wall_seconds": 1.6894366659980733,
+        "limit_kind": "sampled_process_group_not_kernel_limit"
+      }
+    },
+    {
+      "path": "outputs/ipsl_ssp585_acquisition_20260908_resource.json",
+      "sha256": "1fb42cf469765f81b88d79290a27c3a5f6143af0aa908c1c7dceb8e4a12b1510",
+      "content": {
+        "status": "completed",
+        "returncode": 0,
+        "sampled_peak_group_rss_bytes": 115408896,
+        "max_mib": 1024.0,
+        "min_free_gib": 133.49507522583008,
+        "sampling_interval_seconds": 0.2,
+        "wall_seconds": 13.0612714169838,
+        "limit_kind": "sampled_process_group_not_kernel_limit"
+      }
+    },
+    {
+      "path": "outputs/ipsl_ssp585_maize_heat29_20260908_resource.json",
+      "sha256": "659406fbb661b6c159756e6f0f6e4a53f7beb200dcbbf93049530cd3e11fa5a1",
+      "content": {
+        "status": "completed",
+        "returncode": 0,
+        "sampled_peak_group_rss_bytes": 498008064,
+        "max_mib": 1024.0,
+        "min_free_gib": 133.49507522583008,
+        "sampling_interval_seconds": 0.2,
+        "wall_seconds": 4.909437207999872,
+        "limit_kind": "sampled_process_group_not_kernel_limit"
+      }
+    },
+    {
+      "path": "outputs/ipsl_ssp585_soy_heat30_20260908_resource.json",
+      "sha256": "814b41e0d1877b64e7232e86274fb1492fa47465218a65ec9dfa7d25e7c0b1f9",
+      "content": {
+        "status": "completed",
+        "returncode": 0,
+        "sampled_peak_group_rss_bytes": 510476288,
+        "max_mib": 1024.0,
+        "min_free_gib": 133.49507522583008,
+        "sampling_interval_seconds": 0.2,
+        "wall_seconds": 4.928760166018037,
+        "limit_kind": "sampled_process_group_not_kernel_limit"
+      }
+    }
+  ],
+  "logs": [
+    {
+      "path": "outputs/ipsl_realization_join_tests_20260908.log",
+      "sha256": "b29b03a2697317e5be70cdf9183e300a501a69cf666f2c048f47e1af086d26ee"
+    },
+    {
+      "path": "outputs/ipsl_pair_comparison_tests_20260908.log",
+      "sha256": "fd3429f6a39b0337f73fcc2e93bc92cfa556334244053e19baf5f74b054988a4"
+    },
+    {
+      "path": "outputs/ipsl_paired_heat_climate_20260908.log",
+      "sha256": "ca453bb9c90a51b7dae9bd27afd2b93c4ec0aa815de3f035d33cd77ee3b057df"
+    },
+    {
+      "path": "outputs/precip_window_tests_20260908.log",
+      "sha256": "fefd166249373c22bb2d282e0ce97b29629bb483ebf37ff0769f08b9370f8b7d"
+    },
+    {
+      "path": "outputs/precip_window_sensitivity_20260908.log",
+      "sha256": "3832242f4c0f26298da6d7b477928b4cfc13bf7fe733f7ea4fa994756bfeae94"
+    },
+    {
+      "path": "outputs/ipsl_ssp126_heat_request_20260908.log",
+      "sha256": "d487cb10c012603ccda734d539e642c87e7677495d4d2176d036dddc84c3bd91"
+    },
+    {
+      "path": "outputs/ipsl_ssp126_acquisition_20260908.log",
+      "sha256": "264660d0e7a0555d26c794b4602e8e77b5b1322243e274ca5e50fbefb00127dd"
+    },
+    {
+      "path": "outputs/ipsl_ssp126_maize_heat29_20260908.log",
+      "sha256": "ae98f1c2f1bcf0d53edc2f09fa54c185e4e78a4258956ffaa0e39b9620a67467"
+    },
+    {
+      "path": "outputs/ipsl_ssp126_soy_heat30_20260908.log",
+      "sha256": "de7946d54b363e27692e081c535f7d1bf456c9d5b337e510aed324979237119a"
+    },
+    {
+      "path": "outputs/ipsl_ssp585_heat_request_20260908.log",
+      "sha256": "fd8b6654be9495831e30aefae5dc7700a761a910aac65e643d56036878643e87"
+    },
+    {
+      "path": "outputs/ipsl_ssp585_acquisition_20260908.log",
+      "sha256": "b807dec493e5fcb91c6da4817da89ded2d57fb84a28e044e0da3a649f7fcbf6b"
+    },
+    {
+      "path": "outputs/ipsl_ssp585_maize_heat29_20260908.log",
+      "sha256": "ae98f1c2f1bcf0d53edc2f09fa54c185e4e78a4258956ffaa0e39b9620a67467"
+    },
+    {
+      "path": "outputs/ipsl_ssp585_soy_heat30_20260908.log",
+      "sha256": "de7946d54b363e27692e081c535f7d1bf456c9d5b337e510aed324979237119a"
+    }
+  ]
+}

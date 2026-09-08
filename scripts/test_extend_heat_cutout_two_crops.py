@@ -1,9 +1,18 @@
 """Synthetic exact-join contract tests; no network or empirical fitting."""
 import unittest
 import pandas as pd
-from extend_heat_cutout_two_crops import exact_join, FEATURES, HEAT
+from extend_heat_cutout_two_crops import exact_join, FEATURES, HEAT, validate_realization
 
 class TestJoin(unittest.TestCase):
+    def test_realization_no_relabeling(self):
+        identity=dict(climate_scenario='ssp585',climate_forcing='ipsl-cm6a-lr',ensemble_member='r1i1p1f1',
+            climate_variable='tasmax',bias_adjustment='w5e5',simulation_round='ISIMIP3b',time_step='daily',region='global')
+        config=dict(specifiers=identity)
+        validate_realization(config,'IPSL-CM6A-LR','r1i1p1f1','ssp585')
+        for esm,member,scenario in [('GFDL-ESM4','r1i1p1f1','ssp585'),('IPSL-CM6A-LR','r2i1p1f1','ssp585'),('IPSL-CM6A-LR','r1i1p1f1','ssp126')]:
+            with self.assertRaises(ValueError):validate_realization(config,esm,member,scenario)
+        for field,value in [('climate_variable','tas'),('bias_adjustment','other'),('time_step','monthly')]:
+            with self.assertRaises(ValueError):validate_realization(dict(specifiers=identity|{field:value}),'IPSL-CM6A-LR','r1i1p1f1','ssp585')
     def setUp(self):
         self.rain=pd.DataFrame(dict(harvest_year=[2042,2043],lat=[39.25]*2,lon_360=[100.25]*2,
             crop=['mai']*2,precip_mm=[100.,200.],**{f'stage{i}_tmean_c':[20.,21.] for i in (1,2,3)}))
