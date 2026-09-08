@@ -1,0 +1,997 @@
+{
+  "role": "matched_climate_scenario_inputs_only",
+  "causal_or_scc_result": false,
+  "code_sha256": "47b138f864b0d054279ebedae06f7c1ccfec4ff4f5d6b3248bf05f349cc2cb7a",
+  "receipts": [
+    {
+      "path": "data/interim/ssp585_heat_cutout_20260908/receipt.json",
+      "sha256": "022dc034d4fd71ef58d623ee9a2b2da8787287067ee3badf6a1c23688bd0e41b",
+      "content": {
+        "status": "climate_content_validated",
+        "config_path": "config/isimip3b_ssp585_heat_cutout_20260908.json",
+        "config_sha256": "c796f5b9eeaa23552084a6e886f06776484849aa38ab3be0886497d6d325e3bc",
+        "request_receipt_sha256": "aaa9726404f185925f5146f0e95465eca583fdcafb8913eec1a2c58f0c6111c4",
+        "catalogue_response_sha256": "c4be496aa7e42380f39a84b72029c7ba0786d6531bee3d59a07267df35ae12fa",
+        "job_response_sha256": "32a01e0894fbc56e6a39a49ab2c6c7c015f845741bf942da2c38e8fd3b195f67",
+        "job_id": "ce1bdd9d313267ca8728099755676901c228484f",
+        "job_response": {
+          "file_name": "isimip-download-ce1bdd9d313267ca8728099755676901c228484f.zip",
+          "file_url": "https://files.isimip.org/api/v2/output/isimip-download-ce1bdd9d313267ca8728099755676901c228484f.zip",
+          "id": "ce1bdd9d313267ca8728099755676901c228484f",
+          "job_url": "https://files.isimip.org/api/v2/ce1bdd9d313267ca8728099755676901c228484f",
+          "meta": {
+            "created_files": 1,
+            "errors": {},
+            "total_files": 1
+          },
+          "status": "finished",
+          "ttl": 604800
+        },
+        "archive_url": "https://files.isimip.org/api/v2/output/isimip-download-ce1bdd9d313267ca8728099755676901c228484f.zip",
+        "archive_bytes": 12905254,
+        "archive_etag": "\"6a9f8129-c4eb26\"",
+        "source_contract": {
+          "role": "single_public_server_side_subset_request_source_contract",
+          "dataset_id": "512a7927-2125-494d-b0fe-7229dac66d44",
+          "dataset_version": "20210512",
+          "resource_doi": "10.48364/ISIMIP.842396.1",
+          "file_id": "536507db-8b89-46f9-a5d9-63c436ba034d",
+          "file_name": "gfdl-esm4_r1i1p1f1_w5e5_ssp585_tasmax_global_daily_2041_2050.nc",
+          "source_bytes": 2064887843,
+          "source_sha512": "7459d23109a60b9760331f4a1e0eaeee9fb562a4dd7262cf466aabc6f260c296a4eb61f6b4928682071505f154e3272c2cd057de32c6ee7a8cef2a3ebfe16f19",
+          "source_path": "ISIMIP3b/InputData/climate/atmosphere/bias-adjusted/global/daily/ssp585/GFDL-ESM4/gfdl-esm4_r1i1p1f1_w5e5_ssp585_tasmax_global_daily_2041_2050.nc",
+          "specifiers": {
+            "simulation_round": "ISIMIP3b",
+            "product": "InputData",
+            "region": "global",
+            "time_step": "daily",
+            "climate_forcing": "gfdl-esm4",
+            "ensemble_member": "r1i1p1f1",
+            "climate_scenario": "ssp585",
+            "climate_variable": "tasmax",
+            "bias_adjustment": "w5e5"
+          },
+          "bbox_west_east_south_north": [
+            -180,
+            180,
+            39,
+            40
+          ],
+          "expected_latitude_centers": [
+            39.25,
+            39.75
+          ],
+          "expected_longitude_count": 720,
+          "expected_gregorian_daily_count": 3652,
+          "local_download_authorized": false,
+          "local_feature_construction_authorized": false,
+          "damage_or_scc_authorized": false,
+          "authorization_note": "This source/request contract does not itself authorize downloads. Separate standing user authorization from September 8, 2026 applies to the bounded acquisition workflow.",
+          "discovery_query_response_sha256": "cc09a3e0ae9751fd461bad17849552e4076c534f4fc96d4ec602e0f59572aa58"
+        },
+        "initial_free_bytes": 143465914368,
+        "additional_disk_budget_bytes": 67108864,
+        "authorization": "standing project data download authorization; user instruction September 8, 2026 UTC",
+        "source_request_gate_is_not_acquisition_authority": true,
+        "causal_or_scc_result": false,
+        "code_hashes": {
+          "acquire_registered_heat_cutout.py": "bca0ba0c904435629f4b3d46cd48d92797ae253eda11da892d29bcb06e11b2e6",
+          "run_authorized_heat_subset_pilot.py": "66a7519c764c214d26d9302e95dcfc73befe61753f237a5886171c9f8d28dc35",
+          "prepare_heat_subset_pilot.py": "3f244209aaada228c71c8b0a061c19766ce6beffc50125d4ea3ca530bf7b369a"
+        },
+        "archive_sha256": "49b7c7fd6dae1ad03e873a9cbd13706f02442155e409ef3adb3af27b50b0472d",
+        "archive_member": "gfdl-esm4_r1i1p1f1_w5e5_ssp585_tasmax_lon-180.0to180.0lat39.0to40.0_daily_2041_2050.nc",
+        "climate_sha256": "359871e948a41958bebe9ed3d3182079d2b5c20611d3dd0cb63809793ac05913",
+        "content_validation": {
+          "days": 3652,
+          "latitudes": [
+            39.75,
+            39.25
+          ],
+          "longitude_count": 720,
+          "calendar": "proleptic_gregorian",
+          "source_units": "K",
+          "minimum_c": -26.766311645507812,
+          "maximum_c": 49.185211181640625,
+          "missing_values": 0,
+          "all_parent_payload_bytes_verified": false
+        },
+        "artifact_hashes": {
+          "cutout.zip": "49b7c7fd6dae1ad03e873a9cbd13706f02442155e409ef3adb3af27b50b0472d",
+          "tasmax_cutout.nc": "359871e948a41958bebe9ed3d3182079d2b5c20611d3dd0cb63809793ac05913"
+        }
+      }
+    },
+    {
+      "path": "data/interim/ssp585_heat_cutout_20260908/paired_climate_comparison.json",
+      "sha256": "3fced801e68c0e967b5ae6621b991e08dad59739c3596e49c78b5e965929be1a",
+      "content": {
+        "role": "matched_SSP585_minus_SSP126_climate_inputs_only",
+        "causal_or_scc_result": false,
+        "crop_yield_estimated": false,
+        "geographic_scope": "39.25/39.75N only; not global or country-representative",
+        "dispersion_is_not_confidence_interval": true,
+        "years": [
+          2042,
+          2043,
+          2044,
+          2045,
+          2046,
+          2047,
+          2048,
+          2049
+        ],
+        "comparisons": [
+          {
+            "crop": "mai",
+            "threshold_c": 29,
+            "source_receipts": [
+              {
+                "receipt_path": "data/interim/two_crop_heat_real_20260908/receipt.json",
+                "receipt_sha256": "e54de3968b982995168700c665dad67cb62dca55dcaadf6d412f008b62b5137b",
+                "product_path": "data/interim/two_crop_heat_real_20260908/mai_GFDL-ESM4_ssp126_joint_climate.parquet",
+                "product_sha256": "a1347c4cfd7ed4f401be1d16a9e18205d0678884764b1b8401afb781311b872d"
+              },
+              {
+                "receipt_path": "data/interim/ssp585_maize_heat29_20260908/receipt.json",
+                "receipt_sha256": "efc3e5e1ab1004dcb2df986117c59455a7e07363f13dacfb963a6a93d0b172ad",
+                "product_path": "data/interim/ssp585_maize_heat29_20260908/mai_GFDL-ESM4_ssp585_joint_climate.parquet",
+                "product_sha256": "6e6af44df442a7949daabcafdfc6afe5a593c8fc0766e85c6b2ebb5a7a4c34c2"
+              }
+            ],
+            "weight_sha256": "7512ffc580928a03f75bbce5f3d4263c9bb2c631a8ff04075973acb4b149e4ba",
+            "paired_crop_years": 4000,
+            "cells": 500,
+            "features": {
+              "precip_mm": {
+                "equal_cell_mean": -9.855590228884388,
+                "cell_p10": -89.21359801601783,
+                "cell_p90": 34.03432905562222,
+                "cells_positive": 247,
+                "cells_negative": 253,
+                "cells_zero": 0
+              },
+              "log1p_precip_mm": {
+                "equal_cell_mean": -0.02289112050235134,
+                "cell_p10": -0.3067164623455659,
+                "cell_p90": 0.21570520026536508,
+                "cells_positive": 245,
+                "cells_negative": 255,
+                "cells_zero": 0
+              },
+              "cdd_max_days": {
+                "equal_cell_mean": 0.8461111947912404,
+                "cell_p10": -5.512499999999999,
+                "cell_p90": 7.875,
+                "cells_positive": 271,
+                "cells_negative": 218,
+                "cells_zero": 11
+              },
+              "rx5day_mm": {
+                "equal_cell_mean": -2.028618337157311,
+                "cell_p10": -19.501157550844525,
+                "cell_p90": 11.387270350567999,
+                "cells_positive": 228,
+                "cells_negative": 272,
+                "cells_zero": 0
+              },
+              "stage1_tmean_c": {
+                "equal_cell_mean": 0.2867708734791304,
+                "cell_p10": -0.33791953325271606,
+                "cell_p90": 1.0097704291343679,
+                "cells_positive": 329,
+                "cells_negative": 171,
+                "cells_zero": 0
+              },
+              "stage1_tmax_29c_days": {
+                "equal_cell_mean": 0.9095435995122617,
+                "cell_p10": -1.125,
+                "cell_p90": 3.125,
+                "cells_positive": 303,
+                "cells_negative": 133,
+                "cells_zero": 64
+              },
+              "stage1_tmax_29c_degree_days": {
+                "equal_cell_mean": 4.865459466829839,
+                "cell_p10": -2.907463455200194,
+                "cell_p90": 17.678508758544922,
+                "cells_positive": 314,
+                "cells_negative": 130,
+                "cells_zero": 56
+              },
+              "stage2_tmean_c": {
+                "equal_cell_mean": 0.5819156041106728,
+                "cell_p10": 0.08465619087219238,
+                "cell_p90": 0.9965479373931886,
+                "cells_positive": 466,
+                "cells_negative": 34,
+                "cells_zero": 0
+              },
+              "stage2_tmax_29c_days": {
+                "equal_cell_mean": 1.638626727283255,
+                "cell_p10": -0.7624999999999993,
+                "cell_p90": 4.620597409567938,
+                "cells_positive": 374,
+                "cells_negative": 92,
+                "cells_zero": 34
+              },
+              "stage2_tmax_29c_degree_days": {
+                "equal_cell_mean": 20.503689630911953,
+                "cell_p10": -2.0362941741943383,
+                "cell_p90": 50.56292228698731,
+                "cells_positive": 416,
+                "cells_negative": 70,
+                "cells_zero": 14
+              },
+              "stage3_tmean_c": {
+                "equal_cell_mean": 0.4296969284843432,
+                "cell_p10": -1.0612573699595613,
+                "cell_p90": 1.508385419845581,
+                "cells_positive": 340,
+                "cells_negative": 160,
+                "cells_zero": 0
+              },
+              "stage3_tmax_29c_days": {
+                "equal_cell_mean": 0.7191190763761562,
+                "cell_p10": -5.125,
+                "cell_p90": 5.625,
+                "cells_positive": 300,
+                "cells_negative": 177,
+                "cells_zero": 23
+              },
+              "stage3_tmax_29c_degree_days": {
+                "equal_cell_mean": 8.538036973059274,
+                "cell_p10": -30.696434783935544,
+                "cell_p90": 51.57404670715332,
+                "cells_positive": 316,
+                "cells_negative": 170,
+                "cells_zero": 14
+              }
+            }
+          },
+          {
+            "crop": "soy",
+            "threshold_c": 30,
+            "source_receipts": [
+              {
+                "receipt_path": "data/interim/soy_heat30_real_20260908/receipt.json",
+                "receipt_sha256": "c894c56b4e841cdec643bdd10a2c7ee63e1e55ca24a29bf9dc08210ccddde63f",
+                "product_path": "data/interim/soy_heat30_real_20260908/soy_GFDL-ESM4_ssp126_joint_climate.parquet",
+                "product_sha256": "6adac1ce9f0a00a1504afaaf8247281e9b7c1abf97cf99cbdfb975154514b0ab"
+              },
+              {
+                "receipt_path": "data/interim/ssp585_soy_heat30_20260908/receipt.json",
+                "receipt_sha256": "e8644909f4d0f3a2f1097e1dd489dc8d8d3cf84b67f70f69fd5e64468fe4f32a",
+                "product_path": "data/interim/ssp585_soy_heat30_20260908/soy_GFDL-ESM4_ssp585_joint_climate.parquet",
+                "product_sha256": "b4f9a5b3ba842922275faa92ee6f75a337fbb140882a75e931d295c8f5bb4d3e"
+              }
+            ],
+            "weight_sha256": "7512ffc580928a03f75bbce5f3d4263c9bb2c631a8ff04075973acb4b149e4ba",
+            "paired_crop_years": 2616,
+            "cells": 327,
+            "features": {
+              "precip_mm": {
+                "equal_cell_mean": -19.976807626123197,
+                "cell_p10": -105.7440352866723,
+                "cell_p90": 22.848036403767782,
+                "cells_positive": 121,
+                "cells_negative": 206,
+                "cells_zero": 0
+              },
+              "log1p_precip_mm": {
+                "equal_cell_mean": -0.05163788359558421,
+                "cell_p10": -0.2488259867685397,
+                "cell_p90": 0.1364178268885664,
+                "cells_positive": 111,
+                "cells_negative": 216,
+                "cells_zero": 0
+              },
+              "cdd_max_days": {
+                "equal_cell_mean": 1.0452454764697159,
+                "cell_p10": -3.8,
+                "cell_p90": 6.925000000000004,
+                "cells_positive": 184,
+                "cells_negative": 141,
+                "cells_zero": 2
+              },
+              "rx5day_mm": {
+                "equal_cell_mean": -3.997766324922754,
+                "cell_p10": -27.39995644615743,
+                "cell_p90": 12.597577242634312,
+                "cells_positive": 123,
+                "cells_negative": 204,
+                "cells_zero": 0
+              },
+              "stage1_tmean_c": {
+                "equal_cell_mean": 0.3554259529426872,
+                "cell_p10": -0.22419495608350387,
+                "cell_p90": 0.9387826442718503,
+                "cells_positive": 258,
+                "cells_negative": 69,
+                "cells_zero": 0
+              },
+              "stage1_tmax_30c_days": {
+                "equal_cell_mean": 0.7428309665053373,
+                "cell_p10": -1.125,
+                "cell_p90": 3.125,
+                "cells_positive": 199,
+                "cells_negative": 92,
+                "cells_zero": 36
+              },
+              "stage1_tmax_30c_degree_days": {
+                "equal_cell_mean": 3.9359077350496223,
+                "cell_p10": -3.463438238046307,
+                "cell_p90": 14.011909484863287,
+                "cells_positive": 196,
+                "cells_negative": 99,
+                "cells_zero": 32
+              },
+              "stage2_tmean_c": {
+                "equal_cell_mean": 0.6186190645883084,
+                "cell_p10": 0.03428678512573216,
+                "cell_p90": 1.170773998771034,
+                "cells_positive": 298,
+                "cells_negative": 29,
+                "cells_zero": 0
+              },
+              "stage2_tmax_30c_days": {
+                "equal_cell_mean": 1.935442990101112,
+                "cell_p10": -1.125,
+                "cell_p90": 5.329622014732879,
+                "cells_positive": 247,
+                "cells_negative": 61,
+                "cells_zero": 19
+              },
+              "stage2_tmax_30c_degree_days": {
+                "equal_cell_mean": 18.598386588648477,
+                "cell_p10": -2.001138305664062,
+                "cell_p90": 47.91079559326172,
+                "cells_positive": 261,
+                "cells_negative": 51,
+                "cells_zero": 15
+              },
+              "stage3_tmean_c": {
+                "equal_cell_mean": 0.13768632367888367,
+                "cell_p10": -1.1233900929473808,
+                "cell_p90": 1.3294227998281798,
+                "cells_positive": 193,
+                "cells_negative": 134,
+                "cells_zero": 0
+              },
+              "stage3_tmax_30c_days": {
+                "equal_cell_mean": -0.005957897020233863,
+                "cell_p10": -5.865192117114155,
+                "cell_p90": 5.425000000000004,
+                "cells_positive": 161,
+                "cells_negative": 140,
+                "cells_zero": 26
+              },
+              "stage3_tmax_30c_degree_days": {
+                "equal_cell_mean": 0.7721379666912906,
+                "cell_p10": -30.29666904344629,
+                "cell_p90": 36.19999313354493,
+                "cells_positive": 176,
+                "cells_negative": 128,
+                "cells_zero": 23
+              }
+            }
+          }
+        ],
+        "protocol_sha256": "e87120a3298389f05873cf38b56df1b158c8769a64a2d4c37fd5894d4fbeb75d",
+        "code_sha256": "f6a55c3ed6e22b295dcd7f8fe83c8c5c6b5b181c8996b1156f99de330d57157a"
+      }
+    },
+    {
+      "path": "data/interim/ssp585_maize_heat29_20260908/receipt.json",
+      "sha256": "efc3e5e1ab1004dcb2df986117c59455a7e07363f13dacfb963a6a93d0b172ad",
+      "content": {
+        "status": "joint_climate_inputs_validated",
+        "role": "joint_climate_inputs_only",
+        "crop_yield_estimated": false,
+        "causal_or_scc_result": false,
+        "new_downloads": 0,
+        "threshold_c": 29,
+        "requested_crops": [
+          "mai"
+        ],
+        "pilot_receipt_sha256": "022dc034d4fd71ef58d623ee9a2b2da8787287067ee3badf6a1c23688bd0e41b",
+        "future_receipt_sha256": "a8973f354b5ab24f4c0f4c92d5c6fe6944ff0411a731f54b87c42262c84edf14",
+        "weight_sha256": "7512ffc580928a03f75bbce5f3d4263c9bb2c631a8ff04075973acb4b149e4ba",
+        "calendar_manifest_sha256": "7d637597f1836b41bd2faebdfa70a8ae67daf3a5faa179d32dd72dd11d7a1b3f",
+        "products": [
+          {
+            "crop": "mai",
+            "esm": "GFDL-ESM4",
+            "member": "r1i1p1f1",
+            "scenario": "ssp585",
+            "years": [
+              2042,
+              2043,
+              2044,
+              2045,
+              2046,
+              2047,
+              2048,
+              2049
+            ],
+            "rows": 4000,
+            "cells": 500,
+            "path": "data/interim/ssp585_maize_heat29_20260908/mai_GFDL-ESM4_ssp585_joint_climate.parquet",
+            "sha256": "6e6af44df442a7949daabcafdfc6afe5a593c8fc0766e85c6b2ebb5a7a4c34c2",
+            "bytes": 477489,
+            "rainfall_sha256": "04dd20215bb7a89e57eae4e773306ea025b83571ca6f6551af81cce47d95a3e8",
+            "regime_sources": [
+              {
+                "season": {
+                  "path": "data/interim/isimip3b_gfdl_ssp585_2031_2060_contiguous_multicrop/mai_noirr/season.parquet",
+                  "sha256": "efee590c1cd71e67cac360d9dd350bf869ff053546b7774eecc1620072afc29b"
+                },
+                "stages": {
+                  "path": "data/interim/isimip3b_gfdl_ssp585_2031_2060_contiguous_multicrop/mai_noirr/stages.parquet",
+                  "sha256": "9c56bb1ba64bb43c7aff762f1898c8285818f4230bc29c0b25ec025a3a3e7fc4"
+                }
+              },
+              {
+                "season": {
+                  "path": "data/interim/isimip3b_gfdl_ssp585_2031_2060_contiguous_multicrop/mai_firr/season.parquet",
+                  "sha256": "762c70c61eeeaf3af64b978896ae747d4ee6eb1193692bc243de7bcbbc141720"
+                },
+                "stages": {
+                  "path": "data/interim/isimip3b_gfdl_ssp585_2031_2060_contiguous_multicrop/mai_firr/stages.parquet",
+                  "sha256": "f62828ea648da7105a3fa25f1a94f1492a389fc2d7ae1557bcb311b4e6ca80ee"
+                }
+              }
+            ],
+            "allocation": {
+              "schema_version": 1,
+              "purpose": "Prevent duplicated aggregate yield outcomes across irrigation exposures.",
+              "boundary": "Data-contract output only; no response coefficient or SCC use is authorized.",
+              "original_input_rows": 10976,
+              "original_outcome_keys": 5488,
+              "original_observed_outcomes": 0,
+              "input_rows": 8000,
+              "output_rows": 4000,
+              "outcome_keys": 4000,
+              "observed_outcomes": 0,
+              "irrigation_labels": [
+                "noirr",
+                "firr"
+              ],
+              "features": [
+                "stage1_tmean_c",
+                "stage1_tmax_29c_days",
+                "stage1_tmax_29c_degree_days",
+                "stage2_tmean_c",
+                "stage2_tmax_29c_days",
+                "stage2_tmax_29c_degree_days",
+                "stage3_tmean_c",
+                "stage3_tmax_29c_days",
+                "stage3_tmax_29c_degree_days"
+              ],
+              "weight_source_id": "MIRCA-OS_v2_March_2026_AHAG_30arcmin_2000",
+              "weight_vintage": "fixed_2000",
+              "weight_source_role": "independent_fixed_baseline_crop_area_share",
+              "weights_fixed_across_years": true,
+              "production_eligibility_required": true,
+              "season_specific_weights_required": true,
+              "missing_weight_policy": "exclude_entire_crop_grid_year_outcome_without_infill_or_renormalization",
+              "excluded_outcome_keys_missing_weight": 1488,
+              "excluded_observed_outcomes_missing_weight": 0,
+              "excluded_missing_weight_by_crop": {
+                "mai": {
+                  "outcome_keys": 1488,
+                  "observed_outcomes": 0,
+                  "grid_cells": 186
+                }
+              },
+              "one_row_per_outcome": true,
+              "scc_authorized": false
+            }
+          }
+        ],
+        "calendars": {
+          "ggcmi-crop-calendar-phase3_2015soc_mai_noirr.nc": "30aba2e000a712328bdfdd1c161c55390bcd6b34e876e92465b0972ac1361a1d039857a99926be9d73cc2baf0936ae10860e47823f8d67ad7e6fb284a1edbf1e",
+          "ggcmi-crop-calendar-phase3_2015soc_mai_firr.nc": "adf315cc07d478d106215407462ad11cfd2850fd2643a4193620de1fecf8b781c650bec7e814deb69d9b79be492bb1ef18b8a46a8e22826db7477b3d36dcba02"
+        },
+        "code_hashes": {
+          "extend_heat_cutout_two_crops.py": "01baca4467ec3095dfab4d9234c95a510c22525efc3794597ce6b0907f7ed94b",
+          "allocate_irrigation_heat_basis.py": "75a72c683ed19a6550101f0b49012062d55f873ecb55c953a79bd48476387701",
+          "allocate_outcome_exposures.py": "c76bf7b52a30c78668d1e684fa80b644c18793c6a4ed766392fc2fde16157b57",
+          "build_future_weighted_precipitation.py": "57f0c5bf23a35adbec515e3ae2d4476c9549c5d89b8efa1fec789783684742ca",
+          "build_crop_heat_features.py": "6d07c3a8605e4fcab73a950886a543987aaf75adcdb154adf83c391c498b1bdd",
+          "build_crop_stage_heat_features.py": "1457eb6cb53d46d73808cbb35ab4a102a616ae3ba595c0e9c71faef82484d57d"
+        },
+        "combined_pilot_output_bytes": 27156591,
+        "artifacts": {
+          "mai_GFDL-ESM4_ssp585_joint_climate.parquet": "6e6af44df442a7949daabcafdfc6afe5a593c8fc0766e85c6b2ebb5a7a4c34c2",
+          "mai_firr/season_heat.parquet": "46a8723eef512bb02de28bbfccf08eaec77b298221c54757bd4d39fc06596115",
+          "mai_firr/stage_heat.parquet": "270664da50ee4d1da64e496ffbbec0e606abe547d787712882278fb7073e601a",
+          "mai_noirr/season_heat.parquet": "03660f00df860348aa6215dca6a02b215318555058fe4bd33a86afa87d91bc88",
+          "mai_noirr/stage_heat.parquet": "975bdb61fd8df475781d175e3ae9ecec1d13fce162ac7ae3b5f9660639cc6381"
+        }
+      }
+    },
+    {
+      "path": "data/interim/ssp585_maize_heat29_20260908/historical_heat_ranges.json",
+      "sha256": "f8824848ead943e4fd2cd7ed3618e3494445a34c98babac35570fe20e421323c",
+      "content": {
+        "role": "marginal_heat_ranges_not_transport_or_damages",
+        "crop_yield_estimated": false,
+        "causal_or_scc_result": false,
+        "soybean_29c_is_not_locked_30c_control": true,
+        "threshold_c": 29,
+        "minimum_years": 2,
+        "absolute_tolerance": 1e-10,
+        "parent_sha256": "efc3e5e1ab1004dcb2df986117c59455a7e07363f13dacfb963a6a93d0b172ad",
+        "code_sha256": "6c73f98c4d95f96abf97a4a9c31a2ef3c4b509aa090ad776ca2434f993d7588c",
+        "protocol_sha256": "044142e578c5f73c40f8a4cca59c28e0f5526eedcbdd986e642038d294d09f56",
+        "comparisons": [
+          {
+            "crop": "mai",
+            "esm": "GFDL-ESM4",
+            "scenario": "ssp585",
+            "historical_input": {
+              "bytes": 63582146,
+              "observed_outcomes": 500129,
+              "path": "data/interim/continuous_global_panel_1982_2016_v1/continuous_candidates/maize_1982_2016_heat.parquet",
+              "rows": 1161685,
+              "sha256": "bc312795def993bc7c769f2378046074684a7de294b737b80db85bc4ae2166f1"
+            },
+            "historical_receipt_sha256": "a58623c87faec1901ba727f9bf02a3e6345de7db3c0377390642a8f4c2cada5a",
+            "future_sha256": "6e6af44df442a7949daabcafdfc6afe5a593c8fc0766e85c6b2ebb5a7a4c34c2",
+            "historical_observed_rows": 8465,
+            "historical_cells": 292,
+            "years_per_cell_min": 28,
+            "years_per_cell_max": 29,
+            "future_rows": 4000,
+            "future_cells": 500,
+            "features": {
+              "stage1_tmax_29c_days": {
+                "evaluated_rows": 2336,
+                "range_unavailable_rows": 1664,
+                "below_range_rows": 0,
+                "above_range_rows": 435,
+                "outside_range_fraction": 0.18621575342465754
+              },
+              "stage1_tmax_29c_degree_days": {
+                "evaluated_rows": 2336,
+                "range_unavailable_rows": 1664,
+                "below_range_rows": 0,
+                "above_range_rows": 607,
+                "outside_range_fraction": 0.2598458904109589
+              },
+              "stage2_tmax_29c_days": {
+                "evaluated_rows": 2336,
+                "range_unavailable_rows": 1664,
+                "below_range_rows": 0,
+                "above_range_rows": 907,
+                "outside_range_fraction": 0.3882705479452055
+              },
+              "stage2_tmax_29c_degree_days": {
+                "evaluated_rows": 2336,
+                "range_unavailable_rows": 1664,
+                "below_range_rows": 0,
+                "above_range_rows": 1007,
+                "outside_range_fraction": 0.4310787671232877
+              },
+              "stage3_tmax_29c_days": {
+                "evaluated_rows": 2336,
+                "range_unavailable_rows": 1664,
+                "below_range_rows": 8,
+                "above_range_rows": 590,
+                "outside_range_fraction": 0.2559931506849315
+              },
+              "stage3_tmax_29c_degree_days": {
+                "evaluated_rows": 2336,
+                "range_unavailable_rows": 1664,
+                "below_range_rows": 11,
+                "above_range_rows": 925,
+                "outside_range_fraction": 0.4006849315068493
+              }
+            },
+            "common_evaluable_rows": 2336,
+            "any_heat_outside_rows": 1864,
+            "any_heat_outside_fraction": 0.797945205479452
+          }
+        ]
+      }
+    },
+    {
+      "path": "data/interim/ssp585_soy_heat30_20260908/receipt.json",
+      "sha256": "e8644909f4d0f3a2f1097e1dd489dc8d8d3cf84b67f70f69fd5e64468fe4f32a",
+      "content": {
+        "status": "joint_climate_inputs_validated",
+        "role": "joint_climate_inputs_only",
+        "crop_yield_estimated": false,
+        "causal_or_scc_result": false,
+        "new_downloads": 0,
+        "threshold_c": 30,
+        "requested_crops": [
+          "soy"
+        ],
+        "pilot_receipt_sha256": "022dc034d4fd71ef58d623ee9a2b2da8787287067ee3badf6a1c23688bd0e41b",
+        "future_receipt_sha256": "a8973f354b5ab24f4c0f4c92d5c6fe6944ff0411a731f54b87c42262c84edf14",
+        "weight_sha256": "7512ffc580928a03f75bbce5f3d4263c9bb2c631a8ff04075973acb4b149e4ba",
+        "calendar_manifest_sha256": "7d637597f1836b41bd2faebdfa70a8ae67daf3a5faa179d32dd72dd11d7a1b3f",
+        "products": [
+          {
+            "crop": "soy",
+            "esm": "GFDL-ESM4",
+            "member": "r1i1p1f1",
+            "scenario": "ssp585",
+            "years": [
+              2042,
+              2043,
+              2044,
+              2045,
+              2046,
+              2047,
+              2048,
+              2049
+            ],
+            "rows": 2616,
+            "cells": 327,
+            "path": "data/interim/ssp585_soy_heat30_20260908/soy_GFDL-ESM4_ssp585_joint_climate.parquet",
+            "sha256": "b4f9a5b3ba842922275faa92ee6f75a337fbb140882a75e931d295c8f5bb4d3e",
+            "bytes": 333814,
+            "rainfall_sha256": "00098fa5e5517de2fc13cd3e38ba7522b34cc23429b326ee6d163bdde33a372f",
+            "regime_sources": [
+              {
+                "season": {
+                  "path": "data/interim/isimip3b_gfdl_ssp585_2031_2060_contiguous_multicrop/soy_noirr/season.parquet",
+                  "sha256": "aa73a82f0b086cdb2f865a1c77ef00cf458f9b9b47b2a9f2b627627fe1d58066"
+                },
+                "stages": {
+                  "path": "data/interim/isimip3b_gfdl_ssp585_2031_2060_contiguous_multicrop/soy_noirr/stages.parquet",
+                  "sha256": "99a9d1453fd46c47b904d269ed24a0d5139e8bd95fccd0a6783317cfc98de5ea"
+                }
+              },
+              {
+                "season": {
+                  "path": "data/interim/isimip3b_gfdl_ssp585_2031_2060_contiguous_multicrop/soy_firr/season.parquet",
+                  "sha256": "6741db7dd766e8dfaeba9f0deb74ef541f51b255eb64f41e01f1aa06a50ec7db"
+                },
+                "stages": {
+                  "path": "data/interim/isimip3b_gfdl_ssp585_2031_2060_contiguous_multicrop/soy_firr/stages.parquet",
+                  "sha256": "3e9caa5c9f352f449cc43458b7122a38f54b8b21d978bd2ecfbc41437a03eb01"
+                }
+              }
+            ],
+            "allocation": {
+              "schema_version": 1,
+              "purpose": "Prevent duplicated aggregate yield outcomes across irrigation exposures.",
+              "boundary": "Data-contract output only; no response coefficient or SCC use is authorized.",
+              "original_input_rows": 10976,
+              "original_outcome_keys": 5488,
+              "original_observed_outcomes": 0,
+              "input_rows": 5232,
+              "output_rows": 2616,
+              "outcome_keys": 2616,
+              "observed_outcomes": 0,
+              "irrigation_labels": [
+                "noirr",
+                "firr"
+              ],
+              "features": [
+                "stage1_tmean_c",
+                "stage1_tmax_30c_days",
+                "stage1_tmax_30c_degree_days",
+                "stage2_tmean_c",
+                "stage2_tmax_30c_days",
+                "stage2_tmax_30c_degree_days",
+                "stage3_tmean_c",
+                "stage3_tmax_30c_days",
+                "stage3_tmax_30c_degree_days"
+              ],
+              "weight_source_id": "MIRCA-OS_v2_March_2026_AHAG_30arcmin_2000",
+              "weight_vintage": "fixed_2000",
+              "weight_source_role": "independent_fixed_baseline_crop_area_share",
+              "weights_fixed_across_years": true,
+              "production_eligibility_required": true,
+              "season_specific_weights_required": true,
+              "missing_weight_policy": "exclude_entire_crop_grid_year_outcome_without_infill_or_renormalization",
+              "excluded_outcome_keys_missing_weight": 2872,
+              "excluded_observed_outcomes_missing_weight": 0,
+              "excluded_missing_weight_by_crop": {
+                "soy": {
+                  "outcome_keys": 2872,
+                  "observed_outcomes": 0,
+                  "grid_cells": 359
+                }
+              },
+              "one_row_per_outcome": true,
+              "scc_authorized": false
+            }
+          }
+        ],
+        "calendars": {
+          "ggcmi-crop-calendar-phase3_2015soc_soy_noirr.nc": "11e4bef2cd3e6716965bafd785e37f9293c48305d4cf91340b61e5f8baa37d0cc008624158a6c0797e1cf498b0833ca5e657519da763f7d32ff850936f1130c2",
+          "ggcmi-crop-calendar-phase3_2015soc_soy_firr.nc": "4cf1492d9a331e40e55633f2d36ea15067f9d4cff3cb69e18ace85e2b0c5ded1f39da166315ed4e3ce93079c3596f6ad35b0c33fed0e4833d9347c3f878cda88"
+        },
+        "code_hashes": {
+          "extend_heat_cutout_two_crops.py": "01baca4467ec3095dfab4d9234c95a510c22525efc3794597ce6b0907f7ed94b",
+          "allocate_irrigation_heat_basis.py": "75a72c683ed19a6550101f0b49012062d55f873ecb55c953a79bd48476387701",
+          "allocate_outcome_exposures.py": "c76bf7b52a30c78668d1e684fa80b644c18793c6a4ed766392fc2fde16157b57",
+          "build_future_weighted_precipitation.py": "57f0c5bf23a35adbec515e3ae2d4476c9549c5d89b8efa1fec789783684742ca",
+          "build_crop_heat_features.py": "6d07c3a8605e4fcab73a950886a543987aaf75adcdb154adf83c391c498b1bdd",
+          "build_crop_stage_heat_features.py": "1457eb6cb53d46d73808cbb35ab4a102a616ae3ba595c0e9c71faef82484d57d"
+        },
+        "combined_pilot_output_bytes": 28324340,
+        "artifacts": {
+          "soy_GFDL-ESM4_ssp585_joint_climate.parquet": "b4f9a5b3ba842922275faa92ee6f75a337fbb140882a75e931d295c8f5bb4d3e",
+          "soy_firr/season_heat.parquet": "480559143538971d7ddc1a1736c02799f306eed2fc32f22d5f51429ae2d63ce6",
+          "soy_firr/stage_heat.parquet": "0009726c8b8550eaf0ec2163deedeb44307726b3bf7516146dc282955767333c",
+          "soy_noirr/season_heat.parquet": "23f57d2051bfa90a68a52912fa484d6f73434149f86cc4037e81f20740b70281",
+          "soy_noirr/stage_heat.parquet": "15cdc876a1c36ebd9609085040460e797a814725f258620cf2bd45100d360621"
+        }
+      }
+    },
+    {
+      "path": "data/interim/ssp585_soy_heat30_20260908/historical_heat_ranges.json",
+      "sha256": "98d7d96f9bbff4288d2dc6c82f6b34a840241a4ce693ef1c89fcbe29a3499134",
+      "content": {
+        "role": "marginal_heat_ranges_not_transport_or_damages",
+        "crop_yield_estimated": false,
+        "causal_or_scc_result": false,
+        "soybean_29c_is_not_locked_30c_control": false,
+        "threshold_c": 30,
+        "minimum_years": 2,
+        "absolute_tolerance": 1e-10,
+        "parent_sha256": "e8644909f4d0f3a2f1097e1dd489dc8d8d3cf84b67f70f69fd5e64468fe4f32a",
+        "code_sha256": "6c73f98c4d95f96abf97a4a9c31a2ef3c4b509aa090ad776ca2434f993d7588c",
+        "protocol_sha256": "044142e578c5f73c40f8a4cca59c28e0f5526eedcbdd986e642038d294d09f56",
+        "comparisons": [
+          {
+            "crop": "soy",
+            "esm": "GFDL-ESM4",
+            "scenario": "ssp585",
+            "historical_input": {
+              "bytes": 47734156,
+              "observed_outcomes": 206087,
+              "path": "data/interim/continuous_global_panel_1982_2016_v1/continuous_candidates/soy_1982_2016_heat.parquet",
+              "rows": 837690,
+              "sha256": "a949b4b1fa62708775fad10ba9f01105d5fe3e29dd5472d6792dea9b19a4c100"
+            },
+            "historical_receipt_sha256": "6039edf8b2f14fd0ceb390cc9811a31bc186cbd33e4a1161fd12b5063fb2a2e8",
+            "future_sha256": "b4f9a5b3ba842922275faa92ee6f75a337fbb140882a75e931d295c8f5bb4d3e",
+            "historical_observed_rows": 4321,
+            "historical_cells": 149,
+            "years_per_cell_min": 29,
+            "years_per_cell_max": 29,
+            "future_rows": 2616,
+            "future_cells": 327,
+            "features": {
+              "stage1_tmax_30c_days": {
+                "evaluated_rows": 1192,
+                "range_unavailable_rows": 1424,
+                "below_range_rows": 0,
+                "above_range_rows": 264,
+                "outside_range_fraction": 0.2214765100671141
+              },
+              "stage1_tmax_30c_degree_days": {
+                "evaluated_rows": 1192,
+                "range_unavailable_rows": 1424,
+                "below_range_rows": 0,
+                "above_range_rows": 319,
+                "outside_range_fraction": 0.2676174496644295
+              },
+              "stage2_tmax_30c_days": {
+                "evaluated_rows": 1192,
+                "range_unavailable_rows": 1424,
+                "below_range_rows": 0,
+                "above_range_rows": 433,
+                "outside_range_fraction": 0.36325503355704697
+              },
+              "stage2_tmax_30c_degree_days": {
+                "evaluated_rows": 1192,
+                "range_unavailable_rows": 1424,
+                "below_range_rows": 0,
+                "above_range_rows": 324,
+                "outside_range_fraction": 0.27181208053691275
+              },
+              "stage3_tmax_30c_days": {
+                "evaluated_rows": 1192,
+                "range_unavailable_rows": 1424,
+                "below_range_rows": 0,
+                "above_range_rows": 260,
+                "outside_range_fraction": 0.2181208053691275
+              },
+              "stage3_tmax_30c_degree_days": {
+                "evaluated_rows": 1192,
+                "range_unavailable_rows": 1424,
+                "below_range_rows": 0,
+                "above_range_rows": 289,
+                "outside_range_fraction": 0.2424496644295302
+              }
+            },
+            "common_evaluable_rows": 1192,
+            "any_heat_outside_rows": 899,
+            "any_heat_outside_fraction": 0.7541946308724832
+          }
+        ]
+      }
+    },
+    {
+      "path": "outputs/ssp585_heat_request_20260908_resource.json",
+      "sha256": "2f55e7208aedd91844736899cd1d7a8906b2dae74058b5e3868276eb61d5671e",
+      "content": {
+        "status": "completed",
+        "returncode": 0,
+        "sampled_peak_group_rss_bytes": 30523392,
+        "max_mib": 256.0,
+        "min_free_gib": 133.60198974609375,
+        "sampling_interval_seconds": 0.2,
+        "wall_seconds": 2.109343957999954,
+        "limit_kind": "sampled_process_group_not_kernel_limit"
+      }
+    },
+    {
+      "path": "outputs/registered_heat_archive_tests_20260908_resource.json",
+      "sha256": "3fa18e5282d1763fd8f758a5fbb50b992690a38b38e4d7eda8ab8849cff05208",
+      "content": {
+        "status": "completed",
+        "returncode": 0,
+        "sampled_peak_group_rss_bytes": 91504640,
+        "max_mib": 1024.0,
+        "min_free_gib": 133.5504264831543,
+        "sampling_interval_seconds": 0.2,
+        "wall_seconds": 0.6795625830127392,
+        "limit_kind": "sampled_process_group_not_kernel_limit"
+      }
+    },
+    {
+      "path": "outputs/ssp585_heat_acquisition_20260908_resource.json",
+      "sha256": "2011ee67c643a87a8fb9b547ca4a9309f9cafc49cb5480dd3ea6e57484542ac2",
+      "content": {
+        "status": "completed",
+        "returncode": 0,
+        "sampled_peak_group_rss_bytes": 136445952,
+        "max_mib": 1024.0,
+        "min_free_gib": 133.5504264831543,
+        "sampling_interval_seconds": 0.2,
+        "wall_seconds": 5.88551500000176,
+        "limit_kind": "sampled_process_group_not_kernel_limit"
+      }
+    },
+    {
+      "path": "outputs/scenario_heat_join_tests_20260908_resource.json",
+      "sha256": "2fb3378f2290ae7220e56a67eb8a0f809a146e58c1712bf65f193b9927b4d690",
+      "content": {
+        "status": "completed",
+        "returncode": 0,
+        "sampled_peak_group_rss_bytes": 104054784,
+        "max_mib": 1024.0,
+        "min_free_gib": 133.55054473876953,
+        "sampling_interval_seconds": 0.2,
+        "wall_seconds": 2.0597697919874918,
+        "limit_kind": "sampled_process_group_not_kernel_limit"
+      }
+    },
+    {
+      "path": "outputs/ssp585_maize_heat29_20260908_resource.json",
+      "sha256": "c31aa4543ae051f17e62c57391adc9e4fe77db46615b687b4bc9c821c9009b7a",
+      "content": {
+        "status": "completed",
+        "returncode": 0,
+        "sampled_peak_group_rss_bytes": 497614848,
+        "max_mib": 1024.0,
+        "min_free_gib": 133.55054473876953,
+        "sampling_interval_seconds": 0.2,
+        "wall_seconds": 5.38020770798903,
+        "limit_kind": "sampled_process_group_not_kernel_limit"
+      }
+    },
+    {
+      "path": "outputs/ssp585_soy_heat30_20260908_resource.json",
+      "sha256": "a96fcd124c53f8fb71126b5b31f15468caeaf397057cbf290b308cbdddb7107d",
+      "content": {
+        "status": "completed",
+        "returncode": 0,
+        "sampled_peak_group_rss_bytes": 507609088,
+        "max_mib": 1024.0,
+        "min_free_gib": 133.55054473876953,
+        "sampling_interval_seconds": 0.2,
+        "wall_seconds": 4.90230241700192,
+        "limit_kind": "sampled_process_group_not_kernel_limit"
+      }
+    },
+    {
+      "path": "outputs/paired_heat_climate_tests_20260908_resource.json",
+      "sha256": "199f259098d96cc93c2b2db237ee93279291241909c496cac5e99fba79658812",
+      "content": {
+        "status": "completed",
+        "returncode": 0,
+        "sampled_peak_group_rss_bytes": 85999616,
+        "max_mib": 512.0,
+        "min_free_gib": 133.55054473876953,
+        "sampling_interval_seconds": 0.2,
+        "wall_seconds": 0.4613075000233948,
+        "limit_kind": "sampled_process_group_not_kernel_limit"
+      }
+    },
+    {
+      "path": "outputs/paired_heat_climate_20260908_resource.json",
+      "sha256": "150875234f0654a8e0d06280ca07afed85e0ec305bfb5db22d4312e6630d2a92",
+      "content": {
+        "status": "completed",
+        "returncode": 0,
+        "sampled_peak_group_rss_bytes": 89817088,
+        "max_mib": 512.0,
+        "min_free_gib": 133.55054473876953,
+        "sampling_interval_seconds": 0.2,
+        "wall_seconds": 0.4677818749914877,
+        "limit_kind": "sampled_process_group_not_kernel_limit"
+      }
+    },
+    {
+      "path": "outputs/ssp585_maize_heat_ranges_20260908_resource.json",
+      "sha256": "d3d5dfc3eb19b190431027519f65d0e61417df708aed9297940bd845dd066e35",
+      "content": {
+        "status": "completed",
+        "returncode": 0,
+        "sampled_peak_group_rss_bytes": 150093824,
+        "max_mib": 512.0,
+        "min_free_gib": 133.55054473876953,
+        "sampling_interval_seconds": 0.2,
+        "wall_seconds": 0.6777416249969974,
+        "limit_kind": "sampled_process_group_not_kernel_limit"
+      }
+    },
+    {
+      "path": "outputs/ssp585_soy_heat_ranges_20260908_resource.json",
+      "sha256": "8dd654049cd8085d19c52319f785dbb73500452b182c232a63b5fab327c25c32",
+      "content": {
+        "status": "completed",
+        "returncode": 0,
+        "sampled_peak_group_rss_bytes": 144195584,
+        "max_mib": 512.0,
+        "min_free_gib": 133.55054473876953,
+        "sampling_interval_seconds": 0.2,
+        "wall_seconds": 0.6860069170070346,
+        "limit_kind": "sampled_process_group_not_kernel_limit"
+      }
+    }
+  ],
+  "logs": [
+    {
+      "path": "outputs/ssp585_heat_request_20260908.log",
+      "sha256": "646ff9e8cd40789d31955288c6ef722076532814d2c084481b34f326dd6a2a5d"
+    },
+    {
+      "path": "outputs/registered_heat_archive_tests_20260908.log",
+      "sha256": "a6707d4eff38012da33ddc34bc6dc076a3b17151cfc9aef223c8790cbe64c3da"
+    },
+    {
+      "path": "outputs/ssp585_heat_acquisition_20260908.log",
+      "sha256": "7f8be49628994edc915e898036b10065f8a7765ab0774367840698b06be4bed0"
+    },
+    {
+      "path": "outputs/scenario_heat_join_tests_20260908.log",
+      "sha256": "7137eeba0f1475e79f6dce65a349431fdd4c73ecad493315cc596f599d3a273f"
+    },
+    {
+      "path": "outputs/ssp585_maize_heat29_20260908.log",
+      "sha256": "ae98f1c2f1bcf0d53edc2f09fa54c185e4e78a4258956ffaa0e39b9620a67467"
+    },
+    {
+      "path": "outputs/ssp585_soy_heat30_20260908.log",
+      "sha256": "de7946d54b363e27692e081c535f7d1bf456c9d5b337e510aed324979237119a"
+    },
+    {
+      "path": "outputs/paired_heat_climate_tests_20260908.log",
+      "sha256": "fd3429f6a39b0337f73fcc2e93bc92cfa556334244053e19baf5f74b054988a4"
+    },
+    {
+      "path": "outputs/paired_heat_climate_20260908.log",
+      "sha256": "2058632d61e12eb4db0d03ebc7297df6c9bf96913c01bc8db3e9ba55519f27c3"
+    },
+    {
+      "path": "outputs/ssp585_maize_heat_ranges_20260908.log",
+      "sha256": "551a8f3b4b2ade1e4c80a6f0d3ebf3ba4e72bc363fc95a9194d6c4278ee37b26"
+    },
+    {
+      "path": "outputs/ssp585_soy_heat_ranges_20260908.log",
+      "sha256": "92f5267323c153bee1ee06553f9eac40126bf259dd3220b8f679b8d674b4b279"
+    }
+  ]
+}

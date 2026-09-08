@@ -1,5 +1,37 @@
 # Active continuation checkpoint
 
+## Latest: matched SSP585/SSP126 inputs and comparisons COMPLETE
+
+September8 after commit84b3e6f: acquired the separate registered SSP585 cutout
+and constructed maize29°C/soybean30°C heat for both calendars. No original
+source/config/approval was relabeled. Exact paired joint inputs contain
+4,000maize/2,616soy crop-years,500/327cells,2042–2049,39.25/39.75N only.
+Higher-minus-lower equal-cell-average seasonal rain−9.86/−19.98mm, longest
+dry spell+0.85/+1.05days, stage2degree days+20.50/+18.60°C·days. Geographic
+rainfall signs vary. These are NOT global averages, yield losses or SCC.
+SSP585 historical heat-range any-feature outside shares79.79%/75.42% on
+2,336/1,192evaluable rows. See`PAIRED_HEAT_CLIMATE_RESULTS_20260908.md`.
+Five new synthetic tests plus4existing join tests pass; all real jobs passed.
+Largest sampled group RSS484.09MiB; SSP585 retained outputs27.03MiB. All jobs
+finished; no detached analysis process remains. Do not rebuild this pair.
+
+NEXT climate step: a matched independent ESM comparison (IPSL-CM6A-LR is
+already in the retained balanced rainfall basis), SSP126 andSSP585, same
+2041–2050 raw period/2042–2049 crop years and two latitude rows. Query official
+catalogue metadata to identify actual member/version/file hashes and prepare
+new isolated configs. Current wrapper still hardcodesGFDL-ESM4/r1i1p1f1:
+generalize explicitly with source-identity tests before any other-ESM run;
+do not merely relabel outputs. Keep standing authorization, sequential jobs,
+<=64MiB per batch and >=130GiB free; no per-file permission requests.
+One additional paired ESM directly checks whether the first result's direction
+survives internal variability/model differences. No global bulk acquisition.
+
+Next economic work remains locating actual K.4 monetary source/cost/inventory
+conventions and harmonized calorie/revenue inputs. Full HultgrenSectionK
+review and the price/quantity-only implementation are already complete.
+Raw publication and climate files stay ignored. All older NEXT or pending-
+permission language below is historical, superseded by the newest blocks.
+
 ## Latest completed work and next executable step (September8, later run)
 
 Soybean30°C heat, both calendars, is COMPLETED from the resident SSP126 file.

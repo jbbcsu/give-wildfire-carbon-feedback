@@ -61,14 +61,19 @@ def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--out',type=Path,required=True)
     parser.add_argument('--submit',action='store_true')
+    parser.add_argument('--config',type=Path,default=CONFIG)
     args=parser.parse_args()
     if args.out.exists() or args.out.with_suffix('.partial').exists():
         raise ValueError('receipt or partial receipt exists; inspect before any resubmission')
-    config=json.loads(CONFIG.read_text())
+    config_path=args.config.resolve()
+    if not config_path.is_relative_to(ROOT/'config'):
+        raise ValueError('registered project config required')
+    config=json.loads(config_path.read_text())
     url=f'https://data.isimip.org/api/v1/datasets/{config["dataset_id"]}/'
     dataset,digest=json_request(url)
     payload=validate_and_prepare(config,dataset)
-    receipt=dict(role=config['role'],config_sha256=hashlib.sha256(CONFIG.read_bytes()).hexdigest(),
+    receipt=dict(role=config['role'],config_sha256=hashlib.sha256(config_path.read_bytes()).hexdigest(),
+                 config_path=str(config_path.relative_to(ROOT)),
                  code_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
                  catalogue_url=url,catalogue_response_sha256=digest,
                  payload=payload,request_sha256=hashlib.sha256(json.dumps(payload,sort_keys=True).encode()).hexdigest(),

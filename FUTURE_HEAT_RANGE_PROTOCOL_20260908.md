@@ -1,5 +1,13 @@
 # Historical range check for the real two-crop heat pilot
 
+## Prospective matched SSP585 application
+
+Apply the unchanged marginal-range diagnostic to the new same-model SSP585
+2042–2049 inputs, maize29°C and soybean30°C. Keep the exact historical sources,
+period, minimum-year rule and tolerance. Report each scenario separately; do
+not interpret difference in outside-range frequency as causal damages. This
+extension was registered before the SSP585 range calculations.
+
 ## Prospective 30°C extension (after the completed 29°C calculation)
 
 Before constructing the new soybean30°C input, register an otherwise identical

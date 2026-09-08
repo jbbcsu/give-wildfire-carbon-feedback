@@ -1,5 +1,17 @@
 # Precipitation patterns, global agricultural damages, and the social cost of carbon
 
+## September 8 matched higher/lower-scenario heat and rainfall
+
+The first matched joint-climate comparison is complete for GFDL-ESM4 SSP585
+minus SSP126,2042–2049, at39.25/39.75N. Equal-cell-average seasonal rainfall
+changes are−9.86mm(maize) and−19.98mm(soybean), longest dry spells increase
+0.85/1.05days, and second-stage threshold heat rises20.50/18.60°C·days using
+29°C/30°C crop-specific thresholds. Rainfall signs vary across cells; this is
+neither a global-average change nor a crop-loss estimate. Complete scope,
+spatial dispersion, historical extrapolation checks and provenance are in
+`PAIRED_HEAT_CLIMATE_RESULTS_20260908.md`. No causal precipitation attribution,
+economic welfare or SCC has been inferred from this single-model comparison.
+
 ## September 8 follow-through: soybean threshold and published valuation
 
 The missing30°C soybean control is now built from the same daily cutout and

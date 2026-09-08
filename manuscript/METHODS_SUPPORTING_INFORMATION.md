@@ -1,5 +1,28 @@
 # Methods Supporting Information
 
+## September 8 matched SSP585 acquisition and joint-climate comparison
+
+Under standing download authorization, a new catalogue-bound SSP585 contract
+and request were created without mutating SSP126 files. The generalized
+acquisition rechecks the source and request payload; requires a finished job;
+binds its capped archive URL/size/ETag before streaming; and reuses safe ZIP,
+date/grid/unit/finite-value validators. The generalized heat wrapper verifies
+config hash, scenario/model/member identity before constructing any new crop
+inputs. Seasonal/stage/calendar reconciliation and fixed-weight allocation
+remain unchanged. Four regime products supply maize29°C and soybean30°C
+heat on exact retained rainfall support.
+
+The registered comparison uses exact crop/grid/year keys, same fixed weights,
+eight complete years, the same model/member and crop-specific thresholds.
+Higher-minus-lower feature differences are averaged within cells before equal
+cell averaging. Reported cell percentiles are dispersion, not statistical
+uncertainty. Independent historical heat-range checks retain the existing
+minimum-year/tolerance rules and explicitly missing ranges. Five new archive/
+comparison tests pass; four existing join tests pass after wrapper changes.
+`PAIRED_HEAT_CLIMATE_PROTOCOL_20260908.md` and its companion results report
+record limits and reproduction. None of these calculations estimates yields,
+isolates forced precipitation change, or computes a marginal-CO2 damage path.
+
 ## September 8 soybean30°C completion and valuation source review
 
 The future heat wrapper now accepts an explicit29/30°C threshold and crop
