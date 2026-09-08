@@ -1,5 +1,18 @@
 # Precipitation patterns, global agricultural damages, and the social cost of carbon
 
+## September8 counterclimate weather-support qualification
+
+On the exact positive-yield cohort, 50.25% of maize and 46.59% of soybean
+counterclim crop-years lie outside at least one cell-specific factual
+quantity/heat range. A standardized joint-neighbor diagnostic flags only
+6.47% and 0.93%, respectively. These measure different aspects of coverage;
+neither establishes causal overlap, and a lower flagged fraction in a larger
+feature set does not validate a model. Quantity-only marginal flags are
+5.72% and 6.23%; omitting heat is not a solution to extrapolation. No crop
+effect was calculated. See `PAIRED_WEATHER_SUPPORT_RESULTS_20260908.md` and
+`JOINT_RESPONSE_RESEARCH_DESIGN_20260908.md` for the separate response and
+independent-outcome validation requirements.
+
 ## September8 paired historical counterclimate evidence
 
 Using published GSWP3-W5E5 detrended climate, the two-row pilot now has a

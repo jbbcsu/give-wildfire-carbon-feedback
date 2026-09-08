@@ -1,0 +1,663 @@
+{
+  "status": "paired_weather_support_diagnostic_validated",
+  "role": "descriptive_empirical_weather_support_not_causal_overlap_certificate",
+  "crop_yield_estimated": false,
+  "causal_or_scc_result": false,
+  "protocol_sha256": "ab4de17f6116de143d82d176c1cbcee80cf4bd67f736fb4f8d3f15838ca6cf08",
+  "code_sha256": "a6e04789c7b39051e2915327f5f989ed35abb30411db4f113f84bac53af656c5",
+  "prior": {
+    "path": "data/interim/counterclim_soy_joint_20260908/paired_comparison.json",
+    "sha256": "17124913f0e9426382a5e33c1b8482510afb49f27cb07c6107c44adda9e4c6ef"
+  },
+  "crops": [
+    {
+      "crop": "mai",
+      "climate_receipts": [
+        {
+          "path": "data/interim/obsclim_mai_joint_20260908/receipt.json",
+          "sha256": "ca18edfc15aad424f3f8b3611df4ad717aecc05b6527a4fbb98726a660e59cd3"
+        },
+        {
+          "path": "data/interim/counterclim_mai_joint_20260908/receipt.json",
+          "sha256": "952b6c62d8c609a5d147cc0e2c44e7f0cdc11840a8c8376a4187df58df3833bb"
+        }
+      ],
+      "observed_sources": [
+        {
+          "path": "outputs/continuous_global_panel_1982_2016_v1/maize_1982_2016_direct_assembly_receipt.json",
+          "sha256": "e287bda7f42b99ab7a28e16846c3b47affc3549dd78561cdbc583b6b247d2972",
+          "product": {
+            "bytes": 301808574,
+            "observed_outcomes": 500129,
+            "path": "data/interim/continuous_global_panel_1982_2016_v1/continuous_candidates/maize_1982_2016_direct.parquet",
+            "rows": 1161685,
+            "sha256": "6be40f66363a2de8840ace25b2e80817fece1598cad2682e42e22ee6075b8ed3"
+          }
+        },
+        {
+          "path": "outputs/continuous_global_panel_1982_2016_v1/maize_1982_2016_heat_assembly_receipt.json",
+          "sha256": "a58623c87faec1901ba727f9bf02a3e6345de7db3c0377390642a8f4c2cada5a",
+          "product": {
+            "bytes": 63582146,
+            "observed_outcomes": 500129,
+            "path": "data/interim/continuous_global_panel_1982_2016_v1/continuous_candidates/maize_1982_2016_heat.parquet",
+            "rows": 1161685,
+            "sha256": "bc312795def993bc7c769f2378046074684a7de294b737b80db85bc4ae2166f1"
+          }
+        }
+      ],
+      "cohort_rows": 8465,
+      "cohort_cells": 292,
+      "families": {
+        "quantity": {
+          "features": [
+            "log1p_precip_mm"
+          ],
+          "rows": 8465,
+          "cells": 292,
+          "flags": {
+            "outside_any_marginal": {
+              "rows": 484,
+              "pooled_fraction": 0.05717660956881276,
+              "equal_cell_fraction": 0.05716478844726365
+            },
+            "beyond_joint_distance": {
+              "rows": 368,
+              "pooled_fraction": 0.04347312463083284,
+              "equal_cell_fraction": 0.043474593427356774
+            },
+            "constant_violation": {
+              "rows": 0,
+              "pooled_fraction": 0.0,
+              "equal_cell_fraction": 0.0
+            },
+            "joint_or_constant": {
+              "rows": 368,
+              "pooled_fraction": 0.04347312463083284,
+              "equal_cell_fraction": 0.043474593427356774
+            },
+            "inside_marginals_beyond_joint": {
+              "rows": 166,
+              "pooled_fraction": 0.01961015948021264,
+              "equal_cell_fraction": 0.019620082326742696
+            },
+            "factual_loo_beyond": {
+              "rows": 538,
+              "pooled_fraction": 0.0635558180744241,
+              "equal_cell_fraction": 0.06355438963492814
+            }
+          },
+          "outside_marginal_by_feature": {
+            "log1p_precip_mm": {
+              "rows": 484,
+              "fraction": 0.05717660956881276
+            }
+          },
+          "varying_dimensions_min": 1,
+          "varying_dimensions_max": 1,
+          "all_constant_cells": 0,
+          "zero_distance_threshold_cells": 0,
+          "distance_quantiles": {
+            "0.1": 0.005955608956140891,
+            "0.5": 0.039058234765188854,
+            "0.9": 0.15140763287071296,
+            "0.95": 0.21892584961302414
+          }
+        },
+        "joint_quantity_heat": {
+          "features": [
+            "log1p_precip_mm",
+            "stage1_tmean_c",
+            "stage2_tmean_c",
+            "stage3_tmean_c",
+            "stage1_tmax_29c_degree_days",
+            "stage2_tmax_29c_degree_days",
+            "stage3_tmax_29c_degree_days"
+          ],
+          "rows": 8465,
+          "cells": 292,
+          "flags": {
+            "outside_any_marginal": {
+              "rows": 4254,
+              "pooled_fraction": 0.50253987005316,
+              "equal_cell_fraction": 0.5025178824482084
+            },
+            "beyond_joint_distance": {
+              "rows": 548,
+              "pooled_fraction": 0.06473715298287064,
+              "equal_cell_fraction": 0.06471421823334907
+            },
+            "constant_violation": {
+              "rows": 0,
+              "pooled_fraction": 0.0,
+              "equal_cell_fraction": 0.0
+            },
+            "joint_or_constant": {
+              "rows": 548,
+              "pooled_fraction": 0.06473715298287064,
+              "equal_cell_fraction": 0.06471421823334907
+            },
+            "inside_marginals_beyond_joint": {
+              "rows": 31,
+              "pooled_fraction": 0.003662138216184288,
+              "equal_cell_fraction": 0.0036608408124704766
+            },
+            "factual_loo_beyond": {
+              "rows": 558,
+              "pooled_fraction": 0.06591848789131718,
+              "equal_cell_fraction": 0.06592043997570687
+            }
+          },
+          "outside_marginal_by_feature": {
+            "log1p_precip_mm": {
+              "rows": 484,
+              "fraction": 0.05717660956881276
+            },
+            "stage1_tmean_c": {
+              "rows": 1444,
+              "fraction": 0.17058476077968104
+            },
+            "stage2_tmean_c": {
+              "rows": 1658,
+              "fraction": 0.19586532782043709
+            },
+            "stage3_tmean_c": {
+              "rows": 1701,
+              "fraction": 0.20094506792675723
+            },
+            "stage1_tmax_29c_degree_days": {
+              "rows": 301,
+              "fraction": 0.03555818074424099
+            },
+            "stage2_tmax_29c_degree_days": {
+              "rows": 1107,
+              "fraction": 0.13077377436503249
+            },
+            "stage3_tmax_29c_degree_days": {
+              "rows": 810,
+              "fraction": 0.09568812758417011
+            }
+          },
+          "varying_dimensions_min": 4,
+          "varying_dimensions_max": 7,
+          "all_constant_cells": 0,
+          "zero_distance_threshold_cells": 0,
+          "distance_quantiles": {
+            "0.1": 0.31535198345510124,
+            "0.5": 0.5623249004399073,
+            "0.9": 0.8800533974557814,
+            "0.95": 1.0054091436226884
+          }
+        },
+        "joint_quantity_heat_distribution": {
+          "features": [
+            "log1p_precip_mm",
+            "stage1_tmean_c",
+            "stage2_tmean_c",
+            "stage3_tmean_c",
+            "stage1_tmax_29c_degree_days",
+            "stage2_tmax_29c_degree_days",
+            "stage3_tmax_29c_degree_days",
+            "cdd_max_days",
+            "rx5day_mm",
+            "stage1_precip_share",
+            "stage2_precip_share",
+            "precipitation_concentration_hhi"
+          ],
+          "rows": 8262,
+          "cells": 285,
+          "flags": {
+            "outside_any_marginal": {
+              "rows": 4904,
+              "pooled_fraction": 0.5935608811425805,
+              "equal_cell_fraction": 0.5935614899317259
+            },
+            "beyond_joint_distance": {
+              "rows": 354,
+              "pooled_fraction": 0.042846768336964415,
+              "equal_cell_fraction": 0.04283553711865872
+            },
+            "constant_violation": {
+              "rows": 0,
+              "pooled_fraction": 0.0,
+              "equal_cell_fraction": 0.0
+            },
+            "joint_or_constant": {
+              "rows": 354,
+              "pooled_fraction": 0.042846768336964415,
+              "equal_cell_fraction": 0.04283553711865872
+            },
+            "inside_marginals_beyond_joint": {
+              "rows": 8,
+              "pooled_fraction": 0.0009682885499878964,
+              "equal_cell_fraction": 0.0009679370840895341
+            },
+            "factual_loo_beyond": {
+              "rows": 561,
+              "pooled_fraction": 0.06790123456790123,
+              "equal_cell_fraction": 0.06790251490795955
+            }
+          },
+          "outside_marginal_by_feature": {
+            "log1p_precip_mm": {
+              "rows": 476,
+              "fraction": 0.05761316872427984
+            },
+            "stage1_tmean_c": {
+              "rows": 1430,
+              "fraction": 0.1730815783103365
+            },
+            "stage2_tmean_c": {
+              "rows": 1592,
+              "fraction": 0.19268942144759138
+            },
+            "stage3_tmean_c": {
+              "rows": 1685,
+              "fraction": 0.2039457758412007
+            },
+            "stage1_tmax_29c_degree_days": {
+              "rows": 294,
+              "fraction": 0.03558460421205519
+            },
+            "stage2_tmax_29c_degree_days": {
+              "rows": 1084,
+              "fraction": 0.13120309852335996
+            },
+            "stage3_tmax_29c_degree_days": {
+              "rows": 801,
+              "fraction": 0.09694989106753812
+            },
+            "cdd_max_days": {
+              "rows": 290,
+              "fraction": 0.03510045993706124
+            },
+            "rx5day_mm": {
+              "rows": 524,
+              "fraction": 0.06342290002420721
+            },
+            "stage1_precip_share": {
+              "rows": 454,
+              "fraction": 0.05495037521181312
+            },
+            "stage2_precip_share": {
+              "rows": 518,
+              "fraction": 0.06269668361171629
+            },
+            "precipitation_concentration_hhi": {
+              "rows": 421,
+              "fraction": 0.05095618494311305
+            }
+          },
+          "varying_dimensions_min": 9,
+          "varying_dimensions_max": 12,
+          "all_constant_cells": 0,
+          "zero_distance_threshold_cells": 0,
+          "distance_quantiles": {
+            "0.1": 0.2925475940297332,
+            "0.5": 0.5777423962101733,
+            "0.9": 0.8864473274712373,
+            "0.95": 1.021211087583313
+          }
+        }
+      },
+      "shape_excluded_cells": 7
+    },
+    {
+      "crop": "soy",
+      "climate_receipts": [
+        {
+          "path": "data/interim/obsclim_soy_joint_20260908/receipt.json",
+          "sha256": "2491ac248ee56db6127a5d5ca02236fc0f07535b58ee7cab0edd79af61bfeac5"
+        },
+        {
+          "path": "data/interim/counterclim_soy_joint_20260908/receipt.json",
+          "sha256": "debf802547a6401d941f2e0805cf02f20814deeb8405e26779d279cc523aea0f"
+        }
+      ],
+      "observed_sources": [
+        {
+          "path": "outputs/continuous_global_panel_1982_2016_v1/soy_1982_2016_direct_assembly_receipt.json",
+          "sha256": "50462d0e14e0e6a6972e088119552f370627e64d7cceeb0c11b845e5d6d908d0",
+          "product": {
+            "bytes": 224668565,
+            "observed_outcomes": 206087,
+            "path": "data/interim/continuous_global_panel_1982_2016_v1/continuous_candidates/soy_1982_2016_direct.parquet",
+            "rows": 837690,
+            "sha256": "ce26936cd3d175c56c89333c9f5805e242b6a32961e41babe67e8f55117518dd"
+          }
+        },
+        {
+          "path": "outputs/continuous_global_panel_1982_2016_v1/soy_1982_2016_heat_assembly_receipt.json",
+          "sha256": "6039edf8b2f14fd0ceb390cc9811a31bc186cbd33e4a1161fd12b5063fb2a2e8",
+          "product": {
+            "bytes": 47734156,
+            "observed_outcomes": 206087,
+            "path": "data/interim/continuous_global_panel_1982_2016_v1/continuous_candidates/soy_1982_2016_heat.parquet",
+            "rows": 837690,
+            "sha256": "a949b4b1fa62708775fad10ba9f01105d5fe3e29dd5472d6792dea9b19a4c100"
+          }
+        }
+      ],
+      "cohort_rows": 4321,
+      "cohort_cells": 149,
+      "families": {
+        "quantity": {
+          "features": [
+            "log1p_precip_mm"
+          ],
+          "rows": 4321,
+          "cells": 149,
+          "flags": {
+            "outside_any_marginal": {
+              "rows": 269,
+              "pooled_fraction": 0.06225410784540616,
+              "equal_cell_fraction": 0.06225410784540615
+            },
+            "beyond_joint_distance": {
+              "rows": 213,
+              "pooled_fraction": 0.049294144873871786,
+              "equal_cell_fraction": 0.04929414487387179
+            },
+            "constant_violation": {
+              "rows": 0,
+              "pooled_fraction": 0.0,
+              "equal_cell_fraction": 0.0
+            },
+            "joint_or_constant": {
+              "rows": 213,
+              "pooled_fraction": 0.049294144873871786,
+              "equal_cell_fraction": 0.04929414487387179
+            },
+            "inside_marginals_beyond_joint": {
+              "rows": 98,
+              "pooled_fraction": 0.02267993520018514,
+              "equal_cell_fraction": 0.022679935200185145
+            },
+            "factual_loo_beyond": {
+              "rows": 279,
+              "pooled_fraction": 0.06456838694746586,
+              "equal_cell_fraction": 0.06456838694746586
+            }
+          },
+          "outside_marginal_by_feature": {
+            "log1p_precip_mm": {
+              "rows": 269,
+              "fraction": 0.06225410784540616
+            }
+          },
+          "varying_dimensions_min": 1,
+          "varying_dimensions_max": 1,
+          "all_constant_cells": 0,
+          "zero_distance_threshold_cells": 0,
+          "distance_quantiles": {
+            "0.1": 0.0063836738442780705,
+            "0.5": 0.0413527199577107,
+            "0.9": 0.1682811876863789,
+            "0.95": 0.26671457438056434
+          }
+        },
+        "joint_quantity_heat": {
+          "features": [
+            "log1p_precip_mm",
+            "stage1_tmean_c",
+            "stage2_tmean_c",
+            "stage3_tmean_c",
+            "stage1_tmax_30c_degree_days",
+            "stage2_tmax_30c_degree_days",
+            "stage3_tmax_30c_degree_days"
+          ],
+          "rows": 4321,
+          "cells": 149,
+          "flags": {
+            "outside_any_marginal": {
+              "rows": 2013,
+              "pooled_fraction": 0.4658643832446193,
+              "equal_cell_fraction": 0.4658643832446194
+            },
+            "beyond_joint_distance": {
+              "rows": 40,
+              "pooled_fraction": 0.009257116408238834,
+              "equal_cell_fraction": 0.009257116408238834
+            },
+            "constant_violation": {
+              "rows": 0,
+              "pooled_fraction": 0.0,
+              "equal_cell_fraction": 0.0
+            },
+            "joint_or_constant": {
+              "rows": 40,
+              "pooled_fraction": 0.009257116408238834,
+              "equal_cell_fraction": 0.009257116408238834
+            },
+            "inside_marginals_beyond_joint": {
+              "rows": 3,
+              "pooled_fraction": 0.0006942837306179125,
+              "equal_cell_fraction": 0.0006942837306179125
+            },
+            "factual_loo_beyond": {
+              "rows": 288,
+              "pooled_fraction": 0.0666512381393196,
+              "equal_cell_fraction": 0.06665123813931959
+            }
+          },
+          "outside_marginal_by_feature": {
+            "log1p_precip_mm": {
+              "rows": 269,
+              "fraction": 0.06225410784540616
+            },
+            "stage1_tmean_c": {
+              "rows": 944,
+              "fraction": 0.21846794723443647
+            },
+            "stage2_tmean_c": {
+              "rows": 627,
+              "fraction": 0.1451052996991437
+            },
+            "stage3_tmean_c": {
+              "rows": 668,
+              "fraction": 0.15459384401758852
+            },
+            "stage1_tmax_30c_degree_days": {
+              "rows": 241,
+              "fraction": 0.05577412635963897
+            },
+            "stage2_tmax_30c_degree_days": {
+              "rows": 271,
+              "fraction": 0.0627169636658181
+            },
+            "stage3_tmax_30c_degree_days": {
+              "rows": 190,
+              "fraction": 0.04397130293913446
+            }
+          },
+          "varying_dimensions_min": 7,
+          "varying_dimensions_max": 7,
+          "all_constant_cells": 0,
+          "zero_distance_threshold_cells": 0,
+          "distance_quantiles": {
+            "0.1": 0.25926739152623574,
+            "0.5": 0.48284302414079583,
+            "0.9": 0.7747107822395685,
+            "0.95": 0.8549472787114594
+          }
+        },
+        "joint_quantity_heat_distribution": {
+          "features": [
+            "log1p_precip_mm",
+            "stage1_tmean_c",
+            "stage2_tmean_c",
+            "stage3_tmean_c",
+            "stage1_tmax_30c_degree_days",
+            "stage2_tmax_30c_degree_days",
+            "stage3_tmax_30c_degree_days",
+            "cdd_max_days",
+            "rx5day_mm",
+            "stage1_precip_share",
+            "stage2_precip_share",
+            "precipitation_concentration_hhi"
+          ],
+          "rows": 4321,
+          "cells": 149,
+          "flags": {
+            "outside_any_marginal": {
+              "rows": 2449,
+              "pooled_fraction": 0.5667669520944226,
+              "equal_cell_fraction": 0.5667669520944226
+            },
+            "beyond_joint_distance": {
+              "rows": 33,
+              "pooled_fraction": 0.007637121036797038,
+              "equal_cell_fraction": 0.007637121036797038
+            },
+            "constant_violation": {
+              "rows": 0,
+              "pooled_fraction": 0.0,
+              "equal_cell_fraction": 0.0
+            },
+            "joint_or_constant": {
+              "rows": 33,
+              "pooled_fraction": 0.007637121036797038,
+              "equal_cell_fraction": 0.007637121036797038
+            },
+            "inside_marginals_beyond_joint": {
+              "rows": 0,
+              "pooled_fraction": 0.0,
+              "equal_cell_fraction": 0.0
+            },
+            "factual_loo_beyond": {
+              "rows": 296,
+              "pooled_fraction": 0.06850266142096736,
+              "equal_cell_fraction": 0.06850266142096738
+            }
+          },
+          "outside_marginal_by_feature": {
+            "log1p_precip_mm": {
+              "rows": 269,
+              "fraction": 0.06225410784540616
+            },
+            "stage1_tmean_c": {
+              "rows": 944,
+              "fraction": 0.21846794723443647
+            },
+            "stage2_tmean_c": {
+              "rows": 627,
+              "fraction": 0.1451052996991437
+            },
+            "stage3_tmean_c": {
+              "rows": 668,
+              "fraction": 0.15459384401758852
+            },
+            "stage1_tmax_30c_degree_days": {
+              "rows": 241,
+              "fraction": 0.05577412635963897
+            },
+            "stage2_tmax_30c_degree_days": {
+              "rows": 271,
+              "fraction": 0.0627169636658181
+            },
+            "stage3_tmax_30c_degree_days": {
+              "rows": 190,
+              "fraction": 0.04397130293913446
+            },
+            "cdd_max_days": {
+              "rows": 175,
+              "fraction": 0.040499884286044896
+            },
+            "rx5day_mm": {
+              "rows": 286,
+              "fraction": 0.06618838231890765
+            },
+            "stage1_precip_share": {
+              "rows": 284,
+              "fraction": 0.06572552649849572
+            },
+            "stage2_precip_share": {
+              "rows": 305,
+              "fraction": 0.0705855126128211
+            },
+            "precipitation_concentration_hhi": {
+              "rows": 262,
+              "fraction": 0.06063411247396436
+            }
+          },
+          "varying_dimensions_min": 12,
+          "varying_dimensions_max": 12,
+          "all_constant_cells": 0,
+          "zero_distance_threshold_cells": 0,
+          "distance_quantiles": {
+            "0.1": 0.23142183921741444,
+            "0.5": 0.4681110534929678,
+            "0.9": 0.7482301506780685,
+            "0.95": 0.8338173211424136
+          }
+        }
+      },
+      "shape_excluded_cells": 0
+    }
+  ],
+  "full_result": {
+    "path": "data/interim/paired_weather_support_20260908/result.json",
+    "sha256": "c46c9f1a60d2027befca37e513457728a760e55455db9b4e9d962bef96d01236",
+    "bytes": 703570
+  },
+  "jobs": [
+    {
+      "resource": {
+        "path": "outputs/paired_weather_support_tests_20260908_resource.json",
+        "sha256": "7d05b265612d228ed660a332c5b96878984e1345e82979e4a8f253708a2db7cd",
+        "content": {
+          "status": "completed",
+          "returncode": 0,
+          "sampled_peak_group_rss_bytes": 110215168,
+          "max_mib": 1024,
+          "min_free_gib": 130,
+          "sampling_interval_seconds": 0.2,
+          "wall_seconds": 3.1915420420000373,
+          "limit_kind": "sampled_process_group_not_kernel_limit",
+          "sampled_peak_new_disk_bytes": 104,
+          "max_new_disk_mib": 64,
+          "write_paths": [
+            "data/interim/job_scratch/paired_weather_support_tests_20260908"
+          ],
+          "disk_accounting": "sampled_owned_paths_plus_log_with_128KiB_receipt_reserve",
+          "scratch_dir": "data/interim/job_scratch/paired_weather_support_tests_20260908"
+        }
+      },
+      "log": {
+        "path": "outputs/paired_weather_support_tests_20260908.log",
+        "sha256": "d26bdd8902cfd9615fdc56631c8cf5c6f50365669f489e98ad81e93f48fdb11a"
+      }
+    },
+    {
+      "resource": {
+        "path": "outputs/paired_weather_support_20260908_resource.json",
+        "sha256": "ec7c1d4cd429382b6c11ea773d51bae679423d289e0ff6226880895f179c7f71",
+        "content": {
+          "status": "completed",
+          "returncode": 0,
+          "sampled_peak_group_rss_bytes": 271155200,
+          "max_mib": 1024,
+          "min_free_gib": 130,
+          "sampling_interval_seconds": 0.2,
+          "wall_seconds": 2.2559193749998485,
+          "limit_kind": "sampled_process_group_not_kernel_limit",
+          "sampled_peak_new_disk_bytes": 703865,
+          "max_new_disk_mib": 64,
+          "write_paths": [
+            "data/interim/paired_weather_support_20260908/result.json",
+            "data/interim/job_scratch/paired_weather_support_20260908"
+          ],
+          "disk_accounting": "sampled_owned_paths_plus_log_with_128KiB_receipt_reserve",
+          "scratch_dir": "data/interim/job_scratch/paired_weather_support_20260908"
+        }
+      },
+      "log": {
+        "path": "outputs/paired_weather_support_20260908.log",
+        "sha256": "85e406f921b365dd19e22574c128a579fb0d2d620cabb954432f3852dca1cbd0"
+      }
+    }
+  ],
+  "test_script_sha256": "667637d1eb1ebc5768b2749c0d5b688db0610e5a116211036c834788311eda7f",
+  "export_script_sha256": "8961a70cf2aa57a25fc6792972538993d3120417b883db8a4852cba3a7d565a7",
+  "free_bytes_at_export": 170099879936
+}

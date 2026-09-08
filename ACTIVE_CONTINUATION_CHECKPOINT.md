@@ -1,5 +1,33 @@
 # Active continuation checkpoint
 
+## Latest: paired empirical weather-support diagnostic COMPLETE
+
+After 39458f4, registered and completed the small existing-data support check.
+Read `PAIRED_WEATHER_SUPPORT_RESULTS_20260908.md`; compact hash-bound aggregate
+`data/provenance/paired_weather_support_20260908.json`. Full ignored result:
+`data/interim/paired_weather_support_20260908/result.json`. Six synthetic tests
+pass; real job first execution completed, sampled peak258.59MiB, 703,865new
+disk bytes, no downloads. Export also complete. No process remains running.
+Exact observed cohort8,465mai/4,321soy rows,292/149cells; distribution excludes
+seven maize cells. Quantity+heat marginal outside50.25%mai/46.59%soy versus
+joint-distance flags6.47%/.93%. These are different diagnostic criteria, NOT
+causal support certificates, yield estimates, model selection or SCC.
+No barred coefficients used/exported; no old inputs/gates changed.
+
+NEXT: `JOINT_RESPONSE_RESEARCH_DESIGN_20260908.md` defines the separate new
+research design. First executable step: small existing-manifest inventory of
+the completed U.S. NASS irrigation analysis's county outcome/weather sources,
+exact intersection with paired climate strip, and genuinely untouched years
+if any. Do not call inspected validation sets new holdouts. No county-centroid
+assignment masquerading as area weather, no broad downloads, no repeat of
+completed association/OOS/daily-input construction. Then source-bound response
+contract addressing nonlinear heat/quantity, irrigation, source dependence,
+support/hybrid-state interpretation, CO2/adaptation before any new fit. The
+global source-unit-dependence inventory is secondary if it does not slow this.
+No new user decision needed for the existing-input inventory. Keep one bounded
+job/thread,1024MiB sampledRAM,64MiB owned disk,130GiB floor; muted notifications.
+Earlier next-step blocks below are superseded.
+
 ## Latest: paired factual/counterclim climate diagnostic COMPLETE
 
 After dcf9169, acquired18smallpublicGSWP3-W5E5obsclim/counterclim daily

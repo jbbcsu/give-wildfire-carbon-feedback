@@ -5,6 +5,13 @@ account for rainfall quantity, timing, drought and irrigation, without adding
 the same agricultural damage twice. This is an unfinished research project;
 there is **no empirical precipitation SCC estimate yet**.
 
+Latest qualification: the historical counterclimate often combines weather
+outside an individual cell's observed ranges when heat is included (about
+50% of maize and 47% of soy crop-years). A joint-distance screen flags fewer
+rows, but that does not establish reliable crop predictions. The new check
+used about 259 MiB peak analysis memory and needed no additional data download.
+See `PAIRED_WEATHER_SUPPORT_RESULTS_20260908.md`.
+
 ## 1. Does rainfall affect agricultural yields?
 
 The U.S. results are encouraging for non-irrigated crops. In the matched NASS

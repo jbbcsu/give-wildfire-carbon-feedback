@@ -1,5 +1,22 @@
 # Methods Supporting Information
 
+## September8 paired empirical weather-support diagnostic
+
+The prospective `PAIRED_WEATHER_SUPPORT_PROTOCOL_20260908.md` fixes exact
+observed-positive-yield keys (8,465 maize / 4,321 soy rows), three feature sets,
+cell-specific factual standardization, marginal ranges, and a descriptive
+nearest-neighbor threshold from the factual leave-one-year-out 95th percentile.
+Distance is RMS standardized coordinate difference, not Mahalanobis distance;
+no covariance inversion, response fitting, trimming, imputation or causal
+promotion occurs. The 12-feature distribution set excludes seven maize cells
+with a zero-rain regime in either complete path. Constant coordinates and
+finite-sample reference exceedances are explicitly reported. All six synthetic
+tests and the real diagnostic passed. Hash-bound aggregate, denominators and
+resources: `data/provenance/paired_weather_support_20260908.json`.
+The diagnostic is not an out-of-sample prediction test or a confidence-level
+test. `JOINT_RESPONSE_RESEARCH_DESIGN_20260908.md` specifies the next separate
+research-contract requirements without overriding earlier locked gates.
+
 ## September8 paired historical counterclimate implementation
 
 The source-bound observational wrapper constructs both published paths from
