@@ -32,7 +32,9 @@ def job(command, stem, writes):
     receipt, log, scratch = fresh_job(stem)
     result = run([sys.executable]+command, receipt, log, 1024, 130,
                  write_paths=writes, max_new_disk_mib=64, scratch_dir=scratch)
-    print(stem, result['status'], log.read_text()[-500:], flush=True)
+    tail = log.read_text()[-500:]
+    if 'Registered job is not ready:' not in tail or result['status'] != 'completed':
+        print(stem, result['status'], tail, flush=True)
     if result['status'] != 'completed':
         raise RuntimeError('bounded regional step failed; inspect preserved '+str(receipt))
     return receipt
@@ -53,7 +55,7 @@ def main():
         if len(configs) != 54 or any(PATTERN.fullmatch(p.name) is None for p in configs):
             raise ValueError('regional queue config inventory differs')
         started, actions = time.monotonic(), 0
-        last_attempt = {}
+        last_attempt, cooldown = {}, {}
         while actions < args.max_actions and time.monotonic()-started < args.max_seconds:
             pending, unrequested, completed = [], [], []
             for config in configs:
@@ -76,12 +78,14 @@ def main():
             if len(completed) == 54:
                 print('ALL 54 regional cutouts validated; proceed to county finite-area coverage and feature construction.', flush=True)
                 break
-            ready = [p for p in pending if time.monotonic()-last_attempt.get(p[1], -100) >= 30]
+            ready = [p for p in pending if time.monotonic()-last_attempt.get(p[1], -1000) >= cooldown.get(p[1], 30)]
             if ready:
                 config, stem, out, req = ready[0]
                 job(['scripts/acquire_us_paired_regional_cutout.py', '--config', str(config),
                      '--request-receipt', str(req), '--out-dir', str(out)], stem+'_acquisition_20260908', [out])
                 last_attempt[stem] = time.monotonic()
+                if not out.exists():
+                    cooldown[stem] = min(120, 2*cooldown.get(stem, 15))
             elif len(pending) < 2 and unrequested:
                 config, stem, out, req = unrequested[0]
                 job(['scripts/prepare_us_paired_regional_cutout.py', '--config', str(config),

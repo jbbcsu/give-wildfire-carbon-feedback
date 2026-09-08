@@ -1,5 +1,51 @@
 # Active continuation checkpoint
 
+## Latest: persistent regional acquisition -> features -> comparison chain RUNNING
+
+Afterd128a11, added and tested the regional county builder/comparator and
+an automatic finite persistent chain. Live unified command session57700
+was started with`run_us_paired_regional_chain.py --max-hours 6`. Read
+`data/interim/us_paired_regional_chain_20260908/state.json` and check its actual
+PID/process before any new analysis. Do NOT launch duplicate drivers/children.
+The saved state is not proof a process survived computer suspension/restart.
+
+The last completed acquisition slice had13/54validated cutouts and225,210,293
+regional retained bytes; counts continue advancing in the live chain. Remote
+jobs sometimes remain queued for minutes, not local memory failure. Same job
+IDs are resumed; no repeated POST or perfile authorization. Pending poll
+intervals now back off30/60/120seconds and do not repeatedly print unchanged
+notices. No old scientific/data validators or promotion gates were relaxed.
+
+The chain immediately runs source-specific regional county construction after
+all54cutouts validate, then its climate-source comparison, each with the same
+one-thread1024MiBsampled/64MiBowned-disk/130GiBfloor guards. It stops on any
+failed step, preserving artifacts, or after the climate chain needs review.
+It does NOT fit crop responses or calculate damages/SCC. Its6hour acquisition
+window can be resumed from saved source receipts. No Git operations run in it.
+Docs:`US_REGIONAL_CHAIN_EXECUTION_20260908.md` and
+`US_REGIONAL_COUNTY_FEATURE_PROTOCOL_20260908.md`. Five new distinct tests pass
+(three spatial/parity,two mocked immediate-chaining/failure tests); final
+combined5test run passed. This does not claim the real regional build is done.
+
+Expected real outputs when complete:
+`data/interim/us_regional_county_climate_20260908/receipt.json`,
+`{obsclim,counterclim}_county_climate.parquet`,`comparison.json`.
+Builder requires exact54source receipts, full finite county polygons, and
+573pilot-row parity on both paths at existing1e-8abs/1e-10rel tolerance. It
+materializes only needed cells/one decade and excludes partial climate county
+coverage explicitly. Old573row pilot and completed U.S./global fits unchanged.
+
+NEXT while chain is active: no other analysis process; source review/design
+work or read-only inspection is safe. When it completes, inspect actual new
+coverage/parity/physical checks and comparison results, aggregate all regional
+acquisition/test/build resources, cumulative storage and source hashes, update
+manuscript/SI and push reviewed public artifacts only. A separate source-matched
+response study contract is still required before any new empirical fit; no
+barred coefficient export or crop/SCC promotion. If chain stopped, inspect its
+state/error and preserved job logs before resuming. Do not repeat completed
+pilots or ask for download approval. No current user decision is needed.
+All older active-process/next-step descriptions below are historical.
+
 ## Latest: U.S. paired county climate benchmark COMPLETE; regional queue ACTIVE
 
 After6f146a6, completed the existing-input/geometry inventory and immediately
