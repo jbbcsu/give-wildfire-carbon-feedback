@@ -2,6 +2,7 @@
 data/raw/
 data/interim/
 data/processed/
+data/reference/price_basis/*.pdf
 outputs/
 
 # Local environment and editor state.
@@ -9,7 +10,14 @@ outputs/
 .julia_depot/
 .venv/
 .secrets/
+*.env
+.env*
+!.env.example
 tmp/
 __pycache__/
 *.py[cod]
 .DS_Store
+
+# Private presentation build cache and local runtime link.
+presentations/.build_methods_20260908/
+presentations/.tmp*/
