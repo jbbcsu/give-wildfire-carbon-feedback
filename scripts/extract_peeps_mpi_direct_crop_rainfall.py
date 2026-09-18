@@ -35,6 +35,8 @@ def main():
     parser.add_argument('metadata_manifest', type=Path)
     parser.add_argument('coordinate_manifest', type=Path)
     parser.add_argument('mapping_manifest', type=Path)
+    parser.add_argument('--member', choices=MEMBERS, required=True)
+    parser.add_argument('--chunk-index', type=int, required=True)
     parser.add_argument('--dependency-dir', type=Path, required=True)
     parser.add_argument('--out-dir', type=Path, required=True)
     args = parser.parse_args()
@@ -70,11 +72,9 @@ def main():
     if (len(ii) != 30821 or len(jj) != len(ii) or len(hectares) != len(ii)
             or not np.all((0 <= ii) & (ii < 192)) or not np.all((0 <= jj) & (jj < 384))):
         raise ValueError('mapped crop-center dimensions differ')
-    direct = {member: {year: np.empty((12, len(ii)), dtype=np.float64) for year in YEARS}
-              for member in MEMBERS}
     chunk_records = []
     context = ssl.create_default_context(cafile=certifi.where())
-    for member in MEMBERS:
+    for member in (args.member,):
         matches = [x for x in metadata['records'] if x['variable'] == 'pr' and x['member_id'] == member]
         if len(matches) != 1:
             raise ValueError('source precipitation member not unique')
@@ -90,9 +90,16 @@ def main():
         first = spec['chunks'][0]
         selected = sorted({((year - 2015) * 12 + month) // first
                            for year in YEARS for month in range(12)})
-        if selected != ([0, 1] if member == MEMBERS[0] else [0, 4]):
+        frozen_chunks = [0, 1] if member == MEMBERS[0] else [0, 4]
+        if selected != frozen_chunks or args.chunk_index not in frozen_chunks:
             raise ValueError('preregistered climate chunk indices changed')
-        for chunk_index in selected:
+        chunk_years = [year for year in YEARS
+                       if all(((year - 2015) * 12 + month) // first == args.chunk_index
+                              for month in range(12))]
+        if len(chunk_years) != 1:
+            raise ValueError('selected chunk not exactly one complete source year')
+        direct = {year: np.empty((12, len(ii)), dtype=np.float64) for year in chunk_years}
+        for chunk_index in (args.chunk_index,):
             key = f'{chunk_index}.0.0'
             url = record['metadata_url'].removesuffix('.zmetadata') + 'pr/' + key
             request = urllib.request.Request(url, headers={'User-Agent': 'GIVE-precipitation-research/1.0',
@@ -130,7 +137,7 @@ def main():
             data = np.frombuffer(decoded, dtype='<f4').reshape(count, 192, 384)
             plane_counts = []
             sentinels = []
-            for year in YEARS:
+            for year in chunk_years:
                 for month in range(12):
                     index = (year - 2015) * 12 + month
                     if index // first != chunk_index:
@@ -150,8 +157,8 @@ def main():
                                 raise ValueError('independent scalar byte unpack disagrees')
                             sentinels.append({'year': year, 'month': 1, 'i': i, 'j': j,
                                               'source_flux_kg_m2_s': scalar})
-                    direct[member][year][month] = (plane[ii, jj].astype(np.float64)
-                                                  * 86400 * calendar.monthrange(year, month + 1)[1])
+                    direct[year][month] = (plane[ii, jj].astype(np.float64)
+                                           * 86400 * calendar.monthrange(year, month + 1)[1])
             chunk_records.append({'member': member, 'chunk_index': chunk_index,
                                   'url': url, 'compressed_bytes': compressed_bytes,
                                   'compressed_sha256': compressed_sha,
@@ -164,13 +171,12 @@ def main():
             print('decoded', member, chunk_index, compressed_bytes, flush=True)
     output.mkdir(parents=True)
     arrays = {'hectares': hectares, 'ii': ii, 'jj': jj}
-    for member in MEMBERS:
-        for year in YEARS:
-            arrays[f'{member}_{year}_monthly_mm'] = direct[member][year]
+    for year in chunk_years:
+        arrays[f'{member}_{year}_monthly_mm'] = direct[year]
     saved_path = output / 'direct_crop_center_monthly_mm.npz'
     np.savez_compressed(saved_path, **arrays)
-    result = {'status': 'two_member_direct_mpi_crop_center_monthly_rainfall_not_scored',
-              'years': list(YEARS), 'members': list(MEMBERS),
+    result = {'status': 'single_member_single_chunk_direct_mpi_crop_rainfall_not_scored',
+              'years': chunk_years, 'members': [member], 'chunk_index': args.chunk_index,
               'metadata_manifest_sha256': MANIFEST_SHA256,
               'coordinate_manifest_sha256': COORD_SHA256,
               'mapping_manifest_sha256': MAPPING_SHA256,
