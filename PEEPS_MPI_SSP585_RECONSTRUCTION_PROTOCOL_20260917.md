@@ -57,6 +57,38 @@ source drift is retained and reported, not worked around silently.
 The first-model/scenario result cannot establish global multi-model
 uncertainty or a GIVE SCC change.
 
+## Transparent memory-safe v2 amendment after retained first failure
+
+The initial monolithic worker was stopped by the monitor at sampled
+537,542,656 B (>512 MiB) before accepting any output. Its failed log,
+receipt and exact first implementation are retained. The compressed
+first-member 2015 source chunk is 142,792,222 B and its declared decoded
+chunk is 176,947,200 B; crop-data and NetCDF libraries in the same
+process contributed to peak RSS. **Do not raise the 512 MiB cap.** Split
+the same frozen estimand, source hashes, years/months and metrics into
+three serial jobs: (1) prepare a small MIRCA-to-native-grid mapping/area
+artifact; (2) decode the four climate chunks sequentially with only
+NumPy/numcodecs and the mapping, retaining a small crop-center matrix;
+(3) score the published author coefficients against the retained direct
+matrix. Each job independently uses the original RSS/output/disk/log
+caps; source chunks are never retained. The failed monolithic output is
+not promoted. Preserve the same-scenario **in-sample** label.
+
+## Transparent v3 amendment after second retained memory failure
+
+The v2 lightweight decoder completed three source chunks but was stopped
+at sampled 539,213,824 B on the fourth. Its log confirms the first
+three successful decodes, but no combined direct artifact was accepted.
+The likely cause is resident allocator/decompressor memory retained across
+sequential chunks in one process; this is an inference from the observed
+order and RSS, not a measured allocation trace. Keep its failed monitor
+receipt and log. Run **one frozen source chunk per fresh worker process**,
+each writing only the requested single-year crop-center matrix and chunk
+hash/CRC receipt, then assemble four small artifacts in a separate job.
+Each fresh worker retains <=512 MiB sampled RSS, <=64 MiB owned output,
+<=2 MiB log and >=130 GiB free disk. No raw chunk is stored. Do not call
+the first two failed runs climate estimates or lift their guardrails.
+
 Primary model/data: Kravitz and Snyder (2023),
 https://doi.org/10.1371/journal.pclm.0000159 and
 https://doi.org/10.5281/zenodo.7557622 . The DKRZ/DWD raw-CMIP6 source
