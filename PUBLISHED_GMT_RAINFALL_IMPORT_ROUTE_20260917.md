@@ -53,6 +53,11 @@ SSP5-8.5, December precipitation; see
 `PUBLISHED_PEEPS_AUTHOR_DECEMBER_PILOT_RESULTS_20260917.md` for its exact
 source hash, structural validation and remaining gates. This does **not**
 replace the need for all crop-season months or held-out validation.
+The follow-on preregistered rainfed-maize center-mapping screen finds a
+nonzero crop footprint with negative published December rainfall in the
+author's own SSP5-8.5 path; see
+`PUBLISHED_PEEPS_CROP_SUPPORT_POSITIVITY_RESULTS_20260917.md`. This is a
+physicality diagnostic, not evidence of agricultural damage.
 
 The MESMER v1.0.0 [calibrated-parameter documentation](https://mesmer-emulator.readthedocs.io/en/latest/parameters.html)
 lists temperature, heat, soil moisture, and fire-weather products, but **no
