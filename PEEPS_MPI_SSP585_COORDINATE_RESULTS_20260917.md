@@ -35,7 +35,11 @@ decode serially, calculate their pointwise ensemble mean and compare
 published PEEPS predicted monthly levels on crop support, explicitly
 reporting negative predictions and out-of-GMST-range behavior. The
 historical positive-baseline anomaly design is a separate subsequent
-gate. No crop response, damage or SCC estimate follows.
+gate. Because the SSP5-8.5 source contributed to the fitted published
+SSP5-8.5 pattern, this first comparison is an **in-sample reconstruction
+diagnostic**, not an independent holdout. A different scenario/member
+design is needed for an actual holdout. No crop response, damage or SCC
+estimate follows.
 
 Primary published model: Kravitz and Snyder (2023),
 https://doi.org/10.1371/journal.pclm.0000159 .
