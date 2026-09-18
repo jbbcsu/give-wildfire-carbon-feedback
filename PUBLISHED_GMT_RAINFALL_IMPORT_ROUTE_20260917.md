@@ -58,6 +58,21 @@ nonzero crop footprint with negative published December rainfall in the
 author's own SSP5-8.5 path; see
 `PUBLISHED_PEEPS_CROP_SUPPORT_POSITIVITY_RESULTS_20260917.md`. This is a
 physicality diagnostic, not evidence of agricultural damage.
+Subsequently, a complete **streamed** release check acquired and validated
+all twelve author MPI/SSP5-8.5 monthly `pr` coefficient files without
+saving the 3.2-GB source. The full received MD5 matched Zenodo; see
+`PUBLISHED_PEEPS_FULL_MONTH_INPUT_RESULTS_20260917.md`. This resolves the
+first source-access gate, not crop-weather or SCC validity.
+The preregistered all-month rainfed-maize center screen and independent
+source re-decoding audit now find at least one **negative** published
+monthly rainfall level on 2.856%/0.322%/0%/9.879% of mapped area in
+2015/2030/2050/2100. On the 88.266% common 2015/2100 physically valid
+area, published levels show both calendar-year quantity change and monthly
+share redistribution, but this is **not** a crop-year, holdout, damage or
+SCC result. The raw levels fail the positivity gate; see
+`PUBLISHED_PEEPS_FULL_MONTH_CROP_SCREEN_RESULTS_20260917.md`. This is a
+reason to retain PEEPS as a benchmark and evaluate a physically positive
+published route or source-matched anomaly anchor, not to silently clip.
 
 The MESMER v1.0.0 [calibrated-parameter documentation](https://mesmer-emulator.readthedocs.io/en/latest/parameters.html)
 lists temperature, heat, soil moisture, and fire-weather products, but **no
