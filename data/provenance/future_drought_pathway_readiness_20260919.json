@@ -1,0 +1,178 @@
+{
+  "catalog": {
+    "all_public_unrestricted_cc0": true,
+    "complete_factorial": true,
+    "forcings": [
+      "gfdl-esm4",
+      "ipsl-cm6a-lr",
+      "mpi-esm1-2-hr",
+      "mri-esm2-0",
+      "ukesm1-0-ll"
+    ],
+    "members": [
+      "r1i1p1f1",
+      "r1i1p1f2"
+    ],
+    "path": "data/provenance/isimip3b_daily_catalog_selection.csv",
+    "rows": 80,
+    "scenarios": [
+      "historical",
+      "ssp126",
+      "ssp370",
+      "ssp585"
+    ],
+    "sha256": "c9f4af14b1cc8d3d4f2b532b154a850c814ba5309eb17a5c7e015dba2d3a9547",
+    "variables": [
+      "pr",
+      "tas",
+      "tasmin",
+      "tasmax"
+    ]
+  },
+  "gates": {
+    "causal_interpretation_authorized": false,
+    "damage_authorized": false,
+    "drought_response_promoted": false,
+    "future_drought_projection_complete": false,
+    "raw_content_validated_by_this_audit": false,
+    "scc_authorized": false
+  },
+  "implementation": {
+    "path": "scripts/audit_future_drought_pathway.py",
+    "sha256": "124dd17f25fce9b08062b846605b78850211bf79a9c109b42e1a7c3eff3f46c8"
+  },
+  "late_century_hargreaves_primary": {
+    "complete_pr": false,
+    "complete_tas": false,
+    "complete_tasmax": false,
+    "complete_tasmin": false,
+    "note": "Hargreaves PET requires tasmin and tasmax; tas is retained for common temperature controls and cross-checks.",
+    "periods": [
+      "2041_2050",
+      "2091_2100"
+    ],
+    "primary_executable_now": false,
+    "required_files_per_variable": 30,
+    "resident_files_by_variable": {
+      "pr": 20,
+      "tas": 20,
+      "tasmax": 0,
+      "tasmin": 0
+    }
+  },
+  "resident": {
+    "allocated_bytes": 146488492032,
+    "counts_by_scenario_variable": [
+      {
+        "files": 5,
+        "scenario": "historical",
+        "variable": "pr"
+      },
+      {
+        "files": 5,
+        "scenario": "historical",
+        "variable": "tas"
+      },
+      {
+        "files": 1,
+        "scenario": "historical",
+        "variable": "tasmin"
+      },
+      {
+        "files": 1,
+        "scenario": "historical",
+        "variable": "tasmax"
+      },
+      {
+        "files": 14,
+        "scenario": "ssp126",
+        "variable": "pr"
+      },
+      {
+        "files": 14,
+        "scenario": "ssp126",
+        "variable": "tas"
+      },
+      {
+        "files": 1,
+        "scenario": "ssp126",
+        "variable": "tasmin"
+      },
+      {
+        "files": 1,
+        "scenario": "ssp126",
+        "variable": "tasmax"
+      },
+      {
+        "files": 11,
+        "scenario": "ssp370",
+        "variable": "pr"
+      },
+      {
+        "files": 11,
+        "scenario": "ssp370",
+        "variable": "tas"
+      },
+      {
+        "files": 1,
+        "scenario": "ssp370",
+        "variable": "tasmin"
+      },
+      {
+        "files": 1,
+        "scenario": "ssp370",
+        "variable": "tasmax"
+      },
+      {
+        "files": 12,
+        "scenario": "ssp585",
+        "variable": "pr"
+      },
+      {
+        "files": 12,
+        "scenario": "ssp585",
+        "variable": "tas"
+      },
+      {
+        "files": 1,
+        "scenario": "ssp585",
+        "variable": "tasmin"
+      },
+      {
+        "files": 1,
+        "scenario": "ssp585",
+        "variable": "tasmax"
+      }
+    ],
+    "logical_bytes": 146488306194,
+    "netcdf_files": 92,
+    "root": "data/raw/isimip3b",
+    "unparsed_netcdf_files": []
+  },
+  "resident_gfdl_boundary_pilot": {
+    "complete": true,
+    "files": 16,
+    "future_period": "2015_2020",
+    "historical_period": "2011_2014",
+    "role": "eligible_for_bounded_transform_engineering_only_after_protocol_and_source-hash_validation",
+    "scenarios": [
+      "ssp126",
+      "ssp370",
+      "ssp585"
+    ],
+    "variables": [
+      "pr",
+      "tas",
+      "tasmin",
+      "tasmax"
+    ]
+  },
+  "resource_snapshot": {
+    "bulk_acquisition_safe_now": false,
+    "filesystem_free_bytes": 138809618432,
+    "fixed_free_space_floor_bytes": 139586437120
+  },
+  "role": "readiness_only_not_content_validation_projection_response_damage_or_scc",
+  "schema": "future_drought_pathway_readiness_v1",
+  "status": "metadata_audit_passed_primary_late_century_inputs_incomplete"
+}
