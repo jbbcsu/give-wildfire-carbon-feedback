@@ -1,0 +1,48 @@
+schema = "fao_fishstat_capture_csv_export_contract_v1"
+role = "symbol_preserving_observed_capture_record_export_not_calibration_welfare_damage_or_scc"
+registered_utc_date = "2026-09-02"
+
+[source]
+workspace_contract = "data/provenance/fao_fishstat_global_capture_2026_v1.toml"
+workspace_contract_sha256 = "9771610f4bdd675856d735e110ecf8b74409919c7ee4635fb7668452bab4fd67"
+source_validation = "data/provenance/fao_fishstat_global_capture_source_validation_20260902.json"
+source_validation_sha256 = "286080522be58016525050f98438bc027749b18305546f3c88b6abd1d4705264"
+database = "data/raw/fao/workspaces/global_production_2026_1_0/db"
+derby_jar = "data/raw/fao/software/runtime_libs/lib/derby.jar"
+jjs = "data/raw/fao/software/FishStatJ_4.04.11_app/FishStatJ.app/Contents/Resources/jre.bundle/Contents/Home/bin/jjs"
+
+[export]
+table = "TSD_CAPTURE_QUANTITY"
+key_columns = ["COUNTRY", "SPECIES", "AREA", "MEASURE"]
+annual_start_year = 1950
+annual_end_year = 2024
+annual_column_pattern = ["VALUE_Y{year}", "SYMBOL_Y{year}"]
+order_by = ["COUNTRY", "SPECIES", "AREA", "MEASURE"]
+encoding = "UTF-8"
+delimiter = ","
+line_ending = "LF"
+null_serialization = "empty CSV field; never zero"
+quote_rule = "RFC4180 double-quote escaping for delimiter quote CR or LF"
+output = "data/raw/fao/exports/fishstat_global_capture_1950_2024_wide_symbols.csv"
+
+[execution]
+database_copy_required = true
+source_database_write_forbidden = true
+select_only = true
+query_filter = "none"
+record_export_completed = false
+
+[reconciliation]
+exact_header_required = true
+exact_database_and_csv_row_count_required = true
+exact_key_order_required = true
+duplicate_key_rows_allowed = false
+annual_value_columns_preserved = true
+annual_symbol_columns_preserved = true
+missing_and_suppressed_symbols_never_zero_filled = true
+marine_only_filter_validated = false
+country_iso3_crosswalk_validated = false
+fao_area_crosswalk_validated = false
+fishmip_calibration_authorized = false
+welfare_translation_authorized = false
+damage_or_scc_authorized = false
