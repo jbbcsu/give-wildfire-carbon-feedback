@@ -1,0 +1,46 @@
+{
+  "schema": "local_derived_storage_eviction_v1",
+  "date": "2026-09-19",
+  "status": "completed_reproducible_long_form_only",
+  "reason": "restore fixed 130 GiB free-space floor before bounded numerical work",
+  "removed": {
+    "root": "data/interim/spei_global_crop_features_20260908",
+    "pattern": "*.parquet",
+    "files": 120,
+    "logical_bytes": 1198165329,
+    "allocated_bytes": 1198411776,
+    "raw_data_removed": false,
+    "source_parameters_removed": false,
+    "receipts_removed": false
+  },
+  "retained_recovery_chain": {
+    "long_form_manifest": {
+      "path": "data/interim/spei_global_crop_features_20260908/all_blocks.json",
+      "sha256": "7580edd3ad7afffcc213a54a4ad8b61841595a72e0a8405d98021b79f2228b93"
+    },
+    "long_form_validation": {
+      "path": "data/interim/spei_global_crop_feature_manifest_validation_20260908/result.json",
+      "sha256": "3f278507ab50a7abe9735dec8a517cd8233755581d560f26aecce4db4ba662ba",
+      "status": "passed",
+      "validated_parquet_bytes": 1220671025
+    },
+    "lossless_wide_manifest": {
+      "path": "data/interim/spei_wide_crop_features_20260908/all_blocks.json",
+      "sha256": "ca25acb6ffc79e9e42abcc157027c69aa251dbf61b21a75bcb3eccf01c7c6715"
+    },
+    "lossless_wide_validation": {
+      "path": "data/interim/spei_wide_crop_manifest_validation_20260908/result.json",
+      "sha256": "915bfd6c6d83dcb422afd9fd7911ee008bcbdc1049f72e49dec46bf99a05c541",
+      "status": "passed",
+      "exact_inverse_values": 109546200,
+      "parquet_bytes": 512850373
+    }
+  },
+  "post_eviction": {
+    "remaining_parquet_files_in_removed_root": 0,
+    "remaining_receipt_and_metadata_files_in_removed_root": 122,
+    "filesystem_free_bytes": 139987431424,
+    "filesystem_free_gib": 130.37345504760742
+  },
+  "recovery": "rerun the source-hashed crop-window feature builders, or use the independently validated lossless wide form for registered downstream analyses"
+}
