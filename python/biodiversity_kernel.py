@@ -19,7 +19,9 @@ def no_climate_biodiversity(initial_stock: float, years: int, *, theta: float) -
 def climate_deficit(no_climate_stock: float, climate_stock: float) -> float:
     if no_climate_stock < 0 or climate_stock < 0:
         raise ValueError("stocks must be nonnegative")
-    return max(no_climate_stock - climate_stock, 0.0)
+    if climate_stock > no_climate_stock:
+        raise ValueError("climate stock cannot exceed the matched no-climate stock")
+    return no_climate_stock - climate_stock
 
 
 def per_capita_wtp(income: float, remaining_stock: float, deficit: float, *, beta: float) -> float:

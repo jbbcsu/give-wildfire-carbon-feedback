@@ -74,6 +74,14 @@ class BiodiversityPairAuditTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "damage does not reproduce"):
             audit_pair(bundle("baseline", 0.0, 0.89), pulse)
 
+    def test_climate_stock_above_no_climate_stock_fails(self):
+        pulse = bundle("pulse", 1.0, 0.88)
+        pulse["rows"][1]["climate_stock"] = 0.96
+        pulse["rows"][1]["deficit"] = 0.0
+        pulse["rows"][1]["damage"] = 0.0
+        with self.assertRaisesRegex(ValueError, "climate stock cannot exceed"):
+            audit_pair(bundle("baseline", 0.0, 0.89), pulse)
+
     def test_mismatched_draw_identity_fails(self):
         pulse = bundle("pulse", 1.0, 0.88)
         pulse["rows"][1]["valuation_draw_id"] = "valuation-2"

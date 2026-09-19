@@ -19,7 +19,8 @@ class BiodiversityKernelTests(unittest.TestCase):
         self.assertLess(next_biodiversity(1, 2, theta=0.001, phi=0.01), 0.999)
         self.assertAlmostEqual(no_climate_biodiversity(1, 2, theta=0.001), 0.999**2)
         self.assertAlmostEqual(climate_deficit(0.9, 0.8), 0.1)
-        self.assertEqual(climate_deficit(0.8, 0.9), 0)
+        with self.assertRaises(ValueError):
+            climate_deficit(0.8, 0.9)
 
     def test_valuation(self):
         self.assertEqual(per_capita_wtp(100, 0.8, 0, beta=2), 0)

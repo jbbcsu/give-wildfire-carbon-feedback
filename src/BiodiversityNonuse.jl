@@ -22,7 +22,9 @@ end
 function climate_deficit(no_climate_stock, climate_stock)
     no_climate_stock >= 0 || throw(DomainError(no_climate_stock))
     climate_stock >= 0 || throw(DomainError(climate_stock))
-    max(no_climate_stock - climate_stock, zero(promote_type(typeof(no_climate_stock), typeof(climate_stock))))
+    climate_stock <= no_climate_stock ||
+        throw(DomainError(climate_stock, "climate stock cannot exceed the matched no-climate stock"))
+    no_climate_stock - climate_stock
 end
 
 function per_capita_wtp(income, remaining_stock, deficit; beta)

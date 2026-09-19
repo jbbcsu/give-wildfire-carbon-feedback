@@ -6,7 +6,7 @@ using BiodiversityNonuse
     @test next_biodiversity(1.0, 2.0; theta=0.001, phi=0.01) < 0.999
     @test no_climate_biodiversity(1.0, 2; theta=0.001) ≈ 0.999^2
     @test climate_deficit(0.9, 0.8) ≈ 0.1
-    @test climate_deficit(0.8, 0.9) == 0
+    @test_throws DomainError climate_deficit(0.8, 0.9)
 end
 
 @testset "nonuse valuation" begin
