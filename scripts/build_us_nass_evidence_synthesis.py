@@ -11,6 +11,8 @@ SOURCES = {
     "common_range": ROOT / "data/interim/us_source_matched_response_20260908/common_range_rainfall.json",
     "paired_loss": ROOT / "data/provenance/us_competing_moisture_paired_loss_uncertainty_20260826.json",
     "tmax_sensitivity": ROOT / "data/provenance/us_moisture_tmax_sensitivity_verified_20260905.json",
+    "recent_terminal": ROOT / "data/interim/us_county/noaa_county_average_pdsi_competitor_prediction_20260916/result.json",
+    "recent_terminal_audit": ROOT / "data/interim/us_county/noaa_county_average_pdsi_competitor_validation_20260916/result.json",
 }
 PROTOCOL = ROOT / "US_NASS_EVIDENCE_SYNTHESIS_PROTOCOL_20260919.md"
 
@@ -87,11 +89,26 @@ def main():
                 "pdsi_eligible_states": len(pdsi),
                 "pdsi_terminal_favors_pdsi": row["direct_quantity_minus_pdsi_season_terminal_rmse"] > 0,
             }
+    recent = data["recent_terminal"]
+    recent_audit = data["recent_terminal_audit"]
+    if (recent["status"] != "post_result_pdsi_competing_prediction_not_causal"
+            or recent_audit["status"] != "independent_post_result_pdsi_competitor_validated"
+            or recent_audit["source_result_sha256"] != sha(SOURCES["recent_terminal"])):
+        raise ValueError("validated recent all-practice comparison required")
+    terminal = {}
+    for trend in ("common", "state"):
+        for crop in ("corn_grain", "soybeans"):
+            scores = recent["crops"][trend][crop]["terminal_scores"]
+            compact = {model: {"n": row["n"], "rmse_log_yield": row["rmse_log_yield"]}
+                       for model, row in scores.items()}
+            terminal[f"{trend}|{crop}"] = {"scores": compact,
+                "lowest_rmse_model": min(compact, key=lambda model: compact[model]["rmse_log_yield"])}
     result = {"status": "us_nass_validation_priority_not_damage_model",
         "protocol_sha256": sha(PROTOCOL),
         "sources": {name: {"path": str(path.relative_to(ROOT)), "sha256": sha(path)} for name, path in SOURCES.items()},
         "common_range_quantity": quantity, "pooled_nonirrigated_predictive_differences": pooled,
         "temperature_control_sensitivity": controls,
+        "recent_2020_2025_all_practice_terminal_qualification": terminal,
         "interpretation": {
             "strongest_validation_priority": "non-irrigated corn moisture stress, especially PDSI, with precipitation distribution secondary",
             "distribution_promoted": False, "drought_promoted_to_global_damage": False,

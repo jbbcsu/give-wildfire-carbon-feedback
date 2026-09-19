@@ -3,8 +3,10 @@
 This synthesis is registered after its contributing results were inspected. It
 does not refit a response, create an untouched holdout, or select by damage
 magnitude. Read only the independently checked aggregate common-rainfall-range,
-paired predictive-loss, and Tmax-control sensitivity artifacts; bind each by
-SHA-256. Read no county yield rows, coefficients, predictions, or raw weather.
+paired predictive-loss, Tmax-control sensitivity, and post-result 2020--2025
+all-practice PDSI comparison artifacts; bind each and the latter's independent
+validation by SHA-256. Read no county yield rows, coefficients, predictions,
+or raw weather.
 
 Report the primary common-range quantity associations for corn/soy and reported
 irrigated/non-irrigated practice. A response is consistently negative across
@@ -26,3 +28,8 @@ climate-change attribution, adaptation estimate, damage function, or SCC
 input. Distribution remains primary only if its frozen state/materiality gate
 survives both temperature-control designs; otherwise it remains a sensitivity.
 Drought and distribution families remain mutually exclusive competitors.
+The recent all-practice terminal comparison is a different outcome/practice
+estimand and cannot overturn or validate the direct-practice result. Report it
+as an external temporal qualification: preserve all four model RMSEs under
+common and state-specific trends and state the lowest model without treating a
+post-result comparison as primary selection.

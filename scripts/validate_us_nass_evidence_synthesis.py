@@ -95,6 +95,23 @@ def main():
             if isinstance(value, float): close(saved[field], value)
             elif saved[field] != value: raise ValueError("temperature-control summary differs")
             checks += 1
+    recent = sources["recent_terminal"]
+    recent_audit = sources["recent_terminal_audit"]
+    if recent_audit["source_result_sha256"] != sha(ROOT / result["sources"]["recent_terminal"]["path"]):
+        raise ValueError("recent terminal audit binding differs")
+    for key, saved in result["recent_2020_2025_all_practice_terminal_qualification"].items():
+        trend, crop = key.split("|")
+        scores = recent["crops"][trend][crop]["terminal_scores"]
+        if set(saved["scores"]) != set(scores):
+            raise ValueError("recent terminal model set differs")
+        for model, row in scores.items():
+            if saved["scores"][model]["n"] != row["n"]:
+                raise ValueError("recent terminal support differs")
+            close(saved["scores"][model]["rmse_log_yield"], row["rmse_log_yield"]); checks += 2
+        expected = min(scores, key=lambda model: scores[model]["rmse_log_yield"])
+        if saved["lowest_rmse_model"] != expected:
+            raise ValueError("recent terminal ranking differs")
+        checks += 1
     boundary = result["interpretation"]
     if any(boundary[x] is not False for x in ("distribution_promoted", "drought_promoted_to_global_damage",
                                                "causal_climate_yield_response", "global_transfer_authorized",
