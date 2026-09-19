@@ -1,0 +1,75 @@
+{
+  "schema": "gfdl_future_spei_crop_windows_public_receipt_v1",
+  "status": "passed_independent_allocation_validation",
+  "role": "outcome_free_engineering_not_future_yield_damage_or_scc",
+  "protocol": {
+    "path": "GFDL_FUTURE_SPEI_CROP_WINDOW_PROTOCOL_20260919.md",
+    "sha256": "c84540bd0cc65a0d317204897a96bcd5df197b0e7be9c981b77988bcda522dae"
+  },
+  "input": {
+    "monthly_cube_sha256": "b01acdffff4f69c735ca07f24f48415a134c1d59288dc85804aae0ffb84cfad8",
+    "crop_support_sha256": "3b08339e3ef1482ec5464b1354388026d051e050ec2fb396d3f6135117290ba9",
+    "crop_cell_pairs": 557,
+    "maize_pairs": 324,
+    "soybean_pairs": 233,
+    "harvest_years": [2015, 2016, 2017, 2018, 2019, 2020],
+    "scenarios": ["ssp126", "ssp370", "ssp585"],
+    "windows": ["season", "stage1", "stage2", "stage3", "preplant90"],
+    "scales_months": [1, 3, 6]
+  },
+  "outputs": {
+    "regime": {
+      "ignored_path": "data/interim/gfdl_future_spei_crop_windows_20260919/regime.parquet",
+      "rows": 163350,
+      "bytes": 3139313,
+      "sha256": "ef2f79831551fd33cbfd4a68d8952e7e9a6c5c1285dc77f7d569d8334caf1ee8"
+    },
+    "combined": {
+      "ignored_path": "data/interim/gfdl_future_spei_crop_windows_20260919/combined.parquet",
+      "rows": 150390,
+      "bytes": 2940297,
+      "sha256": "f934f71e9d3d29a6cdb9a494b85f68d05e9bea431108621567ce0da69120268c"
+    },
+    "result_sha256": "b6e6bb70d94ccf3844d5c1f9b0caaf47a489207a186588edfa642ffc9329bb05"
+  },
+  "validation": {
+    "status": "passed",
+    "checks": 1066451,
+    "maximum_allocation_absolute_error": 0.0,
+    "maximum_summary_absolute_error": 0.0,
+    "fixed_raw_calendar_cube_samples": 24,
+    "receipt_sha256": "99f3127c3bbfc34e1ed9566f62470a29272098b08eb4d4b41f676e3fa37c1e0e"
+  },
+  "resource_guards": {
+    "builder_wall_seconds": 2.5250127910403535,
+    "builder_sampled_peak_group_rss_bytes": 353173504,
+    "builder_sampled_peak_new_disk_bytes": 7402757,
+    "builder_receipt_sha256": "480a64b10acfe901ab1e7f4fdc47f03e5db3c6daf4ad68b1e4598e1bb81c440a",
+    "validator_wall_seconds": 4.550450875016395,
+    "validator_sampled_peak_group_rss_bytes": 274907136,
+    "validator_receipt_sha256": "0521c19d8fc3e2fbb852c782caaf8cb84d05111044065f07936cef9884e67208",
+    "max_rss_mib": 512,
+    "max_new_disk_mib": 64,
+    "min_free_gib": 130,
+    "measurement": "sampled process group; not kernel-enforced"
+  },
+  "crop_season_unweighted_mean_spei": [
+    {"crop": "mai", "scenario": "ssp126", "spei_1": -0.2464392157564243, "spei_3": -0.34808302367708754, "spei_6": -0.2820653973891815},
+    {"crop": "mai", "scenario": "ssp370", "spei_1": -0.26715614836274637, "spei_3": -0.34552374955637133, "spei_6": -0.21776324003846573},
+    {"crop": "mai", "scenario": "ssp585", "spei_1": -0.1314473617051298, "spei_3": -0.09317856996346519, "spei_6": -0.12010439149221953},
+    {"crop": "soy", "scenario": "ssp126", "spei_1": -0.1843408966348191, "spei_3": -0.21170182167339208, "spei_6": -0.242435140107439},
+    {"crop": "soy", "scenario": "ssp370", "spei_1": -0.19668170984393055, "spei_3": -0.24648443234375894, "spei_6": -0.18749222393240164},
+    {"crop": "soy", "scenario": "ssp585", "spei_1": -0.2775165847729332, "spei_3": -0.33255210770683286, "spei_6": -0.424429088919777}
+  ],
+  "implementation": {
+    "builder_sha256": "595a2d74e6f9eaf5d00f1a641d2003f2bc90732ca597dc4dd45b84a07b1e6705",
+    "validator_sha256": "e333c2af607e74767d14b493ccb204e24f8c0abd66bce329232f27b138ba1da9"
+  },
+  "gates": {
+    "outcome_used": false,
+    "response": false,
+    "causal": false,
+    "damage": false,
+    "scc": false
+  }
+}
