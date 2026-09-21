@@ -95,6 +95,34 @@ opposing signs are in
 The three-model range is not a confidence interval and cannot
 replace held-out estimation of a forced GMT-to-feature response.
 
+### September 21 five-ESM fixed-area late-window comparison
+
+The source-bound late-century matrix was completed for five ESMs, three SSPs,
+and harvest years 2092--2099. The 28 previously missing GFDL-ESM4 and
+MRI-ESM2-0 annual panels used the same sequential 36-tile constructor and
+independent 21-cell raw-daily validator as the existing UKESM, IPSL and MPI
+panels. Each annual panel contains 67,420 calendar cells and 202,260 stage
+rows. Separate eight-year source/hash/calendar audits passed for every newly
+completed ESM-scenario series.
+
+The agricultural summary fixes MIRCA-OS v2 year-2000 rainfed-maize area before
+examining the five-model contrasts. Exact key intersection retains 30,654 of
+30,821 positive-area crop cells and 99.9559% of mapped area identically across
+all 120 ESM-scenario-year panels; missing cells are not imputed. Within each
+ESM, the primary contrasts are the eight-year SSP3-7.0 and SSP5-8.5 means minus
+the SSP1-2.6 mean. Area-weighted and equal-cell results are both retained.
+Models remain named and unweighted and are not treated as probability draws.
+
+An independent implementation rebound all 120 annual manifest/validation
+pairs, reconstructed 2,160 annual ledger values and 180 scenario contrasts,
+and performed 210 fixed source-tile checks. The primary aggregation and audit
+sampled peak process-group RSS of 212,336,640 and 112,902,144 bytes. The exact
+result and audit SHA-256 values, all model-specific contrasts, and
+interpretation limits are in
+`FIVE_ESM_MAIZE_AREA_WEATHER_RESULTS_20260921.md`. The comparison is a
+late-century scenario/weather diagnostic, not a forced response per degree,
+crop-yield response, damage estimate, or SCC input.
+
 ### September 4 regional robustness additions
 
 The source-hash-validated regional panel was fitted under original controls,
@@ -365,16 +393,22 @@ remaining dry Fresno July-2000 rainfall pair is an exact constant match with
 undefined correlation. These are measurement-route sensitivities, not an
 equivalence test, estimator selection, response estimate, or SCC input.
 
-A complete bounded acquisition now records all 468 canonical monthly objects
+A complete bounded acquisition recorded all 468 canonical monthly objects
 for 1981--2019, totaling exactly 27,857,685,556 bytes (25.944 GiB). Before each
 object entered the atomic local manifest, the utility required the frozen HTTP
 identity and exact byte length, computed a local SHA-512, and validated the
 NetCDF schema, four required fields, embedded product metadata, day-label
 semantics, and exact daily date coverage. Every resume invocation revalidated
 all already manifested objects; a changed upstream identity, local hash,
-schema, or calendar failed closed. The raw files and working manifest remain
-Git-ignored. These checks establish a reproducible historical-weather input,
-not a county exposure, predictive relationship, causal response, or SCC term.
+schema, or calendar failed closed. On 21 September 2026, after the complete
+content receipt and HTTP inventory had been frozen, the 468 raw grid files were
+deleted to recover 25.944 GiB of local storage. The acquisition utility can
+recreate them from the retained URLs and verifies every replacement against
+the retained SHA-512 checksums. The official daily county-average source,
+derived panels, validation receipts, and student-share extract were not
+deleted. Raw and interim data remain Git-ignored. These checks establish a
+reproducible historical-weather input, not a county exposure, predictive
+relationship, causal response, or SCC term.
 
 The first U.S. weather-file smoke is the official NKN annual gridMET 2018
 precipitation object. `data/provenance/gridmet_pr_2018.toml` pins its mutable

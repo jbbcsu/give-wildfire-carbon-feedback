@@ -1,5 +1,10 @@
 # Crop-area-weighted global rainfed-maize weather contrasts
 
+**Superseded for model-robustness interpretation.** The validated five-ESM
+extension in `FIVE_ESM_MAIZE_AREA_WEATHER_RESULTS_20260921.md` adds GFDL-ESM4
+and MRI-ESM2-0 on the same fixed support. This three-model record is retained
+as the dated intermediate result; its values are unchanged.
+
 This is a **direct daily ISIMIP3b climate-input diagnostic**, not a
 forced per-K response, agricultural yield effect, damage, or SCC result.
 The fixed [MIRCA-OS v2 rainfed-maize area release](https://www.hydroshare.org/resource/e4582ca0042148338bb5e0148b749ed6/)

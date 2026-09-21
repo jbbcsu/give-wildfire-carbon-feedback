@@ -33,15 +33,14 @@ produce strongly model-dependent precipitation contributions, even under
 identical external production weights. Original EPIC-TAMU yield-source
 comparisons verify a particular imposed joint heat/rainfall scenario on fixed
 support; the original rain-only and temperature-only corners remain
-unretrieved. A separate direct-daily UKESM climate diagnostic covers
-three scenarios and two eight-year global rainfed-maize windows;
-IPSL and MPI supply the same late-century window. Under SSP5-8.5
-minus SSP1-2.6 in 2092--2099, equal-calendar-cell mean seasonal
-rainfall is +7.23/+23.54/-1.18 mm (UKESM/IPSL/MPI), whereas
-five-day extreme rain increases in all three (+6.29/+7.75/+3.09 mm).
-Wet-day frequency and early-stage rainfall also have mixed signs.
-Thus a two-model positive rainfall-total pattern failed a third-ESM
-check. These short weather contrasts neither identify forced
+unretrieved. A separate direct-daily diagnostic covers five climate models,
+three scenarios and the 2092--2099 global rainfed-maize window on fixed crop
+area. Under SSP5-8.5 minus SSP1-2.6, area-weighted seasonal rainfall changes
+are -67.68/+5.74/-6.94/+10.17/+20.12 mm for GFDL/IPSL/MPI/MRI/UKESM:
+the total has no common sign. Wet days decline and the longest dry spell and
+Rx1day rise in all five models; Rx5day rises in four. Under SSP3-7.0, rainfall
+is positive in two models, while wet days again decline and longest dry spells
+rise in all five. These short scenario contrasts neither identify forced
 rainfall per K nor yield or damage effects. Together these results
 establish an auditable empirical and climate-input foundation, not
 identified climate damages. In the global country-held-out yield comparison,
@@ -213,9 +212,13 @@ non-irrigated crop-county-years over 1981--2019: 7,079 corn, 4,845 soybean,
 and 9,672 all-classes-wheat pairs. This support is regional, not nationally
 representative. All 807 reported county GEOIDs match 2019 TIGER; eight counties
 remain under historical-boundary review. All 468 monthly NOAA nClimGrid-Daily
-objects for 1981--2019 are now local: the bounded acquisition utility checked
-the frozen HTTP identity, local SHA-512, NetCDF schema, and exact daily calendar
-for each of the 27,857,685,556 compressed bytes. Registered aggregation over
+objects for 1981--2019 were acquired and validated: the bounded acquisition
+utility checked the frozen HTTP identity, local SHA-512, NetCDF schema, and
+exact daily calendar for each of the 27,857,685,556 compressed bytes. The
+reproducible raw grid cache was then evicted on 21 September 2026 to conserve
+local storage; its URL, HTTP identity, byte count, and checksum inventory is
+retained, as are the official county-average source, derived panels, and
+student-share file. Registered aggregation over
 419 eligible counties and 39 harvest years produces exactly 23,722 paired-
 practice rows and 20,228 common direct-weather/PDSI consecutive-year changes;
 both assembly and exact recomputation pass. This regional construction enables
@@ -580,20 +583,22 @@ Report calendar coverage, baseline alignment, daily-feature distributions, and
 agreement across weather products.
 
 The current direct-daily global rainfed-maize climate diagnostic covers
-UKESM1-0-LL, IPSL-CM6A-LR and MPI-ESM1-2-HR under three SSPs for
-2092--2099 on the same 67,420 crop-calendar cells. Independent audits
-reproduce all source/year, eight-year, and summary arithmetic gates.
-For SSP5-8.5 relative to SSP1-2.6, equal-cell mean growing-season
-rainfall is +7.23/+23.54/-1.18 mm, respectively, while Rx5day is
-+6.29/+7.75/+3.09 mm. Wet-day frequency is -1.06/+0.22/-1.78 days,
-and early-stage rainfall is -0.94/+1.56/-2.62 mm. MPI reverses the
-two-ESM seasonal-total sign while preserving the heavy-rain sign.
-This shows that totals alone do not specify distribution, **not**
-evidence that distribution adds a validated yield or welfare effect.
-The eight-year scenario contrast cannot be divided by its GMST
-difference to infer a forced rainfall-per-K response. Full source,
-weighting and claim limits appear in
-`GLOBAL_DIRECT_DAILY_THREE_ESM_LATE_WEATHER_RESULTS_20260917.md`.
+GFDL-ESM4, IPSL-CM6A-LR, MPI-ESM1-2-HR, MRI-ESM2-0 and UKESM1-0-LL
+under three SSPs for 2092--2099. Each of the 120 annual panels has 67,420
+crop-calendar cells; fixed MIRCA-OS v2 rainfed-maize weights retain 30,654
+exactly common cells and 99.9559% of mapped positive area. Independent audits
+bind every source/year manifest and reconstruct the annual and contrast
+arithmetic. For SSP5-8.5 relative to SSP1-2.6, area-weighted growing-season
+rainfall is -67.68/+5.74/-6.94/+10.17/+20.12 mm across the five models,
+while wet days decline and maximum dry-spell length and Rx1day rise in all
+five; Rx5day rises in four. Under SSP3-7.0, rainfall is positive in only two
+models, wet days decline in all five, maximum dry-spell length rises in all
+five, and Rx1day/Rx5day rise in four/three. Thus total quantity and crop-stage
+allocation remain model-dependent even where frequency and dry-spell signs
+are more stable. The five-model sign counts are not probabilities or
+confidence intervals; each model contributes one realization and only eight
+terminal years. Full values and audit hashes are in
+`FIVE_ESM_MAIZE_AREA_WEATHER_RESULTS_20260921.md`.
 
 The complementary published-pattern benchmark retains 4,703 finite
 country/model annual-precipitation slopes across all 184 GIVE countries after

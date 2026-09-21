@@ -1,18 +1,20 @@
 # Current precipitation-agriculture evidence hierarchy
 
-This note integrates the independently audited results available on September
-19, 2026. It is designed for direct manuscript use but does not change any
+This note integrates the independently audited results available through
+September 21, 2026. It is designed for direct manuscript use but does not change any
 model-selection or SCC gate.
 
 ## What can now be said
 
 1. **Future rainfall patterns change in ways annual totals do not summarize.**
-   On fixed rainfed-maize area across three direct daily ISIMIP3b ESMs, late-
-   century SSP5-8.5 minus SSP1-2.6 seasonal rainfall has mixed signs
-   (+20.124, +5.737 and −6.940 mm), while wet days fall, longest dry spells
-   rise, and Rx1day/Rx5day rise in all three models. These are eight-year
-   scenario contrasts, not forced responses or yield effects. Source:
-   `GLOBAL_THREE_ESM_MAIZE_AREA_WEATHER_RESULTS_20260918.md`.
+   On fixed rainfed-maize area across five direct daily ISIMIP3b ESMs, late-
+   century SSP5-8.5 minus SSP1-2.6 seasonal rainfall is positive in three
+   models and negative in two (-67.679 to +20.124 mm). Wet days fall and the
+   longest dry spell and Rx1day rise in all five; Rx5day rises in four. Under
+   SSP3-7.0, rainfall is positive in two models, while wet days still fall and
+   longest dry spells rise in all five. These are eight-year scenario
+   contrasts, not forced responses or yield effects. Source:
+   `FIVE_ESM_MAIZE_AREA_WEATHER_RESULTS_20260921.md`.
 
 2. **Rainfall quantity has a stable U.S. non-irrigated association, but not a
    causal global coefficient.** A roughly 105--114 mm within-range rainfall
@@ -81,11 +83,12 @@ model-selection or SCC gate.
 ## Highest-value next work
 
 The precipitation priority is no longer generic feature construction. The next
-decisive evidence is an independent, later-century multi-ESM crop-window drought
-and pattern matrix paired with a response model that passes an untouched spatial
-or temporal validation. Storage currently prevents completing the full
-temperature-inclusive SPEI matrix; bulk acquisition should wait for external
-storage or a safe deletion decision. Until then, resident-input work should:
+decisive evidence is a response model that passes an untouched spatial or
+temporal validation and can be paired with the now-complete five-ESM
+later-century crop-window pattern matrix. The full temperature-inclusive SPEI
+matrix remains a large acquisition; the project recovered 25.944 GiB by
+evicting a checksum-reproducible NOAA grid cache, but still preserves the
+130-GiB free-space floor. Resident-input work should:
 
 1. preserve quantity, direct-pattern and drought representations as competitors;
 2. test whether any response transports outside the currently exposed outcomes;

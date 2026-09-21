@@ -1,0 +1,36 @@
+{
+  "status": "planned_then_verified_recoverable_raw_eviction",
+  "date": "2026-09-21",
+  "evicted_path": "data/raw/us_county/nclimgrid_daily",
+  "evicted_scope": {
+    "netcdf_files": 468,
+    "netcdf_bytes": 27857685556,
+    "period": "1981-01 through 2019-12",
+    "variables": ["prcp", "tavg", "tmax", "tmin"]
+  },
+  "reason": "Reclaim local disk for the still-incomplete multi-model precipitation and drought analysis while preserving exact reacquisition identities and smaller validated county-average products.",
+  "recoverability": {
+    "canonical_urls_and_http_identities": "data/provenance/nclimgrid_daily_1981_2019_http_inventory.csv",
+    "canonical_inventory_sha256": "c0873d80656788abe9beeab42be633436b31f8e2f3eb0629a19ca0a7ce71098a",
+    "content_receipt": "data/provenance/nclimgrid_daily_1981_2019_content_receipt.json",
+    "content_receipt_sha256": "a45a78d23f1553c80eb6c50bdae9c1ef28e2fec3aa5b55fe114e213b20cf02e9",
+    "object_records_sha512": "9234b635a39b94312accafa344c884a450824b9b72d5d730724f798601ae8e51445e9c600dbe946f9e58366e4bc3c3b5b2161a97c5844ccfb9887734d8154893",
+    "source": "NOAA NCEI nClimGrid-Daily v1.0.0",
+    "source_doi": "10.25921/c4gt-r169",
+    "reacquisition_required_for_full_grid_reanalysis": true
+  },
+  "retained_products": {
+    "daily_county_averages_1981_2025": "data/interim/nclimgrid_county_averages_full_20260916",
+    "county_average_acquisition_summary_sha256": "8bac1b3f3f661a5fc34bcb6cafa75dc18440183ee885f5555a25dad1923e1f69",
+    "county_average_source_objects": 2700,
+    "county_average_source_bytes": 2362010369,
+    "student_share": "data/interim/student_share_20260918/corn_soy_county_daily_1981_2025.csv.gz",
+    "student_share_sha256": "a9fbb3f0718daa6444893d8c8e196ee67c54a7d3242b562c889c368ea049da3c"
+  },
+  "scientific_effect": {
+    "existing_results_changed": false,
+    "existing_derived_outputs_deleted": false,
+    "future_full_grid_us_reanalysis_requires_reacquisition": true,
+    "precipitation_scc_gate_changed": false
+  }
+}
