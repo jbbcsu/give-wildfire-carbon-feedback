@@ -68,6 +68,12 @@ A fixed-checkpoint turnover audit further finds adjacent-period composition
 total-variation distances of 0.253--0.357 for countries, 0.315--0.448 for
 species, and 0.138--0.314 for FAO areas. This closes only the descriptive
 time-invariance screen: production allocation and calibration remain open.
+The first provisional global historical comparison now also shows that all
+four FishMIP paths share the broad 1950--2014 FAO tonnage rise but match annual
+first differences weakly. This is a post-existing-evidence structural
+diagnostic, not observed calibration: the headless FAO filter still requires
+GUI reconciliation, and effort, management, species, country, and allocation
+structure are unresolved.
 The official FishStatJ 4.04.11 macOS export runtime is also frozen and passes
 bundle integrity plus a bundled-Java smoke. Its Derby capture schema exposes
 country/species/area/measure keys and separate annual values and symbols. A

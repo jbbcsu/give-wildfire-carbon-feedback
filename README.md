@@ -75,6 +75,17 @@ countries remain top-five in 2014. A time-invariant observed-catch allocation
 is therefore rejected; GUI reconciliation, EEZ allocation, calibration,
 welfare, damage, and SCC gates remain closed.
 
+The post-existing-evidence global temporal diagnostic in
+[`FISHMIP_FAO_GLOBAL_TEMPORAL_DIAGNOSTIC.md`](FISHMIP_FAO_GLOBAL_TEMPORAL_DIAGNOSTIC.md)
+compares the four historical FishMIP paths with the provisional FAO marine
+tonnage series on 40,398 common model cells. Normalized 1950--2014 level
+correlations are high (0.953--0.985), but annual first-difference correlations
+are only 0.251--0.303; after 1980, level correlations fall to 0.726--0.903 and
+first-difference correlations remain 0.217--0.338. A shared long-run rise does
+not establish annual predictive skill. The independent reconstruction passes
+736 checks. No model is selected or weighted, and GUI reconciliation,
+allocation, attribution, welfare, damage, and SCC gates remain closed.
+
 The ISIMIP3b public catalogue currently exposes 20 global monthly total-catch
 density (`tc`) datasets in a balanced grid of BOATS and EcoOcean, forced by
 GFDL-ESM4 and IPSL-CM6A-LR, with historical, preindustrial-control, SSP1-2.6,
