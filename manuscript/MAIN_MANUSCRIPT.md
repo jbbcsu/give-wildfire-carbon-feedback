@@ -1,431 +1,70 @@
 # Precipitation patterns, global agricultural damages, and the social cost of carbon
 
-## September 8 literature and next empirical comparison
-
-Global machine-learning comparisons of precipitation amount and extremes
-already exist: [Jin et al. (2026)](https://doi.org/10.1016/j.jclepro.2026.147663)
-report annual precipitation as their highest-ranked indicator. We do not claim
-priority for that comparison; their full methods have not yet been audited.
-[Parkes et al. (2019)](https://doi.org/10.1088/1748-9326/ab5ebb) also document
-agricultural response uncertainty associated with weather-source choice in
-India. Our next registered diagnostic holds U.S. NASS outcomes and county-years
-fixed and estimates separate factual GSWP and nClimGrid associations with the
-same heat controls. It is not a new untouched validation or an SCC estimate.
-See `PRECIPITATION_LITERATURE_UPDATE_20260908.md` and
-`US_SOURCE_MATCHED_RESPONSE_PROTOCOL_20260908.md`.
-
-## September8 NASS-calendar county climate benchmark
-
-The paired climate pilot now uses actual county polygons and the same NASS
-crop calendars as the U.S. yield analysis. On16corn/15soy fully covered
-counties, factual-minus-counterclim seasonal precipitation is+26.10/+24.48mm
-and longest dry spells are2.28/2.61days shorter, alongside greater heat.
-However, factual GSWP-minus-nClimGrid precipitation differs by+31.87/+32.25mm
-on those same county-years. Such source differences caution against direct
-transport of the existing regression coefficients. This is a selected Kansas/
-Colorado exposure benchmark, not a yield-damage estimate or national result.
-The sample is too small for the earlier response contract; wider paired
-climate coverage is being acquired without lowering its sample requirements.
-See `US_PAIRED_COUNTY_CLIMATE_RESULTS_20260908.md`.
-
-## September8 counterclimate weather-support qualification
-
-On the exact positive-yield cohort, 50.25% of maize and 46.59% of soybean
-counterclim crop-years lie outside at least one cell-specific factual
-quantity/heat range. A standardized joint-neighbor diagnostic flags only
-6.47% and 0.93%, respectively. These measure different aspects of coverage;
-neither establishes causal overlap, and a lower flagged fraction in a larger
-feature set does not validate a model. Quantity-only marginal flags are
-5.72% and 6.23%; omitting heat is not a solution to extrapolation. No crop
-effect was calculated. See `PAIRED_WEATHER_SUPPORT_RESULTS_20260908.md` and
-`JOINT_RESPONSE_RESEARCH_DESIGN_20260908.md` for the separate response and
-independent-outcome validation requirements.
-
-## September8 paired historical counterclimate evidence
-
-Using published GSWP3-W5E5 detrended climate, the two-row pilot now has a
-validated factual-minus-counterclim comparison for1982–2010. Equal-cell mean
-crop-season precipitation differences are+8.70mm maize/+12.47mm soy, while
-longest dry spells are0.41/0.66days shorter. Stage shares and wet extremes also
-change, alongside increased heat. This is neither uniform drying nor evidence
-of net crop benefits. Geographic dispersion is substantial and this500/327cell
-sample is not globally representative. The calculation conditions on the
-published detrending method, not a no-anthropogenic-emissions experiment.
-No crop-response coefficients,damages,welfare or SCC have been applied.
-The complete domain/precision reconciliation audit and numerical results are
-in`FACTUAL_COUNTERCLIM_RESULTS_20260908.md`. Both precipitation quantity and
-timing are represented without training a new climate emulator.
-
-## September8 independent historical benchmark qualification
-
-IPSL now provides the same historical benchmark as GFDL. Historical dry-spell
-and five-day precipitation offsets are smaller in IPSL, but threshold-heat
-offsets are larger. Future-minus-own-history precipitation differs in sign
-for maize:−3.42mm in GFDL versus+15.98mm in IPSL underSSP585, on292shared
-observed-supported cells. This is not the higher-minus-lower-scenario contrast.
-Warming and threshold heat increase in both models, with70%maize/64%soy IPSL
-future rows outside at least one model-historical marginal heat range.
-The benchmarks do not remove the crop-response transport problem or establish
-global damages. See`IPSL_HISTORICAL_CLIMATE_BENCHMARK_RESULTS_20260908.md`.
-Earlier source-benchmark next-step statements below are now superseded.
-
-## September8 historical source comparison
-
-The first source-matched historical benchmark is now complete. GFDL's1982–2010
-rainfall-pattern distributions differ from the observed-source exposures:
-longest dry spells average about1.9days longer and five-day rainfall maxima
-6–11mm higher, despite stage2mean temperature offsets below0.11°C. Comparing
-future exposures directly with the observed-source history can therefore mix
-historical source offsets with period changes. Soybean's SSP585longest dry
-spell is0.20days shorter than the model-historical mean but1.68days longer
-than the observed-source mean on the same149cells. These are distributional
-comparisons, not paired weather realizations or forced-change estimates.
-Heat extrapolation remains large against the model's own history (~79% of
-evaluable SSP585rows outside at least one of six heat ranges for both crops).
-See`HISTORICAL_CLIMATE_BENCHMARK_RESULTS_20260908.md` for denominators and
-limitations. No empirical agricultural damage or SCC calculation follows yet.
-
-## September8 full-period matched climate evidence
-
-Matched daily heat and rainfall now span2032–2059 for both GFDL-ESM4 and
-IPSL-CM6A-LR, SSP126/585, maize/soybean. On the limited two-row fixed-weight
-support, seasonal rainfall is lower and longest dry spells longer in both
-models over this period; magnitudes differ substantially. Mid-season threshold
-heat rises about28–30°C·days for maize and27°C·days for soybean. All eight
-overlaps reproduce previous2042–2049products exactly. However, about80–81%
-of evaluable maize and75–76% of soybean SSP585crop-years exceed at least one
-historical marginal heat range. These diagnostics are not global averages,
-climate-attributable yields or SCC. Complete results and denominators:
-`FULL_PERIOD_HEAT_RESULTS_20260908.md`. The next step is a source-matched
-historical benchmark before response transport, not multiplying historical
-rainfall associations by these scenario differences. A concise evidence map
-for discussion is `PRELIMINARY_EVIDENCE_BRIEF_20260908.md`.
-
-## September 8 independent-model and window-sensitivity qualification
-
-The second matched model, IPSL-CM6A-LR, reverses GFDL's2042–2049rainfall/dry-
-spell direction on the same fixed-weight support: IPSL rainfall differences
-are+22.63/+26.23mm(maize/soy), versus GFDL−9.86/−19.98mm. Mid-season heat
-increases in both models. An exploratory check across three eight-year windows
-in the existing28year basis shows that IPSL and MPI rainfall signs reverse
-in the middle window, while all three models' retained28year mean rainfall
-differences are negative. The overlapping midperiod summaries agree exactly.
-This motivates longer matched heat coverage, not choosing a preferred model
-or claiming robust precipitation damages. Scope, all windows and limitations:
-`IPSL_AND_WINDOW_RESULTS_20260908.md`.
-
-## September 8 matched higher/lower-scenario heat and rainfall
-
-The first matched joint-climate comparison is complete for GFDL-ESM4 SSP585
-minus SSP126,2042–2049, at39.25/39.75N. Equal-cell-average seasonal rainfall
-changes are−9.86mm(maize) and−19.98mm(soybean), longest dry spells increase
-0.85/1.05days, and second-stage threshold heat rises20.50/18.60°C·days using
-29°C/30°C crop-specific thresholds. Rainfall signs vary across cells; this is
-neither a global-average change nor a crop-loss estimate. Complete scope,
-spatial dispersion, historical extrapolation checks and provenance are in
-`PAIRED_HEAT_CLIMATE_RESULTS_20260908.md`. No causal precipitation attribution,
-economic welfare or SCC has been inferred from this single-model comparison.
-
-## September 8 follow-through: soybean threshold and published valuation
-
-The missing30°C soybean control is now built from the same daily cutout and
-joined on exact keys; prior rainfall fields remain unchanged. Its historical
-heat-range check has703of1,192evaluable crop-years(58.98%) outside at least one
-of six ranges, all above historical maxima. This remains a limited input/
-extrapolation diagnostic, not projected crop loss (`SOY_HEAT30_RESULTS_20260908.md`).
-
-Section K of the published Hultgren et al. supplement is now fully reviewed,
-including visual verification of equations. It distinguishes anticipated
-planting responses from unanticipated weather and a price-level storage
-adjustment. An independent price/quantity-only implementation passes four
-synthetic test groups, but is not a full welfare replication. Expectation-
-window and additional-adaptation descriptions contain ambiguities requiring
-source-code resolution; neither is silently selected. See
-`HULTGREN_WELFARE_SOURCE_REVIEW_20260908.md`. No empirical welfare or SCC result
-has been added.
-
-## September 8 real future heat-input validation
-
-The bounded download and real-content checks now succeed. One 12.29 MiB
-ISIMIP cutout supplies daily Tmax for both maize and soybean irrigation
-calendars. Matched rainfall/heat tables contain4,000maize and2,616soybean
-crop-years in2042–2049, GFDL-ESM4 SSP126, at39.25/39.75N. This is an input
-pilot, not a global projection or yield-loss estimate. Among cells with
-historical observed-yield exposure ranges,64.34% of maize and57.97% of soybean
-future crop-years are outside at least one of six stage29°C heat ranges.
-Marginal-range checks do not establish joint support or distinguish forcing
-from climate-source differences. The29°C soybean check is a sensitivity, not
-its locked30°C response control. Source lineage, denominators, resource use,
-validation and remaining limitations are in`REAL_HEAT_CUTOUT_RESULTS_20260908.md`.
-
-## September 7 future-basis construction and extrapolation limits
-
-Future climate now uses the same nonlinear rainfall transformations as the
-historical direct-response basis, calculated within irrigation-calendar regime
-before fixed MIRCA2000 weighting. Eighteen tables cover208,404crop-year rows
-in the balanced GFDL/IPSL/MPI scenario pilot. Geographic support is limited to
-500maize and327soybean cells in two latitude rows. In MPI soybean, SSP5-8.5
-minus SSP1-2.6 reduces average seasonal rain by1.81mm but increases the
-weighted log1p-rain index by0.00788, illustrating why mean-rain changes cannot
-be substituted directly into a nonlinear response basis.
-
-Historical observed-yield/direct-exposure ranges cover only292of those maize
-cells and149soybean cells. Under SSP5-8.5, roughly46–73% of evaluable future
-crop-years fall outside their cell-specific1982–2010 range for second-stage
-mean temperature, versus5–11% for seasonal rainfall totals across these crops
-and models. These marginal-range diagnostics neither establish joint support
-nor estimate damages; the observed historical yield relationship cannot yet
-be treated as an unqualified future response. Complete results, denominators,
-scenario contrasts and limitations are in
-`FUTURE_WEIGHTED_PRECIPITATION_RESULTS_20260907.md`. Daily Tmax controls,
-transport validation, CO2/adaptation and welfare links remain incomplete.
-
-## September 7 economic sensitivity and low-storage climate continuation
-
-The independent market-accounting prototype now evaluates all six published
-FAS-alternative elasticity specifications from Roberts and Schlenker's AER
-appendix under hypothetical productivity factors0.99,1 and1.01. A hypothetical
-1% productivity loss yields total-surplus losses of0.917–0.933% or1.030–1.042%
-of baseline market value, depending on the output-shift convention. These are
-normalized sensitivity calculations, not empirical agricultural damages,
-dollar values or SCC; neither convention is empirically selected. Parameter
-covariance, baseline value and transferability remain unresolved. The appendix
-was text-inspected but not visually verified. Exact source links, all36states,
-numerical checks and limitations are in
-`WELFARE_NORMALIZED_SENSITIVITY_RESULTS_20260907.md`.
-
-To address storage constraints without changing climate resolution, a single
-ISIMIP server-side Tmax cutout has completed. Its ZIP is12.29MiB versus a
-1.92GiB global parent file. At the September7 checkpoint no climate output had
-been downloaded; this status is superseded by the September8 real-data results
-above. Exact-coordinate calendar selection passes synthetic full-grid
-versus cutout parity for seasonal and crop-stage heat features. This prepares
-the missing future heat inputs but does not expand geographic coverage or
-complete a climate-to-yield projection. See
-`LOW_STORAGE_HEAT_SUBSET_PILOT_20260907.md`.
-
-## September 7 U.S. rainfall curves and irrigation-practice differences
-
-Supported-range summaries of the unchanged U.S. models show stronger rainfall
-associations for reported non-irrigated yields. In the quantity-only 29°C
-heat-control variant, moving from median to 10th-percentile rainfall gives
-exponentiated fitted log-yield contrasts of -12.88% [-14.66, -11.06] for non-irrigated
-corn and -10.18% [-12.16, -8.15] for non-irrigated soybean. Corresponding
-irrigated contrasts are -0.68% and -1.01%. These are selected regional samples
-(361 corn and 255 soybean counties), not national estimates. Only 49.6% of corn
-and 62.4% of soybean counties span both rainfall values in their observed ranges.
-
-Paired log-yield-difference regressions account for shared county/year errors
-and reproduce the difference between separate-practice coefficients. They
-show increases of 14.00% [11.51, 16.55] and 10.22% [7.76, 12.73] in the fitted
-irrigated/non-irrigated yield ratio for that dry contrast. These ratios are
-not percentage-point yield differences or causal irrigation benefits. All
-forms and thresholds are retained; the illustration does not select a new
-primary specification or overturn predictive nulls. Soil, management,
-selection and exposure differences remain, and no adaptation cost or SCC is
-estimated. Reproduction, figures and all sensitivity estimates are in
-`us_county_validation/US_RAINFALL_CURVE_AND_IRRIGATION_RESULTS_20260907.md`.
-
-## September 7 direct climate-scenario pilot
-
-The longer-period extension uses 28 distinct harvest years (2032–2059) for
-six crop-season definitions and both calendar regimes. In the common GFDL,
-IPSL and MPI sample, SSP5-8.5 minus SSP1-2.6 reduces maize-calendar seasonal
-rainfall by a median 5.79 mm (model range 2.02–18.84 mm reduction) and
-lengthens the maximum dry spell by 1.45 days (range 0.01–1.65). Soybean
-changes are -2.83 mm and +1.29 days. The geography remains the same narrow
-band; model ranges are not confidence intervals, and the USA-labeled subset
-does not have universal dry-spell sign agreement. This direct forcing-scenario
-comparison does not supply an aligned joint yield response or a marginal CO2
-effect. All 252 comparisons and their limitations are in
-`CLIMATE_CONTIGUOUS_CONTRAST_RESULTS_20260907.md`.
-
-A direct comparison of retained ISIMIP3b features—not an emulator—now
-quantifies both rainfall totals and temporal distribution. In a two-latitude
-maize-calendar band (39.25°N and 39.75°N), all five ESMs lengthen the mean
-maximum growing-season dry spell for SSP5-8.5 relative to SSP1-2.6 in
-2092–2099: median +2.18 days, model range +0.93 to +6.11. Rainfall totals
-disagree in sign: median -13.20 mm, range -39.72 to +29.61 mm. This agreement
-on dry spells is not universal across periods or regional subsets. Eight-year
-windows retain internal variability; neither scenario is a no-climate-change
-counterfactual. These are limited geographic climate contrasts, not global
-projections, crop impacts or marginal CO2 effects. Full results and limitations
-are in `CLIMATE_SCENARIO_CONTRAST_RESULTS_20260907.md`.
-
-## September 7 country-specific annual-shock sensitivity
-
-The global soybean rainfall-quantity association is not robust to stronger
-annual controls. On identical country-mapped training support, country-year
-instead of global-year intercepts reduce its +0.1 weighted log-rain-index
-contrast from 0.381% to 0.014% (country-clustered conditional interval
-[-0.543, 0.574]). The analogous maize contrast falls from 0.574% to 0.367%
-[0.135, 0.600]. Soybean scPDSI intervals also span zero. Partial timing
-associations remain positive but do not establish robust incremental prediction
-or transport to future climate. The country proxy, its sample restriction and
-limited effective independence constrain interpretation. This is an
-exploratory sensitivity, not causal identification. See
-`GLOBAL_COUNTRY_CONTROL_RESULTS_20260907.md` for the full comparison matrix.
-
-## September 7 global historical association estimates
-
-Separate exploratory training-period regressions now quantify moisture–yield
-associations, alongside—not in place of—the predictive tests below. With
-annual intercepts, the maize fitted contrast for +0.1 in the fixed-weight
-log-rain index is +0.658% [0.285, 1.032], versus +0.420% [-0.041, 0.884]
-for soybean, using conditional normal intervals clustered in 20-degree
-blocks. The index contrast is not exactly a 10% rainfall increase. Seasonal
-scPDSI +1 contrasts are +1.389% [0.449, 2.338] and +0.648%
-[-0.005, 1.305], respectively. Soybean results attenuate with unrestricted
-annual shocks relative to quadratic time controls. These are historical,
-equal-grid-pair partial associations, not causal effects, rainfed-only
-responses, or future climate damages. All specifications, exact definitions,
-sample limits and numerical checks are in
-`GLOBAL_HISTORICAL_ASSOCIATION_RESULTS_20260907.md`.
-
-The yield-to-welfare link remains uncalibrated. The newly documented
-published partial-equilibrium candidate offers a route to examine without
-inventing a new welfare emulator; it is not a completed economic model.
-See `PUBLISHED_WELFARE_ROUTE_ASSESSMENT_20260907.md`.
-
-## September 7 geographic robustness audit
-
-The preregistered continuous-panel follow-up excludes each held-out 10-degree
-source block from its fold's training sample while retaining the September 6
-temporal endpoints and exact common support. Rainfall quantity reduces pooled
-held-out RMSE by 0.001040 for maize and 0.000950 for soybean relative to heat
-controls, but paired 5,000-draw source-block intervals cross zero for both.
-Soybean quantity plus distribution similarly improves RMSE by 0.001012 versus
-quantity, with an interval that crosses zero. Historical scPDSI is
-descriptively worse than quantity for soybean under both seasonal and stage
-forms; maize scPDSI differences remain uncertain. These retrospective,
-equal-grid-pair diagnostics do not define a random population or resolve all
-spatial/GDHY dependence. No model is promoted and no response, future climate,
-damage, welfare, or SCC gate is opened. See
-`GLOBAL_CONTINUOUS_GEOGRAPHIC_CLUSTER_RESULTS_20260907.md`.
-
-## September 7 U.S. daily-heat sensitivity
-
-Cell-first daily Tmax exceedance and above-threshold counts at 29 and 30 C
-were expanded to the complete 11,861-key corn/soy direct-practice weather
-support. The full-year route exceeded the 1 GiB monitor; all 149 amended
-64-county checkpoints completed below 454 MiB. On the unchanged 20,228
-first-difference observations and reused validation splits, both daily-heat
-control variants remove the original diagnostic rainfall-distribution
-promotion for irrigated and non-irrigated soybean; corn continues to fail the
-uniform-state rule. The U.S. distribution ranking is therefore sensitive to
-temperature-control basis. This does not identify a causal precipitation or
-heat response. See
-`us_county_validation/US_DAILY_HEAT_EXPANSION_RESULTS_20260907.md`.
-
-## September 6 continuous historical benchmark
-
-An exploratory retrospective temporal comparison now uses the continuous
-1982–2016 global maize/soy inputs, with training differences ending in
-1983–2010 and test differences ending in 2012–2016. On identical support,
-seasonal quantity has the lowest maize RMSE (.292338); adding distribution
-slightly worsens it. Quantity plus distribution has the lowest soybean RMSE
-(.177279), a roughly 0.44% improvement over quantity. Neither scPDSI family
-beats quantity for either crop. These modest predictive gains differ from
-the U.S. rankings and do not establish climate-attributable damages. Counts
-of 57,767 maize and 26,004 soybean test pairs are not independent observation
-counts. See `GLOBAL_CONTINUOUS_TEMPORAL_RESULTS_20260906.md`; geographic
-validation now has the limited descriptive audit above, while causal
-uncertainty, welfare, and SCC remain unfinished.
-
-## September 5 predictive robustness qualification
-
-Adding stage-average maximum-temperature controls changes the regional
-moisture-model comparison. Neither soybean practice continues to meet the
-predeclared geographic materiality criterion for the full rainfall-distribution
-extension, although non-irrigated soybean improvements remain positive in
-each eligible state. PDSI models have the lowest non-irrigated crop RMSE in
-the previously examined terminal-time tests with these controls; rankings are
-not universal across geographic tests. Thus earlier distribution-selection
-results below apply only to their original control specification and should
-not be read as robust to temperature-control choice. This is exploratory
-predictive evidence, not precipitation attribution or SCC. See
-`us_county_validation/US_MOISTURE_TMAX_RESULTS_20260905.md`.
-
-## September 4 regional robustness update
-
-In the reported non-irrigated sample, adding stage-average daily maximum
-temperature and squared terms attenuates the fitted +100 mm seasonal-rainfall
-association at median rainfall from 7.72% to 6.91% for corn and from 4.46%
-to 3.99% for soybeans. Omitting each state in turn yields ranges of
-5.87–7.61% and 2.53–5.69%, respectively, with these added controls. The
-soybean rainfall-timing contrast remains positive in all omissions, ranging
-from 2.95–5.06% for a ten-percentage-point shift from stage 3 to stage 2.
-These are exploratory regional historical associations; omission ranges
-are not confidence intervals. Average maximum temperature does not replace
-daily extreme-heat exposure. Climate-attributed damages and SCC remain
-unestimated. Detailed evidence and limitations are in
-`us_county_validation/US_REPORTING_HEAT_RESULTS_20260904.md` and
-`us_county_validation/US_STATE_INFLUENCE_RESULTS_20260904.md`.
+Detailed dated research notes are preserved in [the development log](RESEARCH_DEVELOPMENT_LOG.md); this draft presents the scientific argument and current validated evidence.
 
 ## Abstract
 
-**Latest empirical qualification (September 7):** the U.S. fixed-effect
-rainfall associations now include validated daily heat controls. Non-irrigated
-corn's illustrative +100 mm contrast near median rainfall attenuates from
-7.72% to 5.68–5.77%; soybean's from 4.46% to 3.82–3.90%. State omissions
-retain positive direction but variable magnitudes. Positive timing coefficients
-do not overturn the failure of the separate daily-heat predictive materiality
-criterion. These are regional historical associations, not causal climate
-damages or SCC. `PRELIMINARY_EVIDENCE_20260907.md` consolidates the findings
-and outstanding climate/welfare links.
+**Preliminary research draft, September 21, 2026; no global damage or SCC estimate is reported.**
 
-Climate change alters not only mean precipitation but also the timing,
-seasonality, dry spells, and heavy-rainfall exposures that govern crop water
-stress and excess-water damage. Existing GIVE agriculture in this checkout is
-a temperature-indexed welfare response with no explicit separable
-precipitation input, so it cannot identify a marginal precipitation
-contribution. This project develops a replacement pathway:
-daily, crop-calendar-aligned climate features will be linked to gridded crop
-outcomes in a joint temperature--water response; the fitted response will be
-evaluated under matched baseline and CO2-pulse climate paths, translated
-through one agricultural welfare layer, and passed to GIVE's SCC calculation.
-The empirical hierarchy begins with joint temperature plus crop-calendar
-seasonal rainfall quantity, retains distribution terms only for robust
-incremental out-of-sample value, and treats PDSI/scPDSI and SPEI as serious
-competing moisture-stress representations rather than additive controls.
-The current 2012--2016 maize and soybean screens do not identify any
-distribution family that improves on seasonal quantity in every registered
-holdout, so seasonal quantity remains the parsimonious direct-weather
-reference. That ranking is predictive screening evidence, not a causal
-response estimate. The matched direct-weather--scPDSI predictive diagnostic is
-now validated on 209,036 global-gridded maize and soybean consecutive-year
-pairs. Seasonal quantity has the lowest mean spatial-fold RMSE for both crops,
-although its improvement over controls is below 1% and its MAE ranking is less
-uniform; richer scPDSI summaries add stress-specific rather than stable general
-predictive value. Paired geographic loss intervals include zero for every
-scPDSI-versus-direct comparison. This is a historical prediction result, not a
-causal response, full-global-agriculture result, climate-change projection, or
-SCC input. A separate U.S. regional screen validates 20,228 common corn/soy
-practice-specific changes. For non-irrigated corn, seasonal and stage PDSI
-outpredict rainfall quantity in every eligible state and in terminal/extreme
-tests; the direct distribution extension improves four of five states but
-fails its frozen uniform-state rule. For non-irrigated soybean, the
-distribution extension improves all three eligible states plus the terminal
-and extreme tests under the original temperature controls. With additional
-stage-average Tmax and squared-level controls, neither soybean practice passes
-the same frozen geographic materiality rule, although all three non-irrigated
-soybean improvements remain positive. Daily heat controls based on 29 or 30 C
-stage exceedance sums and counts also reject both soybean promotions on the
-same reused splits. Irrigated rankings are less stable. A
-clean-room QR audit reproduces the original 120 aggregate metrics, and a
-separate preregistered artifact audit reconciles all 240 original/richer-control
-metrics and eight summaries exactly at saved precision. These U.S. results are
-historical prediction evidence, not causal effects or SCC inputs. Primary SPEI
-construction is source-locked but has not yet been executed.
-We pre-specify fixed,
-trend, and upper adaptation scenarios and retain climate, response, calendar,
-and welfare uncertainty. The manuscript reports no SCC estimates until the
-validated feature panel and response draws are available. Its central outcome
-will be a global SCC decomposition that does not stack precipitation damages
-on top of the existing temperature-indexed agriculture component.
+We develop a precipitation-aware agricultural replacement for GIVE, with the
+eventual aim of estimating climate damages without double counting its existing
+agriculture sector. The analysis distinguishes rainfall quantity, within-season
+distribution and drought, and requires distribution predictors to demonstrate
+incremental out-of-sample value rather than assuming their superiority.
+Directly reported irrigated and non-irrigated U.S. county yields provide a
+historical association check; a separate nationwide panel of all-practice
+corn and soybean yields supplies a prospective 2020–2025 prediction test on
+counties with low reported irrigated acreage. In that test, adding rainfall
+timing, dry spells, and heavy-rain features to seasonal total and temperature
+reduces soybean log-yield root-mean-squared error from 0.15546 to 0.14781,
+but changes corn error only from 0.18291 to 0.18224. The soybean result
+survives alternative fixed-2017 low-irrigation-share screens; corn's small
+gain is not robust. Seasonal PDSI is a serious competing moisture predictor,
+not an additive rainfall control, and does not displace the terminal soybean
+pattern specification on the same sample. These are predictive and conditional
+historical results, not causal estimates of climate-change damages.
 
-Analysis completion and permitted claim status are maintained in
-`RESULTS_STATUS.md`; the manuscript must not advance beyond that ledger.
+Separately, two climate models and two scenarios provide spatially global maize
+exposure comparisons for 2031–2060 versus 1981–2010. Pooled seasonal rainfall
+changes of +0.05% to +2.79% coexist with monthly redistribution and offsetting
+regional changes; annual and seasonal quantity-change signs differ across
+roughly 20–22% of supported rainfed area. Published crop-model benchmarks
+produce strongly model-dependent precipitation contributions, even under
+identical external production weights. Original EPIC-TAMU yield-source
+comparisons verify a particular imposed joint heat/rainfall scenario on fixed
+support; the original rain-only and temperature-only corners remain
+unretrieved. A separate direct-daily UKESM climate diagnostic covers
+three scenarios and two eight-year global rainfed-maize windows;
+IPSL and MPI supply the same late-century window. Under SSP5-8.5
+minus SSP1-2.6 in 2092--2099, equal-calendar-cell mean seasonal
+rainfall is +7.23/+23.54/-1.18 mm (UKESM/IPSL/MPI), whereas
+five-day extreme rain increases in all three (+6.29/+7.75/+3.09 mm).
+Wet-day frequency and early-stage rainfall also have mixed signs.
+Thus a two-model positive rainfall-total pattern failed a third-ESM
+check. These short weather contrasts neither identify forced
+rainfall per K nor yield or damage effects. Together these results
+establish an auditable empirical and climate-input foundation, not
+identified climate damages. In the global country-held-out yield comparison,
+no empirical moisture family clears the predeclared promotion gates:
+seasonal quantity has weak and uncertain maize gains, the soybean comparison
+has inadequate fold support, and distribution and scPDSI are unstable or
+worse. We therefore report them as benchmark and sensitivity families rather
+than converting them to damages.
+
+As a literature-based climate benchmark, 4,703 published EPA/PEEPS annual
+precipitation slopes covering 184 GIVE countries can be mapped directly to
+the matched core-GIVE FAIR marginal temperature path. Their country/model
+uncertainty is substantial: 53.63% of slopes are positive and 46.37% are
+negative. This establishes a reproducible annual-quantity climate link but
+does not represent within-season timing, extremes, drought, crop response, or
+economic loss.
+Validated response transport, compatible climate-pulse inputs, adaptation
+calibration and agricultural welfare integration remain necessary before
+estimating an incremental social cost of carbon.
+
+Exact samples, contrasts, uncertainty and remaining claim restrictions are in
+the linked results records and `RESULTS_STATUS.md`. Historical associations,
+future exposure differences and crop-model benchmarks are separate estimands.
 
 ## 1. Introduction
 
@@ -467,9 +106,30 @@ baseline agriculture component and replaces it. The primary quantity is the
 joint climate marginal damage. Any precipitation attribution is a declared
 decomposition of a joint model, not a separately identified causal outcome.
 
-This is not the first climate or crop emulator. MESMER-M-TP and related
-systems emulate spatial precipitation under warming; stochastic weather
-generators translate monthly conditions into daily sequences; and OSCAR-crop
+This is not the first climate or crop emulator. PEEPS supplies CMIP6
+annual/monthly spatial precipitation patterns as functions of global mean
+temperature (Kravitz and Snyder, 2023, doi:10.1371/journal.pclm.0000159);
+MESMER-M-TP generates spatially coherent monthly temperature--precipitation
+fields (Schöngart et al., 2024, doi:10.5194/gmd-17-8283-2024), and a
+MESMER-X extension emulates annual-maximum one-day rainfall along global
+warming trajectories (Pierini et al., 2026,
+doi:10.1088/1748-9326/ae5fad). None alone supplies validated
+crop-calendar daily rainfall timing, consecutive dry days, and Rx5day
+for our SCC estimand. RIME-X directly maps simple-climate-model GMT
+trajectories to warming-level-dependent regional climate and impact
+indicator distributions and supports user-defined ISIMIP indicators
+(Schwind et al., 2026, doi:10.5194/gmd-19-6797-2026); it is a close
+feature-response benchmark, subject to joint-feature and matched-pulse
+tests. STITCHES retains high-frequency archived ESM sequences along
+target temperature trajectories (Tebaldi et al., 2022,
+doi:10.5194/esd-13-1557-2022), while the Kemsley et al. (2024,
+doi:10.1002/joc.8320) Markov--gamma generator scales daily wet/dry
+and amount parameters with warming. The published DiffESM model
+disaggregates monthly rainfall into 28-day daily sequences but leaves
+continuity across generated blocks for future work (Bassetti et al., 2024,
+doi:10.1029/2023MS004194). Cross-scenario transfer of a precipitation
+pattern can fail even where within-scenario reconstruction is adequate
+(Kravitz et al., 2017, doi:10.5194/gmd-10-1889-2017). OSCAR-crop
 maps CO2, temperature, aggregate growing-season precipitation, and nitrogen
 to crop yields inside a compact Earth-system model. The distinguishing target
 here is narrower: determine whether crop-stage rainfall timing, dry-spell
@@ -733,6 +393,60 @@ No yield is attached to these smokes and no climate-feature response has been
 fitted. The evidence establishes software behavior, not future agricultural
 damages.
 
+Separately, a source-locked, memory-bounded full-grid engineering run now
+extracts one GFDL-ESM4 SSP1-2.6 harvest year (2032) for rainfed maize:
+67,420 valid crop-calendar cell-years and 202,260 stage records. All 36
+latitude tiles and 21 independently recomputed raw daily cells pass. This
+establishes a feasible low-memory input construction, not multi-year or
+multi-model coverage and not an estimated warming--rainfall, yield, or damage
+response. The locked result and validator record are in
+`GLOBAL_DIRECT_DAILY_GFDL_FULL_2032_MAIZE_RESULTS_20260917.md`.
+The same preregistered, independently checked tiling route now covers all
+eight harvest years 2032--2039 within this single GFDL-ESM4 SSP1-2.6
+source decade (539,360 rainfed-maize calendar cell-years; 1,618,080 stage
+records). Exact cross-year calendar masks and physical bounds pass. This
+remains source-only input construction; neither year-to-year variation nor
+these counts identify a warming response, crop loss or SCC.
+Two additional full-grid source-only anchors in this same GFDL-ESM4
+SSP1-2.6 run, harvest years 2042 and 2092, have separately passed source
+identity, 36-tile construction, fixed 21-cell raw-weather validation and
+exact crop-calendar/physical checks. These anchors extend the temporal
+range of available crop weather inputs; they do not convert a one-ESM,
+one-scenario collection into an identified GMT response.
+The first second-ESM extension has also produced and independently
+validated exact-cell UKESM1-0-LL SSP1-2.6/3-7.0/5-8.5 rainfed-maize
+crop-weather features for harvest year 2092. Relative to SSP1-2.6, the
+unweighted calendar-cell mean seasonal precipitation differs by
++9.60/+26.23 mm in SSP3-7.0/SSP5-8.5, but only 50.2%/52.2% of cells
+are wetter; the additional rainfall is concentrated in middle-stage
+means, and the SSP5-8.5 maximum-dry-spell mean differs little. These
+single-year scenario contrasts are descriptive and contain no crop
+outcomes; they cannot be interpreted as a GMT response or damages.
+The same registered source-only tiling method now covers all five
+ISIMIP3b ESMs and three SSPs for harvest year 2092, with independent
+raw-cell and exact-calendar validation for each of the 15 panels.
+This broadens model/scenario *input coverage* but is still just one
+weather year per panel; neither an emulated GMT response nor an
+agricultural SCC effect has been estimated from it.
+The same source-locked route now independently validates three
+UKESM1-0-LL scenario panels at harvest year 2042 as well, and eight
+consecutive late-century harvest years 2092--2099 under UKESM
+SSP1-2.6. The latter used separately audited one-year tiles after an
+eight-year tile hit the 512 MiB resource guard; the complete panel
+has 539,360 season and 1,618,080 stage records. The one-year 2042
+scenario rain differences from SSP1-2.6 (+2.04/-4.06 mm for
+SSP3-7.0/SSP5-8.5) differ in sign and magnitude from the 2092
+single-year differences; neither date isolates forced rainfall
+change. Same-realization annual temperature parquets and feature
+sources are hash-aligned for all six anchors, but a validated
+GMT-to-crop-weather response, yield impact and SCC remain open.
+The full-grid SSP1-2.6 daily-feature panel now also spans all eight
+harvest years 2042--2049, yielding two separately audited eight-year
+UKESM weather windows when paired with 2092--2099. This supplies
+1,078,720 calendar-cell seasons and 3,236,160 stages across the
+two nonadjacent windows, but is still one ESM/scenario and does not
+by itself establish a forced precipitation response or damages.
+
 The next registered IPSL-CM6A-LR SSP1-2.6 `pr`/`tas` pairs for 2041--2050 and
 2091--2100 also pass exact byte, SHA-512, decoded-content, same-realization
 GMST, and bounded feature/reconciliation gates. Their paired daily files use
@@ -858,12 +572,70 @@ two-scenario envelope. The matching IPSL end-century product improves only
 support. These adverse single-ESM results do not complete whole-ESM validation
 and do not authorize a response, damage, or SCC.
 
-## 6. Results (pre-registered placeholders)
+## 6. Results
 
 ### 6.1 Climate-feature validation
 
 Report calendar coverage, baseline alignment, daily-feature distributions, and
 agreement across weather products.
+
+The current direct-daily global rainfed-maize climate diagnostic covers
+UKESM1-0-LL, IPSL-CM6A-LR and MPI-ESM1-2-HR under three SSPs for
+2092--2099 on the same 67,420 crop-calendar cells. Independent audits
+reproduce all source/year, eight-year, and summary arithmetic gates.
+For SSP5-8.5 relative to SSP1-2.6, equal-cell mean growing-season
+rainfall is +7.23/+23.54/-1.18 mm, respectively, while Rx5day is
++6.29/+7.75/+3.09 mm. Wet-day frequency is -1.06/+0.22/-1.78 days,
+and early-stage rainfall is -0.94/+1.56/-2.62 mm. MPI reverses the
+two-ESM seasonal-total sign while preserving the heavy-rain sign.
+This shows that totals alone do not specify distribution, **not**
+evidence that distribution adds a validated yield or welfare effect.
+The eight-year scenario contrast cannot be divided by its GMST
+difference to infer a forced rainfall-per-K response. Full source,
+weighting and claim limits appear in
+`GLOBAL_DIRECT_DAILY_THREE_ESM_LATE_WEATHER_RESULTS_20260917.md`.
+
+The complementary published-pattern benchmark retains 4,703 finite
+country/model annual-precipitation slopes across all 184 GIVE countries after
+explicitly preserving 81 unavailable country/model pairs. Across the retained
+pairs, 53.63% of slopes are positive and 46.37% are negative; the ensemble
+median is positive for 103 countries and negative for 81. Only nine country
+ensembles have a positive 5th percentile and four have a negative 95th
+percentile, underscoring model uncertainty. Applying each slope to the actual
+matched FAIR pulse-minus-baseline temperature gives a transparent
+annual-quantity precipitation path. For the smallest tested pulse, normalized
+temperature responses from the two smallest pulse sizes agree over 2021--2300
+to a maximum relative discrepancy of `1.5764e-4`; an independent
+implementation reproduces all 18 selected pulse/year summaries and convergence
+statistics. This benchmark does not create monthly or daily rainfall, dry
+spells, extremes, drought indices, or crop outcomes and is not an agricultural
+damage or SCC estimate. Protocol, results, and exact artifact hashes are in
+`EPA_ANNUAL_COUNTRY_PATTERN_RESULTS_20260921.md` and
+`EPA_FAIR_ANNUAL_PRECIPITATION_PULSE_RESULTS_20260921.md`.
+
+In a separate, predeclared **within-SSP5-8.5** MRI diagnostic, the
+2092--2099 minus 2042--2049 equal-calendar-cell mean differences are
++16.06 mm seasonal rainfall, -0.21 wet days, +0.70 days in maximum
+dry-spell length, and +4.94 mm Rx5day. Its independent 45-statistic
+arithmetic audit passes. The median wet-day difference is positive,
+illustrating spatial heterogeneity behind the slightly negative mean.
+This one-ESM, two-short-window comparison is not a forced precipitation-
+per-K slope or agricultural damage; the full result and source
+qualification are in
+`GLOBAL_DIRECT_DAILY_MRI_TWO_WINDOW_WEATHER_RESULTS_20260917.md`.
+
+The separate GFDL-ESM4 SSP1-2.6 2042--2049 versus 2092--2099
+two-window diagnostic also passes complete daily-source, anchor-parity,
+cross-year and independent weather-arithmetic audits. Its equal-cell
+later-minus-earlier mean season rain is +10.66 mm, wet days +0.80,
+maximum dry spell -0.07 days and Rx5day +1.30 mm. A predeclared
+same-SSP UKESM comparison has matching directions for these features,
+but GFDL's mean GMST is **0.024 K lower** in the later window whereas
+UKESM's is +0.370 K higher. These short, stabilized-scenario weather
+differences cannot identify a forced global-warming precipitation
+response, and no pooled two-model or yield result is inferred. Source
+and comparison receipts are in
+`GLOBAL_DIRECT_DAILY_GFDL_TWO_WINDOW_WEATHER_RESULTS_20260917.md`.
 
 The historical CRU scPDSI candidate covers 240,784 maize crop-grid-years
 (115,758 positive GDHY outcomes) and 176,537 soybean crop-grid-years (47,653
@@ -929,6 +701,49 @@ change, or authorize damages or an SCC input.
 
 Report spatial, temporal, and extreme-year held-out skill; coefficient and
 functional-form uncertainty; and comparison with process-model ranges.
+
+**Current nationwide U.S. predictive benchmark (September 16).** The
+pre-outcome fixed-2017 Census screen selects counties with at most 10%
+reported irrigated crop acreage; the NASS outcome is still *all-practice*
+yield, not observed rainfed yield. Models fitted in 1981--2019 are scored
+on the same crop-specific county-years in 2020--2025. With county fixed
+effects, a common trend, and temperature controls, terminal log-yield RMSE is:
+
+| Crop | Seasonal rainfall quantity | Quantity plus timing/dry spells/heavy rain | Competing seasonal PDSI |
+|---|---:|---:|---:|
+| Corn | 0.18291 | 0.18224 | 0.18469 |
+| Soybean | 0.15546 | 0.14781 | 0.15307 |
+
+The soybean pattern extension improves all six annual scores in the main
+screen, but the corn difference is small and unstable. Post-result fixed-2017
+20% and 30% screens retain soybean's pooled gain, whereas corn's gain remains
+near zero; 2022-vintage composition screens are not prospective validation.
+In a further post-result state-composition audit on the exact fixed forecasts,
+soybean's pooled gain remains positive after omitting any single state
+(minimum +0.00589 log-yield RMSE points), but only 18 of 28 state scores
+favor the pattern group and North Dakota worsens. Corn's leave-one-state-out
+range includes a negative gain. This is score composition, not a new
+geographic holdout or independent confirmation; details are in
+[`US_COUNTY_AVERAGE_STATE_COMPOSITION_RESULTS_20260916.md`](../US_COUNTY_AVERAGE_STATE_COMPOSITION_RESULTS_20260916.md).
+These are model-family comparisons, not separate additive damages. They do
+not separate precipitation from temperature causally or establish transfer
+to global agriculture. The exact samples, state-trend sensitivity, PDSI
+construction, independent checks, and conditional uncertainty are in
+[`US_COUNTY_AVERAGE_PDSI_COMPETITOR_RESULTS_20260916.md`](../US_COUNTY_AVERAGE_PDSI_COMPETITOR_RESULTS_20260916.md)
+and [`US_COUNTY_AVERAGE_IRRIGATION_SCREEN_RESULTS_20260916.md`](../US_COUNTY_AVERAGE_IRRIGATION_SCREEN_RESULTS_20260916.md).
+
+**Historical measurement and direct-practice checks.** On the exact
+11,861 regional crop/county/year keys, county-average and older gridded
+weather measurements are close for seasonal totals but differ more for
+nonlinear dry-spell and heavy-rain metrics; neither source is certified as
+ground truth. Refitting the original 1981--2018 paired irrigated/nonirrigated
+association on identical keys with county-average weather barely changes
+the registered +100-mm ratio contrasts (corn −7.54973% to −7.52542%; soybean
+−4.32422% to −4.30556%). These are conditional associations, not causal
+irrigation effects or SCC inputs. The exact estimator and independent
+recomputation records are in
+[`US_COUNTY_WEATHER_ESTIMATOR_COMPARISON_RESULTS_20260916.md`](../US_COUNTY_WEATHER_ESTIMATOR_COMPARISON_RESULTS_20260916.md)
+and [`US_PAIRED_PRACTICE_WEATHER_ROUTE_RESULTS_20260916.md`](../US_PAIRED_PRACTICE_WEATHER_ROUTE_RESULTS_20260916.md).
 
 **National U.S. zero-outcome support.** The locked 1981--2019 all-practice
 corn source contains 499 reported zero-yield county-years in 150 counties and
@@ -1216,6 +1031,100 @@ sensitivity, while retaining daily crop-calendar features, crop-area/value
 weights, and joint agriculture replacement as the primary analysis. Annual
 pattern scaling and country aggregation are not novelty claims of this paper.
 
+As a separate climate-method benchmark following the published PEEPS
+monthly pattern-scaling construction (Kravitz and Snyder, 2023,
+doi:10.1371/journal.pclm.0000159), we fit GFDL-ESM4 and IPSL-CM6A-LR
+raw-CMIP6 monthly precipitation to their own native-area-weighted annual
+GMST on SSP5-8.5 2015--2080. Whole-SSP1-2.6 2031--2060 and late
+SSP5-8.5 2081--2100 are frozen holdouts. In both whole-scenario tests,
+the monthly-pattern specification reduces native-global-grid monthly
+amount RMSE by less than 1% relative to a same-information annual-
+quantity-only fit (GFDL 57.555 to 56.992; IPSL 59.703 to 59.155
+mm/month), and improves month-share total-variation distance modestly.
+However, it predicts negative rainfall in 2,621 and 7,805 grid-cell
+months, respectively. The later-time tests have severe GMT-support
+extrapolation and many more negative predictions. These are
+all-atmosphere-grid climate scores, not cropland, yield or SCC results;
+the linear monthly fit therefore remains a benchmark and is not used
+as GIVE forcing. Exact sources, physical-failure counts and an
+independent 108-score arithmetic audit are reported in
+`PUBLISHED_MONTHLY_GMT_RESPONSE_HOLDOUT_RESULTS_20260917.md`.
+On fixed rainfed-maize calendars, the same held-out SSP1-2.6
+2031--2060 **monthly-climatology** benchmark gives a more crop-relevant
+comparison. For the 28,328 supported crop cells, the monthly pattern
+reduces area-weighted crop-season rainfall RMSE relative to the
+quantity-only fit from 48.211 to 45.929 mm in GFDL and from 36.986
+to 28.556 mm in IPSL under the source-calendar convention; the
+harvest-year convention gives the same direction. Month-share
+distance and rainfall-centroid errors also decline. These are
+climate-input scores, not yield effects: there are still 9 and 68
+negative predicted crop-cell months, and the comparison has no
+year-level or daily variability. The fit remains unpromoted.
+`PUBLISHED_MONTHLY_GMT_RESPONSE_MAIZE_RESULTS_20260917.md` provides
+the common support, independent ledger audit and all four scores.
+
+We also test the **published author PEEPS coefficients**, distinct from
+those project-fitted benchmarks, against their own two-member MPI-ESM1-2-HR
+SSP5-8.5 precipitation source. On rainfed-maize nearest-center support,
+raw published levels imply a negative month on 2.856% of area in 2015
+and 9.879% in 2100. Annual-total RMSE against direct source rainfall
+is 131.843/147.021 mm, and mean monthly-share total-variation error
+is 0.126917/0.142917 on physically valid within-year support. An
+independent audit reproduces 214 reported scalar metrics; a fixed-area
+post-result comparison gives +34.172 mm direct versus +43.612 mm
+published-pattern annual rainfall change from 2015 to 2100. Because
+this is a **same-source, in-sample** diagnostic with physically invalid
+predictions, it neither validates a future scenario response nor enters
+the agricultural damage or SCC calculation. Full provenance and scope:
+`PEEPS_MPI_SSP585_RECONSTRUCTION_RESULTS_20260918.md`.
+An all-area post-result change decomposition further separates annual
+amount from within-year monthly redistribution. For 2015--2100, direct
+versus published area-weighted annual changes are +43.452 versus
++47.329 mm, yet spatial annual-change RMSE is 157.710 mm. The
+within-year redistribution component accounts for 44.937 mm of the
+46.820 mm overall monthly-change RMSE, compared with 13.143 mm per
+month from annual-amount error. This same-source comparison preserves
+invalid negative raw levels and cannot be used as rainfall forcing;
+see `PEEPS_MPI_CHANGE_DECOMPOSITION_RESULTS_20260918.md`.
+A separate, predeclared direct-2015-baseline plus published-monthly-anomaly
+test also fails physicality: the 2100 estimate has at least one negative
+month on 33.962% of mapped crop area, despite lower annual and monthly
+RMSE than a no-change comparator in this same-source test. The failed
+route is not used for GIVE rainfall forcing; see
+`PEEPS_MPI_BASELINE_ANOMALY_RESULTS_20260918.md`.
+Twenty-year source-matched monthly climatologies substantially reduce
+single-year noise but do not remove the forcing boundary. Between
+2015--2034 and 2081--2100, the mapped-area direct versus published
+annual-rainfall changes are +36.933 versus +38.798 mm, with 21.731 mm
+spatial annual-change RMSE. The within-year monthly redistribution
+component of change error is 5.060 mm per month versus 1.811 mm from
+annual amount error. The late published monthly climatology is still
+negative in at least one month on 6.131% of mapped area. Even this
+favorable same-source, twenty-year smoothing therefore leaves the raw
+published pattern unsuitable for GIVE forcing; see
+`PEEPS_MPI_20YR_CLIMATOLOGY_RESULTS_20260918.md`.
+On the separate, physically valid direct-daily ISIMIP route, fixed
+year-2000 rainfed-maize area weights reframe three-ESM late-window
+scenario weather. Under SSP5-8.5 minus SSP1-2.6 in 2092--2099,
+growing-season rainfall changes are +20.124/+5.737/−6.940 mm in
+UKESM/IPSL/MPI, but wet days decline and longest dry spells and Rx5day
+increase in all three. This supports retaining both amount and
+within-season distribution/extremes as distinct climate *inputs*;
+it does not show an independent crop-yield penalty from the latter.
+The same 30,654 cells cover 99.9559% of mapped rainfed-maize area in
+all 72 panels, and an independent ledger/source-sample audit passes.
+The eight-year scenario contrasts are not fitted forced per-K changes,
+crop damages or SCC; see
+`GLOBAL_THREE_ESM_MAIZE_AREA_WEATHER_RESULTS_20260918.md`.
+Published alternatives therefore matter: MESMER-M-TP supplies a
+temperature-conditioned positive monthly-precipitation framework,
+whereas the 2026 MESMER-X Rx1day extension emulates annual maxima of
+one-day rain. These provide monthly and tail benchmarks, respectively,
+but neither supplies a ready-made joint daily sequence of crop-season
+rainfall, dry spells and temperature for this GIVE replacement. The
+specific applicability and available-code gates are recorded in
+`PUBLISHED_POSITIVE_AND_EXTREME_RAIN_EMULATOR_REVIEW_20260918.md`.
+
 Before acquiring any additional daily fields, we froze a one-ESM/one-scenario
 contiguous-support pilot. GFDL-ESM4 SSP1-2.6 precipitation and temperature for
 2031--2060 provide crop-feature years 2032--2059 and eight centered 21-year
@@ -1226,6 +1135,27 @@ windows preserve additive stage/season precipitation and wet-day identities
 to numerical precision. This is a mechanics gate only; it cannot authorize a
 response or substitute for whole-ESM, whole-scenario, multi-crop,
 rainfed/irrigated, dependence, and FAIR pulse validation.
+An independent global source extension now verifies the same GFDL
+SSP1-2.6 maize/rainfed crop-year features for all 67,420 registered
+calendar cells and every 2032--2059 harvest year: 1,887,760 season
+and 5,663,280 stage records. All 12 newly built annual panels pass
+source-receipt, calendar-key, physical-bound, stage-reconciliation,
+and 252 selected raw-daily reconstruction checks. The first
+cross-year audit failed only because an empty tile produced an
+object-typed empty array; the retained failure receipt and the
+reviewed empty-tile correction precede the passing second audit.
+The centered 21-year latitude-100--110 parity pilot subsequently
+matches all 5,488 prior two-row season and 16,464 stage records
+after an explicit fixed-calendar-geometry schema mapping. A
+two-latitude-row streaming implementation keeps this pilot's peak
+sampled RSS at 223 MB, and the largest 5,630-cell tile passes at
+273 MB. All 36 centered tiles subsequently pass an independent
+global audit: eight 2042--2049 centers contain 539,360 season
+and 1,618,080 stage records, with 168 independent 21-year
+annual-feature reconstructions and a 413 MB sampled audit peak.
+These achievements establish climate input
+support and reproducible feature arithmetic, not a fitted
+GMT-to-rainfall response, yield effect, monetary damage, or SCC.
 Before examining a real joint fit, we preregister ECC-Q empirical-copula
 coupling. Complete ESM--member--scenario--center-year fields provide the rank
 templates; separately calibrated marginal quantiles are reordered on physical
@@ -1433,6 +1363,11 @@ and precipitation, spatial dependence, Rx5day, crop-stage fidelity, whole-model
 and whole-scenario holdouts, and matched-pulse convergence remain unresolved.
 We therefore retain this chain as a validation plan without substituting a new
 generator or promoting any climate, response, damage, or SCC result.
+The subsequently identified DiffESM daily benchmark does not amend that
+registered chain: the published version generates rain or temperature
+separately in 28-day blocks, without demonstrated continuity across blocks or
+the joint daily heat--rain response needed for crop windows. Its reported
+within-block rain-streak fidelity is not crop-year validation.
 
 We preregistered the numerical interface for a possible future implementation.
 It requires keyed occurrence, wet-amount, and spatial innovations shared by
@@ -1470,6 +1405,64 @@ calendar test records one-to-one. No real parameter estimation, generator
 implementation, or downstream climate or damage calculation is implied.
 
 ### 6.3 Marginal damages and global SCC
+
+The evidence-led selection gate does not promote any empirical global response
+family. Maize seasonal quantity modestly improves country-held-out point RMSE,
+but its paired intervals against heat controls and zero change include no
+improvement. Soybean has only four valid country folds, lacks a supported
+bootstrap, and zero change has lower pooled RMSE. Adding distribution worsens
+point RMSE relative to quantity for both crops; scPDSI is unstable across
+weightings or worse. We therefore retain quantity plus temperature only as a
+research benchmark and distribution/drought as reported sensitivities. No
+empirical agricultural damage or SCC result is authorized at this stage.
+
+U.S. NASS validation nevertheless shows a coherent mechanism priority. Over
+county-specific common rainfall ranges, lower rain is associated with lower
+non-irrigated corn and soybean yields under both nClimGrid and GSWP, while both
+reported-irrigated intervals include zero. Distribution and seasonal PDSI both
+improve pooled non-irrigated prediction beyond quantity. PDSI is especially
+stable for non-irrigated corn, winning in all five baseline states and the
+terminal test, but South Dakota reverses after richer Tmax controls.
+Distribution fails the uniform-state rule for corn and loses soybean's formal
+selection under richer Tmax controls. These results prioritize further U.S.
+drought validation; they do not authorize global coefficient transfer.
+In a separate post-result 2020--2025 all-practice terminal comparison, direct
+rain patterns have the lowest corn and soybean RMSE under common and state-
+specific trends, while PDSI mean is worse. Because the outcome-practice and
+validation designs differ, this qualifies rather than overturns the direct-
+practice evidence and reinforces a competing-model interpretation.
+
+Before transporting an historical response, we compared 35 years
+(1982--2016) of same-cell crop weather with 72 direct-daily end-century
+panels on a fixed 108.04-million-ha rainfed-maize footprint. Depending on
+ESM and SSP, 7.6--19.5% of crop area in an average 2092--2099 year is outside
+its cell-specific historical minimum/maximum for seasonal rainfall, and
+18.3--33.5% is outside for wet-day frequency. Mean temperature is outside
+the same range on 37.0--100% of area. Stage-rainfall and precipitation-extreme
+features also show nontrivial extrapolation. These weather-only results do not
+measure yield loss or forced change because the historical and future climate
+source families differ. They instead reject an unrestricted historical-range
+transport assumption and require explicit out-of-support sensitivity before
+agricultural damages can enter GIVE.
+
+As a descriptive climate-link benchmark, we normalized each ESM's terminal
+SSP3-7.0 and SSP5-8.5 crop-weather contrast against SSP1-2.6 by the matching
+realization's 2092--2099 GMST contrast. The six seasonal-rain ratios span
+-9.41 to +4.66 mm K-1, whereas every ratio has fewer wet days, longer maximum
+dry spells, and larger one- and five-day rainfall maxima. These endpoint ratios
+are not fitted emulators or marginal CO2 responses: they use one realization
+per ESM, eight terminal years, and scenario differences containing multiple
+forcings and internal variability. They support retaining distributional
+weather diagnostics while rejecting a universal-sign annual-rain response.
+
+The EPA/FAIR calculation separately demonstrates that a published
+country-level annual-rainfall pattern can be evaluated on GIVE's actual
+marginal temperature path. It therefore supplies the practical annual-quantity
+benchmark requested for analogy with the wildfire climate link. It is not
+combined with U.S. yield coefficients or process-crop-model responses here:
+doing so would silently transfer a country-annual climate exposure into a
+county/crop-season response and would omit the timing, extreme, drought,
+temperature, CO2, irrigation, and adaptation channels under study.
 
 Report global agricultural marginal damages and SCC under each adaptation
 scenario with draw-level uncertainty. Do not present a precipitation add-on to
