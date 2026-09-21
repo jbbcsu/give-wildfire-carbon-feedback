@@ -739,6 +739,11 @@ practice-specific soybean state rows. We therefore do not acquire or model
 those state outcomes and do not relabel the all-practice county terminal test
 as direct non-irrigated validation. See
 [`US_STATE_DIRECT_PRACTICE_TERMINAL_SUPPORT_RESULTS_20260921.md`](../US_STATE_DIRECT_PRACTICE_TERMINAL_SUPPORT_RESULTS_20260921.md).
+A second count-only route through 2012/2017/2022 Census county production and
+harvested area also fails: irrigated corn area is reported, but the identically
+filtered production series is absent, and all tested non-irrigated and soybean
+practice cells lack matched quantities. No yield ratios are constructed
+([`US_CENSUS_DIRECT_PRACTICE_OUTCOME_SUPPORT_RESULTS_20260921.md`](../US_CENSUS_DIRECT_PRACTICE_OUTCOME_SUPPORT_RESULTS_20260921.md)).
 
 **Historical measurement and direct-practice checks.** On the exact
 11,861 regional crop/county/year keys, county-average and older gridded

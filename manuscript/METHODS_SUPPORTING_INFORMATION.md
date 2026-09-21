@@ -278,6 +278,14 @@ verify the 56-query matrix and key exclusion; no yield value, response, or
 weather alignment is produced. Protocol and full counts are in
 `US_STATE_DIRECT_PRACTICE_TERMINAL_SUPPORT_PROTOCOL_20260921.md` and
 `US_STATE_DIRECT_PRACTICE_TERMINAL_SUPPORT_RESULTS_20260921.md`.
+A distinct 24-query Census feasibility audit tests whether 2012, 2017, and
+2022 county production and harvested area can be matched within crop and
+reported practice. Irrigated corn area has 1,591--1,852 rows by wave, but the
+corresponding production queries have none; every tested non-irrigated corn
+and soybean practice cell also lacks matched quantities. Zero of 12 cells
+passes the fixed count gate, so no values or yield ratios are constructed.
+See `US_CENSUS_DIRECT_PRACTICE_OUTCOME_SUPPORT_PROTOCOL_20260921.md` and
+`US_CENSUS_DIRECT_PRACTICE_OUTCOME_SUPPORT_RESULTS_20260921.md`.
 All API queries, counts, checksums, and coverage appear in
 `data/provenance/nass_irrigation_practice_screen.toml`. No county response is
 estimated until the full county-polygon primary exposure, CDL sensitivity,
