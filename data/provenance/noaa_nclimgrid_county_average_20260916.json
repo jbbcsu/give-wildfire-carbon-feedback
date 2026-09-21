@@ -1,0 +1,27 @@
+{
+  "dataset": "NOAA nClimGrid-Daily Version 1 county scaled area averages",
+  "doi": "10.25921/c4gt-r169",
+  "metadata_url": "https://www.ncei.noaa.gov/metadata/geoportal/rest/metadata/item/gov.noaa.ncdc%3AC01589/html",
+  "source_root": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/averages/",
+  "subset": {
+    "calendar_months": "1981-01 through 2025-12",
+    "variables": ["PRCP", "TAVG", "TMIN", "TMAX"],
+    "region_type": "cty",
+    "representation": "published daily county scaled CSV area averages",
+    "expected_county_keys_per_month": 3107,
+    "expected_months": 540,
+    "expected_variable_csv_files": 2160,
+    "expected_version_text_files": 540
+  },
+  "source_use": {
+    "metadata_citation": "Durre, Imke; Squires, Michael F.; Vose, Russell S.; Arguez, Anthony; Gross, Wendy S.; Rennie, Jared R.; Schreck, Carl J. (2022): NOAA nClimGrid-Daily Version 1 – Daily gridded temperature and precipitation for the Contiguous United States since 1951. [indicate subset used]. NOAA National Centers for Environmental Information. https://doi.org/10.25921/c4gt-r169 [access date].",
+    "metadata_notes": "NOAA states public research use, requests this citation, and disclaims warranty. No explicit named redistribution license appears in the cited metadata; raw monthly CSVs stay ignored local inputs and are not pushed."
+  },
+  "local_contract": "US_NCLIMGRID_COUNTY_AVERAGE_FULL_ACQUISITION_20260916.md",
+  "local_raw_root_gitignored": "data/interim/nclimgrid_county_averages_full_20260916/",
+  "full_acquisition_summary_gitignored": "data/interim/nclimgrid_county_averages_full_20260916/acquisition_summary.json",
+  "full_acquisition_summary_sha256": "8bac1b3f3f661a5fc34bcb6cafa75dc18440183ee885f5555a25dad1923e1f69",
+  "full_acquisition_status": "complete: 90 batches, 2700 source objects, 2362010369 source bytes",
+  "response_estimated_by_this_manifest": false,
+  "scc_estimated_by_this_manifest": false
+}
