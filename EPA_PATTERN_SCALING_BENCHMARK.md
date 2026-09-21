@@ -21,9 +21,16 @@ scenario labels. In `make_patterns_for_give.R`, all climate slopes are read
 from `ssp245_pr` files; the SSP loop changes socioeconomic weights, and SSP4
 and SSP5 weights are copied from SSP2 and SSP1. Consistent with that code, the
 area-weighted precipitation pattern is identical across the five output SSP
-labels for every country-model group. Eleven models are omitted from a
+labels for every available country-model group. Eleven models are omitted from a
 restricted sample because the workflow flags their pattern rasters as
 noncontinuous.
+
+An exact follow-up audit found 405 missing area-weighted values, representing
+81 country/model pairs repeated under all five labels. The scenario-
+deduplicated benchmark therefore has 4,703 finite pairs, with 19–26 models per
+country and no imputation. The full country/model uncertainty summary and
+independent 2,433-check reconstruction are reported in
+`EPA_ANNUAL_COUNTRY_PATTERN_RESULTS_20260921.md`.
 
 The temperature workflow separately ranks FAIR draws by 2100 temperature and
 pairs them with ranked GCM temperature patterns. The repository describes
