@@ -732,6 +732,14 @@ construction, independent checks, and conditional uncertainty are in
 [`US_COUNTY_AVERAGE_PDSI_COMPETITOR_RESULTS_20260916.md`](../US_COUNTY_AVERAGE_PDSI_COMPETITOR_RESULTS_20260916.md)
 and [`US_COUNTY_AVERAGE_IRRIGATION_SCREEN_RESULTS_20260916.md`](../US_COUNTY_AVERAGE_IRRIGATION_SCREEN_RESULTS_20260916.md).
 
+A preregistered count-only attempt to obtain a newer practice-specific state
+validation target failed its support gate. Exact 2020--2025 NASS survey queries
+contain only one irrigated and one non-irrigated corn state row per year and no
+practice-specific soybean state rows. We therefore do not acquire or model
+those state outcomes and do not relabel the all-practice county terminal test
+as direct non-irrigated validation. See
+[`US_STATE_DIRECT_PRACTICE_TERMINAL_SUPPORT_RESULTS_20260921.md`](../US_STATE_DIRECT_PRACTICE_TERMINAL_SUPPORT_RESULTS_20260921.md).
+
 **Historical measurement and direct-practice checks.** On the exact
 11,861 regional crop/county/year keys, county-average and older gridded
 weather measurements are close for seasonal totals but differ more for

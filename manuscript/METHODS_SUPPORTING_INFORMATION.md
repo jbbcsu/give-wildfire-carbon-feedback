@@ -267,6 +267,17 @@ states and 28 of 31 reported soybean states at the 10% selector. Top-five-state
 county-year shares are 42.96% and 42.15%, respectively. This result fixes
 state/region-blocked holdouts as a necessary national validation gate without
 reading yield magnitudes or altering the selector.
+We also preregistered a count-only feasibility audit for a distinct
+practice-specific **state** terminal panel. Fifty-six exact Quick Stats count
+queries cross corn/soybean, irrigated/non-irrigated practice, and 2012--2025.
+The frozen 2020--2025 gate requires at least eight state rows each year and 60
+state-years per crop/practice. Corn returns one row per terminal year for each
+practice and soybean returns none, so all four series fail before values are
+downloaded. The credential-safe query builder and separate structural auditor
+verify the 56-query matrix and key exclusion; no yield value, response, or
+weather alignment is produced. Protocol and full counts are in
+`US_STATE_DIRECT_PRACTICE_TERMINAL_SUPPORT_PROTOCOL_20260921.md` and
+`US_STATE_DIRECT_PRACTICE_TERMINAL_SUPPORT_RESULTS_20260921.md`.
 All API queries, counts, checksums, and coverage appear in
 `data/provenance/nass_irrigation_practice_screen.toml`. No county response is
 estimated until the full county-polygon primary exposure, CDL sensitivity,
