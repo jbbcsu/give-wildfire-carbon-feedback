@@ -1,0 +1,12 @@
+contract_id = "usdm_weather_robustness_v1"
+frozen_date = "2026-09-22"
+base_result_schema = "usdm_weather_hierarchy_result_v1"
+family = "drought_plus_weather"
+leaveout_unit = "state"
+full_sample_inference_sensitivity = "state-cluster CR1 with t reference and G-1 degrees of freedom"
+minimum_full_sample_states = 10
+selection_rule = "report every eligible state deletion and every coefficient; do not select by sign, significance, or implied damages"
+interpretation = "historical coefficient-stability and inference sensitivity only"
+causal_claim_authorized = false
+damage_claim_authorized = false
+scc_claim_authorized = false

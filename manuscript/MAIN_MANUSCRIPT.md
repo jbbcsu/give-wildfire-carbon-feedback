@@ -797,6 +797,18 @@ global response or SCC calculation. Full
 methods, uncertainty, hashes, and limitations are in
 [`US_USDM_DROUGHT_ONLY_RESULTS_20260922.md`](../US_USDM_DROUGHT_ONLY_RESULTS_20260922.md).
 
+A frozen state-robustness sensitivity refits the unchanged drought-plus-weather
+model after deleting each represented state. All dryland D1--D4 coefficients
+remain negative in every deletion for both crops, so no single state creates
+that sign pattern. State-cluster CR1 uncertainty is less uniformly precise:
+dryland D2 remains below .01 for both crops, soybean D4 remains below .05,
+corn D4 and soybean D1 are near .10, and the remaining dryland D1/D3 terms are
+not distinguished from zero. This strengthens the coefficient-stability claim
+but narrows the inference claim; it does not confer causality or transportability.
+Independent joint-design checks pass for full fits, covariance, and sentinel
+state deletions. See
+[`US_USDM_ROBUSTNESS_RESULTS_20260922.md`](../US_USDM_ROBUSTNESS_RESULTS_20260922.md).
+
 **Current nationwide U.S. predictive benchmark (September 16).** The
 pre-outcome fixed-2017 Census screen selects counties with at most 10%
 reported irrigated crop acreage; the NASS outcome is still *all-practice*

@@ -1,0 +1,32 @@
+{
+  "schema": "usdm_weather_robustness_resource_audit_v1",
+  "resource_ceiling_bytes": 671088640,
+  "production": {
+    "started_utc": "2026-09-22T21:12:41.202248+00:00",
+    "finished_utc": "2026-09-22T21:13:14.239604+00:00",
+    "wall_seconds": 33.03738150000572,
+    "peak_rss_bytes": 438648832,
+    "returncode": 0,
+    "result_path": "data/interim/us_county/usdm_weather_robustness_results_20260922.json",
+    "result_sha256": "b45714559f02c49724551da13803e7e27bf5c4572127557b9549fbd587e6b058"
+  },
+  "validation": {
+    "started_utc": "2026-09-22T21:15:39.371303+00:00",
+    "finished_utc": "2026-09-22T21:15:43.730049+00:00",
+    "wall_seconds": 4.358432916982565,
+    "peak_rss_bytes": 435224576,
+    "returncode": 0,
+    "receipt_path": "data/provenance/usdm_weather_robustness_validation_20260922.json",
+    "receipt_sha256": "09ef249beb3183f986c05d26a8730089d12ae129a0460a083f5b3e59d50a46b1"
+  },
+  "config": {
+    "path": "config/usdm_weather_robustness_v1.toml",
+    "sha256": "5042749514f86d450198edf1da303448ebd37a8b9df8320265757e2efc7a5209"
+  },
+  "scripts": {
+    "estimator_sha256": "dac35c7224c9db0393b1d3aa5137591fa0a2fe7bf4f91ce20e246e7028188d42",
+    "validator_sha256": "3e2e8e6fb45d997df555a9d88d9e1c0eb506ec2cca42f1e77b1bfd49ce694970"
+  },
+  "passed_resource_ceiling": true,
+  "role": "historical noncausal robustness only; not damage or SCC"
+}

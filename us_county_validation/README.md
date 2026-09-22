@@ -203,6 +203,14 @@ design estimators agree numerically. These fits are historical, noncausal
 external validation only; their coefficients are never transported to global
 damages or SCC.
 
+`US_USDM_ROBUSTNESS_PROTOCOL_20260922.md` freezes the post-estimate sensitivity,
+and `estimate_usdm_weather_robustness.py` adds state-cluster CR1 uncertainty and
+all leave-one-state-out refits without changing the base model. The dryland
+D1--D4 signs survive every state deletion, although state-cluster precision is
+mixed across categories. `validate_usdm_weather_robustness.py` independently
+reconstructs full joint designs, covariance, and sentinel deletions. This is a
+stability sensitivity, not spatial-HAC replication, causality, damage, or SCC.
+
 `prepare_usdm_county_weeks.py` standardizes the exclusive county-week area
 shares and preserves `D0` separately from the `D1+` drought-exposure measure;
 it refuses duplicate county-week inputs, inconsistent validity dates, or

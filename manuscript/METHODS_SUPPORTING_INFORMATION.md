@@ -1866,6 +1866,25 @@ estimator within `1.22e-08`. These results support the competing-moisture and
 non-stacking rule: composite drought mostly overlaps direct weather but can
 retain residual information; neither representation creates an additive SCC
 sector.
+
+The subsequent robustness contract was frozen after the primary estimates but
+before state-level sensitivity results. For each crop/support model it computes
+state-cluster CR1 covariance with a `G-1` Student-t reference and refits the
+full drought-plus-weather specification after deleting each represented state
+exactly once. All dryland D1--D4 coefficients retain negative signs across all
+state deletions. State-cluster uncertainty is materially wider for some terms:
+corn dryland D1/D3 and soybean dryland D3 are not precise, corn D4 and soybean
+D1 are near the 10% level, while D2 remains below 1% in both dryland crops and
+soybean D4 remains below 5%. Therefore the defensible conclusion is deletion-
+stable direction, not uniform statistical precision or causality. An
+independent joint sparse-design validator reproduces full coefficients within
+`6.65e-09`, covariance entries within `2.04e-10`, and twelve sentinel deletions
+within `7.19e-09`. Production and validation peak at about 418 and 415 MiB,
+respectively. Exact records are in
+`US_USDM_ROBUSTNESS_PROTOCOL_20260922.md`,
+`US_USDM_ROBUSTNESS_RESULTS_20260922.md`, and the tracked validation/resource
+receipts.
+
 Keep crop inundation in agriculture and exclude it from the future
 infrastructure module; exclude coastal surge/SLR impacts already addressed by
 CIAM.

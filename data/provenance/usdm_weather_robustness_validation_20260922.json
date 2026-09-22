@@ -1,0 +1,94 @@
+{
+  "claim_boundary": "historical noncausal sensitivity only; not damage or SCC",
+  "maximum_full_joint_design_coefficient_difference": 6.6453465646931775e-09,
+  "maximum_sentinel_leaveout_coefficient_difference": 7.188963299653572e-09,
+  "maximum_state_covariance_difference": 2.0314951110211865e-10,
+  "models": [
+    {
+      "full_joint_design_maximum_difference": 3.3852308733983705e-09,
+      "irrigation_class": "dryland",
+      "outcome_crop": "corn_grain",
+      "sentinel_leaveouts": [
+        {
+          "maximum_difference": 1.9283941665726445e-09,
+          "state": "AL"
+        },
+        {
+          "maximum_difference": 7.133361346056688e-09,
+          "state": "MT"
+        },
+        {
+          "maximum_difference": 2.6086046517326267e-09,
+          "state": "WV"
+        }
+      ],
+      "state_covariance_maximum_difference": 1.4337407650000245e-10
+    },
+    {
+      "full_joint_design_maximum_difference": 6.6453465646931775e-09,
+      "irrigation_class": "irrigated",
+      "outcome_crop": "corn_grain",
+      "sentinel_leaveouts": [
+        {
+          "maximum_difference": 7.016691880301629e-09,
+          "state": "AL"
+        },
+        {
+          "maximum_difference": 6.0362161172222706e-09,
+          "state": "MS"
+        },
+        {
+          "maximum_difference": 7.188963299653572e-09,
+          "state": "WY"
+        }
+      ],
+      "state_covariance_maximum_difference": 1.2084996892092192e-10
+    },
+    {
+      "full_joint_design_maximum_difference": 5.218257825845285e-09,
+      "irrigation_class": "dryland",
+      "outcome_crop": "soybeans",
+      "sentinel_leaveouts": [
+        {
+          "maximum_difference": 5.414891757204998e-09,
+          "state": "AL"
+        },
+        {
+          "maximum_difference": 1.1715729497652205e-09,
+          "state": "MS"
+        },
+        {
+          "maximum_difference": 2.5259485614270716e-09,
+          "state": "WV"
+        }
+      ],
+      "state_covariance_maximum_difference": 2.0314951110211865e-10
+    },
+    {
+      "full_joint_design_maximum_difference": 1.283192441192682e-10,
+      "irrigation_class": "irrigated",
+      "outcome_crop": "soybeans",
+      "sentinel_leaveouts": [
+        {
+          "maximum_difference": 1.6840007166507576e-10,
+          "state": "AL"
+        },
+        {
+          "maximum_difference": 5.839757566405979e-10,
+          "state": "MN"
+        },
+        {
+          "maximum_difference": 5.271372227610982e-10,
+          "state": "WI"
+        }
+      ],
+      "state_covariance_maximum_difference": 5.021922808157164e-11
+    }
+  ],
+  "result": {
+    "path": "data/interim/us_county/usdm_weather_robustness_results_20260922.json",
+    "sha256": "b45714559f02c49724551da13803e7e27bf5c4572127557b9549fbd587e6b058"
+  },
+  "schema": "usdm_weather_robustness_independent_validation_v1",
+  "status": "passed"
+}
