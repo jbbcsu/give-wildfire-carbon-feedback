@@ -1,0 +1,44 @@
+{
+  "deleted": [
+    {
+      "bytes": 2073189158,
+      "dataset_id": "db8bbe43-4766-4b9a-ab6e-5bc1f155c5be",
+      "deleted_path": "data/raw/isimip3b/ipsl-cm6a-lr/ssp370/tasmax/ipsl-cm6a-lr_r1i1p1f1_w5e5_ssp370_tasmax_global_daily_2091_2100.nc",
+      "file_id": "5dcc9039-89fc-4e49-9aee-d5498d9a02b3",
+      "file_url": "https://files.isimip.org/ISIMIP3b/InputData/climate/atmosphere/bias-adjusted/global/daily/ssp370/IPSL-CM6A-LR/ipsl-cm6a-lr_r1i1p1f1_w5e5_ssp370_tasmax_global_daily_2091_2100.nc",
+      "resource_doi": "10.48364/ISIMIP.842396.1",
+      "rights": "CC0 1.0",
+      "sha512": "2efb078a0efc3e3191741d1121af36958d47181abcfa9ff89ebbe93d10e196ab3a191a3114c11701c708e6e0c891aedf2a51521bd03657db851da56d2dfe5606"
+    },
+    {
+      "bytes": 2078649267,
+      "dataset_id": "7765afab-a511-4f90-aa13-104e5dab6f54",
+      "deleted_path": "data/raw/isimip3b/ipsl-cm6a-lr/ssp370/tasmin/ipsl-cm6a-lr_r1i1p1f1_w5e5_ssp370_tasmin_global_daily_2091_2100.nc",
+      "file_id": "baa74f23-d135-4cd3-83d6-bcb71994cac0",
+      "file_url": "https://files.isimip.org/ISIMIP3b/InputData/climate/atmosphere/bias-adjusted/global/daily/ssp370/IPSL-CM6A-LR/ipsl-cm6a-lr_r1i1p1f1_w5e5_ssp370_tasmin_global_daily_2091_2100.nc",
+      "resource_doi": "10.48364/ISIMIP.842396.1",
+      "rights": "CC0 1.0",
+      "sha512": "4336b39f347429965049384cdf913d06c0499b0b0dd6a5fdf1f6467f7066dfb2adbed1f6f767fa125a09090c2060646061354cb165379178308048c91bb81f27"
+    }
+  ],
+  "deleted_bytes": 4151838425,
+  "derived_output": {
+    "bytes": 40720462,
+    "path": "data/interim/five_esm_late_drought_20260921/ipsl-cm6a-lr_ssp370/late_drought_pair.h5",
+    "sha256": "e7c8829c2d0544001d411f664389611d993e6e44752a6c406edc11f23fe92714"
+  },
+  "esm": "ipsl-cm6a-lr",
+  "free_bytes_after": 166448496640,
+  "free_bytes_before": 164367671296,
+  "implementation": {
+    "path": "scripts/evict_validated_late_drought_extrema_pair.py",
+    "sha256": "e293a8f94c8894fb7673e91bd25580dc1197f4b713234c0a30b9f1a53e915117"
+  },
+  "pair_result_sha256": "76646dcfa8be42d080704ac4a6d7628e02e1fbafad68fb21facc8a964d2c1b96",
+  "reason": "bounded local storage after independent derived-output validation",
+  "recovery": "download each file_url and require the recorded byte count and SHA-512 before reuse",
+  "scenario": "ssp370",
+  "schema": "validated_late_drought_extrema_eviction_v1",
+  "status": "two_verified_reproducible_raw_files_deleted",
+  "validation_sha256": "436bee467d2d1279f5f1010d828a2aa5e30c775f21e453a99974f9f6977bf68e"
+}
