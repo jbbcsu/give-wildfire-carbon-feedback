@@ -1,0 +1,11 @@
+contract_id = "usdm_agricultural_area_shapes_v1"
+frozen_date = "2026-09-22"
+first_map_date = "2000-09-26"
+last_map_date = "2013-09-24"
+frequency_days = 7
+expected_archives = 679
+source_url_template = "https://droughtmonitor.unl.edu/data/shapefiles_m/USDM_{yyyymmdd}_M.zip"
+source_geometry_crs = "EPSG:4326"
+expected_severity_values = [0, 1, 2, 3, 4]
+geometry_interpretation = "vector DM field stores mutually exclusive D0 through D4 class polygons; tabular USDM statistics are cumulative, but that convention must not be imposed on the vectors"
+role = "historical agricultural-area weighting validation only; not future drought, damage, or SCC"

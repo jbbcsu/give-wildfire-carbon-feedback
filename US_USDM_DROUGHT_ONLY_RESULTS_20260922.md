@@ -30,9 +30,11 @@ than irrigated county support.
   weeks are omitted.
 - Provisional county-cluster CR1 uncertainty.
 
-The official four-vintage reconstruction yields 2,913 eligible counties, only
-four more than the 2,909 observations summarized in the paper: 883 are
-classified irrigated and 2,030 dryland. This close count is a source-validation
+The official four-vintage reconstruction yields 2,913 eligible counties across
+the available United States: 883 irrigated and 2,030 dryland. The four excess
+counties are all in Hawaii. Restricting to the continental spatial contract
+yields exactly 2,909 eligible counties: 879 irrigated and 2,030 dryland. This
+count reconciliation is a source-validation
 check, not proof of identical county membership.
 
 The USDM REST service reports county-area shares. The published paper instead

@@ -772,7 +772,10 @@ establish identical spatial exposure.
 
 The corrected drought-only design retains county and year fixed effects,
 state-specific trends, and the reconstructed 1997/2002/2007/2012 Census
-irrigation rule (2,913 eligible counties: 883 irrigated and 2,030 dryland). All
+irrigation rule. The all-U.S. classifier contains 2,913 eligible counties (883
+irrigated, 2,030 dryland); excluding its four Hawaii counties gives the exact
+continental count of 2,909 (879 irrigated, 2,030 dryland) reported by the
+paper. All
 twenty category associations remain negative, and every same-category dryland
 estimate is more negative than its irrigated counterpart. Dryland corn ranges
 from -0.136% per D0 week to -1.141% per D4 week; dryland soybean ranges from
@@ -799,6 +802,31 @@ replace the paper's agricultural-area intersection. No coefficient is
 transported into the global response or SCC calculation. Full methods,
 uncertainty, hashes, and limitations are in
 [`US_USDM_OCTSEP_RESULTS_20260922.md`](../US_USDM_OCTSEP_RESULTS_20260922.md).
+
+**Agricultural-area spatial-fidelity sensitivity.** We then replaced
+whole-county drought shares with two frozen, outcome-blind approximations to
+the paper's agricultural-land intersection: cultivated CDL classes plus
+fallow/idle cropland, and the same mask plus grassland/pasture. The 3.96 km
+equal-area route uses all 679 weekly USDM vector maps and the official 2008
+30 m CDL while staying below the 640 MiB memory ceiling. On a common 36,803
+county-year support, agricultural weighting shifts D0--D4 mean exposures only
+modestly. All twenty drought-only slopes remain negative under both masks and
+preserve the dryland-versus-irrigated qualitative ordering. Across the twenty
+terms, the largest absolute agricultural-versus-county coefficient movement is
+0.01593 percentage point per equivalent week.
+
+The direct-weather conclusion is also unchanged. Under the cultivated mask,
+corn-dryland D2/D3 and soybean-dryland D1/D2 remain negative with state-cluster
+p-values below .05 and retain their signs after every represented-state
+deletion; several other terms are imprecise or change sign. The two
+agricultural masks differ by at most 0.00806 percentage point in the
+weather-controlled model. Independent validators reproduce slopes, covariance,
+and sentinel deletions within predeclared tolerances. These results show that
+coarse spatial weighting is not driving the historical benchmark, but they do
+not supply causality, a future climate-to-drought link, global transfer, or an
+SCC input. The predeclared multi-resolution sentinel audit remains open.
+Complete results are in
+[`US_USDM_AGRICULTURAL_AREA_RESULTS_20260922.md`](../US_USDM_AGRICULTURAL_AREA_RESULTS_20260922.md).
 
 **Current nationwide U.S. predictive benchmark (September 16).** The
 pre-outcome fixed-2017 Census screen selects counties with at most 10%

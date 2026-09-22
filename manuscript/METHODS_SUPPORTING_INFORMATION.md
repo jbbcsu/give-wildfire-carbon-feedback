@@ -1811,8 +1811,10 @@ classifier follows the published all-cropland rule: for each county, compute
 irrigated harvested cropland divided by all harvested cropland in each available
 1997, 2002, 2007, and 2012 Census, take the maximum, and label values greater
 than 0.15 irrigated. Suppressed/absent numerators are missing, never zero. The
-resulting 2,913 eligible counties differ by four from the paper's 2,909 summary
-count (883 irrigated, 2,030 dryland).
+resulting all-U.S. file has 2,913 eligible counties (883 irrigated, 2,030
+dryland). The four excess counties are all in Hawaii. Applying the continental
+spatial contract gives exactly the paper's 2,909 summary count (879 irrigated,
+2,030 dryland).
 
 The corrected official archive contains 574 bounded state-year responses over
 2000--2013, each with URL, retrieval time, byte count, and SHA-512. A streaming
@@ -1870,6 +1872,95 @@ provenance receipts. Agricultural-area weighting, the paper's heat basis, and
 spatial-correlation-robust inference remain fidelity gates. Composite drought
 and direct weather remain competing moisture representations; neither creates
 an additive SCC sector.
+
+### S9.19 Agricultural-area USDM spatial-fidelity sensitivity
+
+We next replace whole-county drought shares with an outcome-blind spatial
+reconstruction closer to the article's stated exposure procedure. The fixed
+source archive is the official 2008 national USDA NASS Cropland Data Layer
+(CDL), a 30 m equal-area raster in EPSG:5070. The retained ZIP is
+1,813,824,795 bytes with SHA-256
+`f88dcf9dbf26fbca88984cfe65ffc2a5ec7f5a8e18e1aa307be08330facd8f54`.
+The drought archive consists of all 679 official Tuesday USDM vector maps from
+26 September 2000 through 24 September 2013. Each ZIP is CRC-checked, checked
+for the shape/index/attribute/projection members, verified as WGS84, and bound
+to a byte count and SHA-512 in an ignored raw manifest. Raw CDL and USDM data
+are never committed.
+
+The accessible article says "agricultural land cover categories" but does not
+enumerate its CDL values. We therefore froze two masks before response
+estimation and report both: (i) actual 2008 crop categories plus code 61,
+Fallow/Idle Cropland; and (ii) the same set plus actual 2008 raster code 176,
+Grassland/Pasture. Generic metadata codes 171 and 181 are absent from the
+actual 2008 raster and are excluded. Neither mask is selected by coefficient,
+fit, significance, or proximity to the paper's summary means, and neither is
+called an exact author replication.
+
+To remain within the workstation limit, the 30 m raster is reduced one county
+at a time into sparse 3.96 km equal-area cells, retaining agricultural-pixel
+counts and normalized county-mask weights. This resolution is also below the
+approximately four-mile horizontal error that official metadata attribute to
+pre-2004 digitized USDM vectors, but it remains a computational approximation.
+The implementation fixes one numerical worker, 1024-by-1024 raster blocks, a
+32 MiB GDAL block cache, one county geometry at a time, and a 640 MiB process
+RSS gate. Outcome-blind sentinel counties will subsequently compare 3.96 km,
+approximately 1 km, and native 30 m overlays; failure of the reported exposure
+tolerance rejects the coarse national route.
+
+The USDM vector `DM` polygons are mutually exclusive severity classes. This is
+different from the official tabular-statistics convention, whose D0--D4
+percentages are cumulative. For each map, all components within each class are
+unioned, support-cell centers are assigned to none or exactly one of D0--D4,
+and any overlapping assignment fails. A map dated Tuesday represents that day
+through the following Monday. Intervals are clipped to 1 October 2000 through
+30 September 2013 and split at every 1 October harvest-year boundary; annual
+category totals must reconcile exactly to 365/7 or 366/7 equivalent weeks.
+
+The two resulting exposure panels reuse, without model tuning, the NASS yield
+panel, continental 2,909-county irrigation classifier, county and year fixed
+effects, state-specific trends, April--September direct-weather hierarchy,
+county-cluster fit, state-cluster inference sensitivity, and leave-one-state-
+out checks from S9.18. Independent joint sparse-design validators are rerun for
+each mask. These remain historical exposure-fidelity tests. They neither
+project future USDM classes nor authorize a causal coefficient, global
+transport, agricultural damage function, or SCC input.
+
+The completed sparse grid has 970,190 rows, 2,909 counties, and 5,818
+county-mask groups. Weights reconcile to one within `5.67e-15`; the build peaks
+at 430,145,536 bytes RSS. Seventy-seven isolated vector batches produce 75,634
+county-mask-year rows from all 679 maps. No retained point has overlapping
+severity assignments, annual time reconciles within `1.43e-14` week, and the
+largest accepted batch peaks at 622,051,328 bytes, below the 640 MiB gate. A
+larger monolithic overlay was rejected on resource grounds and is not used.
+
+On the exact common support of 36,803 county-years, whole-county D0--D4 means
+are 8.586, 5.749, 3.926, 2.327, and 0.841 weeks; cultivated-mask means are
+8.557, 5.738, 3.921, 2.318, and 0.848; and broad-mask means are 8.558, 5.743,
+3.911, 2.322, and 0.849. Full-support comparisons are reported separately
+because the agricultural panels exclude 114 counties outside the continental
+classifier/support contract. Consequently, closer full-support agreement with
+the article's summary means cannot be attributed entirely to land weighting.
+
+All twenty drought-only slopes remain negative under each agricultural mask.
+The maximum absolute cultivated-versus-county movement is 0.01593 percentage
+point per equivalent week; the broad-versus-county maximum is 0.01314; and the
+two agricultural masks differ by at most 0.00836. In the direct-weather model,
+the largest agricultural-versus-county movement is 0.01292 percentage point
+and the two masks differ by at most 0.00806. Cultivated-mask corn-dryland D2
+(-0.2546%, p=.0135) and D3 (-0.4184%, p=.0083), and soybean-dryland D1
+(-0.2292%, p=.0045) and D2 (-0.1628%, p=.0373), remain negative under
+state-cluster inference and every represented-state deletion; the broad mask
+gives the same qualitative result. Other terms include imprecision and sign
+changes and are not structural marginal-damage estimates.
+
+Independent joint-design checks reproduce drought-only slopes within
+`1.45e-11`; state-robustness full fits and sentinel deletions within `1.29e-08`;
+and state covariance entries within `4.76e-10`. The complete comparison is in
+`US_USDM_AGRICULTURAL_AREA_RESULTS_20260922.md`. These checks establish source,
+accounting, computational, and numerical fidelity only. The 3.96 km national
+route remains provisional until the predeclared 1 km/native-30 m sentinel
+audit passes, and no historical coefficient is released to the global damage
+or SCC interface.
 
 Keep crop inundation in agriculture and exclude it from the future
 infrastructure module; exclude coastal surge/SLR impacts already addressed by

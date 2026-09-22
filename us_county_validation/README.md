@@ -195,9 +195,11 @@ project's crop-specific selectors. `download_nass_cropland_irrigation_classifier
 acquires the Census `AG LAND / CROPLAND, HARVESTED` series, and
 `prepare_nass_cropland_irrigation_classifier.py` takes the maximum available
 all-cropland irrigated share over 1997/2002/2007/2012 before applying the 15%
-threshold. The result has 2,913 eligible counties (883 irrigated, 2,030
-dryland), close to but not asserted identical to the paper's 2,909 summary
-observations.
+threshold. The all-U.S. result has 2,913 eligible counties (883 irrigated,
+2,030 dryland); the four excess counties are all in Hawaii. The continental
+contract therefore has exactly the paper's 2,909 summary counties (879
+irrigated, 2,030 dryland), although count agreement alone does not establish
+record-level identity with the authors' unpublished construction.
 
 The initial frozen protocol and its explicit correction are in
 `US_USDM_KUWAYAMA_REPLICATION_PROTOCOL_20260922.md` and
@@ -402,3 +404,73 @@ reports conditional 5,000-draw RMSE/MAE intervals for pooled development,
 terminal, extreme, and adequately clustered state tests without revising the
 point protocol or promotion decision. It also records post hoc 2019-exclusion
 and fixed-2012--2018-county point checks; neither is a new selection gate.
+
+## USDM agricultural-area spatial-fidelity route
+
+The September 22 whole-county benchmark is followed by an outcome-blind spatial
+fidelity analysis using the official 2008 30 m Cropland Data Layer and all 679
+official weekly USDM vector archives from 26 September 2000 through 24
+September 2013. Raw archives and derived grids stay ignored. The tracked
+contracts, downloader, builders, validators, and receipts preserve source
+identity without committing the 2.3 GiB of source archives.
+
+The article does not enumerate its exact CDL categories. Therefore the route
+reports two frozen masks together: cultivated crop classes plus fallow/idle,
+and that mask plus actual 2008 raster code 176 (`Grassland/Pasture`). Codes 171
+and 181 from generic metadata are absent from the actual 2008 raster and are
+not used. The first pass reduces agricultural pixels to approximately 4 km
+equal-area cells county by county, consistent with the approximate four-mile
+horizontal uncertainty documented for pre-2004 digitized USDM polygons. It is
+an approximation subject to the predeclared 4 km/1 km/native-resolution
+sentinel audit, not an exact 30 m polygon overlay.
+
+The USDM vector `DM` field contains mutually exclusive class polygons. This is
+distinct from downloadable tabular USDM statistics, whose D0--D4 columns are
+cumulative. `build_usdm_agricultural_exposure.py` checks that vector classes do
+not overlap at retained support points, assigns one of none/D0/.../D4, clips
+each Tuesday map to its seven represented days, and splits late-September maps
+at the October 1 harvest-year boundary. Full annual accounting must reconcile
+exactly to 365/7 or 366/7 equivalent weeks.
+
+Run the helper tests first:
+
+```bash
+python us_county_validation/scripts/test_download_usdm_weekly_shapefiles.py
+python us_county_validation/scripts/test_build_usdm_agricultural_exposure.py
+```
+
+The source and construction commands are:
+
+```bash
+python us_county_validation/scripts/download_usdm_weekly_shapefiles.py \
+  --config config/usdm_agricultural_area_shapes_v1.toml \
+  --out-dir data/raw/us_county/usdm_shapefiles
+
+python us_county_validation/scripts/build_cdl_2008_agricultural_grid.py \
+  --config config/cdl_2008_agricultural_masks_v1.toml \
+  --cdl-archive data/raw/us_county/cdl/2008_30m_cdls.zip \
+  --counties data/raw/us_county/tigerline/tl_2019_us_county/tl_2019_us_county.shp \
+  --county-inventory data/interim/us_county/nass_kuwayama_all_cropland_irrigation_classifier.csv \
+  --out data/interim/us_county/cdl_2008_agricultural_grid_classifier.parquet \
+  --audit-out data/interim/us_county/cdl_2008_agricultural_grid_classifier_audit.json
+
+python us_county_validation/scripts/build_usdm_agricultural_exposure.py \
+  --config config/usdm_agricultural_area_shapes_v1.toml \
+  --grid data/interim/us_county/cdl_2008_agricultural_grid_classifier.parquet \
+  --shape-dir data/raw/us_county/usdm_shapefiles \
+  --out data/interim/us_county/usdm_agricultural_exposure_classifier.parquet \
+  --audit-out data/interim/us_county/usdm_agricultural_exposure_classifier_audit.json
+```
+
+Both validators reject checksum drift, failed accounting, accidental SCC
+authorization, and runs above the 640 MiB resource ceiling. In production the
+grid build peaked at 430,145,536 bytes. The weekly overlay is executed as 77
+isolated batches; the largest accepted batch peaked at 622,051,328 bytes. The
+merged output covers all 679 maps, 2,909 counties, two masks, and 13 harvest
+years with zero severity overlap and maximum annual accounting error
+`1.43e-14` week. The complete response and validation results are in
+`US_USDM_AGRICULTURAL_AREA_RESULTS_20260922.md`.
+
+This route is a historical exposure-fidelity sensitivity only; response
+coefficients remain noncausal and unavailable for global transport or SCC use.
+The predeclared multi-resolution sentinel audit remains open.

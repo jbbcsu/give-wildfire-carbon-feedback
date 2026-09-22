@@ -185,7 +185,8 @@ def main() -> None:
         raise ValueError(f"exposure panel lacks {sorted(missing)}")
     if exposures.duplicated(KEYS).any():
         raise ValueError("exposure panel duplicates model keys")
-    if set(exposures.source_area_basis) != {"county_area"} or exposures.scc_authorized.any():
+    expected_area_basis = str(contract.get("source_area_basis_value", "county_area"))
+    if set(exposures.source_area_basis) != {expected_area_basis} or exposures.scc_authorized.any():
         raise ValueError("exposure claim boundary changed")
 
     panel = yields.merge(
@@ -220,7 +221,10 @@ def main() -> None:
         "joined_panel_counties": int(panel.county_geoid.nunique()),
         "results": results,
         "limitations": [
-            "USDM REST exposure is county-area weighted; published benchmark is agricultural-area weighted.",
+            str(contract.get(
+                "spatial_exposure_limitation",
+                "USDM REST exposure is county-area weighted; published benchmark is agricultural-area weighted.",
+            )),
             "County-cluster CR1 is provisional; the published study uses spatial-correlation-robust inference.",
             "This drought-only stage does not yet include the frozen April-September weather controls.",
             "Historical validation coefficients are not global response, damage, or SCC coefficients.",
