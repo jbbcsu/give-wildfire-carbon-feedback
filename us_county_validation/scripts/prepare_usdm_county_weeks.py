@@ -17,23 +17,17 @@ import pandas as pd
 AREA_COLUMNS = ["None", "D0", "D1", "D2", "D3", "D4"]
 
 
-def main() -> None:
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--input", action="append", required=True, help="raw USDM CSV; repeatable")
-    parser.add_argument("--out", required=True)
-    parser.add_argument("--area-sum-tolerance", type=float, default=0.15)
-    args = parser.parse_args()
-    if args.area_sum_tolerance < 0:
-        raise ValueError("--area-sum-tolerance must be nonnegative")
-
-    frames = [pd.read_csv(path, dtype={"FIPS": "string"}) for path in args.input]
-    weekly = pd.concat(frames, ignore_index=True)
+def standardize(weekly: pd.DataFrame, area_sum_tolerance: float = 0.15) -> pd.DataFrame:
+    """Validate and standardize one or more raw USDM county-statistics frames."""
+    if area_sum_tolerance < 0:
+        raise ValueError("area_sum_tolerance must be nonnegative")
     required = {"MapDate", "FIPS", "County", "State", "ValidStart", "ValidEnd", "StatisticFormatID", *AREA_COLUMNS}
     if missing := required - set(weekly.columns):
         raise ValueError(f"USDM extract missing columns {sorted(missing)}")
     if not weekly["StatisticFormatID"].eq(2).all():
         raise ValueError("Expected official county area-percent statistic format 2")
 
+    weekly = weekly.copy()
     weekly["county_geoid"] = weekly["FIPS"].astype("string").str.replace(r"\.0$", "", regex=True).str.zfill(5)
     if weekly.county_geoid.str.len().ne(5).any() or ~weekly.county_geoid.str.isnumeric().all():
         raise ValueError("FIPS values are not five-digit county GEOIDs")
@@ -45,10 +39,10 @@ def main() -> None:
     if ((weekly.map_date < weekly.valid_start) | (weekly.map_date > weekly.valid_end)).any():
         raise ValueError("USDM map date falls outside its validity interval")
     areas = weekly[AREA_COLUMNS].apply(pd.to_numeric, errors="raise")
-    if ((areas < -args.area_sum_tolerance) | (areas > 100 + args.area_sum_tolerance)).any().any():
+    if ((areas < -area_sum_tolerance) | (areas > 100 + area_sum_tolerance)).any().any():
         raise ValueError("USDM area percentage is outside [0, 100] within tolerance")
     area_sum_error = (areas.sum(axis=1) - 100).abs()
-    if (area_sum_error > args.area_sum_tolerance).any():
+    if (area_sum_error > area_sum_tolerance).any():
         raise ValueError("USDM mutually exclusive area shares do not sum to 100 within tolerance")
 
     result = pd.DataFrame({
@@ -65,8 +59,6 @@ def main() -> None:
         "d3_pct": areas["D3"],
         "d4_pct": areas["D4"],
     })
-    # USDM categories are mutually exclusive shares. D1+ is drought exposure;
-    # D0 is retained separately as "abnormally dry", rather than relabeled.
     result["d1plus_pct"] = result[["d1_pct", "d2_pct", "d3_pct", "d4_pct"]].sum(axis=1)
     result["d2plus_pct"] = result[["d2_pct", "d3_pct", "d4_pct"]].sum(axis=1)
     result["d3plus_pct"] = result[["d3_pct", "d4_pct"]].sum(axis=1)
@@ -76,8 +68,20 @@ def main() -> None:
     keys = ["county_geoid", "map_date"]
     if result.duplicated(keys).any():
         raise ValueError("Duplicate county-week rows; inputs overlap or queries must be narrowed")
+    return result.sort_values(keys).reset_index(drop=True)
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--input", action="append", required=True, help="raw USDM CSV; repeatable")
+    parser.add_argument("--out", required=True)
+    parser.add_argument("--area-sum-tolerance", type=float, default=0.15)
+    args = parser.parse_args()
+    frames = [pd.read_csv(path, dtype={"FIPS": "string"}) for path in args.input]
+    weekly = pd.concat(frames, ignore_index=True)
+    result = standardize(weekly, args.area_sum_tolerance)
     Path(args.out).parent.mkdir(parents=True, exist_ok=True)
-    result.sort_values(keys).to_parquet(args.out, index=False)
+    result.to_parquet(args.out, index=False)
     print(
         f"wrote {len(result)} county-week rows; counties={result.county_geoid.nunique()}; "
         f"mean D1+ area={result.d1plus_pct.mean():.2f}%"

@@ -177,6 +177,32 @@ manifest identity. Run
 `python us_county_validation/scripts/test_download_usdm_county_statistics.py`
 for synthetic response and tamper checks. A USDM category is never projected
 directly into a global SCC draw.
+
+The frozen 2001--2013 national benchmark now contains 533 checksummed
+state-year responses and 2,055,640 standardized county-weeks. Its streaming
+preparer is bound to `config/usdm_kuwayama_county_area_v1.toml`, including the
+single registered source arithmetic anomaly; any additional anomaly fails.
+`aggregate_usdm_calendar_year_exposures.py` implements the paper's full-year
+D0--D4 week convention. The endpoint reports county-area shares, whereas the
+paper intersects drought maps with agricultural land, so every output is
+explicitly marked as an approximate historical validation exposure.
+
+The published irrigation classifier is reconstructed separately from the
+project's crop-specific selectors. `download_nass_cropland_irrigation_classifier.py`
+acquires the Census `AG LAND / CROPLAND, HARVESTED` series, and
+`prepare_nass_cropland_irrigation_classifier.py` takes the maximum available
+all-cropland irrigated share over 1997/2002/2007/2012 before applying the 15%
+threshold. The result has 2,913 eligible counties (883 irrigated, 2,030
+dryland), close to but not asserted identical to the paper's 2,909 summary
+observations.
+
+The pre-registered drought-only and April--September weather hierarchy is in
+`US_USDM_KUWAYAMA_REPLICATION_PROTOCOL_20260922.md` and
+`US_USDM_DROUGHT_ONLY_RESULTS_20260922.md`. Production and independent joint-
+design estimators agree numerically. These fits are historical, noncausal
+external validation only; their coefficients are never transported to global
+damages or SCC.
+
 `prepare_usdm_county_weeks.py` standardizes the exclusive county-week area
 shares and preserves `D0` separately from the `D1+` drought-exposure measure;
 it refuses duplicate county-week inputs, inconsistent validity dates, or

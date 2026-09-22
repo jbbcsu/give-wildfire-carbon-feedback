@@ -758,6 +758,45 @@ coefficient. Full results and hashes are in
 Report spatial, temporal, and extreme-year held-out skill; coefficient and
 functional-form uncertainty; and comparison with process-model ranges.
 
+**Published-structure U.S. drought benchmark (September 22).** Before fitting,
+we froze a 2001--2013 Kuwayama-style drought-only design with county and year
+fixed effects, state-specific linear trends, and separate all-cropland
+irrigation-support classes. The reconstructed 1997/2002/2007/2012 Census rule
+produces 2,913 eligible counties (883 irrigated and 2,030 dryland), close to the
+paper's 2,909 summarized observations. The official USDM archive comprises 533
+state-year files and 2,055,640 county-weeks; one documented 102.55% source-row
+sum is proportionally normalized while the immutable raw record remains
+checksummed.
+
+All twenty drought-category associations are negative. For corn, dryland
+estimates range from -0.257% per D0 week to -2.014% per D4 week, versus -0.149%
+to -0.777% on irrigated support. Soybean ranges are -0.262% to -2.202% and
+-0.112% to -0.683%, respectively. Each same-category dryland estimate is more
+negative than its irrigated counterpart, reproducing the published qualitative
+ordering. The numerical coefficients are not a replication: the REST exposure
+weights county area, whereas the paper weights agricultural area, and the D4
+dryland estimates exceed the paper's national-average range. Independent joint-
+design estimation reproduces all coefficients within `1.55e-11`.
+
+These are preliminary historical associations under provisional county-cluster
+inference. Adding independently prepared April--September rainfall and heat
+controls sharply attenuates USDM coefficients. Dryland corn retains negative
+D1--D4 estimates (-0.110% to -0.469% per equivalent week), and dryland soybean
+retains negative D1--D4 estimates (-0.157% to -0.668%); D0 becomes null or
+slightly positive. Irrigated corn is null from D0--D3 and negative only at D4;
+irrigated soybean is mixed, with only D3 clearly negative. Weather-only
++100-mm contrasts at the rainfall quartiles are +1.457%/+0.483%/-0.681% for
+dryland corn and +4.615%/+2.756%/+0.563% for dryland soybean, confirming a
+concave quantity relationship rather than a constant marginal benefit.
+
+The eight weather-hierarchy fits reproduce independently within `1.22e-08`.
+Their heat basis is project-consistent, not the paper's exact moderate/extreme
+degree-day construction. Agricultural-area weighting and spatial-correlation-
+robust inference remain required. No coefficient is transported into the
+global response or SCC calculation. Full
+methods, uncertainty, hashes, and limitations are in
+[`US_USDM_DROUGHT_ONLY_RESULTS_20260922.md`](../US_USDM_DROUGHT_ONLY_RESULTS_20260922.md).
+
 **Current nationwide U.S. predictive benchmark (September 16).** The
 pre-outcome fixed-2017 Census screen selects counties with at most 10%
 reported irrigated crop acreage; the NASS outcome is still *all-practice*

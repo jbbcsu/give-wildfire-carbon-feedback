@@ -1,0 +1,233 @@
+{
+  "annual_category_reconciliation_tolerance_weeks": 0.08,
+  "config": {
+    "path": "config/usdm_kuwayama_county_area_v1.toml",
+    "sha256": "e7cd962975c561f74c6bf311e26b34111515722b7eb2202900259787b9bed338"
+  },
+  "crops": [
+    "corn_grain",
+    "soybeans"
+  ],
+  "exposure_definition": "sum of county-area category fraction times covered days divided by seven",
+  "input": {
+    "path": "data/interim/us_county/usdm_county_area_2001_2013.parquet",
+    "sha256": "a3dd5b16dbe877203a29c50bebd315a70264a216681535f1b502b575f8b3cc90"
+  },
+  "output": {
+    "path": "data/interim/us_county/usdm_calendar_year_exposures_2001_2013.parquet",
+    "rows": 78598,
+    "sha256": "8e2698e15e2f4e000283673d89da63bbe30e6adb096961c9fd4b618ac66e2d30"
+  },
+  "published_difference": "county-area REST shares replace published agricultural-area intersection",
+  "role": "historical_external_validation_only_not_future_projection_damage_or_scc",
+  "schema": "usdm_calendar_year_county_exposure_v1",
+  "states": [
+    {
+      "counties": 67,
+      "rows": 1742,
+      "state": "AL"
+    },
+    {
+      "counties": 75,
+      "rows": 1950,
+      "state": "AR"
+    },
+    {
+      "counties": 15,
+      "rows": 390,
+      "state": "AZ"
+    },
+    {
+      "counties": 58,
+      "rows": 1508,
+      "state": "CA"
+    },
+    {
+      "counties": 64,
+      "rows": 1664,
+      "state": "CO"
+    },
+    {
+      "counties": 3,
+      "rows": 78,
+      "state": "DE"
+    },
+    {
+      "counties": 67,
+      "rows": 1742,
+      "state": "FL"
+    },
+    {
+      "counties": 159,
+      "rows": 4134,
+      "state": "GA"
+    },
+    {
+      "counties": 99,
+      "rows": 2574,
+      "state": "IA"
+    },
+    {
+      "counties": 44,
+      "rows": 1144,
+      "state": "ID"
+    },
+    {
+      "counties": 102,
+      "rows": 2652,
+      "state": "IL"
+    },
+    {
+      "counties": 92,
+      "rows": 2392,
+      "state": "IN"
+    },
+    {
+      "counties": 105,
+      "rows": 2730,
+      "state": "KS"
+    },
+    {
+      "counties": 120,
+      "rows": 3120,
+      "state": "KY"
+    },
+    {
+      "counties": 64,
+      "rows": 1664,
+      "state": "LA"
+    },
+    {
+      "counties": 24,
+      "rows": 624,
+      "state": "MD"
+    },
+    {
+      "counties": 83,
+      "rows": 2158,
+      "state": "MI"
+    },
+    {
+      "counties": 87,
+      "rows": 2262,
+      "state": "MN"
+    },
+    {
+      "counties": 115,
+      "rows": 2990,
+      "state": "MO"
+    },
+    {
+      "counties": 82,
+      "rows": 2132,
+      "state": "MS"
+    },
+    {
+      "counties": 56,
+      "rows": 1456,
+      "state": "MT"
+    },
+    {
+      "counties": 100,
+      "rows": 2600,
+      "state": "NC"
+    },
+    {
+      "counties": 53,
+      "rows": 1378,
+      "state": "ND"
+    },
+    {
+      "counties": 93,
+      "rows": 2418,
+      "state": "NE"
+    },
+    {
+      "counties": 21,
+      "rows": 546,
+      "state": "NJ"
+    },
+    {
+      "counties": 33,
+      "rows": 858,
+      "state": "NM"
+    },
+    {
+      "counties": 62,
+      "rows": 1612,
+      "state": "NY"
+    },
+    {
+      "counties": 88,
+      "rows": 2288,
+      "state": "OH"
+    },
+    {
+      "counties": 77,
+      "rows": 2002,
+      "state": "OK"
+    },
+    {
+      "counties": 36,
+      "rows": 936,
+      "state": "OR"
+    },
+    {
+      "counties": 67,
+      "rows": 1742,
+      "state": "PA"
+    },
+    {
+      "counties": 46,
+      "rows": 1196,
+      "state": "SC"
+    },
+    {
+      "counties": 66,
+      "rows": 1716,
+      "state": "SD"
+    },
+    {
+      "counties": 95,
+      "rows": 2470,
+      "state": "TN"
+    },
+    {
+      "counties": 254,
+      "rows": 6604,
+      "state": "TX"
+    },
+    {
+      "counties": 29,
+      "rows": 754,
+      "state": "UT"
+    },
+    {
+      "counties": 133,
+      "rows": 3458,
+      "state": "VA"
+    },
+    {
+      "counties": 39,
+      "rows": 1014,
+      "state": "WA"
+    },
+    {
+      "counties": 72,
+      "rows": 1872,
+      "state": "WI"
+    },
+    {
+      "counties": 55,
+      "rows": 1430,
+      "state": "WV"
+    },
+    {
+      "counties": 23,
+      "rows": 598,
+      "state": "WY"
+    }
+  ],
+  "year_end": 2013,
+  "year_start": 2001
+}

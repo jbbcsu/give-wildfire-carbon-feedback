@@ -1,0 +1,184 @@
+{
+  "dryland_counties": 2030,
+  "eligible_counties": 2913,
+  "eligible_vintage_count_distribution": {
+    "1": 407,
+    "2": 706,
+    "3": 891,
+    "4": 909
+  },
+  "exact_equality_count": 0,
+  "irrigated_counties": 883,
+  "maximum_share_summary": {
+    "maximum": 1.0,
+    "mean": 0.19352969717230792,
+    "median": 0.03644523751588396,
+    "minimum": 1.461874317791985e-05
+  },
+  "output": {
+    "path": "data/interim/us_county/nass_kuwayama_all_cropland_irrigation_classifier.csv",
+    "rows": 3072,
+    "sha256": "69e4c97d3007b8f8d1fce1c097117e8e9b3ef5b0781f59d5594167fb1032628d"
+  },
+  "output_rows": 3072,
+  "role": "historical_support_classifier_only_not_irrigation_effect_damage_or_scc",
+  "schema": "nass_kuwayama_all_cropland_irrigation_classifier_v1",
+  "source_manifest": {
+    "file": "MANIFEST.jsonl",
+    "sha256": "117021476caa68c56e048a082b3501f5ea9b0ad5dc6daf57d841de77fc866aec"
+  },
+  "source_receipts": [
+    {
+      "bytes": 16240028,
+      "file": "census_1997_ag_land_area_discovery.json",
+      "license": "USDA public data; preserve disclosure/suppression flags and source attribution",
+      "official_count_endpoint": "https://quickstats.nass.usda.gov/api/get_counts/",
+      "official_data_endpoint": "https://quickstats.nass.usda.gov/api/api_GET/",
+      "preflight_count": 12198,
+      "query_parameters_excluding_key": {
+        "agg_level_desc": "COUNTY",
+        "class_desc": "CROPLAND, HARVESTED",
+        "commodity_desc": "AG LAND",
+        "domain_desc": "TOTAL",
+        "format": "JSON",
+        "freq_desc": "ANNUAL",
+        "group_desc": "FARMS & LAND & ASSETS",
+        "reference_period_desc": "YEAR",
+        "sector_desc": "ECONOMICS",
+        "source_desc": "CENSUS",
+        "statisticcat_desc": "AREA",
+        "year": "1997"
+      },
+      "retrieved_utc": "2026-09-22T16:39:30.391001+00:00",
+      "sha512": "71a9563fedc16844b03057c56181f406602f8e7edde7fe7a0b786665ec2748db21edfdbdb2d96bd2dcba8de55e74a6d57f8c3b98553933430712ae33eedecd57",
+      "source": "USDA NASS Quick Stats API",
+      "year": 1997
+    },
+    {
+      "bytes": 16256023,
+      "file": "census_2002_ag_land_area_discovery.json",
+      "license": "USDA public data; preserve disclosure/suppression flags and source attribution",
+      "official_count_endpoint": "https://quickstats.nass.usda.gov/api/get_counts/",
+      "official_data_endpoint": "https://quickstats.nass.usda.gov/api/api_GET/",
+      "preflight_count": 12214,
+      "query_parameters_excluding_key": {
+        "agg_level_desc": "COUNTY",
+        "class_desc": "CROPLAND, HARVESTED",
+        "commodity_desc": "AG LAND",
+        "domain_desc": "TOTAL",
+        "format": "JSON",
+        "freq_desc": "ANNUAL",
+        "group_desc": "FARMS & LAND & ASSETS",
+        "reference_period_desc": "YEAR",
+        "sector_desc": "ECONOMICS",
+        "source_desc": "CENSUS",
+        "statisticcat_desc": "AREA",
+        "year": "2002"
+      },
+      "retrieved_utc": "2026-09-22T16:39:46.973070+00:00",
+      "sha512": "729ad96e4c4852ac1cf43f91c5e0cd3b161fb3aea4e662a11917769eb1082d119171a96e99b98c385ba8aabd0c5d85a3e010090b3d4dfd614751a4efe2c2d340",
+      "source": "USDA NASS Quick Stats API",
+      "year": 2002
+    },
+    {
+      "bytes": 16256575,
+      "file": "census_2007_ag_land_area_discovery.json",
+      "license": "USDA public data; preserve disclosure/suppression flags and source attribution",
+      "official_count_endpoint": "https://quickstats.nass.usda.gov/api/get_counts/",
+      "official_data_endpoint": "https://quickstats.nass.usda.gov/api/api_GET/",
+      "preflight_count": 12214,
+      "query_parameters_excluding_key": {
+        "agg_level_desc": "COUNTY",
+        "class_desc": "CROPLAND, HARVESTED",
+        "commodity_desc": "AG LAND",
+        "domain_desc": "TOTAL",
+        "format": "JSON",
+        "freq_desc": "ANNUAL",
+        "group_desc": "FARMS & LAND & ASSETS",
+        "reference_period_desc": "YEAR",
+        "sector_desc": "ECONOMICS",
+        "source_desc": "CENSUS",
+        "statisticcat_desc": "AREA",
+        "year": "2007"
+      },
+      "retrieved_utc": "2026-09-22T16:39:59.003753+00:00",
+      "sha512": "3b13ea500633c1d532fe201399dc735d8e84c4771de31b8794f322539177083e3907b88feda7f68c2575c86d8299eca60f6887f94e0beea020d00ed643a43670",
+      "source": "USDA NASS Quick Stats API",
+      "year": 2007
+    },
+    {
+      "bytes": 16322936,
+      "file": "census_2012_ag_land_area_discovery.json",
+      "license": "USDA public data; preserve disclosure/suppression flags and source attribution",
+      "official_count_endpoint": "https://quickstats.nass.usda.gov/api/get_counts/",
+      "official_data_endpoint": "https://quickstats.nass.usda.gov/api/api_GET/",
+      "preflight_count": 12232,
+      "query_parameters_excluding_key": {
+        "agg_level_desc": "COUNTY",
+        "class_desc": "CROPLAND, HARVESTED",
+        "commodity_desc": "AG LAND",
+        "domain_desc": "TOTAL",
+        "format": "JSON",
+        "freq_desc": "ANNUAL",
+        "group_desc": "FARMS & LAND & ASSETS",
+        "reference_period_desc": "YEAR",
+        "sector_desc": "ECONOMICS",
+        "source_desc": "CENSUS",
+        "statisticcat_desc": "AREA",
+        "year": "2012"
+      },
+      "retrieved_utc": "2026-09-22T16:40:05.231518+00:00",
+      "sha512": "d04663e8a46a71d35f6443c3d9f906b32ef7e1d3b0c52adc693d83940eec83a4aeea0eec129d21f45fbb25325cd02f039e63ecaf470a246c91a46814dc261862",
+      "source": "USDA NASS Quick Stats API",
+      "year": 2012
+    }
+  ],
+  "source_rule": "maximum across available 1997/2002/2007/2012 all-cropland irrigated harvested-area shares; missing/suppressed numerator never zero",
+  "threshold_rule": "irrigated if maximum share > 0.15; dryland otherwise",
+  "year_audits": [
+    {
+      "counties": 3068,
+      "eligible_counties": 1816,
+      "eligible_states": 49,
+      "path": "data/raw/us_county/nass_api/kuwayama_cropland_classifier/census_1997_ag_land_area_discovery.json",
+      "raw_rows": 12198,
+      "real_county_acreage_rows": 6089,
+      "sha256": "5b72872363bf5a01e274723423144a64530c34bdd60f7b3d361b932d9af05628",
+      "total_reported_but_irrigated_missing": 1218,
+      "year": 1997
+    },
+    {
+      "counties": 3067,
+      "eligible_counties": 2149,
+      "eligible_states": 48,
+      "path": "data/raw/us_county/nass_api/kuwayama_cropland_classifier/census_2002_ag_land_area_discovery.json",
+      "raw_rows": 12214,
+      "real_county_acreage_rows": 6097,
+      "sha256": "642c84da24d69e34dabccc2445ec1deaebe0e4ffd8689d33b09d1dccfef17035",
+      "total_reported_but_irrigated_missing": 852,
+      "year": 2002
+    },
+    {
+      "counties": 3069,
+      "eligible_counties": 2112,
+      "eligible_states": 49,
+      "path": "data/raw/us_county/nass_api/kuwayama_cropland_classifier/census_2007_ag_land_area_discovery.json",
+      "raw_rows": 12214,
+      "real_county_acreage_rows": 6097,
+      "sha256": "268c3a636baca9d743c932bcb8672e019ad9b2188b6c39bcfa03adee86d0d7e8",
+      "total_reported_but_irrigated_missing": 892,
+      "year": 2007
+    },
+    {
+      "counties": 3068,
+      "eligible_counties": 2051,
+      "eligible_states": 48,
+      "path": "data/raw/us_county/nass_api/kuwayama_cropland_classifier/census_2012_ag_land_area_discovery.json",
+      "raw_rows": 12232,
+      "real_county_acreage_rows": 6106,
+      "sha256": "1c10005c15883578d7462d6c78de6978ecaf4b0d6bb54d4dc0c1bc5d3d62119b",
+      "total_reported_but_irrigated_missing": 929,
+      "year": 2012
+    }
+  ]
+}

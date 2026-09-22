@@ -1,0 +1,147 @@
+{
+  "contract": {
+    "causal_claim_authorized": false,
+    "contract_id": "usdm_kuwayama_weather_hierarchy_v1",
+    "corn_heat_threshold_c": 29.0,
+    "crops": [
+      "corn_grain",
+      "soybeans"
+    ],
+    "damage_claim_authorized": false,
+    "drought_terms": [
+      "d0_weeks",
+      "d1_weeks",
+      "d2_weeks",
+      "d3_weeks",
+      "d4_weeks"
+    ],
+    "families": [
+      "weather_only",
+      "drought_plus_weather"
+    ],
+    "fixed_effects": [
+      "county",
+      "harvest_year"
+    ],
+    "frozen_date": "2026-09-22",
+    "inference": "county-cluster CR1 using absorbed-regressor design",
+    "irrigation_classes": [
+      "dryland",
+      "irrigated"
+    ],
+    "published_difference": "temperature controls use project-consistent daily county mean/Tmax features, not the paper's agricultural-area moderate/extreme degree-day reconstruction",
+    "scc_claim_authorized": false,
+    "selection_rule": "report both families; do not select terms or families by sign, significance, fit, or implied damages",
+    "soybean_heat_threshold_c": 30.0,
+    "trend": "state-specific linear",
+    "weather_period": "April 1 through September 30",
+    "weather_terms": [
+      "precipitation_per_100mm",
+      "precipitation_per_100mm_squared",
+      "tmean_c_per_10c",
+      "crop_tmax_exceedance_c_days_per_100"
+    ],
+    "year_max": 2013,
+    "year_min": 2001
+  },
+  "output": {
+    "path": "data/interim/us_county/usdm_aprsep_weather_controls_2001_2013.parquet",
+    "rows": 80782,
+    "sha256": "fdc1ce5df01785cd7289e010835154873bfd7bf22f182015ed9bf2138103deee"
+  },
+  "published_difference": "temperature controls use project-consistent daily county mean/Tmax features, not the paper's agricultural-area moderate/extreme degree-day reconstruction",
+  "role": "historical_external_validation_only_not_damage_or_scc",
+  "schema": "usdm_aprsep_weather_controls_v1",
+  "source_summary": {
+    "path": "/Users/jbb/Dropbox/GIVE/precipitation_scc/data/interim/nclimgrid_county_averages_full_20260916/acquisition_summary.json",
+    "sha256": "8bac1b3f3f661a5fc34bcb6cafa75dc18440183ee885f5555a25dad1923e1f69"
+  },
+  "tracked_source_receipt": {
+    "dataset": "NOAA nClimGrid-Daily Version 1 county scaled area averages",
+    "doi": "10.25921/c4gt-r169",
+    "metadata_url": "https://www.ncei.noaa.gov/metadata/geoportal/rest/metadata/item/gov.noaa.ncdc%3AC01589/html",
+    "path": "data/provenance/noaa_nclimgrid_county_average_20260916.json",
+    "sha256": "c8ea96482c7834aea08e45e87bb6c723edf1e9580a6944f8a4f0db1431f48e61",
+    "source_root": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/averages/"
+  },
+  "years": [
+    {
+      "counties": 3107,
+      "rows": 6214,
+      "version_months": 12,
+      "year": 2001
+    },
+    {
+      "counties": 3107,
+      "rows": 6214,
+      "version_months": 12,
+      "year": 2002
+    },
+    {
+      "counties": 3107,
+      "rows": 6214,
+      "version_months": 12,
+      "year": 2003
+    },
+    {
+      "counties": 3107,
+      "rows": 6214,
+      "version_months": 12,
+      "year": 2004
+    },
+    {
+      "counties": 3107,
+      "rows": 6214,
+      "version_months": 12,
+      "year": 2005
+    },
+    {
+      "counties": 3107,
+      "rows": 6214,
+      "version_months": 12,
+      "year": 2006
+    },
+    {
+      "counties": 3107,
+      "rows": 6214,
+      "version_months": 12,
+      "year": 2007
+    },
+    {
+      "counties": 3107,
+      "rows": 6214,
+      "version_months": 12,
+      "year": 2008
+    },
+    {
+      "counties": 3107,
+      "rows": 6214,
+      "version_months": 12,
+      "year": 2009
+    },
+    {
+      "counties": 3107,
+      "rows": 6214,
+      "version_months": 12,
+      "year": 2010
+    },
+    {
+      "counties": 3107,
+      "rows": 6214,
+      "version_months": 12,
+      "year": 2011
+    },
+    {
+      "counties": 3107,
+      "rows": 6214,
+      "version_months": 12,
+      "year": 2012
+    },
+    {
+      "counties": 3107,
+      "rows": 6214,
+      "version_months": 12,
+      "year": 2013
+    }
+  ]
+}

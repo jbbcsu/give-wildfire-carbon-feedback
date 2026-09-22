@@ -1,0 +1,75 @@
+{
+  "claim_boundary": "historical noncausal validation only; not damage or SCC",
+  "models": [
+    {
+      "family": "weather_only",
+      "irrigation_class": "dryland",
+      "joint_lsmr_iterations": 545,
+      "maximum_absolute_coefficient_difference": 3.7172053768408375e-09,
+      "outcome_crop": "corn_grain",
+      "rows": 17182
+    },
+    {
+      "family": "drought_plus_weather",
+      "irrigation_class": "dryland",
+      "joint_lsmr_iterations": 862,
+      "maximum_absolute_coefficient_difference": 3.3852308733983705e-09,
+      "outcome_crop": "corn_grain",
+      "rows": 17182
+    },
+    {
+      "family": "weather_only",
+      "irrigation_class": "irrigated",
+      "joint_lsmr_iterations": 504,
+      "maximum_absolute_coefficient_difference": 1.2158569456799384e-08,
+      "outcome_crop": "corn_grain",
+      "rows": 5061
+    },
+    {
+      "family": "drought_plus_weather",
+      "irrigation_class": "irrigated",
+      "joint_lsmr_iterations": 816,
+      "maximum_absolute_coefficient_difference": 6.6453465646931775e-09,
+      "outcome_crop": "corn_grain",
+      "rows": 5061
+    },
+    {
+      "family": "weather_only",
+      "irrigation_class": "dryland",
+      "joint_lsmr_iterations": 423,
+      "maximum_absolute_coefficient_difference": 1.0339991751706634e-08,
+      "outcome_crop": "soybeans",
+      "rows": 15366
+    },
+    {
+      "family": "drought_plus_weather",
+      "irrigation_class": "dryland",
+      "joint_lsmr_iterations": 680,
+      "maximum_absolute_coefficient_difference": 5.218257825845285e-09,
+      "outcome_crop": "soybeans",
+      "rows": 15366
+    },
+    {
+      "family": "weather_only",
+      "irrigation_class": "irrigated",
+      "joint_lsmr_iterations": 379,
+      "maximum_absolute_coefficient_difference": 6.437120420033082e-10,
+      "outcome_crop": "soybeans",
+      "rows": 3391
+    },
+    {
+      "family": "drought_plus_weather",
+      "irrigation_class": "irrigated",
+      "joint_lsmr_iterations": 602,
+      "maximum_absolute_coefficient_difference": 1.283192441192682e-10,
+      "outcome_crop": "soybeans",
+      "rows": 3391
+    }
+  ],
+  "result": {
+    "path": "data/interim/us_county/usdm_weather_hierarchy_results_20260922.json",
+    "sha256": "6577ee09fb5debb1caa2660ea167eebe41d2aeca4847fd8c33440686fd3144e1"
+  },
+  "schema": "usdm_weather_hierarchy_independent_validation_v1",
+  "status": "passed"
+}

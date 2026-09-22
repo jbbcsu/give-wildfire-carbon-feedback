@@ -1793,6 +1793,79 @@ requires an explicit NASS-commodity-to-calendar-crop mapping, a single yield
 unit, unique keys, and the validation-only/SCC-ineligible exposure labels. It
 retains suppressed NASS outcomes in the coverage denominator, reports overlap
 for reported yields separately, and emits no yield values or response estimate.
+
+### S9.18 September 22 published-structure U.S. drought benchmark
+
+The design was frozen before national USDM acquisition. It uses positive
+all-production-practices NASS corn and soybean yield during 2001--2013; county
+and harvest-year fixed effects; state-specific linear trends; and separate
+dryland/irrigated county-support fits. The irrigation classifier follows the
+published all-cropland rule rather than the project's crop-specific selector:
+for each county, compute irrigated harvested cropland divided by all harvested
+cropland in each available 1997, 2002, 2007, and 2012 Census, take the maximum,
+and label values greater than 0.15 irrigated. Suppressed/absent numerators are
+missing, never zero. Exact-equality cases do not occur. The resulting 2,913
+eligible counties differ by four from the paper's 2,909 summary count.
+
+The official USDM county-statistics endpoint is acquired as 533 bounded
+state-year responses with URL, retrieval time, byte count, and SHA-512. A
+streaming builder assigns each map to its map-date year while retaining the
+pre-2001 map needed to cover 1 January 2001. It writes 2,055,640 unique
+county-weeks in 533 Parquet row groups at 173 MiB peak RSS. Among all inputs,
+only Chippewa County, Michigan on 22 June 2010 violates the 0.15-point category-
+sum tolerance (102.55%). A config-bound correction proportionally renormalizes
+that one working row; the raw source remains unchanged and checksummed, and any
+additional or changed anomaly fails.
+
+Calendar-year exposures integrate each mutually exclusive category fraction
+over exact validity-interval days and divide by seven. Coverage must begin 1
+January, end 31 December, and be gap/overlap free for every county-year. The
+annual six-category reconciliation tolerance is 0.08 week, conservatively
+derived from the already enforced weekly rounding tolerance; observed maximum
+error is 0.0028 week. The resulting 78,598 crop-county-years explicitly carry
+`source_area_basis=county_area`, because the REST product does not reproduce the
+paper's agricultural-area intersection.
+
+For each crop/support class, log yield is regressed on D0--D4 equivalent weeks.
+Fixed effects and trends are absorbed with a sparse nuisance design and LSMR;
+the five residualized slopes are solved by Frisch--Waugh. Provisional CR1
+covariance clusters by county. A separate validator solves one joint sparse
+design containing nuisance and drought columns, reproducing the 20 slopes to a
+maximum absolute difference of `1.55e-11`; it also checks covariance symmetry,
+positive semidefiniteness, standard-error diagonals, hashes, sample counts, and
+claim boundaries. Peak fit and validation RSS are 362 and 358 MiB.
+
+All category estimates are negative and every dryland coefficient is more
+negative than its same-crop/same-category irrigated counterpart. This supports
+the external qualitative drought/irrigation ordering, but it does not identify
+causality or authorize global transport. The subsequent April--September
+weather hierarchy is reported below; agricultural-area USDM weights, the
+paper's degree-day construction, and spatial-correlation-robust inference
+remain advancement gates. Reproduction is bound by
+`US_USDM_KUWAYAMA_REPLICATION_PROTOCOL_20260922.md`,
+`US_USDM_DROUGHT_ONLY_RESULTS_20260922.md`, and the corresponding
+`download/prepare/aggregate/estimate/validate` scripts.
+
+The pre-result weather hierarchy uses the identical 41,000 common rows. NOAA
+daily county-average precipitation, mean temperature, and Tmax are reduced over
+1 April--30 September. Weather-only and drought-plus-weather models include
+rainfall/100 mm, its square, mean temperature/10 C, and crop-threshold Tmax
+exceedance/100 C-days (29 C corn; 30 C soybean). These controls are compatible
+with the project weather route but are not the paper's agricultural-area
+moderate/extreme degree-day reconstruction. Neither family is selected by
+significance or implied damages.
+
+Weather raises within-fit explained variation and attenuates most drought
+coefficients. Negative D1--D4 associations remain for both dryland crops; D0
+does not. Irrigated corn retains only a negative D4 association, while irrigated
+soybean is mixed and retains a negative D3 term. The quantity-only rainfall
+polynomial is concave for both dryland crops: +100 mm contrasts decline across
+the observed rainfall quartiles and turn negative at the upper corn quartile.
+Eight independent joint sparse-design solutions agree with the absorbed
+estimator within `1.22e-08`. These results support the competing-moisture and
+non-stacking rule: composite drought mostly overlaps direct weather but can
+retain residual information; neither representation creates an additive SCC
+sector.
 Keep crop inundation in agriculture and exclude it from the future
 infrastructure module; exclude coastal surge/SLR impacts already addressed by
 CIAM.
