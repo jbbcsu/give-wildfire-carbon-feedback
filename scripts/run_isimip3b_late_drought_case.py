@@ -44,7 +44,8 @@ def acquire(record: dict) -> Path:
     needed = max(0, int(record["bytes"])-(partial.stat().st_size if partial.exists() else 0))
     require(shutil.disk_usage(ROOT).free >= MIN_FREE+needed+DOWNLOAD_HEADROOM, "insufficient free disk for one bounded download")
     print(f"downloading {record['esm']} {record['scenario']} {record['variable']} ({record['bytes']} bytes)", flush=True)
-    completed = subprocess.run(["curl", "-L", "--fail", "--retry", "5", "--retry-delay", "5",
+    completed = subprocess.run(["curl", "-L", "--fail", "--retry", "50", "--retry-all-errors", "--retry-delay", "10",
+                                "--connect-timeout", "30", "--speed-limit", "1024", "--speed-time", "120",
                                 "--continue-at", "-", "--silent", "--show-error", "--output", str(partial), record["file_url"]], check=False)
     require(completed.returncode == 0, f"curl failed with code {completed.returncode}")
     require(partial.stat().st_size == record["bytes"] and digest(partial) == record["sha512"], "downloaded extrema identity differs")
