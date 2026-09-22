@@ -233,6 +233,44 @@ gate. Protocol and full limitations are in
 `FIVE_ESM_DROUGHT_FAIR_SENSITIVITY_PROTOCOL_20260922.md` and
 `FIVE_ESM_DROUGHT_FAIR_SENSITIVITY_RESULTS_20260922.md`.
 
+### September 22 published global water-stress spatial validation
+
+Before inspecting the published rasters, we froze a validation-only comparison
+to Tuninetti and Davis (2026). Four official Zenodo outputs—maize and soybean,
+each rainfed and irrigated—were acquired sequentially and verified against the
+record's exact byte counts and MD5 hashes. Each 4320-by-2160 ESRI ASCII grid
+was streamed six rows at a time and reduced to the ISIMIP 0.5-degree grid by
+the mean of finite values in each 6-by-6 block. No expanded derived raster was
+written. The source release contains code and outputs but is not turnkey: its
+MATLAB scripts retain machine-specific paths and reference unbundled inputs
+and helpers; the Zenodo metadata declares no license.
+
+For each ESM and crop-regime cell, the existing GGCMI calendar constructs the
+2092--2099 crop-season SPEI3 mean. SSP3-7.0 and SSP5-8.5 are differenced from
+the same-ESM SSP1-2.6 value and then averaged across the five named ESMs.
+Published loss severity is the negative historical median-to-tenth-percentile
+ETa yield change; projected drying severity is the negative SPEI3 contrast.
+Primary diagnostics are unweighted and MIRCA-hectare-weighted correlations of
+midranks. The descriptive interval is a fixed-rank bootstrap with 2,000
+resamples within four latitude strata; it does not remove spatial dependence
+or incorporate climate-model and response uncertainty.
+
+Common support ranges from 3,908 irrigated soybean cells to 18,574 rainfed
+maize cells. Area-weighted mean SPEI3 is lower under both higher SSPs in all
+four crop-regime combinations, but weighted spatial rank correlations span
+-0.267 to +0.225 and change sign across irrigation regimes. An independent
+implementation recomputed 450,966 numerical quantities and directly reread
+twelve selected raw 6-by-6 raster blocks. The primary run peaked at 584 MB RSS
+under a 640 MiB guard; the audit peaked at 190 MB. This passes an external
+spatial-process-validation gate only. It supplies no empirical response,
+damage, or SCC parameter.
+
+Protocol, source audit, results and machine-readable evidence are in
+`TUNINETTI_2026_SPATIAL_VALIDATION_PROTOCOL_20260922.md`,
+`TUNINETTI_2026_GLOBAL_DROUGHT_BENCHMARK_AUDIT_20260922.md`,
+`TUNINETTI_2026_SPATIAL_VALIDATION_RESULTS_20260922.md`, and
+`data/provenance/tuninetti_2026_spatial_validation_public_evidence_20260922.json`.
+
 ### September 4 regional robustness additions
 
 The source-hash-validated regional panel was fitted under original controls,

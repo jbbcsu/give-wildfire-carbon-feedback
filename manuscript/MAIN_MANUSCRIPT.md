@@ -106,6 +106,16 @@ using observed composite drought severity. These studies justify candidate
 features and validation tests; none supplies a coefficient that can be
 transported directly into a global SCC calculation.
 
+[Santini et al. (2022)](https://doi.org/10.1038/s41598-022-09611-0)
+document global associations between crop-yield anomalies and the timing,
+duration, and severity of multiscale SPEI drought. [Tuninetti and Davis
+(2026)](https://doi.org/10.1038/s41467-026-72715-y) instead map global
+rainfed and irrigated crop sensitivity to historical actual-evapotranspiration
+shortfalls using a soil-water-balance model and prescribed FAO yield-response
+factors. The former motivates the multiscale timing tests; the latter supplies
+a spatial process benchmark. Neither is treated as a directly transportable
+marginal yield or SCC coefficient.
+
 This study asks: how does the agricultural component of the global SCC change
 when a temperature-indexed agricultural pathway is replaced by a joint,
 crop-calendar-aligned temperature--precipitation response? The scope is crop
@@ -721,6 +731,27 @@ early-to-later score is retrospective rather than a genuinely prospective
 forecast. The comparison selects no production response, reports no SPEI
 result, and does not identify a causal effect, project climate-induced drought
 change, or authorize damages or an SCC input.
+
+**Published global water-stress spatial benchmark.** The four official
+Tuninetti--Davis maize/soybean rainfed/irrigated 5-arc-minute sensitivity maps
+were independently matched to our crop-calendar SPEI3 contrasts on frozen
+0.5-degree support. All eight crop--regime--scenario cells have negative
+area-weighted mean SPEI3 changes, ranging from -0.320 to -0.791. Spatial rank
+agreement is weak and mixed: area-weighted correlations between published
+historical ETa-tail loss severity and projected drying range from -0.267 to
++0.225. Rainfed maize is positive (0.042 under SSP3-7.0 and 0.225 under
+SSP5-8.5), irrigated maize is negative (-0.267 and -0.218), rainfed soybean is
+negative under area weighting (-0.121 and -0.079), and irrigated soybean is
+positive (0.172 and 0.119). All five climate models project drying in only
+28%--54% of common cells even though the global means are negative; at least
+four project drying in 55%--74%.
+
+An independent audit passed 450,966 numerical checks and twelve direct raw
+ASCII-block checks. The mixed spatial result supports preserving irrigation
+structure and process-based benchmarking, but rejects direct use of the
+published historical-tail map as a universal future yield-response or SCC
+coefficient. Full results and hashes are in
+`TUNINETTI_2026_SPATIAL_VALIDATION_RESULTS_20260922.md`.
 
 ### 6.2 Yield-response validation
 
