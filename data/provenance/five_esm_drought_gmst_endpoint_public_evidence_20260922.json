@@ -1,0 +1,382 @@
+{
+  "gates": {
+    "damage": false,
+    "endpoint_diagnostic": true,
+    "scc": false,
+    "transient_climate_response": false,
+    "yield_response": false
+  },
+  "implementation": {
+    "path": "scripts/export_five_esm_drought_gmst_link.py",
+    "sha256": "7b5d163d6a1fadb4c1597c5e0bfcd87dc78f0ebe77493712c2323f9c9ddefcd7"
+  },
+  "interpretation": [
+    "The slope is an origin-constrained endpoint scenario diagnostic in SPEI units per kelvin.",
+    "Whole-ESM and whole-scenario holdouts reuse the same five-model climate ensemble.",
+    "SSP contrasts contain multiple forcings and internal variability.",
+    "The result is not anthropogenic attribution, a transient or marginal-pulse response, a yield effect, damage, or SCC."
+  ],
+  "primary": [
+    {
+      "combined_predictive_rule_passes": true,
+      "crop": "mai",
+      "irrigation": "noirr",
+      "named_endpoint_points": [
+        {
+          "contrast": "ssp370_minus_ssp126",
+          "esm": "gfdl-esm4",
+          "gmst_difference_k": 2.081196448524963,
+          "predicted_spei_difference": -0.39040077796504125,
+          "residual": -0.22655815753939212,
+          "spei_difference": -0.6169589355044334
+        },
+        {
+          "contrast": "ssp585_minus_ssp126",
+          "esm": "gfdl-esm4",
+          "gmst_difference_k": 2.5903104387182907,
+          "predicted_spei_difference": -0.4859028138181345,
+          "residual": -0.3992469361476325,
+          "spei_difference": -0.885149749965767
+        },
+        {
+          "contrast": "ssp370_minus_ssp126",
+          "esm": "ipsl-cm6a-lr",
+          "gmst_difference_k": 2.9472394350937634,
+          "predicted_spei_difference": -0.5528572610842858,
+          "residual": 0.17863083655757211,
+          "spei_difference": -0.3742264245267137
+        },
+        {
+          "contrast": "ssp585_minus_ssp126",
+          "esm": "ipsl-cm6a-lr",
+          "gmst_difference_k": 4.115946107164007,
+          "predicted_spei_difference": -0.7720888450669184,
+          "residual": -0.05590672805234609,
+          "spei_difference": -0.8279955731192645
+        },
+        {
+          "contrast": "ssp370_minus_ssp126",
+          "esm": "mpi-esm1-2-hr",
+          "gmst_difference_k": 2.033020725250651,
+          "predicted_spei_difference": -0.38136374551255464,
+          "residual": 0.0017208835264538869,
+          "spei_difference": -0.37964286198610075
+        },
+        {
+          "contrast": "ssp585_minus_ssp126",
+          "esm": "mpi-esm1-2-hr",
+          "gmst_difference_k": 2.644379967640077,
+          "predicted_spei_difference": -0.49604543450645516,
+          "residual": 0.03852845891773743,
+          "spei_difference": -0.45751697558871773
+        },
+        {
+          "contrast": "ssp370_minus_ssp126",
+          "esm": "mri-esm2-0",
+          "gmst_difference_k": 2.0800820279040977,
+          "predicted_spei_difference": -0.3901917296180317,
+          "residual": 0.06902742508256976,
+          "spei_difference": -0.32116430453546196
+        },
+        {
+          "contrast": "ssp585_minus_ssp126",
+          "esm": "mri-esm2-0",
+          "gmst_difference_k": 2.922539793030012,
+          "predicted_spei_difference": -0.5482239841613019,
+          "residual": 0.10984508629269885,
+          "spei_difference": -0.43837889786860307
+        },
+        {
+          "contrast": "ssp370_minus_ssp126",
+          "esm": "ukesm1-0-ll",
+          "gmst_difference_k": 3.2268735783015927,
+          "predicted_spei_difference": -0.6053123703226748,
+          "residual": 0.05359245074080454,
+          "spei_difference": -0.5517199195818703
+        },
+        {
+          "contrast": "ssp585_minus_ssp126",
+          "esm": "ukesm1-0-ll",
+          "gmst_difference_k": 4.315491413592781,
+          "predicted_spei_difference": -0.8095205074764326,
+          "residual": 0.10807549966657881,
+          "spei_difference": -0.7014450078098537
+        }
+      ],
+      "rmse": 0.16692269143802668,
+      "scale_months": 3,
+      "slope_spei_per_k": -0.18758478001523388,
+      "whole_esm_holdouts": [
+        {
+          "held_out_esm": "gfdl-esm4",
+          "passes": true,
+          "rmse": 0.3690644960338021,
+          "rmse_improvement": 0.3938668272067709,
+          "test_points": 2,
+          "training_points": 8,
+          "training_slope_spei_per_k": -0.16844243295464117,
+          "zero_change_rmse": 0.762931323240573
+        },
+        {
+          "held_out_esm": "ipsl-cm6a-lr",
+          "passes": true,
+          "rmse": 0.1384276396563545,
+          "rmse_improvement": 0.5040760902624482,
+          "test_points": 2,
+          "training_points": 8,
+          "training_slope_spei_per_k": -0.19221024245135648,
+          "zero_change_rmse": 0.6425037299188027
+        },
+        {
+          "held_out_esm": "mpi-esm1-2-hr",
+          "passes": true,
+          "rmse": 0.029917372130589502,
+          "rmse_improvement": 0.3904696433734844,
+          "test_points": 2,
+          "training_points": 8,
+          "training_slope_spei_per_k": -0.18892599361124268,
+          "zero_change_rmse": 0.42038701550407387
+        },
+        {
+          "held_out_esm": "mri-esm2-0",
+          "passes": true,
+          "rmse": 0.10705248768837367,
+          "rmse_improvement": 0.27721471661368363,
+          "test_points": 2,
+          "training_points": 8,
+          "training_slope_spei_per_k": -0.1936319857694193,
+          "zero_change_rmse": 0.3842672043020573
+        },
+        {
+          "held_out_esm": "ukesm1-0-ll",
+          "passes": true,
+          "rmse": 0.1250078471492804,
+          "rmse_improvement": 0.5060309664924761,
+          "test_points": 2,
+          "training_points": 8,
+          "training_slope_spei_per_k": -0.1981240410691378,
+          "zero_change_rmse": 0.6310388136417565
+        }
+      ],
+      "whole_esm_rule_passes": true,
+      "whole_scenario_holdouts": [
+        {
+          "held_out_contrast": "ssp370_minus_ssp126",
+          "passes": true,
+          "rmse": 0.1393440201988102,
+          "rmse_improvement": 0.32376586476176406,
+          "test_points": 5,
+          "training_points": 5,
+          "training_slope_spei_per_k": -0.19407128821130185,
+          "zero_change_rmse": 0.46310988496057426
+        },
+        {
+          "held_out_contrast": "ssp585_minus_ssp126",
+          "passes": true,
+          "rmse": 0.2022695134515662,
+          "rmse_improvement": 0.4851298884974409,
+          "test_points": 5,
+          "training_points": 5,
+          "training_slope_spei_per_k": -0.17582653258085953,
+          "zero_change_rmse": 0.6873994019490071
+        }
+      ],
+      "whole_scenario_rule_passes": true,
+      "window": "season",
+      "zero_change_rmse": 0.5860839118027592
+    },
+    {
+      "combined_predictive_rule_passes": false,
+      "crop": "soy",
+      "irrigation": "noirr",
+      "named_endpoint_points": [
+        {
+          "contrast": "ssp370_minus_ssp126",
+          "esm": "gfdl-esm4",
+          "gmst_difference_k": 2.081196448524963,
+          "predicted_spei_difference": -0.30581538566975475,
+          "residual": -0.23055617955837315,
+          "spei_difference": -0.5363715652281279
+        },
+        {
+          "contrast": "ssp585_minus_ssp126",
+          "esm": "gfdl-esm4",
+          "gmst_difference_k": 2.5903104387182907,
+          "predicted_spei_difference": -0.3806256667324522,
+          "residual": -0.5019698827427268,
+          "spei_difference": -0.882595549475179
+        },
+        {
+          "contrast": "ssp370_minus_ssp126",
+          "esm": "ipsl-cm6a-lr",
+          "gmst_difference_k": 2.9472394350937634,
+          "predicted_spei_difference": -0.43307356455615176,
+          "residual": 0.15708672665224943,
+          "spei_difference": -0.2759868379039023
+        },
+        {
+          "contrast": "ssp585_minus_ssp126",
+          "esm": "ipsl-cm6a-lr",
+          "gmst_difference_k": 4.115946107164007,
+          "predicted_spei_difference": -0.6048057822943131,
+          "residual": -0.1808196459575595,
+          "spei_difference": -0.7856254282518726
+        },
+        {
+          "contrast": "ssp370_minus_ssp126",
+          "esm": "mpi-esm1-2-hr",
+          "gmst_difference_k": 2.033020725250651,
+          "predicted_spei_difference": -0.29873634351422207,
+          "residual": -0.007045869826183215,
+          "spei_difference": -0.3057822133404053
+        },
+        {
+          "contrast": "ssp585_minus_ssp126",
+          "esm": "mpi-esm1-2-hr",
+          "gmst_difference_k": 2.644379967640077,
+          "predicted_spei_difference": -0.3885707570923351,
+          "residual": -0.05391716679250286,
+          "spei_difference": -0.44248792388483793
+        },
+        {
+          "contrast": "ssp370_minus_ssp126",
+          "esm": "mri-esm2-0",
+          "gmst_difference_k": 2.0800820279040977,
+          "predicted_spei_difference": -0.30565163035861637,
+          "residual": 0.16720827836604768,
+          "spei_difference": -0.1384433519925687
+        },
+        {
+          "contrast": "ssp585_minus_ssp126",
+          "esm": "mri-esm2-0",
+          "gmst_difference_k": 2.922539793030012,
+          "predicted_spei_difference": -0.42944414717511376,
+          "residual": 0.33133080175580737,
+          "spei_difference": -0.09811334541930637
+        },
+        {
+          "contrast": "ssp370_minus_ssp126",
+          "esm": "ukesm1-0-ll",
+          "gmst_difference_k": 3.2268735783015927,
+          "predicted_spei_difference": -0.4741635940015427,
+          "residual": 0.09981952736404731,
+          "spei_difference": -0.37434406663749537
+        },
+        {
+          "contrast": "ssp585_minus_ssp126",
+          "esm": "ukesm1-0-ll",
+          "gmst_difference_k": 4.315491413592781,
+          "predicted_spei_difference": -0.6341273895300719,
+          "residual": 0.1344052596149689,
+          "spei_difference": -0.49972212991510295
+        }
+      ],
+      "rmse": 0.23048341040647724,
+      "scale_months": 3,
+      "slope_spei_per_k": -0.14694210432969929,
+      "whole_esm_holdouts": [
+        {
+          "held_out_esm": "gfdl-esm4",
+          "passes": true,
+          "rmse": 0.4423545191290088,
+          "rmse_improvement": 0.28794314618927264,
+          "test_points": 2,
+          "training_points": 8,
+          "training_slope_spei_per_k": -0.12431114333297838,
+          "zero_change_rmse": 0.7302976653182814
+        },
+        {
+          "held_out_esm": "ipsl-cm6a-lr",
+          "passes": true,
+          "rmse": 0.17368856017414688,
+          "rmse_improvement": 0.41511363420531244,
+          "test_points": 2,
+          "training_points": 8,
+          "training_slope_spei_per_k": -0.14255211511804117,
+          "zero_change_rmse": 0.5888021943794594
+        },
+        {
+          "held_out_esm": "mpi-esm1-2-hr",
+          "passes": true,
+          "rmse": 0.042589364460247324,
+          "rmse_improvement": 0.33773833948680365,
+          "test_points": 2,
+          "training_points": 8,
+          "training_slope_spei_per_k": -0.14494519806449738,
+          "zero_change_rmse": 0.38032770394705095
+        },
+        {
+          "held_out_esm": "mri-esm2-0",
+          "passes": false,
+          "rmse": 0.30545587760340126,
+          "rmse_improvement": -0.18547089883458537,
+          "test_points": 2,
+          "training_points": 8,
+          "training_slope_spei_per_k": -0.1640724861801803,
+          "zero_change_rmse": 0.11998497876881589
+        },
+        {
+          "held_out_esm": "ukesm1-0-ll",
+          "passes": true,
+          "rmse": 0.17504580949864507,
+          "rmse_improvement": 0.26646052531071224,
+          "test_points": 2,
+          "training_points": 8,
+          "training_slope_spei_per_k": -0.16181346521062184,
+          "zero_change_rmse": 0.4415063348093573
+        }
+      ],
+      "whole_esm_rule_passes": false,
+      "whole_scenario_holdouts": [
+        {
+          "held_out_contrast": "ssp370_minus_ssp126",
+          "passes": true,
+          "rmse": 0.16359248120082187,
+          "rmse_improvement": 0.18759578586243286,
+          "test_points": 5,
+          "training_points": 5,
+          "training_slope_spei_per_k": -0.15799118292987446,
+          "zero_change_rmse": 0.35118826706325473
+        },
+        {
+          "held_out_contrast": "ssp585_minus_ssp126",
+          "passes": true,
+          "rmse": 0.30469580970466154,
+          "rmse_improvement": 0.303798432820196,
+          "test_points": 5,
+          "training_points": 5,
+          "training_slope_spei_per_k": -0.1269131771818903,
+          "zero_change_rmse": 0.6084942425248575
+        }
+      ],
+      "whole_scenario_rule_passes": true,
+      "window": "season",
+      "zero_change_rmse": 0.4967889099551197
+    }
+  ],
+  "role": "multi_forcing_endpoint_slope_not_attribution_transient_emulator_yield_damage_or_scc",
+  "schema": "five_esm_drought_gmst_endpoint_public_evidence_v1",
+  "sources": {
+    "maximum_numeric_absolute_difference": 1.1102230246251565e-16,
+    "numeric_checks": 6893,
+    "result_path": "data/interim/five_esm_drought_gmst_link_20260922/result.json",
+    "result_sha256": "bc1c9877bd7a07da394365125bc5da4d642ebc891f001035c15ad6e7c87f0d78",
+    "validation_path": "data/interim/five_esm_drought_gmst_link_20260922/validation.json",
+    "validation_sha256": "e3adeea7d5b4a3c763fb32743d4bdd0956555d7269e0eeb9d80dca678fc7f5fd"
+  },
+  "status": "validated_endpoint_diagnostic",
+  "summary_by_crop": {
+    "mai": {
+      "cells": 45,
+      "combined_passes": 37,
+      "whole_esm_passes": 37,
+      "whole_scenario_passes": 45
+    },
+    "soy": {
+      "cells": 45,
+      "combined_passes": 13,
+      "whole_esm_passes": 13,
+      "whole_scenario_passes": 45
+    }
+  }
+}

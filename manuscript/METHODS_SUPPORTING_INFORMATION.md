@@ -169,6 +169,40 @@ anthropogenic attribution, per-kelvin or marginal-pulse responses, yield
 effects, damages, or SCC inputs. The registered global predictive gate has not
 promoted a drought response coefficient, so no SPEI contrast is monetized.
 
+### September 22 drought--GMST endpoint diagnostic
+
+Before inspecting any per-kelvin result, we froze an origin-constrained
+endpoint response and two transport tests. For each of 90
+crop--window--SPEI-scale--area cells, ten observations pair the SSP3-7.0 and
+SSP5-8.5 SPEI differences from SSP1-2.6 with the corresponding
+same-realization 2092--2099 mean-GMST differences. Named endpoints receive
+equal weight. The fitted slope is `sum(deltaT*deltaSPEI)/sum(deltaT^2)`; a
+zero intercept enforces zero scenario difference at zero temperature
+difference. Whole-ESM folds fit eight endpoints and score the omitted two;
+whole-scenario folds fit five and score five. A cell passes only if every
+whole-ESM and both whole-scenario RMSEs are strictly below their zero-change
+counterparts. No fold, tolerance, response form or weight changes after
+results are allowed.
+
+For primary rainfed crop-season SPEI-3, maize has a -0.187585 SPEI K-1 slope
+and fitted/zero-change RMSE of 0.166923/0.586084. All five ESM holdouts and
+both scenario holdouts improve, so maize passes the frozen internal rule.
+Soybean has a -0.146942 SPEI K-1 slope and RMSE 0.230483/0.496789. It passes
+both scenario holdouts but fails the whole-ESM rule: withholding MRI worsens
+RMSE by 0.185471. Across all cells, 37/45 maize and 13/45 soybean records pass
+the combined rule; all 90 pass both scenario holdouts. A separate
+implementation recomputed every input mean, slope, point prediction,
+residual, fold score and pass flag in 6,893 numeric checks, with maximum
+disagreement `1.11e-16`.
+
+The frozen protocol and complete result are in
+`FIVE_ESM_DROUGHT_GMST_LINK_PROTOCOL_20260922.md` and
+`FIVE_ESM_DROUGHT_GMST_LINK_RESULTS_20260922.md`. SSP contrasts contain
+multiple forcing differences and internal variability. The five-model
+holdouts reuse the same ensemble. The slope is therefore a descriptive
+endpoint link, not attribution, a CO2-only or transient response, a FAIR
+marginal-pulse mapping, yield effect, damage or SCC input.
+
 ### September 4 regional robustness additions
 
 The source-hash-validated regional panel was fitted under original controls,

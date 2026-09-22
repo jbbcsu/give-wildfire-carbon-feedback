@@ -49,7 +49,14 @@ to SSP1-2.6 are -0.449/-0.662 for maize and -0.326/-0.542 for soybean under
 SSP3-7.0/SSP5-8.5. Across five windows, three SPEI scales, and three fixed
 irrigation-area bases, at least four of five models are negative in all 180
 crop--scenario cells. These named-model signs are not probabilities. These
-short scenario contrasts neither identify forced
+validated exposures permit a prespecified endpoint diagnostic against
+same-realization 2092--2099 GMST. The origin-constrained rainfed season
+SPEI-3 slope is -0.1876 SPEI K-1 for maize and passes every whole-ESM and
+whole-scenario holdout against zero change. Soybean's -0.1469 SPEI K-1 slope
+fails the whole-ESM rule because MRI reverses the improvement. Across all
+feature cells, 37/45 maize and 13/45 soybean links pass the combined rule.
+These are multi-forcing endpoint slopes, not transient or marginal-pulse
+emulators. The short scenario contrasts neither identify forced
 rainfall per K nor yield or damage effects. Together these results
 establish an auditable empirical and climate-input foundation, not
 identified climate damages. In the global country-held-out yield comparison,
