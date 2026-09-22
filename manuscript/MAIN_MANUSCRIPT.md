@@ -56,7 +56,11 @@ whole-scenario holdout against zero change. Soybean's -0.1469 SPEI K-1 slope
 fails the whole-ESM rule because MRI reverses the improvement. Across all
 feature cells, 37/45 maize and 13/45 soybean links pass the combined rule.
 These are multi-forcing endpoint slopes, not transient or marginal-pulse
-emulators. The short scenario contrasts neither identify forced
+emulators. Applying the maize slope *conditionally* to the matched core-GIVE
+FAIR pulse path passes zero-pulse, pre-pulse and decreasing-pulse numerical
+checks; the maximum normalized signal is `3.44568e-4` SPEI per GtC. This
+tests the interface but does not validate the endpoint slope as a marginal
+emissions response. The short scenario contrasts neither identify forced
 rainfall per K nor yield or damage effects. Together these results
 establish an auditable empirical and climate-input foundation, not
 identified climate damages. In the global country-held-out yield comparison,

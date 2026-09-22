@@ -203,6 +203,36 @@ holdouts reuse the same ensemble. The slope is therefore a descriptive
 endpoint link, not attribution, a CO2-only or transient response, a FAIR
 marginal-pulse mapping, yield effect, damage or SCC input.
 
+### September 22 conditional GIVE/FAIR pulse sensitivity
+
+We next froze a numerical interface test that uses only the primary maize
+endpoint slope because soybean failed its whole-ESM rule. The full maize slope
+and five leave-one-ESM-out training slopes are multiplied by each matched
+core-GIVE FAIR pulse-minus-baseline temperature difference over 1750--2300.
+No intercept, absolute-baseline application, clipping, weather generation or
+yield response is permitted. The 0.0001, 0.00005 and 0.000025 GtC test pulses
+share an identical baseline; the zero pulse and years through 2020 must remain
+exactly zero, and the two smallest pulse-normalized signals must converge under
+the existing FAIR tolerance.
+
+For the full -0.187585 SPEI K-1 slope, the maximum absolute conditional
+signals are `3.44564e-8`, `1.72284e-8` and `8.61420e-9` SPEI across the three
+decreasing pulses. The maximum normalized signal is `3.44568e-4` SPEI per
+GtC. The five leave-one-ESM slopes span -0.198124 to -0.168442 SPEI K-1.
+An independent implementation recomputed all 13,224 row--slope products and
+summaries in 52,933 numeric checks, with `8.88e-16` maximum disagreement.
+The first audit caught that the evaluator used the stored FAIR difference
+instead of recomputing pulse minus baseline; that failed record is retained,
+and the corrected evaluator follows the frozen formula.
+
+This is a deterministic conditional sensitivity, not a validated transient,
+CO2-only or marginal climate-feature response. The source slope still contains
+multi-forcing SSP differences, and no global drought-yield response is
+promoted. Accordingly the interface opens no yield, damage, welfare or SCC
+gate. Protocol and full limitations are in
+`FIVE_ESM_DROUGHT_FAIR_SENSITIVITY_PROTOCOL_20260922.md` and
+`FIVE_ESM_DROUGHT_FAIR_SENSITIVITY_RESULTS_20260922.md`.
+
 ### September 4 regional robustness additions
 
 The source-hash-validated regional panel was fitted under original controls,

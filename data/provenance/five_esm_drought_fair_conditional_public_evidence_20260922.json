@@ -1,0 +1,373 @@
+{
+  "convergence": [
+    {
+      "maximum_absolute_normalized_disagreement_spei_per_gtc": 4.57907498047235e-08,
+      "maximum_relative_normalized_disagreement": 0.00015763776539257744,
+      "next_smallest_pulse_gtc": 5e-05,
+      "slope_id": "full",
+      "smallest_pulse_gtc": 2.5e-05
+    },
+    {
+      "maximum_absolute_normalized_disagreement_spei_per_gtc": 4.11179697164016e-08,
+      "maximum_relative_normalized_disagreement": 0.0001576377653925643,
+      "next_smallest_pulse_gtc": 5e-05,
+      "slope_id": "leave_out_gfdl-esm4",
+      "smallest_pulse_gtc": 2.5e-05
+    },
+    {
+      "maximum_absolute_normalized_disagreement_spei_per_gtc": 4.691985736412661e-08,
+      "maximum_relative_normalized_disagreement": 0.000157637765392587,
+      "next_smallest_pulse_gtc": 5e-05,
+      "slope_id": "leave_out_ipsl-cm6a-lr",
+      "smallest_pulse_gtc": 2.5e-05
+    },
+    {
+      "maximum_absolute_normalized_disagreement_spei_per_gtc": 4.6118149374201316e-08,
+      "maximum_relative_normalized_disagreement": 0.00015763776539272405,
+      "next_smallest_pulse_gtc": 5e-05,
+      "slope_id": "leave_out_mpi-esm1-2-hr",
+      "smallest_pulse_gtc": 2.5e-05
+    },
+    {
+      "maximum_absolute_normalized_disagreement_spei_per_gtc": 4.7266914798892255e-08,
+      "maximum_relative_normalized_disagreement": 0.00015763776539239516,
+      "next_smallest_pulse_gtc": 5e-05,
+      "slope_id": "leave_out_mri-esm2-0",
+      "smallest_pulse_gtc": 2.5e-05
+    },
+    {
+      "maximum_absolute_normalized_disagreement_spei_per_gtc": 4.836345674825602e-08,
+      "maximum_relative_normalized_disagreement": 0.00015763776539258148,
+      "next_smallest_pulse_gtc": 5e-05,
+      "slope_id": "leave_out_ukesm1-0-ll",
+      "smallest_pulse_gtc": 2.5e-05
+    }
+  ],
+  "full_slope_maximum_absolute_normalized_spei_per_gtc": 0.00034456796652836716,
+  "gates": {
+    "damage": false,
+    "numerical_fair_interface": true,
+    "scc": false,
+    "transient_climate_response": false,
+    "yield_response": false
+  },
+  "identities": {
+    "decreasing_pulse_convergence": true,
+    "pre_pulse_through_year": 2020,
+    "zero_pulse": true
+  },
+  "implementation": {
+    "path": "scripts/export_five_esm_drought_fair_sensitivity.py",
+    "sha256": "6e0ba3725d0703f10f34800e7458053c79dd8dded8c3f29a6993310f3429d9b6"
+  },
+  "interpretation": [
+    "This is a deterministic linear sensitivity using a multi-forcing endpoint slope.",
+    "It is not a validated transient, CO2-only, or marginal climate-feature response.",
+    "No crop-yield response, economic damage, or SCC is estimated."
+  ],
+  "maximum_by_slope_and_pulse": [
+    {
+      "maximum_absolute_conditional_spei_difference": 0.0,
+      "pulse_size_gtc": 0.0,
+      "slope_id": "full"
+    },
+    {
+      "maximum_absolute_conditional_spei_difference": 8.61419916320918e-09,
+      "pulse_size_gtc": 2.5e-05,
+      "slope_id": "full"
+    },
+    {
+      "maximum_absolute_conditional_spei_difference": 1.722837537606257e-08,
+      "pulse_size_gtc": 5e-05,
+      "slope_id": "full"
+    },
+    {
+      "maximum_absolute_conditional_spei_difference": 3.445638750339037e-08,
+      "pulse_size_gtc": 0.0001,
+      "slope_id": "full"
+    },
+    {
+      "maximum_absolute_conditional_spei_difference": 0.0,
+      "pulse_size_gtc": 0.0,
+      "slope_id": "leave_out_gfdl-esm4"
+    },
+    {
+      "maximum_absolute_conditional_spei_difference": 7.735151353371804e-09,
+      "pulse_size_gtc": 2.5e-05,
+      "slope_id": "leave_out_gfdl-esm4"
+    },
+    {
+      "maximum_absolute_conditional_spei_difference": 1.547028209838846e-08,
+      "pulse_size_gtc": 5e-05,
+      "slope_id": "leave_out_gfdl-esm4"
+    },
+    {
+      "maximum_absolute_conditional_spei_difference": 3.0940238016259255e-08,
+      "pulse_size_gtc": 0.0001,
+      "slope_id": "leave_out_gfdl-esm4"
+    },
+    {
+      "maximum_absolute_conditional_spei_difference": 0.0,
+      "pulse_size_gtc": 0.0,
+      "slope_id": "leave_out_ipsl-cm6a-lr"
+    },
+    {
+      "maximum_absolute_conditional_spei_difference": 8.826607945219464e-09,
+      "pulse_size_gtc": 2.5e-05,
+      "slope_id": "leave_out_ipsl-cm6a-lr"
+    },
+    {
+      "maximum_absolute_conditional_spei_difference": 1.765319237417364e-08,
+      "pulse_size_gtc": 5e-05,
+      "slope_id": "leave_out_ipsl-cm6a-lr"
+    },
+    {
+      "maximum_absolute_conditional_spei_difference": 3.530601254263116e-08,
+      "pulse_size_gtc": 0.0001,
+      "slope_id": "leave_out_ipsl-cm6a-lr"
+    },
+    {
+      "maximum_absolute_conditional_spei_difference": 0.0,
+      "pulse_size_gtc": 0.0,
+      "slope_id": "leave_out_mpi-esm1-2-hr"
+    },
+    {
+      "maximum_absolute_conditional_spei_difference": 8.675789879873323e-09,
+      "pulse_size_gtc": 2.5e-05,
+      "slope_id": "leave_out_mpi-esm1-2-hr"
+    },
+    {
+      "maximum_absolute_conditional_spei_difference": 1.7351556645297962e-08,
+      "pulse_size_gtc": 5e-05,
+      "slope_id": "leave_out_mpi-esm1-2-hr"
+    },
+    {
+      "maximum_absolute_conditional_spei_difference": 3.470274744466675e-08,
+      "pulse_size_gtc": 0.0001,
+      "slope_id": "leave_out_mpi-esm1-2-hr"
+    },
+    {
+      "maximum_absolute_conditional_spei_difference": 0.0,
+      "pulse_size_gtc": 0.0,
+      "slope_id": "leave_out_mri-esm2-0"
+    },
+    {
+      "maximum_absolute_conditional_spei_difference": 8.891896718113301e-09,
+      "pulse_size_gtc": 2.5e-05,
+      "slope_id": "leave_out_mri-esm2-0"
+    },
+    {
+      "maximum_absolute_conditional_spei_difference": 1.7783769746015882e-08,
+      "pulse_size_gtc": 5e-05,
+      "slope_id": "leave_out_mri-esm2-0"
+    },
+    {
+      "maximum_absolute_conditional_spei_difference": 3.556716453317938e-08,
+      "pulse_size_gtc": 0.0001,
+      "slope_id": "leave_out_mri-esm2-0"
+    },
+    {
+      "maximum_absolute_conditional_spei_difference": 0.0,
+      "pulse_size_gtc": 0.0,
+      "slope_id": "leave_out_ukesm1-0-ll"
+    },
+    {
+      "maximum_absolute_conditional_spei_difference": 9.098179226751698e-09,
+      "pulse_size_gtc": 2.5e-05,
+      "slope_id": "leave_out_ukesm1-0-ll"
+    },
+    {
+      "maximum_absolute_conditional_spei_difference": 1.819633421370509e-08,
+      "pulse_size_gtc": 5e-05,
+      "slope_id": "leave_out_ukesm1-0-ll"
+    },
+    {
+      "maximum_absolute_conditional_spei_difference": 3.639228476991281e-08,
+      "pulse_size_gtc": 0.0001,
+      "slope_id": "leave_out_ukesm1-0-ll"
+    }
+  ],
+  "role": "linear_endpoint_fair_sensitivity_not_transient_response_yield_damage_or_scc",
+  "schema": "five_esm_drought_fair_conditional_public_evidence_v1",
+  "selected_full_slope_records": [
+    {
+      "conditional_spei_difference": -2.9725574475388245e-09,
+      "pulse_size_gtc": 0.0001,
+      "slope_id": "full",
+      "slope_spei_per_k": -0.18758478001523388,
+      "temperature_difference_k": 1.5846474576974856e-08,
+      "year": 2021
+    },
+    {
+      "conditional_spei_difference": -3.4344844484070684e-08,
+      "pulse_size_gtc": 0.0001,
+      "slope_id": "full",
+      "slope_spei_per_k": -0.18758478001523388,
+      "temperature_difference_k": 1.8308971805325314e-07,
+      "year": 2030
+    },
+    {
+      "conditional_spei_difference": -3.061802550946112e-08,
+      "pulse_size_gtc": 0.0001,
+      "slope_id": "full",
+      "slope_spei_per_k": -0.18758478001523388,
+      "temperature_difference_k": 1.632223334269156e-07,
+      "year": 2050
+    },
+    {
+      "conditional_spei_difference": -2.7773026181060894e-08,
+      "pulse_size_gtc": 0.0001,
+      "slope_id": "full",
+      "slope_spei_per_k": -0.18758478001523388,
+      "temperature_difference_k": 1.4805586134869486e-07,
+      "year": 2100
+    },
+    {
+      "conditional_spei_difference": -2.8498771661974273e-08,
+      "pulse_size_gtc": 0.0001,
+      "slope_id": "full",
+      "slope_spei_per_k": -0.18758478001523388,
+      "temperature_difference_k": 1.5192475455449994e-07,
+      "year": 2200
+    },
+    {
+      "conditional_spei_difference": -2.9444536747419346e-08,
+      "pulse_size_gtc": 0.0001,
+      "slope_id": "full",
+      "slope_spei_per_k": -0.18758478001523388,
+      "temperature_difference_k": 1.5696655530916814e-07,
+      "year": 2300
+    },
+    {
+      "conditional_spei_difference": -1.486278702943318e-09,
+      "pulse_size_gtc": 5e-05,
+      "slope_id": "full",
+      "slope_spei_per_k": -0.18758478001523388,
+      "temperature_difference_k": 7.923237177465126e-09,
+      "year": 2021
+    },
+    {
+      "conditional_spei_difference": -1.717258060365552e-08,
+      "pulse_size_gtc": 5e-05,
+      "slope_id": "full",
+      "slope_spei_per_k": -0.18758478001523388,
+      "temperature_difference_k": 9.154570324021449e-08,
+      "year": 2030
+    },
+    {
+      "conditional_spei_difference": -1.5309429276614245e-08,
+      "pulse_size_gtc": 5e-05,
+      "slope_id": "full",
+      "slope_spei_per_k": -0.18758478001523388,
+      "temperature_difference_k": 8.161338715950706e-08,
+      "year": 2050
+    },
+    {
+      "conditional_spei_difference": -1.3886872257350747e-08,
+      "pulse_size_gtc": 5e-05,
+      "slope_id": "full",
+      "slope_spei_per_k": -0.18758478001523388,
+      "temperature_difference_k": 7.40298453649757e-08,
+      "year": 2100
+    },
+    {
+      "conditional_spei_difference": -1.424962366498272e-08,
+      "pulse_size_gtc": 5e-05,
+      "slope_id": "full",
+      "slope_spei_per_k": -0.18758478001523388,
+      "temperature_difference_k": 7.596364515194409e-08,
+      "year": 2200
+    },
+    {
+      "conditional_spei_difference": -1.4721939987856577e-08,
+      "pulse_size_gtc": 5e-05,
+      "slope_id": "full",
+      "slope_spei_per_k": -0.18758478001523388,
+      "temperature_difference_k": 7.848152705491884e-08,
+      "year": 2300
+    },
+    {
+      "conditional_spei_difference": -7.43138435123515e-10,
+      "pulse_size_gtc": 2.5e-05,
+      "slope_id": "full",
+      "slope_spei_per_k": -0.18758478001523388,
+      "temperature_difference_k": 3.9616137037512544e-09,
+      "year": 2021
+    },
+    {
+      "conditional_spei_difference": -8.586293571524547e-09,
+      "pulse_size_gtc": 2.5e-05,
+      "slope_id": "full",
+      "slope_spei_per_k": -0.18758478001523388,
+      "temperature_difference_k": 4.577286905060873e-08,
+      "year": 2030
+    },
+    {
+      "conditional_spei_difference": -7.65464424610878e-09,
+      "pulse_size_gtc": 2.5e-05,
+      "slope_id": "full",
+      "slope_spei_per_k": -0.18758478001523388,
+      "temperature_difference_k": 4.0806318324371205e-08,
+      "year": 2050
+    },
+    {
+      "conditional_spei_difference": -6.9436311442213145e-09,
+      "pulse_size_gtc": 2.5e-05,
+      "slope_id": "full",
+      "slope_spei_per_k": -0.18758478001523388,
+      "temperature_difference_k": 3.701596229532811e-08,
+      "year": 2100
+    },
+    {
+      "conditional_spei_difference": -7.124179968793811e-09,
+      "pulse_size_gtc": 2.5e-05,
+      "slope_id": "full",
+      "slope_spei_per_k": -0.18758478001523388,
+      "temperature_difference_k": 3.7978454159315334e-08,
+      "year": 2200
+    },
+    {
+      "conditional_spei_difference": -7.360389862248693e-09,
+      "pulse_size_gtc": 2.5e-05,
+      "slope_id": "full",
+      "slope_spei_per_k": -0.18758478001523388,
+      "temperature_difference_k": 3.9237670890202025e-08,
+      "year": 2300
+    }
+  ],
+  "slopes": [
+    {
+      "slope_id": "full",
+      "slope_spei_per_k": -0.18758478001523388
+    },
+    {
+      "slope_id": "leave_out_gfdl-esm4",
+      "slope_spei_per_k": -0.16844243295464117
+    },
+    {
+      "slope_id": "leave_out_ipsl-cm6a-lr",
+      "slope_spei_per_k": -0.19221024245135648
+    },
+    {
+      "slope_id": "leave_out_mpi-esm1-2-hr",
+      "slope_spei_per_k": -0.18892599361124268
+    },
+    {
+      "slope_id": "leave_out_mri-esm2-0",
+      "slope_spei_per_k": -0.1936319857694193
+    },
+    {
+      "slope_id": "leave_out_ukesm1-0-ll",
+      "slope_spei_per_k": -0.1981240410691378
+    }
+  ],
+  "sources": {
+    "maximum_numeric_absolute_difference": 8.881784461699048e-16,
+    "numeric_checks": 52933,
+    "result_path": "data/interim/five_esm_drought_fair_sensitivity_v2_20260922/result.json",
+    "result_sha256": "5a0c4ea5b7c41b30550d4b3dff888a43c79d59ad579fb02aeb7ea13aac39e85e",
+    "validation_path": "data/interim/five_esm_drought_fair_sensitivity_v2_20260922/validation.json",
+    "validation_sha256": "f7c0782ead287405ef114f73d24cd336cbb975110f2b16b171ab823a6de11fa1"
+  },
+  "status": "validated_numerical_sensitivity"
+}
