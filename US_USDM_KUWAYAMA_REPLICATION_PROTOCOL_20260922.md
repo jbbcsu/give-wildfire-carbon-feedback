@@ -2,6 +2,12 @@
 
 **Frozen:** 2026-09-22, before acquisition of the national 2001--2013 USDM panel or inspection of any resulting response estimates.
 
+**Post-freeze correction:** A primary-source audit later established that the
+paper's annual exposure runs from October of the preceding year through
+September of the harvest year. The calendar-year specification frozen below is
+retained as an auditable sensitivity. The corrected design was separately
+frozen before rerunning in `US_USDM_OCTSEP_CORRECTION_PROTOCOL_20260922.md`.
+
 ## Purpose and claim boundary
 
 This analysis asks whether the project's U.S. NASS county outcomes reproduce the

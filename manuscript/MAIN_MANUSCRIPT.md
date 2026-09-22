@@ -758,56 +758,47 @@ coefficient. Full results and hashes are in
 Report spatial, temporal, and extreme-year held-out skill; coefficient and
 functional-form uncertainty; and comparison with process-model ranges.
 
-**Published-structure U.S. drought benchmark (September 22).** Before fitting,
-we froze a 2001--2013 Kuwayama-style drought-only design with county and year
-fixed effects, state-specific linear trends, and separate all-cropland
-irrigation-support classes. The reconstructed 1997/2002/2007/2012 Census rule
-produces 2,913 eligible counties (883 irrigated and 2,030 dryland), close to the
-paper's 2,909 summarized observations. The official USDM archive comprises 533
-state-year files and 2,055,640 county-weeks; one documented 102.55% source-row
-sum is proportionally normalized while the immutable raw record remains
-checksummed.
+**Published-structure U.S. drought benchmark (September 22, corrected).** A
+primary-source audit established that Kuwayama et al. sum weekly drought
+exposure from October of the preceding year through September of the harvest
+year. We therefore froze a correction before acquiring year-2000 inputs or
+inspecting corrected estimates; the earlier January--December result remains
+an auditable timing sensitivity. The corrected archive contains 574 official
+state-year files and 2,209,813 county-weeks. Its 39,299 unique county-years have
+mean D0--D4 county-area-equivalent weeks of 8.603, 5.739, 3.906, 2.287, and
+0.821, close to the paper's agricultural-area means of 8.47, 5.66, 3.87, 2.26,
+and 0.80 on 40,040 observations. Similar means validate source scale but do not
+establish identical spatial exposure.
 
-All twenty drought-category associations are negative. For corn, dryland
-estimates range from -0.257% per D0 week to -2.014% per D4 week, versus -0.149%
-to -0.777% on irrigated support. Soybean ranges are -0.262% to -2.202% and
--0.112% to -0.683%, respectively. Each same-category dryland estimate is more
-negative than its irrigated counterpart, reproducing the published qualitative
-ordering. The numerical coefficients are not a replication: the REST exposure
-weights county area, whereas the paper weights agricultural area, and the D4
-dryland estimates exceed the paper's national-average range. Independent joint-
-design estimation reproduces all coefficients within `1.55e-11`.
+The corrected drought-only design retains county and year fixed effects,
+state-specific trends, and the reconstructed 1997/2002/2007/2012 Census
+irrigation rule (2,913 eligible counties: 883 irrigated and 2,030 dryland). All
+twenty category associations remain negative, and every same-category dryland
+estimate is more negative than its irrigated counterpart. Dryland corn ranges
+from -0.136% per D0 week to -1.141% per D4 week; dryland soybean ranges from
+-0.175% to -0.839% across D0--D3 and is -0.619% at D4. Correcting timing reduces
+the calendar-year D4 magnitudes materially, particularly soybean (-2.202% to
+-0.619%), demonstrating that numerical severity gradients are window-sensitive.
 
-These are preliminary historical associations under provisional county-cluster
-inference. Adding independently prepared April--September rainfall and heat
-controls sharply attenuates USDM coefficients. Dryland corn retains negative
-D1--D4 estimates (-0.110% to -0.469% per equivalent week), and dryland soybean
-retains negative D1--D4 estimates (-0.157% to -0.668%); D0 becomes null or
-slightly positive. Irrigated corn is null from D0--D3 and negative only at D4;
-irrigated soybean is mixed, with only D3 clearly negative. Weather-only
-+100-mm contrasts at the rainfall quartiles are +1.457%/+0.483%/-0.681% for
-dryland corn and +4.615%/+2.756%/+0.563% for dryland soybean, confirming a
-concave quantity relationship rather than a constant marginal benefit.
+Adding independently prepared April--September rainfall and heat controls
+attenuates coefficients and breaks monotonicity. Corn-dryland D2/D3 and soybean-
+dryland D1/D2 remain negative with state-cluster p-values below .05; other
+dryland categories do not. Corn-dryland D2--D4 and soybean-dryland D1--D3 retain
+negative signs after every represented-state deletion, but corn D1 and soybean
+D4 do not. Irrigated soybean has a positive, precise D4 coefficient after direct
+weather controls. This pattern supports broad drought/yield and irrigation-
+heterogeneity validation, but rejects interpretation of individual mutually
+exclusive category slopes as structural marginal damages.
 
-The eight weather-hierarchy fits reproduce independently within `1.22e-08`.
-Their heat basis is project-consistent, not the paper's exact moderate/extreme
-degree-day construction. Agricultural-area weighting and spatial-correlation-
-robust inference remain required. No coefficient is transported into the
-global response or SCC calculation. Full
-methods, uncertainty, hashes, and limitations are in
-[`US_USDM_DROUGHT_ONLY_RESULTS_20260922.md`](../US_USDM_DROUGHT_ONLY_RESULTS_20260922.md).
-
-A frozen state-robustness sensitivity refits the unchanged drought-plus-weather
-model after deleting each represented state. All dryland D1--D4 coefficients
-remain negative in every deletion for both crops, so no single state creates
-that sign pattern. State-cluster CR1 uncertainty is less uniformly precise:
-dryland D2 remains below .01 for both crops, soybean D4 remains below .05,
-corn D4 and soybean D1 are near .10, and the remaining dryland D1/D3 terms are
-not distinguished from zero. This strengthens the coefficient-stability claim
-but narrows the inference claim; it does not confer causality or transportability.
-Independent joint-design checks pass for full fits, covariance, and sentinel
-state deletions. See
-[`US_USDM_ROBUSTNESS_RESULTS_20260922.md`](../US_USDM_ROBUSTNESS_RESULTS_20260922.md).
+Independent joint-design checks reproduce drought-only coefficients within
+`1.46e-11`, weather-hierarchy coefficients within `1.23e-08`, and state-
+robustness covariance and sentinel deletions within predeclared tolerances. All
+runs remain below 455 MB RSS. The heat basis is project-consistent rather than
+the paper's exact degree-day construction, and county-area exposure does not
+replace the paper's agricultural-area intersection. No coefficient is
+transported into the global response or SCC calculation. Full methods,
+uncertainty, hashes, and limitations are in
+[`US_USDM_OCTSEP_RESULTS_20260922.md`](../US_USDM_OCTSEP_RESULTS_20260922.md).
 
 **Current nationwide U.S. predictive benchmark (September 16).** The
 pre-outcome fixed-2017 Census screen selects counties with at most 10%

@@ -1,0 +1,24 @@
+contract_id = "usdm_kuwayama_octsep_county_area_v1"
+source = "U.S. Drought Monitor CountyStatistics/GetDroughtSeverityStatisticsByAreaPercent"
+statistics_type = 2
+year_min = 2000
+year_max = 2013
+states = [
+  "AL", "AR", "AZ", "CA", "CO", "DE", "FL", "GA", "IA", "ID", "IL",
+  "IN", "KS", "KY", "LA", "MD", "MI", "MN", "MO", "MS", "MT", "NC",
+  "ND", "NE", "NJ", "NM", "NY", "OH", "OK", "OR", "PA", "SC", "SD",
+  "TN", "TX", "UT", "VA", "WA", "WI", "WV", "WY",
+]
+expected_state_year_files = 574
+raw_area_basis = "county area"
+published_benchmark_area_basis = "agricultural area"
+interpretation = "historical county-area approximation for October-through-September external validation; never projected as future USDM or used directly as an SCC input"
+
+[[source_corrections]]
+state = "MI"
+query_year = 2010
+county_geoid = "26033"
+map_date = "20100622"
+observed_category_sum = 102.55
+rule = "renormalize six exclusive category percentages to sum to 100"
+reason = "single source-row arithmetic anomaly among the source files; raw response remains unchanged and checksummed"

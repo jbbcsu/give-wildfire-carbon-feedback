@@ -1,4 +1,10 @@
-# U.S. drought benchmark: state robustness
+# U.S. drought benchmark: state robustness (calendar-year sensitivity)
+
+**Correction notice:** This file evaluates the superseded January--December
+timing sensitivity. The published design uses October of the preceding year
+through September of the harvest year. Corrected results are reported in
+`US_USDM_OCTSEP_RESULTS_20260922.md`; this file is retained unchanged otherwise
+for auditability.
 
 **Status:** completed, independently checked historical sensitivity. These
 results are not causal estimates, global response coefficients, damages,

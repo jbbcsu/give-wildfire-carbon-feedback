@@ -1796,55 +1796,51 @@ for reported yields separately, and emits no yield values or response estimate.
 
 ### S9.18 September 22 published-structure U.S. drought benchmark
 
-The design was frozen before national USDM acquisition. It uses positive
-all-production-practices NASS corn and soybean yield during 2001--2013; county
-and harvest-year fixed effects; state-specific linear trends; and separate
-dryland/irrigated county-support fits. The irrigation classifier follows the
-published all-cropland rule rather than the project's crop-specific selector:
-for each county, compute irrigated harvested cropland divided by all harvested
-cropland in each available 1997, 2002, 2007, and 2012 Census, take the maximum,
-and label values greater than 0.15 irrigated. Suppressed/absent numerators are
-missing, never zero. Exact-equality cases do not occur. The resulting 2,913
-eligible counties differ by four from the paper's 2,909 summary count.
+The original design was frozen before national USDM acquisition. A later audit
+of the primary article identified an error in our transcription of the annual
+drought window: the paper sums weekly agricultural-area shares from October of
+the preceding year through September of the harvest year, not January through
+December. Before acquiring the additional data or inspecting corrected
+estimates, we froze `US_USDM_OCTSEP_CORRECTION_PROTOCOL_20260922.md`. The
+calendar-year results remain immutable, labeled timing sensitivities.
 
-The official USDM county-statistics endpoint is acquired as 533 bounded
-state-year responses with URL, retrieval time, byte count, and SHA-512. A
-streaming builder assigns each map to its map-date year while retaining the
-pre-2001 map needed to cover 1 January 2001. It writes 2,055,640 unique
-county-weeks in 533 Parquet row groups at 173 MiB peak RSS. Among all inputs,
-only Chippewa County, Michigan on 22 June 2010 violates the 0.15-point category-
-sum tolerance (102.55%). A config-bound correction proportionally renormalizes
-that one working row; the raw source remains unchanged and checksummed, and any
-additional or changed anomaly fails.
+Both versions use positive all-production-practices NASS corn and soybean yield
+during 2001--2013; county and harvest-year fixed effects; state-specific linear
+trends; and separate dryland/irrigated county-support fits. The irrigation
+classifier follows the published all-cropland rule: for each county, compute
+irrigated harvested cropland divided by all harvested cropland in each available
+1997, 2002, 2007, and 2012 Census, take the maximum, and label values greater
+than 0.15 irrigated. Suppressed/absent numerators are missing, never zero. The
+resulting 2,913 eligible counties differ by four from the paper's 2,909 summary
+count (883 irrigated, 2,030 dryland).
 
-Calendar-year exposures integrate each mutually exclusive category fraction
-over exact validity-interval days and divide by seven. Coverage must begin 1
-January, end 31 December, and be gap/overlap free for every county-year. The
-annual six-category reconciliation tolerance is 0.08 week, conservatively
-derived from the already enforced weekly rounding tolerance; observed maximum
-error is 0.0028 week. The resulting 78,598 crop-county-years explicitly carry
-`source_area_basis=county_area`, because the REST product does not reproduce the
-paper's agricultural-area intersection.
+The corrected official archive contains 574 bounded state-year responses over
+2000--2013, each with URL, retrieval time, byte count, and SHA-512. A streaming
+builder writes 2,209,813 unique county-weeks. Only Chippewa County, Michigan on
+22 June 2010 violates the 0.15-point category-sum tolerance (102.55%). A config-
+bound correction proportionally renormalizes that one working row; the raw
+source remains unchanged and checksummed, and any additional or changed anomaly
+fails.
+
+For harvest year `y`, corrected exposures integrate each mutually exclusive
+category fraction over exact validity-interval days from `y-1-10-01` through
+`y-09-30` and divide by seven. Coverage must be complete and gap/overlap free.
+The six-category reconciliation tolerance is 0.08 week; observed maximum error
+is 0.00265 week. The output has 78,598 crop-county-years, representing 39,299
+unique county-years in 3,023 counties. Mean county-area-equivalent weeks for
+D0--D4 are 8.603, 5.739, 3.906, 2.287, and 0.821, versus published agricultural-
+area means of 8.47, 5.66, 3.87, 2.26, and 0.80 on 40,040 observations. This
+agreement checks source scale, not exact spatial replication.
 
 For each crop/support class, log yield is regressed on D0--D4 equivalent weeks.
 Fixed effects and trends are absorbed with a sparse nuisance design and LSMR;
-the five residualized slopes are solved by Frisch--Waugh. Provisional CR1
-covariance clusters by county. A separate validator solves one joint sparse
-design containing nuisance and drought columns, reproducing the 20 slopes to a
-maximum absolute difference of `1.55e-11`; it also checks covariance symmetry,
-positive semidefiniteness, standard-error diagonals, hashes, sample counts, and
-claim boundaries. Peak fit and validation RSS are 362 and 358 MiB.
-
-All category estimates are negative and every dryland coefficient is more
-negative than its same-crop/same-category irrigated counterpart. This supports
-the external qualitative drought/irrigation ordering, but it does not identify
-causality or authorize global transport. The subsequent April--September
-weather hierarchy is reported below; agricultural-area USDM weights, the
-paper's degree-day construction, and spatial-correlation-robust inference
-remain advancement gates. Reproduction is bound by
-`US_USDM_KUWAYAMA_REPLICATION_PROTOCOL_20260922.md`,
-`US_USDM_DROUGHT_ONLY_RESULTS_20260922.md`, and the corresponding
-`download/prepare/aggregate/estimate/validate` scripts.
+the five residualized slopes are solved by Frisch--Waugh. County-cluster CR1 is
+reported provisionally. All 20 corrected drought-only estimates are negative,
+and every dryland estimate is more negative than its same-crop/category
+irrigated counterpart. Correcting the window materially reduces severe-drought
+magnitudes: corn-dryland D4 changes from -2.014% to -1.141% and soybean-dryland
+D4 from -2.202% to -0.619% per equivalent week. An independent joint sparse
+design reproduces all slopes within `1.46e-11`.
 
 The pre-result weather hierarchy uses the identical 41,000 common rows. NOAA
 daily county-average precipitation, mean temperature, and Tmax are reduced over
@@ -1855,35 +1851,25 @@ with the project weather route but are not the paper's agricultural-area
 moderate/extreme degree-day reconstruction. Neither family is selected by
 significance or implied damages.
 
-Weather raises within-fit explained variation and attenuates most drought
-coefficients. Negative D1--D4 associations remain for both dryland crops; D0
-does not. Irrigated corn retains only a negative D4 association, while irrigated
-soybean is mixed and retains a negative D3 term. The quantity-only rainfall
-polynomial is concave for both dryland crops: +100 mm contrasts decline across
-the observed rainfall quartiles and turn negative at the upper corn quartile.
-Eight independent joint sparse-design solutions agree with the absorbed
-estimator within `1.22e-08`. These results support the competing-moisture and
-non-stacking rule: composite drought mostly overlaps direct weather but can
-retain residual information; neither representation creates an additive SCC
-sector.
+Direct weather sharply attenuates the corrected USDM slopes and breaks a
+monotonic severity gradient. With state-cluster CR1 and a `G-1` t reference,
+corn-dryland D2/D3 and soybean-dryland D1/D2 are negative with p-values below
+.05; other dryland categories are not. Corn-dryland D2--D4 and soybean-dryland
+D1--D3 retain negative signs in every represented-state deletion, while corn D1
+and soybean D4 do not. A positive, precise irrigated-soybean D4 term further
+warns against structural interpretation of individual category slopes. The
+defensible result is broad drought/yield and irrigation-heterogeneity
+validation, not a transportable drought damage schedule.
 
-The subsequent robustness contract was frozen after the primary estimates but
-before state-level sensitivity results. For each crop/support model it computes
-state-cluster CR1 covariance with a `G-1` Student-t reference and refits the
-full drought-plus-weather specification after deleting each represented state
-exactly once. All dryland D1--D4 coefficients retain negative signs across all
-state deletions. State-cluster uncertainty is materially wider for some terms:
-corn dryland D1/D3 and soybean dryland D3 are not precise, corn D4 and soybean
-D1 are near the 10% level, while D2 remains below 1% in both dryland crops and
-soybean D4 remains below 5%. Therefore the defensible conclusion is deletion-
-stable direction, not uniform statistical precision or causality. An
-independent joint sparse-design validator reproduces full coefficients within
-`6.65e-09`, covariance entries within `2.04e-10`, and twelve sentinel deletions
-within `7.19e-09`. Production and validation peak at about 418 and 415 MiB,
-respectively. Exact records are in
-`US_USDM_ROBUSTNESS_PROTOCOL_20260922.md`,
-`US_USDM_ROBUSTNESS_RESULTS_20260922.md`, and the tracked validation/resource
-receipts.
+Independent validators reproduce all eight weather-hierarchy fits within
+`1.23e-08`, robustness covariance entries within `4.69e-10`, and sentinel state
+deletions within `1.24e-08`. The largest peak RSS is 454,574,080 bytes, below
+the 640 MiB ceiling. Exact methods, results, hashes, and boundaries are in
+`US_USDM_OCTSEP_RESULTS_20260922.md`, the correction protocol, and tracked
+provenance receipts. Agricultural-area weighting, the paper's heat basis, and
+spatial-correlation-robust inference remain fidelity gates. Composite drought
+and direct weather remain competing moisture representations; neither creates
+an additive SCC sector.
 
 Keep crop inundation in agriculture and exclude it from the future
 infrastructure module; exclude coastal surge/SLR impacts already addressed by

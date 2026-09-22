@@ -178,13 +178,16 @@ manifest identity. Run
 for synthetic response and tamper checks. A USDM category is never projected
 directly into a global SCC draw.
 
-The frozen 2001--2013 national benchmark now contains 533 checksummed
-state-year responses and 2,055,640 standardized county-weeks. Its streaming
-preparer is bound to `config/usdm_kuwayama_county_area_v1.toml`, including the
-single registered source arithmetic anomaly; any additional anomaly fails.
-`aggregate_usdm_calendar_year_exposures.py` implements the paper's full-year
-D0--D4 week convention. The endpoint reports county-area shares, whereas the
-paper intersects drought maps with agricultural land, so every output is
+The corrected 2001--2013 national benchmark uses 574 checksummed state-year
+responses over 2000--2013 and 2,209,813 standardized county-weeks. The extra
+year is required because the published exposure window begins in October of
+the preceding year. Its streaming preparer is bound to
+`config/usdm_kuwayama_octsep_county_area_v1.toml`, including the single
+registered source arithmetic anomaly; any additional anomaly fails.
+`aggregate_usdm_octsep_exposures.py` integrates exact validity intervals from
+1 October through 30 September. The earlier calendar-year output is retained
+only as a timing sensitivity. The endpoint reports county-area shares, whereas
+the paper intersects drought maps with agricultural land, so every output is
 explicitly marked as an approximate historical validation exposure.
 
 The published irrigation classifier is reconstructed separately from the
@@ -196,20 +199,24 @@ threshold. The result has 2,913 eligible counties (883 irrigated, 2,030
 dryland), close to but not asserted identical to the paper's 2,909 summary
 observations.
 
-The pre-registered drought-only and April--September weather hierarchy is in
+The initial frozen protocol and its explicit correction are in
 `US_USDM_KUWAYAMA_REPLICATION_PROTOCOL_20260922.md` and
-`US_USDM_DROUGHT_ONLY_RESULTS_20260922.md`. Production and independent joint-
-design estimators agree numerically. These fits are historical, noncausal
-external validation only; their coefficients are never transported to global
-damages or SCC.
+`US_USDM_OCTSEP_CORRECTION_PROTOCOL_20260922.md`. Corrected drought-only,
+April--September weather-hierarchy, and state-robustness results are in
+`US_USDM_OCTSEP_RESULTS_20260922.md`. Production and independent joint-design
+estimators agree numerically. The January--December result remains in
+`US_USDM_DROUGHT_ONLY_RESULTS_20260922.md` solely as a timing sensitivity.
+These fits are historical, noncausal external validation only; their
+coefficients are never transported to global damages or SCC.
 
 `US_USDM_ROBUSTNESS_PROTOCOL_20260922.md` freezes the post-estimate sensitivity,
 and `estimate_usdm_weather_robustness.py` adds state-cluster CR1 uncertainty and
-all leave-one-state-out refits without changing the base model. The dryland
-D1--D4 signs survive every state deletion, although state-cluster precision is
-mixed across categories. `validate_usdm_weather_robustness.py` independently
-reconstructs full joint designs, covariance, and sentinel deletions. This is a
-stability sensitivity, not spatial-HAC replication, causality, damage, or SCC.
+all leave-one-state-out refits without changing the base model. Under corrected
+timing, corn-dryland D2--D4 and soybean-dryland D1--D3 retain negative signs in
+every state deletion; the other dryland terms are not sign-universal.
+`validate_usdm_weather_robustness.py` independently reconstructs full joint
+designs, covariance, and sentinel deletions. This is a stability sensitivity,
+not spatial-HAC replication, causality, damage, or SCC.
 
 `prepare_usdm_county_weeks.py` standardizes the exclusive county-week area
 shares and preserves `D0` separately from the `D1+` drought-exposure measure;

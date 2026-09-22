@@ -1,0 +1,45 @@
+{
+  "coefficient_tolerance": 2e-08,
+  "maximum_annual_category_reconciliation_error_weeks": 0.002642857142852506,
+  "models": [
+    {
+      "irrigation_class": "dryland",
+      "joint_lsmr_iterations": 550,
+      "joint_lsmr_stop_code": 2,
+      "maximum_absolute_coefficient_difference": 6.984838055168474e-12,
+      "outcome_crop": "corn_grain",
+      "rows": 17182
+    },
+    {
+      "irrigation_class": "irrigated",
+      "joint_lsmr_iterations": 515,
+      "joint_lsmr_stop_code": 2,
+      "maximum_absolute_coefficient_difference": 1.4500524912752777e-11,
+      "outcome_crop": "corn_grain",
+      "rows": 5061
+    },
+    {
+      "irrigation_class": "dryland",
+      "joint_lsmr_iterations": 440,
+      "joint_lsmr_stop_code": 2,
+      "maximum_absolute_coefficient_difference": 8.689028663244613e-12,
+      "outcome_crop": "soybeans",
+      "rows": 15366
+    },
+    {
+      "irrigation_class": "irrigated",
+      "joint_lsmr_iterations": 375,
+      "joint_lsmr_stop_code": 2,
+      "maximum_absolute_coefficient_difference": 8.767744343052275e-12,
+      "outcome_crop": "soybeans",
+      "rows": 3391
+    }
+  ],
+  "result": {
+    "path": "data/interim/us_county/usdm_octsep_drought_only_results_20260922.json",
+    "sha256": "7da4f14224dcf05754adb0273ecda67fc06e37b8e061cb7de865d5c9535ae3f5"
+  },
+  "schema": "usdm_kuwayama_drought_only_independent_validation_v1",
+  "status": "passed",
+  "validated_claim_boundary": "historical external validation only; not causal, damage, or SCC"
+}

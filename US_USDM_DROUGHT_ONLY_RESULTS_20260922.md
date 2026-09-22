@@ -1,4 +1,10 @@
-# Preliminary U.S. drought--yield benchmark
+# Preliminary U.S. drought--yield benchmark (calendar-year sensitivity)
+
+**Correction notice:** A subsequent primary-source audit established that the
+published exposure window is October of the preceding year through September
+of the harvest year, not January--December. These results remain unchanged for
+transparency but are now a timing sensitivity. The corrected primary results
+are in `US_USDM_OCTSEP_RESULTS_20260922.md`.
 
 **Status:** independently reproduced historical association; external U.S.
 validation only. It is not a causal estimate, global response coefficient,

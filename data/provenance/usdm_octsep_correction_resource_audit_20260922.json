@@ -1,0 +1,29 @@
+{
+  "schema": "usdm_octsep_correction_resource_audit_v1",
+  "resource_ceiling_bytes": 671088640,
+  "runs": [
+    {"stage": "download_2000", "wall_seconds": 25.838551791966893, "peak_rss_bytes": 60030976, "returncode": 0},
+    {"stage": "prepare_2000_2013", "wall_seconds": 33.010683625005186, "peak_rss_bytes": 216924160, "returncode": 0},
+    {"stage": "aggregate_october_september", "wall_seconds": 5.116051250020973, "peak_rss_bytes": 329252864, "returncode": 0},
+    {"stage": "drought_only_fit", "wall_seconds": 4.525517458037939, "peak_rss_bytes": 411992064, "returncode": 0},
+    {"stage": "drought_only_validation", "wall_seconds": 1.387022791954223, "peak_rss_bytes": 419938304, "returncode": 0},
+    {"stage": "weather_hierarchy_fit", "wall_seconds": 2.7565650409669615, "peak_rss_bytes": 445431808, "returncode": 0},
+    {"stage": "weather_hierarchy_validation", "wall_seconds": 1.7961247500497848, "peak_rss_bytes": 432930816, "returncode": 0},
+    {"stage": "state_robustness", "wall_seconds": 32.15525979100494, "peak_rss_bytes": 450756608, "returncode": 0},
+    {"stage": "state_robustness_validation", "wall_seconds": 3.932344041997567, "peak_rss_bytes": 454574080, "returncode": 0}
+  ],
+  "maximum_peak_rss_bytes": 454574080,
+  "passed_resource_ceiling": true,
+  "results": {
+    "drought_only_sha256": "7da4f14224dcf05754adb0273ecda67fc06e37b8e061cb7de865d5c9535ae3f5",
+    "weather_hierarchy_sha256": "f1f6201df29b513d1f3d4dac10424d21449dc731c9ff288e835dd37c2f0d1b16",
+    "state_robustness_sha256": "ce8bdd6081196314af262241357c9bca5f37268c63ef63de9135b590bbe2f78d",
+    "temporal_comparison_sha256": "51cf58b46d5d7d82b4be7960dd958be4f00630f4c1b85ce46ee3357102df9015"
+  },
+  "validation_receipts": {
+    "drought_only_sha256": "668d7669f0de517f392851b3d6909805de99167200c2c535e1cda88df66e1054",
+    "weather_hierarchy_sha256": "01241be9bd92e6f3c5ee399b94fe74a4737a62f1c7324ba49ac99eb4ea1bb31b",
+    "state_robustness_sha256": "643536b2fc250209ad5ee618c476ed2f85eb185feedd865c57b41dd5769fe658"
+  },
+  "role": "historical noncausal external validation only; not damage or SCC"
+}
