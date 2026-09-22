@@ -123,6 +123,52 @@ interpretation limits are in
 late-century scenario/weather diagnostic, not a forced response per degree,
 crop-yield response, damage estimate, or SCC input.
 
+### September 22 five-ESM crop-calendar SPEI comparison
+
+A separate bounded pipeline converts the same registered 2091--2100 daily
+precipitation and mean temperature sources plus newly frozen daily minimum and
+maximum temperature into crop-calendar climatic-water-balance exposure. The
+extrema registry contains 30 exact ISIMIP3b objects (five ESMs by three SSPs
+by two variables), with catalogue byte counts, SHA-512 identities, source
+URLs, version, access and license metadata. The worker reads one global day at
+a time, retains only the frozen 31,208-cell support, calculates daily
+Hargreaves--Samani reference evapotranspiration, and aggregates monthly
+precipitation minus ET0. It then applies the previously validated
+observational 1982--2011 generalized-logistic parameters for SPEI-1/3/6;
+future parameters are never refitted.
+
+The crop-window step uses GGCMI calendars and fixed MIRCA-OS v2 hectares for
+maize and soybean, harvest years 2092--2099, season, three stages, and a
+90-day preplant window. Rainfed, irrigated and combined area summaries remain
+parallel exposure bases, not irrigation treatment effects. Every case passes
+an independent 24-cell monthly/scalar climate recomputation and a full 5,760-
+comparison crop-window recomputation before its two newly acquired extrema
+files are deleted. Exact source identities and reacquisition instructions are
+retained in case-specific eviction receipts. The builders and validators use
+one worker under a 512 MiB sampled process-group cap; the final MRI/UKESM
+builder peaks remain below 399 MB.
+
+The complete matrix contains 1,350 ESM--scenario--crop--window--scale--area
+case means, 900 within-ESM scenario contrasts, and 180 named-model summaries.
+A separate implementation reproduced them in 7,065 checks with zero
+saved-precision disagreement. In the primary rainfed season SPEI-3 diagnostic,
+SSP3-7.0 minus SSP1-2.6 differences are -0.617, -0.374, -0.380, -0.321 and
+-0.552 for maize and -0.536, -0.276, -0.306, -0.138 and -0.374 for soybean
+in GFDL, IPSL, MPI, MRI and UKESM. SSP5-8.5 differences are -0.885, -0.828,
+-0.458, -0.438 and -0.701 for maize and -0.883, -0.786, -0.442, -0.098 and
+-0.500 for soybean. Across the 45 window--scale--area cells per crop and
+contrast, all five models are negative in 45/45 and 45/45 maize cells and
+42/45 and 44/45 soybean cells; at least four are negative in every cell.
+
+The exact validated evidence and hashes are in
+`FIVE_ESM_LATE_DROUGHT_EXPOSURE_RESULTS_20260922.md` and
+`data/provenance/five_esm_late_drought_public_evidence_20260922.json`.
+These are scenario-exposure contrasts containing multiple forcing differences
+and internal variability, not probabilities, confidence intervals,
+anthropogenic attribution, per-kelvin or marginal-pulse responses, yield
+effects, damages, or SCC inputs. The registered global predictive gate has not
+promoted a drought response coefficient, so no SPEI contrast is monetized.
+
 ### September 4 regional robustness additions
 
 The source-hash-validated regional panel was fitted under original controls,

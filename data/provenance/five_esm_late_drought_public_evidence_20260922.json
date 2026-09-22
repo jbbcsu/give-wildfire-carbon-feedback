@@ -1,0 +1,159 @@
+{
+  "gates": {
+    "climate_scenario_exposure": true,
+    "damage": false,
+    "scc": false,
+    "yield_response": false
+  },
+  "implementation": {
+    "path": "scripts/export_five_esm_late_drought_evidence.py",
+    "sha256": "fcf26acbcde8b3da2bdac99d24796c7de89834a76d6a978c5050b78b14ff780c"
+  },
+  "interpretation": [
+    "SPEI is a precipitation-minus-reference-evapotranspiration moisture balance standardized to the frozen 1982-2011 observational baseline.",
+    "Negative differences indicate drier standardized crop-calendar moisture in the higher-forcing scenario relative to SSP1-2.6 for the same named ESM.",
+    "Five named-model signs are neither probabilities nor confidence intervals.",
+    "Scenario contrasts include multiple forcings and internal variability and are not anthropogenic attribution, per-kelvin responses, marginal CO2-pulse responses, yield effects, damages, or SCC estimates."
+  ],
+  "period": {
+    "harvest_years": [
+      2092,
+      2093,
+      2094,
+      2095,
+      2096,
+      2097,
+      2098,
+      2099
+    ],
+    "source": "2091-2100"
+  },
+  "primary_rainfed_season_spei3": [
+    {
+      "contrast": "ssp370_minus_ssp126",
+      "crop": "mai",
+      "five_model_mean_spei_difference": -0.44874248922691595,
+      "five_model_median_spei_difference": -0.37964286198610075,
+      "irrigation": "noirr",
+      "named_model_spei_differences": {
+        "gfdl-esm4": -0.6169589355044334,
+        "ipsl-cm6a-lr": -0.3742264245267137,
+        "mpi-esm1-2-hr": -0.37964286198610075,
+        "mri-esm2-0": -0.32116430453546196,
+        "ukesm1-0-ll": -0.5517199195818703
+      },
+      "negative_models": 5,
+      "positive_models": 0,
+      "scale_months": 3,
+      "window": "season",
+      "zero_models": 0
+    },
+    {
+      "contrast": "ssp585_minus_ssp126",
+      "crop": "mai",
+      "five_model_mean_spei_difference": -0.6620972408704413,
+      "five_model_median_spei_difference": -0.7014450078098537,
+      "irrigation": "noirr",
+      "named_model_spei_differences": {
+        "gfdl-esm4": -0.885149749965767,
+        "ipsl-cm6a-lr": -0.8279955731192645,
+        "mpi-esm1-2-hr": -0.45751697558871773,
+        "mri-esm2-0": -0.43837889786860307,
+        "ukesm1-0-ll": -0.7014450078098537
+      },
+      "negative_models": 5,
+      "positive_models": 0,
+      "scale_months": 3,
+      "window": "season",
+      "zero_models": 0
+    },
+    {
+      "contrast": "ssp370_minus_ssp126",
+      "crop": "soy",
+      "five_model_mean_spei_difference": -0.3261856070204999,
+      "five_model_median_spei_difference": -0.3057822133404053,
+      "irrigation": "noirr",
+      "named_model_spei_differences": {
+        "gfdl-esm4": -0.5363715652281279,
+        "ipsl-cm6a-lr": -0.2759868379039023,
+        "mpi-esm1-2-hr": -0.3057822133404053,
+        "mri-esm2-0": -0.1384433519925687,
+        "ukesm1-0-ll": -0.37434406663749537
+      },
+      "negative_models": 5,
+      "positive_models": 0,
+      "scale_months": 3,
+      "window": "season",
+      "zero_models": 0
+    },
+    {
+      "contrast": "ssp585_minus_ssp126",
+      "crop": "soy",
+      "five_model_mean_spei_difference": -0.5417088753892598,
+      "five_model_median_spei_difference": -0.49972212991510295,
+      "irrigation": "noirr",
+      "named_model_spei_differences": {
+        "gfdl-esm4": -0.882595549475179,
+        "ipsl-cm6a-lr": -0.7856254282518726,
+        "mpi-esm1-2-hr": -0.44248792388483793,
+        "mri-esm2-0": -0.09811334541930637,
+        "ukesm1-0-ll": -0.49972212991510295
+      },
+      "negative_models": 5,
+      "positive_models": 0,
+      "scale_months": 3,
+      "window": "season",
+      "zero_models": 0
+    }
+  ],
+  "role": "scenario_exposure_only_not_attribution_yield_damage_or_scc",
+  "schema": "five_esm_late_drought_public_evidence_v1",
+  "sign_robustness_across_windows_scales_and_irrigation_bases": [
+    {
+      "all_five_models_negative": 45,
+      "all_five_models_positive": 0,
+      "at_least_four_models_negative": 45,
+      "at_least_four_models_positive": 0,
+      "contrast": "ssp370_minus_ssp126",
+      "crop": "mai",
+      "feature_cells": 45
+    },
+    {
+      "all_five_models_negative": 45,
+      "all_five_models_positive": 0,
+      "at_least_four_models_negative": 45,
+      "at_least_four_models_positive": 0,
+      "contrast": "ssp585_minus_ssp126",
+      "crop": "mai",
+      "feature_cells": 45
+    },
+    {
+      "all_five_models_negative": 42,
+      "all_five_models_positive": 0,
+      "at_least_four_models_negative": 45,
+      "at_least_four_models_positive": 0,
+      "contrast": "ssp370_minus_ssp126",
+      "crop": "soy",
+      "feature_cells": 45
+    },
+    {
+      "all_five_models_negative": 44,
+      "all_five_models_positive": 0,
+      "at_least_four_models_negative": 45,
+      "at_least_four_models_positive": 0,
+      "contrast": "ssp585_minus_ssp126",
+      "crop": "soy",
+      "feature_cells": 45
+    }
+  ],
+  "sources": {
+    "independent_checks": 7065,
+    "matrix_path": "data/interim/five_esm_late_drought_crop_matrix_20260921/result.json",
+    "matrix_sha256": "99f77812774cc5f11db035d48e710b0417e6b5b75f00fc28494146f1853ff1e9",
+    "maximum_numeric_absolute_difference": 0.0,
+    "source_cases": 15,
+    "validation_path": "data/interim/five_esm_late_drought_crop_matrix_20260921/validation.json",
+    "validation_sha256": "c91ee295b4dd391ccf44307483ca36bcc16e993d8798d374db6529bdcfa8998e"
+  },
+  "status": "validated_scenario_exposure_evidence"
+}

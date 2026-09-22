@@ -4,7 +4,7 @@ Detailed dated research notes are preserved in [the development log](RESEARCH_DE
 
 ## Abstract
 
-**Preliminary research draft, September 21, 2026; no global damage or SCC estimate is reported.**
+**Preliminary research draft, September 22, 2026; no global damage or SCC estimate is reported.**
 
 We develop a precipitation-aware agricultural replacement for GIVE, with the
 eventual aim of estimating climate damages without double counting its existing
@@ -40,7 +40,16 @@ are -67.68/+5.74/-6.94/+10.17/+20.12 mm for GFDL/IPSL/MPI/MRI/UKESM:
 the total has no common sign. Wet days decline and the longest dry spell and
 Rx1day rise in all five models; Rx5day rises in four. Under SSP3-7.0, rainfall
 is positive in two models, while wet days again decline and longest dry spells
-rise in all five. These short scenario contrasts neither identify forced
+rise in all five. A complementary crop-calendar water-balance calculation
+applies frozen observational 1982--2011 SPEI parameters to daily precipitation
+and Hargreaves--Samani reference evapotranspiration for the same five ESMs and
+three SSPs. For rainfed crop-season SPEI-3, all five models are drier in both
+higher scenarios for maize and soybean; five-model mean differences relative
+to SSP1-2.6 are -0.449/-0.662 for maize and -0.326/-0.542 for soybean under
+SSP3-7.0/SSP5-8.5. Across five windows, three SPEI scales, and three fixed
+irrigation-area bases, at least four of five models are negative in all 180
+crop--scenario cells. These named-model signs are not probabilities. These
+short scenario contrasts neither identify forced
 rainfall per K nor yield or damage effects. Together these results
 establish an auditable empirical and climate-input foundation, not
 identified climate damages. In the global country-held-out yield comparison,
