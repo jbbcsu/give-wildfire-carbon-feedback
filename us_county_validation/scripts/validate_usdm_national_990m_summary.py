@@ -64,6 +64,8 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--summary", type=Path, required=True)
     parser.add_argument("--merged-validation", type=Path, required=True)
+    parser.add_argument("--component-validation", type=Path, action="append", required=True)
+    parser.add_argument("--resource-receipt", type=Path, action="append", required=True)
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--memory-cap-bytes", type=int, default=640 * 1024 * 1024)
     args = parser.parse_args()
@@ -84,6 +86,27 @@ def main() -> None:
     require(merged["maximum_exposure_peak_rss_bytes"] <= args.memory_cap_bytes, "exposure memory cap failed")
     require(len(merged["partitions"]) == 48, "partition receipt count differs")
     require(len({row["state_fips"] for row in merged["partitions"]}) == 48, "partition state IDs differ")
+
+    require(len(args.component_validation) == 6, "expected six component validation receipts")
+    component_receipts = []
+    for path in args.component_validation:
+        payload = json.loads(path.read_text())
+        require(payload.get("status") == "passed", f"component validator did not pass: {path}")
+        component_receipts.append({"path": str(path), "sha256": sha256(path), "schema": payload["schema"]})
+    require(len({row["path"] for row in component_receipts}) == 6, "component validation paths repeat")
+
+    require(len(args.resource_receipt) == 6, "expected six component resource receipts")
+    resource_receipts = []
+    for path in args.resource_receipt:
+        payload = json.loads(path.read_text())
+        require(payload.get("status") == "command_completed", f"component command did not complete: {path}")
+        require(payload.get("returncode") == 0, f"component command failed: {path}")
+        require(payload["peak_rss_bytes"] <= args.memory_cap_bytes, f"component memory cap failed: {path}")
+        resource_receipts.append({
+            "path": str(path), "sha256": sha256(path),
+            "peak_rss_bytes": payload["peak_rss_bytes"], "wall_seconds": payload["wall_seconds"],
+        })
+    require(len({row["path"] for row in resource_receipts}) == 6, "resource receipt paths repeat")
 
     coefficient_sets: dict[tuple[str, str], dict] = {}
     expected_basis_text = {
@@ -139,6 +162,9 @@ def main() -> None:
         "merged_rows": merged["rows"],
         "maximum_grid_peak_rss_bytes": merged["maximum_grid_peak_rss_bytes"],
         "maximum_exposure_peak_rss_bytes": merged["maximum_exposure_peak_rss_bytes"],
+        "maximum_component_peak_rss_bytes": max(row["peak_rss_bytes"] for row in resource_receipts),
+        "component_validations": component_receipts,
+        "component_resources": resource_receipts,
         "maximum_movement_recalculation_error": maximum_movement_error,
         "claim_boundary": "historical U.S. exposure and association validation only; not causal, future, damage, global-transfer, or SCC evidence",
         "causal_claim_authorized": False,
