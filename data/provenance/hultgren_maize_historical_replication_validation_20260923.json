@@ -1,0 +1,107 @@
+{
+  "claim_gates": {
+    "damage_estimate_validated": false,
+    "future_climate_projection_validated": false,
+    "historical_response_reproduced": true,
+    "primitive_phase_feature_arithmetic_audited": true,
+    "scc_estimate_validated": false
+  },
+  "interpretation": "The public historical data blob reproduces the published sample, model metadata, and coefficient vector to numerical precision; covariance differences are small and consistent with numerical/package-version variation. This validates the historical response regression, not future impacts, damages, or SCC.",
+  "phase_arithmetic": {
+    "chunk_size": 50000,
+    "observations": 412282,
+    "powers": {
+      "1": {
+        "max_absolute_error": 0.0003204345703125,
+        "max_scaled_error": 1.3742648110809768e-07,
+        "nonfinite_rows": 0
+      },
+      "2": {
+        "max_absolute_error": 0.267578125,
+        "max_scaled_error": 1.5215507748526538e-07,
+        "nonfinite_rows": 0
+      }
+    }
+  },
+  "published_estimate": {
+    "coefficient_sha256": "f3f3c011c4ebb4d4e49712bae1fdc320271460d0ff7d6942d21aa910a553318a",
+    "covariance_sha256": "e8b11fc5ac8b3087918987aaf02e959e66d323649835647ae7c9972d32c45cc6",
+    "metadata_sha256": "04727c51fee512ed8163b96d8b681ea2965afabe3f0d19fb2ec8a576e757d47f"
+  },
+  "replication": {
+    "coefficient_l2_relative_difference": 2.424023152526701e-14,
+    "coefficient_max_absolute_difference": 1.758593271006248e-13,
+    "coefficient_sha256": "aff3a14b2460268168a356aa3ca41c502e804d7138bab47b0aca96177ab31751",
+    "covariance_l2_relative_difference": 2.6542122702526464e-06,
+    "covariance_max_absolute_difference": 2.5547538370918055e-07,
+    "covariance_sha256": "cfff28391f7bf3ce6f8a713e6fe8c1ad4825482bce6ab5ff9b357e9384c960fd",
+    "estimate_sha256": "b41fa3cee66d41c2996a6e04ad499d414c5a1e5cd5476bb6da9be519ea39d68d",
+    "exact_metadata_fields": [
+      "N",
+      "N_full",
+      "N_clust1",
+      "N_clust2",
+      "coefficient_count",
+      "depvar",
+      "cmd",
+      "vce",
+      "clustvar",
+      "absvars",
+      "indepvars"
+    ],
+    "metadata_sha256": "d2ba466031b8be6e52abdea3570be9032d4aac0c62e5b8ced7a50b387858f9b8",
+    "published_metadata": {
+      "N": "377824",
+      "N_clust1": "807",
+      "N_clust2": "541",
+      "N_full": "377973",
+      "absvars": "uid i.adm1_fact##c.(time time_sqr) adm0_year",
+      "clustvar": "adm0_year adm1_fact",
+      "cmd": "reghdfe",
+      "coefficient_count": "49",
+      "depvar": "ln_yield",
+      "indepvars": "gdd c.gdd#c.ln_gdppc c.gdd#c.irrigated_share c.gdd#c.lr_tmax_crop c.gdd#c.pbarcut_gdd c.gdd#c.lr_tmax_crop#c.pbarcut_gdd kdd c.kdd#c.ln_gdppc c.kdd#c.irrigated_share c.kdd#c.lr_tmax_crop c.kdd#c.pbarcut_kdd c.kdd#c.lr_tmax_crop#c.pbarcut_kdd prcp_poly_1_bin1 c.prcp_poly_1_bin1#c.ln_gdppc c.prcp_poly_1_bin1#c.irrigated_share c.prcp_poly_1_bin1#c.lr_tmax_crop c.prcp_poly_1_bin1#c.pbarcut_prcp c.prcp_poly_1_bin1#c.lr_tmax_crop#c.pbarcut_prcp prcp_poly_1_bin2 c.prcp_poly_1_bin2#c.ln_gdppc c.prcp_poly_1_bin2#c.irrigated_share c.prcp_poly_1_bin2#c.lr_tmax_crop c.prcp_poly_1_bin2#c.pbarcut_prcp c.prcp_poly_1_bin2#c.lr_tmax_crop#c.pbarcut_prcp prcp_poly_1_bin3 c.prcp_poly_1_bin3#c.ln_gdppc c.prcp_poly_1_bin3#c.irrigated_share c.prcp_poly_1_bin3#c.lr_tmax_crop c.prcp_poly_1_bin3#c.pbarcut_prcp c.prcp_poly_1_bin3#c.lr_tmax_crop#c.pbarcut_prcp prcp_poly_2_bin1 c.prcp_poly_2_bin1#c.ln_gdppc c.prcp_poly_2_bin1#c.irrigated_share c.prcp_poly_2_bin1#c.lr_tmax_crop c.prcp_poly_2_bin1#c.pbarcut_prcp c.prcp_poly_2_bin1#c.lr_tmax_crop#c.pbarcut_prcp prcp_poly_2_bin2 c.prcp_poly_2_bin2#c.ln_gdppc c.prcp_poly_2_bin2#c.irrigated_share c.prcp_poly_2_bin2#c.lr_tmax_crop c.prcp_poly_2_bin2#c.pbarcut_prcp c.prcp_poly_2_bin2#c.lr_tmax_crop#c.pbarcut_prcp prcp_poly_2_bin3 c.prcp_poly_2_bin3#c.ln_gdppc c.prcp_poly_2_bin3#c.irrigated_share c.prcp_poly_2_bin3#c.lr_tmax_crop c.prcp_poly_2_bin3#c.pbarcut_prcp c.prcp_poly_2_bin3#c.lr_tmax_crop#c.pbarcut_prcp _cons",
+      "r2": ".85168086456400238",
+      "r2_within": ".053553288741403082",
+      "stata_flavor": "IC",
+      "stata_version": "18.5",
+      "vce": "cluster"
+    },
+    "r2_max_absolute_difference": 5.484501741648273e-14,
+    "replicated_metadata": {
+      "N": "377824",
+      "N_clust1": "807",
+      "N_clust2": "541",
+      "N_full": "377973",
+      "absvars": "uid i.adm1_fact##c.(time time_sqr) adm0_year",
+      "clustvar": "adm0_year adm1_fact",
+      "cmd": "reghdfe",
+      "coefficient_count": "49",
+      "depvar": "ln_yield",
+      "indepvars": "gdd c.gdd#c.ln_gdppc c.gdd#c.irrigated_share c.gdd#c.lr_tmax_crop c.gdd#c.pbarcut_gdd c.gdd#c.lr_tmax_crop#c.pbarcut_gdd kdd c.kdd#c.ln_gdppc c.kdd#c.irrigated_share c.kdd#c.lr_tmax_crop c.kdd#c.pbarcut_kdd c.kdd#c.lr_tmax_crop#c.pbarcut_kdd prcp_poly_1_bin1 c.prcp_poly_1_bin1#c.ln_gdppc c.prcp_poly_1_bin1#c.irrigated_share c.prcp_poly_1_bin1#c.lr_tmax_crop c.prcp_poly_1_bin1#c.pbarcut_prcp c.prcp_poly_1_bin1#c.lr_tmax_crop#c.pbarcut_prcp prcp_poly_1_bin2 c.prcp_poly_1_bin2#c.ln_gdppc c.prcp_poly_1_bin2#c.irrigated_share c.prcp_poly_1_bin2#c.lr_tmax_crop c.prcp_poly_1_bin2#c.pbarcut_prcp c.prcp_poly_1_bin2#c.lr_tmax_crop#c.pbarcut_prcp prcp_poly_1_bin3 c.prcp_poly_1_bin3#c.ln_gdppc c.prcp_poly_1_bin3#c.irrigated_share c.prcp_poly_1_bin3#c.lr_tmax_crop c.prcp_poly_1_bin3#c.pbarcut_prcp c.prcp_poly_1_bin3#c.lr_tmax_crop#c.pbarcut_prcp prcp_poly_2_bin1 c.prcp_poly_2_bin1#c.ln_gdppc c.prcp_poly_2_bin1#c.irrigated_share c.prcp_poly_2_bin1#c.lr_tmax_crop c.prcp_poly_2_bin1#c.pbarcut_prcp c.prcp_poly_2_bin1#c.lr_tmax_crop#c.pbarcut_prcp prcp_poly_2_bin2 c.prcp_poly_2_bin2#c.ln_gdppc c.prcp_poly_2_bin2#c.irrigated_share c.prcp_poly_2_bin2#c.lr_tmax_crop c.prcp_poly_2_bin2#c.pbarcut_prcp c.prcp_poly_2_bin2#c.lr_tmax_crop#c.pbarcut_prcp prcp_poly_2_bin3 c.prcp_poly_2_bin3#c.ln_gdppc c.prcp_poly_2_bin3#c.irrigated_share c.prcp_poly_2_bin3#c.lr_tmax_crop c.prcp_poly_2_bin3#c.pbarcut_prcp c.prcp_poly_2_bin3#c.lr_tmax_crop#c.pbarcut_prcp _cons",
+      "r2": ".85168086456405723",
+      "r2_within": ".053553288741403526",
+      "stata_flavor": "IC",
+      "stata_version": "18.5",
+      "vce": "cluster"
+    },
+    "script": "scripts/hultgren_reproduce_maize_historical.do"
+  },
+  "schema": "hultgren_maize_historical_replication_validation/v1",
+  "source": {
+    "dataset_bytes": 345639713,
+    "dataset_path": "data/raw/hultgren_response/historical_git/dae5fe8d0d4a260328e4baa45b547368bd6790b3/corn_gmfd_v1_ready.dta",
+    "dataset_sha256": "06c2f0102580518a3eea88a6cd677af4636d40882452aa15b65ac7178cf9267a",
+    "git_blob_sha1": "da2ac691b32db1b98dea95b8f0ff4256659c8a96",
+    "historical_commit": "dae5fe8d0d4a260328e4baa45b547368bd6790b3",
+    "redistribution": "prohibited by project policy because no source-repository license was located",
+    "repository": "https://gitlab.com/ClimateImpactLab/cil-ag-replication-package"
+  },
+  "validated_at_utc": "2026-09-23T17:18:27.407283+00:00",
+  "validation_gates": {
+    "coefficient_vector_numerically_reproduced": true,
+    "covariance_matrix_numerically_reproduced": true,
+    "phase_polynomials_sum_to_full_season_polynomials": true,
+    "sample_and_model_metadata_exact": true
+  }
+}

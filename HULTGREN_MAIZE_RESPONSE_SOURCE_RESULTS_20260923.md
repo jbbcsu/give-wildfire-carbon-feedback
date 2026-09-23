@@ -41,23 +41,49 @@ raw storage and is not redistributed; the pinned code snapshot remains subject
 to the separately recorded absence of a repository license file.
 
 An isolated evaluator now transports the published coefficient and covariance
-algebra without pretending to reconstruct missing inputs. It accepts the eight
+algebra without pretending to reconstruct primitive future inputs. It accepts
+the eight
 already-constructed weather basis values (GDD, KDD, and linear/quadratic terms
 for three rainfall phases), the four moderators, and the published long-run
 precipitation caps. A source-bound synthetic test verifies an exact zero
 contrast, finite coefficient-only uncertainty, and linear-predictor contrast
-parity within `7.29e-16`. The evaluator does not construct phase polynomials
-from daily rain and cannot be used for historical or future impacts until the
-missing transform and baseline data are reproduced. Its receipt is
+parity within `7.29e-16`. The evaluator does not itself construct phase
+polynomials from daily rain. Its receipt is
 `data/provenance/hultgren_maize_response_evaluator_validation_20260923.json`.
 
-## What is not yet established
+## Historical response reproduction now established
 
-The public replication code expects
+The current public replication code expects
 `impact_data/for_regressions/corn_gmfd_v1_ready.dta`. That impact dataset is not
-present in the pinned repository tree or this project's source snapshot. The
+present at that path in the pinned current tree. The
 pinned and current READMEs direct users to a separate Box archive, but that URL
 returned HTTP 404 when checked on 23 September 2026.
+
+The dataset is recoverable from the repository's public Git history. Commit
+`dae5fe8d0d4a260328e4baa45b547368bd6790b3` contains the 345,639,713-byte Stata
+file as blob `da2ac691b32db1b98dea95b8f0ff4256659c8a96` (SHA-256
+`06c2f0102580518a3eea88a6cd677af4636d40882452aa15b65ac7178cf9267a`).
+It remains in ignored raw storage and is not redistributed because no repository
+license was located.
+
+Running the published 49-term `reghdfe` specification against this historical
+blob reproduces the published sample exactly: 377,824 estimation observations,
+377,973 full observations, 807 country-year clusters, 541 first-level
+administrative clusters, and the same regressors, fixed effects, clustering,
+and dependent variable. The coefficient vector matches to maximum absolute
+error `1.76e-13` and relative L2 error `2.42e-14`. The covariance matrix matches
+to relative L2 error `2.65e-6` (maximum absolute error `2.55e-7`), consistent
+with minor numerical or installed-package-version differences. R-squared
+statistics match within `5.49e-14`.
+
+A bounded audit reads only eight columns in 50,000-row chunks across all 412,282
+source observations. In each row, the three phase-specific linear precipitation
+terms sum to the full-season linear term, and the three phase-specific quadratic
+terms sum to the full-season quadratic term, within single-precision storage
+tolerance (maximum scaled errors `1.38e-7` and `1.53e-7`). Thus the fitted
+quadratic basis is a sum of monthly squared-rainfall terms within each phase,
+not the square of phase-total rainfall. The strict receipt is
+`data/provenance/hultgren_maize_historical_replication_validation_20260923.json`.
 
 An older official GitLab commit still contains a 1.076 GB `impact_data.zip`.
 The archive has now been downloaded, Git-blob- and SHA-256-validated, and read
@@ -67,29 +93,31 @@ It also predates the final 2025 estimate, so its projection outputs cannot be
 treated as version-matched substitutes. The archive audit is recorded in
 `data/provenance/hultgren_historical_impact_archive_20260923.json`.
 
-The missing regression dataset is needed to recover the authors' baseline
-covariate distributions and reproduce their local response curves exactly. It
-is also needed to verify the numerical phase variables delivered to the fitted
-model, even though their conceptual construction and phase boundaries are now
-documented. The reviewed plotting code evaluates one temperature response for a U.S. and
-Chinese location; it does not supply a standalone globally representative
-precipitation response curve.
+## What is not yet established
 
-Consequently, this audit does **not** yet establish projected yield impacts,
+The recovered historical regression dataset resolves historical coefficient
+and phase-basis replication. It does not by itself provide version-matched
+future weather projections or establish a transport rule for income,
+irrigation, and long-run climate moderators. The reviewed plotting code
+evaluates one temperature response for a U.S. and Chinese location; it does not
+supply a standalone globally representative precipitation response curve.
+
+Consequently, this audit still does **not** establish projected yield impacts,
 monetary agricultural damages, or an SCC increment. Applying the coefficient
 vector to the project's five-ESM climate features before reproducing the
-historical transformation numerics and required baseline covariates would be
-speculative. All three claim gates remain closed in the machine-readable
-validation receipt.
+future weather transformation and declaring required baseline-moderator paths
+would be speculative. Those three claim gates remain closed in the
+machine-readable validation receipt.
 
 ## Defensible next route
 
-1. Resolve the missing impact-data access route or reconstruct only those
-   baseline covariates from explicitly matched, documented sources.
-2. Reproduce at least one published response figure or numerical checkpoint.
-3. Implement the documented crop-calendar aggregation and monthly precipitation
-   transforms, then reproduce a historical checkpoint before any future
-   projection; do not infer unreported baseline covariates from the estimate.
+1. Reproduce a published local-response curve or figure checkpoint from the
+   now-validated historical data and response algebra.
+2. Implement the documented crop-calendar aggregation and monthly precipitation
+   transforms on matched historical weather, then reproduce source features
+   before any future projection.
+3. Register explicit future paths for income, irrigation, long-run temperature,
+   and long-run precipitation rather than silently holding moderators fixed.
 4. Treat the published-response projection as a benchmark alongside the
    project's U.S. NASS validation, not as a substitute for validation.
 

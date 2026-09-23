@@ -1451,11 +1451,19 @@ The benchmark is source-bound by
 `data/provenance/hultgren_maize_weather_method_validation_20260923.json`.
 The validator hashes the official 95-page supplementary PDF and pinned source
 files and checks the maize season, phase, polynomial, and temperature settings.
-The final regression input `corn_gmfd_v1_ready.dta` remains absent from the
-current public data route. Consequently, the coefficient and covariance export
-is valid, but exact historical response replication, future projection,
-damages, and SCC remain blocked; no baseline covariate values are inferred from
-the fitted estimate.
+The final regression input `corn_gmfd_v1_ready.dta` is absent from the current
+public tree but is recoverable from public Git history at commit
+`dae5fe8d0d4a260328e4baa45b547368bd6790b3` as blob
+`da2ac691b32db1b98dea95b8f0ff4256659c8a96`. The ignored local copy is
+SHA-256 locked and is not redistributed. An isolated Stata reproduction obtains
+the exact published sample, cluster counts, dependent variable, fixed effects,
+regressor order, and 49 coefficients to relative L2 error `2.42e-14`; the
+49-by-49 covariance matrix has relative L2 error `2.65e-6`. Chunked validation
+over all 412,282 source rows further establishes that phase-specific linear and
+quadratic precipitation terms sum to their corresponding full-season terms
+within single-precision tolerance. This closes exact historical response and
+phase-arithmetic gates. Future projection, moderator trajectories, damages, and
+SCC remain blocked.
 
 The isolated `src/hultgren_maize_response.py` evaluator implements only the
 published 49-term linear-predictor and covariance algebra. Its input contract
@@ -1464,8 +1472,10 @@ quadratic rainfall-phase terms, income, irrigation share, long-run Tmax, and
 long-run precipitation; it applies the published 200/100/250 mm moderator caps.
 The source-bound validation confirms exact zero response to a zero contrast and
 linear-predictor contrast parity within `7.29e-16` on a synthetic basis. This
-test validates algebra, not the missing transformation from primitive daily
-weather, moderator baselines, historical fit, future response, damages, or SCC.
+test validates evaluator algebra. The separate historical-replication receipt
+validates the fitted historical response and phase-sum arithmetic, but not an
+independent transformation from primitive daily weather, future moderator
+paths, future response, damages, or SCC.
 
 The aggregate evidence decision is applied after the country-held-out yield,
 future-support, and GMST-normalized climate diagnostics. Production promotion

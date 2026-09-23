@@ -130,11 +130,15 @@ than assumed a priori. Their Supplementary Table S13 reports
 partial staple-crop SCC sensitivities of $3.80--$17.75/tCO2 under varietal
 switching and $1.71--$7.99/tCO2 with additional flexible production and trade.
 These are ranges across changed assumptions, not confidence intervals or this
-paper's estimate. The current public data route omits a regression input needed
-to reproduce the final local response surface and baseline covariate
-distribution, so the published values remain
-an external scale/methods benchmark rather than a coefficient or SCC imported
-into GIVE.
+paper's estimate. The current public tree omits the final regression input at
+its documented path, but the file is recoverable from the repository's public
+Git history. Using that hash-locked historical blob, we reproduce the published
+maize sample and model metadata exactly, its 49 coefficients to relative L2
+error `2.42e-14`, and its covariance matrix to relative L2 error `2.65e-6`.
+This closes the historical-response replication gate but not the future-weather,
+moderator-trajectory, damage, or SCC gates. The published values therefore
+remain an external scale/methods benchmark rather than an SCC imported into
+GIVE.
 
 This study asks: how does the agricultural component of the global SCC change
 when a temperature-indexed agricultural pathway is replaced by a joint,
