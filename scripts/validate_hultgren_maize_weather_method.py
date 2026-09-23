@@ -101,12 +101,17 @@ def main() -> None:
 
     maize = config["maize"]
     require(maize["precipitation_phase_lengths_months"] == [1, 3, 6], "Unexpected maize phases")
-    require(sum(maize["precipitation_phase_lengths_months"]) == maize["growing_season_months"], "Phases do not cover season")
+    require(sum(maize["precipitation_phase_lengths_months"]) == maize["maximum_growing_season_months"], "Maximum phase lengths do not cover maximum season")
     require(maize["precipitation_polynomial_order"] == 2, "Unexpected precipitation order")
 
     reproducibility = config["reproducibility"]
     require(reproducibility["published_estimate_available"], "Published estimate must be available")
-    require(not reproducibility["required_regression_dataset_available"], "Missing dataset gate changed")
+    require(reproducibility["required_regression_dataset_available"], "Historical regression dataset must be available")
+    require(reproducibility["exact_historical_response_reproduction_ready"], "Historical response gate must be open")
+    historical_receipt_path = ROOT / reproducibility["historical_replication_receipt"]
+    require(historical_receipt_path.exists(), "Historical replication receipt missing")
+    historical_receipt = json.loads(historical_receipt_path.read_text())
+    require(historical_receipt["claim_gates"]["historical_response_reproduced"], "Historical response receipt gate closed")
     require(not reproducibility["future_projection_ready"], "Future projection must remain blocked")
     require(not reproducibility["damage_ready"], "Damage gate must remain blocked")
     require(not reproducibility["scc_ready"], "SCC gate must remain blocked")
@@ -140,11 +145,15 @@ def main() -> None:
         },
         "maize_method": maize,
         "method": config["method"],
+        "historical_replication": {
+            "receipt": reproducibility["historical_replication_receipt"],
+            "receipt_sha256": sha256_file(historical_receipt_path),
+        },
         "claim_gates": {
             "source_identity_validated": True,
             "monthly_quantity_and_within_season_timing_documented": True,
             "published_maize_phase_structure_validated": True,
-            "exact_historical_response_reproduced": False,
+            "exact_historical_response_reproduced": True,
             "future_projection_validated": False,
             "damage_estimate_validated": False,
             "scc_estimate_validated": False,

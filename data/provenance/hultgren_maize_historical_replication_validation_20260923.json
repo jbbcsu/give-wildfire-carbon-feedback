@@ -6,10 +6,12 @@
     "primitive_phase_feature_arithmetic_audited": true,
     "scc_estimate_validated": false
   },
-  "interpretation": "The public historical data blob reproduces the published sample, model metadata, and coefficient vector to numerical precision; covariance differences are small and consistent with numerical/package-version variation. This validates the historical response regression, not future impacts, damages, or SCC.",
+  "interpretation": "The public historical data blob reproduces the published sample, model metadata, and coefficient vector to numerical precision; covariance differences are small and consistent with numerical/package-version variation. Maize phases follow local 4-10 month crop calendars: month 1, months 2-4, then month 5 to harvest. This validates the historical response regression, not future impacts, damages, or SCC.",
   "phase_arithmetic": {
     "chunk_size": 50000,
+    "finite_season_rows": 377973,
     "observations": 412282,
+    "phase_definition": "month 1; months 2-4; month 5 through local harvest (maximum month 10)",
     "powers": {
       "1": {
         "max_absolute_error": 0.0003204345703125,
@@ -21,6 +23,15 @@
         "max_scaled_error": 1.5215507748526538e-07,
         "nonfinite_rows": 0
       }
+    },
+    "season_length_months": {
+      "10": 553,
+      "4": 62662,
+      "5": 51309,
+      "6": 211696,
+      "7": 51165,
+      "8": 588,
+      "missing": 34309
     }
   },
   "published_estimate": {
@@ -97,10 +108,11 @@
     "redistribution": "prohibited by project policy because no source-repository license was located",
     "repository": "https://gitlab.com/ClimateImpactLab/cil-ag-replication-package"
   },
-  "validated_at_utc": "2026-09-23T17:28:35.116732+00:00",
+  "validated_at_utc": "2026-09-23T17:35:03.415766+00:00",
   "validation_gates": {
     "coefficient_vector_numerically_reproduced": true,
     "covariance_matrix_numerically_reproduced": true,
+    "local_crop_calendar_season_lengths_reproduced": true,
     "phase_polynomials_sum_to_full_season_polynomials": true,
     "sample_and_model_metadata_exact": true
   }

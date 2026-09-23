@@ -123,8 +123,10 @@ income, and long-run climate interactions, followed by agricultural valuation
 and a FaIR pulse calculation. We have hash-validated the published maize
 estimate and its full covariance matrix. Their maize model captures rainfall
 quantity and timing jointly: daily GMFD rainfall is summed to months before
-polynomial transformation, and a fixed ten-month season is represented by
-linear and quadratic rainfall terms for month 1, months 2--4, and months 5+.
+polynomial transformation, and local four- to ten-month crop-calendar seasons
+are represented by linear and quadratic rainfall terms for month 1, months
+2--4, and month 5 through harvest. Ten months is the maximum, not a fixed
+season.
 The phase structure was selected using nested tests and cross-validation rather
 than assumed a priori. Their Supplementary Table S13 reports
 partial staple-crop SCC sensitivities of $3.80--$17.75/tCO2 under varietal

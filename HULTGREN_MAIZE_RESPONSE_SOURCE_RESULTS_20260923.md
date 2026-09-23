@@ -23,9 +23,11 @@ The response specification contains growing-degree days and extreme heat plus
 three within-season precipitation phases, with both linear and quadratic rainfall
 terms. The official Supplementary Information and pinned code now resolve the
 maize construction: daily GMFD precipitation is summed to grid-cell months
-before polynomial transformation; maize uses a fixed ten-month crop season and
-groups those months into phase 1 (month 1), phase 2 (months 2--4), and phase 3
-(months 5+). The paper selected phase boundaries through sequential nested
+before polynomial transformation; maize uses local crop-calendar seasons of
+four to ten months and groups them into phase 1 (month 1), phase 2 (months
+2--4), and phase 3 (month 5 through local harvest). The code's ten-month value
+is the maximum represented season, not a fixed duration. The paper selected
+phase boundaries through sequential nested
 F-tests of monthly marginal precipitation responses at 100, 300, and 500 mm,
 then selected phased versus total-season precipitation in its second
 cross-validation step. Each weather family is interacted with income, irrigation share,
@@ -76,7 +78,7 @@ to relative L2 error `2.65e-6` (maximum absolute error `2.55e-7`), consistent
 with minor numerical or installed-package-version differences. R-squared
 statistics match within `5.49e-14`.
 
-A bounded audit reads only eight columns in 50,000-row chunks across all 412,282
+A bounded audit reads only eleven columns in 50,000-row chunks across all 412,282
 source observations. In each row, the three phase-specific linear precipitation
 terms sum to the full-season linear term, and the three phase-specific quadratic
 terms sum to the full-season quadratic term, within single-precision storage
@@ -84,6 +86,9 @@ tolerance (maximum scaled errors `1.38e-7` and `1.53e-7`). Thus the fitted
 quadratic basis is a sum of monthly squared-rainfall terms within each phase,
 not the square of phase-total rainfall. The strict receipt is
 `data/provenance/hultgren_maize_historical_replication_validation_20260923.json`.
+The same audit establishes 377,973 rows with valid local crop calendars: 62,662
+four-month, 51,309 five-month, 211,696 six-month, 51,165 seven-month, 588
+eight-month, and 553 ten-month seasons.
 
 An older official GitLab commit still contains a 1.076 GB `impact_data.zip`.
 The archive has now been downloaded, Git-blob- and SHA-256-validated, and read

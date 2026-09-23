@@ -1435,9 +1435,12 @@ The closest published global empirical benchmark explicitly contains both
 rainfall quantity and within-season timing. The official Supplementary
 Information for Hultgren et al. (2025) states that daily GMFD precipitation is
 summed to grid-cell months before polynomial transformations. For maize, the
-pinned code fixes a ten-month growing season, a quadratic precipitation
-response, and three contiguous phase lengths of 1, 3, and 6 months; the
-Supplementary Table S4 labels these as month 1, months 2--4, and months 5+.
+pinned code sets ten months as the maximum growing-season length, a quadratic
+precipitation response, and three contiguous maximum phase lengths of 1, 3, and
+6 months; Supplementary Table S4 labels these as month 1, months 2--4, and
+months 5+. The recovered source data show that actual local crop-calendar
+seasons vary from four to ten months, so the third phase ends at local harvest
+rather than always containing six months.
 Sequential nested F-tests compare monthly marginal responses at 100, 300, and
 500 mm, and the second cross-validation step selects phased versus total-season
 precipitation. The final maize model retains phased precipitation. The paper

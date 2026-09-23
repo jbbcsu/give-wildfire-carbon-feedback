@@ -7,6 +7,7 @@ import argparse
 import csv
 import hashlib
 import json
+from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -45,10 +46,14 @@ def read_metadata(path: Path) -> dict[str, str]:
 
 
 def audit_phase_sums(path: Path, chunk_size: int = 50_000) -> dict[str, object]:
-    columns = ["GMFD_monthly_prcp_poly_1", "GMFD_monthly_prcp_poly_2"] + [
+    columns = [
+        "GMFD_monthly_prcp_poly_1", "GMFD_monthly_prcp_poly_2",
+        "season_length", "median_plant_month", "median_harvest_month",
+    ] + [
         f"prcp_poly_{power}_bin{phase}" for power in (1, 2) for phase in (1, 2, 3)
     ]
     observations = 0
+    season_lengths: Counter[str] = Counter()
     results: dict[str, object] = {}
     for power in (1, 2):
         results[str(power)] = {"max_absolute_error": 0.0, "max_scaled_error": 0.0, "nonfinite_rows": 0}
@@ -62,6 +67,9 @@ def audit_phase_sums(path: Path, chunk_size: int = 50_000) -> dict[str, object]:
             if chunk.empty:
                 break
             observations += len(chunk)
+            for value, count in chunk["season_length"].value_counts(dropna=False).items():
+                key = "missing" if pd.isna(value) else str(int(value))
+                season_lengths[key] += int(count)
             for power in (1, 2):
                 total = chunk[f"GMFD_monthly_prcp_poly_{power}"].to_numpy(dtype=np.float64)
                 phase_sum = sum(
@@ -77,7 +85,14 @@ def audit_phase_sums(path: Path, chunk_size: int = 50_000) -> dict[str, object]:
                     entry["max_absolute_error"] = max(entry["max_absolute_error"], float(error.max()))
                     entry["max_scaled_error"] = max(entry["max_scaled_error"], float(scaled.max()))
 
-    return {"observations": observations, "chunk_size": chunk_size, "powers": results}
+    return {
+        "observations": observations,
+        "chunk_size": chunk_size,
+        "season_length_months": dict(sorted(season_lengths.items())),
+        "finite_season_rows": observations - season_lengths["missing"],
+        "phase_definition": "month 1; months 2-4; month 5 through local harvest (maximum month 10)",
+        "powers": results,
+    }
 
 
 def main() -> None:
@@ -125,11 +140,19 @@ def main() -> None:
         phase_audit["observations"] == 412_282
         and all(v["nonfinite_rows"] == 0 and v["max_scaled_error"] <= 2e-7 for v in phase_audit["powers"].values())
     )
+    expected_season_lengths = {
+        "4": 62_662, "5": 51_309, "6": 211_696, "7": 51_165,
+        "8": 588, "10": 553, "missing": 34_309,
+    }
     gates = {
         "sample_and_model_metadata_exact": metadata_exact and r2_max_absolute <= 1e-12,
         "coefficient_vector_numerically_reproduced": coefficient_max_absolute <= 1e-12 and coefficient_l2_relative <= 1e-12,
         "covariance_matrix_numerically_reproduced": covariance_max_absolute <= 1e-6 and covariance_l2_relative <= 1e-5,
         "phase_polynomials_sum_to_full_season_polynomials": phase_gate,
+        "local_crop_calendar_season_lengths_reproduced": (
+            phase_audit["season_length_months"] == expected_season_lengths
+            and phase_audit["finite_season_rows"] == 377_973
+        ),
     }
     if not all(gates.values()):
         raise AssertionError(f"historical replication gate failed: {gates}")
@@ -180,7 +203,8 @@ def main() -> None:
         "interpretation": (
             "The public historical data blob reproduces the published sample, model metadata, and coefficient vector "
             "to numerical precision; covariance differences are small and consistent with numerical/package-version "
-            "variation. This validates the historical response regression, not future impacts, damages, or SCC."
+            "variation. Maize phases follow local 4-10 month crop calendars: month 1, months 2-4, then month 5 to "
+            "harvest. This validates the historical response regression, not future impacts, damages, or SCC."
         ),
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)

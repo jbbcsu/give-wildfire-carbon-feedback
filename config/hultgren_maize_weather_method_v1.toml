@@ -22,9 +22,10 @@ collapse_clim = "data/raw/hultgren_response/3ccdffcd4e4ff6e55566ce76e2aac130ee86
 license_status = "No repository license file was located in the pinned source tree; retain copied source files in ignored raw data and do not redistribute them."
 
 [maize]
-growing_season_months = 10
+maximum_growing_season_months = 10
+observed_calendar_season_length_months = "4-10; varies by local planting and harvest month"
 precipitation_phase_lengths_months = [1, 3, 6]
-precipitation_phases = ["month 1", "months 2-4", "months 5+"]
+precipitation_phases = ["month 1", "months 2-4", "month 5 through local harvest (maximum month 10)"]
 precipitation_polynomial_order = 2
 gdd_lower_c = 8
 kdd_threshold_c = 31
@@ -32,7 +33,7 @@ long_run_precipitation_spline_cap_mm = 250
 
 [method]
 raw_precipitation_time_step = "daily GMFD"
-precipitation_aggregation = "Daily precipitation is summed to grid-cell month before polynomial transformation; transformed monthly terms are then aligned to fixed crop growing seasons and phase groups."
+precipitation_aggregation = "Daily precipitation is summed to grid-cell month before polynomial transformation; transformed monthly terms are then aligned to local crop-calendar growing seasons and phase groups."
 phase_selection = "Nested F-tests compare marginal precipitation effects at 100, 300, and 500 mm, proceeding from each end of the season; p < 0.05 creates a phase break, with visual resolution when forward and reverse searches disagree."
 final_selection = "The second cross-validation step selects phased versus total-season precipitation; maize retains phased precipitation."
 drought_candidate = "A binary drought candidate uses a crop-specific percentile cutoff of administrative-unit total growing-season precipitation selected by 10-fold cross-validation; it is not part of the published final maize specification."
@@ -41,8 +42,11 @@ extreme_rain_candidate = "Amount and day-count candidates above the grid-cell 19
 [reproducibility]
 published_estimate_available = true
 full_covariance_available = true
-required_regression_dataset_available = false
-exact_historical_response_reproduction_ready = false
+current_tree_required_regression_dataset_available = false
+historical_git_regression_dataset_available = true
+historical_replication_receipt = "data/provenance/hultgren_maize_historical_replication_validation_20260923.json"
+required_regression_dataset_available = true
+exact_historical_response_reproduction_ready = true
 future_projection_ready = false
 damage_ready = false
 scc_ready = false
