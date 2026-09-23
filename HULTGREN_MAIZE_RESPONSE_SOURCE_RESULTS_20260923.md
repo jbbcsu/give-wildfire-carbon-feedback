@@ -91,8 +91,10 @@ four-month, 51,309 five-month, 211,696 six-month, 51,165 seven-month, 588
 eight-month, and 553 ten-month seasons.
 The same full-source audit confirms `KDD = CDD31` exactly and
 `GDD = CDD8 - CDD31` within single-precision tolerance (maximum scaled error
-`5.96e-8`). This binds the fitted temperature terms to the 8 C and 31 C daily
-maximum-temperature thresholds used by the new primitive-basis adapter.
+`5.96e-8`). The Supplementary Information supplies the missing primitive
+construction: Snyder's continuous-time sinusoidal interpolation between daily
+Tmin and Tmax, integrated between 8 C and 31 C for GDD and above 31 C for KDD.
+Thresholding daily Tmax alone is not source compatible.
 
 An older official GitLab commit still contains a 1.076 GB `impact_data.zip`.
 The archive has now been downloaded, Git-blob- and SHA-256-validated, and read
@@ -120,6 +122,16 @@ month-of-season ordering, and the three maize precipitation phases for all
 377,973 complete calendar rows, with zero mismatches. This closes calendar
 bookkeeping but not primitive GMFD weather or spatial aggregation. See
 `HULTGREN_MAIZE_CALENDAR_RESULTS_20260923.md`.
+
+A bounded 1981--1990 Iroquois diagnostic applies the Snyder and monthly-rain
+code to the resident GSWP3-W5E5 cell on the same May--October calendar. Relative
+to the published GMFD administrative-unit features, GDD and KDD correlations
+are 0.956 and 0.969, and the seasonal-rain correlation is 0.762. This is a
+different-product, single-cell diagnostic rather than GMFD replication or a
+validated aggregation choice. It also reproducibly rejects the earlier
+daily-Tmax-only construction required neither by the paper nor the source
+method. Full values are in
+`HULTGREN_IROQUOIS_GSWP_BASIS_DIAGNOSTIC_20260923.md`.
 
 ## What is not yet established
 

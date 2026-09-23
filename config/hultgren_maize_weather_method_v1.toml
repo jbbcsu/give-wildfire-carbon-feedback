@@ -29,10 +29,12 @@ precipitation_phases = ["month 1", "months 2-4", "month 5 through local harvest 
 precipitation_polynomial_order = 2
 gdd_lower_c = 8
 kdd_threshold_c = 31
+degree_day_method = "Snyder (1985) continuous-time sinusoidal interpolation between daily Tmin and Tmax; integrate area from 8-31 C for GDD and above 31 C for KDD"
 long_run_precipitation_spline_cap_mm = 250
 
 [method]
 raw_precipitation_time_step = "daily GMFD"
+temperature_aggregation = "Fit the Snyder continuous-time sinusoid between each day's Tmin and Tmax; integrate threshold exposure at the grid-cell day level before crop-area aggregation. Daily Tmax thresholding alone is not the published method."
 precipitation_aggregation = "Daily precipitation is summed to grid-cell month before polynomial transformation; transformed monthly terms are then aligned to local crop-calendar growing seasons and phase groups."
 phase_selection = "Nested F-tests compare marginal precipitation effects at 100, 300, and 500 mm, proceeding from each end of the season; p < 0.05 creates a phase break, with visual resolution when forward and reverse searches disagree."
 final_selection = "The second cross-validation step selects phased versus total-season precipitation; maize retains phased precipitation."
@@ -58,6 +60,7 @@ required_supplement_text = [
   "Growing Phase Precipitation",
   "Maize 1 2-4 5+",
   "prcp phase[P ]it represents monthly precipitation summed within growing-season-phase P",
+  "continuous time sinusoidal interpolation of temperature",
 ]
 
 required_code_text = [

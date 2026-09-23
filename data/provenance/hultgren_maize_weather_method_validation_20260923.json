@@ -4,6 +4,8 @@
     "exact_historical_response_reproduced": true,
     "future_projection_validated": false,
     "monthly_quantity_and_within_season_timing_documented": true,
+    "primitive_historical_weather_reproduced": false,
+    "published_degree_day_method_documented": true,
     "published_maize_phase_structure_validated": true,
     "scc_estimate_validated": false,
     "source_identity_validated": true
@@ -25,13 +27,14 @@
   },
   "config": {
     "path": "config/hultgren_maize_weather_method_v1.toml",
-    "sha256": "07a7a01337b5408397499714620ef973ff3f98b37857fda290c16a28591973b1"
+    "sha256": "4ef3c5c1122da49dea24e06d300f3309c42cf9b05481413315246caeba992005"
   },
   "historical_replication": {
     "receipt": "data/provenance/hultgren_maize_historical_replication_validation_20260923.json",
     "receipt_sha256": "7683c0c659df3d44bc6202ecf7722309e7f043a7dfaa88f5c9c6ed50661dd65e"
   },
   "maize_method": {
+    "degree_day_method": "Snyder (1985) continuous-time sinusoidal interpolation between daily Tmin and Tmax; integrate area from 8-31 C for GDD and above 31 C for KDD",
     "gdd_lower_c": 8,
     "kdd_threshold_c": 31,
     "long_run_precipitation_spline_cap_mm": 250,
@@ -55,7 +58,8 @@
     "final_selection": "The second cross-validation step selects phased versus total-season precipitation; maize retains phased precipitation.",
     "phase_selection": "Nested F-tests compare marginal precipitation effects at 100, 300, and 500 mm, proceeding from each end of the season; p < 0.05 creates a phase break, with visual resolution when forward and reverse searches disagree.",
     "precipitation_aggregation": "Daily precipitation is summed to grid-cell month before polynomial transformation; transformed monthly terms are then aligned to local crop-calendar growing seasons and phase groups.",
-    "raw_precipitation_time_step": "daily GMFD"
+    "raw_precipitation_time_step": "daily GMFD",
+    "temperature_aggregation": "Fit the Snyder continuous-time sinusoid between each day's Tmin and Tmax; integrate threshold exposure at the grid-cell day level before crop-area aggregation. Daily Tmax thresholding alone is not the published method."
   },
   "publication_doi": "10.1038/s41586-025-09085-w",
   "schema_version": 1,
@@ -69,8 +73,8 @@
     "member_sha256": "fac3625685da48c0a5918d025af4bfc31a0ca46f67a45a0b6e7df66422c4ef9b",
     "official_endpoint": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12176627/supplementaryFiles",
     "pages": 95,
-    "required_text_checks": 5,
+    "required_text_checks": 6,
     "storage_rule": "Retain the downloaded archive in ignored raw data; do not redistribute or publish adapted supplementary material from this project."
   },
-  "validated_at_utc": "2026-09-23T18:13:09.190449+00:00"
+  "validated_at_utc": "2026-09-23T23:12:03.962704+00:00"
 }

@@ -1477,12 +1477,14 @@ the 346 MB source hash, writes all Stata estimates and matrix exports to ignored
 interim storage, and then runs the independent comparison and phase-sum audit.
 Only the small validation receipt is versioned.
 
-`src/hultgren_maize_weather.py` implements the now-source-verified primitive
-basis without inferring calendar dates: it accepts already aligned local-season
-monthly rainfall totals (four through ten months) and daily maximum temperature,
-sums rainfall and monthly rainfall squared within the three phases, and computes
-8--31 C growing-degree days and above-31 C killing-degree days. Calendar
-alignment remains a separate, auditable input gate.
+`src/hultgren_maize_weather.py` implements the documented primitive basis
+without inferring calendar dates. It accepts already aligned local-season
+monthly rainfall totals (four through ten months) and paired daily Tmin/Tmax,
+sums rainfall and monthly rainfall squared within the three phases, and follows
+Snyder (1985) by integrating a continuous-time sinusoidal interpolation between
+daily Tmin and Tmax. GDD is the area between 8 and 31 C; KDD is the area above
+31 C. Thresholding daily Tmax alone is not the published construction. Calendar
+and spatial aggregation remain separate, auditable input gates.
 
 The isolated `src/hultgren_maize_response.py` evaluator implements only the
 published 49-term linear-predictor and covariance algebra. Its input contract
@@ -1519,6 +1521,18 @@ through harvest match with zero discrepancies. The validation receipt is
 `data/provenance/hultgren_maize_calendar_validation_20260923.json`. This closes
 calendar bookkeeping, not reconstruction of primitive GMFD daily weather or
 administrative-unit crop weighting.
+
+As an implementation diagnostic, we applied the same code to resident
+GSWP3-W5E5 daily precipitation, Tmin, and Tmax for 1981--1990 at the 0.5-degree
+cell nearest the Iroquois example. Its GGCMI and source calendars both resolve
+to May--October. Relative to the published crop-weighted administrative-unit
+GMFD features, season-mean Tmax differs by 0.353 C with correlation 0.933,
+Snyder GDD differs by 75.87 degree-days with correlation 0.956, KDD differs by
+7.49 with correlation 0.969, and seasonal rain differs by 5.84 mm with
+correlation 0.762. Because the weather product and spatial aggregation differ,
+these comparisons test operational feature construction but do not reproduce
+GMFD or validate grid-first aggregation. The receipt is
+`data/provenance/hultgren_iroquois_gswp_basis_diagnostic_20260923.json`.
 
 The aggregate evidence decision is applied after the country-held-out yield,
 future-support, and GMST-normalized climate diagnostics. Production promotion

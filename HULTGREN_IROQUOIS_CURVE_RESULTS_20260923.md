@@ -13,8 +13,9 @@ Starting from the authors' Stata `.ster` estimate, an independent Stata export
 and the Python evaluator agree over every integer temperature from 1 through
 40 C. The maximum absolute differences are `1.32e-9` log-yield units for the
 response and `1.84e-10` for the coefficient-only standard error. The underlying
-degree-day basis also matches exactly: 8--31 C growing degree days and killing
-degree days above 31 C.
+response-term basis also matches exactly: 8--31 C growing degree days and
+killing degree days above 31 C. The separate primitive-weather implementation
+uses the paper's Snyder interpolation of daily Tmin and Tmax.
 
 Selected one-day responses relative to an 8 C day are:
 

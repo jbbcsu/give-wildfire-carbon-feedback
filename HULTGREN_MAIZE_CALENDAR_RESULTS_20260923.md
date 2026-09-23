@@ -31,7 +31,7 @@ administrative-unit versus grid-cell aggregation, establish future climate
 features, or estimate agricultural damages or SCC.
 
 The next empirical gate is to apply this exact calendar logic to primitive
-historical precipitation and daily maximum temperature, then compare the
+historical precipitation and paired daily minimum/maximum temperature, then compare the
 constructed monthly rainfall/GDD/KDD features against source-compatible
 historical checkpoints. The locally available GSWP3-W5E5 daily archive can test
 the implementation and historical aggregation choice, but it is a different

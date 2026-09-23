@@ -1,0 +1,150 @@
+{
+  "calendar": {
+    "ggcmi_maturity_day": 274.0,
+    "ggcmi_planting_day": 130.0,
+    "published_harvest_day": 295.0,
+    "published_plant_day": 130.0,
+    "whole_month_window": [
+      5,
+      10
+    ]
+  },
+  "claim_gates": {
+    "administrative_unit_crop_weighting_validated": false,
+    "aggregation_choice_frozen": false,
+    "damage_estimate_validated": false,
+    "future_climate_projection_validated": false,
+    "gmfd_features_reproduced": false,
+    "primitive_daily_pipeline_operational_on_resident_weather": true,
+    "scc_estimate_validated": false
+  },
+  "comparisons": {
+    "gdd": {
+      "gswp_minus_published_mean": 75.86978611058198,
+      "gswp_proxy_mean": 2190.247471657457,
+      "pearson_correlation": 0.9557790360861314,
+      "published_gmfd_mean": 2114.377685546875,
+      "rmse": 80.64382753815275
+    },
+    "kdd": {
+      "gswp_minus_published_mean": 7.4852804424683494,
+      "gswp_proxy_mean": 15.653805083266917,
+      "pearson_correlation": 0.9687046565785556,
+      "published_gmfd_mean": 8.16852464079857,
+      "rmse": 9.919021240899594
+    },
+    "prcp_poly_1_bin1": {
+      "gswp_minus_published_mean": 0.7414355424269161,
+      "gswp_proxy_mean": 117.1703688767775,
+      "pearson_correlation": 0.7004722819399851,
+      "published_gmfd_mean": 116.42893333435059,
+      "rmse": 32.583411152614815
+    },
+    "prcp_poly_1_bin2": {
+      "gswp_minus_published_mean": -4.651099069491101,
+      "gswp_proxy_mean": 285.22239946566515,
+      "pearson_correlation": 0.7956995748197417,
+      "published_gmfd_mean": 289.8734985351563,
+      "rmse": 57.100662883649065
+    },
+    "prcp_poly_1_bin3": {
+      "gswp_minus_published_mean": 9.749611845632534,
+      "gswp_proxy_mean": 166.59717883171652,
+      "pearson_correlation": 0.8175703659737932,
+      "published_gmfd_mean": 156.847566986084,
+      "rmse": 34.27155435907671
+    },
+    "prcp_poly_2_bin1": {
+      "gswp_minus_published_mean": 321.79616864383627,
+      "gswp_proxy_mean": 15583.785890323523,
+      "pearson_correlation": 0.5664787335485008,
+      "published_gmfd_mean": 15261.989721679687,
+      "rmse": 8762.889146705407
+    },
+    "prcp_poly_2_bin2": {
+      "gswp_minus_published_mean": -1954.6170184311607,
+      "gswp_proxy_mean": 31625.679758912585,
+      "pearson_correlation": 0.7149628526099531,
+      "published_gmfd_mean": 33580.29677734375,
+      "rmse": 12753.172668002624
+    },
+    "prcp_poly_2_bin3": {
+      "gswp_minus_published_mean": 3168.3939276105016,
+      "gswp_proxy_mean": 18583.201740110504,
+      "pearson_correlation": 0.7353953472139936,
+      "published_gmfd_mean": 15414.8078125,
+      "rmse": 9474.663189545483
+    },
+    "season_mean_tmax": {
+      "gswp_minus_published_mean": 0.35340345631477277,
+      "gswp_proxy_mean": 25.85386083851692,
+      "pearson_correlation": 0.9330650354086043,
+      "published_gmfd_mean": 25.50045738220215,
+      "rmse": 0.47113417755977405
+    },
+    "season_total_precipitation": {
+      "gswp_minus_published_mean": 5.839950225916982,
+      "gswp_proxy_mean": 568.9899471741592,
+      "pearson_correlation": 0.7618579296859337,
+      "published_gmfd_mean": 563.1499969482422,
+      "rmse": 90.5947732754522
+    }
+  },
+  "created_at_utc": "2026-09-23T23:07:19.292269+00:00",
+  "interpretation": "The exact calendar-to-basis code runs on a complete resident GSWP3-W5E5 daily cell and produces a ten-year comparison with published Iroquois GMFD administrative-unit features. Because both the weather product and spatial aggregation differ, correlations and errors are diagnostic only and cannot validate or replace the published GMFD features.",
+  "rejected_direct_tmax_only_candidate": {
+    "comparisons": {
+      "gdd": {
+        "direct_tmax_only_mean": 3214.419013061527,
+        "direct_tmax_only_minus_published_mean": 1100.0413275146516,
+        "pearson_correlation": 0.8866594917686952,
+        "published_gmfd_mean": 2114.377685546875,
+        "rmse": 1101.19613626109
+      },
+      "kdd": {
+        "direct_tmax_only_mean": 71.94044982910233,
+        "direct_tmax_only_minus_published_mean": 63.77192518830377,
+        "pearson_correlation": 0.9579387071486641,
+        "published_gmfd_mean": 8.16852464079857,
+        "rmse": 83.02964238934852
+      }
+    },
+    "reason": "The paper requires Snyder sinusoidal interpolation between daily Tmin and Tmax; thresholding daily Tmax alone is not the published construction."
+  },
+  "role": "one_cell_different_product_implementation_diagnostic_not_gmfd_replication",
+  "schema": "hultgren_iroquois_gswp_basis_diagnostic/v1",
+  "sources": {
+    "ggcmi_calendar": "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_mai_noirr.nc",
+    "gswp_pr": {
+      "bytes": 2351177152,
+      "path": "data/raw/isimip3a_gswp3_w5e5_v1_3/gswp3-w5e5_obsclim_pr_global_daily_1981_1990.nc",
+      "sha512": "c2b0688e59196088a1eaeac6fdc25b0bf1419f78c8662e9c21038c63b58aa6c40df5f22cc723d0ad9e24104a081bd215b9760f9003f0fc557b947341dc2d03f2"
+    },
+    "gswp_tasmax": {
+      "bytes": 2045681376,
+      "path": "data/raw/isimip3a_gswp3_w5e5_v1_3/gswp3-w5e5_obsclim_tasmax_global_daily_1981_1990.nc",
+      "sha512": "b22a9d2be2fc6f36fd37452adf74b04737c29fed89611a73b3209dc159c514e674c09fd7940782035b1f1e3c52284e0684c231a3f83452312640cb0eb323ab42"
+    },
+    "gswp_tasmin": {
+      "bytes": 2056386729,
+      "path": "data/raw/isimip3a_gswp3_w5e5_v1_3/gswp3-w5e5_obsclim_tasmin_global_daily_1981_1990.nc",
+      "sha512": "51b056a9601417e124801f18878951d794ebe6a42153946e6172d13ade8d00748cff70e2cf15ff23b04c76ae0a3a1e62fee0baa6c8f21642886b0d8d7e579678"
+    },
+    "published_historical_dataset": "data/raw/hultgren_response/historical_git/dae5fe8d0d4a260328e4baa45b547368bd6790b3/corn_gmfd_v1_ready.dta"
+  },
+  "spatial_proxy": {
+    "daily_records": 1840,
+    "requested_latitude": 40.75,
+    "requested_longitude": -87.75,
+    "selected_latitude": 40.75,
+    "selected_longitude": -87.75
+  },
+  "validation_gates": {
+    "all_constructed_features_finite": true,
+    "comparison_is_diagnostic_not_source_replication": true,
+    "direct_tmax_only_candidate_rejected_by_source_method": true,
+    "published_overlap_1981_1990_complete": true,
+    "resident_daily_support_complete": true,
+    "source_and_proxy_month_window_match": true
+  }
+}

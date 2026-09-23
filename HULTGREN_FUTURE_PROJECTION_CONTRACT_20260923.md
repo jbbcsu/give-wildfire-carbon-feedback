@@ -13,7 +13,7 @@ future response, agricultural damage, and SCC gates remain closed.
 
 Every historical and future crop-unit-year must use the same construction:
 
-1. Align daily precipitation and daily maximum temperature to the local
+1. Align daily precipitation and paired daily minimum and maximum temperature to the local
    planting-month through harvest-month window. Recovered source seasons span
    four through ten months; ten is a maximum, not a universal duration.
 2. Sum daily precipitation to calendar-month totals before transformation.
@@ -21,8 +21,10 @@ Every historical and future crop-unit-year must use the same construction:
    through local harvest.
 4. For each phase retain both the sum of monthly rainfall totals and the sum of
    squared monthly rainfall totals. Do not square phase-total rainfall.
-5. Compute growing-degree days from daily maximum temperature between 8 C and
-   31 C, and killing-degree days above 31 C.
+5. Following Snyder (1985), fit a continuous-time sinusoidal interpolation
+   between each day's Tmin and Tmax. Integrate exposure between 8 C and 31 C
+   for growing degree days and above 31 C for killing degree days. Thresholding
+   daily Tmax alone is not the published construction.
 
 `src/hultgren_maize_weather.py` implements step 3--5 after calendar alignment.
 The calendar join and spatial crop weighting remain separate so their source

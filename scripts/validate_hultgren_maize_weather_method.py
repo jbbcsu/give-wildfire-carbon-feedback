@@ -103,6 +103,8 @@ def main() -> None:
     require(maize["precipitation_phase_lengths_months"] == [1, 3, 6], "Unexpected maize phases")
     require(sum(maize["precipitation_phase_lengths_months"]) == maize["maximum_growing_season_months"], "Maximum phase lengths do not cover maximum season")
     require(maize["precipitation_polynomial_order"] == 2, "Unexpected precipitation order")
+    require(maize["gdd_lower_c"] == 8 and maize["kdd_threshold_c"] == 31, "Unexpected maize degree-day thresholds")
+    require("sinusoidal interpolation" in maize["degree_day_method"], "Published degree-day method is not registered")
 
     reproducibility = config["reproducibility"]
     require(reproducibility["published_estimate_available"], "Published estimate must be available")
@@ -153,7 +155,9 @@ def main() -> None:
             "source_identity_validated": True,
             "monthly_quantity_and_within_season_timing_documented": True,
             "published_maize_phase_structure_validated": True,
+            "published_degree_day_method_documented": True,
             "exact_historical_response_reproduced": True,
+            "primitive_historical_weather_reproduced": False,
             "future_projection_validated": False,
             "damage_estimate_validated": False,
             "scc_estimate_validated": False,
