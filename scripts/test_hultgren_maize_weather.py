@@ -16,6 +16,25 @@ def main() -> None:
     assert basis.prcp_poly_2_bins == (1.0, 29.0, 61.0)
     assert basis.gdd == 58.0
     assert basis.kdd == 4.0
+    response_basis = basis.with_moderators(
+        ln_gdppc=9.0,
+        irrigated_share=0.25,
+        lr_tmax_crop=24.0,
+        lr_prcp_crop=300.0,
+    )
+    assert response_basis.prcp_poly_2_bins == (1.0, 29.0, 61.0)
+    assert response_basis.primitive_values()["pbarcut_prcp"] == 250.0
+    try:
+        basis.with_moderators(
+            ln_gdppc=9.0,
+            irrigated_share=1.1,
+            lr_tmax_crop=24.0,
+            lr_prcp_crop=300.0,
+        )
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("invalid moderator combination accepted")
     for rainfall in ([1, 2, 3], [1] * 11, [1, 2, 3, -1]):
         try:
             build_maize_weather_basis(rainfall, [20])

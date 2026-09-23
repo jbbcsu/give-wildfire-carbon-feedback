@@ -9,7 +9,10 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from math import isfinite
-from typing import Iterable
+from typing import TYPE_CHECKING, Iterable
+
+if TYPE_CHECKING:
+    from .hultgren_maize_response import MaizeBasis
 
 
 @dataclass(frozen=True)
@@ -18,6 +21,30 @@ class MaizeWeatherBasis:
     kdd: float
     prcp_poly_1_bins: tuple[float, float, float]
     prcp_poly_2_bins: tuple[float, float, float]
+
+    def with_moderators(
+        self,
+        *,
+        ln_gdppc: float,
+        irrigated_share: float,
+        lr_tmax_crop: float,
+        lr_prcp_crop: float,
+    ) -> "MaizeBasis":
+        """Attach declared moderators for the published 49-term response."""
+        from .hultgren_maize_response import MaizeBasis
+
+        result = MaizeBasis(
+            gdd=self.gdd,
+            kdd=self.kdd,
+            prcp_poly_1_bins=self.prcp_poly_1_bins,
+            prcp_poly_2_bins=self.prcp_poly_2_bins,
+            ln_gdppc=ln_gdppc,
+            irrigated_share=irrigated_share,
+            lr_tmax_crop=lr_tmax_crop,
+            lr_prcp_crop=lr_prcp_crop,
+        )
+        result.primitive_values()
+        return result
 
 
 def _finite(values: Iterable[float], name: str) -> tuple[float, ...]:

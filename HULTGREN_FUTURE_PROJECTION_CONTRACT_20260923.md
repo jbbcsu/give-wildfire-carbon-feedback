@@ -26,6 +26,9 @@ Every historical and future crop-unit-year must use the same construction:
 `src/hultgren_maize_weather.py` implements step 3--5 after calendar alignment.
 The calendar join and spatial crop weighting remain separate so their source
 identities and coverage can be audited.
+Its validated `with_moderators` boundary attaches a declared income,
+irrigation, and long-run-climate state to the published 49-term evaluator; it
+does not select those moderator values.
 
 ## Spatial and temporal alignment gates
 
