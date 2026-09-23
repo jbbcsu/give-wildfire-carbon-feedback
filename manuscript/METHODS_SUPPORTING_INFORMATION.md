@@ -1958,9 +1958,33 @@ Independent joint-design checks reproduce drought-only slopes within
 and state covariance entries within `4.76e-10`. The complete comparison is in
 `US_USDM_AGRICULTURAL_AREA_RESULTS_20260922.md`. These checks establish source,
 accounting, computational, and numerical fidelity only. The 3.96 km national
-route remains provisional until the predeclared 1 km/native-30 m sentinel
-audit passes, and no historical coefficient is released to the global damage
-or SCC interface.
+route was then tested against the predeclared 990 m/native-30 m sentinel audit;
+no historical coefficient is released to the global damage or SCC interface.
+
+The outcome-blind selector ranks counties into eight cultivated-area strata,
+then chooses one high-boundary-ambiguity county per stratum with distinct-state
+preference. Three maximum-ambiguity weeks per county, separated by at least 28
+days, yield 24 county-weeks. All 679 maps and 13 harvest years are recomputed at
+990 m for these counties, while the 24 weeks are independently classified at
+every agricultural 30 m CDL pixel center. Frozen weekly TVD limits are
+0.03/0.08/0.15 for the median/90th percentile/maximum; frozen annual absolute-
+week limits are 0.15/0.50/1.00.
+
+For 3.96 km versus native 30 m, weekly TVD is 0.006995 at the median, 0.040856
+at the 90th percentile, and 0.177922 at the maximum. For 990 m versus native,
+the corresponding values are 0.001486, 0.005372, and 0.011453. Across 1,040
+county-mask-year-category annual comparisons, 3.96 km versus 990 m absolute
+differences are 0.00638 week at the median, 0.10837 at the 90th percentile, and
+1.51739 at the maximum. The weekly and annual maximum gates therefore fail.
+Both failures occur in sparse cultivated support in Webb County, Texas; neither
+is removed or downweighted after inspection. An independent implementation
+reproduces all statistics and the failed decision.
+
+Accordingly, 3.96 km results remain labeled diagnostics rather than final
+spatial-fidelity estimates. The required remediation is a partitioned national
+990 m rebuild followed by unchanged response estimation. Full methods, hashes,
+and results are in `US_USDM_MULTIRESOLUTION_SENTINEL_RESULTS_20260923.md` and
+the tracked provenance receipts.
 
 Keep crop inundation in agriculture and exclude it from the future
 infrastructure module; exclude coastal surge/SLR impacts already addressed by

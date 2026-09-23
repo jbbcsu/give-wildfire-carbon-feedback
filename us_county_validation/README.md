@@ -473,4 +473,9 @@ years with zero severity overlap and maximum annual accounting error
 
 This route is a historical exposure-fidelity sensitivity only; response
 coefficients remain noncausal and unavailable for global transport or SCC use.
-The predeclared multi-resolution sentinel audit remains open.
+The predeclared multi-resolution sentinel audit is now complete and fails the
+frozen 3.96 km maximum-error gates, despite small median and 90th-percentile
+errors. A 990 m grid closely matches native 30 m sentinel shares. Accordingly,
+the 3.96 km results remain diagnostics and the next production route is a
+partitioned national 990 m rebuild. See
+`US_USDM_MULTIRESOLUTION_SENTINEL_RESULTS_20260923.md`.

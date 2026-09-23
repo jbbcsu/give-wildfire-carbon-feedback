@@ -119,8 +119,12 @@ receipts are hash-bound in `data/provenance/`; raw archives remain ignored.
 The finding is narrow but useful: at approximately 4 km, whole-county versus
 agricultural-area weighting and cultivated versus broad agricultural masks do
 not materially alter the U.S. historical conclusions. It does not establish
-causality or provide the missing climate-to-drought link. A predeclared
-multi-resolution sentinel audit (3.96 km versus about 1 km and native 30 m)
-remains necessary before calling the spatial approximation resolved. No
-coefficient in this analysis is authorized for global transfer, damage
-monetization, or SCC calculation.
+causality or provide the missing climate-to-drought link. The subsequently
+completed predeclared multi-resolution audit finds small typical error but
+fails its frozen maximum-error gates: weekly TVD reaches 0.1779 and one annual
+category differs by 1.5174 weeks in sparse cultivated support. The 3.96 km
+route is therefore retained only as a diagnostic; a partitioned national
+990 m rebuild is required for final spatial-fidelity estimates. See
+`US_USDM_MULTIRESOLUTION_SENTINEL_RESULTS_20260923.md`. No coefficient in this
+analysis is authorized for global transfer, damage monetization, or SCC
+calculation.

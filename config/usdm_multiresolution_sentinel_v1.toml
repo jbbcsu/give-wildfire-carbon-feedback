@@ -1,0 +1,26 @@
+contract_id = "usdm_multiresolution_sentinel_v1"
+frozen_date = "2026-09-22"
+selection_mask = "cultivated_agriculture"
+area_strata = 8
+sentinels_per_stratum = 1
+dates_per_county = 3
+minimum_date_separation_days = 28
+fine_factor_pixels = 33
+fine_cell_nominal_size_m = 990
+native_pixel_size_m = 30
+native_block_size_pixels = 512
+resource_ceiling_bytes = 671088640
+selection_uses_outcomes = false
+causal_claim_authorized = false
+damage_claim_authorized = false
+scc_claim_authorized = false
+
+[thresholds]
+weekly_tvd_median_max = 0.03
+weekly_tvd_p90_max = 0.08
+weekly_tvd_max = 0.15
+annual_absolute_weeks_median_max = 0.15
+annual_absolute_weeks_p90_max = 0.50
+annual_absolute_weeks_max = 1.00
+fine_minus_coarse_tvd_median_max = 0.002
+fine_minus_coarse_tvd_p90_max = 0.005

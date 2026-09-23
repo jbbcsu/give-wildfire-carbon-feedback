@@ -1,0 +1,31 @@
+{
+  "checks": {
+    "annual_category_rows": 1040,
+    "weekly_mask_rows": 48
+  },
+  "claim_boundary": "independent arithmetic validation of a spatial approximation decision only; not causal, damage, global-transfer, or SCC evidence",
+  "failed_gates": [
+    "annual_coarse_fine_maximum",
+    "weekly_coarse_native_maximum"
+  ],
+  "largest_annual_error": {
+    "absolute_difference_weeks": 1.5173907531062802,
+    "category": "d3",
+    "county_geoid": "48479",
+    "harvest_year": 2013,
+    "mask_id": "cultivated_agriculture"
+  },
+  "largest_weekly_error": {
+    "county_geoid": "48479",
+    "map_date": "2007-02-13",
+    "mask_id": "cultivated_agriculture",
+    "tvd": 0.17792240723522937
+  },
+  "recalculated_decision": false,
+  "result": {
+    "path": "data/provenance/usdm_multiresolution_sentinel_results_20260923.json",
+    "sha512": "a43609ee4669264506822b575c62eee7f89eb5eb6d3546edde14711684c2085e422c28c2071da92d8bf63844b0ca75634a009b3b967a5301eb2be6fc3040088e"
+  },
+  "schema": "usdm_multiresolution_independent_validation_v1",
+  "status": "passed"
+}

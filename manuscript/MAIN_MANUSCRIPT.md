@@ -824,9 +824,16 @@ weather-controlled model. Independent validators reproduce slopes, covariance,
 and sentinel deletions within predeclared tolerances. These results show that
 coarse spatial weighting is not driving the historical benchmark, but they do
 not supply causality, a future climate-to-drought link, global transfer, or an
-SCC input. The predeclared multi-resolution sentinel audit remains open.
-Complete results are in
-[`US_USDM_AGRICULTURAL_AREA_RESULTS_20260922.md`](../US_USDM_AGRICULTURAL_AREA_RESULTS_20260922.md).
+SCC input. A subsequent outcome-blind multi-resolution audit finds small
+typical 3.96 km error but fails its frozen maximum gates: weekly share TVD
+reaches 0.1779 and one annual category differs by 1.5174 weeks. By contrast,
+990 m weekly TVD versus native 30 m has median 0.00149, 90th percentile
+0.00537, and maximum 0.01145. We therefore retain the 3.96 km estimates only as
+diagnostics and require a partitioned national 990 m rebuild before finalizing
+agricultural-area coefficients. Complete results are in
+[`US_USDM_AGRICULTURAL_AREA_RESULTS_20260922.md`](../US_USDM_AGRICULTURAL_AREA_RESULTS_20260922.md)
+and
+[`US_USDM_MULTIRESOLUTION_SENTINEL_RESULTS_20260923.md`](../US_USDM_MULTIRESOLUTION_SENTINEL_RESULTS_20260923.md).
 
 **Current nationwide U.S. predictive benchmark (September 16).** The
 pre-outcome fixed-2017 Census screen selects counties with at most 10%
