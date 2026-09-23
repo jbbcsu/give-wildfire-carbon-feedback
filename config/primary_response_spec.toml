@@ -60,7 +60,7 @@ model_form_status = "not_frozen"
 diagnostic_coverage = "covered"
 diagnostic_present_features = ["stage1_log1p_precip_mm", "stage2_log1p_precip_mm", "stage3_log1p_precip_mm"]
 diagnostic_absent_features = []
-literature_basis = ["Marcos_Garcia_et_al_2024", "Xia_et_al_2021"]
+literature_basis = ["Hultgren_et_al_2025", "Marcos_Garcia_et_al_2024", "Xia_et_al_2021"]
 
 [[production_feature_requirements]]
 id = "normalized_stage_distribution_and_timing"
@@ -185,6 +185,24 @@ production_heat_thresholds_c = []
 production_drought_thresholds = []
 status = "not_frozen"
 rule = "register crop/specification definitions from primary literature or a documented training-only procedure before production outcome estimation; diagnostic defaults and QA thresholds are not selections"
+
+[published_hultgren_maize_benchmark]
+role = "published global empirical quantity-and-timing response benchmark; not a production coefficient import"
+publication_doi = "10.1038/s41586-025-09085-w"
+source_contract = "config/hultgren_maize_response_source_v1.toml"
+method_contract = "config/hultgren_maize_weather_method_v1.toml"
+crop = "maize"
+growing_season_months = 10
+precipitation_phase_lengths_months = [1, 3, 6]
+precipitation_phases = ["month 1", "months 2-4", "months 5+"]
+precipitation_polynomial_order = 2
+use_rule = "compare against seasonal-total and project three-window candidates on matched maize support; do not impose the maize phase grouping on other crops"
+selection_rule = "treat published phase structure as a preregistered sensitivity, not as automatic evidence that timing adds held-out value in this project's data"
+required_regression_dataset_available = false
+exact_historical_replication_ready = false
+future_projection_ready = false
+damage_use_authorized = false
+scc_use_authorized = false
 
 [[water_stress_families]]
 id = "direct_precipitation_pattern"
