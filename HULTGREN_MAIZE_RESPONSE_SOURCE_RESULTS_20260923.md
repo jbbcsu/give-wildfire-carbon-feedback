@@ -35,6 +35,10 @@ temperature and both the quantity and timing/distribution of precipitation
 within the crop season; it is not an annual-rainfall-only model. The source-bound
 method validation receipt is
 `data/provenance/hultgren_maize_weather_method_validation_20260923.json`.
+The receipt also records the official Europe PMC retrieval endpoint and the
+article's CC BY-NC-ND 4.0 terms. The supplementary archive remains in ignored
+raw storage and is not redistributed; the pinned code snapshot remains subject
+to the separately recorded absence of a repository license file.
 
 ## What is not yet established
 

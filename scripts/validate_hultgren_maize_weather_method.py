@@ -117,6 +117,7 @@ def main() -> None:
         "config": {"path": str(config_path.relative_to(ROOT)), "sha256": sha256_file(config_path)},
         "publication_doi": config["publication_doi"],
         "supplement": {
+            "official_endpoint": supplement["official_endpoint"],
             "archive_path": supplement["archive_path"],
             "archive_bytes": archive_path.stat().st_size,
             "archive_sha256": sha256_file(archive_path),
@@ -124,10 +125,13 @@ def main() -> None:
             "member_bytes": member_info.file_size,
             "member_sha256": sha256_bytes(member_bytes),
             "pages": pages,
+            "license": supplement["license"],
+            "storage_rule": supplement["storage_rule"],
             "required_text_checks": len(validation["required_supplement_text"]),
         },
         "code": {
             "source_commit": code_config["source_commit"],
+            "license_status": config["code"]["license_status"],
             "files": [
                 {"path": str(path.relative_to(ROOT)), "sha256": sha256_file(path)}
                 for path in code_paths
