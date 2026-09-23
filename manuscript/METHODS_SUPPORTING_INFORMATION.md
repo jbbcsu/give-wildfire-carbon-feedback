@@ -1496,6 +1496,18 @@ validates the fitted historical response and phase-sum arithmetic, but not an
 independent transformation from primitive daily weather, future moderator
 paths, future response, damages, or SCC.
 
+We additionally reproduced the authors' Iroquois County, USA local-temperature
+response checkpoint. Their pinned plotting code selects 59 observations and
+evaluates the maize estimate at local means of long-run growing-season Tmax,
+long-run precipitation, log GDP per capita, and irrigation share. A direct
+Stata calculation from the published `.ster` estimate and the isolated Python
+evaluator agree at every integer temperature from 1 through 40 C, with maximum
+absolute discrepancies of `1.32e-9` log-yield units for the response and
+`1.84e-10` for its coefficient-only standard error. The hash-bound receipt is
+`data/provenance/hultgren_maize_iroquois_curve_validation_20260923.json`. This
+is an evaluator checkpoint only; it does not validate future climate inputs,
+precipitation attribution, damages, or SCC.
+
 The aggregate evidence decision is applied after the country-held-out yield,
 future-support, and GMST-normalized climate diagnostics. Production promotion
 requires a new independent untouched holdout, five valid country folds for

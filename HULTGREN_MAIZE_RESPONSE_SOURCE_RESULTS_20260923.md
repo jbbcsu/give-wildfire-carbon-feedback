@@ -102,6 +102,18 @@ It also predates the final 2025 estimate, so its projection outputs cannot be
 treated as version-matched substitutes. The archive audit is recorded in
 `data/provenance/hultgren_historical_impact_archive_20260923.json`.
 
+## Published local-response checkpoint now established
+
+The paper's Iroquois County, USA temperature-response example is now reproduced
+through two software paths. A Stata calculation using the pinned `.ster`
+estimate and the source code's 59-observation local moderator means agrees with
+the isolated Python evaluator at all integer temperatures from 1 through 40 C.
+Maximum absolute response and coefficient-only-standard-error discrepancies are
+`1.32e-9` and `1.84e-10`, respectively. This validates local-response transport
+algebra at an author-selected location; it is not a future, precipitation,
+damage, or SCC result. Full values and limits are in
+`HULTGREN_IROQUOIS_CURVE_RESULTS_20260923.md`.
+
 ## What is not yet established
 
 The recovered historical regression dataset resolves historical coefficient
@@ -120,14 +132,12 @@ machine-readable validation receipt.
 
 ## Defensible next route
 
-1. Reproduce a published local-response curve or figure checkpoint from the
-   now-validated historical data and response algebra.
-2. Implement the documented crop-calendar aggregation and monthly precipitation
+1. Implement the documented crop-calendar aggregation and monthly precipitation
    transforms on matched historical weather, then reproduce source features
    before any future projection.
-3. Register explicit future paths for income, irrigation, long-run temperature,
+2. Register explicit future paths for income, irrigation, long-run temperature,
    and long-run precipitation rather than silently holding moderators fixed.
-4. Treat the published-response projection as a benchmark alongside the
+3. Treat the published-response projection as a benchmark alongside the
    project's U.S. NASS validation, not as a substitute for validation.
 
 Primary source: [Hultgren et al. (2025)](https://doi.org/10.1038/s41586-025-09085-w)

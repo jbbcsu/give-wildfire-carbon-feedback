@@ -1,0 +1,69 @@
+{
+  "claim_gates": {
+    "damage_estimate_validated": false,
+    "future_climate_projection_validated": false,
+    "precipitation_attribution_validated": false,
+    "published_local_temperature_curve_reproduced": true,
+    "scc_estimate_validated": false
+  },
+  "curve": {
+    "gdd_base_c": 8,
+    "kdd_threshold_c": 31,
+    "reference_temperature_c": 8,
+    "response_max_absolute_error": 1.3169280665970007e-09,
+    "selected_points": {
+      "20": {
+        "coefficient_only_standard_error": 0.0010974590396963192,
+        "delta_log_yield_per_day": 0.0013631213255916198
+      },
+      "31": {
+        "coefficient_only_standard_error": 0.002103463159417809,
+        "delta_log_yield_per_day": 0.002612649207383938
+      },
+      "35": {
+        "coefficient_only_standard_error": 0.005218518365318082,
+        "delta_log_yield_per_day": -0.03156735511962891
+      },
+      "40": {
+        "coefficient_only_standard_error": 0.012130808098226342,
+        "delta_log_yield_per_day": -0.07429236052839497
+      },
+      "8": {
+        "coefficient_only_standard_error": 0.0,
+        "delta_log_yield_per_day": 0.0
+      }
+    },
+    "standard_error_max_absolute_error": 1.8414279085929297e-10,
+    "temperature_c": [
+      1,
+      40
+    ]
+  },
+  "interpretation": "An independent Python evaluator reproduces Stata's published-source Iroquois maize one-day temperature response and coefficient-only uncertainty at the source local moderators. This validates a local response checkpoint, not a future yield, damage, precipitation-attribution, or SCC result.",
+  "location": {
+    "adm2": "iroquois",
+    "iso": "USA",
+    "observations": 59
+  },
+  "moderators": {
+    "irrigated_share": 0.0075398195,
+    "ln_gdppc": 10.173247,
+    "lr_prcp_crop": 88.434906,
+    "lr_tmax_crop": 25.527721
+  },
+  "schema": "hultgren_maize_iroquois_curve_validation/v1",
+  "source": {
+    "coefficient_sha256": "f3f3c011c4ebb4d4e49712bae1fdc320271460d0ff7d6942d21aa910a553318a",
+    "covariance_sha256": "e8b11fc5ac8b3087918987aaf02e959e66d323649835647ae7c9972d32c45cc6",
+    "dataset_sha256": "06c2f0102580518a3eea88a6cd677af4636d40882452aa15b65ac7178cf9267a",
+    "source_code": "pinned USA_CHN_mac.do at 3ccdffcd4e4ff6e55566ce76e2aac130ee86349a",
+    "stata_curve_sha256": "4430c5f2e8f92bd958f7da010e38e9580bbf8efa8b83712728c6592619a3dfaf"
+  },
+  "validated_at_utc": "2026-09-23T22:24:19.877226+00:00",
+  "validation_gates": {
+    "python_stata_response_match": true,
+    "python_stata_standard_error_match": true,
+    "source_subset_count_reproduced": true,
+    "temperature_basis_reproduced": true
+  }
+}
