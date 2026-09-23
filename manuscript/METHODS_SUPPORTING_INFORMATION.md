@@ -1873,7 +1873,7 @@ spatial-correlation-robust inference remain fidelity gates. Composite drought
 and direct weather remain competing moisture representations; neither creates
 an additive SCC sector.
 
-### S9.19 Agricultural-area USDM spatial-fidelity sensitivity
+### S9.19 Rejected 3.96 km agricultural-area USDM diagnostic and sentinel gate
 
 We next replace whole-county drought shares with an outcome-blind spatial
 reconstruction closer to the article's stated exposure procedure. The fixed
@@ -1903,9 +1903,9 @@ approximately four-mile horizontal error that official metadata attribute to
 pre-2004 digitized USDM vectors, but it remains a computational approximation.
 The implementation fixes one numerical worker, 1024-by-1024 raster blocks, a
 32 MiB GDAL block cache, one county geometry at a time, and a 640 MiB process
-RSS gate. Outcome-blind sentinel counties will subsequently compare 3.96 km,
-approximately 1 km, and native 30 m overlays; failure of the reported exposure
-tolerance rejects the coarse national route.
+RSS gate. Outcome-blind sentinel counties subsequently compared 3.96 km,
+990 m, and native 30 m overlays; failure of the reported exposure tolerance
+rejects the coarse national route.
 
 The USDM vector `DM` polygons are mutually exclusive severity classes. This is
 different from the official tabular-statistics convention, whose D0--D4
@@ -1925,10 +1925,10 @@ each mask. These remain historical exposure-fidelity tests. They neither
 project future USDM classes nor authorize a causal coefficient, global
 transport, agricultural damage function, or SCC input.
 
-The completed sparse grid has 970,190 rows, 2,909 counties, and 5,818
-county-mask groups. Weights reconcile to one within `5.67e-15`; the build peaks
-at 430,145,536 bytes RSS. Seventy-seven isolated vector batches produce 75,634
-county-mask-year rows from all 679 maps. No retained point has overlapping
+The completed 3.96 km diagnostic sparse grid has 970,190 rows, 2,909 counties,
+and 5,818 county-mask groups. Weights reconcile to one within `5.67e-15`; the
+build peaks at 430,145,536 bytes RSS. Seventy-seven isolated vector batches
+produce 75,634 county-mask-year rows from all 679 maps. No retained point has overlapping
 severity assignments, annual time reconciles within `1.43e-14` week, and the
 largest accepted batch peaks at 622,051,328 bytes, below the 640 MiB gate. A
 larger monolithic overlay was rejected on resource grounds and is not used.
@@ -1955,10 +1955,10 @@ changes and are not structural marginal-damage estimates.
 
 Independent joint-design checks reproduce drought-only slopes within
 `1.45e-11`; state-robustness full fits and sentinel deletions within `1.29e-08`;
-and state covariance entries within `4.76e-10`. The complete comparison is in
-`US_USDM_AGRICULTURAL_AREA_RESULTS_20260922.md`. These checks establish source,
-accounting, computational, and numerical fidelity only. The 3.96 km national
-route was then tested against the predeclared 990 m/native-30 m sentinel audit;
+and state covariance entries within `4.76e-10`. The complete 3.96 km diagnostic
+comparison is in `US_USDM_AGRICULTURAL_AREA_RESULTS_20260922.md`. These checks
+establish source, accounting, computational, and numerical fidelity only. The
+3.96 km national route was then tested against the predeclared 990 m/native-30 m sentinel audit;
 no historical coefficient is released to the global damage or SCC interface.
 
 The outcome-blind selector ranks counties into eight cultivated-area strata,
