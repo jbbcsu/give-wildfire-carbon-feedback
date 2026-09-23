@@ -1508,6 +1508,18 @@ absolute discrepancies of `1.32e-9` log-yield units for the response and
 is an evaluator checkpoint only; it does not validate future climate inputs,
 precipitation attribution, damages, or SCC.
 
+We separately translated the pinned `collapse_clim.do` maize calendar rules
+into an isolated Python module and audited all 412,282 recovered historical
+rows in bounded chunks. The 377,973 complete rows contain 27 distinct local
+calendar configurations, including 152,384 cross-calendar-year rows and
+11,155 complete India rows subject to the source's agricultural-reporting-year
+rule. Planting and harvest day-to-month conversion, inclusive season length,
+month-of-season ordering, and assignment to month 1, months 2--4, and month 5
+through harvest match with zero discrepancies. The validation receipt is
+`data/provenance/hultgren_maize_calendar_validation_20260923.json`. This closes
+calendar bookkeeping, not reconstruction of primitive GMFD daily weather or
+administrative-unit crop weighting.
+
 The aggregate evidence decision is applied after the country-held-out yield,
 future-support, and GMST-normalized climate diagnostics. Production promotion
 requires a new independent untouched holdout, five valid country folds for

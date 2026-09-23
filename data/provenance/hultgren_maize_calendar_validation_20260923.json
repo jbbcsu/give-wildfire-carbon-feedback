@@ -1,0 +1,86 @@
+{
+  "claim_gates": {
+    "administrative_grid_aggregation_validated": false,
+    "damage_estimate_validated": false,
+    "future_climate_projection_validated": false,
+    "primitive_daily_weather_reproduced": false,
+    "scc_estimate_validated": false,
+    "source_calendar_month_arithmetic_reproduced": true
+  },
+  "counts": {
+    "calendar_configurations": {
+      "01-06-6": 347,
+      "02-05-4": 15038,
+      "02-07-6": 575,
+      "03-07-5": 18855,
+      "03-08-6": 1672,
+      "03-09-7": 410,
+      "03-10-8": 588,
+      "04-08-5": 2341,
+      "04-09-6": 30430,
+      "04-10-7": 2086,
+      "05-08-4": 3832,
+      "05-09-5": 22700,
+      "05-10-6": 77964,
+      "05-11-7": 35321,
+      "06-03-10": 553,
+      "06-09-4": 5864,
+      "06-10-5": 5914,
+      "07-11-5": 342,
+      "07-12-6": 1193,
+      "08-11-4": 117,
+      "10-01-4": 37811,
+      "10-02-5": 1112,
+      "10-03-6": 421,
+      "10-04-7": 12687,
+      "11-03-5": 45,
+      "11-04-6": 99094,
+      "11-05-7": 661
+    },
+    "india_valid_rows": 11155,
+    "missing_calendar_rows": 34309,
+    "observations": 412282,
+    "unique_calendar_configurations": 27,
+    "unique_country_calendar_year_configurations": 76,
+    "valid_calendar_rows": 377973,
+    "year_regimes": {
+      "cross_year": 152384,
+      "same_year": 225589
+    }
+  },
+  "execution": {
+    "chunk_size": 50000,
+    "columns_read": [
+      "iso",
+      "median_plant_date",
+      "median_harvest_date",
+      "median_plant_month",
+      "median_harvest_month",
+      "season_length"
+    ]
+  },
+  "interpretation": "The source day-to-month, inclusive season, month-of-season and three-phase calendar arithmetic are reproduced for every complete historical maize row. This validates calendar bookkeeping, not daily weather, spatial aggregation, future response, damage, or SCC.",
+  "mismatches": {
+    "harvest_month": 0,
+    "phase_partition": 0,
+    "plant_month": 0,
+    "report_year_mapping": 0,
+    "season_length": 0
+  },
+  "schema": "hultgren_maize_calendar_validation/v1",
+  "source": {
+    "dataset_path": "data/raw/hultgren_response/historical_git/dae5fe8d0d4a260328e4baa45b547368bd6790b3/corn_gmfd_v1_ready.dta",
+    "dataset_sha256": "06c2f0102580518a3eea88a6cd677af4636d40882452aa15b65ac7178cf9267a",
+    "source_code": "collapse_clim.do pinned at 3ccdffcd4e4ff6e55566ce76e2aac130ee86349a"
+  },
+  "validated_at_utc": "2026-09-23T22:48:55.152342+00:00",
+  "validation_gates": {
+    "complete_calendar_count": true,
+    "harvest_day_to_month_exact": true,
+    "inclusive_season_length_exact": true,
+    "plant_day_to_month_exact": true,
+    "report_year_mapping_internally_exact": true,
+    "source_observation_count": true,
+    "three_phase_partition_exact": true
+  }
+}

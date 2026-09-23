@@ -114,6 +114,13 @@ algebra at an author-selected location; it is not a future, precipitation,
 damage, or SCC result. Full values and limits are in
 `HULTGREN_IROQUOIS_CURVE_RESULTS_20260923.md`.
 
+The separate full-source calendar audit also reproduces planting/harvest
+day-to-month conversion, inclusive same- and cross-year seasons,
+month-of-season ordering, and the three maize precipitation phases for all
+377,973 complete calendar rows, with zero mismatches. This closes calendar
+bookkeeping but not primitive GMFD weather or spatial aggregation. See
+`HULTGREN_MAIZE_CALENDAR_RESULTS_20260923.md`.
+
 ## What is not yet established
 
 The recovered historical regression dataset resolves historical coefficient

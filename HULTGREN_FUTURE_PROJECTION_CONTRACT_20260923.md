@@ -5,8 +5,9 @@
 This contract defines the next use of the reproduced Hultgren et al. maize
 response as a global empirical benchmark. It prevents a historically valid
 coefficient vector from being applied to mismatched future features. Historical
-response, phase arithmetic, and one published local-response checkpoint now
-pass; future response, agricultural damage, and SCC gates remain closed.
+response, phase arithmetic, the exact source crop-calendar bookkeeping, and one
+published local-response checkpoint now pass; primitive historical weather,
+future response, agricultural damage, and SCC gates remain closed.
 
 ## Required weather basis
 
@@ -95,9 +96,11 @@ double counting.
 ## Remaining implementation sequence
 
 1. Reproduce source-compatible historical monthly precipitation, GDD, and KDD
-   checkpoints from primitive daily climate. The author-selected Iroquois local
-   response already matches across Stata and Python; it validates the response
-   evaluator, not primitive climate transformation.
+   checkpoints from primitive daily climate. The day-to-month, inclusive
+   season, cross-year, and three-phase calendar arithmetic already matches all
+   377,973 complete historical rows, and the author-selected Iroquois local
+   response matches across Stata and Python. These validate calendar and
+   response algebra, not primitive climate transformation.
 2. Freeze the administrative-unit/grid aggregation choice on historical data.
 3. Generate matched historical and future basis files from the same code path.
 4. Apply fixed, trend, and upper-adaptation moderator ledgers.
