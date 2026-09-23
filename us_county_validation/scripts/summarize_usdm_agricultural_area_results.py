@@ -136,6 +136,41 @@ def rejected_diagnostic_summary(path: Path) -> dict[str, object]:
     }
 
 
+def coefficient_movement(left: dict[str, object], right: dict[str, object]) -> dict[str, object]:
+    key_fields = ("outcome_crop", "irrigation_class", "family", "term")
+
+    def indexed(payload: dict[str, object]) -> dict[tuple[str, ...], float]:
+        result = {}
+        for row in payload["coefficients"]:
+            key = tuple(str(row[field]) for field in key_fields)
+            if key in result:
+                raise ValueError(f"duplicate coefficient key {key}")
+            result[key] = float(row["exact_percent_change_per_equivalent_week"])
+        return result
+
+    left_values = indexed(left)
+    right_values = indexed(right)
+    if left_values.keys() != right_values.keys():
+        raise ValueError("coefficient supports differ across spatial bases")
+    rows = [
+        {
+            **dict(zip(key_fields, key, strict=True)),
+            "absolute_movement_percentage_point_per_equivalent_week": abs(
+                left_values[key] - right_values[key]
+            ),
+        }
+        for key in sorted(left_values)
+    ]
+    maximum = max(rows, key=lambda row: row["absolute_movement_percentage_point_per_equivalent_week"])
+    return {
+        "coefficient_count": len(rows),
+        "mean_absolute_movement_percentage_point_per_equivalent_week": float(np.mean([
+            row["absolute_movement_percentage_point_per_equivalent_week"] for row in rows
+        ])),
+        "maximum_absolute_movement": maximum,
+    }
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     for basis in ("county", "cultivated", "broad"):
@@ -175,6 +210,30 @@ def main() -> None:
             "drought_plus_weather": result_coefficients(
                 getattr(arguments, f"{basis}_weather_result"), "drought_plus_weather"
             ),
+        }
+    output["coefficient_movements_within_final_comparison"] = {
+        family: {
+            pair: coefficient_movement(
+                output["bases"][left][family], output["bases"][right][family]
+            )
+            for pair, left, right in (
+                ("county_vs_cultivated", "county", "cultivated"),
+                ("county_vs_broad", "county", "broad"),
+                ("cultivated_vs_broad", "cultivated", "broad"),
+            )
+        }
+        for family in ("drought_only", "drought_plus_weather")
+    }
+    if "rejected_3_96km_diagnostic" in output:
+        rejected = output["rejected_3_96km_diagnostic"]["comparison"]["bases"]
+        output["coefficient_movements_990m_vs_rejected_3_96km"] = {
+            family: {
+                basis: coefficient_movement(
+                    output["bases"][basis][family], rejected[basis][family]
+                )
+                for basis in ("cultivated", "broad")
+            }
+            for family in ("drought_only", "drought_plus_weather")
         }
     common_frames = {}
     common_keys = None

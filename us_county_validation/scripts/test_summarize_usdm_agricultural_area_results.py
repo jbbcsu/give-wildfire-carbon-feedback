@@ -6,7 +6,10 @@ import json
 import tempfile
 from pathlib import Path
 
-from summarize_usdm_agricultural_area_results import rejected_diagnostic_summary
+from summarize_usdm_agricultural_area_results import (
+    coefficient_movement,
+    rejected_diagnostic_summary,
+)
 
 
 def payload() -> dict[str, object]:
@@ -37,6 +40,35 @@ def main() -> None:
             assert "scc_claim_authorized" in str(error)
         else:
             raise AssertionError("open SCC claim gate was accepted")
+
+    left = {"coefficients": [
+        {
+            "outcome_crop": "corn", "irrigation_class": "dryland",
+            "family": "drought_only", "term": "d0_weeks",
+            "exact_percent_change_per_equivalent_week": -0.2,
+        },
+        {
+            "outcome_crop": "corn", "irrigation_class": "dryland",
+            "family": "drought_only", "term": "d1_weeks",
+            "exact_percent_change_per_equivalent_week": -0.5,
+        },
+    ]}
+    right = {"coefficients": [
+        {
+            "outcome_crop": "corn", "irrigation_class": "dryland",
+            "family": "drought_only", "term": "d0_weeks",
+            "exact_percent_change_per_equivalent_week": -0.3,
+        },
+        {
+            "outcome_crop": "corn", "irrigation_class": "dryland",
+            "family": "drought_only", "term": "d1_weeks",
+            "exact_percent_change_per_equivalent_week": -0.1,
+        },
+    ]}
+    movement = coefficient_movement(left, right)
+    assert movement["coefficient_count"] == 2
+    assert abs(movement["mean_absolute_movement_percentage_point_per_equivalent_week"] - 0.25) < 1e-12
+    assert movement["maximum_absolute_movement"]["term"] == "d1_weeks"
     print("agricultural-area summary diagnostic-binding tests passed")
 
 
