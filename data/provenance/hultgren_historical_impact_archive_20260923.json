@@ -1,0 +1,75 @@
+{
+  "archive": {
+    "bytes": 1075905438,
+    "git_blob_sha1": "532542429a917462d9059bb1632fb846e8cfeea3",
+    "historical_commit": "31be4b633f113a2d9ff6c17fb1c1a9229f0bfd65",
+    "license_status": "Zenodo metadata labels its record CC BY 4.0, but the reviewed GitLab tree has no license file. Keep the archive ignored and do not redistribute it until the archive's license scope is confirmed.",
+    "local_path": "data/raw/hultgren_response/impact_data_archive_31be4b633f113a2d9ff6c17fb1c1a9229f0bfd65/impact_data.zip",
+    "repository_path": "impact_data.zip",
+    "sha256": "a9ab026c5f4cdeb0ed223e44cddec98d7aca84a038b49972eed20803d22123e3",
+    "source_repository": "https://gitlab.com/ClimateImpactLab/cil-ag-replication-package",
+    "version_warning": "This January 2023 archive predates the final 2025 estimate and cannot be assumed to match it.",
+    "zip_members": 114,
+    "zip_uncompressed_bytes": 2633178562
+  },
+  "audited_at_utc": "2026-09-23T13:21:29.182617+00:00",
+  "claim_gates": {
+    "archive_identity_validated": true,
+    "current_regression_data_recovered": false,
+    "damage_estimate_validated": false,
+    "final_2025_model_version_match_validated": false,
+    "future_precipitation_projection_validated": false,
+    "scc_estimate_validated": false
+  },
+  "config": {
+    "path": "config/hultgren_historical_impact_archive_v1.toml",
+    "sha256": "e8bc51b5f4acb9418b0bb32c11a222a65ed7d5172c6ce0171e227cb40aabd73f"
+  },
+  "contents": {
+    "historical_maize_projection_columns": [
+      "region",
+      "year",
+      "coeffgdd831",
+      "coeffkdd31",
+      "gdd831",
+      "kdd31",
+      "tasmax",
+      "edd",
+      "pr",
+      "prpoly2",
+      "coeffpr",
+      "coeffpr2",
+      "loggdppc",
+      "logpopop",
+      "v15",
+      "seasonaltasmax",
+      "seasonalpr",
+      "irshare",
+      "seasonaltasmaxseasonalpr",
+      "seasonalprspline1",
+      "seasonalprindic1",
+      "seasonalprspline2",
+      "seasonalprindic2",
+      "seasonalprspline3",
+      "seasonalprindic3",
+      "seasonaltasmaxseasonalprspline1",
+      "seasonaltasmaxseasonalprindic1",
+      "seasonaltasmaxseasonalprspline2",
+      "seasonaltasmaxseasonalprindic2",
+      "seasonaltasmaxseasonalprspline3",
+      "seasonaltasmaxseasonalprindic3",
+      "population",
+      "baseline"
+    ],
+    "historical_maize_projection_member": "impact_data/single-corn-210527/rcp85/CCSM4/low/SSP3/corn-160221-allcalcs-corn-160221.csv",
+    "historical_maize_projection_rows": 121890,
+    "required_current_regression_member": "impact_data/for_regressions/corn_gmfd_v1_ready.dta",
+    "required_current_regression_member_present": false
+  },
+  "current_data_route": {
+    "checked": "2026-09-23",
+    "http_status": 404,
+    "url": "https://uchicago.box.com/s/a1ni7tthdtw5qqss5iifpe1mc7otqmte"
+  },
+  "schema_version": 1
+}

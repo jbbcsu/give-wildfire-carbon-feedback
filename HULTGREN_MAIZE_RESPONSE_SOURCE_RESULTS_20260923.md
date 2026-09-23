@@ -31,11 +31,23 @@ season; it is not an annual-rainfall-only model.
 
 The public replication code expects
 `impact_data/for_regressions/corn_gmfd_v1_ready.dta`. That impact dataset is not
-present in the pinned repository tree or this project's source snapshot. It is
-needed to recover the authors' baseline covariate distributions and reproduce
-their local response curves exactly. The reviewed plotting code evaluates one
-temperature response for a U.S. and Chinese location; it does not supply a
-standalone globally representative precipitation response curve.
+present in the pinned repository tree or this project's source snapshot. The
+pinned and current READMEs direct users to a separate Box archive, but that URL
+returned HTTP 404 when checked on 23 September 2026.
+
+An older official GitLab commit still contains a 1.076 GB `impact_data.zip`.
+The archive has now been downloaded, Git-blob- and SHA-256-validated, and read
+without full extraction. It contains 114 members from January 2023, including
+historical projection outputs, but **not** the required regression dataset.
+It also predates the final 2025 estimate, so its projection outputs cannot be
+treated as version-matched substitutes. The archive audit is recorded in
+`data/provenance/hultgren_historical_impact_archive_20260923.json`.
+
+The missing regression dataset is needed to recover the authors' baseline
+covariate distributions and reproduce their local response curves exactly. The
+reviewed plotting code evaluates one temperature response for a U.S. and
+Chinese location; it does not supply a standalone globally representative
+precipitation response curve.
 
 Consequently, this audit does **not** yet establish projected yield impacts,
 monetary agricultural damages, or an SCC increment. Applying the coefficient
