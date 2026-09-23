@@ -4,6 +4,12 @@
 and before constructing or inspecting any nonsentinel 990 m exposure or
 response result.
 
+**Resource-only amendment, 2026-09-23:** after Colorado's validated state grid
+reached 346,684 sparse rows, but before any Texas 990 m grid or response was
+constructed, the runner added the whole-county chunk fallback described below.
+The trigger uses grid row count only, retains every county and all 679 maps,
+and does not inspect exposure values, yields, coefficients, signs, or fit.
+
 ## Purpose and claim boundary
 
 Replace the rejected 3.96 km center-assignment approximation with the 990 m
@@ -32,8 +38,13 @@ Each continental state or district is a deterministic partition. For each
 partition, build and independently validate the 990 m sparse grid, prepare a
 compact numeric overlay, apply all 679 maps in isolated map batches, and
 independently validate annual exposure accounting. A batch exceeding 640 MiB
-RSS is rejected and divided into single-map workers. No national fine grid is
-resident in memory. Only validated state exposure panels are merged.
+RSS is rejected and divided into single-map workers. If a state grid exceeds
+250,000 sparse rows, it is further split in sorted county order into
+deterministic whole-county chunks of at most 250,000 rows. Every chunk runs all
+679 maps and its validator independently; chunk panels are accepted only when
+their disjoint county support exactly reconstructs the validated state grid.
+No national fine grid is resident in memory. Only validated state exposure
+panels are merged.
 
 The run halts if free disk falls below 100 GiB. Raw sources, state grids, and
 batch intermediates remain ignored. Tracked receipts contain source/output

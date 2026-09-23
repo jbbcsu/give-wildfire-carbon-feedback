@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
 import json
 import shutil
 import subprocess
@@ -21,6 +22,8 @@ VALIDATE_GRID = HERE / "validate_cdl_agricultural_grid.py"
 PREPARE = HERE / "prepare_usdm_agricultural_overlay_grid.py"
 RUN_EXPOSURE = HERE / "run_usdm_agricultural_exposure_batches.py"
 VALIDATE_EXPOSURE = HERE / "validate_usdm_agricultural_exposure.py"
+SPLIT_GRID = HERE / "split_cdl_agricultural_grid_by_county.py"
+MERGE_EXPOSURE_CHUNKS = HERE / "merge_usdm_agricultural_exposure_chunks.py"
 
 
 def run(command: list[str], log: Path) -> None:
@@ -42,6 +45,35 @@ def successful_resource(path: Path, ceiling: int) -> bool:
     )
 
 
+def sha512(path: Path) -> str:
+    digest = hashlib.sha512()
+    with path.open("rb") as stream:
+        for block in iter(lambda: stream.read(4 * 1024 * 1024), b""):
+            digest.update(block)
+    return digest.hexdigest()
+
+
+def validated_chunk_audit(
+    path: Path, grid: Path, grid_sha512: str, maximum_rows: int
+) -> dict[str, object]:
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    if payload.get("schema") != "cdl_agricultural_grid_county_chunks_v1":
+        raise ValueError("unexpected county-chunk audit schema")
+    if payload["source"]["path"] != str(grid) or payload["source"]["sha512"] != grid_sha512:
+        raise ValueError("county-chunk audit does not bind the validated state grid")
+    if int(payload["maximum_rows_per_chunk"]) != maximum_rows:
+        raise ValueError("county-chunk row ceiling differs from the frozen run")
+    for record in payload["chunks"]:
+        chunk = Path(record["path"])
+        if (
+            not chunk.is_file()
+            or sha512(chunk) != record["sha512"]
+            or int(record["rows"]) > maximum_rows
+        ):
+            raise ValueError(f"county-chunk identity or size failed for {chunk}")
+    return payload
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--grid-config", type=Path, required=True)
@@ -53,6 +85,7 @@ def main() -> None:
     parser.add_argument("--out-dir", type=Path, required=True)
     parser.add_argument("--state-fips", action="append")
     parser.add_argument("--batch-size", type=int, default=25)
+    parser.add_argument("--max-grid-rows-per-exposure-chunk", type=int, default=250000)
     parser.add_argument("--memory-cap-bytes", type=int, default=640 * 1024 * 1024)
     parser.add_argument("--free-disk-floor-bytes", type=int, default=100 * 1024**3)
     arguments = parser.parse_args()
@@ -96,36 +129,87 @@ def main() -> None:
             "--resource", str(grid_resource), "--memory-cap-bytes", str(arguments.memory_cap_bytes),
             "--out", str(grid_validation),
         ], state_dir / "grid_990m.validation.log")
-
-        prepared = state_dir / "overlay_990m.npz"
-        prepared_audit = state_dir / "overlay_990m.audit.json"
-        prepared_resource = state_dir / "overlay_990m.resource.json"
-        if not (prepared.is_file() and prepared_audit.is_file() and successful_resource(prepared_resource, arguments.memory_cap_bytes)):
-            run([
-                sys.executable, str(MEASURE), "--metrics-out", str(prepared_resource), "--",
-                sys.executable, "-B", str(PREPARE), "--grid", str(grid),
-                "--out", str(prepared), "--audit-out", str(prepared_audit),
-            ], state_dir / "overlay_990m.log")
-
+        grid_check = json.loads(grid_validation.read_text(encoding="utf-8"))
         exposure = state_dir / "exposure_990m.parquet"
         exposure_audit = state_dir / "exposure_990m.audit.json"
         exposure_resource = state_dir / "exposure_990m.resource.json"
         exposure_validation = state_dir / "exposure_990m.validation.json"
         if not (exposure.is_file() and exposure_audit.is_file() and successful_resource(exposure_resource, arguments.memory_cap_bytes)):
-            run([
-                sys.executable, "-B", str(RUN_EXPOSURE),
-                "--config", str(arguments.shape_config), "--prepared-grid", str(prepared),
-                "--prepared-grid-audit", str(prepared_audit), "--shape-dir", str(arguments.shape_dir),
-                "--batch-dir", str(state_dir / "map_batches"), "--batch-size", str(arguments.batch_size),
-                "--memory-cap-bytes", str(arguments.memory_cap_bytes), "--out", str(exposure),
-                "--audit-out", str(exposure_audit), "--resource-out", str(exposure_resource),
-            ], state_dir / "exposure_990m.log")
+            if int(grid_check["rows"]) <= arguments.max_grid_rows_per_exposure_chunk:
+                prepared = state_dir / "overlay_990m.npz"
+                prepared_audit = state_dir / "overlay_990m.audit.json"
+                prepared_resource = state_dir / "overlay_990m.resource.json"
+                if not (prepared.is_file() and prepared_audit.is_file() and successful_resource(prepared_resource, arguments.memory_cap_bytes)):
+                    run([
+                        sys.executable, str(MEASURE), "--metrics-out", str(prepared_resource), "--",
+                        sys.executable, "-B", str(PREPARE), "--grid", str(grid),
+                        "--out", str(prepared), "--audit-out", str(prepared_audit),
+                    ], state_dir / "overlay_990m.log")
+                run([
+                    sys.executable, "-B", str(RUN_EXPOSURE),
+                    "--config", str(arguments.shape_config), "--prepared-grid", str(prepared),
+                    "--prepared-grid-audit", str(prepared_audit), "--shape-dir", str(arguments.shape_dir),
+                    "--batch-dir", str(state_dir / "map_batches"), "--batch-size", str(arguments.batch_size),
+                    "--memory-cap-bytes", str(arguments.memory_cap_bytes), "--out", str(exposure),
+                    "--audit-out", str(exposure_audit), "--resource-out", str(exposure_resource),
+                ], state_dir / "exposure_990m.log")
+            else:
+                chunk_grid_dir = state_dir / "grid_chunks"
+                chunk_audit = state_dir / "grid_chunks.audit.json"
+                if not chunk_audit.is_file():
+                    run([
+                        sys.executable, "-B", str(SPLIT_GRID), "--grid", str(grid),
+                        "--out-dir", str(chunk_grid_dir), "--max-rows",
+                        str(arguments.max_grid_rows_per_exposure_chunk),
+                        "--audit-out", str(chunk_audit),
+                    ], state_dir / "grid_chunks.log")
+                split = validated_chunk_audit(
+                    chunk_audit, grid, str(grid_check["grid_sha512"]),
+                    arguments.max_grid_rows_per_exposure_chunk,
+                )
+                for chunk in split["chunks"]:
+                    index = int(chunk["chunk"])
+                    chunk_dir = state_dir / "exposure_chunks" / f"chunk_{index:03d}"
+                    chunk_dir.mkdir(parents=True, exist_ok=True)
+                    chunk_grid = Path(chunk["path"])
+                    prepared = chunk_dir / "overlay_990m.npz"
+                    prepared_audit = chunk_dir / "overlay_990m.audit.json"
+                    prepared_resource = chunk_dir / "overlay_990m.resource.json"
+                    if not (prepared.is_file() and prepared_audit.is_file() and successful_resource(prepared_resource, arguments.memory_cap_bytes)):
+                        run([
+                            sys.executable, str(MEASURE), "--metrics-out", str(prepared_resource), "--",
+                            sys.executable, "-B", str(PREPARE), "--grid", str(chunk_grid),
+                            "--out", str(prepared), "--audit-out", str(prepared_audit),
+                        ], chunk_dir / "overlay_990m.log")
+                    chunk_exposure = chunk_dir / "exposure_990m.parquet"
+                    chunk_exposure_audit = chunk_dir / "exposure_990m.audit.json"
+                    chunk_exposure_resource = chunk_dir / "exposure_990m.resource.json"
+                    chunk_exposure_validation = chunk_dir / "exposure_990m.validation.json"
+                    if not (chunk_exposure.is_file() and chunk_exposure_audit.is_file() and successful_resource(chunk_exposure_resource, arguments.memory_cap_bytes)):
+                        run([
+                            sys.executable, "-B", str(RUN_EXPOSURE),
+                            "--config", str(arguments.shape_config), "--prepared-grid", str(prepared),
+                            "--prepared-grid-audit", str(prepared_audit), "--shape-dir", str(arguments.shape_dir),
+                            "--batch-dir", str(chunk_dir / "map_batches"), "--batch-size", str(arguments.batch_size),
+                            "--memory-cap-bytes", str(arguments.memory_cap_bytes), "--out", str(chunk_exposure),
+                            "--audit-out", str(chunk_exposure_audit), "--resource-out", str(chunk_exposure_resource),
+                        ], chunk_dir / "exposure_990m.log")
+                    run([
+                        sys.executable, "-B", str(VALIDATE_EXPOSURE), "--exposure", str(chunk_exposure),
+                        "--audit", str(chunk_exposure_audit), "--resource", str(chunk_exposure_resource),
+                        "--memory-cap-bytes", str(arguments.memory_cap_bytes), "--out", str(chunk_exposure_validation),
+                    ], chunk_dir / "exposure_990m.validation.log")
+                run([
+                    sys.executable, "-B", str(MERGE_EXPOSURE_CHUNKS),
+                    "--chunk-audit", str(chunk_audit), "--chunk-root", str(state_dir / "exposure_chunks"),
+                    "--memory-cap-bytes", str(arguments.memory_cap_bytes), "--out", str(exposure),
+                    "--audit-out", str(exposure_audit), "--resource-out", str(exposure_resource),
+                ], state_dir / "exposure_990m.log")
         run([
             sys.executable, "-B", str(VALIDATE_EXPOSURE), "--exposure", str(exposure),
             "--audit", str(exposure_audit), "--resource", str(exposure_resource),
             "--memory-cap-bytes", str(arguments.memory_cap_bytes), "--out", str(exposure_validation),
         ], state_dir / "exposure_990m.validation.log")
-        grid_check = json.loads(grid_validation.read_text(encoding="utf-8"))
         exposure_check = json.loads(exposure_validation.read_text(encoding="utf-8"))
         if not grid_check.get("passed") or not exposure_check.get("passed"):
             raise ValueError(f"state {state} independent validation failed")
