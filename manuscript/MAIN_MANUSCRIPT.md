@@ -116,6 +116,20 @@ factors. The former motivates the multiscale timing tests; the latter supplies
 a spatial process benchmark. Neither is treated as a directly transportable
 marginal yield or SCC coefficient.
 
+[Hultgren et al. (2025)](https://doi.org/10.1038/s41586-025-09085-w)
+provide the closest published end-to-end benchmark: a global empirical crop
+response with within-season precipitation bins, temperature, irrigation,
+income, and long-run climate interactions, followed by agricultural valuation
+and a FaIR pulse calculation. We have hash-validated the published maize
+estimate and its full covariance matrix. Their Supplementary Table S13 reports
+partial staple-crop SCC sensitivities of $3.80--$17.75/tCO2 under varietal
+switching and $1.71--$7.99/tCO2 with additional flexible production and trade.
+These are ranges across changed assumptions, not confidence intervals or this
+paper's estimate. The current public data route omits a regression input needed
+to reproduce the final local response surface, so the published values remain
+an external scale/methods benchmark rather than a coefficient or SCC imported
+into GIVE.
+
 This study asks: how does the agricultural component of the global SCC change
 when a temperature-indexed agricultural pathway is replaced by a joint,
 crop-calendar-aligned temperature--precipitation response? The scope is crop
@@ -316,6 +330,16 @@ with registered year-shock controls remains unresolved rather than inherited
 from the diagnostic.
 
 ## 5. SCC implementation
+
+The published Hultgren partial-SCC calculation is used as an external methods
+and scale benchmark. Its 16 Table S13 rows use 2023 USD, constant 2%
+discounting, SSP3 income, a FaIR 1 GtC pulse in 2025, and assumptions that vary
+market geography, elasticities, expenditure caps, CO2 fertilization, and
+production flexibility. No unreported central row is inferred. The exact
+transcription, source hashes, and closed project-SCC gate are recorded in
+`HULTGREN_PARTIAL_SCC_BENCHMARK_20260923.md` and its machine-readable receipt.
+Our production result must instead use the registered GIVE currency, pulse,
+discounting, regional aggregation, adaptation, and replacement conventions.
 
 For every paired climate draw, a baseline and marginal CO2-pulse path share
 GCM/member, crop calendar, socioeconomic path, response draw, and weighting

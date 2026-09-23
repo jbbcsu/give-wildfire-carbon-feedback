@@ -1609,6 +1609,18 @@ paths propagate through the crop-specific joint response and one welfare
 mapping. The global SCC is calculated from the discounted difference using
 GIVE's established marginal-damage method.
 
+For external scale and method validation, Supplementary Table S13 of Hultgren
+et al. (2025) is transcribed into a 16-row frozen benchmark. The table reports
+2023-USD partial SCC values under constant 2% discounting and SSP3 income, with
+separate RCP4.5/RCP8.5 sensitivities over market geography, elasticities,
+expenditure caps, CO2 fertilization, and production flexibility. The observed
+ranges are $3.80--$17.75/tCO2 for varietal switching and $1.71--$7.99/tCO2
+with additional flexible production and trade. These are scenario ranges, not
+sampling intervals. The executable validator binds the source PDF receipt,
+text-extraction hash, all 16 distinct rows, and the reported approximately 55%
+flexibility adjustment. It explicitly leaves project damage, project SCC, and
+GIVE-integration authorization false.
+
 The executable integration gate inspects Mimi's parameter-connection graph
 before each paired marginal run. It requires exactly one internal producer for
 `DamageAggregator.damage_ag`, identifies that producer as
