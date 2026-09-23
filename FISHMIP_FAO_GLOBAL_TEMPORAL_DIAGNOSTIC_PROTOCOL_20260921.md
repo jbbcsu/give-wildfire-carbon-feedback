@@ -31,8 +31,9 @@ SHA-256 `ca58247c4f6044948b01048e4a808d21a4975c9f4171e3d0d1fbc321e46ebb52`,
 under its exact contract. For 1950--2014, sum positive values only where
 `environment_class=marine` and `measure_code=Q_tlw`; retain status meanings and
 never turn missing/suppressed values into observed zero. This is the same
-provisional filter used in the descriptive support audit; the supported
-FishStat GUI-menu reconciliation remains open.
+provisional filter used in the descriptive support audit. The FishStat
+GUI-menu reconciliation was subsequently closed on 23 September 2026, without
+promoting this provisional filter or changing the frozen diagnostic.
 
 ## Frozen comparisons
 

@@ -60,9 +60,11 @@ bundled OpenJDK runtime passes locally. A disposable-database headless export
 now preserves and independently reconciles all 30,918 wide capture records and
 2,318,850 annual 1950--2024 value/status pairs. Its 29,413,192-byte CSV has
 SHA-256 `ca58247c4f6044948b01048e4a808d21a4975c9f4171e3d0d1fbc321e46ebb52`.
-The FishStat GUI-menu export comparison, marine-tonnage filter, historical
-country reconciliation, allocation, welfare, damage, and SCC gates remain
-open.
+The supported FishStat GUI-menu export now independently reconciles all 30,918
+records and 2,318,850 annual value/status pairs, including the GUI's
+two-decimal display bound and every status symbol. Marine-tonnage filtering,
+historical country reconciliation, allocation, welfare, damage, and SCC gates
+remain open.
 A separate positive-tonnage concentration audit finds that top-five
 vessel-flag-country and reported-species shares fall from 51.34% and 37.71% in
 1950 to 41.07% and 24.23% in 2014, while the top-five FAO-area share remains
@@ -72,8 +74,8 @@ Adjacent-checkpoint composition turnover is also material: total-variation
 distance spans 0.253--0.357 for vessel-flag countries, 0.315--0.448 for
 reported species, and 0.138--0.314 for FAO areas. Only two of the 1990 top-five
 countries remain top-five in 2014. A time-invariant observed-catch allocation
-is therefore rejected; GUI reconciliation, EEZ allocation, calibration,
-welfare, damage, and SCC gates remain closed.
+is therefore rejected; EEZ allocation, calibration, welfare, damage, and SCC
+gates remain closed.
 
 The post-existing-evidence global temporal diagnostic in
 [`FISHMIP_FAO_GLOBAL_TEMPORAL_DIAGNOSTIC.md`](FISHMIP_FAO_GLOBAL_TEMPORAL_DIAGNOSTIC.md)
@@ -83,8 +85,8 @@ correlations are high (0.953--0.985), but annual first-difference correlations
 are only 0.251--0.303; after 1980, level correlations fall to 0.726--0.903 and
 first-difference correlations remain 0.217--0.338. A shared long-run rise does
 not establish annual predictive skill. The independent reconstruction passes
-736 checks. No model is selected or weighted, and GUI reconciliation,
-allocation, attribution, welfare, damage, and SCC gates remain closed.
+736 checks. No model is selected or weighted, and allocation, attribution,
+welfare, damage, and SCC gates remain closed.
 
 The ISIMIP3b public catalogue currently exposes 20 global monthly total-catch
 density (`tc`) datasets in a balanced grid of BOATS and EcoOcean, forced by

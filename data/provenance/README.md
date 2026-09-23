@@ -126,8 +126,10 @@ production allocation or new empirical source is included yet.
 `fao_fishstat_marine_composition_turnover_20260903.json` is bound to the
 validated symbol-preserving headless export and compares fixed 1950, 1970,
 1990, and 2014 country/species/area compositions. It is a descriptive rejection
-of time-invariant allocation, not GUI reconciliation, EEZ allocation, FishMIP
-calibration, welfare, damage, or SCC evidence.
+of time-invariant allocation, not EEZ allocation, FishMIP calibration,
+welfare, damage, or SCC evidence. The later supported GUI reconciliation is
+recorded in `fao_fishstat_gui_headless_reconciliation_20260923.json`; it closes
+only the observed-record integrity gate.
 
 `fishmip_metric_disagreement_materiality_20260904.json` joins the exact 30
 structural-metric robustness cells to the independently preregistered 1.25

@@ -1,0 +1,108 @@
+{
+  "annual_value_status_pairs": 2318850,
+  "claim_gates": {
+    "country_or_eez_allocation_authorized": false,
+    "damage_or_scc_authorized": false,
+    "fishmip_observed_calibration_authorized": false,
+    "fishstat_gui_menu_export_reconciled": true,
+    "marine_tonnage_filter_authorized": false,
+    "observed_capture_record_integrity_validated": true,
+    "welfare_translation_authorized": false
+  },
+  "gui_export": {
+    "bytes": 14985286,
+    "path": "data/raw/fao/exports/fishstat_global_capture_1950_2024_wide_symbols.csv",
+    "sha256": "25fba53dd5507443691fc7147796bb9b770c9a2ceb5acf5ef0dc2e25425773cd"
+  },
+  "gui_footer_rows": 3,
+  "gui_status_symbol_counts": {
+    "": 980486,
+    "...": 1266653,
+    "E": 777,
+    "I": 37749,
+    "N": 32808,
+    "P": 22,
+    "Q": 281,
+    "X": 74
+  },
+  "headless_export": {
+    "bytes": 29413192,
+    "path": "data/derived/fao/fishstat_capture_wide_1950_2024.csv",
+    "sha256": "ca58247c4f6044948b01048e4a808d21a4975c9f4171e3d0d1fbc321e46ebb52"
+  },
+  "headless_status_counts": {
+    "A": 980486,
+    "E": 777,
+    "I": 37749,
+    "N": 32808,
+    "O": 1266653,
+    "P": 22,
+    "Q": 281,
+    "X": 74
+  },
+  "headless_validation": {
+    "path": "data/provenance/fao_fishstat_capture_headless_export_validation_20260902.json",
+    "sha256": "675dfe976275cc46fc2c5d1687b997684b41ce4964cd165d83fc310203c5bbee"
+  },
+  "records": 30918,
+  "schema": "fao_fishstat_gui_headless_reconciliation_v1",
+  "scientific_name_fallback_records": 493,
+  "status": "independent_gui_export_exactly_reconciled",
+  "status_display_crosswalk": [
+    {
+      "cells": 980486,
+      "gui_symbol": "",
+      "headless_status": "A"
+    },
+    {
+      "cells": 777,
+      "gui_symbol": "E",
+      "headless_status": "E"
+    },
+    {
+      "cells": 37749,
+      "gui_symbol": "I",
+      "headless_status": "I"
+    },
+    {
+      "cells": 32808,
+      "gui_symbol": "N",
+      "headless_status": "N"
+    },
+    {
+      "cells": 1266653,
+      "gui_symbol": "...",
+      "headless_status": "O"
+    },
+    {
+      "cells": 22,
+      "gui_symbol": "P",
+      "headless_status": "P"
+    },
+    {
+      "cells": 281,
+      "gui_symbol": "Q",
+      "headless_status": "Q"
+    },
+    {
+      "cells": 74,
+      "gui_symbol": "X",
+      "headless_status": "X"
+    }
+  ],
+  "total_rows_reconciled": [
+    "Number",
+    "Tonnes - live weight"
+  ],
+  "validated_at_utc": "2026-09-23T14:28:01.388268+00:00",
+  "value_reconciliation": {
+    "display_rounded_cells": 59984,
+    "exact_unrounded_cells": 2258866,
+    "maximum_absolute_display_rounding": "0.005",
+    "rule": "FishStatJ GUI exports at most two displayed decimals; every displayed value and total is within 0.005 of the source-precision headless value"
+  },
+  "years": [
+    1950,
+    2024
+  ]
+}

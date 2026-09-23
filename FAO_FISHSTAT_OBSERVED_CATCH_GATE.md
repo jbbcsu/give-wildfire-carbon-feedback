@@ -1,7 +1,7 @@
 # FAO FishStat observed-catch source gate
 
-Status: official workspace and an independent symbol-preserving headless table
-export validated; FishStat GUI-menu reconciliation, marine filtering,
+Status: official workspace, independent symbol-preserving headless export, and
+supported FishStat GUI-menu reconciliation validated; marine filtering,
 crosswalks, model validation, welfare, damages, and SCC use remain closed.
 
 The official FAO FishStat Global Production workspace version 2026.1.0 was
@@ -35,8 +35,8 @@ capture table `TSD_CAPTURE_QUANTITY`, keys `COUNTRY`, `SPECIES`, `AREA`, and
 `MEASURE`, and paired value/symbol columns for every 1950--2024 year. The FAO
 manual's supported route is **File > Export selection (CSV file)**, with symbol
 export controlled by preferences. A guarded record export and independent
-row/value/flag reconciliation are still required; runtime availability alone
-does not validate observations.
+row/value/flag reconciliation have now been completed; runtime availability
+alone was not treated as validation.
 
 An independent headless integrity export now reads only a disposable Derby
 copy and resolves every one of the 30,918 wide capture records to FAO country,
@@ -51,11 +51,14 @@ values include 1,266,653 `O` missing cells, 281 `Q` suppressed cells, and
 Historical/reference entities leave 158 country ISO3 values and 493 species
 common names blank; those are preserved rather than invented.
 
-This headless export is an integrity and feasibility result, not the manual's
-supported GUI export. The GUI-menu output must still be generated with symbols
-enabled and reconciled against this independent extract. Marine-tonnage
-filtering, vessel-flag/EEZ allocation, observed FishMIP validation, welfare,
-damage, and SCC gates remain closed.
+The manual's supported GUI export is now independently reconciled against this
+headless extract. All 30,918 records and 2,318,850 value/status pairs match;
+the GUI's two-decimal displayed values differ from source precision by no more
+than 0.005, all symbols match, and both measure total rows reconcile. The
+validator peaks at 31,473,664 bytes RSS. Marine-tonnage filtering,
+vessel-flag/EEZ allocation, observed FishMIP validation, welfare, damage, and
+SCC gates remain closed. Full results are in
+`FAO_FISHSTAT_GUI_RECONCILIATION_RESULTS_20260923.md`.
 
 A separate post-export descriptive audit now reports the shape of the eventual
 FishMIP overlap without authorizing the filter. For marine `Q_tlw` records,
@@ -77,8 +80,8 @@ falls from 37.71% to 24.23%; the corresponding Herfindahl indices fall from
 0.0750 to 0.0571 and from 0.0407 to 0.0212. FAO-area concentration remains
 high: the top five areas account for 78.71% in 1950 and 70.84% in 2014. These
 descriptive changes reinforce the need for explicit country/species/area and
-effort structure. They do not reconcile the GUI export, assign catch to EEZs,
-calibrate FishMIP, identify welfare, or authorize damage or SCC use.
+effort structure. They do not assign catch to EEZs, calibrate FishMIP,
+identify welfare, or authorize damage or SCC use.
 
 A separate fixed-checkpoint turnover audit compares 1950--1970, 1970--1990,
 and 1990--2014 normalized compositions. Total-variation distances are

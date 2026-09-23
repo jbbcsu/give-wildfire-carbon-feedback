@@ -38,9 +38,10 @@ management, fishing-effort, market, reporting, and model differences.
 
 The FAO input is the independently reconciled symbol-preserving headless
 export, restricted to positive marine tonnes-live-weight records while
-retaining missing/suppressed meanings. Its supported GUI-menu export remains
-unreconciled, so this diagnostic does not promote the marine filter to a
-production observed panel. FishMIP absolute levels are not averaged across
+retaining missing/suppressed meanings. Its supported GUI-menu export was
+subsequently reconciled on 23 September 2026, but that record-integrity result
+does not promote the marine filter to a production observed panel. FishMIP
+absolute levels are not averaged across
 ecosystem models, and only within-path normalized values are compared.
 
 The first xarray pass emitted a known multiple-fill-value decoding warning.

@@ -55,9 +55,10 @@ acquired under CC-BY-4.0 and passes exact-byte/SHA-512, ZIP integrity,
 workspace-identity, and embedded capture-metadata checks. It records nominal
 landings rather than discard-adjusted catch, assigns country mainly by vessel
 flag rather than EEZ, mixes inland and marine capture until filtered, and
-preserves missing/suppressed status codes. Record export, marine filtering,
-country/area crosswalks, effort/management identification, and FishMIP
-comparison remain pending; no missing value is treated as zero.
+preserves missing/suppressed status codes. The supported GUI and independent
+headless record exports now reconcile; marine filtering, country/area
+crosswalks, effort/management identification, and FishMIP comparison remain
+pending; no missing value is treated as zero.
 A post-export concentration audit finds material compositional change over the
 FishMIP historical overlap: top-five vessel-flag-country and species shares
 decline from 51.34%/37.71% in 1950 to 41.07%/24.23% in 2014, while the
@@ -71,17 +72,17 @@ time-invariance screen: production allocation and calibration remain open.
 The first provisional global historical comparison now also shows that all
 four FishMIP paths share the broad 1950--2014 FAO tonnage rise but match annual
 first differences weakly. This is a post-existing-evidence structural
-diagnostic, not observed calibration: the headless FAO filter still requires
-GUI reconciliation, and effort, management, species, country, and allocation
-structure are unresolved.
+diagnostic, not observed calibration: the GUI integrity gate is now closed,
+but the marine filter and effort, management, species, country, and allocation
+structure remain unresolved.
 The official FishStatJ 4.04.11 macOS export runtime is also frozen and passes
 bundle integrity plus a bundled-Java smoke. Its Derby capture schema exposes
 country/species/area/measure keys and separate annual values and symbols. A
 disposable-copy headless export now independently reconciles 30,918 records
 and 2,318,850 value/status pairs without treating missing or suppressed zeros
-as observed absence. The supported FishStat GUI-menu export still must be
-generated with symbols enabled and compared against the headless extract
-before accepting a production observed-catch panel.
+as observed absence. The supported FishStat GUI-menu export now matches all
+records and annual pairs, but that integrity result alone does not authorize a
+production observed-catch panel.
 
 The all-file acquisition plan is now version-pinned and executable against a
 fresh catalogue response. Its outcome-blind content smoke is limited to the
