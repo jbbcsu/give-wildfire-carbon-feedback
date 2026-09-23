@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import csv
 import json
 import shutil
 import subprocess
@@ -55,9 +56,19 @@ def main() -> None:
     parser.add_argument("--memory-cap-bytes", type=int, default=640 * 1024 * 1024)
     parser.add_argument("--free-disk-floor-bytes", type=int, default=100 * 1024**3)
     arguments = parser.parse_args()
-    states = sorted(set(arguments.state_fips or CONTIGUOUS_STATE_FIPS))
+    with arguments.county_inventory.open("r", encoding="utf-8", newline="") as stream:
+        reader = csv.DictReader(stream)
+        eligible_states = {
+            str(row["county_geoid"]).zfill(5)[:2]
+            for row in reader
+            if str(row.get("classifier_eligible", "")).strip().lower() in {"true", "1", "yes"}
+            and str(row["county_geoid"]).zfill(5)[:2] in CONTIGUOUS_STATE_FIPS
+        }
+    states = sorted(set(arguments.state_fips or eligible_states))
     if not set(states) <= CONTIGUOUS_STATE_FIPS:
         raise ValueError("requested state lies outside the continental contract")
+    if not set(states) <= eligible_states:
+        raise ValueError("requested state has no eligible continental classifier counties")
     arguments.out_dir.mkdir(parents=True, exist_ok=True)
     completed_states = []
     for number, state in enumerate(states, 1):
