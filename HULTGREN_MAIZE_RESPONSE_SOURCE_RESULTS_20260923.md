@@ -78,7 +78,7 @@ to relative L2 error `2.65e-6` (maximum absolute error `2.55e-7`), consistent
 with minor numerical or installed-package-version differences. R-squared
 statistics match within `5.49e-14`.
 
-A bounded audit reads only eleven columns in 50,000-row chunks across all 412,282
+A bounded audit reads only fifteen columns in 50,000-row chunks across all 412,282
 source observations. In each row, the three phase-specific linear precipitation
 terms sum to the full-season linear term, and the three phase-specific quadratic
 terms sum to the full-season quadratic term, within single-precision storage
@@ -89,6 +89,10 @@ not the square of phase-total rainfall. The strict receipt is
 The same audit establishes 377,973 rows with valid local crop calendars: 62,662
 four-month, 51,309 five-month, 211,696 six-month, 51,165 seven-month, 588
 eight-month, and 553 ten-month seasons.
+The same full-source audit confirms `KDD = CDD31` exactly and
+`GDD = CDD8 - CDD31` within single-precision tolerance (maximum scaled error
+`5.96e-8`). This binds the fitted temperature terms to the 8 C and 31 C daily
+maximum-temperature thresholds used by the new primitive-basis adapter.
 
 An older official GitLab commit still contains a 1.076 GB `impact_data.zip`.
 The archive has now been downloaded, Git-blob- and SHA-256-validated, and read

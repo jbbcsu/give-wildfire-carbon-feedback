@@ -4,6 +4,7 @@
     "future_climate_projection_validated": false,
     "historical_response_reproduced": true,
     "primitive_phase_feature_arithmetic_audited": true,
+    "primitive_temperature_feature_arithmetic_audited": true,
     "scc_estimate_validated": false
   },
   "interpretation": "The public historical data blob reproduces the published sample, model metadata, and coefficient vector to numerical precision; covariance differences are small and consistent with numerical/package-version variation. Maize phases follow local 4-10 month crop calendars: month 1, months 2-4, then month 5 to harvest. This validates the historical response regression, not future impacts, damages, or SCC.",
@@ -32,6 +33,18 @@
       "7": 51165,
       "8": 588,
       "missing": 34309
+    },
+    "temperature_arithmetic": {
+      "gdd_equals_cdd8_minus_cdd31": {
+        "max_absolute_error": 0.000244140625,
+        "max_scaled_error": 5.955257909118476e-08,
+        "nonfinite_rows": 34309
+      },
+      "kdd_equals_cdd31": {
+        "max_absolute_error": 0.0,
+        "max_scaled_error": 0.0,
+        "nonfinite_rows": 34309
+      }
     }
   },
   "published_estimate": {
@@ -108,10 +121,11 @@
     "redistribution": "prohibited by project policy because no source-repository license was located",
     "repository": "https://gitlab.com/ClimateImpactLab/cil-ag-replication-package"
   },
-  "validated_at_utc": "2026-09-23T18:10:52.761628+00:00",
+  "validated_at_utc": "2026-09-23T18:13:08.599428+00:00",
   "validation_gates": {
     "coefficient_vector_numerically_reproduced": true,
     "covariance_matrix_numerically_reproduced": true,
+    "gdd_kdd_arithmetic_reproduced": true,
     "local_crop_calendar_season_lengths_reproduced": true,
     "phase_polynomials_sum_to_full_season_polynomials": true,
     "sample_and_model_metadata_exact": true

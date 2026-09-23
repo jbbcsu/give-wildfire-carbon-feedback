@@ -68,6 +68,9 @@ month 5 through local harvest. Across all 412,282 rows, the three phase-specific
 linear and quadratic rainfall terms sum to their respective full-season terms
 within single-precision tolerance. The quadratic term is the sum of squared
 monthly rainfall totals, not the square of phase-total rainfall.
+The same full-source audit confirms that KDD is the cumulative degree-day
+measure above 31 C and GDD is cumulative degree days between 8 C and 31 C,
+within single-precision storage tolerance.
 
 This closes historical response and basis-arithmetic gates. It does not close
 future climate transformation, moderator trajectories, agricultural valuation,

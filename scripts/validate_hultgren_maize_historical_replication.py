@@ -49,11 +49,16 @@ def audit_phase_sums(path: Path, chunk_size: int = 50_000) -> dict[str, object]:
     columns = [
         "GMFD_monthly_prcp_poly_1", "GMFD_monthly_prcp_poly_2",
         "season_length", "median_plant_month", "median_harvest_month",
+        "gdd", "kdd", "GMFD_tmax_cdd_8C", "GMFD_tmax_cdd_31C",
     ] + [
         f"prcp_poly_{power}_bin{phase}" for power in (1, 2) for phase in (1, 2, 3)
     ]
     observations = 0
     season_lengths: Counter[str] = Counter()
+    temperature_results = {
+        "gdd_equals_cdd8_minus_cdd31": {"max_absolute_error": 0.0, "max_scaled_error": 0.0, "nonfinite_rows": 0},
+        "kdd_equals_cdd31": {"max_absolute_error": 0.0, "max_scaled_error": 0.0, "nonfinite_rows": 0},
+    }
     results: dict[str, object] = {}
     for power in (1, 2):
         results[str(power)] = {"max_absolute_error": 0.0, "max_scaled_error": 0.0, "nonfinite_rows": 0}
@@ -70,6 +75,26 @@ def audit_phase_sums(path: Path, chunk_size: int = 50_000) -> dict[str, object]:
             for value, count in chunk["season_length"].value_counts(dropna=False).items():
                 key = "missing" if pd.isna(value) else str(int(value))
                 season_lengths[key] += int(count)
+            temperature_targets = {
+                "gdd_equals_cdd8_minus_cdd31": (
+                    chunk["gdd"].to_numpy(dtype=np.float64),
+                    chunk["GMFD_tmax_cdd_8C"].to_numpy(dtype=np.float64)
+                    - chunk["GMFD_tmax_cdd_31C"].to_numpy(dtype=np.float64),
+                ),
+                "kdd_equals_cdd31": (
+                    chunk["kdd"].to_numpy(dtype=np.float64),
+                    chunk["GMFD_tmax_cdd_31C"].to_numpy(dtype=np.float64),
+                ),
+            }
+            for name, (observed, target) in temperature_targets.items():
+                finite = np.isfinite(observed) & np.isfinite(target)
+                error = np.abs(observed[finite] - target[finite])
+                scaled = error / np.maximum(np.abs(observed[finite]), 1.0)
+                entry = temperature_results[name]
+                entry["nonfinite_rows"] += int((~finite).sum())
+                if error.size:
+                    entry["max_absolute_error"] = max(entry["max_absolute_error"], float(error.max()))
+                    entry["max_scaled_error"] = max(entry["max_scaled_error"], float(scaled.max()))
             for power in (1, 2):
                 total = chunk[f"GMFD_monthly_prcp_poly_{power}"].to_numpy(dtype=np.float64)
                 phase_sum = sum(
@@ -91,6 +116,7 @@ def audit_phase_sums(path: Path, chunk_size: int = 50_000) -> dict[str, object]:
         "season_length_months": dict(sorted(season_lengths.items())),
         "finite_season_rows": observations - season_lengths["missing"],
         "phase_definition": "month 1; months 2-4; month 5 through local harvest (maximum month 10)",
+        "temperature_arithmetic": temperature_results,
         "powers": results,
     }
 
@@ -153,6 +179,10 @@ def main() -> None:
             phase_audit["season_length_months"] == expected_season_lengths
             and phase_audit["finite_season_rows"] == 377_973
         ),
+        "gdd_kdd_arithmetic_reproduced": all(
+            value["nonfinite_rows"] == 34_309 and value["max_scaled_error"] <= 1e-7
+            for value in phase_audit["temperature_arithmetic"].values()
+        ),
     }
     if not all(gates.values()):
         raise AssertionError(f"historical replication gate failed: {gates}")
@@ -196,6 +226,7 @@ def main() -> None:
         "claim_gates": {
             "historical_response_reproduced": True,
             "primitive_phase_feature_arithmetic_audited": True,
+            "primitive_temperature_feature_arithmetic_audited": True,
             "future_climate_projection_validated": False,
             "damage_estimate_validated": False,
             "scc_estimate_validated": False,

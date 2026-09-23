@@ -1467,6 +1467,9 @@ quadratic precipitation terms sum to their corresponding full-season terms
 within single-precision tolerance. This closes exact historical response and
 phase-arithmetic gates. Future projection, moderator trajectories, damages, and
 SCC remain blocked.
+The same 412,282-row audit confirms `KDD = CDD31` exactly and
+`GDD = CDD8 - CDD31` with maximum scaled error `5.96e-8`, closing the historical
+temperature-basis arithmetic gate as well.
 
 The bounded reproduction is rerun with
 `scripts/run_hultgren_maize_historical_replication.sh`. The wrapper first checks
