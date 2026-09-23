@@ -42,6 +42,7 @@ def validate_result(payload: dict, family: str) -> dict[tuple[str, str, str], fl
     require(len(rows) == 20, f"{family} must have 20 coefficients")
     values: dict[tuple[str, str, str], float] = {}
     for row in rows:
+        require(row["family"] == family, f"coefficient family differs in {family}")
         key = (str(row["outcome_crop"]), str(row["irrigation_class"]), str(row["term"]))
         require(key[:2] in MODEL_KEYS and key[2] in TERMS, f"unexpected coefficient key {key}")
         require(key not in values, f"duplicate coefficient key {key}")
@@ -55,7 +56,7 @@ def validate_result(payload: dict, family: str) -> dict[tuple[str, str, str], fl
 
 
 def expected_movement(left: dict, right: dict) -> tuple[float, tuple[tuple[str, str, str], float]]:
-    changes = {key: abs(left[key] - right[key]) for key in left}
+    changes = {key: abs(left[key] - right[key]) for key in sorted(left)}
     return sum(changes.values()) / len(changes), max(changes.items(), key=lambda item: item[1])
 
 
