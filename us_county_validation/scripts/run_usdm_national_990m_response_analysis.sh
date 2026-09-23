@@ -79,6 +79,7 @@ $PY us_county_validation/scripts/summarize_usdm_agricultural_area_results.py \
   --broad-weather-result data/interim/us_county/usdm_agricultural_area_990m_broad_weather_results.json \
   --cultivated-robustness data/interim/us_county/usdm_agricultural_area_990m_cultivated_weather_robustness.json \
   --broad-robustness data/interim/us_county/usdm_agricultural_area_990m_broad_weather_robustness.json \
+  --rejected-3_96km-comparison data/provenance/usdm_agricultural_area_spatial_basis_comparison_20260922.json \
   --out data/provenance/usdm_agricultural_area_990m_spatial_basis_comparison_20260923.json
 
 echo "National 990 m USDM response analysis completed"

@@ -114,6 +114,28 @@ def robustness_summary(path: Path) -> dict[str, object]:
     return {"path": str(path), "sha256": sha256(path), "coefficients": rows}
 
 
+def rejected_diagnostic_summary(path: Path) -> dict[str, object]:
+    """Bind the pre-existing 3.96 km comparison without re-estimating it."""
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    if payload.get("schema") != "usdm_agricultural_area_spatial_basis_comparison_v1":
+        raise ValueError(f"unexpected rejected-diagnostic schema in {path}")
+    if set(payload.get("bases", {})) != {"county", "cultivated", "broad"}:
+        raise ValueError(f"rejected diagnostic has unexpected bases in {path}")
+    for gate in (
+        "causal_claim_authorized", "damage_claim_authorized",
+        "global_transfer_authorized", "scc_claim_authorized",
+    ):
+        if payload.get(gate) is not False:
+            raise ValueError(f"rejected diagnostic does not close {gate}")
+    return {
+        "status": "rejected_by_frozen_native_resolution_sentinel_gate",
+        "resolution": "3.96 km equal-area center assignment",
+        "path": str(path),
+        "sha256": sha256(path),
+        "comparison": payload,
+    }
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     for basis in ("county", "cultivated", "broad"):
@@ -122,6 +144,7 @@ def main() -> None:
         parser.add_argument(f"--{basis}-weather-result", type=Path, required=True)
     parser.add_argument("--cultivated-robustness", type=Path, required=True)
     parser.add_argument("--broad-robustness", type=Path, required=True)
+    parser.add_argument("--rejected-3_96km-comparison", type=Path)
     parser.add_argument("--out", type=Path, required=True)
     arguments = parser.parse_args()
 
@@ -139,6 +162,10 @@ def main() -> None:
         "global_transfer_authorized": False,
         "scc_claim_authorized": False,
     }
+    if arguments.rejected_3_96km_comparison is not None:
+        output["rejected_3_96km_diagnostic"] = rejected_diagnostic_summary(
+            arguments.rejected_3_96km_comparison
+        )
     for basis in ("county", "cultivated", "broad"):
         output["bases"][basis] = {
             "exposure": exposure_summary(getattr(arguments, f"{basis}_exposure")),
