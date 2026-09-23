@@ -56,9 +56,11 @@ def main() -> None:
     all_map_audits = []
     frames = []
     peak_rss = 0
+    maximum_attempted_peak_rss = 0
+    rejected_batches = []
 
     def accept_batch(start: int, count: int) -> None:
-        nonlocal peak_rss
+        nonlocal peak_rss, maximum_attempted_peak_rss
         stem = f"maps_{start:04d}_{start + count - 1:04d}"
         exposure = arguments.batch_dir / f"{stem}.parquet"
         audit_path = arguments.batch_dir / f"{stem}.audit.json"
@@ -79,7 +81,16 @@ def main() -> None:
         if resource["status"] != "command_completed" or int(resource["returncode"]) != 0:
             raise ValueError(f"batch {stem} did not complete successfully")
         batch_peak = int(resource["peak_rss_bytes"])
+        maximum_attempted_peak_rss = max(maximum_attempted_peak_rss, batch_peak)
         if batch_peak > arguments.memory_cap_bytes:
+            rejected_batches.append({
+                "start_index": start,
+                "end_index_inclusive": start + count - 1,
+                "maps": count,
+                "peak_rss_bytes": batch_peak,
+                "resource": str(resource_path),
+                "reason": "measured RSS exceeded cap; output excluded and interval split",
+            })
             if count == 1:
                 raise ValueError(f"single-map batch {stem} exceeded memory cap: {batch_peak}")
             print(f"rejecting {stem} at {batch_peak} bytes; splitting to single maps", flush=True)
@@ -154,6 +165,7 @@ def main() -> None:
         "output_sha512": sha512(arguments.out),
         "map_audits": all_map_audits,
         "batches": batch_records,
+        "rejected_batches": rejected_batches,
         "claim_boundary": "historical spatial-fidelity sensitivity only; not future drought, damage, or SCC",
     }
     arguments.audit_out.write_text(json.dumps(audit, indent=2, sort_keys=True) + "\n", encoding="utf-8")
@@ -164,9 +176,11 @@ def main() -> None:
         "finished_utc": finished.isoformat(),
         "wall_seconds": wall,
         "peak_rss_bytes": peak_rss,
+        "maximum_attempted_peak_rss_bytes": maximum_attempted_peak_rss,
         "returncode": 0,
         "measurement_scope": "maximum independently measured RSS across isolated map batches",
         "batches": len(batch_records),
+        "rejected_batches": rejected_batches,
     }
     arguments.resource_out.write_text(json.dumps(resource, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(f"merged {map_count} maps into {len(result)} county-mask-year rows; peak batch RSS={peak_rss}")

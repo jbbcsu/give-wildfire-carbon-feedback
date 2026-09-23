@@ -38,10 +38,12 @@ Each continental state or district is a deterministic partition. For each
 partition, build and independently validate the 990 m sparse grid, prepare a
 compact numeric overlay, apply all 679 maps in isolated map batches, and
 independently validate annual exposure accounting. A batch exceeding 640 MiB
-RSS is rejected and divided into single-map workers. If a state grid exceeds
-250,000 sparse rows, it is further split in sorted county order into
-deterministic whole-county chunks of at most 250,000 rows. Every chunk runs all
-679 maps and its validator independently; chunk panels are accepted only when
+RSS is rejected and divided into single-map workers. Receipts report both the
+largest accepted-worker RSS and the largest attempted RSS, including rejected
+batches, so the resource safeguard does not hide a transient exceedance. If a
+state grid exceeds 250,000 sparse rows, it is further split in sorted county
+order into deterministic whole-county chunks of at most 250,000 rows. Every
+chunk runs all 679 maps and its validator independently; chunk panels are accepted only when
 their disjoint county support exactly reconstructs the validated state grid.
 No national fine grid is resident in memory. Only validated state exposure
 panels are merged.
