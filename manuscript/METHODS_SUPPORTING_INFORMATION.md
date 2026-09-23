@@ -1465,6 +1465,12 @@ within single-precision tolerance. This closes exact historical response and
 phase-arithmetic gates. Future projection, moderator trajectories, damages, and
 SCC remain blocked.
 
+The bounded reproduction is rerun with
+`scripts/run_hultgren_maize_historical_replication.sh`. The wrapper first checks
+the 346 MB source hash, writes all Stata estimates and matrix exports to ignored
+interim storage, and then runs the independent comparison and phase-sum audit.
+Only the small validation receipt is versioned.
+
 The isolated `src/hultgren_maize_response.py` evaluator implements only the
 published 49-term linear-predictor and covariance algebra. Its input contract
 requires preconstructed GDD, KDD, three linear rainfall-phase terms, three

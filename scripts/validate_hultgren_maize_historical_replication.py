@@ -155,7 +155,9 @@ def main() -> None:
             "script": "scripts/hultgren_reproduce_maize_historical.do",
             "coefficient_sha256": sha256(args.replicated / "coefficients.csv"),
             "covariance_sha256": sha256(args.replicated / "covariance.csv"),
-            "estimate_sha256": sha256(args.replicated / "corn_replicated.ster"),
+            # Stata .ster serialization embeds run-specific metadata; validate its
+            # machine-readable coefficient and covariance exports instead.
+            "estimate_bytes": (args.replicated / "corn_replicated.ster").stat().st_size,
             "metadata_sha256": sha256(args.replicated / "metadata.txt"),
             "coefficient_max_absolute_difference": coefficient_max_absolute,
             "coefficient_l2_relative_difference": coefficient_l2_relative,
