@@ -1457,6 +1457,16 @@ is valid, but exact historical response replication, future projection,
 damages, and SCC remain blocked; no baseline covariate values are inferred from
 the fitted estimate.
 
+The isolated `src/hultgren_maize_response.py` evaluator implements only the
+published 49-term linear-predictor and covariance algebra. Its input contract
+requires preconstructed GDD, KDD, three linear rainfall-phase terms, three
+quadratic rainfall-phase terms, income, irrigation share, long-run Tmax, and
+long-run precipitation; it applies the published 200/100/250 mm moderator caps.
+The source-bound validation confirms exact zero response to a zero contrast and
+linear-predictor contrast parity within `7.29e-16` on a synthetic basis. This
+test validates algebra, not the missing transformation from primitive daily
+weather, moderator baselines, historical fit, future response, damages, or SCC.
+
 The aggregate evidence decision is applied after the country-held-out yield,
 future-support, and GMST-normalized climate diagnostics. Production promotion
 requires a new independent untouched holdout, five valid country folds for

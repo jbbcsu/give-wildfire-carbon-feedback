@@ -40,6 +40,17 @@ article's CC BY-NC-ND 4.0 terms. The supplementary archive remains in ignored
 raw storage and is not redistributed; the pinned code snapshot remains subject
 to the separately recorded absence of a repository license file.
 
+An isolated evaluator now transports the published coefficient and covariance
+algebra without pretending to reconstruct missing inputs. It accepts the eight
+already-constructed weather basis values (GDD, KDD, and linear/quadratic terms
+for three rainfall phases), the four moderators, and the published long-run
+precipitation caps. A source-bound synthetic test verifies an exact zero
+contrast, finite coefficient-only uncertainty, and linear-predictor contrast
+parity within `7.29e-16`. The evaluator does not construct phase polynomials
+from daily rain and cannot be used for historical or future impacts until the
+missing transform and baseline data are reproduced. Its receipt is
+`data/provenance/hultgren_maize_response_evaluator_validation_20260923.json`.
+
 ## What is not yet established
 
 The public replication code expects
