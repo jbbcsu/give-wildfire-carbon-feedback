@@ -1,0 +1,95 @@
+{
+  "causal_claim_authorized": false,
+  "claim_boundary": "historical U.S. exposure and association validation only; not causal, future, damage, global-transfer, or SCC evidence",
+  "component_resources": [
+    {
+      "path": "data/interim/us_county/usdm_agricultural_area_990m_cultivated_drought_only_resource.json",
+      "peak_rss_bytes": 288309248,
+      "sha256": "c2cacd941f4c2e09a3dc137cc43088edfbdc14e95d4f42f7fb4b337b50b8b917",
+      "wall_seconds": 5.45399395795539
+    },
+    {
+      "path": "data/interim/us_county/usdm_agricultural_area_990m_cultivated_weather_resource.json",
+      "peak_rss_bytes": 306839552,
+      "sha256": "951a56f355fa580ac146ebf314275f989fabb5b1c589804133b4af1f901ab9f7",
+      "wall_seconds": 2.8424716249573976
+    },
+    {
+      "path": "data/interim/us_county/usdm_agricultural_area_990m_cultivated_robustness_resource.json",
+      "peak_rss_bytes": 306413568,
+      "sha256": "cda1089e167d2e433b68ca6b12d6310208a0869e1472a8ab29aff0f98730858e",
+      "wall_seconds": 33.15292575000785
+    },
+    {
+      "path": "data/interim/us_county/usdm_agricultural_area_990m_broad_drought_only_resource.json",
+      "peak_rss_bytes": 287801344,
+      "sha256": "2506471ebe41de4138a73a9521d90af624a8fbf974b790980789461d8b5ae62d",
+      "wall_seconds": 1.9367521250387654
+    },
+    {
+      "path": "data/interim/us_county/usdm_agricultural_area_990m_broad_weather_resource.json",
+      "peak_rss_bytes": 308428800,
+      "sha256": "f719ff42b6b0a1d5d7b5e02ed067b7769c79a672a48f691c4652445c64871653",
+      "wall_seconds": 3.0611231670482084
+    },
+    {
+      "path": "data/interim/us_county/usdm_agricultural_area_990m_broad_robustness_resource.json",
+      "peak_rss_bytes": 318308352,
+      "sha256": "c56b5248b0f39befe92f6c7368a3fe66fb9a0be2788c23ccdb86342ab41b831d",
+      "wall_seconds": 33.25317675003316
+    }
+  ],
+  "component_validations": [
+    {
+      "path": "data/provenance/usdm_agricultural_area_990m_cultivated_drought_only_validation_20260923.json",
+      "schema": "usdm_kuwayama_drought_only_independent_validation_v1",
+      "sha256": "c92c9b5e778bd2071437ea9f46058348cb21f195a6ceec573b68bd6ab88750c4"
+    },
+    {
+      "path": "data/provenance/usdm_agricultural_area_990m_cultivated_weather_validation_20260923.json",
+      "schema": "usdm_weather_hierarchy_independent_validation_v1",
+      "sha256": "ae746565bb7e473d4840b5976e75810dc8a31d598b87b0954de93992bb74dd35"
+    },
+    {
+      "path": "data/provenance/usdm_agricultural_area_990m_cultivated_robustness_validation_20260923.json",
+      "schema": "usdm_weather_robustness_independent_validation_v1",
+      "sha256": "12d9e04ab05ed399e69fa3fe07dbd09b0970242fa8acd6772216baf802b22000"
+    },
+    {
+      "path": "data/provenance/usdm_agricultural_area_990m_broad_drought_only_validation_20260923.json",
+      "schema": "usdm_kuwayama_drought_only_independent_validation_v1",
+      "sha256": "466406326cdf7acbaed750dadd555310dfa322c9dadae49719ded7a513259a21"
+    },
+    {
+      "path": "data/provenance/usdm_agricultural_area_990m_broad_weather_validation_20260923.json",
+      "schema": "usdm_weather_hierarchy_independent_validation_v1",
+      "sha256": "bae9a9ba5db650716039ee7df8d5012bd48b8033780d5999c3fd260aa84ba272"
+    },
+    {
+      "path": "data/provenance/usdm_agricultural_area_990m_broad_robustness_validation_20260923.json",
+      "schema": "usdm_weather_robustness_independent_validation_v1",
+      "sha256": "a3f9ff14ac211915db7f95985b0cbc78d211def5ce77249e2b96a8f7876a5fea"
+    }
+  ],
+  "counties": 2909,
+  "damage_claim_authorized": false,
+  "global_transfer_authorized": false,
+  "maximum_component_peak_rss_bytes": 318308352,
+  "maximum_exposure_peak_rss_bytes": 669745152,
+  "maximum_grid_peak_rss_bytes": 610942976,
+  "maximum_movement_recalculation_error": 0.0,
+  "merged_rows": 75634,
+  "merged_validation": {
+    "path": "data/provenance/usdm_national_990m_merged_validation_20260923.json",
+    "sha256": "41ab7913bd5d779892a7296bce9c30bf951e10c29b01c85f79493ba3b7098337"
+  },
+  "scc_claim_authorized": false,
+  "schema": "usdm_national_990m_summary_independent_validation_v1",
+  "state_count": 48,
+  "status": "passed",
+  "summary": {
+    "path": "data/provenance/usdm_agricultural_area_990m_spatial_basis_comparison_20260923.json",
+    "sha256": "b198882809cb96f0c0647be574b97965a73af56a742580d378646847fde41e02"
+  },
+  "validated_at_utc": "2026-09-23T18:03:19.042291+00:00"
+}

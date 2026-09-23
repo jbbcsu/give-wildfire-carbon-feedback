@@ -1,0 +1,29 @@
+{
+  "causal_claim_authorized": false,
+  "config": {
+    "path": "config/usdm_kuwayama_agricultural_area_broad_990m_v1.toml",
+    "sha256": "9d069f943c41b99dc9cc3b505a618853335fcb9c4c40b7b6c2b509714caf2a2b"
+  },
+  "counties": 2909,
+  "crops": [
+    "corn_grain",
+    "soybeans"
+  ],
+  "damage_claim_authorized": false,
+  "exact_published_exposure_replication": false,
+  "input": {
+    "path": "data/interim/us_county/usdm_agricultural_exposure_990m_national.parquet",
+    "sha256": "934765ec6446aad7b23faf5fc9612e4b28c73a2cb2cc527352a9f39d1f88b8fc"
+  },
+  "mask_id": "broad_agriculture",
+  "output": {
+    "path": "data/interim/us_county/usdm_agricultural_area_990m_broad_response.parquet",
+    "rows": 75634,
+    "sha256": "6e3d772654a6ee6eb42a9421f835444580a3e46de3a22d0c2205cefb65d04f7c"
+  },
+  "scc_claim_authorized": false,
+  "schema": "usdm_agricultural_area_response_adapter_audit_v1",
+  "source_area_basis": "cdl_2008_broad_agriculture_990m_approximation",
+  "year_max": 2013,
+  "year_min": 2001
+}

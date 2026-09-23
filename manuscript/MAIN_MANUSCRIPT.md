@@ -865,11 +865,23 @@ typical 3.96 km error but fails its frozen maximum gates: weekly share TVD
 reaches 0.1779 and one annual category differs by 1.5174 weeks. By contrast,
 990 m weekly TVD versus native 30 m has median 0.00149, 90th percentile
 0.00537, and maximum 0.01145. We therefore retain the 3.96 km estimates only as
-diagnostics and require a partitioned national 990 m rebuild before finalizing
-agricultural-area coefficients. Complete results are in
+diagnostics.
+
+The required partitioned national 990 m rebuild is now complete for 48 states,
+2,909 counties, 10,990,922 sparse grid rows, and 75,634 county-mask-year rows,
+with peak exposure RSS of 638.7 MiB under the frozen 640 MiB gate. Under the
+cultivated mask and direct-weather controls, corn-dryland D2 and D3 are
+-0.2550% and -0.4188% per equivalent week (state-cluster p=.0131 and .0082),
+while soybean-dryland D1 and D2 are -0.2281% and -0.1622% (p=.0046 and .0371).
+The broad mask gives the same qualitative result. Relative to the rejected
+3.96 km diagnostic, maximum coefficient movement is 0.00230 percentage point
+for drought-only and 0.00130 for weather-controlled fits. Thus the final spatial
+fidelity correction does not change the historical conclusion, but these remain
+associations rather than causal, future, damage, or SCC coefficients. Complete
+results are in
 [`US_USDM_AGRICULTURAL_AREA_RESULTS_20260922.md`](../US_USDM_AGRICULTURAL_AREA_RESULTS_20260922.md)
-and
-[`US_USDM_MULTIRESOLUTION_SENTINEL_RESULTS_20260923.md`](../US_USDM_MULTIRESOLUTION_SENTINEL_RESULTS_20260923.md).
+[`US_USDM_MULTIRESOLUTION_SENTINEL_RESULTS_20260923.md`](../US_USDM_MULTIRESOLUTION_SENTINEL_RESULTS_20260923.md),
+and [`US_USDM_AGRICULTURAL_AREA_990M_RESULTS_20260923.md`](../US_USDM_AGRICULTURAL_AREA_990M_RESULTS_20260923.md).
 
 **Current nationwide U.S. predictive benchmark (September 16).** The
 pre-outcome fixed-2017 Census screen selects counties with at most 10%

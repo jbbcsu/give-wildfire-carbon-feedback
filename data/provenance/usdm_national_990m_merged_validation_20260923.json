@@ -1,0 +1,515 @@
+{
+  "claim_boundary": "validates national 990 m historical exposure accounting only; not causal, future, damage, global-transfer, or SCC evidence",
+  "counties": 2909,
+  "harvest_years": [
+    2001,
+    2002,
+    2003,
+    2004,
+    2005,
+    2006,
+    2007,
+    2008,
+    2009,
+    2010,
+    2011,
+    2012,
+    2013
+  ],
+  "masks": 2,
+  "maximum_category_sum_error_weeks": 4.568789790937444e-12,
+  "maximum_exposure_peak_rss_bytes": 669745152,
+  "maximum_grid_peak_rss_bytes": 610942976,
+  "output": {
+    "bytes": 2549633,
+    "path": "data/interim/us_county/usdm_agricultural_exposure_990m_national.parquet",
+    "sha256": "934765ec6446aad7b23faf5fc9612e4b28c73a2cb2cc527352a9f39d1f88b8fc",
+    "sha512": "573a832b7e5db8c5c86d51ff35f3006fa2b7112b2f08e9fa4b0a79f4e5827fd04ecc8828327773f004d80611682bc73611b26268217080d798b5ee830836e334"
+  },
+  "partitions": [
+    {
+      "counties": 63,
+      "exposure_peak_rss_bytes": 525172736,
+      "exposure_rows": 1638,
+      "exposure_sha512": "f446a956ecac00b81164a2bb21dba8eedf7feb2618b20d27f0868cdb59824c86bad50e724b92df0ce9d17e3569cff3fd23f247881fe076d3fed08abbbdee73f3",
+      "grid_peak_rss_bytes": 471875584,
+      "grid_rows": 229426,
+      "grid_sha512": "e587981f0a6aedde35856e6abdea9c311aa291f3d2a4fa274684a82c81ab151aebfb9231d64e4c529cfe5087a24cfa89882fe14888b46adf335ec42925e4d1eb",
+      "state_fips": "01"
+    },
+    {
+      "counties": 15,
+      "exposure_peak_rss_bytes": 507084800,
+      "exposure_rows": 390,
+      "exposure_sha512": "64b1bdc0ba339afe1d4bc893132564d7276874cc17e2c6c1a0b9eddd8af7ba5459cd871a31545d90f845954041eff61247a7b5b9eb15d59bff1a9d588364440d",
+      "grid_peak_rss_bytes": 499302400,
+      "grid_rows": 162835,
+      "grid_sha512": "77485e609afec9b357023d47d420fe40c16134c57dcab38d75d9936b02f4b6777e79e9f33a13793df8b8b9c933219c9b29e2e8f1974da6322006301d083cc2af",
+      "state_fips": "04"
+    },
+    {
+      "counties": 73,
+      "exposure_peak_rss_bytes": 524058624,
+      "exposure_rows": 1898,
+      "exposure_sha512": "640aff8569a6205ac79a772e92378524954c9df353f4ef466295a449f1202333752bdf9785c45ab24be20001f0e041b26b6247b623ef1109e0e9d595e327c261",
+      "grid_peak_rss_bytes": 557842432,
+      "grid_rows": 199497,
+      "grid_sha512": "368c40bf981ac66ee090f27d91f991cad301d66bc3f81536732817d8f92c72be5edd324dbc243479fdef1cf1860b7dbb4489e86ccee45def41b1389b040f23cc",
+      "state_fips": "05"
+    },
+    {
+      "counties": 56,
+      "exposure_peak_rss_bytes": 535773184,
+      "exposure_rows": 1456,
+      "exposure_sha512": "b0b017a75386612310351917e32a53fd0e1450e9a77adfd4cbf3b014087c390a1677b6b660d29f00d9f37eee1ec6f6eb3d318a831dc82bdd4fab2a6d5d848ac1",
+      "grid_peak_rss_bytes": 608681984,
+      "grid_rows": 350976,
+      "grid_sha512": "a6e034919185dcba585432bebd08b1dd98b5d30cd90b8bee964bf344ea7e0851856d16f7880a0051ee9b9cc94fabbe324db4f2ed5351fbb320f3c06df56caec8",
+      "state_fips": "06"
+    },
+    {
+      "counties": 57,
+      "exposure_peak_rss_bytes": 583483392,
+      "exposure_rows": 1482,
+      "exposure_sha512": "b649ce682c4c19363b623605153960a80e7578c14536ca2f83f7daa1ba565bc3f548ea107fe0383d80b218a29378044cf4995af018658634fbe407a8c1ba9c5d",
+      "grid_peak_rss_bytes": 610942976,
+      "grid_rows": 346684,
+      "grid_sha512": "b65507e11bd412e8626ce99c2c5f9b5e086f54bd821038140fb7640b8ff2ddb75cd9c97958675554036b43e06c6ef7affccf3e49487dd38d76c8263d16f4abb2",
+      "state_fips": "08"
+    },
+    {
+      "counties": 8,
+      "exposure_peak_rss_bytes": 518144000,
+      "exposure_rows": 208,
+      "exposure_sha512": "e4b4d50022f8bd9e265708189ae671a597b7c025e1867ee93283d416b965b2aa4f95b55ea83fb6522be21a2f523143530c4f1f4a43f0f4b0762ed78e047e8bb5",
+      "grid_peak_rss_bytes": 427835392,
+      "grid_rows": 25986,
+      "grid_sha512": "b11dfb602955345869fd9a36bf5c3d6a82241410bda952d56f0505b6d1966dfd8dd263355772b1374678a9ac55001a832dcaab6e12dfa0f0552624872aea4ead",
+      "state_fips": "09"
+    },
+    {
+      "counties": 3,
+      "exposure_peak_rss_bytes": 520486912,
+      "exposure_rows": 78,
+      "exposure_sha512": "e5e1c2fad5e75ae8757efa92054f27513e6fbb869ad0c70a8d6c74f58a04f3d0a23e709311cd6d2abe4a9a7faad713360949445cf67cec2ad06c87d070f57657",
+      "grid_peak_rss_bytes": 438091776,
+      "grid_rows": 10813,
+      "grid_sha512": "5d42bf39b1d3ed37b6f76d256a5f8edaa191e34ae25121c5d5fd17d30e10d5facd787504f52a3fc211f8cd7e515522d930f77c266bdb1b5bba4e6cb5633f13b3",
+      "state_fips": "10"
+    },
+    {
+      "counties": 64,
+      "exposure_peak_rss_bytes": 526696448,
+      "exposure_rows": 1664,
+      "exposure_sha512": "5628c7c4bd1961ed2157c8ad0209603a5d16ea98d664815b7aee49397c2ff64d9ddabc475f433379cd31d67b88f51a9ff6bd199f39e39519dbf7a55847c1c6fe",
+      "grid_peak_rss_bytes": 529367040,
+      "grid_rows": 196286,
+      "grid_sha512": "13282e28e6af38a7b1ef94fc898d7928433056e2f6f48febfa51767bc9d94332bfa07cf30e0c7d075e17bac56a19988480a932640846121f82a9801d97117ae1",
+      "state_fips": "12"
+    },
+    {
+      "counties": 150,
+      "exposure_peak_rss_bytes": 541163520,
+      "exposure_rows": 3900,
+      "exposure_sha512": "8693a274ad80369488cd4378d4d8a09378e21922ad16c8472a686c7d180ea30ae2f8adea68250c60f9ed818867fa25494afa6cbed19a691b42b484c833363869",
+      "grid_peak_rss_bytes": 485113856,
+      "grid_rows": 270713,
+      "grid_sha512": "a8e21864c27b168a93ac7ad58ad616aa62d1fc5c24d71fed3e956eadb16efa1e7780975fbe6188e351fd54804763ebc50cc3d0dc8893821b575e544baefe6409",
+      "state_fips": "13"
+    },
+    {
+      "counties": 43,
+      "exposure_peak_rss_bytes": 583024640,
+      "exposure_rows": 1118,
+      "exposure_sha512": "fe88d53a1da0cf3aacae146e6a35fcb9336dd0477669fc547d5a1ec4c81c2774e1372a63d84c3f6c17bdec20939bcc1f5be9e83aedcfa40c116fb73058b71d56",
+      "grid_peak_rss_bytes": 515964928,
+      "grid_rows": 242476,
+      "grid_sha512": "010b28efebbce491d2aa077b1482674a7e737b9611ecd3cc528494bfeb6b00dcc691f70d0141078ae14e5dc93f9262f7e172496abff93b2a65b631aefe71f63f",
+      "state_fips": "16"
+    },
+    {
+      "counties": 102,
+      "exposure_peak_rss_bytes": 641073152,
+      "exposure_rows": 2652,
+      "exposure_sha512": "5b42171e1a34e4b2ba3c70601c12b6f057061fa9b18c9f37aed6a0b33e77c24f36a9d41ba804a490c4757e1d4e1c190ba8b2dad2cded6d8ccfab45dc39d99417",
+      "grid_peak_rss_bytes": 595476480,
+      "grid_rows": 300679,
+      "grid_sha512": "47de73c111556afa47c4bfd132a0fa0fe3931e8cc2bd435eabb1f5ec30fc57f40ee9e81c151a4bff89d1eb2dbdc1041967618891ddb81caef2e035e18bbfef0f",
+      "state_fips": "17"
+    },
+    {
+      "counties": 85,
+      "exposure_peak_rss_bytes": 514195456,
+      "exposure_rows": 2210,
+      "exposure_sha512": "adb4638350574beae3a83cc5558d296b17c3e110232ffd5cb78a9246a0a62d1d3218184272310667dda4dcc7bd55a5f305da1661850ced63b0c03d18ae5706d2",
+      "grid_peak_rss_bytes": 507674624,
+      "grid_rows": 181344,
+      "grid_sha512": "049e6555a494ec0b6dc8290c97175cefacb611386e778d1d28ac6c0c86a7b9dcc965beb130acbc3013bf5ae2c6ff0b16ba7aedfda8bae9f6f46526b0fb074312",
+      "state_fips": "18"
+    },
+    {
+      "counties": 90,
+      "exposure_peak_rss_bytes": 529694720,
+      "exposure_rows": 2340,
+      "exposure_sha512": "54cdfa270915d76892bfc77fa75514e5847290efb6c275773d6bc38e1d1f11fe2dea79232851eb685b0b0470009f9179049dee0f4436dc9ca959d8a791c0c31a",
+      "grid_peak_rss_bytes": 527433728,
+      "grid_rows": 284992,
+      "grid_sha512": "f271bd717155478d63e5ef53d9e46193bba76e7d3362d5a994dec60fc9b79cf633037cf0c5fc117a66ed6bf76f006779aeb967b5a7183fdc7d378ee9efc12df0",
+      "state_fips": "19"
+    },
+    {
+      "counties": 102,
+      "exposure_peak_rss_bytes": 535068672,
+      "exposure_rows": 2652,
+      "exposure_sha512": "c44ed141ccd96c7d976b1abb2dc05e0d7d09bb35a32cc625ce84fd05b37f0352b4ae41a07b2d8ff327b9fc9155787a1f2abeb158876a0f884f280c1ad0bb2346",
+      "grid_peak_rss_bytes": 526008320,
+      "grid_rows": 424663,
+      "grid_sha512": "8ecd98769dc349b9af8321cd6ba84b412fec5a5cbb623d857d416b941850799caa897fa1f104d63140a5a7ad2551541cad81af204212e0cfdf5d9790cd885f22",
+      "state_fips": "20"
+    },
+    {
+      "counties": 113,
+      "exposure_peak_rss_bytes": 527794176,
+      "exposure_rows": 2938,
+      "exposure_sha512": "212e7a163b5825261fc96b5e57f14f38033e181677f77522509b8567269ab8f4ed999da0cd0faf3595098fa759a5b5ca47af439cd3b87d0e7db3ecbcad01f45f",
+      "grid_peak_rss_bytes": 478822400,
+      "grid_rows": 192452,
+      "grid_sha512": "e759111475a5e6d8b3e8963445bfacf7673aa5fcf57469c2d8f836c7ed41d79ee1b02d3c5e206398e257dbb2bf2b7789661490c7eed1d938a7277901cc679f83",
+      "state_fips": "21"
+    },
+    {
+      "counties": 61,
+      "exposure_peak_rss_bytes": 576241664,
+      "exposure_rows": 1586,
+      "exposure_sha512": "2b20b44080fb2522bc47e291ada163553ffe0f385a72e175b648374d499dd1361d3cba7832dab80519a3fe7950ebec57c224a99d752ef4900125b57d5981f194",
+      "grid_peak_rss_bytes": 499793920,
+      "grid_rows": 148524,
+      "grid_sha512": "e6c7592a4a4fe9b57de09843de4999910099eede30a5f6b8a24a377b579e587e281a95ce5e7cccaa749943fbb4f46f15f19a68ac6ec0182156df379cc5fb9505",
+      "state_fips": "22"
+    },
+    {
+      "counties": 16,
+      "exposure_peak_rss_bytes": 574324736,
+      "exposure_rows": 416,
+      "exposure_sha512": "1a9826c0781d63aa0be449945e6d6f75e9781d0b92b7c288efad1eb565e7898516819d8d6aa5f93583f147a87a6b7f3ad7a51282e53b685989c13523fa810e33",
+      "grid_peak_rss_bytes": 468467712,
+      "grid_rows": 109481,
+      "grid_sha512": "40d709a325abeba72cee055786b209eb3fd8069f176d36552fefccbdfabfdcfc75b70593edd1354ac43979eb5937ef5414c9d2a32f6a53cefc7c4154c1c17667",
+      "state_fips": "23"
+    },
+    {
+      "counties": 23,
+      "exposure_peak_rss_bytes": 572719104,
+      "exposure_rows": 598,
+      "exposure_sha512": "632fac87d0071cf3fbe49d9f1c125488257222a5c6351093bd15e25b73ed15f8bd5c08542a3df33bebb95a56a232294ea50f8fc10eca8fcc2ce4141deed78701",
+      "grid_peak_rss_bytes": 469827584,
+      "grid_rows": 51620,
+      "grid_sha512": "83e2c29133bab6dae058107d51b6201c677383d9a042ea24dacae2c488a47857c36b8c22ef662803016539712955ecfe3a0a3f359afd0b425627ba1544b4ef26",
+      "state_fips": "24"
+    },
+    {
+      "counties": 12,
+      "exposure_peak_rss_bytes": 515375104,
+      "exposure_rows": 312,
+      "exposure_sha512": "949da9e869204ae0f7eec62919ab3e00c2bf05ea72705e7d335936ea679a4233927ae29a26f57589d1e650d76b2c1d99efbd62eda34b54c430e0aeb010adbafe",
+      "grid_peak_rss_bytes": 454393856,
+      "grid_rows": 40106,
+      "grid_sha512": "c3ff1b36f58ce8ff120938fe6711cd34d2b89dce48b750dd5fc07e5699c44b9c4dcde0df829ce5b10b45732a94a254ab337101e99a4d6af492c5513e059ac544",
+      "state_fips": "25"
+    },
+    {
+      "counties": 79,
+      "exposure_peak_rss_bytes": 529121280,
+      "exposure_rows": 2054,
+      "exposure_sha512": "c4f24e6032f8a3574f279ce630dde4e44a835160ae7d185548be8c182050219fcf262de41dc8ea3cd847091613e82d4347e306d6d22867bc785d6a7de357c8ba",
+      "grid_peak_rss_bytes": 541802496,
+      "grid_rows": 239086,
+      "grid_sha512": "c25f09d55b7dbbf52f944b263bb02b1a2b73161444592bfcdc6d5f89522bfc7c3224fd9ee7440533354773f787cc9c0667fd20db3aef6e5d41a17b018e88604a",
+      "state_fips": "26"
+    },
+    {
+      "counties": 82,
+      "exposure_peak_rss_bytes": 529547264,
+      "exposure_rows": 2132,
+      "exposure_sha512": "90fbadb7e9f23577725c62b7ce3fa1614adc7a67f8a521c70b9a29b3035cea889c3938cda9b8496746aa669da55d9c67dca1441c613fca0874502699ef59ffc2",
+      "grid_peak_rss_bytes": 567771136,
+      "grid_rows": 339788,
+      "grid_sha512": "466bce15db689dc3729a6dc6791ecefb4b370194ceb45342c4d5b4e33fdec9c520bf23503f23f9c867765b92efd12fed2a71f33b414522168168bb7fe2438df3",
+      "state_fips": "27"
+    },
+    {
+      "counties": 77,
+      "exposure_peak_rss_bytes": 533266432,
+      "exposure_rows": 2002,
+      "exposure_sha512": "d499eedc28710c0cdfc6c3d7bfef127dfd943bfa66f72bb71720626c0f18df77654e9c0dc870ed60827a8440e0924c1d790624b3d5fcd158dca1bdc4a78e04ab",
+      "grid_peak_rss_bytes": 534380544,
+      "grid_rows": 198727,
+      "grid_sha512": "aff5c8291a5d85f2fab9c8ef1252cf455f091025782b802cbdeeade340e9be85947d1e2d664303e8f5d59a41414ac83cc4eda2f501b0d1f0f4cde69aaa1d5c41",
+      "state_fips": "28"
+    },
+    {
+      "counties": 99,
+      "exposure_peak_rss_bytes": 525893632,
+      "exposure_rows": 2574,
+      "exposure_sha512": "c1a32dfd77dec0d04a0bbd89c532b7c5d0db4294b52cb84f0fec370dc9b2880793ddaaef9c22002d4bb16527feae74f97d7bfe7cc1d47aefb0980b77e72e8530",
+      "grid_peak_rss_bytes": 511705088,
+      "grid_rows": 300401,
+      "grid_sha512": "4ec332d3e8781595e44865caceb35cdc21011be7230b68834b287f0309b52fba453b6afabe26084e93bfeb27f59df466d364fff13f0d7ef3415727c0006cb881",
+      "state_fips": "29"
+    },
+    {
+      "counties": 56,
+      "exposure_peak_rss_bytes": 573751296,
+      "exposure_rows": 1456,
+      "exposure_sha512": "995df7c52c6082d258bb030f22b4c7f335d71b60daa6700b628384e4412323a45ce6489d87ddee6d264acbb06dc3f94bee1d035aa46c86267f1e7fdde576facb",
+      "grid_peak_rss_bytes": 600522752,
+      "grid_rows": 619549,
+      "grid_sha512": "056ba0def9a6cbd141204310cd9cebfcd7c4a477aa342b3cc71e7159aa525d2cbc159476b4f1c913b7080853068d998e934e31d678046d3bcc78b9910d40b0c6",
+      "state_fips": "30"
+    },
+    {
+      "counties": 91,
+      "exposure_peak_rss_bytes": 532594688,
+      "exposure_rows": 2366,
+      "exposure_sha512": "43ba51a66820afe259358234887ba612ef0fe3ec85991d18fb1a29c5972b2eeeffb532d823c5b7bf2b9a449805576b82b4ab80b8fdb4e2850acff86f02761ccf",
+      "grid_peak_rss_bytes": 586924032,
+      "grid_rows": 366950,
+      "grid_sha512": "34ca1e4ed9bd6693f994d391e4c2eb2150a5889977656e9099ab8c0d2e820d4561cc7e996809a47ee3c5b8c9577928149ed4aae2e1ee8dedf72c67ee2fc021dc",
+      "state_fips": "31"
+    },
+    {
+      "counties": 14,
+      "exposure_peak_rss_bytes": 657358848,
+      "exposure_rows": 364,
+      "exposure_sha512": "fe2edb2fcb14ee79db2171cd95cdf6c22362030de699ce0477b745a525a3e76c7626529fc92ef26332cab9bc47537d6cd75aaf8ba6e462d1d10d514fc3d2190a",
+      "grid_peak_rss_bytes": 465911808,
+      "grid_rows": 115696,
+      "grid_sha512": "e0cad6b4e2629994a804611cc6b29d242343f5bd67800e1ae2a6ccc415886180b37a6ce4f61a5d49f3c2b139c70690ec2b8ed5e1034b718295c215c7edfcfa54",
+      "state_fips": "32"
+    },
+    {
+      "counties": 10,
+      "exposure_peak_rss_bytes": 669745152,
+      "exposure_rows": 260,
+      "exposure_sha512": "e9b76a930eb9c3c2743e774d73b078af6c5bdd0dd83b1e6f7e2f4f97cc8c2c1dd3764a4fbcb786168263bfab7efc408ef3f0e7a7529cb98fd682c36c8fa29a9a",
+      "grid_peak_rss_bytes": 438517760,
+      "grid_rows": 37353,
+      "grid_sha512": "cd69907cfb699dd77665d0fe6f70b5b61c609a7d901e39f3a2c4ca0c11d4b0435e028cb5e2dd0b9af74c3b24e5544bf43edc7dc23a513f188be95784ec6215bd",
+      "state_fips": "33"
+    },
+    {
+      "counties": 19,
+      "exposure_peak_rss_bytes": 667860992,
+      "exposure_rows": 494,
+      "exposure_sha512": "62571a97609a27a62c098000393add1096763c536b91fe04aabeb2b7aa419c6864348d5b48e0461dd92f81c87b9eaecfaac0ce9768f5a32a1df35a35355509c2",
+      "grid_peak_rss_bytes": 457195520,
+      "grid_rows": 30070,
+      "grid_sha512": "60b0427dabf4da349af75f4124c79b8b3ea1910dcc842dfb72fb92b64d5b3bb243040431e3075265402fb44bb2aa285f55c49a657090add8705e530eec978188",
+      "state_fips": "34"
+    },
+    {
+      "counties": 31,
+      "exposure_peak_rss_bytes": 669466624,
+      "exposure_rows": 806,
+      "exposure_sha512": "d88ac2c7be8e93dbd15e0d8b5879abba16141eddd0d6c68661ef1f7fd1edfdc315ea7ad88a40ea971201c47725f2c08893f72cc22df7959557c6bd7c8630bfb8",
+      "grid_peak_rss_bytes": 518127616,
+      "grid_rows": 301040,
+      "grid_sha512": "fcb40f3e8f2476d8a398b3871814355b213943cbd56048873e604de8e2bd604010c40a46054a1a8627439beba9ff1dc31be5ef6a0ca6fb345f45d20a49d3538e",
+      "state_fips": "35"
+    },
+    {
+      "counties": 59,
+      "exposure_peak_rss_bytes": 528662528,
+      "exposure_rows": 1534,
+      "exposure_sha512": "893e957eea3ef30ccad1be1acc431ff93c5404035b5b7758d99766eeef33533f19b098a87f57e6a1ae9ec9ca0d1f623fc0bd399321f1c9d880891d5150da2e3d",
+      "grid_peak_rss_bytes": 500809728,
+      "grid_rows": 212195,
+      "grid_sha512": "4437cff28fd2383f65a44ddee460eae73224831a2b99108f0e6c691877105177f42cec6caf000d17ed28192f1d6012555807fc843eb4dc97a1630e1a1e017831",
+      "state_fips": "36"
+    },
+    {
+      "counties": 98,
+      "exposure_peak_rss_bytes": 517177344,
+      "exposure_rows": 2548,
+      "exposure_sha512": "1f5fc94b5c96ebca70a1c40005852a54715ea251bb323b2fce048e8a8713d275a0bf91c98b26623e4af4b09d7043fcaaddee445d0ad6819dced0bf6ba74688c4",
+      "grid_peak_rss_bytes": 487047168,
+      "grid_rows": 234317,
+      "grid_sha512": "61ad3636a47bf5f7b03800330778b1128ce8a8cd252a22eb78f7917e8471bf0bc993b9d5898faad4439f4186ec4fa3794391785ab3fdaedb649f2271f605d68b",
+      "state_fips": "37"
+    },
+    {
+      "counties": 42,
+      "exposure_peak_rss_bytes": 522076160,
+      "exposure_rows": 1092,
+      "exposure_sha512": "0d2f692b90b7e9a158a40f313940b103208120712af170537399a209e018dd77ffc0424fd6081552d1d0c1628b144d93efc91bcb2ce3f50128e09bb2df02cb2b",
+      "grid_peak_rss_bytes": 562085888,
+      "grid_rows": 310969,
+      "grid_sha512": "16105a741e0fa15f27573a8e62bb083f84dcacd9ec338c4791814c715900d90313a671992ebfb87357659c8d89e365aecd5ee39be48fd22f53e09c3f09d0bfcc",
+      "state_fips": "38"
+    },
+    {
+      "counties": 85,
+      "exposure_peak_rss_bytes": 574603264,
+      "exposure_rows": 2210,
+      "exposure_sha512": "365b18ca6ae35708d520ba51b27c27af81dbbef2491f5fa2874e04fd07c6bb045cba0031bed4ed710ba489b18223d0ebf2d958a95fb2a40654d328bf5a711186",
+      "grid_peak_rss_bytes": 540377088,
+      "grid_rows": 203563,
+      "grid_sha512": "9cd37c768c00195e1d9c1aa0c6e57694f383a8595222a0d2be06e9ea25b5324913c30a94f57f3366940b5f871f4bb569ed9863174f514a6ee03ab6bf8448a296",
+      "state_fips": "39"
+    },
+    {
+      "counties": 75,
+      "exposure_peak_rss_bytes": 526925824,
+      "exposure_rows": 1950,
+      "exposure_sha512": "7227798fc3f4243bc71c3919d318154d9dd730c6c12d1d1d59f3b19ee9535bb253495bc547c18b74a71993bae21f47a7cd4d542e416d0a8616d104665fba0833",
+      "grid_peak_rss_bytes": 569376768,
+      "grid_rows": 326161,
+      "grid_sha512": "810f06d7a29bc30f55051fd2b326343dec66f503bc0297fd02fdf77bda738e5838b006625a7e647d5abec5f09f752528a6cb0b28b2f3b2e94f09eb7718d13873",
+      "state_fips": "40"
+    },
+    {
+      "counties": 36,
+      "exposure_peak_rss_bytes": 527794176,
+      "exposure_rows": 936,
+      "exposure_sha512": "53d0baaf99c875237275f0a7f2729d52412989dfc45995d6c7ccdb245ab280c8c2953a76ad750eb0133d24e257ab3f94bb189e81fd261f49fa2e358a48f64dce",
+      "grid_peak_rss_bytes": 518602752,
+      "grid_rows": 216664,
+      "grid_sha512": "d4f832db9b150c797a300e31a31ac24ed9aefae53ac827c43deb127fa834f11a946b30867936e7799ae96f6fbda8a56dbccb4108793eff961af18e7f38a87708",
+      "state_fips": "41"
+    },
+    {
+      "counties": 63,
+      "exposure_peak_rss_bytes": 514048000,
+      "exposure_rows": 1638,
+      "exposure_sha512": "7e4a1eb6ef1789e915171daf3ae37262adbc88e0c02d1cc306a13b593cbbdf855a0e25a4a17b92a4e9f51f7e1567ab4d6d5363dbaf1c1ff64b5df86dd80d0189",
+      "grid_peak_rss_bytes": 481673216,
+      "grid_rows": 204344,
+      "grid_sha512": "4d4ea64b8d6f7755b9826e76fc9eb956ce005e96d2847cb9d6991f1fb5afc0250d0b50acca526bd56705313a47e76fb744fcf854bdff90c90b9e2e58e79fd73a",
+      "state_fips": "42"
+    },
+    {
+      "counties": 5,
+      "exposure_peak_rss_bytes": 524648448,
+      "exposure_rows": 130,
+      "exposure_sha512": "a8fa0e8933c53a76792d808627e2e90a743ddab404d81ddabcd77f5a0c9614bbb3775222ad1b68f233f8492b918027263933e64028610f4d10fdbfd3b9a989f5",
+      "grid_peak_rss_bytes": 412303360,
+      "grid_rows": 5926,
+      "grid_sha512": "72d81198cecb9a1065757ece547c59e5bc49d55ef8718277aabde9d7990e293d4a256b04586c1fbfe81de45b086a61f955feb38dc3a79bda3856df684ee87934",
+      "state_fips": "44"
+    },
+    {
+      "counties": 45,
+      "exposure_peak_rss_bytes": 661520384,
+      "exposure_rows": 1170,
+      "exposure_sha512": "22b7ba0ba08d20326ab5f106fd441d2198ae358ccdbbf455634106db9265b6f8ce78cd95ed4c75d7cd4067aec0c0c4cd28f6c1dfe10d9dde88bbafa6365fdd7e",
+      "grid_peak_rss_bytes": 463896576,
+      "grid_rows": 142857,
+      "grid_sha512": "5075398ee0d8f7ff9f0d9751b371db8276f411cfa74cbbcbe85878bfef760ea6facdc881582316665b2beaedc33f5bff2c9d6005b8cc6610f7afb3a1d5d8df68",
+      "state_fips": "45"
+    },
+    {
+      "counties": 60,
+      "exposure_peak_rss_bytes": 534528000,
+      "exposure_rows": 1560,
+      "exposure_sha512": "f4ebe718ddcdde89eb10d88f53539adff2c4f5f48b5fd363a39f79d967fde9a422152da4824fd63f934371ab85f8a9e008603635d3909398ead6a8ae8a782aac",
+      "grid_peak_rss_bytes": 559628288,
+      "grid_rows": 355261,
+      "grid_sha512": "8ae60916d35efbacfe6f1535850c4c02cdf6ffe6f007683d6683022948ddc304277545343b48d7e2c548e61b11d366c1b15608b178c40831a83ad49e9f1593b8",
+      "state_fips": "46"
+    },
+    {
+      "counties": 92,
+      "exposure_peak_rss_bytes": 523304960,
+      "exposure_rows": 2392,
+      "exposure_sha512": "ef23ea188955bffd79dbd8c0353cd342d2e9cab32b2d2bafe1b764e3e6b9f8988c7c2352450aebbd6ad1fda760b7b261a520004a5c17955be51e64370cfff325",
+      "grid_peak_rss_bytes": 489324544,
+      "grid_rows": 198265,
+      "grid_sha512": "b3b779dbca8e8c0508387770ee8590d2f6ffc04073765d560376eb8925860600e5cd7b5a1f25e930eb29e42724372fc8b6aeb3c5584d5fa56563430521e48f13",
+      "state_fips": "47"
+    },
+    {
+      "counties": 244,
+      "exposure_peak_rss_bytes": 582156288,
+      "exposure_rows": 6344,
+      "exposure_sha512": "1dae5bf5ea31471c41fd9e16f6e66a8dcd92124cf7545c01fbfaf74aebc6ddc6e835dac08be1497927969b14e7f082ac73be5779740e09bb97f9e0497411da6a",
+      "grid_peak_rss_bytes": 522911744,
+      "grid_rows": 1053393,
+      "grid_sha512": "0d44512b43ca1d9bf3eeb08538544d4651dbe6deb696e100718552567b8a549309d714e0b10ce427fd9ef5180a30bbe5a13e91999f3acfdbdaae3c6bae0d0881",
+      "state_fips": "48"
+    },
+    {
+      "counties": 29,
+      "exposure_peak_rss_bytes": 521420800,
+      "exposure_rows": 754,
+      "exposure_sha512": "520f24fa0649f4d288670772357896b122bf540ee7be2ec6abc6a56b4eac14d3e2f212b11f52a7b6619924e6849fcab93f375f837c3fa84a3743d443f570a6ff",
+      "grid_peak_rss_bytes": 501645312,
+      "grid_rows": 145760,
+      "grid_sha512": "76b0edd28cc0bf68181576990a910939151c52dd26a8b5c20bc99eaf18d4236ac3f867af05015e43dfc3957fc9dcf7dd051ac28afe2d2756dbd13266d4455ffd",
+      "state_fips": "49"
+    },
+    {
+      "counties": 13,
+      "exposure_peak_rss_bytes": 514195456,
+      "exposure_rows": 338,
+      "exposure_sha512": "19d27b03c1c556912c44f1c8a0bb4eb04dc07b1b8b1310843c640a9232e80cbba3e3eb8bf062992678ff06dcfd1ddcd245e932cc82744cbb6ea9ec47f8e42ef3",
+      "grid_peak_rss_bytes": 465747968,
+      "grid_rows": 40109,
+      "grid_sha512": "98f6acdfc3a7ddb71928492227b9d2930bdffde11eb4a451aa4f93bb648a120f0a8b6b18cd3daa18999a038adff4eda53d5a586135ba8128143511679c1989c7",
+      "state_fips": "50"
+    },
+    {
+      "counties": 92,
+      "exposure_peak_rss_bytes": 523632640,
+      "exposure_rows": 2392,
+      "exposure_sha512": "a4daf391110bc5936d8f743bcd2ea807a5a0dcd22209edae164460849d76b1733e6cd37f23871439b9dc6ef622ca4bb9c3478d99a2db3648a3548629cccb9cfb",
+      "grid_peak_rss_bytes": 459112448,
+      "grid_rows": 181969,
+      "grid_sha512": "4f1e9c131604657d5998905c21422a1036635ad4ea866fcda0645e50c0a8d6f0ea36abb5f1d282328b0ac3e63da6a8b40a3050e39d8d74e5a082d001610b223e",
+      "state_fips": "51"
+    },
+    {
+      "counties": 39,
+      "exposure_peak_rss_bytes": 525565952,
+      "exposure_rows": 1014,
+      "exposure_sha512": "dd4402991d7c5c5c97a959768cfca2bfc5a2cb49c9370346a1acccebb9bcbbc8fd2b66664767c85ca6296efa01d1ef3d53c3b074c2c09561bcd7ca16e0217cd0",
+      "grid_peak_rss_bytes": 536379392,
+      "grid_rows": 219569,
+      "grid_sha512": "90c179912a90db891f64c1d98282f08bda313f152361e8903c17c72c8dd030bce1dc6732156ebcd37c4ec625b3050d620da518f7dae867858207fe7691b8f131",
+      "state_fips": "53"
+    },
+    {
+      "counties": 49,
+      "exposure_peak_rss_bytes": 535609344,
+      "exposure_rows": 1274,
+      "exposure_sha512": "411235cf99da6553e8011486e4c9ba46821ca445fe1123337c9d1fa211d32195ee601a32c4ce9099a0b91e4c188620e1cae41a798e8316cd10100d1c93f8f945",
+      "grid_peak_rss_bytes": 453754880,
+      "grid_rows": 84031,
+      "grid_sha512": "74eced8211d769eb5869df1274ca836394eebf4d30d1b9a515f8d71dc817aaba4f9ce12883f197f8e1abf5ce6ade5f42c1cb8b57d55173d54f9892d53f05e2bf",
+      "state_fips": "54"
+    },
+    {
+      "counties": 66,
+      "exposure_peak_rss_bytes": 516964352,
+      "exposure_rows": 1716,
+      "exposure_sha512": "378c01cbdbb423a0ec80b933b8921bd59bcb8efe037a52e6a45154c265b91cc1177fd731ce0f4b31119d8c9196e9273587e17c8c97353d6577c9973fd63863a0",
+      "grid_peak_rss_bytes": 495828992,
+      "grid_rows": 241364,
+      "grid_sha512": "d7bb841c88c59198d12761087e29de4c69e570311c094d93b229482dbf64671ae1d63671ea2faba1ede7a6590415091098d6771892bf4abcceb1ae3fd2010319",
+      "state_fips": "55"
+    },
+    {
+      "counties": 23,
+      "exposure_peak_rss_bytes": 667926528,
+      "exposure_rows": 598,
+      "exposure_sha512": "6ccedca605a544469e61032ecafca9ec9692a25d860fb5688b9123eb61713a83e94f97058a577edc685aeb66f956e274fb4c88834f598cb660f6a6d27ef36ad1",
+      "grid_peak_rss_bytes": 549060608,
+      "grid_rows": 295992,
+      "grid_sha512": "6fe60f8df2b3068537894f5ffd834c4f5f42af3781cd549f4aa4defb61d1dfa10730df27ed7e30ec5a2d7a898c5d50ef7421c819afee2f8eda25f9bbb5c070d8",
+      "state_fips": "56"
+    }
+  ],
+  "passed": true,
+  "rows": 75634,
+  "schema": "usdm_national_990m_merged_validation_v1",
+  "state_count": 48
+}

@@ -2060,6 +2060,37 @@ spatial-fidelity estimates. The required remediation is a partitioned national
 and results are in `US_USDM_MULTIRESOLUTION_SENTINEL_RESULTS_20260923.md` and
 the tracked provenance receipts.
 
+### S9.20 Final partitioned national 990 m agricultural-area reconstruction
+
+The preregistered remediation is complete. Forty-eight state partitions contain
+10,990,922 sparse 990 m grid rows covering 2,909 continental counties. Each
+partition independently reconstructs both frozen CDL masks for all 679 USDM
+maps and 13 harvest years; merging produces 75,634 county-mask-year rows.
+Mutually exclusive annual drought categories reconcile within `4.57e-12` week.
+Maximum state grid RSS is 582.6 MiB and maximum exposure RSS is 638.7 MiB,
+below the frozen 640 MiB ceiling. All raw and large intermediate products remain
+ignored.
+
+Full-support cultivated-mask means for D0--D4 are 8.513, 5.702, 3.899, 2.295,
+and 0.827 equivalent weeks; broad-mask means are 8.513, 5.705, 3.887, 2.298,
+and 0.827. All twenty drought-only slopes remain negative under both masks. In
+the direct-weather hierarchy, cultivated-mask corn-dryland D2/D3 estimates are
+-0.2550%/-0.4188% per equivalent week with state-cluster p=.0131/.0082;
+soybean-dryland D1/D2 estimates are -0.2281%/-0.1622% with p=.0046/.0371.
+Every one of these four signs survives deletion of each represented state. The
+broad mask yields the same qualitative screen.
+
+The final-resolution change from the rejected 3.96 km diagnostic is small but
+reported rather than assumed: maximum absolute movement is 0.00230 percentage
+point per equivalent week for drought-only fits and 0.00130 for weather-
+controlled fits. Six component validators, six resource receipts, and an
+independent summary implementation pass; movement recalculation error is zero.
+This closes the national spatial-fidelity remediation only. Causal response,
+future drought, global transfer, monetary damage, and SCC gates remain false.
+Complete tables and machine-readable sources are in
+`US_USDM_AGRICULTURAL_AREA_990M_RESULTS_20260923.md` and the linked provenance
+receipts.
+
 Keep crop inundation in agriculture and exclude it from the future
 infrastructure module; exclude coastal surge/SLR impacts already addressed by
 CIAM.
