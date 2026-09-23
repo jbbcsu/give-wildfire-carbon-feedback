@@ -1431,6 +1431,32 @@ input.
 
 ## S5. Estimation
 
+The closest published global empirical benchmark explicitly contains both
+rainfall quantity and within-season timing. The official Supplementary
+Information for Hultgren et al. (2025) states that daily GMFD precipitation is
+summed to grid-cell months before polynomial transformations. For maize, the
+pinned code fixes a ten-month growing season, a quadratic precipitation
+response, and three contiguous phase lengths of 1, 3, and 6 months; the
+Supplementary Table S4 labels these as month 1, months 2--4, and months 5+.
+Sequential nested F-tests compare monthly marginal responses at 100, 300, and
+500 mm, and the second cross-validation step selects phased versus total-season
+precipitation. The final maize model retains phased precipitation. The paper
+also evaluates drought, rain-day, and extreme-rain candidates, but those are
+not terms in its published final maize estimate. This project therefore uses
+the published model as a joint quantity--timing benchmark, not as evidence that
+either annual totals alone or a generic distribution index is sufficient.
+
+The benchmark is source-bound by
+`config/hultgren_maize_weather_method_v1.toml` and
+`data/provenance/hultgren_maize_weather_method_validation_20260923.json`.
+The validator hashes the official 95-page supplementary PDF and pinned source
+files and checks the maize season, phase, polynomial, and temperature settings.
+The final regression input `corn_gmfd_v1_ready.dta` remains absent from the
+current public data route. Consequently, the coefficient and covariance export
+is valid, but exact historical response replication, future projection,
+damages, and SCC remain blocked; no baseline covariate values are inferred from
+the fitted estimate.
+
 The aggregate evidence decision is applied after the country-held-out yield,
 future-support, and GMST-normalized climate diagnostics. Production promotion
 requires a new independent untouched holdout, five valid country folds for

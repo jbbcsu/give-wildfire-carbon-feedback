@@ -20,12 +20,21 @@ and fixed effects for spatial units, first-level-unit time trends, and
 country-year.
 
 The response specification contains growing-degree days and extreme heat plus
-three within-season precipitation bins, with both linear and quadratic rainfall
-terms. Each weather family is interacted with income, irrigation share,
+three within-season precipitation phases, with both linear and quadratic rainfall
+terms. The official Supplementary Information and pinned code now resolve the
+maize construction: daily GMFD precipitation is summed to grid-cell months
+before polynomial transformation; maize uses a fixed ten-month crop season and
+groups those months into phase 1 (month 1), phase 2 (months 2--4), and phase 3
+(months 5+). The paper selected phase boundaries through sequential nested
+F-tests of monthly marginal precipitation responses at 100, 300, and 500 mm,
+then selected phased versus total-season precipitation in its second
+cross-validation step. Each weather family is interacted with income, irrigation share,
 long-run growing-season maximum temperature, and capped long-run precipitation.
 It therefore provides a high-value published benchmark that represents both
-temperature and the timing/distribution of precipitation within the crop
-season; it is not an annual-rainfall-only model.
+temperature and both the quantity and timing/distribution of precipitation
+within the crop season; it is not an annual-rainfall-only model. The source-bound
+method validation receipt is
+`data/provenance/hultgren_maize_weather_method_validation_20260923.json`.
 
 ## What is not yet established
 
@@ -44,15 +53,17 @@ treated as version-matched substitutes. The archive audit is recorded in
 `data/provenance/hultgren_historical_impact_archive_20260923.json`.
 
 The missing regression dataset is needed to recover the authors' baseline
-covariate distributions and reproduce their local response curves exactly. The
-reviewed plotting code evaluates one temperature response for a U.S. and
+covariate distributions and reproduce their local response curves exactly. It
+is also needed to verify the numerical phase variables delivered to the fitted
+model, even though their conceptual construction and phase boundaries are now
+documented. The reviewed plotting code evaluates one temperature response for a U.S. and
 Chinese location; it does not supply a standalone globally representative
 precipitation response curve.
 
 Consequently, this audit does **not** yet establish projected yield impacts,
 monetary agricultural damages, or an SCC increment. Applying the coefficient
-vector to the project's five-ESM climate features before resolving the raw
-precipitation transformation units and required baseline covariates would be
+vector to the project's five-ESM climate features before reproducing the
+historical transformation numerics and required baseline covariates would be
 speculative. All three claim gates remain closed in the machine-readable
 validation receipt.
 
@@ -61,8 +72,9 @@ validation receipt.
 1. Resolve the missing impact-data access route or reconstruct only those
    baseline covariates from explicitly matched, documented sources.
 2. Reproduce at least one published response figure or numerical checkpoint.
-3. Implement the exact crop-calendar aggregation and precipitation transforms,
-   then test historical overlap before any future projection.
+3. Implement the documented crop-calendar aggregation and monthly precipitation
+   transforms, then reproduce a historical checkpoint before any future
+   projection; do not infer unreported baseline covariates from the estimate.
 4. Treat the published-response projection as a benchmark alongside the
    project's U.S. NASS validation, not as a substitute for validation.
 

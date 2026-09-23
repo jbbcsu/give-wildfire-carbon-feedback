@@ -118,15 +118,21 @@ marginal yield or SCC coefficient.
 
 [Hultgren et al. (2025)](https://doi.org/10.1038/s41586-025-09085-w)
 provide the closest published end-to-end benchmark: a global empirical crop
-response with within-season precipitation bins, temperature, irrigation,
+response with within-season precipitation phases, temperature, irrigation,
 income, and long-run climate interactions, followed by agricultural valuation
 and a FaIR pulse calculation. We have hash-validated the published maize
-estimate and its full covariance matrix. Their Supplementary Table S13 reports
+estimate and its full covariance matrix. Their maize model captures rainfall
+quantity and timing jointly: daily GMFD rainfall is summed to months before
+polynomial transformation, and a fixed ten-month season is represented by
+linear and quadratic rainfall terms for month 1, months 2--4, and months 5+.
+The phase structure was selected using nested tests and cross-validation rather
+than assumed a priori. Their Supplementary Table S13 reports
 partial staple-crop SCC sensitivities of $3.80--$17.75/tCO2 under varietal
 switching and $1.71--$7.99/tCO2 with additional flexible production and trade.
 These are ranges across changed assumptions, not confidence intervals or this
 paper's estimate. The current public data route omits a regression input needed
-to reproduce the final local response surface, so the published values remain
+to reproduce the final local response surface and baseline covariate
+distribution, so the published values remain
 an external scale/methods benchmark rather than a coefficient or SCC imported
 into GIVE.
 
