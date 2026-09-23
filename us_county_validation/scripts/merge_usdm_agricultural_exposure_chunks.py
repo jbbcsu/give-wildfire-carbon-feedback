@@ -40,6 +40,7 @@ def main() -> None:
     wall_seconds = 0.0
     input_records = []
     observed_counties: set[str] = set()
+    configs: set[str] = set()
     for record in split["chunks"]:
         index = int(record["chunk"])
         directory = arguments.chunk_root / f"chunk_{index:03d}"
@@ -62,6 +63,13 @@ def main() -> None:
         wall_seconds += float(resource["wall_seconds"])
         audit = json.loads(audit_path.read_text(encoding="utf-8"))
         frame = pd.read_parquet(exposure)
+        exposure_identity = sha512(exposure)
+        if (
+            audit.get("output_sha512") != exposure_identity
+            or int(audit.get("output_rows", -1)) != len(frame)
+        ):
+            raise ValueError(f"chunk {index} exposure audit identity differs")
+        configs.add(str(audit["config"]))
         frame["county_geoid"] = frame.county_geoid.astype(str).str.zfill(5)
         expected_counties = set(map(str, record["counties"]))
         actual_counties = set(frame.county_geoid)
@@ -74,7 +82,9 @@ def main() -> None:
             if date not in map_rows:
                 map_rows[date] = dict(row)
             else:
-                for key in ("archive", "archive_sha512", "represented_days"):
+                for key in (
+                    "archive", "archive_sha512", "represented_days", "severity_values",
+                ):
                     if map_rows[date].get(key) != row.get(key):
                         raise ValueError(f"chunk map metadata differs for {date} {key}")
             for category, value in row["exclusive_class_overlap_points"].items():
@@ -83,7 +93,7 @@ def main() -> None:
             "chunk": index,
             "counties": len(actual_counties),
             "rows": len(frame),
-            "sha512": sha512(exposure),
+            "sha512": exposure_identity,
             "peak_rss_bytes": peak,
         })
     result = pd.concat(frames, ignore_index=True)
@@ -100,9 +110,11 @@ def main() -> None:
         map_audits.append(row)
     if len(map_audits) != 679:
         raise ValueError("merged chunks do not contain all 679 maps")
+    if len(configs) != 1:
+        raise ValueError("chunk exposure configurations differ")
     audit = {
         "schema": "usdm_agricultural_area_exposure_audit_v1",
-        "config": "unchanged chunk-level frozen contract",
+        "config": next(iter(configs)),
         "grid": str(arguments.chunk_audit),
         "grid_rows": int(split["source"]["rows"]),
         "county_mask_groups": int(result.groupby(["county_geoid", "mask_id"]).ngroups),
