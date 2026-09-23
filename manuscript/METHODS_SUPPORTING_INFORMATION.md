@@ -1534,6 +1534,24 @@ these comparisons test operational feature construction but do not reproduce
 GMFD or validate grid-first aggregation. The receipt is
 `data/provenance/hultgren_iroquois_gswp_basis_diagnostic_20260923.json`.
 
+We then replaced the nearest-cell shortcut with two prespecified multi-cell
+spatial proxies. The 2019 TIGER boundary for Iroquois County intersects six
+GSWP 0.5-degree cells and has complete EPSG:5070 intersection-area coverage.
+One variant weights transformed cell features by county-overlap area; the other
+weights them by fixed-2000 MIRCA-OS maize hectares multiplied by the within-cell
+county-overlap fraction. In both cases Snyder degree days and monthly linear
+and squared rainfall terms are constructed separately in each cell before
+weighting, as required by the paper's stated aggregation order. Relative to the
+nearest cell, area weighting changes seasonal-rain bias from +5.84 to +1.27 mm,
+RMSE from 90.59 to 89.03 mm, and correlation from 0.762 to 0.770. The late-phase
+rain correlation rises from 0.818 to 0.870 and its squared-term correlation
+from 0.735 to 0.816. The MIRCA-maize proxy produces nearly identical results;
+KDD RMSE is slightly worse under both multi-cell variants. These alternatives
+were not selected by fit. They remain transport sensitivities because neither
+the source GMFD daily weather nor the paper's SAGE any-crop weights are present.
+The hash-bound receipt is
+`data/provenance/hultgren_iroquois_gswp_aggregation_diagnostic_20260923.json`.
+
 The aggregate evidence decision is applied after the country-held-out yield,
 future-support, and GMST-normalized climate diagnostics. Production promotion
 requires a new independent untouched holdout, five valid country folds for
