@@ -1,0 +1,105 @@
+schema_version = 1
+source_name = "Hultgren et al. (2025) global maize response estimate"
+source_repository = "https://gitlab.com/ClimateImpactLab/cil-ag-replication-package"
+source_commit = "3ccdffcd4e4ff6e55566ce76e2aac130ee86349a"
+publication_doi = "10.1038/s41586-025-09085-w"
+retrieved_date = "2026-09-23"
+license_status = "No repository license file was located in the reviewed pinned tree; retain raw source files outside version control and do not redistribute them."
+local_raw_directory = "data/raw/hultgren_response/3ccdffcd4e4ff6e55566ce76e2aac130ee86349a"
+source_tree_snapshot = "data/interim/hultgren_welfare_tree_20260908/result.json"
+estimate_local_filename = "corn_pbarkinks_200_100_250__.ster"
+missing_required_impact_data = "impact_data/for_regressions/corn_gmfd_v1_ready.dta"
+projection_ready = false
+damage_ready = false
+scc_ready = false
+
+[[files]]
+local_filename = "corn_pbarkinks_200_100_250__.ster"
+repository_path = "Fig1/Local_Impacts/data/crop_estimates/corn_pbarkinks_200_100_250__.ster"
+bytes = 57609
+git_blob_sha1 = "edc85d28c4c216c7ba4d08ae6d264608c4d32c5a"
+sha256 = "7571dd425dba620a3fca3d24b12f117acd6651b4b6ea2b07dd5dac7cf516410d"
+
+[[files]]
+local_filename = "estimated_crop_response.do"
+repository_path = "Regressions/main_code/estimated_crop_response.do"
+bytes = 650
+git_blob_sha1 = "ad91c15111be307c2e6d2745e4db311fafed452a"
+sha256 = "5ffc68c72c45d8f8caaa31b62483cb3e63a0f8be16544f734be72359710c8059"
+
+[[files]]
+local_filename = "generate_covariates_bins.do"
+repository_path = "Regressions/background_code/setup/generate_covariates_bins.do"
+bytes = 2768
+git_blob_sha1 = "035c9ae6f7575239164d929426afe7b076fd3573"
+sha256 = "fec696e80593fee82ec3d2ab7d40994cdb866c5a50da12af96daa70190c62563"
+
+[[files]]
+local_filename = "generate_covariates_splines.do"
+repository_path = "Regressions/background_code/setup/generate_covariates_splines.do"
+bytes = 608
+git_blob_sha1 = "405e272ee01c829c9e10ad2423064894a220ddd5"
+sha256 = "ef456fb0b6b1ea170253f1a501c9f3565b9000f0b2f53bd68ef455581b41763a"
+
+[[files]]
+local_filename = "set_crop_variables.do"
+repository_path = "Regressions/background_code/setup/set_crop_variables.do"
+bytes = 9730
+git_blob_sha1 = "35581f4e0835f1cb5f4afc28b5864fe71809bfc4"
+sha256 = "2e898575c49ee52e74947dc40a5571400c051ae451e8b78a393319f582ef38e8"
+
+[[files]]
+local_filename = "Local_Impacts.do"
+repository_path = "Fig1/Local_Impacts/main_code/Local_Impacts.do"
+bytes = 587
+git_blob_sha1 = "c31586b8a104686b2874b32ea125ea0f24dddeb3"
+sha256 = "9be466632546b3f948e970ea26138ff70ba8135de7addcd0008b26d9349a6d06"
+
+[[files]]
+local_filename = "USA_CHN_mac.do"
+repository_path = "Fig1/Local_Impacts/main_code/region_pairs/USA_CHN_mac.do"
+bytes = 13337
+git_blob_sha1 = "22ec1d01d7828244a2c9b77efe9311451d5180f0"
+sha256 = "6677225a1d65dae86a62566c1848552042cef39084cb01339a54b3bbbb42a7db"
+
+[[files]]
+local_filename = "collapse_clim.do"
+repository_path = "Fig1/Local_Impacts/background_code/setup/collapse_clim.do"
+bytes = 6015
+git_blob_sha1 = "1df65f9242d415e808e4d2040b67e407dc7dfec5"
+sha256 = "8a0fdfdf7e55212e5ce7c958c9b68cb4b2bb23c11c6949af9ff3c188e90b47e6"
+
+[[files]]
+local_filename = "reshp_clim.do"
+repository_path = "Fig1/Local_Impacts/background_code/setup/reshp_clim.do"
+bytes = 3823
+git_blob_sha1 = "0692d8e0a6fdf13ee5c9064858bad999060264d0"
+sha256 = "dcdc9d48d24e03972ea0f518d8668713caa3aefae812cec92cf2f4c218296ac2"
+
+[[files]]
+local_filename = "open_data_mac.do"
+repository_path = "Fig1/Local_Impacts/background_code/estimates/open_data_mac.do"
+bytes = 207
+git_blob_sha1 = "d5109466e849bc04073ee21859c7fa7654e981eb"
+sha256 = "ba94fb4d5727b48fa83c5ca1af3d41a5e1c9f1ad57a86ef5ddc64bbbe98212ec"
+
+[[files]]
+local_filename = "open_estimates_regression_mac.do"
+repository_path = "Fig1/Local_Impacts/background_code/estimates/open_estimates_regression_mac.do"
+bytes = 441
+git_blob_sha1 = "371cce722777527d0458fb720369069b333a1dd6"
+sha256 = "20c87727d838745ce28aa1389d26f363493677b64945ac6fe971fe71bba3adcb"
+
+[[files]]
+local_filename = "tokenize_spec.do"
+repository_path = "Fig1/Local_Impacts/background_code/setup/tokenize_spec.do"
+bytes = 14043
+git_blob_sha1 = "730342bc337ac34f9abbef220a261b2b7fe6ab2b"
+sha256 = "29857fbd0de21e55a2c11e3c282be65ec3de594c66a08033814372f973922562"
+
+[[files]]
+local_filename = "utils.do"
+repository_path = "Fig1/Local_Impacts/background_code/setup/utils.do"
+bytes = 949
+git_blob_sha1 = "3605758728d07f453f86fe27a7d53bf779883a3e"
+sha256 = "9ad21e4cb540ae6cbc2a902c1d12ce977908fcf047ffba5741d9ed980ddd85da"

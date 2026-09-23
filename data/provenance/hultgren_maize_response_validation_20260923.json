@@ -1,0 +1,155 @@
+{
+  "claim_gates": {
+    "damage_estimate_validated": false,
+    "estimate_export_validated": true,
+    "future_projection_validated": false,
+    "local_response_curve_reproduced": false,
+    "scc_estimate_validated": false,
+    "source_identity_validated": true
+  },
+  "config": {
+    "path": "config/hultgren_maize_response_source_v1.toml",
+    "sha256": "b1a75435837e8d9a15ce9a2c6ca8804d0b8e4aa2e573e0468a76c5c6d141dcaa"
+  },
+  "estimate_export": {
+    "coefficient_csv": {
+      "path": "data/interim/hultgren_maize_response_20260923/coefficients.csv",
+      "rows": 49,
+      "sha256": "f3f3c011c4ebb4d4e49712bae1fdc320271460d0ff7d6942d21aa910a553318a"
+    },
+    "covariance_csv": {
+      "path": "data/interim/hultgren_maize_response_20260923/covariance.csv",
+      "rows": 2401,
+      "sha256": "e8b11fc5ac8b3087918987aaf02e959e66d323649835647ae7c9972d32c45cc6"
+    },
+    "max_covariance_asymmetry": 0.0,
+    "metadata_txt": {
+      "N": "377824",
+      "N_clust1": "807",
+      "N_clust2": "541",
+      "N_full": "377973",
+      "absvars": "uid i.adm1_fact##c.(time time_sqr) adm0_year",
+      "clustvar": "adm0_year adm1_fact",
+      "cmd": "reghdfe",
+      "coefficient_count": "49",
+      "depvar": "ln_yield",
+      "indepvars": "gdd c.gdd#c.ln_gdppc c.gdd#c.irrigated_share c.gdd#c.lr_tmax_crop c.gdd#c.pbarcut_gdd c.gdd#c.lr_tmax_crop#c.pbarcut_gdd kdd c.kdd#c.ln_gdppc c.kdd#c.irrigated_share c.kdd#c.lr_tmax_crop c.kdd#c.pbarcut_kdd c.kdd#c.lr_tmax_crop#c.pbarcut_kdd prcp_poly_1_bin1 c.prcp_poly_1_bin1#c.ln_gdppc c.prcp_poly_1_bin1#c.irrigated_share c.prcp_poly_1_bin1#c.lr_tmax_crop c.prcp_poly_1_bin1#c.pbarcut_prcp c.prcp_poly_1_bin1#c.lr_tmax_crop#c.pbarcut_prcp prcp_poly_1_bin2 c.prcp_poly_1_bin2#c.ln_gdppc c.prcp_poly_1_bin2#c.irrigated_share c.prcp_poly_1_bin2#c.lr_tmax_crop c.prcp_poly_1_bin2#c.pbarcut_prcp c.prcp_poly_1_bin2#c.lr_tmax_crop#c.pbarcut_prcp prcp_poly_1_bin3 c.prcp_poly_1_bin3#c.ln_gdppc c.prcp_poly_1_bin3#c.irrigated_share c.prcp_poly_1_bin3#c.lr_tmax_crop c.prcp_poly_1_bin3#c.pbarcut_prcp c.prcp_poly_1_bin3#c.lr_tmax_crop#c.pbarcut_prcp prcp_poly_2_bin1 c.prcp_poly_2_bin1#c.ln_gdppc c.prcp_poly_2_bin1#c.irrigated_share c.prcp_poly_2_bin1#c.lr_tmax_crop c.prcp_poly_2_bin1#c.pbarcut_prcp c.prcp_poly_2_bin1#c.lr_tmax_crop#c.pbarcut_prcp prcp_poly_2_bin2 c.prcp_poly_2_bin2#c.ln_gdppc c.prcp_poly_2_bin2#c.irrigated_share c.prcp_poly_2_bin2#c.lr_tmax_crop c.prcp_poly_2_bin2#c.pbarcut_prcp c.prcp_poly_2_bin2#c.lr_tmax_crop#c.pbarcut_prcp prcp_poly_2_bin3 c.prcp_poly_2_bin3#c.ln_gdppc c.prcp_poly_2_bin3#c.irrigated_share c.prcp_poly_2_bin3#c.lr_tmax_crop c.prcp_poly_2_bin3#c.pbarcut_prcp c.prcp_poly_2_bin3#c.lr_tmax_crop#c.pbarcut_prcp _cons",
+      "path": "data/interim/hultgren_maize_response_20260923/metadata.txt",
+      "r2": ".85168086456400238",
+      "r2_within": ".053553288741403082",
+      "sha256": "04727c51fee512ed8163b96d8b681ea2965afabe3f0d19fb2ec8a576e757d47f",
+      "stata_flavor": "IC",
+      "stata_version": "18.5",
+      "vce": "cluster"
+    },
+    "minimum_covariance_diagonal": 4.33396508635e-19
+  },
+  "missing_required_impact_data": {
+    "present_in_local_source_snapshot": false,
+    "repository_relative_path": "impact_data/for_regressions/corn_gmfd_v1_ready.dta"
+  },
+  "schema_version": 1,
+  "source": {
+    "commit": "3ccdffcd4e4ff6e55566ce76e2aac130ee86349a",
+    "files": [
+      {
+        "bytes": 57609,
+        "git_blob_sha1": "edc85d28c4c216c7ba4d08ae6d264608c4d32c5a",
+        "local_filename": "corn_pbarkinks_200_100_250__.ster",
+        "repository_path": "Fig1/Local_Impacts/data/crop_estimates/corn_pbarkinks_200_100_250__.ster",
+        "sha256": "7571dd425dba620a3fca3d24b12f117acd6651b4b6ea2b07dd5dac7cf516410d"
+      },
+      {
+        "bytes": 650,
+        "git_blob_sha1": "ad91c15111be307c2e6d2745e4db311fafed452a",
+        "local_filename": "estimated_crop_response.do",
+        "repository_path": "Regressions/main_code/estimated_crop_response.do",
+        "sha256": "5ffc68c72c45d8f8caaa31b62483cb3e63a0f8be16544f734be72359710c8059"
+      },
+      {
+        "bytes": 2768,
+        "git_blob_sha1": "035c9ae6f7575239164d929426afe7b076fd3573",
+        "local_filename": "generate_covariates_bins.do",
+        "repository_path": "Regressions/background_code/setup/generate_covariates_bins.do",
+        "sha256": "fec696e80593fee82ec3d2ab7d40994cdb866c5a50da12af96daa70190c62563"
+      },
+      {
+        "bytes": 608,
+        "git_blob_sha1": "405e272ee01c829c9e10ad2423064894a220ddd5",
+        "local_filename": "generate_covariates_splines.do",
+        "repository_path": "Regressions/background_code/setup/generate_covariates_splines.do",
+        "sha256": "ef456fb0b6b1ea170253f1a501c9f3565b9000f0b2f53bd68ef455581b41763a"
+      },
+      {
+        "bytes": 9730,
+        "git_blob_sha1": "35581f4e0835f1cb5f4afc28b5864fe71809bfc4",
+        "local_filename": "set_crop_variables.do",
+        "repository_path": "Regressions/background_code/setup/set_crop_variables.do",
+        "sha256": "2e898575c49ee52e74947dc40a5571400c051ae451e8b78a393319f582ef38e8"
+      },
+      {
+        "bytes": 587,
+        "git_blob_sha1": "c31586b8a104686b2874b32ea125ea0f24dddeb3",
+        "local_filename": "Local_Impacts.do",
+        "repository_path": "Fig1/Local_Impacts/main_code/Local_Impacts.do",
+        "sha256": "9be466632546b3f948e970ea26138ff70ba8135de7addcd0008b26d9349a6d06"
+      },
+      {
+        "bytes": 13337,
+        "git_blob_sha1": "22ec1d01d7828244a2c9b77efe9311451d5180f0",
+        "local_filename": "USA_CHN_mac.do",
+        "repository_path": "Fig1/Local_Impacts/main_code/region_pairs/USA_CHN_mac.do",
+        "sha256": "6677225a1d65dae86a62566c1848552042cef39084cb01339a54b3bbbb42a7db"
+      },
+      {
+        "bytes": 6015,
+        "git_blob_sha1": "1df65f9242d415e808e4d2040b67e407dc7dfec5",
+        "local_filename": "collapse_clim.do",
+        "repository_path": "Fig1/Local_Impacts/background_code/setup/collapse_clim.do",
+        "sha256": "8a0fdfdf7e55212e5ce7c958c9b68cb4b2bb23c11c6949af9ff3c188e90b47e6"
+      },
+      {
+        "bytes": 3823,
+        "git_blob_sha1": "0692d8e0a6fdf13ee5c9064858bad999060264d0",
+        "local_filename": "reshp_clim.do",
+        "repository_path": "Fig1/Local_Impacts/background_code/setup/reshp_clim.do",
+        "sha256": "dcdc9d48d24e03972ea0f518d8668713caa3aefae812cec92cf2f4c218296ac2"
+      },
+      {
+        "bytes": 207,
+        "git_blob_sha1": "d5109466e849bc04073ee21859c7fa7654e981eb",
+        "local_filename": "open_data_mac.do",
+        "repository_path": "Fig1/Local_Impacts/background_code/estimates/open_data_mac.do",
+        "sha256": "ba94fb4d5727b48fa83c5ca1af3d41a5e1c9f1ad57a86ef5ddc64bbbe98212ec"
+      },
+      {
+        "bytes": 441,
+        "git_blob_sha1": "371cce722777527d0458fb720369069b333a1dd6",
+        "local_filename": "open_estimates_regression_mac.do",
+        "repository_path": "Fig1/Local_Impacts/background_code/estimates/open_estimates_regression_mac.do",
+        "sha256": "20c87727d838745ce28aa1389d26f363493677b64945ac6fe971fe71bba3adcb"
+      },
+      {
+        "bytes": 14043,
+        "git_blob_sha1": "730342bc337ac34f9abbef220a261b2b7fe6ab2b",
+        "local_filename": "tokenize_spec.do",
+        "repository_path": "Fig1/Local_Impacts/background_code/setup/tokenize_spec.do",
+        "sha256": "29857fbd0de21e55a2c11e3c282be65ec3de594c66a08033814372f973922562"
+      },
+      {
+        "bytes": 949,
+        "git_blob_sha1": "3605758728d07f453f86fe27a7d53bf779883a3e",
+        "local_filename": "utils.do",
+        "repository_path": "Fig1/Local_Impacts/background_code/setup/utils.do",
+        "sha256": "9ad21e4cb540ae6cbc2a902c1d12ce977908fcf047ffba5741d9ed980ddd85da"
+      }
+    ],
+    "license_status": "No repository license file was located in the reviewed pinned tree; retain raw source files outside version control and do not redistribute them.",
+    "repository": "https://gitlab.com/ClimateImpactLab/cil-ag-replication-package",
+    "tree_snapshot": {
+      "path": "data/interim/hultgren_welfare_tree_20260908/result.json",
+      "sha256": "b19bd88ddb3017e8ab680ed70cfd344fc74d1bb9ff41c82014e72de18064ed8b"
+    }
+  },
+  "validated_at_utc": "2026-09-23T13:09:46.123217+00:00"
+}
