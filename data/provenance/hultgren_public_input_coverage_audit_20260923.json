@@ -1,0 +1,114 @@
+{
+  "availability_findings": {
+    "alternative_product_transport_possible": true,
+    "primitive_historical_gmfd_daily_inputs_available": false,
+    "published_coefficient_and_historical_feature_reproduction_possible": true,
+    "source_future_nex_gddp_transformed_features_available": false,
+    "source_sage_anycrop_pixel_weights_available": false
+  },
+  "claim_gates": {
+    "author_input_request_still_material": true,
+    "exact_historical_response_reproduced": true,
+    "exact_primitive_weather_pipeline_reproduced": false,
+    "exact_source_spatial_aggregation_reproduced": false,
+    "future_benchmark_transport_authorized_as_exact_replication": false
+  },
+  "created_at_utc": "2026-09-23T23:57:00.486574+00:00",
+  "current_tree_filename_search": {
+    "anycrop_matches": 0,
+    "gmfd_matches": 6,
+    "gmfd_paths_are_crop_area_tables": true,
+    "license_filename_matches": 0,
+    "ready_dataset_matches": 0,
+    "sage_matches": 0
+  },
+  "local_public_files": {
+    "administrative_crop_weights": {
+      "bytes": 4983567,
+      "columns": [
+        "hierid",
+        "cassava",
+        "corn",
+        "cotton",
+        "rice",
+        "sorghum",
+        "soy",
+        "wheat",
+        "allcrop",
+        "cassava_buffer",
+        "corn_buffer",
+        "cotton_buffer",
+        "rice_buffer",
+        "sorghum_buffer",
+        "soy_buffer",
+        "wheat_buffer",
+        "allcrop_buffer"
+      ],
+      "path": "data/raw/hultgren_response/gitlab_main_20250702/Fig2/data/weights/agglomerated-world-new-hierid-crop-weights.csv",
+      "role": "downstream administrative aggregation weights; not pixel-to-region weather weights",
+      "rows": 24378,
+      "sha512": "0ebbde101209b0ebbde3ce613d0d7a7d6a19c9f0cf87f018379bff8725c10de8022d1cad3860f520dc2725b9429d61bf9e2d75e6e7543e8abfb8189fb80a1d23"
+    },
+    "current_corn_gmfd_v1": {
+      "bytes": 62512316,
+      "columns": [
+        "iso",
+        "adm1",
+        "adm1_id",
+        "adm2",
+        "adm2_id",
+        "year",
+        "area_plant",
+        "area_harv"
+      ],
+      "path": "data/raw/hultgren_response/gitlab_main_20250702/Fig1/Crop_Coverage/data/crops/corn_gmfd_v1.dta",
+      "role": "crop identifiers and annual planted/harvested area; no weather variables",
+      "rows": 433859,
+      "sha512": "14851aada5bcf9f3272b23a356a6fd2f7d7d8abcb938e7ca3beb6b8ca91e8204ae8512e7df5bea319f67b350858db1f4b51d618d318b4cd0bcc38ab0e5684c3c"
+    },
+    "historical_prepared_regression_dataset": {
+      "bytes": 345639713,
+      "path": "data/raw/hultgren_response/historical_git/dae5fe8d0d4a260328e4baa45b547368bd6790b3/corn_gmfd_v1_ready.dta",
+      "role": "prepared historical regression features recovered from public Git history",
+      "sha256": "06c2f0102580518a3eea88a6cd677af4636d40882452aa15b65ac7178cf9267a"
+    },
+    "maize_crop_mask": {
+      "components": {
+        ".dbf": {
+          "bytes": 91,
+          "path": "data/raw/hultgren_response/gitlab_main_20250702/Fig2/data/shapes/cropped_area_maps/union_impact_regions_growing_corn.dbf",
+          "sha512": "3d2f0e834ac083dcea5bd30442ef49caaea3de422ab93cf59a694807bbec31cf3f8860eb66de1a02ea257494f99a2bf99836e1a57774a22f7c2ee176fe748536"
+        },
+        ".prj": {
+          "bytes": 300,
+          "path": "data/raw/hultgren_response/gitlab_main_20250702/Fig2/data/shapes/cropped_area_maps/union_impact_regions_growing_corn.prj",
+          "sha512": "10a7bbf6f1cbaa3c9ebc0fb054ae5be1e5f3ed0c7d8a7332a70b0b2dbe5dac5b186bc83de43e87e96349ab018f54070d501c815669c55cc3b058e518ce0339cc"
+        },
+        ".shp": {
+          "bytes": 985240,
+          "path": "data/raw/hultgren_response/gitlab_main_20250702/Fig2/data/shapes/cropped_area_maps/union_impact_regions_growing_corn.shp",
+          "sha512": "b17f5c1cdb557e8e71c3f4a412c1ca1ed284a55a7398e1b226c877ad0edbc6385d6bea9727eced4880bc866e54b6c2bf5a311feb3667de26fc4ad76e2920c264"
+        },
+        ".shx": {
+          "bytes": 108,
+          "path": "data/raw/hultgren_response/gitlab_main_20250702/Fig2/data/shapes/cropped_area_maps/union_impact_regions_growing_corn.shx",
+          "sha512": "406d5aa3cba44f174f480c985a30f0ee9c4400170e2c913224d26f1366a3de05d1ada91b7e552e1130375cf3083b97418e34c716c9ca83399195d9d4fe1c6117"
+        }
+      },
+      "features": 1,
+      "fields": [
+        "area"
+      ],
+      "role": "one dissolved global maize-growing-area mask; not administrative boundaries or weights"
+    }
+  },
+  "repository": {
+    "current_recursive_tree_blobs": 598,
+    "current_recursive_tree_entries": 1039,
+    "current_reviewed_commit": "3ccdffcd4e4ff6e55566ce76e2aac130ee86349a",
+    "historical_reviewed_commit": "dae5fe8d0d4a260328e4baa45b547368bd6790b3",
+    "tree_query": "GitLab repository-tree API, recursive=true, per_page=100, pages 1-11",
+    "url": "https://gitlab.com/ClimateImpactLab/cil-ag-replication-package"
+  },
+  "schema": "hultgren_public_input_coverage_audit/v1"
+}

@@ -4,40 +4,50 @@
 
 **To:** Andrew Hultgren (`ahultgr@illinois.edu`)
 
-**Subject:** Missing regression input in Hultgren et al. (2025) replication package
+**Subject:** Primitive climate and spatial-weight inputs for Hultgren et al. (2025)
 
 Dear Professor Hultgren,
 
 We are developing an independent precipitation-sensitive agricultural-damages
-extension for the GIVE model and would like to reproduce your published maize
-weather response as an external benchmark. We reviewed the Nature
-Supplementary Information and pinned the public GitLab replication repository
-at commit `3ccdffcd4e4ff6e55566ce76e2aac130ee86349a`.
+extension for the GIVE model and would like to use your published maize weather
+response as an external benchmark. We reviewed the Nature Supplementary
+Information and pinned the public GitLab replication repository at commit
+`3ccdffcd4e4ff6e55566ce76e2aac130ee86349a`.
 
-The public code expects
-`impact_data/for_regressions/corn_gmfd_v1_ready.dta`, but that file is not in
-the repository. The Box link currently given in the repository README
-(`a1ni7tthdtw5qqss5iifpe1mc7otqmte`) returned HTTP 404 when checked on 23
-September 2026. We also inspected the older `impact_data.zip` retained in the
-repository's Git history; it contains historical projection outputs but not
-the required regression input and predates the final 2025 estimate.
+We recovered `corn_gmfd_v1_ready.dta` from public Git history at commit
+`dae5fe8d0d4a260328e4baa45b547368bd6790b3`. Using it, we reproduce the 49
+published maize coefficients to relative L2 error `2.42e-14`, the covariance
+matrix to `2.65e-6`, all calendar/phase assignments, and the Iroquois local
+response plot. We also confirmed that monthly precipitation is transformed in
+each grid cell before crop-weighted aggregation and that temperature exposure
+uses Snyder's Tmin--Tmax sinusoidal integration.
 
-Could you provide a current access route for the version-matched regression
-data, or point us to its replacement? We would also appreciate confirmation of:
+The remaining gap is upstream. The current public repository and the reviewed
+historical commit do not appear to include the primitive GMFD daily precipitation,
+minimum-temperature and maximum-temperature inputs, the SAGE any-crop pixel
+weights used for administrative aggregation, or the corresponding future
+NEX-GDDP transformed inputs. The current
+`Fig1/Crop_Coverage/data/crops/corn_gmfd_v1.dta` contains only identifiers,
+years, planted area and harvested area; the published
+`agglomerated-world-new-hierid-crop-weights.csv` is a downstream
+administrative aggregation table rather than the grid-cell weather weights.
 
-1. the applicable reuse and redistribution terms for the regression data;
-2. whether `prcp_poly_1_bin1`--`bin3` and `prcp_poly_2_bin1`--`bin3` are sums
-   of grid-cell monthly polynomial transforms within the maize phases (month
-   1, months 2--4, and months 5+), or a different numerical aggregation; and
-3. the baseline moderator values or source fields used to reproduce the
-   published local response plots (`ln_gdppc`, `irrigated_share`,
-   `lr_tmax_crop`, and the capped long-run precipitation terms).
+Could you provide or identify a version-matched access route for:
 
-We have successfully opened the published maize estimate and independently
-exported its 49 coefficients and complete covariance matrix, but we are not
-applying those coefficients to future climate until the historical transform
-and baseline-covariate numerics can be reproduced. Any help identifying the
-version-matched data would be greatly appreciated.
+1. the historical GMFD daily inputs or the intermediate grid-cell weather
+   features used to produce the administrative-unit regression variables;
+2. the exact SAGE any-crop grid weights, including source version and spatial
+   identifier crosswalk used for that aggregation;
+3. the future NEX-GDDP transformed weather inputs (or an equivalent
+   administrative-unit weather-feature output) and their historical baseline
+   convention; and
+4. the applicable reuse and redistribution terms for these inputs and the
+   prepared regression data.
+
+We can run a clearly labeled alternative-product benchmark using ISIMIP
+weather and MIRCA maize weights, but we do not want to represent that as an
+exact replication of your climate-input pipeline. Any help locating the
+version-matched inputs would be greatly appreciated.
 
 Best regards,
 

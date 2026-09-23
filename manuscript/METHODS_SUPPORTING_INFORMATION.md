@@ -1552,6 +1552,19 @@ the source GMFD daily weather nor the paper's SAGE any-crop weights are present.
 The hash-bound receipt is
 `data/provenance/hultgren_iroquois_gswp_aggregation_diagnostic_20260923.json`.
 
+A separate public-input audit distinguishes source availability from method
+documentation. At pinned GitLab commit `3ccdffcd`, the recursive tree contains
+six `gmfd`-named files, but the maize file has only identifiers, year, planted
+area, and harvested area. The public administrative crop-weight table is a
+downstream regional aggregation input, and the maize shapefile is a single
+dissolved global growing-area mask. The reviewed historical commit supplies
+the prepared regression-feature dataset used above, but neither reviewed tree
+contains primitive daily GMFD inputs, SAGE any-crop pixel weights, or future
+NEX-GDDP transformed features. Exact response reproduction and alternative-
+product climate transport are therefore maintained as separate claim classes.
+The receipt is
+`data/provenance/hultgren_public_input_coverage_audit_20260923.json`.
+
 The aggregate evidence decision is applied after the country-held-out yield,
 future-support, and GMST-normalized climate diagnostics. Production promotion
 requires a new independent untouched holdout, five valid country folds for
