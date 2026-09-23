@@ -1474,6 +1474,13 @@ the 346 MB source hash, writes all Stata estimates and matrix exports to ignored
 interim storage, and then runs the independent comparison and phase-sum audit.
 Only the small validation receipt is versioned.
 
+`src/hultgren_maize_weather.py` implements the now-source-verified primitive
+basis without inferring calendar dates: it accepts already aligned local-season
+monthly rainfall totals (four through ten months) and daily maximum temperature,
+sums rainfall and monthly rainfall squared within the three phases, and computes
+8--31 C growing-degree days and above-31 C killing-degree days. Calendar
+alignment remains a separate, auditable input gate.
+
 The isolated `src/hultgren_maize_response.py` evaluator implements only the
 published 49-term linear-predictor and covariance algebra. Its input contract
 requires preconstructed GDD, KDD, three linear rainfall-phase terms, three
