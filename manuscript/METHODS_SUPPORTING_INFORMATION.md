@@ -4085,8 +4085,19 @@ levels produces at most $0.00551 annual global cancellation error. We propagate
 that observed bound through each Ramsey sum rather than requiring bitwise
 equality. The paired sectoral values agree with the external diagnostic within
 `4.08e-9` 2005 USD per tCO2, well inside every derived bound. This validates
-one accounting sentinel; ensemble and Monte Carlo replacement execution remain
-future work.
+one accounting sentinel. We then execute the identical graph and level checks
+sequentially for all 26 registered climate models, forcing garbage collection
+after each model. The complete 104-value ensemble peaks at 1.39 GB. Baseline
+agriculture and consumption errors remain zero, regional increment error is at
+most `4.54e-13` billion 2005 USD, and annual aggregation cancellation error is
+at most $0.00822. The maximum paired-versus-external disagreement is `5.38e-8`
+2005 USD per tCO2 and is below the run-specific propagated numerical bound.
+
+The 2020-dollar conversion and summaries are accepted only after an independent
+one-to-one join reconstructs all 104 values from the checksum-pinned external
+diagnostic. This validates the central fixed-adaptation, uncapped-tail,
+smallest-pulse quantity-channel ensemble. Paired execution of the market,
+adaptation, tail, and empirical-response uncertainty grid remains future work.
 
 ### Alternative Hultgren impact-region transport geometry
 

@@ -1,0 +1,142 @@
+{
+  "claim_gates": {
+    "adaptation_or_market_uncertainty_in_paired_give": false,
+    "central_26_model_quantity_channel_scc": true,
+    "full_precipitation_agriculture_replacement": false,
+    "paired_replacement_engineering": true
+  },
+  "created_at_utc": "2026-09-24T23:24:58.289253+00:00",
+  "definition": "retain exact MooreAg baseline regional damage levels, remove the MooreAg marginal pulse response, and substitute the precipitation-quantity marginal response exactly once",
+  "implementation": {
+    "path": "scripts/register_quantity_anchored_replacement_ensemble.py",
+    "sha256": "65052ef3e2782a68396ed611a49cf76139da12673bd268f09fbc46917c706fae"
+  },
+  "limitations": [
+    "This is the central fixed-adaptation, uncapped-tail, smallest-pulse specification only.",
+    "The baseline level is anchored to MooreAg to preserve consumption; only the marginal response is replaced.",
+    "The response is the global maize annual-rainfall-quantity channel and excludes rainfall timing, drought, temperature, other crops, irrigation adaptation, trade, storage, and adaptation costs.",
+    "The negative mean is a model result for this narrow channel, not evidence that total climate-driven precipitation changes are beneficial."
+  ],
+  "schema": "quantity_anchored_replacement_ensemble/v1",
+  "sources": {
+    "external_diagnostic": {
+      "path": "data/interim/epa_fair_hultgren_quantity_partial_scc_diagnostic_20260924.csv",
+      "receipt": "data/provenance/epa_fair_hultgren_quantity_partial_scc_diagnostic_20260924.json",
+      "receipt_sha256": "a0321b59c48e8a0a4445e73697aef1906155dbb1c81fa3540e3c6a7e8b656f9e",
+      "sha256": "3f8edfb67ddf6dd52cdba0889edda397f07dd7cb38692b36ddac063c17eba934"
+    },
+    "give_damage_aggregator": {
+      "path": "/Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo/packages/MimiGIVE/src/components/DamageAggregator.jl",
+      "sha256": "9fdd944faf6aa67bfd36063078974b3e7164bd6806528acecc7ea04331ab7cc4"
+    },
+    "give_main_model": {
+      "path": "/Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo/packages/MimiGIVE/src/main_model.jl",
+      "sha256": "5dcd02dbb8fc03246ff673e219308ac1f81c1ee3111b5198023ba8c28691f520"
+    },
+    "give_manifest": {
+      "path": "/Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo/Manifest.toml",
+      "sha256": "e357bbe963593d50a70d326f55736366551a50fff5d6edb12868e730fc37dc9d"
+    },
+    "give_scc": {
+      "path": "/Users/jbb/Dropbox/GIVE/paper-2022-scc-give-zenodo/packages/MimiGIVE/src/scc.jl",
+      "sha256": "c08634dd29f579f318ccd8f5fa5ac572aaa485fd84b7741d87ab30486651daf8"
+    },
+    "julia_job": {
+      "limit_kind": "sampled_process_group_not_kernel_limit",
+      "max_mib": 3000.0,
+      "min_free_gib": 100.0,
+      "path": "data/provenance/quantity_anchored_replacement_ensemble_job_20260924.json",
+      "returncode": 0,
+      "sampled_peak_group_rss_bytes": 1390002176,
+      "sampling_interval_seconds": 0.2,
+      "sha256": "77fc8c260ee31898b5e72f1622611dc43a1cabe63a4fba9ba893f3ad7bb1660d",
+      "status": "completed",
+      "wall_seconds": 78.77630712499376
+    },
+    "julia_result": {
+      "bytes": 18737,
+      "path": "data/interim/quantity_anchored_replacement_ensemble_results_20260924.csv",
+      "sha256": "e08827819b1a2154c004569d2a326aa8d1b8f368525dd40182ab5d95a6ed8e7c"
+    },
+    "julia_script": {
+      "path": "scripts/run_quantity_anchored_replacement_ensemble.jl",
+      "sha256": "9cc8940db2db7759bb5468abca355d2abdf4200821f887ae3afdb496375fecae"
+    },
+    "regional_input": {
+      "path": "data/interim/quantity_replacement_ensemble_input_20260924.csv",
+      "receipt": "data/provenance/quantity_replacement_ensemble_input_20260924.json",
+      "receipt_sha256": "c0b3a06aed6add9f839d900fc943347e2c79777fc2e4f430a2ddc6a3aac294da",
+      "sha256": "82c8f35e2409dc4b6a4f740a4a8ff422aff5af5c9c1fee83758d2055c44540bf"
+    },
+    "replacement_component": {
+      "path": "src/AnchoredAnnualAgriculture.jl",
+      "sha256": "d5ae5e389afcaac9613c7ad80dc12c186e1ba5e641608f8ab489e253b0afd8c1"
+    }
+  },
+  "specification": {
+    "adaptation": "fixed",
+    "elasticity_id": "hultgren_pair_010_004",
+    "pulse_size_gtc": 2.5e-05,
+    "tail_rule": "uncapped",
+    "yield_to_supply_mapping": "horizontal_output"
+  },
+  "status": "paired_26_model_central_marginal_response_replacement_pass",
+  "summary": {
+    "1.5%": {
+      "maximum_usd2020_per_tco2": 0.004581303331066,
+      "mean_usd2020_per_tco2": -0.008829687623112455,
+      "median_usd2020_per_tco2": -0.009179262510194599,
+      "minimum_usd2020_per_tco2": -0.014827466399078,
+      "models": 26,
+      "negative_models": 25,
+      "positive_models": 1
+    },
+    "2.0%": {
+      "maximum_usd2020_per_tco2": 0.0031658962735348,
+      "mean_usd2020_per_tco2": -0.0061017295490772925,
+      "median_usd2020_per_tco2": -0.00634330233191885,
+      "minimum_usd2020_per_tco2": -0.0102464769887628,
+      "models": 26,
+      "negative_models": 25,
+      "positive_models": 1
+    },
+    "2.5%": {
+      "maximum_usd2020_per_tco2": 0.0023571048790805,
+      "mean_usd2020_per_tco2": -0.004542920753168915,
+      "median_usd2020_per_tco2": -0.00472277900862225,
+      "minimum_usd2020_per_tco2": -0.0076288097115845,
+      "models": 26,
+      "negative_models": 25,
+      "positive_models": 1
+    },
+    "3.0%": {
+      "maximum_usd2020_per_tco2": 0.0018628692489121,
+      "mean_usd2020_per_tco2": -0.003590365081274038,
+      "median_usd2020_per_tco2": -0.0037325108675072497,
+      "minimum_usd2020_per_tco2": -0.0060292076157642,
+      "models": 26,
+      "negative_models": 25,
+      "positive_models": 1
+    }
+  },
+  "support": {
+    "climate_models": 26,
+    "discount_schedules": [
+      "1.5%",
+      "2.0%",
+      "2.5%",
+      "3.0%"
+    ],
+    "result_rows": 104
+  },
+  "validation": {
+    "aggregated_increment_maximum_absolute_error_usd": 0.0082164719101545,
+    "all_104_external_rows_reconstructed_exactly": true,
+    "all_paired_errors_below_derived_floating_point_bounds": true,
+    "baseline_agriculture_maximum_absolute_error_usd": 0.0,
+    "baseline_cpc_maximum_absolute_error": 0.0,
+    "legacy_agriculture_removed_and_single_replacement_producer_audited_for_every_model": true,
+    "paired_vs_external_diagnostic_maximum_absolute_error_usd2005_per_tco2": 5.3812563036680083e-08,
+    "regional_increment_maximum_absolute_error_billion_usd2005": 4.54222539014982e-13
+  }
+}

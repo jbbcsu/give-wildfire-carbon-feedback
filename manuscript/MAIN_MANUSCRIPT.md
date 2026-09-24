@@ -1926,14 +1926,18 @@ channel only. Because the discount path comes from standard GIVE with MooreAg
 still active, we describe them as partial-SCC diagnostics rather than paired
 agriculture-replacement SCC estimates.
 
-We then tested a paired marginal-response replacement for one pinned climate-
-model path. The replacement retains MooreAg's exact baseline regional damage
-levels, deletes the legacy agriculture component, and inserts the precipitation
-path as the only agriculture pulse response. Baseline agriculture damages and
-global net consumption per capita are unchanged, and the paired sectoral SCC
-agrees with the external discount diagnostic within `4.1e-9` 2005 USD per
-tCO2. This sentinel validates the no-stacking accounting route; full ensemble
-and uncertainty runs remain outstanding.
+We then implemented the paired marginal-response replacement for all 26
+climate-model paths. The replacement retains MooreAg's exact baseline regional
+damage levels, deletes the legacy agriculture component, and inserts the
+precipitation path as the only agriculture pulse response. Baseline agriculture
+damages and global net consumption per capita are unchanged in every run. All
+104 model-by-discount sectoral SCC values agree with the independently computed
+diagnostic inside propagated floating-point bounds. At the 2% schedule, the
+26-model mean is -$0.00610 per tCO2 in 2020 dollars (range -$0.01025 to
+$0.00317), with 25 negative models and one positive model. This is the first
+paired GIVE estimate for the central annual maize rainfall-quantity channel;
+adaptation/market uncertainty and the broader precipitation-agriculture
+replacement remain outstanding.
 
 Report global agricultural marginal damages and SCC under each adaptation
 scenario with draw-level uncertainty. Do not present a precipitation add-on to

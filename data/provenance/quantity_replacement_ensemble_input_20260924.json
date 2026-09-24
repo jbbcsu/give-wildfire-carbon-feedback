@@ -1,0 +1,81 @@
+{
+  "claim_gate": "engineering_input_only_until_paired_give_validation",
+  "created_at_utc": "2026-09-24T23:21:08.589385+00:00",
+  "implementation": {
+    "path": "scripts/export_quantity_replacement_ensemble.py",
+    "sha256": "7de0dd9a67888e9cd8d2333d73faaadeab7c9d9b88347e777dc3869fa82b6194"
+  },
+  "output": {
+    "bytes": 5022632,
+    "path": "data/interim/quantity_replacement_ensemble_input_20260924.csv",
+    "sha256": "82c8f35e2409dc4b6a4f740a4a8ff422aff5af5c9c1fee83758d2055c44540bf"
+  },
+  "schema": "quantity_replacement_ensemble_input/v1",
+  "source": {
+    "path": "data/interim/epa_fair_hultgren_quantity_fund_paths_20260924.parquet",
+    "receipt": "data/provenance/epa_fair_hultgren_quantity_fund_paths_20260924.json",
+    "receipt_sha256": "ea2339b75dc72e3ad718c5aea4396929be2ed8cbeccb61d0d4bf6bafe9896890",
+    "sha256": "362ef8670a3cb4c6c28b9b4e6d43d815cc33dfd2e3306640d97a86fab5519ccf"
+  },
+  "specification": {
+    "adaptation": "fixed",
+    "elasticity_id": "hultgren_pair_010_004",
+    "pulse_size_gtc": 2.5e-05,
+    "tail_rule": "uncapped",
+    "yield_to_supply_mapping": "horizontal_output"
+  },
+  "status": "registered_26_model_central_regional_increments_for_paired_replacement",
+  "support": {
+    "climate_models": [
+      "ACCESS-CM2",
+      "ACCESS-ESM1-5",
+      "AWI-CM-1-1-MR",
+      "BCC-CSM2-MR",
+      "CAMS-CSM1-0",
+      "CAS-ESM2-0",
+      "CESM2",
+      "CESM2-WACCM",
+      "CMCC-CM2-SR5",
+      "CMCC-ESM2",
+      "CanESM5",
+      "FGOALS-g3",
+      "FIO-ESM-2-0",
+      "GISS-E2-1-G",
+      "GISS-E2-1-H",
+      "HadGEM3-GC31-LL",
+      "IITM-ESM",
+      "MIROC-ES2L",
+      "MIROC6",
+      "MPI-ESM1-2-HR",
+      "MPI-ESM1-2-LR",
+      "MRI-ESM2-0",
+      "NESM3",
+      "NorESM2-MM",
+      "TaiESM1",
+      "UKESM1-0-LL"
+    ],
+    "regions": [
+      "USA",
+      "CAN",
+      "WEU",
+      "JPK",
+      "ANZ",
+      "EEU",
+      "FSU",
+      "MDE",
+      "CAM",
+      "LAM",
+      "SAS",
+      "SEA",
+      "CHI",
+      "MAF",
+      "SSA",
+      "SIS"
+    ],
+    "rows": 116896,
+    "years": [
+      2020,
+      2300
+    ]
+  }
+}

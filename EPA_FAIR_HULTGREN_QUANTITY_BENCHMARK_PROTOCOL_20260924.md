@@ -255,3 +255,23 @@ pinned sentinel. It does not yet open the ensemble replacement-SCC gate: the
 anchored approach is also not a new estimate of baseline agriculture damage;
 it deliberately preserves MooreAg's baseline to avoid an unsupported level
 assumption and a change in baseline discounting.
+
+## Central 26-model paired replacement (September 24, 2026)
+
+The same anchored replacement has now been executed independently for all 26
+climate models in the registered fixed-adaptation, uncapped-tail, smallest-
+pulse central-market case. All 104 model-by-discount results preserve baseline
+agriculture damage and consumption exactly, retain a single audited agriculture
+producer, and agree with the external diagnostic within calculated floating-
+point bounds. Peak process-group memory was 1.39 GB under a 3 GB ceiling.
+
+The 26-model mean in 2020 USD per tCO2 is -$0.00883, -$0.00610, -$0.00454,
+and -$0.00359 at 1.5%, 2.0%, 2.5%, and 3.0%, respectively; 25 models are
+negative and one positive at every schedule. Evidence is in
+`QUANTITY_ANCHORED_REPLACEMENT_ENSEMBLE_RESULTS_20260924.md`.
+
+This opens the central 26-model paired replacement gate for the annual maize
+rainfall-quantity channel only. It does not open the adaptation/market
+uncertainty or full precipitation-agriculture replacement gates. Timing,
+drought, temperature, other crops, irrigation adaptation, trade, storage, and
+adaptation costs remain omitted.
