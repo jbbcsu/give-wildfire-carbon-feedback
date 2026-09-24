@@ -43,6 +43,17 @@ compare the resulting support and weights against the constant-dollar case.
 It must be selected on source comparability rather than on the resulting
 damage magnitude.
 
+That alternative input is now constructed, but not yet passed through the
+market model. Requiring all three 1999--2001 current-USD observations and
+rebasing each year with the pinned U.S. GDP implicit price deflator retains
+110 MapSPAM-matched countries, 97.88% of MapSPAM maize production, and
+US$97.272 billion. Venezuela becomes US$0.537 billion, or 0.552% of this
+alternative total. The change shows that price-basis selection is material;
+it does not by itself establish that the GDP-wide deflator matches farm-gate
+prices or authorize the alternative as the primary welfare calibration.
+Receipt:
+`data/provenance/hultgren_country_cell_maize_value_weights_current_rebased_20260924.json`.
+
 Machine-readable audit:
 `data/provenance/faostat_maize_value_plausibility_audit_20260924.json`.
 The country/FUND diagnostic that exposed the issue and its independent

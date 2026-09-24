@@ -10,6 +10,10 @@ The source field is retained unchanged, but all value-weighted monetary
 results are conditional diagnostics until a source-pinned common-price
 alternative is run. See
 `data/provenance/faostat_maize_value_plausibility_audit_20260924.json`.
+The registered complete-current-USD sensitivity has now produced an input
+only: 110 matched countries, 97.882% of MapSPAM maize production, and
+US$97.272 billion after annual GDP-deflator rebasing to the mean 2014--2016
+level. It is not yet a market or SCC result.
 
 Use MapSPAM 2000 v3.0.7 production as a **modeled fixed spatial allocation**
 for maize and soybean, and FAOSTAT gross production value as a **national

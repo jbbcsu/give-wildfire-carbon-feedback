@@ -3438,6 +3438,18 @@ for substantive interpretation:
 and
 `data/provenance/hultgren_country_market_central_fixed_incidence_validation_20260924.json`.
 
+As the preregistered alternative input, we require complete FAOSTAT current-
+USD values in 1999, 2000, and 2001 and rebase each annual observation to the
+mean 2014--2016 U.S. GDP-deflator level. The pinned indices are 76.296,
+78.025, and 79.783 for the input years and 103.654, 104.691, and 105.740 for
+the target years. This retains 110 MapSPAM-matched countries, 97.882% of
+MapSPAM maize production, and US$97.272 billion. Venezuela's rebased value is
+US$0.537 billion, 0.552% of the alternative total. The input receipt is
+`data/provenance/hultgren_country_cell_maize_value_weights_current_rebased_20260924.json`.
+This is a weight-input sensitivity only. A U.S. GDP-wide deflator is not a
+farm-gate price index, and the reduced country support is not renormalized.
+No market, damage, or SCC result is yet reported from this alternative.
+
 ### Price-basis convention validation (September15 amendment)
 
 The maize value proxy remains in source constant2014--2016USD; no published-

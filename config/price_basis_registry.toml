@@ -1,0 +1,39 @@
+schema_version = 1
+status = "registered_GDP_wide_approximation_not_applied"
+source_url = "https://files.hawaii.gov/dbedt/economic/databook/2021-individual/14/140121.pdf"
+source_file = "data/reference/price_basis/hawaii_databook_2021_table_14_01.pdf"
+source_sha256 = "27a458ed222d02d5ddca36f5304c096c81515511501f40bb75073483270f9883"
+retrieved_date = "2026-09-14"
+table = "Hawaii_State_Data_Book_2021_Table_14.01_US_column"
+series = "US_GDP_implicit_price_deflator"
+index_base_year = 2012
+underlying_release_date = "2022-03-31"
+compilation_access_date = "2022-06-21"
+provenance_role = "state_government_reproduction_of_BEA_series_not_archived_BEA_file"
+input_units = "constant_2014_2016_USD"
+output_units = "USD2005"
+price_concept_equivalence_claimed = false
+approximation_disclosure = "US GDP-wide rebase of FAOSTAT farm-gate production value; these price concepts are not identical."
+central_formula = "P2005/arithmetic_mean(P2014,P2015,P2016)"
+central_scalar = 0.8357992263240843
+sensitivity_formula = "P2005/P2015"
+
+[annual_indices]
+y1999 = 76.296
+y2000 = 78.025
+y2001 = 79.783
+y2005 = 87.504
+y2010 = 96.166
+y2014 = 103.654
+y2015 = 104.691
+y2016 = 105.740
+
+[current_usd_baseline_rebase]
+status = "registered_sensitivity_not_primary_market_calibration"
+input = "FAOSTAT annual current USD farm-gate maize value"
+input_years = [1999, 2000, 2001]
+output = "GDP-deflator-rebased 2014-2016 USD approximation"
+formula = "mean_t(current_USD_t * mean(P2014,P2015,P2016) / P_t)"
+complete_year_rule = "require all three annual current-USD observations; do not impute"
+price_concept_equivalence_claimed = false
+purpose = "replace the failed constant-dollar cross-country baseline with a transparent sensitivity; not yet welfare, damage, or SCC"

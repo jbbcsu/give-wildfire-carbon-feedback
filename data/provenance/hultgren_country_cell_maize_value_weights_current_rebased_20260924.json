@@ -1,0 +1,427 @@
+{
+  "audit": {
+    "allocated_current_usd_rebased_2014_2016_usd": 97271671506.01361,
+    "cells_shared_by_multiple_countries": 1132,
+    "complete_current_usd_country_count_before_mapspam": 114,
+    "country_cell_rows": 24813,
+    "matched_country_count": 110,
+    "matched_maize_production_fraction": 0.9788233606854336,
+    "matched_maize_production_mt": 623659645.9000088,
+    "source_maize_production_mt": 637152392.3001624,
+    "venezuela_rebased_value_usd": 536990007.1084436,
+    "venezuela_share": 0.005520517934918445
+  },
+  "claim_gates": {
+    "alternative_weight_input": true,
+    "damage_or_scc": false,
+    "welfare": false
+  },
+  "created_at_utc": "2026-09-24T17:22:56.023538+00:00",
+  "implementation": {
+    "path": "scripts/build_hultgren_country_maize_value_weights_current_rebased.py",
+    "sha256": "3f7942085c451006f9d1442c68e0677f6c641c00e9d10a8ec75eade7c4e37a43"
+  },
+  "limitations": [
+    "The U.S. GDP-wide deflator is an explicit approximation to a farm-gate price concept.",
+    "Countries lacking any of the three current-USD observations remain missing without imputation.",
+    "This builds weights only; it does not authorize welfare, damage, or SCC calculation."
+  ],
+  "output": {
+    "bytes": 422253,
+    "path": "data/interim/hultgren_country_cell_maize_value_weights_current_rebased_20260924.parquet",
+    "sha256": "dd2948b966a2f03072a98ee7aee23e9657c564ff1ee1fcf9453f2d6b495d488f"
+  },
+  "price_basis": {
+    "annual_indices": {
+      "1999": 76.296,
+      "2000": 78.025,
+      "2001": 79.783
+    },
+    "formula": "mean_t(current_USD_t * mean(P2014,P2015,P2016) / P_t)",
+    "price_concept_equivalence_claimed": false,
+    "target_index": 104.695
+  },
+  "schema": "hultgren_country_cell_maize_value_weights_current_rebased/v1",
+  "source_flags": {
+    "ALB": [
+      "Official value"
+    ],
+    "ARG": [
+      "Official value"
+    ],
+    "ARM": [
+      "Estimated value"
+    ],
+    "ATG": [
+      "Estimated value"
+    ],
+    "AUS": [
+      "Official value"
+    ],
+    "AUT": [
+      "Official value"
+    ],
+    "AZE": [
+      "Official value"
+    ],
+    "BDI": [
+      "Official value"
+    ],
+    "BEN": [
+      "Estimated value"
+    ],
+    "BFA": [
+      "Official value"
+    ],
+    "BGD": [
+      "Estimated value"
+    ],
+    "BGR": [
+      "Official value"
+    ],
+    "BIH": [
+      "Estimated value",
+      "Official value"
+    ],
+    "BLR": [
+      "Official value"
+    ],
+    "BLZ": [
+      "Official value"
+    ],
+    "BOL": [
+      "Official value"
+    ],
+    "BRA": [
+      "Official value"
+    ],
+    "BRB": [
+      "Estimated value"
+    ],
+    "BTN": [
+      "Estimated value",
+      "Official value"
+    ],
+    "BWA": [
+      "Official value"
+    ],
+    "CAN": [
+      "Estimated value"
+    ],
+    "CHE": [
+      "Official value"
+    ],
+    "CHL": [
+      "Official value"
+    ],
+    "CHN": [
+      "Estimated value",
+      "Official value"
+    ],
+    "CIV": [
+      "Official value"
+    ],
+    "CMR": [
+      "Estimated value",
+      "Official value"
+    ],
+    "COG": [
+      "Official value"
+    ],
+    "COL": [
+      "Official value"
+    ],
+    "CPV": [
+      "Official value"
+    ],
+    "CRI": [
+      "Official value"
+    ],
+    "CZE": [
+      "Official value"
+    ],
+    "DEU": [
+      "Official value"
+    ],
+    "DOM": [
+      "Official value"
+    ],
+    "DZA": [
+      "Estimated value"
+    ],
+    "ECU": [
+      "Official value"
+    ],
+    "EGY": [
+      "Official value"
+    ],
+    "ERI": [
+      "Official value"
+    ],
+    "ESP": [
+      "Official value"
+    ],
+    "ETH": [
+      "Official value"
+    ],
+    "FJI": [
+      "Official value"
+    ],
+    "FRA": [
+      "Official value"
+    ],
+    "GEO": [
+      "Estimated value"
+    ],
+    "GHA": [
+      "Official value"
+    ],
+    "GIN": [
+      "Estimated value",
+      "Official value"
+    ],
+    "GMB": [
+      "Official value"
+    ],
+    "GNB": [
+      "Estimated value"
+    ],
+    "GRC": [
+      "Official value"
+    ],
+    "HND": [
+      "Official value"
+    ],
+    "HRV": [
+      "Official value"
+    ],
+    "HUN": [
+      "Official value"
+    ],
+    "IDN": [
+      "Official value"
+    ],
+    "IND": [
+      "Official value"
+    ],
+    "IRN": [
+      "Official value"
+    ],
+    "ISR": [
+      "Estimated value"
+    ],
+    "ITA": [
+      "Official value"
+    ],
+    "JAM": [
+      "Official value"
+    ],
+    "JPN": [
+      "Estimated value"
+    ],
+    "KAZ": [
+      "Official value"
+    ],
+    "KEN": [
+      "Official value"
+    ],
+    "KGZ": [
+      "Official value"
+    ],
+    "KHM": [
+      "Estimated value",
+      "Official value"
+    ],
+    "KOR": [
+      "Official value"
+    ],
+    "LAO": [
+      "Official value"
+    ],
+    "LBN": [
+      "Official value"
+    ],
+    "LKA": [
+      "Official value"
+    ],
+    "MAR": [
+      "Official value"
+    ],
+    "MDA": [
+      "Official value"
+    ],
+    "MDG": [
+      "Official value"
+    ],
+    "MEX": [
+      "Official value"
+    ],
+    "MKD": [
+      "Official value"
+    ],
+    "MLI": [
+      "Official value"
+    ],
+    "MOZ": [
+      "Estimated value",
+      "Official value"
+    ],
+    "MUS": [
+      "Official value"
+    ],
+    "MWI": [
+      "Official value"
+    ],
+    "NAM": [
+      "Official value"
+    ],
+    "NER": [
+      "Official value"
+    ],
+    "NGA": [
+      "Estimated value",
+      "Official value"
+    ],
+    "NIC": [
+      "Official value"
+    ],
+    "NLD": [
+      "Estimated value"
+    ],
+    "NPL": [
+      "Official value"
+    ],
+    "NZL": [
+      "Official value"
+    ],
+    "PAK": [
+      "Official value"
+    ],
+    "PAN": [
+      "Official value"
+    ],
+    "PER": [
+      "Official value"
+    ],
+    "PHL": [
+      "Official value"
+    ],
+    "POL": [
+      "Official value"
+    ],
+    "PRI": [
+      "Estimated value"
+    ],
+    "PRT": [
+      "Official value"
+    ],
+    "PRY": [
+      "Official value"
+    ],
+    "QAT": [
+      "Official value"
+    ],
+    "ROU": [
+      "Official value"
+    ],
+    "RUS": [
+      "Official value"
+    ],
+    "RWA": [
+      "Official value"
+    ],
+    "SAU": [
+      "Estimated value"
+    ],
+    "SEN": [
+      "Official value"
+    ],
+    "SLV": [
+      "Official value"
+    ],
+    "SUR": [
+      "Official value"
+    ],
+    "SVK": [
+      "Official value"
+    ],
+    "SVN": [
+      "Official value"
+    ],
+    "TGO": [
+      "Official value"
+    ],
+    "THA": [
+      "Official value"
+    ],
+    "TJK": [
+      "Estimated value",
+      "Official value"
+    ],
+    "TKM": [
+      "Estimated value"
+    ],
+    "TTO": [
+      "Estimated value",
+      "Official value"
+    ],
+    "TUR": [
+      "Official value"
+    ],
+    "TZA": [
+      "Official value"
+    ],
+    "UKR": [
+      "Official value"
+    ],
+    "URY": [
+      "Official value"
+    ],
+    "USA": [
+      "Official value"
+    ],
+    "VEN": [
+      "Official value"
+    ],
+    "VNM": [
+      "Estimated value",
+      "Official value"
+    ],
+    "VUT": [
+      "Estimated value"
+    ],
+    "YEM": [
+      "Official value"
+    ],
+    "ZAF": [
+      "Official value"
+    ]
+  },
+  "sources": {
+    "faostat": {
+      "license": "CC-BY-4.0",
+      "path": "data/interim/welfare_weights/faostat_qv_maize_soy.csv",
+      "sha256": "d120f9cb06aacd36b4d610cde51c10f046fc68d283eb6047719c4e849f64d4d0"
+    },
+    "gec_audit": {
+      "path": "data/interim/welfare_weights/mapspam_gec_resolution.audit.json",
+      "sha256": "bfbef2997ac275567742d3898ac75c652b4c0e8b0cee5b16ad851f90d7efec44"
+    },
+    "mapspam": {
+      "path": "data/interim/welfare_weights/mapspam2000_maize_soy_production.csv",
+      "sha256": "ff3fa3a1af6e255d4e35c6cd5ca1bc53af9114c34cf00f0aa39707be43735e0c"
+    },
+    "price_registry": {
+      "path": "config/price_basis_registry.toml",
+      "sha256": "128c2fbdc8481a588aa07bbce23520f3cd6df48ea1132edc33c9ee4c756b3e72",
+      "underlying_source_sha256": "27a458ed222d02d5ddca36f5304c096c81515511501f40bb75073483270f9883"
+    },
+    "unsd": {
+      "path": "data/raw/unsd_m49/countries_retrieved_2026-08-26.html",
+      "sha256": "4d5cabcb10ad9ef184553b5e64c0a34ba8deeb20dab2e02cd0be3599b93bb01d"
+    }
+  },
+  "status": "alternative_current_usd_rebased_country_cell_weights_not_welfare_damage_or_scc",
+  "units": "US dollars rebased from annual current USD to mean 2014-2016 GDP-deflator level",
+  "value_column": "maize_gross_production_value_current_usd_rebased_2014_2016_usd"
+}
