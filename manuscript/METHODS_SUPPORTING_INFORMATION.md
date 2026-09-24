@@ -4019,6 +4019,30 @@ baseline would change baseline regional consumption and the Ramsey discount
 path. We therefore keep replacement, discounting, and SCC claim gates closed;
 an externally discounted difference may be reported only as a diagnostic.
 
+We evaluate the registered national-market sensitivity grid with supply/demand
+elasticity pairs 0.08/0.02, 0.10/0.04, and 0.50/0.06. For the horizontal-
+output convention, the log supply shift equals the cell log productivity
+shift. For the fixed-input-cost convention, it equals `(1 + epsilon_s)` times
+the productivity shift. Cell production is aggregated within country before
+the constant-elasticity market is cleared, so the nonlinear calculation does
+not substitute a global mean yield response for heterogeneous cell changes.
+
+The resulting 1,052,064 rows are written incrementally rather than retained as
+Python objects. The central 0.10/0.04 horizontal-output path reproduces its
+prior artifact with zero disagreement. Zero-pulse and pre-2021 identities are
+exact, and maximum relative disagreement between normalized 0.000025 and
+0.00005 GtC pulses is `1.5330e-4` across the six market specifications. A
+separate iterator verifies the complete ordered row product, currency
+arithmetic, central reproduction, and convergence without importing the
+builder. The successful build and validation peak at 274 MB and 261 MB,
+respectively, under the 512 MiB ceiling.
+
+Under fixed adaptation, uncapped smallest-pulse mean annual damage changes
+span -$12.79 to -$8.52 in source-price-basis dollars across market
+specifications. Negative damage denotes a benefit. These are unnormalized
+annual pulse increments; they are neither discounted nor expressed per tonne
+of CO2 and therefore are not SCC estimates.
+
 ### Alternative Hultgren impact-region transport geometry
 
 For the external published-response transport, the public Hultgren impact-

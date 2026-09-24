@@ -1,0 +1,52 @@
+{
+  "created_at_utc": "2026-09-24T22:11:10.324054+00:00",
+  "interpretation": "Market-sensitivity validation only; paired agriculture levels, replacement accounting, discounting, and SCC remain closed.",
+  "schema": "epa_fair_hultgren_quantity_market_sensitivities_validation/v1",
+  "scope": "Independent streaming audit of the full ordered support, identities, currency arithmetic, central reproduction, and shrinking-pulse convergence.",
+  "source": {
+    "path": "data/provenance/epa_fair_hultgren_quantity_market_sensitivities_20260924.json",
+    "sha256": "cef7d243b6c9ef3c5f674b958bc932a3dbb6fc65de4af47a525e6d9c34f5b0f5"
+  },
+  "status": "pass",
+  "validation": {
+    "convergence_by_market_specification": [
+      {
+        "elasticity_id": "hultgren_pair_008_002",
+        "maximum_relative_normalized_damage_disagreement": 0.00015329779474056672,
+        "yield_to_supply_mapping": "fixed_input_cost"
+      },
+      {
+        "elasticity_id": "hultgren_pair_008_002",
+        "maximum_relative_normalized_damage_disagreement": 0.00015255965170937088,
+        "yield_to_supply_mapping": "horizontal_output"
+      },
+      {
+        "elasticity_id": "hultgren_pair_010_004",
+        "maximum_relative_normalized_damage_disagreement": 0.0001528563029204543,
+        "yield_to_supply_mapping": "fixed_input_cost"
+      },
+      {
+        "elasticity_id": "hultgren_pair_010_004",
+        "maximum_relative_normalized_damage_disagreement": 0.00015256023147866983,
+        "yield_to_supply_mapping": "horizontal_output"
+      },
+      {
+        "elasticity_id": "hultgren_pair_050_006",
+        "maximum_relative_normalized_damage_disagreement": 0.00015293996103012432,
+        "yield_to_supply_mapping": "fixed_input_cost"
+      },
+      {
+        "elasticity_id": "hultgren_pair_050_006",
+        "maximum_relative_normalized_damage_disagreement": 0.0001525612517036758,
+        "yield_to_supply_mapping": "horizontal_output"
+      }
+    ],
+    "full_ordered_key_product": true,
+    "maximum_absolute_central_reproduction_error_source_usd": 0.0,
+    "maximum_absolute_currency_error_billion_usd2005": 0.0,
+    "maximum_relative_normalized_damage_disagreement": 0.00015329779474056672,
+    "pre_2021_identity": true,
+    "streamed_rows": 1052064,
+    "zero_pulse_identity": true
+  }
+}

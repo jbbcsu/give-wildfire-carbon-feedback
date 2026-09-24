@@ -1905,6 +1905,16 @@ paired baseline and pulse damage levels. A zero new baseline would alter
 regional consumption and endogenous discounting, so we do not use it as an
 unstated default and do not label the regional paths an SCC.
 
+The three registered elasticity pairs and both yield-to-supply mappings were
+then evaluated for every annual path. Under fixed adaptation, the uncapped
+smallest-pulse mean ranges from -$12.79 to -$8.52 per model-year in the source
+price basis; all six specifications retain the preliminary benefit sign. The
+central horizontal-output value is -$11.62, while its fixed-input-cost
+counterpart is -$12.79. The central path is reproduced exactly and every
+market specification passes the same shrinking-pulse test. Because these are
+tiny-pulse annual increments rather than discounted values per tonne of CO2,
+they remain market-structure robustness results, not SCC estimates.
+
 Report global agricultural marginal damages and SCC under each adaptation
 scenario with draw-level uncertainty. Do not present a precipitation add-on to
 baseline MooreAg agriculture.

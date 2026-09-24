@@ -198,3 +198,20 @@ case only. It does not open the paired-replacement or SCC gates. The current
 artifact contains marginal differences rather than paired agriculture damage
 levels; imposing a zero replacement baseline would change regional consumption
 and endogenous discount factors and is not treated as an innocuous default.
+
+## Market-sensitivity checkpoint (September 24, 2026)
+
+All three registered elasticity pairs and both yield-to-supply mappings have
+now been evaluated for the full 26-model, four-pulse, three-adaptation, and
+two-tail-rule path. The 1,052,064-row output reproduces the central case
+exactly, passes zero/pre-2021 identities, and has maximum normalized shrinking-
+pulse disagreement `1.5330e-4`. A separate streaming validator checks every
+ordered row and the currency arithmetic. Results and interpretation are in
+`EPA_FAIR_HULTGREN_QUANTITY_MARKET_SENSITIVITY_RESULTS_20260924.md`.
+
+For fixed adaptation, the smallest-pulse uncapped mean annual damage change
+spans -$12.79 to -$8.52 in source-price-basis dollars across the six market
+specifications. The shared benefit sign is evidence about this narrow annual-
+quantity channel, not total agriculture or SCC. Market sensitivity is now
+closed for the national-market benchmark, while paired levels, GIVE
+replacement, discounting, and SCC remain closed.

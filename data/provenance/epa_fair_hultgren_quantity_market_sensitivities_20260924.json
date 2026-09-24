@@ -1,0 +1,513 @@
+{
+  "claim_gates": {
+    "agriculture_replacement": false,
+    "market_sensitivity": true,
+    "paired_agriculture_levels": false,
+    "scc": false
+  },
+  "created_at_utc": "2026-09-24T22:09:42.565790+00:00",
+  "currency": {
+    "approximation_disclosure": "US GDP-wide rebase of FAOSTAT farm-gate production value; these price concepts are not identical.",
+    "central_scalar": 0.8357992263240843,
+    "formula": "P2005/arithmetic_mean(P2014,P2015,P2016)",
+    "input": "constant_2014_2016_USD",
+    "output": "USD2005"
+  },
+  "definition": "annual global maize precipitation-quantity marginal damage differences under registered national-market elasticities and supply mappings",
+  "implementation": {
+    "path": "scripts/build_epa_fair_hultgren_quantity_market_sensitivities.py",
+    "sha256": "fe313683c6d4b25757c5817335c9fa6493239ffb4da2c8cfc35c80e39478ebdb"
+  },
+  "limitations": [
+    "These are marginal differences, not paired baseline and pulse agriculture damage levels.",
+    "The calculation remains the annual rainfall-quantity maize channel only.",
+    "No trade, storage, other crops, adaptation costs, or future maize-value growth is represented.",
+    "The GDP-wide currency rebase is an approximation to the source agricultural price concept."
+  ],
+  "market": {
+    "elasticities": [
+      {
+        "central": false,
+        "demand_magnitude": 0.02,
+        "id": "hultgren_pair_008_002",
+        "supply": 0.08
+      },
+      {
+        "central": true,
+        "demand_magnitude": 0.04,
+        "id": "hultgren_pair_010_004",
+        "supply": 0.1
+      },
+      {
+        "central": false,
+        "demand_magnitude": 0.06,
+        "id": "hultgren_pair_050_006",
+        "supply": 0.5
+      }
+    ],
+    "geography": "separate fully anticipated national maize markets",
+    "yield_to_supply_mappings": [
+      "horizontal_output",
+      "fixed_input_cost"
+    ]
+  },
+  "output": {
+    "bytes": 18669204,
+    "path": "data/interim/epa_fair_hultgren_quantity_market_sensitivities_20260924.parquet",
+    "sha256": "2d855b90fea9a0bda55829ba3d8a068f3a268e2decdd87665dbe485124b82dd9"
+  },
+  "schema": "epa_fair_hultgren_quantity_market_sensitivities/v1",
+  "smallest_pulse_summaries_source_usd": [
+    {
+      "adaptation": "fixed",
+      "elasticity_id": "hultgren_pair_008_002",
+      "max": 7.493585674067728,
+      "mean": -12.811477209519488,
+      "median": -13.343016075838385,
+      "min": -25.80751317965927,
+      "tail_rule": "published_analogue_p01_p99",
+      "yield_to_supply_mapping": "fixed_input_cost"
+    },
+    {
+      "adaptation": "fixed",
+      "elasticity_id": "hultgren_pair_008_002",
+      "max": 6.938499713358725,
+      "mean": -11.862478799182757,
+      "median": -12.354641649868725,
+      "min": -23.895842231161975,
+      "tail_rule": "published_analogue_p01_p99",
+      "yield_to_supply_mapping": "horizontal_output"
+    },
+    {
+      "adaptation": "fixed",
+      "elasticity_id": "hultgren_pair_010_004",
+      "max": 7.493577391296781,
+      "mean": -12.811477272683543,
+      "median": -13.343009913078713,
+      "min": -25.807507131150484,
+      "tail_rule": "published_analogue_p01_p99",
+      "yield_to_supply_mapping": "fixed_input_cost"
+    },
+    {
+      "adaptation": "fixed",
+      "elasticity_id": "hultgren_pair_010_004",
+      "max": 6.812345150992783,
+      "mean": -11.646797376022215,
+      "median": -12.130011810974603,
+      "min": -23.461372392588263,
+      "tail_rule": "published_analogue_p01_p99",
+      "yield_to_supply_mapping": "horizontal_output"
+    },
+    {
+      "adaptation": "fixed",
+      "elasticity_id": "hultgren_pair_050_006",
+      "max": 7.493579695323211,
+      "mean": -12.811476245770756,
+      "median": -13.343013753534315,
+      "min": -25.80751369236142,
+      "tail_rule": "published_analogue_p01_p99",
+      "yield_to_supply_mapping": "fixed_input_cost"
+    },
+    {
+      "adaptation": "fixed",
+      "elasticity_id": "hultgren_pair_050_006",
+      "max": 4.995719748845941,
+      "mean": -8.540984754742531,
+      "median": -8.895342006696966,
+      "min": -17.205006447265866,
+      "tail_rule": "published_analogue_p01_p99",
+      "yield_to_supply_mapping": "horizontal_output"
+    },
+    {
+      "adaptation": "fixed",
+      "elasticity_id": "hultgren_pair_008_002",
+      "max": 7.9656087511731535,
+      "mean": -12.787426526786417,
+      "median": -13.29068473076343,
+      "min": -25.780796499533007,
+      "tail_rule": "uncapped",
+      "yield_to_supply_mapping": "fixed_input_cost"
+    },
+    {
+      "adaptation": "fixed",
+      "elasticity_id": "hultgren_pair_008_002",
+      "max": 7.375558542241729,
+      "mean": -11.840209587822224,
+      "median": -12.306191085454074,
+      "min": -23.87110475638901,
+      "tail_rule": "uncapped",
+      "yield_to_supply_mapping": "horizontal_output"
+    },
+    {
+      "adaptation": "fixed",
+      "elasticity_id": "hultgren_pair_010_004",
+      "max": 7.965598086747925,
+      "mean": -12.787426506432102,
+      "median": -13.290685266653952,
+      "min": -25.780801153026232,
+      "tail_rule": "uncapped",
+      "yield_to_supply_mapping": "fixed_input_cost"
+    },
+    {
+      "adaptation": "fixed",
+      "elasticity_id": "hultgren_pair_010_004",
+      "max": 7.241457454400033,
+      "mean": -11.624933059795017,
+      "median": -12.08244216417526,
+      "min": -23.43708469054283,
+      "tail_rule": "uncapped",
+      "yield_to_supply_mapping": "horizontal_output"
+    },
+    {
+      "adaptation": "fixed",
+      "elasticity_id": "hultgren_pair_050_006",
+      "max": 7.965601097565589,
+      "mean": -12.787425511742773,
+      "median": -13.290679634402272,
+      "min": -25.78080143707495,
+      "tail_rule": "uncapped",
+      "yield_to_supply_mapping": "fixed_input_cost"
+    },
+    {
+      "adaptation": "fixed",
+      "elasticity_id": "hultgren_pair_050_006",
+      "max": 5.3104021029819455,
+      "mean": -8.524950923334668,
+      "median": -8.86045759680172,
+      "min": -17.18719546635813,
+      "tail_rule": "uncapped",
+      "yield_to_supply_mapping": "horizontal_output"
+    },
+    {
+      "adaptation": "trend",
+      "elasticity_id": "hultgren_pair_008_002",
+      "max": 6.896213274179963,
+      "mean": -14.366272715270243,
+      "median": -14.811108638300931,
+      "min": -26.01259066046258,
+      "tail_rule": "published_analogue_p01_p99",
+      "yield_to_supply_mapping": "fixed_input_cost"
+    },
+    {
+      "adaptation": "trend",
+      "elasticity_id": "hultgren_pair_008_002",
+      "max": 6.385379530255932,
+      "mean": -13.302104017124776,
+      "median": -13.713984216137256,
+      "min": -24.085726746900622,
+      "tail_rule": "published_analogue_p01_p99",
+      "yield_to_supply_mapping": "horizontal_output"
+    },
+    {
+      "adaptation": "trend",
+      "elasticity_id": "hultgren_pair_010_004",
+      "max": 6.896207809860603,
+      "mean": -14.366272803469037,
+      "median": -14.811104438023726,
+      "min": -26.012592542965734,
+      "tail_rule": "published_analogue_p01_p99",
+      "yield_to_supply_mapping": "fixed_input_cost"
+    },
+    {
+      "adaptation": "trend",
+      "elasticity_id": "hultgren_pair_010_004",
+      "max": 6.269281699431893,
+      "mean": -13.060247589183252,
+      "median": -13.464639055618658,
+      "min": -23.647804462480927,
+      "tail_rule": "published_analogue_p01_p99",
+      "yield_to_supply_mapping": "horizontal_output"
+    },
+    {
+      "adaptation": "trend",
+      "elasticity_id": "hultgren_pair_050_006",
+      "max": 6.896215078351214,
+      "mean": -14.366273358663095,
+      "median": -14.811107298757031,
+      "min": -26.012593194499715,
+      "tail_rule": "published_analogue_p01_p99",
+      "yield_to_supply_mapping": "fixed_input_cost"
+    },
+    {
+      "adaptation": "trend",
+      "elasticity_id": "hultgren_pair_050_006",
+      "max": 4.597473218914363,
+      "mean": -9.577514910004519,
+      "median": -9.874068649881524,
+      "min": -17.341723298384633,
+      "tail_rule": "published_analogue_p01_p99",
+      "yield_to_supply_mapping": "horizontal_output"
+    },
+    {
+      "adaptation": "trend",
+      "elasticity_id": "hultgren_pair_008_002",
+      "max": 7.343241133394961,
+      "mean": -14.368501964296362,
+      "median": -14.763019366420515,
+      "min": -25.990415382567612,
+      "tail_rule": "uncapped",
+      "yield_to_supply_mapping": "fixed_input_cost"
+    },
+    {
+      "adaptation": "trend",
+      "elasticity_id": "hultgren_pair_008_002",
+      "max": 6.799303552717008,
+      "mean": -13.30416811392115,
+      "median": -13.669467087655715,
+      "min": -24.065193374796184,
+      "tail_rule": "uncapped",
+      "yield_to_supply_mapping": "horizontal_output"
+    },
+    {
+      "adaptation": "trend",
+      "elasticity_id": "hultgren_pair_010_004",
+      "max": 7.3432465735384,
+      "mean": -14.36850200445365,
+      "median": -14.7630223550247,
+      "min": -25.99041943938051,
+      "tail_rule": "uncapped",
+      "yield_to_supply_mapping": "fixed_input_cost"
+    },
+    {
+      "adaptation": "trend",
+      "elasticity_id": "hultgren_pair_010_004",
+      "max": 6.675679829027528,
+      "mean": -13.06227415724224,
+      "median": -13.420931330748584,
+      "min": -23.627644424855575,
+      "tail_rule": "uncapped",
+      "yield_to_supply_mapping": "horizontal_output"
+    },
+    {
+      "adaptation": "trend",
+      "elasticity_id": "hultgren_pair_050_006",
+      "max": 7.343249204667101,
+      "mean": -14.368502555488954,
+      "median": -14.763023506320902,
+      "min": -25.99042012753152,
+      "tail_rule": "uncapped",
+      "yield_to_supply_mapping": "fixed_input_cost"
+    },
+    {
+      "adaptation": "trend",
+      "elasticity_id": "hultgren_pair_050_006",
+      "max": 4.89549851195358,
+      "mean": -9.579001060295479,
+      "median": -9.842016319956034,
+      "min": -17.326939271361585,
+      "tail_rule": "uncapped",
+      "yield_to_supply_mapping": "horizontal_output"
+    },
+    {
+      "adaptation": "upper",
+      "elasticity_id": "hultgren_pair_008_002",
+      "max": 6.243485340956751,
+      "mean": -16.03695683237284,
+      "median": -16.264820739869634,
+      "min": -26.307980031681222,
+      "tail_rule": "published_analogue_p01_p99",
+      "yield_to_supply_mapping": "fixed_input_cost"
+    },
+    {
+      "adaptation": "upper",
+      "elasticity_id": "hultgren_pair_008_002",
+      "max": 5.781000287081223,
+      "mean": -14.849034111471966,
+      "median": -15.060017732450177,
+      "min": -24.359238859401263,
+      "tail_rule": "published_analogue_p01_p99",
+      "yield_to_supply_mapping": "horizontal_output"
+    },
+    {
+      "adaptation": "upper",
+      "elasticity_id": "hultgren_pair_010_004",
+      "max": 6.243486966283875,
+      "mean": -16.036956770653262,
+      "median": -16.264816999170513,
+      "min": -26.30797817988264,
+      "tail_rule": "published_analogue_p01_p99",
+      "yield_to_supply_mapping": "fixed_input_cost"
+    },
+    {
+      "adaptation": "upper",
+      "elasticity_id": "hultgren_pair_010_004",
+      "max": 5.675891170915739,
+      "mean": -14.579051681405621,
+      "median": -14.786199235385094,
+      "min": -23.916343627299625,
+      "tail_rule": "published_analogue_p01_p99",
+      "yield_to_supply_mapping": "horizontal_output"
+    },
+    {
+      "adaptation": "upper",
+      "elasticity_id": "hultgren_pair_050_006",
+      "max": 6.243477655752102,
+      "mean": -16.036955166797288,
+      "median": -16.264811850442776,
+      "min": -26.307984855278267,
+      "tail_rule": "published_analogue_p01_p99",
+      "yield_to_supply_mapping": "fixed_input_cost"
+    },
+    {
+      "adaptation": "upper",
+      "elasticity_id": "hultgren_pair_050_006",
+      "max": 4.162320166148416,
+      "mean": -10.69130457710593,
+      "median": -10.843212781857034,
+      "min": -17.538652019016922,
+      "tail_rule": "published_analogue_p01_p99",
+      "yield_to_supply_mapping": "horizontal_output"
+    },
+    {
+      "adaptation": "upper",
+      "elasticity_id": "hultgren_pair_008_002",
+      "max": 6.641021497532282,
+      "mean": -16.06740424227832,
+      "median": -16.254865765691726,
+      "min": -26.292843389778838,
+      "tail_rule": "uncapped",
+      "yield_to_supply_mapping": "fixed_input_cost"
+    },
+    {
+      "adaptation": "upper",
+      "elasticity_id": "hultgren_pair_008_002",
+      "max": 6.149086934960625,
+      "mean": -14.877226239060624,
+      "median": -15.050798413210284,
+      "min": -24.34522561354522,
+      "tail_rule": "uncapped",
+      "yield_to_supply_mapping": "horizontal_output"
+    },
+    {
+      "adaptation": "upper",
+      "elasticity_id": "hultgren_pair_010_004",
+      "max": 6.641023406139699,
+      "mean": -16.067404295658662,
+      "median": -16.254864116679123,
+      "min": -26.29283939283384,
+      "tail_rule": "uncapped",
+      "yield_to_supply_mapping": "fixed_input_cost"
+    },
+    {
+      "adaptation": "upper",
+      "elasticity_id": "hultgren_pair_010_004",
+      "max": 6.037285333251345,
+      "mean": -14.606731225102267,
+      "median": -14.777147542678383,
+      "min": -23.902585168144387,
+      "tail_rule": "uncapped",
+      "yield_to_supply_mapping": "horizontal_output"
+    },
+    {
+      "adaptation": "upper",
+      "elasticity_id": "hultgren_pair_050_006",
+      "max": 6.641018416012139,
+      "mean": -16.06740263874904,
+      "median": -16.254857881727624,
+      "min": -26.292850807167042,
+      "tail_rule": "uncapped",
+      "yield_to_supply_mapping": "fixed_input_cost"
+    },
+    {
+      "adaptation": "upper",
+      "elasticity_id": "hultgren_pair_050_006",
+      "max": 4.4273425505231305,
+      "mean": -10.711602909467535,
+      "median": -10.836574877158903,
+      "min": -17.52856248283541,
+      "tail_rule": "uncapped",
+      "yield_to_supply_mapping": "horizontal_output"
+    }
+  ],
+  "sources": {
+    "central_paths": {
+      "path": "data/interim/epa_fair_hultgren_quantity_damage_paths_20260924.parquet",
+      "receipt": "data/provenance/epa_fair_hultgren_quantity_damage_paths_20260924.json",
+      "receipt_sha256": "614c748a613ceb948c926cb141bb2860d8072325c3c36dedddbd6508c3ea89d6",
+      "sha256": "fd5d26557abeb5b9feca8a2b3bd641bb5ca579743eafcedee304630e9a4b9d45"
+    },
+    "fair": {
+      "path": "data/interim/give_fair_temperature_path_smoke/temperature_paths.csv",
+      "sha256": "aedf6b66dd296337e1cb6105d2aa56ec94f3e15e5ac92c2abcdf74b6a42b6067"
+    },
+    "fund_paths_receipt": {
+      "path": "data/provenance/epa_fair_hultgren_quantity_fund_paths_20260924.json",
+      "sha256": "ea2339b75dc72e3ad718c5aea4396929be2ed8cbeccb61d0d4bf6bafe9896890"
+    },
+    "panel": {
+      "path": "data/interim/hultgren_quantity_response_panel_20260924.parquet",
+      "sha256": "af389bc3050cf7074f0a3869ae03cdcd959b3ba8a8017910ff5bc6f5507ffcdc"
+    },
+    "registry": {
+      "path": "/Users/jbb/Dropbox/GIVE/precipitation_scc/config/welfare_scenario_registry.toml",
+      "sha256": "d80e371efa9fb8aadeebd4e2068c839c1421e9c64350ee1e1d5eaa65081f8569"
+    },
+    "slopes": {
+      "path": "data/interim/epa_annual_country_pattern_benchmark_20260921/country_model_slopes.csv",
+      "sha256": "e6bc9a4dbc0af19650f2f243802e0e1974d3599292cf2704aad0e746bf0c0572"
+    }
+  },
+  "status": "registered_national_market_sensitivities_not_paired_replacement_or_scc",
+  "support": {
+    "adaptation_cases": [
+      "fixed",
+      "trend",
+      "upper"
+    ],
+    "models": 26,
+    "pulses_gtc": [
+      0.0,
+      2.5e-05,
+      5e-05,
+      0.0001
+    ],
+    "rows": 1052064,
+    "tail_rules": [
+      "uncapped",
+      "published_analogue_p01_p99"
+    ],
+    "years": [
+      2020,
+      2300
+    ]
+  },
+  "validation": {
+    "central_path_maximum_absolute_reproduction_error_source_usd": 0.0,
+    "convergence_by_market_specification": [
+      {
+        "elasticity_id": "hultgren_pair_008_002",
+        "maximum_relative_normalized_damage_disagreement": 0.00015329779474056672,
+        "yield_to_supply_mapping": "fixed_input_cost"
+      },
+      {
+        "elasticity_id": "hultgren_pair_008_002",
+        "maximum_relative_normalized_damage_disagreement": 0.00015255965170937088,
+        "yield_to_supply_mapping": "horizontal_output"
+      },
+      {
+        "elasticity_id": "hultgren_pair_010_004",
+        "maximum_relative_normalized_damage_disagreement": 0.0001528563029204543,
+        "yield_to_supply_mapping": "fixed_input_cost"
+      },
+      {
+        "elasticity_id": "hultgren_pair_010_004",
+        "maximum_relative_normalized_damage_disagreement": 0.00015256023147866983,
+        "yield_to_supply_mapping": "horizontal_output"
+      },
+      {
+        "elasticity_id": "hultgren_pair_050_006",
+        "maximum_relative_normalized_damage_disagreement": 0.00015293996103012432,
+        "yield_to_supply_mapping": "fixed_input_cost"
+      },
+      {
+        "elasticity_id": "hultgren_pair_050_006",
+        "maximum_relative_normalized_damage_disagreement": 0.0001525612517036758,
+        "yield_to_supply_mapping": "horizontal_output"
+      }
+    ],
+    "convergence_relative_tolerance": 0.0002,
+    "maximum_relative_normalized_damage_disagreement": 0.00015329779474056672,
+    "pre_2021_identity": true,
+    "zero_pulse_identity": true
+  }
+}
