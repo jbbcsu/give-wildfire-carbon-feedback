@@ -17,6 +17,13 @@ level. Its separate-country market sensitivity leaves 108 countries and
 US$95.451 billion on response support; the central fixed five-model mean is
 US$2.461 billion, with all five ESMs damage-positive. This is a named
 price-basis sensitivity, not primary welfare damage or SCC.
+An additional matched-support common-price sensitivity preserves the same
+US$97.272 billion total but values every retained tonne at US$155.969. On the
+108-country response support, its central fixed five-model mean is US$2.794
+billion and all five ESMs remain damage-positive. This removes cross-country
+price dispersion as the source of the sign, but is still only a structural
+accounting sensitivity; it does not open the welfare, marginal-pulse, GIVE-
+damage, or SCC gates.
 
 Use MapSPAM 2000 v3.0.7 production as a **modeled fixed spatial allocation**
 for maize and soybean, and FAOSTAT gross production value as a **national

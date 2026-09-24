@@ -2,10 +2,12 @@
 
 ## Decision
 
-Monetary promotion is blocked pending a revised price-basis sensitivity. The
-constant-2014--2016-USD field is reproduced exactly, but it fails the project's
-cross-country plausibility review as a maize market baseline. This does not
-affect the production-weighted yield-response results.
+Monetary promotion remains blocked after two revised price-basis
+sensitivities. The constant-2014--2016-USD field is reproduced exactly, but it
+fails the project's cross-country plausibility review as a maize market
+baseline. Neither alternative resolves the separate marginal-pulse and market-
+model gates. This does not affect the production-weighted yield-response
+results.
 
 ## Material finding
 
@@ -36,15 +38,15 @@ passed to GIVE. No country is deleted, capped, or reassigned. A leave-one-out
 calculation selected after seeing the anomaly would not solve the price-basis
 problem.
 
-The next registered sensitivity should use countries with complete
+The first registered sensitivity uses countries with complete
 1999--2001 current-USD values, convert each annual observation to a common
 price year using a pinned official deflator, retain missing countries, and
 compare the resulting support and weights against the constant-dollar case.
 It must be selected on source comparability rather than on the resulting
 damage magnitude.
 
-That alternative input is now constructed, but not yet passed through the
-market model. Requiring all three 1999--2001 current-USD observations and
+That alternative input is now constructed and passed through the market
+model. Requiring all three 1999--2001 current-USD observations and
 rebasing each year with the pinned U.S. GDP implicit price deflator retains
 110 MapSPAM-matched countries, 97.88% of MapSPAM maize production, and
 US$97.272 billion. Venezuela becomes US$0.537 billion, or 0.552% of this
@@ -63,6 +65,18 @@ from the flagged constant-dollar field. The full fixed structural range is
 US$0.123--5.985 billion. This supports fixed-case sign robustness while
 confirming that magnitude is highly price-basis-sensitive. The alternative
 remains a structural sensitivity, not primary welfare damage or SCC.
+
+A second matched-support sensitivity removes cross-country price dispersion
+without changing the first alternative's countries or total value. Dividing
+US$97.272 billion by 623.660 million matched tonnes gives one US$155.969 price
+per tonne, which is then applied to every retained cell. On the common 108-
+country response support, the central fixed-adaptation ESM results are
+US$4.770, US$3.799, US$2.579, US$1.374, and US$1.445 billion, with a US$2.794
+billion mean. All five are damage-positive. Independent validation rederives
+all 810 annual case records with zero discrepancy. This demonstrates fixed-
+case sign robustness to country price dispersion, but the common price is an
+accounting sensitivity rather than an observed global farm-gate price; it
+does not authorize a welfare, GIVE damage, or SCC claim.
 
 Machine-readable audit:
 `data/provenance/faostat_maize_value_plausibility_audit_20260924.json`.

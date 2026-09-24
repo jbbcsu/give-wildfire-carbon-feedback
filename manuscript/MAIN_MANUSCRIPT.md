@@ -190,18 +190,20 @@ price construction is verified and a common-price alternative is run. No
 country is silently deleted, capped, or reassigned. The production-weighted
 yield-response results are unaffected.
 
-The preregistered common-price sensitivity now provides a robustness result,
-not a primary calibration. Requiring complete 1999--2001 current-USD values
-and GDP-deflator rebasing retains 108 countries and US$95.451 billion on the
+Two alternative price constructions now provide robustness results, not a
+primary calibration. Requiring complete 1999--2001 current-USD values and
+GDP-deflator rebasing retains 108 countries and US$95.451 billion on the
 response support. Under the central fixed-adaptation case, the five ESM
 results are US$3.91, US$2.87, US$2.00, US$1.52, and US$2.01 billion; their mean
 is US$2.46 billion, compared with US$5.68 billion under the flagged source
-field. All five remain damage-positive. The full fixed structural range is
-US$0.12--5.99 billion; trend and upper central means are US$0.99 and
--US$0.58 billion. This establishes price-basis sensitivity and fixed-case
-sign robustness only. The GDP-wide deflator is not a farm-gate index, country
-support changes, and all expectations/storage, crop-coverage, adaptation-
-cost, and marginal-pulse gaps remain.
+field. All five remain damage-positive. A second matched-support sensitivity
+values every retained tonne at the same US$155.97 price while preserving the
+rebased total value. Its five ESM results are US$4.77, US$3.80, US$2.58,
+US$1.37, and US$1.45 billion, with a US$2.79 billion mean; all five are again
+damage-positive. This establishes price-basis sensitivity and fixed-case sign
+robustness only. The GDP-wide deflator and uniform price are approximations,
+country support changes, and all expectations/storage, crop-coverage,
+adaptation-cost, and marginal-pulse gaps remain.
 
 ![Five-ESM production-weighted precipitation-response decomposition](figures/hultgren_five_esm_production_weighted_decomposition_20260924.svg)
 
@@ -229,11 +231,13 @@ blue bars remain accounting exposures, not welfare damage or SCC.
 
 **Figure 3e. Price-basis sensitivity.** Central fixed-adaptation national-
 market results use identical cell responses, tail rule, elasticities, and
-supply mapping; only the national baseline value changes. The source constant-
-dollar field is flagged by the plausibility audit. The rebased-current-USD
-case reduces the five-model mean from US$5.68 to US$2.46 billion but preserves
-the damage-positive sign in every ESM. Both are structural sensitivities, not
-GIVE damages or SCC.
+supply mapping, while the value construction—and, between the flagged and
+alternative inputs, country support—changes. The source constant-dollar field
+is flagged by the plausibility audit. Rebased current USD reduces
+the five-model mean from US$5.68 to US$2.46 billion; imposing one common maize
+price while preserving that alternative's total value yields US$2.79 billion.
+Every ESM remains damage-positive in both alternatives. All three are
+structural sensitivities, not GIVE damages or SCC.
 
 Exact samples, contrasts, uncertainty and remaining claim restrictions are in
 the linked results records and `RESULTS_STATUS.md`. Historical associations,

@@ -1,0 +1,47 @@
+{
+  "audit": {
+    "common_price_usd_per_tonne": 155.96916065595585,
+    "country_cell_rows": 24813,
+    "country_count": 110,
+    "matched_maize_production_mt": 623659645.8999999,
+    "output_total_value_usd": 97271671506.01364,
+    "source_total_value_usd": 97271671506.01361,
+    "venezuela_common_price_value_usd": 249626816.79067767,
+    "venezuela_share": 0.002566284848669892
+  },
+  "claim_gates": {
+    "damage_or_scc": false,
+    "price_basis_sensitivity": true,
+    "welfare": false
+  },
+  "created_at_utc": "2026-09-24T17:35:43.747467+00:00",
+  "implementation": {
+    "path": "scripts/build_hultgren_country_maize_value_weights_common_price.py",
+    "sha256": "aaedd1b544636bac8c25d2bd99675b887541a6ca1cf5b2a773b6521588c48668"
+  },
+  "limitations": [
+    "The common price is an accounting sensitivity, not a country-specific farm-gate price series.",
+    "Support is inherited unchanged from the complete-current-USD input; missing countries are not filled.",
+    "This builds weights only and does not authorize welfare, damage, or SCC calculation."
+  ],
+  "method": "divide total rebased current-USD value by total matched physical production, then value every retained tonne at that common price",
+  "output": {
+    "bytes": 394928,
+    "path": "data/interim/hultgren_country_cell_maize_value_weights_common_price_20260924.parquet",
+    "sha256": "edaa4e83b599e763ba77844ccb6a99bcf2b694cc40919793d0de8300af856f5d"
+  },
+  "schema": "hultgren_country_cell_maize_value_weights_common_price/v1",
+  "source": {
+    "receipt": {
+      "path": "data/provenance/hultgren_country_cell_maize_value_weights_current_rebased_20260924.json",
+      "sha256": "fee7211ae259a2756535546517afda443066eaebb8aac1aeac6abb7a045f4461"
+    },
+    "weights": {
+      "path": "data/interim/hultgren_country_cell_maize_value_weights_current_rebased_20260924.parquet",
+      "sha256": "dd2948b966a2f03072a98ee7aee23e9657c564ff1ee1fcf9453f2d6b495d488f"
+    }
+  },
+  "status": "matched_support_common_price_sensitivity_not_welfare_damage_or_scc",
+  "units": "US dollars at a single matched-support 2014-2016-basis maize price",
+  "value_column": "maize_gross_production_value_common_price_2014_2016_usd"
+}

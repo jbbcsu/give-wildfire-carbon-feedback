@@ -3470,6 +3470,24 @@ This is evidence that the central fixed sign is robust to the registered price
 basis while the magnitude is not. It remains a structural sensitivity, not a
 published-calibrated welfare result, GIVE damage, or SCC.
 
+We also remove all remaining cross-country price dispersion on the identical
+matched support. The total rebased value is divided by total matched MapSPAM
+production, giving a common price of US$155.969 per tonne; every retained cell
+is valued at that price without filling any missing country. The resulting
+input has 110 countries, 24,813 country-cell rows and exactly preserves the
+US$97.272 billion total. On response support, 108 countries and US$95.694
+billion remain. Central fixed-adaptation results are US$4.770, US$3.799,
+US$2.579, US$1.374 and US$1.445 billion across the five ESMs, with an equal-
+model mean of US$2.794 billion. Trend and upper central means are US$1.246
+billion and -US$0.421 billion. Independent validation rederives all 810 annual
+case records with zero numerical discrepancy. The input, result and audit are
+`data/provenance/hultgren_country_cell_maize_value_weights_common_price_20260924.json`,
+`data/provenance/hultgren_country_maize_market_common_price_sensitivity_20260924.json`,
+and
+`data/provenance/hultgren_country_maize_market_common_price_sensitivity_validation_20260924.json`.
+The uniform price is an accounting sensitivity, not an observed global farm-
+gate price, and opens no welfare, damage or SCC gate.
+
 ### Price-basis convention validation (September15 amendment)
 
 The maize value proxy remains in source constant2014--2016USD; no published-

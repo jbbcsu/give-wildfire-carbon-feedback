@@ -90,6 +90,7 @@ def main() -> None:
     require(receipt["schema"] in {
         "hultgren_country_cell_maize_value_weights/v1",
         "hultgren_country_cell_maize_value_weights_current_rebased/v1",
+        "hultgren_country_cell_maize_value_weights_common_price/v1",
     }, "weight schema differs")
     require(receipt["output"]["sha256"] == digest(args.weights), "weight hash differs")
     weights = pd.read_parquet(args.weights)
