@@ -1,0 +1,54 @@
+{
+  "claim_gate": "engineering_input_only_not_replacement_scc",
+  "created_at_utc": "2026-09-24T22:24:48.169868+00:00",
+  "implementation": {
+    "path": "scripts/export_quantity_replacement_sentinel.py",
+    "sha256": "f57aac8032636654080ae80024625b9c630f68ee0491baf036655033cab05444"
+  },
+  "output": {
+    "bytes": 144303,
+    "path": "data/interim/quantity_replacement_sentinel_access_cm2_20260924.csv",
+    "sha256": "73a58ef47a9fc124b6f2d690962d2c44bb378a427483aa448fb7b077cfea6173"
+  },
+  "schema": "quantity_replacement_sentinel/v1",
+  "source": {
+    "path": "data/interim/epa_fair_hultgren_quantity_fund_paths_20260924.parquet",
+    "receipt": "data/provenance/epa_fair_hultgren_quantity_fund_paths_20260924.json",
+    "receipt_sha256": "ea2339b75dc72e3ad718c5aea4396929be2ed8cbeccb61d0d4bf6bafe9896890",
+    "sha256": "362ef8670a3cb4c6c28b9b4e6d43d815cc33dfd2e3306640d97a86fab5519ccf"
+  },
+  "specification": {
+    "adaptation": "fixed",
+    "climate_model": "ACCESS-CM2",
+    "elasticity_id": "hultgren_pair_010_004",
+    "pulse_size_gtc": 2.5e-05,
+    "tail_rule": "uncapped",
+    "yield_to_supply_mapping": "horizontal_output"
+  },
+  "status": "pinned_central_market_regional_increment_for_paired_replacement_test",
+  "support": {
+    "regions": [
+      "USA",
+      "CAN",
+      "WEU",
+      "JPK",
+      "ANZ",
+      "EEU",
+      "FSU",
+      "MDE",
+      "CAM",
+      "LAM",
+      "SAS",
+      "SEA",
+      "CHI",
+      "MAF",
+      "SSA",
+      "SIS"
+    ],
+    "rows": 4496,
+    "years": [
+      2020,
+      2300
+    ]
+  }
+}

@@ -4068,6 +4068,26 @@ replacement SCC. In the central fixed uncapped case, the 26-model mean is
 -$0.00610 per tCO2 in 2020 USD at the 2% schedule, with 25 negative models and
 one positive model.
 
+For the paired accounting sentinel, we first run standard GIVE and retain its
+2020--2300 MooreAg regional damage levels. A fresh model is copied, its legacy
+`Agriculture` component and connection are deleted, and an annual-money
+component is connected as the sole producer of `DamageAggregator.damage_ag`.
+The baseline replacement path equals the retained MooreAg levels exactly; the
+pulse path equals those levels plus the external regional precipitation
+increment. Thus baseline consumption is preserved, MooreAg's marginal pulse
+response is removed, and the precipitation response enters once.
+
+A graph audit requires one and only one agriculture-damage producer and rejects
+the legacy component. For the ACCESS-CM2 0.000025 GtC sentinel, baseline
+agriculture damages and global net consumption per capita reproduce standard
+GIVE exactly. Adding and subtracting the tiny increment from billion-dollar
+levels produces at most $0.00551 annual global cancellation error. We propagate
+that observed bound through each Ramsey sum rather than requiring bitwise
+equality. The paired sectoral values agree with the external diagnostic within
+`4.08e-9` 2005 USD per tCO2, well inside every derived bound. This validates
+one accounting sentinel; ensemble and Monte Carlo replacement execution remain
+future work.
+
 ### Alternative Hultgren impact-region transport geometry
 
 For the external published-response transport, the public Hultgren impact-

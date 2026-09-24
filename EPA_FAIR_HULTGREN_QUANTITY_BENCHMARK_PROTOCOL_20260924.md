@@ -236,3 +236,22 @@ This opens only the standard-GIVE-baseline discount-diagnostic gate. Standard
 GIVE retains MooreAg, so this is not the paired agriculture replacement and is
 not labeled a GIVE replacement SCC. Paired baseline/pulse agriculture levels,
 replacement accounting, and uncertainty draws remain required.
+
+## Anchored paired-replacement sentinel (September 24, 2026)
+
+The ACCESS-CM2 smallest-pulse central path has now passed a full paired GIVE
+replacement sentinel. The replacement retains MooreAg's exact baseline
+regional damage level, removes the legacy Agriculture component, and installs
+the precipitation path as the sole marginal agriculture response. Baseline
+agriculture damage and global net consumption per capita are identical to
+standard GIVE. The paired sectoral diagnostics agree with the external
+discount calculation within `4.08e-9` 2005 USD per tCO2, below numerical bounds
+derived from the observed level-plus-increment cancellation error. Evidence is
+in `QUANTITY_ANCHORED_REPLACEMENT_SENTINEL_RESULTS_20260924.md`.
+
+This opens the paired marginal-response replacement *engineering* gate for one
+pinned sentinel. It does not yet open the ensemble replacement-SCC gate: the
+26-model batch and paired uncertainty design remain to be executed. The
+anchored approach is also not a new estimate of baseline agriculture damage;
+it deliberately preserves MooreAg's baseline to avoid an unsupported level
+assumption and a change in baseline discounting.
