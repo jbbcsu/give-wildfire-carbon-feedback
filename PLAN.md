@@ -68,6 +68,12 @@ statuses are quantitatively material in recent totals, so calibration must
 pre-register status inclusion rather than silently pool all positive tonnage.
 The ledger describes this sensitivity but intentionally leaves that selection
 gate closed.
+The first status-family robustness comparison confirms material consequences:
+using literal `A`-only tonnage instead of all present contract quality codes
+reduces every post-1980 FishMIP level and first-difference correlation. The
+calibration protocol must therefore freeze a primary family and an `A`-only
+robustness case before any fitted model; no outcome-based family selection is
+allowed.
 A post-export concentration audit finds material compositional change over the
 FishMIP historical overlap: top-five vessel-flag-country and species shares
 decline from 51.34%/37.71% in 1950 to 41.07%/24.23% in 2014, while the
