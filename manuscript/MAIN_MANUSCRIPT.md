@@ -81,18 +81,18 @@ Validated response transport, compatible climate-pulse inputs, adaptation
 calibration and agricultural welfare integration remain necessary before
 estimating an incremental social cost of carbon.
 
-An independently audited published-response transport now evaluates both
-GFDL-ESM4 and IPSL-CM6A-LR SSP5-8.5 minus SSP1-2.6 daily weather over
+An independently audited published-response transport now evaluates
+GFDL-ESM4, IPSL-CM6A-LR, and MPI-ESM1-2-HR SSP5-8.5 minus SSP1-2.6 daily weather over
 2092--2100 on fixed rainfed and irrigated maize area. Although their
-area-weighted season-total rainfall changes have opposite signs (-63.66 and
-+14.23 mm), the fixed-practice precipitation responses are -3.57% and -3.00%.
-A declared reference-distribution path attributes -2.93% and -2.58% to total
-rainfall quantity and -0.66% and -0.43% to the remaining within-season
-distribution change. All six model-by-moderator-support quantity estimates
-are negative (-2.09% to -2.95%). The distribution residual approaches zero or
-changes sign on central support (GFDL +0.02%; IPSL +0.52%). Thus quantity is
-the preliminary replicated signal and distribution remains a non-robust
-sensitivity. This two-model, nine-year transport uses alternative country-level
+area-weighted season-total rainfall changes differ (-63.66, +14.23, and
++12.83 mm), all three fixed-practice precipitation responses are negative
+(-3.57%, -3.00%, and -2.58%). A declared reference-distribution path attributes
+-2.93%, -2.58%, and -4.17% to total rainfall quantity and -0.66%, -0.43%, and
++1.66% to the remaining within-season distribution change. All nine
+model-by-moderator-support quantity estimates are negative (-2.09% to -5.85%).
+The distribution residual changes sign across ESMs and support definitions.
+Thus quantity is the preliminary replicated signal and distribution remains a
+material but non-robust sensitivity. This three-model, nine-year transport uses alternative country-level
 income and historical-climate moderators and is neither a new causal estimate
 nor a monetary damage or SCC result. Its simple model mean is descriptive, not
 a probability-weighted ensemble estimate.

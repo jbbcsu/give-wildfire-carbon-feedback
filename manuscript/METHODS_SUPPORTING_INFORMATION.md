@@ -1498,9 +1498,10 @@ validates the fitted historical response and phase-sum arithmetic, but not an
 independent transformation from primitive daily weather, future moderator
 paths, future response, damages, or SCC.
 
-### S5.1 Two-ESM grid transport benchmark
+### S5.1 Three-ESM grid transport benchmark
 
-The first response transport uses GFDL-ESM4 and IPSL-CM6A-LR `r1i1p1f1`
+The first response transport uses GFDL-ESM4, IPSL-CM6A-LR, and
+MPI-ESM1-2-HR `r1i1p1f1`
 daily ISIMIP3b SSP1-2.6 and SSP5-8.5 `pr`, `tasmin`, and `tasmax` during
 2091--2100. GGCMI
 Phase 3 maize calendars define harvest years 2092--2100 separately for
@@ -1514,7 +1515,7 @@ Every nonlinear basis is formed before spatial or irrigation aggregation.
 
 Independent validators select cells distributed across latitude, calendar
 type, and harvest year and recompute each stored basis directly from the raw
-daily arrays. All eight ESM-by-scenario-by-regime files pass. GFDL maximum
+daily arrays. All 12 ESM-by-scenario-by-regime files pass. GFDL maximum
 absolute difference is below `7.28e-12`; IPSL validation uses the same
 source-bound recomputation contract. Zero-season-rain cells remain in quantity
 summaries; phase shares and normalized concentration are undefined there and
@@ -1579,24 +1580,25 @@ component, component additivity applies only before adaptation. Adaptation
 costs are zero pending empirical calibration.
 
 The final GFDL full-support run used 511.6 MB peak sampled process-group RSS
-under a 768 MiB cap; IPSL builders and validators stayed below 341 MB. A
+under a 768 MiB cap; IPSL builders and validators stayed below 341 MB. MPI
+uses the same bounded streaming implementation and validation contract. A
 separate validator recomputes annual-to-pooled weighting,
 log-to-percent transforms, loss-only adaptation monotonicity, and unadapted
 component identities for all three support definitions. It validates summary
 arithmetic, not causal identification or transport validity.
 
-The two ESMs provide a stringent initial physical contrast. Fixed-area
-seasonal rainfall decreases by 63.66 mm in GFDL but increases by 14.23 mm in
-IPSL, while monthly concentration increases in both. Nevertheless, the
-fixed-practice quantity-path yield responses are negative in all six
-model-by-support combinations (-2.09% to -2.95%). The distribution residual
-is negative on full and min--max support but changes to +0.02% and +0.52% for
-GFDL and IPSL on author p01--p99 support. The simple equal-model means are
+The three ESMs provide a stringent initial physical contrast. Fixed-area
+seasonal rainfall changes by -63.66, +14.23, and +12.83 mm in GFDL, IPSL, and
+MPI, while monthly concentration increases in all three. Nevertheless, the
+fixed-practice quantity-path yield responses are negative in all nine
+model-by-support combinations (-2.09% to -5.85%). The distribution residual
+changes sign across ESMs and support definitions: MPI is positive on all
+three supports, while GFDL and IPSL become positive on p01--p99 support. The simple equal-model means are
 descriptive summaries, not probability weights. Joint response magnitudes are
 temperature-driven and strongly exposed to late-century KDD extrapolation.
-Results are in `HULTGREN_TWO_ESM_LATE_YIELD_TRANSPORT_RESULTS_20260924.md`,
+Results are in `HULTGREN_THREE_ESM_LATE_YIELD_TRANSPORT_RESULTS_20260924.md`,
 the model-specific JSON receipts, and
-`data/provenance/hultgren_two_esm_grid_yield_transport_summary_20260924.json`.
+`data/provenance/hultgren_three_esm_grid_yield_transport_summary_20260924.json`.
 
 We additionally reproduced the authors' Iroquois County, USA local-temperature
 response checkpoint. Their pinned plotting code selects 59 observations and
