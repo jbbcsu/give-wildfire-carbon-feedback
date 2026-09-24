@@ -166,3 +166,19 @@ sampled peak RSS remained below 355 MB. Full details and frozen identities are
 in `HULTGREN_PRECIP_BASIS_CLIMATOLOGY_RESULTS_20260924.md`. This checkpoint
 opens only the historical-feature-input gate. Response, damage, SCC, and
 replacement-accounting gates remain closed.
+
+## Response and source-price damage checkpoint (September 24, 2026)
+
+The 26-model marginal response and central national-market damage paths have
+now been evaluated for all four FAIR pulses, three adaptation scenarios, and
+both uncapped and frozen 1st/99th-percentile tail rules. The successful exact
+streamed build contains 175,344 model/year/pulse/adaptation/tail records for
+2020--2300. Zero-pulse, pre-2021, positive-scale, and shrinking-pulse gates
+pass; an independent implementation exactly re-ranked the 162,847,160-value
+tail pool and reconstructed five fixed market cases. Full evidence is in
+`EPA_FAIR_HULTGREN_QUANTITY_DAMAGE_PATH_RESULTS_20260924.md`.
+
+This opens the marginal-response and central structural source-price damage-
+path gates only. Currency alignment, alternative elasticities and supply
+mappings, paired GIVE replacement, discounting, and SCC normalization remain
+required. No value from this checkpoint may be called an SCC.

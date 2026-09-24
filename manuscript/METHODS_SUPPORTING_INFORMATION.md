@@ -3959,6 +3959,43 @@ basis supports proportional annual-quantity scaling only: it fixes baseline
 within-season shares and does not represent changes in timing, dry spells,
 extremes, or drought. It opens no response, damage, or SCC gate.
 
+For the marginal quantity checkpoint, country/model annual-rainfall slopes
+from the published EPA pattern set are multiplied by the matched FAIR
+pulse-minus-baseline temperature path. For cell `g`, the resulting absolute
+country change is divided by the positive 1981--2010 cell annual-rainfall
+climatology. If this proportional change is `x`, the three phase-linear terms
+change by `x` and the squared-monthly terms by `2x + x^2`. We algebraically
+collapsed the 36 published precipitation coefficients and moderator
+interactions to cell-country first- and second-order indices, and independently
+verified this closed form against the full 49-term design at five fixed
+sentinels (maximum discrepancy `5.69e-16`). Country income is joined using the
+maize-value weight's ISO3, avoiding assignment of a border cell's dominant-
+geometry country income to a different weighted country.
+
+We evaluate separate fully anticipated national maize markets with the central
+supply elasticity 0.10, demand-elasticity magnitude 0.04, and horizontal-
+output mapping. Negative cell log-yield responses are attenuated under the
+registered trend and upper adaptation schedules; benefits are not amplified
+or attenuated. The uncapped response is paired with a tail sensitivity whose
+1st/99th-percentile derivative bounds are frozen from 162,847,160 unique
+country-cell/model/year values at the smallest pulse, then applied consistently
+to all pulses. A memory-bounded three-pass histogram localization and exact
+within-bin order-statistic calculation obtains the linear-interpolated bounds.
+
+The output has 175,344 annual records for 26 models, 2020--2300, four pulses,
+three adaptation cases, and two tail rules. An initial non-streamed run was
+killed by the 512 MiB monitor without producing an output; the final exact
+implementation streams 16 years at a time and peaks at 312.9 MB. The accepted
+relative convergence ceiling is `2e-4`, fixed before the first successful
+damage output from the upstream validated EPA/FAIR normalized discrepancy of
+`1.5764e-4`; the earlier `1e-4` downstream ceiling failed closed. Observed
+normalized disagreements are `1.3289e-4` for cell response and `1.5256e-4`
+for global market damage. An independent validator exactly reconstructs both
+tail quantiles from adjacent global order statistics and five fixed national-
+market cases. These source-price-basis paths still require currency alignment,
+market sensitivities, paired MooreAg replacement, discounting, and SCC
+normalization.
+
 ### Alternative Hultgren impact-region transport geometry
 
 For the external published-response transport, the public Hultgren impact-

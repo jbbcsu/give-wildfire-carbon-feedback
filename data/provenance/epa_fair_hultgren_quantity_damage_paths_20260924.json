@@ -1,0 +1,193 @@
+{
+  "adaptation": {
+    "fixed": {
+      "annual_attenuation_rate": 0.0,
+      "application": "attenuate negative cell log-yield responses only",
+      "base_year": 2020,
+      "cap": 0.0
+    },
+    "trend": {
+      "annual_attenuation_rate": 0.003,
+      "application": "attenuate negative cell log-yield responses only",
+      "base_year": 2020,
+      "cap": 0.35
+    },
+    "upper": {
+      "annual_attenuation_rate": 0.007,
+      "application": "attenuate negative cell log-yield responses only",
+      "base_year": 2020,
+      "cap": 0.7
+    }
+  },
+  "claim_gates": {
+    "agriculture_replacement": false,
+    "central_structural_damage_path": true,
+    "currency_aligned_give_damage": false,
+    "marginal_response_path": true,
+    "scc": false
+  },
+  "created_at_utc": "2026-09-24T21:46:47.005400+00:00",
+  "estimand": "published annual country-rainfall pattern times paired FAIR marginal temperature, transported through fixed-share Hultgren maize precipitation terms and separate fully anticipated national maize markets",
+  "implementation": {
+    "path": "scripts/build_epa_fair_hultgren_quantity_damage_paths.py",
+    "sha256": "11604e3d901d9b1791eb45664df6ba0779a4905cec1efeb1f24d61a9691ebc93"
+  },
+  "limitations": [
+    "This is the annual-quantity counterfactual only; rainfall timing, persistence, extremes, and drought remain fixed.",
+    "The common-price value base is held fixed and remains in its source 2014-2016 price basis; GIVE currency conversion is not yet applied.",
+    "Only the registered central elasticity and horizontal-output mapping are calculated here; elasticity and fixed-input-cost cases remain required.",
+    "Markets are fully anticipated and national, with no trade, storage, cross-crop substitution, adaptation costs, or future maize-value growth.",
+    "The result has not replaced MooreAg in a paired GIVE run and is not an SCC."
+  ],
+  "market": {
+    "central_structural_case": true,
+    "demand_elasticity_magnitude": 0.04,
+    "expectations": "fully anticipated",
+    "geography": "separate national maize markets",
+    "supply_elasticity": 0.1,
+    "yield_to_supply_mapping": "horizontal_output"
+  },
+  "output": {
+    "bytes": 3537522,
+    "path": "data/interim/epa_fair_hultgren_quantity_damage_paths_20260924.parquet",
+    "sha256": "fd5d26557abeb5b9feca8a2b3bd641bb5ca579743eafcedee304630e9a4b9d45"
+  },
+  "schema": "epa_fair_hultgren_quantity_damage_paths/v1",
+  "smallest_pulse_damage_path_summaries_usd_source_price_basis": [
+    {
+      "adaptation": "fixed",
+      "max": 6.812345150992783,
+      "mean": -11.646797376022215,
+      "median": -12.130011810974603,
+      "min": -23.461372392588263,
+      "tail_rule": "published_analogue_p01_p99"
+    },
+    {
+      "adaptation": "fixed",
+      "max": 7.241457454400033,
+      "mean": -11.624933059795017,
+      "median": -12.08244216417526,
+      "min": -23.43708469054283,
+      "tail_rule": "uncapped"
+    },
+    {
+      "adaptation": "trend",
+      "max": 6.269281699431893,
+      "mean": -13.060247589183252,
+      "median": -13.464639055618658,
+      "min": -23.647804462480927,
+      "tail_rule": "published_analogue_p01_p99"
+    },
+    {
+      "adaptation": "trend",
+      "max": 6.675679829027528,
+      "mean": -13.062274157242237,
+      "median": -13.420931330748584,
+      "min": -23.627644424855575,
+      "tail_rule": "uncapped"
+    },
+    {
+      "adaptation": "upper",
+      "max": 5.675891170915739,
+      "mean": -14.579051681405621,
+      "median": -14.786199235385094,
+      "min": -23.916343627299625,
+      "tail_rule": "published_analogue_p01_p99"
+    },
+    {
+      "adaptation": "upper",
+      "max": 6.037285333251345,
+      "mean": -14.606731225102267,
+      "median": -14.777147542678383,
+      "min": -23.902585168144387,
+      "tail_rule": "uncapped"
+    }
+  ],
+  "sources": {
+    "epa_slopes": {
+      "path": "data/interim/epa_annual_country_pattern_benchmark_20260921/country_model_slopes.csv",
+      "result": "data/interim/epa_annual_country_pattern_benchmark_20260921/result.json",
+      "result_sha256": "f444a693120b4040c959f5425a1fc2e641a6150fd4566aaf033ed2b202388c19",
+      "sha256": "e6bc9a4dbc0af19650f2f243802e0e1974d3599292cf2704aad0e746bf0c0572"
+    },
+    "fair": {
+      "path": "data/interim/give_fair_temperature_path_smoke/temperature_paths.csv",
+      "receipt": "data/provenance/give_fair_temperature_path_smoke_20260827.json",
+      "receipt_sha256": "a406ac1978b13df17fc519923ec4f38e5d4cb1ac3ac4ab67b8e395a25fc2fd33",
+      "sha256": "aedf6b66dd296337e1cb6105d2aa56ec94f3e15e5ac92c2abcdf74b6a42b6067"
+    },
+    "panel": {
+      "path": "data/interim/hultgren_quantity_response_panel_20260924.parquet",
+      "receipt": "data/provenance/hultgren_quantity_response_panel_20260924.json",
+      "receipt_sha256": "6f3487624e4deb319d6e6ec004c532a95000d0c6b457ec6e14a0403250d9e1f9",
+      "sha256": "af389bc3050cf7074f0a3869ae03cdcd959b3ba8a8017910ff5bc6f5507ffcdc"
+    }
+  },
+  "status": "central_structural_quantity_damage_paths_not_give_replacement_or_scc",
+  "support": {
+    "minimum_proportional_precipitation_scale": 0.9999971624628983,
+    "models": 26,
+    "pulses_gtc": [
+      0.0,
+      2.5e-05,
+      5e-05,
+      0.0001
+    ],
+    "rows": 175344,
+    "years": [
+      2020,
+      2300
+    ]
+  },
+  "tail_rules": {
+    "published_analogue_p01_p99": {
+      "histogram_bins": 262144,
+      "lower_log_yield_per_gtc": -6.553706557801622e-05,
+      "maximum": 0.000590549109311128,
+      "minimum": -0.0016952402515497042,
+      "model_country_cell_rows": {
+        "ACCESS-CM2": 22377,
+        "ACCESS-ESM1-5": 22377,
+        "AWI-CM-1-1-MR": 22377,
+        "BCC-CSM2-MR": 22369,
+        "CAMS-CSM1-0": 22369,
+        "CAS-ESM2-0": 22377,
+        "CESM2": 22377,
+        "CESM2-WACCM": 22377,
+        "CMCC-CM2-SR5": 22377,
+        "CMCC-ESM2": 22377,
+        "CanESM5": 22288,
+        "FGOALS-g3": 22376,
+        "FIO-ESM-2-0": 22377,
+        "GISS-E2-1-G": 22377,
+        "GISS-E2-1-H": 22377,
+        "HadGEM3-GC31-LL": 22377,
+        "IITM-ESM": 22377,
+        "MIROC-ES2L": 22288,
+        "MIROC6": 22377,
+        "MPI-ESM1-2-HR": 22377,
+        "MPI-ESM1-2-LR": 22376,
+        "MRI-ESM2-0": 22369,
+        "NESM3": 22376,
+        "NorESM2-MM": 22377,
+        "TaiESM1": 22377,
+        "UKESM1-0-LL": 22377
+      },
+      "pool_values": 162847160,
+      "selection": "exact order statistics after histogram localization; NumPy linear quantile interpolation",
+      "upper_log_yield_per_gtc": 8.460658338858413e-05,
+      "years_per_country_cell_model": 280
+    },
+    "uncapped": {}
+  },
+  "validation": {
+    "convergence_relative_tolerance_preregistered_in_code": 0.0002,
+    "convergence_tolerance_basis": "2e-4 ceiling fixed from the upstream validated 1.5764e-4 EPA/FAIR normalized-pulse discrepancy before any successful damage output; the initial 1e-4 attempt failed closed and produced no result",
+    "maximum_relative_normalized_cell_response_disagreement": 0.00013289402110271218,
+    "maximum_relative_normalized_global_damage_disagreement": 0.00015256023147866983,
+    "positive_precipitation_scale": true,
+    "pre_2021_identity": true,
+    "shrinking_pulse_convergence": true,
+    "zero_pulse_identity": true
+  }
+}

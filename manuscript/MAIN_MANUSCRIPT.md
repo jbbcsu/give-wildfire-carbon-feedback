@@ -1882,6 +1882,19 @@ historical feature basis for the EPA/FAIR quantity-only bridge; it is not
 itself evidence of a yield response or a partial SCC, and it deliberately
 holds within-season rainfall shares fixed.
 
+We then completed the narrow quantity-only marginal chain for all 26 EPA
+climate models. Exact annual paths cover four FAIR pulses, fixed/trend/upper
+loss-only adaptation, and uncapped plus frozen 1st/99th-percentile response
+tails under the central national-maize-market case. Zero-pulse, pre-2021,
+positive-rainfall-scale, and shrinking-pulse checks pass, and a separate
+implementation recovered the tail order statistics and five fixed market
+cases. On this narrow channel, 25 of 26 fixed-adaptation climate-model mean
+paths imply a benefit rather than damage. This preliminary sign must not be
+generalized to total agricultural impacts: the calculation fixes rainfall
+timing, omits temperature and drought effects, and is not yet currency-aligned,
+installed as the GIVE agriculture replacement, discounted, or normalized into
+an SCC.
+
 Report global agricultural marginal damages and SCC under each adaptation
 scenario with draw-level uncertainty. Do not present a precipitation add-on to
 baseline MooreAg agriculture.

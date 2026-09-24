@@ -1,0 +1,104 @@
+{
+  "claim_gates": {
+    "damage": false,
+    "give_replacement": false,
+    "marginal_response_path": false,
+    "quantity_response_input": true,
+    "scc": false
+  },
+  "country_income": {
+    "join_key": "weight-country ISO3",
+    "path": "data/raw/pwt1001/pwt100.xlsx",
+    "sha256": "1a13ca27ada7bcab29c15430b3fe7f4d6c3cf0d2ee3eef3aed31d0fc0a2085d3",
+    "target_year": 2000
+  },
+  "created_at_utc": "2026-09-24T21:38:43.603288+00:00",
+  "definition": "cell-country coefficients for delta_log_yield = first_order_index*x + second_order_index*x^2, where x is the proportional annual-rainfall change and within-season shares are fixed",
+  "implementation": {
+    "path": "scripts/build_hultgren_quantity_response_panel.py",
+    "sha256": "6167f5a42171b2783fd5344d8736891edbc3ec839a26cd953f1b1fa8ed0c19f6"
+  },
+  "limitations": [
+    "Annual quantity is scaled proportionally across fixed baseline months; timing, dry spells, extremes, and drought do not change.",
+    "Rows lacking the crop-calendar basis or PWT income are excluded and their value is reported without renormalization.",
+    "This is a published-coefficient transport using alternative climate/calendar/area products, not a reproduction of the authors' administrative panel.",
+    "No marginal climate path, market damage, discounting, GIVE replacement, or SCC is evaluated here."
+  ],
+  "output": {
+    "bytes": 4203333,
+    "path": "data/interim/hultgren_quantity_response_panel_20260924.parquet",
+    "rows": 22379,
+    "sha256": "af389bc3050cf7074f0a3869ae03cdcd959b3ba8a8017910ff5bc6f5507ffcdc"
+  },
+  "published_response": {
+    "coefficients": {
+      "path": "data/interim/hultgren_maize_response_20260923/coefficients.csv",
+      "sha256": "f3f3c011c4ebb4d4e49712bae1fdc320271460d0ff7d6942d21aa910a553318a"
+    },
+    "covariance": {
+      "path": "data/interim/hultgren_maize_response_20260923/covariance.csv",
+      "sha256": "e8b11fc5ac8b3087918987aaf02e959e66d323649835647ae7c9972d32c45cc6"
+    },
+    "precipitation_terms_used": 36
+  },
+  "schema": "hultgren_quantity_response_panel/v1",
+  "sources": {
+    "annual_precip": {
+      "path": "data/interim/hultgren_cell_annual_precip_climatology_20260924.parquet",
+      "receipt": "data/provenance/hultgren_cell_annual_precip_climatology_20260924.json",
+      "receipt_sha256": "07de317e434b13ed826d1c37599ce24c8f8378206c0829bd42ead7f2310b09d1",
+      "sha256": "d7cbb161c1d9e679df371aeac40a37f7604d31b450fb66db394b1e5f1c3457f4"
+    },
+    "basis": {
+      "path": "data/interim/hultgren_precip_basis_climatology_20260924.parquet",
+      "receipt": "data/provenance/hultgren_precip_basis_climatology_20260924.json",
+      "receipt_sha256": "bc608ec10182c7f0cdf9ea99deb2a198c2bf3e48ed57492b0fd44aee3bef6a1b",
+      "sha256": "b32eb27c5723d3cd861e7f78bccfd74d67931139c6c90a3f7f8afb104f3f33a9"
+    },
+    "moderators": {
+      "path": "data/interim/hultgren_cell_moderators_20260924.parquet",
+      "receipt": "data/provenance/hultgren_cell_moderators_20260924.json",
+      "receipt_sha256": "f44c3708e52801b7590ab2c2f6a085ea42055dd3802717a67a5f35f80b1ef0af",
+      "sha256": "7657a5617a0c8d0af0036329dc34dd0062e2e0457aa28d2551c38e5408c85d29"
+    },
+    "weights": {
+      "path": "data/interim/hultgren_country_cell_maize_value_weights_common_price_20260924.parquet",
+      "receipt": "data/provenance/hultgren_country_cell_maize_value_weights_common_price_20260924.json",
+      "receipt_sha256": "d176d08614a76fb9f14f69a93609361cc19c7b6e1de18bc9938fc35f149962ac",
+      "sha256": "edaa4e83b599e763ba77844ccb6a99bcf2b694cc40919793d0de8300af856f5d"
+    }
+  },
+  "status": "complete_quantity_response_input_not_marginal_damage_or_scc",
+  "support_ledger": {
+    "annual_precip_matched": {
+      "countries": 110,
+      "maize_value_usd": 95708451611.89246,
+      "rows": 22435
+    },
+    "climate_moderators_matched": {
+      "countries": 110,
+      "maize_value_usd": 95708451611.89246,
+      "rows": 22435
+    },
+    "country_consistent_income_matched": {
+      "countries": 107,
+      "maize_value_usd": 95706374118.26944,
+      "rows": 22379
+    },
+    "crop_calendar_basis_matched": {
+      "countries": 110,
+      "maize_value_usd": 95708451611.89246,
+      "rows": 22435
+    },
+    "source_weights": {
+      "countries": 110,
+      "maize_value_usd": 97271671506.01364,
+      "rows": 24813
+    }
+  },
+  "support_loss": {
+    "no_renormalization": true,
+    "retained_value_fraction": 0.9839079830385414,
+    "unmatched_value_usd": 1565297387.7442017
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "created_at_utc": "2026-09-24T21:48:30.062538+00:00",
+  "interpretation": "Central structural source-price-basis damage-path validation only; no currency-aligned GIVE damage, agriculture replacement, or SCC gate is opened.",
+  "schema": "epa_fair_hultgren_quantity_damage_paths_validation/v1",
+  "scope": "Full artifact identity/support checks, independent exact tail-rank verification over the full derivative pool, and independent pandas-grouped national-market reconstruction for five fixed cases.",
+  "source": {
+    "path": "data/provenance/epa_fair_hultgren_quantity_damage_paths_20260924.json",
+    "sha256": "614c748a613ceb948c926cb141bb2860d8072325c3c36dedddbd6508c3ea89d6"
+  },
+  "status": "pass",
+  "validation": {
+    "all_output_keys_and_finite_values_checked": true,
+    "all_source_metadata_and_output_hashes_checked": true,
+    "claim_gates_checked": true,
+    "market_path_sentinel_cases": [
+      {
+        "adaptation": "fixed",
+        "model": "ACCESS-CM2",
+        "pulse_size_gtc": 2.5e-05,
+        "tail_rule": "uncapped",
+        "year": 2021
+      },
+      {
+        "adaptation": "trend",
+        "model": "CESM2",
+        "pulse_size_gtc": 5e-05,
+        "tail_rule": "published_analogue_p01_p99",
+        "year": 2030
+      },
+      {
+        "adaptation": "upper",
+        "model": "GISS-E2-1-G",
+        "pulse_size_gtc": 0.0001,
+        "tail_rule": "uncapped",
+        "year": 2100
+      },
+      {
+        "adaptation": "trend",
+        "model": "MPI-ESM1-2-HR",
+        "pulse_size_gtc": 2.5e-05,
+        "tail_rule": "published_analogue_p01_p99",
+        "year": 2200
+      },
+      {
+        "adaptation": "fixed",
+        "model": "UKESM1-0-LL",
+        "pulse_size_gtc": 5e-05,
+        "tail_rule": "published_analogue_p01_p99",
+        "year": 2300
+      }
+    ],
+    "maximum_absolute_errors": {
+      "damage": 8.304913620804655e-06,
+      "maximum_ratio": 4.440892098500626e-16,
+      "minimum_ratio": 0.0,
+      "value": 0.0
+    },
+    "tail_order_statistics_independently_ranked": [
+      {
+        "absolute_error": 0.0,
+        "lower_neighbor": -6.55370673558998e-05,
+        "probability": 0.01,
+        "reconstructed_linear_quantile": -6.553706557801622e-05,
+        "upper_neighbor": -6.55370643425378e-05,
+        "values_equal": 0,
+        "values_strictly_below": 1628472
+      },
+      {
+        "absolute_error": 0.0,
+        "lower_neighbor": 8.460657495002671e-05,
+        "probability": 0.99,
+        "reconstructed_linear_quantile": 8.460658338858413e-05,
+        "upper_neighbor": 8.460659553187423e-05,
+        "values_equal": 0,
+        "values_strictly_below": 161218688
+      }
+    ],
+    "zero_pulse_and_pre_2021_identity_checked": true
+  }
+}
