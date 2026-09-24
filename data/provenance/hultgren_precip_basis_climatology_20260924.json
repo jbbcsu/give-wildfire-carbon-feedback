@@ -1,0 +1,160 @@
+{
+  "claim_gates": {
+    "damage_or_scc": false,
+    "precipitation_basis_input": true,
+    "response": false
+  },
+  "created_at_utc": "2026-09-24T21:30:06.088909+00:00",
+  "definition": "mean across 29 complete 1982-2010 crop harvest years of three phase precipitation totals and sums of squared monthly precipitation",
+  "features": [
+    "prcp_poly_1_bin1",
+    "prcp_poly_1_bin2",
+    "prcp_poly_1_bin3",
+    "prcp_poly_2_bin1",
+    "prcp_poly_2_bin2",
+    "prcp_poly_2_bin3"
+  ],
+  "harvest_years": [
+    1982,
+    2010
+  ],
+  "implementation": {
+    "path": "scripts/build_hultgren_precip_basis_climatology.py",
+    "sha256": "80e2a4a057022399d373bbe4b61b69dbfd8476c98cf9423dd67d2d1e2a00a5c8"
+  },
+  "limitations": [
+    "GSWP3-W5E5 and GGCMI/MIRCA are alternative transport products, not the authors' GMFD/SAGE administrative inputs.",
+    "This is a fixed historical precipitation basis; it contains no marginal pulse and holds within-season shares fixed in the quantity benchmark.",
+    "No crop response, damage, or SCC gate is opened."
+  ],
+  "output": {
+    "bytes": 2459600,
+    "path": "data/interim/hultgren_precip_basis_climatology_20260924.parquet",
+    "sha256": "b32eb27c5723d3cd861e7f78bccfd74d67931139c6c90a3f7f8afb104f3f33a9"
+  },
+  "schema": "hultgren_precip_basis_climatology/v1",
+  "source_period": [
+    1981,
+    2010
+  ],
+  "sources": [
+    {
+      "bytes": 2351177152,
+      "path": "data/raw/isimip3a_gswp3_w5e5_v1_3/gswp3-w5e5_obsclim_pr_global_daily_1981_1990.nc",
+      "sha512": "c2b0688e59196088a1eaeac6fdc25b0bf1419f78c8662e9c21038c63b58aa6c40df5f22cc723d0ad9e24104a081bd215b9760f9003f0fc557b947341dc2d03f2"
+    },
+    {
+      "bytes": 2361459207,
+      "path": "data/raw/isimip3a_gswp3_w5e5_v1_3/gswp3-w5e5_obsclim_pr_global_daily_1991_2000.nc",
+      "sha512": "48daa05dbac176127e34e70fb6149e39f259695928276f4c968d01d60f4e1e0a0a6f1978734a0425f9fcd1012370dd6f8c3f356ff4798d265f4349a5d5d660c6"
+    },
+    {
+      "bytes": 2354163982,
+      "path": "data/raw/isimip3a_gswp3_w5e5_v1_3/gswp3-w5e5_obsclim_pr_global_daily_2001_2010.nc",
+      "sha512": "5208a595e7f7ed16d88588651313ee4415bb50a96f5592e50d1902a86943fdd1d3f7913ca2149d5f6a0eee5eef3c9198e85ebb112fccf12116011b1db466c8c4"
+    }
+  ],
+  "status": "complete_historical_precipitation_basis_not_response_damage_or_scc",
+  "support": {
+    "daily_steps": 10957,
+    "irrigated": {
+      "all_support_area_ha_by_season_month_count": {
+        "10": 2033.2400957271457,
+        "3": 240383.74757961184,
+        "4": 6923139.108583465,
+        "5": 10683033.42834521,
+        "6": 9720480.345761815,
+        "7": 889760.8375869766,
+        "8": 289933.66968452744,
+        "9": 181489.32560289092
+      },
+      "all_support_season_month_count_distribution": {
+        "10": 11,
+        "3": 362,
+        "4": 4528,
+        "5": 6305,
+        "6": 6093,
+        "7": 1169,
+        "8": 802,
+        "9": 231
+      },
+      "eligible_area_fraction": 0.9916909215506572,
+      "eligible_area_ha": 28689869.95566061,
+      "eligible_four_to_ten_month_cells": 19139,
+      "excluded_short_or_long_calendar_cells": 362,
+      "positive_area_calendar_cells": 19501,
+      "positive_area_ha": 28930253.703240223,
+      "season_month_count_distribution": {
+        "10": 11,
+        "4": 4528,
+        "5": 6305,
+        "6": 6093,
+        "7": 1169,
+        "8": 802,
+        "9": 231
+      }
+    },
+    "irrigated_cells": 19139,
+    "missing_daily_cell_pairs": 0,
+    "output_rows": 48889,
+    "rainfed": {
+      "all_support_area_ha_by_season_month_count": {
+        "10": 145436.02597407997,
+        "2": 143314.29072383046,
+        "3": 4824359.361298675,
+        "4": 21051868.561158173,
+        "5": 27917899.004771985,
+        "6": 37363560.617281295,
+        "7": 6555616.579854067,
+        "8": 7841550.868211867,
+        "9": 2195059.948846787
+      },
+      "all_support_season_month_count_distribution": {
+        "10": 27,
+        "2": 37,
+        "3": 867,
+        "4": 7168,
+        "5": 9164,
+        "6": 9038,
+        "7": 2034,
+        "8": 1700,
+        "9": 619
+      },
+      "eligible_area_fraction": 0.9540194833011496,
+      "eligible_area_ha": 103070991.60609825,
+      "eligible_four_to_ten_month_cells": 29750,
+      "excluded_short_or_long_calendar_cells": 904,
+      "positive_area_calendar_cells": 30654,
+      "positive_area_ha": 108038665.25812078,
+      "season_month_count_distribution": {
+        "10": 27,
+        "4": 7168,
+        "5": 9164,
+        "6": 9038,
+        "7": 2034,
+        "8": 1700,
+        "9": 619
+      }
+    },
+    "rainfed_cells": 29750,
+    "union_cells": 32301
+  },
+  "support_sources": {
+    "irrigated_area": {
+      "path": "data/raw/mirca_os_v2/extracted_30arcmin/00/30-arcminute/MIRCA-OS_Maize_2000_ir_30arcmin_v2.tif",
+      "sha256": "ec35adec610555447027956e4d2e294e348c631383ac9bd06cfa27675909d535"
+    },
+    "irrigated_calendar": {
+      "path": "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_mai_firr.nc",
+      "sha256": "a4c5900459acfbd706b102e271c5accff5964f3df90dedeafa28caab165c4b9e"
+    },
+    "rainfed_area": {
+      "path": "data/raw/mirca_os_v2/extracted_30arcmin/00/30-arcminute/MIRCA-OS_Maize_2000_rf_30arcmin_v2.tif",
+      "sha256": "a0ebb03144772f0cd75286d4e6dc013bac9c4466f7902e90f05ea468e7a4c763"
+    },
+    "rainfed_calendar": {
+      "path": "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_mai_noirr.nc",
+      "sha256": "ef077df795c8048aa25b5a9790bce842328170c11354da379f4c424ad60d80df"
+    }
+  }
+}

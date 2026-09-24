@@ -153,3 +153,16 @@ baseline within-season pattern unchanged? The primary paper still requires a
 validated marginal-pulse route for monthly/daily distribution and joint
 temperature-moisture features. A null or unstable pattern increment must be
 reported rather than hidden behind this quantity benchmark.
+
+## Input implementation checkpoint (September 24, 2026)
+
+The cell annual-rainfall climatology and crop-calendar Hultgren precipitation
+basis required above have now been built and independently validated. The
+latter contains 48,889 rainfed/irrigated regime-cell rows over 32,301 unique
+cells and averages the six precipitation terms across 29 complete 1982--2010
+harvest years. Five fixed sentinels were independently reconstructed from
+10,957 daily source steps with maximum absolute discrepancy `5.82e-11`;
+sampled peak RSS remained below 355 MB. Full details and frozen identities are
+in `HULTGREN_PRECIP_BASIS_CLIMATOLOGY_RESULTS_20260924.md`. This checkpoint
+opens only the historical-feature-input gate. Response, damage, SCC, and
+replacement-accounting gates remain closed.

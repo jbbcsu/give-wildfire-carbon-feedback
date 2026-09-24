@@ -3935,6 +3935,30 @@ attribution, physical pulse response or SCC. Exact source/fit
 bindings, the retained failed path-serialization run and every score
 are in `PUBLISHED_MONTHLY_GMT_RESPONSE_MAIZE_RESULTS_20260917.md`.
 
+### Historical precipitation basis for the Hultgren quantity benchmark
+
+For the registered EPA/FAIR annual-quantity bridge, we constructed the six
+precipitation terms required by the published Hultgren maize response on the
+fixed GGCMI/MIRCA rainfed and irrigated maize supports. We streamed daily
+GSWP3-W5E5 precipitation for 1981--2010, required exact source hashes, native
+0.5-degree grid coordinates, `kg m-2 s-1` units, continuous Gregorian dates,
+and complete cell-months, and converted flux to daily millimetres. Calendar
+months were assigned to planting month, crop months 2--4, and later crop
+months; within each phase we calculated the sum of monthly rainfall and the
+sum of squared monthly rainfall. Cell-regime climatologies are arithmetic
+means over 29 complete 1982--2010 harvest years.
+
+The result contains 29,750 rainfed and 19,139 irrigated regime-cell records,
+covering 95.402% and 99.169% of positive MIRCA maize hectares with valid crop
+calendars under the fixed four- to ten-month season rule. There were no missing
+daily cell pairs among 10,957 source dates. A separate implementation
+independently reaggregated all dates and 145 crop years at five fixed
+rainfed/irrigated sentinels; the largest absolute discrepancy across the six
+terms was `5.82e-11`. Both jobs ran below the 512 MiB resource ceiling. This
+basis supports proportional annual-quantity scaling only: it fixes baseline
+within-season shares and does not represent changes in timing, dry spells,
+extremes, or drought. It opens no response, damage, or SCC gate.
+
 ### Alternative Hultgren impact-region transport geometry
 
 For the external published-response transport, the public Hultgren impact-

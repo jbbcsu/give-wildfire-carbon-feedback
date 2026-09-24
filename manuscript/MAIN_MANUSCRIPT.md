@@ -1873,6 +1873,15 @@ doing so would silently transfer a country-annual climate exposure into a
 county/crop-season response and would omit the timing, extreme, drought,
 temperature, CO2, irrigation, and adaptation channels under study.
 
+As an implementation step for the published-response alternative, we built
+the six Hultgren precipitation terms on 29,750 rainfed and 19,139 irrigated
+maize regime-cells from daily 1981--2010 GSWP3-W5E5 rainfall and fixed GGCMI
+crop calendars. The climatology averages 29 complete harvest years and passed
+an independent daily reconstruction at five fixed sentinels. This provides the
+historical feature basis for the EPA/FAIR quantity-only bridge; it is not
+itself evidence of a yield response or a partial SCC, and it deliberately
+holds within-season rainfall shares fixed.
+
 Report global agricultural marginal damages and SCC under each adaptation
 scenario with draw-level uncertainty. Do not present a precipitation add-on to
 baseline MooreAg agriculture.

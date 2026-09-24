@@ -1,0 +1,60 @@
+{
+  "created_at_utc": "2026-09-24T21:31:45.891807+00:00",
+  "interpretation": "Historical precipitation-basis input validation only; no response, damage, or SCC gate is opened.",
+  "schema": "hultgren_precip_basis_climatology_validation/v1",
+  "scope": "Full artifact identity/support checks plus independent daily reaggregation at five fixed key-order regime-cell sentinels; not a second full-cell calculation.",
+  "source": {
+    "path": "data/provenance/hultgren_precip_basis_climatology_20260924.json",
+    "sha256": "bc608ec10182c7f0cdf9ea99deb2a198c2bf3e48ed57492b0fd44aee3bef6a1b"
+  },
+  "status": "pass",
+  "validation": {
+    "all_output_keys_and_finite_values_checked": true,
+    "all_source_support_and_output_hashes_checked": true,
+    "claim_gates_checked": true,
+    "daily_steps_reaggregated_per_sentinel": 10957,
+    "maximum_absolute_errors": {
+      "prcp_poly_1_bin1": 0.0,
+      "prcp_poly_1_bin2": 0.0,
+      "prcp_poly_1_bin3": 0.0,
+      "prcp_poly_2_bin1": 1.3642420526593924e-12,
+      "prcp_poly_2_bin2": 5.820766091346741e-11,
+      "prcp_poly_2_bin3": 9.094947017729282e-13
+    },
+    "sentinel_cells": [
+      {
+        "native_lat_index": 59,
+        "native_lon_index": 454,
+        "regime": "irrigated"
+      },
+      {
+        "native_lat_index": 134,
+        "native_lon_index": 155,
+        "regime": "irrigated"
+      },
+      {
+        "native_lat_index": 87,
+        "native_lon_index": 623,
+        "regime": "rainfed"
+      },
+      {
+        "native_lat_index": 161,
+        "native_lon_index": 193,
+        "regime": "rainfed"
+      },
+      {
+        "native_lat_index": 284,
+        "native_lon_index": 221,
+        "regime": "rainfed"
+      }
+    ],
+    "sentinel_harvest_year_bases_reaggregated": 145,
+    "sentinel_positions": [
+      0,
+      12222,
+      24444,
+      36666,
+      48888
+    ]
+  }
+}
