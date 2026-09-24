@@ -4099,6 +4099,15 @@ diagnostic. This validates the central fixed-adaptation, uncapped-tail,
 smallest-pulse quantity-channel ensemble. Paired execution of the market,
 adaptation, tail, and empirical-response uncertainty grid remains future work.
 
+We additionally summarize the complete smallest-pulse balanced design without
+assigning probabilities: 26 climate models by three adaptation cases, two tail
+rules, three elasticity pairs, two supply mappings, and four discount schedules
+(3,744 cells). We report the full range and unweighted design-cell quantiles,
+explicitly not confidence or credible intervals. The central 104-cell subset is
+linked to the paired runs exactly; remaining cells are labeled paired-equivalent
+diagnostics under the validated anchored-linear identity rather than paired
+executions. Empirical coefficient uncertainty remains outside this envelope.
+
 ### Alternative Hultgren impact-region transport geometry
 
 For the external published-response transport, the public Hultgren impact-

@@ -1939,6 +1939,15 @@ paired GIVE estimate for the central annual maize rainfall-quantity channel;
 adaptation/market uncertainty and the broader precipitation-agriculture
 replacement remain outstanding.
 
+Across the complete balanced structural design at the smallest converged pulse,
+the 2% schedule has an unweighted design-cell mean of -$0.00661 per tCO2, a
+2.5th--97.5th design-percentile range of -$0.01137 to $0.00104, and a full
+range of -$0.01221 to $0.00348. Nine hundred of 936 cells are negative. These
+percentiles describe registered modeling choices and climate models rather than
+a probability distribution; empirical coefficient uncertainty is not yet
+included. The response-tail choice has little effect in this narrow channel,
+whereas adaptation and the yield-to-supply mapping shift the conditional mean.
+
 Report global agricultural marginal damages and SCC under each adaptation
 scenario with draw-level uncertainty. Do not present a precipitation add-on to
 baseline MooreAg agriculture.
