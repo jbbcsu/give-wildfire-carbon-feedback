@@ -62,6 +62,22 @@ equal-model means are descriptive, not probability weights or uncertainty
 intervals. Standard errors propagate only the published coefficient
 covariance.
 
+## Adaptation sensitivities
+
+The five-model full-support descriptive means are:
+
+| Scenario | Net precipitation | Quantity path | Distribution residual | Joint climate |
+|---|---:|---:|---:|---:|
+| Fixed | -2.56% (5/5 negative) | -2.54% (5/5) | -0.02% (3/5) | -53.18% (5/5) |
+| Trend | -0.89% (5/5 negative) | -1.19% (4/5) | +0.91% (0/5 negative) | -42.98% (5/5) |
+| Upper | +1.38% (0/5 negative) | +0.65% (2/5) | +2.17% (0/5 negative) | -25.83% (5/5) |
+
+Trend and upper attenuate only negative cell responses while leaving modeled
+benefits unchanged. Their sign reversals therefore describe the imposed
+loss-only rule interacting with spatial heterogeneity; they are not evidence
+that adaptation creates rainfall benefits. Components are evaluated and
+attenuated separately, so adapted component means are not additive.
+
 Fixed, trend, and upper adaptation scenarios remain in every model record.
 Other crops, production/value weights, agricultural welfare mapping, improved
 moderators, and matched GIVE marginal-pulse evaluation remain required before

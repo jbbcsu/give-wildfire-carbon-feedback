@@ -1646,6 +1646,16 @@ extrapolation, so it is not a headline damage estimate. Equal-model means are
 descriptive rather than probability weighted. Full results and gates are in
 `HULTGREN_FIVE_ESM_LATE_YIELD_TRANSPORT_RESULTS_20260924.md`.
 
+The exogenous adaptation sensitivities are deliberately not interpreted as
+estimated behavior. The five-model full-support mean net precipitation
+response moves from -2.56% under fixed practice to -0.89% under trend and
++1.38% under upper adaptation. The upper sign reversal occurs because the
+rule attenuates negative cell responses but leaves positive responses
+unchanged. It is a diagnostic of that asymmetric rule and spatial
+heterogeneity, not evidence that adaptation will create a global rainfall
+benefit. Adapted component means are nonadditive because loss-only attenuation
+is applied separately to each component.
+
 ![Five-ESM precipitation-response decomposition](figures/hultgren_five_esm_yield_decomposition_20260924.svg)
 
 **Figure 3. Preliminary five-ESM maize precipitation-response transport.**
