@@ -49,13 +49,16 @@ def validate(path: Path) -> dict:
               fixed["precipitation_quantity_reference_scaling"]["area_weighted_mean_delta_log_yield"]
               + fixed["precipitation_distribution_residual"]["area_weighted_mean_delta_log_yield"])
         for scenario, scenario_record in row["adaptation"].items():
-            factor = scenario_record["remaining_effect_factor"]
+            require(0.0 < scenario_record["loss_remaining_effect_factor"] <= 1.0, "invalid loss factor")
             for component in COMPONENTS:
                 summary = scenario_record["components"][component]
-                close(summary["area_weighted_mean_delta_log_yield"],
-                      fixed[component]["area_weighted_mean_delta_log_yield"] * factor)
                 close(summary["percent_change_from_mean_log"],
                       100.0 * math.expm1(summary["area_weighted_mean_delta_log_yield"]))
+        for component in COMPONENTS:
+            fixed_log = row["adaptation"]["fixed"]["components"][component]["area_weighted_mean_delta_log_yield"]
+            trend_log = row["adaptation"]["trend"]["components"][component]["area_weighted_mean_delta_log_yield"]
+            upper_log = row["adaptation"]["upper"]["components"][component]["area_weighted_mean_delta_log_yield"]
+            require(fixed_log <= trend_log + 1e-12 <= upper_log + 2e-12, "loss-only adaptation is not monotone")
 
     for scenario, pooled in result["pooled_area_year_weighted"].items():
         for component in COMPONENTS:
@@ -67,12 +70,18 @@ def validate(path: Path) -> dict:
             close(pooled[component]["area_weighted_mean_delta_log_yield"], expected_log)
             close(pooled[component]["area_weighted_mean_cell_exact_percent_change"], expected_exact)
             close(pooled[component]["percent_change_from_mean_log"], 100.0 * math.expm1(expected_log))
-        close(pooled["joint_climate"]["area_weighted_mean_delta_log_yield"],
-              pooled["precipitation_all_income_support"]["area_weighted_mean_delta_log_yield"]
-              + pooled["temperature_all_income_support"]["area_weighted_mean_delta_log_yield"])
-        close(pooled["precipitation_common_positive_support"]["area_weighted_mean_delta_log_yield"],
-              pooled["precipitation_quantity_reference_scaling"]["area_weighted_mean_delta_log_yield"]
-              + pooled["precipitation_distribution_residual"]["area_weighted_mean_delta_log_yield"])
+        if scenario == "fixed":
+            close(pooled["joint_climate"]["area_weighted_mean_delta_log_yield"],
+                  pooled["precipitation_all_income_support"]["area_weighted_mean_delta_log_yield"]
+                  + pooled["temperature_all_income_support"]["area_weighted_mean_delta_log_yield"])
+            close(pooled["precipitation_common_positive_support"]["area_weighted_mean_delta_log_yield"],
+                  pooled["precipitation_quantity_reference_scaling"]["area_weighted_mean_delta_log_yield"]
+                  + pooled["precipitation_distribution_residual"]["area_weighted_mean_delta_log_yield"])
+    for component in COMPONENTS:
+        fixed_log = result["pooled_area_year_weighted"]["fixed"][component]["area_weighted_mean_delta_log_yield"]
+        trend_log = result["pooled_area_year_weighted"]["trend"][component]["area_weighted_mean_delta_log_yield"]
+        upper_log = result["pooled_area_year_weighted"]["upper"][component]["area_weighted_mean_delta_log_yield"]
+        require(fixed_log <= trend_log + 1e-12 <= upper_log + 2e-12, "pooled loss-only adaptation is not monotone")
     return {
         "path": str(path), "sha256": digest(path),
         "moderator_support_selection": result["support"]["moderator_support_selection"],

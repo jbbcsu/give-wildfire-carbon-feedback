@@ -2,18 +2,21 @@
   "adaptation_scenarios": {
     "fixed": {
       "annual_attenuation_rate": 0.0,
+      "application": "negative cell log-yield responses only; nonnegative responses unchanged",
       "base_year": 2020,
       "cap": 0.0,
       "interpretation": "exogenous attenuation scenario, not an empirical estimate"
     },
     "trend": {
       "annual_attenuation_rate": 0.003,
+      "application": "negative cell log-yield responses only; nonnegative responses unchanged",
       "base_year": 2020,
       "cap": 0.35,
       "interpretation": "exogenous attenuation scenario, not an empirical estimate"
     },
     "upper": {
       "annual_attenuation_rate": 0.007,
+      "application": "negative cell log-yield responses only; nonnegative responses unchanged",
       "base_year": 2020,
       "cap": 0.7,
       "interpretation": "exogenous attenuation scenario, not an empirical estimate"
@@ -23,6 +26,7 @@
     {
       "adaptation": {
         "fixed": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
           "components": {
             "joint_climate": {
               "area_or_area_year_weight_ha": 95096906.1903014,
@@ -133,233 +137,235 @@
               "percent_change_from_mean_log": -20.166077103487478
             }
           },
-          "remaining_effect_factor": 1.0
+          "loss_remaining_effect_factor": 1.0
         },
         "trend": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
           "components": {
             "joint_climate": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -12.575321810418394,
-              "area_weighted_mean_delta_log_yield": -0.19462087879144588,
+              "area_weighted_mean_cell_exact_percent_change": -9.774110582687863,
+              "area_weighted_mean_delta_log_yield": -0.17906094005024953,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.31643483606038825,
-                -0.0728069215225035
+                -0.31155558609230033,
+                -0.04656629400819873
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -27.125750225531025,
-                -7.021966673271778
+                -26.769309670511625,
+                -4.5498719243274905
               ],
-              "coefficient_only_standard_error_log_points": 0.062149978198439995,
-              "maximum_cell_delta_log_yield": 1.8190650803908759,
+              "coefficient_only_standard_error_log_points": 0.06759930920512797,
+              "maximum_cell_delta_log_yield": 2.320236071927137,
               "minimum_cell_delta_log_yield": -4.024039370662118,
-              "percent_change_from_mean_log": -17.685332873230347
+              "percent_change_from_mean_log": -16.394505138600028
             },
             "precipitation_all_income_support": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -0.9596011140261053,
-              "area_weighted_mean_delta_log_yield": -0.01804708723196645,
+              "area_weighted_mean_cell_exact_percent_change": 0.21410663045547668,
+              "area_weighted_mean_delta_log_yield": -0.00914635726412339,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.02588884105974658,
-                -0.010205333404186322
+                -0.016820482879869862,
+                -0.0014722316483769208
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -2.5556598315421786,
-                -1.0153435683793262
+                -1.6679808399613527,
+                -0.14711484470033379
               ],
-              "coefficient_only_standard_error_log_points": 0.004000894810091902,
-              "maximum_cell_delta_log_yield": 1.1965259290560937,
+              "coefficient_only_standard_error_log_points": 0.003915370212115546,
+              "maximum_cell_delta_log_yield": 1.5261810319593003,
               "minimum_cell_delta_log_yield": -3.6887488847474863,
-              "percent_change_from_mean_log": -1.7885213797248074
+              "percent_change_from_mean_log": -0.9104656571842324
             },
             "precipitation_common_positive_support": {
               "area_or_area_year_weight_ha": 95093791.42015438,
-              "area_weighted_mean_cell_exact_percent_change": -0.959620606285587,
-              "area_weighted_mean_delta_log_yield": -0.018047558343268065,
+              "area_weighted_mean_cell_exact_percent_change": 0.21412558266002624,
+              "area_weighted_mean_delta_log_yield": -0.009146536834541247,
               "cell_or_cell_year_rows": 25834,
               "coefficient_only_normal_95ci_log_points": [
-                -0.025889543132688615,
-                -0.010205573553847515
+                -0.016820903190922463,
+                -0.0014721704781600325
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -2.5557282445527503,
-                -1.0153673395081773
+                -1.6680221699871445,
+                -0.1471087366775051
               ],
-              "coefficient_only_standard_error_log_points": 0.004001012647663546,
-              "maximum_cell_delta_log_yield": 1.1965259290560937,
+              "coefficient_only_standard_error_log_points": 0.003915493038970008,
+              "maximum_cell_delta_log_yield": 1.5261810319593003,
               "minimum_cell_delta_log_yield": -3.6887488847474863,
-              "percent_change_from_mean_log": -1.7885676482514348
+              "percent_change_from_mean_log": -0.910483450731722
             },
             "precipitation_distribution_residual": {
               "area_or_area_year_weight_ha": 95093791.42015438,
-              "area_weighted_mean_cell_exact_percent_change": 0.3940426607563423,
-              "area_weighted_mean_delta_log_yield": -0.0005455878729960487,
+              "area_weighted_mean_cell_exact_percent_change": 1.3074913154351582,
+              "area_weighted_mean_delta_log_yield": 0.006290037294331321,
               "cell_or_cell_year_rows": 25834,
               "coefficient_only_normal_95ci_log_points": [
-                -0.004434696209315825,
-                0.0033435204633237283
+                0.0017067272991723066,
+                0.010873347289490335
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -0.44248774638281513,
-                0.33491162626865617
+                0.17081845871556423,
+                1.0932676972556294
               ],
-              "coefficient_only_standard_error_log_points": 0.001984238947101927,
-              "maximum_cell_delta_log_yield": 1.8771130100939715,
+              "coefficient_only_standard_error_log_points": 0.0023384234669178642,
+              "maximum_cell_delta_log_yield": 2.3942767985892512,
               "minimum_cell_delta_log_yield": -2.700967446845803,
-              "percent_change_from_mean_log": -0.05454390669959485
+              "percent_change_from_mean_log": 0.6309861121321224
             },
             "precipitation_quantity_reference_scaling": {
               "area_or_area_year_weight_ha": 95093791.42015438,
-              "area_weighted_mean_cell_exact_percent_change": -1.17422775348681,
-              "area_weighted_mean_delta_log_yield": -0.017501970470272018,
+              "area_weighted_mean_cell_exact_percent_change": -0.40542451503900795,
+              "area_weighted_mean_delta_log_yield": -0.01152574012093448,
               "cell_or_cell_year_rows": 25834,
               "coefficient_only_normal_95ci_log_points": [
-                -0.025925617366384324,
-                -0.009078323574159712
+                -0.020356230536443448,
+                -0.0026952497054255134
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -2.5592434085805587,
-                -0.9037240011988419
+                -2.015044120614092,
+                -0.26916207809562265
               ],
-              "coefficient_only_standard_error_log_points": 0.004297779028628728,
-              "maximum_cell_delta_log_yield": 1.4790558798833686,
+              "coefficient_only_standard_error_log_points": 0.0045053522528106975,
+              "maximum_cell_delta_log_yield": 1.8865508671981743,
               "minimum_cell_delta_log_yield": -3.285916885221111,
-              "percent_change_from_mean_log": -1.7349700620037254
+              "percent_change_from_mean_log": -1.1459573229704108
             },
             "temperature_all_income_support": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -12.131821453527355,
-              "area_weighted_mean_delta_log_yield": -0.1765737915594794,
+              "area_weighted_mean_cell_exact_percent_change": -9.842937406705682,
+              "area_weighted_mean_delta_log_yield": -0.1637758081912587,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.29983776096454445,
-                -0.053309822154414335
+                -0.29792516151346693,
+                -0.029626454869050467
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -25.906157993445845,
-                -5.191377114368459
+                -25.764310546461527,
+                -2.919189353312492
               ],
-              "coefficient_only_standard_error_log_points": 0.06288978030870666,
-              "maximum_cell_delta_log_yield": 1.8176172634842571,
+              "coefficient_only_standard_error_log_points": 0.06844354761337154,
+              "maximum_cell_delta_log_yield": 2.3183893666891033,
               "minimum_cell_delta_log_yield": -2.3735296669837993,
-              "percent_change_from_mean_log": -16.186307055786177
+              "percent_change_from_mean_log": -15.106767577943733
             }
           },
-          "remaining_effect_factor": 0.784
+          "loss_remaining_effect_factor": 0.784
         },
         "upper": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
           "components": {
             "joint_climate": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -9.465970162654846,
-              "area_weighted_mean_delta_log_yield": -0.12312749474560862,
+              "area_weighted_mean_cell_exact_percent_change": -3.5332335494038514,
+              "area_weighted_mean_delta_log_yield": -0.08682097101615052,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.20019346771166932,
-                -0.04606152177954792
+                -0.1899440078140306,
+                0.016302065781729533
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -18.14276295658316,
-                -4.501679188299615
+                -17.299456151068654,
+                1.6435669474146863
               ],
-              "coefficient_only_standard_error_log_points": 0.03931937396227587,
-              "maximum_cell_delta_log_yield": 1.15083709167586,
+              "coefficient_only_standard_error_log_points": 0.052613794284632684,
+              "maximum_cell_delta_log_yield": 2.320236071927137,
               "minimum_cell_delta_log_yield": -2.545820826337252,
-              "percent_change_from_mean_log": -11.58490692233805
+              "percent_change_from_mean_log": -8.31587779066401
             },
             "precipitation_all_income_support": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -0.8040719940589784,
-              "area_weighted_mean_delta_log_yield": -0.011417544983488976,
+              "area_weighted_mean_cell_exact_percent_change": 1.811197101237564,
+              "area_weighted_mean_delta_log_yield": 0.009350824941478179,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.016378654548003108,
-                -0.0064564354189748435
+                0.0024005278000544415,
+                0.016301122082901916
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -1.624525368744524,
-                -0.6435637424190832
+                0.2403411373818538,
+                1.6434710265449837
               ],
-              "coefficient_only_standard_error_log_points": 0.0025311783492419043,
-              "maximum_cell_delta_log_yield": 0.7569857918518199,
+              "coefficient_only_standard_error_log_points": 0.003546069970114152,
+              "maximum_cell_delta_log_yield": 1.5261810319593003,
               "minimum_cell_delta_log_yield": -2.33369827402392,
-              "percent_change_from_mean_log": -1.1352612176130654
+              "percent_change_from_mean_log": 0.939468049363415
             },
             "precipitation_common_positive_support": {
               "area_or_area_year_weight_ha": 95093791.42015438,
-              "area_weighted_mean_cell_exact_percent_change": -0.8040907633804567,
-              "area_weighted_mean_delta_log_yield": -0.011417843033496123,
+              "area_weighted_mean_cell_exact_percent_change": 1.8112639943129976,
+              "area_weighted_mean_delta_log_yield": 0.009351207153533136,
               "cell_or_cell_year_rows": 25834,
               "coefficient_only_normal_95ci_log_points": [
-                -0.016379098716598747,
-                -0.0064565873503935
+                0.0024006682397926605,
+                0.016301746067273613
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -1.6245690640312325,
-                -0.6435788377822498
+                0.24035521511011065,
+                1.6435344505021772
               ],
-              "coefficient_only_standard_error_log_points": 0.0025312528995421546,
-              "maximum_cell_delta_log_yield": 0.7569857918518199,
+              "coefficient_only_standard_error_log_points": 0.0035461933233369774,
+              "maximum_cell_delta_log_yield": 1.5261810319593003,
               "minimum_cell_delta_log_yield": -2.33369827402392,
-              "percent_change_from_mean_log": -1.1352906842447745
+              "percent_change_from_mean_log": 0.9395066296522974
             },
             "precipitation_distribution_residual": {
               "area_or_area_year_weight_ha": 95093791.42015438,
-              "area_weighted_mean_cell_exact_percent_change": 0.136010076454218,
-              "area_weighted_mean_delta_log_yield": -0.0003451678380179103,
+              "area_weighted_mean_cell_exact_percent_change": 2.1504359771452335,
+              "area_weighted_mean_delta_log_yield": 0.015604624219079299,
               "cell_or_cell_year_rows": 25834,
               "coefficient_only_normal_95ci_log_points": [
-                -0.0028056241324240106,
-                0.00211528845638819
+                0.010453953006076851,
+                0.020755295432081745
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -0.2801692047215112,
-                0.21175272573066675
+                1.0508786481755663,
+                2.097218450969472
               ],
-              "coefficient_only_standard_error_log_points": 0.0012553348440847451,
-              "maximum_cell_delta_log_yield": 1.1875612921002698,
+              "coefficient_only_standard_error_log_points": 0.002627893476021657,
+              "maximum_cell_delta_log_yield": 2.3942767985892512,
               "minimum_cell_delta_log_yield": -1.7087753235146894,
-              "percent_change_from_mean_log": -0.03451082744530487
+              "percent_change_from_mean_log": 1.5727012144758679
             },
             "precipitation_quantity_reference_scaling": {
               "area_or_area_year_weight_ha": 95093791.42015438,
-              "area_weighted_mean_cell_exact_percent_change": -0.8739890180679766,
-              "area_weighted_mean_delta_log_yield": -0.01107267519547821,
+              "area_weighted_mean_cell_exact_percent_change": 0.8452931122913455,
+              "area_weighted_mean_delta_log_yield": 0.002871862286309367,
               "cell_or_cell_year_rows": 25834,
               "coefficient_only_normal_95ci_log_points": [
-                -0.016401921190978375,
-                -0.005743429199978045
+                -0.004943956939252591,
+                0.010687681511871324
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -1.6268142091633724,
-                -0.5726967241599674
+                -0.4931755699892805,
+                1.0744998794212313
               ],
-              "coefficient_only_standard_error_log_points": 0.002719003058928656,
-              "maximum_cell_delta_log_yield": 0.935729230130292,
+              "coefficient_only_standard_error_log_points": 0.003987662870184672,
+              "maximum_cell_delta_log_yield": 1.8865508671981743,
               "minimum_cell_delta_log_yield": -2.0788453763643675,
-              "percent_change_from_mean_log": -1.1011598761842365
+              "percent_change_from_mean_log": 0.2875990033299586
             },
             "temperature_all_income_support": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -8.899191081860279,
-              "area_weighted_mean_delta_log_yield": -0.11170994976211965,
+              "area_weighted_mean_cell_exact_percent_change": -4.055187955284883,
+              "area_weighted_mean_delta_log_yield": -0.08184798856960461,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.18969327734490518,
-                -0.033726622179334115
+                -0.18646089358364532,
+                0.02276491644443611
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -17.278718005178607,
-                -3.3164220029176357
+                -17.01089846196504,
+                2.3026014683638922
               ],
-              "coefficient_only_standard_error_log_points": 0.03978741203203344,
-              "maximum_cell_delta_log_yield": 1.1499211258777955,
+              "coefficient_only_standard_error_log_points": 0.05337393112961261,
+              "maximum_cell_delta_log_yield": 2.3183893666891033,
               "minimum_cell_delta_log_yield": -1.5016208097244452,
-              "percent_change_from_mean_log": -10.569638713885542
+              "percent_change_from_mean_log": -7.858798679075302
             }
           },
-          "remaining_effect_factor": 0.496
+          "loss_remaining_effect_factor": 0.496
         }
       },
       "analysis_area_ha": 95096906.1903014,
@@ -369,6 +375,7 @@
     {
       "adaptation": {
         "fixed": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
           "components": {
             "joint_climate": {
               "area_or_area_year_weight_ha": 95096906.1903014,
@@ -479,233 +486,235 @@
               "percent_change_from_mean_log": -15.47559142183502
             }
           },
-          "remaining_effect_factor": 1.0
+          "loss_remaining_effect_factor": 1.0
         },
         "trend": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
           "components": {
             "joint_climate": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -9.375023600488719,
-              "area_weighted_mean_delta_log_yield": -0.15913967805708545,
+              "area_weighted_mean_cell_exact_percent_change": -5.8423195192519755,
+              "area_weighted_mean_delta_log_yield": -0.14158854598706294,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.2868449714449182,
-                -0.03143438466925269
+                -0.282719035378418,
+                -0.00045805659570788415
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -24.937191139472816,
-                -3.094546079818274
+                -24.62684699935991,
+                -0.04579517038015362
               ],
-              "coefficient_only_standard_error_log_points": 0.06515576193256774,
-              "maximum_cell_delta_log_yield": 2.277724131383784,
+              "coefficient_only_standard_error_log_points": 0.07200535173028319,
+              "maximum_cell_delta_log_yield": 2.916420142616878,
               "minimum_cell_delta_log_yield": -2.769792685800418,
-              "percent_change_from_mean_log": -14.712277758441541
+              "percent_change_from_mean_log": -13.202168381460961
             },
             "precipitation_all_income_support": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -2.130345294268761,
-              "area_weighted_mean_delta_log_yield": -0.02783027737235409,
+              "area_weighted_mean_cell_exact_percent_change": -1.2489562904516807,
+              "area_weighted_mean_delta_log_yield": -0.0205544483634883,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.037108691754413614,
-                -0.018551862990294564
+                -0.02908669752407707,
+                -0.012022199202899531
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -3.642860260860487,
-                -1.8380836433549117
+                -2.8667751285010805,
+                -1.1950221299041224
               ],
-              "coefficient_only_standard_error_log_points": 0.004733884888805881,
-              "maximum_cell_delta_log_yield": 1.6404526834515938,
+              "coefficient_only_standard_error_log_points": 0.004353188347239169,
+              "maximum_cell_delta_log_yield": 2.1004515793234217,
               "minimum_cell_delta_log_yield": -2.715672893845607,
-              "percent_change_from_mean_log": -2.7446582884056934
+              "percent_change_from_mean_log": -2.0344645608492717
             },
             "precipitation_common_positive_support": {
               "area_or_area_year_weight_ha": 95095472.64034992,
-              "area_weighted_mean_cell_exact_percent_change": -2.1303759843996057,
-              "area_weighted_mean_delta_log_yield": -0.027830682024719184,
+              "area_weighted_mean_cell_exact_percent_change": -1.2489742465417804,
+              "area_weighted_mean_delta_log_yield": -0.020554748743279037,
               "cell_or_cell_year_rows": 25834,
               "coefficient_only_normal_95ci_log_points": [
-                -0.037109233421593814,
-                -0.018552130627844554
+                -0.02908712452271097,
+                -0.012022372963847101
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -3.642912454346526,
-                -1.8381099151661922
+                -2.866816604246552,
+                -1.1950392983492102
               ],
-              "coefficient_only_standard_error_log_points": 0.004733954794323792,
-              "maximum_cell_delta_log_yield": 1.6404526834515938,
+              "coefficient_only_standard_error_log_points": 0.004353252948689763,
+              "maximum_cell_delta_log_yield": 2.1004515793234217,
               "minimum_cell_delta_log_yield": -2.715672893845607,
-              "percent_change_from_mean_log": -2.744697643001772
+              "percent_change_from_mean_log": -2.034493987711887
             },
             "precipitation_distribution_residual": {
               "area_or_area_year_weight_ha": 95095472.64034992,
-              "area_weighted_mean_cell_exact_percent_change": -0.3049391833479162,
-              "area_weighted_mean_delta_log_yield": -0.00690699635802226,
+              "area_weighted_mean_cell_exact_percent_change": 0.47789423077092974,
+              "area_weighted_mean_delta_log_yield": -0.0011765341232458104,
               "cell_or_cell_year_rows": 25834,
               "coefficient_only_normal_95ci_log_points": [
-                -0.011766238489210438,
-                -0.0020477542268340816
+                -0.006695722519661873,
+                0.0043426542731702525
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -1.169728700328408,
-                -0.20456590085553708
+                -0.6673356117214856,
+                0.4352097260500002
               ],
-              "coefficient_only_standard_error_log_points": 0.0024792051689735604,
-              "maximum_cell_delta_log_yield": 2.03232716989194,
+              "coefficient_only_standard_error_log_points": 0.0028159124471510526,
+              "maximum_cell_delta_log_yield": 2.602211485136925,
               "minimum_cell_delta_log_yield": -1.0727807118831358,
-              "percent_change_from_mean_log": -0.6883197882195493
+              "percent_change_from_mean_log": -0.11758422783272145
             },
             "precipitation_quantity_reference_scaling": {
               "area_or_area_year_weight_ha": 95095472.64034992,
-              "area_weighted_mean_cell_exact_percent_change": -1.6137736308497797,
-              "area_weighted_mean_delta_log_yield": -0.020923685666696924,
+              "area_weighted_mean_cell_exact_percent_change": -0.950273072255778,
+              "area_weighted_mean_delta_log_yield": -0.015294628615818413,
               "cell_or_cell_year_rows": 25834,
               "coefficient_only_normal_95ci_log_points": [
-                -0.02855925305671564,
-                -0.01328811827667821
+                -0.021848869517541832,
+                -0.008740387714094994
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -2.815529232951634,
-                -1.320022099358144
+                -2.161191185783361,
+                -0.8702301568731833
               ],
-              "coefficient_only_standard_error_log_points": 0.0038956976479687325,
-              "maximum_cell_delta_log_yield": 1.2295863795993602,
+              "coefficient_only_standard_error_log_points": 0.0033440004600629697,
+              "maximum_cell_delta_log_yield": 1.5743743656842,
               "minimum_cell_delta_log_yield": -3.0989507178241276,
-              "percent_change_from_mean_log": -2.0706304136603397
+              "percent_change_from_mean_log": -1.5178259811503614
             },
             "temperature_all_income_support": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -7.475283763269159,
-              "area_weighted_mean_delta_log_yield": -0.13130940068473138,
+              "area_weighted_mean_cell_exact_percent_change": -3.914750891301365,
+              "area_weighted_mean_delta_log_yield": -0.11469380893760905,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.2599913744500324,
-                -0.0026274269194303534
+                -0.2573651320113166,
+                0.027977514136098475
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -22.89417634237695,
-                -0.26239782543548995
+                -22.691411617894445,
+                2.8372560316011946
               ],
-              "coefficient_only_standard_error_log_points": 0.06565406824760256,
-              "maximum_cell_delta_log_yield": 2.0454420459857827,
+              "coefficient_only_standard_error_log_points": 0.0727914913641365,
+              "maximum_cell_delta_log_yield": 2.619003900109837,
               "minimum_cell_delta_log_yield": -1.633831126597443,
-              "percent_change_from_mean_log": -12.305359540584625
+              "percent_change_from_mean_log": -10.836088595821131
             }
           },
-          "remaining_effect_factor": 0.781
+          "loss_remaining_effect_factor": 0.781
         },
         "upper": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
           "components": {
             "joint_climate": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -7.3796501756234045,
-              "area_weighted_mean_delta_log_yield": -0.09964059227902024,
+              "area_weighted_mean_cell_exact_percent_change": -0.0632795993244198,
+              "area_weighted_mean_delta_log_yield": -0.05868795078230104,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.17959947635922963,
-                -0.01968170819881085
+                -0.1711021723903019,
+                0.05372627082569983
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -16.439517611699696,
-                -1.9489287834923925
+                -15.726453522409912,
+                5.519572476533401
               ],
-              "coefficient_only_standard_error_log_points": 0.040795349020514994,
-              "maximum_cell_delta_log_yield": 1.4261294497396548,
+              "coefficient_only_standard_error_log_points": 0.057354194697959625,
+              "maximum_cell_delta_log_yield": 2.916420142616878,
               "minimum_cell_delta_log_yield": -1.7342235894448175,
-              "percent_change_from_mean_log": -9.483731796207138
+              "percent_change_from_mean_log": -5.699901403038961
             },
             "precipitation_all_income_support": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -1.4841251627752785,
-              "area_weighted_mean_delta_log_yield": -0.017425103245942573,
+              "area_weighted_mean_cell_exact_percent_change": 0.506448895776346,
+              "area_weighted_mean_delta_log_yield": -0.0004481688919223929,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.02323450738528586,
-                -0.011615699106599285
+                -0.005922032691910161,
+                0.0050256949080653745
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -2.2966664626984326,
-                -1.1548497323964386
+                -0.5904532019867523,
+                0.5038344895500791
               ],
-              "coefficient_only_standard_error_log_points": 0.0029639817037465754,
-              "maximum_cell_delta_log_yield": 1.0271208222891532,
+              "coefficient_only_standard_error_log_points": 0.0027927876530549835,
+              "maximum_cell_delta_log_yield": 2.1004515793234217,
               "minimum_cell_delta_log_yield": -1.7003380859033292,
-              "percent_change_from_mean_log": -1.7274164115933905
+              "percent_change_from_mean_log": -0.044806847924572235
             },
             "precipitation_common_positive_support": {
               "area_or_area_year_weight_ha": 95095472.64034992,
-              "area_weighted_mean_cell_exact_percent_change": -1.4841466289964964,
-              "area_weighted_mean_delta_log_yield": -0.017425356607026477,
+              "area_weighted_mean_cell_exact_percent_change": 0.5064561519295278,
+              "area_weighted_mean_delta_log_yield": -0.00044817895033279665,
               "cell_or_cell_year_rows": 25834,
               "coefficient_only_normal_95ci_log_points": [
-                -0.023234846534135656,
-                -0.011615866679917297
+                -0.005922124132298381,
+                0.0050257662316327886
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -2.2966995986660037,
-                -1.1548662962048504
+                -0.5904622920338888,
+                0.5038416578423495
               ],
-              "coefficient_only_standard_error_log_points": 0.002964025473014888,
-              "maximum_cell_delta_log_yield": 1.0271208222891532,
+              "coefficient_only_standard_error_log_points": 0.002792829174472237,
+              "maximum_cell_delta_log_yield": 2.1004515793234217,
               "minimum_cell_delta_log_yield": -1.7003380859033292,
-              "percent_change_from_mean_log": -1.7274413100385329
+              "percent_change_from_mean_log": -0.04480785331492189
             },
             "precipitation_distribution_residual": {
               "area_or_area_year_weight_ha": 95095472.64034992,
-              "area_weighted_mean_cell_exact_percent_change": -0.2930489737630996,
-              "area_weighted_mean_delta_log_yield": -0.0043246110359447965,
+              "area_weighted_mean_cell_exact_percent_change": 1.4104732459475005,
+              "area_weighted_mean_delta_log_yield": 0.009046467511866926,
               "cell_or_cell_year_rows": 25834,
               "coefficient_only_normal_95ci_log_points": [
-                -0.007367081461234038,
-                -0.001282140610655555
+                0.003374397330022527,
+                0.014718537693711325
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -0.7340011034078029,
-                -0.12813190195520954
+                0.3380097017893625,
+                1.482738875678749
               ],
-              "coefficient_only_standard_error_log_points": 0.001552280829229205,
-              "maximum_cell_delta_log_yield": 1.2724814162319538,
+              "coefficient_only_standard_error_log_points": 0.0028939133580838773,
+              "maximum_cell_delta_log_yield": 2.602211485136925,
               "minimum_cell_delta_log_yield": -0.6716898439319521,
-              "percent_change_from_mean_log": -0.4315273371077785
+              "percent_change_from_mean_log": 0.9087510470326394
             },
             "precipitation_quantity_reference_scaling": {
               "area_or_area_year_weight_ha": 95095472.64034992,
-              "area_weighted_mean_cell_exact_percent_change": -1.1150510685233648,
-              "area_weighted_mean_delta_log_yield": -0.013100745571081686,
+              "area_weighted_mean_cell_exact_percent_change": 0.3909184721550949,
+              "area_weighted_mean_delta_log_yield": 3.372088096818016e-05,
               "cell_or_cell_year_rows": 25834,
               "coefficient_only_normal_95ci_log_points": [
-                -0.017881529762782747,
-                -0.008319961379380627
+                -0.0033742536016279747,
+                0.0034416953635643347
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -1.7722603898526221,
-                -0.8285446288441007
+                -0.33685672055227817,
+                0.3447624797535821
               ],
-              "coefficient_only_standard_error_log_points": 0.0024391756080107446,
-              "maximum_cell_delta_log_yield": 0.7698690648195727,
+              "coefficient_only_standard_error_log_points": 0.0017387624911204872,
+              "maximum_cell_delta_log_yield": 1.5743743656842,
               "minimum_cell_delta_log_yield": -1.9403161344635045,
-              "percent_change_from_mean_log": -1.3015304325479764
+              "percent_change_from_mean_log": 0.0033721449523477507
             },
             "temperature_all_income_support": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -6.030306039428102,
-              "area_weighted_mean_delta_log_yield": -0.08221548903307764,
+              "area_weighted_mean_cell_exact_percent_change": 1.2689461424295352,
+              "area_weighted_mean_delta_log_yield": -0.043445774956458905,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.1627858925813821,
-                -0.0016450854847731705
+                -0.15792437707292567,
+                0.07103282716000787
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -15.022688833431392,
-                -0.16437330733595168
+                -14.608564497015287,
+                7.361646906950435
               ],
-              "coefficient_only_standard_error_log_points": 0.041107348749134937,
-              "maximum_cell_delta_log_yield": 1.2806929071537083,
+              "coefficient_only_standard_error_log_points": 0.05840745005942183,
+              "maximum_cell_delta_log_yield": 2.619003900109837,
               "minimum_cell_delta_log_yield": -1.022974930737707,
-              "percent_change_from_mean_log": -7.892654391889592
+              "percent_change_from_mean_log": -4.251552767947843
             }
           },
-          "remaining_effect_factor": 0.489
+          "loss_remaining_effect_factor": 0.489
         }
       },
       "analysis_area_ha": 95096906.1903014,
@@ -715,6 +724,7 @@
     {
       "adaptation": {
         "fixed": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
           "components": {
             "joint_climate": {
               "area_or_area_year_weight_ha": 95096906.1903014,
@@ -825,233 +835,235 @@
               "percent_change_from_mean_log": -20.208585046336925
             }
           },
-          "remaining_effect_factor": 1.0
+          "loss_remaining_effect_factor": 1.0
         },
         "trend": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
           "components": {
             "joint_climate": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -11.876204437212499,
-              "area_weighted_mean_delta_log_yield": -0.20926723165201108,
+              "area_weighted_mean_cell_exact_percent_change": -7.519810552630713,
+              "area_weighted_mean_delta_log_yield": -0.19091555817771336,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.3589403029913729,
-                -0.05959416031264922
+                -0.3558761888841842,
+                -0.025954927471242506
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -30.15839565443143,
-                -5.785318342432556
+                -29.944064809897654,
+                -2.5620993655193107
               ],
-              "coefficient_only_standard_error_log_points": 0.07636381190783768,
-              "maximum_cell_delta_log_yield": 2.280611005768257,
+              "coefficient_only_standard_error_log_points": 0.08416358709513819,
+              "maximum_cell_delta_log_yield": 2.931376614098013,
               "minimum_cell_delta_log_yield": -1.706444342280324,
-              "percent_change_from_mean_log": -18.882156587643912
+              "percent_change_from_mean_log": -17.379764876219266
             },
             "precipitation_all_income_support": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -2.6993946905857014,
-              "area_weighted_mean_delta_log_yield": -0.03363041009460866,
+              "area_weighted_mean_cell_exact_percent_change": -1.8426685953303845,
+              "area_weighted_mean_delta_log_yield": -0.026469383033927825,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.04594400706220787,
-                -0.02131681312700945
+                -0.03822941078908946,
+                -0.01470935527876619
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -4.490456070695148,
-                -2.109121571554519
+                -3.750789051271512,
+                -1.4601701199488584
               ],
-              "coefficient_only_standard_error_log_points": 0.006282447432448579,
-              "maximum_cell_delta_log_yield": 1.311746091169189,
+              "coefficient_only_standard_error_log_points": 0.006000014160796753,
+              "maximum_cell_delta_log_yield": 1.686048960371707,
               "minimum_cell_delta_log_yield": -1.109377977892919,
-              "percent_change_from_mean_log": -3.307119426816876
+              "percent_change_from_mean_log": -2.612213943550083
             },
             "precipitation_common_positive_support": {
               "area_or_area_year_weight_ha": 95096895.85030161,
-              "area_weighted_mean_cell_exact_percent_change": -2.6993950240993385,
-              "area_weighted_mean_delta_log_yield": -0.03363041415033537,
+              "area_weighted_mean_cell_exact_percent_change": -1.8426688480316447,
+              "area_weighted_mean_delta_log_yield": -0.026469386433805326,
               "cell_or_cell_year_rows": 25840,
               "coefficient_only_normal_95ci_log_points": [
-                -0.04594401254376872,
-                -0.021316815756902027
+                -0.03822941556342016,
+                -0.014709357304190492
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -4.490456594236523,
-                -2.109121828997013
+                -3.750789510797074,
+                -1.4601703195338245
               ],
-              "coefficient_only_standard_error_log_points": 0.006282448159914973,
-              "maximum_cell_delta_log_yield": 1.311746091169189,
+              "coefficient_only_standard_error_log_points": 0.006000014862048385,
+              "maximum_cell_delta_log_yield": 1.686048960371707,
               "minimum_cell_delta_log_yield": -1.109377977892919,
-              "percent_change_from_mean_log": -3.307119818976774
+              "percent_change_from_mean_log": -2.6122142746566253
             },
             "precipitation_distribution_residual": {
               "area_or_area_year_weight_ha": 95096895.85030161,
-              "area_weighted_mean_cell_exact_percent_change": -0.6459846833677354,
-              "area_weighted_mean_delta_log_yield": -0.009096145960039766,
+              "area_weighted_mean_cell_exact_percent_change": 0.0005455033572824941,
+              "area_weighted_mean_delta_log_yield": -0.003246639488574754,
               "cell_or_cell_year_rows": 25840,
               "coefficient_only_normal_95ci_log_points": [
-                -0.01565798938563561,
-                -0.00253430253444392
+                -0.010276115829545277,
+                0.0037828368523957685
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -1.553604039150122,
-                -0.25310939008976013
+                -1.0223496944766552,
+                0.37900008102345684
               ],
-              "coefficient_only_standard_error_log_points": 0.003347879298773391,
-              "maximum_cell_delta_log_yield": 1.1544685405621786,
+              "coefficient_only_standard_error_log_points": 0.0035864675209033277,
+              "maximum_cell_delta_log_yield": 1.4838927256583228,
               "minimum_cell_delta_log_yield": -2.264489102687108,
-              "percent_change_from_mean_log": -0.9054901175307187
+              "percent_change_from_mean_log": -0.32413748535887793
             },
             "precipitation_quantity_reference_scaling": {
               "area_or_area_year_weight_ha": 95096895.85030161,
-              "area_weighted_mean_cell_exact_percent_change": -2.0118024433585044,
-              "area_weighted_mean_delta_log_yield": -0.02453426819029562,
+              "area_weighted_mean_cell_exact_percent_change": -1.4027951492361073,
+              "area_weighted_mean_delta_log_yield": -0.019510856885107668,
               "cell_or_cell_year_rows": 25840,
               "coefficient_only_normal_95ci_log_points": [
-                -0.034552770855776946,
-                -0.014515765524814293
+                -0.029248453857398694,
+                -0.00977325991281664
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -3.396264027680982,
-                -1.4410919719205089
+                -2.88248577211769,
+                -0.972565681352895
               ],
-              "coefficient_only_standard_error_log_points": 0.005111480951776188,
-              "maximum_cell_delta_log_yield": 1.484307705468753,
+              "coefficient_only_standard_error_log_points": 0.004968161720556647,
+              "maximum_cell_delta_log_yield": 1.9078505211680579,
               "minimum_cell_delta_log_yield": -1.0386088648834857,
-              "percent_change_from_mean_log": -2.4235749329549154
+              "percent_change_from_mean_log": -1.9321751980197577
             },
             "temperature_all_income_support": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -10.028999365455904,
-              "area_weighted_mean_delta_log_yield": -0.17563682155740243,
+              "area_weighted_mean_cell_exact_percent_change": -5.877001695836561,
+              "area_weighted_mean_delta_log_yield": -0.15697689531809747,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.3247634034739224,
-                -0.02651023964088242
+                -0.32269572699176585,
+                0.008741936355570912
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -27.730167867167726,
-                -2.6161927967653953
+                -27.580582641263728,
+                0.8780258670206506
               ],
-              "coefficient_only_standard_error_log_points": 0.07608499077373469,
-              "maximum_cell_delta_log_yield": 2.5054131210207546,
+              "coefficient_only_standard_error_log_points": 0.08455042432330019,
+              "maximum_cell_delta_log_yield": 3.220325348355727,
               "minimum_cell_delta_log_yield": -1.7751157335716514,
-              "percent_change_from_mean_log": -16.107739337684627
+              "percent_change_from_mean_log": -14.52761932887816
             }
           },
-          "remaining_effect_factor": 0.778
+          "loss_remaining_effect_factor": 0.778
         },
         "upper": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
           "components": {
             "joint_climate": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -9.444532809119627,
-              "area_weighted_mean_delta_log_yield": -0.12964885045792976,
+              "area_weighted_mean_cell_exact_percent_change": -0.6658415240970494,
+              "area_weighted_mean_delta_log_yield": -0.08682827901790173,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.2223768972260196,
-                -0.036920803689839896
+                -0.2167087102212346,
+                0.04305215218543117
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -19.9386441565959,
-                -3.6247542034642652
+                -19.483552866995467,
+                4.399233991298561
               ],
-              "coefficient_only_standard_error_log_points": 0.047310227942902995,
-              "maximum_cell_delta_log_yield": 1.412923527995246,
+              "coefficient_only_standard_error_log_points": 0.06626552612414943,
+              "maximum_cell_delta_log_yield": 2.931376614098013,
               "minimum_cell_delta_log_yield": -1.0572058778651856,
-              "percent_change_from_mean_log": -12.159617212742164
+              "percent_change_from_mean_log": -8.316547815941396
             },
             "precipitation_all_income_support": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -1.8271927685956202,
-              "area_weighted_mean_delta_log_yield": -0.02083529262930768,
+              "area_weighted_mean_cell_exact_percent_change": 0.10849704086215892,
+              "area_weighted_mean_delta_log_yield": -0.004126229487719053,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.028464024940853934,
-                -0.013206560317761426
+                -0.011373188833227174,
+                0.003120729857789068
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -2.8062740982419445,
-                -1.3119736335708545
+                -1.1308758611459937,
+                0.3125604404607347
               ],
-              "coefficient_only_standard_error_log_points": 0.0038922103630338037,
-              "maximum_cell_delta_log_yield": 0.8126755988991645,
+              "coefficient_only_standard_error_log_points": 0.0036974282375041435,
+              "maximum_cell_delta_log_yield": 1.686048960371707,
               "minimum_cell_delta_log_yield": -0.687301009440084,
-              "percent_change_from_mean_log": -2.061973756644522
+              "percent_change_from_mean_log": -0.41177282994637077
             },
             "precipitation_common_positive_support": {
               "area_or_area_year_weight_ha": 95096895.85030161,
-              "area_weighted_mean_cell_exact_percent_change": -1.8271929920296062,
-              "area_weighted_mean_delta_log_yield": -0.020835295141981562,
+              "area_weighted_mean_cell_exact_percent_change": 0.10849699912799371,
+              "area_weighted_mean_delta_log_yield": -0.004126230470078109,
               "cell_or_cell_year_rows": 25840,
               "coefficient_only_normal_95ci_log_points": [
-                -0.02846402833688292,
-                -0.013206561947080205
+                -0.011373190636190387,
+                0.003120729696034168
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -2.8062744283146546,
-                -1.311973794365109
+                -1.1308760394033872,
+                0.31256042423468655
               ],
-              "coefficient_only_standard_error_log_points": 0.003892210813725183,
-              "maximum_cell_delta_log_yield": 0.8126755988991645,
+              "coefficient_only_standard_error_log_points": 0.0036974286561797334,
+              "maximum_cell_delta_log_yield": 1.686048960371707,
               "minimum_cell_delta_log_yield": -0.687301009440084,
-              "percent_change_from_mean_log": -2.0619740027308424
+              "percent_change_from_mean_log": -0.41177292777776753
             },
             "precipitation_distribution_residual": {
               "area_or_area_year_weight_ha": 95096895.85030161,
-              "area_weighted_mean_cell_exact_percent_change": -0.46114583982615565,
-              "area_weighted_mean_delta_log_yield": -0.005635401481669876,
+              "area_weighted_mean_cell_exact_percent_change": 1.0221008605823743,
+              "area_weighted_mean_delta_log_yield": 0.00801344695174848,
               "cell_or_cell_year_rows": 25840,
               "coefficient_only_normal_95ci_log_points": [
-                -0.00970070807696102,
-                -0.0015700948863787327
+                0.0017124587121548915,
+                0.014314435191342071
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -0.9653807985579385,
-                -0.15688629322485956
+                0.17139258069021815,
+                1.441737731842167
               ],
-              "coefficient_only_standard_error_log_points": 0.0020741360180056853,
-              "maximum_cell_delta_log_yield": 0.7152362937673122,
+              "coefficient_only_standard_error_log_points": 0.0032147899181599947,
+              "maximum_cell_delta_log_yield": 1.4838927256583228,
               "minimum_cell_delta_log_yield": -1.402935408091503,
-              "percent_change_from_mean_log": -0.5619552392709383
+              "percent_change_from_mean_log": 0.8045640554224974
             },
             "precipitation_quantity_reference_scaling": {
               "area_or_area_year_weight_ha": 95096895.85030161,
-              "area_weighted_mean_cell_exact_percent_change": -1.3511425352716988,
-              "area_weighted_mean_delta_log_yield": -0.015199893660311674,
+              "area_weighted_mean_cell_exact_percent_change": 0.018743482755054504,
+              "area_weighted_mean_delta_log_yield": -0.0034786006148731304,
               "cell_or_cell_year_rows": 25840,
               "coefficient_only_normal_95ci_log_points": [
-                -0.02140672950191354,
-                -0.008993057818709807
+                -0.009968547573982104,
+                0.003011346344235843
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -2.1179231687691944,
-                -0.8952741221259898
+                -0.9919026291970862,
+                0.301588500231863
               ],
-              "coefficient_only_standard_error_log_points": 0.003166752980409116,
-              "maximum_cell_delta_log_yield": 0.9195839512030091,
+              "coefficient_only_standard_error_log_points": 0.0033111974281168233,
+              "maximum_cell_delta_log_yield": 1.9078505211680579,
               "minimum_cell_delta_log_yield": -0.6434569060075024,
-              "percent_change_from_mean_log": -1.508495834837959
+              "percent_change_from_mean_log": -0.34725572932192406
             },
             "temperature_all_income_support": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -7.979949726657809,
-              "area_weighted_mean_delta_log_yield": -0.10881355782862207,
+              "area_weighted_mean_cell_exact_percent_change": 0.47196490928353796,
+              "area_weighted_mean_delta_log_yield": -0.06527372993691048,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.20120303402883344,
-                -0.01642408162841069
+                -0.1980697442842183,
+                0.06752228441039733
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -18.22536156451656,
-                -1.6289941778374888
+                -17.96873609751685,
+                6.985410040010054
               ],
-              "coefficient_only_standard_error_log_points": 0.0471374878572507,
-              "maximum_cell_delta_log_yield": 1.5521968179074601,
+              "coefficient_only_standard_error_log_points": 0.0677530685445448,
+              "maximum_cell_delta_log_yield": 3.220325348355727,
               "minimum_cell_delta_log_yield": -1.0997503645006905,
-              "percent_change_from_mean_log": -10.310237854913588
+              "percent_change_from_mean_log": -6.318900493709857
             }
           },
-          "remaining_effect_factor": 0.482
+          "loss_remaining_effect_factor": 0.482
         }
       },
       "analysis_area_ha": 95096906.1903014,
@@ -1061,6 +1073,7 @@
     {
       "adaptation": {
         "fixed": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
           "components": {
             "joint_climate": {
               "area_or_area_year_weight_ha": 95096906.1903014,
@@ -1171,233 +1184,235 @@
               "percent_change_from_mean_log": -22.753161217984548
             }
           },
-          "remaining_effect_factor": 1.0
+          "loss_remaining_effect_factor": 1.0
         },
         "trend": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
           "components": {
             "joint_climate": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -13.964898332611087,
-              "area_weighted_mean_delta_log_yield": -0.22343254530863063,
+              "area_weighted_mean_cell_exact_percent_change": -10.343355695286096,
+              "area_weighted_mean_delta_log_yield": -0.2056662542054774,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.3647561323260201,
-                -0.08210895829124115
+                -0.3602952775318572,
+                -0.05103723087909759
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -30.563403635537075,
-                -7.8828416053609365
+                -30.252965166077168,
+                -4.975670851926399
               ],
-              "coefficient_only_standard_error_log_points": 0.07210387092723954,
-              "maximum_cell_delta_log_yield": 1.907909843527468,
+              "coefficient_only_standard_error_log_points": 0.0788923588399897,
+              "maximum_cell_delta_log_yield": 2.4618191529386686,
               "minimum_cell_delta_log_yield": -6.182158974340069,
-              "percent_change_from_mean_log": -20.02311617917431
+              "percent_change_from_mean_log": -18.58952650204743
             },
             "precipitation_all_income_support": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -1.5358444694294489,
-              "area_weighted_mean_delta_log_yield": -0.023355295762136293,
+              "area_weighted_mean_cell_exact_percent_change": -0.4691880754626785,
+              "area_weighted_mean_delta_log_yield": -0.014722251913059084,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.03062200984146945,
-                -0.016088581682803138
+                -0.02136765013920535,
+                -0.008076853686912818
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -3.015790543202107,
-                -1.5959851737848858
+                -2.114097924842515,
+                -0.8044323543491941
               ],
-              "coefficient_only_standard_error_log_points": 0.0037075071833332428,
-              "maximum_cell_delta_log_yield": 1.1658703832349548,
+              "coefficient_only_standard_error_log_points": 0.003390509299054217,
+              "maximum_cell_delta_log_yield": 1.5043488815934931,
               "minimum_cell_delta_log_yield": -6.505084517762238,
-              "percent_change_from_mean_log": -2.3084671770603653
+              "percent_change_from_mean_log": -1.461440943903412
             },
             "precipitation_common_positive_support": {
               "area_or_area_year_weight_ha": 95095853.80031163,
-              "area_weighted_mean_cell_exact_percent_change": -1.5358514291173908,
-              "area_weighted_mean_delta_log_yield": -0.023355453304277626,
+              "area_weighted_mean_cell_exact_percent_change": -0.46918323086613595,
+              "area_weighted_mean_delta_log_yield": -0.014722313916556347,
               "cell_or_cell_year_rows": 25838,
               "coefficient_only_normal_95ci_log_points": [
-                -0.03062224675306366,
-                -0.016088659855491592
+                -0.021367786884281446,
+                -0.00807684094883125
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -3.0158135198830607,
-                -1.5959928662909788
+                -2.114111310256728,
+                -0.8044310907879542
               ],
-              "coefficient_only_standard_error_log_points": 0.0037075476779520585,
-              "maximum_cell_delta_log_yield": 1.1658703832349548,
+              "coefficient_only_standard_error_log_points": 0.003390547432512805,
+              "maximum_cell_delta_log_yield": 1.5043488815934931,
               "minimum_cell_delta_log_yield": -6.505084517762238,
-              "percent_change_from_mean_log": -2.308482567592424
+              "percent_change_from_mean_log": -1.4614470536384994
             },
             "precipitation_distribution_residual": {
               "area_or_area_year_weight_ha": 95095853.80031163,
-              "area_weighted_mean_cell_exact_percent_change": 6.007197327618685,
-              "area_weighted_mean_delta_log_yield": 0.008023797191851714,
+              "area_weighted_mean_cell_exact_percent_change": 16.26009804734287,
+              "area_weighted_mean_delta_log_yield": 0.01911114244140358,
               "cell_or_cell_year_rows": 25838,
               "coefficient_only_normal_95ci_log_points": [
-                0.0014050127368459755,
-                0.014642581646857453
+                0.009901100658809043,
+                0.028321184223998118
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                0.1406000229667168,
-                1.4750309407456879
+                0.9950278727601365,
+                2.8726041941260827
               ],
-              "coefficient_only_standard_error_log_points": 0.003376930844390683,
-              "maximum_cell_delta_log_yield": 6.403090946230628,
+              "coefficient_only_standard_error_log_points": 0.004699000909487009,
+              "maximum_cell_delta_log_yield": 8.262052833845978,
               "minimum_cell_delta_log_yield": -1.1114603356535298,
-              "percent_change_from_mean_log": 0.8056074122634606
+              "percent_change_from_mean_log": 1.9294929249095452
             },
             "precipitation_quantity_reference_scaling": {
               "area_or_area_year_weight_ha": 95095853.80031163,
-              "area_weighted_mean_cell_exact_percent_change": -1.7384900193909971,
-              "area_weighted_mean_delta_log_yield": -0.03137925049612932,
+              "area_weighted_mean_cell_exact_percent_change": -1.059828428339345,
+              "area_weighted_mean_delta_log_yield": -0.02567266265745532,
               "cell_or_cell_year_rows": 25838,
               "coefficient_only_normal_95ci_log_points": [
-                -0.04046861387010747,
-                -0.022289887122151172
+                -0.033929648661753,
+                -0.017415676653157644
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -3.9660694627412645,
-                -2.2043303096287055
+                -3.33604933716432,
+                -1.7264900315996832
               ],
-              "coefficient_only_standard_error_log_points": 0.004637430292845996,
-              "maximum_cell_delta_log_yield": 0.9368453595389665,
+              "coefficient_only_standard_error_log_points": 0.004212747961376365,
+              "maximum_cell_delta_log_yield": 1.208832721985763,
               "minimum_cell_delta_log_yield": -12.908175463992865,
-              "percent_change_from_mean_log": -3.089203130457046
+              "percent_change_from_mean_log": -2.534592192670026
             },
             "temperature_all_income_support": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -12.995611679250237,
-              "area_weighted_mean_delta_log_yield": -0.20007724954649433,
+              "area_weighted_mean_cell_exact_percent_change": -9.7365774174597,
+              "area_weighted_mean_delta_log_yield": -0.1836866309656998,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.34211869373099557,
-                -0.05803580536199307
+                -0.3395820200802811,
+                -0.027791241851118476
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -28.97361041659792,
-                -5.63838396862805
+                -28.79321093506552,
+                -2.74086180135059
               ],
-              "coefficient_only_standard_error_log_points": 0.07247012458392922,
-              "maximum_cell_delta_log_yield": 2.3391807465453804,
+              "coefficient_only_standard_error_log_points": 0.07953846383397006,
+              "maximum_cell_delta_log_yield": 3.01829773747791,
               "minimum_cell_delta_log_yield": -1.3467970605899857,
-              "percent_change_from_mean_log": -18.13324910585725
+              "percent_change_from_mean_log": -16.78034524015051
             }
           },
-          "remaining_effect_factor": 0.775
+          "loss_remaining_effect_factor": 0.775
         },
         "upper": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
           "components": {
             "joint_climate": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -10.459380987835,
-              "area_weighted_mean_delta_log_yield": -0.13694252776980587,
+              "area_weighted_mean_cell_exact_percent_change": -2.979192077100779,
+              "area_weighted_mean_delta_log_yield": -0.09548784852911495,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.22356021013532268,
-                -0.050324845404289054
+                -0.21478505678315757,
+                0.02380935972492766
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -20.033325762470458,
-                -4.907952782267153
+                -19.328518057832593,
+                2.40950655147396
               ],
-              "coefficient_only_standard_error_log_points": 0.044192695084447356,
-              "maximum_cell_delta_log_yield": 1.1693640976458688,
+              "coefficient_only_standard_error_log_points": 0.06086592257859317,
+              "maximum_cell_delta_log_yield": 2.4618191529386686,
               "minimum_cell_delta_log_yield": -3.7890651778213367,
-              "percent_change_from_mean_log": -12.797965835422048
+              "percent_change_from_mean_log": -9.107059358421536
             },
             "precipitation_all_income_support": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -1.1206773752134842,
-              "area_weighted_mean_delta_log_yield": -0.014314536112277086,
+              "area_weighted_mean_cell_exact_percent_change": 1.2787763905308445,
+              "area_weighted_mean_delta_log_yield": 0.005829232868903082,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.01876832861251479,
-                -0.009860743612039383
+                7.736747675054102e-05,
+                0.011581098261055623
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -1.859330024018915,
-                -0.9812285886945123
+                0.00773704696909553,
+                1.1648418810484371
               ],
-              "coefficient_only_standard_error_log_points": 0.002272343112366176,
-              "maximum_cell_delta_log_yield": 0.7145657187569094,
+              "coefficient_only_standard_error_log_points": 0.002934625200077827,
+              "maximum_cell_delta_log_yield": 1.5043488815934931,
               "minimum_cell_delta_log_yield": -3.986987285080083,
-              "percent_change_from_mean_log": -1.4212570251372971
+              "percent_change_from_mean_log": 0.5846255907834977
             },
             "precipitation_common_positive_support": {
               "area_or_area_year_weight_ha": 95095853.80031163,
-              "area_weighted_mean_cell_exact_percent_change": -1.1206836125944017,
-              "area_weighted_mean_delta_log_yield": -0.014314632670363706,
+              "area_weighted_mean_cell_exact_percent_change": 1.278796707000837,
+              "area_weighted_mean_delta_log_yield": 0.005829359234319274,
               "cell_or_cell_year_rows": 25838,
               "coefficient_only_normal_95ci_log_points": [
-                -0.018768473816393218,
-                -0.009860791524334195
+                7.742680978671361e-05,
+                0.011581291658851835
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -1.8593442744237927,
-                -0.9812333329109665
+                0.007742980731951311,
+                1.164861446107803
               ],
-              "coefficient_only_standard_error_log_points": 0.0022723679316477103,
-              "maximum_cell_delta_log_yield": 0.7145657187569094,
+              "coefficient_only_standard_error_log_points": 0.0029346594002717147,
+              "maximum_cell_delta_log_yield": 1.5043488815934931,
               "minimum_cell_delta_log_yield": -3.986987285080083,
-              "percent_change_from_mean_log": -1.4212665437116407
+              "percent_change_from_mean_log": 0.5846383012023761
             },
             "precipitation_distribution_residual": {
               "area_or_area_year_weight_ha": 95095853.80031163,
-              "area_weighted_mean_cell_exact_percent_change": 1.6946639440110307,
-              "area_weighted_mean_delta_log_yield": 0.004917811182102663,
+              "area_weighted_mean_cell_exact_percent_change": 17.320069832335612,
+              "area_weighted_mean_delta_log_yield": 0.03078828343105702,
               "cell_or_cell_year_rows": 25838,
               "coefficient_only_normal_95ci_log_points": [
-                0.000861136838711923,
-                0.008974485525493403
+                0.01986737785476419,
+                0.04170918900734985
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                0.08615077234926254,
-                0.9014876961081525
+                2.0066047708046084,
+                4.259123766722574
               ],
-              "coefficient_only_standard_error_log_points": 0.002069731807852418,
-              "maximum_cell_delta_log_yield": 3.924475096076839,
+              "coefficient_only_standard_error_log_points": 0.005571890600149403,
+              "maximum_cell_delta_log_yield": 8.262052833845978,
               "minimum_cell_delta_log_yield": -0.68121762507797,
-              "percent_change_from_mean_log": 0.4929923462677301
+              "percent_change_from_mean_log": 3.1267144430698472
             },
             "precipitation_quantity_reference_scaling": {
               "area_or_area_year_weight_ha": 95095853.80031163,
-              "area_weighted_mean_cell_exact_percent_change": -1.3047915257349094,
-              "area_weighted_mean_delta_log_yield": -0.019232443852466367,
+              "area_weighted_mean_cell_exact_percent_change": 0.23121592313199654,
+              "area_weighted_mean_delta_log_yield": -0.005917072228893658,
               "cell_or_cell_year_rows": 25838,
               "coefficient_only_normal_95ci_log_points": [
-                -0.02480334398490484,
-                -0.013661543720027893
+                -0.010782203411569373,
+                -0.0010519410462179442
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -2.4498268550281708,
-                -1.356864834419958
+                -1.0724283810246458,
+                -0.10513879501940551
               ],
-              "coefficient_only_standard_error_log_points": 0.0028422959859379965,
-              "maximum_cell_delta_log_yield": 0.5741955429432375,
+              "coefficient_only_standard_error_log_points": 0.002482209787079446,
+              "maximum_cell_delta_log_yield": 1.208832721985763,
               "minimum_cell_delta_log_yield": -7.91146238115692,
-              "percent_change_from_mean_log": -1.9048680363536468
+              "percent_change_from_mean_log": -0.5899600833833262
             },
             "temperature_all_income_support": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -9.577090800028609,
-              "area_weighted_mean_delta_log_yield": -0.12262799165752881,
+              "area_weighted_mean_cell_exact_percent_change": -2.8295635444726845,
+              "area_weighted_mean_delta_log_yield": -0.08438321496900816,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.20968565099644848,
-                -0.03557033231860916
+                -0.20554687449423723,
+                0.0367804445562209
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -18.91609076265397,
-                -3.494514270264134
+                -18.579807163094923,
+                3.7465214695414963
               ],
-              "coefficient_only_standard_error_log_points": 0.04441717313210186,
-              "maximum_cell_delta_log_yield": 1.433691425302007,
+              "coefficient_only_standard_error_log_points": 0.06181819363532095,
+              "maximum_cell_delta_log_yield": 3.01829773747791,
               "minimum_cell_delta_log_yield": -0.8254562629422499,
-              "percent_change_from_mean_log": -11.540732278545876
+              "percent_change_from_mean_log": -8.09210162228612
             }
           },
-          "remaining_effect_factor": 0.475
+          "loss_remaining_effect_factor": 0.475
         }
       },
       "analysis_area_ha": 95096906.1903014,
@@ -1407,6 +1422,7 @@
     {
       "adaptation": {
         "fixed": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
           "components": {
             "joint_climate": {
               "area_or_area_year_weight_ha": 95096906.1903014,
@@ -1517,233 +1533,235 @@
               "percent_change_from_mean_log": -23.660558819857904
             }
           },
-          "remaining_effect_factor": 1.0
+          "loss_remaining_effect_factor": 1.0
         },
         "trend": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
           "components": {
             "joint_climate": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -11.792844198014322,
-              "area_weighted_mean_delta_log_yield": -0.21196644002139042,
+              "area_weighted_mean_cell_exact_percent_change": -7.169716317230617,
+              "area_weighted_mean_delta_log_yield": -0.19155307326848028,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.3693413490420455,
-                -0.0545915310007353
+                -0.3645442190524245,
+                -0.018561927484536056
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -30.881056667362074,
-                -5.312816323549333
+                -30.548687539881215,
+                -1.839071588425225
               ],
-              "coefficient_only_standard_error_log_points": 0.08029332092890568,
-              "maximum_cell_delta_log_yield": 2.3429796458582755,
+              "coefficient_only_standard_error_log_points": 0.08826078866527767,
+              "maximum_cell_delta_log_yield": 3.0349477277956955,
               "minimum_cell_delta_log_yield": -2.3659499717362698,
-              "percent_change_from_mean_log": -19.10081531399916
+              "percent_change_from_mean_log": -17.432419736995858
             },
             "precipitation_all_income_support": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": 0.38546004981968063,
-              "area_weighted_mean_delta_log_yield": -0.003541525794863993,
+              "area_weighted_mean_cell_exact_percent_change": 1.9123158076223503,
+              "area_weighted_mean_delta_log_yield": 0.008926630627611763,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.01010195376245406,
-                0.0030189021727260747
+                0.0011669384839222098,
+                0.016686322771301314
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -1.0051100411003564,
-                0.30234636469501186
+                0.11676196215576454,
+                1.6826317034313403
               ],
-              "coefficient_only_standard_error_log_points": 0.003347157126321463,
-              "maximum_cell_delta_log_yield": 1.619365527514157,
+              "coefficient_only_standard_error_log_points": 0.003959026603923241,
+              "maximum_cell_delta_log_yield": 2.097623740303316,
               "minimum_cell_delta_log_yield": -2.3743061804457497,
-              "percent_change_from_mean_log": -0.3535261989044573
+              "percent_change_from_mean_log": 0.8966591812533138
             },
             "precipitation_common_positive_support": {
               "area_or_area_year_weight_ha": 95095929.86032349,
-              "area_weighted_mean_cell_exact_percent_change": 0.38546508501409305,
-              "area_weighted_mean_delta_log_yield": -0.0035415513537818155,
+              "area_weighted_mean_cell_exact_percent_change": 1.9123364964524492,
+              "area_weighted_mean_delta_log_yield": 0.008926732855002853,
               "cell_or_cell_year_rows": 25832,
               "coefficient_only_normal_95ci_log_points": [
-                -0.010102051345725492,
-                0.003018948638161862
+                0.0011669541722044725,
+                0.016686511537801235
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -1.0051197013451025,
-                0.30235102528735447
+                0.11676353281579775,
+                1.6826508977076413
               ],
-              "coefficient_only_standard_error_log_points": 0.003347193873440652,
-              "maximum_cell_delta_log_yield": 1.619365527514157,
+              "coefficient_only_standard_error_log_points": 0.003959070756529786,
+              "maximum_cell_delta_log_yield": 2.097623740303316,
               "minimum_cell_delta_log_yield": -2.3743061804457497,
-              "percent_change_from_mean_log": -0.3535287457604599
+              "percent_change_from_mean_log": 0.8966694956560788
             },
             "precipitation_distribution_residual": {
               "area_or_area_year_weight_ha": 95095929.86032349,
-              "area_weighted_mean_cell_exact_percent_change": 0.47082718665259293,
-              "area_weighted_mean_delta_log_yield": 0.00047170135608119886,
+              "area_weighted_mean_cell_exact_percent_change": 1.5588108768757114,
+              "area_weighted_mean_delta_log_yield": 0.009200055646890252,
               "cell_or_cell_year_rows": 25832,
               "coefficient_only_normal_95ci_log_points": [
-                -0.005210918895271568,
-                0.006154321607433966
+                0.002570917469595183,
+                0.015829193824185323
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -0.519736560931558,
-                0.6173298354352034
+                0.257422511186396,
+                1.5955139173011141
               ],
-              "coefficient_only_standard_error_log_points": 0.0028992960466085547,
-              "maximum_cell_delta_log_yield": 3.33105969329322,
+              "coefficient_only_standard_error_log_points": 0.0033822133557627906,
+              "maximum_cell_delta_log_yield": 4.314844162296932,
               "minimum_cell_delta_log_yield": -2.382348917968357,
-              "percent_change_from_mean_log": 0.047181262466035545
+              "percent_change_from_mean_log": 0.9242506241585898
             },
             "precipitation_quantity_reference_scaling": {
               "area_or_area_year_weight_ha": 95095929.86032349,
-              "area_weighted_mean_cell_exact_percent_change": -0.026201914299841124,
-              "area_weighted_mean_delta_log_yield": -0.004013252709863009,
+              "area_weighted_mean_cell_exact_percent_change": 0.838520078508741,
+              "area_weighted_mean_delta_log_yield": 0.003530483270813806,
               "cell_or_cell_year_rows": 25832,
               "coefficient_only_normal_95ci_log_points": [
-                -0.007778192297862851,
-                -0.00024831312186316627
+                -0.0019294396023031841,
+                0.008990406143930795
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -0.7748020438339445,
-                -0.02482822947115698
+                -0.1927579430269247,
+                0.9030941229811483
               ],
-              "coefficient_only_standard_error_log_points": 0.0019208875448978788,
-              "maximum_cell_delta_log_yield": 1.5579125059170362,
+              "coefficient_only_standard_error_log_points": 0.0027856749352637706,
+              "maximum_cell_delta_log_yield": 2.0180213807215512,
               "minimum_cell_delta_log_yield": -5.052503786677047,
-              "percent_change_from_mean_log": -0.4005210373446337
+              "percent_change_from_mean_log": 0.3536722767528663
             },
             "temperature_all_income_support": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -12.451208260137493,
-              "area_weighted_mean_delta_log_yield": -0.20842491422652643,
+              "area_weighted_mean_cell_exact_percent_change": -8.346034896544749,
+              "area_weighted_mean_delta_log_yield": -0.18961907105817083,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.36468678279229316,
-                -0.05216304566075969
+                -0.3615108098219567,
+                -0.017727332294384918
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -30.55858807297903,
-                -5.082590449174294
+                -30.337693433651637,
+                -1.7571127532447013
               ],
-              "coefficient_only_standard_error_log_points": 0.07972544314579935,
-              "maximum_cell_delta_log_yield": 2.3437483254699645,
+              "coefficient_only_standard_error_log_points": 0.08769986671621731,
+              "maximum_cell_delta_log_yield": 3.0359434267745655,
               "minimum_cell_delta_log_yield": -2.082950337729515,
-              "percent_change_from_mean_log": -18.813800830038595
+              "percent_change_from_mean_log": -17.272579338246842
             }
           },
-          "remaining_effect_factor": 0.772
+          "loss_remaining_effect_factor": 0.772
         },
         "upper": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
           "components": {
             "joint_climate": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -9.327974668108427,
-              "area_weighted_mean_delta_log_yield": -0.1284977900647807,
+              "area_weighted_mean_cell_exact_percent_change": -0.0008961335841629667,
+              "area_weighted_mean_delta_log_yield": -0.0808666009746571,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.22390123232082187,
-                -0.033094347808739544
+                -0.2143807981717224,
+                0.05264759622240818
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -20.060591523107156,
-                -3.2552721247795056
+                -19.295899323802402,
+                5.405812559549774
               ],
-              "coefficient_only_standard_error_log_points": 0.04867522564083733,
-              "maximum_cell_delta_log_yield": 1.4203555366083847,
+              "coefficient_only_standard_error_log_points": 0.06811948836584963,
+              "maximum_cell_delta_log_yield": 3.0349477277956955,
               "minimum_cell_delta_log_yield": -1.4342805528142146,
-              "percent_change_from_mean_log": -12.058449413243274
+              "percent_change_from_mean_log": -7.7683280610054295
             },
             "precipitation_all_income_support": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": 0.055731052507172765,
-              "area_weighted_mean_delta_log_yield": -0.0021469353264201374,
+              "area_weighted_mean_cell_exact_percent_change": 3.49167712775961,
+              "area_weighted_mean_delta_log_yield": 0.02694542965935663,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.006123982332678522,
-                0.001830111679838247
+                0.01774439456794505,
+                0.036146464750768215
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -0.6105268972455602,
-                0.18317873562876832
+                1.7902761659877267,
+                3.6807691150786117
               ],
-              "coefficient_only_standard_error_log_points": 0.0020291056154379513,
-              "maximum_cell_delta_log_yield": 0.9816879104619494,
+              "coefficient_only_standard_error_log_points": 0.004694405658883461,
+              "maximum_cell_delta_log_yield": 2.097623740303316,
               "minimum_cell_delta_log_yield": -1.4393462337417233,
-              "percent_change_from_mean_log": -0.2144632309210053
+              "percent_change_from_mean_log": 2.7311740482209363
             },
             "precipitation_common_positive_support": {
               "area_or_area_year_weight_ha": 95095929.86032349,
-              "area_weighted_mean_cell_exact_percent_change": 0.05573227860469662,
-              "area_weighted_mean_delta_log_yield": -0.0021469508206863786,
+              "area_weighted_mean_cell_exact_percent_change": 3.4917135780700033,
+              "area_weighted_mean_delta_log_yield": 0.02694571233314449,
               "cell_or_cell_year_rows": 25832,
               "coefficient_only_normal_95ci_log_points": [
-                -0.006124041489377218,
-                0.0018301398480044602
+                0.01774457752332178,
+                0.0361468471429672
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -0.6105327767985002,
-                0.18318155760523847
+                1.7902947890677539,
+                3.680808761803487
               ],
-              "coefficient_only_standard_error_log_points": 0.0020291278921892035,
-              "maximum_cell_delta_log_yield": 0.9816879104619494,
+              "coefficient_only_standard_error_log_points": 0.004694456535623833,
+              "maximum_cell_delta_log_yield": 2.097623740303316,
               "minimum_cell_delta_log_yield": -1.4393462337417233,
-              "percent_change_from_mean_log": -0.21446477702466707
+              "percent_change_from_mean_log": 2.7312030876351403
             },
             "precipitation_distribution_residual": {
               "area_or_area_year_weight_ha": 95095929.86032349,
-              "area_weighted_mean_cell_exact_percent_change": 0.178402913490528,
-              "area_weighted_mean_delta_log_yield": 0.0002859536718212445,
+              "area_weighted_mean_cell_exact_percent_change": 2.606763258641998,
+              "area_weighted_mean_delta_log_yield": 0.02065211368370903,
               "cell_or_cell_year_rows": 25832,
               "coefficient_only_normal_95ci_log_points": [
-                -0.003158950832884925,
-                0.0037308581765274134
+                0.013548009421187186,
+                0.027756217946230875
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -0.31539665974022163,
-                0.37378264911303155
+                1.3640199561325812,
+                2.814501056552465
               ],
-              "coefficient_only_standard_error_log_points": 0.0017576043391358007,
-              "maximum_cell_delta_log_yield": 2.0193470679549597,
+              "coefficient_only_standard_error_log_points": 0.0036245429910825733,
+              "maximum_cell_delta_log_yield": 4.314844162296932,
               "minimum_cell_delta_log_yield": -1.444221882913459,
-              "percent_change_from_mean_log": 0.028599456046978534
+              "percent_change_from_mean_log": 2.0866844249346674
             },
             "precipitation_quantity_reference_scaling": {
               "area_or_area_year_weight_ha": 95095929.86032349,
-              "area_weighted_mean_cell_exact_percent_change": -0.10368708385175929,
-              "area_weighted_mean_delta_log_yield": -0.002432904492507625,
+              "area_weighted_mean_cell_exact_percent_change": 1.8653546471669666,
+              "area_weighted_mean_delta_log_yield": 0.015169146129071612,
               "cell_or_cell_year_rows": 25832,
               "coefficient_only_normal_95ci_log_points": [
-                -0.004715277196113463,
-                -0.0001505317889017874
+                0.00773491722355879,
+                0.022603375034584434
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -0.470417772913616,
-                -0.015052045956053488
+                0.7764908973818898,
+                2.286076696644595
               ],
-              "coefficient_only_standard_error_log_points": 0.0011644758691866518,
-              "maximum_cell_delta_log_yield": 0.9444340061776835,
+              "coefficient_only_standard_error_log_points": 0.003792973931384093,
+              "maximum_cell_delta_log_yield": 2.0180213807215512,
               "minimum_cell_delta_log_yield": -3.0629168033223557,
-              "percent_change_from_mean_log": -0.24299473789838405
+              "percent_change_from_mean_log": 1.528478158338953
             },
             "temperature_all_income_support": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -9.498831757353775,
-              "area_weighted_mean_delta_log_yield": -0.12635085473836055,
+              "area_weighted_mean_cell_exact_percent_change": -1.1471961383062625,
+              "area_weighted_mean_delta_log_yield": -0.08247055401219738,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.2210795522626854,
-                -0.03162215721403569
+                -0.21556850971974875,
+                0.050627401695353985
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -19.834709554896467,
-                -3.1127405552392835
+                -19.391695615706205,
+                5.193087259488367
               ],
-              "coefficient_only_standard_error_log_points": 0.048330968124655545,
-              "maximum_cell_delta_log_yield": 1.420821523730496,
+              "coefficient_only_standard_error_log_points": 0.06790712025895478,
+              "maximum_cell_delta_log_yield": 3.0359434267745655,
               "minimum_cell_delta_log_yield": -1.2627211891935373,
-              "percent_change_from_mean_log": -11.86944177063586
+              "percent_change_from_mean_log": -7.916144754162166
             }
           },
-          "remaining_effect_factor": 0.46799999999999997
+          "loss_remaining_effect_factor": 0.46799999999999997
         }
       },
       "analysis_area_ha": 95096906.1903014,
@@ -1753,6 +1771,7 @@
     {
       "adaptation": {
         "fixed": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
           "components": {
             "joint_climate": {
               "area_or_area_year_weight_ha": 95096906.1903014,
@@ -1863,233 +1882,235 @@
               "percent_change_from_mean_log": -26.993118573515527
             }
           },
-          "remaining_effect_factor": 1.0
+          "loss_remaining_effect_factor": 1.0
         },
         "trend": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
           "components": {
             "joint_climate": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -16.109788651060324,
-              "area_weighted_mean_delta_log_yield": -0.2710888185274114,
+              "area_weighted_mean_cell_exact_percent_change": -11.702891900122408,
+              "area_weighted_mean_delta_log_yield": -0.25358799041030017,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.4032977248992699,
-                -0.1388799121555529
+                -0.3952638076776036,
+                -0.11191217314299676
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -33.18868442122,
-                -12.96674614585637
+                -32.649765927758615,
+                -10.587721795425315
               ],
-              "coefficient_only_standard_error_log_points": 0.06745352365911149,
-              "maximum_cell_delta_log_yield": 3.761873819229092,
+              "coefficient_only_standard_error_log_points": 0.0722835802384201,
+              "maximum_cell_delta_log_yield": 4.891903536058631,
               "minimum_cell_delta_log_yield": -6.93207840730652,
-              "percent_change_from_mean_log": -23.745123506117586
+              "percent_change_from_mean_log": -22.398853964580706
             },
             "precipitation_all_income_support": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -0.5688610902749939,
-              "area_weighted_mean_delta_log_yield": -0.02914874297256841,
+              "area_weighted_mean_cell_exact_percent_change": 1.7379351946149788,
+              "area_weighted_mean_delta_log_yield": -0.017616940735098077,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.0396196748288807,
-                -0.01867781111625612
+                -0.028059578001856912,
+                -0.007174303468339241
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -3.8845078943243143,
-                -1.8504461742256864
+                -2.766956442894543,
+                -0.7148629587305311
               ],
-              "coefficient_only_standard_error_log_points": 0.005342312171587905,
-              "maximum_cell_delta_log_yield": 3.6311431892560524,
+              "coefficient_only_standard_error_log_points": 0.0053278761565096104,
+              "maximum_cell_delta_log_yield": 4.721902716847918,
               "minimum_cell_delta_log_yield": -7.054038303712668,
-              "percent_change_from_mean_log": -2.872801616041648
+              "percent_change_from_mean_log": -1.7462669691021935
             },
             "precipitation_common_positive_support": {
               "area_or_area_year_weight_ha": 95092229.80033815,
-              "area_weighted_mean_cell_exact_percent_change": -0.5687975558069761,
-              "area_weighted_mean_delta_log_yield": -0.029149250593622222,
+              "area_weighted_mean_cell_exact_percent_change": 1.7381121694488726,
+              "area_weighted_mean_delta_log_yield": -0.01761688127102594,
               "cell_or_cell_year_rows": 25833,
               "coefficient_only_normal_95ci_log_points": [
-                -0.03962048218792803,
-                -0.01867801899931641
+                -0.02805988263209369,
+                -0.007173879909958186
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -3.884585494005129,
-                -1.8504665778531808
+                -2.766986063015113,
+                -0.7148209056697172
               ],
-              "coefficient_only_standard_error_log_points": 0.005342465099135619,
-              "maximum_cell_delta_log_yield": 3.6311431892560524,
+              "coefficient_only_standard_error_log_points": 0.0053280619189121185,
+              "maximum_cell_delta_log_yield": 4.721902716847918,
               "minimum_cell_delta_log_yield": -7.054038303712668,
-              "percent_change_from_mean_log": -2.872850919839932
+              "percent_change_from_mean_log": -1.746261126534951
             },
             "precipitation_distribution_residual": {
               "area_or_area_year_weight_ha": 95092229.80033815,
-              "area_weighted_mean_cell_exact_percent_change": 7.073196144343587,
-              "area_weighted_mean_delta_log_yield": 0.012007117219839292,
+              "area_weighted_mean_cell_exact_percent_change": 16.095405953602526,
+              "area_weighted_mean_delta_log_yield": 0.026157016099682497,
               "cell_or_cell_year_rows": 25833,
               "coefficient_only_normal_95ci_log_points": [
-                0.005010935644928207,
-                0.01900329879475038
+                0.01615486823549454,
+                0.03615916396387045
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                0.5023511379571688,
-                1.9185010694025548
+                1.6286063648769875,
+                3.682085787620543
               ],
-              "coefficient_only_standard_error_log_points": 0.0035694803953627984,
-              "maximum_cell_delta_log_yield": 4.756531213827142,
+              "coefficient_only_standard_error_log_points": 0.0051031366654020185,
+              "maximum_cell_delta_log_yield": 6.185346181829843,
               "minimum_cell_delta_log_yield": -6.70593925870063,
-              "percent_change_from_mean_log": 1.2079492032684098
+              "percent_change_from_mean_log": 2.6502113178511437
             },
             "precipitation_quantity_reference_scaling": {
               "area_or_area_year_weight_ha": 95092229.80033815,
-              "area_weighted_mean_cell_exact_percent_change": -2.8977046757509743,
-              "area_weighted_mean_delta_log_yield": -0.04115636781346149,
+              "area_weighted_mean_cell_exact_percent_change": -2.1658820581295313,
+              "area_weighted_mean_delta_log_yield": -0.035305703564823473,
               "cell_or_cell_year_rows": 25833,
               "coefficient_only_normal_95ci_log_points": [
-                -0.052424519559058934,
-                -0.02988821606786405
+                -0.04571980234756405,
+                -0.024891604782082896
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -5.107405629863616,
-                -2.9445980170429427
+                -4.469039979948172,
+                -2.4584363311296027
               ],
-              "coefficient_only_standard_error_log_points": 0.0057490570130599205,
-              "maximum_cell_delta_log_yield": 2.32900104375575,
+              "coefficient_only_standard_error_log_points": 0.005313315705479887,
+              "maximum_cell_delta_log_yield": 3.0286099398644364,
               "minimum_cell_delta_log_yield": -2.7341522242200895,
-              "percent_change_from_mean_log": -4.032094470081955
+              "percent_change_from_mean_log": -3.4689727644826216
             },
             "temperature_all_income_support": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -16.257848870628948,
-              "area_weighted_mean_delta_log_yield": -0.241940075554843,
+              "area_weighted_mean_cell_exact_percent_change": -13.7228069137123,
+              "area_weighted_mean_delta_log_yield": -0.2283591104002763,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.37458546325999686,
-                -0.10929468784968918
+                -0.3700985794598598,
+                -0.0866196413406928
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -31.24257554916597,
-                -10.353379912762126
+                -30.93337582237295,
+                -8.297417197824752
               ],
-              "coefficient_only_standard_error_log_points": 0.06767621821691522,
-              "maximum_cell_delta_log_yield": 2.1072896015009404,
+              "coefficient_only_standard_error_log_points": 0.07231605564264464,
+              "maximum_cell_delta_log_yield": 2.740298571522678,
               "minimum_cell_delta_log_yield": -1.8391944897630892,
-              "percent_change_from_mean_log": -21.4896776982741
+              "percent_change_from_mean_log": -20.41615853381062
             }
           },
-          "remaining_effect_factor": 0.769
+          "loss_remaining_effect_factor": 0.769
         },
         "upper": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
           "components": {
             "joint_climate": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -12.142493159472094,
-              "area_weighted_mean_delta_log_yield": -0.1625122826282661,
+              "area_weighted_mean_cell_exact_percent_change": -3.556315423704268,
+              "area_weighted_mean_delta_log_yield": -0.12167701702167318,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.2417688571892948,
-                -0.08325570806723741
+                -0.22468473474940734,
+                -0.018669299293939012
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -21.4762341383516,
-                -7.9884163906151855
+                -20.123199713750974,
+                -1.8496107391074854
               ],
-              "coefficient_only_standard_error_log_points": 0.04043702783725955,
-              "maximum_cell_delta_log_yield": 2.255167530123032,
+              "coefficient_only_standard_error_log_points": 0.05255495802435416,
+              "maximum_cell_delta_log_yield": 4.891903536058631,
               "minimum_cell_delta_log_yield": -4.155641281883366,
-              "percent_change_from_mean_log": -14.999435014214061
+              "percent_change_from_mean_log": -11.45656974676262
             },
             "precipitation_all_income_support": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -0.894092586318237,
-              "area_weighted_mean_delta_log_yield": -0.01747408388862684,
+              "area_weighted_mean_cell_exact_percent_change": 3.705399412685997,
+              "area_weighted_mean_delta_log_yield": 0.009433454665470598,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.02375119648389374,
-                -0.01119697129335994
+                0.0003969735757448356,
+                0.01846993575519636
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -2.3471356704672672,
-                -1.113451852158506
+                0.03970523801821702,
+                1.8641560019988794
               ],
-              "coefficient_only_standard_error_log_points": 0.0032026084669729074,
-              "maximum_cell_delta_log_yield": 2.176797152466892,
+              "coefficient_only_standard_error_log_points": 0.004610449535574369,
+              "maximum_cell_delta_log_yield": 4.721902716847918,
               "minimum_cell_delta_log_yield": -4.228753781549472,
-              "percent_change_from_mean_log": -1.7322297480146762
+              "percent_change_from_mean_log": 0.9478089943485207
             },
             "precipitation_common_positive_support": {
               "area_or_area_year_weight_ha": 95092229.80033815,
-              "area_weighted_mean_cell_exact_percent_change": -0.8940814407930991,
-              "area_weighted_mean_delta_log_yield": -0.017474388197216955,
+              "area_weighted_mean_cell_exact_percent_change": 3.7056367448771175,
+              "area_weighted_mean_delta_log_yield": 0.009434473555507666,
               "cell_or_cell_year_rows": 25833,
               "coefficient_only_normal_95ci_log_points": [
-                -0.023751680479368625,
-                -0.011197095915065286
+                0.0003975299354282563,
+                0.018471417175587077
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -2.3471829340002746,
-                -1.113464175568004
+                0.0397608960924357,
+                1.8643069057484398
               ],
-              "coefficient_only_standard_error_log_points": 0.003202700143954933,
-              "maximum_cell_delta_log_yield": 2.176797152466892,
+              "coefficient_only_standard_error_log_points": 0.004610685520448679,
+              "maximum_cell_delta_log_yield": 4.721902716847918,
               "minimum_cell_delta_log_yield": -4.228753781549472,
-              "percent_change_from_mean_log": -1.7322596517367455
+              "percent_change_from_mean_log": 0.9479118491177678
             },
             "precipitation_distribution_residual": {
               "area_or_area_year_weight_ha": 95092229.80033815,
-              "area_weighted_mean_cell_exact_percent_change": 2.2648534609145936,
-              "area_weighted_mean_delta_log_yield": 0.007198024757276871,
+              "area_weighted_mean_cell_exact_percent_change": 17.05749226227369,
+              "area_weighted_mean_delta_log_yield": 0.04021445547691102,
               "cell_or_cell_year_rows": 25833,
               "coefficient_only_normal_95ci_log_points": [
-                0.0030039549184807356,
-                0.011392094596073007
+                0.027959186667508164,
+                0.05246972428631388
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                0.3008471312272345,
-                1.1457231619764332
+                2.8353713022925735,
+                5.387065490932337
               ],
-              "coefficient_only_standard_error_log_points": 0.0021398315504061916,
-              "maximum_cell_delta_log_yield": 2.8514445898235543,
+              "coefficient_only_standard_error_log_points": 0.006252688168062681,
+              "maximum_cell_delta_log_yield": 6.185346181829843,
               "minimum_cell_delta_log_yield": -4.020075420365398,
-              "percent_change_from_mean_log": 0.72239928063086
+              "percent_change_from_mean_log": 4.103400569909584
             },
             "precipitation_quantity_reference_scaling": {
               "area_or_area_year_weight_ha": 95092229.80033815,
-              "area_weighted_mean_cell_exact_percent_change": -1.9913624826925516,
-              "area_weighted_mean_delta_log_yield": -0.024672412954493822,
+              "area_weighted_mean_cell_exact_percent_change": -0.35395605692463,
+              "area_weighted_mean_delta_log_yield": -0.0110208630410051,
               "cell_or_cell_year_rows": 25833,
               "coefficient_only_normal_95ci_log_points": [
-                -0.03142744280458633,
-                -0.017917383104401316
+                -0.016975796376753696,
+                -0.005065929705256502
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -3.09387337293681,
-                -1.7757821194240206
+                -1.683251943777781,
+                -0.5053119524321601
               ],
-              "coefficient_only_standard_error_log_points": 0.003446443801067606,
-              "maximum_cell_delta_log_yield": 1.3961891822775052,
+              "coefficient_only_standard_error_log_points": 0.003038231293749284,
+              "maximum_cell_delta_log_yield": 3.0286099398644364,
               "minimum_cell_delta_log_yield": -1.6390691487197167,
-              "percent_change_from_mean_log": -2.4370536741569073
+              "percent_change_from_mean_log": -1.096035581453301
             },
             "temperature_all_income_support": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -11.501536237763965,
-              "area_weighted_mean_delta_log_yield": -0.14503819873963927,
+              "area_weighted_mean_cell_exact_percent_change": -6.2133139923414875,
+              "area_weighted_mean_delta_log_yield": -0.11334928004565026,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.22455643506223508,
-                -0.06551996241704347
+                -0.21583760417460202,
+                -0.010860955916698486
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -20.112950887815405,
-                -6.341964983453085
+                -19.413383945195665,
+                -1.0802188683517568
               ],
-              "coefficient_only_standard_error_log_points": 0.04057052873601827,
-              "maximum_cell_delta_log_yield": 1.2632776414719549,
+              "coefficient_only_standard_error_log_points": 0.05228996129028152,
+              "maximum_cell_delta_log_yield": 2.740298571522678,
               "minimum_cell_delta_log_yield": -1.1025600257227361,
-              "percent_change_from_mean_log": -13.501074901952753
+              "percent_change_from_mean_log": -10.71612451130151
             }
           },
-          "remaining_effect_factor": 0.46099999999999997
+          "loss_remaining_effect_factor": 0.46099999999999997
         }
       },
       "analysis_area_ha": 95096906.1903014,
@@ -2099,6 +2120,7 @@
     {
       "adaptation": {
         "fixed": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
           "components": {
             "joint_climate": {
               "area_or_area_year_weight_ha": 95096906.1903014,
@@ -2209,233 +2231,235 @@
               "percent_change_from_mean_log": -21.813781054738545
             }
           },
-          "remaining_effect_factor": 1.0
+          "loss_remaining_effect_factor": 1.0
         },
         "trend": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
           "components": {
             "joint_climate": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -12.947661977336756,
-              "area_weighted_mean_delta_log_yield": -0.22266082477768828,
+              "area_weighted_mean_cell_exact_percent_change": -8.475043338798125,
+              "area_weighted_mean_delta_log_yield": -0.20347923324768794,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.36388587105219594,
-                -0.0814357785031806
+                -0.35906495010732553,
+                -0.04789351638805037
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -30.50294935303992,
-                -7.820809319098037
+                -30.167100666448015,
+                -4.676471439030676
               ],
-              "coefficient_only_standard_error_log_points": 0.07205359503801413,
-              "maximum_cell_delta_log_yield": 2.373937402996323,
+              "coefficient_only_standard_error_log_points": 0.07938046778552937,
+              "maximum_cell_delta_log_yield": 3.0991349908568186,
               "minimum_cell_delta_log_yield": -4.1489885045463275,
-              "percent_change_from_mean_log": -19.961372554581907
+              "percent_change_from_mean_log": -18.41128525269479
             },
             "precipitation_all_income_support": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -2.7073577113355918,
-              "area_weighted_mean_delta_log_yield": -0.03416600954483059,
+              "area_weighted_mean_cell_exact_percent_change": -1.7642920277934402,
+              "area_weighted_mean_delta_log_yield": -0.02628862044104684,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.04450015086760724,
-                -0.023831868222053937
+                -0.03628783710503549,
+                -0.01628940377705819
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -4.3524544207553495,
-                -2.355013179018627
+                -3.5637325829867326,
+                -1.6157448899651907
               ],
-              "coefficient_only_standard_error_log_points": 0.005272521083049313,
-              "maximum_cell_delta_log_yield": 1.5034169851119197,
+              "coefficient_only_standard_error_log_points": 0.005101641155096251,
+              "maximum_cell_delta_log_yield": 1.9626853591539373,
               "minimum_cell_delta_log_yield": -4.719555682938882,
-              "percent_change_from_mean_log": -3.3588942139807716
+              "percent_change_from_mean_log": -2.594608283653153
             },
             "precipitation_common_positive_support": {
               "area_or_area_year_weight_ha": 95086387.1102234,
-              "area_weighted_mean_cell_exact_percent_change": -2.707652534157423,
-              "area_weighted_mean_delta_log_yield": -0.034169742257694244,
+              "area_weighted_mean_cell_exact_percent_change": -1.7644832799474317,
+              "area_weighted_mean_delta_log_yield": -0.026291489276697187,
               "cell_or_cell_year_rows": 25828,
               "coefficient_only_normal_95ci_log_points": [
-                -0.04450500951416708,
-                -0.023834475001221406
+                -0.03629181113425551,
+                -0.016291167419138865
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -4.3529191372446885,
-                -2.355267717604317
+                -3.5641158227698138,
+                -1.6159184044245698
               ],
-              "coefficient_only_standard_error_log_points": 0.005273095539016755,
-              "maximum_cell_delta_log_yield": 1.5034169851119197,
+              "coefficient_only_standard_error_log_points": 0.005102205029366492,
+              "maximum_cell_delta_log_yield": 1.9626853591539373,
               "minimum_cell_delta_log_yield": -4.719555682938882,
-              "percent_change_from_mean_log": -3.359254946806241
+              "percent_change_from_mean_log": -2.5948877233126115
             },
             "precipitation_distribution_residual": {
               "area_or_area_year_weight_ha": 95086387.1102234,
-              "area_weighted_mean_cell_exact_percent_change": -0.23108566636641534,
-              "area_weighted_mean_delta_log_yield": -0.005983498247704734,
+              "area_weighted_mean_cell_exact_percent_change": 0.6213327742399299,
+              "area_weighted_mean_delta_log_yield": 0.0009899589791366231,
               "cell_or_cell_year_rows": 25828,
               "coefficient_only_normal_95ci_log_points": [
-                -0.011180415727602143,
-                -0.0007865807678073249
+                -0.004461984361572043,
+                0.006441902319845289
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -1.1118147158562612,
-                -0.07862714942500418
+                -0.44520444986836427,
+                0.6462695998897927
               ],
-              "coefficient_only_standard_error_log_points": 0.0026514885101517395,
-              "maximum_cell_delta_log_yield": 1.1698251554232946,
+              "coefficient_only_standard_error_log_points": 0.0027816037452595235,
+              "maximum_cell_delta_log_yield": 1.5271868869755814,
               "minimum_cell_delta_log_yield": -5.595309257342498,
-              "percent_change_from_mean_log": -0.5965632772504691
+              "percent_change_from_mean_log": 0.09904491502632344
             },
             "precipitation_quantity_reference_scaling": {
               "area_or_area_year_weight_ha": 95086387.1102234,
-              "area_weighted_mean_cell_exact_percent_change": -2.3423821952117003,
-              "area_weighted_mean_delta_log_yield": -0.028186244009989515,
+              "area_weighted_mean_cell_exact_percent_change": -1.7161484725384335,
+              "area_weighted_mean_delta_log_yield": -0.022796537729731288,
               "cell_or_cell_year_rows": 25828,
               "coefficient_only_normal_95ci_log_points": [
-                -0.036901236589004974,
-                -0.019471251430974057
+                -0.03113014693002425,
+                -0.014462928529438328
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -3.6228684008619894,
-                -1.928291100367362
+                -3.065059298330266,
+                -1.4358842777745249
               ],
-              "coefficient_only_standard_error_log_points": 0.0044464247852119675,
-              "maximum_cell_delta_log_yield": 1.6177790552474942,
+              "coefficient_only_standard_error_log_points": 0.004251841428720898,
+              "maximum_cell_delta_log_yield": 2.1119831008452863,
               "minimum_cell_delta_log_yield": -1.8471693778002276,
-              "percent_change_from_mean_log": -2.7792717843964656
+              "percent_change_from_mean_log": -2.253865995393762
             },
             "temperature_all_income_support": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -11.358574731458429,
-              "area_weighted_mean_delta_log_yield": -0.1884948152328577,
+              "area_weighted_mean_cell_exact_percent_change": -7.291361640835213,
+              "area_weighted_mean_delta_log_yield": -0.17023612400238564,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.33137607970823885,
-                -0.04561355075747653
+                -0.3284269587850402,
+                -0.012045289219731081
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -28.20648825662105,
-                -4.458889124280726
+                -27.99444799648659,
+                -1.197303512167505
               ],
-              "coefficient_only_standard_error_log_points": 0.07289860432417407,
-              "maximum_cell_delta_log_yield": 1.96918412109701,
+              "coefficient_only_standard_error_log_points": 0.08070960958298702,
+              "maximum_cell_delta_log_yield": 2.5707364505182895,
               "minimum_cell_delta_log_yield": -1.6341419109805262,
-              "percent_change_from_mean_log": -17.17952025234687
+              "percent_change_from_mean_log": -15.653436939956025
             }
           },
-          "remaining_effect_factor": 0.766
+          "loss_remaining_effect_factor": 0.766
         },
         "upper": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
           "components": {
             "joint_climate": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -9.849192557606589,
-              "area_weighted_mean_delta_log_yield": -0.13196868727032698,
+              "area_weighted_mean_cell_exact_percent_change": -0.8890566133477912,
+              "area_weighted_mean_delta_log_yield": -0.08721164036699276,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.21567126038862952,
-                -0.04826611415202445
+                -0.20618141311093718,
+                0.031758132376951645
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -19.399977747394463,
-                -4.711982156608802
+                -18.631455031612617,
+                3.2267802949029423
               ],
-              "coefficient_only_standard_error_log_points": 0.04270539444811354,
-              "maximum_cell_delta_log_yield": 1.4070072858489944,
+              "coefficient_only_standard_error_log_points": 0.060698863644869594,
+              "maximum_cell_delta_log_yield": 3.0991349908568186,
               "minimum_cell_delta_log_yield": -2.459061071885159,
-              "percent_change_from_mean_log": -12.363156386232141
+              "percent_change_from_mean_log": -8.351688971549208
             },
             "precipitation_all_income_support": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -1.772528669882888,
-              "area_weighted_mean_delta_log_yield": -0.02024982811142701,
+              "area_weighted_mean_cell_exact_percent_change": 0.356963372570967,
+              "area_weighted_mean_delta_log_yield": -0.00186925353593159,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.026374763046857968,
-                -0.014124893175996054
+                -0.008904276343473027,
+                0.005165769271609846
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -2.6029986765253117,
-                -1.4025604900877828
+                -0.886475067768882,
+                0.5179134862302114
               ],
-              "coefficient_only_standard_error_log_points": 0.003124966803791304,
-              "maximum_cell_delta_log_yield": 0.8910591530558882,
+              "coefficient_only_standard_error_log_points": 0.003589297350786447,
+              "maximum_cell_delta_log_yield": 1.9626853591539373,
               "minimum_cell_delta_log_yield": -2.7972301306191274,
-              "percent_change_from_mean_log": -2.0046177290065583
+              "percent_change_from_mean_log": -0.18675075695948165
             },
             "precipitation_common_positive_support": {
               "area_or_area_year_weight_ha": 95086387.1102234,
-              "area_weighted_mean_cell_exact_percent_change": -1.7727219800999765,
-              "area_weighted_mean_delta_log_yield": -0.020252040450382747,
+              "area_weighted_mean_cell_exact_percent_change": 0.35700387349434254,
+              "area_weighted_mean_delta_log_yield": -0.0018694501613896251,
               "cell_or_cell_year_rows": 25828,
               "coefficient_only_normal_95ci_log_points": [
-                -0.02637764271466311,
-                -0.014126438186102385
+                -0.008905298872071128,
+                0.0051663985492918785
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -2.603279147130509,
-                -1.4027128240106053
+                -0.8865764141307689,
+                0.5179767399297147
               ],
-              "coefficient_only_standard_error_log_points": 0.0031253072776940625,
-              "maximum_cell_delta_log_yield": 0.8910591530558882,
+              "coefficient_only_standard_error_log_points": 0.0035897187299395424,
+              "maximum_cell_delta_log_yield": 1.9626853591539373,
               "minimum_cell_delta_log_yield": -2.7972301306191274,
-              "percent_change_from_mean_log": -2.0048345277684225
+              "percent_change_from_mean_log": -0.18677038278340255
             },
             "precipitation_distribution_residual": {
               "area_or_area_year_weight_ha": 95086387.1102234,
-              "area_weighted_mean_cell_exact_percent_change": -0.2277245737287037,
-              "area_weighted_mean_delta_log_yield": -0.0035463553583001944,
+              "area_weighted_mean_cell_exact_percent_change": 1.6857893510708086,
+              "area_weighted_mean_delta_log_yield": 0.012725044837662972,
               "cell_or_cell_year_rows": 25828,
               "coefficient_only_normal_95ci_log_points": [
-                -0.0066265127158366705,
-                -0.0004661980007637182
+                0.007531482223638432,
+                0.01791860745168751
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -0.6604605795986702,
-                -0.04660893473610825
+                0.7559915171806103,
+                1.808010888299249
               ],
-              "coefficient_only_standard_error_log_points": 0.0015715088558859573,
-              "maximum_cell_delta_log_yield": 0.6933428466869136,
+              "coefficient_only_standard_error_log_points": 0.002649776843890071,
+              "maximum_cell_delta_log_yield": 1.5271868869755814,
               "minimum_cell_delta_log_yield": -3.3162798992604356,
-              "percent_change_from_mean_log": -0.3540074467087641
+              "percent_change_from_mean_log": 1.280635273691438
             },
             "precipitation_quantity_reference_scaling": {
               "area_or_area_year_weight_ha": 95086387.1102234,
-              "area_weighted_mean_cell_exact_percent_change": -1.4997175342027202,
-              "area_weighted_mean_delta_log_yield": -0.016705685092082555,
+              "area_weighted_mean_cell_exact_percent_change": -0.07842828134909693,
+              "area_weighted_mean_delta_log_yield": -0.004129703771480035,
               "cell_or_cell_year_rows": 25828,
               "coefficient_only_normal_95ci_log_points": [
-                -0.02187096790001039,
-                -0.01154040228415472
+                -0.009997377594653814,
+                0.0017379700516937432
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -2.1633532413117527,
-                -1.1474067264534007
+                -0.9947569935450639,
+                0.1739481196958968
               ],
-              "coefficient_only_standard_error_log_points": 0.002635348371391752,
-              "maximum_cell_delta_log_yield": 0.9588403277837596,
+              "coefficient_only_standard_error_log_points": 0.002993711134272336,
+              "maximum_cell_delta_log_yield": 2.1119831008452863,
               "minimum_cell_delta_log_yield": -1.0947975163463486,
-              "percent_change_from_mean_log": -1.656691893732492
+              "percent_change_from_mean_log": -0.4121188271057662
             },
             "temperature_all_income_support": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -8.51037150530104,
-              "area_weighted_mean_delta_log_yield": -0.11171885915889997,
+              "area_weighted_mean_cell_exact_percent_change": -0.2988222724828726,
+              "area_weighted_mean_delta_log_yield": -0.06911524628779853,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.19640305507510825,
-                -0.027034663242691687
+                -0.1915203944287912,
+                0.053289901853194155
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -17.831901476443267,
-                -2.6672497747845183
+                -17.429721480189215,
+                5.473537054058078
               ],
-              "coefficient_only_standard_error_log_points": 0.04320622240622871,
-              "maximum_cell_delta_log_yield": 1.167114348535304,
+              "coefficient_only_standard_error_log_points": 0.06245160619438402,
+              "maximum_cell_delta_log_yield": 2.5707364505182895,
               "minimum_cell_delta_log_yield": -0.968538417213,
-              "percent_change_from_mean_log": -10.570435480909087
+              "percent_change_from_mean_log": -6.678087615913279
             }
           },
-          "remaining_effect_factor": 0.45399999999999996
+          "loss_remaining_effect_factor": 0.45399999999999996
         }
       },
       "analysis_area_ha": 95096906.1903014,
@@ -2445,6 +2469,7 @@
     {
       "adaptation": {
         "fixed": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
           "components": {
             "joint_climate": {
               "area_or_area_year_weight_ha": 95096906.1903014,
@@ -2555,233 +2580,235 @@
               "percent_change_from_mean_log": -26.1539441535551
             }
           },
-          "remaining_effect_factor": 1.0
+          "loss_remaining_effect_factor": 1.0
         },
         "trend": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
           "components": {
             "joint_climate": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -14.897223290032333,
-              "area_weighted_mean_delta_log_yield": -0.2627625947692547,
+              "area_weighted_mean_cell_exact_percent_change": -10.24021227293865,
+              "area_weighted_mean_delta_log_yield": -0.2412002206593741,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.43387326620718825,
-                -0.09165192333132113
+                -0.430217968157212,
+                -0.05218247316153621
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -35.20056269336762,
-                -8.757731267243035
+                -34.96326800935508,
+                -5.08443443930993
               ],
-              "coefficient_only_standard_error_log_points": 0.08730136297853752,
-              "maximum_cell_delta_log_yield": 2.387944806381367,
+              "coefficient_only_standard_error_log_points": 0.09643762627440709,
+              "maximum_cell_delta_log_yield": 3.1296786453228878,
               "minimum_cell_delta_log_yield": -5.01665876541729,
-              "percent_change_from_mean_log": -23.107557767598582
+              "percent_change_from_mean_log": -21.431569958977246
             },
             "precipitation_all_income_support": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -2.3239918114350764,
-              "area_weighted_mean_delta_log_yield": -0.03143046659935631,
+              "area_weighted_mean_cell_exact_percent_change": -1.2673896813857641,
+              "area_weighted_mean_delta_log_yield": -0.022494983072610063,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.040708086957307786,
-                -0.022152846241404837
+                -0.030662878684627165,
+                -0.01432708746059296
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -3.989064251136628,
-                -2.1909273865679446
+                -3.019754094653739,
+                -1.4224943135120809
               ],
-              "coefficient_only_standard_error_log_points": 0.004733479774465039,
-              "maximum_cell_delta_log_yield": 1.5047961370053997,
+              "coefficient_only_standard_error_log_points": 0.004167293679600563,
+              "maximum_cell_delta_log_yield": 1.972209878119791,
               "minimum_cell_delta_log_yield": -4.877690761191026,
-              "percent_change_from_mean_log": -3.0941663967326622
+              "percent_change_from_mean_log": -2.2243857487396412
             },
             "precipitation_common_positive_support": {
               "area_or_area_year_weight_ha": 95096144.81035882,
-              "area_weighted_mean_cell_exact_percent_change": -2.3240097003814193,
-              "area_weighted_mean_delta_log_yield": -0.03143071099336526,
+              "area_weighted_mean_cell_exact_percent_change": -1.26739928532009,
+              "area_weighted_mean_delta_log_yield": -0.022495157635984947,
               "cell_or_cell_year_rows": 25837,
               "coefficient_only_normal_95ci_log_points": [
-                -0.040708393475445775,
-                -0.022153028511284742
+                -0.030663104368506555,
+                -0.01432721090346334
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -3.9890936802253703,
-                -2.190945214214239
+                -3.0197759815293894,
+                -1.4225064822015865
               ],
-              "coefficient_only_standard_error_log_points": 0.004733511470449243,
-              "maximum_cell_delta_log_yield": 1.5047961370053997,
+              "coefficient_only_standard_error_log_points": 0.004167319761490615,
+              "maximum_cell_delta_log_yield": 1.972209878119791,
               "minimum_cell_delta_log_yield": -4.877690761191026,
-              "percent_change_from_mean_log": -3.094190079934933
+              "percent_change_from_mean_log": -2.224402816779356
             },
             "precipitation_distribution_residual": {
               "area_or_area_year_weight_ha": 95096144.81035882,
-              "area_weighted_mean_cell_exact_percent_change": -0.699160890631115,
-              "area_weighted_mean_delta_log_yield": -0.01033721791681066,
+              "area_weighted_mean_cell_exact_percent_change": 0.054028619500241494,
+              "area_weighted_mean_delta_log_yield": -0.004244263322305655,
               "cell_or_cell_year_rows": 25837,
               "coefficient_only_normal_95ci_log_points": [
-                -0.01681498322066001,
-                -0.0038594526129613112
+                -0.011224344236060078,
+                0.002735817591448768
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -1.6674400458794654,
-                -0.3852014497819909
+                -1.1161586309283522,
+                0.27395633555257765
               ],
-              "coefficient_only_standard_error_log_points": 0.0033049822978823205,
-              "maximum_cell_delta_log_yield": 3.4352657181371864,
+              "coefficient_only_standard_error_log_points": 0.0035612657723236856,
+              "maximum_cell_delta_log_yield": 4.502314178423571,
               "minimum_cell_delta_log_yield": -2.9946981502990386,
-              "percent_change_from_mean_log": -1.0283972507419092
+              "percent_change_from_mean_log": -0.42352691657532887
             },
             "precipitation_quantity_reference_scaling": {
               "area_or_area_year_weight_ha": 95096144.81035882,
-              "area_weighted_mean_cell_exact_percent_change": -1.6278648642556472,
-              "area_weighted_mean_delta_log_yield": -0.0210934930765546,
+              "area_weighted_mean_cell_exact_percent_change": -0.8483432095057024,
+              "area_weighted_mean_delta_log_yield": -0.014341089939382221,
               "cell_or_cell_year_rows": 25837,
               "coefficient_only_normal_95ci_log_points": [
-                -0.027004831065247373,
-                -0.015182155087861828
+                -0.019459579484336183,
+                -0.009222600394428258
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -2.6643460835971564,
-                -1.5067487206600207
+                -1.9271464059340073,
+                -0.9180202654658289
               ],
-              "coefficient_only_standard_error_log_points": 0.0030159887697412107,
-              "maximum_cell_delta_log_yield": 1.0541552473475857,
+              "coefficient_only_standard_error_log_points": 0.0026114742576295725,
+              "maximum_cell_delta_log_yield": 1.3815927226049618,
               "minimum_cell_delta_log_yield": -2.2064064746768035,
-              "percent_change_from_mean_log": -2.087258134463736
+              "percent_change_from_mean_log": -1.4238746332805825
             },
             "temperature_all_income_support": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -13.30845618639024,
-              "area_weighted_mean_delta_log_yield": -0.2313321281698984,
+              "area_weighted_mean_cell_exact_percent_change": -8.520328509596757,
+              "area_weighted_mean_delta_log_yield": -0.21033490943730312,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.40365064346562024,
-                -0.05901361287417656
+                -0.40141103232054454,
+                -0.01925878655406174
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -33.2122592146942,
-                -5.730606370418791
+                -33.062513022048144,
+                -1.9074520931072563
               ],
-              "coefficient_only_standard_error_log_points": 0.08791760984475604,
-              "maximum_cell_delta_log_yield": 2.4427711151848954,
+              "coefficient_only_standard_error_log_points": 0.09748781779757214,
+              "maximum_cell_delta_log_yield": 3.201534882286886,
               "minimum_cell_delta_log_yield": -2.2784779463067633,
-              "percent_change_from_mean_log": -20.652411342748245
+              "percent_change_from_mean_log": -18.968718088927215
             }
           },
-          "remaining_effect_factor": 0.763
+          "loss_remaining_effect_factor": 0.763
         },
         "upper": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
           "components": {
             "joint_climate": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -11.296108703488988,
-              "area_weighted_mean_delta_log_yield": -0.1539382435935214,
+              "area_weighted_mean_cell_exact_percent_change": -1.841727343750144,
+              "area_weighted_mean_delta_log_yield": -0.10362603733713352,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.25418263433106203,
-                -0.053693852855980745
+                -0.24783904085318698,
+                0.040586966178919937
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -22.44498529709726,
-                -5.2277795460566985
+                -21.951444054202327,
+                4.142187424548103
               ],
-              "coefficient_only_standard_error_log_points": 0.05114509731507177,
-              "maximum_cell_delta_log_yield": 1.3989663544593325,
+              "coefficient_only_standard_error_log_points": 0.07357806301839462,
+              "maximum_cell_delta_log_yield": 3.1296786453228878,
               "minimum_cell_delta_log_yield": -2.9389861967778863,
-              "percent_change_from_mean_log": -14.267503531436155
+              "percent_change_from_mean_log": -9.843761494156215
             },
             "precipitation_all_income_support": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -1.5515981871584437,
-              "area_weighted_mean_delta_log_yield": -0.018413392621116995,
+              "area_weighted_mean_cell_exact_percent_change": 0.8390474103872514,
+              "area_weighted_mean_delta_log_yield": 0.0024360689412909094,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.02384864334196184,
-                -0.01297814190027215
+                -0.002862593187201094,
+                0.007734731069782913
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -2.356651171642155,
-                -1.2894288960444833
+                -0.2858499874085024,
+                0.7764721374593356
               ],
-              "coefficient_only_standard_error_log_points": 0.0027730871024718596,
-              "maximum_cell_delta_log_yield": 0.8815778155195466,
+              "coefficient_only_standard_error_log_points": 0.0027033990451489813,
+              "maximum_cell_delta_log_yield": 1.972209878119791,
               "minimum_cell_delta_log_yield": -2.8575724380765237,
-              "percent_change_from_mean_log": -1.8244901854339814
+              "percent_change_from_mean_log": 0.2439038568149915
             },
             "precipitation_common_positive_support": {
               "area_or_area_year_weight_ha": 95096144.81035882,
-              "area_weighted_mean_cell_exact_percent_change": -1.5516101875602462,
-              "area_weighted_mean_delta_log_yield": -0.018413535798210055,
+              "area_weighted_mean_cell_exact_percent_change": 0.8390541446128984,
+              "area_weighted_mean_delta_log_yield": 0.0024360887023440058,
               "cell_or_cell_year_rows": 25837,
               "coefficient_only_normal_95ci_log_points": [
-                -0.023848822914186007,
-                -0.012978248682234104
+                -0.002862607010469811,
+                0.007734784415157823
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -2.3566687056739046,
-                -1.2894394365523687
+                -0.2858513657839834,
+                0.7764775134181673
               ],
-              "coefficient_only_standard_error_log_points": 0.0027731056714163016,
-              "maximum_cell_delta_log_yield": 0.8815778155195466,
+              "coefficient_only_standard_error_log_points": 0.0027034161800070493,
+              "maximum_cell_delta_log_yield": 1.972209878119791,
               "minimum_cell_delta_log_yield": -2.8575724380765237,
-              "percent_change_from_mean_log": -1.8245042419170798
+              "percent_change_from_mean_log": 0.24390583774011776
             },
             "precipitation_distribution_residual": {
               "area_or_area_year_weight_ha": 95096144.81035882,
-              "area_weighted_mean_cell_exact_percent_change": -0.4945703230296043,
-              "area_weighted_mean_delta_log_yield": -0.006056011020726561,
+              "area_weighted_mean_cell_exact_percent_change": 1.158555061209929,
+              "area_weighted_mean_delta_log_yield": 0.008160883033118451,
               "cell_or_cell_year_rows": 25837,
               "coefficient_only_normal_95ci_log_points": [
-                -0.009850979684974694,
-                -0.0022610423564784284
+                0.002009757970800341,
+                0.014312008095436562
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -0.9802617719124607,
-                -0.2258488125646901
+                0.20117788879756326,
+                1.4414915233146564
               ],
-              "coefficient_only_standard_error_log_points": 0.0019362085021674147,
-              "maximum_cell_delta_log_yield": 2.0125344377553374,
+              "coefficient_only_standard_error_log_points": 0.003138329113427607,
+              "maximum_cell_delta_log_yield": 4.502314178423571,
               "minimum_cell_delta_log_yield": -1.7544299779602515,
-              "percent_change_from_mean_log": -0.6037710347647348
+              "percent_change_from_mean_log": 0.8194273809993525
             },
             "precipitation_quantity_reference_scaling": {
               "area_or_area_year_weight_ha": 95096144.81035882,
-              "area_weighted_mean_cell_exact_percent_change": -1.0675407801396195,
-              "area_weighted_mean_delta_log_yield": -0.01235752477748349,
+              "area_weighted_mean_cell_exact_percent_change": 0.7039591027497049,
+              "area_weighted_mean_delta_log_yield": 0.0033980825425853883,
               "cell_or_cell_year_rows": 25837,
               "coefficient_only_normal_95ci_log_points": [
-                -0.0158206546345551,
-                -0.008894394920411884
+                -0.0016723011463617736,
+                0.008468466231532551
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -1.5696165442799461,
-                -0.8854956802590821
+                -0.16709036299310398,
+                0.8504425125576386
               ],
-              "coefficient_only_standard_error_log_points": 0.0017669029883018404,
-              "maximum_cell_delta_log_yield": 0.6175719470044181,
+              "coefficient_only_standard_error_log_points": 0.0025869304535444705,
+              "maximum_cell_delta_log_yield": 1.3815927226049618,
               "minimum_cell_delta_log_yield": -1.2926129674712081,
-              "percent_change_from_mean_log": -1.2281484115250563
+              "percent_change_from_mean_log": 0.3403862570217806
             },
             "temperature_all_income_support": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -10.093782129556203,
-              "area_weighted_mean_delta_log_yield": -0.13552485097240438,
+              "area_weighted_mean_cell_exact_percent_change": -0.47861343102603204,
+              "area_weighted_mean_delta_log_yield": -0.08653134059634882,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.23647685141431557,
-                -0.03457285053049319
+                -0.2336166776288588,
+                0.06055399643616116
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -21.059584431979594,
-                -3.3982037798008196
+                -20.833477926950117,
+                6.242496318324227
               ],
-              "coefficient_only_standard_error_log_points": 0.05150612267444449,
-              "maximum_cell_delta_log_yield": 1.4310860923822388,
+              "coefficient_only_standard_error_log_points": 0.07504353930230101,
+              "maximum_cell_delta_log_yield": 3.201534882286886,
               "minimum_cell_delta_log_yield": -1.3348357037996381,
-              "percent_change_from_mean_log": -12.674253863824639
+              "percent_change_from_mean_log": -8.289319433991027
             }
           },
-          "remaining_effect_factor": 0.44699999999999995
+          "loss_remaining_effect_factor": 0.44699999999999995
         }
       },
       "analysis_area_ha": 95096906.1903014,
@@ -2791,6 +2818,7 @@
     {
       "adaptation": {
         "fixed": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
           "components": {
             "joint_climate": {
               "area_or_area_year_weight_ha": 95096906.1903014,
@@ -2901,233 +2929,235 @@
               "percent_change_from_mean_log": -25.95156928088137
             }
           },
-          "remaining_effect_factor": 1.0
+          "loss_remaining_effect_factor": 1.0
         },
         "trend": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
           "components": {
             "joint_climate": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -13.251168462152354,
-              "area_weighted_mean_delta_log_yield": -0.24075187164193207,
+              "area_weighted_mean_cell_exact_percent_change": -7.6469861396826015,
+              "area_weighted_mean_delta_log_yield": -0.2197759660163636,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.39610178277758895,
-                -0.08540196050627519
+                -0.3896769370114165,
+                -0.04987499502131071
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -32.70618010674952,
-                -8.185684706829429
+                -32.272435814860415,
+                -4.865165965296608
               ],
-              "coefficient_only_standard_error_log_points": 0.07926015874268208,
-              "maximum_cell_delta_log_yield": 2.5519760279353996,
+              "coefficient_only_standard_error_log_points": 0.08668416887502699,
+              "maximum_cell_delta_log_yield": 3.3578631946518414,
               "minimum_cell_delta_log_yield": -1.9600031114339216,
-              "percent_change_from_mean_log": -21.396335982597265
+              "percent_change_from_mean_log": -19.73013904130657
             },
             "precipitation_all_income_support": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -0.12095324719453097,
-              "area_weighted_mean_delta_log_yield": -0.012409235006501816,
+              "area_weighted_mean_cell_exact_percent_change": 1.7680285112638807,
+              "area_weighted_mean_delta_log_yield": -1.9390580866716603e-05,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.01940341338344189,
-                -0.005415056629561739
+                -0.006525451404606975,
+                0.0064866702428735415
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -1.921637881449329,
-                -0.5400421638761946
+                -0.6504206881741397,
+                0.6507754251977891
               ],
-              "coefficient_only_standard_error_log_points": 0.003568458355581672,
-              "maximum_cell_delta_log_yield": 2.207411502854228,
+              "coefficient_only_standard_error_log_points": 0.003319418787622581,
+              "maximum_cell_delta_log_yield": 2.9044888195450405,
               "minimum_cell_delta_log_yield": -2.2295495896246385,
-              "percent_change_from_mean_log": -1.2332557945381497
+              "percent_change_from_mean_log": -0.0019390392870618548
             },
             "precipitation_common_positive_support": {
               "area_or_area_year_weight_ha": 95094692.0302638,
-              "area_weighted_mean_cell_exact_percent_change": -0.12095232952557954,
-              "area_weighted_mean_delta_log_yield": -0.012409485872394188,
+              "area_weighted_mean_cell_exact_percent_change": 1.7680718102976147,
+              "area_weighted_mean_delta_log_yield": -1.93686525521378e-05,
               "cell_or_cell_year_rows": 25831,
               "coefficient_only_normal_95ci_log_points": [
-                -0.019403842789835216,
-                -0.005415128954953161
+                -0.006525589436565405,
+                0.00648685213146113
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -1.9216799969160272,
-                -0.5400493573563158
+                -0.6504344015901947,
+                0.6507937324268358
               ],
-              "coefficient_only_standard_error_log_points": 0.003568549447673993,
-              "maximum_cell_delta_log_yield": 2.207411502854228,
+              "coefficient_only_standard_error_log_points": 0.0033195004000067694,
+              "maximum_cell_delta_log_yield": 2.9044888195450405,
               "minimum_cell_delta_log_yield": -2.2295495896246385,
-              "percent_change_from_mean_log": -1.2332805717424635
+              "percent_change_from_mean_log": -0.001936846498099796
             },
             "precipitation_distribution_residual": {
               "area_or_area_year_weight_ha": 95094692.0302638,
-              "area_weighted_mean_cell_exact_percent_change": 1.120973134601944,
-              "area_weighted_mean_delta_log_yield": 0.006967650871807049,
+              "area_weighted_mean_cell_exact_percent_change": 2.295715919903604,
+              "area_weighted_mean_delta_log_yield": 0.016259232755035966,
               "cell_or_cell_year_rows": 25831,
               "coefficient_only_normal_95ci_log_points": [
-                0.0031721601336115704,
-                0.010763141610002528
+                0.010907521870364232,
+                0.0216109436397077
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                0.3177196757819597,
-                1.0821272588784765
+                1.096722576342542,
+                2.1846151380177794
               ],
-              "coefficient_only_standard_error_log_points": 0.0019364748664262646,
-              "maximum_cell_delta_log_yield": 2.1370497131721686,
+              "coefficient_only_standard_error_log_points": 0.0027304647370774153,
+              "maximum_cell_delta_log_yield": 2.8119075173318056,
               "minimum_cell_delta_log_yield": -2.1253320527374475,
-              "percent_change_from_mean_log": 0.6991981427254926
+              "percent_change_from_mean_log": 1.6392133390381762
             },
             "precipitation_quantity_reference_scaling": {
               "area_or_area_year_weight_ha": 95094692.0302638,
-              "area_weighted_mean_cell_exact_percent_change": -1.1823524578292546,
-              "area_weighted_mean_delta_log_yield": -0.01937713674420123,
+              "area_weighted_mean_cell_exact_percent_change": -0.031059181244370054,
+              "area_weighted_mean_delta_log_yield": -0.012027704759468244,
               "cell_or_cell_year_rows": 25831,
               "coefficient_only_normal_95ci_log_points": [
-                -0.027213291625024706,
-                -0.011540981863377757
+                -0.01902260526832897,
+                -0.005032804250607515
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -2.684634613746215,
-                -1.1474640193460024
+                -1.884281732926781,
+                -0.5020160910672736
               ],
-              "coefficient_only_standard_error_log_points": 0.003998038204501773,
-              "maximum_cell_delta_log_yield": 1.4611019296321528,
+              "coefficient_only_standard_error_log_points": 0.003568826790235066,
+              "maximum_cell_delta_log_yield": 1.9225025389896775,
               "minimum_cell_delta_log_yield": -0.9894091756528205,
-              "percent_change_from_mean_log": -1.9190606778506487
+              "percent_change_from_mean_log": -1.1955661048016129
             },
             "temperature_all_income_support": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -13.790180559559676,
-              "area_weighted_mean_delta_log_yield": -0.22834263663543025,
+              "area_weighted_mean_cell_exact_percent_change": -9.530365054023324,
+              "area_weighted_mean_delta_log_yield": -0.20928837642125347,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.3835744239514831,
-                -0.07311084931937742
+                -0.3800881819243258,
+                -0.03848857091818117
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -31.85786379088521,
-                -7.050220988245097
+                -31.619889234388793,
+                -3.7757297772454854
               ],
-              "coefficient_only_standard_error_log_points": 0.07919989148778206,
-              "maximum_cell_delta_log_yield": 2.4317512283798943,
+              "coefficient_only_standard_error_log_points": 0.08714275790973076,
+              "maximum_cell_delta_log_yield": 3.199672668920914,
               "minimum_cell_delta_log_yield": -1.7641611857251012,
-              "percent_change_from_mean_log": -20.41484747752178
+              "percent_change_from_mean_log": -18.88387178759049
             }
           },
-          "remaining_effect_factor": 0.76
+          "loss_remaining_effect_factor": 0.76
         },
         "upper": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
           "components": {
             "joint_climate": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -10.259619153792963,
-              "area_weighted_mean_delta_log_yield": -0.13938266252953962,
+              "area_weighted_mean_cell_exact_percent_change": 0.6042894392889145,
+              "area_weighted_mean_delta_log_yield": -0.09043888273654646,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.22932208476594806,
-                -0.0494432402931312
+                -0.2165583599878078,
+                0.03568059451471489
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -20.492758845076757,
-                -4.824082182467018
+                -19.47144629028381,
+                3.6324785801316324
               ],
-              "coefficient_only_standard_error_log_points": 0.045887460324698176,
-              "maximum_cell_delta_log_yield": 1.4774598056468111,
+              "coefficient_only_standard_error_log_points": 0.06434667206697008,
+              "maximum_cell_delta_log_yield": 3.3578631946518414,
               "minimum_cell_delta_log_yield": -1.134738643461746,
-              "percent_change_from_mean_log": -13.010491149450957
+              "percent_change_from_mean_log": -8.646983534142986
             },
             "precipitation_all_income_support": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -0.36370712421336204,
-              "area_weighted_mean_delta_log_yield": -0.007184293951132623,
+              "area_weighted_mean_cell_exact_percent_change": 3.683352811247086,
+              "area_weighted_mean_delta_log_yield": 0.021725343042015934,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.01123355511672426,
-                -0.003135032785540986
+                0.014994346294617801,
+                0.028456339789414066
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -1.117069433996163,
-                -0.3130123701644057
+                1.5107325481745724,
+                2.8865089387423946
               ],
-              "coefficient_only_standard_error_log_points": 0.0020659495742814476,
-              "maximum_cell_delta_log_yield": 1.2779750805998153,
+              "coefficient_only_standard_error_log_points": 0.0034341820139786395,
+              "maximum_cell_delta_log_yield": 2.9044888195450405,
               "minimum_cell_delta_log_yield": -1.2907918676774197,
-              "percent_change_from_mean_log": -0.7158548602289849
+              "percent_change_from_mean_log": 2.1963056655965993
             },
             "precipitation_common_positive_support": {
               "area_or_area_year_weight_ha": 95094692.0302638,
-              "area_weighted_mean_cell_exact_percent_change": -0.3637134131626125,
-              "area_weighted_mean_delta_log_yield": -0.007184439189280838,
+              "area_weighted_mean_cell_exact_percent_change": 3.683437030720353,
+              "area_weighted_mean_delta_log_yield": 0.02172583432368394,
               "cell_or_cell_year_rows": 25831,
               "coefficient_only_normal_95ci_log_points": [
-                -0.01123380372043134,
-                -0.0031350746581303357
+                0.014994692669061067,
+                0.028456975978306813
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -1.1170940166562129,
-                -0.31301654431661485
+                1.5107677089041336,
+                2.8865743940174156
               ],
-              "coefficient_only_standard_error_log_points": 0.002066002311811481,
-              "maximum_cell_delta_log_yield": 1.2779750805998153,
+              "coefficient_only_standard_error_log_points": 0.00343425594623616,
+              "maximum_cell_delta_log_yield": 2.9044888195450405,
               "minimum_cell_delta_log_yield": -1.2907918676774197,
-              "percent_change_from_mean_log": -0.715869280073325
+              "percent_change_from_mean_log": 2.196355872780444
             },
             "precipitation_distribution_residual": {
               "area_or_area_year_weight_ha": 95094692.0302638,
-              "area_weighted_mean_cell_exact_percent_change": 0.5416880911428852,
-              "area_weighted_mean_delta_log_yield": 0.004033903136309346,
+              "area_weighted_mean_cell_exact_percent_change": 3.1614759167608995,
+              "area_weighted_mean_delta_log_yield": 0.02571426086384348,
               "cell_or_cell_year_rows": 25831,
               "coefficient_only_normal_95ci_log_points": [
-                0.0018365137615646509,
-                0.0062312925110540405
+                0.018894790096645166,
+                0.03253373163104179
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                0.18382011857973557,
-                0.6250747402948149
+                1.907442625518204,
+                3.3068739649821244
               ],
-              "coefficient_only_standard_error_log_points": 0.0011211170279309668,
-              "maximum_cell_delta_log_yield": 1.237239307625992,
+              "coefficient_only_standard_error_log_points": 0.0034793218199991385,
+              "maximum_cell_delta_log_yield": 2.8119075173318056,
               "minimum_cell_delta_log_yield": -1.2304553989532572,
-              "percent_change_from_mean_log": 0.4042050274804837
+              "percent_change_from_mean_log": 2.604772459218758
             },
             "precipitation_quantity_reference_scaling": {
               "area_or_area_year_weight_ha": 95094692.0302638,
-              "area_weighted_mean_cell_exact_percent_change": -0.8831475729286287,
-              "area_weighted_mean_delta_log_yield": -0.011218342325590188,
+              "area_weighted_mean_cell_exact_percent_change": 1.567185699636656,
+              "area_weighted_mean_delta_log_yield": 0.005930332305453462,
               "cell_or_cell_year_rows": 25831,
               "coefficient_only_normal_95ci_log_points": [
-                -0.01575506357238132,
-                -0.006681621078799055
+                0.0012776152057359658,
+                0.010583049405170958
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -1.5631601791413041,
-                -0.6659348681526401
+                0.12784317037293225,
+                1.0639247948214996
               ],
-              "coefficient_only_standard_error_log_points": 0.0023146536973424146,
-              "maximum_cell_delta_log_yield": 0.8459011171554573,
+              "coefficient_only_standard_error_log_points": 0.0023738352549579063,
+              "maximum_cell_delta_log_yield": 1.9225025389896775,
               "minimum_cell_delta_log_yield": -0.5728158385358428,
-              "percent_change_from_mean_log": -1.1155651371844897
+              "percent_change_from_mean_log": 0.5947951538162413
             },
             "temperature_all_income_support": {
               "area_or_area_year_weight_ha": 95096906.1903014,
-              "area_weighted_mean_cell_exact_percent_change": -10.094893080188902,
-              "area_weighted_mean_delta_log_yield": -0.132198368578407,
+              "area_weighted_mean_cell_exact_percent_change": -1.53413245845484,
+              "area_weighted_mean_delta_log_yield": -0.08773842807866108,
               "cell_or_cell_year_rows": 25842,
               "coefficient_only_normal_95ci_log_points": [
-                -0.2220694033403179,
-                -0.04232733381649609
+                -0.21642265592653048,
+                0.04094579976920831
               ],
               "coefficient_only_normal_95ci_percent_from_mean_log": [
-                -19.914021993804816,
-                -4.144403856770251
+                -19.460517496972567,
+                4.179563845118677
               ],
-              "coefficient_only_standard_error_log_points": 0.045852568756076996,
-              "maximum_cell_delta_log_yield": 1.407855974325201,
+              "coefficient_only_standard_error_log_points": 0.06565521828972928,
+              "maximum_cell_delta_log_yield": 3.199672668920914,
               "minimum_cell_delta_log_yield": -1.0213564759461122,
-              "percent_change_from_mean_log": -12.383282619711062
+              "percent_change_from_mean_log": -8.399955461381106
             }
           },
-          "remaining_effect_factor": 0.43999999999999995
+          "loss_remaining_effect_factor": 0.43999999999999995
         }
       },
       "analysis_area_ha": 95096906.1903014,
@@ -3143,7 +3173,7 @@
     "scc": false,
     "validated_physical_weather_inputs": true
   },
-  "created_at_utc": "2026-09-24T13:12:47.117952+00:00",
+  "created_at_utc": "2026-09-24T13:48:14.764292+00:00",
   "decomposition": {
     "distribution_definition": "SSP585 precipitation response minus the quantity-only reference-distribution path response on common-positive rainfall support",
     "numerical_audit": {
@@ -3159,12 +3189,12 @@
       }
     },
     "quantity_path": "uniformly scale every SSP126 monthly precipitation amount so season total equals SSP585; phase linear terms scale by ratio and monthly-square sums by ratio squared",
-    "warning": "quantity/distribution split is reference-path dependent and is not a unique causal decomposition"
+    "warning": "quantity/distribution split is reference-path dependent and is not a unique causal decomposition; exact component additivity applies before loss-only adaptation, because adaptation is evaluated separately on each component's cell response"
   },
   "estimand": "fixed-MIRCA-area SSP585 minus SSP126 maize log-yield response, GFDL-ESM4, 2092-2100",
   "implementation": {
     "path": "scripts/estimate_hultgren_grid_yield_contrast.py",
-    "sha256": "1f56e44882da1fc6123b262d2a234ee719ecfab46ab0feab16eb87a223dfef0f"
+    "sha256": "9a07258a61e1a6dc38134375c9bf1fe59e0d6133dd63c89ceeedef4e61b1b3e2"
   },
   "interpretation": "preliminary response-function transport using fixed country-level PWT income and alternative 27-year GSWP3-W5E5 climate moderators; not the authors' subnational/time-varying moderator construction and not yet monetized or run through a marginal emissions pulse",
   "pooled_area_year_weighted": {
@@ -3281,221 +3311,221 @@
     "trend": {
       "joint_climate": {
         "area_or_area_year_weight_ha": 855872155.7127126,
-        "area_weighted_mean_cell_exact_percent_change": -12.976681639925198,
-        "area_weighted_mean_delta_log_yield": -0.22174343150520553,
+        "area_weighted_mean_cell_exact_percent_change": -8.746049590958783,
+        "area_weighted_mean_delta_log_yield": -0.20298086466918994,
         "cell_or_cell_year_rows": 232578,
         "coefficient_only_normal_95ci_log_points": [
-          -0.3652274998473187,
-          -0.07825936316309237
+          -0.36027711154791575,
+          -0.04568461779046412
         ],
         "coefficient_only_normal_95ci_percent_from_mean_log": [
-          -30.596126079098372,
-          -7.527544404773467
+          -30.251698131053978,
+          -4.465678706298419
         ],
-        "coefficient_only_standard_error_log_points": 0.07320615731740468,
-        "maximum_cell_delta_log_yield": 3.761873819229092,
+        "coefficient_only_standard_error_log_points": 0.08025318718302338,
+        "maximum_cell_delta_log_yield": 4.891903536058631,
         "minimum_cell_delta_log_yield": -6.93207840730652,
-        "percent_change_from_mean_log": -19.887911965251607
+        "percent_change_from_mean_log": -18.37061386707618
       },
       "precipitation_all_income_support": {
         "area_or_area_year_weight_ha": 855872155.7127126,
-        "area_weighted_mean_cell_exact_percent_change": -1.4067654865256143,
-        "area_weighted_mean_delta_log_yield": -0.023728783375465176,
+        "area_weighted_mean_cell_exact_percent_change": -0.10667872516302908,
+        "area_weighted_mean_delta_log_yield": -0.014265082752956503,
         "cell_or_cell_year_rows": 232578,
         "coefficient_only_normal_95ci_log_points": [
-          -0.030400502266426953,
-          -0.0170570644845034
+          -0.019557736642621757,
+          -0.008972428863291249
         ],
         "coefficient_only_normal_95ci_percent_from_mean_log": [
-          -2.994305426677736,
-          -1.6912416351944657
+          -1.9367724861056916,
+          -0.8932296740667454
         ],
-        "coefficient_only_standard_error_log_points": 0.003403938209674377,
-        "maximum_cell_delta_log_yield": 3.6311431892560524,
+        "coefficient_only_standard_error_log_points": 0.00270033361717615,
+        "maximum_cell_delta_log_yield": 4.721902716847918,
         "minimum_cell_delta_log_yield": -7.054038303712668,
-        "percent_change_from_mean_log": -2.344946941702674
+        "percent_change_from_mean_log": -1.4163818545938032
       },
       "precipitation_common_positive_support": {
         "area_or_area_year_weight_ha": 855847397.3226253,
-        "area_weighted_mean_cell_exact_percent_change": -1.4067922843083374,
-        "area_weighted_mean_delta_log_yield": -0.023729329334067562,
+        "area_weighted_mean_cell_exact_percent_change": -0.10666826031498615,
+        "area_weighted_mean_delta_log_yield": -0.014265358356592487,
         "cell_or_cell_year_rows": 232507,
         "coefficient_only_normal_95ci_log_points": [
-          -0.03040121339246487,
-          -0.017057445275670255
+          -0.01955815124244717,
+          -0.008972565470737805
         ],
         "coefficient_only_normal_95ci_percent_from_mean_log": [
-          -2.9943744099284455,
-          -1.6912790702941483
+          -1.9368131430942699,
+          -0.8932432127886513
         ],
-        "coefficient_only_standard_error_log_points": 0.0034040224787741367,
-        "maximum_cell_delta_log_yield": 3.6311431892560524,
+        "coefficient_only_standard_error_log_points": 0.0027004045335993284,
+        "maximum_cell_delta_log_yield": 4.721902716847918,
         "minimum_cell_delta_log_yield": -7.054038303712668,
-        "percent_change_from_mean_log": -2.3450002573044033
+        "percent_change_from_mean_log": -1.4164090245936685
       },
       "precipitation_distribution_residual": {
         "area_or_area_year_weight_ha": 855847397.3226253,
-        "area_weighted_mean_cell_exact_percent_change": 1.4650027917230828,
-        "area_weighted_mean_delta_log_yield": -0.0005999238466021301,
+        "area_weighted_mean_cell_exact_percent_change": 4.296809092420238,
+        "area_weighted_mean_delta_log_yield": 0.0077044197644217235,
         "cell_or_cell_year_rows": 232507,
         "coefficient_only_normal_95ci_log_points": [
-          -0.0032825566183871547,
-          0.0020827089251828947
+          0.00401689842594177,
+          0.011391941102901676
         ],
         "coefficient_only_normal_95ci_percent_from_mean_log": [
-          -0.3277174919598135,
-          0.20848792698869648
+          0.4024976975706712,
+          1.14570763679981
         ],
-        "coefficient_only_standard_error_log_points": 0.001368690189686237,
-        "maximum_cell_delta_log_yield": 6.403090946230628,
+        "coefficient_only_standard_error_log_points": 0.0018813884379999762,
+        "maximum_cell_delta_log_yield": 8.262052833845978,
         "minimum_cell_delta_log_yield": -6.70593925870063,
-        "percent_change_from_mean_log": -0.05997439282721667
+        "percent_change_from_mean_log": 0.7734175173341493
       },
       "precipitation_quantity_reference_scaling": {
         "area_or_area_year_weight_ha": 855847397.3226253,
-        "area_weighted_mean_cell_exact_percent_change": -1.6238553390854256,
-        "area_weighted_mean_delta_log_yield": -0.02312940548746543,
+        "area_weighted_mean_cell_exact_percent_change": -0.8601248012092991,
+        "area_weighted_mean_delta_log_yield": -0.016993706066683965,
         "cell_or_cell_year_rows": 232507,
         "coefficient_only_normal_95ci_log_points": [
-          -0.0295747339841264,
-          -0.016684076990804462
+          -0.022295397018118994,
+          -0.011692015115248935
         ],
         "coefficient_only_normal_95ci_percent_from_mean_log": [
-          -2.9141681180264523,
-          -1.6545668586120048
+          -2.2048691521103185,
+          -1.1623929119028997
         ],
-        "coefficient_only_standard_error_log_points": 0.0032884329064596786,
-        "maximum_cell_delta_log_yield": 2.32900104375575,
+        "coefficient_only_standard_error_log_points": 0.0027049443629770563,
+        "maximum_cell_delta_log_yield": 3.0286099398644364,
         "minimum_cell_delta_log_yield": -12.908175463992865,
-        "percent_change_from_mean_log": -2.286397117265886
+        "percent_change_from_mean_log": -1.6850127504826222
       },
       "temperature_all_income_support": {
         "area_or_area_year_weight_ha": 855872155.7127126,
-        "area_weighted_mean_cell_exact_percent_change": -12.199776096630824,
-        "area_weighted_mean_delta_log_yield": -0.19801464812974034,
+        "area_weighted_mean_cell_exact_percent_change": -8.531351602890627,
+        "area_weighted_mean_delta_log_yield": -0.18077452608133937,
         "cell_or_cell_year_rows": 232578,
         "coefficient_only_normal_95ci_log_points": [
-          -0.3421395093452484,
-          -0.053889786914232324
+          -0.3392912889177027,
+          -0.022257763244976025
         ],
         "coefficient_only_normal_95ci_percent_from_mean_log": [
-          -28.975088859137866,
-          -5.246346832778434
+          -28.772505892842542,
+          -2.2011886830869685
         ],
-        "coefficient_only_standard_error_log_points": 0.07353309245689185,
-        "maximum_cell_delta_log_yield": 2.5054131210207546,
+        "coefficient_only_standard_error_log_points": 0.08087589940630784,
+        "maximum_cell_delta_log_yield": 3.220325348355727,
         "minimum_cell_delta_log_yield": -2.3735296669837993,
-        "percent_change_from_mean_log": -17.96421636582008
+        "percent_change_from_mean_log": -16.53764766817061
       }
     },
     "upper": {
       "joint_climate": {
         "area_or_area_year_weight_ha": 855872155.7127126,
-        "area_weighted_mean_cell_exact_percent_change": -9.958324708633548,
-        "area_weighted_mean_delta_log_yield": -0.13396212570431104,
+        "area_weighted_mean_cell_exact_percent_change": -1.4361392027803943,
+        "area_weighted_mean_delta_log_yield": -0.09018280308694127,
         "cell_or_cell_year_rows": 232578,
         "coefficient_only_normal_95ci_log_points": [
-          -0.2207416472128656,
-          -0.04718260419575647
+          -0.2108517820250812,
+          0.030486175851198685
         ],
         "coefficient_only_normal_95ci_percent_from_mean_log": [
-          -19.807616721289936,
-          -4.608680686583086
+          -19.010590115116095,
+          3.095563786612351
         ],
-        "coefficient_only_standard_error_log_points": 0.04427526607579315,
-        "maximum_cell_delta_log_yield": 2.255167530123032,
+        "coefficient_only_standard_error_log_points": 0.06156580558068365,
+        "maximum_cell_delta_log_yield": 4.891903536058631,
         "minimum_cell_delta_log_yield": -4.155641281883366,
-        "percent_change_from_mean_log": -12.537681028666139
+        "percent_change_from_mean_log": -8.623586890121688
       },
       "precipitation_all_income_support": {
         "area_or_area_year_weight_ha": 855872155.7127126,
-        "area_weighted_mean_cell_exact_percent_change": -1.0846958684121244,
-        "area_weighted_mean_delta_log_yield": -0.014384556763304435,
+        "area_weighted_mean_cell_exact_percent_change": 1.7534843958953137,
+        "area_weighted_mean_delta_log_yield": 0.0076974113558824775,
         "cell_or_cell_year_rows": 232578,
         "coefficient_only_normal_95ci_log_points": [
-          -0.01843383522068322,
-          -0.01033527830592565
+          0.003562034735548683,
+          0.011832787976216272
         ],
         "coefficient_only_normal_95ci_percent_from_mean_log": [
-          -1.8264971275547035,
-          -1.0282052841577396
+          0.35683863205603283,
+          1.1903072358352658
         ],
-        "coefficient_only_standard_error_log_points": 0.00206595839662183,
-        "maximum_cell_delta_log_yield": 2.176797152466892,
+        "coefficient_only_standard_error_log_points": 0.002109886030782548,
+        "maximum_cell_delta_log_yield": 4.721902716847918,
         "minimum_cell_delta_log_yield": -4.228753781549472,
-        "percent_change_from_mean_log": -1.4281593312430512
+        "percent_change_from_mean_log": 0.7727112585291699
       },
       "precipitation_common_positive_support": {
         "area_or_area_year_weight_ha": 855847397.3226253,
-        "area_weighted_mean_cell_exact_percent_change": -1.084718829010973,
-        "area_weighted_mean_delta_log_yield": -0.014384888161430468,
+        "area_weighted_mean_cell_exact_percent_change": 1.7535427323242487,
+        "area_weighted_mean_delta_log_yield": 0.007697710786011376,
         "cell_or_cell_year_rows": 232507,
         "coefficient_only_normal_95ci_log_points": [
-          -0.018434267021060536,
-          -0.0103355093018004
+          0.0035621889837851983,
+          0.011833232588237553
         ],
         "coefficient_only_normal_95ci_percent_from_mean_log": [
-          -1.8265395189011338,
-          -1.0282281462313951
+          0.3568541119226079,
+          1.1903522262723016
         ],
-        "coefficient_only_standard_error_log_points": 0.0020660096222602383,
-        "maximum_cell_delta_log_yield": 2.176797152466892,
+        "coefficient_only_standard_error_log_points": 0.002109960103176621,
+        "maximum_cell_delta_log_yield": 4.721902716847918,
         "minimum_cell_delta_log_yield": -4.228753781549472,
-        "percent_change_from_mean_log": -1.4281919977609157
+        "percent_change_from_mean_log": 0.772741432919609
       },
       "precipitation_distribution_residual": {
         "area_or_area_year_weight_ha": 855847397.3226253,
-        "area_weighted_mean_cell_exact_percent_change": 0.371012217619601,
-        "area_weighted_mean_delta_log_yield": -0.0003857713101864518,
+        "area_weighted_mean_cell_exact_percent_change": 5.285901504703755,
+        "area_weighted_mean_delta_log_yield": 0.018991030448869215,
         "cell_or_cell_year_rows": 232507,
         "coefficient_only_normal_95ci_log_points": [
-          -0.002021005868263853,
-          0.0012494632478909492
+          0.013438080013937955,
+          0.024543980883800477
         ],
         "coefficient_only_normal_95ci_percent_from_mean_log": [
-          -0.20189650109970975,
-          0.12502441522981161
+          1.3528776819454236,
+          2.4847663822038197
         ],
-        "coefficient_only_standard_error_log_points": 0.0008343033459578577,
-        "maximum_cell_delta_log_yield": 3.924475096076839,
+        "coefficient_only_standard_error_log_points": 0.0028331379770057453,
+        "maximum_cell_delta_log_yield": 8.262052833845978,
         "minimum_cell_delta_log_yield": -4.020075420365398,
-        "percent_change_from_mean_log": -0.03856969100020301
+        "percent_change_from_mean_log": 1.917250705649709
       },
       "precipitation_quantity_reference_scaling": {
         "area_or_area_year_weight_ha": 855847397.3226253,
-        "area_weighted_mean_cell_exact_percent_change": -1.1322633748679063,
-        "area_weighted_mean_delta_log_yield": -0.013999116851244015,
+        "area_weighted_mean_cell_exact_percent_change": 0.5767072123837979,
+        "area_weighted_mean_delta_log_yield": 0.00031751513057941147,
         "cell_or_cell_year_rows": 232507,
         "coefficient_only_normal_95ci_log_points": [
-          -0.017911867736780017,
-          -0.010086365965708012
+          -0.0031418226815968344,
+          0.003776852942755657
         ],
         "coefficient_only_normal_95ci_percent_from_mean_log": [
-          -1.775240375259137,
-          -1.0035669168498575
+          -0.31368923215061906,
+          0.3783994239543479
         ],
-        "coefficient_only_standard_error_log_points": 0.0019963014722122465,
-        "maximum_cell_delta_log_yield": 1.3961891822775052,
+        "coefficient_only_standard_error_log_points": 0.0017649682715184928,
+        "maximum_cell_delta_log_yield": 3.0286099398644364,
         "minimum_cell_delta_log_yield": -7.91146238115692,
-        "percent_change_from_mean_log": -1.3901584865934047
+        "percent_change_from_mean_log": 0.03175655438440018
       },
       "temperature_all_income_support": {
         "area_or_area_year_weight_ha": 855872155.7127126,
-        "area_weighted_mean_cell_exact_percent_change": -9.131772484237631,
-        "area_weighted_mean_delta_log_yield": -0.1195775689410066,
+        "area_weighted_mean_cell_exact_percent_change": -1.646213193406221,
+        "area_weighted_mean_delta_log_yield": -0.07935061749473758,
         "cell_or_cell_year_rows": 232578,
         "coefficient_only_normal_95ci_log_points": [
-          -0.20674651273790418,
-          -0.03240862514410904
+          -0.20195629595844627,
+          0.043255060968971124
         ],
         "coefficient_only_normal_95ci_percent_from_mean_log": [
-          -18.677423376450555,
-          -3.188909321553228
+          -18.286936092672455,
+          4.420419662176904
         ],
-        "coefficient_only_standard_error_log_points": 0.04447395091678447,
-        "maximum_cell_delta_log_yield": 1.5521968179074601,
+        "coefficient_only_standard_error_log_points": 0.06255391758352485,
+        "maximum_cell_delta_log_yield": 3.220325348355727,
         "minimum_cell_delta_log_yield": -1.5016208097244452,
-        "percent_change_from_mean_log": -11.270482139778416
+        "percent_change_from_mean_log": -7.628400332756913
       }
     }
   },

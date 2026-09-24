@@ -4,7 +4,7 @@ Detailed dated research notes are preserved in [the development log](RESEARCH_DE
 
 ## Abstract
 
-**Preliminary research draft, September 22, 2026; no global damage or SCC estimate is reported.**
+**Preliminary research draft, September 24, 2026; no global damage or SCC estimate is reported.**
 
 We develop a precipitation-aware agricultural replacement for GIVE, with the
 eventual aim of estimating climate damages without double counting its existing
@@ -80,6 +80,20 @@ economic loss.
 Validated response transport, compatible climate-pulse inputs, adaptation
 calibration and agricultural welfare integration remain necessary before
 estimating an incremental social cost of carbon.
+
+A first independently audited published-response transport now evaluates
+GFDL-ESM4 SSP5-8.5 minus SSP1-2.6 daily weather over 2092--2100 on fixed
+rainfed and irrigated maize area. The fixed-practice precipitation contrast is
+-0.0364 log yield (-3.57% from the mean log response; coefficient-only SE
+0.00629). A declared reference-distribution path attributes -0.0298 log points
+(-2.93%) to total rainfall quantity and -0.00660 (-0.66%) to the remaining
+within-season distribution change. The quantity result stays near -2.95% when
+all moderators are restricted to the published sample's minimum--maximum or
+central 98% support; the distribution residual becomes -0.08% and +0.02%.
+Thus quantity is the preliminary robust signal and distribution remains a
+non-robust sensitivity. This one-model, nine-year transport uses alternative
+country-level income and historical-climate moderators and is neither a new
+causal estimate nor a monetary damage or SCC result.
 
 Exact samples, contrasts, uncertainty and remaining claim restrictions are in
 the linked results records and `RESULTS_STATUS.md`. Historical associations,
@@ -1597,6 +1611,31 @@ monthly output records must carry that hash, with exact key, support, and code-
 identity agreement. Synthetic fixtures reject ten corruptions and link the 32
 calendar test records one-to-one. No real parameter estimation, generator
 implementation, or downstream climate or damage calculation is implied.
+
+**Preliminary published-response transport.** The validated GFDL daily basis
+now supports a first 2092--2100 SSP5-8.5-minus-SSP1-2.6 maize response
+diagnostic. Fixed eligible MIRCA area combines regime-specific nonlinear
+weather bases only after they are formed. PWT country income is observed over
+98.95% of eligible area; missing countries are excluded without imputation.
+The full-support fixed-practice mean precipitation response is -0.03638 log
+yield (coefficient-only SE 0.00629), compared with -0.43061 for temperature.
+The corresponding joint response is -0.46699, but its magnitude is not a
+headline result because 26.2% of analyzed area lies outside the author's
+historical income minimum--maximum and future KDD has material tail
+extrapolation.
+
+The prespecified precipitation split uniformly rescales each positive-rainfall
+SSP1-2.6 reference distribution to the SSP5-8.5 season total, then defines the
+timing/distribution residual as the actual precipitation response minus this
+quantity-only path. Total quantity gives -0.02978 log points on full support,
+-0.02998 inside the author moderator minimum--maximum, and -0.02997 inside the
+author p01--p99 range. Distribution gives -0.00660, -0.00076, and +0.00015.
+The exact design identities pass at `1.31e-16` relative error and an independent
+implementation validates annual-to-pooled weighting, adaptation arithmetic,
+and all stored transforms. The stability contrast supports the evidence-led
+hierarchy: total rainfall is the primary preliminary component; distribution
+is reported as a null/unstable sensitivity. Full results and gates are in
+`HULTGREN_GFDL_LATE_WEATHER_CONTRAST_RESULTS_20260924.md`.
 
 ### 6.3 Marginal damages and global SCC
 

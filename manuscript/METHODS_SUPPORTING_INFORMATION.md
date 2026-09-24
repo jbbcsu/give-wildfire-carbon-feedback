@@ -1498,6 +1498,92 @@ validates the fitted historical response and phase-sum arithmetic, but not an
 independent transformation from primitive daily weather, future moderator
 paths, future response, damages, or SCC.
 
+### S5.1 GFDL grid transport benchmark
+
+The first response transport uses GFDL-ESM4 `r1i1p1f1` daily ISIMIP3b
+SSP1-2.6 and SSP5-8.5 `pr`, `tasmin`, and `tasmax` during 2091--2100. GGCMI
+Phase 3 maize calendars define harvest years 2092--2100 separately for
+rainfed and irrigated regimes. The builder reads one global day at a time and
+retains only eligible four- to ten-month crop cells. Daily precipitation is
+converted from `kg m-2 s-1` to mm/day and summed to calendar months. Snyder
+single-sine daily temperature exposure generates GDD 8--31 C and KDD above 31
+C. Three precipitation phases contain month 1, months 2--4, and month 5 through
+local harvest; both phase totals and sums of monthly squares are retained.
+Every nonlinear basis is formed before spatial or irrigation aggregation.
+
+Independent validators select cells distributed across latitude, calendar
+type, and harvest year and recompute each stored basis directly from the raw
+daily arrays. All four scenario-by-regime files pass with maximum absolute
+difference below `7.28e-12`. Zero-season-rain cells remain in quantity
+summaries; phase shares and normalized concentration are undefined there and
+are evaluated only on explicit common-positive support. No fabricated zero
+share is assigned.
+
+Historical long-run moderators use GSWP3-W5E5 daily precipitation and maximum
+temperature. For each whole crop-season month, Tmax is first averaged across
+days and precipitation is summed; the cell-year moderator is the unweighted
+mean across crop months. Fixed cell climatologies are simple means over 27
+retained harvest years (1982--1990, 1992--2000, and 2002--2010). Harvest years
+1991 and 2001 are excluded because their cross-year seasons straddle separate
+raw source blocks. They are not silently spliced. This construction differs
+from the authors' time-varying triangular 30-year GMFD/SAGE moderators.
+Fifty-four raw-daily sample recomputations have zero disagreement with the
+stored cell-year inputs.
+
+Rainfed and irrigated historical moderators and future weather bases are
+combined within each half-degree cell using fixed eligible MIRCA-OS v2 year-
+2000 maize hectares. The resulting irrigation share is a fixed weather-mixing
+and response moderator, not an endogenous irrigation or adaptation response.
+Country assignment first uses a unique MAPSPAM crop-location country label.
+Where absent, it selects the country with the largest single equal-area
+intersection among the published Hultgren polygons; overlapping
+mixed-resolution regions are never summed to choose a country. The two routes
+agree on 99.642% of common crop area. Penn World Table output-side real GDP per
+person is `cgdpo/pop` in the nearest positive observation to 2000, with the
+earlier year selected only in an exact-distance tie. Country income covers
+98.947% of eligible area. Missing income is not imputed. PWT income is
+country-level and therefore does not reproduce the authors' subnational
+income moderator.
+
+For each cell-year the published 49-term model is evaluated under SSP1-2.6 and
+SSP5-8.5 with fixed historical moderators. The joint contrast changes all
+weather terms. The precipitation contrast changes only the six rainfall terms;
+the temperature contrast changes only GDD and KDD. Because the published model
+contains no cross-products between weather families, joint log response equals
+precipitation plus temperature before adaptation. Coefficient-only uncertainty
+uses the area-weighted mean design contrast and the full published covariance
+matrix, `sqrt(dbar' V dbar)`. It excludes all climate, transport, adaptation,
+crop-area, valuation, and structural uncertainty.
+
+The quantity-only precipitation path is defined on common-positive rainfall
+support. Every SSP1-2.6 monthly amount is multiplied by the ratio of the
+SSP5-8.5 to SSP1-2.6 season total. Phase-linear terms therefore scale by the
+ratio and phase monthly-square sums by its square. This preserves the
+reference monthly distribution while matching the comparison total. The
+distribution residual is the actual SSP5-8.5 precipitation response minus the
+quantity-only response. It is reference-path dependent and not a unique causal
+decomposition. The saved design identity has maximum relative error
+`1.31e-16`; the log-response identity differs by at most `3.65e-14`.
+
+Three moderator-support analyses are frozen: all observed-income cells;
+cells for which all four moderators lie inside the author estimation sample's
+minimum--maximum; and cells inside all author p01--p99 intervals. They retain
+98.947%, 72.174%, and 48.156% of eligible area. Weather extrapolation is
+reported rather than trimmed. The fixed, trend, and upper adaptation scenarios
+are evaluated at cell level. Trend and upper reduce negative log-yield
+responses by 0.3% and 0.7% per year after 2020, capped at 35% and 70%; modeled
+benefits are unchanged. Because this rule is applied separately to each
+component, component additivity applies only before adaptation. Adaptation
+costs are zero pending empirical calibration.
+
+The final full-support run used 511.6 MB peak sampled process-group RSS under a
+768 MiB cap. A separate validator recomputes annual-to-pooled weighting,
+log-to-percent transforms, loss-only adaptation monotonicity, and unadapted
+component identities for all three support definitions. It validates summary
+arithmetic, not causal identification or transport validity. Results are in
+`HULTGREN_GFDL_LATE_WEATHER_CONTRAST_RESULTS_20260924.md` and the bound JSON
+receipts under `data/provenance/`.
+
 We additionally reproduced the authors' Iroquois County, USA local-temperature
 response checkpoint. Their pinned plotting code selects 59 observations and
 evaluates the maize estimate at local means of long-run growing-season Tmax,
