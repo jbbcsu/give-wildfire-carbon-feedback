@@ -1617,30 +1617,43 @@ identity agreement. Synthetic fixtures reject ten corruptions and link the 32
 calendar test records one-to-one. No real parameter estimation, generator
 implementation, or downstream climate or damage calculation is implied.
 
-**Preliminary published-response transport.** The validated GFDL daily basis
-now supports a first 2092--2100 SSP5-8.5-minus-SSP1-2.6 maize response
-diagnostic. Fixed eligible MIRCA area combines regime-specific nonlinear
-weather bases only after they are formed. PWT country income is observed over
-98.95% of eligible area; missing countries are excluded without imputation.
-The full-support fixed-practice mean precipitation response is -0.03638 log
-yield (coefficient-only SE 0.00629), compared with -0.43061 for temperature.
-The corresponding joint response is -0.46699, but its magnitude is not a
-headline result because 26.2% of analyzed area lies outside the author's
-historical income minimum--maximum and future KDD has material tail
-extrapolation.
+**Preliminary published-response transport.** Validated daily bases now support
+a five-ESM 2092--2100 SSP5-8.5-minus-SSP1-2.6 maize response diagnostic.
+Fixed eligible MIRCA area combines regime-specific nonlinear weather bases
+only after they are formed. PWT country income is observed over 98.95% of
+eligible area; missing countries are excluded without imputation. Every one
+of the 20 ESM-by-scenario-by-regime bases passes independent raw-daily
+recomputation.
 
-The prespecified precipitation split uniformly rescales each positive-rainfall
-SSP1-2.6 reference distribution to the SSP5-8.5 season total, then defines the
-timing/distribution residual as the actual precipitation response minus this
-quantity-only path. Total quantity gives -0.02978 log points on full support,
--0.02998 inside the author moderator minimum--maximum, and -0.02997 inside the
-author p01--p99 range. Distribution gives -0.00660, -0.00076, and +0.00015.
-The exact design identities pass at `1.31e-16` relative error and an independent
-implementation validates annual-to-pooled weighting, adaptation arithmetic,
-and all stored transforms. The stability contrast supports the evidence-led
-hierarchy: total rainfall is the primary preliminary component; distribution
-is reported as a null/unstable sensitivity. Full results and gates are in
-`HULTGREN_GFDL_LATE_WEATHER_CONTRAST_RESULTS_20260924.md`.
+Season-total rainfall changes range from -63.66 mm in GFDL to +19.80 mm in
+UKESM. Despite this physical sign difference, the fixed-practice net
+precipitation response is negative in all five ESMs (-3.57%, -3.00%, -2.58%,
+-1.61%, and -2.03%). The prespecified split uniformly rescales each
+positive-rainfall SSP1-2.6 reference distribution to the SSP5-8.5 season total,
+then defines the timing/distribution residual as the actual precipitation
+response minus this quantity-only path. All 15 model-by-moderator-support
+quantity responses are negative (-0.67% to -5.85%). Distribution changes sign
+across ESMs and support definitions. Its simple full-support five-model mean
+is -0.02%, compared with -2.54% for quantity and -2.56% for net precipitation.
+
+Exact design identities pass at relative error below `1.6e-16`, and an
+independent implementation validates annual-to-pooled weighting, adaptation
+arithmetic, and all stored transforms. The stability contrast supports the
+evidence-led hierarchy: rainfall quantity is the replicated preliminary
+component; distribution is a material but non-robust sensitivity. The much
+larger joint result is temperature-driven and exposed to late-century KDD
+extrapolation, so it is not a headline damage estimate. Equal-model means are
+descriptive rather than probability weighted. Full results and gates are in
+`HULTGREN_FIVE_ESM_LATE_YIELD_TRANSPORT_RESULTS_20260924.md`.
+
+![Five-ESM precipitation-response decomposition](figures/hultgren_five_esm_yield_decomposition_20260924.svg)
+
+**Figure 3. Preliminary five-ESM maize precipitation-response transport.**
+Bars show fixed-practice, full-support SSP5-8.5-minus-SSP1-2.6 percent yield
+changes derived from mean log responses. Net precipitation equals the
+quantity-path and timing/distribution log responses before transformation;
+the plotted percent bars therefore are not exactly additive. These are
+published-coefficient transports, not damage or SCC estimates.
 
 ### 6.3 Marginal damages and global SCC
 
@@ -1726,7 +1739,7 @@ losses before it is combined with SCC results.
 |---|---|
 | Figure 1 | Climate-to-crop-to-welfare-to-SCC architecture and exclusion boundaries |
 | Figure 2 | Crop-calendar feature maps and baseline coverage |
-| Figure 3 | Held-out response performance and process-model benchmark |
+| Figure 3 | Five-ESM published-response quantity/distribution benchmark |
 | Figure 4 | Global agricultural SCC distributions by adaptation scenario |
 | Figure 5 | Uncertainty/decomposition and sensitivity results |
 | Table 1 | Data sources, versions, licenses, coverage, and roles |
