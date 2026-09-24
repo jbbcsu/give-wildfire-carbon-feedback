@@ -1,0 +1,61 @@
+{
+  "deleted": [
+    {
+      "bytes": 2085040495,
+      "dataset_id": "b9c6fce6-c0af-4ccc-bdaf-f2e358df7fda",
+      "file_id": "623cf395-538a-49d9-9745-df89132a5ca9",
+      "file_url": "https://files.isimip.org/ISIMIP3b/InputData/climate/atmosphere/bias-adjusted/global/daily/ssp126/IPSL-CM6A-LR/ipsl-cm6a-lr_r1i1p1f1_w5e5_ssp126_tasmin_global_daily_2091_2100.nc",
+      "path": "data/raw/isimip3b/ipsl-cm6a-lr/ssp126/tasmin/ipsl-cm6a-lr_r1i1p1f1_w5e5_ssp126_tasmin_global_daily_2091_2100.nc",
+      "resource_doi": "10.48364/ISIMIP.842396.1",
+      "rights": "CC0 1.0",
+      "sha512": "1985aa6ae9e0db25bb67cae26ee46e4797f779115da068d048cc9f61bd72e948de306b8d438de67d1bb4ddb9be5f5d5afc6dd14aa61ef60a7bf8bee0925d29d4"
+    },
+    {
+      "bytes": 2075329773,
+      "dataset_id": "22791b2f-5d4a-405d-8be9-d33f7782c083",
+      "file_id": "57a91a33-8468-4c2f-9695-7dae704dc168",
+      "file_url": "https://files.isimip.org/ISIMIP3b/InputData/climate/atmosphere/bias-adjusted/global/daily/ssp126/IPSL-CM6A-LR/ipsl-cm6a-lr_r1i1p1f1_w5e5_ssp126_tasmax_global_daily_2091_2100.nc",
+      "path": "data/raw/isimip3b/ipsl-cm6a-lr/ssp126/tasmax/ipsl-cm6a-lr_r1i1p1f1_w5e5_ssp126_tasmax_global_daily_2091_2100.nc",
+      "resource_doi": "10.48364/ISIMIP.842396.1",
+      "rights": "CC0 1.0",
+      "sha512": "137eb297d08a73db478ddfaf7853ecb1db1ba9a9d366341d5482caa3f7e87612373bbdf8b3352fcaf17d653ce43321d9b85e2d645e827aff0c50760b2638eb2f"
+    }
+  ],
+  "deleted_bytes": 4160370268,
+  "free_bytes_after": 157353897984,
+  "free_bytes_before": 153176248320,
+  "implementation": {
+    "path": "scripts/evict_validated_hultgren_extrema_pair.py",
+    "sha256": "92ff88fbe136cfb040999646ff9f855a23853109b3137f21209315f17bbb937e"
+  },
+  "reason": "bounded local storage after rainfed and irrigated basis validation",
+  "recovery": "download each file_url and require the recorded byte count and SHA-512 before reuse",
+  "retained_bases": [
+    {
+      "bytes": 20171874,
+      "path": "data/interim/hultgren_ipsl_late_basis_20260924/ipsl_ssp126_rainfed_2092_2100.parquet",
+      "row_groups": 9,
+      "rows": 267750,
+      "sha256": "c3946d179b547d3e5b5960e43dcbebee4f34fae6ee834eac182c80b4d1f965b1"
+    },
+    {
+      "bytes": 12991995,
+      "path": "data/interim/hultgren_ipsl_late_basis_20260924/ipsl_ssp126_irrigated_2092_2100.parquet",
+      "row_groups": 9,
+      "rows": 172251,
+      "sha256": "4ca4c45f30fe1f477dc8fdbb528ffa7658063aa3419f04a282a1f8386b7007f7"
+    }
+  ],
+  "schema": "validated_hultgren_extrema_eviction/v1",
+  "status": "two_verified_reproducible_raw_files_deleted_after_two_regime_validation",
+  "validations": [
+    {
+      "path": "data/provenance/hultgren_ipsl_ssp126_rainfed_validation_20260924.json",
+      "sha256": "236db91531c40199a998215327603d2109ef9fbbe7506124d4b42889c1be4a60"
+    },
+    {
+      "path": "data/provenance/hultgren_ipsl_ssp126_irrigated_validation_20260924.json",
+      "sha256": "621dcad82aa94085b270ba35bb91767892b55179ccdd5d394821c1dc5c4cd900"
+    }
+  ]
+}

@@ -81,19 +81,21 @@ Validated response transport, compatible climate-pulse inputs, adaptation
 calibration and agricultural welfare integration remain necessary before
 estimating an incremental social cost of carbon.
 
-A first independently audited published-response transport now evaluates
-GFDL-ESM4 SSP5-8.5 minus SSP1-2.6 daily weather over 2092--2100 on fixed
-rainfed and irrigated maize area. The fixed-practice precipitation contrast is
--0.0364 log yield (-3.57% from the mean log response; coefficient-only SE
-0.00629). A declared reference-distribution path attributes -0.0298 log points
-(-2.93%) to total rainfall quantity and -0.00660 (-0.66%) to the remaining
-within-season distribution change. The quantity result stays near -2.95% when
-all moderators are restricted to the published sample's minimum--maximum or
-central 98% support; the distribution residual becomes -0.08% and +0.02%.
-Thus quantity is the preliminary robust signal and distribution remains a
-non-robust sensitivity. This one-model, nine-year transport uses alternative
-country-level income and historical-climate moderators and is neither a new
-causal estimate nor a monetary damage or SCC result.
+An independently audited published-response transport now evaluates both
+GFDL-ESM4 and IPSL-CM6A-LR SSP5-8.5 minus SSP1-2.6 daily weather over
+2092--2100 on fixed rainfed and irrigated maize area. Although their
+area-weighted season-total rainfall changes have opposite signs (-63.66 and
++14.23 mm), the fixed-practice precipitation responses are -3.57% and -3.00%.
+A declared reference-distribution path attributes -2.93% and -2.58% to total
+rainfall quantity and -0.66% and -0.43% to the remaining within-season
+distribution change. All six model-by-moderator-support quantity estimates
+are negative (-2.09% to -2.95%). The distribution residual approaches zero or
+changes sign on central support (GFDL +0.02%; IPSL +0.52%). Thus quantity is
+the preliminary replicated signal and distribution remains a non-robust
+sensitivity. This two-model, nine-year transport uses alternative country-level
+income and historical-climate moderators and is neither a new causal estimate
+nor a monetary damage or SCC result. Its simple model mean is descriptive, not
+a probability-weighted ensemble estimate.
 
 Exact samples, contrasts, uncertainty and remaining claim restrictions are in
 the linked results records and `RESULTS_STATUS.md`. Historical associations,

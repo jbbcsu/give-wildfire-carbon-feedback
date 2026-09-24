@@ -250,6 +250,9 @@ def main() -> None:
     parser.add_argument("--author-support", type=Path, required=True)
     parser.add_argument("--coefficients", type=Path, required=True)
     parser.add_argument("--covariance", type=Path, required=True)
+    parser.add_argument("--climate-model", default="GFDL-ESM4")
+    parser.add_argument("--reference-label", default="SSP1-2.6")
+    parser.add_argument("--comparison-label", default="SSP5-8.5")
     parser.add_argument("--moderator-support", choices=("full", "author_minmax", "author_p01_p99"), default="full")
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
@@ -381,7 +384,13 @@ def main() -> None:
         "schema": "hultgren_grid_yield_scenario_transport/v1",
         "created_at_utc": datetime.now(timezone.utc).isoformat(),
         "status": "preliminary_published_coefficient_transport_not_causal_damage_or_scc",
-        "estimand": "fixed-MIRCA-area SSP585 minus SSP126 maize log-yield response, GFDL-ESM4, 2092-2100",
+        "estimand": f"fixed-MIRCA-area {args.comparison_label} minus {args.reference_label} maize log-yield response, {args.climate_model}, 2092-2100",
+        "climate_contrast": {
+            "climate_model": args.climate_model,
+            "reference": args.reference_label,
+            "comparison": args.comparison_label,
+            "direction": "comparison_minus_reference",
+        },
         "years": years,
         "sources": {
             "weather": weather_sources,

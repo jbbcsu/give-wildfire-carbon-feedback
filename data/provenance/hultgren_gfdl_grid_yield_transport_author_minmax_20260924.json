@@ -3173,7 +3173,13 @@
     "scc": false,
     "validated_physical_weather_inputs": true
   },
-  "created_at_utc": "2026-09-24T13:48:14.764292+00:00",
+  "climate_contrast": {
+    "climate_model": "GFDL-ESM4",
+    "comparison": "SSP5-8.5",
+    "direction": "comparison_minus_reference",
+    "reference": "SSP1-2.6"
+  },
+  "created_at_utc": "2026-09-24T14:27:16.106111+00:00",
   "decomposition": {
     "distribution_definition": "SSP585 precipitation response minus the quantity-only reference-distribution path response on common-positive rainfall support",
     "numerical_audit": {
@@ -3191,10 +3197,10 @@
     "quantity_path": "uniformly scale every SSP126 monthly precipitation amount so season total equals SSP585; phase linear terms scale by ratio and monthly-square sums by ratio squared",
     "warning": "quantity/distribution split is reference-path dependent and is not a unique causal decomposition; exact component additivity applies before loss-only adaptation, because adaptation is evaluated separately on each component's cell response"
   },
-  "estimand": "fixed-MIRCA-area SSP585 minus SSP126 maize log-yield response, GFDL-ESM4, 2092-2100",
+  "estimand": "fixed-MIRCA-area SSP5-8.5 minus SSP1-2.6 maize log-yield response, GFDL-ESM4, 2092-2100",
   "implementation": {
     "path": "scripts/estimate_hultgren_grid_yield_contrast.py",
-    "sha256": "9a07258a61e1a6dc38134375c9bf1fe59e0d6133dd63c89ceeedef4e61b1b3e2"
+    "sha256": "ad4619cf5aa604a8fc59bee4e86f6cb4983f0d0fbaeb44bc0553c9eee9c3b845"
   },
   "interpretation": "preliminary response-function transport using fixed country-level PWT income and alternative 27-year GSWP3-W5E5 climate moderators; not the authors' subnational/time-varying moderator construction and not yet monetized or run through a marginal emissions pulse",
   "pooled_area_year_weighted": {
