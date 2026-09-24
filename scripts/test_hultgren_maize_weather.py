@@ -5,12 +5,16 @@ import sys
 from datetime import date, timedelta
 from pathlib import Path
 
+import numpy as np
+
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from src.hultgren_maize_weather import (
+    _single_sine_degree_days_above,
     build_maize_weather_basis,
     build_maize_weather_basis_from_daily,
+    single_sine_degree_days_above_array,
 )
 
 
@@ -28,6 +32,16 @@ def daily(
 
 
 def main() -> None:
+    tmin = np.array([-5.0, 8.0, 10.0, 15.0, 31.0, 33.0])
+    tmax = np.array([5.0, 8.0, 20.0, 35.0, 31.0, 40.0])
+    for threshold in (8.0, 31.0):
+        expected = np.array([
+            _single_sine_degree_days_above(float(lo), float(hi), threshold)
+            for lo, hi in zip(tmin, tmax, strict=True)
+        ])
+        actual = single_sine_degree_days_above_array(tmin, tmax, threshold)
+        assert np.allclose(actual, expected, rtol=0.0, atol=1e-12)
+
     temperatures = [5, 8, 20, 31, 35]
     basis = build_maize_weather_basis([1, 2, 3, 4, 5, 6], temperatures, temperatures)
     assert basis.prcp_poly_1_bins == (1.0, 9.0, 11.0)

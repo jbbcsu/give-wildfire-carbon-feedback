@@ -13,6 +13,8 @@ from datetime import date
 from math import asin, cos, isfinite, pi
 from typing import TYPE_CHECKING, Iterable
 
+import numpy as np
+
 from .hultgren_crop_calendar import calendar_months_for_report_year
 
 if TYPE_CHECKING:
@@ -109,6 +111,37 @@ def _single_sine_degree_days_above(tmin_c: float, tmax_c: float, threshold_c: fl
     midpoint = (tmax_c + tmin_c) / 2.0
     theta = asin(max(-1.0, min(1.0, (threshold_c - midpoint) / amplitude)))
     return ((midpoint - threshold_c) * (pi / 2.0 - theta) + amplitude * cos(theta)) / pi
+
+
+def single_sine_degree_days_above_array(
+    tmin_c: np.ndarray, tmax_c: np.ndarray, threshold_c: float
+) -> np.ndarray:
+    """Vectorized Snyder single-sine area above one threshold."""
+    minimum = np.asarray(tmin_c, dtype=np.float64)
+    maximum = np.asarray(tmax_c, dtype=np.float64)
+    threshold = float(threshold_c)
+    if minimum.shape != maximum.shape:
+        raise ValueError("Tmin and Tmax arrays must have identical shapes")
+    if not np.isfinite(minimum).all() or not np.isfinite(maximum).all() or not isfinite(threshold):
+        raise ValueError("Tmin, Tmax and threshold must be finite")
+    if np.any(minimum > maximum):
+        raise ValueError("daily Tmin cannot exceed daily Tmax")
+
+    result = np.zeros(minimum.shape, dtype=np.float64)
+    entirely_above = minimum >= threshold
+    result[entirely_above] = (
+        (minimum[entirely_above] + maximum[entirely_above]) / 2.0 - threshold
+    )
+    crossing = (minimum < threshold) & (maximum > threshold)
+    if np.any(crossing):
+        amplitude = (maximum[crossing] - minimum[crossing]) / 2.0
+        midpoint = (maximum[crossing] + minimum[crossing]) / 2.0
+        theta = np.arcsin(np.clip((threshold - midpoint) / amplitude, -1.0, 1.0))
+        result[crossing] = (
+            (midpoint - threshold) * (np.pi / 2.0 - theta)
+            + amplitude * np.cos(theta)
+        ) / np.pi
+    return result
 
 
 def build_maize_weather_basis_from_daily(
