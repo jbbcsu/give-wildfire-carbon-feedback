@@ -1,0 +1,54 @@
+{
+  "audit": {
+    "allocated_constant_2014_2016_usd": 143224624833.3319,
+    "cells_shared_by_multiple_countries": 1207,
+    "country_cell_rows": 25730,
+    "matched_country_count": 119,
+    "matched_maize_production_fraction": 0.9804980565869085,
+    "matched_maize_production_mt": 624726682.4000088,
+    "source_maize_production_mt": 637152392.3001624
+  },
+  "claim_gates": {
+    "country_market_input": true,
+    "damage_or_scc": false,
+    "welfare": false
+  },
+  "created_at_utc": "2026-09-24T17:06:06.655101+00:00",
+  "implementation": {
+    "path": "scripts/build_hultgren_country_maize_value_weights.py",
+    "sha256": "39bc9baf837f25b408cc08a2775da516693c9536496b24934f3c1e9e51a4084d"
+  },
+  "limitations": [
+    "National gross production value is allocated within country in proportion to modeled MapSPAM production.",
+    "Half-degree cells crossing borders retain separate country rows but share the same cell weather response.",
+    "Gross production value is a market baseline proxy, not welfare, damage, or SCC."
+  ],
+  "method": "allocate each matched country's mean 1999-2001 FAOSTAT maize gross production value across its MapSPAM rows and retain country-by-half-degree-cell identity",
+  "output": {
+    "bytes": 436027,
+    "path": "data/interim/hultgren_country_cell_maize_value_weights_20260924.parquet",
+    "sha256": "3bc29477ac20ae2cc29773c79a8f031d14259bcda7a47fab3d42cc6a8ce1b3da"
+  },
+  "schema": "hultgren_country_cell_maize_value_weights/v1",
+  "sources": {
+    "faostat": {
+      "license": "CC-BY-4.0",
+      "path": "data/interim/welfare_weights/faostat_qv_maize_soy.csv",
+      "sha256": "d120f9cb06aacd36b4d610cde51c10f046fc68d283eb6047719c4e849f64d4d0"
+    },
+    "gec_audit": {
+      "path": "data/interim/welfare_weights/mapspam_gec_resolution.audit.json",
+      "sha256": "bfbef2997ac275567742d3898ac75c652b4c0e8b0cee5b16ad851f90d7efec44"
+    },
+    "mapspam": {
+      "doi": "10.7910/DVN/A50I2T",
+      "path": "data/interim/welfare_weights/mapspam2000_maize_soy_production.csv",
+      "sha256": "ff3fa3a1af6e255d4e35c6cd5ca1bc53af9114c34cf00f0aa39707be43735e0c"
+    },
+    "unsd": {
+      "path": "data/raw/unsd_m49/countries_retrieved_2026-08-26.html",
+      "sha256": "4d5cabcb10ad9ef184553b5e64c0a34ba8deeb20dab2e02cd0be3599b93bb01d"
+    }
+  },
+  "status": "conditional_country_cell_baseline_value_weights_not_welfare_damage_or_scc"
+}

@@ -162,6 +162,21 @@ other crops, and a marginal emissions pulse. We therefore label it a
 structural market sensitivity—not a primary damage estimate or SCC—and do not
 pass it into GIVE.
 
+We then replace the single global market with 116 separate national maize
+markets while holding the response, winsorization, baseline-value support,
+elasticities, and supply mappings fixed. This is closer to the published
+central market geography. Under the central fixed-adaptation case, damage-
+signed annual surplus changes are US$5.88, US$8.41, US$3.63, US$4.79, and
+US$5.67 billion across the five ESMs, with a five-model mean of US$5.68
+billion. Across all elasticity and supply-mapping cases, the fixed range is
+US$1.23--15.71 billion. The trend central mean is US$2.84 billion (range
+US$0.15--7.92 billion); the upper central mean is -US$0.13 billion (range
+-US$1.90--1.85 billion). The larger fixed result relative to the single
+global market reflects separate national price adjustment and spatially
+heterogeneous supply shifts, not additional crop losses. Expectations,
+storage, trade, other crops, and the marginal pulse remain absent, so this
+national-market result is also quarantined and not passed into GIVE.
+
 ![Five-ESM production-weighted precipitation-response decomposition](figures/hultgren_five_esm_production_weighted_decomposition_20260924.svg)
 
 **Figure 3b. Fixed-production-weight sensitivity.** Published maize response

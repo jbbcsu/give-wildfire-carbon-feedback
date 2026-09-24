@@ -203,5 +203,16 @@ not passed to GIVE. Machine-readable receipts are
 `data/provenance/hultgren_global_maize_market_sensitivity_20260924.json` and
 `data/provenance/hultgren_global_maize_market_sensitivity_validation_20260924.json`.
 
+The same response is also valued in 116 separate national maize markets, the
+published study's central market geography. Central fixed-adaptation results
+are US$5.879, US$8.407, US$3.635, US$4.794, and US$5.666 billion for GFDL,
+IPSL, MPI, MRI, and UKESM; their mean is US$5.676 billion. The full fixed range
+is US$1.230--15.713 billion. Trend and upper central means are US$2.837 billion
+and -US$0.126 billion. The larger national-market result arises from separate
+price responses to heterogeneous country shocks, not larger yield changes.
+An independent audit again reproduces all 810 annual records exactly. Because
+expectations, storage, trade, other crops, and the marginal pulse remain
+absent, this remains a structural sensitivity rather than damage or SCC.
+
 Machine-readable results are under `data/provenance/`, including
 `hultgren_five_esm_grid_yield_transport_summary_20260924.json`.

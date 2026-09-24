@@ -3358,11 +3358,55 @@ core; the maximum absolute dollar discrepancy is zero. Its receipt is
 `data/provenance/hultgren_global_maize_market_sensitivity_validation_20260924.json`.
 Neither record authorizes the agriculture replacement, damage, or SCC gates.
 
+### Separate-country market sensitivity
+
+Because the published central geography clears markets within countries, we
+also construct country-by-half-degree baseline weights before repeating the
+same fully anticipated calculation. Starting from the matched MapSPAM rows,
+each country's 1999--2001 mean FAOSTAT maize gross production value is
+allocated over its cells in proportion to production while retaining ISO3.
+The source contains 119 value-matched countries, 25,730 country-cell rows, and
+US$143.225 billion; 1,207 half-degree cells cross at least one country boundary
+and therefore retain multiple country rows sharing a cell weather response.
+Intersecting with the Hultgren response support leaves 116 countries and the
+same US$140.673 billion represented baseline as the global-market sensitivity.
+
+For each country, year, ESM, adaptation case, elasticity pair, and supply
+mapping, cell productivity multipliers are value-weighted into a national
+supply ratio before clearing that country's market. National surplus changes
+are summed; no cross-country trade or welfare redistribution is modeled. The
+published-style percentile bounds continue to be calculated over the five
+unique cell--ESM--year arrays before border cells are expanded into country
+rows, so political boundaries do not change the tail threshold.
+
+Under the central 0.10/0.04 elasticity pair and horizontal-output mapping,
+fixed-adaptation mean annual damage-signed surplus changes are US$5.879,
+US$8.407, US$3.635, US$4.794, and US$5.666 billion for GFDL, IPSL, MPI, MRI,
+and UKESM. The five-model mean is US$5.676 billion. Across all models,
+elasticities, and mappings, the fixed range is US$1.230--15.713 billion. Trend
+adaptation has a central mean of US$2.837 billion and range of
+US$0.152--7.915 billion. Upper adaptation has a central mean of -US$0.126
+billion and range of -US$1.901--1.847 billion. Separate national price
+adjustment amplifies the fixed result relative to pooling all production in
+one global market; it does not represent a larger agronomic response.
+
+Country weights, sensitivity results, and independent validation receipts are
+`data/provenance/hultgren_country_cell_maize_value_weights_20260924.json`,
+`data/provenance/hultgren_country_maize_market_sensitivity_20260924.json`, and
+`data/provenance/hultgren_country_maize_market_sensitivity_validation_20260924.json`.
+The independent audit reconstructs all 810 annual case records with zero
+dollar discrepancy. This is closer to the published market geography but is
+not the published welfare model: it remains fully anticipated and omits the
+13-year expectation kernel, 39% storage price shrinkage, calorie aggregation,
+other crops, trade, and the marginal emissions pulse. All damage and SCC gates
+remain closed.
+
 ### Price-basis convention validation (September15 amendment)
 
-The maize value proxy remains in source constant2014--2016USD; no primary
-country-market or SCC welfare calculation has been performed. The quarantined
-global-market sensitivity above remains in the source price basis. A separate source-pinned registry
+The maize value proxy remains in source constant2014--2016USD; no published-
+calibrated or SCC welfare calculation has been performed. The quarantined
+global- and country-market sensitivities above remain in the source price
+basis. A separate source-pinned registry
 specifies a GDP-wide conversion to GIVE's USD2005 convention as
 87.504/mean(103.654,104.691,105.740)=0.8357992263240843, with87.504/104.691 as
 midpoint sensitivity. The values come from the U.S. column of

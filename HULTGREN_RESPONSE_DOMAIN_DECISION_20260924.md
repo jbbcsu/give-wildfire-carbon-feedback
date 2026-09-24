@@ -65,3 +65,11 @@ alone are attenuated and adaptation is costless. This does not resolve the
 decision: country markets, expectations, storage, other crops, adaptation
 costs, and a marginal emissions pulse remain absent, so the result is not
 authorized as damage or SCC and is not passed to GIVE.
+
+A closer market-geography sensitivity clears 116 represented national maize
+markets separately. Its central fixed-adaptation five-model mean is US$5.676
+billion per year and the full fixed structural range is
+US$1.230--15.713 billion. This demonstrates that market geography materially
+changes welfare translation even with identical cell responses. It still
+omits the published expectations/storage procedure and therefore does not
+open the damage or SCC gate.
