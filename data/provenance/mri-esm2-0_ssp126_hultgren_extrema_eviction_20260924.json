@@ -1,0 +1,61 @@
+{
+  "deleted": [
+    {
+      "bytes": 2069514677,
+      "dataset_id": "80a8871e-d51f-4287-83cf-620c874d43ef",
+      "file_id": "2f3cd571-27a4-4d12-a3a4-b6fe5bccb869",
+      "file_url": "https://files.isimip.org/ISIMIP3b/InputData/climate/atmosphere/bias-adjusted/global/daily/ssp126/MRI-ESM2-0/mri-esm2-0_r1i1p1f1_w5e5_ssp126_tasmin_global_daily_2091_2100.nc",
+      "path": "data/raw/isimip3b/mri-esm2-0/ssp126/tasmin/mri-esm2-0_r1i1p1f1_w5e5_ssp126_tasmin_global_daily_2091_2100.nc",
+      "resource_doi": "10.48364/ISIMIP.842396.1",
+      "rights": "CC0 1.0",
+      "sha512": "a556fb4e382ffaa710e0a37da5c73a691682dbacbe2112ce0932e5b0e53c30803b996eb9461194e1e7a0c4aff1cd052fd146e8bbd10006ef4aa79de4b5c9c9ef"
+    },
+    {
+      "bytes": 2063300278,
+      "dataset_id": "4c5644b9-4f14-4c66-bcd0-5b5db4283cf9",
+      "file_id": "66d93126-5668-4df9-8581-c40ec623483e",
+      "file_url": "https://files.isimip.org/ISIMIP3b/InputData/climate/atmosphere/bias-adjusted/global/daily/ssp126/MRI-ESM2-0/mri-esm2-0_r1i1p1f1_w5e5_ssp126_tasmax_global_daily_2091_2100.nc",
+      "path": "data/raw/isimip3b/mri-esm2-0/ssp126/tasmax/mri-esm2-0_r1i1p1f1_w5e5_ssp126_tasmax_global_daily_2091_2100.nc",
+      "resource_doi": "10.48364/ISIMIP.842396.1",
+      "rights": "CC0 1.0",
+      "sha512": "761f3bf973bf32e9459d1a19124566e77e7214c7db93d0e6c962e2ffa8695dbfa52a23e19e2580e69a4613742b8699a116730a9b590494b244a2742454e7d7f3"
+    }
+  ],
+  "deleted_bytes": 4132814955,
+  "free_bytes_after": 158330085376,
+  "free_bytes_before": 154185375744,
+  "implementation": {
+    "path": "scripts/evict_validated_hultgren_extrema_pair.py",
+    "sha256": "92ff88fbe136cfb040999646ff9f855a23853109b3137f21209315f17bbb937e"
+  },
+  "reason": "bounded local storage after rainfed and irrigated basis validation",
+  "recovery": "download each file_url and require the recorded byte count and SHA-512 before reuse",
+  "retained_bases": [
+    {
+      "bytes": 20066478,
+      "path": "data/interim/hultgren_mri_late_basis_20260924/mri_ssp126_rainfed_2092_2100.parquet",
+      "row_groups": 9,
+      "rows": 267750,
+      "sha256": "4b4dd2cfeb288c2522e7dea7cc6de38ee8f916de8cec0b0071933286a63dfbb7"
+    },
+    {
+      "bytes": 12938097,
+      "path": "data/interim/hultgren_mri_late_basis_20260924/mri_ssp126_irrigated_2092_2100.parquet",
+      "row_groups": 9,
+      "rows": 172251,
+      "sha256": "70b94a31cb36ea15c6adee041ec8af0038b2d388a43bcb8178d869124202319d"
+    }
+  ],
+  "schema": "validated_hultgren_extrema_eviction/v1",
+  "status": "two_verified_reproducible_raw_files_deleted_after_two_regime_validation",
+  "validations": [
+    {
+      "path": "data/provenance/hultgren_mri_ssp126_rainfed_validation_20260924.json",
+      "sha256": "9fa656f6b2b977f40c5dc2b927a40b6f3fa394b89d3701578eee4917cc0312b3"
+    },
+    {
+      "path": "data/provenance/hultgren_mri_ssp126_irrigated_validation_20260924.json",
+      "sha256": "91a53703971a600f0b10967b76d944c5ed3634932cbe6c73d779e2fff77ce61c"
+    }
+  ]
+}
