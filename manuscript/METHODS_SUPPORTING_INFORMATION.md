@@ -4043,6 +4043,31 @@ specifications. Negative damage denotes a benefit. These are unnormalized
 annual pulse increments; they are neither discounted nor expressed per tonne
 of CO2 and therefore are not SCC estimates.
 
+For a deterministic scale diagnostic, we run the pinned GIVE model with its
+default RFF socioeconomic sample 6546 and export `global_netconsumption.net_cpc`
+for 2020--2300. The export also retains global GDP, population, net
+consumption, and total damage so both identities can be rechecked. Sampled
+process-group RSS peaks at 1.22 GB under a 1.5 GiB ceiling. The four Ramsey
+parameter pairs are read from the pinned GIVE analysis source. For schedule
+`(prtp, eta)`, the year-`t` factor is
+`(CPC_2020/CPC_t)^eta / (1+prtp)^(t-2020)`.
+
+Annual billion-2005-USD marginal differences are converted to 2005 USD per
+tonne CO2 by multiplying by `(12/44)/pulse_GtC`; the factors of `1e9` cancel
+between billion dollars and GtC. We sum through 2300 and use GIVE's pinned
+`113.648/87.504` factor for 2020 USD. The output has 11,232 values and maximum
+relative disagreement of `6.89e-6` between the two smallest pulses. A separate
+implementation streams all 1,052,064 annual rows and uses `math.fsum` to
+reconstruct every diagnostic, agreeing within `1.22e-16` USD per tCO2.
+
+This calculation intentionally holds discount factors at the standard GIVE
+baseline, which retains MooreAg. It therefore excludes the effect that a new
+paired agriculture baseline level could have on consumption and the Ramsey
+path. We label it a standard-GIVE-baseline partial-SCC diagnostic, not a
+replacement SCC. In the central fixed uncapped case, the 26-model mean is
+-$0.00610 per tCO2 in 2020 USD at the 2% schedule, with 25 negative models and
+one positive model.
+
 ### Alternative Hultgren impact-region transport geometry
 
 For the external published-response transport, the public Hultgren impact-

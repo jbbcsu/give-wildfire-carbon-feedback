@@ -215,3 +215,24 @@ specifications. The shared benefit sign is evidence about this narrow annual-
 quantity channel, not total agriculture or SCC. Market sensitivity is now
 closed for the national-market benchmark, while paired levels, GIVE
 replacement, discounting, and SCC remain closed.
+
+## Standard-baseline discount diagnostic (September 24, 2026)
+
+The annual marginal paths have now been discounted with the deterministic
+standard GIVE baseline consumption path (RFF sample 6546) and normalized to
+2005 and 2020 dollars per tonne CO2 under all four registered Ramsey schedules.
+Every one of 11,232 diagnostics is independently reconstructed from the
+1,052,064 annual market-sensitivity rows; the largest numerical disagreement is
+`1.22e-16` USD per tCO2. The two smallest pulses agree within `6.89e-6` in
+relative terms.
+
+For the central fixed-adaptation uncapped case, the 26-model mean in 2020 USD
+per tCO2 is -$0.00883, -$0.00610, -$0.00454, and -$0.00359 under the 1.5%,
+2.0%, 2.5%, and 3.0% schedules. At each schedule, 25 of 26 model values are
+negative. Full evidence is in
+`EPA_FAIR_HULTGREN_QUANTITY_PARTIAL_SCC_DIAGNOSTIC_20260924.md`.
+
+This opens only the standard-GIVE-baseline discount-diagnostic gate. Standard
+GIVE retains MooreAg, so this is not the paired agriculture replacement and is
+not labeled a GIVE replacement SCC. Paired baseline/pulse agriculture levels,
+replacement accounting, and uncertainty draws remain required.

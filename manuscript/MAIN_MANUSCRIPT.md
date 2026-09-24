@@ -1915,6 +1915,17 @@ market specification passes the same shrinking-pulse test. Because these are
 tiny-pulse annual increments rather than discounted values per tonne of CO2,
 they remain market-structure robustness results, not SCC estimates.
 
+As a transparent scale diagnostic, we discounted each annual marginal path
+with the deterministic standard GIVE baseline consumption path and normalized
+the pulse to tonnes of CO2. Under fixed adaptation, the uncapped central market
+case has a 26-model mean of -$0.0061 per tCO2 in 2020 dollars at GIVE's 2%
+Ramsey schedule; 25 models are negative and one is positive. Means across the
+1.5%, 2.5%, and 3% schedules are -$0.0088, -$0.0045, and -$0.0036 per tCO2.
+These small negative values characterize the annual maize rainfall-quantity
+channel only. Because the discount path comes from standard GIVE with MooreAg
+still active, we describe them as partial-SCC diagnostics rather than paired
+agriculture-replacement SCC estimates.
+
 Report global agricultural marginal damages and SCC under each adaptation
 scenario with draw-level uncertainty. Do not present a precipitation add-on to
 baseline MooreAg agriculture.
