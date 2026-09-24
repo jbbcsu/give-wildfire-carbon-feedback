@@ -62,8 +62,11 @@ now preserves and independently reconciles all 30,918 wide capture records and
 SHA-256 `ca58247c4f6044948b01048e4a808d21a4975c9f4171e3d0d1fbc321e46ebb52`.
 The supported FishStat GUI-menu export now independently reconciles all 30,918
 records and 2,318,850 annual value/status pairs, including the GUI's
-two-decimal display bound and every status symbol. Marine-tonnage filtering,
-historical country reconciliation, allocation, welfare, damage, and SCC gates
+two-decimal display bound and every status symbol. A deterministic, independently
+validated source panel now retains the exact 27,625 marine live-weight records
+and all 2,071,875 annual value/status pairs for 1950--2024. This closes only the
+marine-tonnage source-panel gate: historical country reconciliation, admissible
+status selection, allocation, climate calibration, welfare, damage, and SCC
 remain open.
 A separate positive-tonnage concentration audit finds that top-five
 vessel-flag-country and reported-species shares fall from 51.34% and 37.71% in

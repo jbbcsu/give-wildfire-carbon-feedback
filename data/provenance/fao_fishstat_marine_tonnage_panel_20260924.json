@@ -1,0 +1,70 @@
+{
+  "claim_gates": {
+    "country_or_eez_allocation": false,
+    "damage_or_scc": false,
+    "fishmip_calibration": false,
+    "marine_tonnage_source_panel": true,
+    "missing_statuses_preserved": true,
+    "welfare": false
+  },
+  "created_at_utc": "2026-09-24T23:15:35.717642+00:00",
+  "filter": {
+    "environment_class": "marine",
+    "measure_code": "Q_tlw",
+    "measure_name": "Tonnes - live weight",
+    "unit": "t"
+  },
+  "implementation": {
+    "path": "scripts/build_fao_fishstat_marine_tonnage_panel.py",
+    "sha256": "9a555659fbac75ea11c537af93d4a82b3433b3f6708587fa5f57d808aae7351a"
+  },
+  "limitations": [
+    "Country is primarily vessel flag rather than harvest EEZ or consumer incidence.",
+    "Nominal landings exclude discards and do not identify effort, management, or climate causation.",
+    "All source value/status pairs are preserved; this artifact does not recode missing values as zero or select admissible calibration statuses."
+  ],
+  "output": {
+    "bytes": 2217526,
+    "compression": "gzip_mtime_zero",
+    "path": "data/derived/fao/fishstat_marine_tonnage_1950_2024.csv.gz",
+    "sha256": "7b3dcb8bfcd9b1857274c7972ef9d0ddfb62deec825b0ff7af1af26918b97ec4"
+  },
+  "schema": "fao_fishstat_marine_tonnage_panel/v1",
+  "sources": {
+    "contract": {
+      "path": "data/provenance/fao_fishstat_capture_headless_export_v1.toml",
+      "sha256": "dc5221915bd3d2fab2d72c203351f908f2f95286fde57a7c4dd7c0353f4bd6ec"
+    },
+    "gui_reconciliation": {
+      "path": "data/provenance/fao_fishstat_gui_headless_reconciliation_20260923.json",
+      "sha256": "bee1155727e09f274e90051fc77a6e5556ae0eedb7237a29cd2cd3b7c0c80b75"
+    },
+    "headless_validation": {
+      "path": "data/provenance/fao_fishstat_capture_headless_export_validation_20260902.json",
+      "sha256": "675dfe976275cc46fc2c5d1687b997684b41ce4964cd165d83fc310203c5bbee"
+    },
+    "input": {
+      "path": "data/derived/fao/fishstat_capture_wide_1950_2024.csv",
+      "sha256": "ca58247c4f6044948b01048e4a808d21a4975c9f4171e3d0d1fbc321e46ebb52"
+    }
+  },
+  "status": "lossless_reconciled_marine_live_weight_source_panel",
+  "support": {
+    "annual_value_status_pairs": 2071875,
+    "positive_value_cells": 528023,
+    "records": 27625,
+    "status_cells": {
+      "A": 889949,
+      "E": 670,
+      "I": 30259,
+      "N": 25482,
+      "O": 1125186,
+      "Q": 255,
+      "X": 74
+    },
+    "years": [
+      1950,
+      2024
+    ]
+  }
+}

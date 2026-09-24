@@ -56,9 +56,12 @@ workspace-identity, and embedded capture-metadata checks. It records nominal
 landings rather than discard-adjusted catch, assigns country mainly by vessel
 flag rather than EEZ, mixes inland and marine capture until filtered, and
 preserves missing/suppressed status codes. The supported GUI and independent
-headless record exports now reconcile; marine filtering, country/area
-crosswalks, effort/management identification, and FishMIP comparison remain
-pending; no missing value is treated as zero.
+headless record exports now reconcile. The exact marine live-weight subset is
+also materialized as a lossless 27,625-row, 1950--2024 source panel with all
+value/status pairs preserved and an independent row-by-row validator.
+Country/area crosswalks, admissible status selection, effort/management
+identification, and causal FishMIP calibration remain pending; no missing value
+is treated as zero.
 A post-export concentration audit finds material compositional change over the
 FishMIP historical overlap: top-five vessel-flag-country and species shares
 decline from 51.34%/37.71% in 1950 to 41.07%/24.23% in 2014, while the
@@ -73,8 +76,9 @@ The first provisional global historical comparison now also shows that all
 four FishMIP paths share the broad 1950--2014 FAO tonnage rise but match annual
 first differences weakly. This is a post-existing-evidence structural
 diagnostic, not observed calibration: the GUI integrity gate is now closed,
-but the marine filter and effort, management, species, country, and allocation
-structure remain unresolved.
+but effort, management, species, country, and allocation structure remain
+unresolved. The subsequent exact marine-source extraction does not retroactively
+convert that diagnostic into a calibrated model.
 The official FishStatJ 4.04.11 macOS export runtime is also frozen and passes
 bundle integrity plus a bundled-Java smoke. Its Derby capture schema exposes
 country/species/area/measure keys and separate annual values and symbols. A
