@@ -1,0 +1,61 @@
+{
+  "deleted": [
+    {
+      "bytes": 2081841796,
+      "dataset_id": "95aad1d0-0787-4669-80ce-2bc03530d359",
+      "file_id": "29343989-5b7d-47c6-bada-d56c06c17ce8",
+      "file_url": "https://files.isimip.org/ISIMIP3b/InputData/climate/atmosphere/bias-adjusted/global/daily/ssp126/UKESM1-0-LL/ukesm1-0-ll_r1i1p1f2_w5e5_ssp126_tasmin_global_daily_2091_2100.nc",
+      "path": "data/raw/isimip3b/ukesm1-0-ll/ssp126/tasmin/ukesm1-0-ll_r1i1p1f2_w5e5_ssp126_tasmin_global_daily_2091_2100.nc",
+      "resource_doi": "10.48364/ISIMIP.842396.1",
+      "rights": "CC0 1.0",
+      "sha512": "bc0004c64bc8f85f1d674d7ae20c62c4fa607d36043b54a37b7205f1a67f283bcbfa03f8718668c9d4f37cedc56931723c7c301750ed5ce6a1dae4d835b1c1e6"
+    },
+    {
+      "bytes": 2073261127,
+      "dataset_id": "d3ce370b-251f-4191-974b-9fa3c92f068c",
+      "file_id": "29c7e144-7b5a-42e4-990e-a28feea0253a",
+      "file_url": "https://files.isimip.org/ISIMIP3b/InputData/climate/atmosphere/bias-adjusted/global/daily/ssp126/UKESM1-0-LL/ukesm1-0-ll_r1i1p1f2_w5e5_ssp126_tasmax_global_daily_2091_2100.nc",
+      "path": "data/raw/isimip3b/ukesm1-0-ll/ssp126/tasmax/ukesm1-0-ll_r1i1p1f2_w5e5_ssp126_tasmax_global_daily_2091_2100.nc",
+      "resource_doi": "10.48364/ISIMIP.842396.1",
+      "rights": "CC0 1.0",
+      "sha512": "91aa9913fbe6192716387323b7f36138c707f4273e25c1d1816ab99cf5a4b3133bbdcaa463cedb31a6d78107ea630bb3069141808bbd0a9607a5bb405db44d88"
+    }
+  ],
+  "deleted_bytes": 4155102923,
+  "free_bytes_after": 158272528384,
+  "free_bytes_before": 154093916160,
+  "implementation": {
+    "path": "scripts/evict_validated_hultgren_extrema_pair.py",
+    "sha256": "92ff88fbe136cfb040999646ff9f855a23853109b3137f21209315f17bbb937e"
+  },
+  "reason": "bounded local storage after rainfed and irrigated basis validation",
+  "recovery": "download each file_url and require the recorded byte count and SHA-512 before reuse",
+  "retained_bases": [
+    {
+      "bytes": 20228386,
+      "path": "data/interim/hultgren_ukesm_late_basis_20260924/ukesm_ssp126_rainfed_2092_2100.parquet",
+      "row_groups": 9,
+      "rows": 267750,
+      "sha256": "f09902d0e9cc788399b39a25f0dc5c3b422e25d0a3e68f7d9793b1deead78a16"
+    },
+    {
+      "bytes": 13017025,
+      "path": "data/interim/hultgren_ukesm_late_basis_20260924/ukesm_ssp126_irrigated_2092_2100.parquet",
+      "row_groups": 9,
+      "rows": 172251,
+      "sha256": "ad0a9dbd8c0b4d7d915b61dc95571928674fb6dcda9276a7f66a5db6158964d0"
+    }
+  ],
+  "schema": "validated_hultgren_extrema_eviction/v1",
+  "status": "two_verified_reproducible_raw_files_deleted_after_two_regime_validation",
+  "validations": [
+    {
+      "path": "data/provenance/hultgren_ukesm_ssp126_rainfed_validation_20260924.json",
+      "sha256": "ffe2e16b33e6b2138c0939f46254fdbe4414627a9d8b007b9b0dd9ef027f663a"
+    },
+    {
+      "path": "data/provenance/hultgren_ukesm_ssp126_irrigated_validation_20260924.json",
+      "sha256": "d23bd7628d01f6452710a10cb68fd1cbf1a82b8beae7dd8dceaeccc91a6fd992"
+    }
+  ]
+}

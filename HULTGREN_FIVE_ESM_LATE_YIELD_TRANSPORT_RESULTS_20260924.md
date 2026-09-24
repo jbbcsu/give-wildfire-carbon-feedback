@@ -1,0 +1,71 @@
+# Preliminary five-model late-century maize response transport
+
+## Scope and claim boundary
+
+This diagnostic transports the published Hultgren et al. (2025) maize
+response over crop-calendar-aligned GFDL-ESM4, IPSL-CM6A-LR,
+MPI-ESM1-2-HR, MRI-ESM2-0, and UKESM1-0-LL SSP5-8.5-minus-SSP1-2.6
+weather for harvest years 2092--2100. It is a published-coefficient benchmark,
+not a new causal estimate, monetary damage estimate, marginal carbon-pulse
+calculation, or social cost of carbon.
+
+All 20 ESM-by-scenario-by-irrigation-regime weather bases pass independent
+selected-cell recomputation from raw daily ISIMIP3b precipitation, Tmin, and
+Tmax. Calendars, crop area, moderators, income mapping, response coefficients,
+and support restrictions are held fixed across ESMs. Exact source identities,
+hashes, validations, and recoverable raw-file eviction records are retained.
+
+## Physical contrasts
+
+Fixed-area, area-year-weighted SSP5-8.5-minus-SSP1-2.6 differences are:
+
+| ESM | Season precipitation (mm) | Monthly concentration | GDD 8--31 C | KDD above 31 C |
+|---|---:|---:|---:|---:|
+| GFDL-ESM4 | -63.66 | +0.01267 | +454.39 | +129.84 |
+| IPSL-CM6A-LR | +14.23 | +0.00418 | +693.27 | +275.99 |
+| MPI-ESM1-2-HR | +12.83 | +0.00903 | +509.35 | +116.62 |
+| MRI-ESM2-0 | +10.46 | +0.00077 | +453.29 | +126.74 |
+| UKESM1-0-LL | +19.80 | +0.00450 | +609.02 | +337.66 |
+
+The season-total sign differs across ESMs. These are named, single-realization
+scenario contrasts, not probabilities.
+
+## Fixed-practice yield-response benchmark
+
+| Support | Component | GFDL | IPSL | MPI | MRI | UKESM |
+|---|---|---:|---:|---:|---:|---:|
+| Full | Precipitation | -3.57% | -3.00% | -2.58% | -1.61% | -2.03% |
+|  | Quantity path | -2.93% | -2.58% | -4.17% | -1.98% | -1.02% |
+|  | Distribution residual | -0.66% | -0.43% | +1.66% | +0.38% | -1.02% |
+| Author min--max | Precipitation | -3.03% | -2.48% | -2.56% | -1.93% | -3.17% |
+|  | Quantity path | -2.95% | -2.23% | -4.91% | -2.70% | -1.58% |
+|  | Distribution residual | -0.08% | -0.25% | +2.46% | +0.79% | -1.62% |
+| Author p01--p99 | Precipitation | -2.94% | -1.58% | -2.90% | -1.18% | -2.48% |
+|  | Quantity path | -2.95% | -2.09% | -5.85% | -1.84% | -0.67% |
+|  | Distribution residual | +0.02% | +0.52% | +3.13% | +0.66% | -1.83% |
+
+Every net precipitation estimate and all 15 quantity-path estimates are
+negative. Quantity spans -0.67% to -5.85% across model/support combinations.
+The distribution residual changes sign across ESMs and support. Its simple
+five-model full-support mean is -0.02%, compared with -2.56% for net
+precipitation and -2.54% for the quantity path.
+
+The evidence-led conclusion is therefore clear but bounded: quantity is the
+replicated precipitation signal in this transport; timing/distribution is
+material in individual ESMs but not sign-stable or robust in the named-model
+mean. This does not show biological irrelevance. The quantity/distribution
+split is reference-path dependent and is not a causal attribution.
+
+The much larger joint-climate responses are temperature-driven and exposed to
+late-century KDD extrapolation. They are not headline-ready damages. The
+equal-model means are descriptive, not probability weights or uncertainty
+intervals. Standard errors propagate only the published coefficient
+covariance.
+
+Fixed, trend, and upper adaptation scenarios remain in every model record.
+Other crops, production/value weights, agricultural welfare mapping, improved
+moderators, and matched GIVE marginal-pulse evaluation remain required before
+monetary damage or SCC claims.
+
+Machine-readable results are under `data/provenance/`, including
+`hultgren_five_esm_grid_yield_transport_summary_20260924.json`.

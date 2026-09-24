@@ -1,0 +1,59 @@
+{
+  "checks": {
+    "adaptation_scaling": true,
+    "annual_to_pooled_weighting": true,
+    "joint_precipitation_temperature_additivity": true,
+    "log_to_percent_transformation": true,
+    "precipitation_quantity_distribution_additivity": true
+  },
+  "claim_gates": {
+    "causal_damage_or_scc_validated": false,
+    "summary_arithmetic_validated": true
+  },
+  "created_at_utc": "2026-09-24T16:21:29.151607+00:00",
+  "implementation": {
+    "path": "scripts/validate_hultgren_grid_yield_transport.py",
+    "sha256": "4abfdad53dc4baf587410bc4c02f27bcef97cb5ea5d749107ad1a2844108e26e"
+  },
+  "inputs": [
+    {
+      "adaptation_scenarios": [
+        "fixed",
+        "trend",
+        "upper"
+      ],
+      "analysis_area_fraction_of_total": 0.9894680729401412,
+      "moderator_support_selection": "full",
+      "path": "data/provenance/hultgren_ukesm_grid_yield_transport_20260924.json",
+      "sha256": "25c11eb7c2081d3f6a0f7d697236cfd54c87dc909720a7fc1e853e7be3990da3",
+      "years": 9
+    },
+    {
+      "adaptation_scenarios": [
+        "fixed",
+        "trend",
+        "upper"
+      ],
+      "analysis_area_fraction_of_total": 0.7217386488151313,
+      "moderator_support_selection": "author_minmax",
+      "path": "data/provenance/hultgren_ukesm_grid_yield_transport_author_minmax_20260924.json",
+      "sha256": "898694eca6bda4561ca93625afa668a0e95059be40fbd5317ec9ca8facd3544f",
+      "years": 9
+    },
+    {
+      "adaptation_scenarios": [
+        "fixed",
+        "trend",
+        "upper"
+      ],
+      "analysis_area_fraction_of_total": 0.48155531103747096,
+      "moderator_support_selection": "author_p01_p99",
+      "path": "data/provenance/hultgren_ukesm_grid_yield_transport_author_p01_p99_20260924.json",
+      "sha256": "4002dc7256735fd77d442f7afb50f26c207b1fa15c9b6fa4e5515f5818c5eb8e",
+      "years": 9
+    }
+  ],
+  "interpretation": "validates stored aggregation and decomposition arithmetic, not causal identification, transport assumptions, monetization, or SCC",
+  "schema": "hultgren_grid_yield_transport_validation/v1",
+  "status": "independent_summary_arithmetic_validation_passed"
+}
