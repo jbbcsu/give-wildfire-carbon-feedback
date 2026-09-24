@@ -1,0 +1,20 @@
+{
+  "claim_boundary": "status-ledger integrity only; no calibration selection, welfare, damage, or SCC gate is opened",
+  "created_at_utc": "2026-09-24T23:34:23.193182+00:00",
+  "schema": "fao_fishstat_marine_status_ledger_validation/v1",
+  "scope": "independent reconstruction from the exact marine Q_tlw subsequence of the full reconciled export",
+  "source": {
+    "full_export": "data/derived/fao/fishstat_capture_wide_1950_2024.csv",
+    "full_export_sha256": "ca58247c4f6044948b01048e4a808d21a4975c9f4171e3d0d1fbc321e46ebb52",
+    "ledger_receipt": "data/provenance/fao_fishstat_marine_status_ledger_20260924.json",
+    "ledger_receipt_sha256": "854294d81139f646ab4412524da72b4fe80bd5e7919023958f723a30211194df"
+  },
+  "status": "pass",
+  "validation": {
+    "cell_counts_exact": true,
+    "ledger_rows_compared": 525,
+    "positive_counts_exact": true,
+    "records_selected": 27625,
+    "tonnage_sums_exact": true
+  }
+}

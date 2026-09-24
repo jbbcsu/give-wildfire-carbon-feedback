@@ -68,6 +68,12 @@ and all 2,071,875 annual value/status pairs for 1950--2024. This closes only the
 marine-tonnage source-panel gate: historical country reconciliation, admissible
 status selection, allocation, climate calibration, welfare, damage, and SCC
 remain open.
+An independently reconstructed annual status ledger shows why status selection
+must remain explicit: code `I` contributes 11.45% of positive 2014 tonnage and
+12.06% in 2024, while code `E` contributes 4.52% in 2024. Codes `N`, `O`, and
+`Q` contain zero positive cells but remain distinct source states. The ledger
+does not choose an admissible calibration family or convert these states into
+observed zeros.
 A separate positive-tonnage concentration audit finds that top-five
 vessel-flag-country and reported-species shares fall from 51.34% and 37.71% in
 1950 to 41.07% and 24.23% in 2014, while the top-five FAO-area share remains

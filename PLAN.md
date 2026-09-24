@@ -62,6 +62,12 @@ value/status pairs preserved and an independent row-by-row validator.
 Country/area crosswalks, admissible status selection, effort/management
 identification, and causal FishMIP calibration remain pending; no missing value
 is treated as zero.
+The next source subgate is also complete: a 525-row annual-by-status ledger is
+reconstructed exactly from the full reconciled export. Estimated/imputed source
+statuses are quantitatively material in recent totals, so calibration must
+pre-register status inclusion rather than silently pool all positive tonnage.
+The ledger describes this sensitivity but intentionally leaves that selection
+gate closed.
 A post-export concentration audit finds material compositional change over the
 FishMIP historical overlap: top-five vessel-flag-country and species shares
 decline from 51.34%/37.71% in 1950 to 41.07%/24.23% in 2014, while the
