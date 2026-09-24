@@ -97,6 +97,14 @@ def load_support(calendar_path: Path, area_path: Path) -> tuple[pd.DataFrame, di
             str(value): int(np.count_nonzero(month_count[eligible] == value))
             for value in sorted(set(month_count[eligible]))
         },
+        "all_support_season_month_count_distribution": {
+            str(value): int(np.count_nonzero(month_count == value))
+            for value in sorted(set(month_count))
+        },
+        "all_support_area_ha_by_season_month_count": {
+            str(value): float(area[rows[month_count == value], cols[month_count == value]].sum())
+            for value in sorted(set(month_count))
+        },
     }
     require(len(frame) > 0 and audit["eligible_area_fraction"] > 0.95, "insufficient eligible crop support")
     return frame, audit
