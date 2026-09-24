@@ -1,0 +1,48 @@
+{
+  "aggregation": "sum 5-arcminute MapSPAM production points within native 0.5-degree ISIMIP/GGCMI cells",
+  "audit": {
+    "eligible_hultgren_maize_production_fraction": 0.983467884563478,
+    "eligible_hultgren_maize_production_mt": 626618915.4,
+    "income_matched_hultgren_maize_production_fraction": 0.9803214303961122,
+    "income_matched_hultgren_maize_production_mt": 624614144.6,
+    "positive_halfdegree_cells": 27342,
+    "positive_maize_rows": 564691,
+    "source_maize_irrigated_mt": 147094723.49999288,
+    "source_maize_rainfed_high_mt": 400375834.30000377,
+    "source_maize_rainfed_low_mt": 61552945.80000454,
+    "source_maize_rainfed_subsistence_mt": 28128680.300001044,
+    "source_maize_total_mt": 637152392.3001624,
+    "source_rows": 601130,
+    "system_component_minus_total_mt": -208.4001601934433,
+    "system_component_relative_difference": -3.270805582964303e-07,
+    "system_component_sum_mt": 637152183.9000022
+  },
+  "claim_gates": {
+    "damage_or_scc": false,
+    "production_weight_basis": true,
+    "value_weight": false,
+    "welfare": false
+  },
+  "created_at_utc": "2026-09-24T16:32:49.205497+00:00",
+  "implementation": {
+    "path": "scripts/build_mapspam_halfdegree_maize_weights.py",
+    "sha256": "f628234d736f4ad92444781dd6f7584d3cd0fb6b65e0bae6069cac1a7e4a82fc"
+  },
+  "moderators": {
+    "path": "data/interim/hultgren_cell_moderators_20260924.parquet",
+    "sha256": "7657a5617a0c8d0af0036329dc34dd0062e2e0457aa28d2551c38e5408c85d29"
+  },
+  "output": {
+    "bytes": 1197431,
+    "path": "data/interim/hultgren_mapspam_maize_halfdegree_20260924.csv",
+    "sha256": "b711bfd1173262ffac599a28247f8ed1fc1b816e57a621ad2ff210dbbfc1dfc5"
+  },
+  "schema": "mapspam_halfdegree_maize_production_weights/v1",
+  "source": {
+    "bytes": 72248599,
+    "doi": "10.7910/DVN/A50I2T",
+    "path": "data/interim/welfare_weights/mapspam2000_maize_soy_production.csv",
+    "sha256": "ff3fa3a1af6e255d4e35c6cd5ca1bc53af9114c34cf00f0aa39707be43735e0c"
+  },
+  "status": "production_weight_basis_complete_not_value_welfare_damage_or_scc"
+}

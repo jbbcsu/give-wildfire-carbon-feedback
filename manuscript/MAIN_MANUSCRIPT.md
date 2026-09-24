@@ -100,6 +100,24 @@ income and historical-climate moderators and is neither a new causal estimate
 nor a monetary damage or SCC result. Its simple model mean is descriptive, not
 a probability-weighted ensemble estimate.
 
+A fixed-2000 MapSPAM maize-production sensitivity changes the spatial
+aggregation but not the qualitative conclusion. It covers 98.35% of source
+production on eligible cells and 98.03% after income matching. Production-
+weighted net precipitation responses are -3.77%, -3.07%, -1.87%, -0.55%, and
+-0.38% across the five ESMs. Their descriptive equal-model mean is -1.94%,
+decomposed into -1.50% for quantity and -0.44% for the reference-path-dependent
+distribution residual. Quantity remains negative in all five models; the
+distribution residual is negative in four. MapSPAM is a modeled physical
+production allocation, not a value or welfare weight, so this sensitivity does
+not monetize damages or identify an SCC.
+
+![Five-ESM production-weighted precipitation-response decomposition](figures/hultgren_five_esm_production_weighted_decomposition_20260924.svg)
+
+**Figure 3b. Fixed-production-weight sensitivity.** Published maize response
+to SSP5-8.5 minus SSP1-2.6 weather in 2092--2100. MapSPAM physical production
+replaces harvested hectares only at the final spatial aggregation step. Bars
+are scenario-response transports, not monetary damages or SCC.
+
 Exact samples, contrasts, uncertainty and remaining claim restrictions are in
 the linked results records and `RESULTS_STATUS.md`. Historical associations,
 future exposure differences and crop-model benchmarks are separate estimands.

@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Transport the published maize response to validated GFDL grid contrasts.
+"""Transport the published maize response to validated grid contrasts.
 
-The estimand is an area-weighted log-yield contrast between SSP585 and SSP126
-for 2092--2100. This is a published-coefficient transport benchmark, not a new
-causal estimate, monetary damage estimate, or SCC result.
+The estimand is a user-selected fixed-weight log-yield contrast between SSP585
+and SSP126 for 2092--2100. This is a published-coefficient transport benchmark,
+not a new causal estimate, monetary damage estimate, or SCC result.
 """
 
 from __future__ import annotations
@@ -118,7 +118,7 @@ class ContrastAccumulator:
         self.minimum_cell_log = min(self.minimum_cell_log, float(cell_log.min()))
         self.maximum_cell_log = max(self.maximum_cell_log, float(cell_log.max()))
 
-    def summary(self, estimate: PublishedEstimate) -> dict[str, float | int]:
+    def summary(self, estimate: PublishedEstimate, weight_unit: str = "ha") -> dict[str, float | int | str]:
         require(self.weight > 0, "empty accumulator")
         mean_design = self.weighted_design / self.weight
         mean_log = self.weighted_log / self.weight
@@ -127,12 +127,13 @@ class ContrastAccumulator:
         variance = float(np.sum(np.multiply.outer(mean_design, mean_design) * estimate.covariance, dtype=np.float64))
         require(variance >= -1e-10, f"negative contrast variance {variance}")
         standard_error = math.sqrt(max(variance, 0.0))
-        return {
-            "area_or_area_year_weight_ha": self.weight,
+        result: dict[str, float | int | str | list[float]] = {
+            "weight_sum": self.weight,
+            "weight_unit": weight_unit,
             "cell_or_cell_year_rows": self.rows,
-            "area_weighted_mean_delta_log_yield": mean_log,
+            "weighted_mean_delta_log_yield": mean_log,
             "percent_change_from_mean_log": 100.0 * math.expm1(mean_log),
-            "area_weighted_mean_cell_exact_percent_change": self.weighted_exact_percent / self.weight,
+            "weighted_mean_cell_exact_percent_change": self.weighted_exact_percent / self.weight,
             "coefficient_only_standard_error_log_points": standard_error,
             "coefficient_only_normal_95ci_log_points": [mean_log - 1.96 * standard_error, mean_log + 1.96 * standard_error],
             "coefficient_only_normal_95ci_percent_from_mean_log": [
@@ -142,6 +143,13 @@ class ContrastAccumulator:
             "minimum_cell_delta_log_yield": self.minimum_cell_log,
             "maximum_cell_delta_log_yield": self.maximum_cell_log,
         }
+        if weight_unit == "ha":
+            result.update({
+                "area_or_area_year_weight_ha": self.weight,
+                "area_weighted_mean_delta_log_yield": mean_log,
+                "area_weighted_mean_cell_exact_percent_change": self.weighted_exact_percent / self.weight,
+            })
+        return result
 
 
 def weather_year(path: Path, year: int) -> pd.DataFrame:
@@ -201,15 +209,21 @@ def update_support_audit(
         record["inside_p01_p99_weight"] += float(weights[(values >= bounds["p01"]) & (values <= bounds["p99"])].sum())
 
 
-def finalize_support_audit(audit: dict) -> dict:
+def finalize_support_audit(audit: dict, weight_unit: str) -> dict:
     result = {}
     for label, columns in audit.items():
         result[label] = {}
         for column, record in columns.items():
-            result[label][column] = {
-                "area_year_fraction_inside_author_minmax": record["inside_minmax_weight"] / record["weight"],
-                "area_year_fraction_inside_author_p01_p99": record["inside_p01_p99_weight"] / record["weight"],
+            values = {
+                "weighted_fraction_inside_author_minmax": record["inside_minmax_weight"] / record["weight"],
+                "weighted_fraction_inside_author_p01_p99": record["inside_p01_p99_weight"] / record["weight"],
             }
+            if weight_unit == "ha":
+                values.update({
+                    "area_year_fraction_inside_author_minmax": values["weighted_fraction_inside_author_minmax"],
+                    "area_year_fraction_inside_author_p01_p99": values["weighted_fraction_inside_author_p01_p99"],
+                })
+            result[label][column] = values
     return result
 
 
@@ -254,6 +268,11 @@ def main() -> None:
     parser.add_argument("--reference-label", default="SSP1-2.6")
     parser.add_argument("--comparison-label", default="SSP5-8.5")
     parser.add_argument("--moderator-support", choices=("full", "author_minmax", "author_p01_p99"), default="full")
+    parser.add_argument("--analysis-weights", type=Path)
+    parser.add_argument("--analysis-weight-column")
+    parser.add_argument("--analysis-weight-receipt", type=Path)
+    parser.add_argument("--analysis-weight-label", default="fixed MIRCA harvested area")
+    parser.add_argument("--analysis-weight-unit", default="ha")
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     require(not args.output.exists(), "fresh output required")
@@ -266,8 +285,33 @@ def main() -> None:
     moderators = pd.read_parquet(args.moderators)
     require(len(moderators) == len(moderators.drop_duplicates(KEYS)), "duplicate moderator cell")
     total_area = float(moderators.mirca_area_ha.sum())
+    external_weight_arguments = [args.analysis_weights, args.analysis_weight_column, args.analysis_weight_receipt]
+    require(all(value is None for value in external_weight_arguments) or all(value is not None for value in external_weight_arguments),
+            "analysis weight file, column, and receipt must be supplied together")
+    weight_source = None
+    if args.analysis_weights is None:
+        moderators["analysis_weight"] = moderators.mirca_area_ha
+    else:
+        receipt = json.loads(args.analysis_weight_receipt.read_text(encoding="utf-8"))
+        require(receipt["status"] == "production_weight_basis_complete_not_value_welfare_damage_or_scc", "analysis weight receipt failed")
+        require(digest(args.analysis_weights) == receipt["output"]["sha256"], "analysis weight hash differs")
+        weights_frame = pd.read_csv(args.analysis_weights, usecols=[*KEYS, args.analysis_weight_column])
+        require(len(weights_frame) == len(weights_frame.drop_duplicates(KEYS)), "duplicate analysis-weight cell")
+        require(np.isfinite(weights_frame[args.analysis_weight_column]).all() and weights_frame[args.analysis_weight_column].ge(0).all(),
+                "invalid analysis weights")
+        weights_frame = weights_frame.rename(columns={args.analysis_weight_column: "analysis_weight"})
+        moderators = moderators.merge(weights_frame, on=KEYS, how="left", validate="one_to_one")
+        moderators["analysis_weight"] = moderators.analysis_weight.fillna(0.0)
+        weight_source = {
+            "path": str(args.analysis_weights), "sha256": digest(args.analysis_weights),
+            "column": args.analysis_weight_column, "receipt": str(args.analysis_weight_receipt),
+            "receipt_sha256": digest(args.analysis_weight_receipt),
+        }
+    total_analysis_weight = float(moderators.analysis_weight.sum())
+    require(total_analysis_weight > 0.0, "analysis weights are empty on eligible cells")
     moderators = moderators.loc[moderators.income_available].copy()
     income_matched_area = float(moderators.mirca_area_ha.sum())
+    income_matched_weight = float(moderators.analysis_weight.sum())
 
     estimate = PublishedEstimate.from_exports(args.coefficients, args.covariance)
     author_record = json.loads(args.author_support.read_text(encoding="utf-8"))
@@ -283,7 +327,9 @@ def main() -> None:
             ).to_numpy()
         moderators = moderators.loc[selected].copy()
     analysis_area = float(moderators.mirca_area_ha.sum())
+    analysis_weight = float(moderators.analysis_weight.sum())
     require(analysis_area > 0, "moderator support selection is empty")
+    require(analysis_weight > 0, "analysis weight is empty after moderator support selection")
     years_by_source = []
     for path in weather_paths:
         years_by_source.append(sorted(pq.read_table(path, columns=["harvest_year"]).column(0).unique().to_pylist()))
@@ -312,8 +358,12 @@ def main() -> None:
         reference = reference.drop(columns=["mirca_area_ha_moderator"])
         for column in MODERATORS:
             comparison[column] = reference[column].to_numpy()
-        weights = reference.mirca_area_ha.to_numpy(dtype=np.float64)
-        require(abs(float(weights.sum()) - analysis_area) <= 1e-5 * analysis_area, "analysis area differs by year")
+        weights = reference.analysis_weight.to_numpy(dtype=np.float64)
+        positive_weight = weights > 0.0
+        reference = reference.loc[positive_weight].reset_index(drop=True)
+        comparison = comparison.loc[positive_weight].reset_index(drop=True)
+        weights = weights[positive_weight]
+        require(abs(float(weights.sum()) - analysis_weight) <= 1e-8 * analysis_weight, "analysis weight differs by year")
 
         precipitation_comparison = reference.copy()
         precipitation_comparison[PRECIP_LINEAR + PRECIP_SQUARED] = comparison[PRECIP_LINEAR + PRECIP_SQUARED]
@@ -353,8 +403,10 @@ def main() -> None:
         update_support_audit(support_audit, "ssp585_weather", comparison, weights, author_support, WEATHER)
         year_record = {
             "harvest_year": year,
-            "analysis_area_ha": float(weights.sum()),
-            "common_positive_precipitation_area_fraction_of_analysis": float(common_weights.sum() / weights.sum()),
+            "analysis_area_ha": float(reference.mirca_area_ha.sum()),
+            "analysis_weight_sum": float(weights.sum()),
+            "analysis_weight_unit": args.analysis_weight_unit,
+            "common_positive_precipitation_weight_fraction_of_analysis": float(common_weights.sum() / weights.sum()),
             "adaptation": {},
         }
         for scenario in ADAPTATION:
@@ -369,22 +421,22 @@ def main() -> None:
                 current = ContrastAccumulator(len(estimate.terms))
                 current.update(delta, component_weights, estimate, factor)
                 pooled[scenario][component].update(delta, component_weights, estimate, factor)
-                year_record["adaptation"][scenario]["components"][component] = current.summary(estimate)
+                year_record["adaptation"][scenario]["components"][component] = current.summary(estimate, args.analysis_weight_unit)
         annual.append(year_record)
 
     for label, audit in decomposition_audit.items():
         require(audit["maximum_relative_design_error"] <= 1e-12, f"{label} relative design decomposition failed")
         require(audit["maximum_absolute_log_response_error"] <= 1e-10, f"{label} response decomposition failed")
     pooled_results = {
-        scenario: {component: accumulator.summary(estimate) for component, accumulator in components.items()}
+        scenario: {component: accumulator.summary(estimate, args.analysis_weight_unit) for component, accumulator in components.items()}
         for scenario, components in pooled.items()
     }
-    finalized_support = finalize_support_audit(support_audit)
+    finalized_support = finalize_support_audit(support_audit, args.analysis_weight_unit)
     result = {
-        "schema": "hultgren_grid_yield_scenario_transport/v1",
+        "schema": "hultgren_grid_yield_scenario_transport/v2",
         "created_at_utc": datetime.now(timezone.utc).isoformat(),
         "status": "preliminary_published_coefficient_transport_not_causal_damage_or_scc",
-        "estimand": f"fixed-MIRCA-area {args.comparison_label} minus {args.reference_label} maize log-yield response, {args.climate_model}, 2092-2100",
+        "estimand": f"{args.analysis_weight_label}-weighted {args.comparison_label} minus {args.reference_label} maize log-yield response, {args.climate_model}, 2092-2100",
         "climate_contrast": {
             "climate_model": args.climate_model,
             "reference": args.reference_label,
@@ -401,6 +453,7 @@ def main() -> None:
             },
             "coefficients": {"path": str(args.coefficients), "sha256": digest(args.coefficients)},
             "covariance": {"path": str(args.covariance), "sha256": digest(args.covariance)},
+            "analysis_weights": weight_source,
         },
         "support": {
             "total_eligible_mirca_area_ha": total_area,
@@ -410,6 +463,14 @@ def main() -> None:
             "analysis_area_ha": analysis_area,
             "analysis_area_fraction_of_total": analysis_area / total_area,
             "analysis_area_fraction_of_income_matched": analysis_area / income_matched_area,
+            "analysis_weight_label": args.analysis_weight_label,
+            "analysis_weight_unit": args.analysis_weight_unit,
+            "total_analysis_weight_on_eligible_cells": total_analysis_weight,
+            "income_matched_analysis_weight": income_matched_weight,
+            "income_matched_analysis_weight_fraction": income_matched_weight / total_analysis_weight,
+            "analysis_weight": analysis_weight,
+            "analysis_weight_fraction_of_eligible": analysis_weight / total_analysis_weight,
+            "analysis_weight_fraction_of_income_matched": analysis_weight / income_matched_weight,
             "author_sample_quantiles": author_support,
             "transport_overlap": finalized_support,
         },
@@ -422,7 +483,7 @@ def main() -> None:
             for name, specification in ADAPTATION.items()
         },
         "annual": annual,
-        "pooled_area_year_weighted": pooled_results,
+        "pooled_weighted": pooled_results,
         "decomposition": {
             "numerical_audit": decomposition_audit,
             "quantity_path": "uniformly scale every SSP126 monthly precipitation amount so season total equals SSP585; phase linear terms scale by ratio and monthly-square sums by ratio squared",
@@ -441,14 +502,22 @@ def main() -> None:
             "new_causal_yield_estimate": False,
             "monetary_damage": False,
             "scc": False,
+            "production_weighted_sensitivity": args.analysis_weights is not None,
+            "value_or_welfare_weighted": False,
         },
         "implementation": {"path": str(Path(__file__).resolve().relative_to(ROOT)), "sha256": digest(Path(__file__).resolve())},
     }
+    if args.analysis_weight_unit == "ha":
+        result["pooled_area_year_weighted"] = pooled_results
+        for row in result["annual"]:
+            row["common_positive_precipitation_area_fraction_of_analysis"] = row[
+                "common_positive_precipitation_weight_fraction_of_analysis"
+            ]
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(json.dumps({
         "status": result["status"], "support_selection": args.moderator_support,
-        "analysis_area_fraction_of_total": result["support"]["analysis_area_fraction_of_total"],
+        "analysis_weight_fraction_of_eligible": result["support"]["analysis_weight_fraction_of_eligible"],
         "fixed_pooled": pooled_results["fixed"], "decomposition": result["decomposition"],
     }, indent=2))
 

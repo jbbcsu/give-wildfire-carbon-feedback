@@ -17,6 +17,13 @@ class NamedModelSummaryTests(unittest.TestCase):
         self.assertEqual(result["models_negative"], 1)
         self.assertEqual(result["models_positive"], 1)
 
+    def test_generic_weight_field(self) -> None:
+        result = summarize([
+            {"climate_model": "A", "weighted_mean_delta_log_yield": -0.1, "coefficient_only_standard_error_log_points": 0.1},
+            {"climate_model": "B", "weighted_mean_delta_log_yield": -0.3, "coefficient_only_standard_error_log_points": 0.2},
+        ])
+        self.assertAlmostEqual(result["equal_model_mean_delta_log_yield"], -0.2)
+
 
 if __name__ == "__main__":
     unittest.main()

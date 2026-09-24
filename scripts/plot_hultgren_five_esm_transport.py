@@ -37,6 +37,7 @@ def main() -> None:
     require(record["status"] == "named_model_transport_summary_not_probability_damage_or_scc", "input status failed")
     require(len(record["climate_models"]) == 5, "five named ESMs required")
     full = record["support_sensitivities"]["full"]["fixed"]
+    weighting = record.get("analysis_weighting", {"label": "fixed MIRCA harvested area", "unit": "ha"})
     models = record["climate_models"]
     require(set(models) == set(MODEL_LABELS), "model set differs")
 
@@ -57,7 +58,7 @@ def main() -> None:
         '<rect width="100%" height="100%" fill="white"/>',
         '<style>text{font-family:Arial,Helvetica,sans-serif;fill:#222}.small{font-size:12px}.tick{font-size:13px}.title{font-size:18px;font-weight:600}</style>',
         f'<text x="{width/2}" y="28" text-anchor="middle" class="title">Published maize response to SSP5-8.5 minus SSP1-2.6 weather, 2092–2100</text>',
-        f'<text x="{width/2}" y="49" text-anchor="middle" class="small" fill="#555">Fixed practice; coefficient transport, not damage or SCC</text>',
+        f'<text x="{width/2}" y="49" text-anchor="middle" class="small" fill="#555">{html.escape(weighting["label"])}; coefficient transport, not damage or SCC</text>',
     ]
     for tick in range(-6, 3, 2):
         yy = y(float(tick))
@@ -74,7 +75,8 @@ def main() -> None:
             yy = y(value)
             rect_y, rect_height = min(yy, zero_y), abs(yy - zero_y)
             svg.append(f'<rect x="{x:.2f}" y="{rect_y:.2f}" width="{bar_width}" height="{rect_height:.2f}" fill="{color}"/>')
-    svg.append(f'<text transform="translate(20 {top + plot_height/2}) rotate(-90)" text-anchor="middle" class="tick">Area-weighted mean yield change (%)</text>')
+    axis_label = "Production-weighted mean yield change (%)" if weighting["unit"] == "mt" else "Area-weighted mean yield change (%)"
+    svg.append(f'<text transform="translate(20 {top + plot_height/2}) rotate(-90)" text-anchor="middle" class="tick">{axis_label}</text>')
     legend_y = height - 25
     for index, ((_, label), color) in enumerate(zip(COMPONENTS, colors, strict=True)):
         x = 180 + index * 235

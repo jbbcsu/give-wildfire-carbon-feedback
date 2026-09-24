@@ -1602,6 +1602,40 @@ Results are in `HULTGREN_FIVE_ESM_LATE_YIELD_TRANSPORT_RESULTS_20260924.md`,
 the model-specific JSON receipts, and
 `data/provenance/hultgren_five_esm_grid_yield_transport_summary_20260924.json`.
 
+### Fixed physical-production weighting sensitivity
+
+The primary transport above weights cells by fixed MIRCA-OS harvested hectares.
+An external aggregation sensitivity streams the resident MapSPAM 2000 maize
+production extract and sums its 5-arcminute points into the exact native
+half-degree keys. It retains MapSPAM's reported total maize production rather
+than reconstructing or renormalizing that total from farming-system columns.
+The four rounded system columns sum to 208.4 metric tons less than the reported
+637,152,392.3 metric tons, a relative residual of `-3.27e-7`; the discrepancy
+is recorded in the receipt. The resulting 27,342 positive half-degree cells
+cover 98.347% of source maize production on Hultgren-eligible cells and 98.032%
+after the income-moderator match. Of eligible-cell production, 99.680% enters
+the full-support response calculation.
+
+Within each cell, rainfed and irrigated weather primitives are still combined
+using fixed MIRCA hectares before nonlinear response terms are evaluated. The
+alternative MapSPAM metric-ton total then replaces hectares only for spatial
+aggregation of cell log-yield responses. The same weight is used in both
+scenarios and every year. This is a fixed physical-production sensitivity,
+not a national price, crop-value, consumption, trade, producer-surplus, or
+welfare weight. It cannot by itself produce monetary damages or SCC.
+
+The five full-support production-weighted net precipitation responses are
+-3.77%, -3.07%, -1.87%, -0.55%, and -0.38% for GFDL, IPSL, MPI, MRI, and
+UKESM. The descriptive equal-model mean log response corresponds to -1.94%; the
+quantity path is -1.50% and the distribution residual -0.44%. Quantity is
+negative in all five models and distribution in four. A separate validator
+recomputes annual-to-pooled weighting, log-to-percent transformations,
+adaptation monotonicity, and fixed-scenario component identities for all five
+records. Exact inputs and checks are in
+`data/provenance/hultgren_mapspam_maize_halfdegree_20260924.json`,
+`data/provenance/hultgren_five_esm_production_weighted_validation_20260924.json`,
+and `data/provenance/hultgren_five_esm_production_weighted_summary_20260924.json`.
+
 We additionally reproduced the authors' Iroquois County, USA local-temperature
 response checkpoint. Their pinned plotting code selects 59 observations and
 evaluates the maize estimate at local means of long-run growing-season Tmax,

@@ -38,55 +38,70 @@ def close(left: float, right: float, tolerance: float = 1e-10) -> None:
 def validate(path: Path) -> dict:
     result = json.loads(path.read_text(encoding="utf-8"))
     require(result["status"] == "preliminary_published_coefficient_transport_not_causal_damage_or_scc", "status differs")
+    pooled_key = "pooled_weighted" if "pooled_weighted" in result else "pooled_area_year_weighted"
+    pooled_result = result[pooled_key]
+
+    def fields(summary: dict) -> tuple[str, str, str]:
+        if "weighted_mean_delta_log_yield" in summary:
+            return "weight_sum", "weighted_mean_delta_log_yield", "weighted_mean_cell_exact_percent_change"
+        return "area_or_area_year_weight_ha", "area_weighted_mean_delta_log_yield", "area_weighted_mean_cell_exact_percent_change"
+
     annual = result["annual"]
     require([row["harvest_year"] for row in annual] == list(range(2092, 2101)), "year support differs")
     for row in annual:
         fixed = row["adaptation"]["fixed"]["components"]
-        close(fixed["joint_climate"]["area_weighted_mean_delta_log_yield"],
-              fixed["precipitation_all_income_support"]["area_weighted_mean_delta_log_yield"]
-              + fixed["temperature_all_income_support"]["area_weighted_mean_delta_log_yield"])
-        close(fixed["precipitation_common_positive_support"]["area_weighted_mean_delta_log_yield"],
-              fixed["precipitation_quantity_reference_scaling"]["area_weighted_mean_delta_log_yield"]
-              + fixed["precipitation_distribution_residual"]["area_weighted_mean_delta_log_yield"])
+        _, mean_key, _ = fields(fixed["joint_climate"])
+        close(fixed["joint_climate"][mean_key],
+              fixed["precipitation_all_income_support"][mean_key]
+              + fixed["temperature_all_income_support"][mean_key])
+        close(fixed["precipitation_common_positive_support"][mean_key],
+              fixed["precipitation_quantity_reference_scaling"][mean_key]
+              + fixed["precipitation_distribution_residual"][mean_key])
         for scenario, scenario_record in row["adaptation"].items():
             require(0.0 < scenario_record["loss_remaining_effect_factor"] <= 1.0, "invalid loss factor")
             for component in COMPONENTS:
                 summary = scenario_record["components"][component]
+                _, mean_key, _ = fields(summary)
                 close(summary["percent_change_from_mean_log"],
-                      100.0 * math.expm1(summary["area_weighted_mean_delta_log_yield"]))
+                      100.0 * math.expm1(summary[mean_key]))
         for component in COMPONENTS:
-            fixed_log = row["adaptation"]["fixed"]["components"][component]["area_weighted_mean_delta_log_yield"]
-            trend_log = row["adaptation"]["trend"]["components"][component]["area_weighted_mean_delta_log_yield"]
-            upper_log = row["adaptation"]["upper"]["components"][component]["area_weighted_mean_delta_log_yield"]
+            _, mean_key, _ = fields(row["adaptation"]["fixed"]["components"][component])
+            fixed_log = row["adaptation"]["fixed"]["components"][component][mean_key]
+            trend_log = row["adaptation"]["trend"]["components"][component][mean_key]
+            upper_log = row["adaptation"]["upper"]["components"][component][mean_key]
             require(fixed_log <= trend_log + 1e-12 <= upper_log + 2e-12, "loss-only adaptation is not monotone")
 
-    for scenario, pooled in result["pooled_area_year_weighted"].items():
+    for scenario, pooled in pooled_result.items():
         for component in COMPONENTS:
             summaries = [row["adaptation"][scenario]["components"][component] for row in annual]
-            total_weight = sum(item["area_or_area_year_weight_ha"] for item in summaries)
-            expected_log = sum(item["area_or_area_year_weight_ha"] * item["area_weighted_mean_delta_log_yield"] for item in summaries) / total_weight
-            expected_exact = sum(item["area_or_area_year_weight_ha"] * item["area_weighted_mean_cell_exact_percent_change"] for item in summaries) / total_weight
-            close(pooled[component]["area_or_area_year_weight_ha"], total_weight)
-            close(pooled[component]["area_weighted_mean_delta_log_yield"], expected_log)
-            close(pooled[component]["area_weighted_mean_cell_exact_percent_change"], expected_exact)
+            weight_key, mean_key, exact_key = fields(summaries[0])
+            total_weight = sum(item[weight_key] for item in summaries)
+            expected_log = sum(item[weight_key] * item[mean_key] for item in summaries) / total_weight
+            expected_exact = sum(item[weight_key] * item[exact_key] for item in summaries) / total_weight
+            close(pooled[component][weight_key], total_weight)
+            close(pooled[component][mean_key], expected_log)
+            close(pooled[component][exact_key], expected_exact)
             close(pooled[component]["percent_change_from_mean_log"], 100.0 * math.expm1(expected_log))
         if scenario == "fixed":
-            close(pooled["joint_climate"]["area_weighted_mean_delta_log_yield"],
-                  pooled["precipitation_all_income_support"]["area_weighted_mean_delta_log_yield"]
-                  + pooled["temperature_all_income_support"]["area_weighted_mean_delta_log_yield"])
-            close(pooled["precipitation_common_positive_support"]["area_weighted_mean_delta_log_yield"],
-                  pooled["precipitation_quantity_reference_scaling"]["area_weighted_mean_delta_log_yield"]
-                  + pooled["precipitation_distribution_residual"]["area_weighted_mean_delta_log_yield"])
+            _, mean_key, _ = fields(pooled["joint_climate"])
+            close(pooled["joint_climate"][mean_key],
+                  pooled["precipitation_all_income_support"][mean_key]
+                  + pooled["temperature_all_income_support"][mean_key])
+            close(pooled["precipitation_common_positive_support"][mean_key],
+                  pooled["precipitation_quantity_reference_scaling"][mean_key]
+                  + pooled["precipitation_distribution_residual"][mean_key])
     for component in COMPONENTS:
-        fixed_log = result["pooled_area_year_weighted"]["fixed"][component]["area_weighted_mean_delta_log_yield"]
-        trend_log = result["pooled_area_year_weighted"]["trend"][component]["area_weighted_mean_delta_log_yield"]
-        upper_log = result["pooled_area_year_weighted"]["upper"][component]["area_weighted_mean_delta_log_yield"]
+        _, mean_key, _ = fields(pooled_result["fixed"][component])
+        fixed_log = pooled_result["fixed"][component][mean_key]
+        trend_log = pooled_result["trend"][component][mean_key]
+        upper_log = pooled_result["upper"][component][mean_key]
         require(fixed_log <= trend_log + 1e-12 <= upper_log + 2e-12, "pooled loss-only adaptation is not monotone")
     return {
         "path": str(path), "sha256": digest(path),
         "moderator_support_selection": result["support"]["moderator_support_selection"],
-        "analysis_area_fraction_of_total": result["support"]["analysis_area_fraction_of_total"],
-        "years": len(annual), "adaptation_scenarios": sorted(result["pooled_area_year_weighted"]),
+        "analysis_weight_label": result["support"].get("analysis_weight_label", "fixed MIRCA harvested area"),
+        "analysis_weight_fraction": result["support"].get("analysis_weight_fraction_of_eligible", result["support"]["analysis_area_fraction_of_total"]),
+        "years": len(annual), "adaptation_scenarios": sorted(pooled_result),
     }
 
 
@@ -97,7 +112,8 @@ def main() -> None:
     args = parser.parse_args()
     require(not args.receipt.exists(), "fresh receipt required")
     records = [validate(path) for path in args.input]
-    require({record["moderator_support_selection"] for record in records} == {"full", "author_minmax", "author_p01_p99"}, "support sensitivity set differs")
+    support_set = {record["moderator_support_selection"] for record in records}
+    require(support_set in ({"full"}, {"full", "author_minmax", "author_p01_p99"}), "support sensitivity set differs")
     result = {
         "schema": "hultgren_grid_yield_transport_validation/v1",
         "created_at_utc": datetime.now(timezone.utc).isoformat(),

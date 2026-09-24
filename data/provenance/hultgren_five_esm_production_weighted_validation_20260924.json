@@ -1,0 +1,88 @@
+{
+  "checks": {
+    "adaptation_scaling": true,
+    "annual_to_pooled_weighting": true,
+    "joint_precipitation_temperature_additivity": true,
+    "log_to_percent_transformation": true,
+    "precipitation_quantity_distribution_additivity": true
+  },
+  "claim_gates": {
+    "causal_damage_or_scc_validated": false,
+    "summary_arithmetic_validated": true
+  },
+  "created_at_utc": "2026-09-24T16:37:07.998066+00:00",
+  "implementation": {
+    "path": "scripts/validate_hultgren_grid_yield_transport.py",
+    "sha256": "dd3d6a7d0736378d6c5986f2d50e8ed7a8087d0a25228018c978f6cbae63d27f"
+  },
+  "inputs": [
+    {
+      "adaptation_scenarios": [
+        "fixed",
+        "trend",
+        "upper"
+      ],
+      "analysis_weight_fraction": 0.9968006538731434,
+      "analysis_weight_label": "fixed MapSPAM 2000 maize production",
+      "moderator_support_selection": "full",
+      "path": "data/provenance/hultgren_gfdl_grid_yield_transport_production_weighted_20260924.json",
+      "sha256": "ff9d56715b45a0493542ac83bf8336f4e2c873ac40ddbb882ad25f0406a2036c",
+      "years": 9
+    },
+    {
+      "adaptation_scenarios": [
+        "fixed",
+        "trend",
+        "upper"
+      ],
+      "analysis_weight_fraction": 0.9968006538731434,
+      "analysis_weight_label": "fixed MapSPAM 2000 maize production",
+      "moderator_support_selection": "full",
+      "path": "data/provenance/hultgren_ipsl_grid_yield_transport_production_weighted_20260924.json",
+      "sha256": "d19dcd9827a8d28ae5effd2ddb34ac3ccae9195587ca515d91064f1f56da0f63",
+      "years": 9
+    },
+    {
+      "adaptation_scenarios": [
+        "fixed",
+        "trend",
+        "upper"
+      ],
+      "analysis_weight_fraction": 0.9968006538731434,
+      "analysis_weight_label": "fixed MapSPAM 2000 maize production",
+      "moderator_support_selection": "full",
+      "path": "data/provenance/hultgren_mpi_grid_yield_transport_production_weighted_20260924.json",
+      "sha256": "0b972931546fbde8d882a20d193baa1fb6197fa44be7b503beb3d2213e79e21a",
+      "years": 9
+    },
+    {
+      "adaptation_scenarios": [
+        "fixed",
+        "trend",
+        "upper"
+      ],
+      "analysis_weight_fraction": 0.9968006538731434,
+      "analysis_weight_label": "fixed MapSPAM 2000 maize production",
+      "moderator_support_selection": "full",
+      "path": "data/provenance/hultgren_mri_grid_yield_transport_production_weighted_20260924.json",
+      "sha256": "fa84dfeb5388617d01c8ceaed2cb4c323b51493d2edd2baad7a5618a9a54b5f6",
+      "years": 9
+    },
+    {
+      "adaptation_scenarios": [
+        "fixed",
+        "trend",
+        "upper"
+      ],
+      "analysis_weight_fraction": 0.9968006538731434,
+      "analysis_weight_label": "fixed MapSPAM 2000 maize production",
+      "moderator_support_selection": "full",
+      "path": "data/provenance/hultgren_ukesm_grid_yield_transport_production_weighted_20260924.json",
+      "sha256": "014189603c2390e899a127af1355b1846411be078815dfc3a4a2b243dd7d3981",
+      "years": 9
+    }
+  ],
+  "interpretation": "validates stored aggregation and decomposition arithmetic, not causal identification, transport assumptions, monetization, or SCC",
+  "schema": "hultgren_grid_yield_transport_validation/v1",
+  "status": "independent_summary_arithmetic_validation_passed"
+}
