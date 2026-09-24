@@ -2676,6 +2676,7 @@ to +11.22 mm, with identical rice pairs. Across 64 templates, every whole-ESM
 or whole-scenario exclusion retains only 40--48, below the locked 51-template
 minimum, so joint dependence and all response, damage, welfare, and SCC gates
 remain closed.
+
 The preregistered MPI SSP5-8.5 cell then passes all six exact checksum and
 decoded-content gates, a 30-row same-realization GMST, the same 12-cell
 raw/centered feature and exact-reconciliation gates, and a byte-identical
@@ -3400,6 +3401,42 @@ not the published welfare model: it remains fully anticipated and omits the
 13-year expectation kernel, 39% storage price shrinkage, calorie aggregation,
 other crops, trade, and the marginal emissions pulse. All damage and SCC gates
 remain closed.
+
+### Baseline-value plausibility gate
+
+After the country-market calculation, a source-field audit compared each
+country's selected FAOSTAT constant-2014--2016-USD value with MapSPAM physical
+production and, where available, the same FAOSTAT record's current-USD value.
+The thresholds—US$2,000 constant dollars per MapSPAM tonne or a constant-to-
+current value ratio above 10—are diagnostic review triggers, not caps,
+winsorization rules, or replacement values. Jamaica, Kuwait, Saint Vincent
+and the Grenadines, and Venezuela trigger at least one threshold.
+
+Venezuela is material: its three-year mean is US$16.646 billion in the
+constant-dollar field, 11.62% of all matched maize value and US$10,400 per
+MapSPAM tonne. Its three-year current-dollar mean is US$0.402 billion, making
+the constant/current ratio 41.45. All constant-dollar observations are marked
+`Estimated value`, while the Venezuelan current-dollar observations are
+marked `Official value`. The official FAOSTAT catalog confirms that the value
+domain is farm-gate production value and that constant terms use a 2014--2016
+base; it does not by itself resolve whether this country-level contrast is an
+appropriate cross-country market baseline for our application.
+
+Accordingly, the machine-readable audit
+`data/provenance/faostat_maize_value_plausibility_audit_20260924.json` closes
+the monetary-promotion gate. All conditional value-weighted, fixed-price, and
+market-surplus numbers above remain arithmetic sensitivities to the declared
+source field, but are not publication-ready magnitudes. Production-weighted
+yield transports are unaffected. The required next sensitivity uses complete
+1999--2001 current-USD observations converted to a common price year under a
+source-pinned rule, preserving missing countries and comparing—not outcome-
+selecting—the two value bases. Venezuela may not simply be dropped or capped.
+The diagnostic country/FUND incidence ledger and its 223-check aggregation
+audit are retained as evidence of how the anomaly was found, not as a result
+for substantive interpretation:
+`data/provenance/hultgren_country_market_central_fixed_incidence_20260924.json`
+and
+`data/provenance/hultgren_country_market_central_fixed_incidence_validation_20260924.json`.
 
 ### Price-basis convention validation (September15 amendment)
 

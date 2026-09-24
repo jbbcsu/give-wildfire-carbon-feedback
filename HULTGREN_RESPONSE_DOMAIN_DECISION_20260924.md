@@ -73,3 +73,11 @@ US$1.230--15.713 billion. This demonstrates that market geography materially
 changes welfare translation even with identical cell responses. It still
 omits the published expectations/storage procedure and therefore does not
 open the damage or SCC gate.
+
+The country-market exercise also exposed a baseline-value problem that now
+precedes any tail-rule decision for monetary use. Venezuela accounts for
+11.62% of the matched FAOSTAT constant-dollar maize value and its value is
+41.45 times the same source's 1999--2001 current-dollar mean. Therefore all
+value-weighted dollar and market-surplus magnitudes remain conditional
+diagnostics, not publication-ready evidence, until a common-price alternative
+is implemented. Production-weighted response signs are unaffected.

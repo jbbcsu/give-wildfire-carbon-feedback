@@ -214,5 +214,19 @@ An independent audit again reproduces all 810 annual records exactly. Because
 expectations, storage, trade, other crops, and the marginal pulse remain
 absent, this remains a structural sensitivity rather than damage or SCC.
 
+## Post-calculation baseline-value gate
+
+The monetary-promotion gate is now closed for an additional reason. The
+selected FAOSTAT constant-dollar field assigns Venezuela US$16.646 billion of
+maize value, 11.62% of the matched total and US$10,400 per MapSPAM tonne. The
+same source's 1999--2001 current-USD mean is US$0.402 billion, a 41.45-fold
+difference. Jamaica, Kuwait, Saint Vincent and the Grenadines, and Venezuela
+cross at least one diagnostic review threshold. We reproduce rather than
+alter the source field and do not claim it is erroneous, but the conditional
+value-weighted and market-dollar magnitudes above are withdrawn from
+publication-ready evidence pending a common-price alternative. No country is
+deleted or capped. Production-weighted yield results are unaffected. See
+`data/provenance/faostat_maize_value_plausibility_audit_20260924.json`.
+
 Machine-readable results are under `data/provenance/`, including
 `hultgren_five_esm_grid_yield_transport_summary_20260924.json`.

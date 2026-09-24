@@ -177,6 +177,19 @@ heterogeneous supply shifts, not additional crop losses. Expectations,
 storage, trade, other crops, and the marginal pulse remain absent, so this
 national-market result is also quarantined and not passed into GIVE.
 
+A subsequent baseline plausibility audit blocks even this conditional monetary
+interpretation pending reweighting. The FAOSTAT constant-2014--2016-USD field
+assigns Venezuela US$16.646 billion of maize value (11.62% of the matched
+global total), or US$10,400 per MapSPAM tonne, versus US$0.402 billion in the
+same source's mean 1999--2001 current-USD field—a ratio of 41.45. Four
+countries cross preregistered diagnostic review thresholds; Venezuela is
+material to the national-market result and regional incidence. We reproduce
+the source field exactly and do not assert a source error, but we withdraw the
+value-weighted dollar magnitudes from publication-ready evidence until the
+price construction is verified and a common-price alternative is run. No
+country is silently deleted, capped, or reassigned. The production-weighted
+yield-response results are unaffected.
+
 ![Five-ESM production-weighted precipitation-response decomposition](figures/hultgren_five_esm_production_weighted_decomposition_20260924.svg)
 
 **Figure 3b. Fixed-production-weight sensitivity.** Published maize response

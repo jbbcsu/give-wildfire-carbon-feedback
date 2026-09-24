@@ -2,6 +2,15 @@
 
 ## Recommendation and current gate
 
+**September 24 amendment.** The constant-dollar default below is suspended for
+monetary promotion. A post-calculation plausibility audit finds that Venezuela
+accounts for 11.62% of matched constant-dollar maize value, at US$10,400 per
+MapSPAM tonne and 41.45 times the same source's 1999--2001 current-USD mean.
+The source field is retained unchanged, but all value-weighted monetary
+results are conditional diagnostics until a source-pinned common-price
+alternative is run. See
+`data/provenance/faostat_maize_value_plausibility_audit_20260924.json`.
+
 Use MapSPAM 2000 v3.0.7 production as a **modeled fixed spatial allocation**
 for maize and soybean, and FAOSTAT gross production value as a **national
 crop-value control total**. Do not use MapSPAM as an observed outcome or
