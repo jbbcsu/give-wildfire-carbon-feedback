@@ -114,5 +114,45 @@ The physical-production records and independent arithmetic validation are
 and `data/provenance/hultgren_five_esm_production_weighted_validation_20260924.json`.
 They remain scenario-response sensitivities, not monetary damages or SCC.
 
+## Conditional baseline-value sensitivity and monetization gate
+
+The NGA/UN crosswalk resolves legacy MapSPAM country codes, and 119 matched
+countries with 1999--2001 FAOSTAT constant-dollar maize gross production value
+cover 98.05% of MapSPAM maize production. Allocating each national value to
+cells in proportion to fixed MapSPAM production yields the following full-
+support mean-log response summaries:
+
+| Component | GFDL | IPSL | MPI | MRI | UKESM | Equal-model mean log response, as % |
+|---|---:|---:|---:|---:|---:|---:|
+| Net precipitation | -3.07% | -3.50% | -1.56% | -1.54% | -2.23% | -2.38% |
+| Quantity path | -2.23% | -2.88% | -2.11% | -1.26% | -1.18% | -1.93% |
+| Distribution residual | -0.86% | -0.64% | +0.56% | -0.28% | -1.07% | -0.46% |
+
+All net and quantity responses remain negative; distribution reverses in MPI.
+This supports the same evidence hierarchy as both area and production weights.
+
+The result does **not** pass the next monetization gate. A fixed-price gross-
+output diagnostic must exponentiate each cell response before applying its
+baseline value. Extreme positive cell responses then generate positive
+aggregates in four of five full-support models even though every mean log
+response is negative. Author moderator min--max and p01--p99 screens still
+leave reversals in MPI and UKESM. These products are extrapolation diagnostics,
+not agricultural benefits or damages, and are not passed to GIVE.
+
+The defensible next step is to justify a joint weather/moderator application
+domain or reproduce a published response restriction before any level-dollar
+or SCC calculation. The exact 15-run summary and audit are
+`data/provenance/hultgren_five_esm_three_support_conditional_value_weighted_summary_20260924.json`
+and `data/provenance/hultgren_five_esm_three_support_conditional_value_weighted_validation_20260924.json`.
+
+A post hoc joint weather-support test clarifies the source of the failure. If
+both scenarios' eight weather primitives must lie within the author-sample
+minimum--maximum, retained value is 80.4%--99.0% across ESMs and the cell-first
+fixed-price precipitation change is negative in all five. The tighter p01--p99
+screen retains only 6.3%--51.8% and reverses the mean-log sign in three models.
+The minimum--maximum boundary is therefore a plausible next specification,
+but choosing it changes model-specific support and requires an explicit
+modeling decision before monetization.
+
 Machine-readable results are under `data/provenance/`, including
 `hultgren_five_esm_grid_yield_transport_summary_20260924.json`.

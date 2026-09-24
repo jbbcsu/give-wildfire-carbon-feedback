@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run fixed-MapSPAM-production sensitivity transports from area-run manifests."""
+"""Run external fixed-weight sensitivity transports from area-run manifests."""
 
 from __future__ import annotations
 
@@ -23,6 +23,11 @@ def main() -> None:
     parser.add_argument("--area-transport", action="append", type=Path, required=True)
     parser.add_argument("--weights", type=Path, required=True)
     parser.add_argument("--weight-receipt", type=Path, required=True)
+    parser.add_argument("--weight-column", default="maize_total_mt")
+    parser.add_argument("--weight-label", default="fixed MapSPAM 2000 maize production")
+    parser.add_argument("--weight-unit", default="mt")
+    parser.add_argument("--output-tag", default="production_weighted")
+    parser.add_argument("--weather-support", choices=("full", "author_minmax", "author_p01_p99"), default="full")
     parser.add_argument("--output-directory", type=Path, required=True)
     args = parser.parse_args()
     args.output_directory.mkdir(parents=True, exist_ok=True)
@@ -32,11 +37,11 @@ def main() -> None:
     outputs = []
     for manifest_path in args.area_transport:
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-        require(manifest["support"]["moderator_support_selection"] == "full", "production sensitivity expects full support")
+        support = manifest["support"]["moderator_support_selection"]
         weather = manifest["sources"]["weather"]
         require(len(weather) == 4, "transport manifest needs four weather inputs")
         stem = manifest_path.stem.replace("_20260924", "")
-        output = args.output_directory / f"{stem}_production_weighted_20260924.json"
+        output = args.output_directory / f"{stem}_{args.output_tag}_20260924.json"
         require(not output.exists(), f"fresh output required: {output}")
         source = manifest["sources"]
         command = [
@@ -57,11 +62,13 @@ def main() -> None:
             "--climate-model", manifest["climate_contrast"]["climate_model"],
             "--reference-label", manifest["climate_contrast"]["reference"],
             "--comparison-label", manifest["climate_contrast"]["comparison"],
+            "--moderator-support", support,
+            "--weather-support", args.weather_support,
             "--analysis-weights", str(args.weights),
-            "--analysis-weight-column", "maize_total_mt",
+            "--analysis-weight-column", args.weight_column,
             "--analysis-weight-receipt", str(args.weight_receipt),
-            "--analysis-weight-label", "fixed MapSPAM 2000 maize production",
-            "--analysis-weight-unit", "mt",
+            "--analysis-weight-label", args.weight_label,
+            "--analysis-weight-unit", args.weight_unit,
             "--output", str(output),
         ])
         subprocess.run(command, cwd=ROOT, env=environment, check=True)

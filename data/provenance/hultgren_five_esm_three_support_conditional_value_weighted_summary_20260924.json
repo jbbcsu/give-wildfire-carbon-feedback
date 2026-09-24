@@ -1,0 +1,1964 @@
+{
+  "aggregation": "simple unweighted mean of named-model mean log-yield responses; min--max and sign counts are descriptive, not uncertainty intervals or probabilities",
+  "analysis_weighting": {
+    "label": "conditional fixed 1999-2001 FAOSTAT maize gross production value allocated by MapSPAM 2000 production",
+    "unit": "constant_2014_2016_usd"
+  },
+  "claim_gates": {
+    "climate_probability_distribution": false,
+    "damage_or_scc": false,
+    "named_model_summary_complete": true
+  },
+  "climate_models": [
+    "GFDL-ESM4",
+    "IPSL-CM6A-LR",
+    "MPI-ESM1-2-HR",
+    "MRI-ESM2-0",
+    "UKESM1-0-LL"
+  ],
+  "created_at_utc": "2026-09-24T16:44:54.089077+00:00",
+  "implementation": {
+    "path": "scripts/summarize_hultgren_yield_transports.py",
+    "sha256": "cad029c10ba21f7e40ea18e3a8ba717ce43f22c8be2b1e5dd9b5081ae748e827"
+  },
+  "scenario_contrast": {
+    "comparison": "SSP5-8.5",
+    "reference": "SSP1-2.6"
+  },
+  "schema": "hultgren_named_esm_yield_transport_summary/v2",
+  "sources": [
+    {
+      "path": "data/provenance/hultgren_gfdl_grid_yield_transport_conditional_value_weighted_20260924.json",
+      "sha256": "5b0f9602ba0e0c7e6c8d80e0b4651d60c9807d1b77a23d7c7e37706afbe3bbd3"
+    },
+    {
+      "path": "data/provenance/hultgren_gfdl_grid_yield_transport_author_minmax_conditional_value_weighted_20260924.json",
+      "sha256": "740e875bf6e4d020b0ca56501e8bda4bfbecba926e678e48f6548081497be5fc"
+    },
+    {
+      "path": "data/provenance/hultgren_gfdl_grid_yield_transport_author_p01_p99_conditional_value_weighted_20260924.json",
+      "sha256": "611418a19182f42c30baf889352e58265f054f4177cd5272fac206748377d3b8"
+    },
+    {
+      "path": "data/provenance/hultgren_ipsl_grid_yield_transport_conditional_value_weighted_20260924.json",
+      "sha256": "eb7a9ec9333dbf9d78797809ace66f3780a3475d5beed322e816eb9f9f9a5748"
+    },
+    {
+      "path": "data/provenance/hultgren_ipsl_grid_yield_transport_author_minmax_conditional_value_weighted_20260924.json",
+      "sha256": "9f1ffca602e941fe0b377e662870f12a2177af4ce73677814aeb4c9c265ad87c"
+    },
+    {
+      "path": "data/provenance/hultgren_ipsl_grid_yield_transport_author_p01_p99_conditional_value_weighted_20260924.json",
+      "sha256": "c87c2c059dfc816b06ebf16af41eb865b7590d33d294d4a73bd8e98375c9c807"
+    },
+    {
+      "path": "data/provenance/hultgren_mpi_grid_yield_transport_conditional_value_weighted_20260924.json",
+      "sha256": "0e37dae82d8cfa3c1385d89048dc8fee251eb07abfde9bca622491a6cd854a51"
+    },
+    {
+      "path": "data/provenance/hultgren_mpi_grid_yield_transport_author_minmax_conditional_value_weighted_20260924.json",
+      "sha256": "bf88f03d86e225341df6c535b828c600674f3f93c14a40bfb49d149d5885eae4"
+    },
+    {
+      "path": "data/provenance/hultgren_mpi_grid_yield_transport_author_p01_p99_conditional_value_weighted_20260924.json",
+      "sha256": "1b2c1141b09fda3b5e7147f8fb1830012bf9ef01ed91f86d07f9f44775d30ec0"
+    },
+    {
+      "path": "data/provenance/hultgren_mri_grid_yield_transport_conditional_value_weighted_20260924.json",
+      "sha256": "7990113485eb7004ae292cb80a9e1f263609824cb3376042fa9f247de701f38f"
+    },
+    {
+      "path": "data/provenance/hultgren_mri_grid_yield_transport_author_minmax_conditional_value_weighted_20260924.json",
+      "sha256": "c5bb0e972197bdef43075e4f30fc13f365a6a3ecc7bb2da61912151323f13031"
+    },
+    {
+      "path": "data/provenance/hultgren_mri_grid_yield_transport_author_p01_p99_conditional_value_weighted_20260924.json",
+      "sha256": "0a327e0fe3d0eb20e66eaa26aedd7559e2cf9d01f5118ca8191230081052cd87"
+    },
+    {
+      "path": "data/provenance/hultgren_ukesm_grid_yield_transport_conditional_value_weighted_20260924.json",
+      "sha256": "40dbe1dd9a2794bc5a97a852fab0a0e811b7cf0df2d6d478e2a47a067f000691"
+    },
+    {
+      "path": "data/provenance/hultgren_ukesm_grid_yield_transport_author_minmax_conditional_value_weighted_20260924.json",
+      "sha256": "3a028af8e2f50e9b4fd1549e7c68000e58e4da47466ca73c22f7042e5acbefff"
+    },
+    {
+      "path": "data/provenance/hultgren_ukesm_grid_yield_transport_author_p01_p99_conditional_value_weighted_20260924.json",
+      "sha256": "009c614d4eb6a16e2f4ecf1b2fc44fe814caee1c4ea912333f5bac23c6462c74"
+    }
+  ],
+  "status": "named_model_transport_summary_not_probability_damage_or_scc",
+  "support_sensitivities": {
+    "author_minmax": {
+      "fixed": {
+        "joint_climate": {
+          "equal_model_mean_delta_log_yield": -0.5980448059834045,
+          "models_negative": 5,
+          "models_positive": 0,
+          "models_zero": 0,
+          "named_model_maximum_delta_log_yield": -0.25983860672259784,
+          "named_model_minimum_delta_log_yield": -1.2483792455829237,
+          "named_model_results": [
+            {
+              "climate_model": "GFDL-ESM4",
+              "coefficient_only_standard_error_log_points": 0.07891793351615145,
+              "percent_change_from_mean_log": -30.193615936299643,
+              "weighted_mean_delta_log_yield": -0.35944471817151524
+            },
+            {
+              "climate_model": "IPSL-CM6A-LR",
+              "coefficient_only_standard_error_log_points": 0.16637853423274332,
+              "percent_change_from_mean_log": -53.106558490003074,
+              "weighted_mean_delta_log_yield": -0.757292360186498
+            },
+            {
+              "climate_model": "MPI-ESM1-2-HR",
+              "coefficient_only_standard_error_log_points": 0.06336919419591655,
+              "percent_change_from_mean_log": -22.88239616113196,
+              "weighted_mean_delta_log_yield": -0.25983860672259784
+            },
+            {
+              "climate_model": "MRI-ESM2-0",
+              "coefficient_only_standard_error_log_points": 0.08497773493574302,
+              "percent_change_from_mean_log": -30.599013178988045,
+              "weighted_mean_delta_log_yield": -0.36526909925348733
+            },
+            {
+              "climate_model": "UKESM1-0-LL",
+              "coefficient_only_standard_error_log_points": 0.24356478032572915,
+              "percent_change_from_mean_log": -71.30304727195758,
+              "weighted_mean_delta_log_yield": -1.2483792455829237
+            }
+          ],
+          "percent_change_from_equal_model_mean_log": -45.01142810007753
+        },
+        "precipitation_all_income_support": {
+          "equal_model_mean_delta_log_yield": -0.02475690058931527,
+          "models_negative": 5,
+          "models_positive": 0,
+          "models_zero": 0,
+          "named_model_maximum_delta_log_yield": -0.012227343773851497,
+          "named_model_minimum_delta_log_yield": -0.03794710465824041,
+          "named_model_results": [
+            {
+              "climate_model": "GFDL-ESM4",
+              "coefficient_only_standard_error_log_points": 0.005103870134649403,
+              "percent_change_from_mean_log": -2.3810410155350836,
+              "weighted_mean_delta_log_yield": -0.024098459543490634
+            },
+            {
+              "climate_model": "IPSL-CM6A-LR",
+              "coefficient_only_standard_error_log_points": 0.006417345534543527,
+              "percent_change_from_mean_log": -2.9548747567689007,
+              "weighted_mean_delta_log_yield": -0.029994106967620185
+            },
+            {
+              "climate_model": "MPI-ESM1-2-HR",
+              "coefficient_only_standard_error_log_points": 0.004096582541299606,
+              "percent_change_from_mean_log": -1.2152893557704465,
+              "weighted_mean_delta_log_yield": -0.012227343773851497
+            },
+            {
+              "climate_model": "MRI-ESM2-0",
+              "coefficient_only_standard_error_log_points": 0.005436289071418563,
+              "percent_change_from_mean_log": -1.9328254952080035,
+              "weighted_mean_delta_log_yield": -0.019517488003373624
+            },
+            {
+              "climate_model": "UKESM1-0-LL",
+              "coefficient_only_standard_error_log_points": 0.007125687704808175,
+              "percent_change_from_mean_log": -3.7236134731956367,
+              "weighted_mean_delta_log_yield": -0.03794710465824041
+            }
+          ],
+          "percent_change_from_equal_model_mean_log": -2.4452961885380144
+        },
+        "precipitation_distribution_residual": {
+          "equal_model_mean_delta_log_yield": -0.003409576111762129,
+          "models_negative": 4,
+          "models_positive": 1,
+          "models_zero": 0,
+          "named_model_maximum_delta_log_yield": 0.008898881735100258,
+          "named_model_minimum_delta_log_yield": -0.018020374538511526,
+          "named_model_results": [
+            {
+              "climate_model": "GFDL-ESM4",
+              "coefficient_only_standard_error_log_points": 0.0023254871971221127,
+              "percent_change_from_mean_log": -0.32662887485675995,
+              "weighted_mean_delta_log_yield": -0.0032716347138136287
+            },
+            {
+              "climate_model": "IPSL-CM6A-LR",
+              "coefficient_only_standard_error_log_points": 0.0016688563462960702,
+              "percent_change_from_mean_log": -0.37676462341255845,
+              "weighted_mean_delta_log_yield": -0.0037747616911709995
+            },
+            {
+              "climate_model": "MPI-ESM1-2-HR",
+              "coefficient_only_standard_error_log_points": 0.0025378637280908155,
+              "percent_change_from_mean_log": 0.89385944954783,
+              "weighted_mean_delta_log_yield": 0.008898881735100258
+            },
+            {
+              "climate_model": "MRI-ESM2-0",
+              "coefficient_only_standard_error_log_points": 0.002158361708850403,
+              "percent_change_from_mean_log": -0.08796042715766829,
+              "weighted_mean_delta_log_yield": -0.0008799913504147496
+            },
+            {
+              "climate_model": "UKESM1-0-LL",
+              "coefficient_only_standard_error_log_points": 0.003300218524337944,
+              "percent_change_from_mean_log": -1.7858978515620734,
+              "weighted_mean_delta_log_yield": -0.018020374538511526
+            }
+          ],
+          "percent_change_from_equal_model_mean_log": -0.34037701076765875
+        },
+        "precipitation_quantity_reference_scaling": {
+          "equal_model_mean_delta_log_yield": -0.021351057685053097,
+          "models_negative": 5,
+          "models_positive": 0,
+          "models_zero": 0,
+          "named_model_maximum_delta_log_yield": -0.018643742797555884,
+          "named_model_minimum_delta_log_yield": -0.02623093164327841,
+          "named_model_results": [
+            {
+              "climate_model": "GFDL-ESM4",
+              "coefficient_only_standard_error_log_points": 0.00434325126098881,
+              "percent_change_from_mean_log": -2.0611904571844506,
+              "weighted_mean_delta_log_yield": -0.020827294751897298
+            },
+            {
+              "climate_model": "IPSL-CM6A-LR",
+              "coefficient_only_standard_error_log_points": 0.005999607109278777,
+              "percent_change_from_mean_log": -2.5889889216233124,
+              "weighted_mean_delta_log_yield": -0.02623093164327841
+            },
+            {
+              "climate_model": "MPI-ESM1-2-HR",
+              "coefficient_only_standard_error_log_points": 0.0036470703623132147,
+              "percent_change_from_mean_log": -2.090498301527495,
+              "weighted_mean_delta_log_yield": -0.0211265860184501
+            },
+            {
+              "climate_model": "MRI-ESM2-0",
+              "coefficient_only_standard_error_log_points": 0.004400331495746292,
+              "percent_change_from_mean_log": -1.8471023269863607,
+              "weighted_mean_delta_log_yield": -0.018643742797555884
+            },
+            {
+              "climate_model": "UKESM1-0-LL",
+              "coefficient_only_standard_error_log_points": 0.0050753299816232635,
+              "percent_change_from_mean_log": -1.972950805596395,
+              "weighted_mean_delta_log_yield": -0.019926733214083794
+            }
+          ],
+          "percent_change_from_equal_model_mean_log": -2.1124737440256456
+        },
+        "temperature_all_income_support": {
+          "equal_model_mean_delta_log_yield": -0.5732879053940892,
+          "models_negative": 5,
+          "models_positive": 0,
+          "models_zero": 0,
+          "named_model_maximum_delta_log_yield": -0.24761126294874636,
+          "named_model_minimum_delta_log_yield": -1.2104321409246834,
+          "named_model_results": [
+            {
+              "climate_model": "GFDL-ESM4",
+              "coefficient_only_standard_error_log_points": 0.07967317008342835,
+              "percent_change_from_mean_log": -28.490956275400002,
+              "weighted_mean_delta_log_yield": -0.33534625862802464
+            },
+            {
+              "climate_model": "IPSL-CM6A-LR",
+              "coefficient_only_standard_error_log_points": 0.1664609501131175,
+              "percent_change_from_mean_log": -51.678725343014854,
+              "weighted_mean_delta_log_yield": -0.7272982532188779
+            },
+            {
+              "climate_model": "MPI-ESM1-2-HR",
+              "coefficient_only_standard_error_log_points": 0.06336064908621708,
+              "percent_change_from_mean_log": -21.933664292842856,
+              "weighted_mean_delta_log_yield": -0.24761126294874636
+            },
+            {
+              "climate_model": "MRI-ESM2-0",
+              "coefficient_only_standard_error_log_points": 0.08536238082613408,
+              "percent_change_from_mean_log": -29.231175292380108,
+              "weighted_mean_delta_log_yield": -0.3457516112501137
+            },
+            {
+              "climate_model": "UKESM1-0-LL",
+              "coefficient_only_standard_error_log_points": 0.24371511272095367,
+              "percent_change_from_mean_log": -70.19315559786523,
+              "weighted_mean_delta_log_yield": -1.2104321409246834
+            }
+          ],
+          "percent_change_from_equal_model_mean_log": -43.633090203220206
+        }
+      },
+      "trend": {
+        "joint_climate": {
+          "equal_model_mean_delta_log_yield": -0.44745422640416666,
+          "models_negative": 5,
+          "models_positive": 0,
+          "models_zero": 0,
+          "named_model_maximum_delta_log_yield": -0.19063838748241405,
+          "named_model_minimum_delta_log_yield": -0.9428721871594503,
+          "named_model_results": [
+            {
+              "climate_model": "GFDL-ESM4",
+              "coefficient_only_standard_error_log_points": 0.06341371741215833,
+              "percent_change_from_mean_log": -23.529388088776628,
+              "weighted_mean_delta_log_yield": -0.2682636769864216
+            },
+            {
+              "climate_model": "IPSL-CM6A-LR",
+              "coefficient_only_standard_error_log_points": 0.1335564625705954,
+              "percent_change_from_mean_log": -43.16134679232495,
+              "weighted_mean_delta_log_yield": -0.564953577486161
+            },
+            {
+              "climate_model": "MPI-ESM1-2-HR",
+              "coefficient_only_standard_error_log_points": 0.05135168569344243,
+              "percent_change_from_mean_log": -17.356861794319272,
+              "weighted_mean_delta_log_yield": -0.19063838748241405
+            },
+            {
+              "climate_model": "MRI-ESM2-0",
+              "coefficient_only_standard_error_log_points": 0.06881463736465482,
+              "percent_change_from_mean_log": -23.70351393150622,
+              "weighted_mean_delta_log_yield": -0.270543302906386
+            },
+            {
+              "climate_model": "UKESM1-0-LL",
+              "coefficient_only_standard_error_log_points": 0.19194082660733636,
+              "percent_change_from_mean_log": -61.04925112016297,
+              "weighted_mean_delta_log_yield": -0.9428721871594503
+            }
+          ],
+          "percent_change_from_equal_model_mean_log": -36.074652348908
+        },
+        "precipitation_all_income_support": {
+          "equal_model_mean_delta_log_yield": -0.010703766838688313,
+          "models_negative": 5,
+          "models_positive": 0,
+          "models_zero": 0,
+          "named_model_maximum_delta_log_yield": -0.0003547886396175805,
+          "named_model_minimum_delta_log_yield": -0.02043608518542493,
+          "named_model_results": [
+            {
+              "climate_model": "GFDL-ESM4",
+              "coefficient_only_standard_error_log_points": 0.0037885544767548326,
+              "percent_change_from_mean_log": -1.2020023148653767,
+              "weighted_mean_delta_log_yield": -0.012092847784425638
+            },
+            {
+              "climate_model": "IPSL-CM6A-LR",
+              "coefficient_only_standard_error_log_points": 0.004751406324036774,
+              "percent_change_from_mean_log": -1.4802024872079367,
+              "weighted_mean_delta_log_yield": -0.014912668028243262
+            },
+            {
+              "climate_model": "MPI-ESM1-2-HR",
+              "coefficient_only_standard_error_log_points": 0.0037104069957255284,
+              "percent_change_from_mean_log": -0.03547257095706882,
+              "weighted_mean_delta_log_yield": -0.0003547886396175805
+            },
+            {
+              "climate_model": "MRI-ESM2-0",
+              "coefficient_only_standard_error_log_points": 0.004403788911024316,
+              "percent_change_from_mean_log": -0.570610255680375,
+              "weighted_mean_delta_log_yield": -0.005722444555730165
+            },
+            {
+              "climate_model": "UKESM1-0-LL",
+              "coefficient_only_standard_error_log_points": 0.005016891511180166,
+              "percent_change_from_mean_log": -2.0228683624661055,
+              "weighted_mean_delta_log_yield": -0.02043608518542493
+            }
+          ],
+          "percent_change_from_equal_model_mean_log": -1.0646685370196012
+        },
+        "precipitation_distribution_residual": {
+          "equal_model_mean_delta_log_yield": 0.004203295034304865,
+          "models_negative": 1,
+          "models_positive": 4,
+          "models_zero": 0,
+          "named_model_maximum_delta_log_yield": 0.015359005212194243,
+          "named_model_minimum_delta_log_yield": -0.007952338393000458,
+          "named_model_results": [
+            {
+              "climate_model": "GFDL-ESM4",
+              "coefficient_only_standard_error_log_points": 0.0021237683881030174,
+              "percent_change_from_mean_log": 0.3235076462346852,
+              "weighted_mean_delta_log_yield": 0.003229854860977265
+            },
+            {
+              "climate_model": "IPSL-CM6A-LR",
+              "coefficient_only_standard_error_log_points": 0.0014592020848004056,
+              "percent_change_from_mean_log": 0.35255387326771015,
+              "weighted_mean_delta_log_yield": 0.0035193385892897584
+            },
+            {
+              "climate_model": "MPI-ESM1-2-HR",
+              "coefficient_only_standard_error_log_points": 0.0029515342561269847,
+              "percent_change_from_mean_log": 1.5477560921004372,
+              "weighted_mean_delta_log_yield": 0.015359005212194243
+            },
+            {
+              "climate_model": "MRI-ESM2-0",
+              "coefficient_only_standard_error_log_points": 0.002165805464115139,
+              "percent_change_from_mean_log": 0.6884202832195012,
+              "weighted_mean_delta_log_yield": 0.006860614902063511
+            },
+            {
+              "climate_model": "UKESM1-0-LL",
+              "coefficient_only_standard_error_log_points": 0.00203538387022112,
+              "percent_change_from_mean_log": -0.7920802200901377,
+              "weighted_mean_delta_log_yield": -0.007952338393000458
+            }
+          ],
+          "percent_change_from_equal_model_mean_log": 0.42121412689796556
+        },
+        "precipitation_quantity_reference_scaling": {
+          "equal_model_mean_delta_log_yield": -0.01093895237354442,
+          "models_negative": 5,
+          "models_positive": 0,
+          "models_zero": 0,
+          "named_model_maximum_delta_log_yield": -0.008802349793329757,
+          "named_model_minimum_delta_log_yield": -0.014400560832520493,
+          "named_model_results": [
+            {
+              "climate_model": "GFDL-ESM4",
+              "coefficient_only_standard_error_log_points": 0.0031332806963798835,
+              "percent_change_from_mean_log": -1.1913920518787215,
+              "weighted_mean_delta_log_yield": -0.01198546004844536
+            },
+            {
+              "climate_model": "IPSL-CM6A-LR",
+              "coefficient_only_standard_error_log_points": 0.004631060374344528,
+              "percent_change_from_mean_log": -1.4297368691803214,
+              "weighted_mean_delta_log_yield": -0.014400560832520493
+            },
+            {
+              "climate_model": "MPI-ESM1-2-HR",
+              "coefficient_only_standard_error_log_points": 0.003052986800529449,
+              "percent_change_from_mean_log": -1.0441410899117585,
+              "weighted_mean_delta_log_yield": -0.010496304877973742
+            },
+            {
+              "climate_model": "MRI-ESM2-0",
+              "coefficient_only_standard_error_log_points": 0.003389495080675826,
+              "percent_change_from_mean_log": -0.8969617122592088,
+              "weighted_mean_delta_log_yield": -0.009010086315452746
+            },
+            {
+              "climate_model": "UKESM1-0-LL",
+              "coefficient_only_standard_error_log_points": 0.003929907816152884,
+              "percent_change_from_mean_log": -0.876372253236231,
+              "weighted_mean_delta_log_yield": -0.008802349793329757
+            }
+          ],
+          "percent_change_from_equal_model_mean_log": -1.0879339599131863
+        },
+        "temperature_all_income_support": {
+          "equal_model_mean_delta_log_yield": -0.4293127945598716,
+          "models_negative": 5,
+          "models_positive": 0,
+          "models_zero": 0,
+          "named_model_maximum_delta_log_yield": -0.18365835337138797,
+          "named_model_minimum_delta_log_yield": -0.9138406824372756,
+          "named_model_results": [
+            {
+              "climate_model": "GFDL-ESM4",
+              "coefficient_only_standard_error_log_points": 0.06404978775919538,
+              "percent_change_from_mean_log": -22.1344967330775,
+              "weighted_mean_delta_log_yield": -0.25018716473511776
+            },
+            {
+              "climate_model": "IPSL-CM6A-LR",
+              "coefficient_only_standard_error_log_points": 0.13366023477344852,
+              "percent_change_from_mean_log": -41.85575955812155,
+              "weighted_mean_delta_log_yield": -0.5422433585001613
+            },
+            {
+              "climate_model": "MPI-ESM1-2-HR",
+              "coefficient_only_standard_error_log_points": 0.05096909900151784,
+              "percent_change_from_mean_log": -16.77799195524198,
+              "weighted_mean_delta_log_yield": -0.18365835337138797
+            },
+            {
+              "climate_model": "MRI-ESM2-0",
+              "coefficient_only_standard_error_log_points": 0.06903656127241754,
+              "percent_change_from_mean_log": -22.634900176569282,
+              "weighted_mean_delta_log_yield": -0.25663441375541535
+            },
+            {
+              "climate_model": "UKESM1-0-LL",
+              "coefficient_only_standard_error_log_points": 0.1922928041700106,
+              "percent_change_from_mean_log": -59.901877869573106,
+              "weighted_mean_delta_log_yield": -0.9138406824372756
+            }
+          ],
+          "percent_change_from_equal_model_mean_log": -34.90437182508568
+        }
+      },
+      "upper": {
+        "joint_climate": {
+          "equal_model_mean_delta_log_yield": -0.2466667869651827,
+          "models_negative": 5,
+          "models_positive": 0,
+          "models_zero": 0,
+          "named_model_maximum_delta_log_yield": -0.09837142849550223,
+          "named_model_minimum_delta_log_yield": -0.5355294425948186,
+          "named_model_results": [
+            {
+              "climate_model": "GFDL-ESM4",
+              "coefficient_only_standard_error_log_points": 0.04325393893221852,
+              "percent_change_from_mean_log": -13.643745789359649,
+              "weighted_mean_delta_log_yield": -0.14668895540629676
+            },
+            {
+              "climate_model": "IPSL-CM6A-LR",
+              "coefficient_only_standard_error_log_points": 0.0911339712541382,
+              "percent_change_from_mean_log": -26.545341936147537,
+              "weighted_mean_delta_log_yield": -0.30850186721904527
+            },
+            {
+              "climate_model": "MPI-ESM1-2-HR",
+              "coefficient_only_standard_error_log_points": 0.03576763051207027,
+              "percent_change_from_mean_log": -9.368778895184574,
+              "weighted_mean_delta_log_yield": -0.09837142849550223
+            },
+            {
+              "climate_model": "MRI-ESM2-0",
+              "coefficient_only_standard_error_log_points": 0.04793391184271859,
+              "percent_change_from_mean_log": -13.432198014681518,
+              "weighted_mean_delta_log_yield": -0.1442422411102509
+            },
+            {
+              "climate_model": "UKESM1-0-LL",
+              "coefficient_only_standard_error_log_points": 0.12440477954188595,
+              "percent_change_from_mean_log": -41.464070605404885,
+              "weighted_mean_delta_log_yield": -0.5355294425948186
+            }
+          ],
+          "percent_change_from_equal_model_mean_log": -21.859897683730814
+        },
+        "precipitation_all_income_support": {
+          "equal_model_mean_delta_log_yield": 0.0080337448288143,
+          "models_negative": 0,
+          "models_positive": 5,
+          "models_zero": 0,
+          "named_model_maximum_delta_log_yield": 0.015475284872694313,
+          "named_model_minimum_delta_log_yield": 0.002911940778329052,
+          "named_model_results": [
+            {
+              "climate_model": "GFDL-ESM4",
+              "coefficient_only_standard_error_log_points": 0.0026895951768125307,
+              "percent_change_from_mean_log": 0.3922306750873924,
+              "weighted_mean_delta_log_yield": 0.003914634560994363
+            },
+            {
+              "climate_model": "IPSL-CM6A-LR",
+              "coefficient_only_standard_error_log_points": 0.003450073075391105,
+              "percent_change_from_mean_log": 0.520943941207195,
+              "weighted_mean_delta_log_yield": 0.005195917224259318
+            },
+            {
+              "climate_model": "MPI-ESM1-2-HR",
+              "coefficient_only_standard_error_log_points": 0.004081697841753015,
+              "percent_change_from_mean_log": 1.5595647172415263,
+              "weighted_mean_delta_log_yield": 0.015475284872694313
+            },
+            {
+              "climate_model": "MRI-ESM2-0",
+              "coefficient_only_standard_error_log_points": 0.0040417039952463955,
+              "percent_change_from_mean_log": 1.2751563289329053,
+              "weighted_mean_delta_log_yield": 0.012670946707794459
+            },
+            {
+              "climate_model": "UKESM1-0-LL",
+              "coefficient_only_standard_error_log_points": 0.003242009209399405,
+              "percent_change_from_mean_log": 0.2916184596126221,
+              "weighted_mean_delta_log_yield": 0.002911940778329052
+            }
+          ],
+          "percent_change_from_equal_model_mean_log": 0.8066101948374409
+        },
+        "precipitation_distribution_residual": {
+          "equal_model_mean_delta_log_yield": 0.01435378989572752,
+          "models_negative": 0,
+          "models_positive": 5,
+          "models_zero": 0,
+          "named_model_maximum_delta_log_yield": 0.023972503181652883,
+          "named_model_minimum_delta_log_yield": 0.005471709801014295,
+          "named_model_results": [
+            {
+              "climate_model": "GFDL-ESM4",
+              "coefficient_only_standard_error_log_points": 0.0024495681619108724,
+              "percent_change_from_mean_log": 1.1969576460553764,
+              "weighted_mean_delta_log_yield": 0.011898507627365126
+            },
+            {
+              "climate_model": "IPSL-CM6A-LR",
+              "coefficient_only_standard_error_log_points": 0.0020629435007038645,
+              "percent_change_from_mean_log": 1.3332906598371763,
+              "weighted_mean_delta_log_yield": 0.013244805629904101
+            },
+            {
+              "climate_model": "MPI-ESM1-2-HR",
+              "coefficient_only_standard_error_log_points": 0.0037407209996198894,
+              "percent_change_from_mean_log": 2.4262153553032397,
+              "weighted_mean_delta_log_yield": 0.023972503181652883
+            },
+            {
+              "climate_model": "MRI-ESM2-0",
+              "coefficient_only_standard_error_log_points": 0.002887525933931024,
+              "percent_change_from_mean_log": 1.7329872864218814,
+              "weighted_mean_delta_log_yield": 0.0171814232387012
+            },
+            {
+              "climate_model": "UKESM1-0-LL",
+              "coefficient_only_standard_error_log_points": 0.0012769310735007342,
+              "percent_change_from_mean_log": 0.5486706945952191,
+              "weighted_mean_delta_log_yield": 0.005471709801014295
+            }
+          ],
+          "percent_change_from_equal_model_mean_log": 1.4457300200000947
+        },
+        "precipitation_quantity_reference_scaling": {
+          "equal_model_mean_delta_log_yield": 0.002943854708467157,
+          "models_negative": 1,
+          "models_positive": 4,
+          "models_zero": 0,
+          "named_model_maximum_delta_log_yield": 0.006030161434342298,
+          "named_model_minimum_delta_log_yield": -0.00019634711050943836,
+          "named_model_results": [
+            {
+              "climate_model": "GFDL-ESM4",
+              "coefficient_only_standard_error_log_points": 0.001993936792123414,
+              "percent_change_from_mean_log": -0.019632783567707552,
+              "weighted_mean_delta_log_yield": -0.00019634711050943836
+            },
+            {
+              "climate_model": "IPSL-CM6A-LR",
+              "coefficient_only_standard_error_log_points": 0.003547120889097124,
+              "percent_change_from_mean_log": 0.13742102779470836,
+              "weighted_mean_delta_log_yield": 0.0013732669151567379
+            },
+            {
+              "climate_model": "MPI-ESM1-2-HR",
+              "coefficient_only_standard_error_log_points": 0.003107081975446783,
+              "percent_change_from_mean_log": 0.3684173252938412,
+              "weighted_mean_delta_log_yield": 0.0036774033093280706
+            },
+            {
+              "climate_model": "MRI-ESM2-0",
+              "coefficient_only_standard_error_log_points": 0.0028121355254462775,
+              "percent_change_from_mean_log": 0.3842151205166382,
+              "weighted_mean_delta_log_yield": 0.003834788994018118
+            },
+            {
+              "climate_model": "UKESM1-0-LL",
+              "coefficient_only_standard_error_log_points": 0.0031637123133472726,
+              "percent_change_from_mean_log": 0.6048379458604478,
+              "weighted_mean_delta_log_yield": 0.006030161434342298
+            }
+          ],
+          "percent_change_from_equal_model_mean_log": 0.29481921039157644
+        },
+        "temperature_all_income_support": {
+          "equal_model_mean_delta_log_yield": -0.23734598011424798,
+          "models_negative": 5,
+          "models_positive": 0,
+          "models_zero": 0,
+          "named_model_maximum_delta_log_yield": -0.09838780726824344,
+          "named_model_minimum_delta_log_yield": -0.5183854044540649,
+          "named_model_results": [
+            {
+              "climate_model": "GFDL-ESM4",
+              "coefficient_only_standard_error_log_points": 0.043765581937258984,
+              "percent_change_from_mean_log": -12.771729637585599,
+              "weighted_mean_delta_log_yield": -0.1366417062112419
+            },
+            {
+              "climate_model": "IPSL-CM6A-LR",
+              "coefficient_only_standard_error_log_points": 0.09132557914205798,
+              "percent_change_from_mean_log": -25.58431889932546,
+              "weighted_mean_delta_log_yield": -0.2955034988752058
+            },
+            {
+              "climate_model": "MPI-ESM1-2-HR",
+              "coefficient_only_standard_error_log_points": 0.03487241263238341,
+              "percent_change_from_mean_log": -9.37026331120182,
+              "weighted_mean_delta_log_yield": -0.09838780726824344
+            },
+            {
+              "climate_model": "MRI-ESM2-0",
+              "coefficient_only_standard_error_log_points": 0.04795761760562114,
+              "percent_change_from_mean_log": -12.873707652664137,
+              "weighted_mean_delta_log_yield": -0.13781148376248406
+            },
+            {
+              "climate_model": "UKESM1-0-LL",
+              "coefficient_only_standard_error_log_points": 0.1251379448744824,
+              "percent_change_from_mean_log": -40.45187664504598,
+              "weighted_mean_delta_log_yield": -0.5183854044540649
+            }
+          ],
+          "percent_change_from_equal_model_mean_log": -21.128164006179272
+        }
+      }
+    },
+    "author_p01_p99": {
+      "fixed": {
+        "joint_climate": {
+          "equal_model_mean_delta_log_yield": -0.6770250202934871,
+          "models_negative": 5,
+          "models_positive": 0,
+          "models_zero": 0,
+          "named_model_maximum_delta_log_yield": -0.28910594942072615,
+          "named_model_minimum_delta_log_yield": -1.3804956224083882,
+          "named_model_results": [
+            {
+              "climate_model": "GFDL-ESM4",
+              "coefficient_only_standard_error_log_points": 0.08206999269907816,
+              "percent_change_from_mean_log": -34.63382814088421,
+              "weighted_mean_delta_log_yield": -0.42516531120540996
+            },
+            {
+              "climate_model": "IPSL-CM6A-LR",
+              "coefficient_only_standard_error_log_points": 0.16765999238398707,
+              "percent_change_from_mean_log": -57.05951575509911,
+              "weighted_mean_delta_log_yield": -0.8453551163560304
+            },
+            {
+              "climate_model": "MPI-ESM1-2-HR",
+              "coefficient_only_standard_error_log_points": 0.06542133619927154,
+              "percent_change_from_mean_log": -25.106714780282257,
+              "weighted_mean_delta_log_yield": -0.28910594942072615
+            },
+            {
+              "climate_model": "MRI-ESM2-0",
+              "coefficient_only_standard_error_log_points": 0.08823053922117798,
+              "percent_change_from_mean_log": -35.917771185076916,
+              "weighted_mean_delta_log_yield": -0.44500310207688065
+            },
+            {
+              "climate_model": "UKESM1-0-LL",
+              "coefficient_only_standard_error_log_points": 0.2534344636894869,
+              "percent_change_from_mean_log": -74.85461040146383,
+              "weighted_mean_delta_log_yield": -1.3804956224083882
+            }
+          ],
+          "percent_change_from_equal_model_mean_log": -49.18735882303604
+        },
+        "precipitation_all_income_support": {
+          "equal_model_mean_delta_log_yield": -0.02524920797956151,
+          "models_negative": 5,
+          "models_positive": 0,
+          "models_zero": 0,
+          "named_model_maximum_delta_log_yield": -0.012379817220983563,
+          "named_model_minimum_delta_log_yield": -0.040596785147187155,
+          "named_model_results": [
+            {
+              "climate_model": "GFDL-ESM4",
+              "coefficient_only_standard_error_log_points": 0.0055335724506043295,
+              "percent_change_from_mean_log": -2.372817707607738,
+              "weighted_mean_delta_log_yield": -0.0240142242507629
+            },
+            {
+              "climate_model": "IPSL-CM6A-LR",
+              "coefficient_only_standard_error_log_points": 0.006535964719372991,
+              "percent_change_from_mean_log": -2.9408726901773776,
+              "weighted_mean_delta_log_yield": -0.02984983329580062
+            },
+            {
+              "climate_model": "MPI-ESM1-2-HR",
+              "coefficient_only_standard_error_log_points": 0.004482876829509436,
+              "percent_change_from_mean_log": -1.2303502529036865,
+              "weighted_mean_delta_log_yield": -0.012379817220983563
+            },
+            {
+              "climate_model": "MRI-ESM2-0",
+              "coefficient_only_standard_error_log_points": 0.005577222277174377,
+              "percent_change_from_mean_log": -1.921830762130461,
+              "weighted_mean_delta_log_yield": -0.0194053799830733
+            },
+            {
+              "climate_model": "UKESM1-0-LL",
+              "coefficient_only_standard_error_log_points": 0.0077248654735426695,
+              "percent_change_from_mean_log": -3.9783774654781423,
+              "weighted_mean_delta_log_yield": -0.040596785147187155
+            }
+          ],
+          "percent_change_from_equal_model_mean_log": -2.493311270118157
+        },
+        "precipitation_distribution_residual": {
+          "equal_model_mean_delta_log_yield": -0.0037121309480903364,
+          "models_negative": 4,
+          "models_positive": 1,
+          "models_zero": 0,
+          "named_model_maximum_delta_log_yield": 0.010239947325647097,
+          "named_model_minimum_delta_log_yield": -0.02157718230363274,
+          "named_model_results": [
+            {
+              "climate_model": "GFDL-ESM4",
+              "coefficient_only_standard_error_log_points": 0.0027964718930311495,
+              "percent_change_from_mean_log": -0.3368723970373118,
+              "weighted_mean_delta_log_yield": -0.0033744108963484768
+            },
+            {
+              "climate_model": "IPSL-CM6A-LR",
+              "coefficient_only_standard_error_log_points": 0.0016870680890880203,
+              "percent_change_from_mean_log": -0.0787529260873016,
+              "weighted_mean_delta_log_yield": -0.0007878395249467675
+            },
+            {
+              "climate_model": "MPI-ESM1-2-HR",
+              "coefficient_only_standard_error_log_points": 0.002857139565280302,
+              "percent_change_from_mean_log": 1.0292554999532386,
+              "weighted_mean_delta_log_yield": 0.010239947325647097
+            },
+            {
+              "climate_model": "MRI-ESM2-0",
+              "coefficient_only_standard_error_log_points": 0.0023177270963146077,
+              "percent_change_from_mean_log": -0.305648873955929,
+              "weighted_mean_delta_log_yield": -0.003061169341170795
+            },
+            {
+              "climate_model": "UKESM1-0-LL",
+              "coefficient_only_standard_error_log_points": 0.0037499440589922666,
+              "percent_change_from_mean_log": -2.1346060211433158,
+              "weighted_mean_delta_log_yield": -0.02157718230363274
+            }
+          ],
+          "percent_change_from_equal_model_mean_log": -0.3705249507571951
+        },
+        "precipitation_quantity_reference_scaling": {
+          "equal_model_mean_delta_log_yield": -0.021537077031471168,
+          "models_negative": 5,
+          "models_positive": 0,
+          "models_zero": 0,
+          "named_model_maximum_delta_log_yield": -0.0163442106419025,
+          "named_model_minimum_delta_log_yield": -0.02906199377085385,
+          "named_model_results": [
+            {
+              "climate_model": "GFDL-ESM4",
+              "coefficient_only_standard_error_log_points": 0.004497642023422114,
+              "percent_change_from_mean_log": -2.042827030956937,
+              "weighted_mean_delta_log_yield": -0.02063981335441442
+            },
+            {
+              "climate_model": "IPSL-CM6A-LR",
+              "coefficient_only_standard_error_log_points": 0.00653161922661502,
+              "percent_change_from_mean_log": -2.864375543644825,
+              "weighted_mean_delta_log_yield": -0.02906199377085385
+            },
+            {
+              "climate_model": "MPI-ESM1-2-HR",
+              "coefficient_only_standard_error_log_points": 0.00407163421524709,
+              "percent_change_from_mean_log": -2.2365855728373365,
+              "weighted_mean_delta_log_yield": -0.022619764546630665
+            },
+            {
+              "climate_model": "MRI-ESM2-0",
+              "coefficient_only_standard_error_log_points": 0.004428804872314604,
+              "percent_change_from_mean_log": -1.6211368747775734,
+              "weighted_mean_delta_log_yield": -0.0163442106419025
+            },
+            {
+              "climate_model": "UKESM1-0-LL",
+              "coefficient_only_standard_error_log_points": 0.0054754876929130405,
+              "percent_change_from_mean_log": -1.8839871474212475,
+              "weighted_mean_delta_log_yield": -0.01901960284355442
+            }
+          ],
+          "percent_change_from_equal_model_mean_log": -2.1306810241765843
+        },
+        "temperature_all_income_support": {
+          "equal_model_mean_delta_log_yield": -0.6517758123139256,
+          "models_negative": 5,
+          "models_positive": 0,
+          "models_zero": 0,
+          "named_model_maximum_delta_log_yield": -0.27672613219974257,
+          "named_model_minimum_delta_log_yield": -1.339898837261201,
+          "named_model_results": [
+            {
+              "climate_model": "GFDL-ESM4",
+              "coefficient_only_standard_error_log_points": 0.08294720005650426,
+              "percent_change_from_mean_log": -33.04511067077111,
+              "weighted_mean_delta_log_yield": -0.4011510869546471
+            },
+            {
+              "climate_model": "IPSL-CM6A-LR",
+              "coefficient_only_standard_error_log_points": 0.16789159458390857,
+              "percent_change_from_mean_log": -55.75842742967338,
+              "weighted_mean_delta_log_yield": -0.81550528306023
+            },
+            {
+              "climate_model": "MPI-ESM1-2-HR",
+              "coefficient_only_standard_error_log_points": 0.06542623865625799,
+              "percent_change_from_mean_log": -24.173786774089983,
+              "weighted_mean_delta_log_yield": -0.27672613219974257
+            },
+            {
+              "climate_model": "MRI-ESM2-0",
+              "coefficient_only_standard_error_log_points": 0.08867013431728521,
+              "percent_change_from_mean_log": -34.662087075153195,
+              "weighted_mean_delta_log_yield": -0.4255977220938073
+            },
+            {
+              "climate_model": "UKESM1-0-LL",
+              "coefficient_only_standard_error_log_points": 0.25381170777120615,
+              "percent_change_from_mean_log": -73.81278410548015,
+              "weighted_mean_delta_log_yield": -1.339898837261201
+            }
+          ],
+          "percent_change_from_equal_model_mean_log": -47.888045590669364
+        }
+      },
+      "trend": {
+        "joint_climate": {
+          "equal_model_mean_delta_log_yield": -0.5172503753795205,
+          "models_negative": 5,
+          "models_positive": 0,
+          "models_zero": 0,
+          "named_model_maximum_delta_log_yield": -0.21747193308927779,
+          "named_model_minimum_delta_log_yield": -1.0586297913027056,
+          "named_model_results": [
+            {
+              "climate_model": "GFDL-ESM4",
+              "coefficient_only_standard_error_log_points": 0.06449117558348184,
+              "percent_change_from_mean_log": -27.719383048382547,
+              "weighted_mean_delta_log_yield": -0.3246141847219434
+            },
+            {
+              "climate_model": "IPSL-CM6A-LR",
+              "coefficient_only_standard_error_log_points": 0.13164855664223837,
+              "percent_change_from_mean_log": -47.59500232179166,
+              "weighted_mean_delta_log_yield": -0.6461682236707254
+            },
+            {
+              "climate_model": "MPI-ESM1-2-HR",
+              "coefficient_only_standard_error_log_points": 0.05213912250293656,
+              "percent_change_from_mean_log": -19.544981415882443,
+              "weighted_mean_delta_log_yield": -0.21747193308927779
+            },
+            {
+              "climate_model": "MRI-ESM2-0",
+              "coefficient_only_standard_error_log_points": 0.06950958505159482,
+              "percent_change_from_mean_log": -28.77795139664031,
+              "weighted_mean_delta_log_yield": -0.3393677441129501
+            },
+            {
+              "climate_model": "UKESM1-0-LL",
+              "coefficient_only_standard_error_log_points": 0.19731576665599107,
+              "percent_change_from_mean_log": -65.30691475262849,
+              "weighted_mean_delta_log_yield": -1.0586297913027056
+            }
+          ],
+          "percent_change_from_equal_model_mean_log": -40.38424942153138
+        },
+        "precipitation_all_income_support": {
+          "equal_model_mean_delta_log_yield": -0.011445922144280512,
+          "models_negative": 5,
+          "models_positive": 0,
+          "models_zero": 0,
+          "named_model_maximum_delta_log_yield": -0.000589253569464738,
+          "named_model_minimum_delta_log_yield": -0.02300878403600331,
+          "named_model_results": [
+            {
+              "climate_model": "GFDL-ESM4",
+              "coefficient_only_standard_error_log_points": 0.004111229234318748,
+              "percent_change_from_mean_log": -1.2311347544811644,
+              "weighted_mean_delta_log_yield": -0.012387759991814977
+            },
+            {
+              "climate_model": "IPSL-CM6A-LR",
+              "coefficient_only_standard_error_log_points": 0.0046814903053940555,
+              "percent_change_from_mean_log": -1.5230340306034436,
+              "weighted_mean_delta_log_yield": -0.015347513183192203
+            },
+            {
+              "climate_model": "MPI-ESM1-2-HR",
+              "coefficient_only_standard_error_log_points": 0.0039600674822365504,
+              "percent_change_from_mean_log": -0.05890799936752332,
+              "weighted_mean_delta_log_yield": -0.000589253569464738
+            },
+            {
+              "climate_model": "MRI-ESM2-0",
+              "coefficient_only_standard_error_log_points": 0.004448266192515078,
+              "percent_change_from_mean_log": -0.5878950879601692,
+              "weighted_mean_delta_log_yield": -0.005896299940927337
+            },
+            {
+              "climate_model": "UKESM1-0-LL",
+              "coefficient_only_standard_error_log_points": 0.005271409894994508,
+              "percent_change_from_mean_log": -2.2746100497862747,
+              "weighted_mean_delta_log_yield": -0.02300878403600331
+            }
+          ],
+          "percent_change_from_equal_model_mean_log": -1.1380666783964122
+        },
+        "precipitation_distribution_residual": {
+          "equal_model_mean_delta_log_yield": 0.0038530975693031565,
+          "models_negative": 1,
+          "models_positive": 4,
+          "models_zero": 0,
+          "named_model_maximum_delta_log_yield": 0.01665301477540296,
+          "named_model_minimum_delta_log_yield": -0.011130528349816714,
+          "named_model_results": [
+            {
+              "climate_model": "GFDL-ESM4",
+              "coefficient_only_standard_error_log_points": 0.002512259939131088,
+              "percent_change_from_mean_log": 0.3133409865928716,
+              "weighted_mean_delta_log_yield": 0.00312851096807033
+            },
+            {
+              "climate_model": "IPSL-CM6A-LR",
+              "coefficient_only_standard_error_log_points": 0.0017018055411464836,
+              "percent_change_from_mean_log": 0.5750825671912553,
+              "weighted_mean_delta_log_yield": 0.005734352798865326
+            },
+            {
+              "climate_model": "MPI-ESM1-2-HR",
+              "coefficient_only_standard_error_log_points": 0.003261855081980966,
+              "percent_change_from_mean_log": 1.679244915155507,
+              "weighted_mean_delta_log_yield": 0.01665301477540296
+            },
+            {
+              "climate_model": "MRI-ESM2-0",
+              "coefficient_only_standard_error_log_points": 0.002251522135078632,
+              "percent_change_from_mean_log": 0.48920649200952854,
+              "weighted_mean_delta_log_yield": 0.00488013765399388
+            },
+            {
+              "climate_model": "UKESM1-0-LL",
+              "coefficient_only_standard_error_log_points": 0.0023078905173350116,
+              "percent_change_from_mean_log": -1.106881320542421,
+              "weighted_mean_delta_log_yield": -0.011130528349816714
+            }
+          ],
+          "percent_change_from_equal_model_mean_log": 0.38605302930129604
+        },
+        "precipitation_quantity_reference_scaling": {
+          "equal_model_mean_delta_log_yield": -0.011554657882336573,
+          "models_negative": 5,
+          "models_positive": 0,
+          "models_zero": 0,
+          "named_model_maximum_delta_log_yield": -0.007624236762088157,
+          "named_model_minimum_delta_log_yield": -0.017301546594275533,
+          "named_model_results": [
+            {
+              "climate_model": "GFDL-ESM4",
+              "coefficient_only_standard_error_log_points": 0.0031432506834281697,
+              "percent_change_from_mean_log": -1.2147395530497114,
+              "weighted_mean_delta_log_yield": -0.012221778123184038
+            },
+            {
+              "climate_model": "IPSL-CM6A-LR",
+              "coefficient_only_standard_error_log_points": 0.004845758496157992,
+              "percent_change_from_mean_log": -1.7152734300569163,
+              "weighted_mean_delta_log_yield": -0.017301546594275533
+            },
+            {
+              "climate_model": "MPI-ESM1-2-HR",
+              "coefficient_only_standard_error_log_points": 0.0033122396612780187,
+              "percent_change_from_mean_log": -1.195252095072904,
+              "weighted_mean_delta_log_yield": -0.01202452667102267
+            },
+            {
+              "climate_model": "MRI-ESM2-0",
+              "coefficient_only_standard_error_log_points": 0.003275699787543085,
+              "percent_change_from_mean_log": -0.7595245993268513,
+              "weighted_mean_delta_log_yield": -0.007624236762088157
+            },
+            {
+              "climate_model": "UKESM1-0-LL",
+              "coefficient_only_standard_error_log_points": 0.0040698794642607715,
+              "percent_change_from_mean_log": -0.856431675565186,
+              "weighted_mean_delta_log_yield": -0.00860120126111247
+            }
+          ],
+          "percent_change_from_equal_model_mean_log": -1.1488159192578755
+        },
+        "temperature_all_income_support": {
+          "equal_model_mean_delta_log_yield": -0.4986890834039272,
+          "models_negative": 5,
+          "models_positive": 0,
+          "models_zero": 0,
+          "named_model_maximum_delta_log_yield": -0.21040095662622438,
+          "named_model_minimum_delta_log_yield": -1.0274286834959034,
+          "named_model_results": [
+            {
+              "climate_model": "GFDL-ESM4",
+              "coefficient_only_standard_error_log_points": 0.06510838137311743,
+              "percent_change_from_mean_log": -26.42146727222065,
+              "weighted_mean_delta_log_yield": -0.3068168776929583
+            },
+            {
+              "climate_model": "IPSL-CM6A-LR",
+              "coefficient_only_standard_error_log_points": 0.13185865753738274,
+              "percent_change_from_mean_log": -46.3875802253941,
+              "weighted_mean_delta_log_yield": -0.623389432539667
+            },
+            {
+              "climate_model": "MPI-ESM1-2-HR",
+              "coefficient_only_standard_error_log_points": 0.05164482875342632,
+              "percent_change_from_mean_log": -18.974069800577425,
+              "weighted_mean_delta_log_yield": -0.21040095662622438
+            },
+            {
+              "climate_model": "MRI-ESM2-0",
+              "coefficient_only_standard_error_log_points": 0.0697296605824569,
+              "percent_change_from_mean_log": -27.776843666144302,
+              "weighted_mean_delta_log_yield": -0.32540946666488296
+            },
+            {
+              "climate_model": "UKESM1-0-LL",
+              "coefficient_only_standard_error_log_points": 0.19779077781337345,
+              "percent_change_from_mean_log": -64.2073880323003,
+              "weighted_mean_delta_log_yield": -1.0274286834959034
+            }
+          ],
+          "percent_change_from_equal_model_mean_log": -39.267370778954074
+        }
+      },
+      "upper": {
+        "joint_climate": {
+          "equal_model_mean_delta_log_yield": -0.3042175154942317,
+          "models_negative": 5,
+          "models_positive": 0,
+          "models_zero": 0,
+          "named_model_maximum_delta_log_yield": -0.12195991131401328,
+          "named_model_minimum_delta_log_yield": -0.6294753498284624,
+          "named_model_results": [
+            {
+              "climate_model": "GFDL-ESM4",
+              "coefficient_only_standard_error_log_points": 0.04117906083116413,
+              "percent_change_from_mean_log": -17.34922757893578,
+              "weighted_mean_delta_log_yield": -0.19054601607732144
+            },
+            {
+              "climate_model": "IPSL-CM6A-LR",
+              "coefficient_only_standard_error_log_points": 0.08392399874054433,
+              "percent_change_from_mean_log": -31.653901120220173,
+              "weighted_mean_delta_log_yield": -0.3805857000903184
+            },
+            {
+              "climate_model": "MPI-ESM1-2-HR",
+              "coefficient_only_standard_error_log_points": 0.0345879992020469,
+              "percent_change_from_mean_log": -11.481614635110466,
+              "weighted_mean_delta_log_yield": -0.12195991131401328
+            },
+            {
+              "climate_model": "MRI-ESM2-0",
+              "coefficient_only_standard_error_log_points": 0.04472737853698018,
+              "percent_change_from_mean_log": -18.005712038894046,
+              "weighted_mean_delta_log_yield": -0.19852060016104286
+            },
+            {
+              "climate_model": "UKESM1-0-LL",
+              "coefficient_only_standard_error_log_points": 0.12275635245801184,
+              "percent_change_from_mean_log": -46.71287013005,
+              "weighted_mean_delta_log_yield": -0.6294753498284624
+            }
+          ],
+          "percent_change_from_equal_model_mean_log": -26.22996122665126
+        },
+        "precipitation_all_income_support": {
+          "equal_model_mean_delta_log_yield": 0.006958458969427495,
+          "models_negative": 0,
+          "models_positive": 5,
+          "models_zero": 0,
+          "named_model_maximum_delta_log_yield": 0.015131497965893706,
+          "named_model_minimum_delta_log_yield": 0.0004418841122418459,
+          "named_model_results": [
+            {
+              "climate_model": "GFDL-ESM4",
+              "coefficient_only_standard_error_log_points": 0.002766260507897315,
+              "percent_change_from_mean_log": 0.3119046488051075,
+              "weighted_mean_delta_log_yield": 0.0031141923534489285
+            },
+            {
+              "climate_model": "IPSL-CM6A-LR",
+              "coefficient_only_standard_error_log_points": 0.0030636443226820017,
+              "percent_change_from_mean_log": 0.3996879938385915,
+              "weighted_mean_delta_log_yield": 0.0039889136336190316
+            },
+            {
+              "climate_model": "MPI-ESM1-2-HR",
+              "coefficient_only_standard_error_log_points": 0.0041770655297644005,
+              "percent_change_from_mean_log": 1.5246558695775703,
+              "weighted_mean_delta_log_yield": 0.015131497965893706
+            },
+            {
+              "climate_model": "MRI-ESM2-0",
+              "coefficient_only_standard_error_log_points": 0.003982413780477862,
+              "percent_change_from_mean_log": 1.2189500487755236,
+              "weighted_mean_delta_log_yield": 0.012115806781933964
+            },
+            {
+              "climate_model": "UKESM1-0-LL",
+              "coefficient_only_standard_error_log_points": 0.0028835369733813693,
+              "percent_change_from_mean_log": 0.0441981757408258,
+              "weighted_mean_delta_log_yield": 0.0004418841122418459
+            }
+          ],
+          "percent_change_from_equal_model_mean_log": 0.6982725297805438
+        },
+        "precipitation_distribution_residual": {
+          "equal_model_mean_delta_log_yield": 0.01394006892582782,
+          "models_negative": 0,
+          "models_positive": 5,
+          "models_zero": 0,
+          "named_model_maximum_delta_log_yield": 0.025203771375077448,
+          "named_model_minimum_delta_log_yield": 0.002798343588604657,
+          "named_model_results": [
+            {
+              "climate_model": "GFDL-ESM4",
+              "coefficient_only_standard_error_log_points": 0.002705241289008439,
+              "percent_change_from_mean_log": 1.1868957104793512,
+              "weighted_mean_delta_log_yield": 0.011799073453962076
+            },
+            {
+              "climate_model": "IPSL-CM6A-LR",
+              "coefficient_only_standard_error_log_points": 0.0023753468270576957,
+              "percent_change_from_mean_log": 1.453523312841338,
+              "weighted_mean_delta_log_yield": 0.014430609230614786
+            },
+            {
+              "climate_model": "MPI-ESM1-2-HR",
+              "coefficient_only_standard_error_log_points": 0.004046896306122091,
+              "percent_change_from_mean_log": 2.5524071684835423,
+              "weighted_mean_delta_log_yield": 0.025203771375077448
+            },
+            {
+              "climate_model": "MRI-ESM2-0",
+              "coefficient_only_standard_error_log_points": 0.002957844211177778,
+              "percent_change_from_mean_log": 1.558880422187121,
+              "weighted_mean_delta_log_yield": 0.015468546980880125
+            },
+            {
+              "climate_model": "UKESM1-0-LL",
+              "coefficient_only_standard_error_log_points": 0.0011912848118656308,
+              "percent_change_from_mean_log": 0.2802262606758416,
+              "weighted_mean_delta_log_yield": 0.002798343588604657
+            }
+          ],
+          "percent_change_from_equal_model_mean_log": 1.403768474968121
+        },
+        "precipitation_quantity_reference_scaling": {
+          "equal_model_mean_delta_log_yield": 0.00175523431650957,
+          "models_negative": 2,
+          "models_positive": 3,
+          "models_zero": 0,
+          "named_model_maximum_delta_log_yield": 0.005290000848810139,
+          "named_model_minimum_delta_log_yield": -0.0016209503588377422,
+          "named_model_results": [
+            {
+              "climate_model": "GFDL-ESM4",
+              "coefficient_only_standard_error_log_points": 0.0016114089803523333,
+              "percent_change_from_mean_log": -0.09972335799816598,
+              "weighted_mean_delta_log_yield": -0.0009977311482101832
+            },
+            {
+              "climate_model": "IPSL-CM6A-LR",
+              "coefficient_only_standard_error_log_points": 0.0032237611857316314,
+              "percent_change_from_mean_log": -0.16196373283530677,
+              "weighted_mean_delta_log_yield": -0.0016209503588377422
+            },
+            {
+              "climate_model": "MPI-ESM1-2-HR",
+              "coefficient_only_standard_error_log_points": 0.0031243174945935763,
+              "percent_change_from_mean_log": 0.21046688759215723,
+              "weighted_mean_delta_log_yield": 0.002102457163121326
+            },
+            {
+              "climate_model": "MRI-ESM2-0",
+              "coefficient_only_standard_error_log_points": 0.00246210246519336,
+              "percent_change_from_mean_log": 0.401041535738273,
+              "weighted_mean_delta_log_yield": 0.00400239507766431
+            },
+            {
+              "climate_model": "UKESM1-0-LL",
+              "coefficient_only_standard_error_log_points": 0.0028592666714993224,
+              "percent_change_from_mean_log": 0.5304017608624539,
+              "weighted_mean_delta_log_yield": 0.005290000848810139
+            }
+          ],
+          "percent_change_from_equal_model_mean_log": 0.17567756419263303
+        },
+        "temperature_all_income_support": {
+          "equal_model_mean_delta_log_yield": -0.29457344485726267,
+          "models_negative": 5,
+          "models_positive": 0,
+          "models_zero": 0,
+          "named_model_maximum_delta_log_yield": -0.12196738919486665,
+          "named_model_minimum_delta_log_yield": -0.6108018118088396,
+          "named_model_results": [
+            {
+              "climate_model": "GFDL-ESM4",
+              "coefficient_only_standard_error_log_points": 0.041449237164101434,
+              "percent_change_from_mean_log": -16.559629251486964,
+              "weighted_mean_delta_log_yield": -0.18103793201070661
+            },
+            {
+              "climate_model": "IPSL-CM6A-LR",
+              "coefficient_only_standard_error_log_points": 0.08412941280654725,
+              "percent_change_from_mean_log": -30.735312197477153,
+              "weighted_mean_delta_log_yield": -0.3672349651789166
+            },
+            {
+              "climate_model": "MPI-ESM1-2-HR",
+              "coefficient_only_standard_error_log_points": 0.03339023040119401,
+              "percent_change_from_mean_log": -11.482276562574647,
+              "weighted_mean_delta_log_yield": -0.12196738919486665
+            },
+            {
+              "climate_model": "MRI-ESM2-0",
+              "coefficient_only_standard_error_log_points": 0.044653841491373955,
+              "percent_change_from_mean_log": -17.454879425169505,
+              "weighted_mean_delta_log_yield": -0.19182512609298388
+            },
+            {
+              "climate_model": "UKESM1-0-LL",
+              "coefficient_only_standard_error_log_points": 0.12340338822855319,
+              "percent_change_from_mean_log": -45.70846214546115,
+              "weighted_mean_delta_log_yield": -0.6108018118088396
+            }
+          ],
+          "percent_change_from_equal_model_mean_log": -25.51507610133982
+        }
+      }
+    },
+    "full": {
+      "fixed": {
+        "joint_climate": {
+          "equal_model_mean_delta_log_yield": -0.894622653595944,
+          "models_negative": 5,
+          "models_positive": 0,
+          "models_zero": 0,
+          "named_model_maximum_delta_log_yield": -0.4585508842833384,
+          "named_model_minimum_delta_log_yield": -1.6556710116596793,
+          "named_model_results": [
+            {
+              "climate_model": "GFDL-ESM4",
+              "coefficient_only_standard_error_log_points": 0.08367272107086486,
+              "percent_change_from_mean_log": -41.22288648663964,
+              "weighted_mean_delta_log_yield": -0.5314176328148558
+            },
+            {
+              "climate_model": "IPSL-CM6A-LR",
+              "coefficient_only_standard_error_log_points": 0.20748708604513305,
+              "percent_change_from_mean_log": -72.56652506039691,
+              "weighted_mean_delta_log_yield": -1.293406205154066
+            },
+            {
+              "climate_model": "MPI-ESM1-2-HR",
+              "coefficient_only_standard_error_log_points": 0.08735274045092889,
+              "percent_change_from_mean_log": -41.378433849784926,
+              "weighted_mean_delta_log_yield": -0.5340675340677804
+            },
+            {
+              "climate_model": "MRI-ESM2-0",
+              "coefficient_only_standard_error_log_points": 0.08137658659795999,
+              "percent_change_from_mean_log": -36.78008882926707,
+              "weighted_mean_delta_log_yield": -0.4585508842833384
+            },
+            {
+              "climate_model": "UKESM1-0-LL",
+              "coefficient_only_standard_error_log_points": 0.2699329764372532,
+              "percent_change_from_mean_log": -80.90361262813724,
+              "weighted_mean_delta_log_yield": -1.6556710116596793
+            }
+          ],
+          "percent_change_from_equal_model_mean_log": -59.12381856565939
+        },
+        "precipitation_all_income_support": {
+          "equal_model_mean_delta_log_yield": -0.024104952753254246,
+          "models_negative": 5,
+          "models_positive": 0,
+          "models_zero": 0,
+          "named_model_maximum_delta_log_yield": -0.015481780537953594,
+          "named_model_minimum_delta_log_yield": -0.035589723006524764,
+          "named_model_results": [
+            {
+              "climate_model": "GFDL-ESM4",
+              "coefficient_only_standard_error_log_points": 0.007334793299415902,
+              "percent_change_from_mean_log": -3.070666495768514,
+              "weighted_mean_delta_log_yield": -0.03118799355971174
+            },
+            {
+              "climate_model": "IPSL-CM6A-LR",
+              "coefficient_only_standard_error_log_points": 0.009228587541913746,
+              "percent_change_from_mean_log": -3.496385559877208,
+              "weighted_mean_delta_log_yield": -0.035589723006524764
+            },
+            {
+              "climate_model": "MPI-ESM1-2-HR",
+              "coefficient_only_standard_error_log_points": 0.0051801819371687765,
+              "percent_change_from_mean_log": -1.5552085216054046,
+              "weighted_mean_delta_log_yield": -0.01567428754987735
+            },
+            {
+              "climate_model": "MRI-ESM2-0",
+              "coefficient_only_standard_error_log_points": 0.0036953729814069485,
+              "percent_change_from_mean_log": -1.5362553847110982,
+              "weighted_mean_delta_log_yield": -0.015481780537953594
+            },
+            {
+              "climate_model": "UKESM1-0-LL",
+              "coefficient_only_standard_error_log_points": 0.004804694211530318,
+              "percent_change_from_mean_log": -2.2337713699781636,
+              "weighted_mean_delta_log_yield": -0.02259097911220378
+            }
+          ],
+          "percent_change_from_equal_model_mean_log": -2.3816748738547857
+        },
+        "precipitation_distribution_residual": {
+          "equal_model_mean_delta_log_yield": -0.004603607558886391,
+          "models_negative": 4,
+          "models_positive": 1,
+          "models_zero": 0,
+          "named_model_maximum_delta_log_yield": 0.005617048022956859,
+          "named_model_minimum_delta_log_yield": -0.010738142757021552,
+          "named_model_results": [
+            {
+              "climate_model": "GFDL-ESM4",
+              "coefficient_only_standard_error_log_points": 0.0028882328597712964,
+              "percent_change_from_mean_log": -0.8597322883358877,
+              "weighted_mean_delta_log_yield": -0.008634493059748095
+            },
+            {
+              "climate_model": "IPSL-CM6A-LR",
+              "coefficient_only_standard_error_log_points": 0.0022213166002475544,
+              "percent_change_from_mean_log": -0.6406119921363815,
+              "weighted_mean_delta_log_yield": -0.00642672716303871
+            },
+            {
+              "climate_model": "MPI-ESM1-2-HR",
+              "coefficient_only_standard_error_log_points": 0.002084630544154469,
+              "percent_change_from_mean_log": 0.5632853216188873,
+              "weighted_mean_delta_log_yield": 0.005617048022956859
+            },
+            {
+              "climate_model": "MRI-ESM2-0",
+              "coefficient_only_standard_error_log_points": 0.001620017970251945,
+              "percent_change_from_mean_log": -0.28317059733762634,
+              "weighted_mean_delta_log_yield": -0.002835722837580454
+            },
+            {
+              "climate_model": "UKESM1-0-LL",
+              "coefficient_only_standard_error_log_points": 0.00259887261312478,
+              "percent_change_from_mean_log": -1.0680694714387877,
+              "weighted_mean_delta_log_yield": -0.010738142757021552
+            }
+          ],
+          "percent_change_from_equal_model_mean_log": -0.4593027199775412
+        },
+        "precipitation_quantity_reference_scaling": {
+          "equal_model_mean_delta_log_yield": -0.019506280487977447,
+          "models_negative": 5,
+          "models_positive": 0,
+          "models_zero": 0,
+          "named_model_maximum_delta_log_yield": -0.011852891662965605,
+          "named_model_minimum_delta_log_yield": -0.02917635058066228,
+          "named_model_results": [
+            {
+              "climate_model": "GFDL-ESM4",
+              "coefficient_only_standard_error_log_points": 0.006144333576628148,
+              "percent_change_from_mean_log": -2.230769010802749,
+              "weighted_mean_delta_log_yield": -0.02256027001032019
+            },
+            {
+              "climate_model": "IPSL-CM6A-LR",
+              "coefficient_only_standard_error_log_points": 0.008102089815031245,
+              "percent_change_from_mean_log": -2.8754830286560233,
+              "weighted_mean_delta_log_yield": -0.02917635058066228
+            },
+            {
+              "climate_model": "MPI-ESM1-2-HR",
+              "coefficient_only_standard_error_log_points": 0.0046068458504760325,
+              "percent_change_from_mean_log": -2.1066882536786085,
+              "weighted_mean_delta_log_yield": -0.02129195598329561
+            },
+            {
+              "climate_model": "MRI-ESM2-0",
+              "coefficient_only_standard_error_log_points": 0.0028910252118860623,
+              "percent_change_from_mean_log": -1.2570260096233463,
+              "weighted_mean_delta_log_yield": -0.012649934202643551
+            },
+            {
+              "climate_model": "UKESM1-0-LL",
+              "coefficient_only_standard_error_log_points": 0.0032946224754383494,
+              "percent_change_from_mean_log": -1.1782922859633134,
+              "weighted_mean_delta_log_yield": -0.011852891662965605
+            }
+          ],
+          "percent_change_from_equal_model_mean_log": -1.9317263996808283
+        },
+        "temperature_all_income_support": {
+          "equal_model_mean_delta_log_yield": -0.8705177008426898,
+          "models_negative": 5,
+          "models_positive": 0,
+          "models_zero": 0,
+          "named_model_maximum_delta_log_yield": -0.4430691037453849,
+          "named_model_minimum_delta_log_yield": -1.6330800325474755,
+          "named_model_results": [
+            {
+              "climate_model": "GFDL-ESM4",
+              "coefficient_only_standard_error_log_points": 0.08472947900652596,
+              "percent_change_from_mean_log": -39.36086075450583,
+              "weighted_mean_delta_log_yield": -0.500229639255144
+            },
+            {
+              "climate_model": "IPSL-CM6A-LR",
+              "coefficient_only_standard_error_log_points": 0.20790501149304996,
+              "percent_change_from_mean_log": -71.57259331812425,
+              "weighted_mean_delta_log_yield": -1.2578164821475413
+            },
+            {
+              "climate_model": "MPI-ESM1-2-HR",
+              "coefficient_only_standard_error_log_points": 0.08759007849253646,
+              "percent_change_from_mean_log": -40.452343623399734,
+              "weighted_mean_delta_log_yield": -0.5183932465179031
+            },
+            {
+              "climate_model": "MRI-ESM2-0",
+              "coefficient_only_standard_error_log_points": 0.08145931734191926,
+              "percent_change_from_mean_log": -35.79371633920523,
+              "weighted_mean_delta_log_yield": -0.4430691037453849
+            },
+            {
+              "climate_model": "UKESM1-0-LL",
+              "coefficient_only_standard_error_log_points": 0.26982152774739787,
+              "percent_change_from_mean_log": -80.46729669390285,
+              "weighted_mean_delta_log_yield": -1.6330800325474755
+            }
+          ],
+          "percent_change_from_equal_model_mean_log": -58.126528618966546
+        }
+      },
+      "trend": {
+        "joint_climate": {
+          "equal_model_mean_delta_log_yield": -0.6763140232804368,
+          "models_negative": 5,
+          "models_positive": 0,
+          "models_zero": 0,
+          "named_model_maximum_delta_log_yield": -0.34273434826075216,
+          "named_model_minimum_delta_log_yield": -1.256512751433853,
+          "named_model_results": [
+            {
+              "climate_model": "GFDL-ESM4",
+              "coefficient_only_standard_error_log_points": 0.06499110319503526,
+              "percent_change_from_mean_log": -33.03607868051858,
+              "weighted_mean_delta_log_yield": -0.40101619940266725
+            },
+            {
+              "climate_model": "IPSL-CM6A-LR",
+              "coefficient_only_standard_error_log_points": 0.1601959626041486,
+              "percent_change_from_mean_log": -62.41767323769054,
+              "weighted_mean_delta_log_yield": -0.978636279009643
+            },
+            {
+              "climate_model": "MPI-ESM1-2-HR",
+              "coefficient_only_standard_error_log_points": 0.0673906682266462,
+              "percent_change_from_mean_log": -33.14676811579469,
+              "weighted_mean_delta_log_yield": -0.40267053829526867
+            },
+            {
+              "climate_model": "MRI-ESM2-0",
+              "coefficient_only_standard_error_log_points": 0.06410930361099382,
+              "percent_change_from_mean_log": -29.017324677255154,
+              "weighted_mean_delta_log_yield": -0.34273434826075216
+            },
+            {
+              "climate_model": "UKESM1-0-LL",
+              "coefficient_only_standard_error_log_points": 0.20862059382658402,
+              "percent_change_from_mean_log": -71.53550746519277,
+              "weighted_mean_delta_log_yield": -1.256512751433853
+            }
+          ],
+          "percent_change_from_equal_model_mean_log": -49.151218340568946
+        },
+        "precipitation_all_income_support": {
+          "equal_model_mean_delta_log_yield": -0.010822552186828541,
+          "models_negative": 5,
+          "models_positive": 0,
+          "models_zero": 0,
+          "named_model_maximum_delta_log_yield": -0.0033382758700012775,
+          "named_model_minimum_delta_log_yield": -0.0205197557097462,
+          "named_model_results": [
+            {
+              "climate_model": "GFDL-ESM4",
+              "coefficient_only_standard_error_log_points": 0.00567103918450989,
+              "percent_change_from_mean_log": -1.7971968038622474,
+              "weighted_mean_delta_log_yield": -0.01813542524957752
+            },
+            {
+              "climate_model": "IPSL-CM6A-LR",
+              "coefficient_only_standard_error_log_points": 0.007195296205691053,
+              "percent_change_from_mean_log": -2.0310658174942495,
+              "weighted_mean_delta_log_yield": -0.0205197557097462
+            },
+            {
+              "climate_model": "MPI-ESM1-2-HR",
+              "coefficient_only_standard_error_log_points": 0.004120051024315023,
+              "percent_change_from_mean_log": -0.4043849627916053,
+              "weighted_mean_delta_log_yield": -0.0040520480975391624
+            },
+            {
+              "climate_model": "MRI-ESM2-0",
+              "coefficient_only_standard_error_log_points": 0.002736008624354836,
+              "percent_change_from_mean_log": -0.33327100222767814,
+              "weighted_mean_delta_log_yield": -0.0033382758700012775
+            },
+            {
+              "climate_model": "UKESM1-0-LL",
+              "coefficient_only_standard_error_log_points": 0.0032626976844351463,
+              "percent_change_from_mean_log": -0.8034803025010546,
+              "weighted_mean_delta_log_yield": -0.00806725600727855
+            }
+          ],
+          "percent_change_from_equal_model_mean_log": -1.0764199068517044
+        },
+        "precipitation_distribution_residual": {
+          "equal_model_mean_delta_log_yield": 0.002576042300785927,
+          "models_negative": 2,
+          "models_positive": 3,
+          "models_zero": 0,
+          "named_model_maximum_delta_log_yield": 0.011719404258367535,
+          "named_model_minimum_delta_log_yield": -0.0022107964392406344,
+          "named_model_results": [
+            {
+              "climate_model": "GFDL-ESM4",
+              "coefficient_only_standard_error_log_points": 0.0023096547488306177,
+              "percent_change_from_mean_log": -0.17139214369587424,
+              "weighted_mean_delta_log_yield": -0.0017153918806949934
+            },
+            {
+              "climate_model": "IPSL-CM6A-LR",
+              "coefficient_only_standard_error_log_points": 0.00179193525198025,
+              "percent_change_from_mean_log": 0.05285694142516131,
+              "weighted_mean_delta_log_yield": 0.000528429770644165
+            },
+            {
+              "climate_model": "MPI-ESM1-2-HR",
+              "coefficient_only_standard_error_log_points": 0.002235778919988341,
+              "percent_change_from_mean_log": 1.178834553010618,
+              "weighted_mean_delta_log_yield": 0.011719404258367535
+            },
+            {
+              "climate_model": "MRI-ESM2-0",
+              "coefficient_only_standard_error_log_points": 0.0014948037308716842,
+              "percent_change_from_mean_log": 0.4568971862145452,
+              "weighted_mean_delta_log_yield": 0.004558565794853565
+            },
+            {
+              "climate_model": "UKESM1-0-LL",
+              "coefficient_only_standard_error_log_points": 0.001867715202240295,
+              "percent_change_from_mean_log": -0.22083544287203055,
+              "weighted_mean_delta_log_yield": -0.0022107964392406344
+            }
+          ],
+          "percent_change_from_equal_model_mean_log": 0.2579363148689624
+        },
+        "precipitation_quantity_reference_scaling": {
+          "equal_model_mean_delta_log_yield": -0.009745988968028876,
+          "models_negative": 5,
+          "models_positive": 0,
+          "models_zero": 0,
+          "named_model_maximum_delta_log_yield": -0.0023652945415331156,
+          "named_model_minimum_delta_log_yield": -0.01736203511588691,
+          "named_model_results": [
+            {
+              "climate_model": "GFDL-ESM4",
+              "coefficient_only_standard_error_log_points": 0.004651643138058111,
+              "percent_change_from_mean_log": -1.3397218085683649,
+              "weighted_mean_delta_log_yield": -0.013487770488201305
+            },
+            {
+              "climate_model": "IPSL-CM6A-LR",
+              "coefficient_only_standard_error_log_points": 0.006317864565582611,
+              "percent_change_from_mean_log": -1.721218348062647,
+              "weighted_mean_delta_log_yield": -0.01736203511588691
+            },
+            {
+              "climate_model": "MPI-ESM1-2-HR",
+              "coefficient_only_standard_error_log_points": 0.0035521115339804082,
+              "percent_change_from_mean_log": -1.113463013410394,
+              "weighted_mean_delta_log_yield": -0.0111970841626301
+            },
+            {
+              "climate_model": "MRI-ESM2-0",
+              "coefficient_only_standard_error_log_points": 0.0020515201727467898,
+              "percent_change_from_mean_log": -0.4308452405460156,
+              "weighted_mean_delta_log_yield": -0.004317760531892953
+            },
+            {
+              "climate_model": "UKESM1-0-LL",
+              "coefficient_only_standard_error_log_points": 0.002620196425276445,
+              "percent_change_from_mean_log": -0.2362499436582148,
+              "weighted_mean_delta_log_yield": -0.0023652945415331156
+            }
+          ],
+          "percent_change_from_equal_model_mean_log": -0.9698650728352118
+        },
+        "temperature_all_income_support": {
+          "equal_model_mean_delta_log_yield": -0.6585221856747996,
+          "models_negative": 5,
+          "models_positive": 0,
+          "models_zero": 0,
+          "named_model_maximum_delta_log_yield": -0.33190195355024055,
+          "named_model_minimum_delta_log_yield": -1.2392572639708845,
+          "named_model_results": [
+            {
+              "climate_model": "GFDL-ESM4",
+              "coefficient_only_standard_error_log_points": 0.06576436065825383,
+              "percent_change_from_mean_log": -31.43924654562608,
+              "weighted_mean_delta_log_yield": -0.37744992205104916
+            },
+            {
+              "climate_model": "IPSL-CM6A-LR",
+              "coefficient_only_standard_error_log_points": 0.1604376344121292,
+              "percent_change_from_mean_log": -61.38605143603751,
+              "weighted_mean_delta_log_yield": -0.9515566130320563
+            },
+            {
+              "climate_model": "MPI-ESM1-2-HR",
+              "coefficient_only_standard_error_log_points": 0.06736557017632704,
+              "percent_change_from_mean_log": -32.45966261923602,
+              "weighted_mean_delta_log_yield": -0.3924451757697676
+            },
+            {
+              "climate_model": "MRI-ESM2-0",
+              "coefficient_only_standard_error_log_points": 0.0640252532640397,
+              "percent_change_from_mean_log": -28.244232661204975,
+              "weighted_mean_delta_log_yield": -0.33190195355024055
+            },
+            {
+              "climate_model": "UKESM1-0-LL",
+              "coefficient_only_standard_error_log_points": 0.20855656948946186,
+              "percent_change_from_mean_log": -71.0400766135876,
+              "weighted_mean_delta_log_yield": -1.2392572639708845
+            }
+          ],
+          "percent_change_from_equal_model_mean_log": -48.23842905391625
+        }
+      },
+      "upper": {
+        "joint_climate": {
+          "equal_model_mean_delta_log_yield": -0.38523584952642737,
+          "models_negative": 5,
+          "models_positive": 0,
+          "models_zero": 0,
+          "named_model_maximum_delta_log_yield": -0.18831230023063703,
+          "named_model_minimum_delta_log_yield": -0.7243017377994184,
+          "named_model_results": [
+            {
+              "climate_model": "GFDL-ESM4",
+              "coefficient_only_standard_error_log_points": 0.04085413116322416,
+              "percent_change_from_mean_log": -20.31968516839953,
+              "weighted_mean_delta_log_yield": -0.22714762151974943
+            },
+            {
+              "climate_model": "IPSL-CM6A-LR",
+              "coefficient_only_standard_error_log_points": 0.09872350932369292,
+              "percent_change_from_mean_log": -42.81868742126487,
+              "weighted_mean_delta_log_yield": -0.5589430441504121
+            },
+            {
+              "climate_model": "MPI-ESM1-2-HR",
+              "coefficient_only_standard_error_log_points": 0.041452782169959776,
+              "percent_change_from_mean_log": -20.345730191543897,
+              "weighted_mean_delta_log_yield": -0.22747454393191968
+            },
+            {
+              "climate_model": "MRI-ESM2-0",
+              "coefficient_only_standard_error_log_points": 0.04210461350955291,
+              "percent_change_from_mean_log": -17.164402892771317,
+              "weighted_mean_delta_log_yield": -0.18831230023063703
+            },
+            {
+              "climate_model": "UKESM1-0-LL",
+              "coefficient_only_standard_error_log_points": 0.12819979593275624,
+              "percent_change_from_mean_log": -51.53371274067473,
+              "weighted_mean_delta_log_yield": -0.7243017377994184
+            }
+          ],
+          "percent_change_from_equal_model_mean_log": -31.970982883217314
+        },
+        "precipitation_all_income_support": {
+          "equal_model_mean_delta_log_yield": 0.006887315235072404,
+          "models_negative": 2,
+          "models_positive": 3,
+          "models_zero": 0,
+          "named_model_maximum_delta_log_yield": 0.012853063687268492,
+          "named_model_minimum_delta_log_yield": -0.0007320008360652236,
+          "named_model_results": [
+            {
+              "climate_model": "GFDL-ESM4",
+              "coefficient_only_standard_error_log_points": 0.0037589607331995328,
+              "percent_change_from_mean_log": -0.07317329888120144,
+              "weighted_mean_delta_log_yield": -0.0007320008360652236
+            },
+            {
+              "climate_model": "IPSL-CM6A-LR",
+              "coefficient_only_standard_error_log_points": 0.0049247341712987305,
+              "percent_change_from_mean_log": -0.04263750570175061,
+              "weighted_mean_delta_log_yield": -0.00042646598070811043
+            },
+            {
+              "climate_model": "MPI-ESM1-2-HR",
+              "coefficient_only_standard_error_log_points": 0.003466268807367244,
+              "percent_change_from_mean_log": 1.1510007371871807,
+              "weighted_mean_delta_log_yield": 0.011444271172245099
+            },
+            {
+              "climate_model": "MRI-ESM2-0",
+              "coefficient_only_standard_error_log_points": 0.0025841878664657116,
+              "percent_change_from_mean_log": 1.2936019340772562,
+              "weighted_mean_delta_log_yield": 0.012853063687268492
+            },
+            {
+              "climate_model": "UKESM1-0-LL",
+              "coefficient_only_standard_error_log_points": 0.002541839876687864,
+              "percent_change_from_mean_log": 1.1361768254035172,
+              "weighted_mean_delta_log_yield": 0.011297708132621766
+            }
+          ],
+          "percent_change_from_equal_model_mean_log": 0.6911087334623012
+        },
+        "precipitation_distribution_residual": {
+          "equal_model_mean_delta_log_yield": 0.01214890878034902,
+          "models_negative": 0,
+          "models_positive": 5,
+          "models_zero": 0,
+          "named_model_maximum_delta_log_yield": 0.019855879238915103,
+          "named_model_minimum_delta_log_yield": 0.0075100763580424786,
+          "named_model_results": [
+            {
+              "climate_model": "GFDL-ESM4",
+              "coefficient_only_standard_error_log_points": 0.002064248163138711,
+              "percent_change_from_mean_log": 0.7538347710517977,
+              "weighted_mean_delta_log_yield": 0.0075100763580424786
+            },
+            {
+              "climate_model": "IPSL-CM6A-LR",
+              "coefficient_only_standard_error_log_points": 0.0018759930627082234,
+              "percent_change_from_mean_log": 0.9850169025301586,
+              "weighted_mean_delta_log_yield": 0.009801972348888001
+            },
+            {
+              "climate_model": "MPI-ESM1-2-HR",
+              "coefficient_only_standard_error_log_points": 0.0028227593776116544,
+              "percent_change_from_mean_log": 2.005431842785817,
+              "weighted_mean_delta_log_yield": 0.019855879238915103
+            },
+            {
+              "climate_model": "MRI-ESM2-0",
+              "coefficient_only_standard_error_log_points": 0.002184960048950959,
+              "percent_change_from_mean_log": 1.4522052447514582,
+              "weighted_mean_delta_log_yield": 0.014417617304765592
+            },
+            {
+              "climate_model": "UKESM1-0-LL",
+              "coefficient_only_standard_error_log_points": 0.0018228502857156345,
+              "percent_change_from_mean_log": 0.9201070626906777,
+              "weighted_mean_delta_log_yield": 0.009158998651133921
+            }
+          ],
+          "percent_change_from_equal_model_mean_log": 1.2223006537551662
+        },
+        "precipitation_quantity_reference_scaling": {
+          "equal_model_mean_delta_log_yield": 0.003267733058569223,
+          "models_negative": 2,
+          "models_positive": 3,
+          "models_zero": 0,
+          "named_model_maximum_delta_log_yield": 0.010284834953710204,
+          "named_model_minimum_delta_log_yield": -0.0016096144961864046,
+          "named_model_results": [
+            {
+              "climate_model": "GFDL-ESM4",
+              "coefficient_only_standard_error_log_points": 0.0029187957147510987,
+              "percent_change_from_mean_log": -0.13901373214169224,
+              "weighted_mean_delta_log_yield": -0.0013911044587094597
+            },
+            {
+              "climate_model": "IPSL-CM6A-LR",
+              "coefficient_only_standard_error_log_points": 0.004343513896169287,
+              "percent_change_from_mean_log": -0.1608319761540959,
+              "weighted_mean_delta_log_yield": -0.0016096144961864046
+            },
+            {
+              "climate_model": "MPI-ESM1-2-HR",
+              "coefficient_only_standard_error_log_points": 0.0027950450058191385,
+              "percent_change_from_mean_log": 0.22653068708772672,
+              "weighted_mean_delta_log_yield": 0.00226274493159059
+            },
+            {
+              "climate_model": "MRI-ESM2-0",
+              "coefficient_only_standard_error_log_points": 0.0019522630552121058,
+              "percent_change_from_mean_log": 0.6814920970549413,
+              "weighted_mean_delta_log_yield": 0.006791804362441185
+            },
+            {
+              "climate_model": "UKESM1-0-LL",
+              "coefficient_only_standard_error_log_points": 0.0027231709968735278,
+              "percent_change_from_mean_log": 1.0337905653810167,
+              "weighted_mean_delta_log_yield": 0.010284834953710204
+            }
+          ],
+          "percent_change_from_equal_model_mean_log": 0.3273077918513065
+        },
+        "temperature_all_income_support": {
+          "equal_model_mean_delta_log_yield": -0.37586149878427955,
+          "models_negative": 5,
+          "models_positive": 0,
+          "models_zero": 0,
+          "named_model_maximum_delta_log_yield": -0.1836790866233814,
+          "named_model_minimum_delta_log_yield": -0.7141602392020968,
+          "named_model_results": [
+            {
+              "climate_model": "GFDL-ESM4",
+              "coefficient_only_standard_error_log_points": 0.04127423105237461,
+              "percent_change_from_mean_log": -19.244461051281274,
+              "weighted_mean_delta_log_yield": -0.21374363244558964
+            },
+            {
+              "climate_model": "IPSL-CM6A-LR",
+              "coefficient_only_standard_error_log_points": 0.09875952820609615,
+              "percent_change_from_mean_log": -41.9119440593662,
+              "weighted_mean_delta_log_yield": -0.5432101208780761
+            },
+            {
+              "climate_model": "MPI-ESM1-2-HR",
+              "coefficient_only_standard_error_log_points": 0.04102213784367955,
+              "percent_change_from_mean_log": -20.109593940316493,
+              "weighted_mean_delta_log_yield": -0.2245144147722537
+            },
+            {
+              "climate_model": "MRI-ESM2-0",
+              "coefficient_only_standard_error_log_points": 0.041810347480762546,
+              "percent_change_from_mean_log": -16.779717400219067,
+              "weighted_mean_delta_log_yield": -0.1836790866233814
+            },
+            {
+              "climate_model": "UKESM1-0-LL",
+              "coefficient_only_standard_error_log_points": 0.12828769248071833,
+              "percent_change_from_mean_log": -51.03969113085475,
+              "weighted_mean_delta_log_yield": -0.7141602392020968
+            }
+          ],
+          "percent_change_from_equal_model_mean_log": -31.330256511414767
+        }
+      }
+    }
+  },
+  "uncertainty": "model-specific standard errors propagate the common published coefficient covariance only and are not pooled across climate models"
+}

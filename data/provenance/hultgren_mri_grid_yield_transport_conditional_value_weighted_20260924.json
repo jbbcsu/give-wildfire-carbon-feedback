@@ -1,0 +1,3999 @@
+{
+  "adaptation_scenarios": {
+    "fixed": {
+      "annual_attenuation_rate": 0.0,
+      "application": "negative cell log-yield responses only; nonnegative responses unchanged",
+      "base_year": 2020,
+      "cap": 0.0,
+      "interpretation": "exogenous attenuation scenario, not an empirical estimate"
+    },
+    "trend": {
+      "annual_attenuation_rate": 0.003,
+      "application": "negative cell log-yield responses only; nonnegative responses unchanged",
+      "base_year": 2020,
+      "cap": 0.35,
+      "interpretation": "exogenous attenuation scenario, not an empirical estimate"
+    },
+    "upper": {
+      "annual_attenuation_rate": 0.007,
+      "application": "negative cell log-yield responses only; nonnegative responses unchanged",
+      "base_year": 2020,
+      "cap": 0.7,
+      "interpretation": "exogenous attenuation scenario, not an empirical estimate"
+    }
+  },
+  "annual": [
+    {
+      "adaptation": {
+        "fixed": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
+          "components": {
+            "joint_climate": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.7370107898679432,
+                -0.3736054073563806
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -52.145775700662234,
+                -31.17515639754309
+              ],
+              "coefficient_only_standard_error_log_points": 0.09270545472233739,
+              "maximum_cell_delta_log_yield": 2.955980617402411,
+              "minimum_cell_delta_log_yield": -6.516349449819568,
+              "percent_change_from_mean_log": -42.6104582426483,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -29.32646523660271,
+              "weighted_mean_delta_log_yield": -0.5553080986121619
+            },
+            "precipitation_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.03970279961308676,
+                -0.0075981989536043695
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -3.892497141807621,
+                -0.7569405611933298
+              ],
+              "coefficient_only_standard_error_log_points": 0.00818994914782714,
+              "maximum_cell_delta_log_yield": 1.703739211442453,
+              "minimum_cell_delta_log_yield": -6.355589191336158,
+              "percent_change_from_mean_log": -2.3373018052907355,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -1.501257668176697,
+              "weighted_mean_delta_log_yield": -0.023650499283345564
+            },
+            "precipitation_common_positive_support": {
+              "cell_or_cell_year_rows": 22033,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.0397027980325815,
+                -0.0075981968463467095
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -3.892496989909207,
+                -0.7569403520626322
+              ],
+              "coefficient_only_standard_error_log_points": 0.008189949282202753,
+              "maximum_cell_delta_log_yield": 1.703739211442453,
+              "minimum_cell_delta_log_yield": -6.355589191336158,
+              "percent_change_from_mean_log": -2.3373016252122967,
+              "weight_sum": 140672997249.30096,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -1.5012574654261808,
+              "weighted_mean_delta_log_yield": -0.023650497439464103
+            },
+            "precipitation_distribution_residual": {
+              "cell_or_cell_year_rows": 22033,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.02401209148162584,
+                -0.006936971912981843
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -2.3726094911443676,
+                -0.6912966663308565
+              ],
+              "coefficient_only_standard_error_log_points": 0.004355897849143877,
+              "maximum_cell_delta_log_yield": 11.803089613146454,
+              "minimum_cell_delta_log_yield": -4.488680221069028,
+              "percent_change_from_mean_log": -1.5355416341296753,
+              "weight_sum": 140672997249.30096,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 10.304256505451368,
+              "weighted_mean_delta_log_yield": -0.015474531697303841
+            },
+            "precipitation_quantity_reference_scaling": {
+              "cell_or_cell_year_rows": 22033,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.019412877710634935,
+                0.0030609462263144396
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -1.92256612276638,
+                0.3065635705742016
+              ],
+              "coefficient_only_standard_error_log_points": 0.005733118351262596,
+              "maximum_cell_delta_log_yield": 4.67714239499,
+              "minimum_cell_delta_log_yield": -14.984084312941988,
+              "percent_change_from_mean_log": -0.8142633437371607,
+              "weight_sum": 140672997249.30096,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -0.20851179360490785,
+              "weighted_mean_delta_log_yield": -0.008175965742160249
+            },
+            "temperature_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.7131487346122268,
+                -0.3501664640454062
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -50.99014249860229,
+                -29.542920574844082
+              ],
+              "coefficient_only_standard_error_log_points": 0.09259751800173995,
+              "maximum_cell_delta_log_yield": 3.149643740618929,
+              "minimum_cell_delta_log_yield": -5.288405119050703,
+              "percent_change_from_mean_log": -41.23698933349694,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -28.6471036742791,
+              "weighted_mean_delta_log_yield": -0.5316575993288165
+            }
+          },
+          "loss_remaining_effect_factor": 1.0
+        },
+        "trend": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
+          "components": {
+            "joint_climate": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.5682254318126254,
+                -0.28262102080609414
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -43.347010687495434,
+                -24.61945896994249
+              ],
+              "coefficient_only_standard_error_log_points": 0.07285826811391102,
+              "maximum_cell_delta_log_yield": 2.955980617402411,
+              "minimum_cell_delta_log_yield": -5.1088179686585455,
+              "percent_change_from_mean_log": -34.65068488999552,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -24.15681863316806,
+              "weighted_mean_delta_log_yield": -0.42542322630935975
+            },
+            "precipitation_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.025604028539074196,
+                0.0019235671565569611
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -2.5279025107649296,
+                0.192541839866573
+              ],
+              "coefficient_only_standard_error_log_points": 0.007022345840722234,
+              "maximum_cell_delta_log_yield": 1.703739211442453,
+              "minimum_cell_delta_log_yield": -4.982781926007551,
+              "percent_change_from_mean_log": -1.1770410991973064,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -0.5296536884058856,
+              "weighted_mean_delta_log_yield": -0.011840230691258618
+            },
+            "precipitation_common_positive_support": {
+              "cell_or_cell_year_rows": 22033,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.02560402711085601,
+                0.0019235690667750403
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -2.527902371553507,
+                0.192542031256178
+              ],
+              "coefficient_only_standard_error_log_points": 0.00702234596368139,
+              "maximum_cell_delta_log_yield": 1.703739211442453,
+              "minimum_cell_delta_log_yield": -4.982781926007551,
+              "percent_change_from_mean_log": -1.1770409342402313,
+              "weight_sum": 140672997249.30096,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -0.5296535060914338,
+              "weighted_mean_delta_log_yield": -0.011840229022040485
+            },
+            "precipitation_distribution_residual": {
+              "cell_or_cell_year_rows": 22033,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.014497372219835773,
+                -0.0010227233493945173
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -1.4392791311947835,
+                -0.10222005461127157
+              ],
+              "coefficient_only_standard_error_log_points": 0.003437410426132973,
+              "maximum_cell_delta_log_yield": 11.803089613146454,
+              "minimum_cell_delta_log_yield": -3.519125293318112,
+              "percent_change_from_mean_log": -0.773001634581397,
+              "weight_sum": 140672997249.30096,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 10.982626648994911,
+              "weighted_mean_delta_log_yield": -0.0077600477846151445
+            },
+            "precipitation_quantity_reference_scaling": {
+              "cell_or_cell_year_rows": 22033,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.01094963611267048,
+                0.008578599730185509
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -1.088990704978174,
+                0.8615501362817494
+              ],
+              "coefficient_only_standard_error_log_points": 0.004981692817055099,
+              "maximum_cell_delta_log_yield": 4.67714239499,
+              "minimum_cell_delta_log_yield": -11.747522101346526,
+              "percent_change_from_mean_log": -0.11848157421677434,
+              "weight_sum": 140672997249.30096,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 0.35709872649666063,
+              "weighted_mean_delta_log_yield": -0.0011855181912424862
+            },
+            "temperature_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.5499065976700943,
+                -0.26498336287374336
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -42.2996298646253,
+                -23.27812858157101
+              ],
+              "coefficient_only_standard_error_log_points": 0.07268449867253851,
+              "maximum_cell_delta_log_yield": 3.149643740618929,
+              "minimum_cell_delta_log_yield": -4.1461096133357564,
+              "percent_change_from_mean_log": -33.465194233980235,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -23.58090720211315,
+              "weighted_mean_delta_log_yield": -0.40744498027191883
+            }
+          },
+          "loss_remaining_effect_factor": 0.784
+        },
+        "upper": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
+          "components": {
+            "joint_climate": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.34460749638007737,
+                -0.15987929676450288
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -29.15016129187306,
+                -14.775334831354497
+              ],
+              "coefficient_only_standard_error_log_points": 0.04712454071825879,
+              "maximum_cell_delta_log_yield": 2.955980617402411,
+              "minimum_cell_delta_log_yield": -3.232109327110509,
+              "percent_change_from_mean_log": -22.294441761527395,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -15.52952125513427,
+              "weighted_mean_delta_log_yield": -0.2522433965722901
+            },
+            "precipitation_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.007515080106286048,
+                0.015328668302667358
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -0.7486912496565487,
+                1.544675493739366
+              ],
+              "coefficient_only_standard_error_log_points": 0.005827486839018726,
+              "maximum_cell_delta_log_yield": 1.703739211442453,
+              "minimum_cell_delta_log_yield": -3.1523722389027338,
+              "percent_change_from_mean_log": 0.3914435566226937,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 0.8310817105631931,
+              "weighted_mean_delta_log_yield": 0.003906794098190655
+            },
+            "precipitation_common_positive_support": {
+              "cell_or_cell_year_rows": 22033,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.007515078915877605,
+                0.015328669984926317
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -0.7486911315069528,
+                1.5446756645638062
+              ],
+              "coefficient_only_standard_error_log_points": 0.005827486964490796,
+              "maximum_cell_delta_log_yield": 1.703739211442453,
+              "minimum_cell_delta_log_yield": -3.1523722389027338,
+              "percent_change_from_mean_log": 0.39144370081830737,
+              "weight_sum": 140672997249.30096,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 0.8310818663300019,
+              "weighted_mean_delta_log_yield": 0.0039067955345243556
+            },
+            "precipitation_distribution_residual": {
+              "cell_or_cell_year_rows": 22033,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.002436259149336071,
+                0.00748812068060899
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -0.24332938785595368,
+                0.7516226766394821
+              ],
+              "coefficient_only_standard_error_log_points": 0.0025317295484553726,
+              "maximum_cell_delta_log_yield": 11.803089613146454,
+              "minimum_cell_delta_log_yield": -2.226385389650239,
+              "percent_change_from_mean_log": 0.25291236164936226,
+              "weight_sum": 140672997249.30096,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 11.915659140527167,
+              "weighted_mean_delta_log_yield": 0.0025259307656364596
+            },
+            "precipitation_quantity_reference_scaling": {
+              "cell_or_cell_year_rows": 22033,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.00026865442055219214,
+                0.016538811507181297
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -0.026861833618483162,
+                1.6676334761206484
+              ],
+              "coefficient_only_standard_error_log_points": 0.0042876188591156866,
+              "maximum_cell_delta_log_yield": 4.67714239499,
+              "minimum_cell_delta_log_yield": -7.4321058192192275,
+              "percent_change_from_mean_log": 0.8168258206795774,
+              "weight_sum": 140672997249.30096,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 1.1483009336033783,
+              "weighted_mean_delta_log_yield": 0.008135078543314554
+            },
+            "temperature_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.33368763580740646,
+                -0.14996867391803734
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -28.372251327443397,
+                -13.926506054400592
+              ],
+              "coefficient_only_standard_error_log_points": 0.046867082114634986,
+              "maximum_cell_delta_log_yield": 3.149643740618929,
+              "minimum_cell_delta_log_yield": -2.623048939049151,
+              "percent_change_from_mean_log": -21.480890276925475,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -15.182467289470548,
+              "weighted_mean_delta_log_yield": -0.2418281548627219
+            }
+          },
+          "loss_remaining_effect_factor": 0.496
+        }
+      },
+      "analysis_area_ha": 123132298.57172564,
+      "analysis_weight_sum": 140673001973.46527,
+      "analysis_weight_unit": "constant_2014_2016_usd",
+      "common_positive_precipitation_weight_fraction_of_analysis": 0.9999999664174061,
+      "harvest_year": 2092
+    },
+    {
+      "adaptation": {
+        "fixed": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
+          "components": {
+            "joint_climate": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.5786879564489306,
+                -0.28697924177398937
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -43.93665402618158,
+                -24.947269170914087
+              ],
+              "coefficient_only_standard_error_log_points": 0.074415488437485,
+              "maximum_cell_delta_log_yield": 4.2024306092806825,
+              "minimum_cell_delta_log_yield": -6.078672471088957,
+              "percent_change_from_mean_log": -35.13315781733389,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -26.91754503145608,
+              "weighted_mean_delta_log_yield": -0.43283359911145997
+            },
+            "precipitation_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.034713031036986385,
+                -0.01293692979284042
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -3.411744519427076,
+                -1.2853607415554655
+              ],
+              "coefficient_only_standard_error_log_points": 0.005555127868404583,
+              "maximum_cell_delta_log_yield": 4.32564621002877,
+              "minimum_cell_delta_log_yield": -5.96884981223273,
+              "percent_change_from_mean_log": -2.3543406168649272,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -1.256231609947521,
+              "weighted_mean_delta_log_yield": -0.0238249804149134
+            },
+            "precipitation_common_positive_support": {
+              "cell_or_cell_year_rows": 22028,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.03471312080056214,
+                -0.012936959135557986
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -3.411753189533875,
+                -1.2853636381112026
+              ],
+              "coefficient_only_standard_error_log_points": 0.005555143281888814,
+              "maximum_cell_delta_log_yield": 4.32564621002877,
+              "minimum_cell_delta_log_yield": -5.96884981223273,
+              "percent_change_from_mean_log": -2.3543464319710283,
+              "weight_sum": 140672617261.4866,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -1.256234485846158,
+              "weighted_mean_delta_log_yield": -0.023825039968060062
+            },
+            "precipitation_distribution_residual": {
+              "cell_or_cell_year_rows": 22028,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.016085472111610384,
+                0.003362832838639647
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -1.595679179019375,
+                0.3368493504502403
+              ],
+              "coefficient_only_standard_error_log_points": 0.0049613022832270485,
+              "maximum_cell_delta_log_yield": 5.896568336463407,
+              "minimum_cell_delta_log_yield": -2.190747721103534,
+              "percent_change_from_mean_log": -0.6341129277853884,
+              "weight_sum": 140672617261.4866,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -0.07999277799946387,
+              "weighted_mean_delta_log_yield": -0.006361319636485369
+            },
+            "precipitation_quantity_reference_scaling": {
+              "cell_or_cell_year_rows": 22028,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.027055081345048686,
+                -0.007872359318100671
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -2.6692371045524843,
+                -0.7841453451356587
+              ],
+              "coefficient_only_standard_error_log_points": 0.004893551537486739,
+              "maximum_cell_delta_log_yield": 2.66137233331687,
+              "minimum_cell_delta_log_yield": -6.280797136305239,
+              "percent_change_from_mean_log": -1.731211339094121,
+              "weight_sum": 140672617261.4866,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -1.1991220387481605,
+              "weighted_mean_delta_log_yield": -0.01746372033157468
+            },
+            "temperature_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.555117040202419,
+                -0.26290019719067403
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -42.599492440543266,
+                -23.11813762591485
+              ],
+              "coefficient_only_standard_error_log_points": 0.07454511301320027,
+              "maximum_cell_delta_log_yield": 3.752927184928457,
+              "minimum_cell_delta_log_yield": -2.481414383766233,
+              "percent_change_from_mean_log": -33.569149317588995,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -25.42245500011638,
+              "weighted_mean_delta_log_yield": -0.40900861869654653
+            }
+          },
+          "loss_remaining_effect_factor": 1.0
+        },
+        "trend": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
+          "components": {
+            "joint_climate": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.4449742179589082,
+                -0.2130997327703063
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -35.91592019968798,
+                -19.192445841483664
+              ],
+              "coefficient_only_standard_error_log_points": 0.05915165438484742,
+              "maximum_cell_delta_log_yield": 4.2024306092806825,
+              "minimum_cell_delta_log_yield": -4.747443199920475,
+              "percent_change_from_mean_log": -28.038359182392202,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -21.490548359877508,
+              "weighted_mean_delta_log_yield": -0.32903697536460724
+            },
+            "precipitation_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.01925081269340346,
+                -0.0019377245394441075
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -1.9066699136801404,
+                -0.1935848363281914
+              ],
+              "coefficient_only_standard_error_log_points": 0.004416604120907998,
+              "maximum_cell_delta_log_yield": 4.32564621002877,
+              "minimum_cell_delta_log_yield": -4.661671703353761,
+              "percent_change_from_mean_log": -1.0538347009731839,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -0.21293771712462076,
+              "weighted_mean_delta_log_yield": -0.010594268616423784
+            },
+            "precipitation_common_positive_support": {
+              "cell_or_cell_year_rows": 22028,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.019250861903476392,
+                -0.0019377245660549911
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -1.9066747408599494,
+                -0.19358483898412832
+              ],
+              "coefficient_only_standard_error_log_points": 0.004416616667709541,
+              "maximum_cell_delta_log_yield": 4.32564621002877,
+              "minimum_cell_delta_log_yield": -4.661671703353761,
+              "percent_change_from_mean_log": -1.0538371368636816,
+              "weight_sum": 140672617261.4866,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -0.21293786440747822,
+              "weighted_mean_delta_log_yield": -0.010594293234765692
+            },
+            "precipitation_distribution_residual": {
+              "cell_or_cell_year_rows": 22028,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.007542568400874189,
+                0.008795109932994096
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -0.7514194613726213,
+                0.8833900551546613
+              ],
+              "coefficient_only_standard_error_log_points": 0.004167775085170481,
+              "maximum_cell_delta_log_yield": 5.896568336463407,
+              "minimum_cell_delta_log_yield": -1.7109739701818523,
+              "percent_change_from_mean_log": 0.06264669145413801,
+              "weight_sum": 140672617261.4866,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 0.5372266047359435,
+              "weighted_mean_delta_log_yield": 0.0006262707660599533
+            },
+            "precipitation_quantity_reference_scaling": {
+              "cell_or_cell_year_rows": 22028,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.015756398018321145,
+                -0.001162995584588611
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -1.5632915376948868,
+                -0.11623195673174885
+              ],
+              "coefficient_only_standard_error_log_points": 0.0037228067432991153,
+              "maximum_cell_delta_log_yield": 2.66137233331687,
+              "minimum_cell_delta_log_yield": -4.905302563454391,
+              "percent_change_from_mean_log": -0.8424014258528703,
+              "weight_sum": 140672617261.4866,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -0.434162442823269,
+              "weighted_mean_delta_log_yield": -0.008459696801454877
+            },
+            "temperature_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.4268547728782013,
+                -0.19478144130155453
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -34.744168548747055,
+                -17.69854846181055
+              ],
+              "coefficient_only_standard_error_log_points": 0.059202380504246616,
+              "maximum_cell_delta_log_yield": 3.752927184928457,
+              "minimum_cell_delta_log_yield": -1.9379846337214293,
+              "percent_change_from_mean_log": -26.71528365498333,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -20.137845533751232,
+              "weighted_mean_delta_log_yield": -0.3108181070898779
+            }
+          },
+          "loss_remaining_effect_factor": 0.781
+        },
+        "upper": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
+          "components": {
+            "joint_climate": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.2681760080568538,
+                -0.11310694601408708
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -23.522683698207896,
+                -10.694485367956224
+              ],
+              "coefficient_only_standard_error_log_points": 0.03955843419458336,
+              "maximum_cell_delta_log_yield": 4.2024306092806825,
+              "minimum_cell_delta_log_yield": -2.9724708383625043,
+              "percent_change_from_mean_log": -17.35711712428508,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -12.850829721419169,
+              "weighted_mean_delta_log_yield": -0.19064147703547046
+            },
+            "precipitation_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.0006061654964003918,
+                0.01469952639285852
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -0.06059818152114863,
+                1.480809575137931
+              ],
+              "coefficient_only_standard_error_log_points": 0.0039045132370558447,
+              "maximum_cell_delta_log_yield": 4.32564621002877,
+              "minimum_cell_delta_log_yield": -2.9187675581818073,
+              "percent_change_from_mean_log": 0.7071566721762123,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 1.2716419384661577,
+              "weighted_mean_delta_log_yield": 0.007046680448229064
+            },
+            "precipitation_common_positive_support": {
+              "cell_or_cell_year_rows": 22028,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.0006061655984496766,
+                0.014699570417703357
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -0.06059819171989312,
+                1.4808140428149252
+              ],
+              "coefficient_only_standard_error_log_points": 0.00390452449391659,
+              "maximum_cell_delta_log_yield": 4.32564621002877,
+              "minimum_cell_delta_log_yield": -2.9187675581818073,
+              "percent_change_from_mean_log": 0.7071588838461631,
+              "weight_sum": 140672617261.4866,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 1.2716456849959201,
+              "weighted_mean_delta_log_yield": 0.00704670240962684
+            },
+            "precipitation_distribution_residual": {
+              "cell_or_cell_year_rows": 22028,
+              "coefficient_only_normal_95ci_log_points": [
+                0.003012396461857938,
+                0.01687371947704951
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                0.30169382875277484,
+                1.7016884791770999
+              ],
+              "coefficient_only_standard_error_log_points": 0.0035360517895896867,
+              "maximum_cell_delta_log_yield": 5.896568336463407,
+              "minimum_cell_delta_log_yield": -1.071275635619625,
+              "percent_change_from_mean_log": 0.9992654414160326,
+              "weight_sum": 140672617261.4866,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 1.3890998992373633,
+              "weighted_mean_delta_log_yield": 0.009943057969453724
+            },
+            "precipitation_quantity_reference_scaling": {
+              "cell_or_cell_year_rows": 22028,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.002213957957506595,
+                0.009305293768249658
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -0.22115089602468446,
+                0.9348722615846633
+              ],
+              "coefficient_only_standard_error_log_points": 0.0029385846239174114,
+              "maximum_cell_delta_log_yield": 2.66137233331687,
+              "minimum_cell_delta_log_yield": -3.071309799653257,
+              "percent_change_from_mean_log": 0.35519612216240304,
+              "weight_sum": 140672617261.4866,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 0.6314691941087914,
+              "weighted_mean_delta_log_yield": 0.0035456679053715314
+            },
+            "temperature_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.25743376221534875,
+                -0.10236108767995772
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -22.69671714002693,
+                -9.729646231351003
+              ],
+              "coefficient_only_standard_error_log_points": 0.03955935574882424,
+              "maximum_cell_delta_log_yield": 3.752927184928457,
+              "minimum_cell_delta_log_yield": -1.2134116336616894,
+              "percent_change_from_mean_log": -16.46441063087117,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -11.7975863512231,
+              "weighted_mean_delta_log_yield": -0.17989742494765323
+            }
+          },
+          "loss_remaining_effect_factor": 0.489
+        }
+      },
+      "analysis_area_ha": 123132298.57172564,
+      "analysis_weight_sum": 140673001973.46527,
+      "analysis_weight_unit": "constant_2014_2016_usd",
+      "common_positive_precipitation_weight_fraction_of_analysis": 0.9999972652038893,
+      "harvest_year": 2093
+    },
+    {
+      "adaptation": {
+        "fixed": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
+          "components": {
+            "joint_climate": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.530476316396233,
+                -0.23162740099797874
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -41.1675325759651,
+                -20.67583707099171
+              ],
+              "coefficient_only_standard_error_log_points": 0.07623696821384039,
+              "maximum_cell_delta_log_yield": 10.56525984637021,
+              "minimum_cell_delta_log_yield": -26.526851029697866,
+              "percent_change_from_mean_log": -31.68575381767199,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -4.013880200963552,
+              "weighted_mean_delta_log_yield": -0.3810518586971059
+            },
+            "precipitation_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.007520025014460476,
+                0.023047841265965395
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -0.7491820370510607,
+                2.3315495084927558
+              ],
+              "coefficient_only_standard_error_log_points": 0.007797925071537212,
+              "maximum_cell_delta_log_yield": 10.75282571088406,
+              "minimum_cell_delta_log_yield": -26.360056458295972,
+              "percent_change_from_mean_log": 0.7794125411232563,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 25.38734993745729,
+              "weighted_mean_delta_log_yield": 0.007763908125752459
+            },
+            "precipitation_common_positive_support": {
+              "cell_or_cell_year_rows": 22024,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.007519427283838094,
+                0.023049247127179567
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -0.7491227117801375,
+                2.331693372550322
+              ],
+              "coefficient_only_standard_error_log_points": 0.007798131227300424,
+              "maximum_cell_delta_log_yield": 10.75282571088406,
+              "minimum_cell_delta_log_yield": -26.360056458295972,
+              "percent_change_from_mean_log": 0.7795135015779573,
+              "weight_sum": 140669563986.51715,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 25.388049712834484,
+              "weighted_mean_delta_log_yield": 0.007764909921670737
+            },
+            "precipitation_distribution_residual": {
+              "cell_or_cell_year_rows": 22024,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.0059518486953997075,
+                0.02873854628536012
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -0.5934171531941668,
+                2.915548277262378
+              ],
+              "coefficient_only_standard_error_log_points": 0.008849590556316282,
+              "maximum_cell_delta_log_yield": 3.510519023754913,
+              "minimum_cell_delta_log_yield": -7.978299499765967,
+              "percent_change_from_mean_log": 1.1458500189114427,
+              "weight_sum": 140669563986.51715,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 2.3321697790476903,
+              "weighted_mean_delta_log_yield": 0.011393348794980206
+            },
+            "precipitation_quantity_reference_scaling": {
+              "cell_or_cell_year_rows": 22024,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.012789013284671396,
+                0.005532135538052439
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -1.2707581368546672,
+                0.5547466056990003
+              ],
+              "coefficient_only_standard_error_log_points": 0.004673762454776489,
+              "maximum_cell_delta_log_yield": 9.923196269928674,
+              "minimum_cell_delta_log_yield": -21.000302033960836,
+              "percent_change_from_mean_log": -0.3621864043507388,
+              "weight_sum": 140669563986.51715,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 10.363178611453698,
+              "weighted_mean_delta_log_yield": -0.003628438873309479
+            },
+            "temperature_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.5363342799164551,
+                -0.24129725372926167
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -41.511163552415574,
+                -21.439193325075085
+              ],
+              "coefficient_only_standard_error_log_points": 0.07526454749673303,
+              "maximum_cell_delta_log_yield": 3.0300879374193292,
+              "minimum_cell_delta_log_yield": -1.8357214982081644,
+              "percent_change_from_mean_log": -32.2140857345718,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -25.569292699245292,
+              "weighted_mean_delta_log_yield": -0.3888157668228584
+            }
+          },
+          "loss_remaining_effect_factor": 1.0
+        },
+        "trend": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
+          "components": {
+            "joint_climate": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.40444870990115733,
+                -0.1631478454840732
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -33.265539005685994,
+                -15.053441052107871
+              ],
+              "coefficient_only_standard_error_log_points": 0.06155634296354188,
+              "maximum_cell_delta_log_yield": 10.56525984637021,
+              "minimum_cell_delta_log_yield": -20.637890101104915,
+              "percent_change_from_mean_log": -24.7081490152533,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 1.4610156664181426,
+              "weighted_mean_delta_log_yield": -0.2837982776926153
+            },
+            "precipitation_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                0.003374730378975184,
+                0.030274808857649105
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                0.3380431192639702,
+                3.0737750900332395
+              ],
+              "coefficient_only_standard_error_log_points": 0.0068622649180290615,
+              "maximum_cell_delta_log_yield": 10.75282571088406,
+              "minimum_cell_delta_log_yield": -20.50812392455427,
+              "percent_change_from_mean_log": 1.6967103177338363,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 26.171374687135533,
+              "weighted_mean_delta_log_yield": 0.016824769618312144
+            },
+            "precipitation_common_positive_support": {
+              "cell_or_cell_year_rows": 22024,
+              "coefficient_only_normal_95ci_log_points": [
+                0.003375392200352394,
+                0.030276225634081527
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                0.3381095251478284,
+                3.0739211226320355
+              ],
+              "coefficient_only_standard_error_log_points": 0.00686245750860437,
+              "maximum_cell_delta_log_yield": 10.75282571088406,
+              "minimum_cell_delta_log_yield": -20.50812392455427,
+              "percent_change_from_mean_log": 1.6968160110684163,
+              "weight_sum": 140669563986.51715,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 26.172075973980363,
+              "weighted_mean_delta_log_yield": 0.01682580891721696
+            },
+            "precipitation_distribution_residual": {
+              "cell_or_cell_year_rows": 22024,
+              "coefficient_only_normal_95ci_log_points": [
+                0.002702990715161613,
+                0.03399297304942847
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                0.27066470882033417,
+                3.4577336778767167
+              ],
+              "coefficient_only_standard_error_log_points": 0.00798213835057828,
+              "maximum_cell_delta_log_yield": 3.510519023754913,
+              "minimum_cell_delta_log_yield": -6.207117010817907,
+              "percent_change_from_mean_log": 1.8517340311337351,
+              "weight_sum": 140669563986.51715,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 2.95491264722018,
+              "weighted_mean_delta_log_yield": 0.018347981882295042
+            },
+            "precipitation_quantity_reference_scaling": {
+              "cell_or_cell_year_rows": 22024,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.007003727652521791,
+                0.010854653813288366
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -0.6979258709934572,
+                1.0913779303249633
+              ],
+              "coefficient_only_standard_error_log_points": 0.004555709557604632,
+              "maximum_cell_delta_log_yield": 9.923196269928674,
+              "minimum_cell_delta_log_yield": -16.338234982421525,
+              "percent_change_from_mean_log": 0.19273179747393993,
+              "weight_sum": 140669563986.51715,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 10.819284236082522,
+              "weighted_mean_delta_log_yield": 0.0019254630803832876
+            },
+            "temperature_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.41086933475876924,
+                -0.17516284248268815
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -33.692643339195335,
+                -16.067966736654498
+              ],
+              "coefficient_only_standard_error_log_points": 0.06012920721328599,
+              "maximum_cell_delta_log_yield": 3.0300879374193292,
+              "minimum_cell_delta_log_yield": -1.4281913256059529,
+              "percent_change_from_mean_log": -25.39898616735044,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -19.963497442100284,
+              "weighted_mean_delta_log_yield": -0.2930160886207287
+            }
+          },
+          "loss_remaining_effect_factor": 0.778
+        },
+        "upper": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
+          "components": {
+            "joint_climate": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.23849883357946072,
+                -0.06975483912712782
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -21.219039282608797,
+                -6.737756558878222
+              ],
+              "coefficient_only_standard_error_log_points": 0.04304693736028901,
+              "maximum_cell_delta_log_yield": 10.56525984637021,
+              "minimum_cell_delta_log_yield": -12.785942196314359,
+              "percent_change_from_mean_log": -14.283670535009549,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 10.05678489724067,
+              "weighted_mean_delta_log_yield": -0.15412683635329427
+            },
+            "precipitation_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                0.017082617030326406,
+                0.04072921951979039
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                1.7229359322577433,
+                4.157003052396097
+              ],
+              "coefficient_only_standard_error_log_points": 0.006032296553434689,
+              "maximum_cell_delta_log_yield": 10.75282571088406,
+              "minimum_cell_delta_log_yield": -12.705547212898672,
+              "percent_change_from_mean_log": 2.93277489893519,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 27.25581628501908,
+              "weighted_mean_delta_log_yield": 0.028905918275058395
+            },
+            "precipitation_common_positive_support": {
+              "cell_or_cell_year_rows": 22024,
+              "coefficient_only_normal_95ci_log_points": [
+                0.017083362921200038,
+                0.04073065223469049
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                1.723011806495591,
+                4.15715227979322
+              ],
+              "coefficient_only_standard_error_log_points": 0.006032471763645522,
+              "maximum_cell_delta_log_yield": 10.75282571088406,
+              "minimum_cell_delta_log_yield": -12.705547212898672,
+              "percent_change_from_mean_log": 2.93288702396511,
+              "weight_sum": 140669563986.51715,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 27.25652025719237,
+              "weighted_mean_delta_log_yield": 0.028907007577945263
+            },
+            "precipitation_distribution_residual": {
+              "cell_or_cell_year_rows": 22024,
+              "coefficient_only_normal_95ci_log_points": [
+                0.013525138525048072,
+                0.041716513472381596
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                1.3617016966703583,
+                4.259887411825487
+              ],
+              "coefficient_only_standard_error_log_points": 0.007191677282483043,
+              "maximum_cell_delta_log_yield": 3.510519023754913,
+              "minimum_cell_delta_log_yield": -3.845540358887199,
+              "percent_change_from_mean_log": 2.8005817433242544,
+              "weight_sum": 140669563986.51715,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 3.8105651906384286,
+              "weighted_mean_delta_log_yield": 0.027620825998714835
+            },
+            "precipitation_quantity_reference_scaling": {
+              "cell_or_cell_year_rows": 22024,
+              "coefficient_only_normal_95ci_log_points": [
+                0.0003437188965873042,
+                0.01831761247402666
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                0.03437779746958,
+                1.8486409012086016
+              ],
+              "coefficient_only_standard_error_log_points": 0.004585176933020243,
+              "maximum_cell_delta_log_yield": 9.923196269928674,
+              "minimum_cell_delta_log_yield": -10.122145580369121,
+              "percent_change_from_mean_log": 0.937433205279764,
+              "weight_sum": 140669563986.51715,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 11.45516886376582,
+              "weighted_mean_delta_log_yield": 0.009330665685306981
+            },
+            "temperature_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.24541997346719296,
+                -0.08514639523525175
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -21.762410788068866,
+                -8.162217157840168
+              ],
+              "coefficient_only_standard_error_log_points": 0.04088611689590337,
+              "maximum_cell_delta_log_yield": 3.0300879374193292,
+              "minimum_cell_delta_log_yield": -0.8848177621363345,
+              "percent_change_from_mean_log": -15.234637214606117,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -11.258974774742374,
+              "weighted_mean_delta_log_yield": -0.16528318435122236
+            }
+          },
+          "loss_remaining_effect_factor": 0.482
+        }
+      },
+      "analysis_area_ha": 123132298.57172564,
+      "analysis_weight_sum": 140673001973.46527,
+      "analysis_weight_unit": "constant_2014_2016_usd",
+      "common_positive_precipitation_weight_fraction_of_analysis": 0.9999755604351944,
+      "harvest_year": 2094
+    },
+    {
+      "adaptation": {
+        "fixed": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
+          "components": {
+            "joint_climate": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.7061879628587872,
+                -0.35571830596476384
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -50.64780598595215,
+                -29.933003301138445
+              ],
+              "coefficient_only_standard_error_log_points": 0.0894055247178631,
+              "maximum_cell_delta_log_yield": 4.011618256534055,
+              "minimum_cell_delta_log_yield": -31.83865657998831,
+              "percent_change_from_mean_log": -41.19557826945437,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -29.906859217121482,
+              "weighted_mean_delta_log_yield": -0.5309531344117755
+            },
+            "precipitation_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.04094879178153586,
+                -0.012355731145226857
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -4.012171765393385,
+                -1.2279712509871195
+              ],
+              "coefficient_only_standard_error_log_points": 0.007294148121507398,
+              "maximum_cell_delta_log_yield": 3.445995687766276,
+              "minimum_cell_delta_log_yield": -31.83830491310829,
+              "percent_change_from_mean_log": -2.6300224404674366,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -1.729962088990623,
+              "weighted_mean_delta_log_yield": -0.026652261463381358
+            },
+            "precipitation_common_positive_support": {
+              "cell_or_cell_year_rows": 22027,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.04094896795645075,
+                -0.012355781378510395
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -4.012188676039364,
+                -1.2279762126303206
+              ],
+              "coefficient_only_standard_error_log_points": 0.00729418024947458,
+              "maximum_cell_delta_log_yield": 3.445995687766276,
+              "minimum_cell_delta_log_yield": -31.83830491310829,
+              "percent_change_from_mean_log": -2.6300334631474125,
+              "weight_sum": 140672296269.9175,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -1.7299687251312645,
+              "weighted_mean_delta_log_yield": -0.02665237466748057
+            },
+            "precipitation_distribution_residual": {
+              "cell_or_cell_year_rows": 22027,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.023342638613377032,
+                -0.006973504560415261
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -2.3072306729716137,
+                -0.69492460990722
+              ],
+              "coefficient_only_standard_error_log_points": 0.004175799503306574,
+              "maximum_cell_delta_log_yield": 5.774418996666904,
+              "minimum_cell_delta_log_yield": -6.766970435770318,
+              "percent_change_from_mean_log": -1.50437662978371,
+              "weight_sum": 140672296269.9175,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -0.6555371889386441,
+              "weighted_mean_delta_log_yield": -0.015158071586896147
+            },
+            "precipitation_quantity_reference_scaling": {
+              "cell_or_cell_year_rows": 22027,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.021209680711996297,
+                -0.0017789254491725765
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -2.09863372355651,
+                -0.17773440991359862
+              ],
+              "coefficient_only_standard_error_log_points": 0.004956825322148909,
+              "maximum_cell_delta_log_yield": 3.515041957389559,
+              "minimum_cell_delta_log_yield": -27.888564598661716,
+              "percent_change_from_mean_log": -1.1428495955933886,
+              "weight_sum": 140672296269.9175,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -0.5106132784139804,
+              "weighted_mean_delta_log_yield": -0.011494303080584438
+            },
+            "temperature_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.6801803241467167,
+                -0.3284214217500715
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -49.34743546749848,
+                -27.994049298123404
+              ],
+              "coefficient_only_standard_error_log_points": 0.08973441387669519,
+              "maximum_cell_delta_log_yield": 2.947946352123699,
+              "minimum_cell_delta_log_yield": -3.1410976449931924,
+              "percent_change_from_mean_log": -39.60723499746905,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -28.97201783492848,
+              "weighted_mean_delta_log_yield": -0.5043008729483941
+            }
+          },
+          "loss_remaining_effect_factor": 1.0
+        },
+        "trend": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
+          "components": {
+            "joint_climate": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.5375805081580131,
+                -0.2631405630614241
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -41.58400859201174,
+                -23.13661518093352
+              ],
+              "coefficient_only_standard_error_log_points": 0.07001019007566045,
+              "maximum_cell_delta_log_yield": 4.011618256534055,
+              "minimum_cell_delta_log_yield": -24.674958849490878,
+              "percent_change_from_mean_log": -32.99215846500141,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -23.93726735100669,
+              "weighted_mean_delta_log_yield": -0.40036053560971857
+            },
+            "precipitation_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.026008967480718292,
+                -0.0011608158802006094
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -2.5673647683204086,
+                -0.1160142394069752
+              ],
+              "coefficient_only_standard_error_log_points": 0.0063388141838055315,
+              "maximum_cell_delta_log_yield": 3.445995687766276,
+              "minimum_cell_delta_log_yield": -24.674686307658902,
+              "percent_change_from_mean_log": -1.3493033471220814,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -0.6406816054740495,
+              "weighted_mean_delta_log_yield": -0.013584891680459451
+            },
+            "precipitation_common_positive_support": {
+              "cell_or_cell_year_rows": 22027,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.02600907684438769,
+                -0.0011608114695388395
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -2.567375423910334,
+                -0.11601379885249681
+              ],
+              "coefficient_only_standard_error_log_points": 0.006338843207869605,
+              "maximum_cell_delta_log_yield": 3.445995687766276,
+              "minimum_cell_delta_log_yield": -24.674686307658902,
+              "percent_change_from_mean_log": -1.3493085239656049,
+              "weight_sum": 140672296269.9175,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -0.6406832567947532,
+              "weighted_mean_delta_log_yield": -0.013584944156963265
+            },
+            "precipitation_distribution_residual": {
+              "cell_or_cell_year_rows": 22027,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.013616508060805405,
+                -0.0002596913569877799
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -1.3524222757639752,
+                -0.025965764010605685
+              ],
+              "coefficient_only_standard_error_log_points": 0.0034073511999534755,
+              "maximum_cell_delta_log_yield": 5.774418996666904,
+              "minimum_cell_delta_log_yield": -5.244402087721994,
+              "percent_change_from_mean_log": -0.6914086662176187,
+              "weight_sum": 140672296269.9175,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 0.07598227647643645,
+              "weighted_mean_delta_log_yield": -0.006938099708896592
+            },
+            "precipitation_quantity_reference_scaling": {
+              "cell_or_cell_year_rows": 22027,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.012375865652473764,
+                0.004288691018004611
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -1.229959957094882,
+                0.4297900614326261
+              ],
+              "coefficient_only_standard_error_log_points": 0.004251162415938361,
+              "maximum_cell_delta_log_yield": 3.515041957389559,
+              "minimum_cell_delta_log_yield": -21.61363756396284,
+              "percent_change_from_mean_log": -0.4035423026086991,
+              "weight_sum": 140672296269.9175,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 0.08181045727527524,
+              "weighted_mean_delta_log_yield": -0.004043587317234577
+            },
+            "temperature_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.5180106939119271,
+                -0.2428238713740087
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -40.42955915442198,
+                -21.559034139904647
+              ],
+              "coefficient_only_standard_error_log_points": 0.07020072003518328,
+              "maximum_cell_delta_log_yield": 2.947946352123699,
+              "minimum_cell_delta_log_yield": -2.4343506748697195,
+              "percent_change_from_mean_log": -31.64238947535677,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -23.18198576695096,
+              "weighted_mean_delta_log_yield": -0.3804172826429679
+            }
+          },
+          "loss_remaining_effect_factor": 0.775
+        },
+        "upper": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
+          "components": {
+            "joint_climate": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.31449573695363575,
+                -0.13797840412698298
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -26.984302736860084,
+                -12.88824959143357
+              ],
+              "coefficient_only_standard_error_log_points": 0.04502993184353388,
+              "maximum_cell_delta_log_yield": 4.011618256534055,
+              "minimum_cell_delta_log_yield": -15.123361875494425,
+              "percent_change_from_mean_log": -20.247099138062122,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -14.051666665102676,
+              "weighted_mean_delta_log_yield": -0.22623707054030937
+            },
+            "precipitation_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.007074788400550617,
+                0.014751324460756771
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -0.7049820999484551,
+                1.4860662211435518
+              ],
+              "coefficient_only_standard_error_log_points": 0.005567885934006987,
+              "maximum_cell_delta_log_yield": 3.445995687766276,
+              "minimum_cell_delta_log_yield": -15.123194833726416,
+              "percent_change_from_mean_log": 0.3845643614309133,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 0.8862633112137261,
+              "weighted_mean_delta_log_yield": 0.0038382680301030773
+            },
+            "precipitation_common_positive_support": {
+              "cell_or_cell_year_rows": 22027,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.007074813016401395,
+                0.014751406063854314
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -0.7049845441797686,
+                1.4860745027212507
+              ],
+              "coefficient_only_standard_error_log_points": 0.005567913030677477,
+              "maximum_cell_delta_log_yield": 3.445995687766276,
+              "minimum_cell_delta_log_yield": -15.123194833726416,
+              "percent_change_from_mean_log": 0.3845672217509244,
+              "weight_sum": 140672296269.9175,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 0.8862686792499691,
+              "weighted_mean_delta_log_yield": 0.0038382965237264595
+            },
+            "precipitation_distribution_residual": {
+              "cell_or_cell_year_rows": 22027,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.0015294012425983083,
+                0.009573126832803942
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -0.15282323045189378,
+                0.9619095783249529
+              ],
+              "coefficient_only_standard_error_log_points": 0.0028322775702556762,
+              "maximum_cell_delta_log_yield": 5.774418996666904,
+              "minimum_cell_delta_log_yield": -3.2143109569909,
+              "percent_change_from_mean_log": 0.40299613387114297,
+              "weight_sum": 140672296269.9175,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 1.0843361668368536,
+              "weighted_mean_delta_log_yield": 0.004021862795102817
+            },
+            "precipitation_quantity_reference_scaling": {
+              "cell_or_cell_year_rows": 22027,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.0014105861269545867,
+                0.013191986861418401
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -0.14095917179652734,
+                1.3279385015663687
+              ],
+              "coefficient_only_standard_error_log_points": 0.0037251461705033132,
+              "maximum_cell_delta_log_yield": 3.515041957389559,
+              "minimum_cell_delta_log_yield": -13.247068184364316,
+              "percent_change_from_mean_log": 0.5908084661098975,
+              "weight_sum": 140672296269.9175,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 0.9149574578201397,
+              "weighted_mean_delta_log_yield": 0.005890700367231907
+            },
+            "temperature_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.3036237686594222,
+                -0.12685455581204383
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -26.18614749378036,
+                -11.91382204930496
+              ],
+              "coefficient_only_standard_error_log_points": 0.04509418695086182,
+              "maximum_cell_delta_log_yield": 2.947946352123699,
+              "minimum_cell_delta_log_yield": -1.4920213813717647,
+              "percent_change_from_mean_log": -19.36514310120455,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -13.651708632626656,
+              "weighted_mean_delta_log_yield": -0.215239162235733
+            }
+          },
+          "loss_remaining_effect_factor": 0.475
+        }
+      },
+      "analysis_area_ha": 123132298.57172564,
+      "analysis_weight_sum": 140673001973.46527,
+      "analysis_weight_unit": "constant_2014_2016_usd",
+      "common_positive_precipitation_weight_fraction_of_analysis": 0.9999949833760717,
+      "harvest_year": 2095
+    },
+    {
+      "adaptation": {
+        "fixed": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
+          "components": {
+            "joint_climate": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.6001177756645449,
+                -0.2958328998910533
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -45.125299675496144,
+                -25.60882746348043
+              ],
+              "coefficient_only_standard_error_log_points": 0.07762369279936011,
+              "maximum_cell_delta_log_yield": 11.324426438920057,
+              "minimum_cell_delta_log_yield": -3.0183872531533282,
+              "percent_change_from_mean_log": -36.107955896450044,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 14.389545299519888,
+              "weighted_mean_delta_log_yield": -0.44797533777779913
+            },
+            "precipitation_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.03148054165390025,
+                -0.006087130382644806
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -3.0990188401417735,
+                -0.606864133859328
+              ],
+              "coefficient_only_standard_error_log_points": 0.0064779110385855725,
+              "maximum_cell_delta_log_yield": 11.973453915181437,
+              "minimum_cell_delta_log_yield": -2.1881729323609935,
+              "percent_change_from_mean_log": -1.860851919409214,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 78.36072692821332,
+              "weighted_mean_delta_log_yield": -0.018783836018272528
+            },
+            "precipitation_common_positive_support": {
+              "cell_or_cell_year_rows": 22033,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.03148057699047219,
+                -0.006087137079677309
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -3.0990222642902046,
+                -0.6068647994983873
+              ],
+              "coefficient_only_standard_error_log_points": 0.006477918344590531,
+              "maximum_cell_delta_log_yield": 11.973453915181437,
+              "minimum_cell_delta_log_yield": -2.1881729323609935,
+              "percent_change_from_mean_log": -1.8608539819802576,
+              "weight_sum": 140672841713.57526,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 78.36081623779273,
+              "weighted_mean_delta_log_yield": -0.01878385703507475
+            },
+            "precipitation_distribution_residual": {
+              "cell_or_cell_year_rows": 22033,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.015092325514636228,
+                -0.003507575089224847
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -1.4979007165317284,
+                -0.35014307337503286
+              ],
+              "coefficient_only_standard_error_log_points": 0.0029552934758702502,
+              "maximum_cell_delta_log_yield": 1.4315903579783393,
+              "minimum_cell_delta_log_yield": -2.854569738961395,
+              "percent_change_from_mean_log": -0.9256839510369319,
+              "weight_sum": 140672841713.57526,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -0.6808050930712103,
+              "weighted_mean_delta_log_yield": -0.009299950301930537
+            },
+            "precipitation_quantity_reference_scaling": {
+              "cell_or_cell_year_rows": 22033,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.02118667163351121,
+                0.0022188581672227953
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -2.096381077420501,
+                0.22213216547120784
+              ],
+              "coefficient_only_standard_error_log_points": 0.005970798418554593,
+              "maximum_cell_delta_log_yield": 11.730279604241048,
+              "minimum_cell_delta_log_yield": -1.85608234996727,
+              "percent_change_from_mean_log": -0.9439076324091492,
+              "weight_sum": 140672841713.57526,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 63.05810963437115,
+              "weighted_mean_delta_log_yield": -0.009483906733144207
+            },
+            "temperature_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.5812188887737108,
+                -0.2771641147453425
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -44.078367151929974,
+                -24.206990060221205
+              ],
+              "coefficient_only_standard_error_log_points": 0.07756499337458372,
+              "maximum_cell_delta_log_yield": 3.55375851717719,
+              "minimum_cell_delta_log_yield": -3.0167735578332286,
+              "percent_change_from_mean_log": -34.896475715193176,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -26.286496670201174,
+              "weighted_mean_delta_log_yield": -0.42919150175952664
+            }
+          },
+          "loss_remaining_effect_factor": 1.0
+        },
+        "trend": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
+          "components": {
+            "joint_climate": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.45564422384927034,
+                -0.21636928739747713
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -36.59606269364291,
+                -19.456219108562347
+              ],
+              "coefficient_only_standard_error_log_points": 0.06103952460504929,
+              "maximum_cell_delta_log_yield": 11.324426438920057,
+              "minimum_cell_delta_log_yield": -2.330194959434369,
+              "percent_change_from_mean_log": -28.538172189219264,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 20.228789021558384,
+              "weighted_mean_delta_log_yield": -0.33600675562337373
+            },
+            "precipitation_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.018146974588054712,
+                0.0017023327111957073
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -1.7983309747262948,
+                0.17037825020842765
+              ],
+              "coefficient_only_standard_error_log_points": 0.0050635988008291884,
+              "maximum_cell_delta_log_yield": 11.973453915181437,
+              "minimum_cell_delta_log_yield": -1.689269503782688,
+              "percent_change_from_mean_log": -0.8188610114632541,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 79.27451784214571,
+              "weighted_mean_delta_log_yield": -0.008222320938429502
+            },
+            "precipitation_common_positive_support": {
+              "cell_or_cell_year_rows": 22033,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.018146994897945953,
+                0.0017023348146050568
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -1.798332969191492,
+                0.17037846090773803
+              ],
+              "coefficient_only_standard_error_log_points": 0.00506360451850791,
+              "maximum_cell_delta_log_yield": 11.973453915181437,
+              "minimum_cell_delta_log_yield": -1.689269503782688,
+              "percent_change_from_mean_log": -0.8188619143330556,
+              "weight_sum": 140672841713.57526,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 79.27460818090346,
+              "weighted_mean_delta_log_yield": -0.008222330041670448
+            },
+            "precipitation_distribution_residual": {
+              "cell_or_cell_year_rows": 22033,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.00786849012539659,
+                0.001339755901217625
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -0.7837614591320349,
+                0.1340653775087549
+              ],
+              "coefficient_only_standard_error_log_points": 0.0023490423537281158,
+              "maximum_cell_delta_log_yield": 1.4315903579783393,
+              "minimum_cell_delta_log_yield": -2.203727838478187,
+              "percent_change_from_mean_log": -0.3259044858606372,
+              "weight_sum": 140672841713.57526,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -0.13124609313211222,
+              "weighted_mean_delta_log_yield": -0.003264367112089482
+            },
+            "precipitation_quantity_reference_scaling": {
+              "cell_or_cell_year_rows": 22033,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.011861270734505536,
+                0.00795063559206715
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -1.1791203166528783,
+                0.7982325825383845
+              ],
+              "coefficient_only_standard_error_log_points": 0.005054057736370583,
+              "maximum_cell_delta_log_yield": 11.730279604241048,
+              "minimum_cell_delta_log_yield": -1.4328955741747311,
+              "percent_change_from_mean_log": -0.19534071831583416,
+              "weight_sum": 140672841713.57526,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 63.72632288250297,
+              "weighted_mean_delta_log_yield": -0.001955317571219193
+            },
+            "temperature_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.44134795930432813,
+                -0.20173795362231572
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -35.6831128960546,
+                -18.269092723495977
+              ],
+              "coefficient_only_standard_error_log_points": 0.06112500144949296,
+              "maximum_cell_delta_log_yield": 3.55375851717719,
+              "minimum_cell_delta_log_yield": -2.328949186647252,
+              "percent_change_from_mean_log": -27.497051534396626,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -20.592459387663645,
+              "weighted_mean_delta_log_yield": -0.3215429564633219
+            }
+          },
+          "loss_remaining_effect_factor": 0.772
+        },
+        "upper": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
+          "components": {
+            "joint_climate": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.26494427171288704,
+                -0.10848635378872593
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -23.275129375933364,
+                -10.280886200674342
+              ],
+              "coefficient_only_standard_error_log_points": 0.03991273416432681,
+              "maximum_cell_delta_log_yield": 11.324426438920057,
+              "minimum_cell_delta_log_yield": -1.4126052344757554,
+              "percent_change_from_mean_log": -17.032009794384116,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 29.587902939669412,
+              "weighted_mean_delta_log_yield": -0.18671531275080647
+            },
+            "precipitation_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.0013878312717276794,
+                0.013107229607783431
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -0.13868686792650897,
+                1.3193505877316194
+              ],
+              "coefficient_only_standard_error_log_points": 0.0036977196121201813,
+              "maximum_cell_delta_log_yield": 11.973453915181437,
+              "minimum_cell_delta_log_yield": -1.0240649323449444,
+              "percent_change_from_mean_log": 0.5876900787556686,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 80.54542384434555,
+              "weighted_mean_delta_log_yield": 0.005859699168027876
+            },
+            "precipitation_common_positive_support": {
+              "cell_or_cell_year_rows": 22033,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.0013878327102809888,
+                0.013107244609351575
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -0.13868701158233138,
+                1.319352107680773
+              ],
+              "coefficient_only_standard_error_log_points": 0.003697723806028715,
+              "maximum_cell_delta_log_yield": 11.973453915181437,
+              "minimum_cell_delta_log_yield": -1.0240649323449444,
+              "percent_change_from_mean_log": 0.5876907608918372,
+              "weight_sum": 140672841713.57526,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 80.54551561516972,
+              "weighted_mean_delta_log_yield": 0.005859705949535293
+            },
+            "precipitation_distribution_residual": {
+              "cell_or_cell_year_rows": 22033,
+              "coefficient_only_normal_95ci_log_points": [
+                0.0009417970660720639,
+                0.008624357215991805
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                0.0942240696187811,
+                0.8661654128214313
+              ],
+              "coefficient_only_standard_error_log_points": 0.0019598367729387095,
+              "maximum_cell_delta_log_yield": 1.4315903579783393,
+              "minimum_cell_delta_log_yield": -1.3359386378339302,
+              "percent_change_from_mean_log": 0.47945343140646446,
+              "weight_sum": 140672841713.57526,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 0.6213630694393558,
+              "weighted_mean_delta_log_yield": 0.0047830771410319346
+            },
+            "precipitation_quantity_reference_scaling": {
+              "cell_or_cell_year_rows": 22033,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.0005476129237081302,
+                0.016713215546403135
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -0.054746301111696365,
+                1.6853662683473567
+              ],
+              "coefficient_only_standard_error_log_points": 0.004403272568905935,
+              "maximum_cell_delta_log_yield": 11.730279604241048,
+              "minimum_cell_delta_log_yield": -0.868646539784681,
+              "percent_change_from_mean_log": 0.8115555338491719,
+              "weight_sum": 140672841713.57526,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 64.64874569294443,
+              "weighted_mean_delta_log_yield": 0.008082801311347502
+            },
+            "temperature_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.25694340084742245,
+                -0.09907972462267552
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -22.658801301026934,
+                -9.432949909370894
+              ],
+              "coefficient_only_standard_error_log_points": 0.04027134597570075,
+              "maximum_cell_delta_log_yield": 3.55375851717719,
+              "minimum_cell_delta_log_yield": -1.41185002506595,
+              "percent_change_from_mean_log": -16.30672537987779,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -11.50577689621412,
+              "weighted_mean_delta_log_yield": -0.17801156273504898
+            }
+          },
+          "loss_remaining_effect_factor": 0.46799999999999997
+        }
+      },
+      "analysis_area_ha": 123132298.57172564,
+      "analysis_weight_sum": 140673001973.46527,
+      "analysis_weight_unit": "constant_2014_2016_usd",
+      "common_positive_precipitation_weight_fraction_of_analysis": 0.999998860762991,
+      "harvest_year": 2096
+    },
+    {
+      "adaptation": {
+        "fixed": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
+          "components": {
+            "joint_climate": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.6605274982934384,
+                -0.2961556787324075
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -48.34212318097568,
+                -25.632835485109606
+              ],
+              "coefficient_only_standard_error_log_points": 0.09295199478597725,
+              "maximum_cell_delta_log_yield": 3.7862855147770085,
+              "minimum_cell_delta_log_yield": -23.477972897781584,
+              "percent_change_from_mean_log": -38.01895593094349,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -25.931337259448828,
+              "weighted_mean_delta_log_yield": -0.4783415885129229
+            },
+            "precipitation_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                0.007181793974689035,
+                0.032166030684886375
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                0.7207644905334081,
+                3.268894912575504
+              ],
+              "coefficient_only_standard_error_log_points": 0.006373529773009526,
+              "maximum_cell_delta_log_yield": 3.552898153733825,
+              "minimum_cell_delta_log_yield": -23.32493418128361,
+              "percent_change_from_mean_log": 1.9868719183364352,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 3.6743887644925253,
+              "weighted_mean_delta_log_yield": 0.019673912329787706
+            },
+            "precipitation_common_positive_support": {
+              "cell_or_cell_year_rows": 22026,
+              "coefficient_only_normal_95ci_log_points": [
+                0.007181858938082018,
+                0.03216621348257381
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                0.7207710336962256,
+                3.268913789892404
+              ],
+              "coefficient_only_standard_error_log_points": 0.006373559832778521,
+              "maximum_cell_delta_log_yield": 3.552898153733825,
+              "minimum_cell_delta_log_yield": -23.32493418128361,
+              "percent_change_from_mean_log": 1.9868845525260057,
+              "weight_sum": 140672233190.32184,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 3.674410470171342,
+              "weighted_mean_delta_log_yield": 0.019674036210327917
+            },
+            "precipitation_distribution_residual": {
+              "cell_or_cell_year_rows": 22026,
+              "coefficient_only_normal_95ci_log_points": [
+                0.0036584359259729405,
+                0.033654005477603624
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                0.3665136170999233,
+                3.422670804029754
+              ],
+              "coefficient_only_standard_error_log_points": 0.007651931008069051,
+              "maximum_cell_delta_log_yield": 8.753018680971223,
+              "minimum_cell_delta_log_yield": -9.614326462986902,
+              "percent_change_from_mean_log": 1.8831335284182107,
+              "weight_sum": 140672233190.32184,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 6.351723369638121,
+              "weighted_mean_delta_log_yield": 0.01865622070178828
+            },
+            "precipitation_quantity_reference_scaling": {
+              "cell_or_cell_year_rows": 22026,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.00862866676925075,
+                0.010664297786330053
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -0.8591546666535208,
+                1.0721364086903127
+              ],
+              "coefficient_only_standard_error_log_points": 0.004921674631525715,
+              "maximum_cell_delta_log_yield": 2.7421291570445874,
+              "minimum_cell_delta_log_yield": -21.91903192365487,
+              "percent_change_from_mean_log": 0.10183336585231477,
+              "weight_sum": 140672233190.32184,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 0.8883561644397485,
+              "weighted_mean_delta_log_yield": 0.001017815508539651
+            },
+            "temperature_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.6777278635003032,
+                -0.31830313818511796
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -49.22305959521541,
+                -27.261774234683518
+              ],
+              "coefficient_only_standard_error_log_points": 0.09168998094775135,
+              "maximum_cell_delta_log_yield": 3.338255985073123,
+              "minimum_cell_delta_log_yield": -3.894884515314513,
+              "percent_change_from_mean_log": -39.2264485583141,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -28.3549413655257,
+              "weighted_mean_delta_log_yield": -0.4980155008427106
+            }
+          },
+          "loss_remaining_effect_factor": 1.0
+        },
+        "trend": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
+          "components": {
+            "joint_climate": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.49831515233338747,
+                -0.2121214792641239
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -39.24465671541037,
+                -19.11335689008728
+              ],
+              "coefficient_only_standard_error_log_points": 0.07300859006868969,
+              "maximum_cell_delta_log_yield": 3.7862855147770085,
+              "minimum_cell_delta_log_yield": -18.054561158394037,
+              "percent_change_from_mean_log": -29.897961732337386,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -20.125891938163985,
+              "weighted_mean_delta_log_yield": -0.3552183157987557
+            },
+            "precipitation_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                0.015969494097822903,
+                0.04171131962824843
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                1.6097687956623468,
+                4.259345903627184
+              ],
+              "coefficient_only_standard_error_log_points": 0.006566792227149369,
+              "maximum_cell_delta_log_yield": 3.552898153733825,
+              "minimum_cell_delta_log_yield": -17.93687438540711,
+              "percent_change_from_mean_log": 2.926031848383936,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 4.312956628038297,
+              "weighted_mean_delta_log_yield": 0.028840406863035666
+            },
+            "precipitation_common_positive_support": {
+              "cell_or_cell_year_rows": 22026,
+              "coefficient_only_normal_95ci_log_points": [
+                0.015969602989750236,
+                0.041711549023070976
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                1.609779860146509,
+                4.259369820184079
+              ],
+              "coefficient_only_standard_error_log_points": 0.006566822967683862,
+              "maximum_cell_delta_log_yield": 3.552898153733825,
+              "minimum_cell_delta_log_yield": -17.93687438540711,
+              "percent_change_from_mean_log": 2.9260492576418042,
+              "weight_sum": 140672233190.32184,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 4.312981342199537,
+              "weighted_mean_delta_log_yield": 0.028840576006410604
+            },
+            "precipitation_distribution_residual": {
+              "cell_or_cell_year_rows": 22026,
+              "coefficient_only_normal_95ci_log_points": [
+                0.010986161932693353,
+                0.041849111278249036
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                1.1046731415195885,
+                4.27371296073475
+              ],
+              "coefficient_only_standard_error_log_points": 0.007873201363662164,
+              "maximum_cell_delta_log_yield": 8.753018680971223,
+              "minimum_cell_delta_log_yield": -7.393417050036927,
+              "percent_change_from_mean_log": 2.67696755430461,
+              "weight_sum": 140672233190.32184,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 6.970230124444676,
+              "weighted_mean_delta_log_yield": 0.026417636605471195
+            },
+            "precipitation_quantity_reference_scaling": {
+              "cell_or_cell_year_rows": 22026,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.001221027264619875,
+                0.01679487847827947
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -0.12202821141432758,
+                1.6936705325564152
+              ],
+              "coefficient_only_standard_error_log_points": 0.004595894322168201,
+              "maximum_cell_delta_log_yield": 2.7421291570445874,
+              "minimum_cell_delta_log_yield": -16.855735549290557,
+              "percent_change_from_mean_log": 0.7817322560413016,
+              "weight_sum": 140672233190.32184,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 1.3719152594456085,
+              "weighted_mean_delta_log_yield": 0.0077869256068297974
+            },
+            "temperature_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.5119859498860526,
+                -0.23131343295685855
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -40.069579192120166,
+                -20.650927908807585
+              ],
+              "coefficient_only_standard_error_log_points": 0.07160013186969237,
+              "maximum_cell_delta_log_yield": 3.338255985073123,
+              "minimum_cell_delta_log_yield": -2.9951661922768626,
+              "percent_change_from_mean_log": -31.04042284685937,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -22.25908237946057,
+              "weighted_mean_delta_log_yield": -0.3716496914214556
+            }
+          },
+          "loss_remaining_effect_factor": 0.769
+        },
+        "upper": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
+          "components": {
+            "joint_climate": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.28457255133097903,
+                -0.0975353530287529
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -24.76642294775826,
+                -9.292972669250291
+              ],
+              "coefficient_only_standard_error_log_points": 0.047713570995465845,
+              "maximum_cell_delta_log_yield": 3.7862855147770085,
+              "minimum_cell_delta_log_yield": -10.823345505877313,
+              "percent_change_from_mean_log": -17.39119823004479,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -10.576835036100245,
+              "weighted_mean_delta_log_yield": -0.19105395217986595
+            },
+            "precipitation_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                0.027050103792186645,
+                0.05507469535587925
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                2.7419279075946767,
+                5.661953630021109
+              ],
+              "coefficient_only_standard_error_log_points": 0.00714913050094199,
+              "maximum_cell_delta_log_yield": 3.552898153733825,
+              "minimum_cell_delta_log_yield": -10.75279465757174,
+              "percent_change_from_mean_log": 4.191711870144644,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 5.239956236056508,
+              "weighted_mean_delta_log_yield": 0.041062399574032946
+            },
+            "precipitation_common_positive_support": {
+              "cell_or_cell_year_rows": 22026,
+              "coefficient_only_normal_95ci_log_points": [
+                0.027050264792002787,
+                0.05507499334370558
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                2.7419444490275113,
+                5.661985116001687
+              ],
+              "coefficient_only_standard_error_log_points": 0.007149165446862959,
+              "maximum_cell_delta_log_yield": 3.552898153733825,
+              "minimum_cell_delta_log_yield": -10.75279465757174,
+              "percent_change_from_mean_log": 4.191735781501486,
+              "weight_sum": 140672233190.32184,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 5.239985373770016,
+              "weighted_mean_delta_log_yield": 0.041062629067854184
+            },
+            "precipitation_distribution_residual": {
+              "cell_or_cell_year_rows": 22026,
+              "coefficient_only_normal_95ci_log_points": [
+                0.02031666215435273,
+                0.053215720133077425
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                2.052445033666565,
+                5.465713135852055
+              ],
+              "coefficient_only_standard_error_log_points": 0.00839261683130732,
+              "maximum_cell_delta_log_yield": 8.753018680971223,
+              "minimum_cell_delta_log_yield": -4.432204499436947,
+              "percent_change_from_mean_log": 3.745042738113457,
+              "weight_sum": 140672233190.32184,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 7.846087690535148,
+              "weighted_mean_delta_log_yield": 0.03676619114371508
+            },
+            "precipitation_quantity_reference_scaling": {
+              "cell_or_cell_year_rows": 22026,
+              "coefficient_only_normal_95ci_log_points": [
+                0.007863019918223994,
+                0.025761791557542643
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                0.7894014643463012,
+                2.609649451133076
+              ],
+              "coefficient_only_standard_error_log_points": 0.004566013173295574,
+              "maximum_cell_delta_log_yield": 2.7421291570445874,
+              "minimum_cell_delta_log_yield": -10.10467371680489,
+              "percent_change_from_mean_log": 1.695452959540392,
+              "weight_sum": 140672233190.32184,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 2.0671691198061044,
+              "weighted_mean_delta_log_yield": 0.01681240573788332
+            },
+            "temperature_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.29329530242964036,
+                -0.11302858862325742
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -25.41981289288134,
+                -10.687487346673192
+              ],
+              "coefficient_only_standard_error_log_points": 0.04598640658326096,
+              "maximum_cell_delta_log_yield": 3.338255985073123,
+              "minimum_cell_delta_log_yield": -1.7955417615599893,
+              "percent_change_from_mean_log": -18.385394048050344,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -12.286396082393344,
+              "weighted_mean_delta_log_yield": -0.2031619455264489
+            }
+          },
+          "loss_remaining_effect_factor": 0.46099999999999997
+        }
+      },
+      "analysis_area_ha": 123132298.57172564,
+      "analysis_weight_sum": 140673001973.46527,
+      "analysis_weight_unit": "constant_2014_2016_usd",
+      "common_positive_precipitation_weight_fraction_of_analysis": 0.9999945349631226,
+      "harvest_year": 2097
+    },
+    {
+      "adaptation": {
+        "fixed": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
+          "components": {
+            "joint_climate": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.8055060245079051,
+                -0.43412111473732873
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -55.313825365747824,
+                -35.21662114854354
+              ],
+              "coefficient_only_standard_error_log_points": 0.09474104841086133,
+              "maximum_cell_delta_log_yield": 10.180069655334677,
+              "minimum_cell_delta_log_yield": -16.912097609119556,
+              "percent_change_from_mean_log": -46.19552638717574,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -18.707535620143865,
+              "weighted_mean_delta_log_yield": -0.6198135696226169
+            },
+            "precipitation_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.08516391704555437,
+                -0.04645864188040694
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -8.163826307952089,
+                -4.539595961837456
+              ],
+              "coefficient_only_standard_error_log_points": 0.009873794684986592,
+              "maximum_cell_delta_log_yield": 10.40526845265859,
+              "minimum_cell_delta_log_yield": -17.052061533935216,
+              "percent_change_from_mean_log": -6.369245191754611,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 12.699602919972028,
+              "weighted_mean_delta_log_yield": -0.06581127946298065
+            },
+            "precipitation_common_positive_support": {
+              "cell_or_cell_year_rows": 22018,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.08524371323332514,
+                -0.04650269393962247
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -8.171154192139669,
+                -4.543801096585781
+              ],
+              "coefficient_only_standard_error_log_points": 0.009882913085128234,
+              "maximum_cell_delta_log_yield": 10.40526845265859,
+              "minimum_cell_delta_log_yield": -17.052061533935216,
+              "percent_change_from_mean_log": -6.375043014663709,
+              "weight_sum": 140541857330.46362,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 12.71140203233313,
+              "weighted_mean_delta_log_yield": -0.0658732035864738
+            },
+            "precipitation_distribution_residual": {
+              "cell_or_cell_year_rows": 22018,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.03317754081391745,
+                -0.011168855565043647
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -3.263320274647035,
+                -1.1106715457516587
+              ],
+              "coefficient_only_standard_error_log_points": 0.005614460522671889,
+              "maximum_cell_delta_log_yield": 8.811840239064473,
+              "minimum_cell_delta_log_yield": -9.615677227207026,
+              "percent_change_from_mean_log": -2.1929179714788978,
+              "weight_sum": 140541857330.46362,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 46.816813631241416,
+              "weighted_mean_delta_log_yield": -0.02217319818948055
+            },
+            "precipitation_quantity_reference_scaling": {
+              "cell_or_cell_year_rows": 22018,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.05755007239554521,
+                -0.029849938398441293
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -5.592538287476355,
+                -2.9408828913474236
+              ],
+              "coefficient_only_standard_error_log_points": 0.007066360713546917,
+              "maximum_cell_delta_log_yield": 9.505013931033375,
+              "minimum_cell_delta_log_yield": -13.844898896983537,
+              "percent_change_from_mean_log": -4.2758918438700375,
+              "weight_sum": 140541857330.46362,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 4.535258064166297,
+              "weighted_mean_delta_log_yield": -0.04370000539699325
+            },
+            "temperature_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.7394198675154634,
+                -0.3685847128038092
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -52.26092148949927,
+                -30.828738979854847
+              ],
+              "coefficient_only_standard_error_log_points": 0.09460080477338119,
+              "maximum_cell_delta_log_yield": 3.6107363866965105,
+              "minimum_cell_delta_log_yield": -3.9177454880831633,
+              "percent_change_from_mean_log": -42.5354695441523,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -29.102534795211568,
+              "weighted_mean_delta_log_yield": -0.5540022901596363
+            }
+          },
+          "loss_remaining_effect_factor": 1.0
+        },
+        "trend": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
+          "components": {
+            "joint_climate": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.6074662181110342,
+                -0.3206279457398489
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -45.52706526899832,
+                -27.43068019845588
+              ],
+              "coefficient_only_standard_error_log_points": 0.0731730286661187,
+              "maximum_cell_delta_log_yield": 10.180069655334677,
+              "minimum_cell_delta_log_yield": -12.954666768585575,
+              "percent_change_from_mean_log": -37.12660482348118,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -12.632844644889762,
+              "weighted_mean_delta_log_yield": -0.46404708192544153
+            },
+            "precipitation_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.0591696983351577,
+                -0.03053143272195454
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -5.745319303912503,
+                -3.007005595019435
+              ],
+              "coefficient_only_standard_error_log_points": 0.007305680003368152,
+              "maximum_cell_delta_log_yield": 10.40526845265859,
+              "minimum_cell_delta_log_yield": -13.061879134994385,
+              "percent_change_from_mean_log": -4.3859648513941005,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 14.056071348186421,
+              "weighted_mean_delta_log_yield": -0.04485056552855612
+            },
+            "precipitation_common_positive_support": {
+              "cell_or_cell_year_rows": 22018,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.05922536401745464,
+                -0.030560498387341414
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -5.75056590899385,
+                -3.009824719969611
+              ],
+              "coefficient_only_standard_error_log_points": 0.00731246572196766,
+              "maximum_cell_delta_log_yield": 10.40526845265859,
+              "minimum_cell_delta_log_yield": -13.061879134994385,
+              "percent_change_from_mean_log": -4.3900155186166865,
+              "weight_sum": 140541857330.46362,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 14.069136155793121,
+              "weighted_mean_delta_log_yield": -0.044892931202398026
+            },
+            "precipitation_distribution_residual": {
+              "cell_or_cell_year_rows": 22018,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.01962218881664375,
+                -0.0024174830651569976
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -1.943092670633571,
+                -0.24145633062683092
+              ],
+              "coefficient_only_standard_error_log_points": 0.004388955548848662,
+              "maximum_cell_delta_log_yield": 8.811840239064473,
+              "minimum_cell_delta_log_yield": -7.36560875604059,
+              "percent_change_from_mean_log": -1.0959339971289206,
+              "weight_sum": 140541857330.46362,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 47.68022479352239,
+              "weighted_mean_delta_log_yield": -0.011019835940900375
+            },
+            "precipitation_quantity_reference_scaling": {
+              "cell_or_cell_year_rows": 22018,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.039386771806728255,
+                -0.01893737339804031
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -3.8621196986992237,
+                -1.8759187903646075
+              ],
+              "coefficient_only_standard_error_log_points": 0.0052166832675224345,
+              "maximum_cell_delta_log_yield": 9.505013931033375,
+              "minimum_cell_delta_log_yield": -10.605192555089403,
+              "percent_change_from_mean_log": -2.8740962770124643,
+              "weight_sum": 140541857330.46362,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 5.363253361823115,
+              "weighted_mean_delta_log_yield": -0.029162072602384282
+            },
+            "temperature_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.5567573204220707,
+                -0.27025011113185005
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -42.69356818130993,
+                -23.681141149767416
+              ],
+              "coefficient_only_standard_error_log_points": 0.0730885737985257,
+              "maximum_cell_delta_log_yield": 3.6107363866965105,
+              "minimum_cell_delta_log_yield": -3.0009930438717056,
+              "percent_change_from_mean_log": -33.86709229754762,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -23.273032475153897,
+              "weighted_mean_delta_log_yield": -0.4135037157769604
+            }
+          },
+          "loss_remaining_effect_factor": 0.766
+        },
+        "upper": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
+          "components": {
+            "joint_climate": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.34566962861748235,
+                -0.16704723470759947
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -29.225373239991836,
+                -15.384035771005347
+              ],
+              "coefficient_only_standard_error_log_points": 0.0455669372219089,
+              "maximum_cell_delta_log_yield": 10.180069655334677,
+              "minimum_cell_delta_log_yield": -7.678092314540301,
+              "percent_change_from_mean_log": -22.613545847833947,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -2.158108441324259,
+              "weighted_mean_delta_log_yield": -0.2563584316625409
+            },
+            "precipitation_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.025145098328019352,
+                -0.008660795570627447
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -2.4831593542844184,
+                -0.8623398920125431
+              ],
+              "coefficient_only_standard_error_log_points": 0.004205179274844874,
+              "maximum_cell_delta_log_yield": 10.40526845265859,
+              "minimum_cell_delta_log_yield": -7.741635936406599,
+              "percent_change_from_mean_log": -1.6760893640833294,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 15.999412927074811,
+              "weighted_mean_delta_log_yield": -0.0169029469493234
+            },
+            "precipitation_common_positive_support": {
+              "cell_or_cell_year_rows": 22018,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.02516941058380945,
+                -0.008669058796784474
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -2.4855301798378635,
+                -0.8631590855340987
+              ],
+              "coefficient_only_standard_error_log_points": 0.004209273415057391,
+              "maximum_cell_delta_log_yield": 10.40526845265859,
+              "minimum_cell_delta_log_yield": -7.741635936406599,
+              "percent_change_from_mean_log": -1.6776908254291456,
+              "weight_sum": 140541857330.46362,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 16.01429103748267,
+              "weighted_mean_delta_log_yield": -0.01691923469029696
+            },
+            "precipitation_distribution_residual": {
+              "cell_or_cell_year_rows": 22018,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.0024720286410983014,
+                0.010174656088844696
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -0.24689756944724084,
+                1.0226593902448446
+              ],
+              "coefficient_only_standard_error_log_points": 0.003226195084169132,
+              "maximum_cell_delta_log_yield": 8.811840239064473,
+              "minimum_cell_delta_log_yield": -4.365517461151994,
+              "percent_change_from_mean_log": 0.3858739562590874,
+              "weight_sum": 140541857330.46362,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 48.88991159462141,
+              "weighted_mean_delta_log_yield": 0.003851313723873197
+            },
+            "precipitation_quantity_reference_scaling": {
+              "cell_or_cell_year_rows": 22018,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.015947574972654255,
+                -0.0036087494464903964
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -1.5821085690646017,
+                -0.3602245735979357
+              ],
+              "coefficient_only_standard_error_log_points": 0.003147659573000985,
+              "maximum_cell_delta_log_yield": 9.505013931033375,
+              "minimum_cell_delta_log_yield": -6.285584099230526,
+              "percent_change_from_mean_log": -0.9730511420329423,
+              "weight_sum": 140541857330.46362,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 6.569760303741707,
+              "weighted_mean_delta_log_yield": -0.009778162209572326
+            },
+            "temperature_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.3155686074185947,
+                -0.13677595911485677
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -27.062597114559317,
+                -12.78343950009995
+              ],
+              "coefficient_only_standard_error_log_points": 0.04561036946523927,
+              "maximum_cell_delta_log_yield": 3.6107363866965105,
+              "minimum_cell_delta_log_yield": -1.778656451589756,
+              "percent_change_from_mean_log": -20.24193199767423,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -13.360904781621956,
+              "weighted_mean_delta_log_yield": -0.22617228326672573
+            }
+          },
+          "loss_remaining_effect_factor": 0.45399999999999996
+        }
+      },
+      "analysis_area_ha": 123132298.57172564,
+      "analysis_weight_sum": 140673001973.46527,
+      "analysis_weight_unit": "constant_2014_2016_usd",
+      "common_positive_precipitation_weight_fraction_of_analysis": 0.999067734098499,
+      "harvest_year": 2098
+    },
+    {
+      "adaptation": {
+        "fixed": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
+          "components": {
+            "joint_climate": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.5643519943286714,
+                -0.2678973342553739
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -43.127143328778544,
+                -23.50136850389192
+              ],
+              "coefficient_only_standard_error_log_points": 0.07562618879420857,
+              "maximum_cell_delta_log_yield": 6.813835547425331,
+              "minimum_cell_delta_log_yield": -23.95897075880339,
+              "percent_change_from_mean_log": -34.040196296359845,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -24.568828433830348,
+              "weighted_mean_delta_log_yield": -0.41612466429202266
+            },
+            "precipitation_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.03950719533589815,
+                -0.010522741454891484
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -3.873696264472576,
+                -1.0467571095078423
+              ],
+              "coefficient_only_standard_error_log_points": 0.007393993336991496,
+              "maximum_cell_delta_log_yield": 7.115949668464218,
+              "minimum_cell_delta_log_yield": -23.906907023715462,
+              "percent_change_from_mean_log": -2.470468668680311,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -1.4952135161472178,
+              "weighted_mean_delta_log_yield": -0.025014968395394816
+            },
+            "precipitation_common_positive_support": {
+              "cell_or_cell_year_rows": 22016,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.03950843877762443,
+                -0.010522209475785176
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -3.8738157918553213,
+                -1.046704468436121
+              ],
+              "coefficient_only_standard_error_log_points": 0.007394446250469196,
+              "maximum_cell_delta_log_yield": 7.115949668464218,
+              "minimum_cell_delta_log_yield": -23.906907023715462,
+              "percent_change_from_mean_log": -2.470503362982083,
+              "weight_sum": 140663216157.54993,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -1.4951809944427834,
+              "weighted_mean_delta_log_yield": -0.0250153241267048
+            },
+            "precipitation_distribution_residual": {
+              "cell_or_cell_year_rows": 22016,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.01878665445596042,
+                0.001915443676664269
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -1.8611285180930335,
+                0.19172793107342948
+              ],
+              "coefficient_only_standard_error_log_points": 0.00528114748281242,
+              "maximum_cell_delta_log_yield": 8.63470616984388,
+              "minimum_cell_delta_log_yield": -11.027392208031245,
+              "percent_change_from_mean_log": -0.8400125505362729,
+              "weight_sum": 140663216157.54993,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -0.381441022872235,
+              "weighted_mean_delta_log_yield": -0.008435605389648075
+            },
+            "precipitation_quantity_reference_scaling": {
+              "cell_or_cell_year_rows": 22016,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.0303043118887873,
+                -0.0028551255853261747
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -2.9849739634922425,
+                -0.2851053590546218
+              ],
+              "coefficient_only_standard_error_log_points": 0.007002343444760492,
+              "maximum_cell_delta_log_yield": 5.006347718462905,
+              "minimum_cell_delta_log_yield": -12.879514815684217,
+              "percent_change_from_mean_log": -1.6443031654040707,
+              "weight_sum": 140663216157.54993,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -1.0586942370868542,
+              "weighted_mean_delta_log_yield": -0.01657971873705674
+            },
+            "temperature_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.5412860397908601,
+                -0.24093335200239577
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -41.80007033699486,
+                -21.410599709544606
+              ],
+              "coefficient_only_standard_error_log_points": 0.0766205836195062,
+              "maximum_cell_delta_log_yield": 4.0328617597865275,
+              "minimum_cell_delta_log_yield": -2.8178724837822307,
+              "percent_change_from_mean_log": -32.36940360190323,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -23.406024921590188,
+              "weighted_mean_delta_log_yield": -0.3911096958966279
+            }
+          },
+          "loss_remaining_effect_factor": 1.0
+        },
+        "trend": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
+          "components": {
+            "joint_climate": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.4216745603703063,
+                -0.18993351056076718
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -34.40525240351249,
+                -17.29858801795835
+              ],
+              "coefficient_only_standard_error_log_points": 0.059117614747331404,
+              "maximum_cell_delta_log_yield": 6.813835547425331,
+              "minimum_cell_delta_log_yield": -18.280694688966946,
+              "percent_change_from_mean_log": -26.34690607425137,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -18.608271823662736,
+              "weighted_mean_delta_log_yield": -0.30580403546553675
+            },
+            "precipitation_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.02305655748159559,
+                0.0002093919404974609
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -2.27927861686839,
+                0.02094138645200447
+              ],
+              "coefficient_only_standard_error_log_points": 0.0059351911791053705,
+              "maximum_cell_delta_log_yield": 7.115949668464218,
+              "minimum_cell_delta_log_yield": -18.240970059094877,
+              "percent_change_from_mean_log": -1.1358581400515375,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -0.35811718916789664,
+              "weighted_mean_delta_log_yield": -0.011423582770549065
+            },
+            "precipitation_common_positive_support": {
+              "cell_or_cell_year_rows": 22016,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.023057087393596333,
+                0.0002104313425602966
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -2.2793304002376518,
+                0.021045348478837482
+              ],
+              "coefficient_only_standard_error_log_points": 0.005935591514325671,
+              "maximum_cell_delta_log_yield": 7.115949668464218,
+              "minimum_cell_delta_log_yield": -18.240970059094877,
+              "percent_change_from_mean_log": -1.1358329548994421,
+              "weight_sum": 140663216157.54993,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -0.35803827491484685,
+              "weighted_mean_delta_log_yield": -0.011423328025518018
+            },
+            "precipitation_distribution_residual": {
+              "cell_or_cell_year_rows": 22016,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.00984225656438893,
+                0.008000322259647962
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -0.9793980070281691,
+                0.8032410352390783
+              ],
+              "coefficient_only_standard_error_log_points": 0.004551678271437983,
+              "maximum_cell_delta_log_yield": 8.63470616984388,
+              "minimum_cell_delta_log_yield": -8.41390025472785,
+              "percent_change_from_mean_log": -0.09205431922837044,
+              "weight_sum": 140663216157.54993,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 0.29303053116359723,
+              "weighted_mean_delta_log_yield": -0.0009209671523704845
+            },
+            "precipitation_quantity_reference_scaling": {
+              "cell_or_cell_year_rows": 22016,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.018357095150088088,
+                0.0036922533159607016
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -1.8189629969325403,
+                0.36990780802364026
+              ],
+              "coefficient_only_standard_error_log_points": 0.005624833792359386,
+              "maximum_cell_delta_log_yield": 5.006347718462905,
+              "minimum_cell_delta_log_yield": -9.82706980436707,
+              "percent_change_from_mean_log": -0.7305604302409765,
+              "weight_sum": 140663216157.54993,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -0.2655981138603038,
+              "weighted_mean_delta_log_yield": -0.007332420917063693
+            },
+            "temperature_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.40515051822572545,
+                -0.17024218333752653
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -33.31235737526497,
+                -15.653948022501178
+              ],
+              "coefficient_only_standard_error_log_points": 0.059925595634744616,
+              "maximum_cell_delta_log_yield": 4.0328617597865275,
+              "minimum_cell_delta_log_yield": -2.1500367051258458,
+              "percent_change_from_mean_log": -25.00107086709326,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -17.722091327081255,
+              "weighted_mean_delta_log_yield": -0.287696350781626
+            }
+          },
+          "loss_remaining_effect_factor": 0.763
+        },
+        "upper": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
+          "components": {
+            "joint_climate": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.23368594071596574,
+                -0.08373378667781159
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -20.838961054773044,
+                -8.032394647294328
+              ],
+              "coefficient_only_standard_error_log_points": 0.038253100519937286,
+              "maximum_cell_delta_log_yield": 6.813835547425331,
+              "minimum_cell_delta_log_yield": -10.70965992918508,
+              "percent_change_from_mean_log": -14.675611991501537,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -9.061474902615364,
+              "weighted_mean_delta_log_yield": -0.15870986369688866
+            },
+            "precipitation_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.0020537335368565604,
+                0.015450262995347113
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -0.2051626069108967,
+                1.557023538062406
+              ],
+              "coefficient_only_standard_error_log_points": 0.00446530523780706,
+              "maximum_cell_delta_log_yield": 7.115949668464218,
+              "minimum_cell_delta_log_yield": -10.686387439600821,
+              "percent_change_from_mean_log": 0.6720748276653947,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 1.2386800090210908,
+              "weighted_mean_delta_log_yield": 0.006698264729245277
+            },
+            "precipitation_common_positive_support": {
+              "cell_or_cell_year_rows": 22016,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.002053377281898478,
+                0.015452044167360561
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -0.2051270544989515,
+                1.5572044287515998
+              ],
+              "coefficient_only_standard_error_log_points": 0.004465668737055877,
+              "maximum_cell_delta_log_yield": 7.115949668464218,
+              "minimum_cell_delta_log_yield": -10.686387439600821,
+              "percent_change_from_mean_log": 0.6721824173268943,
+              "weight_sum": 140663216157.54993,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 1.2388260636095383,
+              "weighted_mean_delta_log_yield": 0.006699333442731042
+            },
+            "precipitation_distribution_residual": {
+              "cell_or_cell_year_rows": 22016,
+              "coefficient_only_normal_95ci_log_points": [
+                0.001424226111805215,
+                0.016772874882860733
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                0.14252408034736005,
+                1.6914329307911025
+              ],
+              "coefficient_only_standard_error_log_points": 0.0039154716252692645,
+              "maximum_cell_delta_log_yield": 8.63470616984388,
+              "minimum_cell_delta_log_yield": -4.929244316989966,
+              "percent_change_from_mean_log": 0.91400681291362,
+              "weight_sum": 140663216157.54993,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 1.2215068979235628,
+              "weighted_mean_delta_log_yield": 0.009098550497332974
+            },
+            "precipitation_quantity_reference_scaling": {
+              "cell_or_cell_year_rows": 22016,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.0031189278912093846,
+                0.0131135469103968
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -0.3114069088345337,
+                1.3199906547516187
+              ],
+              "coefficient_only_standard_error_log_points": 0.004140937449389333,
+              "maximum_cell_delta_log_yield": 5.006347718462905,
+              "minimum_cell_delta_log_yield": -5.757143122610842,
+              "percent_change_from_mean_log": 0.5009816886492996,
+              "weight_sum": 140663216157.54993,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 0.8382413864207688,
+              "weighted_mean_delta_log_yield": 0.004997309509593708
+            },
+            "temperature_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.2258564875073718,
+                -0.07376729374920822
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -20.216740760591264,
+                -7.111217330386473
+              ],
+              "coefficient_only_standard_error_log_points": 0.03879826371381724,
+              "maximum_cell_delta_log_yield": 4.0328617597865275,
+              "minimum_cell_delta_log_yield": -1.2595890002506578,
+              "percent_change_from_mean_log": -13.913010110918192,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -8.670005851934377,
+              "weighted_mean_delta_log_yield": -0.14981189062829
+            }
+          },
+          "loss_remaining_effect_factor": 0.44699999999999995
+        }
+      },
+      "analysis_area_ha": 123132298.57172564,
+      "analysis_weight_sum": 140673001973.46527,
+      "analysis_weight_unit": "constant_2014_2016_usd",
+      "common_positive_precipitation_weight_fraction_of_analysis": 0.9999304357212965,
+      "harvest_year": 2099
+    },
+    {
+      "adaptation": {
+        "fixed": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
+          "components": {
+            "joint_climate": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.41356622846542856,
+                -0.11554598655893514
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -33.87122631418873,
+                -10.912039719229481
+              ],
+              "coefficient_only_standard_error_log_points": 0.07602557191492179,
+              "maximum_cell_delta_log_yield": 3.2670032559909226,
+              "minimum_cell_delta_log_yield": -7.263684061952777,
+              "percent_change_from_mean_log": -23.245341746981786,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -12.872071196781814,
+              "weighted_mean_delta_log_yield": -0.26455610751218184
+            },
+            "precipitation_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                0.005218317978318551,
+                0.028709641504012937
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                0.5231957113708047,
+                2.9125735688340533
+              ],
+              "coefficient_only_standard_error_log_points": 0.005992684572881221,
+              "maximum_cell_delta_log_yield": 1.8845167305246857,
+              "minimum_cell_delta_log_yield": -7.163683806929782,
+              "percent_change_from_mean_log": 1.7108685147302818,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 2.5144683896715954,
+              "weighted_mean_delta_log_yield": 0.016963979741165744
+            },
+            "precipitation_common_positive_support": {
+              "cell_or_cell_year_rows": 22023,
+              "coefficient_only_normal_95ci_log_points": [
+                0.005223114730966816,
+                0.028740718532869518
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                0.5236778974325078,
+                2.9157718355486133
+              ],
+              "coefficient_only_standard_error_log_points": 0.005999388724975179,
+              "maximum_cell_delta_log_yield": 1.8845167305246857,
+              "minimum_cell_delta_log_yield": -7.163683806929782,
+              "percent_change_from_mean_log": 1.7126929078290856,
+              "weight_sum": 140506455165.16183,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 2.517231101985373,
+              "weighted_mean_delta_log_yield": 0.016981916631918167
+            },
+            "precipitation_distribution_residual": {
+              "cell_or_cell_year_rows": 22023,
+              "coefficient_only_normal_95ci_log_points": [
+                0.01067711667768848,
+                0.03200727419746009
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                1.0734320497306231,
+                3.2525016068650365
+              ],
+              "coefficient_only_standard_error_log_points": 0.005441366714227453,
+              "maximum_cell_delta_log_yield": 1.4688721569261696,
+              "minimum_cell_delta_log_yield": -3.5312237300364906,
+              "percent_change_from_mean_log": 2.157156896255562,
+              "weight_sum": 140506455165.16183,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 2.6366736384101275,
+              "weighted_mean_delta_log_yield": 0.021342195437574287
+            },
+            "precipitation_quantity_reference_scaling": {
+              "cell_or_cell_year_rows": 22023,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.012689594801856377,
+                0.003969037190544115
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -1.260942137481359,
+                0.39769242498791363
+              ],
+              "coefficient_only_standard_error_log_points": 0.004249651018469513,
+              "maximum_cell_delta_log_yield": 1.6816133130106259,
+              "minimum_cell_delta_log_yield": -5.266478952813724,
+              "percent_change_from_mean_log": -0.4350786591269834,
+              "weight_sum": 140506455165.16183,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 0.10901350100126327,
+              "weighted_mean_delta_log_yield": -0.004360278805656131
+            },
+            "temperature_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.4312226604670252,
+                -0.13181751403966982
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -35.02857710057699,
+                -12.34990704001045
+              ],
+              "coefficient_only_standard_error_log_points": 0.07637886388452943,
+              "maximum_cell_delta_log_yield": 3.303083620212672,
+              "minimum_cell_delta_log_yield": -2.320815871475458,
+              "percent_change_from_mean_log": -24.53642430366011,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -15.714292077092791,
+              "weighted_mean_delta_log_yield": -0.2815200872533475
+            }
+          },
+          "loss_remaining_effect_factor": 1.0
+        },
+        "trend": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
+          "components": {
+            "joint_climate": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.30539719089102046,
+                -0.06443067022370219
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -26.316934616142195,
+                -6.239888431563636
+              ],
+              "coefficient_only_standard_error_log_points": 0.06147105119064242,
+              "maximum_cell_delta_log_yield": 3.2670032559909226,
+              "minimum_cell_delta_log_yield": -5.520399887084119,
+              "percent_change_from_mean_log": -16.882418038691117,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -8.429757963846514,
+              "weighted_mean_delta_log_yield": -0.18491393055736133
+            },
+            "precipitation_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                0.01334397261291678,
+                0.03626842921571768
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                1.3433400748275064,
+                3.693415255783497
+              ],
+              "coefficient_only_standard_error_log_points": 0.005848075663979821,
+              "maximum_cell_delta_log_yield": 1.8845167305246857,
+              "minimum_cell_delta_log_yield": -5.444399693266655,
+              "percent_change_from_mean_log": 2.5116434644727255,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 3.1673622033324196,
+              "weighted_mean_delta_log_yield": 0.02480620091431723
+            },
+            "precipitation_common_positive_support": {
+              "cell_or_cell_year_rows": 22023,
+              "coefficient_only_normal_95ci_log_points": [
+                0.013358402203744615,
+                0.036308449530492094
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                1.344802428308468,
+                3.6975651819421897
+              ],
+              "coefficient_only_standard_error_log_points": 0.005854603909884562,
+              "maximum_cell_delta_log_yield": 1.8845167305246857,
+              "minimum_cell_delta_log_yield": -5.444399693266655,
+              "percent_change_from_mean_log": 2.514434377118672,
+              "weight_sum": 140506455165.16183,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 3.1708980544082364,
+              "weighted_mean_delta_log_yield": 0.024833425867118356
+            },
+            "precipitation_distribution_residual": {
+              "cell_or_cell_year_rows": 22023,
+              "coefficient_only_normal_95ci_log_points": [
+                0.014641488602210182,
+                0.03645620322878254
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                1.4749200240669047,
+                3.712888012676115
+              ],
+              "coefficient_only_standard_error_log_points": 0.0055649782210643785,
+              "maximum_cell_delta_log_yield": 1.4688721569261696,
+              "minimum_cell_delta_log_yield": -2.6837300348277378,
+              "percent_change_from_mean_log": 2.587801499746138,
+              "weight_sum": 140506455165.16183,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 2.9941256916861203,
+              "weighted_mean_delta_log_yield": 0.025548845915496363
+            },
+            "precipitation_quantity_reference_scaling": {
+              "cell_or_cell_year_rows": 22023,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.003426788881071121,
+                0.010531865201617448
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -0.3420924141041302,
+                1.0587520507054078
+              ],
+              "coefficient_only_standard_error_log_points": 0.0035608811435430023,
+              "maximum_cell_delta_log_yield": 1.6816133130106259,
+              "minimum_cell_delta_log_yield": -4.0025240041384365,
+              "percent_change_from_mean_log": 0.3558855903088738,
+              "weight_sum": 140506455165.16183,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 0.7897480472620685,
+              "weighted_mean_delta_log_yield": 0.0035525381602731633
+            },
+            "temperature_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.32142455630674327,
+                -0.08063226145987291
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -27.488466665731014,
+                -7.746712003106171
+              ],
+              "coefficient_only_standard_error_log_points": 0.06142660582828325,
+              "maximum_cell_delta_log_yield": 3.303083620212672,
+              "minimum_cell_delta_log_yield": -1.7638200623213467,
+              "percent_change_from_mean_log": -18.211080409491387,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -11.078002195107164,
+              "weighted_mean_delta_log_yield": -0.20102840888330809
+            }
+          },
+          "loss_remaining_effect_factor": 0.76
+        },
+        "upper": {
+          "application": "negative cell log-yield responses only; nonnegative responses unchanged",
+          "components": {
+            "joint_climate": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.16308651648664696,
+                0.005637793918112019
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -15.048231205057071,
+                0.5653716186336027
+              ],
+              "coefficient_only_standard_error_log_points": 0.04304191591958137,
+              "maximum_cell_delta_log_yield": 3.2670032559909226,
+              "minimum_cell_delta_log_yield": -3.1960209872592316,
+              "percent_change_from_mean_log": -7.5705339270875305,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -1.3769042425348097,
+              "weighted_mean_delta_log_yield": -0.07872436128426746
+            },
+            "precipitation_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                0.02321901160697428,
+                0.04730598001673084
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                2.3490671339242803,
+                4.844276253910173
+              ],
+              "coefficient_only_standard_error_log_points": 0.006144634798407288,
+              "maximum_cell_delta_log_yield": 1.8845167305246857,
+              "minimum_cell_delta_log_yield": -3.152020875049117,
+              "percent_change_from_mean_log": 3.5891590318173954,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 4.080967332394385,
+              "weighted_mean_delta_log_yield": 0.03526249581185256
+            },
+            "precipitation_common_positive_support": {
+              "cell_or_cell_year_rows": 22023,
+              "coefficient_only_normal_95ci_log_points": [
+                0.02324508431676954,
+                0.04735912537800105
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                2.3517356862375225,
+                4.849848388914053
+              ],
+              "coefficient_only_standard_error_log_points": 0.006151541087048855,
+              "maximum_cell_delta_log_yield": 1.8845167305246857,
+              "minimum_cell_delta_log_yield": -3.152020875049117,
+              "percent_change_from_mean_log": 3.5932621797586224,
+              "weight_sum": 140506455165.16183,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 4.0855850992228895,
+              "weighted_mean_delta_log_yield": 0.035302104847385295
+            },
+            "precipitation_distribution_residual": {
+              "cell_or_cell_year_rows": 22023,
+              "coefficient_only_normal_95ci_log_points": [
+                0.019767978321246195,
+                0.04254744811753875
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                1.9964658657841985,
+                4.346556567591509
+              ],
+              "coefficient_only_standard_error_log_points": 0.005811089233748102,
+              "maximum_cell_delta_log_yield": 1.4688721569261696,
+              "minimum_cell_delta_log_yield": -1.5537384412160584,
+              "percent_change_from_mean_log": 3.1648195615078243,
+              "weight_sum": 140506455165.16183,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 3.491959380607379,
+              "weighted_mean_delta_log_yield": 0.031157713219392473
+            },
+            "precipitation_quantity_reference_scaling": {
+              "cell_or_cell_year_rows": 22023,
+              "coefficient_only_normal_95ci_log_points": [
+                0.006853160716257523,
+                0.02135276084676692
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                0.6876697358235621,
+                2.1582362341219397
+              ],
+              "coefficient_only_standard_error_log_points": 0.003698877584313621,
+              "maximum_cell_delta_log_yield": 1.6816133130106259,
+              "minimum_cell_delta_log_yield": -2.3172507392380446,
+              "percent_change_from_mean_log": 1.4202876683729075,
+              "weight_sum": 140506455165.16183,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": 1.7381844321757756,
+              "weighted_mean_delta_log_yield": 0.01410296078151222
+            },
+            "temperature_all_income_support": {
+              "cell_or_cell_year_rows": 22035,
+              "coefficient_only_normal_95ci_log_points": [
+                -0.1770884715771593,
+                -0.010323870536018381
+              ],
+              "coefficient_only_normal_95ci_percent_from_mean_log": [
+                -16.22943318972084,
+                -1.0270762302563305
+              ],
+              "coefficient_only_standard_error_log_points": 0.04254199006151554,
+              "maximum_cell_delta_log_yield": 3.303083620212672,
+              "minimum_cell_delta_log_yield": -1.0211589834492008,
+              "percent_change_from_mean_log": -8.944973103831448,
+              "weight_sum": 140673001973.46527,
+              "weight_unit": "constant_2014_2016_usd",
+              "weighted_mean_cell_exact_percent_change": -3.7877368638635303,
+              "weighted_mean_delta_log_yield": -0.09370617105658884
+            }
+          },
+          "loss_remaining_effect_factor": 0.43999999999999995
+        }
+      },
+      "analysis_area_ha": 123132298.57172564,
+      "analysis_weight_sum": 140673001973.46527,
+      "analysis_weight_unit": "constant_2014_2016_usd",
+      "common_positive_precipitation_weight_fraction_of_analysis": 0.9988160712719072,
+      "harvest_year": 2100
+    }
+  ],
+  "claim_gates": {
+    "author_moderator_replication": false,
+    "conditional_baseline_value_weighted_sensitivity": true,
+    "monetary_damage": false,
+    "new_causal_yield_estimate": false,
+    "production_weighted_sensitivity": false,
+    "published_response_algebra_validated": true,
+    "scc": false,
+    "validated_physical_weather_inputs": true,
+    "welfare_weighted": false
+  },
+  "climate_contrast": {
+    "climate_model": "MRI-ESM2-0",
+    "comparison": "SSP5-8.5",
+    "direction": "comparison_minus_reference",
+    "reference": "SSP1-2.6"
+  },
+  "created_at_utc": "2026-09-24T16:43:29.390378+00:00",
+  "decomposition": {
+    "distribution_definition": "SSP585 precipitation response minus the quantity-only reference-distribution path response on common-positive rainfall support",
+    "numerical_audit": {
+      "joint": {
+        "maximum_absolute_design_error": 0.0,
+        "maximum_absolute_log_response_error": 0.0,
+        "maximum_relative_design_error": 0.0
+      },
+      "precipitation": {
+        "maximum_absolute_design_error": 1.52587890625e-05,
+        "maximum_absolute_log_response_error": 3.1152593606326505e-14,
+        "maximum_relative_design_error": 1.504008422513611e-16
+      }
+    },
+    "quantity_path": "uniformly scale every SSP126 monthly precipitation amount so season total equals SSP585; phase linear terms scale by ratio and monthly-square sums by ratio squared",
+    "warning": "quantity/distribution split is reference-path dependent and is not a unique causal decomposition; exact component additivity applies before loss-only adaptation, because adaptation is evaluated separately on each component's cell response"
+  },
+  "estimand": "conditional fixed 1999-2001 FAOSTAT maize gross production value allocated by MapSPAM 2000 production-weighted SSP5-8.5 minus SSP1-2.6 maize log-yield response, MRI-ESM2-0, 2092-2100",
+  "implementation": {
+    "path": "scripts/estimate_hultgren_grid_yield_contrast.py",
+    "sha256": "6285bf58ab3b8168c9d479d0ac7074e145b2387bee30b9e90012a1887f969637"
+  },
+  "interpretation": "preliminary response-function transport using fixed country-level PWT income and alternative 27-year GSWP3-W5E5 climate moderators; not the authors' subnational/time-varying moderator construction and not yet monetized or run through a marginal emissions pulse",
+  "pooled_weighted": {
+    "fixed": {
+      "joint_climate": {
+        "cell_or_cell_year_rows": 198315,
+        "coefficient_only_normal_95ci_log_points": [
+          -0.61804899401534,
+          -0.29905277455133683
+        ],
+        "coefficient_only_normal_95ci_percent_from_mean_log": [
+          -46.10050050996073,
+          -25.847972499745193
+        ],
+        "coefficient_only_standard_error_log_points": 0.08137658659795999,
+        "maximum_cell_delta_log_yield": 11.324426438920057,
+        "minimum_cell_delta_log_yield": -31.83865657998831,
+        "percent_change_from_mean_log": -36.78008882926707,
+        "weight_sum": 1266057017761.1877,
+        "weight_unit": "constant_2014_2016_usd",
+        "weighted_mean_cell_exact_percent_change": -17.539441877425418,
+        "weighted_mean_delta_log_yield": -0.4585508842833384
+      },
+      "precipitation_all_income_support": {
+        "cell_or_cell_year_rows": 198315,
+        "coefficient_only_normal_95ci_log_points": [
+          -0.022724711581511212,
+          -0.008238849494395975
+        ],
+        "coefficient_only_normal_95ci_percent_from_mean_log": [
+          -2.246845014942835,
+          -0.8205003189221148
+        ],
+        "coefficient_only_standard_error_log_points": 0.0036953729814069485,
+        "maximum_cell_delta_log_yield": 11.973453915181437,
+        "minimum_cell_delta_log_yield": -31.83830491310829,
+        "percent_change_from_mean_log": -1.5362553847110982,
+        "weight_sum": 1266057017761.1877,
+        "weight_unit": "constant_2014_2016_usd",
+        "weighted_mean_cell_exact_percent_change": 12.961541339616076,
+        "weighted_mean_delta_log_yield": -0.015481780537953594
+      },
+      "precipitation_common_positive_support": {
+        "cell_or_cell_year_rows": 198228,
+        "coefficient_only_normal_95ci_log_points": [
+          -0.02273045617703758,
+          -0.00824085790341043
+        ],
+        "coefficient_only_normal_95ci_percent_from_mean_log": [
+          -2.2474065656667075,
+          -0.820699511723293
+        ],
+        "coefficient_only_standard_error_log_points": 0.0036963260902110077,
+        "maximum_cell_delta_log_yield": 11.973453915181437,
+        "minimum_cell_delta_log_yield": -31.83830491310829,
+        "percent_change_from_mean_log": -1.5366370789008328,
+        "weight_sum": 1265744078324.2947,
+        "weight_unit": "constant_2014_2016_usd",
+        "weighted_mean_cell_exact_percent_change": 12.96474053432031,
+        "weighted_mean_delta_log_yield": -0.015485657040224005
+      },
+      "precipitation_distribution_residual": {
+        "cell_or_cell_year_rows": 198228,
+        "coefficient_only_normal_95ci_log_points": [
+          -0.006010958059274266,
+          0.00033951238411335845
+        ],
+        "coefficient_only_normal_95ci_percent_from_mean_log": [
+          -0.5992928394154369,
+          0.033957002496591816
+        ],
+        "coefficient_only_standard_error_log_points": 0.001620017970251945,
+        "maximum_cell_delta_log_yield": 11.803089613146454,
+        "minimum_cell_delta_log_yield": -11.027392208031245,
+        "percent_change_from_mean_log": -0.28317059733762634,
+        "weight_sum": 1265744078324.2947,
+        "weight_unit": "constant_2014_2016_usd",
+        "weighted_mean_cell_exact_percent_change": 7.401499726205486,
+        "weighted_mean_delta_log_yield": -0.002835722837580454
+      },
+      "precipitation_quantity_reference_scaling": {
+        "cell_or_cell_year_rows": 198228,
+        "coefficient_only_normal_95ci_log_points": [
+          -0.018316343617940233,
+          -0.006983524787346869
+        ],
+        "coefficient_only_normal_95ci_percent_from_mean_log": [
+          -1.8149618877216882,
+          -0.6959196643127453
+        ],
+        "coefficient_only_standard_error_log_points": 0.0028910252118860623,
+        "maximum_cell_delta_log_yield": 11.730279604241048,
+        "minimum_cell_delta_log_yield": -27.888564598661716,
+        "percent_change_from_mean_log": -1.2570260096233463,
+        "weight_sum": 1265744078324.2947,
+        "weight_unit": "constant_2014_2016_usd",
+        "weighted_mean_cell_exact_percent_change": 8.443461138637124,
+        "weighted_mean_delta_log_yield": -0.012649934202643551
+      },
+      "temperature_all_income_support": {
+        "cell_or_cell_year_rows": 198315,
+        "coefficient_only_normal_95ci_log_points": [
+          -0.6027293657355466,
+          -0.28340884175522313
+        ],
+        "coefficient_only_normal_95ci_percent_from_mean_log": [
+          -45.268422927034976,
+          -24.678821952551637
+        ],
+        "coefficient_only_standard_error_log_points": 0.08145931734191926,
+        "maximum_cell_delta_log_yield": 4.0328617597865275,
+        "minimum_cell_delta_log_yield": -5.288405119050703,
+        "percent_change_from_mean_log": -35.79371633920523,
+        "weight_sum": 1266057017761.1877,
+        "weight_unit": "constant_2014_2016_usd",
+        "weighted_mean_cell_exact_percent_change": -25.719462115354514,
+        "weighted_mean_delta_log_yield": -0.4430691037453849
+      }
+    },
+    "trend": {
+      "joint_climate": {
+        "cell_or_cell_year_rows": 198315,
+        "coefficient_only_normal_95ci_log_points": [
+          -0.4683885833383,
+          -0.21708011318320428
+        ],
+        "coefficient_only_normal_95ci_percent_from_mean_log": [
+          -37.39897807522076,
+          -19.513451361409565
+        ],
+        "coefficient_only_standard_error_log_points": 0.06410930361099382,
+        "maximum_cell_delta_log_yield": 11.324426438920057,
+        "minimum_cell_delta_log_yield": -24.674958849490878,
+        "percent_change_from_mean_log": -29.017324677255154,
+        "weight_sum": 1266057017761.1877,
+        "weight_unit": "constant_2014_2016_usd",
+        "weighted_mean_cell_exact_percent_change": -11.965732891848747,
+        "weighted_mean_delta_log_yield": -0.34273434826075216
+      },
+      "precipitation_all_income_support": {
+        "cell_or_cell_year_rows": 198315,
+        "coefficient_only_normal_95ci_log_points": [
+          -0.008700852773736755,
+          0.0020243010337342004
+        ],
+        "coefficient_only_normal_95ci_percent_from_mean_log": [
+          -0.8663109898632029,
+          0.20263513143000686
+        ],
+        "coefficient_only_standard_error_log_points": 0.002736008624354836,
+        "maximum_cell_delta_log_yield": 11.973453915181437,
+        "minimum_cell_delta_log_yield": -24.674686307658902,
+        "percent_change_from_mean_log": -0.33327100222767814,
+        "weight_sum": 1266057017761.1877,
+        "weight_unit": "constant_2014_2016_usd",
+        "weighted_mean_cell_exact_percent_change": 13.915654723185103,
+        "weighted_mean_delta_log_yield": -0.0033382758700012775
+      },
+      "precipitation_common_positive_support": {
+        "cell_or_cell_year_rows": 198228,
+        "coefficient_only_normal_95ci_log_points": [
+          -0.008703231174387083,
+          0.0020248113073798924
+        ],
+        "coefficient_only_normal_95ci_percent_from_mean_log": [
+          -0.866546769213225,
+          0.20268626220698868
+        ],
+        "coefficient_only_standard_error_log_points": 0.002736745531063004,
+        "maximum_cell_delta_log_yield": 11.973453915181437,
+        "minimum_cell_delta_log_yield": -24.674686307658902,
+        "percent_change_from_mean_log": -0.333364097238152,
+        "weight_sum": 1265744078324.2947,
+        "weight_unit": "constant_2014_2016_usd",
+        "weighted_mean_cell_exact_percent_change": 13.919083993240562,
+        "weighted_mean_delta_log_yield": -0.0033392099335035953
+      },
+      "precipitation_distribution_residual": {
+        "cell_or_cell_year_rows": 198228,
+        "coefficient_only_normal_95ci_log_points": [
+          0.0016287504823450636,
+          0.007488381107362066
+        ],
+        "coefficient_only_normal_95ci_percent_from_mean_log": [
+          0.16300776168377748,
+          0.7516489150608595
+        ],
+        "coefficient_only_standard_error_log_points": 0.0014948037308716842,
+        "maximum_cell_delta_log_yield": 11.803089613146454,
+        "minimum_cell_delta_log_yield": -8.41390025472785,
+        "percent_change_from_mean_log": 0.4568971862145452,
+        "weight_sum": 1265744078324.2947,
+        "weight_unit": "constant_2014_2016_usd",
+        "weighted_mean_cell_exact_percent_change": 8.036318053016263,
+        "weighted_mean_delta_log_yield": 0.004558565794853565
+      },
+      "precipitation_quantity_reference_scaling": {
+        "cell_or_cell_year_rows": 198228,
+        "coefficient_only_normal_95ci_log_points": [
+          -0.00833874007047666,
+          -0.0002967809933092447
+        ],
+        "coefficient_only_normal_95ci_percent_from_mean_log": [
+          -0.8304069214842958,
+          -0.029673695818662013
+        ],
+        "coefficient_only_standard_error_log_points": 0.0020515201727467898,
+        "maximum_cell_delta_log_yield": 11.730279604241048,
+        "minimum_cell_delta_log_yield": -21.61363756396284,
+        "percent_change_from_mean_log": -0.4308452405460156,
+        "weight_sum": 1265744078324.2947,
+        "weight_unit": "constant_2014_2016_usd",
+        "weighted_mean_cell_exact_percent_change": 9.09151522550006,
+        "weighted_mean_delta_log_yield": -0.004317760531892953
+      },
+      "temperature_all_income_support": {
+        "cell_or_cell_year_rows": 198315,
+        "coefficient_only_normal_95ci_log_points": [
+          -0.4573914499477584,
+          -0.20641245715272274
+        ],
+        "coefficient_only_normal_95ci_percent_from_mean_log": [
+          -36.706746984252774,
+          -18.650252577502215
+        ],
+        "coefficient_only_standard_error_log_points": 0.0640252532640397,
+        "maximum_cell_delta_log_yield": 4.0328617597865275,
+        "minimum_cell_delta_log_yield": -4.1461096133357564,
+        "percent_change_from_mean_log": -28.244232661204975,
+        "weight_sum": 1266057017761.1877,
+        "weight_unit": "constant_2014_2016_usd",
+        "weighted_mean_cell_exact_percent_change": -20.198767078820236,
+        "weighted_mean_delta_log_yield": -0.33190195355024055
+      }
+    },
+    "upper": {
+      "joint_climate": {
+        "cell_or_cell_year_rows": 198315,
+        "coefficient_only_normal_95ci_log_points": [
+          -0.2708373427093607,
+          -0.10578725775191332
+        ],
+        "coefficient_only_normal_95ci_percent_from_mean_log": [
+          -23.72594483728629,
+          -10.03839859473674
+        ],
+        "coefficient_only_standard_error_log_points": 0.04210461350955291,
+        "maximum_cell_delta_log_yield": 11.324426438920057,
+        "minimum_cell_delta_log_yield": -15.123361875494425,
+        "percent_change_from_mean_log": -17.164402892771317,
+        "weight_sum": 1266057017761.1877,
+        "weight_unit": "constant_2014_2016_usd",
+        "weighted_mean_cell_exact_percent_change": -2.884516936368967,
+        "weighted_mean_delta_log_yield": -0.18831230023063703
+      },
+      "precipitation_all_income_support": {
+        "cell_or_cell_year_rows": 198315,
+        "coefficient_only_normal_95ci_log_points": [
+          0.007788055468995697,
+          0.01791807190554129
+        ],
+        "coefficient_only_normal_95ci_percent_from_mean_log": [
+          0.78184612557192,
+          1.807956365425963
+        ],
+        "coefficient_only_standard_error_log_points": 0.0025841878664657116,
+        "maximum_cell_delta_log_yield": 11.973453915181437,
+        "minimum_cell_delta_log_yield": -15.123194833726416,
+        "percent_change_from_mean_log": 1.2936019340772562,
+        "weight_sum": 1266057017761.1877,
+        "weight_unit": "constant_2014_2016_usd",
+        "weighted_mean_cell_exact_percent_change": 15.261027066017162,
+        "weighted_mean_delta_log_yield": 0.012853063687268492
+      },
+      "precipitation_common_positive_support": {
+        "cell_or_cell_year_rows": 198228,
+        "coefficient_only_normal_95ci_log_points": [
+          0.007789666789527022,
+          0.017922438961386906
+        ],
+        "coefficient_only_normal_95ci_percent_from_mean_log": [
+          0.7820085175605996,
+          1.8084009674277393
+        ],
+        "coefficient_only_standard_error_log_points": 0.002584890860168338,
+        "maximum_cell_delta_log_yield": 11.973453915181437,
+        "minimum_cell_delta_log_yield": -15.123194833726416,
+        "percent_change_from_mean_log": 1.2939047201682674,
+        "weight_sum": 1265744078324.2947,
+        "weight_unit": "constant_2014_2016_usd",
+        "weighted_mean_cell_exact_percent_change": 15.264781137638106,
+        "weighted_mean_delta_log_yield": 0.012856052875456964
+      },
+      "precipitation_distribution_residual": {
+        "cell_or_cell_year_rows": 198228,
+        "coefficient_only_normal_95ci_log_points": [
+          0.010135095608821712,
+          0.01870013900070947
+        ],
+        "coefficient_only_normal_95ci_percent_from_mean_log": [
+          1.0186629643969518,
+          1.8876081605899369
+        ],
+        "coefficient_only_standard_error_log_points": 0.002184960048950959,
+        "maximum_cell_delta_log_yield": 11.803089613146454,
+        "minimum_cell_delta_log_yield": -4.929244316989966,
+        "percent_change_from_mean_log": 1.4522052447514582,
+        "weight_sum": 1265744078324.2947,
+        "weight_unit": "constant_2014_2016_usd",
+        "weighted_mean_cell_exact_percent_change": 8.915597622608145,
+        "weighted_mean_delta_log_yield": 0.014417617304765592
+      },
+      "precipitation_quantity_reference_scaling": {
+        "cell_or_cell_year_rows": 198228,
+        "coefficient_only_normal_95ci_log_points": [
+          0.0029653687742254575,
+          0.010618239950656912
+        ],
+        "coefficient_only_normal_95ci_percent_from_mean_log": [
+          0.29697698293843267,
+          1.067481352042208
+        ],
+        "coefficient_only_standard_error_log_points": 0.0019522630552121058,
+        "maximum_cell_delta_log_yield": 11.730279604241048,
+        "minimum_cell_delta_log_yield": -13.247068184364316,
+        "percent_change_from_mean_log": 0.6814920970549413,
+        "weight_sum": 1265744078324.2947,
+        "weight_unit": "constant_2014_2016_usd",
+        "weighted_mean_cell_exact_percent_change": 10.002848597215905,
+        "weighted_mean_delta_log_yield": 0.006791804362441185
+      },
+      "temperature_all_income_support": {
+        "cell_or_cell_year_rows": 198315,
+        "coefficient_only_normal_95ci_log_points": [
+          -0.26562736768567596,
+          -0.10173080556108681
+        ],
+        "coefficient_only_normal_95ci_percent_from_mean_log": [
+          -23.32752192946097,
+          -9.672732507539362
+        ],
+        "coefficient_only_standard_error_log_points": 0.041810347480762546,
+        "maximum_cell_delta_log_yield": 4.0328617597865275,
+        "minimum_cell_delta_log_yield": -2.623048939049151,
+        "percent_change_from_mean_log": -16.779717400219067,
+        "weight_sum": 1266057017761.1877,
+        "weight_unit": "constant_2014_2016_usd",
+        "weighted_mean_cell_exact_percent_change": -11.27795083601,
+        "weighted_mean_delta_log_yield": -0.1836790866233814
+      }
+    }
+  },
+  "schema": "hultgren_grid_yield_scenario_transport/v2",
+  "sources": {
+    "analysis_weights": {
+      "column": "maize_gross_production_value_constant_2014_2016_usd",
+      "path": "data/interim/hultgren_mapspam_faostat_maize_value_halfdegree_20260924.csv",
+      "receipt": "data/provenance/hultgren_mapspam_faostat_maize_value_halfdegree_20260924.json",
+      "receipt_sha256": "b48e7705aaf143080e092f745a4e5a4ba6480aa9e26325766a93d9062beeafae",
+      "sha256": "4658f2089ee983285705f6d5b8c5d73bf8580e0282dec9bc67d260a6fc952422"
+    },
+    "author_estimation_sample_support": {
+      "complete_rows": 377973,
+      "path": "data/provenance/hultgren_author_sample_support_20260924.json",
+      "sha256": "3d5c26728e2c7c2d53bad8d1afe372f18696673c9584ecba5f4644a00cc1da74",
+      "source": {
+        "bytes": 345639713,
+        "path": "data/raw/hultgren_response/historical_git/dae5fe8d0d4a260328e4baa45b547368bd6790b3/corn_gmfd_v1_ready.dta",
+        "sha256": "06c2f0102580518a3eea88a6cd677af4636d40882452aa15b65ac7178cf9267a"
+      }
+    },
+    "coefficients": {
+      "path": "data/interim/hultgren_maize_response_20260923/coefficients.csv",
+      "sha256": "f3f3c011c4ebb4d4e49712bae1fdc320271460d0ff7d6942d21aa910a553318a"
+    },
+    "covariance": {
+      "path": "data/interim/hultgren_maize_response_20260923/covariance.csv",
+      "sha256": "e8b11fc5ac8b3087918987aaf02e959e66d323649835647ae7c9972d32c45cc6"
+    },
+    "moderators": {
+      "path": "data/interim/hultgren_cell_moderators_20260924.parquet",
+      "receipt": "data/provenance/hultgren_cell_moderators_20260924.json",
+      "receipt_sha256": "f44c3708e52801b7590ab2c2f6a085ea42055dd3802717a67a5f35f80b1ef0af",
+      "sha256": "7657a5617a0c8d0af0036329dc34dd0062e2e0457aa28d2551c38e5408c85d29"
+    },
+    "weather": [
+      {
+        "build_receipt": "data/interim/hultgren_mri_late_basis_20260924/mri_ssp126_rainfed_2092_2100.parquet.result.json",
+        "build_receipt_sha256": "b2c470e2325c6cfaa38e9eea76e501111d5a93c521cfeed12be37a8e371c8434",
+        "path": "data/interim/hultgren_mri_late_basis_20260924/mri_ssp126_rainfed_2092_2100.parquet",
+        "sha256": "4b4dd2cfeb288c2522e7dea7cc6de38ee8f916de8cec0b0071933286a63dfbb7",
+        "validation": "data/provenance/hultgren_mri_ssp126_rainfed_validation_20260924.json",
+        "validation_sha256": "9fa656f6b2b977f40c5dc2b927a40b6f3fa394b89d3701578eee4917cc0312b3"
+      },
+      {
+        "build_receipt": "data/interim/hultgren_mri_late_basis_20260924/mri_ssp126_irrigated_2092_2100.parquet.result.json",
+        "build_receipt_sha256": "d906a9a4ed1a66fffc52e6669e90c52fa078ef88fbf428a514a43aed9ae60a77",
+        "path": "data/interim/hultgren_mri_late_basis_20260924/mri_ssp126_irrigated_2092_2100.parquet",
+        "sha256": "70b94a31cb36ea15c6adee041ec8af0038b2d388a43bcb8178d869124202319d",
+        "validation": "data/provenance/hultgren_mri_ssp126_irrigated_validation_20260924.json",
+        "validation_sha256": "91a53703971a600f0b10967b76d944c5ed3634932cbe6c73d779e2fff77ce61c"
+      },
+      {
+        "build_receipt": "data/interim/hultgren_mri_late_basis_20260924/mri_ssp585_rainfed_2092_2100.parquet.result.json",
+        "build_receipt_sha256": "afb86c4045477e096ebf7d407e2b7ca0ad39a34ce17eb892bfe4c13f4f9277f1",
+        "path": "data/interim/hultgren_mri_late_basis_20260924/mri_ssp585_rainfed_2092_2100.parquet",
+        "sha256": "ec9c39b2b0bbe65ad54bcc571214c34a9941d15dd186df22b2f2b5ebf8972db2",
+        "validation": "data/provenance/hultgren_mri_ssp585_rainfed_validation_20260924.json",
+        "validation_sha256": "3d55d7f96255b6e4d2a57e6b76e8dd8dc2bb52520250276e9d5d37a0479ae356"
+      },
+      {
+        "build_receipt": "data/interim/hultgren_mri_late_basis_20260924/mri_ssp585_irrigated_2092_2100.parquet.result.json",
+        "build_receipt_sha256": "21df0ff50479251c4580ced6fe4be79ae042648a69468f7986f8f432088447d1",
+        "path": "data/interim/hultgren_mri_late_basis_20260924/mri_ssp585_irrigated_2092_2100.parquet",
+        "sha256": "fbd0a97c9f267c5926e2bc58f740af188e0d7a0c1423cada229155b36db070a7",
+        "validation": "data/provenance/hultgren_mri_ssp585_irrigated_validation_20260924.json",
+        "validation_sha256": "cdb96625e4c5f50cee815c9e7ca72c9b26573053508b0093e8535c5ce4e7320e"
+      }
+    ]
+  },
+  "status": "preliminary_published_coefficient_transport_not_causal_damage_or_scc",
+  "support": {
+    "analysis_area_fraction_of_income_matched": 1.0,
+    "analysis_area_fraction_of_total": 0.9894680729401412,
+    "analysis_area_ha": 130373165.77844626,
+    "analysis_weight": 140673001973.46527,
+    "analysis_weight_fraction_of_eligible": 0.99971573049203,
+    "analysis_weight_fraction_of_income_matched": 1.0,
+    "analysis_weight_label": "conditional fixed 1999-2001 FAOSTAT maize gross production value allocated by MapSPAM 2000 production",
+    "analysis_weight_unit": "constant_2014_2016_usd",
+    "author_sample_quantiles": {
+      "gdd": {
+        "maximum": 6281.93798828125,
+        "minimum": 36.996185302734375,
+        "p01": 1089.6398193359375,
+        "p99": 3895.9176171874988
+      },
+      "irrigated_share": {
+        "maximum": 1.0,
+        "minimum": 0.0,
+        "p01": 0.00012966975918971002,
+        "p99": 1.0
+      },
+      "kdd": {
+        "maximum": 625.7154541015625,
+        "minimum": 0.0,
+        "p01": 0.0,
+        "p99": 170.35501525878863
+      },
+      "ln_gdppc": {
+        "maximum": 10.792492866516113,
+        "minimum": 6.772420406341553,
+        "p01": 6.952408790588379,
+        "p99": 10.269715309143066
+      },
+      "lr_prcp_crop": {
+        "maximum": 525.5151977539062,
+        "minimum": 0.9141615033149719,
+        "p01": 18.094003677368164,
+        "p99": 300.8392028808594
+      },
+      "lr_tmax_crop": {
+        "maximum": 38.055625915527344,
+        "minimum": 5.177227020263672,
+        "p01": 18.752958297729492,
+        "p99": 34.552005767822266
+      },
+      "prcp_poly_1_bin1": {
+        "maximum": 1514.382080078125,
+        "minimum": 0.0,
+        "p01": 0.0,
+        "p99": 351.3853540039062
+      },
+      "prcp_poly_1_bin2": {
+        "maximum": 2509.2919921875,
+        "minimum": 0.0,
+        "p01": 30.95921905517578,
+        "p99": 1119.7757324218742
+      },
+      "prcp_poly_1_bin3": {
+        "maximum": 2855.123291015625,
+        "minimum": 0.0,
+        "p01": 0.0,
+        "p99": 721.6879833984357
+      },
+      "prcp_poly_2_bin1": {
+        "maximum": 2321655.75,
+        "minimum": 0.0,
+        "p01": 0.0,
+        "p99": 124274.1781249996
+      },
+      "prcp_poly_2_bin2": {
+        "maximum": 2338668.5,
+        "minimum": 0.0,
+        "p01": 566.426162109375,
+        "p99": 463041.5849999999
+      },
+      "prcp_poly_2_bin3": {
+        "maximum": 3058477.75,
+        "minimum": 0.0,
+        "p01": 0.0,
+        "p99": 249051.9137499992
+      }
+    },
+    "income_matched_analysis_weight": 140673001973.46527,
+    "income_matched_analysis_weight_fraction": 0.99971573049203,
+    "income_matched_area_fraction": 0.9894680729401412,
+    "income_matched_area_ha": 130373165.77844626,
+    "moderator_support_selection": "full",
+    "total_analysis_weight_on_eligible_cells": 140713002389.4195,
+    "total_eligible_mirca_area_ha": 131760861.56175886,
+    "transport_overlap": {
+      "ssp126_weather": {
+        "gdd": {
+          "weighted_fraction_inside_author_minmax": 0.9999763948262734,
+          "weighted_fraction_inside_author_p01_p99": 0.9732349359192828
+        },
+        "kdd": {
+          "weighted_fraction_inside_author_minmax": 0.9989927614030756,
+          "weighted_fraction_inside_author_p01_p99": 0.9137843933078779
+        },
+        "prcp_poly_1_bin1": {
+          "weighted_fraction_inside_author_minmax": 0.999998977316642,
+          "weighted_fraction_inside_author_p01_p99": 0.9905499756746907
+        },
+        "prcp_poly_1_bin2": {
+          "weighted_fraction_inside_author_minmax": 0.9998722323606659,
+          "weighted_fraction_inside_author_p01_p99": 0.9589644127042691
+        },
+        "prcp_poly_1_bin3": {
+          "weighted_fraction_inside_author_minmax": 0.9999997745689984,
+          "weighted_fraction_inside_author_p01_p99": 0.9843939251851418
+        },
+        "prcp_poly_2_bin1": {
+          "weighted_fraction_inside_author_minmax": 0.999998977316642,
+          "weighted_fraction_inside_author_p01_p99": 0.9907194426038398
+        },
+        "prcp_poly_2_bin2": {
+          "weighted_fraction_inside_author_minmax": 0.9998295150633917,
+          "weighted_fraction_inside_author_p01_p99": 0.9574082170528134
+        },
+        "prcp_poly_2_bin3": {
+          "weighted_fraction_inside_author_minmax": 0.9999992262232098,
+          "weighted_fraction_inside_author_p01_p99": 0.9862844464375141
+        }
+      },
+      "ssp585_weather": {
+        "gdd": {
+          "weighted_fraction_inside_author_minmax": 0.999924496139458,
+          "weighted_fraction_inside_author_p01_p99": 0.8728276587707531
+        },
+        "kdd": {
+          "weighted_fraction_inside_author_minmax": 0.9825521965162407,
+          "weighted_fraction_inside_author_p01_p99": 0.5718160506274567
+        },
+        "prcp_poly_1_bin1": {
+          "weighted_fraction_inside_author_minmax": 0.9999992793247039,
+          "weighted_fraction_inside_author_p01_p99": 0.9861428736031763
+        },
+        "prcp_poly_1_bin2": {
+          "weighted_fraction_inside_author_minmax": 0.9991296469199574,
+          "weighted_fraction_inside_author_p01_p99": 0.9468873977596814
+        },
+        "prcp_poly_1_bin3": {
+          "weighted_fraction_inside_author_minmax": 0.9999785579237455,
+          "weighted_fraction_inside_author_p01_p99": 0.9855860780788596
+        },
+        "prcp_poly_2_bin1": {
+          "weighted_fraction_inside_author_minmax": 0.9999993362255911,
+          "weighted_fraction_inside_author_p01_p99": 0.9862760514245335
+        },
+        "prcp_poly_2_bin2": {
+          "weighted_fraction_inside_author_minmax": 0.9987719366271381,
+          "weighted_fraction_inside_author_p01_p99": 0.9441786617446675
+        },
+        "prcp_poly_2_bin3": {
+          "weighted_fraction_inside_author_minmax": 0.9999976197970945,
+          "weighted_fraction_inside_author_p01_p99": 0.9871732865023967
+        }
+      },
+      "transport_moderators": {
+        "irrigated_share": {
+          "weighted_fraction_inside_author_minmax": 1.0,
+          "weighted_fraction_inside_author_p01_p99": 0.9386978491581033
+        },
+        "ln_gdppc": {
+          "weighted_fraction_inside_author_minmax": 0.7485171984294963,
+          "weighted_fraction_inside_author_p01_p99": 0.6829517231717319
+        },
+        "lr_prcp_crop": {
+          "weighted_fraction_inside_author_minmax": 0.9890393218552505,
+          "weighted_fraction_inside_author_p01_p99": 0.957828301882188
+        },
+        "lr_tmax_crop": {
+          "weighted_fraction_inside_author_minmax": 0.9987199653510127,
+          "weighted_fraction_inside_author_p01_p99": 0.9797042539498618
+        }
+      }
+    }
+  },
+  "uncertainty": "reported standard errors propagate the published coefficient covariance only; they exclude climate-model, weather-product, moderator-transport, adaptation, crop-area, and structural uncertainty",
+  "years": [
+    2092,
+    2093,
+    2094,
+    2095,
+    2096,
+    2097,
+    2098,
+    2099,
+    2100
+  ]
+}

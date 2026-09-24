@@ -76,6 +76,8 @@ def main() -> None:
     require(len(reference) == 1, "scenario labels differ")
     models = sorted({value["climate_contrast"]["climate_model"] for _, value in loaded})
     support_labels = sorted({value["support"]["moderator_support_selection"] for _, value in loaded})
+    weather_support_labels = {value["support"].get("weather_support_selection", "full") for _, value in loaded}
+    require(len(weather_support_labels) == 1, "weather support selection differs")
     weight_labels = {value["support"].get("analysis_weight_label", "fixed MIRCA harvested area") for _, value in loaded}
     weight_units = {value["support"].get("analysis_weight_unit", "ha") for _, value in loaded}
     require(len(weight_labels) == 1 and len(weight_units) == 1, "analysis weighting differs")
@@ -101,6 +103,7 @@ def main() -> None:
         "status": "named_model_transport_summary_not_probability_damage_or_scc",
         "climate_models": models,
         "scenario_contrast": {"reference": next(iter(reference))[0], "comparison": next(iter(reference))[1]},
+        "weather_support_selection": next(iter(weather_support_labels)),
         "analysis_weighting": {"label": next(iter(weight_labels)), "unit": next(iter(weight_units))},
         "sources": [{"path": str(path), "sha256": digest(path)} for path, _ in loaded],
         "support_sensitivities": output_support,

@@ -1,0 +1,93 @@
+{
+  "checks": {
+    "adaptation_scaling": true,
+    "annual_to_pooled_weighting": true,
+    "joint_precipitation_temperature_additivity": true,
+    "log_to_percent_transformation": true,
+    "precipitation_quantity_distribution_additivity": true
+  },
+  "claim_gates": {
+    "causal_damage_or_scc_validated": false,
+    "summary_arithmetic_validated": true
+  },
+  "created_at_utc": "2026-09-24T16:48:46.240065+00:00",
+  "implementation": {
+    "path": "scripts/validate_hultgren_grid_yield_transport.py",
+    "sha256": "12d3954cf1648f3c79a3df8cd81fda30f5bcfc14e655720bde9fc453e947a72d"
+  },
+  "inputs": [
+    {
+      "adaptation_scenarios": [
+        "fixed",
+        "trend",
+        "upper"
+      ],
+      "analysis_weight_fraction": 0.99971573049203,
+      "analysis_weight_label": "conditional fixed 1999-2001 FAOSTAT maize gross production value allocated by MapSPAM 2000 production",
+      "moderator_support_selection": "full",
+      "path": "data/provenance/hultgren_gfdl_grid_yield_transport_conditional_value_author_minmax_20260924.json",
+      "sha256": "2658d1f8e5ebd20218175eae3c0084332b8e257040b0ff340137a2a77f0263d5",
+      "weather_support_selection": "author_minmax",
+      "years": 9
+    },
+    {
+      "adaptation_scenarios": [
+        "fixed",
+        "trend",
+        "upper"
+      ],
+      "analysis_weight_fraction": 0.99971573049203,
+      "analysis_weight_label": "conditional fixed 1999-2001 FAOSTAT maize gross production value allocated by MapSPAM 2000 production",
+      "moderator_support_selection": "full",
+      "path": "data/provenance/hultgren_ipsl_grid_yield_transport_conditional_value_author_minmax_20260924.json",
+      "sha256": "a3ec6d85608379c5e71009e9d418b6e2f73213ad69dad7bbc1d245c389526dd7",
+      "weather_support_selection": "author_minmax",
+      "years": 9
+    },
+    {
+      "adaptation_scenarios": [
+        "fixed",
+        "trend",
+        "upper"
+      ],
+      "analysis_weight_fraction": 0.99971573049203,
+      "analysis_weight_label": "conditional fixed 1999-2001 FAOSTAT maize gross production value allocated by MapSPAM 2000 production",
+      "moderator_support_selection": "full",
+      "path": "data/provenance/hultgren_mpi_grid_yield_transport_conditional_value_author_minmax_20260924.json",
+      "sha256": "53c9cf795612cefd2c2c8113735622433fd5e2a6154d29b17122fa6928247dc5",
+      "weather_support_selection": "author_minmax",
+      "years": 9
+    },
+    {
+      "adaptation_scenarios": [
+        "fixed",
+        "trend",
+        "upper"
+      ],
+      "analysis_weight_fraction": 0.99971573049203,
+      "analysis_weight_label": "conditional fixed 1999-2001 FAOSTAT maize gross production value allocated by MapSPAM 2000 production",
+      "moderator_support_selection": "full",
+      "path": "data/provenance/hultgren_mri_grid_yield_transport_conditional_value_author_minmax_20260924.json",
+      "sha256": "6fd0268a7be9a944224afac4e2d198155c14ce5dc0e94a07c55e2159ab44a81a",
+      "weather_support_selection": "author_minmax",
+      "years": 9
+    },
+    {
+      "adaptation_scenarios": [
+        "fixed",
+        "trend",
+        "upper"
+      ],
+      "analysis_weight_fraction": 0.99971573049203,
+      "analysis_weight_label": "conditional fixed 1999-2001 FAOSTAT maize gross production value allocated by MapSPAM 2000 production",
+      "moderator_support_selection": "full",
+      "path": "data/provenance/hultgren_ukesm_grid_yield_transport_conditional_value_author_minmax_20260924.json",
+      "sha256": "0f5be18005012361803b9f01a0f9777ced380dd4c41ba2d86163599b52e78e0a",
+      "weather_support_selection": "author_minmax",
+      "years": 9
+    }
+  ],
+  "interpretation": "validates stored aggregation and decomposition arithmetic, not causal identification, transport assumptions, monetization, or SCC",
+  "schema": "hultgren_grid_yield_transport_validation/v1",
+  "status": "independent_summary_arithmetic_validation_passed"
+}

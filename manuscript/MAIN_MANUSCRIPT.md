@@ -111,12 +111,39 @@ distribution residual is negative in four. MapSPAM is a modeled physical
 production allocation, not a value or welfare weight, so this sensitivity does
 not monetize damages or identify an SCC.
 
+An additional conditional baseline-value sensitivity matches 98.05% of
+MapSPAM maize production to 119 countries with 1999--2001 FAOSTAT constant-
+dollar gross production values. Its five-model mean-log precipitation response
+is -2.38%, comprising -1.93% quantity and -0.46% distribution; all five net and
+quantity responses remain negative. However, this exercise also identifies a
+binding monetization failure. Converting every cell log response to a level
+change before aggregation yields positive fixed-price gross-output changes in
+four of five full-support models because a small number of extrapolated cells
+receive extremely large modeled gains. Restricting moderators to the authors'
+minimum--maximum or p01--p99 support leaves the problem in two of five models.
+We therefore do not report those dollar products as damages and do not pass
+this response to GIVE. Weather-domain restrictions, a published application
+rule, or a preregistered response regularization must be justified first. A
+post hoc screen requiring both scenarios' weather terms to remain within the
+author sample minimum--maximum eliminates the level-aggregation reversal in
+all five models while retaining 80.4%--99.0% of matched value across ESMs.
+The p01--p99 analogue retains only 6.3%--51.8% and changes the mean-log sign
+in three models. These results identify a plausible application boundary, but
+do not authorize it as the primary damage specification.
+
 ![Five-ESM production-weighted precipitation-response decomposition](figures/hultgren_five_esm_production_weighted_decomposition_20260924.svg)
 
 **Figure 3b. Fixed-production-weight sensitivity.** Published maize response
 to SSP5-8.5 minus SSP1-2.6 weather in 2092--2100. MapSPAM physical production
 replaces harvested hectares only at the final spatial aggregation step. Bars
 are scenario-response transports, not monetary damages or SCC.
+
+![Five-ESM conditional baseline-value-weighted precipitation-response decomposition](figures/hultgren_five_esm_conditional_value_weighted_decomposition_20260924.svg)
+
+**Figure 3c. Conditional baseline-value-weight sensitivity.** National
+1999--2001 FAOSTAT maize gross production value is allocated across matched
+cells by fixed MapSPAM production. Bars show transforms of weighted mean log
+responses; they are not fixed-price output changes, welfare damages, or SCC.
 
 Exact samples, contrasts, uncertainty and remaining claim restrictions are in
 the linked results records and `RESULTS_STATUS.md`. Historical associations,

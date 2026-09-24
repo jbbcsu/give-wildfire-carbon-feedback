@@ -75,7 +75,12 @@ def main() -> None:
             yy = y(value)
             rect_y, rect_height = min(yy, zero_y), abs(yy - zero_y)
             svg.append(f'<rect x="{x:.2f}" y="{rect_y:.2f}" width="{bar_width}" height="{rect_height:.2f}" fill="{color}"/>')
-    axis_label = "Production-weighted mean yield change (%)" if weighting["unit"] == "mt" else "Area-weighted mean yield change (%)"
+    if weighting["unit"] == "mt":
+        axis_label = "Production-weighted mean yield change (%)"
+    elif "usd" in weighting["unit"].lower():
+        axis_label = "Baseline-value-weighted mean yield change (%)"
+    else:
+        axis_label = "Area-weighted mean yield change (%)"
     svg.append(f'<text transform="translate(20 {top + plot_height/2}) rotate(-90)" text-anchor="middle" class="tick">{axis_label}</text>')
     legend_y = height - 25
     for index, ((_, label), color) in enumerate(zip(COMPONENTS, colors, strict=True)):

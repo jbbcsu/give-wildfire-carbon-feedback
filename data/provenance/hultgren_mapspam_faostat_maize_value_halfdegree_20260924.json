@@ -1,0 +1,56 @@
+{
+  "audit": {
+    "allocated_constant_2014_2016_usd": 143224624833.33334,
+    "matched_country_count": 119,
+    "matched_maize_production_fraction": 0.9804980565870999,
+    "matched_maize_production_mt": 624726682.4001307,
+    "positive_halfdegree_cells": 24494,
+    "source_maize_production_mt": 637152392.3001624,
+    "source_rows": 601130
+  },
+  "claim_gates": {
+    "conditional_baseline_value_weight": true,
+    "damage_or_scc": false,
+    "global_complete_value_weight": false,
+    "welfare": false
+  },
+  "created_at_utc": "2026-09-24T16:42:49.385385+00:00",
+  "implementation": {
+    "path": "scripts/build_mapspam_faostat_halfdegree_maize_value_weights.py",
+    "sha256": "a6377660223d785edd8481dde5a5ca37662331cabcc2539c3ae769b214b373b5"
+  },
+  "limitations": [
+    "FAOSTAT supplies national crop value, so within-country spatial value is proportional to modeled MapSPAM production.",
+    "Countries without a 1999-2001 baseline value are excluded without imputation.",
+    "Gross production value is not producer surplus, consumer surplus, trade-adjusted welfare, or a damage estimate."
+  ],
+  "method": "allocate each matched country's mean 1999-2001 FAOSTAT maize gross production value across MapSPAM cells in proportion to fixed MapSPAM 2000 maize production; exclude countries without value and do not impute",
+  "output": {
+    "bytes": 1021109,
+    "path": "data/interim/hultgren_mapspam_faostat_maize_value_halfdegree_20260924.csv",
+    "sha256": "4658f2089ee983285705f6d5b8c5d73bf8580e0282dec9bc67d260a6fc952422"
+  },
+  "schema": "mapspam_faostat_halfdegree_maize_value_weights/v1",
+  "sources": {
+    "faostat": {
+      "license": "CC-BY-4.0",
+      "path": "data/interim/welfare_weights/faostat_qv_maize_soy.csv",
+      "sha256": "d120f9cb06aacd36b4d610cde51c10f046fc68d283eb6047719c4e849f64d4d0"
+    },
+    "gec_audit": {
+      "path": "data/interim/welfare_weights/mapspam_gec_resolution.audit.json",
+      "sha256": "bfbef2997ac275567742d3898ac75c652b4c0e8b0cee5b16ad851f90d7efec44"
+    },
+    "mapspam": {
+      "doi": "10.7910/DVN/A50I2T",
+      "path": "data/interim/welfare_weights/mapspam2000_maize_soy_production.csv",
+      "sha256": "ff3fa3a1af6e255d4e35c6cd5ca1bc53af9114c34cf00f0aa39707be43735e0c"
+    },
+    "unsd": {
+      "path": "data/raw/unsd_m49/countries_retrieved_2026-08-26.html",
+      "sha256": "4d5cabcb10ad9ef184553b5e64c0a34ba8deeb20dab2e02cd0be3599b93bb01d"
+    }
+  },
+  "status": "conditional_baseline_gross_production_value_weights_not_welfare_damage_or_scc",
+  "units": "constant 2014-2016 US dollars"
+}

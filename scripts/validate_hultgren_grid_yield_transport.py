@@ -99,6 +99,7 @@ def validate(path: Path) -> dict:
     return {
         "path": str(path), "sha256": digest(path),
         "moderator_support_selection": result["support"]["moderator_support_selection"],
+        "weather_support_selection": result["support"].get("weather_support_selection", "full"),
         "analysis_weight_label": result["support"].get("analysis_weight_label", "fixed MIRCA harvested area"),
         "analysis_weight_fraction": result["support"].get("analysis_weight_fraction_of_eligible", result["support"]["analysis_area_fraction_of_total"]),
         "years": len(annual), "adaptation_scenarios": sorted(pooled_result),

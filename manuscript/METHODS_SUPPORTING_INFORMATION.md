@@ -1636,6 +1636,70 @@ records. Exact inputs and checks are in
 `data/provenance/hultgren_five_esm_production_weighted_validation_20260924.json`,
 and `data/provenance/hultgren_five_esm_production_weighted_summary_20260924.json`.
 
+### Conditional baseline gross-production-value sensitivity and failed monetization gate
+
+An authoritative NGA GENC--GEC crosswalk and current UN M49 table resolve the
+legacy MapSPAM administrative identifiers. For maize, 119 resolved countries
+have at least one nonmissing 1999--2001 FAOSTAT gross-production-value
+observation in constant 2014--2016 US dollars. These countries account for
+624.727 million of 637.152 million MapSPAM metric tons (98.050%). Countries
+without a baseline value and Taiwan's non-current-UN route remain excluded
+without imputation.
+
+For each matched country, its mean available 1999--2001 national maize value
+is allocated across half-degree cells in proportion to fixed MapSPAM 2000
+maize production. Country allocations reconcile to their FAOSTAT totals at a
+relative tolerance of `1e-10`; the included national values sum to
+US$143.225 billion in constant 2014--2016 dollars. The full response support
+retains US$140.673 billion after income matching. This construction assumes
+spatially uniform unit value within a country. It is a baseline gross-value
+weight, not a price model, producer or consumer surplus, trade response, or
+welfare calculation.
+
+The full-support five-model mean-log precipitation responses are -3.07%,
+-3.50%, -1.56%, -1.54%, and -2.23%; the equal-model mean is -2.38%. Quantity
+is negative in all five and has a -1.93% descriptive mean; distribution is
+negative in four and averages -0.46%. Those transforms of a weighted mean log
+response are useful response summaries, but they cannot be multiplied by
+baseline value to obtain an aggregate level change.
+
+The correct fixed-price accounting diagnostic instead transforms each cell
+log response to `expm1(delta log yield)` before applying cell baseline values.
+That diagnostic gives positive aggregate output changes in IPSL, MPI, MRI, and
+UKESM despite negative mean log responses. Moderator min--max and p01--p99
+restrictions reduce but do not remove the reversal: MPI remains +14.81% and
++18.34%, and UKESM +0.96% and +0.60%, on the respective supported value bases.
+These reversals arise from the convex level transformation acting on extreme
+positive cell responses; they fail the prerequired response-domain gate and
+are not interpreted as benefits. No dollar damage is exported. Further work
+must either reproduce a published application restriction, impose a separately
+justified joint weather-and-moderator domain, or preregister a bounded response
+rule and report its sensitivity.
+
+A post hoc joint weather-domain diagnostic requires all eight weather
+primitives under both SSP1-2.6 and SSP5-8.5 to lie inside the published author
+sample bounds in each cell-year. The minimum--maximum screen retains 99.03%,
+89.35%, 98.94%, 98.12%, and 80.41% of matched baseline value for GFDL, IPSL,
+MPI, MRI, and UKESM. Its cell-first fixed-price precipitation changes are
+negative in all five (-2.32%, -1.21%, -0.46%, -0.32%, and -0.02%), so the
+earlier level-aggregation reversal is confined to future-weather extrapolation.
+The p01--p99 screen is not a viable default: it retains only 51.20%, 20.40%,
+50.49%, 51.79%, and 6.34% and produces positive mean-log responses in IPSL,
+MPI, and MRI. Because the retained cell-year value differs by climate model,
+the minimum--maximum screen also changes the target population. It is retained
+as a diagnostic and candidate application boundary, not silently adopted as
+the primary estimand.
+
+The weight receipt is
+`data/provenance/hultgren_mapspam_faostat_maize_value_halfdegree_20260924.json`.
+All 15 model-by-support response records pass the independent arithmetic audit
+in `data/provenance/hultgren_five_esm_three_support_conditional_value_weighted_validation_20260924.json`;
+their named-model summary is
+`data/provenance/hultgren_five_esm_three_support_conditional_value_weighted_summary_20260924.json`.
+Weather-domain summaries and independent arithmetic audits are in the
+corresponding `hultgren_five_esm_conditional_value_author_minmax_*` and
+`hultgren_five_esm_conditional_value_author_p01_p99_*` receipts.
+
 We additionally reproduced the authors' Iroquois County, USA local-temperature
 response checkpoint. Their pinned plotting code selects 59 observations and
 evaluates the maize estimate at local means of long-run growing-season Tmax,

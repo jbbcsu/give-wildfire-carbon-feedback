@@ -240,6 +240,21 @@ def quantity_counterfactual(reference: pd.DataFrame, comparison: pd.DataFrame) -
     return result, common
 
 
+def joint_support_mask(
+    reference: pd.DataFrame, comparison: pd.DataFrame, support: dict[str, dict[str, float]],
+    columns: list[str], selection: str,
+) -> np.ndarray:
+    if selection == "full":
+        return np.ones(len(reference), dtype=bool)
+    lower_name, upper_name = ("minimum", "maximum") if selection == "author_minmax" else ("p01", "p99")
+    selected = np.ones(len(reference), dtype=bool)
+    for column in columns:
+        lower, upper = support[column][lower_name], support[column][upper_name]
+        selected &= reference[column].between(lower, upper, inclusive="both").to_numpy()
+        selected &= comparison[column].between(lower, upper, inclusive="both").to_numpy()
+    return selected
+
+
 def decomposition_errors(total: np.ndarray, first: np.ndarray, second: np.ndarray, coefficients: np.ndarray) -> dict[str, float]:
     residual = total - first - second
     maximum_absolute = float(np.max(np.abs(residual)))
@@ -268,6 +283,7 @@ def main() -> None:
     parser.add_argument("--reference-label", default="SSP1-2.6")
     parser.add_argument("--comparison-label", default="SSP5-8.5")
     parser.add_argument("--moderator-support", choices=("full", "author_minmax", "author_p01_p99"), default="full")
+    parser.add_argument("--weather-support", choices=("full", "author_minmax", "author_p01_p99"), default="full")
     parser.add_argument("--analysis-weights", type=Path)
     parser.add_argument("--analysis-weight-column")
     parser.add_argument("--analysis-weight-receipt", type=Path)
@@ -289,11 +305,15 @@ def main() -> None:
     require(all(value is None for value in external_weight_arguments) or all(value is not None for value in external_weight_arguments),
             "analysis weight file, column, and receipt must be supplied together")
     weight_source = None
+    external_weight_claims: dict[str, bool] = {}
     if args.analysis_weights is None:
         moderators["analysis_weight"] = moderators.mirca_area_ha
     else:
         receipt = json.loads(args.analysis_weight_receipt.read_text(encoding="utf-8"))
-        require(receipt["status"] == "production_weight_basis_complete_not_value_welfare_damage_or_scc", "analysis weight receipt failed")
+        require(receipt["status"] in {
+            "production_weight_basis_complete_not_value_welfare_damage_or_scc",
+            "conditional_baseline_gross_production_value_weights_not_welfare_damage_or_scc",
+        }, "analysis weight receipt failed")
         require(digest(args.analysis_weights) == receipt["output"]["sha256"], "analysis weight hash differs")
         weights_frame = pd.read_csv(args.analysis_weights, usecols=[*KEYS, args.analysis_weight_column])
         require(len(weights_frame) == len(weights_frame.drop_duplicates(KEYS)), "duplicate analysis-weight cell")
@@ -307,6 +327,7 @@ def main() -> None:
             "column": args.analysis_weight_column, "receipt": str(args.analysis_weight_receipt),
             "receipt_sha256": digest(args.analysis_weight_receipt),
         }
+        external_weight_claims = receipt.get("claim_gates", {})
     total_analysis_weight = float(moderators.analysis_weight.sum())
     require(total_analysis_weight > 0.0, "analysis weights are empty on eligible cells")
     moderators = moderators.loc[moderators.income_available].copy()
@@ -363,7 +384,13 @@ def main() -> None:
         reference = reference.loc[positive_weight].reset_index(drop=True)
         comparison = comparison.loc[positive_weight].reset_index(drop=True)
         weights = weights[positive_weight]
-        require(abs(float(weights.sum()) - analysis_weight) <= 1e-8 * analysis_weight, "analysis weight differs by year")
+        require(abs(float(weights.sum()) - analysis_weight) <= 1e-8 * analysis_weight, "analysis weight differs before weather screen")
+        pre_weather_weight = float(weights.sum())
+        weather_selected = joint_support_mask(reference, comparison, author_support, WEATHER, args.weather_support)
+        reference = reference.loc[weather_selected].reset_index(drop=True)
+        comparison = comparison.loc[weather_selected].reset_index(drop=True)
+        weights = weights[weather_selected]
+        require(len(weights) > 0 and float(weights.sum()) > 0.0, "weather support selection is empty")
 
         precipitation_comparison = reference.copy()
         precipitation_comparison[PRECIP_LINEAR + PRECIP_SQUARED] = comparison[PRECIP_LINEAR + PRECIP_SQUARED]
@@ -406,6 +433,8 @@ def main() -> None:
             "analysis_area_ha": float(reference.mirca_area_ha.sum()),
             "analysis_weight_sum": float(weights.sum()),
             "analysis_weight_unit": args.analysis_weight_unit,
+            "pre_weather_support_weight_sum": pre_weather_weight,
+            "weather_support_weight_fraction": float(weights.sum()) / pre_weather_weight,
             "common_positive_precipitation_weight_fraction_of_analysis": float(common_weights.sum() / weights.sum()),
             "adaptation": {},
         }
@@ -460,6 +489,7 @@ def main() -> None:
             "income_matched_area_ha": income_matched_area,
             "income_matched_area_fraction": income_matched_area / total_area,
             "moderator_support_selection": args.moderator_support,
+            "weather_support_selection": args.weather_support,
             "analysis_area_ha": analysis_area,
             "analysis_area_fraction_of_total": analysis_area / total_area,
             "analysis_area_fraction_of_income_matched": analysis_area / income_matched_area,
@@ -502,8 +532,9 @@ def main() -> None:
             "new_causal_yield_estimate": False,
             "monetary_damage": False,
             "scc": False,
-            "production_weighted_sensitivity": args.analysis_weights is not None,
-            "value_or_welfare_weighted": False,
+            "production_weighted_sensitivity": bool(external_weight_claims.get("production_weight_basis", False)),
+            "conditional_baseline_value_weighted_sensitivity": bool(external_weight_claims.get("conditional_baseline_value_weight", False)),
+            "welfare_weighted": False,
         },
         "implementation": {"path": str(Path(__file__).resolve().relative_to(ROOT)), "sha256": digest(Path(__file__).resolve())},
     }
