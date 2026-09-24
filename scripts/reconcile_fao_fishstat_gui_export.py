@@ -8,6 +8,7 @@ import csv
 import hashlib
 import json
 import sqlite3
+import sys
 import tempfile
 from collections import Counter
 from datetime import datetime, timezone
@@ -47,14 +48,87 @@ def require_gui_precision(text: str) -> None:
     require(len(fractional) <= 2, f"GUI value has more than two decimals: {text}")
 
 
-def main() -> None:
+def inspect_inputs(gui: Path, headless: Path, headless_validation: Path) -> dict[str, object]:
+    """Inspect reconciliation prerequisites without creating files or opening the GUI."""
+    paths = {
+        "gui_export": gui,
+        "headless_export": headless,
+        "headless_validation": headless_validation,
+    }
+    inputs: dict[str, dict[str, object]] = {}
+    missing: list[str] = []
+    for name, path in paths.items():
+        exists = path.is_file()
+        inputs[name] = {"path": str(path), "exists": exists}
+        if exists:
+            inputs[name]["bytes"] = path.stat().st_size
+        else:
+            missing.append(name)
+
+    errors: list[str] = []
+    if "headless_export" not in missing and "headless_validation" not in missing:
+        try:
+            reference = json.loads(headless_validation.read_text(encoding="utf-8"))
+        except (OSError, UnicodeDecodeError, json.JSONDecodeError) as error:
+            errors.append(f"headless validation receipt is unreadable: {error}")
+        else:
+            if reference.get("schema") != "fao_fishstat_capture_headless_export_validation_v1":
+                errors.append("headless validation schema changed")
+            export = reference.get("export")
+            if not isinstance(export, dict):
+                errors.append("headless validation export identity is missing")
+            else:
+                expected_bytes = export.get("bytes")
+                if expected_bytes != headless.stat().st_size:
+                    errors.append("headless export byte count differs from its validation receipt")
+                expected_hash = export.get("sha256")
+                if not isinstance(expected_hash, str) or expected_hash != digest(headless):
+                    errors.append("headless export SHA-256 differs from its validation receipt")
+
+    ready = not missing and not errors
+    return {
+        "schema": "fao_fishstat_gui_headless_reconciliation_preflight_v1",
+        "status": "ready_for_reconciliation" if ready else "reconciliation_blocked",
+        "ready": ready,
+        "missing_inputs": missing,
+        "validation_errors": errors,
+        "inputs": inputs,
+        "writes_performed": False,
+        "gui_launched": False,
+        "claim_gates": {
+            "fishstat_gui_menu_export_reconciled": False,
+            "observed_capture_record_integrity_validated": False,
+            "marine_tonnage_filter_authorized": False,
+            "country_or_eez_allocation_authorized": False,
+            "fishmip_observed_calibration_authorized": False,
+            "welfare_translation_authorized": False,
+            "damage_or_scc_authorized": False,
+        },
+    }
+
+
+def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--gui", type=Path, required=True)
     parser.add_argument("--headless", type=Path, required=True)
     parser.add_argument("--headless-validation", type=Path, required=True)
-    parser.add_argument("--scratch-dir", type=Path, required=True)
-    parser.add_argument("--out", type=Path, required=True)
+    parser.add_argument("--scratch-dir", type=Path)
+    parser.add_argument("--out", type=Path)
+    parser.add_argument(
+        "--check-inputs-only",
+        action="store_true",
+        help="report prerequisite readiness without writing output or launching FishStatJ",
+    )
     args = parser.parse_args()
+
+    preflight = inspect_inputs(args.gui, args.headless, args.headless_validation)
+    if args.check_inputs_only:
+        print(json.dumps(preflight, indent=2, sort_keys=True))
+        return 0 if preflight["ready"] else 2
+
+    if args.scratch_dir is None or args.out is None:
+        parser.error("--scratch-dir and --out are required unless --check-inputs-only is used")
+    require(preflight["ready"], json.dumps(preflight, sort_keys=True))
     args.scratch_dir.mkdir(parents=True, exist_ok=True)
 
     expected_header = [
@@ -199,7 +273,8 @@ def main() -> None:
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n")
     print(json.dumps(result["claim_gates"], sort_keys=True))
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
