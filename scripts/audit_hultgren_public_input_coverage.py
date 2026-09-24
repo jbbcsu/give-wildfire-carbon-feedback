@@ -16,6 +16,8 @@ RAW = ROOT / "data/raw/hultgren_response/gitlab_main_20250702"
 CURRENT_CORN = RAW / "Fig1/Crop_Coverage/data/crops/corn_gmfd_v1.dta"
 REGION_WEIGHTS = RAW / "Fig2/data/weights/agglomerated-world-new-hierid-crop-weights.csv"
 CROP_MASK = RAW / "Fig2/data/shapes/cropped_area_maps/union_impact_regions_growing_corn.shp"
+IMPACT_REGIONS = RAW / "Fig2/data/shapes/impact_region_data_frame.fst"
+HIERARCHY = RAW / "Table1/data/shapes/hierarchy.csv"
 HISTORICAL_READY = ROOT / "data/raw/hultgren_response/historical_git/dae5fe8d0d4a260328e4baa45b547368bd6790b3/corn_gmfd_v1_ready.dta"
 OUTPUT = ROOT / "data/provenance/hultgren_public_input_coverage_audit_20260923.json"
 
@@ -28,6 +30,8 @@ EXPECTED = {
     CROP_MASK.with_suffix(".shx"): (108, "406d5aa3cba44f174f480c985a30f0ee9c4400170e2c913224d26f1366a3de05d1ada91b7e552e1130375cf3083b97418e34c716c9ca83399195d9d4fe1c6117"),
     CROP_MASK.with_suffix(".dbf"): (91, "3d2f0e834ac083dcea5bd30442ef49caaea3de422ab93cf59a694807bbec31cf3f8860eb66de1a02ea257494f99a2bf99836e1a57774a22f7c2ee176fe748536"),
     CROP_MASK.with_suffix(".prj"): (300, "10a7bbf6f1cbaa3c9ebc0fb054ae5be1e5f3ed0c7d8a7332a70b0b2dbe5dac5b186bc83de43e87e96349ab018f54070d501c815669c55cc3b058e518ce0339cc"),
+    IMPACT_REGIONS: (20_171_171, "438442adafdaa73156c1dd8baa45cc26a246cc55f9b47df596262b338adbb96af7172df089f0619b365ef4d4356d32a9540d8fc87f86b8af645f899391eb2eb6"),
+    HIERARCHY: (2_930_270, "3722ccf2d7b62ce496e7c7257c48b8d47655895887bb582c15c3206f95dafb68d1c13eb77de6dee8ad9fd9040e3e5e41211f0fee62be17cdac055131c9124d93"),
 }
 
 
@@ -123,6 +127,14 @@ def main() -> None:
                 "fields": crop_mask_fields,
                 "role": "one dissolved global maize-growing-area mask; not administrative boundaries or weights",
             },
+            "impact_region_polygon_points": {
+                **identity(IMPACT_REGIONS),
+                "role": "GADM2-derived administrative polygon point frame in Robinson projection",
+            },
+            "impact_region_hierarchy": {
+                **identity(HIERARCHY),
+                "role": "region-key/name/GADM crosswalk; maps Iroquois uniquely to USA.14.630",
+            },
             "historical_prepared_regression_dataset": {
                 "path": str(HISTORICAL_READY.relative_to(ROOT)),
                 "bytes": HISTORICAL_READY.stat().st_size,
@@ -142,6 +154,7 @@ def main() -> None:
             "published_coefficient_and_historical_feature_reproduction_possible": True,
             "primitive_historical_gmfd_daily_inputs_available": False,
             "source_sage_anycrop_pixel_weights_available": False,
+            "source_administrative_boundary_and_crosswalk_available": True,
             "source_future_nex_gddp_transformed_features_available": False,
             "alternative_product_transport_possible": True,
         },

@@ -40,6 +40,12 @@ file. The public maize shapefile has one dissolved global crop-growing-area
 feature with a single `area` field; it is not a set of administrative polygons
 or pixel weights.
 
+A separate 20.2 MB `impact_region_data_frame.fst` does recover the authors'
+GADM2-derived administrative polygon point frame, and `hierarchy.csv` maps
+region keys to names and GADM identifiers. These files uniquely identify
+Iroquois as `USA.14.630`. They close the administrative boundary/crosswalk gap,
+but they still do not supply the SAGE pixel weights used inside each polygon.
+
 These checks are hash-bound in
 `data/provenance/hultgren_public_input_coverage_audit_20260923.json` and rerun by
 `scripts/audit_hultgren_public_input_coverage.py`. Raw files remain ignored and
@@ -47,7 +53,7 @@ are not redistributed because no repository license file was found.
 
 ## Implication for the precipitation-SCC project
 
-The missing source inputs do not invalidate the published response benchmark.
+The remaining missing source inputs do not invalidate the published response benchmark.
 They prevent us from claiming that GSWP/ISIMIP plus MIRCA reproduces the
 paper's GMFD/SAGE climate-input pipeline. This distinction is already visible
 in the Iroquois diagnostic: multi-cell spatial weighting improves some rainfall

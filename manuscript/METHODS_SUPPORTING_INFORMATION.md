@@ -1565,6 +1565,17 @@ product climate transport are therefore maintained as separate claim classes.
 The receipt is
 `data/provenance/hultgren_public_input_coverage_audit_20260923.json`.
 
+The public files do, however, contain a GADM2-derived impact-region point frame
+and hierarchy crosswalk. They uniquely map Iroquois to `USA.14.630` and recover
+the source administrative boundary. Repeating the six-cell comparison on that
+boundary gives seasonal-rain bias +1.25 mm, RMSE 88.85 mm, and correlation
+0.771 under area weights; the MIRCA-maize variant gives +0.84 mm, 88.96 mm,
+and 0.771. MIRCA maize area inside the author boundary is 132,256 ha, 1.10%
+below the authors' regional corn-weight total of 133,724. The boundary therefore
+is not the principal remaining discrepancy. SAGE within-region pixel weights
+and the primitive GMFD product remain unrecovered. The receipt is
+`data/provenance/hultgren_iroquois_author_boundary_diagnostic_20260923.json`.
+
 The aggregate evidence decision is applied after the country-held-out yield,
 future-support, and GMST-normalized climate diagnostics. Production promotion
 requires a new independent untouched holdout, five valid country folds for

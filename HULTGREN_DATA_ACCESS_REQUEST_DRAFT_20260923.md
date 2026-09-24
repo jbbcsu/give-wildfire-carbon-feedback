@@ -36,8 +36,9 @@ Could you provide or identify a version-matched access route for:
 
 1. the historical GMFD daily inputs or the intermediate grid-cell weather
    features used to produce the administrative-unit regression variables;
-2. the exact SAGE any-crop grid weights, including source version and spatial
-   identifier crosswalk used for that aggregation;
+2. the exact SAGE any-crop grid weights, including source version and the
+   pixel-to-impact-region overlap and normalization convention used for weather
+   aggregation;
 3. the future NEX-GDDP transformed weather inputs (or an equivalent
    administrative-unit weather-feature output) and their historical baseline
    convention; and

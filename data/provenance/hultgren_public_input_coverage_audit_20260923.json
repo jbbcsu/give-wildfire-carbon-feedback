@@ -3,6 +3,7 @@
     "alternative_product_transport_possible": true,
     "primitive_historical_gmfd_daily_inputs_available": false,
     "published_coefficient_and_historical_feature_reproduction_possible": true,
+    "source_administrative_boundary_and_crosswalk_available": true,
     "source_future_nex_gddp_transformed_features_available": false,
     "source_sage_anycrop_pixel_weights_available": false
   },
@@ -13,7 +14,7 @@
     "exact_source_spatial_aggregation_reproduced": false,
     "future_benchmark_transport_authorized_as_exact_replication": false
   },
-  "created_at_utc": "2026-09-23T23:57:00.486574+00:00",
+  "created_at_utc": "2026-09-24T00:11:15.741041+00:00",
   "current_tree_filename_search": {
     "anycrop_matches": 0,
     "gmfd_matches": 6,
@@ -71,6 +72,18 @@
       "path": "data/raw/hultgren_response/historical_git/dae5fe8d0d4a260328e4baa45b547368bd6790b3/corn_gmfd_v1_ready.dta",
       "role": "prepared historical regression features recovered from public Git history",
       "sha256": "06c2f0102580518a3eea88a6cd677af4636d40882452aa15b65ac7178cf9267a"
+    },
+    "impact_region_hierarchy": {
+      "bytes": 2930270,
+      "path": "data/raw/hultgren_response/gitlab_main_20250702/Table1/data/shapes/hierarchy.csv",
+      "role": "region-key/name/GADM crosswalk; maps Iroquois uniquely to USA.14.630",
+      "sha512": "3722ccf2d7b62ce496e7c7257c48b8d47655895887bb582c15c3206f95dafb68d1c13eb77de6dee8ad9fd9040e3e5e41211f0fee62be17cdac055131c9124d93"
+    },
+    "impact_region_polygon_points": {
+      "bytes": 20171171,
+      "path": "data/raw/hultgren_response/gitlab_main_20250702/Fig2/data/shapes/impact_region_data_frame.fst",
+      "role": "GADM2-derived administrative polygon point frame in Robinson projection",
+      "sha512": "438442adafdaa73156c1dd8baa45cc26a246cc55f9b47df596262b338adbb96af7172df089f0619b365ef4d4356d32a9540d8fc87f86b8af645f899391eb2eb6"
     },
     "maize_crop_mask": {
       "components": {
