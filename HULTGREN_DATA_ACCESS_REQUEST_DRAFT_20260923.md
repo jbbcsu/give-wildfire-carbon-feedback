@@ -39,10 +39,13 @@ Could you provide or identify a version-matched access route for:
 2. the exact SAGE any-crop grid weights, including source version and the
    pixel-to-impact-region overlap and normalization convention used for weather
    aggregation;
-3. the future NEX-GDDP transformed weather inputs (or an equivalent
+3. the complete GADM/source-unit-to-`hierid` agglomeration membership crosswalk
+   (the public hierarchy identifies one terminal label per impact region but is
+   not sufficient to recover all source-unit memberships by name);
+4. the future NEX-GDDP transformed weather inputs (or an equivalent
    administrative-unit weather-feature output) and their historical baseline
    convention; and
-4. the applicable reuse and redistribution terms for these inputs and the
+5. the applicable reuse and redistribution terms for these inputs and the
    prepared regression data.
 
 We can run a clearly labeled alternative-product benchmark using ISIMIP

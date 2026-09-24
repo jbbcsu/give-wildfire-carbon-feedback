@@ -62,15 +62,10 @@ def select_checks(frame: pd.DataFrame) -> pd.DataFrame:
 def scalar_recompute(
     row: pd.Series,
     dates: pd.DatetimeIndex,
-    pr: xr.Dataset,
-    tmin: xr.Dataset,
-    tmax: xr.Dataset,
+    rain: np.ndarray,
+    minimum: np.ndarray,
+    maximum: np.ndarray,
 ) -> dict[str, float]:
-    i = int(row.native_lat_index)
-    j = int(row.native_lon_index)
-    rain = np.asarray(pr.pr[:, i, j].values, dtype=np.float64) * 86_400.0
-    minimum = np.asarray(tmin.tasmin[:, i, j].values, dtype=np.float64) - 273.15
-    maximum = np.asarray(tmax.tasmax[:, i, j].values, dtype=np.float64) - 273.15
     records = (
         (stamp.date(), float(r), float(lo), float(hi))
         for stamp, r, lo, hi in zip(dates, rain, minimum, maximum, strict=True)
@@ -128,8 +123,17 @@ def main() -> None:
         dates = pd.DatetimeIndex(pr.time.values).normalize()
         require(dates.equals(pd.DatetimeIndex(tmin.time.values).normalize()), "raw dates differ")
         require(dates.equals(pd.DatetimeIndex(tmax.time.values).normalize()), "raw dates differ")
+        cell_cache: dict[tuple[int, int], tuple[np.ndarray, np.ndarray, np.ndarray]] = {}
         for _, row in checks.iterrows():
-            expected = scalar_recompute(row, dates, pr, tmin, tmax)
+            key = (int(row.native_lat_index), int(row.native_lon_index))
+            if key not in cell_cache:
+                i, j = key
+                cell_cache[key] = (
+                    np.asarray(pr.pr[:, i, j].values, dtype=np.float64) * 86_400.0,
+                    np.asarray(tmin.tasmin[:, i, j].values, dtype=np.float64) - 273.15,
+                    np.asarray(tmax.tasmax[:, i, j].values, dtype=np.float64) - 273.15,
+                )
+            expected = scalar_recompute(row, dates, *cell_cache[key])
             record = {
                 "harvest_year": int(row.harvest_year),
                 "native_lat_index": int(row.native_lat_index),
@@ -179,7 +183,10 @@ def main() -> None:
         },
         "annual_area_weighted_summary": grouped.to_dict(orient="records"),
         "claim_gates": builder["claim_gates"],
-        "implementation": str(Path(__file__).resolve().relative_to(ROOT)),
+        "implementation": {
+            "path": str(Path(__file__).resolve().relative_to(ROOT)),
+            "sha256": digest(Path(__file__).resolve()),
+        },
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
