@@ -3526,3 +3526,37 @@ not validate daily climate sequences, crop-yield prediction,
 attribution, physical pulse response or SCC. Exact source/fit
 bindings, the retained failed path-serialization run and every score
 are in `PUBLISHED_MONTHLY_GMT_RESPONSE_MAIZE_RESULTS_20260917.md`.
+
+### Alternative Hultgren impact-region transport geometry
+
+For the external published-response transport, the public Hultgren impact-
+region point frame is converted from FST only after checking its 714,615
+points, 24,376 region IDs, 27,005 polygon rings and source identity. Polygon
+rings are reconstructed in their native Robinson projection; calculated
+polygon areas reproduce the stored areas to within a calculated/stored ratio
+range of 0.999999456--1.000001317. Polygons and the 0.5-degree climate cells
+are then transformed to global equal-area EPSG:6933 before exact positive-area
+intersection.
+
+The public impact-region system is not a mutually exclusive map: mixed-
+resolution agglomerations spatially overlap finer regions. The validated crop-
+support overlay has 1,530 cells whose summed region intersection exceeds one,
+with a maximum of two. We therefore do not allocate global crop area across
+polygons. Instead, fixed MIRCA-2000 rainfed and irrigated maize hectares are
+multiplied by each cell--region intersection fraction and normalized separately
+within each impact region and irrigation regime. The authors' region-level
+`corn` weights, not the sum of overlapping MIRCA proxies, remain the candidate
+global aggregation weights.
+
+The resulting 110,861-row crosswalk covers 23,087 positive-MIRCA regions and
+leaves only `3.96e-6` of MIRCA maize area in cells with no region intersection.
+Within-region weights sum to one with maximum error `2.22e-16`. The global
+author corn total differs from combined MIRCA maize hectares by -0.365%, and
+log-one-plus regional sizes correlate 0.819 over 19,758 common-positive
+regions. Nevertheless, regional MIRCA/source ratios have wide tails, so MIRCA
+is retained only as an alternative within-region spatial proxy. It does not
+reproduce the paper's SAGE `anycrop` pixel weights. The independent Iroquois
+check recovers six cells, 132,259.60 proxy hectares and a 0.55072% irrigated
+share, agreeing with the earlier U.S.-Albers calculation within `2.52e-5`
+relative area and `1.25e-6` share. These geometry checks authorize neither a
+future response nor damages/SCC.

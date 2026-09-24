@@ -1,0 +1,86 @@
+{
+  "builder_implementation": {
+    "path": "scripts/build_hultgren_impact_region_grid_crosswalk.py",
+    "sha256": "7b32084dcb55ef656c116c293b7f6d25ad71b914dbd077f7e6cb86b29136ea77"
+  },
+  "checks": {
+    "crop_fraction_in_cells_without_region": 3.960047130461081e-06,
+    "finite_positive_intersections": true,
+    "global_author_corn_minus_mirca_fraction": -0.003651671223734554,
+    "iroquois_area_relative_difference_vs_prior_epsg5070_check": 2.5246941538936696e-05,
+    "iroquois_cells": 6,
+    "iroquois_combined_proxy_ha": 132259.59993465297,
+    "iroquois_irrigated_share": 0.005507212060280606,
+    "iroquois_irrigated_share_difference_vs_prior_epsg5070_check": 1.249997787063084e-06,
+    "log1p_region_proxy_author_correlation": 0.8192684363801518,
+    "maximum_within_region_weight_sum_error": 2.220446049250313e-16,
+    "unique_cell_region_rows": true
+  },
+  "claim_gates": {
+    "author_impact_region_geometry_used": true,
+    "mixed_resolution_region_overlap_explicit": true,
+    "response_damage_or_scc_validated": false,
+    "source_sage_pixel_weights_reproduced": false,
+    "weather_aggregation_validated": false,
+    "within_region_proxy_weights_normalized": true
+  },
+  "created_at_utc": "2026-09-24T01:17:25.271275+00:00",
+  "crosswalk": {
+    "bytes": 8185331,
+    "path": "data/interim/hultgren_impact_region_global_20260923/impact_region_grid_crosswalk.parquet",
+    "rows": 110861,
+    "sha256": "12aa5ce4415801b3ae1ba5d09cb86ed4a641574c9bb46b9c39b2fc889cf65857"
+  },
+  "implementation": {
+    "path": "scripts/validate_hultgren_impact_region_grid_crosswalk.py",
+    "sha256": "7e6fd80db54dffc560fea68ad0e6240e994509a4aad501a52f118829282e0b54"
+  },
+  "point_export_implementation": {
+    "path": "scripts/export_hultgren_impact_region_points.R",
+    "sha256": "168d97e8fe8cd4a9739991eab245d773fa44669a996480467c1dc07ab4b6dc10"
+  },
+  "resource": {
+    "limit_kind": "sampled_process_group_not_kernel_limit",
+    "max_mib": 512.0,
+    "min_free_gib": 130.0,
+    "returncode": 0,
+    "sampled_peak_group_rss_bytes": 371720192,
+    "sampling_interval_seconds": 0.2,
+    "status": "completed",
+    "wall_seconds": 10.576036707963794
+  },
+  "schema": "hultgren_impact_region_grid_crosswalk_validation/v1",
+  "source_identity": {
+    "hierarchy": {
+      "bytes": 2930270,
+      "path": "data/raw/hultgren_response/gitlab_main_20250702/Table1/data/shapes/hierarchy.csv",
+      "sha256": "1598e28b8f23173668914740ac2b68c427c067258a4e04d3f79d9b74dffbd15d"
+    },
+    "irrigated_area": {
+      "bytes": 110390,
+      "path": "data/raw/mirca_os_v2/extracted_30arcmin/00/30-arcminute/MIRCA-OS_Maize_2000_ir_30arcmin_v2.tif",
+      "sha256": "ec35adec610555447027956e4d2e294e348c631383ac9bd06cfa27675909d535"
+    },
+    "points": {
+      "bytes": 13238599,
+      "path": "data/interim/hultgren_impact_region_global_20260923/impact_region_points.csv.gz",
+      "sha256": "27ab6f6b8755053b812a3e2a2817b16e9cdf2c60973798c0968504286955dceb"
+    },
+    "rainfed_area": {
+      "bytes": 162400,
+      "path": "data/raw/mirca_os_v2/extracted_30arcmin/00/30-arcminute/MIRCA-OS_Maize_2000_rf_30arcmin_v2.tif",
+      "sha256": "a0ebb03144772f0cd75286d4e6dc013bac9c4466f7902e90f05ea468e7a4c763"
+    },
+    "region_weights": {
+      "bytes": 4983567,
+      "path": "data/raw/hultgren_response/gitlab_main_20250702/Fig2/data/weights/agglomerated-world-new-hierid-crop-weights.csv",
+      "sha256": "b0c1b6b716802ade4a3cc4677d35298c93043dff471d9d1beb99c48d05f63ce9"
+    },
+    "source_impact_region_fst": {
+      "bytes": 20171171,
+      "path": "data/raw/hultgren_response/gitlab_main_20250702/Fig2/data/shapes/impact_region_data_frame.fst",
+      "sha256": "24b6e5a877129db235dd9e7e33e00eabbf8ff6526004cab86e9bbef745a60e62"
+    }
+  },
+  "status": "validated_alternative_within_region_mirca_weight_proxy_not_sage_replication"
+}
