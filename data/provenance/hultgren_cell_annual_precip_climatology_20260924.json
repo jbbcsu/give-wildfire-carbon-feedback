@@ -1,0 +1,62 @@
+{
+  "claim_gates": {
+    "annual_baseline_input": true,
+    "damage_or_scc": false,
+    "response": false
+  },
+  "created_at_utc": "2026-09-24T18:41:05.417992+00:00",
+  "definition": "arithmetic mean of 30 complete calendar-year precipitation totals at each represented maize cell",
+  "implementation": {
+    "path": "scripts/build_hultgren_cell_annual_precip_climatology.py",
+    "sha256": "1fce72070ecb987b609a5fdfb79e64ce6ccd4f7dc789180ec5f4b1c9d2ba327c"
+  },
+  "limitations": [
+    "This is a GSWP3-W5E5 crop-cell climatology, not the source PEEPS country mask or the authors' GMFD product.",
+    "Zero-rainfall cells are retained and counted but must be excluded from proportional scaling with explicit production/value accounting.",
+    "It supplies a positive annual baseline for a uniform-absolute-change quantity benchmark only.",
+    "It does not represent marginal precipitation, yield response, damage, or SCC."
+  ],
+  "output": {
+    "bytes": 972933,
+    "path": "data/interim/hultgren_cell_annual_precip_climatology_20260924.parquet",
+    "sha256": "d7cbb161c1d9e679df371aeac40a37f7604d31b450fb66db394b1e5f1c3457f4"
+  },
+  "period": [
+    1981,
+    2010
+  ],
+  "schema": "hultgren_cell_annual_precip_climatology/v1",
+  "sources": [
+    {
+      "bytes": 2351177152,
+      "path": "data/raw/isimip3a_gswp3_w5e5_v1_3/gswp3-w5e5_obsclim_pr_global_daily_1981_1990.nc",
+      "sha512": "c2b0688e59196088a1eaeac6fdc25b0bf1419f78c8662e9c21038c63b58aa6c40df5f22cc723d0ad9e24104a081bd215b9760f9003f0fc557b947341dc2d03f2"
+    },
+    {
+      "bytes": 2361459207,
+      "path": "data/raw/isimip3a_gswp3_w5e5_v1_3/gswp3-w5e5_obsclim_pr_global_daily_1991_2000.nc",
+      "sha512": "48daa05dbac176127e34e70fb6149e39f259695928276f4c968d01d60f4e1e0a0a6f1978734a0425f9fcd1012370dd6f8c3f356ff4798d265f4349a5d5d660c6"
+    },
+    {
+      "bytes": 2354163982,
+      "path": "data/raw/isimip3a_gswp3_w5e5_v1_3/gswp3-w5e5_obsclim_pr_global_daily_2001_2010.nc",
+      "sha512": "5208a595e7f7ed16d88588651313ee4415bb50a96f5592e50d1902a86943fdd1d3f7913ca2149d5f6a0eee5eef3c9198e85ebb112fccf12116011b1db466c8c4"
+    }
+  ],
+  "status": "validated_cell_annual_precipitation_baseline_not_response_damage_or_scc",
+  "support": {
+    "daily_steps": 10957,
+    "maximum_mean_annual_precip_mm": 9636.675096836407,
+    "minimum_mean_annual_precip_mm": 1.0260901199148975,
+    "missing_daily_cell_pairs": 0,
+    "unique_cells": 23654,
+    "years": 30,
+    "zero_mean_annual_precip_cells": 0
+  },
+  "weights": {
+    "path": "data/interim/hultgren_country_cell_maize_value_weights_common_price_20260924.parquet",
+    "receipt": "data/provenance/hultgren_country_cell_maize_value_weights_common_price_20260924.json",
+    "receipt_sha256": "d176d08614a76fb9f14f69a93609361cc19c7b6e1de18bc9938fc35f149962ac",
+    "sha256": "edaa4e83b599e763ba77844ccb6a99bcf2b694cc40919793d0de8300af856f5d"
+  }
+}

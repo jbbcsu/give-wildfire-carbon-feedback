@@ -887,6 +887,21 @@ contract and validated result are in
 `EPA_FAIR_ANNUAL_PRECIPITATION_PULSE_PROTOCOL_20260921.md` and
 `EPA_FAIR_ANNUAL_PRECIPITATION_PULSE_RESULTS_20260921.md`.
 
+For the preregistered quantity-only partial-SCC benchmark, we next construct a
+fixed annual-rainfall denominator on the exact matched common-price maize-cell
+support. Three hash-pinned GSWP3-W5E5 daily precipitation files span 1981--
+2010. A sequential worker sums all 10,957 days to calendar-year totals at
+23,654 unique cells and then records each cell's 30-year mean, sample standard
+deviation, minimum and maximum. There are no missing daily cell pairs and all
+mean annual baselines are positive (range 1.026--9,636.675 mm yr-1). The
+972,933-byte output was built at 175.8 MiB peak RSS. An independent validator
+checks all source/output hashes and support, then reaggregates 150 annual
+totals at five fixed key-order sentinel cells; all four saved statistics agree
+to zero discrepancy. Full scope and limitations are in
+`HULTGREN_CELL_ANNUAL_PRECIP_BASELINE_RESULTS_20260924.md`. This opens only the
+annual-baseline input gate. It does not create monthly pulse weather, yield,
+damage or SCC.
+
 The initial author-released MPI-ESM1-2-HR/SSP5-8.5/December `pr`
 coefficient NetCDF was extracted by bounded streaming and structurally
 validated (1,196,250 bytes, 192 by 384 finite native-grid coefficients).

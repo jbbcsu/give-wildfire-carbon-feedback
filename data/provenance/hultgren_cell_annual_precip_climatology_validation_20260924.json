@@ -1,0 +1,84 @@
+{
+  "created_at_utc": "2026-09-24T18:42:55.170810+00:00",
+  "interpretation": "Climate baseline input validation only; no response, damage, or SCC gate is opened.",
+  "schema": "hultgren_cell_annual_precip_climatology_validation/v1",
+  "scope": "Full artifact identity/support checks plus independent daily reaggregation at five key-order sentinels; not a second full-cell calculation.",
+  "source": {
+    "path": "data/provenance/hultgren_cell_annual_precip_climatology_20260924.json",
+    "sha256": "07de317e434b13ed826d1c37599ce24c8f8378206c0829bd42ead7f2310b09d1"
+  },
+  "status": "pass",
+  "validation": {
+    "all_output_keys_and_finite_values_checked": true,
+    "all_source_and_output_hashes_checked": true,
+    "claim_gates_checked": true,
+    "maximum_absolute_errors": {
+      "annual_precip_max_mm": 0.0,
+      "annual_precip_mean_mm": 0.0,
+      "annual_precip_min_mm": 0.0,
+      "annual_precip_sd_mm": 0.0
+    },
+    "sentinel_cells": [
+      {
+        "native_lat_index": 57,
+        "native_lon_index": 489
+      },
+      {
+        "native_lat_index": 97,
+        "native_lon_index": 496
+      },
+      {
+        "native_lat_index": 129,
+        "native_lon_index": 567
+      },
+      {
+        "native_lat_index": 188,
+        "native_lon_index": 434
+      },
+      {
+        "native_lat_index": 283,
+        "native_lon_index": 215
+      }
+    ],
+    "sentinel_annual_totals_reaggregated": 150,
+    "sentinel_positions": [
+      0,
+      5913,
+      11827,
+      17740,
+      23653
+    ],
+    "source_years": [
+      1981,
+      1982,
+      1983,
+      1984,
+      1985,
+      1986,
+      1987,
+      1988,
+      1989,
+      1990,
+      1991,
+      1992,
+      1993,
+      1994,
+      1995,
+      1996,
+      1997,
+      1998,
+      1999,
+      2000,
+      2001,
+      2002,
+      2003,
+      2004,
+      2005,
+      2006,
+      2007,
+      2008,
+      2009,
+      2010
+    ]
+  }
+}

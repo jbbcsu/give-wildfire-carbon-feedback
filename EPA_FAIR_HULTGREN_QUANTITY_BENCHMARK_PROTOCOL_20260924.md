@@ -40,23 +40,22 @@ predeclared convergence tolerance before SCC normalization.
 
 Use each retained country-cell's validated baseline Hultgren maize weather
 basis and country identity. First construct and independently validate a fixed
-country annual-precipitation climatology from the same resident gridded
-historical weather product used for the cell basis, aggregated with the EPA
-country mask. Let `Rbar0_annual[c]` be that strictly positive country annual
-total and `delta_R[c,m,t,p]` the EPA country annual change above. Because EPA
-supplies no subnational or monthly pattern, define a uniform proportional
-scale:
+cell annual-precipitation climatology from the same resident gridded historical
+weather product used for the cell basis. Let `R0_annual[g]` be that strictly
+positive cell annual total and `delta_R[c,m,t,p]` the EPA country annual change
+above. Because EPA supplies no subnational or monthly pattern, make the
+explicit benchmark assumption that the same absolute annual-total change
+occurs at every represented crop cell within a country. Define
 
-`scale[c,m,t,p] = 1 + delta_R[c,m,t,p] / Rbar0_annual[c]`.
+`scale[g,c,m,t,p] = 1 + delta_R[c,m,t,p] / R0_annual[g]`.
 
-Apply the same country scale to every represented cell and month in that
-country. This maps an annual-total change into crop-season rainfall under the
-explicit assumption that every month changes proportionally; it preserves all
-baseline within-season shares. Do **not** divide an annual EPA change by a
-crop-season total. Reject any country-year-pulse combination with non-finite
-inputs or `scale <= 0`; do not cap or repair it. Report sensitivity to the
-country aggregation weights because the published EPA slope and the crop-cell
-baseline need not use identical spatial weights.
+Apply each cell's scale to every month at that cell. The cell's annual total
+then changes by exactly the EPA country mean change, while its baseline within-
+season shares are preserved. Do **not** divide an annual EPA change by a crop-
+season total. Reject any cell-country-year-pulse combination with non-finite
+inputs or `scale <= 0`; do not cap or repair it. This uniform-absolute-change
+assumption is a declared structural benchmark because EPA supplies only an
+area-weighted country mean, not its within-country pattern.
 
 For each cell, update the Hultgren precipitation basis exactly as in the
 already validated quantity-path decomposition:

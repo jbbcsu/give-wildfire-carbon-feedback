@@ -842,6 +842,15 @@ damage or SCC estimate. Protocol, results, and exact artifact hashes are in
 `EPA_ANNUAL_COUNTRY_PATTERN_RESULTS_20260921.md` and
 `EPA_FAIR_ANNUAL_PRECIPITATION_PULSE_RESULTS_20260921.md`.
 
+The quantity-only bridge now also has a validated annual baseline at every
+represented maize cell. Streaming the resident 1981--2010 GSWP3-W5E5 daily
+precipitation across 23,654 cells yields complete 30-year climatologies with
+no missing daily pairs; mean annual rainfall is positive everywhere. A fixed
+five-cell sentinel audit reconstructs 150 annual totals and all saved summary
+statistics exactly. This enables proportional monthly scaling while preserving
+baseline within-year shares, but it is still only a climate-input denominator:
+no marginal crop response, damage or SCC is inferred from it.
+
 In a separate, predeclared **within-SSP5-8.5** MRI diagnostic, the
 2092--2099 minus 2042--2049 equal-calendar-cell mean differences are
 +16.06 mm seasonal rainfall, -0.21 wet days, +0.70 days in maximum
