@@ -3992,9 +3992,32 @@ damage output from the upstream validated EPA/FAIR normalized discrepancy of
 normalized disagreements are `1.3289e-4` for cell response and `1.5256e-4`
 for global market damage. An independent validator exactly reconstructs both
 tail quantiles from adjacent global order statistics and five fixed national-
-market cases. These source-price-basis paths still require currency alignment,
-market sensitivities, paired MooreAg replacement, discounting, and SCC
-normalization.
+market cases. The paths at this checkpoint still require market sensitivities,
+paired MooreAg replacement, discounting, and SCC normalization; the central
+case is currency-aligned in the next step.
+
+The central marginal paths are next joined to the pinned country-to-FUND map
+and summed in the repository's canonical 16-region order. Source 2014--2016
+dollars are multiplied by the registered U.S. GDP implicit-price-deflator
+ratio `P2005 / mean(P2014,P2015,P2016) = 0.8357992263240843` and divided by
+`1e9`. This GDP-wide conversion is an approximation to the agricultural
+farm-gate price concept and is disclosed rather than treated as an exact price
+index match. Country weights and covered values are not renormalized.
+
+The regional output contains 2,805,504 rows, the complete product of 175,344
+global path keys and 16 FUND regions. A separate streaming implementation
+checks all input/output hashes, row order, the 16-region product, zero-pulse
+and pre-2021 identities, currency arithmetic, and every regional-to-global
+sum. Maximum reconciliation disagreement is `7.11e-14` source dollars and the
+maximum currency-conversion error is zero. Both build and audit remain under
+the 512 MiB memory ceiling.
+
+These regional values remain marginal pulse-minus-baseline differences. They
+cannot be installed as a complete agriculture replacement without paired
+baseline and pulse damage levels. In particular, assuming a zero replacement
+baseline would change baseline regional consumption and the Ramsey discount
+path. We therefore keep replacement, discounting, and SCC claim gates closed;
+an externally discounted difference may be reported only as a diagnostic.
 
 ### Alternative Hultgren impact-region transport geometry
 

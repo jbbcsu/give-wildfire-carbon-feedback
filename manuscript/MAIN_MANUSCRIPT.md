@@ -1891,9 +1891,19 @@ implementation recovered the tail order statistics and five fixed market
 cases. On this narrow channel, 25 of 26 fixed-adaptation climate-model mean
 paths imply a benefit rather than damage. This preliminary sign must not be
 generalized to total agricultural impacts: the calculation fixes rainfall
-timing, omits temperature and drought effects, and is not yet currency-aligned,
-installed as the GIVE agriculture replacement, discounted, or normalized into
-an SCC.
+timing and omits temperature and drought effects. Its central case has been
+currency-aligned but has not been installed as the GIVE agriculture
+replacement, discounted, or normalized into an SCC.
+
+We subsequently converted the central marginal paths to billion 2005 USD and
+allocated them without renormalization to GIVE's 16 FUND regions. All 2.81
+million regional rows independently reconcile to the 175,344 global paths.
+This resolves currency and regional-transport engineering but not the core
+replacement-accounting problem: the calculated objects are pulse-minus-
+baseline differences, whereas changing GIVE's agriculture sector requires
+paired baseline and pulse damage levels. A zero new baseline would alter
+regional consumption and endogenous discounting, so we do not use it as an
+unstated default and do not label the regional paths an SCC.
 
 Report global agricultural marginal damages and SCC under each adaptation
 scenario with draw-level uncertainty. Do not present a precipitation add-on to

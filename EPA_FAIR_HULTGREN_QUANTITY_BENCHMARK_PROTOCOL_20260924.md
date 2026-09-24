@@ -182,3 +182,19 @@ This opens the marginal-response and central structural source-price damage-
 path gates only. Currency alignment, alternative elasticities and supply
 mappings, paired GIVE replacement, discounting, and SCC normalization remain
 required. No value from this checkpoint may be called an SCC.
+
+## Currency and FUND-region checkpoint (September 24, 2026)
+
+The central paths have now been rebased to billion 2005 USD with the registered
+GDP-deflator approximation and allocated to all 16 GIVE FUND regions. The
+2,805,504-row output is the exact ordered product of 175,344 global path keys
+and 16 regions. A streaming independent audit verifies all rows, zero/pre-2021
+identities, the currency calculation, and reconciliation to every source global
+path (maximum source-dollar disagreement `7.11e-14`). Evidence is in
+`EPA_FAIR_HULTGREN_QUANTITY_FUND_PATH_RESULTS_20260924.md`.
+
+This opens the currency and regional-transport gates for the central structural
+case only. It does not open the paired-replacement or SCC gates. The current
+artifact contains marginal differences rather than paired agriculture damage
+levels; imposing a zero replacement baseline would change regional consumption
+and endogenous discount factors and is not treated as an innocuous default.

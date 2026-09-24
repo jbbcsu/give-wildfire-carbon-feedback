@@ -1,0 +1,115 @@
+{
+  "claim_gates": {
+    "agriculture_replacement": false,
+    "currency_aligned_marginal_damage_difference": true,
+    "paired_agriculture_levels": false,
+    "scc": false
+  },
+  "created_at_utc": "2026-09-24T21:55:31.012100+00:00",
+  "currency": {
+    "approximation_disclosure": "US GDP-wide rebase of FAOSTAT farm-gate production value; these price concepts are not identical.",
+    "central_scalar": 0.8357992263240843,
+    "formula": "P2005/arithmetic_mean(P2014,P2015,P2016)",
+    "input": "constant_2014_2016_USD",
+    "output": "USD2005"
+  },
+  "definition": "annual pulse-minus-baseline maize quantity-channel damage differences by GIVE FUND region",
+  "implementation": {
+    "path": "scripts/build_epa_fair_hultgren_quantity_fund_paths.py",
+    "sha256": "d54660fab1ecfa20cb152dc4bc4d40eb60fdea1cff5e795dfdef1f88eb27434d"
+  },
+  "limitations": [
+    "These are marginal damage differences, not standalone baseline and pulse agriculture damage levels.",
+    "The GDP-wide price conversion is a registered approximation to the agricultural price concept.",
+    "A complete paired replacement needs a defensible baseline agriculture damage path; assigning a zero baseline would change GIVE consumption and discounting and is not authorized.",
+    "No discounting, emissions normalization, paired GIVE execution, or SCC is performed here."
+  ],
+  "output": {
+    "bytes": 30892990,
+    "path": "data/interim/epa_fair_hultgren_quantity_fund_paths_20260924.parquet",
+    "sha256": "362ef8670a3cb4c6c28b9b4e6d43d815cc33dfd2e3306640d97a86fab5519ccf"
+  },
+  "schema": "epa_fair_hultgren_quantity_fund_paths/v1",
+  "sources": {
+    "damage_paths": {
+      "path": "data/interim/epa_fair_hultgren_quantity_damage_paths_20260924.parquet",
+      "receipt": "data/provenance/epa_fair_hultgren_quantity_damage_paths_20260924.json",
+      "receipt_sha256": "614c748a613ceb948c926cb141bb2860d8072325c3c36dedddbd6508c3ea89d6",
+      "sha256": "fd5d26557abeb5b9feca8a2b3bd641bb5ca579743eafcedee304630e9a4b9d45"
+    },
+    "epa_slopes": {
+      "path": "data/interim/epa_annual_country_pattern_benchmark_20260921/country_model_slopes.csv",
+      "sha256": "e6bc9a4dbc0af19650f2f243802e0e1974d3599292cf2704aad0e746bf0c0572"
+    },
+    "fair": {
+      "path": "data/interim/give_fair_temperature_path_smoke/temperature_paths.csv",
+      "sha256": "aedf6b66dd296337e1cb6105d2aa56ec94f3e15e5ac92c2abcdf74b6a42b6067"
+    },
+    "fund_mapping": {
+      "path": "config/fund_country_mapping.csv",
+      "sha256": "47f2002ac520b9ed3428078e6c57987711638e10d0c5a305ce0a5936bdf9d306"
+    },
+    "fund_order": {
+      "path": "config/fund_region_order.csv",
+      "sha256": "550f74d9d715b2df096500b6cd2c9675dcb18a39a7ca5eae33aaf5566af4b95d"
+    },
+    "panel": {
+      "path": "data/interim/hultgren_quantity_response_panel_20260924.parquet",
+      "sha256": "af389bc3050cf7074f0a3869ae03cdcd959b3ba8a8017910ff5bc6f5507ffcdc"
+    },
+    "price_registry": {
+      "path": "config/price_basis_registry.toml",
+      "reference_path": "data/reference/price_basis/hawaii_databook_2021_table_14_01.pdf",
+      "reference_sha256": "27a458ed222d02d5ddca36f5304c096c81515511501f40bb75073483270f9883",
+      "sha256": "128c2fbdc8481a588aa07bbce23520f3cd6df48ea1132edc33c9ee4c756b3e72"
+    }
+  },
+  "status": "currency_aligned_fund_region_marginal_damage_differences_not_paired_replacement_or_scc",
+  "support": {
+    "countries": 106,
+    "fund_regions": [
+      "USA",
+      "CAN",
+      "WEU",
+      "JPK",
+      "ANZ",
+      "EEU",
+      "FSU",
+      "MDE",
+      "CAM",
+      "LAM",
+      "SAS",
+      "SEA",
+      "CHI",
+      "MAF",
+      "SSA",
+      "SIS"
+    ],
+    "models": 26,
+    "represented_fund_regions": [
+      "ANZ",
+      "CAM",
+      "CAN",
+      "CHI",
+      "EEU",
+      "FSU",
+      "JPK",
+      "LAM",
+      "MAF",
+      "MDE",
+      "SAS",
+      "SEA",
+      "SIS",
+      "SSA",
+      "USA",
+      "WEU"
+    ],
+    "rows": 2805504,
+    "unmapped_represented_countries": []
+  },
+  "validation": {
+    "maximum_absolute_global_reconciliation_error_source_usd": 7.105427357601002e-14,
+    "regional_sums_reconciled_to_every_global_path": true,
+    "zero_and_pre_2021_identity_inherited_and_recomputed": true
+  }
+}
