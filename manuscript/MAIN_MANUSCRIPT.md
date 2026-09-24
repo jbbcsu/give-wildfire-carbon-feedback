@@ -225,6 +225,16 @@ analogous implementation of the paper's top/bottom 1% log-impact winsorization
 restores negative fixed-price gross-output exposure in all five models. The
 blue bars remain accounting exposures, not welfare damage or SCC.
 
+![National maize-market sensitivity to the value basis](figures/hultgren_price_basis_market_sensitivity_20260924.svg)
+
+**Figure 3e. Price-basis sensitivity.** Central fixed-adaptation national-
+market results use identical cell responses, tail rule, elasticities, and
+supply mapping; only the national baseline value changes. The source constant-
+dollar field is flagged by the plausibility audit. The rebased-current-USD
+case reduces the five-model mean from US$5.68 to US$2.46 billion but preserves
+the damage-positive sign in every ESM. Both are structural sensitivities, not
+GIVE damages or SCC.
+
 Exact samples, contrasts, uncertainty and remaining claim restrictions are in
 the linked results records and `RESULTS_STATUS.md`. Historical associations,
 future exposure differences and crop-model benchmarks are separate estimands.
