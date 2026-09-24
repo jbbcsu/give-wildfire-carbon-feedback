@@ -1,0 +1,314 @@
+{
+  "claim_gates": {
+    "full_precipitation_agriculture_scc": false,
+    "market_structure_paired_execution": false,
+    "paired_adaptation_tail_quantity_channel_scc": true,
+    "probabilistic_or_empirical_uncertainty": false
+  },
+  "created_at_utc": "2026-09-24T23:45:04.900266+00:00",
+  "implementation": {
+    "path": "scripts/register_quantity_anchored_replacement_adaptation_tail.py",
+    "sha256": "1cea89578332e2a05bc96b0461bfd95a250812ceebc2acd833616eeb4c82614e"
+  },
+  "limitations": [
+    "Only the central elasticity and horizontal-output supply mapping are paired here.",
+    "The design excludes timing, drought, temperature, other crops, irrigation adaptation, trade, storage, and adaptation costs.",
+    "Adaptation labels are registered scenarios, not estimated probabilities."
+  ],
+  "schema": "quantity_anchored_replacement_adaptation_tail_ensemble/v1",
+  "sources": {
+    "external_diagnostic": {
+      "path": "data/interim/epa_fair_hultgren_quantity_partial_scc_diagnostic_20260924.csv",
+      "receipt": "data/provenance/epa_fair_hultgren_quantity_partial_scc_diagnostic_20260924.json",
+      "receipt_sha256": "a0321b59c48e8a0a4445e73697aef1906155dbb1c81fa3540e3c6a7e8b656f9e",
+      "sha256": "3f8edfb67ddf6dd52cdba0889edda397f07dd7cb38692b36ddac063c17eba934"
+    },
+    "julia_job": {
+      "limit_kind": "sampled_process_group_not_kernel_limit",
+      "max_mib": 3000.0,
+      "min_free_gib": 100.0,
+      "path": "data/provenance/quantity_anchored_replacement_adaptation_tail_job_20260924.json",
+      "returncode": 0,
+      "sampled_peak_group_rss_bytes": 1832796160,
+      "sampling_interval_seconds": 0.2,
+      "sha256": "e649eb7ce98c49abc71866cf009aad3dec61a8c0b3a9ba57dcdd787ee08e0c39",
+      "status": "completed",
+      "wall_seconds": 153.03424687497318
+    },
+    "julia_result": {
+      "bytes": 125756,
+      "path": "data/interim/quantity_anchored_replacement_adaptation_tail_results_20260924.csv",
+      "sha256": "47c48072d235128f79e46342bde38c1b0e8718ba6c9207ecad813a793a7db78b"
+    },
+    "julia_script": {
+      "path": "scripts/run_quantity_anchored_replacement_adaptation_tail_ensemble.jl",
+      "sha256": "dac449b2115ba01681a466248a66b48bcc5ca3bc96baad5a13dc730ac8759306"
+    },
+    "regional_input": {
+      "path": "data/interim/quantity_replacement_adaptation_tail_ensemble_input_20260924.csv",
+      "receipt": "data/provenance/quantity_replacement_adaptation_tail_ensemble_input_20260924.json",
+      "receipt_sha256": "a579ba50e21a9c1bc825a88fb52e23684caf690ec4b07753196f1b94111f2a36",
+      "sha256": "f068b2cca393b0b127443f6b71110a7ea71b1b4e3d274f836b1384e271c73a8e"
+    },
+    "replacement_component": {
+      "path": "src/AnchoredAnnualAgriculture.jl",
+      "sha256": "d5ae5e389afcaac9613c7ad80dc12c186e1ba5e641608f8ab489e253b0afd8c1"
+    }
+  },
+  "specification": {
+    "elasticity_id": "hultgren_pair_010_004",
+    "pulse_size_gtc": 2.5e-05,
+    "yield_to_supply_mapping": "horizontal_output"
+  },
+  "status": "paired_156_path_adaptation_tail_replacement_pass",
+  "summary": {
+    "1.5%": {
+      "fixed": {
+        "published_analogue_p01_p99": {
+          "maximum_usd2020_per_tco2": 0.0043983623666231,
+          "mean_usd2020_per_tco2": -0.008844834907794709,
+          "median_usd2020_per_tco2": -0.0091922133876387,
+          "minimum_usd2020_per_tco2": -0.0148357493261356,
+          "models": 26,
+          "negative_models": 25
+        },
+        "uncapped": {
+          "maximum_usd2020_per_tco2": 0.004581303331066,
+          "mean_usd2020_per_tco2": -0.008829687623112455,
+          "median_usd2020_per_tco2": -0.009179262510194599,
+          "minimum_usd2020_per_tco2": -0.014827466399078,
+          "models": 26,
+          "negative_models": 25
+        }
+      },
+      "trend": {
+        "published_analogue_p01_p99": {
+          "maximum_usd2020_per_tco2": 0.0022719825275295,
+          "mean_usd2020_per_tco2": -0.009576216306379162,
+          "median_usd2020_per_tco2": -0.0098843481556825,
+          "minimum_usd2020_per_tco2": -0.0155167934334629,
+          "models": 26,
+          "negative_models": 25
+        },
+        "uncapped": {
+          "maximum_usd2020_per_tco2": 0.0024182525418757,
+          "mean_usd2020_per_tco2": -0.009573536786042404,
+          "median_usd2020_per_tco2": -0.009773295698474,
+          "minimum_usd2020_per_tco2": -0.0155162054542412,
+          "models": 26,
+          "negative_models": 25
+        }
+      },
+      "upper": {
+        "published_analogue_p01_p99": {
+          "maximum_usd2020_per_tco2": -0.0001720990337984,
+          "mean_usd2020_per_tco2": -0.010416881166324443,
+          "median_usd2020_per_tco2": -0.01066270287806595,
+          "minimum_usd2020_per_tco2": -0.0162995887944171,
+          "models": 26,
+          "negative_models": 26
+        },
+        "uncapped": {
+          "maximum_usd2020_per_tco2": -6.815046378732906e-05,
+          "mean_usd2020_per_tco2": -0.010428584729661535,
+          "median_usd2020_per_tco2": -0.0106751473137746,
+          "minimum_usd2020_per_tco2": -0.0163079020785793,
+          "models": 26,
+          "negative_models": 26
+        }
+      }
+    },
+    "2.0%": {
+      "fixed": {
+        "published_analogue_p01_p99": {
+          "maximum_usd2020_per_tco2": 0.0030354105466896,
+          "mean_usd2020_per_tco2": -0.006111711223591824,
+          "median_usd2020_per_tco2": -0.00635054562357915,
+          "minimum_usd2020_per_tco2": -0.0102525672169162,
+          "models": 26,
+          "negative_models": 25
+        },
+        "uncapped": {
+          "maximum_usd2020_per_tco2": 0.0031658962735348,
+          "mean_usd2020_per_tco2": -0.0061017295490772925,
+          "median_usd2020_per_tco2": -0.00634330233191885,
+          "minimum_usd2020_per_tco2": -0.0102464769887628,
+          "models": 26,
+          "negative_models": 25
+        }
+      },
+      "trend": {
+        "published_analogue_p01_p99": {
+          "maximum_usd2020_per_tco2": 0.0018286834031593,
+          "mean_usd2020_per_tco2": -0.0065267893414538624,
+          "median_usd2020_per_tco2": -0.0067561322477138,
+          "minimum_usd2020_per_tco2": -0.0106390605549864,
+          "models": 26,
+          "negative_models": 25
+        },
+        "uncapped": {
+          "maximum_usd2020_per_tco2": 0.0019380016212897,
+          "mean_usd2020_per_tco2": -0.006523988877297173,
+          "median_usd2020_per_tco2": -0.006687884376203599,
+          "minimum_usd2020_per_tco2": -0.0106374520442899,
+          "models": 26,
+          "negative_models": 25
+        }
+      },
+      "upper": {
+        "published_analogue_p01_p99": {
+          "maximum_usd2020_per_tco2": 0.0003985234353016,
+          "mean_usd2020_per_tco2": -0.007018729729404592,
+          "median_usd2020_per_tco2": -0.00719808713974525,
+          "minimum_usd2020_per_tco2": -0.0110971146702039,
+          "models": 26,
+          "negative_models": 25
+        },
+        "uncapped": {
+          "maximum_usd2020_per_tco2": 0.0004826005526344,
+          "mean_usd2020_per_tco2": -0.007024485953310572,
+          "median_usd2020_per_tco2": -0.00720365865192485,
+          "minimum_usd2020_per_tco2": -0.0111008668222461,
+          "models": 26,
+          "negative_models": 25
+        }
+      }
+    },
+    "2.5%": {
+      "fixed": {
+        "published_analogue_p01_p99": {
+          "maximum_usd2020_per_tco2": 0.0022571518712535,
+          "mean_usd2020_per_tco2": -0.004550006504653496,
+          "median_usd2020_per_tco2": -0.0047269754350746495,
+          "minimum_usd2020_per_tco2": -0.007633597372888,
+          "models": 26,
+          "negative_models": 25
+        },
+        "uncapped": {
+          "maximum_usd2020_per_tco2": 0.0023571048790805,
+          "mean_usd2020_per_tco2": -0.004542920753168915,
+          "median_usd2020_per_tco2": -0.00472277900862225,
+          "minimum_usd2020_per_tco2": -0.0076288097115845,
+          "models": 26,
+          "negative_models": 25
+        }
+      },
+      "trend": {
+        "published_analogue_p01_p99": {
+          "maximum_usd2020_per_tco2": 0.0015260414355046,
+          "mean_usd2020_per_tco2": -0.00480150371663087,
+          "median_usd2020_per_tco2": -0.0049789231882571006,
+          "minimum_usd2020_per_tco2": -0.0078677597283463,
+          "models": 26,
+          "negative_models": 25
+        },
+        "uncapped": {
+          "maximum_usd2020_per_tco2": 0.0016128403388746,
+          "mean_usd2020_per_tco2": -0.004798865042995099,
+          "median_usd2020_per_tco2": -0.0049373525456040505,
+          "minimum_usd2020_per_tco2": -0.00786579159232,
+          "models": 26,
+          "negative_models": 25
+        }
+      },
+      "upper": {
+        "published_analogue_p01_p99": {
+          "maximum_usd2020_per_tco2": 0.0006331442232505,
+          "mean_usd2020_per_tco2": -0.005108660992339404,
+          "median_usd2020_per_tco2": -0.0052483193556091,
+          "minimum_usd2020_per_tco2": -0.008153739874123,
+          "models": 26,
+          "negative_models": 25
+        },
+        "uncapped": {
+          "maximum_usd2020_per_tco2": 0.0007037604766842,
+          "mean_usd2020_per_tco2": -0.005111487954462957,
+          "median_usd2020_per_tco2": -0.0052259442572989995,
+          "minimum_usd2020_per_tco2": -0.0081552519689315,
+          "models": 26,
+          "negative_models": 25
+        }
+      }
+    },
+    "3.0%": {
+      "fixed": {
+        "published_analogue_p01_p99": {
+          "maximum_usd2020_per_tco2": 0.0017820768916858,
+          "mean_usd2020_per_tco2": -0.003595728474250562,
+          "median_usd2020_per_tco2": -0.00373503262406955,
+          "minimum_usd2020_per_tco2": -0.0060331555916619,
+          "models": 26,
+          "negative_models": 25
+        },
+        "uncapped": {
+          "maximum_usd2020_per_tco2": 0.0018628692489121,
+          "mean_usd2020_per_tco2": -0.003590365081274038,
+          "median_usd2020_per_tco2": -0.0037325108675072497,
+          "minimum_usd2020_per_tco2": -0.0060292076157642,
+          "models": 26,
+          "negative_models": 25
+        }
+      },
+      "trend": {
+        "published_analogue_p01_p99": {
+          "maximum_usd2020_per_tco2": 0.0013067665361587,
+          "mean_usd2020_per_tco2": -0.0037592466316844503,
+          "median_usd2020_per_tco2": -0.0039036204318839,
+          "minimum_usd2020_per_tco2": -0.0061853906471554,
+          "models": 26,
+          "negative_models": 25
+        },
+        "uncapped": {
+          "maximum_usd2020_per_tco2": 0.0013787365701353,
+          "mean_usd2020_per_tco2": -0.003756852904799127,
+          "median_usd2020_per_tco2": -0.0038763844120976,
+          "minimum_usd2020_per_tco2": -0.006183360619304,
+          "models": 26,
+          "negative_models": 25
+        }
+      },
+      "upper": {
+        "published_analogue_p01_p99": {
+          "maximum_usd2020_per_tco2": 0.0007110693040685,
+          "mean_usd2020_per_tco2": -0.003964185339575538,
+          "median_usd2020_per_tco2": -0.00407837081369095,
+          "minimum_usd2020_per_tco2": -0.0063761843997622,
+          "models": 26,
+          "negative_models": 25
+        },
+        "uncapped": {
+          "maximum_usd2020_per_tco2": 0.0007719018791781,
+          "mean_usd2020_per_tco2": -0.003965536874396154,
+          "median_usd2020_per_tco2": -0.0040438672779345,
+          "minimum_usd2020_per_tco2": -0.0063765829743028,
+          "models": 26,
+          "negative_models": 25
+        }
+      }
+    }
+  },
+  "support": {
+    "adaptations": [
+      "fixed",
+      "trend",
+      "upper"
+    ],
+    "climate_models": 26,
+    "discount_schedules": 4,
+    "paths": 156,
+    "result_rows": 624,
+    "tail_rules": [
+      "uncapped",
+      "published_analogue_p01_p99"
+    ]
+  },
+  "validation": {
+    "aggregated_increment_maximum_absolute_error_usd": 0.0103886350120454,
+    "all_624_external_rows_reconstructed_exactly": true,
+    "all_errors_below_propagated_bounds": true,
+    "baseline_agriculture_maximum_absolute_error_usd": 0.0,
+    "baseline_cpc_maximum_absolute_error": 0.0,
+    "paired_vs_external_maximum_absolute_error_usd2005_per_tco2": 6.370659629342802e-08,
+    "regional_increment_maximum_absolute_error_billion_usd2005": 4.546599837508746e-13
+  }
+}

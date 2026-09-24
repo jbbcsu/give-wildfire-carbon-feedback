@@ -1,0 +1,89 @@
+{
+  "claim_gate": "engineering_input_only_until_paired_give_validation",
+  "created_at_utc": "2026-09-24T23:37:42.720172+00:00",
+  "implementation": {
+    "path": "scripts/export_quantity_replacement_adaptation_tail_ensemble.py",
+    "sha256": "e4ae72f88f95c9f4becee7945fe59866ba68cedc6fb20c8b018afacef3ea445a"
+  },
+  "output": {
+    "bytes": 47004486,
+    "path": "data/interim/quantity_replacement_adaptation_tail_ensemble_input_20260924.csv",
+    "sha256": "f068b2cca393b0b127443f6b71110a7ea71b1b4e3d274f836b1384e271c73a8e"
+  },
+  "schema": "quantity_replacement_adaptation_tail_ensemble_input/v1",
+  "source": {
+    "path": "data/interim/epa_fair_hultgren_quantity_fund_paths_20260924.parquet",
+    "receipt": "data/provenance/epa_fair_hultgren_quantity_fund_paths_20260924.json",
+    "receipt_sha256": "ea2339b75dc72e3ad718c5aea4396929be2ed8cbeccb61d0d4bf6bafe9896890",
+    "sha256": "362ef8670a3cb4c6c28b9b4e6d43d815cc33dfd2e3306640d97a86fab5519ccf"
+  },
+  "specification": {
+    "elasticity_id": "hultgren_pair_010_004",
+    "pulse_size_gtc": 2.5e-05,
+    "yield_to_supply_mapping": "horizontal_output"
+  },
+  "status": "registered_156_path_regional_increments_for_paired_replacement",
+  "support": {
+    "adaptations": [
+      "fixed",
+      "trend",
+      "upper"
+    ],
+    "climate_models": [
+      "ACCESS-CM2",
+      "ACCESS-ESM1-5",
+      "AWI-CM-1-1-MR",
+      "BCC-CSM2-MR",
+      "CAMS-CSM1-0",
+      "CAS-ESM2-0",
+      "CESM2",
+      "CESM2-WACCM",
+      "CMCC-CM2-SR5",
+      "CMCC-ESM2",
+      "CanESM5",
+      "FGOALS-g3",
+      "FIO-ESM-2-0",
+      "GISS-E2-1-G",
+      "GISS-E2-1-H",
+      "HadGEM3-GC31-LL",
+      "IITM-ESM",
+      "MIROC-ES2L",
+      "MIROC6",
+      "MPI-ESM1-2-HR",
+      "MPI-ESM1-2-LR",
+      "MRI-ESM2-0",
+      "NESM3",
+      "NorESM2-MM",
+      "TaiESM1",
+      "UKESM1-0-LL"
+    ],
+    "paths": 156,
+    "regions": [
+      "USA",
+      "CAN",
+      "WEU",
+      "JPK",
+      "ANZ",
+      "EEU",
+      "FSU",
+      "MDE",
+      "CAM",
+      "LAM",
+      "SAS",
+      "SEA",
+      "CHI",
+      "MAF",
+      "SSA",
+      "SIS"
+    ],
+    "rows": 701376,
+    "tail_rules": [
+      "uncapped",
+      "published_analogue_p01_p99"
+    ],
+    "years": [
+      2020,
+      2300
+    ]
+  }
+}

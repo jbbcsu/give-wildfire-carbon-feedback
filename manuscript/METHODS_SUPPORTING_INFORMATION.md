@@ -4099,6 +4099,16 @@ diagnostic. This validates the central fixed-adaptation, uncapped-tail,
 smallest-pulse quantity-channel ensemble. Paired execution of the market,
 adaptation, tail, and empirical-response uncertainty grid remains future work.
 
+We next expand direct paired execution to every combination of 26 climate
+models, three adaptation scenarios, and two tail rules under the central market
+specification. Each of the 156 paths reconstructs the regional increment,
+audits the replacement graph, preserves baseline damage and consumption, and
+propagates its observed level-cancellation error through the SCC sum. The 624
+model-by-discount values agree with the independent diagnostic within their
+calculated bounds; maximum disagreement is `6.37e-8` 2005 USD per tCO2. The
+sequential run peaks at 1.83 GB under a 3 GB cap. Market-structure alternatives
+and empirical coefficient uncertainty are not claimed as paired executions.
+
 We additionally summarize the complete smallest-pulse balanced design without
 assigning probabilities: 26 climate models by three adaptation cases, two tail
 rules, three elasticity pairs, two supply mappings, and four discount schedules

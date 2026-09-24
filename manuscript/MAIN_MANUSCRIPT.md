@@ -1948,6 +1948,14 @@ a probability distribution; empirical coefficient uncertainty is not yet
 included. The response-tail choice has little effect in this narrow channel,
 whereas adaptation and the yield-to-supply mapping shift the conditional mean.
 
+Paired GIVE execution now covers all 156 climate-model by adaptation by tail
+paths for the central market specification. At 2%, fixed, trend, and upper
+uncapped adaptation means are -$0.00610, -$0.00652, and -$0.00702 per tCO2;
+the corresponding published-analogue tail means differ by at most $0.00001.
+All 624 model-by-discount values pass the no-stacking graph audit and propagated
+numerical-error test. Market-structure cells remain paired-equivalent rather
+than directly executed.
+
 Report global agricultural marginal damages and SCC under each adaptation
 scenario with draw-level uncertainty. Do not present a precipitation add-on to
 baseline MooreAg agriculture.
