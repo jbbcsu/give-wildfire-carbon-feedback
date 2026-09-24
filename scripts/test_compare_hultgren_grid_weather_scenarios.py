@@ -40,6 +40,20 @@ def main() -> None:
     assert pooled["delta_phase1_share"] == 0.0
     assert pooled["delta_monthly_concentration"] == 0.0
     assert pooled["delta_gdd"] == 100.0
+    zero_reference = fixture(1.0)
+    zero_comparison = fixture(1.0)
+    zero_reference.loc[0, [
+        "prcp_poly_1_bin1", "prcp_poly_1_bin2", "prcp_poly_1_bin3",
+        "prcp_poly_2_bin1", "prcp_poly_2_bin2", "prcp_poly_2_bin3",
+    ]] = 0.0
+    zero_comparison.loc[0, [
+        "prcp_poly_1_bin1", "prcp_poly_1_bin2", "prcp_poly_1_bin3",
+        "prcp_poly_2_bin1", "prcp_poly_2_bin2", "prcp_poly_2_bin3",
+    ]] = 0.0
+    annual_zero, pooled_zero = compare(zero_reference, zero_comparison)
+    assert annual_zero.iloc[0].reference_zero_precipitation_area_fraction == 0.25
+    assert pooled_zero["distribution_common_positive_area_year_fraction"] == 0.875
+    assert pooled_zero["delta_phase1_share"] == 0.0
     print("Hultgren grid-weather scenario comparison tests passed")
 
 

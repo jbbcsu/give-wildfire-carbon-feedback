@@ -1,0 +1,85 @@
+{
+  "absolute_tolerance": 1e-08,
+  "claim_gates": {
+    "author_long_run_moderator_reproduced": false,
+    "damage_or_scc_validated": false,
+    "raw_daily_sample_arithmetic_validated": true
+  },
+  "created_at_utc": "2026-09-24T12:59:49.672981+00:00",
+  "implementation": {
+    "path": "scripts/validate_hultgren_grid_climate_moderators.py",
+    "sha256": "7ae7c31aa8343d8f16efab9bea900e9bfcea36e4786f8405ba0576ba6bf13797"
+  },
+  "inputs": [
+    {
+      "maximum_absolute_difference": 0.0,
+      "path": "data/interim/hultgren_grid_climate_moderators_20260923/rainfed_1982_1990.parquet",
+      "regime": "rainfed",
+      "sampled_rows": 9,
+      "sha256": "d3cdad1d8e90c1ede881880b1e79a21c1ca838088f6c0a7bb7a88215d6f09bbc",
+      "source_period": [
+        1981,
+        1990
+      ]
+    },
+    {
+      "maximum_absolute_difference": 0.0,
+      "path": "data/interim/hultgren_grid_climate_moderators_20260923/rainfed_1992_2000.parquet",
+      "regime": "rainfed",
+      "sampled_rows": 9,
+      "sha256": "e4a63454f4ce89a9a3aea2e0019c0f4be07acdf1e7c3f6d097e2e202517baf47",
+      "source_period": [
+        1991,
+        2000
+      ]
+    },
+    {
+      "maximum_absolute_difference": 0.0,
+      "path": "data/interim/hultgren_grid_climate_moderators_20260923/rainfed_2002_2010.parquet",
+      "regime": "rainfed",
+      "sampled_rows": 9,
+      "sha256": "1036e8c84e681133cb2dfadc81f444c97b6cb1edb740f7e22de86a2f389c8ca3",
+      "source_period": [
+        2001,
+        2010
+      ]
+    },
+    {
+      "maximum_absolute_difference": 0.0,
+      "path": "data/interim/hultgren_grid_climate_moderators_20260923/irrigated_1982_1990.parquet",
+      "regime": "irrigated",
+      "sampled_rows": 9,
+      "sha256": "8ce28be364304f6fc170627c9407828a3fd3fdeebcf5b3c5b7be64b0512fb87d",
+      "source_period": [
+        1981,
+        1990
+      ]
+    },
+    {
+      "maximum_absolute_difference": 0.0,
+      "path": "data/interim/hultgren_grid_climate_moderators_20260923/irrigated_1992_2000.parquet",
+      "regime": "irrigated",
+      "sampled_rows": 9,
+      "sha256": "7cf8883c1c93cace3622b736a1e67571941b9b3056620b8f76a81794c87d6417",
+      "source_period": [
+        1991,
+        2000
+      ]
+    },
+    {
+      "maximum_absolute_difference": 0.0,
+      "path": "data/interim/hultgren_grid_climate_moderators_20260923/irrigated_2002_2010.parquet",
+      "regime": "irrigated",
+      "sampled_rows": 9,
+      "sha256": "081de3e10bebe8fbaa1cbe0b2fcffb254ffd5834ee3fffa382fe007dbe23e513",
+      "source_period": [
+        2001,
+        2010
+      ]
+    }
+  ],
+  "maximum_absolute_difference": 0.0,
+  "method": "deterministic first/middle/last cell samples in first/middle/last harvest years recomputed directly from scalar raw daily precipitation and Tmax series",
+  "schema": "hultgren_grid_climate_moderator_validation/v1",
+  "status": "independent_raw_daily_sample_validation_passed"
+}

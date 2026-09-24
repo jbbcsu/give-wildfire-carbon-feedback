@@ -1,0 +1,76 @@
+{
+  "claim_gates": {
+    "author_moderators_reproduced": false,
+    "damage_or_scc_validated": false,
+    "income_imputed_for_missing_countries": false,
+    "transport_benchmark_ready_on_reported_support": true
+  },
+  "coverage": {
+    "common_mapspam_geometry_agreement_area_fraction_of_common": 0.9964220838940704,
+    "common_mapspam_geometry_area_fraction": 0.4804929692134965,
+    "country_codes_without_pwt": [
+      "AFG",
+      "ASM",
+      "CUB",
+      "ERI",
+      "ESH",
+      "GUF",
+      "LBY",
+      "NCL",
+      "PNG",
+      "PRI",
+      "PRK",
+      "SOM",
+      "SSD",
+      "VUT",
+      "WSM"
+    ],
+    "geometry_fallback_area_fraction": 0.5195030620812908,
+    "mapspam_unique_country_area_fraction": 0.4804929692134965,
+    "missing_country_area_fraction": 3.9687052126749816e-06,
+    "pwt_income_available_area_fraction": 0.9894680729401412,
+    "pwt_income_missing_area_fraction": 0.01053192705985892,
+    "total_crop_area_ha": 131760861.56175886
+  },
+  "created_at_utc": "2026-09-24T12:57:02.680521+00:00",
+  "implementation": {
+    "path": "scripts/build_hultgren_cell_moderators.py",
+    "sha256": "bf1ee48a2b7ee51337564cf730b313cd00d39c5591c4a43b616665c22825a2d4"
+  },
+  "interpretation": "fixed alternative-product moderators for a transport benchmark; PWT income is country-level and historical climate is a simple 27-year GSWP3-W5E5 climatology, not the authors' subnational income or time-varying triangular 30-year SAGE/GMFD moderators",
+  "output": {
+    "bytes": 1274342,
+    "path": "data/interim/hultgren_cell_moderators_20260924.parquet",
+    "rows": 32301,
+    "sha256": "7657a5617a0c8d0af0036329dc34dd0062e2e0457aa28d2551c38e5408c85d29"
+  },
+  "schema": "hultgren_cell_moderators/v1",
+  "sources": {
+    "country_proxy": {
+      "path": "data/interim/global_country_proxy_20260907.parquet",
+      "sha256": "3094440e2de49e1e385ea69876efa773dcbf370d22ebaa68a919f8a27838d961"
+    },
+    "irrigated_climatology": {
+      "path": "data/interim/hultgren_grid_climate_moderators_20260923/irrigated_1982_2010_climatology.parquet",
+      "sha256": "f1580cd0295b2b667e309d1090daf250baaf8d73053a7e218b69a6f33bd7f110"
+    },
+    "pwt": {
+      "income_definition": "ln(cgdpo/pop), with both variables expressed in millions so the ratio is 2017 US dollars per person",
+      "license": "CC BY 4.0",
+      "official_url": "https://www.rug.nl/ggdc/docs/pwt100.xlsx",
+      "path": "data/raw/pwt1001/pwt100.xlsx",
+      "release": "Penn World Table 10.0 workbook distributed on the official University of Groningen site",
+      "sha256": "1a13ca27ada7bcab29c15430b3fe7f4d6c3cf0d2ee3eef3aed31d0fc0a2085d3",
+      "target_year": 2000
+    },
+    "rainfed_climatology": {
+      "path": "data/interim/hultgren_grid_climate_moderators_20260923/rainfed_1982_2010_climatology.parquet",
+      "sha256": "9b60ca4a0fcda4b9d14d135ff7aacce55b8b2dd416dac3f9c1e8fb219cbb06a3"
+    },
+    "region_crosswalk": {
+      "path": "data/interim/hultgren_impact_region_global_20260923/impact_region_grid_crosswalk_equal_area_v2.parquet",
+      "sha256": "12aa5ce4415801b3ae1ba5d09cb86ed4a641574c9bb46b9c39b2fc889cf65857"
+    }
+  },
+  "status": "alternative_country_income_and_climate_moderators_not_author_replication"
+}

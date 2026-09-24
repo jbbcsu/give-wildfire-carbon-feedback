@@ -41,10 +41,17 @@ def derived(frame: pd.DataFrame) -> pd.DataFrame:
     squared = [f"prcp_poly_2_bin{phase}" for phase in (1, 2, 3)]
     result["season_total_mm"] = result[linear].sum(axis=1)
     result["monthly_square_sum_mm2"] = result[squared].sum(axis=1)
-    require((result.season_total_mm > 0).all(), "zero seasonal precipitation is outside comparison contract")
-    result["monthly_concentration"] = result.monthly_square_sum_mm2 / result.season_total_mm.pow(2)
+    require((result.season_total_mm >= 0).all(), "negative seasonal precipitation is outside comparison contract")
+    positive = result.season_total_mm > 0
+    result["monthly_concentration"] = np.nan
+    result.loc[positive, "monthly_concentration"] = (
+        result.loc[positive, "monthly_square_sum_mm2"] / result.loc[positive, "season_total_mm"].pow(2)
+    )
     for phase in (1, 2, 3):
-        result[f"phase{phase}_share"] = result[f"prcp_poly_1_bin{phase}"] / result.season_total_mm
+        result[f"phase{phase}_share"] = np.nan
+        result.loc[positive, f"phase{phase}_share"] = (
+            result.loc[positive, f"prcp_poly_1_bin{phase}"] / result.loc[positive, "season_total_mm"]
+        )
     return result
 
 
@@ -62,7 +69,8 @@ def compare(reference: pd.DataFrame, comparison: pd.DataFrame) -> tuple[pd.DataF
         require(np.allclose(left[column], right[column], rtol=0.0, atol=0.0), f"scenario support differs: {column}")
     left = derived(left)
     right = derived(right)
-    metrics = WEATHER + ["season_total_mm", "monthly_square_sum_mm2", "monthly_concentration"] + [
+    all_support_metrics = WEATHER + ["season_total_mm", "monthly_square_sum_mm2"]
+    distribution_metrics = ["monthly_concentration"] + [
         f"phase{phase}_share" for phase in (1, 2, 3)
     ]
     annual_rows = []
@@ -70,18 +78,46 @@ def compare(reference: pd.DataFrame, comparison: pd.DataFrame) -> tuple[pd.DataF
     for year in sorted(left.harvest_year.unique()):
         take = left.harvest_year == year
         row: dict[str, object] = {"harvest_year": int(year), "cells": int(take.sum()), "area_ha": float(weights[take].sum())}
-        for metric in metrics:
+        common_positive = take & left.season_total_mm.gt(0) & right.season_total_mm.gt(0)
+        require(common_positive.any(), f"no common positive-precipitation support in {year}")
+        row["reference_zero_precipitation_area_fraction"] = float(
+            weights[take & left.season_total_mm.eq(0)].sum() / weights[take].sum()
+        )
+        row["comparison_zero_precipitation_area_fraction"] = float(
+            weights[take & right.season_total_mm.eq(0)].sum() / weights[take].sum()
+        )
+        row["distribution_common_positive_area_fraction"] = float(weights[common_positive].sum() / weights[take].sum())
+        for metric in all_support_metrics:
             reference_mean = weighted_mean(left.loc[take, metric], weights[take])
             comparison_mean = weighted_mean(right.loc[take, metric], weights[take])
+            row[f"reference_{metric}"] = reference_mean
+            row[f"comparison_{metric}"] = comparison_mean
+            row[f"delta_{metric}"] = comparison_mean - reference_mean
+        for metric in distribution_metrics:
+            reference_mean = weighted_mean(left.loc[common_positive, metric], weights[common_positive])
+            comparison_mean = weighted_mean(right.loc[common_positive, metric], weights[common_positive])
             row[f"reference_{metric}"] = reference_mean
             row[f"comparison_{metric}"] = comparison_mean
             row[f"delta_{metric}"] = comparison_mean - reference_mean
         annual_rows.append(row)
     annual = pd.DataFrame(annual_rows)
     pooled: dict[str, object] = {"cell_years": len(left), "years": int(left.harvest_year.nunique())}
-    for metric in metrics:
+    common_positive = left.season_total_mm.gt(0) & right.season_total_mm.gt(0)
+    require(common_positive.any(), "no pooled common positive-precipitation support")
+    pooled["reference_zero_precipitation_area_year_fraction"] = float(
+        weights[left.season_total_mm.eq(0)].sum() / weights.sum()
+    )
+    pooled["comparison_zero_precipitation_area_year_fraction"] = float(
+        weights[right.season_total_mm.eq(0)].sum() / weights.sum()
+    )
+    pooled["distribution_common_positive_area_year_fraction"] = float(weights[common_positive].sum() / weights.sum())
+    for metric in all_support_metrics:
         pooled[f"reference_{metric}"] = weighted_mean(left[metric], weights)
         pooled[f"comparison_{metric}"] = weighted_mean(right[metric], weights)
+        pooled[f"delta_{metric}"] = pooled[f"comparison_{metric}"] - pooled[f"reference_{metric}"]
+    for metric in distribution_metrics:
+        pooled[f"reference_{metric}"] = weighted_mean(left.loc[common_positive, metric], weights[common_positive])
+        pooled[f"comparison_{metric}"] = weighted_mean(right.loc[common_positive, metric], weights[common_positive])
         pooled[f"delta_{metric}"] = pooled[f"comparison_{metric}"] - pooled[f"reference_{metric}"]
     return annual, pooled
 
@@ -110,10 +146,14 @@ def main() -> None:
         "pooled_area_year_weighted": pooled,
         "interpretation": {
             "quantity": "season_total_mm and three phase totals",
-            "within_season_distribution": "phase shares, sum of squared monthly precipitation, and scale-normalized monthly concentration",
+            "within_season_distribution": "phase shares and scale-normalized monthly concentration on common positive-precipitation support; sum of squared monthly precipitation remains an all-support level metric",
+            "zero_precipitation": "zero-total area shares are reported separately rather than assigning undefined phase shares or concentration a fabricated value",
             "limits": "one climate-model/window scenario contrast; no response, causality, monetary damage, or SCC claim",
         },
-        "implementation": str(Path(__file__).resolve().relative_to(ROOT)),
+        "implementation": {
+            "path": str(Path(__file__).resolve().relative_to(ROOT)),
+            "sha256": digest(Path(__file__).resolve()),
+        },
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")

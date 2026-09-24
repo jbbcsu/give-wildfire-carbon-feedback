@@ -1,0 +1,140 @@
+{
+  "checks": {
+    "details": [
+      {
+        "cell_rows": 1,
+        "harvest_year": 2092,
+        "maximum_absolute_feature_difference": 0.0,
+        "region_key": "ABW"
+      },
+      {
+        "cell_rows": 1,
+        "harvest_year": 2096,
+        "maximum_absolute_feature_difference": 0.0,
+        "region_key": "ABW"
+      },
+      {
+        "cell_rows": 1,
+        "harvest_year": 2100,
+        "maximum_absolute_feature_difference": 0.0,
+        "region_key": "ABW"
+      },
+      {
+        "cell_rows": 8,
+        "harvest_year": 2092,
+        "maximum_absolute_feature_difference": 2.9103830456733704e-11,
+        "region_key": "CHN.31.332.2314"
+      },
+      {
+        "cell_rows": 8,
+        "harvest_year": 2096,
+        "maximum_absolute_feature_difference": 5.820766091346741e-11,
+        "region_key": "CHN.31.332.2314"
+      },
+      {
+        "cell_rows": 8,
+        "harvest_year": 2100,
+        "maximum_absolute_feature_difference": 1.4551915228366852e-11,
+        "region_key": "CHN.31.332.2314"
+      },
+      {
+        "cell_rows": 2,
+        "harvest_year": 2092,
+        "maximum_absolute_feature_difference": 0.0,
+        "region_key": "MYS.13.159"
+      },
+      {
+        "cell_rows": 2,
+        "harvest_year": 2096,
+        "maximum_absolute_feature_difference": 0.0,
+        "region_key": "MYS.13.159"
+      },
+      {
+        "cell_rows": 2,
+        "harvest_year": 2100,
+        "maximum_absolute_feature_difference": 0.0,
+        "region_key": "MYS.13.159"
+      },
+      {
+        "cell_rows": 6,
+        "harvest_year": 2092,
+        "maximum_absolute_feature_difference": 3.637978807091713e-12,
+        "region_key": "USA.14.630"
+      },
+      {
+        "cell_rows": 6,
+        "harvest_year": 2096,
+        "maximum_absolute_feature_difference": 2.842170943040401e-14,
+        "region_key": "USA.14.630"
+      },
+      {
+        "cell_rows": 6,
+        "harvest_year": 2100,
+        "maximum_absolute_feature_difference": 9.094947017729282e-13,
+        "region_key": "USA.14.630"
+      },
+      {
+        "cell_rows": 30,
+        "harvest_year": 2092,
+        "maximum_absolute_feature_difference": 5.4569682106375694e-12,
+        "region_key": "ZWE.9.R19a261b63a503c9c"
+      },
+      {
+        "cell_rows": 30,
+        "harvest_year": 2096,
+        "maximum_absolute_feature_difference": 7.275957614183426e-12,
+        "region_key": "ZWE.9.R19a261b63a503c9c"
+      },
+      {
+        "cell_rows": 30,
+        "harvest_year": 2100,
+        "maximum_absolute_feature_difference": 1.4551915228366852e-11,
+        "region_key": "ZWE.9.R19a261b63a503c9c"
+      }
+    ],
+    "maximum_absolute_feature_difference": 5.820766091346741e-11,
+    "selected_recomputations": 15,
+    "unique_finite_region_years": true
+  },
+  "claim_gates": {
+    "nonlinear_transform_precedes_spatial_aggregation": true,
+    "regime_combination_validated": false,
+    "response_damage_or_scc_validated": false,
+    "source_sage_pixel_weights_reproduced": false
+  },
+  "created_at_utc": "2026-09-24T01:51:07.131954+00:00",
+  "implementation": {
+    "path": "scripts/validate_hultgren_region_weather_basis.py",
+    "sha256": "f3ceea57e6f86c6a182b92fccbfd0f6383319724e375b561216e829af80820a1"
+  },
+  "regime": "rainfed",
+  "region_basis": {
+    "bytes": 18212124,
+    "path": "data/interim/hultgren_gfdl_late_basis_20260923/gfdl_ssp585_rainfed_regions_2092_2100.parquet",
+    "row_groups": 9,
+    "rows": 193788,
+    "sha256": "3d546d086892421c5f13a1b5d2cc7f5fb17fe63fba826afec594ee8a04af6f43"
+  },
+  "schema": "hultgren_impact_region_weather_basis_validation/v1",
+  "source_identity": {
+    "basis": {
+      "bytes": 20123362,
+      "path": "data/interim/hultgren_gfdl_late_basis_20260923/gfdl_ssp585_rainfed_2092_2100.parquet",
+      "sha256": "702263df5065eb143dbfb47594e733d9c0c66f345a2333bd7995c571a014cfce"
+    },
+    "basis_validation": {
+      "path": "data/provenance/hultgren_gfdl_ssp585_rainfed_validation_20260923.json",
+      "sha256": "ffbe346d001ea367df8a5143b21cd6e1337e21df9b67c6c8141eb7688ce0560c"
+    },
+    "crosswalk": {
+      "bytes": 8185331,
+      "path": "data/interim/hultgren_impact_region_global_20260923/impact_region_grid_crosswalk.parquet",
+      "sha256": "12aa5ce4415801b3ae1ba5d09cb86ed4a641574c9bb46b9c39b2fc889cf65857"
+    },
+    "crosswalk_validation": {
+      "path": "data/provenance/hultgren_impact_region_grid_crosswalk_validation_20260923.json",
+      "sha256": "5c4a977256916498127618b4810d63a836ea61aaac8155d5b97f91d23f086460"
+    }
+  },
+  "status": "validated_alternative_region_basis_not_response_damage_or_scc"
+}

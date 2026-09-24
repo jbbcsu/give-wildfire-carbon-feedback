@@ -1,0 +1,113 @@
+{
+  "annual_audit": [
+    {
+      "eligible_proxy_weighted_irrigated_share": 0.21674536889761062,
+      "harvest_year": 2092,
+      "regions": 22380,
+      "weighted_eligible_proxy_fraction": 0.9747621174787406
+    },
+    {
+      "eligible_proxy_weighted_irrigated_share": 0.21674536889761062,
+      "harvest_year": 2093,
+      "regions": 22380,
+      "weighted_eligible_proxy_fraction": 0.9747621174787406
+    },
+    {
+      "eligible_proxy_weighted_irrigated_share": 0.21674536889761062,
+      "harvest_year": 2094,
+      "regions": 22380,
+      "weighted_eligible_proxy_fraction": 0.9747621174787406
+    },
+    {
+      "eligible_proxy_weighted_irrigated_share": 0.21674536889761062,
+      "harvest_year": 2095,
+      "regions": 22380,
+      "weighted_eligible_proxy_fraction": 0.9747621174787406
+    },
+    {
+      "eligible_proxy_weighted_irrigated_share": 0.21674536889761062,
+      "harvest_year": 2096,
+      "regions": 22380,
+      "weighted_eligible_proxy_fraction": 0.9747621174787406
+    },
+    {
+      "eligible_proxy_weighted_irrigated_share": 0.21674536889761062,
+      "harvest_year": 2097,
+      "regions": 22380,
+      "weighted_eligible_proxy_fraction": 0.9747621174787406
+    },
+    {
+      "eligible_proxy_weighted_irrigated_share": 0.21674536889761062,
+      "harvest_year": 2098,
+      "regions": 22380,
+      "weighted_eligible_proxy_fraction": 0.9747621174787406
+    },
+    {
+      "eligible_proxy_weighted_irrigated_share": 0.21674536889761062,
+      "harvest_year": 2099,
+      "regions": 22380,
+      "weighted_eligible_proxy_fraction": 0.9747621174787406
+    },
+    {
+      "eligible_proxy_weighted_irrigated_share": 0.21674536889761062,
+      "harvest_year": 2100,
+      "regions": 22380,
+      "weighted_eligible_proxy_fraction": 0.9747621174787406
+    }
+  ],
+  "claim_gates": {
+    "adaptation_validated": false,
+    "regime_combination_validated": true,
+    "response_damage_or_scc_validated": false,
+    "source_region_bases_validated": true
+  },
+  "created_at_utc": "2026-09-24T01:43:42.990806+00:00",
+  "implementation": {
+    "path": "scripts/combine_hultgren_region_regimes.py",
+    "sha256": "4d63df3711a6e8caec7db09a84b7835692af2bc2525b253523a8f321657ddc9c"
+  },
+  "interpretation": "fixed_irrigated_proxy_share is a weather-basis mixing weight, not an empirical adaptation response or the authors' equipped-irrigation moderator",
+  "method": "average already-nonlinear regime-specific region bases using eligible MIRCA intersection proxy hectares",
+  "output": {
+    "bytes": 27432986,
+    "path": "data/interim/hultgren_gfdl_late_basis_20260923/gfdl_ssp126_combined_regions_2092_2100.parquet",
+    "regions": 22380,
+    "rows": 201420,
+    "sha256": "bbb25960c8bc8e725bc0a12ccfb9f24feb39e2b051e83fe68a317b8607f00b83",
+    "years": 9
+  },
+  "schema": "hultgren_combined_region_weather_basis/v1",
+  "sources": {
+    "irrigated": {
+      "path": "data/interim/hultgren_gfdl_late_basis_20260923/gfdl_ssp126_irrigated_regions_2092_2100.parquet",
+      "sha256": "a506c6f79dd885ef4ad2a098d4464e6d56523d421ec7a2fbdeedc6563016e9ad"
+    },
+    "irrigated_validation": {
+      "path": "data/provenance/hultgren_gfdl_ssp126_irrigated_region_basis_validation_20260923.json",
+      "sha256": "5b2c822b2a6e0c01a212e950416a2c83815f55d1100043f41b8c33df828bd4ac"
+    },
+    "rainfed": {
+      "path": "data/interim/hultgren_gfdl_late_basis_20260923/gfdl_ssp126_rainfed_regions_2092_2100.parquet",
+      "sha256": "617e261d5f11dbf1a9b2785db23ce07f64441e97b3c2e4ee3f7c68cd42b0a301"
+    },
+    "rainfed_validation": {
+      "path": "data/provenance/hultgren_gfdl_ssp126_rainfed_region_basis_validation_20260923.json",
+      "sha256": "781b2b1a61ba11e1a84877932d4effd78addc79d3dee4b07e694fba91a780f64"
+    }
+  },
+  "status": "validated_arithmetic_regime_combination_not_response_damage_or_scc",
+  "upstream_claim_gates": {
+    "irrigated": {
+      "nonlinear_transform_precedes_spatial_aggregation": true,
+      "regime_combination_validated": false,
+      "response_damage_or_scc_validated": false,
+      "source_sage_pixel_weights_reproduced": false
+    },
+    "rainfed": {
+      "nonlinear_transform_precedes_spatial_aggregation": true,
+      "regime_combination_validated": false,
+      "response_damage_or_scc_validated": false,
+      "source_sage_pixel_weights_reproduced": false
+    }
+  }
+}

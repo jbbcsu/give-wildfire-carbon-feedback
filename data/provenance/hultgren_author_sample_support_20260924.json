@@ -1,0 +1,110 @@
+{
+  "claim_gates": {
+    "author_sample_support_summarized": true,
+    "response_damage_or_scc": false
+  },
+  "complete_case_columns": [
+    "ln_yield",
+    "ln_gdppc",
+    "irrigated_share",
+    "lr_tmax_crop",
+    "lr_prcp_crop",
+    "gdd",
+    "kdd",
+    "prcp_poly_1_bin1",
+    "prcp_poly_1_bin2",
+    "prcp_poly_1_bin3",
+    "prcp_poly_2_bin1",
+    "prcp_poly_2_bin2",
+    "prcp_poly_2_bin3"
+  ],
+  "complete_rows": 377973,
+  "created_at_utc": "2026-09-24T13:08:07.181597+00:00",
+  "implementation": {
+    "path": "scripts/build_hultgren_author_sample_support.py",
+    "sha256": "95321f79761b1280a8342dd8804930d80e34b8d5b36e2eb34b085f1105b56f24"
+  },
+  "method": "Stata input streamed in chunks of 20000 rows; exact pooled quantiles computed from complete rows",
+  "quantiles": {
+    "gdd": {
+      "maximum": 6281.93798828125,
+      "minimum": 36.996185302734375,
+      "p01": 1089.6398193359375,
+      "p99": 3895.9176171874988
+    },
+    "irrigated_share": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "p01": 0.00012966975918971002,
+      "p99": 1.0
+    },
+    "kdd": {
+      "maximum": 625.7154541015625,
+      "minimum": 0.0,
+      "p01": 0.0,
+      "p99": 170.35501525878863
+    },
+    "ln_gdppc": {
+      "maximum": 10.792492866516113,
+      "minimum": 6.772420406341553,
+      "p01": 6.952408790588379,
+      "p99": 10.269715309143066
+    },
+    "lr_prcp_crop": {
+      "maximum": 525.5151977539062,
+      "minimum": 0.9141615033149719,
+      "p01": 18.094003677368164,
+      "p99": 300.8392028808594
+    },
+    "lr_tmax_crop": {
+      "maximum": 38.055625915527344,
+      "minimum": 5.177227020263672,
+      "p01": 18.752958297729492,
+      "p99": 34.552005767822266
+    },
+    "prcp_poly_1_bin1": {
+      "maximum": 1514.382080078125,
+      "minimum": 0.0,
+      "p01": 0.0,
+      "p99": 351.3853540039062
+    },
+    "prcp_poly_1_bin2": {
+      "maximum": 2509.2919921875,
+      "minimum": 0.0,
+      "p01": 30.95921905517578,
+      "p99": 1119.7757324218742
+    },
+    "prcp_poly_1_bin3": {
+      "maximum": 2855.123291015625,
+      "minimum": 0.0,
+      "p01": 0.0,
+      "p99": 721.6879833984357
+    },
+    "prcp_poly_2_bin1": {
+      "maximum": 2321655.75,
+      "minimum": 0.0,
+      "p01": 0.0,
+      "p99": 124274.1781249996
+    },
+    "prcp_poly_2_bin2": {
+      "maximum": 2338668.5,
+      "minimum": 0.0,
+      "p01": 566.426162109375,
+      "p99": 463041.5849999999
+    },
+    "prcp_poly_2_bin3": {
+      "maximum": 3058477.75,
+      "minimum": 0.0,
+      "p01": 0.0,
+      "p99": 249051.9137499992
+    }
+  },
+  "schema": "hultgren_author_sample_support/v1",
+  "source": {
+    "bytes": 345639713,
+    "path": "data/raw/hultgren_response/historical_git/dae5fe8d0d4a260328e4baa45b547368bd6790b3/corn_gmfd_v1_ready.dta",
+    "sha256": "06c2f0102580518a3eea88a6cd677af4636d40882452aa15b65ac7178cf9267a"
+  },
+  "source_rows": 412282,
+  "status": "published_estimation_sample_support_summarized"
+}

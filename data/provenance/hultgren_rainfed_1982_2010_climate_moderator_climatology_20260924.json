@@ -1,0 +1,82 @@
+{
+  "claim_gates": {
+    "arithmetic_climatology_complete": true,
+    "author_moderator_reproduction": false,
+    "response_damage_or_scc": false
+  },
+  "created_at_utc": "2026-09-24T12:45:29.701891+00:00",
+  "definitions": {
+    "lr_prcp_crop": "simple mean across 27 retained cell-year crop-season mean monthly precipitation values",
+    "lr_tmax_crop": "simple mean across 27 retained cell-year crop-season mean monthly Tmax values"
+  },
+  "excluded_boundary_harvest_years": [
+    1991,
+    2001
+  ],
+  "harvest_years": [
+    1982,
+    1983,
+    1984,
+    1985,
+    1986,
+    1987,
+    1988,
+    1989,
+    1990,
+    1992,
+    1993,
+    1994,
+    1995,
+    1996,
+    1997,
+    1998,
+    1999,
+    2000,
+    2002,
+    2003,
+    2004,
+    2005,
+    2006,
+    2007,
+    2008,
+    2009,
+    2010
+  ],
+  "implementation": {
+    "path": "scripts/aggregate_hultgren_grid_climate_moderators.py",
+    "sha256": "579b23955300af6ee726d677bac254a0c750e949dd88c86662edb7cea9d4dff3"
+  },
+  "interpretation": "fixed observational alternative-product moderator benchmark; not the authors' time-varying 30-year triangular GMFD/SAGE moderator",
+  "output": {
+    "bytes": 758520,
+    "path": "data/interim/hultgren_grid_climate_moderators_20260923/rainfed_1982_2010_climatology.parquet",
+    "rows": 29750,
+    "sha256": "9b60ca4a0fcda4b9d14d135ff7aacce55b8b2dd416dac3f9c1e8fb219cbb06a3"
+  },
+  "regime": "rainfed",
+  "schema": "hultgren_grid_climate_moderator_climatology/v1",
+  "sources": [
+    {
+      "bytes": 6698338,
+      "path": "data/interim/hultgren_grid_climate_moderators_20260923/rainfed_1982_1990.parquet",
+      "receipt": "data/interim/hultgren_grid_climate_moderators_20260923/rainfed_1982_1990.parquet.result.json",
+      "receipt_sha256": "01950d95e54c81c9108a2cebe631cda438596c6af4cd5f6105a8711d39c4bb5a",
+      "sha256": "d3cdad1d8e90c1ede881880b1e79a21c1ca838088f6c0a7bb7a88215d6f09bbc"
+    },
+    {
+      "bytes": 6702017,
+      "path": "data/interim/hultgren_grid_climate_moderators_20260923/rainfed_1992_2000.parquet",
+      "receipt": "data/interim/hultgren_grid_climate_moderators_20260923/rainfed_1992_2000.parquet.result.json",
+      "receipt_sha256": "233ec2606d5636ab68c7699db0145bda8afa6aeae6d15cb0883299f24a1733e2",
+      "sha256": "e4a63454f4ce89a9a3aea2e0019c0f4be07acdf1e7c3f6d097e2e202517baf47"
+    },
+    {
+      "bytes": 6703554,
+      "path": "data/interim/hultgren_grid_climate_moderators_20260923/rainfed_2002_2010.parquet",
+      "receipt": "data/interim/hultgren_grid_climate_moderators_20260923/rainfed_2002_2010.parquet.result.json",
+      "receipt_sha256": "249148a187e67974f4335dda13cb652a46598952a8b02c0b355df4ee15eacc12",
+      "sha256": "1036e8c84e681133cb2dfadc81f444c97b6cb1edb740f7e22de86a2f389c8ca3"
+    }
+  ],
+  "status": "alternative_27yr_fixed_climatology_not_author_30yr_triangular_average"
+}
