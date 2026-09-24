@@ -1,0 +1,134 @@
+{
+  "by_climate_model": {
+    "GFDL-ESM4": {
+      "baseline_weight_per_year": 140673001973.4652,
+      "cell_year_rows": 198315,
+      "harvest_years": 9,
+      "raw_percent_from_weighted_mean_log": -3.0706664957685157,
+      "raw_weighted_mean_cell_exact_percent": -2.196033281231042,
+      "raw_weighted_mean_delta_log_yield": -0.031187993559711757,
+      "winsorized_fixed_price_gross_output_change": -3397776071.7516704,
+      "winsorized_high_rows": 1194,
+      "winsorized_low_rows": 1049,
+      "winsorized_percent_from_weighted_mean_log": -3.0352658758917097,
+      "winsorized_weight_fraction": 0.0025374729753377284,
+      "winsorized_weighted_mean_cell_exact_percent": -2.4153718368735633,
+      "winsorized_weighted_mean_delta_log_yield": -0.030822839321594315
+    },
+    "IPSL-CM6A-LR": {
+      "baseline_weight_per_year": 140673001973.4652,
+      "cell_year_rows": 198315,
+      "harvest_years": 9,
+      "raw_percent_from_weighted_mean_log": -3.4963855598772096,
+      "raw_weighted_mean_cell_exact_percent": 19.90372291854455,
+      "raw_weighted_mean_delta_log_yield": -0.035589723006524784,
+      "winsorized_fixed_price_gross_output_change": -3271288938.1782637,
+      "winsorized_high_rows": 2444,
+      "winsorized_low_rows": 2804,
+      "winsorized_percent_from_weighted_mean_log": -3.1680092157503648,
+      "winsorized_weight_fraction": 0.008457368619674945,
+      "winsorized_weighted_mean_cell_exact_percent": -2.3254561232689968,
+      "winsorized_weighted_mean_delta_log_yield": -0.032192762994775866
+    },
+    "MPI-ESM1-2-HR": {
+      "baseline_weight_per_year": 140673001973.4652,
+      "cell_year_rows": 198315,
+      "harvest_years": 9,
+      "raw_percent_from_weighted_mean_log": -1.5552085216054052,
+      "raw_weighted_mean_cell_exact_percent": 10.457728555064119,
+      "raw_weighted_mean_delta_log_yield": -0.015674287549877357,
+      "winsorized_fixed_price_gross_output_change": -854854754.6112266,
+      "winsorized_high_rows": 1680,
+      "winsorized_low_rows": 1567,
+      "winsorized_percent_from_weighted_mean_log": -1.3548207253234512,
+      "winsorized_weight_fraction": 0.0054923334246846775,
+      "winsorized_weighted_mean_cell_exact_percent": -0.6076892812541781,
+      "winsorized_weighted_mean_delta_log_yield": -0.013640821670651783
+    },
+    "MRI-ESM2-0": {
+      "baseline_weight_per_year": 140673001973.4652,
+      "cell_year_rows": 198315,
+      "harvest_years": 9,
+      "raw_percent_from_weighted_mean_log": -1.5362553847110991,
+      "raw_weighted_mean_cell_exact_percent": 12.961541339616089,
+      "raw_weighted_mean_delta_log_yield": -0.015481780537953604,
+      "winsorized_fixed_price_gross_output_change": -648485704.5228266,
+      "winsorized_high_rows": 2073,
+      "winsorized_low_rows": 1680,
+      "winsorized_percent_from_weighted_mean_log": -1.2788276833139056,
+      "winsorized_weight_fraction": 0.006954942803083866,
+      "winsorized_weighted_mean_cell_exact_percent": -0.46098803283173606,
+      "winsorized_weighted_mean_delta_log_yield": -0.012870750732498491
+    },
+    "UKESM1-0-LL": {
+      "baseline_weight_per_year": 140673001973.4652,
+      "cell_year_rows": 198315,
+      "harvest_years": 9,
+      "raw_percent_from_weighted_mean_log": -2.2337713699781645,
+      "raw_weighted_mean_cell_exact_percent": 5.362936431755637,
+      "raw_weighted_mean_delta_log_yield": -0.02259097911220379,
+      "winsorized_fixed_price_gross_output_change": -1310509937.8860953,
+      "winsorized_high_rows": 2525,
+      "winsorized_low_rows": 2816,
+      "winsorized_percent_from_weighted_mean_log": -1.9678053500018924,
+      "winsorized_weight_fraction": 0.013857488679828138,
+      "winsorized_weighted_mean_cell_exact_percent": -0.9316001787843367,
+      "winsorized_weighted_mean_delta_log_yield": -0.01987424443064477
+    }
+  },
+  "claim_gates": {
+    "damage_or_scc": false,
+    "exact_published_replication": false,
+    "published_style_tail_sensitivity": true,
+    "welfare": false
+  },
+  "created_at_utc": "2026-09-24T16:53:53.912977+00:00",
+  "implementation": {
+    "path": "scripts/summarize_hultgren_published_winsorization.py",
+    "sha256": "50be4e3fd252da20cccac06db854fbde7a02f8447f7f5946cf078804e2db8ce1"
+  },
+  "interpretation": "fixed-price gross-output changes hold prices and baseline weights fixed; they are accounting exposures, not market welfare, damages, marginal pulse effects, or SCC",
+  "rule": {
+    "lower_delta_log_yield": -0.6521771905666817,
+    "lower_quantile": 0.01,
+    "nonreplication_warning": "our units are half-degree cells, five ISIMIP3b ESMs, and an SSP585-minus-SSP126 precipitation-only contrast",
+    "pooling": "all cell-ESM-harvest-year precipitation log-response contrasts",
+    "published_analogue": "Hultgren et al. Methods SI: projected log-yield impacts winsorized at top and bottom 1% over region-GCM-years by RCP-crop",
+    "upper_delta_log_yield": 0.5096451092704382,
+    "upper_quantile": 0.99
+  },
+  "schema": "hultgren_precipitation_published_style_winsorization/v1",
+  "sources": [
+    {
+      "climate_model": "GFDL-ESM4",
+      "path": "data/interim/hultgren_value_weight_cell_responses_20260924/hultgren_gfdl_grid_yield_transport_conditional_value_cell_export_cells_20260924.parquet",
+      "rows": 198315,
+      "sha256": "dcd71871256e9acce0e9ba5592ef03ab9abec946bb039cdefac1ced160b092ff"
+    },
+    {
+      "climate_model": "IPSL-CM6A-LR",
+      "path": "data/interim/hultgren_value_weight_cell_responses_20260924/hultgren_ipsl_grid_yield_transport_conditional_value_cell_export_cells_20260924.parquet",
+      "rows": 198315,
+      "sha256": "08abf12b3805612110a50afcf37be658643eb115812b29502f525c22233ddb5d"
+    },
+    {
+      "climate_model": "MPI-ESM1-2-HR",
+      "path": "data/interim/hultgren_value_weight_cell_responses_20260924/hultgren_mpi_grid_yield_transport_conditional_value_cell_export_cells_20260924.parquet",
+      "rows": 198315,
+      "sha256": "f22c5b4e8638e5ea329d26b6952a2c422a6abf9635e878676bb8e0437554ab2d"
+    },
+    {
+      "climate_model": "MRI-ESM2-0",
+      "path": "data/interim/hultgren_value_weight_cell_responses_20260924/hultgren_mri_grid_yield_transport_conditional_value_cell_export_cells_20260924.parquet",
+      "rows": 198315,
+      "sha256": "704fd9479d92bc15ad7351fecdfd7039cb370f3f949011d11479c05efd5cce97"
+    },
+    {
+      "climate_model": "UKESM1-0-LL",
+      "path": "data/interim/hultgren_value_weight_cell_responses_20260924/hultgren_ukesm_grid_yield_transport_conditional_value_cell_export_cells_20260924.parquet",
+      "rows": 198315,
+      "sha256": "48661fd05adebf89d81517377427209f45a9f986efa4ff706fe86a6c12c1b4dc"
+    }
+  ],
+  "status": "published_style_tail_sensitivity_not_exact_replication_welfare_damage_or_scc"
+}

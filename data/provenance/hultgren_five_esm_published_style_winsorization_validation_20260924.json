@@ -1,0 +1,25 @@
+{
+  "checks": {
+    "cell_first_level_aggregation": true,
+    "pooled_quantiles": true,
+    "source_hashes": true,
+    "tail_counts": true,
+    "weighted_log_means": true
+  },
+  "claim_gates": {
+    "damage_or_scc_validated": false,
+    "winsorization_arithmetic_validated": true
+  },
+  "created_at_utc": "2026-09-24T16:55:06.147608+00:00",
+  "implementation": {
+    "path": "scripts/validate_hultgren_published_winsorization.py",
+    "sha256": "97ee827b742063aa208a55c38bb417979919e794382aa19837010e8bcbc9939a"
+  },
+  "input": {
+    "path": "data/provenance/hultgren_five_esm_published_style_winsorization_20260924.json",
+    "sha256": "0ce1825aa845943af245666ea69209b658bc32a4b9a4913479ad5ff0996dbd43"
+  },
+  "interpretation": "validates arithmetic and source identity, not response transport, economic welfare, marginal pulse mapping, or SCC",
+  "schema": "hultgren_precipitation_published_style_winsorization_validation/v1",
+  "status": "independent_winsorization_arithmetic_validation_passed"
+}

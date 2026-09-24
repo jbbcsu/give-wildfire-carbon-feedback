@@ -154,5 +154,54 @@ The minimum--maximum boundary is therefore a plausible next specification,
 but choosing it changes model-specific support and requires an explicit
 modeling decision before monetization.
 
+The published paper provides a more direct sensitivity rule: projected
+log-yield impacts are winsorized at the top and bottom 1% over region--GCM--
+years by RCP and crop. Applying the same percentile rule to our different
+cell--ESM--year precipitation responses yields bounds of -0.652/+0.510 log
+points. It affects only 0.25%--1.39% of value weight and produces negative
+cell-first fixed-price output changes in all five models:
+
+| ESM | Winsorized output change | Fixed-price gross-output exposure |
+|---|---:|---:|
+| GFDL | -2.42% | -US$3.40 billion |
+| IPSL | -2.33% | -US$3.27 billion |
+| MPI | -0.61% | -US$0.85 billion |
+| MRI | -0.46% | -US$0.65 billion |
+| UKESM | -0.93% | -US$1.31 billion |
+
+This is a published-style benchmark, not an exact replication: our geographic
+units, five-model ensemble, scenarios, and precipitation-only impact contrast
+differ. The dollar column holds prices fixed and represents gross-output
+exposure, not producer/consumer welfare, a marginal carbon pulse, damage, or
+SCC. It provides a defensible interim tail treatment for the next market-
+welfare stage without converting the current result into an SCC claim.
+
+## Quarantined global-market bridge
+
+A fully anticipated, frictionless single-global-maize-market sensitivity was
+run after the published-style winsorization. It crosses the three published
+supply/demand elasticity pairs with two explicit yield-to-supply mappings and
+the fixed, trend, and upper loss-only adaptation scenarios. Under the central
+0.10/0.04 elasticity pair and horizontal-output mapping, the fixed-adaptation
+damage-signed surplus changes average US$3.520, US$3.455, US$1.043, US$0.863,
+and US$1.441 billion per year for GFDL, IPSL, MPI, MRI, and UKESM. The
+five-model mean is US$2.064 billion in constant 2014--2016 dollars.
+
+Across all models, elasticity pairs, and mappings, the fixed range is
+US$0.220--4.034 billion. Trend adaptation has a central five-model mean of
+US$0.571 billion and full range of -US$1.032--2.063 billion; upper adaptation
+has a central mean of -US$1.312 billion and range of -US$2.744 to -0.209
+billion. Negative damage-signed values are benefits. Because the adaptation
+rules attenuate losses but not gains and omit adaptation costs, the sign
+reversal is a structural bound, not evidence of net adaptation benefits.
+
+An independent recomputation verified all 810 annual case records with zero
+dollar discrepancy. The exercise is not the published country-market,
+expectations, and storage model; it omits trade, other crops, and a marginal
+emissions pulse. It is therefore not promoted as welfare damage or SCC and is
+not passed to GIVE. Machine-readable receipts are
+`data/provenance/hultgren_global_maize_market_sensitivity_20260924.json` and
+`data/provenance/hultgren_global_maize_market_sensitivity_validation_20260924.json`.
+
 Machine-readable results are under `data/provenance/`, including
 `hultgren_five_esm_grid_yield_transport_summary_20260924.json`.

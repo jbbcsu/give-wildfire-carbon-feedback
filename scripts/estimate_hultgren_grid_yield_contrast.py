@@ -290,8 +290,10 @@ def main() -> None:
     parser.add_argument("--analysis-weight-label", default="fixed MIRCA harvested area")
     parser.add_argument("--analysis-weight-unit", default="ha")
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--cell-output", type=Path)
     args = parser.parse_args()
     require(not args.output.exists(), "fresh output required")
+    require(args.cell_output is None or not args.cell_output.exists(), "fresh cell output required")
 
     weather_paths = [args.reference_rainfed, args.reference_irrigated, args.comparison_rainfed, args.comparison_irrigated]
     weather_sources = [validated_weather(path, args.validation) for path in weather_paths]
@@ -367,6 +369,7 @@ def main() -> None:
         "joint": {"maximum_absolute_design_error": 0.0, "maximum_relative_design_error": 0.0, "maximum_absolute_log_response_error": 0.0},
         "precipitation": {"maximum_absolute_design_error": 0.0, "maximum_relative_design_error": 0.0, "maximum_absolute_log_response_error": 0.0},
     }
+    cell_records: list[pd.DataFrame] = []
     for year in years:
         reference_weather = combine_regime_weather(weather_year(args.reference_rainfed, year), weather_year(args.reference_irrigated, year))
         comparison_weather = combine_regime_weather(weather_year(args.comparison_rainfed, year), weather_year(args.comparison_irrigated, year))
@@ -412,6 +415,19 @@ def main() -> None:
             "precipitation_quantity_reference_scaling": quantity_design - reference_design[common_positive],
             "precipitation_distribution_residual": precipitation_design[common_positive] - quantity_design,
         }
+        if args.cell_output is not None:
+            cell_log = np.sum(
+                deltas["precipitation_all_income_support"] * estimate.coefficients[None, :],
+                axis=1, dtype=np.float64,
+            )
+            cell_records.append(pd.DataFrame({
+                "climate_model": args.climate_model,
+                "harvest_year": year,
+                "native_lat_index": reference.native_lat_index.to_numpy(dtype=np.int16),
+                "native_lon_index": reference.native_lon_index.to_numpy(dtype=np.int16),
+                "analysis_weight": weights,
+                "precipitation_delta_log_yield": cell_log,
+            }))
         year_joint_error = decomposition_errors(
             deltas["joint_climate"], deltas["precipitation_all_income_support"],
             deltas["temperature_all_income_support"], estimate.coefficients,
@@ -461,6 +477,14 @@ def main() -> None:
         for scenario, components in pooled.items()
     }
     finalized_support = finalize_support_audit(support_audit, args.analysis_weight_unit)
+    cell_output_record = None
+    if args.cell_output is not None:
+        cell_frame = pd.concat(cell_records, ignore_index=True)
+        require(len(cell_frame) > 0 and np.isfinite(cell_frame[["analysis_weight", "precipitation_delta_log_yield"]]).all().all(), "invalid cell output")
+        args.cell_output.parent.mkdir(parents=True, exist_ok=True)
+        cell_frame.to_parquet(args.cell_output, index=False)
+        cell_output_record = {"path": str(args.cell_output), "rows": len(cell_frame), "bytes": args.cell_output.stat().st_size, "sha256": digest(args.cell_output)}
+
     result = {
         "schema": "hultgren_grid_yield_scenario_transport/v2",
         "created_at_utc": datetime.now(timezone.utc).isoformat(),
@@ -536,6 +560,7 @@ def main() -> None:
             "conditional_baseline_value_weighted_sensitivity": bool(external_weight_claims.get("conditional_baseline_value_weight", False)),
             "welfare_weighted": False,
         },
+        "cell_output": cell_output_record,
         "implementation": {"path": str(Path(__file__).resolve().relative_to(ROOT)), "sha256": digest(Path(__file__).resolve())},
     }
     if args.analysis_weight_unit == "ha":

@@ -1700,6 +1700,32 @@ Weather-domain summaries and independent arithmetic audits are in the
 corresponding `hultgren_five_esm_conditional_value_author_minmax_*` and
 `hultgren_five_esm_conditional_value_author_p01_p99_*` receipts.
 
+The Methods SI of Hultgren et al. also states that projection figures and
+tables winsorize projected log-yield impacts at the top and bottom 1% over all
+region--GCM--years within RCP and crop. We implement an analogous, not exact,
+benchmark by pooling the five ESMs' 991,575 half-degree cell-year
+precipitation-only log responses. The unweighted 1st and 99th percentiles are
+-0.65218 and +0.50965 log points. Each response is bounded at those values
+before exponentiation and fixed baseline-value aggregation. The original
+paper's units, climate ensemble, impact definition, and RCP-specific pooling
+differ from ours, so this is labeled published-style rather than replicated.
+
+The rule affects 0.254%, 0.846%, 0.549%, 0.695%, and 1.386% of baseline value
+weight for GFDL, IPSL, MPI, MRI, and UKESM. The resulting cell-first aggregate
+output changes are -2.42%, -2.33%, -0.61%, -0.46%, and -0.93%. Applied to the
+matched US$140.673 billion fixed baseline, the corresponding annualized value
+exposures are -US$3.398, -US$3.271, -US$0.855, -US$0.648, and -US$1.311
+billion in constant 2014--2016 dollars. These hold prices and quantities of
+other crops fixed and omit demand, supply, storage, trade, adaptation costs,
+coverage outside maize, and marginal emissions-pulse timing. They are gross-
+output accounting exposures, not welfare damages or SCC.
+
+The machine-readable calculation and independent source-hash, quantile,
+tail-count, weighting, and cell-first transformation audit are
+`data/provenance/hultgren_five_esm_published_style_winsorization_20260924.json`
+and
+`data/provenance/hultgren_five_esm_published_style_winsorization_validation_20260924.json`.
+
 We additionally reproduced the authors' Iroquois County, USA local-temperature
 response checkpoint. Their pinned plotting code selects 59 observations and
 evaluates the maize estimate at local means of long-run growing-season Tmax,
@@ -3300,10 +3326,43 @@ qualification, adaptation costs, coverage, units and matched pulse gates remain
 required before empirical money. The specification includes those interfaces
 and distinguishes precipitation decomposition from total-sector replacement.
 
+We executed this benchmark only as a quarantined structural sensitivity using
+the five conditional value-weight cell exports described above. For each
+adaptation scenario, negative cell log responses are attenuated using the
+registered fixed, trend, or upper rule; positive responses are unchanged. The
+1st and 99th percentiles are then recomputed over all five ESM cell-years
+within that adaptation scenario, and cell responses are winsorized before
+aggregation. Each of the three published elasticity pairs (0.08/0.02,
+0.10/0.04, and 0.50/0.06, supply/absolute demand) is crossed with the two
+explicit yield-to-supply mappings. Nine annual 2092--2100 supply shifts are
+valued against the US$140.673 billion matched maize baseline and then averaged.
+
+For the central 0.10/0.04 pair and horizontal-output mapping, fixed-adaptation
+mean annual damage-signed surplus changes are US$3.520, US$3.455, US$1.043,
+US$0.863, and US$1.441 billion for GFDL, IPSL, MPI, MRI, and UKESM. Their
+five-model mean is US$2.064 billion. The corresponding five-model means are
+US$0.571 billion under trend adaptation and -US$1.312 billion under upper
+adaptation. Across all ESMs, elasticity pairs, and mappings, scenario ranges
+are US$0.220--4.034 billion (fixed), -US$1.032--2.063 billion (trend), and
+-US$2.744 to -0.209 billion (upper). Negative damage-signed values are
+benefits. These adaptation cases exclude adaptation cost and asymmetrically
+attenuate losses only; they are bounds rather than estimated net adaptation
+welfare.
+
+The complete calculation is
+`data/provenance/hultgren_global_maize_market_sensitivity_20260924.json`.
+An independent script reconstructs source hashes, adaptation, scenario-
+specific quantiles, all 810 annual case records, supply aggregation, and the
+closed-market surplus equation without importing either the builder or market
+core; the maximum absolute dollar discrepancy is zero. Its receipt is
+`data/provenance/hultgren_global_maize_market_sensitivity_validation_20260924.json`.
+Neither record authorizes the agriculture replacement, damage, or SCC gates.
+
 ### Price-basis convention validation (September15 amendment)
 
-The maize value proxy remains in source constant2014--2016USD; no empirical
-welfare calculation has been performed. A separate source-pinned registry
+The maize value proxy remains in source constant2014--2016USD; no primary
+country-market or SCC welfare calculation has been performed. The quarantined
+global-market sensitivity above remains in the source price basis. A separate source-pinned registry
 specifies a GDP-wide conversion to GIVE's USD2005 convention as
 87.504/mean(103.654,104.691,105.740)=0.8357992263240843, with87.504/104.691 as
 midpoint sensitivity. The values come from the U.S. column of

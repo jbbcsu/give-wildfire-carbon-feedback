@@ -131,6 +131,37 @@ The p01--p99 analogue retains only 6.3%--51.8% and changes the mean-log sign
 in three models. These results identify a plausible application boundary, but
 do not authorize it as the primary damage specification.
 
+The published study supplies a closer benchmark: its projection figures and
+tables winsorize log-yield impacts at the top and bottom 1% over region--GCM--
+years within RCP and crop. Applying that percentile rule to our different
+cell--ESM--year precipitation contrast bounds log responses at -0.652 and
++0.510. Only 0.25%--1.39% of baseline value weight is affected by model, yet
+the cell-first fixed-price output changes become negative in all five models:
+-2.42%, -2.33%, -0.61%, -0.46%, and -0.93%. On the matched US$140.673 billion
+baseline, these correspond to static-price gross-output exposures of
+-US$3.40, -US$3.27, -US$0.85, -US$0.65, and -US$1.31 billion. They are not an
+exact replication because our units, ensemble, and precipitation-only contrast
+differ; they are also not market welfare, marginal pulse damages, or SCC.
+
+As a deliberately quarantined bridge from yield to markets, we next pass the
+winsorized cell responses through a single, fully anticipated global maize
+market. Under the central published elasticity pair (supply 0.10, absolute
+demand 0.04) and the horizontal-output mapping, the fixed-adaptation mean
+annual damage-signed surplus changes are US$3.52, US$3.46, US$1.04, US$0.86,
+and US$1.44 billion for GFDL, IPSL, MPI, MRI, and UKESM, respectively (five-
+model mean US$2.06 billion, constant 2014--2016 dollars). Across all three
+published elasticity pairs and two explicit productivity-to-supply mappings,
+the fixed-adaptation range is US$0.22--4.03 billion. Trend adaptation changes
+the central five-model mean to US$0.57 billion (full structural range
+-US$1.03--2.06 billion), while upper adaptation changes it to -US$1.31 billion
+(range -US$2.74 to -0.21 billion). Negative damage-signed values are modeled
+benefits. Because adaptation attenuates losses but not gains and has no cost,
+these scenarios are sensitivity bounds, not estimated adaptation welfare.
+The calculation also omits country markets, expectations, storage, trade,
+other crops, and a marginal emissions pulse. We therefore label it a
+structural market sensitivity—not a primary damage estimate or SCC—and do not
+pass it into GIVE.
+
 ![Five-ESM production-weighted precipitation-response decomposition](figures/hultgren_five_esm_production_weighted_decomposition_20260924.svg)
 
 **Figure 3b. Fixed-production-weight sensitivity.** Published maize response
@@ -144,6 +175,14 @@ are scenario-response transports, not monetary damages or SCC.
 1999--2001 FAOSTAT maize gross production value is allocated across matched
 cells by fixed MapSPAM production. Bars show transforms of weighted mean log
 responses; they are not fixed-price output changes, welfare damages, or SCC.
+
+![Published-style tail sensitivity for fixed-price output exposure](figures/hultgren_five_esm_winsorization_gate_20260924.svg)
+
+**Figure 3d. Why a response-domain rule is required.** Unrestricted cell-first
+level aggregation is dominated by extreme positive extrapolations. An
+analogous implementation of the paper's top/bottom 1% log-impact winsorization
+restores negative fixed-price gross-output exposure in all five models. The
+blue bars remain accounting exposures, not welfare damage or SCC.
 
 Exact samples, contrasts, uncertainty and remaining claim restrictions are in
 the linked results records and `RESULTS_STATUS.md`. Historical associations,
@@ -1795,6 +1834,9 @@ losses before it is combined with SCC results.
 | Figure 1 | Climate-to-crop-to-welfare-to-SCC architecture and exclusion boundaries |
 | Figure 2 | Crop-calendar feature maps and baseline coverage |
 | Figure 3 | Five-ESM published-response quantity/distribution benchmark |
+| Figure 3b | Fixed-production-weight sensitivity |
+| Figure 3c | Conditional baseline-value-weight sensitivity |
+| Figure 3d | Unrestricted versus published-style tail treatment |
 | Figure 4 | Global agricultural SCC distributions by adaptation scenario |
 | Figure 5 | Uncertainty/decomposition and sensitivity results |
 | Table 1 | Data sources, versions, licenses, coverage, and roles |

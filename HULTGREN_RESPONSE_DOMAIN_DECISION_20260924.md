@@ -20,16 +20,22 @@ A post hoc joint weather screen does:
 The p01--p99 restriction is too selective to represent global maize exposure.
 The unrestricted calculation fails the level-aggregation plausibility gate.
 
+## Published rule located
+
+The published Methods SI states that its projection figures and tables
+winsorize projected log-yield impacts at the top and bottom 1% over region--
+GCM--years by RCP and crop. An analogous application to our five-model cell-
+year precipitation responses affects only 0.25%--1.39% of value weight and
+restores negative cell-first fixed-price output changes in all five models.
+
 ## Recommended decision
 
-Use the author minimum--maximum joint weather domain as a **bounded-support
-sensitivity and interim monetization benchmark**, not yet as the final primary
-specification. Report model-specific retained baseline value and do not scale
-the supported result to excluded cells. In parallel, inspect the published
-application code or obtain author clarification about their future-weather
-extrapolation, capping, or support rule. Promote the boundary to primary only
-if it matches a published rule or survives a preregistered comparison with a
-smooth bounded-response alternative.
+Use the published-style 1% log-impact winsorization as the **primary interim
+tail benchmark**, with the joint author minimum--maximum weather domain as a
+bounded-support sensitivity. Do not call the 1% calculation an exact
+replication because our units and ensemble differ. Report uncapped tails and
+model-specific affected value alongside it. Continue seeking the exact
+projection implementation or author clarification before final publication.
 
 ## Alternatives
 
@@ -47,3 +53,15 @@ smooth bounded-response alternative.
 No current option authorizes a GIVE SCC result. The next monetary calculation
 must also specify prices/market welfare, other crops, coverage, adaptation
 costs, and a marginal emissions-pulse climate path.
+
+## Subsequent bounded market sensitivity
+
+The next bridge has been executed only as a quarantined, fully anticipated
+single-global-maize-market sensitivity. The central fixed-adaptation five-
+model mean is US$2.064 billion per year in damage-signed surplus change, with
+US$0.220--4.034 billion spanning all model, elasticity, and supply-mapping
+cases. Trend and upper adaptation can produce modeled benefits because losses
+alone are attenuated and adaptation is costless. This does not resolve the
+decision: country markets, expectations, storage, other crops, adaptation
+costs, and a marginal emissions pulse remain absent, so the result is not
+authorized as damage or SCC and is not passed to GIVE.

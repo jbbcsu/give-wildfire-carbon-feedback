@@ -28,6 +28,7 @@ def main() -> None:
     parser.add_argument("--weight-unit", default="mt")
     parser.add_argument("--output-tag", default="production_weighted")
     parser.add_argument("--weather-support", choices=("full", "author_minmax", "author_p01_p99"), default="full")
+    parser.add_argument("--cell-output-directory", type=Path)
     parser.add_argument("--output-directory", type=Path, required=True)
     args = parser.parse_args()
     args.output_directory.mkdir(parents=True, exist_ok=True)
@@ -71,6 +72,11 @@ def main() -> None:
             "--analysis-weight-unit", args.weight_unit,
             "--output", str(output),
         ])
+        if args.cell_output_directory is not None:
+            args.cell_output_directory.mkdir(parents=True, exist_ok=True)
+            cell_output = args.cell_output_directory / f"{stem}_{args.output_tag}_cells_20260924.parquet"
+            require(not cell_output.exists(), f"fresh cell output required: {cell_output}")
+            command.extend(["--cell-output", str(cell_output)])
         subprocess.run(command, cwd=ROOT, env=environment, check=True)
         outputs.append(str(output))
     print(json.dumps({"status": "complete", "outputs": outputs}, indent=2))
