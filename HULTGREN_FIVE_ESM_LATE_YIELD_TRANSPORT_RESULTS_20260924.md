@@ -228,5 +228,15 @@ publication-ready evidence pending a common-price alternative. No country is
 deleted or capped. Production-weighted yield results are unaffected. See
 `data/provenance/faostat_maize_value_plausibility_audit_20260924.json`.
 
+The registered current-USD/GDP-deflator alternative retains 108 countries and
+US$95.451 billion on response support. Under the central fixed national-
+market case, its five ESM values are US$3.909, US$2.866, US$1.999, US$1.520,
+and US$2.011 billion; all are damage-positive and their mean is US$2.461
+billion. The full fixed range is US$0.123--5.985 billion. This is 56.6% below
+the flagged-field central mean, demonstrating magnitude sensitivity alongside
+fixed-case sign robustness. An independent audit reconstructs all 810 records
+with zero discrepancy. The result remains a structural sensitivity, not GIVE
+damage or SCC.
+
 Machine-readable results are under `data/provenance/`, including
 `hultgren_five_esm_grid_yield_transport_summary_20260924.json`.

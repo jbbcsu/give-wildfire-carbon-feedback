@@ -190,6 +190,19 @@ price construction is verified and a common-price alternative is run. No
 country is silently deleted, capped, or reassigned. The production-weighted
 yield-response results are unaffected.
 
+The preregistered common-price sensitivity now provides a robustness result,
+not a primary calibration. Requiring complete 1999--2001 current-USD values
+and GDP-deflator rebasing retains 108 countries and US$95.451 billion on the
+response support. Under the central fixed-adaptation case, the five ESM
+results are US$3.91, US$2.87, US$2.00, US$1.52, and US$2.01 billion; their mean
+is US$2.46 billion, compared with US$5.68 billion under the flagged source
+field. All five remain damage-positive. The full fixed structural range is
+US$0.12--5.99 billion; trend and upper central means are US$0.99 and
+-US$0.58 billion. This establishes price-basis sensitivity and fixed-case
+sign robustness only. The GDP-wide deflator is not a farm-gate index, country
+support changes, and all expectations/storage, crop-coverage, adaptation-
+cost, and marginal-pulse gaps remain.
+
 ![Five-ESM production-weighted precipitation-response decomposition](figures/hultgren_five_esm_production_weighted_decomposition_20260924.svg)
 
 **Figure 3b. Fixed-production-weight sensitivity.** Published maize response

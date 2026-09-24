@@ -3450,6 +3450,26 @@ This is a weight-input sensitivity only. A U.S. GDP-wide deflator is not a
 farm-gate price index, and the reduced country support is not renormalized.
 No market, damage, or SCC result is yet reported from this alternative.
 
+We subsequently passed this alternative through the identical separate-
+country market sensitivity. Response arrays, scenario-specific winsorization,
+elasticities, supply mappings, and adaptation rules are unchanged. Intersection
+with response support leaves 108 countries and US$95.451 billion. Under the
+central 0.10/0.04 elasticity pair, horizontal-output mapping, and fixed
+adaptation, mean annual damage-signed surplus changes are US$3.909, US$2.866,
+US$1.999, US$1.520, and US$2.011 billion for GFDL, IPSL, MPI, MRI, and UKESM.
+The equal-model mean is US$2.461 billion and the full fixed structural range is
+US$0.123--5.985 billion. Trend adaptation has a central mean of US$0.989
+billion and full range -US$0.739--3.199 billion; upper adaptation has a central
+mean of -US$0.583 billion and range -US$1.988--0.622 billion.
+
+The calculation and independent zero-discrepancy 810-record audit are
+`data/provenance/hultgren_country_maize_market_current_rebased_sensitivity_20260924.json`
+and
+`data/provenance/hultgren_country_maize_market_current_rebased_sensitivity_validation_20260924.json`.
+This is evidence that the central fixed sign is robust to the registered price
+basis while the magnitude is not. It remains a structural sensitivity, not a
+published-calibrated welfare result, GIVE damage, or SCC.
+
 ### Price-basis convention validation (September15 amendment)
 
 The maize value proxy remains in source constant2014--2016USD; no published-

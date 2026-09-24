@@ -63,9 +63,10 @@ def damage_from_log_shift(value: np.ndarray, supply: float, demand: float, log_s
 def country_year_damage(
     frame: pd.DataFrame, baseline: pd.Series, response: np.ndarray,
     lower: float, upper: float, exponent: float, supply: float, demand: float,
+    value_column: str = VALUE_COLUMN,
 ) -> tuple[float, float, float]:
     capped = np.clip(response, lower, upper)
-    weighted_output = frame[VALUE_COLUMN].to_numpy(dtype=np.float64) * np.exp(exponent * capped)
+    weighted_output = frame[value_column].to_numpy(dtype=np.float64) * np.exp(exponent * capped)
     output = pd.Series(weighted_output, index=frame.index).groupby(frame["iso3"], sort=True).sum()
     aligned = baseline.loc[output.index]
     ratios = output.to_numpy(dtype=np.float64) / aligned.to_numpy(dtype=np.float64)
@@ -80,18 +81,22 @@ def main() -> None:
     parser.add_argument("--input", action="append", type=Path, required=True)
     parser.add_argument("--weights", type=Path, required=True)
     parser.add_argument("--weights-receipt", type=Path, required=True)
+    parser.add_argument("--value-column", default=VALUE_COLUMN)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     require(not args.output.exists(), "fresh output required")
 
     receipt = json.loads(args.weights_receipt.read_text(encoding="utf-8"))
-    require(receipt["schema"] == "hultgren_country_cell_maize_value_weights/v1", "weight schema differs")
+    require(receipt["schema"] in {
+        "hultgren_country_cell_maize_value_weights/v1",
+        "hultgren_country_cell_maize_value_weights_current_rebased/v1",
+    }, "weight schema differs")
     require(receipt["output"]["sha256"] == digest(args.weights), "weight hash differs")
     weights = pd.read_parquet(args.weights)
-    required_weights = {"iso3", "native_lat_index", "native_lon_index", VALUE_COLUMN}
+    required_weights = {"iso3", "native_lat_index", "native_lon_index", args.value_column}
     require(required_weights <= set(weights.columns), "weight columns differ")
     require(not weights.duplicated(["iso3", "native_lat_index", "native_lon_index"]).any(), "duplicate country-cell weights")
-    require(weights[VALUE_COLUMN].gt(0.0).all(), "nonpositive weights")
+    require(weights[args.value_column].gt(0.0).all(), "nonpositive weights")
 
     frames: dict[str, pd.DataFrame] = {}
     sources = []
@@ -115,7 +120,7 @@ def main() -> None:
         counts = merged.groupby(["iso3", "native_lat_index", "native_lon_index"])["harvest_year"].nunique()
         require(counts.eq(9).all(), f"unbalanced country-cell years: {model}")
         support = merged.drop_duplicates(["iso3", "native_lat_index", "native_lon_index"])
-        baseline = support.groupby("iso3", sort=True)[VALUE_COLUMN].sum()
+        baseline = support.groupby("iso3", sort=True)[args.value_column].sum()
         require((baseline > 0.0).all(), f"invalid country baseline: {model}")
         joined[model] = merged
         baselines[model] = baseline
@@ -148,7 +153,7 @@ def main() -> None:
                         mask = years == year
                         damage, minimum_ratio, maximum_ratio = country_year_damage(
                             merged.loc[mask], baselines[model], joined_adapted[model][mask],
-                            float(lower), float(upper), exponent, supply, demand,
+                            float(lower), float(upper), exponent, supply, demand, args.value_column,
                         )
                         annual.append({
                             "harvest_year": int(year), "damage_change": damage,
@@ -179,7 +184,8 @@ def main() -> None:
         "sources": sources,
         "weights": {"path": str(args.weights), "sha256": digest(args.weights), "receipt": str(args.weights_receipt), "receipt_sha256": digest(args.weights_receipt)},
         "market": "separate fully anticipated frictionless national maize markets; no expectations, unexpected weather, storage, trade, other crops, or marginal emissions pulse",
-        "baseline_value_unit": "constant_2014_2016_usd",
+        "baseline_value_unit": receipt.get("units", "constant_2014_2016_usd"),
+        "value_column": args.value_column,
         "represented_country_count": len(reference),
         "represented_baseline_value": float(reference.sum()),
         "elasticities": [{"id": i, "supply": s, "demand_magnitude": d, "central": c} for i, s, d, c in ELASTICITIES],

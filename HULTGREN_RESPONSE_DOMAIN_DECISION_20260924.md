@@ -81,3 +81,10 @@ precedes any tail-rule decision for monetary use. Venezuela accounts for
 value-weighted dollar and market-surplus magnitudes remain conditional
 diagnostics, not publication-ready evidence, until a common-price alternative
 is implemented. Production-weighted response signs are unaffected.
+
+The registered current-USD/GDP-deflator sensitivity has now been implemented.
+Its central fixed national-market five-model mean is US$2.461 billion, 56.6%
+below the flagged-field mean, while all five ESMs remain damage-positive. This
+supports a robust fixed-case sign but not a stable magnitude or primary
+welfare calibration; all remaining market, coverage, adaptation-cost, and
+marginal-pulse gates still apply.

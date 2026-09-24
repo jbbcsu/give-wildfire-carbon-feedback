@@ -43,10 +43,12 @@ def main() -> None:
     if result["claim_gates"]["damage_or_scc"] or result["claim_gates"]["agriculture_replacement"]:
         raise AssertionError("claim gate promoted")
 
+    value_column = result.get("value_column", VALUE)
+
     weight_path = Path(result["weights"]["path"])
     if digest(weight_path) != result["weights"]["sha256"]:
         raise AssertionError("weight hash differs")
-    weights = pd.read_parquet(weight_path, columns=["iso3", "native_lat_index", "native_lon_index", VALUE])
+    weights = pd.read_parquet(weight_path, columns=["iso3", "native_lat_index", "native_lon_index", value_column])
     frames: dict[str, pd.DataFrame] = {}
     joined: dict[str, pd.DataFrame] = {}
     baselines: dict[str, pd.Series] = {}
@@ -60,7 +62,7 @@ def main() -> None:
             raise AssertionError(f"source identity differs: {path}")
         merged = frame.merge(weights, on=["native_lat_index", "native_lon_index"], how="inner", validate="many_to_many")
         support = merged.drop_duplicates(["iso3", "native_lat_index", "native_lon_index"])
-        baseline = support.groupby("iso3", sort=True)[VALUE].sum()
+        baseline = support.groupby("iso3", sort=True)[value_column].sum()
         frames[model], joined[model], baselines[model] = frame, merged, baseline
     if len(frames) != 5:
         raise AssertionError("five models required")
@@ -100,7 +102,7 @@ def main() -> None:
                 subset = merged.loc[mask]
                 response = np.clip(joined_adapted[model][mask], lower, upper)
                 output = pd.Series(
-                    subset[VALUE].to_numpy(dtype=np.float64) * np.exp(exponent * response), index=subset.index
+                    subset[value_column].to_numpy(dtype=np.float64) * np.exp(exponent * response), index=subset.index
                 ).groupby(subset["iso3"], sort=True).sum()
                 aligned = baseline.loc[output.index]
                 ratios = output.to_numpy(dtype=np.float64) / aligned.to_numpy(dtype=np.float64)

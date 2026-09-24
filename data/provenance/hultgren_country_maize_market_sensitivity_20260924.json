@@ -6,7 +6,7 @@
     "paper_welfare_replication": false,
     "structural_market_sensitivity": true
   },
-  "created_at_utc": "2026-09-24T17:07:36.149372+00:00",
+  "created_at_utc": "2026-09-24T17:24:35.342749+00:00",
   "elasticities": [
     {
       "central": false,
@@ -29,7 +29,7 @@
   ],
   "implementation": {
     "path": "scripts/build_hultgren_country_market_welfare_sensitivity.py",
-    "sha256": "6408c99649370636c5b8ce767a4568b8fbb38adaeb206eba1b65d4b0b94690c7"
+    "sha256": "b494f5174c68e78102ce566995876691c6f692e877dde83807456937f1ae6f50"
   },
   "interpretation": "descriptive late-century SSP585-minus-SSP126 country-maize-market sensitivity; not published welfare replication, marginal pulse damage, GIVE damage, or SCC",
   "market": "separate fully anticipated frictionless national maize markets; no expectations, unexpected weather, storage, trade, other crops, or marginal emissions pulse",
@@ -7046,6 +7046,7 @@
     }
   ],
   "status": "structural_country_market_sensitivity_not_primary_welfare_damage_or_scc",
+  "value_column": "maize_gross_production_value_constant_2014_2016_usd",
   "weights": {
     "path": "data/interim/hultgren_country_cell_maize_value_weights_20260924.parquet",
     "receipt": "data/provenance/hultgren_country_cell_maize_value_weights_20260924.json",

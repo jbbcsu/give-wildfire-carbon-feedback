@@ -13,7 +13,10 @@ alternative is run. See
 The registered complete-current-USD sensitivity has now produced an input
 only: 110 matched countries, 97.882% of MapSPAM maize production, and
 US$97.272 billion after annual GDP-deflator rebasing to the mean 2014--2016
-level. It is not yet a market or SCC result.
+level. Its separate-country market sensitivity leaves 108 countries and
+US$95.451 billion on response support; the central fixed five-model mean is
+US$2.461 billion, with all five ESMs damage-positive. This is a named
+price-basis sensitivity, not primary welfare damage or SCC.
 
 Use MapSPAM 2000 v3.0.7 production as a **modeled fixed spatial allocation**
 for maize and soybean, and FAOSTAT gross production value as a **national

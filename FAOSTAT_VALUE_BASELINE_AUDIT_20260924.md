@@ -54,6 +54,16 @@ prices or authorize the alternative as the primary welfare calibration.
 Receipt:
 `data/provenance/hultgren_country_cell_maize_value_weights_current_rebased_20260924.json`.
 
+Passing the alternative through the same national-market sensitivity leaves
+108 countries and US$95.451 billion on response support. The central fixed-
+adaptation ESM results are US$3.909, US$2.866, US$1.999, US$1.520, and
+US$2.011 billion, with a five-model mean of US$2.461 billion. All five remain
+damage-positive, but the mean is 56.6% below the US$5.676 billion obtained
+from the flagged constant-dollar field. The full fixed structural range is
+US$0.123--5.985 billion. This supports fixed-case sign robustness while
+confirming that magnitude is highly price-basis-sensitive. The alternative
+remains a structural sensitivity, not primary welfare damage or SCC.
+
 Machine-readable audit:
 `data/provenance/faostat_maize_value_plausibility_audit_20260924.json`.
 The country/FUND diagnostic that exposed the issue and its independent
