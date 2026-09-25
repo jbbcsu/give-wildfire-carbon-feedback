@@ -798,6 +798,29 @@ solves by reduced QR, and separately forms the county-cluster sandwich. All
 fields agree within a maximum absolute difference of `1.04e-13` against a registered
 `1e-10` tolerance.
 
+### Exploratory all-classes-wheat PDSI sensitivity
+
+All-classes wheat is the only additional acquired NASS outcome with paired
+reported irrigated and non-irrigated yields. The protocol freezes independent
+2009 state harvested-area shares for winter, spring, and durum wheat from the
+official NASS calendar table, normalizes them within state, and uses them to
+combine fixed-primary crop-season PDSI candidates. The same shares apply to
+all counties, years, and practices. Every positive-weight class must have one
+candidate feature; missing or duplicate candidates fail closed.
+
+Separate irrigated, non-irrigated, and exact within-county/year log-yield-gap
+models absorb county and state-by-year fixed effects. Linear and quadratic
+PDSI forms are both prespecified, with county-clustered CR1 covariance. The
+retained support is 9,513 paired county-years in 631 counties and 14 states
+during 1981--2007. The implementation verifies the algebraic equality between
+the gap coefficient and the difference of practice-specific coefficients,
+refits the linear gap after each state deletion, and is independently
+reconstructed with a joint sparse design. The fixed 2009 state shares postdate
+the outcomes and do not measure county-year wheat composition, so the result
+is restricted to a retrospective historical measurement sensitivity. All
+causal, irrigation-treatment, national-representativeness, predictive, future,
+global-transfer, damage, and SCC gates remain false.
+
 ## S3. Crop-year alignment
 
 For every grid cell, crop, season, irrigation regime, and harvest year, read
@@ -2574,6 +2597,24 @@ subset. GDHY is a modeled, observation-aligned gridded yield product rather
 than direct farm observations, and both later temporal transitions touch its
 unexplained 2015 support discontinuity. The two panels are therefore reported
 as predictive screening and sample-composition evidence only.
+
+The multicrop extension is pinned by
+`config/multicrop_rainfed_distribution_diagnostic_v1.lock.toml`. It reads
+positive observed GDHY rows separately for maize, first rice, second rice,
+soybean, spring wheat, and winter wheat from the hash-locked 1982--1989 rainfed
+stage panels. It constructs seasonal quantity and five nested distribution
+families: timing/concentration, wet-day occurrence/intensity, dry spells, wet
+extremes, and their union. Within-season windows are fixed at 0--30%, 30--70%,
+and 70--100% of each crop calendar and are timing proxies rather than observed
+phenological stages. Spatial labels are inherited from the existing
+`precipitation-scc-v1` panels; their seed differs from the nominal diagnostic
+seed, so the calculation audits the existing folds rather than claiming a new
+randomization. Temporal and wet-tail splits purge both yield endpoints from
+training. The completed calculation contains 368,022 positive levels, 321,620
+consecutive differences, and 126 crop-by-model-by-holdout results; every
+recorded endpoint-overlap count is zero. Coefficients are suppressed and the
+independent validator repeats the full calculation while holding causal,
+production-selection, response-draw, damage, and SCC gates false.
 
 When daily climate coverage crosses source-file boundaries, the builders take
 an ordered list of NetCDF inputs, require identical latitude/longitude grids and units,

@@ -1,0 +1,79 @@
+schema_version = 1
+diagnostic_contract_id = "gdhy_multicrop_rainfed_distribution_predictive_diagnostic_v1"
+spec_sha256 = "4b10f63deceec58b1792d519428b97f116ad1a6e916e085cdd47530f3b46115c"
+
+[source]
+panel_path = "data/interim/multicrop_noirr_1982_1989_stage_validation_panel.parquet"
+panel_sha256 = "61f168045a5f631042884c21f0381fab4f97d14b32c908f56312a941ffdef690"
+panel_audit_path = "outputs/multicrop_noirr_1982_1989_stage_panel_audit.json"
+panel_audit_sha256 = "3b8115f9b3cca5281b25ec0777820336cee5b1b35278d98debf579cff3f24e0b"
+expected_rows = 2944840
+expected_observed_outcomes = 368022
+expected_year_start = 1982
+expected_year_end = 1989
+expected_irrigation = "noirr"
+validation_design = "block=5;folds=5;temporal_last=2;q=0.95;seed=precipitation-scc-v1"
+
+[[crops]]
+crop = "mai"
+stage_panel_path = "data/interim/maize_noirr_1982_1989_stage_estimation_panel.parquet"
+stage_panel_sha256 = "933ece215169883af1ca0ff5cefd404523286da50aa7963c9ed445dcaced7049"
+label_panel_path = "data/interim/maize_noirr_1982_1989_estimation_panel_with_folds.parquet"
+label_panel_sha256 = "a0e77c590fbf14478d8a958ac0fb7f8504259d4ba93e3e72461e410a5b891691"
+expected_rows = 539360
+expected_observed_outcomes = 120325
+
+[[crops]]
+crop = "ri1"
+stage_panel_path = "data/interim/ri1_noirr_1982_1989_stage_estimation_panel.parquet"
+stage_panel_sha256 = "2461687e38f4436cc241138cb8251db01a969353484196df904bc930b493363d"
+label_panel_path = "data/interim/ri1_noirr_1982_1989_validation_panel.parquet"
+label_panel_sha256 = "531d30fbf61d9bd55c534c5152a4704305325a93e161ac1e83d2baa2619a6535"
+expected_rows = 539360
+expected_observed_outcomes = 76348
+
+[[crops]]
+crop = "ri2"
+stage_panel_path = "data/interim/ri2_noirr_1982_1989_stage_estimation_panel.parquet"
+stage_panel_sha256 = "ff4d2367574807ac5de122116170f629b07be8d7e65b4070d6dc808096f85e33"
+label_panel_path = "data/interim/ri2_noirr_1982_1989_validation_panel.parquet"
+label_panel_sha256 = "d0c587b54a7ee19a714bb18019990082e374a849efd27a418a5eccaa7bf4f5ae"
+expected_rows = 248040
+expected_observed_outcomes = 12694
+
+[[crops]]
+crop = "soy"
+stage_panel_path = "data/interim/soy_noirr_1982_1989_stage_estimation_panel.parquet"
+stage_panel_sha256 = "bb3ca6ebde97c52b526cb4b40e7eac7827d5470dbc82008dae5312358e2471e7"
+label_panel_path = "data/interim/soy_noirr_1982_1989_estimation_panel_with_folds.parquet"
+label_panel_sha256 = "6902216fa2cfdfd77cd48befe0a342216bb1362a57c69c12f4356c36f2c6d0fb"
+expected_rows = 539360
+expected_observed_outcomes = 48900
+
+[[crops]]
+crop = "swh"
+stage_panel_path = "data/interim/swh_noirr_1982_1989_stage_estimation_panel.parquet"
+stage_panel_sha256 = "83b5e77b0fdc7980370251e69a052b73e8769ac3ec82608219bdf7c226525b08"
+label_panel_path = "data/interim/swh_noirr_1982_1989_estimation_panel_with_folds.parquet"
+label_panel_sha256 = "aff144a17b2190476fb1e96ae1b17a87158a94336182773a39abaea67af024ea"
+expected_rows = 539360
+expected_observed_outcomes = 40977
+
+[[crops]]
+crop = "wwh"
+stage_panel_path = "data/interim/wwh_noirr_1982_1989_stage_estimation_panel.parquet"
+stage_panel_sha256 = "c7f0d4c87c3e05eae788a4c168e5429c5547b483ab808b8ebb72f4d7dfdd892b"
+label_panel_path = "data/interim/wwh_noirr_1982_1989_estimation_panel_with_folds.parquet"
+label_panel_sha256 = "ad8cbbe749ae83ae28b4da436c869f20b42a42c6f3010e74d54553ab984f73f2"
+expected_rows = 539360
+expected_observed_outcomes = 68778
+
+[boundary]
+source_artifacts_are_ignored = true
+observed_rows_only_in_memory = true
+held_out_predictive_fit_authorized = true
+coefficients_suppressed = true
+causal_interpretation_authorized = false
+production_model_selection_authorized = false
+response_draw_export_authorized = false
+scc_use_authorized = false

@@ -1291,6 +1291,19 @@ normal 95% intervals exclude zero for all three non-irrigated quantity
 contrasts and for the non-irrigated soybean timing contrast; this sampling
 uncertainty statement does not remove the design and transport limitations.
 
+An exploratory extension uses the only additional acquired paired-practice
+crop, all-classes wheat. Independent fixed 2009 state harvested-area shares
+combine winter, spring, and durum seasonal PDSI candidates before estimation.
+Across 9,513 paired county-years in 631 counties and 14 states (1981--2007), a
+one-unit increase in PDSI is associated with +3.60% [3.11, 4.10] reported
+non-irrigated yield and +0.31% [0.02, 0.60] reported irrigated yield; the exact
+paired irrigated/non-irrigated log-yield ratio changes by -3.18% [-3.65,
+-2.72]. The ratio coefficient remains negative after deleting each state in
+turn. Because the fixed class shares postdate the outcomes and do not observe
+county-year wheat composition, this is a retrospective measurement sensitivity,
+not causal, nationally representative, predictive, future, damage, or SCC
+evidence.
+
 The separate all-practice national weather route remains a construction
 diagnostic. It validates 932 of 2,628 county-weight receipts before failing
 closed at Trigg County, Kentucky, whose weather-valid area is 0.907267979 of
@@ -1400,6 +1413,21 @@ clear the registered retention gate for any distribution extension. It does
 not freeze a causal production model: PDSI/scPDSI, SPEI, and soil moisture
 remain competing moisture-stress families under the same holdouts, and no
 predictive ranking is an SCC result.
+
+A separate bounded 1982--1989 screen applies the same seven-family design to
+rainfed maize, first- and second-season rice, soybean, spring wheat, and winter
+wheat. The post hoc best of five distribution extensions improves
+seasonal-quantity RMSE in all 18 crop-by-holdout comparisons, but the identity
+of that best extension changes across holdouts. A fixed extension improves all
+three holdouts only for maize (all five extensions), spring wheat (dry spells),
+and winter wheat (occurrence/intensity and the full distribution set); no fixed
+extension does so for either rice season or soybean. The largest descriptive
+improvements occur for spring wheat (0.00305--0.00472 RMSE), while rice gains
+are small and unstable. The 126-result, endpoint-disjoint reconstruction
+passes its hash-locked numerical audit, but the eight-year GDHY outcome,
+calendar-fraction timing proxies, retrospective wet-tail split, and absence of
+paired uncertainty or multiplicity correction keep every response, damage,
+and SCC gate closed.
 
 All earlier rainfed-panel response rankings were generated under a superseded,
 endpoint-overlapping split and are excluded from current manuscript results.

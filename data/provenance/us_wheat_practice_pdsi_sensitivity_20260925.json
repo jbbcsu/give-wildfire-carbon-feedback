@@ -1,0 +1,616 @@
+{
+  "analysis_role": "regional_historical_association_only",
+  "causal_claim_authorized": false,
+  "damage_claim_authorized": false,
+  "estimates": [
+    {
+      "coefficients": [
+        {
+          "ci95_normal": [
+            0.00017962898598343708,
+            0.005933039742970759
+          ],
+          "estimate": 0.0030563343644770978,
+          "normal_approx_p_value": 0.03730708823529954,
+          "standard_error_cluster_county": 0.0014677068257620718,
+          "term": "pdsi"
+        }
+      ],
+      "counties": 631,
+      "covariance_cluster_county": [
+        [
+          2.1541633263885766e-06
+        ]
+      ],
+      "demeaning_final_max_change": 6.257470732050154e-11,
+      "demeaning_iterations": 20,
+      "form": "linear",
+      "outcome": "log_yield_irrigated",
+      "plus_one_pdsi_at_sample_median": {
+        "ci95_normal_log_scale": [
+          0.00017962898598343708,
+          0.005933039742970759
+        ],
+        "exact_percent_difference": 0.3061009716283576,
+        "log_yield_difference": 0.0030563343644770978,
+        "reference_pdsi": 0.198957492903033,
+        "standard_error_delta_log_scale": 0.0014677068257620718
+      },
+      "rank": 1,
+      "residual_rmse": 0.15840165572420623,
+      "rows": 9513,
+      "standardized_condition_number": 1.0,
+      "states": 14,
+      "within_r_squared": 0.0005432098461259915,
+      "year_max": 2007,
+      "year_min": 1981
+    },
+    {
+      "coefficients": [
+        {
+          "ci95_normal": [
+            0.030619866029275612,
+            0.0401933025865456
+          ],
+          "estimate": 0.035406584307910605,
+          "normal_approx_p_value": 1.25087392707956e-47,
+          "standard_error_cluster_county": 0.0024422032033852,
+          "term": "pdsi"
+        }
+      ],
+      "counties": 631,
+      "covariance_cluster_county": [
+        [
+          5.964356486624934e-06
+        ]
+      ],
+      "demeaning_final_max_change": 6.257470732050154e-11,
+      "demeaning_iterations": 20,
+      "form": "linear",
+      "outcome": "log_yield_non_irrigated",
+      "plus_one_pdsi_at_sample_median": {
+        "ci95_normal_log_scale": [
+          0.030619866029275612,
+          0.0401933025865456
+        ],
+        "exact_percent_difference": 3.6040861133347453,
+        "log_yield_difference": 0.035406584307910605,
+        "reference_pdsi": 0.198957492903033,
+        "standard_error_delta_log_scale": 0.0024422032033852
+      },
+      "rank": 1,
+      "residual_rmse": 0.21170697689544238,
+      "rows": 9513,
+      "standardized_condition_number": 1.0,
+      "states": 14,
+      "within_r_squared": 0.03923174998318868,
+      "year_max": 2007,
+      "year_min": 1981
+    },
+    {
+      "coefficients": [
+        {
+          "ci95_normal": [
+            -0.03715019162830301,
+            -0.027550308258563964
+          ],
+          "estimate": -0.03235024994343349,
+          "normal_approx_p_value": 7.698188519372377e-40,
+          "standard_error_cluster_county": 0.0024489498392191457,
+          "term": "pdsi"
+        }
+      ],
+      "counties": 631,
+      "covariance_cluster_county": [
+        [
+          5.99735531501148e-06
+        ]
+      ],
+      "demeaning_final_max_change": 6.257470732050154e-11,
+      "demeaning_iterations": 20,
+      "form": "linear",
+      "outcome": "log_yield_gap",
+      "plus_one_pdsi_at_sample_median": {
+        "ci95_normal_log_scale": [
+          -0.03715019162830301,
+          -0.027550308258563964
+        ],
+        "exact_percent_difference": -3.1832577897542076,
+        "log_yield_difference": -0.03235024994343349,
+        "reference_pdsi": 0.198957492903033,
+        "standard_error_delta_log_scale": 0.0024489498392191457
+      },
+      "rank": 1,
+      "residual_rmse": 0.22477280796282226,
+      "rows": 9513,
+      "standardized_condition_number": 1.0,
+      "states": 14,
+      "within_r_squared": 0.029352860651199797,
+      "year_max": 2007,
+      "year_min": 1981
+    },
+    {
+      "coefficients": [
+        {
+          "ci95_normal": [
+            0.0018943790926293767,
+            0.00850076064690362
+          ],
+          "estimate": 0.005197569869766498,
+          "normal_approx_p_value": 0.0020419674246005782,
+          "standard_error_cluster_county": 0.0016853014169066949,
+          "term": "pdsi"
+        },
+        {
+          "ci95_normal": [
+            -0.0020977698428907357,
+            -0.0006312262307241821
+          ],
+          "estimate": -0.0013644980368074588,
+          "normal_approx_p_value": 0.0002650752800815041,
+          "standard_error_cluster_county": 0.00037411826840983505,
+          "term": "pdsi_squared"
+        }
+      ],
+      "counties": 631,
+      "covariance_cluster_county": [
+        [
+          2.8402408658277136e-06,
+          -3.243141203564806e-07
+        ],
+        [
+          -3.2431412035648074e-07,
+          1.399644787579734e-07
+        ]
+      ],
+      "demeaning_final_max_change": 8.480681010055657e-11,
+      "demeaning_iterations": 21,
+      "form": "quadratic",
+      "outcome": "log_yield_irrigated",
+      "plus_one_pdsi_at_sample_median": {
+        "ci95_normal_log_scale": [
+          0.00037832826666818605,
+          0.0062019069653526035
+        ],
+        "exact_percent_difference": 0.3295535993711013,
+        "log_yield_difference": 0.003290117616010395,
+        "reference_pdsi": 0.198957492903033,
+        "standard_error_delta_log_scale": 0.001485606810888882
+      },
+      "rank": 2,
+      "residual_rmse": 0.15827185493429968,
+      "rows": 9513,
+      "standardized_condition_number": 1.48188499117181,
+      "states": 14,
+      "within_r_squared": 0.0021805302024029416,
+      "year_max": 2007,
+      "year_min": 1981
+    },
+    {
+      "coefficients": [
+        {
+          "ci95_normal": [
+            0.0383795919882213,
+            0.05026428290113759
+          ],
+          "estimate": 0.044321937444679445,
+          "normal_approx_p_value": 2.1257777695881682e-48,
+          "standard_error_cluster_county": 0.003031808906356194,
+          "term": "pdsi"
+        },
+        {
+          "ci95_normal": [
+            -0.007017353821597001,
+            -0.004345228035948017
+          ],
+          "estimate": -0.005681290928772509,
+          "normal_approx_p_value": 7.786870237958568e-17,
+          "standard_error_cluster_county": 0.0006816647412369855,
+          "term": "pdsi_squared"
+        }
+      ],
+      "counties": 631,
+      "covariance_cluster_county": [
+        [
+          9.191865244660742e-06,
+          -1.4800669142342407e-06
+        ],
+        [
+          -1.4800669142342403e-06,
+          4.6466681944568644e-07
+        ]
+      ],
+      "demeaning_final_max_change": 8.480681010055657e-11,
+      "demeaning_iterations": 21,
+      "form": "quadratic",
+      "outcome": "log_yield_non_irrigated",
+      "plus_one_pdsi_at_sample_median": {
+        "ci95_normal_log_scale": [
+          0.03159424887062906,
+          0.04116570256261952
+        ],
+        "exact_percent_difference": 3.7049825385553015,
+        "log_yield_difference": 0.03637997571662429,
+        "reference_pdsi": 0.198957492903033,
+        "standard_error_delta_log_scale": 0.0024416973704057283
+      },
+      "rank": 2,
+      "residual_rmse": 0.21001728034148823,
+      "rows": 9513,
+      "standardized_condition_number": 1.48188499117181,
+      "states": 14,
+      "within_r_squared": 0.054506904140774526,
+      "year_max": 2007,
+      "year_min": 1981
+    },
+    {
+      "coefficients": [
+        {
+          "ci95_normal": [
+            -0.044832741085560325,
+            -0.033415994064265576
+          ],
+          "estimate": -0.03912436757491295,
+          "normal_approx_p_value": 3.844906597063246e-41,
+          "standard_error_cluster_county": 0.0029124354646160072,
+          "term": "pdsi"
+        },
+        {
+          "ci95_normal": [
+            0.002979728174283489,
+            0.005653857609646616
+          ],
+          "estimate": 0.004316792891965053,
+          "normal_approx_p_value": 2.4839701185027664e-10,
+          "standard_error_cluster_county": 0.0006821758763681448,
+          "term": "pdsi_squared"
+        }
+      ],
+      "counties": 631,
+      "covariance_cluster_county": [
+        [
+          8.482280335553058e-06,
+          -1.2357986990112993e-06
+        ],
+        [
+          -1.2357986990112996e-06,
+          4.653639262986463e-07
+        ]
+      ],
+      "demeaning_final_max_change": 8.480681010055657e-11,
+      "demeaning_iterations": 21,
+      "form": "quadratic",
+      "outcome": "log_yield_gap",
+      "plus_one_pdsi_at_sample_median": {
+        "ci95_normal_log_scale": [
+          -0.037865423661188204,
+          -0.028314292540039594
+        ],
+        "exact_percent_difference": -3.2548377682135845,
+        "log_yield_difference": -0.0330898581006139,
+        "reference_pdsi": 0.198957492903033,
+        "standard_error_delta_log_scale": 0.002436513041109338
+      },
+      "rank": 2,
+      "residual_rmse": 0.22385578815851634,
+      "rows": 9513,
+      "standardized_condition_number": 1.48188499117181,
+      "states": 14,
+      "within_r_squared": 0.03725672548129699,
+      "year_max": 2007,
+      "year_min": 1981
+    }
+  ],
+  "fixed_state_wheat_class_weights": [
+    {
+      "calendar_crop": "durum_wheat",
+      "class_weight": 0.35051546391752575,
+      "published_harvested_acres_2009_thousand": 170.0,
+      "state": "CA"
+    },
+    {
+      "calendar_crop": "winter_wheat",
+      "class_weight": 0.6494845360824743,
+      "published_harvested_acres_2009_thousand": 315.0,
+      "state": "CA"
+    },
+    {
+      "calendar_crop": "spring_wheat",
+      "class_weight": 0.011698265429608713,
+      "published_harvested_acres_2009_thousand": 29.0,
+      "state": "CO"
+    },
+    {
+      "calendar_crop": "winter_wheat",
+      "class_weight": 0.9883017345703913,
+      "published_harvested_acres_2009_thousand": 2450.0,
+      "state": "CO"
+    },
+    {
+      "calendar_crop": "durum_wheat",
+      "class_weight": 0.016,
+      "published_harvested_acres_2009_thousand": 20.0,
+      "state": "ID"
+    },
+    {
+      "calendar_crop": "spring_wheat",
+      "class_weight": 0.424,
+      "published_harvested_acres_2009_thousand": 530.0,
+      "state": "ID"
+    },
+    {
+      "calendar_crop": "winter_wheat",
+      "class_weight": 0.56,
+      "published_harvested_acres_2009_thousand": 700.0,
+      "state": "ID"
+    },
+    {
+      "calendar_crop": "winter_wheat",
+      "class_weight": 1.0,
+      "published_harvested_acres_2009_thousand": 8800.0,
+      "state": "KS"
+    },
+    {
+      "calendar_crop": "durum_wheat",
+      "class_weight": 0.10084825636192271,
+      "published_harvested_acres_2009_thousand": 535.0,
+      "state": "MT"
+    },
+    {
+      "calendar_crop": "spring_wheat",
+      "class_weight": 0.4429783223374175,
+      "published_harvested_acres_2009_thousand": 2350.0,
+      "state": "MT"
+    },
+    {
+      "calendar_crop": "winter_wheat",
+      "class_weight": 0.45617342130065974,
+      "published_harvested_acres_2009_thousand": 2420.0,
+      "state": "MT"
+    },
+    {
+      "calendar_crop": "durum_wheat",
+      "class_weight": 0.1865715983363042,
+      "published_harvested_acres_2009_thousand": 1570.0,
+      "state": "ND"
+    },
+    {
+      "calendar_crop": "spring_wheat",
+      "class_weight": 0.7486631016042781,
+      "published_harvested_acres_2009_thousand": 6300.0,
+      "state": "ND"
+    },
+    {
+      "calendar_crop": "winter_wheat",
+      "class_weight": 0.0647653000594177,
+      "published_harvested_acres_2009_thousand": 545.0,
+      "state": "ND"
+    },
+    {
+      "calendar_crop": "winter_wheat",
+      "class_weight": 1.0,
+      "published_harvested_acres_2009_thousand": 1600.0,
+      "state": "NE"
+    },
+    {
+      "calendar_crop": "winter_wheat",
+      "class_weight": 1.0,
+      "published_harvested_acres_2009_thousand": 140.0,
+      "state": "NM"
+    },
+    {
+      "calendar_crop": "winter_wheat",
+      "class_weight": 1.0,
+      "published_harvested_acres_2009_thousand": 3500.0,
+      "state": "OK"
+    },
+    {
+      "calendar_crop": "spring_wheat",
+      "class_weight": 0.14481185860889395,
+      "published_harvested_acres_2009_thousand": 127.0,
+      "state": "OR"
+    },
+    {
+      "calendar_crop": "winter_wheat",
+      "class_weight": 0.855188141391106,
+      "published_harvested_acres_2009_thousand": 750.0,
+      "state": "OR"
+    },
+    {
+      "calendar_crop": "winter_wheat",
+      "class_weight": 1.0,
+      "published_harvested_acres_2009_thousand": 2450.0,
+      "state": "TX"
+    },
+    {
+      "calendar_crop": "spring_wheat",
+      "class_weight": 0.08163265306122448,
+      "published_harvested_acres_2009_thousand": 12.0,
+      "state": "UT"
+    },
+    {
+      "calendar_crop": "winter_wheat",
+      "class_weight": 0.9183673469387755,
+      "published_harvested_acres_2009_thousand": 135.0,
+      "state": "UT"
+    },
+    {
+      "calendar_crop": "spring_wheat",
+      "class_weight": 0.26292134831460673,
+      "published_harvested_acres_2009_thousand": 585.0,
+      "state": "WA"
+    },
+    {
+      "calendar_crop": "winter_wheat",
+      "class_weight": 0.7370786516853932,
+      "published_harvested_acres_2009_thousand": 1640.0,
+      "state": "WA"
+    },
+    {
+      "calendar_crop": "winter_wheat",
+      "class_weight": 1.0,
+      "published_harvested_acres_2009_thousand": 132.0,
+      "state": "WY"
+    }
+  ],
+  "future_drought_claim_authorized": false,
+  "global_transfer_authorized": false,
+  "inputs": {
+    "calendar_definitions": {
+      "path": "config/us_county_nass_usual_date_definitions_2010.csv",
+      "sha256": "f731e8e357f6466d61b164e6184d08a4b525b28b94579c93ba731d314b5b3810"
+    },
+    "implementation": {
+      "path": "us_county_validation/scripts/estimate_wheat_practice_pdsi_sensitivity.py",
+      "sha256": "ef96d432b9a66e14cf41a4923d3332a826815faa58d96c6ad9b37f2f656d0faa"
+    },
+    "joined_panel": {
+      "path": "data/interim/us_county/nass_direct_practice_pdsi_join_1981_2019.parquet",
+      "sha256": "70237da1bc759144cbc9adaaab4f0c30f805f5deb526683a60edc75d84e971a6"
+    },
+    "protocol": {
+      "path": "US_WHEAT_PRACTICE_PDSI_PROTOCOL_20260925.md",
+      "sha256": "b574d8d611dca07f052d7a86750036a698b50c2ae99a512db0ef6c3156ae9dec"
+    }
+  },
+  "irrigation_treatment_claim_authorized": false,
+  "limitations": [
+    "all-classes wheat is combined with fixed 2009 state harvested-acre shares rather than observed county-year class composition",
+    "paired NASS support is regionally selected and ends in 2007",
+    "NOAA PDSI combines precipitation and temperature-driven water balance",
+    "fixed usual-date seasons do not observe annual phenology",
+    "county-cluster normal intervals do not address wider spatial dependence or model selection"
+  ],
+  "linear_gap_leave_one_state_out": {
+    "full_sample_pdsi_coefficient": -0.03235024994343349,
+    "maximum": -0.027909448753422945,
+    "minimum": -0.03463482492848932,
+    "omission_count": 14,
+    "omissions": [
+      {
+        "counties": 593,
+        "omitted_state": "CA",
+        "pdsi_coefficient": -0.03463482492848932,
+        "rows": 8844,
+        "same_nonzero_sign_as_full": true
+      },
+      {
+        "counties": 595,
+        "omitted_state": "CO",
+        "pdsi_coefficient": -0.03132182798105208,
+        "rows": 8919,
+        "same_nonzero_sign_as_full": true
+      },
+      {
+        "counties": 595,
+        "omitted_state": "ID",
+        "pdsi_coefficient": -0.03305572212144473,
+        "rows": 8910,
+        "same_nonzero_sign_as_full": true
+      },
+      {
+        "counties": 565,
+        "omitted_state": "KS",
+        "pdsi_coefficient": -0.033607946858085755,
+        "rows": 8092,
+        "same_nonzero_sign_as_full": true
+      },
+      {
+        "counties": 578,
+        "omitted_state": "MT",
+        "pdsi_coefficient": -0.027909448753422945,
+        "rows": 8534,
+        "same_nonzero_sign_as_full": true
+      },
+      {
+        "counties": 592,
+        "omitted_state": "ND",
+        "pdsi_coefficient": -0.03205140724126648,
+        "rows": 9040,
+        "same_nonzero_sign_as_full": true
+      },
+      {
+        "counties": 546,
+        "omitted_state": "NE",
+        "pdsi_coefficient": -0.03322434422084865,
+        "rows": 8252,
+        "same_nonzero_sign_as_full": true
+      },
+      {
+        "counties": 611,
+        "omitted_state": "NM",
+        "pdsi_coefficient": -0.03250169464628611,
+        "rows": 9316,
+        "same_nonzero_sign_as_full": true
+      },
+      {
+        "counties": 587,
+        "omitted_state": "OK",
+        "pdsi_coefficient": -0.033231743301923314,
+        "rows": 9016,
+        "same_nonzero_sign_as_full": true
+      },
+      {
+        "counties": 600,
+        "omitted_state": "OR",
+        "pdsi_coefficient": -0.031805259895173764,
+        "rows": 8977,
+        "same_nonzero_sign_as_full": true
+      },
+      {
+        "counties": 503,
+        "omitted_state": "TX",
+        "pdsi_coefficient": -0.032050202828508685,
+        "rows": 8031,
+        "same_nonzero_sign_as_full": true
+      },
+      {
+        "counties": 608,
+        "omitted_state": "UT",
+        "pdsi_coefficient": -0.032164211168388905,
+        "rows": 9167,
+        "same_nonzero_sign_as_full": true
+      },
+      {
+        "counties": 612,
+        "omitted_state": "WA",
+        "pdsi_coefficient": -0.03265467713732336,
+        "rows": 9208,
+        "same_nonzero_sign_as_full": true
+      },
+      {
+        "counties": 618,
+        "omitted_state": "WY",
+        "pdsi_coefficient": -0.03249130890967346,
+        "rows": 9363,
+        "same_nonzero_sign_as_full": true
+      }
+    ],
+    "same_sign_count": 14
+  },
+  "national_representativeness_claim_authorized": false,
+  "numerical_identities": [
+    {
+      "form": "linear",
+      "maximum_absolute_gap_vs_practice_difference": 2.0816681711721685e-17
+    },
+    {
+      "form": "quadratic",
+      "maximum_absolute_gap_vs_practice_difference": 6.938893903907228e-18
+    }
+  ],
+  "panel": {
+    "candidate_rows": 32146,
+    "counties": 631,
+    "paired_county_years": 9513,
+    "pdsi_mean": 0.41170675868228007,
+    "pdsi_standard_deviation": 2.3482857197505185,
+    "states": 14,
+    "year_max": 2007,
+    "year_min": 1981
+  },
+  "predictive_claim_authorized": false,
+  "scc_claim_authorized": false,
+  "schema": "us_wheat_practice_pdsi_sensitivity_v1",
+  "status": "exploratory_retrospective_measurement_sensitivity"
+}

@@ -1,0 +1,89 @@
+{
+  "claim_boundary": "regional historical measurement sensitivity only; not causal, national, predictive, future, global, damage, or SCC evidence",
+  "joint_sparse_checks": [
+    {
+      "design_columns": 994,
+      "design_rows": 9513,
+      "form": "linear",
+      "lsmr_iterations": 125,
+      "lsmr_normal_equation_residual": 5.638814314066581e-09,
+      "lsmr_stop_code": 2,
+      "maximum_absolute_coefficient_difference": 3.1502014538609124e-13,
+      "outcome": "log_yield_irrigated"
+    },
+    {
+      "design_columns": 994,
+      "design_rows": 9513,
+      "form": "linear",
+      "lsmr_iterations": 124,
+      "lsmr_normal_equation_residual": 9.054005225623848e-09,
+      "lsmr_stop_code": 2,
+      "maximum_absolute_coefficient_difference": 3.130481984747746e-13,
+      "outcome": "log_yield_non_irrigated"
+    },
+    {
+      "design_columns": 994,
+      "design_rows": 9513,
+      "form": "linear",
+      "lsmr_iterations": 116,
+      "lsmr_normal_equation_residual": 8.982117056446462e-09,
+      "lsmr_stop_code": 2,
+      "maximum_absolute_coefficient_difference": 1.0403483630128108e-12,
+      "outcome": "log_yield_gap"
+    },
+    {
+      "design_columns": 995,
+      "design_rows": 9513,
+      "form": "quadratic",
+      "lsmr_iterations": 143,
+      "lsmr_normal_equation_residual": 1.0182663606691826e-08,
+      "lsmr_stop_code": 2,
+      "maximum_absolute_coefficient_difference": 2.003109483839083e-12,
+      "outcome": "log_yield_irrigated"
+    },
+    {
+      "design_columns": 995,
+      "design_rows": 9513,
+      "form": "quadratic",
+      "lsmr_iterations": 142,
+      "lsmr_normal_equation_residual": 1.4382281538394312e-08,
+      "lsmr_stop_code": 2,
+      "maximum_absolute_coefficient_difference": 2.8283694830655293e-12,
+      "outcome": "log_yield_non_irrigated"
+    },
+    {
+      "design_columns": 995,
+      "design_rows": 9513,
+      "form": "quadratic",
+      "lsmr_iterations": 134,
+      "lsmr_normal_equation_residual": 1.2654073411393634e-08,
+      "lsmr_stop_code": 2,
+      "maximum_absolute_coefficient_difference": 3.1222940899411356e-13,
+      "outcome": "log_yield_gap"
+    }
+  ],
+  "leave_one_state_out_same_sign": "14/14",
+  "maximum_absolute_coefficient_difference": 2.8283694830655293e-12,
+  "paired_gap_identity_maximum_difference": 2.0816681711721685e-17,
+  "panel": {
+    "candidate_rows": 32146,
+    "counties": 631,
+    "paired_county_years": 9513,
+    "pdsi_mean": 0.41170675868228007,
+    "pdsi_standard_deviation": 2.3482857197505185,
+    "states": 14,
+    "year_max": 2007,
+    "year_min": 1981
+  },
+  "resource": {
+    "path": "data/interim/us_county/us_wheat_practice_pdsi_sensitivity_resource_20260925.json",
+    "peak_rss_bytes": 404357120,
+    "sha256": "084943ab33b895225b9cf209908473acc65fa3ebb40473a9624167d9a703266b"
+  },
+  "result": {
+    "path": "data/provenance/us_wheat_practice_pdsi_sensitivity_20260925.json",
+    "sha256": "5a41b3d563d35bdd209a3e7ae025f774da4257e3179501bdbf97aecc4536c5fc"
+  },
+  "schema": "us_wheat_practice_pdsi_sensitivity_independent_validation_v1",
+  "status": "passed"
+}
