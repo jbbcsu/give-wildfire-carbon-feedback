@@ -2021,6 +2021,10 @@ covariance conditional on each model. The diamond applies one shared
 coefficient draw to the equal-model mean. Climate models are not probability
 draws, and the bars exclude structural and omitted-mechanism uncertainty.
 
+The corresponding discount-schedule, adaptation, and market summaries are
+reported in [Table 3](tables/TABLE_3_SCC_RESULTS.md). The table keeps
+coefficient intervals distinct from structural design percentiles.
+
 These values are reported as a replacement of MooreAg's marginal agriculture
 response while retaining its baseline levels, not as an additive precipitation
 sector. A complete agriculture replacement still requires the omitted
@@ -2106,4 +2110,4 @@ CIAM-covered coastal damages before combination with GIVE.
 | Figure 5 | Structural design distributions by adaptation and market scenario |
 | Table 1 | Data sources, versions, licenses, coverage, and roles |
 | Table 2 | Main response specification and validation gates |
-| Table 3 | SCC results, coefficient uncertainty, and scenario definitions |
+| [Table 3](tables/TABLE_3_SCC_RESULTS.md) | SCC results, coefficient uncertainty, and scenario definitions |

@@ -53,6 +53,8 @@ def main() -> None:
         "manuscript": root / "manuscript/MAIN_MANUSCRIPT.md",
         "methods_si": root / "manuscript/METHODS_SUPPORTING_INFORMATION.md",
         "figure": root / "manuscript/figures/quantity_coefficient_intervals_20260925.svg",
+        "table3": root / "manuscript/tables/TABLE_3_SCC_RESULTS.md",
+        "table3_validation": root / "data/provenance/manuscript_scc_table_20260925.json",
         "targeted_test_job": root / "data/provenance/preliminary_scc_targeted_tests_job_20260925.json",
     }
     for path in paths.values():
@@ -69,6 +71,7 @@ def main() -> None:
     market_job = json.loads(paths["coefficient_market_job"].read_text())
     manuscript_validation = load(paths["manuscript_validation"], "manuscript_scc_claim_validation/v1", "pass")
     figure_validation = load(paths["figure_validation"], "quantity_coefficient_interval_figure/v1", "pass")
+    table3_validation = load(paths["table3_validation"], "manuscript_scc_table/v1", "pass")
     targeted_test_job = json.loads(paths["targeted_test_job"].read_text())
 
     require(paired["support"]["paired_paths"] == 936, "paired path count differs")
@@ -106,6 +109,8 @@ def main() -> None:
     require(digest(paths["figure"]) == figure_validation["output"]["sha256"], "figure changed after validation")
     require(digest(paths["coefficient_by_model"]) == figure_validation["sources"]["input"]["sha256"],
             "figure source changed after validation")
+    require(digest(paths["table3"]) == table3_validation["output"]["sha256"],
+            "Table 3 changed after validation")
     require(targeted_test_job["status"] == "completed" and targeted_test_job["returncode"] == 0,
             "targeted quantity/welfare tests failed")
     require(targeted_test_job["sampled_peak_group_rss_bytes"] <= 512 * 1024 * 1024,
@@ -151,6 +156,7 @@ def main() -> None:
             "coefficient_market_specifications": 6,
             "manuscript_hash_bound": True,
             "figure_hash_bound": True,
+            "table3_hash_bound": True,
             "tracked_files_scanned": len(tracked_raw),
             "restricted_tracked_paths": 0,
             "credential_like_tracked_assignments": 0,
