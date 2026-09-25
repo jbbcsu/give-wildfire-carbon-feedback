@@ -25,6 +25,16 @@ model-specific coefficient-only intervals are wholly negative, two cross zero,
 and one is wholly positive. These intervals remain conditional on the narrow
 quantity specification.
 
+Geographic and temporal accounting checks clarify the interpretation. Sixty-
+one of 106 country means are negative and 45 are positive, but every country
+component changes sign across at least one climate model. The United States
+and China account for 74.9% of gross absolute country components; removing
+both as an accounting diagnostic leaves -$0.00025 per tCO2. At 2%, 44.1% of
+the signed value accrues in 2020--2050 and 71.4% by 2100. The through-2100
+share ranges from 60.2% at the 1.5% schedule to 87.2% at 3.0%. Thus the narrow
+result is geographically concentrated and model-sensitive, but is not small
+solely because impacts occur late.
+
 **Allowed claim:** a small paired GIVE SCC estimate has been produced for the
 annual global-maize rainfall-quantity channel under explicit market,
 adaptation, tail, climate-model, and discounting choices.
@@ -41,6 +51,8 @@ Primary evidence:
 - `QUANTITY_COEFFICIENT_DELTA_UNCERTAINTY_RESULTS_20260925.md`
 - `data/provenance/quantity_full_structural_paired_ensemble_20260924.json`
 - `data/provenance/quantity_coefficient_delta_by_model_20260925.json`
+- `QUANTITY_SCC_COUNTRY_DECOMPOSITION_RESULTS_20260925.md`
+- `QUANTITY_SCC_PERIOD_DECOMPOSITION_RESULTS_20260925.md`
 
 ### U.S. NASS validation
 
@@ -89,6 +101,13 @@ only, GFDL/BOATS is slightly better than the 7.96% benchmark (7.39%), while the
 other three paths are much worse. The paths therefore remain structural
 scenarios rather than empirically estimated model weights.
 
+A sector-overlap audit further shows that the published Blue-SCC total cannot
+be added directly to GIVE. Its nutrition/mortality pathway requires explicit
+cause-of-death and valuation reconciliation against GIVE's Cromar mortality
+sector, while its profit/output market multipliers require reconciliation with
+agriculture and macroeconomic incidence. This establishes an overlap gate,
+not that every published fisheries death or market loss is already counted.
+
 **Allowed claim:** source data and historical validation are reproducible, and
 the published benchmark establishes that non-market nutrition can dominate
 fisheries SCC estimates.
@@ -102,6 +121,7 @@ Primary evidence in the isolated fisheries project:
 - `../ocean_fisheries_scc/FISHMIP_FAO_BLOCKED_PREDICTION_RESULTS_20260925.md`
 - `../ocean_fisheries_scc/BLUE_SCC_FISHERIES_BENCHMARK_AUDIT.md`
 - `../ocean_fisheries_scc/data/provenance/fishmip_fao_blocked_level_prediction_20260925.json`
+- `../ocean_fisheries_scc/FISHERIES_GIVE_OVERLAP_AUDIT_20260925.md`
 
 ## Current interpretation
 
@@ -112,4 +132,3 @@ work has a credible published scale benchmark but not a local SCC. The next
 scientific priority is to add defensible omitted precipitation mechanisms—most
 importantly drought/within-season stress and crop/irrigation coverage—without
 stacking correlated moisture measures or double-counting MooreAg.
-

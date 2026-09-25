@@ -59,6 +59,7 @@ def main() -> None:
         "period_discount_grid": root / "data/provenance/quantity_scc_period_discount_grid_20260925.json",
         "period_discount_figure": root / "manuscript/figures/quantity_scc_period_discount_grid_20260925.svg",
         "period_discount_figure_validation": root / "data/provenance/quantity_scc_period_discount_figure_20260925.json",
+        "results_brief": root / "PRELIMINARY_RESULTS_AND_CLAIM_BOUNDARIES_20260925.md",
         "manuscript_validation": root / "data/provenance/manuscript_scc_claim_validation_20260925.json",
         "manuscript_reference_registry": root / "data/provenance/manuscript_reference_registry_20260925.json",
         "manuscript_reference_validation": root / "data/provenance/manuscript_reference_validation_20260925.json",
@@ -211,6 +212,15 @@ def main() -> None:
         "60.2%, 71.4%, 80.6%, and 87.2%",
     ):
         require(fragment in manuscript_text, f"country claim fragment missing: {fragment}")
+    results_brief = " ".join(paths["results_brief"].read_text().split())
+    for fragment in (
+        "every country component changes sign",
+        "74.9% of gross absolute country components",
+        "71.4% by 2100",
+        "published Blue-SCC total cannot be added directly to GIVE",
+        "overlap gate",
+    ):
+        require(fragment in results_brief, f"results brief fragment missing: {fragment}")
 
     manuscript_source = manuscript_validation["sources"]["manuscript"]
     require(digest(paths["manuscript"]) == manuscript_source["sha256"], "manuscript changed after validation")
@@ -289,6 +299,7 @@ def main() -> None:
             "period_decomposition_memory_budget_mib": 768,
             "period_discount_schedules": 4,
             "period_discount_figure_hash_bound": True,
+            "cross_track_results_brief_hash_bound": True,
             "manuscript_hash_bound": True,
             "manuscript_doi_references_validated": 6,
             "wildfire_agriculture_doi_nonconflation": True,
