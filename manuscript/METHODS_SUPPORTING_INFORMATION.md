@@ -1508,6 +1508,19 @@ twelve calendar months so all three phases are nonempty. The next rice gate is
 application to separate first/second-season, rainfed/irrigated daily panels;
 no future response, valuation, damage, or SCC is inferred from the method test.
 
+For the maize winners-and-losers diagnostic, the transport evaluator exports
+the net precipitation response, the proportional total-quantity reference,
+and their timing/distribution residual on identical positive-rainfall cells.
+The cell identity `net = quantity + timing` is required within `1e-10` log
+points. Cells are aggregated first by country and named climate model using
+fixed MapSPAM 2000 physical production, then averaged equally across the five
+models. Physical production is used deliberately: the conditional FAOSTAT
+constant-dollar field remains behind its plausibility gate and cannot drive a
+country ranking. A separate standard-library validator reconstructs all
+country means, global components, and winner/loser counts from the compact
+country-model export. These are endpoint-scenario response contributions, not
+welfare or marginal-SCC components.
+
 The bounded reproduction is rerun with
 `scripts/run_hultgren_maize_historical_replication.sh`. The wrapper first checks
 the 346 MB source hash, writes all Stata estimates and matrix exports to ignored

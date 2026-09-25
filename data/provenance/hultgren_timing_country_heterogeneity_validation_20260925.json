@@ -1,0 +1,31 @@
+{
+  "schema": "hultgren_timing_country_heterogeneity_validation/v1",
+  "status": "passed",
+  "checks": {
+    "source_status": true,
+    "country_csv_hash": true,
+    "row_count": true,
+    "country_count": true,
+    "balanced_five_model_support": true,
+    "country_decomposition": true,
+    "global_components": true,
+    "winner_loser_counts": true,
+    "claim_gates_closed": true
+  },
+  "passed_checks": 9,
+  "total_checks": 9,
+  "reconstructed_equal_model_global_log_yield_components": {
+    "net": -0.019562713951069358,
+    "quantity": -0.015135350380890271,
+    "timing_distribution": -0.004427363570179089
+  },
+  "source": {
+    "path": "data/provenance/hultgren_timing_country_heterogeneity_production_20260925.json",
+    "sha256": "0617c719cb9cc10a4d4bbfcac7c39f7af89b2f0da718e5b2b2a4e7a814c90aef"
+  },
+  "country_input": {
+    "path": "data/interim/hultgren_timing_country_heterogeneity_production_20260925.csv",
+    "sha256": "11b88192e264132d8cfcee38acad146cdc2408d74fb374292719bc655866ebca"
+  },
+  "validator_sha256": "f1e1e051c05b4803b6575ea4c65a65a431f9ada0565726f22f03c698610e6285"
+}

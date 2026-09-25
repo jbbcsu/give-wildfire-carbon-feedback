@@ -291,9 +291,14 @@ def main() -> None:
     parser.add_argument("--analysis-weight-unit", default="ha")
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--cell-output", type=Path)
+    parser.add_argument("--component-cell-output", type=Path)
     args = parser.parse_args()
     require(not args.output.exists(), "fresh output required")
     require(args.cell_output is None or not args.cell_output.exists(), "fresh cell output required")
+    require(
+        args.component_cell_output is None or not args.component_cell_output.exists(),
+        "fresh component cell output required",
+    )
 
     weather_paths = [args.reference_rainfed, args.reference_irrigated, args.comparison_rainfed, args.comparison_irrigated]
     weather_sources = [validated_weather(path, args.validation) for path in weather_paths]
@@ -370,6 +375,7 @@ def main() -> None:
         "precipitation": {"maximum_absolute_design_error": 0.0, "maximum_relative_design_error": 0.0, "maximum_absolute_log_response_error": 0.0},
     }
     cell_records: list[pd.DataFrame] = []
+    component_cell_records: list[pd.DataFrame] = []
     for year in years:
         reference_weather = combine_regime_weather(weather_year(args.reference_rainfed, year), weather_year(args.reference_irrigated, year))
         comparison_weather = combine_regime_weather(weather_year(args.comparison_rainfed, year), weather_year(args.comparison_irrigated, year))
@@ -428,6 +434,36 @@ def main() -> None:
                 "analysis_weight": weights,
                 "precipitation_delta_log_yield": cell_log,
             }))
+        if args.component_cell_output is not None:
+            net_log = np.sum(
+                deltas["precipitation_common_positive_support"]
+                * estimate.coefficients[None, :],
+                axis=1,
+                dtype=np.float64,
+            )
+            quantity_log = np.sum(
+                deltas["precipitation_quantity_reference_scaling"]
+                * estimate.coefficients[None, :],
+                axis=1,
+                dtype=np.float64,
+            )
+            timing_log = np.sum(
+                deltas["precipitation_distribution_residual"]
+                * estimate.coefficients[None, :],
+                axis=1,
+                dtype=np.float64,
+            )
+            common_reference = reference.loc[common_positive].reset_index(drop=True)
+            component_cell_records.append(pd.DataFrame({
+                "climate_model": args.climate_model,
+                "harvest_year": year,
+                "native_lat_index": common_reference.native_lat_index.to_numpy(dtype=np.int16),
+                "native_lon_index": common_reference.native_lon_index.to_numpy(dtype=np.int16),
+                "analysis_weight": common_weights,
+                "precipitation_delta_log_yield": net_log,
+                "quantity_delta_log_yield": quantity_log,
+                "timing_distribution_delta_log_yield": timing_log,
+            }))
         year_joint_error = decomposition_errors(
             deltas["joint_climate"], deltas["precipitation_all_income_support"],
             deltas["temperature_all_income_support"], estimate.coefficients,
@@ -484,6 +520,38 @@ def main() -> None:
         args.cell_output.parent.mkdir(parents=True, exist_ok=True)
         cell_frame.to_parquet(args.cell_output, index=False)
         cell_output_record = {"path": str(args.cell_output), "rows": len(cell_frame), "bytes": args.cell_output.stat().st_size, "sha256": digest(args.cell_output)}
+    component_cell_output_record = None
+    if args.component_cell_output is not None:
+        component_cell_frame = pd.concat(component_cell_records, ignore_index=True)
+        component_columns = [
+            "analysis_weight",
+            "precipitation_delta_log_yield",
+            "quantity_delta_log_yield",
+            "timing_distribution_delta_log_yield",
+        ]
+        require(
+            len(component_cell_frame) > 0
+            and np.isfinite(component_cell_frame[component_columns]).all().all(),
+            "invalid component cell output",
+        )
+        require(
+            np.allclose(
+                component_cell_frame.precipitation_delta_log_yield,
+                component_cell_frame.quantity_delta_log_yield
+                + component_cell_frame.timing_distribution_delta_log_yield,
+                rtol=0.0,
+                atol=1e-10,
+            ),
+            "component cell response decomposition failed",
+        )
+        args.component_cell_output.parent.mkdir(parents=True, exist_ok=True)
+        component_cell_frame.to_parquet(args.component_cell_output, index=False)
+        component_cell_output_record = {
+            "path": str(args.component_cell_output),
+            "rows": len(component_cell_frame),
+            "bytes": args.component_cell_output.stat().st_size,
+            "sha256": digest(args.component_cell_output),
+        }
 
     result = {
         "schema": "hultgren_grid_yield_scenario_transport/v2",
@@ -561,6 +629,7 @@ def main() -> None:
             "welfare_weighted": False,
         },
         "cell_output": cell_output_record,
+        "component_cell_output": component_cell_output_record,
         "implementation": {"path": str(Path(__file__).resolve().relative_to(ROOT)), "sha256": digest(Path(__file__).resolve())},
     }
     if args.analysis_weight_unit == "ha":

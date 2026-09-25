@@ -1874,6 +1874,21 @@ extrapolation, so it is not a headline damage estimate. Equal-model means are
 descriptive rather than probability weighted. Full results and gates are in
 `HULTGREN_FIVE_ESM_LATE_YIELD_TRANSPORT_RESULTS_20260924.md`.
 
+A new physical-production-weighted country decomposition shows why the
+distribution term cannot be dismissed from its small area-weighted global
+mean. Across the same five endpoints, quantity contributes -0.01514 and
+timing/distribution -0.00443 log-yield points, so timing is 29.3% of the
+absolute quantity contribution. Among 144 balanced-support countries, 111
+have negative and 33 positive equal-model net means, but 76 change sign across
+models. Timing amplifies the quantity sign in 95 countries and offsets it in
+49. China's quantity component is approximately zero while its negative timing
+component determines the net sign; India's positive timing component offsets
+part of its quantity loss. The decomposition uses physical maize production
+because the previously flagged country-value field is not publication-ready.
+It is scenario-response accounting, not a causal country effect, welfare
+damage, marginal pulse, or SCC; complete results are in
+`HULTGREN_TIMING_COUNTRY_HETEROGENEITY_RESULTS_20260925.md`.
+
 The exogenous adaptation sensitivities are deliberately not interpreted as
 estimated behavior. The five-model full-support mean net precipitation
 response moves from -2.56% under fixed practice to -0.89% under trend and
