@@ -2006,6 +2006,16 @@ wholly negative, two include zero, and one is wholly positive. The 2%
 descriptive standard deviation across the 26 central model estimates is
 $0.00285 per tCO2; it is climate-model spread, not sampling uncertainty.
 
+![Model-specific coefficient-only SCC intervals](figures/quantity_coefficient_intervals_20260925.svg)
+
+**Figure 4. Climate-model and published-response uncertainty for the narrow
+quantity channel.** Points are the 26 named climate-model SCC estimates under
+the central fixed-adaptation, uncapped specification at GIVE's 2% schedule;
+bars are first-order normal intervals from the shared published coefficient
+covariance conditional on each model. The diamond applies one shared
+coefficient draw to the equal-model mean. Climate models are not probability
+draws, and the bars exclude structural and omitted-mechanism uncertainty.
+
 These values are reported as a replacement of MooreAg's marginal agriculture
 response while retaining its baseline levels, not as an additive precipitation
 sector. A complete agriculture replacement still requires the omitted
@@ -2087,8 +2097,8 @@ CIAM-covered coastal damages before combination with GIVE.
 | Figure 3b | Fixed-production-weight sensitivity |
 | Figure 3c | Conditional baseline-value-weight sensitivity |
 | Figure 3d | Unrestricted versus published-style tail treatment |
-| Figure 4 | Global agricultural SCC distributions by adaptation scenario |
-| Figure 5 | Uncertainty/decomposition and sensitivity results |
+| Figure 4 | Model-specific quantity SCCs and coefficient-only intervals |
+| Figure 5 | Structural design distributions by adaptation and market scenario |
 | Table 1 | Data sources, versions, licenses, coverage, and roles |
 | Table 2 | Main response specification and validation gates |
 | Table 3 | SCC results, coefficient uncertainty, and scenario definitions |

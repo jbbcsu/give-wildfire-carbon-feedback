@@ -1,0 +1,33 @@
+{
+  "created_at_utc": "2026-09-25T13:57:22.143366+00:00",
+  "estimand": "central fixed-adaptation uncapped annual-maize rainfall-quantity SCC at the 2% GIVE schedule",
+  "implementation": {
+    "path": "scripts/plot_quantity_coefficient_intervals.py",
+    "sha256": "52c3726f225c11e920c2eb9879fb8a86350896c29833601c4c172b82cb020c89"
+  },
+  "interpretation": {
+    "climate_models": "named unweighted models; not probability draws",
+    "coefficient_intervals": "first-order normal intervals conditional on each climate model and the narrow quantity channel"
+  },
+  "output": {
+    "path": "manuscript/figures/quantity_coefficient_intervals_20260925.svg",
+    "sha256": "58620dcc326f5ed9a9cd6acf93dcb36188f4413b6ee44ceb62f94e6293b27702"
+  },
+  "schema": "quantity_coefficient_interval_figure/v1",
+  "sources": {
+    "input": {
+      "path": "data/provenance/quantity_coefficient_delta_by_model_20260925.json",
+      "sha256": "950b262f2b0ea0593846d878c20db3eaf861790ce0c58ab3719490f4f27d1dc6"
+    }
+  },
+  "status": "pass",
+  "support": {
+    "climate_models": 26,
+    "coefficient_interval_counts": {
+      "above": 1,
+      "below": 23,
+      "includes": 2
+    },
+    "includes_equal_model_mean": true
+  }
+}
