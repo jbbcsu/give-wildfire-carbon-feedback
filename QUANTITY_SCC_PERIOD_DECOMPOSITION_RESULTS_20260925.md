@@ -51,6 +51,10 @@ MiB) sampled peak process-group RSS under a 768 MiB budget.
   `data/provenance/quantity_scc_period_decomposition_20260925.json`
 - Four-schedule reweighting receipt:
   `data/provenance/quantity_scc_period_discount_grid_20260925.json`
+- Audited figure:
+  `manuscript/figures/quantity_scc_period_discount_grid_20260925.svg`
+- Figure receipt:
+  `data/provenance/quantity_scc_period_discount_figure_20260925.json`
 - Memory-bounded job receipt:
   `data/provenance/quantity_scc_period_decomposition_job_20260925.json`
 - Derived model-year table (gitignored):

@@ -2053,6 +2053,13 @@ discounting progressively reduces its distant contribution. Across the 1.5%,
 60.2%, 71.4%, 80.6%, and 87.2%, respectively. These schedules are policy
 choices rather than probability draws and reweight the same physical path.
 
+![Temporal shares of the narrow quantity-channel SCC](figures/quantity_scc_period_discount_grid_20260925.svg)
+
+**Figure 4c. Intertemporal accounting under the four GIVE schedules.** Each
+bar partitions one schedule's signed quantity-channel SCC across four fixed
+periods. Higher discount rates place more present-value weight on earlier
+years; the physical response path is unchanged.
+
 The corresponding discount-schedule, adaptation, and market summaries are
 reported in [Table 3](tables/TABLE_3_SCC_RESULTS.md). The table keeps
 coefficient intervals distinct from structural design percentiles.
@@ -2140,6 +2147,7 @@ CIAM-covered coastal damages before combination with GIVE.
 | Figure 3d | Unrestricted versus published-style tail treatment |
 | Figure 4 | Model-specific quantity SCCs and coefficient-only intervals |
 | Figure 4b | Leading country SCC components and climate-model ranges |
+| Figure 4c | Temporal SCC shares under four GIVE discount schedules |
 | Figure 5 | Structural design distributions by adaptation and market scenario |
 | Table 1 | Data sources, versions, licenses, coverage, and roles |
 | Table 2 | Main response specification and validation gates |

@@ -57,6 +57,8 @@ def main() -> None:
         "period_decomposition_job": root / "data/provenance/quantity_scc_period_decomposition_job_20260925.json",
         "period_decomposition_report": root / "QUANTITY_SCC_PERIOD_DECOMPOSITION_RESULTS_20260925.md",
         "period_discount_grid": root / "data/provenance/quantity_scc_period_discount_grid_20260925.json",
+        "period_discount_figure": root / "manuscript/figures/quantity_scc_period_discount_grid_20260925.svg",
+        "period_discount_figure_validation": root / "data/provenance/quantity_scc_period_discount_figure_20260925.json",
         "manuscript_validation": root / "data/provenance/manuscript_scc_claim_validation_20260925.json",
         "manuscript_reference_registry": root / "data/provenance/manuscript_reference_registry_20260925.json",
         "manuscript_reference_validation": root / "data/provenance/manuscript_reference_validation_20260925.json",
@@ -102,6 +104,11 @@ def main() -> None:
         paths["period_discount_grid"],
         "quantity_scc_period_discount_grid/v1",
         "four_schedule_period_decomposition_complete",
+    )
+    period_figure = load(
+        paths["period_discount_figure_validation"],
+        "quantity_scc_period_discount_figure/v1",
+        "pass",
     )
     manuscript_validation = load(paths["manuscript_validation"], "manuscript_scc_claim_validation/v1", "pass")
     reference_validation = load(
@@ -187,6 +194,10 @@ def main() -> None:
                     for result in period_grid["results"]]
     require(all(left < right for left, right in zip(through_2100, through_2100[1:])),
             "through-2100 shares not ordered by discount schedule")
+    require(digest(paths["period_discount_figure"]) == period_figure["output"]["sha256"],
+            "period figure changed after validation")
+    require(digest(paths["period_discount_grid"]) == period_figure["sources"]["input"]["sha256"],
+            "period figure source changed after validation")
     manuscript_text = " ".join(paths["manuscript"].read_text().split())
     for fragment in (
         "Sixty-one of 106 country components are negative",
@@ -212,7 +223,7 @@ def main() -> None:
             "manuscript reference support differs")
     require(reference_validation["checks"]["wildfire_agriculture_doi_nonconflation"],
             "wildfire and agriculture citations conflated")
-    require(link_validation["checks"]["local_links_resolved"] == 22,
+    require(link_validation["checks"]["local_links_resolved"] == 23,
             "manuscript local-link support differs")
     require(link_validation["checks"]["missing_local_links"] == 0,
             "manuscript local links missing")
@@ -277,10 +288,11 @@ def main() -> None:
             "period_accounting_bins": 4,
             "period_decomposition_memory_budget_mib": 768,
             "period_discount_schedules": 4,
+            "period_discount_figure_hash_bound": True,
             "manuscript_hash_bound": True,
             "manuscript_doi_references_validated": 6,
             "wildfire_agriculture_doi_nonconflation": True,
-            "manuscript_local_links_resolved": 22,
+            "manuscript_local_links_resolved": 23,
             "figure_hash_bound": True,
             "table3_hash_bound": True,
             "tracked_files_scanned": len(tracked_raw),
