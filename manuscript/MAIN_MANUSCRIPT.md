@@ -347,6 +347,17 @@ moderator-trajectory, damage, or SCC gates. The published values therefore
 remain an external scale/methods benchmark rather than an SCC imported into
 GIVE.
 
+The same pinned repository also contains a published rice response, which we
+have now source-validated. Its 46 coefficients and complete covariance matrix
+cover 166,174 observations and combine GDD, KDD, minimum temperature, and
+three linear/quadratic within-season rainfall phases with income, irrigation,
+and long-run-climate moderators. This creates a defensible route beyond the
+current maize-only SCC benchmark without scaling maize coefficients across
+crops. It is not yet applied: rice requires its own first/second-season daily
+weather bases, up to twelve crop-calendar months, value weights, market
+interaction, and pulse validation. Source results and closed gates are in
+[`HULTGREN_RICE_RESPONSE_SOURCE_RESULTS_20260925.md`](../HULTGREN_RICE_RESPONSE_SOURCE_RESULTS_20260925.md).
+
 This study asks: how does the agricultural component of the global SCC change
 when a temperature-indexed agricultural pathway is replaced by a joint,
 crop-calendar-aligned temperature--precipitation response? The scope is crop
@@ -401,7 +412,9 @@ paths and a non-overlapping GIVE welfare replacement.
 
 The planned production outcome set includes GDHY gridded yield for maize,
 rice, wheat, and soybean; current corrected aggregate-regime diagnostics cover
-maize and soybean only. Daily ISIMIP climate fields and GGCMI Phase 3 crop calendars supply
+maize and soybean only. A source-validated published rice response is available
+for future transport but has not entered any projection or SCC. Daily ISIMIP
+climate fields and GGCMI Phase 3 crop calendars supply
 stage-level temperature and precipitation information. Features include
 stage-weighted temperature, seasonal precipitation or water balance,
 consecutive dry days, wet-day frequency, heavy-rain/water-excess metrics, and

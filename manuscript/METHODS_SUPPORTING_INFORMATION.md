@@ -1486,6 +1486,21 @@ The same 412,282-row audit confirms `KDD = CDD31` exactly and
 `GDD = CDD8 - CDD31` with maximum scaled error `5.96e-8`, closing the historical
 temperature-basis arithmetic gate as well.
 
+The pinned repository's rice estimate provides a separate major-crop expansion
+route. Stata exports 46 coefficients and a complete 46-by-46 covariance matrix
+from the Git-blob- and SHA-256-matched `.ster` file. The estimate has 166,174
+estimation observations, 656 country-year clusters, 581 first-level-unit
+clusters, and the same fixed-effect architecture. Its response contains GDD,
+KDD, minimum temperature, and three linear/quadratic rainfall phases, with each
+weather term moderated by income, irrigated share, long-run crop temperature,
+and a weather-specific long-run precipitation cap. Twenty source and matrix
+checks pass in
+`../data/provenance/hultgren_rice_response_source_validation_20260925.json`.
+The raw estimate and Stata matrix exports remain ignored and are not
+redistributed. No rice future-weather, valuation, damage, or SCC gate is opened.
+The next rice step must reproduce the exact `[2,3,7]` monthly phase basis on
+separate first/second-season, rainfed/irrigated calendars before transport.
+
 The bounded reproduction is rerun with
 `scripts/run_hultgren_maize_historical_replication.sh`. The wrapper first checks
 the 346 MB source hash, writes all Stata estimates and matrix exports to ignored

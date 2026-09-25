@@ -1,0 +1,63 @@
+{
+  "status": "passed",
+  "checks": {
+    "estimate_bytes": true,
+    "estimate_sha256": true,
+    "estimate_git_blob_sha1": true,
+    "coefficient_count": true,
+    "covariance_count": true,
+    "coefficient_indices": true,
+    "finite_coefficients": true,
+    "finite_covariance": true,
+    "covariance_symmetric": true,
+    "covariance_nonnegative_diagonal": true,
+    "dependent_variable": true,
+    "estimator": true,
+    "cluster_variables": true,
+    "fixed_effects": true,
+    "observations": true,
+    "full_observations": true,
+    "country_year_clusters": true,
+    "adm1_clusters": true,
+    "ordered_terms": true,
+    "future_gates_closed": true
+  },
+  "passed_checks": 20,
+  "total_checks": 20,
+  "source": {
+    "repository": "https://gitlab.com/ClimateImpactLab/cil-ag-replication-package",
+    "commit": "3ccdffcd4e4ff6e55566ce76e2aac130ee86349a",
+    "repository_path": "Fig1/Local_Impacts/data/crop_estimates/rice_pbarkinks_200_300_250_175_.ster",
+    "estimate_sha256": "cd21c4e010a346375928bf98dd367708f4bd0b1d0f50ff5465fe8b6d3c301d0c",
+    "estimate_git_blob_sha1": "685a6413df39eefef1de090f9a4897e50fbafe31"
+  },
+  "estimate": {
+    "coefficient_count": 46,
+    "observations": 166174,
+    "full_observations": 166354,
+    "country_year_clusters": 656,
+    "adm1_clusters": 581,
+    "r2": 0.814900694975051,
+    "within_r2": 0.062234116648351656,
+    "precipitation_phases": 3,
+    "precipitation_polynomial_order": 2,
+    "includes_tmin": true,
+    "weather_moderators": [
+      "log GDP per capita",
+      "irrigated share",
+      "long-run crop temperature",
+      "capped long-run precipitation"
+    ]
+  },
+  "export_hashes": {
+    "coefficients_sha256": "9073a7d4513288d3bb7ee96d53d2cfd26775693f052336736c3dfb665228b7d3",
+    "covariance_sha256": "ea7ea8f008d88fea1ad9a8648bb4ceabbfa6a0f88e9fb165c9c9904bf5c4a8ba",
+    "metadata_sha256": "f9862874ab9820aaceee13e91c0866626417b2ea96930387f960c55784fb8964"
+  },
+  "raw_source_redistributed": false,
+  "published_response_available": true,
+  "future_weather_ready": false,
+  "damage_ready": false,
+  "scc_ready": false,
+  "validator_sha256": "7973492fac0d8bbb7e44ea8a3a5061110d90c9be52faa25a23b69b200b0a7a40"
+}
