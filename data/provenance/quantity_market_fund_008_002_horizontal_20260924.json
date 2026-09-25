@@ -1,0 +1,130 @@
+{
+  "claim_gate": "engineering_input_only_until_paired_give_validation",
+  "created_at_utc": "2026-09-24T23:51:52.794430+00:00",
+  "implementation": {
+    "path": "scripts/build_quantity_market_fund_replacement_input.py",
+    "sha256": "72cce40f16ca501347c7f74bf09ad64182183ba54c02c521e9bc0c77185adee7"
+  },
+  "output": {
+    "bytes": 47702947,
+    "path": "data/interim/quantity_market_fund_008_002_horizontal_20260924.csv",
+    "sha256": "5d707dadaa359b0202ad392468087b8ef6d5165546bf788cdf679fd69414df01"
+  },
+  "schema": "quantity_market_fund_replacement_input/v1",
+  "sources": {
+    "fair": {
+      "path": "data/interim/give_fair_temperature_path_smoke/temperature_paths.csv",
+      "sha256": "aedf6b66dd296337e1cb6105d2aa56ec94f3e15e5ac92c2abcdf74b6a42b6067"
+    },
+    "fund_mapping": {
+      "path": "config/fund_country_mapping.csv",
+      "sha256": "47f2002ac520b9ed3428078e6c57987711638e10d0c5a305ce0a5936bdf9d306"
+    },
+    "fund_order": {
+      "path": "config/fund_region_order.csv",
+      "sha256": "550f74d9d715b2df096500b6cd2c9675dcb18a39a7ca5eae33aaf5566af4b95d"
+    },
+    "market": {
+      "path": "data/interim/epa_fair_hultgren_quantity_market_sensitivities_20260924.parquet",
+      "receipt": "data/provenance/epa_fair_hultgren_quantity_market_sensitivities_20260924.json",
+      "receipt_sha256": "cef7d243b6c9ef3c5f674b958bc932a3dbb6fc65de4af47a525e6d9c34f5b0f5",
+      "sha256": "2d855b90fea9a0bda55829ba3d8a068f3a268e2decdd87665dbe485124b82dd9"
+    },
+    "panel": {
+      "path": "data/interim/hultgren_quantity_response_panel_20260924.parquet",
+      "sha256": "af389bc3050cf7074f0a3869ae03cdcd959b3ba8a8017910ff5bc6f5507ffcdc"
+    },
+    "registry": {
+      "path": "config/welfare_scenario_registry.toml",
+      "sha256": "d80e371efa9fb8aadeebd4e2068c839c1421e9c64350ee1e1d5eaa65081f8569"
+    },
+    "slopes": {
+      "path": "data/interim/epa_annual_country_pattern_benchmark_20260921/country_model_slopes.csv",
+      "sha256": "e6bc9a4dbc0af19650f2f243802e0e1974d3599292cf2704aad0e746bf0c0572"
+    }
+  },
+  "specification": {
+    "demand_elasticity_magnitude": 0.02,
+    "elasticity_id": "hultgren_pair_008_002",
+    "pulse_size_gtc": 2.5e-05,
+    "supply_elasticity": 0.08,
+    "yield_to_supply_mapping": "horizontal_output"
+  },
+  "status": "country_reconstructed_market_specification_allocated_to_fund_regions",
+  "support": {
+    "adaptations": {
+      "fixed": {
+        "annual_attenuation_rate": 0.0,
+        "cap": 0.0
+      },
+      "trend": {
+        "annual_attenuation_rate": 0.003,
+        "cap": 0.35
+      },
+      "upper": {
+        "annual_attenuation_rate": 0.007,
+        "cap": 0.7
+      }
+    },
+    "climate_models": [
+      "ACCESS-CM2",
+      "ACCESS-ESM1-5",
+      "AWI-CM-1-1-MR",
+      "BCC-CSM2-MR",
+      "CAMS-CSM1-0",
+      "CAS-ESM2-0",
+      "CESM2",
+      "CESM2-WACCM",
+      "CMCC-CM2-SR5",
+      "CMCC-ESM2",
+      "CanESM5",
+      "FGOALS-g3",
+      "FIO-ESM-2-0",
+      "GISS-E2-1-G",
+      "GISS-E2-1-H",
+      "HadGEM3-GC31-LL",
+      "IITM-ESM",
+      "MIROC-ES2L",
+      "MIROC6",
+      "MPI-ESM1-2-HR",
+      "MPI-ESM1-2-LR",
+      "MRI-ESM2-0",
+      "NESM3",
+      "NorESM2-MM",
+      "TaiESM1",
+      "UKESM1-0-LL"
+    ],
+    "fund_regions": [
+      "USA",
+      "CAN",
+      "WEU",
+      "JPK",
+      "ANZ",
+      "EEU",
+      "FSU",
+      "MDE",
+      "CAM",
+      "LAM",
+      "SAS",
+      "SEA",
+      "CHI",
+      "MAF",
+      "SSA",
+      "SIS"
+    ],
+    "paths": 156,
+    "rows": 701376,
+    "tail_rules": [
+      "uncapped",
+      "published_analogue_p01_p99"
+    ],
+    "years": [
+      2020,
+      2300
+    ]
+  },
+  "validation": {
+    "maximum_absolute_global_reconciliation_error_billion_usd2005": 1.6543612251060553e-23,
+    "regional_sums_reconcile_to_every_registered_global_market_path": true
+  }
+}

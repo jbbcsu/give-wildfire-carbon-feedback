@@ -275,3 +275,19 @@ rainfall-quantity channel only. It does not open the adaptation/market
 uncertainty or full precipitation-agriculture replacement gates. Timing,
 drought, temperature, other crops, irrigation adaptation, trade, storage, and
 adaptation costs remain omitted.
+
+## Full registered structural paired ensemble (September 24, 2026)
+
+The country-level market calculation and FUND mapping have now been repeated
+for all five alternative market specifications, and all six market cases have
+been directly executed for every climate model, adaptation scenario, and tail
+rule. The resulting 936 paths and 3,744 SCC values pass exact baseline,
+single-producer, external-diagnostic, and propagated numerical-error checks.
+At 2%, market-specification means range from -$0.00480 to -$0.00721 per tCO2
+in 2020 dollars. Full evidence and remaining limitations are in
+`QUANTITY_FULL_STRUCTURAL_PAIRED_ENSEMBLE_RESULTS_20260924.md`.
+
+This closes paired execution for the registered structural design, but not
+probabilistic or empirical-response uncertainty and not the full precipitation-
+agriculture SCC. The alternative regional allocations still need a second
+row-level implementation before distributional incidence claims.

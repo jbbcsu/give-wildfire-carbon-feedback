@@ -1956,6 +1956,16 @@ All 624 model-by-discount values pass the no-stacking graph audit and propagated
 numerical-error test. Market-structure cells remain paired-equivalent rather
 than directly executed.
 
+We subsequently rebuilt the five alternative market paths at country level,
+mapped them to GIVE regions, and directly executed the full registered design.
+The resulting 936 paired paths and 3,744 SCC values cover six markets, three
+adaptation scenarios, two tail rules, 26 climate models, and four discount
+schedules. At 2%, market-specification means averaged across the remaining
+design dimensions range from -$0.00480 to -$0.00721 per tCO2. Thus the complete
+registered structural envelope is now paired rather than merely paired-
+equivalent. These design cells still are not probability draws and do not
+include empirical response uncertainty or omitted precipitation mechanisms.
+
 Report global agricultural marginal damages and SCC under each adaptation
 scenario with draw-level uncertainty. Do not present a precipitation add-on to
 baseline MooreAg agriculture.

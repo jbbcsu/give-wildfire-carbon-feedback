@@ -4109,6 +4109,22 @@ calculated bounds; maximum disagreement is `6.37e-8` 2005 USD per tCO2. The
 sequential run peaks at 1.83 GB under a 3 GB cap. Market-structure alternatives
 and empirical coefficient uncertainty are not claimed as paired executions.
 
+For each of the five remaining market specifications, we recompute national
+market damages from country output ratios, allocate country damages through the
+frozen FUND mapping, and require each annual regional sum to reproduce the
+registered global market path within `2e-12` billion 2005 USD. We then execute
+the same anchored replacement for every climate-model, adaptation, and tail
+combination. Combined with the central specification, this produces 936 paired
+paths and 3,744 discount values. Every stored value joins one-to-one to the
+independently reconstructed external diagnostic, baseline agriculture and
+consumption errors are zero, and paired numerical errors remain within
+propagated cancellation bounds. Peak sampled process-group RSS is 2.20 GB.
+
+The alternative country-to-region allocations share one implementation with
+their build-time global reconciliation. We therefore treat the global sectoral
+SCC as validated but retain a separate independent regional-incidence audit as
+a prerequisite for distributional claims.
+
 We additionally summarize the complete smallest-pulse balanced design without
 assigning probabilities: 26 climate models by three adaptation cases, two tail
 rules, three elasticity pairs, two supply mappings, and four discount schedules
