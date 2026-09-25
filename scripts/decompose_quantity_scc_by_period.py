@@ -168,6 +168,17 @@ def main() -> None:
     )
     period_rows = []
     total_mean = float(annual_mean.equal_model_mean_discounted_contribution.sum())
+    post_pulse = result.loc[result.year > 2020]
+    model_signs = post_pulse.groupby("climate_model").discounted_scc_contribution_usd2020_per_tco2.agg(
+        all_negative=lambda values: bool((values < 0).all()),
+        all_positive=lambda values: bool((values > 0).all()),
+    )
+    negative_models = model_signs.index[model_signs.all_negative].tolist()
+    positive_models = model_signs.index[model_signs.all_positive].tolist()
+    require(len(negative_models) == 25 and positive_models == ["MPI-ESM1-2-LR"],
+            "post-pulse model sign support differs")
+    require((model_signs.all_negative | model_signs.all_positive).all(),
+            "a climate model changes annual contribution sign")
     for start, end in PERIODS:
         selected = annual_mean.loc[annual_mean.year.between(start, end)]
         contribution = float(selected.equal_model_mean_discounted_contribution.sum())
@@ -189,6 +200,10 @@ def main() -> None:
             "periods": period_rows,
             "annual_contribution_min_usd2020_per_tco2": float(annual_mean.equal_model_mean_discounted_contribution.min()),
             "annual_contribution_max_usd2020_per_tco2": float(annual_mean.equal_model_mean_discounted_contribution.max()),
+            "equal_model_post_pulse_negative_years": int((annual_mean.loc[annual_mean.year > 2020, "equal_model_mean_discounted_contribution"] < 0).sum()),
+            "climate_models_negative_every_post_pulse_year": negative_models,
+            "climate_models_positive_every_post_pulse_year": positive_models,
+            "climate_models_with_post_pulse_sign_change": [],
         },
         "validation": {"maximum_model_reconstruction_error_usd2020_per_tco2": maximum_error},
         "output": {"path": str(args.output_table), "rows": len(result), "sha256": digest(args.output_table)},

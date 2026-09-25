@@ -22,7 +22,9 @@ narrow result:
 - At the 2% schedule, 44.1% of the signed value accrues in 2020--2050 and
   27.3% in 2051--2100. The share through 2100 is 60.2%, 71.4%, 80.6%, and
   87.2% under the 1.5%, 2.0%, 2.5%, and 3.0% schedules. All 104
-  model-by-schedule totals reconstruct the independent diagnostic.
+  model-by-schedule totals reconstruct the independent diagnostic. Twenty-five
+  models are negative in every post-pulse year and MPI-ESM1-2-LR is positive
+  in every post-pulse year; none changes annual sign.
 - The coefficient covariance, six fixed/uncapped market cases, Table 3, three
   figures, primary references, manuscript links, README links, claim language,
   tracked-path exclusions, and focused synthetic tests all pass the release

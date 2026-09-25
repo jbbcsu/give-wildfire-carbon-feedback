@@ -4,11 +4,11 @@
     "central_quantity_channel_temporal_accounting": true,
     "full_precipitation_agriculture_scc": false
   },
-  "created_at_utc": "2026-09-25T15:40:28.900639+00:00",
+  "created_at_utc": "2026-09-25T15:58:17.107068+00:00",
   "estimand": "time-period contributions to the equal-26-model central annual-maize rainfall-quantity SCC at the GIVE 2% schedule",
   "implementation": {
     "path": "scripts/decompose_quantity_scc_by_period.py",
-    "sha256": "b9e68659fa800330ca6c7fd3c3830645a706b5fcd13e8f9d9e83e8abdbdb71e2"
+    "sha256": "f1f93e9cbe28ce0b2405d009fff303e1b618154c39bacb26d7b2b549a2003679"
   },
   "output": {
     "path": "data/interim/quantity_scc_period_decomposition_20260925.csv",
@@ -42,6 +42,38 @@
   "summary": {
     "annual_contribution_max_usd2020_per_tco2": 0.0,
     "annual_contribution_min_usd2020_per_tco2": -0.00012348866710689413,
+    "climate_models_negative_every_post_pulse_year": [
+      "ACCESS-CM2",
+      "ACCESS-ESM1-5",
+      "AWI-CM-1-1-MR",
+      "BCC-CSM2-MR",
+      "CAMS-CSM1-0",
+      "CAS-ESM2-0",
+      "CESM2",
+      "CESM2-WACCM",
+      "CMCC-CM2-SR5",
+      "CMCC-ESM2",
+      "CanESM5",
+      "FGOALS-g3",
+      "FIO-ESM-2-0",
+      "GISS-E2-1-G",
+      "GISS-E2-1-H",
+      "HadGEM3-GC31-LL",
+      "IITM-ESM",
+      "MIROC-ES2L",
+      "MIROC6",
+      "MPI-ESM1-2-HR",
+      "MRI-ESM2-0",
+      "NESM3",
+      "NorESM2-MM",
+      "TaiESM1",
+      "UKESM1-0-LL"
+    ],
+    "climate_models_positive_every_post_pulse_year": [
+      "MPI-ESM1-2-LR"
+    ],
+    "climate_models_with_post_pulse_sign_change": [],
+    "equal_model_post_pulse_negative_years": 280,
     "global_equal_model_mean_usd2020_per_tco2": -0.0061017295490773385,
     "periods": [
       {

@@ -4235,9 +4235,11 @@ the central fixed-adaptation, uncapped 2% SCC. The 7,306 model-year rows span
 periods: 2020--2050, 2051--2100, 2101--2200, and 2201--2300. Their signed
 shares are 44.1%, 27.3%, 21.6%, and 7.0%. Every model total reconstructs the
 independent SCC diagnostic, with maximum error `9.3e-17` USD per tCO2. The
-run peaks at 178,323,456 bytes sampled process-group RSS under a 768 MiB cap.
-This is intertemporal accounting after the climate-response calculation, not
-evidence about within-season precipitation timing.
+validated rerun peaks at 177,094,656 bytes sampled process-group RSS under a
+768 MiB cap. In 2021--2300, 25 models have a negative contribution every year
+and MPI-ESM1-2-LR has a positive contribution every year; no model changes
+post-pulse annual sign. This is intertemporal accounting after the climate-
+response calculation, not evidence about within-season precipitation timing.
 
 We then reweight the validated undiscounted model-year path under all four
 registered GIVE Ramsey schedules without rerunning the physical response. The

@@ -2052,6 +2052,10 @@ discounting progressively reduces its distant contribution. Across the 1.5%,
 2.0%, 2.5%, and 3.0% GIVE schedules, the signed share accruing through 2100 is
 60.2%, 71.4%, 80.6%, and 87.2%, respectively. These schedules are policy
 choices rather than probability draws and reweight the same physical path.
+Within each climate model, the post-pulse annual sign never reverses: 25 models
+are negative in every year from 2021 through 2300, while MPI-ESM1-2-LR is
+positive in every post-pulse year. Discounting therefore changes magnitude and
+timing shares, not which climate model supplies the positive central estimate.
 
 ![Temporal shares of the narrow quantity-channel SCC](figures/quantity_scc_period_discount_grid_20260925.svg)
 

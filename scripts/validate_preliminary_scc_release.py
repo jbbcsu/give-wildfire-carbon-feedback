@@ -187,6 +187,12 @@ def main() -> None:
             "period contributions do not reconstruct global mean")
     require(period["validation"]["maximum_model_reconstruction_error_usd2020_per_tco2"] <= 2e-14,
             "period model reconstruction failed")
+    require(len(period["summary"]["climate_models_negative_every_post_pulse_year"]) == 25,
+            "post-pulse negative-model support differs")
+    require(period["summary"]["climate_models_positive_every_post_pulse_year"] == ["MPI-ESM1-2-LR"],
+            "post-pulse positive-model support differs")
+    require(period["summary"]["climate_models_with_post_pulse_sign_change"] == [],
+            "unexpected post-pulse annual sign change")
     require(period_job["status"] == "completed" and period_job["returncode"] == 0,
             "period decomposition job failed")
     require(period_job["sampled_peak_group_rss_bytes"] <= 768 * 1024 * 1024,
@@ -215,6 +221,7 @@ def main() -> None:
         "44.1% accrues in 2020--2050",
         "quantity channel is therefore small per year",
         "60.2%, 71.4%, 80.6%, and 87.2%",
+        "MPI-ESM1-2-LR is positive in every post-pulse year",
     ):
         require(fragment in manuscript_text, f"country claim fragment missing: {fragment}")
     results_brief = " ".join(paths["results_brief"].read_text().split())
@@ -335,6 +342,7 @@ def main() -> None:
             "country_decomposition_memory_budget_mib": 768,
             "country_decomposition_figure_hash_bound": True,
             "period_accounting_bins": 4,
+            "period_models_with_sign_change": 0,
             "period_decomposition_memory_budget_mib": 768,
             "period_discount_schedules": 4,
             "period_discount_figure_hash_bound": True,

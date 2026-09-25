@@ -19,6 +19,13 @@ SCC-equivalent contribution is similar across the four periods (about
 late-century artifact: the narrow modeled channel is small per year, and
 discounting progressively reduces its distant contributions.
 
+The annual sign is stable within every climate model after the pulse begins:
+25 models have negative contributions in each of 2021--2300, while
+MPI-ESM1-2-LR has positive contributions in every one of those years. The
+equal-model annual mean is negative in all 280 post-pulse years. The single
+positive model is therefore not created by a particular discount schedule or
+late-century sign reversal.
+
 The timing shares vary transparently with the registered discount schedule:
 
 | GIVE schedule | Total (2020 USD/tCO2) | Share through 2100 | Share in 2201--2300 |
@@ -41,8 +48,8 @@ timing within a crop season. It does not expand the quantity-only claim to
 drought, rainfall distribution, temperature, other crops, or total
 agricultural damages.
 
-The memory-bounded run completed in 1.8 seconds at 178,323,456 bytes (170.1
-MiB) sampled peak process-group RSS under a 768 MiB budget.
+The validated memory-bounded rerun completed in 1.8 seconds at 177,094,656
+bytes (168.9 MiB) sampled peak process-group RSS under a 768 MiB budget.
 
 ## Reproduction
 
