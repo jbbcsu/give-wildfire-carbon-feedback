@@ -98,9 +98,9 @@ uncertainty is substantial: 53.63% of slopes are positive and 46.37% are
 negative. This establishes a reproducible annual-quantity climate link but
 does not represent within-season timing, extremes, drought, crop response, or
 economic loss.
-Validated response transport, compatible climate-pulse inputs, adaptation
-calibration and agricultural welfare integration remain necessary before
-estimating an incremental social cost of carbon.
+The paired quantity-channel estimate reported below supplies one narrow
+response, climate-pulse, welfare, and SCC bridge; the omitted timing, drought,
+crop, and irrigation mechanisms still require those links.
 
 An independently audited published-response transport now evaluates
 GFDL-ESM4, IPSL-CM6A-LR, MPI-ESM1-2-HR, MRI-ESM2-0, and UKESM1-0-LL
@@ -1957,25 +1957,27 @@ diagnostic inside propagated floating-point bounds. At the 2% schedule, the
 26-model mean is -$0.00610 per tCO2 in 2020 dollars (range -$0.01025 to
 $0.00317), with 25 negative models and one positive model. This is the first
 paired GIVE estimate for the central annual maize rainfall-quantity channel;
-adaptation/market uncertainty and the broader precipitation-agriculture
-replacement remain outstanding.
+the adaptation/market grid is evaluated below, while the broader
+precipitation-agriculture replacement remains outstanding.
 
 Across the complete balanced structural design at the smallest converged pulse,
 the 2% schedule has an unweighted design-cell mean of -$0.00661 per tCO2, a
 2.5th--97.5th design-percentile range of -$0.01137 to $0.00104, and a full
 range of -$0.01221 to $0.00348. Nine hundred of 936 cells are negative. These
 percentiles describe registered modeling choices and climate models rather than
-a probability distribution; empirical coefficient uncertainty is not yet
-included. The response-tail choice has little effect in this narrow channel,
-whereas adaptation and the yield-to-supply mapping shift the conditional mean.
+a probability distribution; empirical coefficient uncertainty is evaluated
+separately below rather than mixed into these percentiles. The response-tail
+choice has little effect in this narrow channel, whereas adaptation and the
+yield-to-supply mapping shift the conditional mean.
 
 Paired GIVE execution now covers all 156 climate-model by adaptation by tail
 paths for the central market specification. At 2%, fixed, trend, and upper
 uncapped adaptation means are -$0.00610, -$0.00652, and -$0.00702 per tCO2;
 the corresponding published-analogue tail means differ by at most $0.00001.
 All 624 model-by-discount values pass the no-stacking graph audit and propagated
-numerical-error test. Market-structure cells remain paired-equivalent rather
-than directly executed.
+numerical-error test. At this intermediate checkpoint, market-structure cells
+remain paired-equivalent rather than directly executed; the next step executes
+them directly.
 
 We subsequently rebuilt the five alternative market paths at country level,
 mapped them to GIVE regions, and directly executed the full registered design.
@@ -2011,19 +2013,71 @@ mechanisms and crops described above.
 
 ### 6.4 Sensitivity and accounting checks
 
-Report sensitivity to calendars, weather products, feature definitions,
-response form, CO2 treatment, adaptation, regional aggregation, discounting,
-and the method for decomposing joint effects.
+Every paired run preserves MooreAg baseline agriculture damages and global
+per-capita consumption, removes the legacy marginal response, and requires one
+replacement agriculture producer. The complete 3,744-value design agrees with
+the independently constructed diagnostic within propagated numerical bounds.
+A separate implementation reconstructs all 3,506,880 alternative-market
+regional inputs exactly from cell responses and national markets. The two
+smallest carbon pulses satisfy the preregistered convergence tolerance.
+
+Sensitivity results are reported as distinct objects rather than collapsed
+into one interval. The balanced design varies climate model, market
+elasticities, yield-to-supply mapping, loss-only adaptation, tail treatment,
+and discount schedule. The published covariance supplies coefficient-only
+delta intervals. Historical U.S. checks vary weather source, irrigation
+practice, heat representation, moisture family, time block, and geographic
+holdout. None of these exercises supplies probabilities for climate models or
+structural choices. Calendar uncertainty, crop coverage, trade and storage,
+CO2 fertilization, adaptation costs, and a jointly estimated drought/timing
+response remain outside the reported SCC.
 
 ## 7. Discussion
 
-Interpret results only within historical support and the scenario ensemble.
-Distinguish empirical weather responses from long-run adaptation assumptions,
-and structural crop-model uncertainty from statistical uncertainty. A future
-noncoastal infrastructure module must exclude crop and CIAM-covered coastal
-losses before it is combined with SCC results.
+The central result is deliberately narrower than the paper's ultimate damage
+category. Climate-driven changes in annual rainfall quantity, evaluated through
+one published global maize response and paired GIVE accounting, produce a
+small negative sectoral SCC. This sign is common to most registered design
+cells and remains below zero in the coefficient-only interval for the
+equal-model central mean. It is not evidence that climate change improves
+agriculture overall. Temperature damages remain in the retained baseline, and
+the new marginal channel excludes several precipitation mechanisms that can
+plausibly increase losses.
 
-## Planned exhibits
+The empirical hierarchy matters for that interpretation. Within-season
+distribution variables occasionally improve prediction, especially for
+soybean, but their performance is not stable across periods, locations, and
+temperature controls. Seasonal PDSI is a credible competitor for
+non-irrigated corn, while global late-century SPEI exposure is consistently
+drier across the five named climate models. Yet neither result supplies the
+causal, marginal-pulse crop response needed for monetization. Adding these
+signals to annual precipitation merely because each is statistically or
+physically salient would risk counting the same moisture stress more than
+once. The current quantity estimate is therefore a benchmark to be replaced or
+expanded only through a prespecified mutually exclusive or decomposed response.
+
+The accounting contribution is more general. Retaining legacy baseline damage
+levels while replacing the marginal response avoids changing the endogenous
+consumption and Ramsey discount path for reasons unrelated to the new channel.
+The graph audit prevents the old and new marginal agriculture responses from
+being active together. That architecture can accommodate a later multi-crop,
+irrigation-aware response without treating it as an additive damage sector.
+
+The most important limitations are scientific rather than computational. The
+reported channel uses maize only; published response transport need not recover
+local causal effects; national market clearing omits international trade and
+storage; loss-only adaptation is imposed rather than estimated and carries no
+cost; and climate models and structural specifications lack probability
+weights. Coefficient uncertainty is only one layer and should not be combined
+naively with the design percentiles.
+
+The next decisive step is a causal or otherwise defensible drought/timing
+response on matched future climate support, followed by broader crop and
+irrigation coverage and explicit market incidence. A future noncoastal
+infrastructure module must remain separate and exclude crop losses and
+CIAM-covered coastal damages before combination with GIVE.
+
+## Exhibit plan
 
 | Exhibit | Content |
 |---|---|
@@ -2037,4 +2091,4 @@ losses before it is combined with SCC results.
 | Figure 5 | Uncertainty/decomposition and sensitivity results |
 | Table 1 | Data sources, versions, licenses, coverage, and roles |
 | Table 2 | Main response specification and validation gates |
-| Table 3 | SCC results and scenario definitions (after estimation) |
+| Table 3 | SCC results, coefficient uncertainty, and scenario definitions |
