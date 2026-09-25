@@ -39,6 +39,16 @@ The same calculation across all registered GIVE discount schedules gives:
 | 2.5% | -0.00454292 | 0.00162078 | [-0.00771964, -0.00136620] |
 | 3.0% | -0.00359037 | 0.00128093 | [-0.00610099, -0.00107974] |
 
+Resolving the delta calculation separately for each of the 26 climate models
+gives the same qualitative count at all four schedules: 25 central estimates
+are negative; 23 model-specific coefficient-only intervals are wholly
+negative, two include zero, and one is wholly positive. At 2%, the descriptive
+standard deviation of the 26 central estimates is $0.00285438 per tCO2. This
+standard deviation is climate-model spread, not sampling uncertainty and not a
+probabilistic climate distribution. The coefficient SE for the equal-model
+mean uses one shared coefficient draw and is therefore not obtained by dividing
+model-specific uncertainty by the square root of 26.
+
 ## Reproducibility and validation
 
 The executable implementation is
@@ -61,3 +71,5 @@ Machine-readable result and resource receipts:
 - `data/provenance/quantity_coefficient_delta_job_20260925.json`
 - `data/provenance/quantity_coefficient_delta_uncertainty_grid_20260925.json`
 - `data/provenance/quantity_coefficient_delta_grid_job_20260925.json`
+- `data/provenance/quantity_coefficient_delta_by_model_20260925.json`
+- `data/provenance/quantity_coefficient_delta_by_model_job_20260925.json`

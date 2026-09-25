@@ -1,0 +1,1017 @@
+{
+  "claim_gates": {
+    "full_precipitation_agriculture_scc": false,
+    "joint_climate_coefficient_distribution": false,
+    "probabilistic_climate_model_weights": false,
+    "probabilistic_total_scc_interval": false
+  },
+  "created_at_utc": "2026-09-25T13:47:09.674386+00:00",
+  "estimand": "central fixed-adaptation uncapped annual-maize rainfall-quantity SCC by climate model and GIVE discount schedule",
+  "implementation": {
+    "path": "scripts/estimate_quantity_coefficient_delta_by_model.py",
+    "sha256": "d624144b84000b86dec35071955d91b551f2adfbee1a2a9dfd1357b211681de4"
+  },
+  "interpretation": {
+    "climate_model_standard_deviation": "descriptive spread across 26 models, not sampling uncertainty",
+    "coefficient_intervals": "first-order normal intervals conditional on each model and the narrow quantity channel",
+    "shared_mean_se": "uses one common empirical coefficient draw across all climate models"
+  },
+  "rows": [
+    {
+      "central_scc_usd2020_per_tco2": -0.010729728192925107,
+      "climate_model": "ACCESS-CM2",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.003434151933585053,
+      "discount_rate_label": "1.5%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.01746066598275181,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.003998790403098404
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.009483993632469868,
+      "climate_model": "ACCESS-ESM1-5",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.003257865361655257,
+      "discount_rate_label": "1.5%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.01586940974131417,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.003098577523625564
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.0016614962810923171,
+      "climate_model": "AWI-CM-1-1-MR",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0008171454105353929,
+      "discount_rate_label": "1.5%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.0032631012857416873,
+      "normal_approximation_95_upper_usd2020_per_tco2": -5.989127644294694e-05
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.004135070474879374,
+      "climate_model": "BCC-CSM2-MR",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0019035657118744401,
+      "discount_rate_label": "1.5%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.007866059270153276,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.00040408167960547144
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.0067934381017925975,
+      "climate_model": "CAMS-CSM1-0",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0020310710235742903,
+      "discount_rate_label": "1.5%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.010774337307998205,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.002812538895586989
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.007314874991762382,
+      "climate_model": "CAS-ESM2-0",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.003314104620688214,
+      "discount_rate_label": "1.5%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.013810520048311282,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.0008192299352134834
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.010535851826027278,
+      "climate_model": "CESM2",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.003799687168816086,
+      "discount_rate_label": "1.5%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.017983238676906807,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.00308846497514775
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.009047644713589958,
+      "climate_model": "CESM2-WACCM",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0032818170831278477,
+      "discount_rate_label": "1.5%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.01548000619652054,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.0026152832306593774
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.014466014714609213,
+      "climate_model": "CMCC-CM2-SR5",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.003706357899416216,
+      "discount_rate_label": "1.5%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.021730476197464994,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.00720155323175343
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.014301731936686483,
+      "climate_model": "CMCC-ESM2",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.004466476805456226,
+      "discount_rate_label": "1.5%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.023056026475380687,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.005547437397992282
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.012593125466551405,
+      "climate_model": "CanESM5",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.004120817398989448,
+      "discount_rate_label": "1.5%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.020669927568570723,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.004516323364532088
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.007591386998126661,
+      "climate_model": "FGOALS-g3",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0038260988456405485,
+      "discount_rate_label": "1.5%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.015090540735582136,
+      "normal_approximation_95_upper_usd2020_per_tco2": -9.223326067118575e-05
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.00868082768101623,
+      "climate_model": "FIO-ESM-2-0",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0031765928628543763,
+      "discount_rate_label": "1.5%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.014906949692210807,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.0024547056698216527
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.010389267781302258,
+      "climate_model": "GISS-E2-1-G",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0039880529676520155,
+      "discount_rate_label": "1.5%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.01820585159790021,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.002572683964704307
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.0070182232248725985,
+      "climate_model": "GISS-E2-1-H",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.002570736538492492,
+      "discount_rate_label": "1.5%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.012056866840317882,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.0019795796094273146
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.009099423762641102,
+      "climate_model": "HadGEM3-GC31-LL",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.003430612109897753,
+      "discount_rate_label": "1.5%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.0158234234980407,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.002375424027241506
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.008695332118617411,
+      "climate_model": "IITM-ESM",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.004442126025750994,
+      "discount_rate_label": "1.5%",
+      "interval_includes_zero": true,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.01740189912908936,
+      "normal_approximation_95_upper_usd2020_per_tco2": 1.1234891854536994e-05
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.009259101257748262,
+      "climate_model": "MIROC-ES2L",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.002804870958385453,
+      "discount_rate_label": "1.5%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.014756648336183752,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.003761554179312774
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.011718982428154806,
+      "climate_model": "MIROC6",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0030785540533195643,
+      "discount_rate_label": "1.5%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.017752948372661153,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.00568501648364846
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.005582870317390292,
+      "climate_model": "MPI-ESM1-2-HR",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0031930643088661117,
+      "discount_rate_label": "1.5%",
+      "interval_includes_zero": true,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.01184127636276787,
+      "normal_approximation_95_upper_usd2020_per_tco2": 0.0006755357279872864
+    },
+    {
+      "central_scc_usd2020_per_tco2": 0.004581303331066062,
+      "climate_model": "MPI-ESM1-2-LR",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0016780566263517995,
+      "discount_rate_label": "1.5%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": 0.0012923123434165351,
+      "normal_approximation_95_upper_usd2020_per_tco2": 0.007870294318715589
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.014827466399078063,
+      "climate_model": "MRI-ESM2-0",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.005193653871101154,
+      "discount_rate_label": "1.5%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.025007027986436326,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.0046479048117198
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.012537591234023563,
+      "climate_model": "NESM3",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.004991040130831452,
+      "discount_rate_label": "1.5%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.02232002989045321,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.0027551525775939174
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.007226964689787835,
+      "climate_model": "NorESM2-MM",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.003306978019783453,
+      "discount_rate_label": "1.5%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.013708641608563402,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.0007452877710122678
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.011032447399031545,
+      "climate_model": "TaiESM1",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.003393632335559609,
+      "discount_rate_label": "1.5%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.01768396677672838,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.004380928021334711
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.009430325907814386,
+      "climate_model": "UKESM1-0-LL",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.003544781145311743,
+      "discount_rate_label": "1.5%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.016378096952625404,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.00248255486300337
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.007414746997456724,
+      "climate_model": "ACCESS-CM2",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0023731605470226837,
+      "discount_rate_label": "2.0%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.012066141669621184,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.0027633523252922638
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.0065538858906577626,
+      "climate_model": "ACCESS-ESM1-5",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.002251338232341523,
+      "discount_rate_label": "2.0%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.010966508826047147,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.002141262955268377
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.0011481722025868603,
+      "climate_model": "AWI-CM-1-1-MR",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0005646859215655529,
+      "discount_rate_label": "2.0%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.002254956608855344,
+      "normal_approximation_95_upper_usd2020_per_tco2": -4.1387796318376625e-05
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.0028575282787562713,
+      "climate_model": "BCC-CSM2-MR",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.001315453460835683,
+      "discount_rate_label": "2.0%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.00543581706199421,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.00027923949551833267
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.004694585419592806,
+      "climate_model": "CAMS-CSM1-0",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.001403565629755085,
+      "discount_rate_label": "2.0%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.007445574053912773,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.0019435967852728395
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.005054922783209256,
+      "climate_model": "CAS-ESM2-0",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0022902022061455315,
+      "discount_rate_label": "2.0%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.009543719107254498,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.0005661264591640142
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.007280769074829293,
+      "climate_model": "CESM2",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0026257625912923573,
+      "discount_rate_label": "2.0%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.012427263753762314,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.0021342743958962726
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.0062523482619176365,
+      "climate_model": "CESM2-WACCM",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0022678899987030126,
+      "discount_rate_label": "2.0%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.01069741265937554,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.001807283864459732
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.009996696691119645,
+      "climate_model": "CMCC-CM2-SR5",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0025612676754253987,
+      "discount_rate_label": "2.0%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.015016781334953426,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.004976612047285864
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.00988316951037545,
+      "climate_model": "CMCC-ESM2",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.003086545599576724,
+      "discount_rate_label": "2.0%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.01593279888554583,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.00383354013520507
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.008702442053328043,
+      "climate_model": "CanESM5",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.002847678688031523,
+      "discount_rate_label": "2.0%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.014283892281869829,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.0031209918247862576
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.005246005487337739,
+      "climate_model": "FGOALS-g3",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0026440143025316665,
+      "discount_rate_label": "2.0%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.010428273520299805,
+      "normal_approximation_95_upper_usd2020_per_tco2": -6.373745437567285e-05
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.00599886033719329,
+      "climate_model": "FIO-ESM-2-0",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.002195175112184947,
+      "discount_rate_label": "2.0%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.010301403557075785,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.001696317117310794
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.0071794726333934715,
+      "climate_model": "GISS-E2-1-G",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.002755932220021254,
+      "discount_rate_label": "2.0%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.01258109978463513,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.0017778454821518143
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.004849922460848059,
+      "climate_model": "GISS-E2-1-H",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0017764998893197847,
+      "discount_rate_label": "2.0%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.008331862243914837,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.001367982677781281
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.0062881300054912475,
+      "climate_model": "HadGEM3-GC31-LL",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.002370714362323995,
+      "discount_rate_label": "2.0%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.010934730155646277,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.0016415298553362177
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.006008883326501646,
+      "climate_model": "IITM-ESM",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0030697180652132167,
+      "discount_rate_label": "2.0%",
+      "interval_includes_zero": true,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.01202553073431955,
+      "normal_approximation_95_upper_usd2020_per_tco2": 7.764081316258796e-06
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.006398474658346535,
+      "climate_model": "MIROC-ES2L",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0019382977883946315,
+      "discount_rate_label": "2.0%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.010197538323600012,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.002599410993093057
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.008098368195307376,
+      "climate_model": "MIROC6",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0021274256825064486,
+      "discount_rate_label": "2.0%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.012268122533020016,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.003928613857594737
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.003858026034000592,
+      "climate_model": "MPI-ESM1-2-HR",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.002206557656279764,
+      "discount_rate_label": "2.0%",
+      "interval_includes_zero": true,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.00818287904030893,
+      "normal_approximation_95_upper_usd2020_per_tco2": 0.00046682697230774565
+    },
+    {
+      "central_scc_usd2020_per_tco2": 0.0031658962735348754,
+      "climate_model": "MPI-ESM1-2-LR",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0011596160736511776,
+      "discount_rate_label": "2.0%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": 0.0008930487691785672,
+      "normal_approximation_95_upper_usd2020_per_tco2": 0.005438743777891183
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.010246476988762814,
+      "climate_model": "MRI-ESM2-0",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.003589059162212157,
+      "discount_rate_label": "2.0%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.01728103294669864,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.0032119210308269863
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.008664065461066428,
+      "climate_model": "NESM3",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.003449043535650361,
+      "discount_rate_label": "2.0%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.015424190790941136,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.0019039401311917205
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.004994172583876265,
+      "climate_model": "NorESM2-MM",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0022852773896287412,
+      "discount_rate_label": "2.0%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.009473316267548597,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.0005150289002039321
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.007623940257023821,
+      "climate_model": "TaiESM1",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0023451595985230383,
+      "discount_rate_label": "2.0%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.012220453070128975,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.003027427443918666
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.006516798956566648,
+      "climate_model": "UKESM1-0-LL",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.002449610536915081,
+      "discount_rate_label": "2.0%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.011318035608920207,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.001715562304213089
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.005520501661748713,
+      "climate_model": "ACCESS-CM2",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0017668892400425067,
+      "discount_rate_label": "2.5%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.008983604572232025,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.0020573987512654
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.004879564782309766,
+      "climate_model": "ACCESS-ESM1-5",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0016761888711622945,
+      "discount_rate_label": "2.5%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.008164894969787864,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.0015942345948316687
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.0008548487368339284,
+      "climate_model": "AWI-CM-1-1-MR",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0004204256134481212,
+      "discount_rate_label": "2.5%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.001678882939192246,
+      "normal_approximation_95_upper_usd2020_per_tco2": -3.081453447561079e-05
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.002127515572487951,
+      "climate_model": "BCC-CSM2-MR",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0009793945751513497,
+      "discount_rate_label": "2.5%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.004047128939784596,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.00020790220519130583
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.0034952597850900573,
+      "climate_model": "CAMS-CSM1-0",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.001044996728945115,
+      "discount_rate_label": "2.5%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.005543453373822483,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.0014470661963576319
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.00376354171767169,
+      "climate_model": "CAS-ESM2-0",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0017051242658837355,
+      "discount_rate_label": "2.5%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.007105585278803811,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.0004214981565395684
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.005420750909348804,
+      "climate_model": "CESM2",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.001954959041967458,
+      "discount_rate_label": "2.5%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.009252470631605022,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.001589031187092586
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.004655060990307012,
+      "climate_model": "CESM2-WACCM",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.001688512157902246,
+      "discount_rate_label": "2.5%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.007964544819795414,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.0013455771608186094
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.007442840645840577,
+      "climate_model": "CMCC-CM2-SR5",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0019069406417659986,
+      "discount_rate_label": "2.5%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.011180444303701935,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.00370523698797922
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.007358316208946511,
+      "climate_model": "CMCC-ESM2",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0022980258186189578,
+      "discount_rate_label": "2.5%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.011862446813439669,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.002854185604453354
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.006479229187875131,
+      "climate_model": "CanESM5",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.002120182235153754,
+      "discount_rate_label": "2.5%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.010634786368776489,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.002323672006973773
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.0039058084493041843,
+      "climate_model": "FGOALS-g3",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0019685479886785468,
+      "discount_rate_label": "2.5%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.007764162507114136,
+      "normal_approximation_95_upper_usd2020_per_tco2": -4.745439149423259e-05
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.00446633153382341,
+      "climate_model": "FIO-ESM-2-0",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0016343737428926388,
+      "discount_rate_label": "2.5%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.007669704069892982,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.0012629589977538385
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.005345332700978237,
+      "climate_model": "GISS-E2-1-G",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0020518742366281454,
+      "discount_rate_label": "2.5%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.009367006204769402,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.0013236591971870718
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.003610912830673037,
+      "climate_model": "GISS-E2-1-H",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0013226574760412562,
+      "discount_rate_label": "2.5%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.006203321483713899,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.0010185041776321745
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.004681701558688698,
+      "climate_model": "HadGEM3-GC31-LL",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.001765067982132029,
+      "discount_rate_label": "2.5%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.008141234803667474,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.001222168313709921
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.004473793793407039,
+      "climate_model": "IITM-ESM",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0022854972143340913,
+      "discount_rate_label": "2.5%",
+      "interval_includes_zero": true,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.008953368333501858,
+      "normal_approximation_95_upper_usd2020_per_tco2": 5.780746687779684e-06
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.004763856458555948,
+      "climate_model": "MIROC-ES2L",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0014431208670588533,
+      "discount_rate_label": "2.5%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.0075923733579913,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.0019353395591205956
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.006029478150275712,
+      "climate_model": "MIROC6",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0015839322594898388,
+      "discount_rate_label": "2.5%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.009133985378875796,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.0029249709216756276
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.00287241615384833,
+      "climate_model": "MPI-ESM1-2-HR",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0016428483885308637,
+      "discount_rate_label": "2.5%",
+      "interval_includes_zero": true,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.006092398995368823,
+      "normal_approximation_95_upper_usd2020_per_tco2": 0.0003475666876721628
+    },
+    {
+      "central_scc_usd2020_per_tco2": 0.0023571048790805606,
+      "climate_model": "MPI-ESM1-2-LR",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0008633689641372778,
+      "discount_rate_label": "2.5%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": 0.0006649017093714961,
+      "normal_approximation_95_upper_usd2020_per_tco2": 0.004049308048789625
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.007628809711584524,
+      "climate_model": "MRI-ESM2-0",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.002672162245189946,
+      "discount_rate_label": "2.5%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.012866247712156819,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.0023913717110122298
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.00645065678499087,
+      "climate_model": "NESM3",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0025679164096870095,
+      "discount_rate_label": "2.5%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.011483772947977408,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.001417540622004331
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.0037183113480546916,
+      "climate_model": "NorESM2-MM",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0017014575921931079,
+      "discount_rate_label": "2.5%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.007053168228753183,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.00038345446735620027
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.005676252353695755,
+      "climate_model": "TaiESM1",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0017460416936399866,
+      "discount_rate_label": "2.5%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.009098494073230129,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.002254010634161381
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.004851952435132805,
+      "climate_model": "UKESM1-0-LL",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0018238085515951705,
+      "discount_rate_label": "2.5%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.00842661719625934,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.0012772876740062711
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.004362967683303738,
+      "climate_model": "ACCESS-CM2",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0013964094392917333,
+      "discount_rate_label": "3.0%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.007099930184315536,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.0016260051822919405
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.0038564219194922355,
+      "climate_model": "ACCESS-ESM1-5",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0013247270449517046,
+      "discount_rate_label": "3.0%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.0064528869275975766,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.0012599569113868943
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.0006756048520752982,
+      "climate_model": "AWI-CM-1-1-MR",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.00033227113608679226,
+      "discount_rate_label": "3.0%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.001326856278805411,
+      "normal_approximation_95_upper_usd2020_per_tco2": -2.4353425345185467e-05
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.0016814199641448325,
+      "climate_model": "BCC-CSM2-MR",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0007740359715447696,
+      "discount_rate_label": "3.0%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.003198530468372581,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.0001643094599170841
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.002762376799391665,
+      "climate_model": "CAMS-CSM1-0",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0008258827227285517,
+      "discount_rate_label": "3.0%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.004381106935939626,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.0011436466628437034
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.0029744055705863337,
+      "climate_model": "CAS-ESM2-0",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0013475952912543224,
+      "discount_rate_label": "3.0%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.005615692341444805,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.00033311879972786193
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.004284132463390097,
+      "climate_model": "CESM2",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0015450449285427526,
+      "discount_rate_label": "3.0%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.007312420523333892,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.0012558444034463014
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.0036789919160676154,
+      "climate_model": "CESM2-WACCM",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0013344663956381213,
+      "discount_rate_label": "3.0%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.006294546051518333,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.0010634377806168975
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.005882232278786691,
+      "climate_model": "CMCC-CM2-SR5",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0015070949847748843,
+      "discount_rate_label": "3.0%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.008836138448945464,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.002928326108627918
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.0058154308160775475,
+      "climate_model": "CMCC-ESM2",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.00181617776153122,
+      "discount_rate_label": "3.0%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.009375139228678738,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.0022557224034763564
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.005120670002451608,
+      "climate_model": "CanESM5",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0016756242661318107,
+      "discount_rate_label": "3.0%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.008404893564069957,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.0018364464408332595
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.0030868418823529905,
+      "climate_model": "FGOALS-g3",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0015557845567164613,
+      "discount_rate_label": "3.0%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.006136179613517255,
+      "normal_approximation_95_upper_usd2020_per_tco2": -3.7504151188726305e-05
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.0035298350122381647,
+      "climate_model": "FIO-ESM-2-0",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0012916796764517611,
+      "discount_rate_label": "3.0%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.006061527178083616,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.000998142846392713
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.004224527913156434,
+      "climate_model": "GISS-E2-1-G",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.001621639029387347,
+      "discount_rate_label": "3.0%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.007402940410755634,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.0010461154155572338
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.0028537797787018594,
+      "climate_model": "GISS-E2-1-H",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0010453238056089874,
+      "discount_rate_label": "3.0%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.004902614437695475,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.0008049451197082442
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.003700046501615357,
+      "climate_model": "HadGEM3-GC31-LL",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0013949700611589524,
+      "discount_rate_label": "3.0%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.006434187821486904,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.0009659051817438105
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.0035357325035601673,
+      "climate_model": "IITM-ESM",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.001806276144109469,
+      "discount_rate_label": "3.0%",
+      "interval_includes_zero": true,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.007076033746014726,
+      "normal_approximation_95_upper_usd2020_per_tco2": 4.568738894391786e-06
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.003764975233399291,
+      "climate_model": "MIROC-ES2L",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0011405285374549874,
+      "discount_rate_label": "3.0%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.0060004111668110665,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.0015295392999875156
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.004765222424571013,
+      "climate_model": "MIROC6",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0012518147194577466,
+      "discount_rate_label": "3.0%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.007218779274708197,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.00231166557443383
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.00227013043117105,
+      "climate_model": "MPI-ESM1-2-HR",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0012983773657536826,
+      "discount_rate_label": "3.0%",
+      "interval_includes_zero": true,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.004814950068048268,
+      "normal_approximation_95_upper_usd2020_per_tco2": 0.0002746892057061681
+    },
+    {
+      "central_scc_usd2020_per_tco2": 0.0018628692489121232,
+      "climate_model": "MPI-ESM1-2-LR",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0006823385098720958,
+      "discount_rate_label": "3.0%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": 0.0005254857695628154,
+      "normal_approximation_95_upper_usd2020_per_tco2": 0.003200252728261431
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.00602920761576419,
+      "climate_model": "MRI-ESM2-0",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0021118655872206815,
+      "discount_rate_label": "3.0%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.010168464166716726,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.0018899510648116543
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.005098088720160371,
+      "climate_model": "NESM3",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0020294779279365943,
+      "discount_rate_label": "3.0%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.009075865458916095,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.0011203119814046465
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.002938659055092884,
+      "climate_model": "NorESM2-MM",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0013446974425101134,
+      "discount_rate_label": "3.0%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.005574266042412707,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.00030305206777306174
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.004486060727648692,
+      "climate_model": "TaiESM1",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0013799331883047395,
+      "discount_rate_label": "3.0%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.007190729776725982,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.0017813916785714029
+    },
+    {
+      "central_scc_usd2020_per_tco2": -0.003834599296838339,
+      "climate_model": "UKESM1-0-LL",
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0014413939590501342,
+      "discount_rate_label": "3.0%",
+      "interval_includes_zero": false,
+      "normal_approximation_95_lower_usd2020_per_tco2": -0.0066597314565766015,
+      "normal_approximation_95_upper_usd2020_per_tco2": -0.0010094671371000757
+    }
+  ],
+  "schema": "quantity_coefficient_delta_by_model/v1",
+  "sources": {
+    "diagnostic_receipt": {
+      "path": "data/provenance/epa_fair_hultgren_quantity_partial_scc_diagnostic_20260924.json",
+      "sha256": "a0321b59c48e8a0a4445e73697aef1906155dbb1c81fa3540e3c6a7e8b656f9e"
+    },
+    "grid_receipt": {
+      "path": "data/provenance/quantity_coefficient_delta_uncertainty_grid_20260925.json",
+      "sha256": "797ad9fd227d396a50157fbae39613d4aab48eae94fe4a4d6150532aaa3dc7b1"
+    },
+    "panel_receipt": {
+      "path": "data/provenance/hultgren_quantity_response_panel_20260924.json",
+      "sha256": "6f3487624e4deb319d6e6ec004c532a95000d0c6b457ec6e14a0403250d9e1f9"
+    }
+  },
+  "status": "coefficient_only_delta_by_climate_model_complete",
+  "summaries": [
+    {
+      "central_equal_model_mean_usd2020_per_tco2": -0.008829687623112498,
+      "climate_models": 26,
+      "descriptive_across_model_standard_deviation_usd2020_per_tco2": 0.004130508754362248,
+      "discount_rate_label": "1.5%",
+      "model_specific_coefficient_intervals_including_zero": 2,
+      "models_with_negative_central_scc": 25,
+      "shared_coefficient_delta_se_of_equal_model_mean_usd2020_per_tco2": 0.0031501635609367936
+    },
+    {
+      "central_equal_model_mean_usd2020_per_tco2": -0.0061017295490773385,
+      "climate_models": 26,
+      "descriptive_across_model_standard_deviation_usd2020_per_tco2": 0.002854375878399215,
+      "discount_rate_label": "2.0%",
+      "model_specific_coefficient_intervals_including_zero": 2,
+      "models_with_negative_central_scc": 25,
+      "shared_coefficient_delta_se_of_equal_model_mean_usd2020_per_tco2": 0.002176911221178319
+    },
+    {
+      "central_equal_model_mean_usd2020_per_tco2": -0.004542920753168955,
+      "climate_models": 26,
+      "descriptive_across_model_standard_deviation_usd2020_per_tco2": 0.0021251685024908707,
+      "discount_rate_label": "2.5%",
+      "model_specific_coefficient_intervals_including_zero": 2,
+      "models_with_negative_central_scc": 25,
+      "shared_coefficient_delta_se_of_equal_model_mean_usd2020_per_tco2": 0.0016207757279793813
+    },
+    {
+      "central_equal_model_mean_usd2020_per_tco2": -0.00359036508127409,
+      "climate_models": 26,
+      "descriptive_across_model_standard_deviation_usd2020_per_tco2": 0.0016795650245488409,
+      "discount_rate_label": "3.0%",
+      "model_specific_coefficient_intervals_including_zero": 2,
+      "models_with_negative_central_scc": 25,
+      "shared_coefficient_delta_se_of_equal_model_mean_usd2020_per_tco2": 0.0012809328814886666
+    }
+  ],
+  "validation": {
+    "all_rows": 104,
+    "all_values_finite": true,
+    "maximum_central_value_error_usd2020_per_tco2": 1.0581813203458523e-16,
+    "maximum_shared_mean_se_error_usd2020_per_tco2": 0.0
+  }
+}

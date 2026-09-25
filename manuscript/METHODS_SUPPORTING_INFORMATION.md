@@ -4177,6 +4177,18 @@ is within relative error `4.64e-4`. The all-schedule job peaks at 223,969,280
 bytes under a 768 MiB cap and reproduces the independently generated 2%
 receipt within `2.84e-16` USD per tCO2.
 
+We also retain each model's gradient rather than only the gradient of the
+equal-model mean. This produces 104 model-by-schedule coefficient-only
+intervals. For every schedule, 23 are wholly negative, two include zero, and
+one is wholly positive; 25 of 26 central values are negative. At 2%, the
+descriptive standard deviation of the 26 central values is $0.00285438 per
+tCO2. That spread is not assigned probabilities or combined with the
+coefficient covariance. The equal-model-mean coefficient SE continues to use
+one shared coefficient draw, so climate models are not treated as independent
+replications of the empirical response estimate. All 104 central values match
+the prior diagnostic within `1.06e-16`, and the shared-mean SEs match the
+all-schedule receipt exactly.
+
 ### Alternative Hultgren impact-region transport geometry
 
 For the external published-response transport, the public Hultgren impact-
