@@ -50,8 +50,10 @@ feature selection rather than presume every timing metric belongs in the main
 specification.  Useful complementary evidence is [Zampieri et al.
 (2017)](https://doi.org/10.1088/1748-9326/aa723b) on wheat drought/water
 excess, [Jarrett et al. (2023)](https://doi.org/10.1016/j.ecolecon.2022.107627)
-on global dry spells, [Matiu et al. (2023)](https://doi.org/10.1038/s43247-023-00685-7)
-as a predictive compound-extreme benchmark, and [Jägermeyr et al.
+on global dry spells, [Matiu et al. (2017)](https://doi.org/10.1371/journal.pone.0178339)
+on interacting crop-season temperature and SPEI, [Heino et al.
+(2023)](https://doi.org/10.1038/s41598-023-29378-2) as a predictive
+compound-extreme benchmark, and [Jägermeyr et al.
 (2019)](https://doi.org/10.1038/s41597-019-0023-8) for GGCMI daily forcing and
 process-model coverage.
 
