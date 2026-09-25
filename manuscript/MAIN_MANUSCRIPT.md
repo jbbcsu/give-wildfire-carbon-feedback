@@ -4,27 +4,48 @@ Detailed dated research notes are preserved in [the development log](RESEARCH_DE
 
 ## Abstract
 
-**Preliminary research draft, September 24, 2026; no global damage or SCC estimate is reported.**
+**Preliminary research draft, September 25, 2026.**
 
-We develop a precipitation-aware agricultural replacement for GIVE, with the
-eventual aim of estimating climate damages without double counting its existing
-agriculture sector. The analysis distinguishes rainfall quantity, within-season
-distribution and drought, and requires distribution predictors to demonstrate
-incremental out-of-sample value rather than assuming their superiority.
-Directly reported irrigated and non-irrigated U.S. county yields provide a
-historical association check; a separate nationwide panel of all-practice
-corn and soybean yields supplies a prospective 2020–2025 prediction test on
-counties with low reported irrigated acreage. In that test, adding rainfall
-timing, dry spells, and heavy-rain features to seasonal total and temperature
-reduces soybean log-yield root-mean-squared error from 0.15546 to 0.14781,
-but changes corn error only from 0.18291 to 0.18224. The soybean result
-survives alternative fixed-2017 low-irrigation-share screens; corn's small
-gain is not robust. Seasonal PDSI is a serious competing moisture predictor,
-not an additive rainfall control, and does not displace the terminal soybean
-pattern specification on the same sample. These are predictive and conditional
-historical results, not causal estimates of climate-change damages.
+We develop and test a precipitation-aware agricultural replacement for the
+GIVE integrated assessment model. The design avoids double counting by
+removing MooreAg's marginal agriculture response, retaining its baseline damage
+levels, and installing the new precipitation response once. It distinguishes
+seasonal rainfall quantity, within-season distribution, and drought; more
+complex moisture representations must show stable incremental out-of-sample
+value rather than being assumed superior.
 
-Separately, two climate models and two scenarios provide spatially global maize
+U.S. county evidence supports separating reported irrigated and non-irrigated
+production and treating seasonal quantity as the parsimonious reference.
+Distribution measures sometimes improve soybean prediction, and PDSI is a
+strong competitor for non-irrigated corn, but neither result is stable enough
+to authorize causal or global welfare transport. For a reproducible global
+benchmark, we therefore combine published maize response coefficients with
+4,703 published country-by-climate-model annual precipitation slopes and the
+matched core-GIVE FAIR marginal temperature path. This channel holds
+within-season rainfall shares fixed and does not represent drought, extremes,
+temperature effects, other crops, or endogenous irrigation.
+
+Across 26 climate models, the central fixed-adaptation, uncapped paired GIVE
+estimate is -$0.00610 per tCO2 at the 2% Ramsey schedule (2020 USD), with 25
+model point estimates negative. A balanced design spanning six market
+specifications, three adaptation scenarios, two tail rules, and 26 climate
+models contains 936 paired paths: its 2% mean is -$0.00661, 2.5th--97.5th
+design percentiles are -$0.01137 to +$0.00104, and 900 paths are negative.
+These are design summaries, not probabilities. Propagating the published
+49-by-49 coefficient covariance gives a coefficient-only standard error of
+$0.00218 and a normal 95% interval of -$0.01037 to -$0.00183 for the central
+equal-model mean.
+
+The result is a small, negative SCC for the annual global-maize rainfall-
+quantity channel, not the total precipitation effect on agriculture. Its sign
+cannot be generalized to overall climate damages. Completing the replacement
+requires defensible drought and timing responses, broader crop and irrigation
+coverage, trade and storage, adaptation costs, and joint uncertainty without
+stacking correlated moisture measures.
+
+## Extended results context
+
+Two climate models and two scenarios provide spatially global maize
 exposure comparisons for 2031–2060 versus 1981–2010. Pooled seasonal rainfall
 changes of +0.05% to +2.79% coexist with monthly redistribution and offsetting
 regional changes; annual and seasonal quantity-change signs differ across
