@@ -1,0 +1,104 @@
+{
+  "claim_gates": {
+    "full_precipitation_agriculture_scc": false,
+    "joint_climate_structural_or_adaptation_uncertainty": false,
+    "probabilistic_total_scc_interval": false,
+    "published_coefficient_covariance_delta_method": true
+  },
+  "created_at_utc": "2026-09-25T13:44:16.075459+00:00",
+  "estimand": "equal-26-model central fixed-adaptation uncapped annual-maize rainfall-quantity SCC by GIVE discount schedule",
+  "implementation": {
+    "path": "scripts/estimate_quantity_coefficient_delta_uncertainty_grid.py",
+    "sha256": "15fe8b5b7b08f9cf6e46d42b19b0f5c9643cd16ec5fb202a512b0c65f6f0b967"
+  },
+  "results": [
+    {
+      "central_mean_usd2020_per_tco2": -0.008829687623112498,
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0031501635609367936,
+      "discount_rate_label": "1.5%",
+      "normal_approximation_95_interval_usd2020_per_tco2": [
+        -0.015004008202548613,
+        -0.0026553670436763833
+      ]
+    },
+    {
+      "central_mean_usd2020_per_tco2": -0.0061017295490773385,
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.002176911221178319,
+      "discount_rate_label": "2.0%",
+      "normal_approximation_95_interval_usd2020_per_tco2": [
+        -0.010368475542586842,
+        -0.001834983555567834
+      ]
+    },
+    {
+      "central_mean_usd2020_per_tco2": -0.004542920753168955,
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0016207757279793813,
+      "discount_rate_label": "2.5%",
+      "normal_approximation_95_interval_usd2020_per_tco2": [
+        -0.007719641180008542,
+        -0.0013662003263293677
+      ]
+    },
+    {
+      "central_mean_usd2020_per_tco2": -0.00359036508127409,
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0012809328814886666,
+      "discount_rate_label": "3.0%",
+      "normal_approximation_95_interval_usd2020_per_tco2": [
+        -0.006100993528991877,
+        -0.0010797366335563038
+      ]
+    }
+  ],
+  "schema": "quantity_coefficient_delta_uncertainty_grid/v1",
+  "sources": {
+    "diagnostic_receipt": {
+      "path": "data/provenance/epa_fair_hultgren_quantity_partial_scc_diagnostic_20260924.json",
+      "sha256": "a0321b59c48e8a0a4445e73697aef1906155dbb1c81fa3540e3c6a7e8b656f9e"
+    },
+    "panel_receipt": {
+      "path": "data/provenance/hultgren_quantity_response_panel_20260924.json",
+      "sha256": "6f3487624e4deb319d6e6ec004c532a95000d0c6b457ec6e14a0403250d9e1f9"
+    },
+    "two_percent_receipt": {
+      "path": "data/provenance/quantity_coefficient_delta_uncertainty_20260925.json",
+      "sha256": "dcc6d30c6ba0f13ca4540925549e145cd1268d9c104e99437754d4d5df4e61d6"
+    }
+  },
+  "status": "published_coefficient_covariance_delta_grid_complete",
+  "validation": {
+    "by_discount_schedule": [
+      {
+        "analytic_directional_derivative": -0.0011410777508126307,
+        "directional_derivative_relative_error": 0.00033729119829823144,
+        "discount_rate_label": "1.5%",
+        "finite_difference_directional_derivative": -0.0011414626262945538,
+        "maximum_central_reconstruction_error_usd2020_per_tco2": 1.0581813203458523e-16
+      },
+      {
+        "analytic_directional_derivative": -0.0007885384082136613,
+        "directional_derivative_relative_error": 0.00039258169793497574,
+        "discount_rate_label": "2.0%",
+        "finite_difference_directional_derivative": -0.0007888479739608448,
+        "maximum_central_reconstruction_error_usd2020_per_tco2": 9.280770596475918e-17
+      },
+      {
+        "analytic_directional_derivative": -0.0005870905070294915,
+        "directional_derivative_relative_error": 0.00043462928942786364,
+        "discount_rate_label": "2.5%",
+        "finite_difference_directional_derivative": -0.0005873456737593916,
+        "maximum_central_reconstruction_error_usd2020_per_tco2": 9.80118763926896e-17
+      },
+      {
+        "analytic_directional_derivative": -0.00046398987958431613,
+        "directional_derivative_relative_error": 0.0004632481744816146,
+        "discount_rate_label": "3.0%",
+        "finite_difference_directional_derivative": -0.0004642048220490115,
+        "maximum_central_reconstruction_error_usd2020_per_tco2": 9.82287168271867e-17
+      }
+    ],
+    "directional_derivative_relative_tolerance": 0.0005,
+    "finite_difference_epsilon_in_standard_deviation_units": 0.0001,
+    "maximum_two_percent_prior_receipt_error_usd2020_per_tco2": 0.0,
+    "minimum_covariance_eigenvalue": -7.521255568024258e-21
+  }
+}

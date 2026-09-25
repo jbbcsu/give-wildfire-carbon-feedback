@@ -30,6 +30,15 @@ not be interpreted as a causal-confidence interval for total precipitation
 damages or as evidence that omitted agricultural precipitation pathways are
 beneficial.
 
+The same calculation across all registered GIVE discount schedules gives:
+
+| Schedule | Mean | Coefficient-only SE | Normal 95% interval |
+|---|---:|---:|---:|
+| 1.5% | -0.00882969 | 0.00315016 | [-0.01500401, -0.00265537] |
+| 2.0% | -0.00610173 | 0.00217691 | [-0.01036848, -0.00183498] |
+| 2.5% | -0.00454292 | 0.00162078 | [-0.00771964, -0.00136620] |
+| 3.0% | -0.00359037 | 0.00128093 | [-0.00610099, -0.00107974] |
+
 ## Reproducibility and validation
 
 The executable implementation is
@@ -50,4 +59,5 @@ Machine-readable result and resource receipts:
 
 - `data/provenance/quantity_coefficient_delta_uncertainty_20260925.json`
 - `data/provenance/quantity_coefficient_delta_job_20260925.json`
-
+- `data/provenance/quantity_coefficient_delta_uncertainty_grid_20260925.json`
+- `data/provenance/quantity_coefficient_delta_grid_job_20260925.json`

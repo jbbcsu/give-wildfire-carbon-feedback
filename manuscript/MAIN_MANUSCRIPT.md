@@ -1975,7 +1975,9 @@ coefficient draw is shared across all 26 climate models. This interval is
 conditional on the narrow annual-maize quantity specification: it excludes
 climate, market, adaptation, transport, valuation, and omitted-mechanism
 uncertainty and therefore is not an uncertainty interval for a complete
-precipitation-agriculture SCC.
+precipitation-agriculture SCC. The corresponding coefficient-only intervals
+at the 1.5%, 2.5%, and 3% schedules are -$0.01500 to -$0.00266, -$0.00772 to
+-$0.00137, and -$0.00610 to -$0.00108 per tCO2, respectively.
 
 Report global agricultural marginal damages and SCC under each adaptation
 scenario with draw-level uncertainty. Do not present a precipitation add-on to

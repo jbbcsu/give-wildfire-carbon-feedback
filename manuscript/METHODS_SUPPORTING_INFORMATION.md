@@ -4167,6 +4167,16 @@ extremes, drought, temperature, irrigation, crops, and other mechanisms. It is
 therefore neither a probabilistic interval for the structural design envelope
 nor a total precipitation-agriculture SCC interval.
 
+We repeat the same calculation without refitting for the other three registered
+GIVE discount schedules. The coefficient-only standard errors at 1.5%, 2.5%,
+and 3% are $0.00315016, $0.00162078, and $0.00128093 per tCO2; their normal
+95% intervals are [-$0.01500401, -$0.00265537], [-$0.00771964,
+-$0.00136620], and [-$0.00610099, -$0.00107974]. Every central SCC is
+reconstructed within `1.06e-16` and every finite-difference directional check
+is within relative error `4.64e-4`. The all-schedule job peaks at 223,969,280
+bytes under a 768 MiB cap and reproduces the independently generated 2%
+receipt within `2.84e-16` USD per tCO2.
+
 ### Alternative Hultgren impact-region transport geometry
 
 For the external published-response transport, the public Hultgren impact-
