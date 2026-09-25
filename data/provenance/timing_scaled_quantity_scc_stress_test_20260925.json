@@ -1,0 +1,76 @@
+{
+  "schema": "timing_scaled_quantity_scc_stress_test/v1",
+  "created_at_utc": "2026-09-25T21:24:25.439706+00:00",
+  "status": "mechanical_nonpromoted_sensitivity_not_scc_estimate",
+  "validated_quantity_benchmark_usd2020_per_tco2": -0.0061017295490772925,
+  "pooled_production_weighted_endpoint_ratio": 0.2925180758133641,
+  "pooled_mechanical_timing_increment_usd2020_per_tco2": -0.0017848661868296353,
+  "pooled_mechanical_combined_usd2020_per_tco2": -0.007886595735906927,
+  "five_endpoint_ratio_sensitivities": [
+    {
+      "climate_model": "GFDL-ESM4",
+      "endpoint_timing_to_quantity_ratio": 0.552321993820856,
+      "mechanical_timing_increment_usd2020_per_tco2": -0.0033701194303020028,
+      "mechanical_combined_usd2020_per_tco2": -0.009471848979379294
+    },
+    {
+      "climate_model": "IPSL-CM6A-LR",
+      "endpoint_timing_to_quantity_ratio": 0.3573386618000762,
+      "mechanical_timing_increment_usd2020_per_tco2": -0.002180383871733262,
+      "mechanical_combined_usd2020_per_tco2": -0.008282113420810555
+    },
+    {
+      "climate_model": "MPI-ESM1-2-HR",
+      "endpoint_timing_to_quantity_ratio": -0.11607426010505537,
+      "mechanical_timing_increment_usd2020_per_tco2": 0.0007082537427702999,
+      "mechanical_combined_usd2020_per_tco2": -0.0053934758063069925
+    },
+    {
+      "climate_model": "MRI-ESM2-0",
+      "endpoint_timing_to_quantity_ratio": 0.10132781921995627,
+      "mechanical_timing_increment_usd2020_per_tco2": -0.0006182749486779692,
+      "mechanical_combined_usd2020_per_tco2": -0.006720004497755261
+    },
+    {
+      "climate_model": "UKESM1-0-LL",
+      "endpoint_timing_to_quantity_ratio": 1.3676671281624375,
+      "mechanical_timing_increment_usd2020_per_tco2": -0.008345134929210426,
+      "mechanical_combined_usd2020_per_tco2": -0.014446864478287719
+    }
+  ],
+  "five_endpoint_mechanical_combined_range_usd2020_per_tco2": [
+    -0.014446864478287719,
+    -0.0053934758063069925
+  ],
+  "assumption": "The late-century scenario timing-to-quantity log-yield ratio is imposed unchanged on every country, year, EPA climate pattern, market response, and marginal FAIR pulse contribution.",
+  "claim_gates": {
+    "validated_quantity_scc": true,
+    "timing_scc": false,
+    "full_precipitation_scc": false,
+    "causal_timing_attribution": false
+  },
+  "interpretation": [
+    "This is a scale stress test around the quantity SCC, not a timing SCC estimate.",
+    "Endpoint ratios are multi-forcing scenario responses and do not identify a transient marginal timing response.",
+    "The five model-specific ratios are structural cases, not probability draws or an uncertainty interval.",
+    "Drought, other crops, irrigation adaptation, trade, storage, and adaptation costs remain excluded."
+  ],
+  "sources": {
+    "quantity_scc": {
+      "path": "data/provenance/quantity_anchored_replacement_adaptation_tail_20260924.json",
+      "sha256": "b3f0c94f4894fb111e06cb646066d71e33acd69a0eb5b98bf25aed4672f5384f"
+    },
+    "country_timing": {
+      "path": "data/provenance/hultgren_timing_country_heterogeneity_production_20260925.json",
+      "sha256": "0617c719cb9cc10a4d4bbfcac7c39f7af89b2f0da718e5b2b2a4e7a814c90aef"
+    },
+    "timing_gate": {
+      "path": "data/provenance/hultgren_timing_gmst_promotion_gate_20260925.json",
+      "sha256": "79c40432d0680dbcdc6cc8f7b46aef22924872432b3db9379f09d8459c77cf1f"
+    }
+  },
+  "implementation": {
+    "path": "/Users/jbb/Dropbox/GIVE/precipitation_scc/scripts/stress_test_timing_scaled_quantity_scc.py",
+    "sha256": "58bab8970486fd9158c84454ddbde3d6605fc84ea27f2538978dcdbc42e14ad9"
+  }
+}

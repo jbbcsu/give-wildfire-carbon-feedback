@@ -1889,6 +1889,16 @@ It is scenario-response accounting, not a causal country effect, welfare
 damage, marginal pulse, or SCC; complete results are in
 `HULTGREN_TIMING_COUNTRY_HETEROGENEITY_RESULTS_20260925.md`.
 
+For scale only, imposing the pooled 0.2925 endpoint timing-to-quantity ratio
+unchanged on the validated quantity SCC gives a mechanical timing increment
+of -$0.00178/tCO2 and combined value of -$0.00789/tCO2 at the 2% schedule.
+The five endpoint ratios give combined structural cases from -$0.01445 to
+-$0.00539/tCO2. This is explicitly not a timing SCC estimate: it assumes away
+the failed transient/whole-ESM promotion gate, spatial variation, and changing
+market exposure. It shows that proportional timing alone would not make the
+current maize-only channel large; drought, crop coverage, water costs, and
+other omitted mechanisms remain decisive.
+
 The exogenous adaptation sensitivities are deliberately not interpreted as
 estimated behavior. The five-model full-support mean net precipitation
 response moves from -2.56% under fixed practice to -0.89% under trend and
