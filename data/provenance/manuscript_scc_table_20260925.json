@@ -4,14 +4,14 @@
     "paired_quantity_channel_scc": true,
     "probabilistic_total_uncertainty": false
   },
-  "created_at_utc": "2026-09-25T14:26:10.751088+00:00",
+  "created_at_utc": "2026-09-25T16:01:58.390061+00:00",
   "implementation": {
     "path": "scripts/build_manuscript_scc_table.py",
-    "sha256": "7150d803475618cb805cc43b311c2f9b53359e854f37469433d287beff7ed891"
+    "sha256": "4889062b60fef8e7e7209c88db5d5949be9626b12dc8f619f713e668a79622c1"
   },
   "output": {
     "path": "manuscript/tables/TABLE_3_SCC_RESULTS.md",
-    "sha256": "1db8979be348095672cf901ac97b787cb0065f685041054379e276cfd63983e0"
+    "sha256": "32b55e07741e13003047233b13526319796693204f7ed2ecdb488476bec9cb0e"
   },
   "schema": "manuscript_scc_table/v1",
   "sources": {
@@ -19,9 +19,17 @@
       "path": "data/provenance/quantity_coefficient_delta_uncertainty_grid_20260925.json",
       "sha256": "797ad9fd227d396a50157fbae39613d4aab48eae94fe4a4d6150532aaa3dc7b1"
     },
+    "country": {
+      "path": "data/provenance/quantity_scc_country_decomposition_20260925.json",
+      "sha256": "dae78b35d17ca20316017e7b70ae66a2025c87587748ebd09a880235ca7bcbc3"
+    },
     "market_grid": {
       "path": "data/provenance/quantity_coefficient_delta_market_grid_20260925.json",
       "sha256": "ea1f26240441ff5306614194f4c3a199026bb5514c24bb6ad5dd6b648e4e1e07"
+    },
+    "period_grid": {
+      "path": "data/provenance/quantity_scc_period_discount_grid_20260925.json",
+      "sha256": "0751be9905f6b422c72b53e75b6a0e11cae19ba3c5fa8408b7f3bbaec43c7e1a"
     },
     "structural": {
       "path": "data/provenance/quantity_structural_sensitivity_envelope_20260924.json",
@@ -32,6 +40,8 @@
   "support": {
     "adaptation_rows": 3,
     "discount_schedules": 4,
-    "market_rows": 6
+    "geographic_diagnostics": 4,
+    "market_rows": 6,
+    "period_schedule_rows": 4
   }
 }

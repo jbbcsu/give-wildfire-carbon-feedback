@@ -296,6 +296,13 @@ def main() -> None:
             "figure source changed after validation")
     require(digest(paths["table3"]) == table3_validation["output"]["sha256"],
             "Table 3 changed after validation")
+    require(table3_validation["support"] == {
+        "discount_schedules": 4,
+        "adaptation_rows": 3,
+        "market_rows": 6,
+        "geographic_diagnostics": 4,
+        "period_schedule_rows": 4,
+    }, "Table 3 support differs")
     require(targeted_test_job["status"] == "completed" and targeted_test_job["returncode"] == 0,
             "targeted quantity/welfare tests failed")
     require(targeted_test_job["sampled_peak_group_rss_bytes"] <= 512 * 1024 * 1024,
