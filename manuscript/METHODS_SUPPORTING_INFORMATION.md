@@ -3565,13 +3565,22 @@ The cited primary literature supports the definitions of PDSI/SPEI and the
 decision to compare rainfall quantity, occurrence, intensity, and observed
 drought severity. It does not validate a universal global crop coefficient,
 the diagnostic scPDSI threshold of -2, or transport of a historical CRU
-scPDSI association to future ISIMIP climate. No completed, validated global
-SPEI or soil-moisture candidate is yet available. The climate-to-drought
+scPDSI association to future ISIMIP climate. A completed country-separated
+global SPEI/scPDSI prediction comparison is reported in
+`../SPEI_COUNTRY_PREDICTION_RESULTS_20260908.md`, but no moisture family passes
+its promotion rule; no soil-moisture candidate is complete. The climate-to-drought
 mapping, causal response design, global welfare calibration, and empirical
 cost basis for the `trend` and `upper` adaptation schedules therefore remain
 evidence gaps rather than quantities to fill by assumption. The deferred
 noncoastal infrastructure-flood component likewise requires its own primary
 hazard, exposure, vulnerability, and overlap evidence before implementation.
+
+The literature-transfer screen in
+`../GLOBAL_DROUGHT_LITERATURE_TRANSFER_AUDIT_20260925.md` reaches the same
+boundary independently. Published SPEI and compound hot--dry percentile/event
+contrasts are external sign and scale checks, not per-unit drought-response
+coefficients. We do not divide those effects by assumed index intervals or add
+them to direct precipitation damages.
 
 ### S10.2 Source-only global daily feature engineering check
 

@@ -307,6 +307,20 @@ factors. The former motivates the multiscale timing tests; the latter supplies
 a spatial process benchmark. Neither is treated as a directly transportable
 marginal yield or SCC coefficient.
 
+[Matiu, Ankerst, and Menzel
+(2017)](https://doi.org/10.1371/journal.pone.0178339) estimate crop-specific
+country mixed models with nonlinear temperature, one-month SPEI, interactions,
+and lag terms. Their published dry and compound hot--dry percentile contrasts
+are useful external magnitude checks, but they are not marginal SPEI
+coefficients and the paper does not distribute a complete fitted response and
+covariance object. [Heino et al.
+(2023)](https://doi.org/10.1038/s41598-023-29378-2) provide a global gridded
+compound-extreme benchmark and public analysis code, but the yield input is
+available on request and XGBoost partial dependence is not a causal or directly
+pulse-scalable damage function. The dated
+[transfer audit](../GLOBAL_DROUGHT_LITERATURE_TRANSFER_AUDIT_20260925.md)
+therefore retains both as validation evidence rather than SCC inputs.
+
 [Hultgren et al. (2025)](https://doi.org/10.1038/s41586-025-09085-w)
 provide the closest published end-to-end benchmark: a global empirical crop
 response with within-season precipitation phases, temperature, irrigation,
@@ -2185,6 +2199,11 @@ Estimating the impact of drought on agriculture using the U.S. Drought
 Monitor. *American Journal of Agricultural Economics*, 101, 193--210.
 [https://doi.org/10.1093/ajae/aay037](https://doi.org/10.1093/ajae/aay037)
 
+Matiu, M., Ankerst, D. P., & Menzel, A. (2017). Interactions between
+temperature and drought in global and regional crop yield variability during
+1961--2014. *PLOS ONE*, 12, e0178339.
+[https://doi.org/10.1371/journal.pone.0178339](https://doi.org/10.1371/journal.pone.0178339)
+
 Lesk, C., Coffel, E., & Horton, R. (2020). Net benefits to US soy and maize
 yields from intensifying hourly rainfall. *Nature Climate Change*, 10,
 819--822.
@@ -2194,6 +2213,11 @@ Santini, M., Noce, S., Antonelli, M., & Caporaso, L. (2022). Complex drought
 patterns robustly explain global yield loss for major crops. *Scientific
 Reports*, 12, 5792.
 [https://doi.org/10.1038/s41598-022-09611-0](https://doi.org/10.1038/s41598-022-09611-0)
+
+Heino, M., Kinnunen, P., Anderson, W., et al. (2023). Increased probability
+of hot and dry weather extremes during the growing season threatens global
+crop yields. *Scientific Reports*, 13, 3583.
+[https://doi.org/10.1038/s41598-023-29378-2](https://doi.org/10.1038/s41598-023-29378-2)
 
 Tuninetti, M., & Davis, K. F. (2026). Addressing global hotspots of drought-
 related crop production losses. *Nature Communications*, 17, 6605.
