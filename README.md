@@ -4,6 +4,34 @@ This is a standalone, future GIVE damage-sector track. It is separate from
 the precipitation-agriculture and wildfire projects and must never import,
 modify, or overwrite their code, data, results, or manuscripts.
 
+## Current status (September 25, 2026)
+
+No local fisheries SCC has been produced. The published Blue-SCC benchmark is
+retained only as an external scale reference: $22.09755/tCO2 under its own
+baseline settings, consisting of $0.05704 market value and $22.04051
+nutrition/non-market value. Those numbers are not GIVE results.
+
+The validated 1990--1999 calibration / 2000--2014 prediction comparison does
+not support empirical probability weights for the four available FishMIP
+paths. No path beats the constant benchmark under the contract quality-status
+set; under accepted observations only, GFDL/BOATS improves slightly and the
+other three are worse. The paths therefore remain unweighted structural
+scenarios. See [the blocked-prediction results](FISHMIP_FAO_BLOCKED_PREDICTION_RESULTS_20260925.md).
+
+The [GIVE overlap audit](FISHERIES_GIVE_OVERLAP_AUDIT_20260925.md) also closes
+the direct-addition gate. The published nutrition/mortality pathway must be
+reconciled by cause of death and valuation against GIVE's Cromar mortality
+sector; the profit/output market pathway must be reconciled with agriculture
+and macroeconomic incidence. This identifies potential overlap, not proof
+that every published fisheries death or market loss is already counted.
+
+The defensible next step is a separately identified residual fisheries
+pathway: retain the four FishMIP trajectories as structural scenarios, build a
+matched marginal-climate/pulse link, value consumer and producer surplus
+rather than revenue, and include nutrition/mortality only after explicit
+baseline-sector subtraction. Until those gates pass, the fisheries estimate
+remains unavailable rather than fabricated.
+
 ## Proposed scope
 
 Estimate the marginal welfare consequences of CO2-driven changes to marine
