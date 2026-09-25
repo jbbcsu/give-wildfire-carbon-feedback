@@ -4227,6 +4227,18 @@ RSS under a 768 MiB budget. Country components are accounting decompositions
 of the transported response, not local causal effects or total country
 agricultural damages.
 
+### Time-period accounting decomposition
+
+We retain each climate model's annual discounted contribution before summing
+the central fixed-adaptation, uncapped 2% SCC. The 7,306 model-year rows span
+26 models and 2020--2300. Equal-model annual means are summed over four fixed
+periods: 2020--2050, 2051--2100, 2101--2200, and 2201--2300. Their signed
+shares are 44.1%, 27.3%, 21.6%, and 7.0%. Every model total reconstructs the
+independent SCC diagnostic, with maximum error `9.3e-17` USD per tCO2. The
+run peaks at 178,323,456 bytes sampled process-group RSS under a 768 MiB cap.
+This is intertemporal accounting after the climate-response calculation, not
+evidence about within-season precipitation timing.
+
 ### Alternative Hultgren impact-region transport geometry
 
 For the external published-response transport, the public Hultgren impact-

@@ -53,6 +53,9 @@ def main() -> None:
         "country_decomposition_report": root / "QUANTITY_SCC_COUNTRY_DECOMPOSITION_RESULTS_20260925.md",
         "country_decomposition_figure": root / "manuscript/figures/quantity_scc_country_decomposition_20260925.svg",
         "country_decomposition_figure_validation": root / "data/provenance/quantity_scc_country_decomposition_figure_20260925.json",
+        "period_decomposition": root / "data/provenance/quantity_scc_period_decomposition_20260925.json",
+        "period_decomposition_job": root / "data/provenance/quantity_scc_period_decomposition_job_20260925.json",
+        "period_decomposition_report": root / "QUANTITY_SCC_PERIOD_DECOMPOSITION_RESULTS_20260925.md",
         "manuscript_validation": root / "data/provenance/manuscript_scc_claim_validation_20260925.json",
         "manuscript_reference_registry": root / "data/provenance/manuscript_reference_registry_20260925.json",
         "manuscript_reference_validation": root / "data/provenance/manuscript_reference_validation_20260925.json",
@@ -88,6 +91,12 @@ def main() -> None:
         "quantity_scc_country_decomposition_figure/v1",
         "pass",
     )
+    period = load(
+        paths["period_decomposition"],
+        "quantity_scc_period_decomposition/v1",
+        "central_fixed_uncapped_two_percent_period_decomposition_complete",
+    )
+    period_job = json.loads(paths["period_decomposition_job"].read_text())
     manuscript_validation = load(paths["manuscript_validation"], "manuscript_scc_claim_validation/v1", "pass")
     reference_validation = load(
         paths["manuscript_reference_validation"], "manuscript_reference_validation/v1", "pass"
@@ -150,6 +159,19 @@ def main() -> None:
     require(digest(paths["country_decomposition"]) ==
             country_figure["sources"]["decomposition_receipt"]["sha256"],
             "country figure source changed after validation")
+    require(len(period["summary"]["periods"]) == 4, "period decomposition support differs")
+    require(abs(sum(row["share_of_signed_total"] for row in period["summary"]["periods"]) - 1.0)
+            <= 1e-14, "period shares do not sum to one")
+    require(abs(sum(row["discounted_contribution_usd2020_per_tco2"]
+                    for row in period["summary"]["periods"])
+                - period["summary"]["global_equal_model_mean_usd2020_per_tco2"]) <= 2e-14,
+            "period contributions do not reconstruct global mean")
+    require(period["validation"]["maximum_model_reconstruction_error_usd2020_per_tco2"] <= 2e-14,
+            "period model reconstruction failed")
+    require(period_job["status"] == "completed" and period_job["returncode"] == 0,
+            "period decomposition job failed")
+    require(period_job["sampled_peak_group_rss_bytes"] <= 768 * 1024 * 1024,
+            "period decomposition exceeded memory contract")
     manuscript_text = " ".join(paths["manuscript"].read_text().split())
     for fragment in (
         "Sixty-one of 106 country components are negative",
@@ -158,6 +180,8 @@ def main() -> None:
         "not country causal effects",
         "every country component does",
         "remaining global mean to -$0.00025 per tCO2",
+        "44.1% accrues in 2020--2050",
+        "quantity channel is therefore small per year",
     ):
         require(fragment in manuscript_text, f"country claim fragment missing: {fragment}")
 
@@ -234,6 +258,8 @@ def main() -> None:
             "country_decomposition_models": 26,
             "country_decomposition_memory_budget_mib": 768,
             "country_decomposition_figure_hash_bound": True,
+            "period_accounting_bins": 4,
+            "period_decomposition_memory_budget_mib": 768,
             "manuscript_hash_bound": True,
             "manuscript_doi_references_validated": 6,
             "wildfire_agriculture_doi_nonconflation": True,

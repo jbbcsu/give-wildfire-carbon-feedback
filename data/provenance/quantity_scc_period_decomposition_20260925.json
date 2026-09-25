@@ -1,0 +1,88 @@
+{
+  "claim_gates": {
+    "causal_timing_effect": false,
+    "central_quantity_channel_temporal_accounting": true,
+    "full_precipitation_agriculture_scc": false
+  },
+  "created_at_utc": "2026-09-25T15:40:28.900639+00:00",
+  "estimand": "time-period contributions to the equal-26-model central annual-maize rainfall-quantity SCC at the GIVE 2% schedule",
+  "implementation": {
+    "path": "scripts/decompose_quantity_scc_by_period.py",
+    "sha256": "b9e68659fa800330ca6c7fd3c3830645a706b5fcd13e8f9d9e83e8abdbdb71e2"
+  },
+  "output": {
+    "path": "data/interim/quantity_scc_period_decomposition_20260925.csv",
+    "rows": 7306,
+    "sha256": "66999ee062a3ebfe39e33e0c51a6704fc44e9a1863aafec59abe242157ea9ab4"
+  },
+  "schema": "quantity_scc_period_decomposition/v1",
+  "sources": {
+    "cpc": {
+      "path": "data/interim/give_deterministic_discount_path_20260924.csv",
+      "sha256": "23e939af062ae1313738ec4b535793cb7014fea320430a834fd485980121f4b0"
+    },
+    "diagnostic_receipt": {
+      "path": "data/provenance/epa_fair_hultgren_quantity_partial_scc_diagnostic_20260924.json",
+      "sha256": "a0321b59c48e8a0a4445e73697aef1906155dbb1c81fa3540e3c6a7e8b656f9e"
+    },
+    "fair": {
+      "path": "data/interim/give_fair_temperature_path_smoke/temperature_paths.csv",
+      "sha256": "aedf6b66dd296337e1cb6105d2aa56ec94f3e15e5ac92c2abcdf74b6a42b6067"
+    },
+    "panel_receipt": {
+      "path": "data/provenance/hultgren_quantity_response_panel_20260924.json",
+      "sha256": "6f3487624e4deb319d6e6ec004c532a95000d0c6b457ec6e14a0403250d9e1f9"
+    },
+    "slopes": {
+      "path": "data/interim/epa_annual_country_pattern_benchmark_20260921/country_model_slopes.csv",
+      "sha256": "e6bc9a4dbc0af19650f2f243802e0e1974d3599292cf2704aad0e746bf0c0572"
+    }
+  },
+  "status": "central_fixed_uncapped_two_percent_period_decomposition_complete",
+  "summary": {
+    "annual_contribution_max_usd2020_per_tco2": 0.0,
+    "annual_contribution_min_usd2020_per_tco2": -0.00012348866710689413,
+    "global_equal_model_mean_usd2020_per_tco2": -0.0061017295490773385,
+    "periods": [
+      {
+        "discounted_contribution_usd2020_per_tco2": -0.002688964646639855,
+        "mean_undiscounted_equivalent_usd2020_per_tco2_year": -0.00013948354032551827,
+        "share_of_signed_total": 0.4406889268054271,
+        "years": [
+          2020,
+          2050
+        ]
+      },
+      {
+        "discounted_contribution_usd2020_per_tco2": -0.0016681991945530859,
+        "mean_undiscounted_equivalent_usd2020_per_tco2_year": -0.0001370167753568932,
+        "share_of_signed_total": 0.2733977606079475,
+        "years": [
+          2051,
+          2100
+        ]
+      },
+      {
+        "discounted_contribution_usd2020_per_tco2": -0.0013204029936760672,
+        "mean_undiscounted_equivalent_usd2020_per_tco2_year": -0.00013459598419600575,
+        "share_of_signed_total": 0.2163981512218498,
+        "years": [
+          2101,
+          2200
+        ]
+      },
+      {
+        "discounted_contribution_usd2020_per_tco2": -0.0004241627142083301,
+        "mean_undiscounted_equivalent_usd2020_per_tco2_year": -0.00013911004322925054,
+        "share_of_signed_total": 0.06951516136477551,
+        "years": [
+          2201,
+          2300
+        ]
+      }
+    ]
+  },
+  "validation": {
+    "maximum_model_reconstruction_error_usd2020_per_tco2": 9.280770596475918e-17
+  }
+}

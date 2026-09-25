@@ -2043,6 +2043,13 @@ the 12 largest country components by absolute equal-model mean; bars span the
 positive convention. The broad bars and sign reversals caution against reading
 the global mean as a uniform local response.
 
+The temporal decomposition also rules out a purely distant-horizon
+explanation for the small value. Of the -$0.00610 per tCO2 central mean, 44.1%
+accrues in 2020--2050 and another 27.3% in 2051--2100; 21.6% and 7.0% accrue
+in 2101--2200 and 2201--2300. Mean undiscounted annual equivalents are similar
+across those periods. The quantity channel is therefore small per year, while
+discounting progressively reduces its distant contribution.
+
 The corresponding discount-schedule, adaptation, and market summaries are
 reported in [Table 3](tables/TABLE_3_SCC_RESULTS.md). The table keeps
 coefficient intervals distinct from structural design percentiles.
