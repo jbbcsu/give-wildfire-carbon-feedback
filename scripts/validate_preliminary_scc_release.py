@@ -1,0 +1,157 @@
+#!/usr/bin/env python3
+"""Validate the preliminary quantity-channel SCC release bundle and boundaries."""
+
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import re
+import subprocess
+from datetime import datetime, timezone
+from pathlib import Path
+
+
+def digest(path: Path) -> str:
+    h = hashlib.sha256()
+    with path.open("rb") as handle:
+        for block in iter(lambda: handle.read(1024 * 1024), b""):
+            h.update(block)
+    return h.hexdigest()
+
+
+def require(condition: bool, message: str) -> None:
+    if not condition:
+        raise ValueError(message)
+
+
+def load(path: Path, schema: str, status: str | None = None) -> dict:
+    value = json.loads(path.read_text())
+    require(value.get("schema") == schema, f"schema differs: {path}")
+    if status is not None:
+        require(value.get("status") == status, f"status differs: {path}")
+    return value
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
+    parser.add_argument("--output", type=Path, required=True)
+    args = parser.parse_args()
+    root = args.root.resolve()
+    output = args.output if args.output.is_absolute() else root / args.output
+    require(not output.exists(), "fresh output required")
+
+    paths = {
+        "paired_structural": root / "data/provenance/quantity_full_structural_paired_ensemble_20260924.json",
+        "coefficient_grid": root / "data/provenance/quantity_coefficient_delta_uncertainty_grid_20260925.json",
+        "coefficient_by_model": root / "data/provenance/quantity_coefficient_delta_by_model_20260925.json",
+        "manuscript_validation": root / "data/provenance/manuscript_scc_claim_validation_20260925.json",
+        "figure_validation": root / "data/provenance/quantity_coefficient_interval_figure_20260925.json",
+        "manuscript": root / "manuscript/MAIN_MANUSCRIPT.md",
+        "methods_si": root / "manuscript/METHODS_SUPPORTING_INFORMATION.md",
+        "figure": root / "manuscript/figures/quantity_coefficient_intervals_20260925.svg",
+    }
+    for path in paths.values():
+        require(path.is_file(), f"release file missing: {path}")
+
+    paired = load(paths["paired_structural"], "quantity_full_structural_paired_ensemble/v1",
+                  "paired_full_registered_market_adaptation_tail_design_pass")
+    grid = load(paths["coefficient_grid"], "quantity_coefficient_delta_uncertainty_grid/v1",
+                "published_coefficient_covariance_delta_grid_complete")
+    by_model = load(paths["coefficient_by_model"], "quantity_coefficient_delta_by_model/v1",
+                    "coefficient_only_delta_by_climate_model_complete")
+    manuscript_validation = load(paths["manuscript_validation"], "manuscript_scc_claim_validation/v1", "pass")
+    figure_validation = load(paths["figure_validation"], "quantity_coefficient_interval_figure/v1", "pass")
+
+    require(paired["support"]["paired_paths"] == 936, "paired path count differs")
+    require(paired["support"]["result_rows"] == 3744, "paired SCC count differs")
+    require(paired["validation"]["all_3744_external_values_reconstructed_exactly"], "paired reconstruction failed")
+    require(paired["validation"]["all_paired_errors_below_bounds"], "paired numerical bounds failed")
+    require(paired["validation"]["baseline_agriculture_and_cpc_exact_every_run"], "baseline preservation failed")
+    require(paired["claim_gates"]["paired_registered_structural_design"], "paired claim gate closed")
+    require(not paired["claim_gates"]["full_precipitation_agriculture_scc"], "full-SCC gate unexpectedly open")
+
+    require(len(grid["results"]) == 4, "discount grid differs")
+    require(by_model["validation"] == {
+        "all_rows": 104,
+        "all_values_finite": True,
+        "maximum_central_value_error_usd2020_per_tco2": by_model["validation"]["maximum_central_value_error_usd2020_per_tco2"],
+        "maximum_shared_mean_se_error_usd2020_per_tco2": 0.0,
+    }, "by-model validation fields differ")
+    require(by_model["validation"]["maximum_central_value_error_usd2020_per_tco2"] <= 2e-14,
+            "by-model central reconstruction failed")
+    require(all(not value for key, value in grid["claim_gates"].items()
+                if key != "published_coefficient_covariance_delta_method"),
+            "coefficient claim boundary unexpectedly open")
+    require(grid["claim_gates"]["published_coefficient_covariance_delta_method"],
+            "coefficient delta gate closed")
+
+    manuscript_source = manuscript_validation["sources"]["manuscript"]
+    require(digest(paths["manuscript"]) == manuscript_source["sha256"], "manuscript changed after validation")
+    require(digest(paths["figure"]) == figure_validation["output"]["sha256"], "figure changed after validation")
+    require(digest(paths["coefficient_by_model"]) == figure_validation["sources"]["input"]["sha256"],
+            "figure source changed after validation")
+
+    tracked_raw = subprocess.run(
+        ["git", "ls-files", "-z"], cwd=root, check=True, capture_output=True
+    ).stdout.decode().split("\0")
+    tracked_raw = [path for path in tracked_raw if path]
+    prohibited_path = re.compile(r"(^|/)data/(raw|interim|processed|outputs)/|(^|/)(\.env|nass\.env|credentials[^/]*)$")
+    prohibited_tracked = [path for path in tracked_raw if prohibited_path.search(path)]
+    require(not prohibited_tracked, f"restricted paths tracked: {prohibited_tracked}")
+    wildfire_named = [path for path in tracked_raw if "wildfire" in path.lower()]
+    require(not wildfire_named, f"wildfire artifacts tracked in isolated project: {wildfire_named}")
+
+    secret_pattern = re.compile(
+        rb"(?i)(NASS_API_KEY|AWS_SECRET_ACCESS_KEY|OPENAI_API_KEY)\s*=\s*([^\s<>{}\"'`]+)"
+    )
+    secret_hits = []
+    for relative in tracked_raw:
+        path = root / relative
+        if not path.is_file() or path.stat().st_size > 5 * 1024 * 1024:
+            continue
+        data = path.read_bytes()
+        for match in secret_pattern.finditer(data):
+            value = match.group(2)
+            if value.startswith(b"...") or value.startswith(b"secret-never-print"):
+                continue
+            secret_hits.append(relative)
+            break
+    require(not secret_hits, f"credential-like assignments in tracked files: {secret_hits}")
+
+    result = {
+        "schema": "preliminary_scc_release_validation/v1",
+        "created_at_utc": datetime.now(timezone.utc).isoformat(),
+        "status": "pass",
+        "release_scope": "paired annual-global-maize rainfall-quantity SCC benchmark; not total precipitation-agriculture SCC",
+        "checks": {
+            "paired_paths": 936,
+            "paired_scc_values": 3744,
+            "coefficient_discount_schedules": 4,
+            "coefficient_model_schedule_rows": 104,
+            "manuscript_hash_bound": True,
+            "figure_hash_bound": True,
+            "tracked_files_scanned": len(tracked_raw),
+            "restricted_tracked_paths": 0,
+            "credential_like_tracked_assignments": 0,
+            "wildfire_named_tracked_paths": 0,
+        },
+        "claim_gates": {
+            "paired_quantity_channel_scc": True,
+            "full_precipitation_agriculture_scc": False,
+            "probabilistic_total_uncertainty": False,
+            "causal_drought_or_timing_scc": False,
+        },
+        "sources": {name: {"path": str(path.relative_to(root)), "sha256": digest(path)}
+                    for name, path in paths.items()},
+        "implementation": {"path": str(Path(__file__).resolve().relative_to(root)),
+                           "sha256": digest(Path(__file__).resolve())},
+    }
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n")
+    print(json.dumps({"status": "pass", "checks": result["checks"], "claim_gates": result["claim_gates"]}, indent=2))
+
+
+if __name__ == "__main__":
+    main()

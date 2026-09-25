@@ -1,0 +1,62 @@
+{
+  "checks": {
+    "coefficient_discount_schedules": 4,
+    "coefficient_model_schedule_rows": 104,
+    "credential_like_tracked_assignments": 0,
+    "figure_hash_bound": true,
+    "manuscript_hash_bound": true,
+    "paired_paths": 936,
+    "paired_scc_values": 3744,
+    "restricted_tracked_paths": 0,
+    "tracked_files_scanned": 2078,
+    "wildfire_named_tracked_paths": 0
+  },
+  "claim_gates": {
+    "causal_drought_or_timing_scc": false,
+    "full_precipitation_agriculture_scc": false,
+    "paired_quantity_channel_scc": true,
+    "probabilistic_total_uncertainty": false
+  },
+  "created_at_utc": "2026-09-25T14:01:41.134845+00:00",
+  "implementation": {
+    "path": "scripts/validate_preliminary_scc_release.py",
+    "sha256": "8440e82eb295b12264064ddc72732f44a4dba8fa5fbc2150afc4a841abd1fb51"
+  },
+  "release_scope": "paired annual-global-maize rainfall-quantity SCC benchmark; not total precipitation-agriculture SCC",
+  "schema": "preliminary_scc_release_validation/v1",
+  "sources": {
+    "coefficient_by_model": {
+      "path": "data/provenance/quantity_coefficient_delta_by_model_20260925.json",
+      "sha256": "950b262f2b0ea0593846d878c20db3eaf861790ce0c58ab3719490f4f27d1dc6"
+    },
+    "coefficient_grid": {
+      "path": "data/provenance/quantity_coefficient_delta_uncertainty_grid_20260925.json",
+      "sha256": "797ad9fd227d396a50157fbae39613d4aab48eae94fe4a4d6150532aaa3dc7b1"
+    },
+    "figure": {
+      "path": "manuscript/figures/quantity_coefficient_intervals_20260925.svg",
+      "sha256": "58620dcc326f5ed9a9cd6acf93dcb36188f4413b6ee44ceb62f94e6293b27702"
+    },
+    "figure_validation": {
+      "path": "data/provenance/quantity_coefficient_interval_figure_20260925.json",
+      "sha256": "ab7f26e136d0ca4379c9b4f84e171d27e253356bed59e8ba76830a53969134bf"
+    },
+    "manuscript": {
+      "path": "manuscript/MAIN_MANUSCRIPT.md",
+      "sha256": "d280c696066eec66af1cdf6d5b0006e7a90af7108c6b17750b44413f876ce9b8"
+    },
+    "manuscript_validation": {
+      "path": "data/provenance/manuscript_scc_claim_validation_20260925.json",
+      "sha256": "e7b893e0b288d79fdb2e134a59f90068457587ceeae327c5cbc63e448b0e70c9"
+    },
+    "methods_si": {
+      "path": "manuscript/METHODS_SUPPORTING_INFORMATION.md",
+      "sha256": "7049f1d869eb4124fbb3a4d6167e3b4d19bca1f59ea7cf9f5468f1dbf73dc2d6"
+    },
+    "paired_structural": {
+      "path": "data/provenance/quantity_full_structural_paired_ensemble_20260924.json",
+      "sha256": "8e4cb168e6e737901e26341687777ac26058875c7f5fb19cda2e4326c82bedaf"
+    }
+  },
+  "status": "pass"
+}
