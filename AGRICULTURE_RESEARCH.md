@@ -95,6 +95,11 @@ regression.  It requires a paired climate-to-drought mapping and a
 drought-to-yield response; the resulting drought pathway is compared against,
 not summed with, the direct precipitation-pattern pathway.  The explicit SCC
 accounting and USDM validation gates are in [the drought plan](DROUGHT_METRICS_PLAN.md).
+The dated [global literature transfer audit](GLOBAL_DROUGHT_LITERATURE_TRANSFER_AUDIT_20260925.md)
+finds no screened publication with a complete fitted response and covariance
+that can be inserted directly into GIVE. Published extreme-condition effects
+remain sign and scale benchmarks; converting percentile contrasts into an
+assumed per-SPEI coefficient is explicitly prohibited.
 
 ## Target estimand and climate features
 
