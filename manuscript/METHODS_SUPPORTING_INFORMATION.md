@@ -4203,6 +4203,26 @@ peaks at 225,574,912 bytes under a 768 MiB cap. This grid is conditional on
 fixed adaptation and uncapped response and is not a joint probability model
 over market structure.
 
+### Country accounting decomposition
+
+For interpretation only, we retain the country dimension before FUND-region
+aggregation in the central fixed-adaptation, uncapped, 2% calculation. For
+each of the 26 climate models, cell output changes are aggregated to national
+maize markets, converted to the central constant-elasticity welfare change,
+discounted over 2020--2300 with the same deterministic GIVE consumption path,
+and normalized by the smallest converged pulse. Country components are then
+averaged equally across climate models. If a country lacks an eligible annual-
+precipitation slope for a model, its contribution is zero in that model rather
+than being dropped from the model-average denominator.
+
+The 106 country means reconstruct the global mean within `4.7e-17` USD per
+tCO2; the maximum error when their underlying components reconstruct any
+single model is `9.4e-17`. Ninety-six countries have slopes in all 26 models,
+while ten have 22--24. The validated rerun completed at 178,094,080 bytes
+sampled peak process-group RSS under a 768 MiB budget. Country components are
+accounting decompositions of the transported response, not local causal
+effects or total country agricultural damages.
+
 ### Alternative Hultgren impact-region transport geometry
 
 For the external published-response transport, the public Hultgren impact-

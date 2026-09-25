@@ -3,6 +3,9 @@
     "coefficient_discount_schedules": 4,
     "coefficient_market_specifications": 6,
     "coefficient_model_schedule_rows": 104,
+    "country_accounting_components": 106,
+    "country_decomposition_memory_budget_mib": 768,
+    "country_decomposition_models": 26,
     "credential_like_tracked_assignments": 0,
     "figure_hash_bound": true,
     "manuscript_hash_bound": true,
@@ -11,7 +14,7 @@
     "restricted_tracked_paths": 0,
     "table3_hash_bound": true,
     "targeted_quantity_welfare_unit_tests": 11,
-    "tracked_files_scanned": 2085,
+    "tracked_files_scanned": 2088,
     "wildfire_named_tracked_paths": 0
   },
   "claim_gates": {
@@ -20,10 +23,10 @@
     "paired_quantity_channel_scc": true,
     "probabilistic_total_uncertainty": false
   },
-  "created_at_utc": "2026-09-25T14:26:38.796092+00:00",
+  "created_at_utc": "2026-09-25T15:28:26.063365+00:00",
   "implementation": {
     "path": "scripts/validate_preliminary_scc_release.py",
-    "sha256": "99646b37117223495d2397f078414c93a04305263ad72de9ca8cefcdeaa0f60b"
+    "sha256": "83a4c8efd1edf038e7547c5ea1d4ca371c1666094dd793da47f56ec765f87d8e"
   },
   "release_scope": "paired annual-global-maize rainfall-quantity SCC benchmark; not total precipitation-agriculture SCC",
   "schema": "preliminary_scc_release_validation/v1",
@@ -44,6 +47,18 @@
       "path": "data/provenance/quantity_coefficient_delta_market_grid_job_20260925.json",
       "sha256": "33ca5d63c8fb6c9c1e95548230792dc27f28f1e9fd52489793c33f58c3e26f19"
     },
+    "country_decomposition": {
+      "path": "data/provenance/quantity_scc_country_decomposition_20260925.json",
+      "sha256": "146e5970ae0d3542048029c2b036df3aa65fb2d82dbbfb8242d8809fefb3fb45"
+    },
+    "country_decomposition_job": {
+      "path": "data/provenance/quantity_scc_country_decomposition_job_20260925.json",
+      "sha256": "2ca6cbae64b763e1ffbc70630c4551fb510f05ec147bf863624f5ae93cdac1d8"
+    },
+    "country_decomposition_report": {
+      "path": "QUANTITY_SCC_COUNTRY_DECOMPOSITION_RESULTS_20260925.md",
+      "sha256": "5142e6b4f7291cf7acc37e0275a660e7c4bf47bd133214abafc6357c52ca647d"
+    },
     "figure": {
       "path": "manuscript/figures/quantity_coefficient_intervals_20260925.svg",
       "sha256": "58620dcc326f5ed9a9cd6acf93dcb36188f4413b6ee44ceb62f94e6293b27702"
@@ -54,15 +69,15 @@
     },
     "manuscript": {
       "path": "manuscript/MAIN_MANUSCRIPT.md",
-      "sha256": "c0d89c6aa3ade7ea5378ba11c7ed7fa3483e692d3a50a83e6246f373d57c6892"
+      "sha256": "d3f3e16a417c4393e6b90f06e86e253e4bc329976d212e6de656b3a789b361e5"
     },
     "manuscript_validation": {
       "path": "data/provenance/manuscript_scc_claim_validation_20260925.json",
-      "sha256": "dfac5eacfae4da075c8da8d0f187d81b63e31ccd3d9358ae8770a00c66f85d61"
+      "sha256": "6666d700c589d90b7f6cb7f9966524ef6853b216088b8967c00820f8d6c1b3e9"
     },
     "methods_si": {
       "path": "manuscript/METHODS_SUPPORTING_INFORMATION.md",
-      "sha256": "9b6c2695a215d37512005c8ffd4426f5277b32541073f6e200e36596d41fa892"
+      "sha256": "98a77e60738da8e8784663a33dcebd54a646986e4651ed302a1c7172b4a5abfe"
     },
     "paired_structural": {
       "path": "data/provenance/quantity_full_structural_paired_ensemble_20260924.json",

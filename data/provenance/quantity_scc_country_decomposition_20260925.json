@@ -1,0 +1,205 @@
+{
+  "claim_gates": {
+    "central_quantity_channel_geographic_accounting": true,
+    "country_causal_effects": false,
+    "country_total_precipitation_agriculture_scc": false,
+    "full_precipitation_agriculture_scc": false
+  },
+  "created_at_utc": "2026-09-25T15:27:50.098881+00:00",
+  "estimand": "country contributions to the equal-26-model central annual-maize rainfall-quantity SCC at the GIVE 2% schedule",
+  "implementation": {
+    "path": "scripts/decompose_quantity_scc_by_country.py",
+    "sha256": "dc38c0867cc9fd0ab7ea971d1ddfacb55365cc4f10b09bb093c553b5281c0fa1"
+  },
+  "limitations": [
+    "Country contributions are accounting components of the narrow annual-maize rainfall-quantity benchmark, not local causal estimates.",
+    "The decomposition holds the published response, fixed adaptation, uncapped tail rule, central market, and GIVE 2% schedule fixed.",
+    "Equal climate-model weighting is a design summary and does not assign probabilities to models."
+  ],
+  "output": {
+    "path": "data/interim/quantity_scc_country_decomposition_20260925.csv",
+    "rows": 106,
+    "sha256": "7d27c61b92862096820cf1664f2a69e58750c1ab4c3d24f82a73a3b8ce75cb7e"
+  },
+  "schema": "quantity_scc_country_decomposition/v1",
+  "sources": {
+    "cpc": {
+      "path": "data/interim/give_deterministic_discount_path_20260924.csv",
+      "sha256": "23e939af062ae1313738ec4b535793cb7014fea320430a834fd485980121f4b0"
+    },
+    "diagnostic_receipt": {
+      "path": "data/provenance/epa_fair_hultgren_quantity_partial_scc_diagnostic_20260924.json",
+      "sha256": "a0321b59c48e8a0a4445e73697aef1906155dbb1c81fa3540e3c6a7e8b656f9e"
+    },
+    "fair": {
+      "path": "data/interim/give_fair_temperature_path_smoke/temperature_paths.csv",
+      "sha256": "aedf6b66dd296337e1cb6105d2aa56ec94f3e15e5ac92c2abcdf74b6a42b6067"
+    },
+    "panel_receipt": {
+      "path": "data/provenance/hultgren_quantity_response_panel_20260924.json",
+      "sha256": "6f3487624e4deb319d6e6ec004c532a95000d0c6b457ec6e14a0403250d9e1f9"
+    },
+    "slopes": {
+      "path": "data/interim/epa_annual_country_pattern_benchmark_20260921/country_model_slopes.csv",
+      "sha256": "e6bc9a4dbc0af19650f2f243802e0e1974d3599292cf2704aad0e746bf0c0572"
+    }
+  },
+  "status": "central_fixed_uncapped_two_percent_country_decomposition_complete",
+  "summary": {
+    "climate_models": 26,
+    "countries": 106,
+    "global_equal_model_mean_usd2020_per_tco2": -0.006101729549077339,
+    "gross_negative_country_sum_usd2020_per_tco2": -0.00695645222138595,
+    "gross_positive_country_sum_usd2020_per_tco2": 0.0008547226723086102,
+    "largest_negative_contributors": [
+      {
+        "climate_model_max_usd2020_per_tco2": 0.001926926902635,
+        "climate_model_min_usd2020_per_tco2": -0.005857765322418,
+        "climate_models_with_slope": 26,
+        "equal_model_mean_usd2020_per_tco2": -0.003525802378158,
+        "iso3": "USA"
+      },
+      {
+        "climate_model_max_usd2020_per_tco2": 0.002748460951367,
+        "climate_model_min_usd2020_per_tco2": -0.003707259333906,
+        "climate_models_with_slope": 26,
+        "equal_model_mean_usd2020_per_tco2": -0.002326123092375,
+        "iso3": "CHN"
+      },
+      {
+        "climate_model_max_usd2020_per_tco2": 0.000257277936527,
+        "climate_model_min_usd2020_per_tco2": -0.000569556177281,
+        "climate_models_with_slope": 26,
+        "equal_model_mean_usd2020_per_tco2": -0.000142791127292,
+        "iso3": "ARG"
+      },
+      {
+        "climate_model_max_usd2020_per_tco2": 7.1426110196e-05,
+        "climate_model_min_usd2020_per_tco2": -0.000316990522419,
+        "climate_models_with_slope": 26,
+        "equal_model_mean_usd2020_per_tco2": -0.000134614790163,
+        "iso3": "KEN"
+      },
+      {
+        "climate_model_max_usd2020_per_tco2": 0.000184835808661,
+        "climate_model_min_usd2020_per_tco2": -0.000325913813576,
+        "climate_models_with_slope": 26,
+        "equal_model_mean_usd2020_per_tco2": -0.000132614769496,
+        "iso3": "ETH"
+      },
+      {
+        "climate_model_max_usd2020_per_tco2": 0.000130370569706,
+        "climate_model_min_usd2020_per_tco2": -0.000214686517732,
+        "climate_models_with_slope": 26,
+        "equal_model_mean_usd2020_per_tco2": -0.000130615969466,
+        "iso3": "CAN"
+      },
+      {
+        "climate_model_max_usd2020_per_tco2": 7.0983968801e-05,
+        "climate_model_min_usd2020_per_tco2": -0.000326456592527,
+        "climate_models_with_slope": 26,
+        "equal_model_mean_usd2020_per_tco2": -0.000108588826603,
+        "iso3": "TZA"
+      },
+      {
+        "climate_model_max_usd2020_per_tco2": 0.000202885427193,
+        "climate_model_min_usd2020_per_tco2": -0.000239478251185,
+        "climate_models_with_slope": 26,
+        "equal_model_mean_usd2020_per_tco2": -0.000103075879674,
+        "iso3": "IND"
+      },
+      {
+        "climate_model_max_usd2020_per_tco2": 0.000246677563859,
+        "climate_model_min_usd2020_per_tco2": -0.000230892338866,
+        "climate_models_with_slope": 26,
+        "equal_model_mean_usd2020_per_tco2": -4.6886229633e-05,
+        "iso3": "THA"
+      },
+      {
+        "climate_model_max_usd2020_per_tco2": 7.1265565816e-05,
+        "climate_model_min_usd2020_per_tco2": -0.000161167074027,
+        "climate_models_with_slope": 26,
+        "equal_model_mean_usd2020_per_tco2": -4.3684899051e-05,
+        "iso3": "PER"
+      }
+    ],
+    "largest_positive_contributors": [
+      {
+        "climate_model_max_usd2020_per_tco2": 0.000725498692856,
+        "climate_model_min_usd2020_per_tco2": -0.000514073902807,
+        "climate_models_with_slope": 26,
+        "equal_model_mean_usd2020_per_tco2": 0.000313408589718,
+        "iso3": "MEX"
+      },
+      {
+        "climate_model_max_usd2020_per_tco2": 0.001549109777123,
+        "climate_model_min_usd2020_per_tco2": -0.001137287384518,
+        "climate_models_with_slope": 26,
+        "equal_model_mean_usd2020_per_tco2": 0.000291318697588,
+        "iso3": "BRA"
+      },
+      {
+        "climate_model_max_usd2020_per_tco2": 0.000878149505848,
+        "climate_model_min_usd2020_per_tco2": -0.000811192327835,
+        "climate_models_with_slope": 26,
+        "equal_model_mean_usd2020_per_tco2": 9.5219440628e-05,
+        "iso3": "ZAF"
+      },
+      {
+        "climate_model_max_usd2020_per_tco2": 0.000113310161037,
+        "climate_model_min_usd2020_per_tco2": -2.2061817883e-05,
+        "climate_models_with_slope": 26,
+        "equal_model_mean_usd2020_per_tco2": 3.9711716693e-05,
+        "iso3": "VEN"
+      },
+      {
+        "climate_model_max_usd2020_per_tco2": 9.2054487229e-05,
+        "climate_model_min_usd2020_per_tco2": -2.9830679538e-05,
+        "climate_models_with_slope": 26,
+        "equal_model_mean_usd2020_per_tco2": 2.0269462767e-05,
+        "iso3": "BGD"
+      },
+      {
+        "climate_model_max_usd2020_per_tco2": 6.6757587723e-05,
+        "climate_model_min_usd2020_per_tco2": -1.9034313217e-05,
+        "climate_models_with_slope": 26,
+        "equal_model_mean_usd2020_per_tco2": 1.5916002778e-05,
+        "iso3": "HND"
+      },
+      {
+        "climate_model_max_usd2020_per_tco2": 4.4466593169e-05,
+        "climate_model_min_usd2020_per_tco2": -2.5784758198e-05,
+        "climate_models_with_slope": 26,
+        "equal_model_mean_usd2020_per_tco2": 8.846754435e-06,
+        "iso3": "NPL"
+      },
+      {
+        "climate_model_max_usd2020_per_tco2": 3.7476635986e-05,
+        "climate_model_min_usd2020_per_tco2": -6.9694710728e-05,
+        "climate_models_with_slope": 26,
+        "equal_model_mean_usd2020_per_tco2": 8.301876856e-06,
+        "iso3": "BGR"
+      },
+      {
+        "climate_model_max_usd2020_per_tco2": 4.1368646814e-05,
+        "climate_model_min_usd2020_per_tco2": -1.3263217679e-05,
+        "climate_models_with_slope": 26,
+        "equal_model_mean_usd2020_per_tco2": 7.780659712e-06,
+        "iso3": "NIC"
+      },
+      {
+        "climate_model_max_usd2020_per_tco2": 0.000393885291021,
+        "climate_model_min_usd2020_per_tco2": -0.000816391264533,
+        "climate_models_with_slope": 26,
+        "equal_model_mean_usd2020_per_tco2": 7.232837199e-06,
+        "iso3": "ROU"
+      }
+    ],
+    "negative_country_count": 61,
+    "positive_country_count": 45
+  },
+  "validation": {
+    "global_mean_reconstruction_error_usd2020_per_tco2": 4.683753385137379e-17,
+    "maximum_model_reconstruction_error_usd2020_per_tco2": 9.367506770274758e-17
+  }
+}

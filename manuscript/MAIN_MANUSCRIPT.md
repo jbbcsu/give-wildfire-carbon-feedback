@@ -2021,6 +2021,16 @@ covariance conditional on each model. The diamond applies one shared
 coefficient draw to the equal-model mean. Climate models are not probability
 draws, and the bars exclude structural and omitted-mechanism uncertainty.
 
+A country accounting decomposition shows that the negative global mean is not
+geographically uniform. Sixty-one of 106 country components are negative and
+45 are positive; gross negative components sum to -$0.00696 per tCO2 and gross
+positive components to +$0.00085. The United States (-$0.00353) and China
+(-$0.00233) dominate the gross negative side, whereas Mexico (+$0.00031) and
+Brazil (+$0.00029) dominate the positive side. Each of those four components
+changes sign across at least one climate model. These are accounting
+components of the transported narrow response, not country causal effects or
+local total precipitation damages.
+
 The corresponding discount-schedule, adaptation, and market summaries are
 reported in [Table 3](tables/TABLE_3_SCC_RESULTS.md). The table keeps
 coefficient intervals distinct from structural design percentiles.

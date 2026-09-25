@@ -48,6 +48,9 @@ def main() -> None:
         "coefficient_by_model": root / "data/provenance/quantity_coefficient_delta_by_model_20260925.json",
         "coefficient_market_grid": root / "data/provenance/quantity_coefficient_delta_market_grid_20260925.json",
         "coefficient_market_job": root / "data/provenance/quantity_coefficient_delta_market_grid_job_20260925.json",
+        "country_decomposition": root / "data/provenance/quantity_scc_country_decomposition_20260925.json",
+        "country_decomposition_job": root / "data/provenance/quantity_scc_country_decomposition_job_20260925.json",
+        "country_decomposition_report": root / "QUANTITY_SCC_COUNTRY_DECOMPOSITION_RESULTS_20260925.md",
         "manuscript_validation": root / "data/provenance/manuscript_scc_claim_validation_20260925.json",
         "figure_validation": root / "data/provenance/quantity_coefficient_interval_figure_20260925.json",
         "manuscript": root / "manuscript/MAIN_MANUSCRIPT.md",
@@ -69,6 +72,12 @@ def main() -> None:
     market_grid = load(paths["coefficient_market_grid"], "quantity_coefficient_delta_market_grid/v1",
                        "fixed_uncapped_two_percent_market_grid_complete")
     market_job = json.loads(paths["coefficient_market_job"].read_text())
+    country = load(
+        paths["country_decomposition"],
+        "quantity_scc_country_decomposition/v1",
+        "central_fixed_uncapped_two_percent_country_decomposition_complete",
+    )
+    country_job = json.loads(paths["country_decomposition_job"].read_text())
     manuscript_validation = load(paths["manuscript_validation"], "manuscript_scc_claim_validation/v1", "pass")
     figure_validation = load(paths["figure_validation"], "quantity_coefficient_interval_figure/v1", "pass")
     table3_validation = load(paths["table3_validation"], "manuscript_scc_table/v1", "pass")
@@ -103,6 +112,26 @@ def main() -> None:
             "market derivative validation failed")
     require(market_job["status"] == "completed" and market_job["returncode"] == 0,
             "market coefficient job failed")
+    require(country["summary"]["countries"] == 106, "country decomposition support differs")
+    require(country["summary"]["negative_country_count"] == 61, "negative country count differs")
+    require(country["summary"]["positive_country_count"] == 45, "positive country count differs")
+    require(abs(country["summary"]["global_equal_model_mean_usd2020_per_tco2"]
+                - next(row for row in grid["results"] if row["discount_rate_label"] == "2.0%")["central_mean_usd2020_per_tco2"])
+            <= 2e-14, "country/global SCC mean differs")
+    require(country["validation"]["maximum_model_reconstruction_error_usd2020_per_tco2"] <= 2e-14,
+            "country model reconstruction failed")
+    require(country_job["status"] == "completed" and country_job["returncode"] == 0,
+            "country decomposition job failed")
+    require(country_job["sampled_peak_group_rss_bytes"] <= 768 * 1024 * 1024,
+            "country decomposition exceeded memory contract")
+    manuscript_text = paths["manuscript"].read_text()
+    for fragment in (
+        "Sixty-one of 106 country components are negative",
+        "United States (-$0.00353)",
+        "Mexico (+$0.00031)",
+        "not country causal effects",
+    ):
+        require(fragment in manuscript_text, f"country claim fragment missing: {fragment}")
 
     manuscript_source = manuscript_validation["sources"]["manuscript"]
     require(digest(paths["manuscript"]) == manuscript_source["sha256"], "manuscript changed after validation")
@@ -154,6 +183,9 @@ def main() -> None:
             "coefficient_discount_schedules": 4,
             "coefficient_model_schedule_rows": 104,
             "coefficient_market_specifications": 6,
+            "country_accounting_components": 106,
+            "country_decomposition_models": 26,
+            "country_decomposition_memory_budget_mib": 768,
             "manuscript_hash_bound": True,
             "figure_hash_bound": True,
             "table3_hash_bound": True,
