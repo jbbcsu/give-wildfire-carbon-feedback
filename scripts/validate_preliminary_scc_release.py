@@ -56,6 +56,7 @@ def main() -> None:
         "manuscript_validation": root / "data/provenance/manuscript_scc_claim_validation_20260925.json",
         "manuscript_reference_registry": root / "data/provenance/manuscript_reference_registry_20260925.json",
         "manuscript_reference_validation": root / "data/provenance/manuscript_reference_validation_20260925.json",
+        "manuscript_link_validation": root / "data/provenance/manuscript_link_validation_20260925.json",
         "figure_validation": root / "data/provenance/quantity_coefficient_interval_figure_20260925.json",
         "manuscript": root / "manuscript/MAIN_MANUSCRIPT.md",
         "methods_si": root / "manuscript/METHODS_SUPPORTING_INFORMATION.md",
@@ -91,6 +92,7 @@ def main() -> None:
     reference_validation = load(
         paths["manuscript_reference_validation"], "manuscript_reference_validation/v1", "pass"
     )
+    link_validation = load(paths["manuscript_link_validation"], "manuscript_link_validation/v1", "pass")
     figure_validation = load(paths["figure_validation"], "quantity_coefficient_interval_figure/v1", "pass")
     table3_validation = load(paths["table3_validation"], "manuscript_scc_table/v1", "pass")
     targeted_test_job = json.loads(paths["targeted_test_job"].read_text())
@@ -161,6 +163,16 @@ def main() -> None:
             "manuscript reference support differs")
     require(reference_validation["checks"]["wildfire_agriculture_doi_nonconflation"],
             "wildfire and agriculture citations conflated")
+    require(link_validation["checks"]["local_links_resolved"] == 22,
+            "manuscript local-link support differs")
+    require(link_validation["checks"]["missing_local_links"] == 0,
+            "manuscript local links missing")
+    require(digest(paths["manuscript"]) ==
+            link_validation["sources"]["manuscript/MAIN_MANUSCRIPT.md"]["sha256"],
+            "manuscript changed after link validation")
+    require(digest(paths["methods_si"]) ==
+            link_validation["sources"]["manuscript/METHODS_SUPPORTING_INFORMATION.md"]["sha256"],
+            "Methods SI changed after link validation")
     require(digest(paths["figure"]) == figure_validation["output"]["sha256"], "figure changed after validation")
     require(digest(paths["coefficient_by_model"]) == figure_validation["sources"]["input"]["sha256"],
             "figure source changed after validation")
@@ -216,6 +228,7 @@ def main() -> None:
             "manuscript_hash_bound": True,
             "manuscript_doi_references_validated": 6,
             "wildfire_agriculture_doi_nonconflation": True,
+            "manuscript_local_links_resolved": 22,
             "figure_hash_bound": True,
             "table3_hash_bound": True,
             "tracked_files_scanned": len(tracked_raw),
