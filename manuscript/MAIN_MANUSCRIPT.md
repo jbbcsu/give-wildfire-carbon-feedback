@@ -982,6 +982,21 @@ forecast. The comparison selects no production response, reports no SPEI
 result, and does not identify a causal effect, project climate-induced drought
 change, or authorize damages or an SCC input.
 
+**Nonlinear temperature--drought benchmark.** A later, explicitly exploratory
+test applies the parsimonious nonlinear structure motivated by Matiu et al.
+(2017) to the exact country-separated panel: temperature, moisture, their
+squares and interaction are transformed at levels before annual differencing.
+Direct precipitation and SPEI-1/3/6 remain mutually exclusive families. None
+passes the frozen promotion rule. For maize, nonlinear quantity improves
+pooled RMSE by 0.000327 but its conditional 95% interval includes zero;
+nonlinear SPEI-1, SPEI-3, and SPEI-6 worsen pooled RMSE by 0.001021, 0.001786,
+and 0.003301. All four nonlinear soybean families worsen both pooled and
+equal-country RMSE, while the existing singleton fold prevents the prescribed
+bootstrap. This negative result closes a simple nonlinear rescue route; it
+does not establish that drought interactions are unimportant or provide a
+causal response. Full results and boundaries are in
+[`MATIU_STRUCTURE_PREDICTION_RESULTS_20260925.md`](../MATIU_STRUCTURE_PREDICTION_RESULTS_20260925.md).
+
 **Published global water-stress spatial benchmark.** The four official
 Tuninetti--Davis maize/soybean rainfed/irrigated 5-arc-minute sensitivity maps
 were independently matched to our crop-calendar SPEI3 contrasts on frozen

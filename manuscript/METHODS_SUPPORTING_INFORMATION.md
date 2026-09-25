@@ -1851,6 +1851,19 @@ yield-response gate. Exact rules, source hashes, the retained first-pass fold-
 label error, and the independent audit are in
 `GLOBAL_RESPONSE_EVIDENCE_DECISION_RESULTS_20260919.md`.
 
+An additional Matiu-structure benchmark applies level temperature and
+moisture transformations before differencing, then compares linear with
+quadratic-plus-interaction variants on the same country-separated terminal
+sample. It never places raw precipitation and SPEI in one model. Maize and
+soybean are run sequentially with sampled peak group RSS of 695,009,280 and
+411,172,864 bytes. No nonlinear family passes: maize quantity's small gain has
+a conditional interval containing zero; all nonlinear SPEI families and all
+soybean nonlinear families worsen both aggregate RMSE weightings. The terminal
+period was already exposed, so even a pass would have required new validation.
+The protocol, aggregate outputs, and 54-check validator are documented in
+`../MATIU_STRUCTURE_PREDICTION_RESULTS_20260925.md` and tracked under
+`../data/provenance/matiu_structure_*_20260925.json`.
+
 The U.S. synthesis separately binds source-matched common-range associations,
 paired county-bootstrap predictive losses, and the stage-Tmax control
 sensitivity. It preserves the different sign conventions: negative candidate-
