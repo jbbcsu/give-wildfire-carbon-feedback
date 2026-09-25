@@ -434,3 +434,13 @@ health, substitution, dependence, and VSL assumptions. The public repository
 had no explicit root license file at the audited commit, so this project stores
 only aggregate audit facts and hashes. See
 [`BLUE_SCC_FISHERIES_BENCHMARK_AUDIT.md`](BLUE_SCC_FISHERIES_BENCHMARK_AUDIT.md).
+
+A subsequent code-bound overlap audit confirms that neither published
+component is currently additive to GIVE. Core GIVE applies its retained
+temperature-mortality response to country baseline mortality and values excess
+deaths with VSL, without a fisheries-nutrition cause exclusion. The dominant
+published nutrition pathway therefore requires cause/pathway and VSL
+reconciliation rather than automatic addition. The market pathway remains
+blocked on direct-surplus versus multiplier effects and overlap with other
+market damages. See
+[`FISHERIES_GIVE_OVERLAP_AUDIT_20260925.md`](FISHERIES_GIVE_OVERLAP_AUDIT_20260925.md).

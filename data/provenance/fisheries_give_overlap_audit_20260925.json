@@ -1,0 +1,68 @@
+{
+  "claim_gates": {
+    "fishmip_to_welfare_mapping_estimated": false,
+    "local_fisheries_scc_estimated": false,
+    "published_benchmark_verified": true,
+    "published_market_additive_to_give": false,
+    "published_nutrition_additive_to_give": false,
+    "published_total_additive_to_give": false
+  },
+  "core_give_findings": {
+    "agriculture_enabled_by_default": true,
+    "cromar_mortality_enabled_by_default": true,
+    "cromar_uses_country_baseline_mortality_rate": true,
+    "cromar_values_excess_deaths_with_vsl": true,
+    "mortality_and_agriculture_enter_total_damage": true
+  },
+  "created_at_utc": "2026-09-25T14:17:35.845698+00:00",
+  "implementation": {
+    "path": "scripts/audit_fisheries_give_overlap.py",
+    "sha256": "01948ffdbfbffa77942569e6669b5ef2c9216631f9504bd49b86111fcc97eef7"
+  },
+  "overlap_findings": {
+    "market": {
+      "reason": "The published market benchmark uses profit projections plus regional output multipliers rather than explicit consumer and producer surplus.",
+      "required_resolution": "Separate direct fisheries surplus from indirect/induced output effects and test overlap with agriculture, energy and any aggregate macroeconomic damage before addition.",
+      "status": "welfare_and_macro_overlap_unresolved"
+    },
+    "nutrition_mortality": {
+      "reason": "The published nutrition component values mortality from seafood nutrient availability, while core GIVE already values a temperature-linked change applied to country baseline mortality. The inspected core component has no cause-specific exclusion for fisheries nutrition.",
+      "required_resolution": "Reconcile death causes, baseline rates, exposure pathways and VSL conventions; report nutrition separately until incremental deaths are demonstrated outside the retained Cromar response.",
+      "status": "potential_overlap_requires_cause_and_pathway_reconciliation"
+    },
+    "terrestrial_food": {
+      "reason": "Seafood substitution and undernutrition can interact with terrestrial food prices and consumption represented by the agriculture replacement.",
+      "required_resolution": "Use a joint food-market treatment or exclude terrestrial food-price welfare from the fisheries module.",
+      "status": "substitution_overlap_unresolved"
+    }
+  },
+  "published_benchmark_usd_per_tco2": {
+    "fisheries_market_scc_usd_per_tco2": 0.05704041587845721,
+    "fisheries_nonmarket_use_scc_usd_per_tco2": 22.04050947136718,
+    "fisheries_share_of_total_blue_scc": 0.4576828144782931,
+    "fisheries_total_scc_usd_per_tco2": 22.097549887245638,
+    "total_blue_scc_usd_per_tco2": 48.28136252490572
+  },
+  "recommended_reporting": {
+    "external_market_benchmark": 0.05704041587845721,
+    "external_nutrition_benchmark": 22.04050947136718,
+    "external_total_benchmark": 22.097549887245638,
+    "label": "published external benchmark only; not a GIVE add-on or local estimate"
+  },
+  "schema": "fisheries_give_overlap_audit/v1",
+  "sources": {
+    "blue_receipt": {
+      "path": "data/provenance/blue_scc_fisheries_literature_benchmark_20260826.json",
+      "sha256": "9818df16b25d78df0153f80a8211dc7ba4f6c7cc92d545de278f331b74d7db89"
+    },
+    "give_cromar_component": {
+      "path": "packages/MimiGIVE/src/components/cromar_mortality_damages.jl",
+      "sha256": "381d220e9b77c78f8186dafccf35dd7558c90dd6596689c759fb1eccf5557d76"
+    },
+    "give_damage_aggregator": {
+      "path": "packages/MimiGIVE/src/components/DamageAggregator.jl",
+      "sha256": "9fdd944faf6aa67bfd36063078974b3e7164bd6806528acecc7ea04331ab7cc4"
+    }
+  },
+  "status": "published_benchmark_not_additive_pending_overlap_and_welfare_resolution"
+}
