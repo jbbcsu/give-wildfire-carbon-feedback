@@ -132,6 +132,18 @@ distribution residual is negative in four. MapSPAM is a modeled physical
 production allocation, not a value or welfare weight, so this sensitivity does
 not monetize damages or identify an SCC.
 
+We next test whether these production-weighted precipitation components can be
+treated as stable functions of the same-realization late-century GMST
+difference. Origin-constrained slopes are -0.005368, -0.004094, and -0.001275
+log-yield points per K for net precipitation, quantity, and the distribution
+residual. The residual is 31.15% of the absolute quantity slope, but changes
+sign in one of five ESMs and improves on a zero-change prediction in only two
+whole-ESM holdouts. Net precipitation and quantity improve in three of five.
+Under the preregistered sign-stability and five-of-five holdout rule, no
+endpoint-per-kelvin timing response is passed to the marginal damage path.
+This rejects a convenient scaling shortcut, not the biological importance of
+within-season rainfall.
+
 An additional conditional baseline-value sensitivity matches 98.05% of
 MapSPAM maize production to 119 countries with 1999--2001 FAOSTAT constant-
 dollar gross production values. Its five-model mean-log precipitation response

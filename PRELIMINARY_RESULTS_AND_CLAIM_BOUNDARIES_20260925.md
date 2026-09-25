@@ -45,6 +45,17 @@ irrigation and adaptation costs, trade/storage, and several uncertainty layers.
 Negative values denote a modeled benefit within this narrow channel and do not
 show that climate change benefits agriculture overall.
 
+A new five-ESM promotion screen confirms why timing is not yet included. The
+MapSPAM-production-weighted late-century timing/distribution increment has an
+origin-constrained slope of -0.001275 log-yield points per K, 31.15% of the
+absolute quantity slope. That pooled magnitude is potentially material, but
+the increment changes sign in one of five ESMs and a four-model fit beats a
+zero-change prediction for only two of five held-out ESMs. Net precipitation
+and quantity are negative in all five models, but their endpoint-per-kelvin
+fits improve on zero in only three holdouts. Scaling any of these single
+late-century scenario contrasts directly to a FAIR pulse would therefore be a
+diagnostic, not a defensible timing SCC.
+
 Primary evidence:
 
 - `QUANTITY_FULL_STRUCTURAL_PAIRED_ENSEMBLE_RESULTS_20260924.md`
@@ -53,6 +64,7 @@ Primary evidence:
 - `data/provenance/quantity_coefficient_delta_by_model_20260925.json`
 - `QUANTITY_SCC_COUNTRY_DECOMPOSITION_RESULTS_20260925.md`
 - `QUANTITY_SCC_PERIOD_DECOMPOSITION_RESULTS_20260925.md`
+- `HULTGREN_TIMING_GMST_PROMOTION_GATE_RESULTS_20260925.md`
 
 ### U.S. NASS validation
 

@@ -1,0 +1,42 @@
+{
+  "claim_gates": {
+    "arithmetic_validated": true,
+    "damage_or_scc": false
+  },
+  "created_at_utc": "2026-09-25T18:09:57.993848+00:00",
+  "implementation": {
+    "path": "/Users/jbb/Dropbox/GIVE/precipitation_scc/scripts/validate_hultgren_timing_gmst_promotion_gate.py",
+    "sha256": "4c2ef80150c639790ba76b4ac09fc7a31f9626ab3efc3f3e2ad3878a95e1e001"
+  },
+  "maximum_absolute_numeric_difference": 0.0,
+  "numeric_checks": 40,
+  "promotion_gate": false,
+  "reconstructed": {
+    "net_precipitation": {
+      "holdouts_improving": 3,
+      "sign_stable": true,
+      "slope": -0.005367881804746851
+    },
+    "quantity_reference": {
+      "holdouts_improving": 3,
+      "sign_stable": true,
+      "slope": -0.004093709174514113
+    },
+    "timing_distribution_increment": {
+      "holdouts_improving": 2,
+      "sign_stable": false,
+      "slope": -0.0012752415647413783
+    }
+  },
+  "result": {
+    "path": "data/provenance/hultgren_timing_gmst_promotion_gate_20260925.json",
+    "sha256": "79c40432d0680dbcdc6cc8f7b46aef22924872432b3db9379f09d8459c77cf1f"
+  },
+  "schema": "hultgren_timing_gmst_promotion_gate_validation/v1",
+  "sources": {
+    "gmst_link_sha256": "bc1c9877bd7a07da394365125bc5da4d642ebc891f001035c15ad6e7c87f0d78",
+    "transport_summary_sha256": "4149689cd6d289d2786b10b0e5447921f23e90c4b28b2ee9a9ae3a245643619a"
+  },
+  "status": "validated_timing_promotion_gate_not_damage_or_scc",
+  "timing_share": 0.3115124964617786
+}

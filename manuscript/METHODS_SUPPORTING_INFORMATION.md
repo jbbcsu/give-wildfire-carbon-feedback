@@ -1651,6 +1651,26 @@ records. Exact inputs and checks are in
 `data/provenance/hultgren_five_esm_production_weighted_validation_20260924.json`,
 and `data/provenance/hultgren_five_esm_production_weighted_summary_20260924.json`.
 
+#### Timing/distribution GMST promotion gate
+
+We pair each fixed-practice production-weighted component with its ESM's
+same-realization 2092--2099 SSP5-8.5 minus SSP1-2.6 GMST difference. For each
+component, an origin-constrained equal-endpoint-weight slope is
+
+`sum(deltaT_m * deltaY_m) / sum(deltaT_m^2)`.
+
+The prespecified timing promotion rule requires both one response sign across
+all five named ESMs and lower absolute error than zero change for every
+whole-ESM holdout, where each holdout slope is fitted on the other four ESMs.
+The quantity reference, net precipitation response, and distribution residual
+are evaluated separately; the residual is never stacked as an independent
+covariate. The distribution residual changes sign and improves only two of
+five holdouts, so its marginal-SCC gate remains closed. An independent
+implementation reproduces 40 numerical checks exactly. Inputs, results, and
+the audit are registered in
+`data/provenance/hultgren_timing_gmst_promotion_gate_20260925.json` and
+`data/provenance/hultgren_timing_gmst_promotion_gate_validation_20260925.json`.
+
 ### Conditional baseline gross-production-value sensitivity and failed monetization gate
 
 An authoritative NGA GENC--GEC crosswalk and current UN M49 table resolve the
