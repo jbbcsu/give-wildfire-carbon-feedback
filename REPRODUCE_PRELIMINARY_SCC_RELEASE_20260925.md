@@ -111,6 +111,20 @@ receipts:
   data/interim/quantity_scc_period_figure.json
 ```
 
+Regenerate Table 3, including its geographic and temporal panels, only after
+the four input receipts pass:
+
+```bash
+.venv/bin/python scripts/build_manuscript_scc_table.py \
+  --structural data/provenance/quantity_structural_sensitivity_envelope_20260924.json \
+  --coefficient-grid data/provenance/quantity_coefficient_delta_uncertainty_grid_20260925.json \
+  --market-grid data/provenance/quantity_coefficient_delta_market_grid_20260925.json \
+  --country data/provenance/quantity_scc_country_decomposition_20260925.json \
+  --period-grid data/provenance/quantity_scc_period_discount_grid_20260925.json \
+  --output data/interim/TABLE_3_SCC_RESULTS.md \
+  --receipt data/interim/manuscript_scc_table.json
+```
+
 Validate that the manuscript's headline numbers and claim boundaries match the
 receipts:
 
