@@ -1,0 +1,42 @@
+{
+  "schema": "hultgren_rice_weather_method_validation/v1",
+  "status": "passed",
+  "checks": {
+    "methods_pdf_hash": true,
+    "crop_configuration_hash": true,
+    "climate_collapse_hash": true,
+    "rice_gdd_base": true,
+    "rice_kdd_threshold": true,
+    "rice_phase_lengths": true,
+    "rice_maximum_season": true,
+    "quadratic_precipitation": true,
+    "future_gate_closed": true,
+    "damage_gate_closed": true,
+    "scc_gate_closed": true,
+    "arithmetic_tests": true,
+    "response_algebra_tests": true
+  },
+  "passed_checks": 13,
+  "total_checks": 13,
+  "definitions": {
+    "gdd": "Snyder single-sine degree days between 14 and 30 C",
+    "kdd": "Snyder single-sine degree days above 30 C",
+    "precipitation_phases": "months 1-2, 3-5, and 6 through harvest",
+    "precipitation_quadratic": "sum of squared monthly totals within each phase",
+    "tmin": "sum across crop-season months of each monthly mean daily minimum temperature"
+  },
+  "claim_gates": {
+    "primitive_weather_method": true,
+    "future_rice_weather": false,
+    "rice_yield_projection": false,
+    "rice_damage": false,
+    "rice_scc": false
+  },
+  "implementation_hashes": {
+    "weather_module_sha256": "c6843091aa394a4acbcfdbe2592a706f7d56bed1df903ff1701a2e9623a6b1df",
+    "response_module_sha256": "b4fb9e7dc36948ef1d3f0e0c3d3a03242e6d8f726b1390fd90db2675570c10fa",
+    "test_sha256": "4ddb4c6633918762d2dc56acee57bb3686150f6a3e6409a3c1976db8f20e3361",
+    "response_test_sha256": "c023862b1c45c94fc0794720ccccb5acda81ff3101010d0d9cb095a51c91539f",
+    "validator_sha256": "b8deb563900a98eadbf70c815ff2461cd55b496d5272af3f35eec1f1c12913be"
+  }
+}

@@ -1498,8 +1498,15 @@ checks pass in
 `../data/provenance/hultgren_rice_response_source_validation_20260925.json`.
 The raw estimate and Stata matrix exports remain ignored and are not
 redistributed. No rice future-weather, valuation, damage, or SCC gate is opened.
-The next rice step must reproduce the exact `[2,3,7]` monthly phase basis on
-separate first/second-season, rainfed/irrigated calendars before transport.
+The exact `[2,3,7]` monthly phase transformation is now implemented in
+`src/hultgren_rice_weather.py` and source-bound by
+`../data/provenance/hultgren_rice_weather_method_validation_20260925.json`.
+The implementation treats the third phase as month 6 through harvest, uses
+the source's 14/30 C temperature thresholds, and sums monthly mean daily Tmin
+over the crop season. It conservatively requires at least six and no more than
+twelve calendar months so all three phases are nonempty. The next rice gate is
+application to separate first/second-season, rainfed/irrigated daily panels;
+no future response, valuation, damage, or SCC is inferred from the method test.
 
 The bounded reproduction is rerun with
 `scripts/run_hultgren_maize_historical_replication.sh`. The wrapper first checks

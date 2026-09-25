@@ -353,9 +353,14 @@ cover 166,174 observations and combine GDD, KDD, minimum temperature, and
 three linear/quadratic within-season rainfall phases with income, irrigation,
 and long-run-climate moderators. This creates a defensible route beyond the
 current maize-only SCC benchmark without scaling maize coefficients across
-crops. It is not yet applied: rice requires its own first/second-season daily
-weather bases, up to twelve crop-calendar months, value weights, market
-interaction, and pulse validation. Source results and closed gates are in
+crops. The source-matched primitive transformation is now implemented and
+tested: 14--30 C GDD, KDD above 30 C, three `[2,3,remainder]` rainfall phases
+with monthly totals squared before phase aggregation, and the crop-season sum
+of monthly mean daily Tmin. It therefore preserves within-phase rainfall
+distribution rather than reducing rice exposure to an annual total. Rice is
+not yet projected: it still requires validated first/second-season daily
+weather panels on rainfed and irrigated support, value weights, market
+interaction, and matched marginal-pulse validation. Source results and closed gates are in
 [`HULTGREN_RICE_RESPONSE_SOURCE_RESULTS_20260925.md`](../HULTGREN_RICE_RESPONSE_SOURCE_RESULTS_20260925.md).
 
 This study asks: how does the agricultural component of the global SCC change
