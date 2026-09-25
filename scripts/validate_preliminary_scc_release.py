@@ -129,6 +129,13 @@ def main() -> None:
     require(country["summary"]["countries"] == 106, "country decomposition support differs")
     require(country["summary"]["negative_country_count"] == 61, "negative country count differs")
     require(country["summary"]["positive_country_count"] == 45, "positive country count differs")
+    require(country["summary"]["country_components_changing_sign_across_models"] == 106,
+            "country sign-change count differs")
+    require(abs(country["summary"]["usa_china_share_of_gross_absolute_components"] - 0.7491735302529217)
+            <= 1e-14, "country concentration share differs")
+    require(abs(country["summary"]["leave_out_usa_and_china_global_mean_usd2020_per_tco2"]
+                - (-0.00024980407854519656)) <= 1e-14,
+            "country leave-out diagnostic differs")
     require(abs(country["summary"]["global_equal_model_mean_usd2020_per_tco2"]
                 - next(row for row in grid["results"] if row["discount_rate_label"] == "2.0%")["central_mean_usd2020_per_tco2"])
             <= 2e-14, "country/global SCC mean differs")
@@ -143,12 +150,14 @@ def main() -> None:
     require(digest(paths["country_decomposition"]) ==
             country_figure["sources"]["decomposition_receipt"]["sha256"],
             "country figure source changed after validation")
-    manuscript_text = paths["manuscript"].read_text()
+    manuscript_text = " ".join(paths["manuscript"].read_text().split())
     for fragment in (
         "Sixty-one of 106 country components are negative",
         "United States (-$0.00353)",
         "Mexico (+$0.00031)",
         "not country causal effects",
+        "every country component does",
+        "remaining global mean to -$0.00025 per tCO2",
     ):
         require(fragment in manuscript_text, f"country claim fragment missing: {fragment}")
 

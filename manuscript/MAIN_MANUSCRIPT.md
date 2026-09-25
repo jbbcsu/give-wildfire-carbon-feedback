@@ -2027,9 +2027,13 @@ geographically uniform. Sixty-one of 106 country components are negative and
 positive components to +$0.00085. The United States (-$0.00353) and China
 (-$0.00233) dominate the gross negative side, whereas Mexico (+$0.00031) and
 Brazil (+$0.00029) dominate the positive side. Each of those four components
-changes sign across at least one climate model. These are accounting
-components of the transported narrow response, not country causal effects or
-local total precipitation damages.
+changes sign across at least one climate model; in fact, every country
+component does. The United States and China account for 74.9% of gross
+absolute country components, and an accounting leave-out of both reduces the
+remaining global mean to -$0.00025 per tCO2. These are concentration
+diagnostics and accounting components of the transported narrow response, not
+country causal effects, alternative estimands, or local total precipitation
+damages.
 
 ![Country components of the narrow quantity-channel SCC](figures/quantity_scc_country_decomposition_20260925.svg)
 

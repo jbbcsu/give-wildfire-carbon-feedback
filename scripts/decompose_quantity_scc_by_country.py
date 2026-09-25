@@ -208,6 +208,12 @@ def main() -> None:
     require(abs(mean_global - expected_mean) <= 2e-14, "equal-model global mean differs")
     negative = country.loc[country.equal_model_mean_usd2020_per_tco2 < 0]
     positive = country.loc[country.equal_model_mean_usd2020_per_tco2 > 0]
+    means = country.set_index("iso3").equal_model_mean_usd2020_per_tco2
+    sign_changing = country.loc[
+        (country.climate_model_min_usd2020_per_tco2 < 0)
+        & (country.climate_model_max_usd2020_per_tco2 > 0)
+    ]
+    gross_absolute = float(means.abs().sum())
 
     def records(frame: pd.DataFrame, n: int = 10) -> list[dict]:
         return json.loads(frame.head(n).to_json(orient="records", double_precision=15))
@@ -225,6 +231,12 @@ def main() -> None:
             "positive_country_count": int(len(positive)),
             "gross_negative_country_sum_usd2020_per_tco2": float(negative.equal_model_mean_usd2020_per_tco2.sum()),
             "gross_positive_country_sum_usd2020_per_tco2": float(positive.equal_model_mean_usd2020_per_tco2.sum()),
+            "gross_absolute_country_sum_usd2020_per_tco2": gross_absolute,
+            "country_components_changing_sign_across_models": int(len(sign_changing)),
+            "usa_china_share_of_gross_absolute_components": float((abs(means["USA"]) + abs(means["CHN"])) / gross_absolute),
+            "leave_out_usa_global_mean_usd2020_per_tco2": float(mean_global - means["USA"]),
+            "leave_out_china_global_mean_usd2020_per_tco2": float(mean_global - means["CHN"]),
+            "leave_out_usa_and_china_global_mean_usd2020_per_tco2": float(mean_global - means["USA"] - means["CHN"]),
             "largest_negative_contributors": records(negative),
             "largest_positive_contributors": records(positive.sort_values("equal_model_mean_usd2020_per_tco2", ascending=False)),
         },

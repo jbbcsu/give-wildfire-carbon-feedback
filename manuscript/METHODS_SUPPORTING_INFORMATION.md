@@ -4218,10 +4218,14 @@ than being dropped from the model-average denominator.
 The 106 country means reconstruct the global mean within `4.7e-17` USD per
 tCO2; the maximum error when their underlying components reconstruct any
 single model is `9.4e-17`. Ninety-six countries have slopes in all 26 models,
-while ten have 22--24. The validated rerun completed at 178,094,080 bytes
-sampled peak process-group RSS under a 768 MiB budget. Country components are
-accounting decompositions of the transported response, not local causal
-effects or total country agricultural damages.
+while ten have 22--24. All 106 components span zero across the climate-model
+set. The United States and China comprise 74.9% of the gross absolute country
+components; subtracting both components leaves -$0.00024980 per tCO2. This
+leave-out is an accounting concentration check, not a re-estimated response.
+The validated rerun completed at 178,913,280 bytes sampled peak process-group
+RSS under a 768 MiB budget. Country components are accounting decompositions
+of the transported response, not local causal effects or total country
+agricultural damages.
 
 ### Alternative Hultgren impact-region transport geometry
 

@@ -25,11 +25,13 @@ substantial but incomplete geographic offsetting, not a uniform benefit.
 | Positive | South Africa | +0.00009522 | -0.00081119 to +0.00087815 |
 
 The United States and China together supply 84.1% of the gross negative
-component and 95.9% of the net global value. Mexico and Brazil supply 70.8% of
-the gross positive component. Each of those four country components changes
-sign across at least one of the 26 climate models. Consequently, the country
-ranking should be interpreted as an equal-model accounting summary rather
-than a stable local impact ordering.
+component, 74.9% of the gross absolute components, and 95.9% of the net global
+value. Mexico and Brazil supply 70.8% of the gross positive component. An
+accounting leave-out of the United States and China leaves only -$0.00024980
+per tCO2; this is a concentration diagnostic, not an alternative estimand.
+Every one of the 106 country components changes sign across at least one of the
+26 climate models. Consequently, the country ranking should be interpreted as
+an equal-model accounting summary rather than a stable local impact ordering.
 
 ## Validation and claim boundary
 
@@ -59,5 +61,5 @@ crops, trade, storage, and adaptation costs remain outside this result.
 - Derived country table (gitignored):
   `data/interim/quantity_scc_country_decomposition_20260925.csv`
 
-The validated rerun completed in 3.4 seconds with sampled peak process-group
-RSS of 178,094,080 bytes (169.8 MiB) under a 768 MiB budget.
+The validated rerun completed in 1.8 seconds with sampled peak process-group
+RSS of 178,913,280 bytes (170.6 MiB) under a 768 MiB budget.

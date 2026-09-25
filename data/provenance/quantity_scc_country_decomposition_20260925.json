@@ -5,11 +5,11 @@
     "country_total_precipitation_agriculture_scc": false,
     "full_precipitation_agriculture_scc": false
   },
-  "created_at_utc": "2026-09-25T15:27:50.098881+00:00",
+  "created_at_utc": "2026-09-25T15:37:11.205949+00:00",
   "estimand": "country contributions to the equal-26-model central annual-maize rainfall-quantity SCC at the GIVE 2% schedule",
   "implementation": {
     "path": "scripts/decompose_quantity_scc_by_country.py",
-    "sha256": "dc38c0867cc9fd0ab7ea971d1ddfacb55365cc4f10b09bb093c553b5281c0fa1"
+    "sha256": "25ba267eadfe31cc49891854209ef0b3c1695c7fede78b2cd42d892c856430e1"
   },
   "limitations": [
     "Country contributions are accounting components of the narrow annual-maize rainfall-quantity benchmark, not local causal estimates.",
@@ -48,7 +48,9 @@
   "summary": {
     "climate_models": 26,
     "countries": 106,
+    "country_components_changing_sign_across_models": 106,
     "global_equal_model_mean_usd2020_per_tco2": -0.006101729549077339,
+    "gross_absolute_country_sum_usd2020_per_tco2": 0.007811174893694559,
     "gross_negative_country_sum_usd2020_per_tco2": -0.00695645222138595,
     "gross_positive_country_sum_usd2020_per_tco2": 0.0008547226723086102,
     "largest_negative_contributors": [
@@ -195,8 +197,12 @@
         "iso3": "ROU"
       }
     ],
+    "leave_out_china_global_mean_usd2020_per_tco2": -0.0037756064567027467,
+    "leave_out_usa_and_china_global_mean_usd2020_per_tco2": -0.00024980407854519656,
+    "leave_out_usa_global_mean_usd2020_per_tco2": -0.002575927170919789,
     "negative_country_count": 61,
-    "positive_country_count": 45
+    "positive_country_count": 45,
+    "usa_china_share_of_gross_absolute_components": 0.7491735302529217
   },
   "validation": {
     "global_mean_reconstruction_error_usd2020_per_tco2": 4.683753385137379e-17,
