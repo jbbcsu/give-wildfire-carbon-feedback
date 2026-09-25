@@ -62,6 +62,7 @@ def main() -> None:
         "results_brief": root / "PRELIMINARY_RESULTS_AND_CLAIM_BOUNDARIES_20260925.md",
         "readme": root / "README.md",
         "readme_link_validation": root / "data/provenance/readme_link_validation_20260925.json",
+        "reproduction_guide": root / "REPRODUCE_PRELIMINARY_SCC_RELEASE_20260925.md",
         "manuscript_validation": root / "data/provenance/manuscript_scc_claim_validation_20260925.json",
         "manuscript_reference_registry": root / "data/provenance/manuscript_reference_registry_20260925.json",
         "manuscript_reference_validation": root / "data/provenance/manuscript_reference_validation_20260925.json",
@@ -233,6 +234,15 @@ def main() -> None:
         "no local GIVE SCC",
     ):
         require(fragment in readme_text, f"README status fragment missing: {fragment}")
+    reproduction_text = " ".join(paths["reproduction_guide"].read_text().split())
+    for fragment in (
+        "Geographic and temporal accounting",
+        "test_quantity_scc_country_decomposition.py",
+        "summarize_quantity_scc_period_discount_grid.py",
+        "validate_manuscript_references.py",
+        "wildfire/agriculture DOI non-conflation rule",
+    ):
+        require(fragment in reproduction_text, f"reproduction guide fragment missing: {fragment}")
 
     manuscript_source = manuscript_validation["sources"]["manuscript"]
     require(digest(paths["manuscript"]) == manuscript_source["sha256"], "manuscript changed after validation")
@@ -320,6 +330,7 @@ def main() -> None:
             "cross_track_results_brief_hash_bound": True,
             "readme_local_links_resolved": 58,
             "readme_current_status_hash_bound": True,
+            "reproduction_guide_hash_bound": True,
             "manuscript_hash_bound": True,
             "manuscript_doi_references_validated": 6,
             "wildfire_agriculture_doi_nonconflation": True,
