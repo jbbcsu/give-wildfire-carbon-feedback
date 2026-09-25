@@ -54,6 +54,8 @@ def main() -> None:
         "country_decomposition_figure": root / "manuscript/figures/quantity_scc_country_decomposition_20260925.svg",
         "country_decomposition_figure_validation": root / "data/provenance/quantity_scc_country_decomposition_figure_20260925.json",
         "manuscript_validation": root / "data/provenance/manuscript_scc_claim_validation_20260925.json",
+        "manuscript_reference_registry": root / "data/provenance/manuscript_reference_registry_20260925.json",
+        "manuscript_reference_validation": root / "data/provenance/manuscript_reference_validation_20260925.json",
         "figure_validation": root / "data/provenance/quantity_coefficient_interval_figure_20260925.json",
         "manuscript": root / "manuscript/MAIN_MANUSCRIPT.md",
         "methods_si": root / "manuscript/METHODS_SUPPORTING_INFORMATION.md",
@@ -86,6 +88,9 @@ def main() -> None:
         "pass",
     )
     manuscript_validation = load(paths["manuscript_validation"], "manuscript_scc_claim_validation/v1", "pass")
+    reference_validation = load(
+        paths["manuscript_reference_validation"], "manuscript_reference_validation/v1", "pass"
+    )
     figure_validation = load(paths["figure_validation"], "quantity_coefficient_interval_figure/v1", "pass")
     table3_validation = load(paths["table3_validation"], "manuscript_scc_table/v1", "pass")
     targeted_test_job = json.loads(paths["targeted_test_job"].read_text())
@@ -147,6 +152,15 @@ def main() -> None:
 
     manuscript_source = manuscript_validation["sources"]["manuscript"]
     require(digest(paths["manuscript"]) == manuscript_source["sha256"], "manuscript changed after validation")
+    require(digest(paths["manuscript"]) == reference_validation["sources"]["manuscript"]["sha256"],
+            "manuscript changed after reference validation")
+    require(digest(paths["manuscript_reference_registry"]) ==
+            reference_validation["sources"]["registry"]["sha256"],
+            "reference registry changed after validation")
+    require(reference_validation["checks"]["registered_dois"] == 6,
+            "manuscript reference support differs")
+    require(reference_validation["checks"]["wildfire_agriculture_doi_nonconflation"],
+            "wildfire and agriculture citations conflated")
     require(digest(paths["figure"]) == figure_validation["output"]["sha256"], "figure changed after validation")
     require(digest(paths["coefficient_by_model"]) == figure_validation["sources"]["input"]["sha256"],
             "figure source changed after validation")
@@ -200,6 +214,8 @@ def main() -> None:
             "country_decomposition_memory_budget_mib": 768,
             "country_decomposition_figure_hash_bound": True,
             "manuscript_hash_bound": True,
+            "manuscript_doi_references_validated": 6,
+            "wildfire_agriculture_doi_nonconflation": True,
             "figure_hash_bound": True,
             "table3_hash_bound": True,
             "tracked_files_scanned": len(tracked_raw),

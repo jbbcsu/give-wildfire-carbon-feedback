@@ -2130,3 +2130,33 @@ CIAM-covered coastal damages before combination with GIVE.
 | Table 1 | Data sources, versions, licenses, coverage, and roles |
 | Table 2 | Main response specification and validation gates |
 | [Table 3](tables/TABLE_3_SCC_RESULTS.md) | SCC results, coefficient uncertainty, and scenario definitions |
+
+## References
+
+Fishman, R. (2016). More uneven distributions overturn benefits of higher
+precipitation for crop yields. *Environmental Research Letters*, 11, 024004.
+[https://doi.org/10.1088/1748-9326/11/2/024004](https://doi.org/10.1088/1748-9326/11/2/024004)
+
+Hultgren, A., Carleton, T., Delgado, M., et al. (2025). Impacts of climate
+change on global agriculture accounting for adaptation. *Nature*, 642,
+644--652.
+[https://doi.org/10.1038/s41586-025-09085-w](https://doi.org/10.1038/s41586-025-09085-w)
+
+Kuwayama, Y., Thompson, A., Bernknopf, R., Zaitchik, B., & Vail, P. (2019).
+Estimating the impact of drought on agriculture using the U.S. Drought
+Monitor. *American Journal of Agricultural Economics*, 101, 193--210.
+[https://doi.org/10.1093/ajae/aay037](https://doi.org/10.1093/ajae/aay037)
+
+Lesk, C., Coffel, E., & Horton, R. (2020). Net benefits to US soy and maize
+yields from intensifying hourly rainfall. *Nature Climate Change*, 10,
+819--822.
+[https://doi.org/10.1038/s41558-020-0830-0](https://doi.org/10.1038/s41558-020-0830-0)
+
+Santini, M., Noce, S., Antonelli, M., & Caporaso, L. (2022). Complex drought
+patterns robustly explain global yield loss for major crops. *Scientific
+Reports*, 12, 5792.
+[https://doi.org/10.1038/s41598-022-09611-0](https://doi.org/10.1038/s41598-022-09611-0)
+
+Tuninetti, M., & Davis, K. F. (2026). Addressing global hotspots of drought-
+related crop production losses. *Nature Communications*, 17, 6605.
+[https://doi.org/10.1038/s41467-026-72715-y](https://doi.org/10.1038/s41467-026-72715-y)
