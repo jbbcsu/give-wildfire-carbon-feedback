@@ -4189,6 +4189,20 @@ replications of the empirical response estimate. All 104 central values match
 the prior diagnostic within `1.06e-16`, and the shared-mean SEs match the
 all-schedule receipt exactly.
 
+The same analytic derivative is evaluated for the six registered market
+specifications under fixed adaptation, uncapped response, and the 2% schedule.
+The yield-to-supply exponent is one for horizontal output and `1 +` supply
+elasticity for fixed input cost; the derivative propagates that exponent
+through country output ratios and constant-elasticity welfare. Equal-model
+means span -$0.00447460 to -$0.00671190 per tCO2, coefficient-only standard
+errors span $0.00159640 to $0.00239460, and all six normal intervals are below
+zero. Each mean reconstructs the independent diagnostic across all 26 models
+within `1.12e-16`; six largest-eigenvector finite differences agree with the
+analytic directional derivatives within relative error `3.93e-4`. The job
+peaks at 225,574,912 bytes under a 768 MiB cap. This grid is conditional on
+fixed adaptation and uncapped response and is not a joint probability model
+over market structure.
+
 ### Alternative Hultgren impact-region transport geometry
 
 For the external published-response transport, the public Hultgren impact-

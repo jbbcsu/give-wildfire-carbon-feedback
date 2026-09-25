@@ -1,0 +1,120 @@
+{
+  "claim_gates": {
+    "full_precipitation_agriculture_scc": false,
+    "joint_structural_coefficient_distribution": false,
+    "market_grid_fixed_uncapped_only": true,
+    "published_coefficient_covariance_delta_method": true
+  },
+  "created_at_utc": "2026-09-25T14:21:58.215617+00:00",
+  "estimand": "equal-26-model fixed-adaptation uncapped annual-maize rainfall-quantity SCC by registered market at GIVE 2% schedule",
+  "implementation": {
+    "path": "scripts/estimate_quantity_coefficient_delta_market_grid.py",
+    "sha256": "de0273c8c5c829378c7e4aad978f2aade391fa4250c491bcd57707c5c3652a34"
+  },
+  "results": [
+    {
+      "central_equal_model_mean_usd2020_per_tco2": -0.006214724535253767,
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0022172243900992197,
+      "demand_elasticity_magnitude": 0.02,
+      "directional_derivative_relative_error": 0.00039258170615279783,
+      "elasticity_id": "hultgren_pair_008_002",
+      "normal_approximation_95_interval_usd2020_per_tco2": [
+        -0.010560484339848238,
+        -0.0018689647306592968
+      ],
+      "supply_elasticity": 0.08,
+      "yield_to_supply_mapping": "horizontal_output"
+    },
+    {
+      "central_equal_model_mean_usd2020_per_tco2": -0.006711902510691071,
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0023946023407663006,
+      "demand_elasticity_magnitude": 0.02,
+      "directional_derivative_relative_error": 0.00010675297968170094,
+      "elasticity_id": "hultgren_pair_008_002",
+      "normal_approximation_95_interval_usd2020_per_tco2": [
+        -0.01140532309859302,
+        -0.002018481922789122
+      ],
+      "supply_elasticity": 0.08,
+      "yield_to_supply_mapping": "fixed_input_cost"
+    },
+    {
+      "central_equal_model_mean_usd2020_per_tco2": -0.0061017295490773385,
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.002176911221178319,
+      "demand_elasticity_magnitude": 0.04,
+      "directional_derivative_relative_error": 0.00039258169793497574,
+      "elasticity_id": "hultgren_pair_010_004",
+      "normal_approximation_95_interval_usd2020_per_tco2": [
+        -0.010368475542586842,
+        -0.001834983555567834
+      ],
+      "supply_elasticity": 0.1,
+      "yield_to_supply_mapping": "horizontal_output"
+    },
+    {
+      "central_equal_model_mean_usd2020_per_tco2": -0.006711902519330154,
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.002394602342818351,
+      "demand_elasticity_magnitude": 0.04,
+      "directional_derivative_relative_error": 0.00018651999255092362,
+      "elasticity_id": "hultgren_pair_010_004",
+      "normal_approximation_95_interval_usd2020_per_tco2": [
+        -0.011405323111254122,
+        -0.0020184819274061865
+      ],
+      "supply_elasticity": 0.1,
+      "yield_to_supply_mapping": "fixed_input_cost"
+    },
+    {
+      "central_equal_model_mean_usd2020_per_tco2": -0.0044746016762578136,
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.001596401564530045,
+      "demand_elasticity_magnitude": 0.06,
+      "directional_derivative_relative_error": 0.00039258170359149575,
+      "elasticity_id": "hultgren_pair_050_006",
+      "normal_approximation_95_interval_usd2020_per_tco2": [
+        -0.007603548742736702,
+        -0.0013456546097789252
+      ],
+      "supply_elasticity": 0.5,
+      "yield_to_supply_mapping": "horizontal_output"
+    },
+    {
+      "central_equal_model_mean_usd2020_per_tco2": -0.006711902167865926,
+      "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.0023946023461565193,
+      "demand_elasticity_magnitude": 0.06,
+      "directional_derivative_relative_error": 0.00013808475943598642,
+      "elasticity_id": "hultgren_pair_050_006",
+      "normal_approximation_95_interval_usd2020_per_tco2": [
+        -0.011405322766332705,
+        -0.0020184815693991475
+      ],
+      "supply_elasticity": 0.5,
+      "yield_to_supply_mapping": "fixed_input_cost"
+    }
+  ],
+  "schema": "quantity_coefficient_delta_market_grid/v1",
+  "sources": {
+    "coefficient_grid_receipt": {
+      "path": "data/provenance/quantity_coefficient_delta_uncertainty_grid_20260925.json",
+      "sha256": "797ad9fd227d396a50157fbae39613d4aab48eae94fe4a4d6150532aaa3dc7b1"
+    },
+    "diagnostic_receipt": {
+      "path": "data/provenance/epa_fair_hultgren_quantity_partial_scc_diagnostic_20260924.json",
+      "sha256": "a0321b59c48e8a0a4445e73697aef1906155dbb1c81fa3540e3c6a7e8b656f9e"
+    },
+    "panel_receipt": {
+      "path": "data/provenance/hultgren_quantity_response_panel_20260924.json",
+      "sha256": "6f3487624e4deb319d6e6ec004c532a95000d0c6b457ec6e14a0403250d9e1f9"
+    },
+    "registry": {
+      "path": "config/welfare_scenario_registry.toml",
+      "sha256": "d80e371efa9fb8aadeebd4e2068c839c1421e9c64350ee1e1d5eaa65081f8569"
+    }
+  },
+  "status": "fixed_uncapped_two_percent_market_grid_complete",
+  "validation": {
+    "directional_derivative_relative_tolerance": 0.0005,
+    "maximum_central_prior_receipt_error_usd2020_per_tco2": 0.0,
+    "maximum_diagnostic_reconstruction_error_usd2020_per_tco2": 1.1188966420050406e-16,
+    "maximum_directional_derivative_relative_error": 0.00039258170615279783
+  }
+}

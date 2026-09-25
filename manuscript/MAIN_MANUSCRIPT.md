@@ -2005,6 +2005,11 @@ Across all four schedules, 23 model-specific coefficient-only intervals are
 wholly negative, two include zero, and one is wholly positive. The 2%
 descriptive standard deviation across the 26 central model estimates is
 $0.00285 per tCO2; it is climate-model spread, not sampling uncertainty.
+Across the six registered fixed-adaptation, uncapped market specifications at
+2%, equal-model means range from -$0.00447 to -$0.00671 per tCO2 and every
+coefficient-only normal interval remains below zero. Market specifications are
+structural choices rather than draws and are not pooled into a confidence
+interval.
 
 ![Model-specific coefficient-only SCC intervals](figures/quantity_coefficient_intervals_20260925.svg)
 

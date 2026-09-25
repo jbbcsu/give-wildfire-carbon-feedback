@@ -49,6 +49,24 @@ probabilistic climate distribution. The coefficient SE for the equal-model
 mean uses one shared coefficient draw and is therefore not obtained by dividing
 model-specific uncertainty by the square root of 26.
 
+For the fixed-adaptation, uncapped 2% case, coefficient uncertainty is also
+propagated through all six registered market specifications:
+
+| Supply / demand | Yield-to-supply mapping | Mean | Coefficient-only SE | Normal 95% interval |
+|---|---|---:|---:|---:|
+| 0.08 / 0.02 | Horizontal output | -0.00621472 | 0.00221722 | [-0.01056048, -0.00186896] |
+| 0.08 / 0.02 | Fixed input cost | -0.00671190 | 0.00239460 | [-0.01140532, -0.00201848] |
+| 0.10 / 0.04 | Horizontal output | -0.00610173 | 0.00217691 | [-0.01036848, -0.00183498] |
+| 0.10 / 0.04 | Fixed input cost | -0.00671190 | 0.00239460 | [-0.01140532, -0.00201848] |
+| 0.50 / 0.06 | Horizontal output | -0.00447460 | 0.00159640 | [-0.00760355, -0.00134565] |
+| 0.50 / 0.06 | Fixed input cost | -0.00671190 | 0.00239460 | [-0.01140532, -0.00201848] |
+
+Every interval is below zero under these conditional choices. The apparent
+fixed-input-cost invariance across elasticities is a result of the registered
+small-pulse formulation, not a general theorem about agricultural markets.
+These market cases remain modeling choices rather than probability draws and
+are not combined into one confidence interval.
+
 ## Reproducibility and validation
 
 The executable implementation is
@@ -73,3 +91,5 @@ Machine-readable result and resource receipts:
 - `data/provenance/quantity_coefficient_delta_grid_job_20260925.json`
 - `data/provenance/quantity_coefficient_delta_by_model_20260925.json`
 - `data/provenance/quantity_coefficient_delta_by_model_job_20260925.json`
+- `data/provenance/quantity_coefficient_delta_market_grid_20260925.json`
+- `data/provenance/quantity_coefficient_delta_market_grid_job_20260925.json`

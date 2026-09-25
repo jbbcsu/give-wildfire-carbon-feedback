@@ -46,6 +46,8 @@ def main() -> None:
         "paired_structural": root / "data/provenance/quantity_full_structural_paired_ensemble_20260924.json",
         "coefficient_grid": root / "data/provenance/quantity_coefficient_delta_uncertainty_grid_20260925.json",
         "coefficient_by_model": root / "data/provenance/quantity_coefficient_delta_by_model_20260925.json",
+        "coefficient_market_grid": root / "data/provenance/quantity_coefficient_delta_market_grid_20260925.json",
+        "coefficient_market_job": root / "data/provenance/quantity_coefficient_delta_market_grid_job_20260925.json",
         "manuscript_validation": root / "data/provenance/manuscript_scc_claim_validation_20260925.json",
         "figure_validation": root / "data/provenance/quantity_coefficient_interval_figure_20260925.json",
         "manuscript": root / "manuscript/MAIN_MANUSCRIPT.md",
@@ -62,6 +64,9 @@ def main() -> None:
                 "published_coefficient_covariance_delta_grid_complete")
     by_model = load(paths["coefficient_by_model"], "quantity_coefficient_delta_by_model/v1",
                     "coefficient_only_delta_by_climate_model_complete")
+    market_grid = load(paths["coefficient_market_grid"], "quantity_coefficient_delta_market_grid/v1",
+                       "fixed_uncapped_two_percent_market_grid_complete")
+    market_job = json.loads(paths["coefficient_market_job"].read_text())
     manuscript_validation = load(paths["manuscript_validation"], "manuscript_scc_claim_validation/v1", "pass")
     figure_validation = load(paths["figure_validation"], "quantity_coefficient_interval_figure/v1", "pass")
     targeted_test_job = json.loads(paths["targeted_test_job"].read_text())
@@ -88,6 +93,13 @@ def main() -> None:
             "coefficient claim boundary unexpectedly open")
     require(grid["claim_gates"]["published_coefficient_covariance_delta_method"],
             "coefficient delta gate closed")
+    require(len(market_grid["results"]) == 6, "coefficient market grid differs")
+    require(all(row["normal_approximation_95_interval_usd2020_per_tco2"][1] < 0
+                for row in market_grid["results"]), "market coefficient interval crosses zero")
+    require(market_grid["validation"]["maximum_directional_derivative_relative_error"] <= 5e-4,
+            "market derivative validation failed")
+    require(market_job["status"] == "completed" and market_job["returncode"] == 0,
+            "market coefficient job failed")
 
     manuscript_source = manuscript_validation["sources"]["manuscript"]
     require(digest(paths["manuscript"]) == manuscript_source["sha256"], "manuscript changed after validation")
@@ -136,6 +148,7 @@ def main() -> None:
             "paired_scc_values": 3744,
             "coefficient_discount_schedules": 4,
             "coefficient_model_schedule_rows": 104,
+            "coefficient_market_specifications": 6,
             "manuscript_hash_bound": True,
             "figure_hash_bound": True,
             "tracked_files_scanned": len(tracked_raw),

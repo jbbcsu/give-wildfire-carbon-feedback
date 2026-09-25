@@ -1,6 +1,7 @@
 {
   "checks": {
     "coefficient_discount_schedules": 4,
+    "coefficient_market_specifications": 6,
     "coefficient_model_schedule_rows": 104,
     "credential_like_tracked_assignments": 0,
     "figure_hash_bound": true,
@@ -9,7 +10,7 @@
     "paired_scc_values": 3744,
     "restricted_tracked_paths": 0,
     "targeted_quantity_welfare_unit_tests": 11,
-    "tracked_files_scanned": 2081,
+    "tracked_files_scanned": 2082,
     "wildfire_named_tracked_paths": 0
   },
   "claim_gates": {
@@ -18,10 +19,10 @@
     "paired_quantity_channel_scc": true,
     "probabilistic_total_uncertainty": false
   },
-  "created_at_utc": "2026-09-25T14:15:20.324751+00:00",
+  "created_at_utc": "2026-09-25T14:24:17.018147+00:00",
   "implementation": {
     "path": "scripts/validate_preliminary_scc_release.py",
-    "sha256": "d0aa2dfdf2a50a47b44ceb3691e63891f80c0532158dfb5e92e26813149a1896"
+    "sha256": "7302e817376f4a806ed2cd5696a64af733f9eb7456912e626caa3db6fd55a7e7"
   },
   "release_scope": "paired annual-global-maize rainfall-quantity SCC benchmark; not total precipitation-agriculture SCC",
   "schema": "preliminary_scc_release_validation/v1",
@@ -34,6 +35,14 @@
       "path": "data/provenance/quantity_coefficient_delta_uncertainty_grid_20260925.json",
       "sha256": "797ad9fd227d396a50157fbae39613d4aab48eae94fe4a4d6150532aaa3dc7b1"
     },
+    "coefficient_market_grid": {
+      "path": "data/provenance/quantity_coefficient_delta_market_grid_20260925.json",
+      "sha256": "ea1f26240441ff5306614194f4c3a199026bb5514c24bb6ad5dd6b648e4e1e07"
+    },
+    "coefficient_market_job": {
+      "path": "data/provenance/quantity_coefficient_delta_market_grid_job_20260925.json",
+      "sha256": "33ca5d63c8fb6c9c1e95548230792dc27f28f1e9fd52489793c33f58c3e26f19"
+    },
     "figure": {
       "path": "manuscript/figures/quantity_coefficient_intervals_20260925.svg",
       "sha256": "58620dcc326f5ed9a9cd6acf93dcb36188f4413b6ee44ceb62f94e6293b27702"
@@ -44,15 +53,15 @@
     },
     "manuscript": {
       "path": "manuscript/MAIN_MANUSCRIPT.md",
-      "sha256": "d280c696066eec66af1cdf6d5b0006e7a90af7108c6b17750b44413f876ce9b8"
+      "sha256": "905d614e2e1418347575e7cd8aa1c232fab8af4f587dafed8cac08d464c91737"
     },
     "manuscript_validation": {
       "path": "data/provenance/manuscript_scc_claim_validation_20260925.json",
-      "sha256": "e7b893e0b288d79fdb2e134a59f90068457587ceeae327c5cbc63e448b0e70c9"
+      "sha256": "bbd4e60ead35d99a749e4f7ed0e30e0c9106080f58d829f4666cc0eec0b7538d"
     },
     "methods_si": {
       "path": "manuscript/METHODS_SUPPORTING_INFORMATION.md",
-      "sha256": "7049f1d869eb4124fbb3a4d6167e3b4d19bca1f59ea7cf9f5468f1dbf73dc2d6"
+      "sha256": "9b6c2695a215d37512005c8ffd4426f5277b32541073f6e200e36596d41fa892"
     },
     "paired_structural": {
       "path": "data/provenance/quantity_full_structural_paired_ensemble_20260924.json",
