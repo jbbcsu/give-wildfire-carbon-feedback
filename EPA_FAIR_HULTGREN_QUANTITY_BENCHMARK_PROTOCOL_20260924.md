@@ -289,5 +289,7 @@ in 2020 dollars. Full evidence and remaining limitations are in
 
 This closes paired execution for the registered structural design, but not
 probabilistic or empirical-response uncertainty and not the full precipitation-
-agriculture SCC. The alternative regional allocations still need a second
-row-level implementation before distributional incidence claims.
+agriculture SCC. A separate implementation subsequently reconstructed all
+3,506,880 alternative-market regional rows exactly. This validates regional
+engineering, while trade and consumer/producer incidence remain unresolved
+economic assumptions.

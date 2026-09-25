@@ -29,8 +29,11 @@ formulations, not an assumption that elasticity never matters.
 Alternative market paths were rebuilt at the country level and mapped to GIVE
 regions; no global scalar was used to infer regional incidence. Each of the
 five new regional datasets sums to every registered global annual market path
-within `2e-12` billion 2005 USD. The central regional path retains its earlier
-independent row-level validation.
+within `2e-12` billion 2005 USD. A separately coded validator then reconstructed
+all 3,506,880 alternative-market regional rows, keys, and values exactly from
+the source cell responses and country markets. It peaked at 0.34 GB under a
+512 MiB cap. The central regional path retains its earlier independent row-
+level validation.
 
 Every paired run preserves baseline MooreAg agriculture damage and per-capita
 consumption exactly, removes the legacy marginal response, and installs one
@@ -39,11 +42,10 @@ external diagnostic exactly at the stored precision. Maximum paired numerical
 disagreement is `6.37e-8` 2005 USD per tCO2, below a maximum propagated bound
 of `7.98e-6`. Peak sampled process-group memory was 2.20 GB under a 3 GB cap.
 
-The alternative regional allocations are currently validated by the builder's
-country-to-region/global reconciliation plus the paired aggregate check, not a
-second row-by-row implementation. A separate independent regional-incidence
-audit remains desirable before using regional results distributionally; it does
-not affect the global sectoral SCC sums reported here.
+The regional engineering is therefore independently validated. This does not
+make the regional pattern a complete welfare-incidence result: national market
+boundaries, the country-to-FUND mapping, absent trade, and the allocation of
+consumer and producer welfare remain economic modeling assumptions.
 
 ## Interpretation boundary
 

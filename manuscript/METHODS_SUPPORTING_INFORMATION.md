@@ -4120,10 +4120,13 @@ independently reconstructed external diagnostic, baseline agriculture and
 consumption errors are zero, and paired numerical errors remain within
 propagated cancellation bounds. Peak sampled process-group RSS is 2.20 GB.
 
-The alternative country-to-region allocations share one implementation with
-their build-time global reconciliation. We therefore treat the global sectoral
-SCC as validated but retain a separate independent regional-incidence audit as
-a prerequisite for distributional claims.
+A separately coded validator reconstructs first- and second-order cell
+responses, adaptation and tail transformations, national supply ratios,
+constant-elasticity welfare, currency conversion, and country-to-FUND sums
+without importing the builder's helpers. It compares all 3,506,880 alternative-
+market regional rows and recovers every key and stored value exactly, peaking
+at 0.34 GB under a 512 MiB cap. This closes the regional engineering check but
+does not identify actual trade or consumer/producer incidence.
 
 We additionally summarize the complete smallest-pulse balanced design without
 assigning probabilities: 26 climate models by three adaptation cases, two tail

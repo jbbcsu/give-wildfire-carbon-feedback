@@ -1,0 +1,61 @@
+{
+  "cases": [
+    {
+      "elasticity_id": "hultgren_pair_008_002",
+      "output_sha256": "5d707dadaa359b0202ad392468087b8ef6d5165546bf788cdf679fd69414df01",
+      "receipt": "data/provenance/quantity_market_fund_008_002_horizontal_20260924.json",
+      "receipt_sha256": "a5ebe8176c59e530a4df39cc9601a18a20787035022fe8fbd302a84edcbc356e",
+      "rows_compared": 701376,
+      "yield_to_supply_mapping": "horizontal_output"
+    },
+    {
+      "elasticity_id": "hultgren_pair_008_002",
+      "output_sha256": "3acc70916e35b230ac3dbc73eeb0b279e241659b221043867a3d364b6442bd51",
+      "receipt": "data/provenance/quantity_market_fund_008_002_fixed_20260924.json",
+      "receipt_sha256": "fa41cd8cef82ced91d7da29de10eeee7cb563f07bad3dd3809a898d3e65d122c",
+      "rows_compared": 701376,
+      "yield_to_supply_mapping": "fixed_input_cost"
+    },
+    {
+      "elasticity_id": "hultgren_pair_010_004",
+      "output_sha256": "a8e765de6266bbc5e6f3780e6ee63be1a02a297923e6fbbb9d21ca8769fd28f4",
+      "receipt": "data/provenance/quantity_market_fund_010_004_fixed_20260924.json",
+      "receipt_sha256": "9b776ecc29fe83c4486884a86719e8306ab07eac7f136af8ebadce35f1d3c33f",
+      "rows_compared": 701376,
+      "yield_to_supply_mapping": "fixed_input_cost"
+    },
+    {
+      "elasticity_id": "hultgren_pair_050_006",
+      "output_sha256": "021ccb781b927e5662c8c8d97cd6c658c7eb2fd18c0d0620fe0948e5838d94ac",
+      "receipt": "data/provenance/quantity_market_fund_050_006_horizontal_20260924.json",
+      "receipt_sha256": "2a84841d22a5005731d6fe512211d2c17b64d062f647f56ed28b493923e93563",
+      "rows_compared": 701376,
+      "yield_to_supply_mapping": "horizontal_output"
+    },
+    {
+      "elasticity_id": "hultgren_pair_050_006",
+      "output_sha256": "68e3dcc9e175bd5ab5a6e4c9cbafe0aa55f28ac380e6c8454c77079b50a744f7",
+      "receipt": "data/provenance/quantity_market_fund_050_006_fixed_20260924.json",
+      "receipt_sha256": "8a69ad15f73a2ed84f6b7d7518e183bc89fc862cba024fcaa3613bafb6e07d86",
+      "rows_compared": 701376,
+      "yield_to_supply_mapping": "fixed_input_cost"
+    }
+  ],
+  "claim_boundary": "regional engineering validation for the narrow quantity channel; not distributional welfare incidence beyond the registered vessel/country mapping",
+  "created_at_utc": "2026-09-25T06:50:46.510131+00:00",
+  "implementation": {
+    "path": "scripts/validate_quantity_market_fund_replacement_inputs.py",
+    "sha256": "ea92ab84682e0ed8284409cf5e2c9a45ca7901bd693bce0fa51960898b3473a1"
+  },
+  "schema": "quantity_market_fund_replacement_inputs_validation/v1",
+  "scope": "independent country-response, market-welfare, and FUND-allocation reconstruction for all five alternative market inputs",
+  "status": "pass",
+  "validation": {
+    "all_keys_exact": true,
+    "all_values_within_fixed_plus_relative_tolerance": true,
+    "cases": 5,
+    "maximum_absolute_error_billion_usd2005": 0.0,
+    "maximum_relative_error": 0.0,
+    "rows_compared": 3506880
+  }
+}
