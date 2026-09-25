@@ -63,6 +63,7 @@ def main() -> None:
         "readme": root / "README.md",
         "readme_link_validation": root / "data/provenance/readme_link_validation_20260925.json",
         "reproduction_guide": root / "REPRODUCE_PRELIMINARY_SCC_RELEASE_20260925.md",
+        "pause_checkpoint": root / "THRESHOLD_PAUSE_CHECKPOINT_20260925.md",
         "manuscript_validation": root / "data/provenance/manuscript_scc_claim_validation_20260925.json",
         "manuscript_reference_registry": root / "data/provenance/manuscript_reference_registry_20260925.json",
         "manuscript_reference_validation": root / "data/provenance/manuscript_reference_validation_20260925.json",
@@ -243,6 +244,16 @@ def main() -> None:
         "wildfire/agriculture DOI non-conflation rule",
     ):
         require(fragment in reproduction_text, f"reproduction guide fragment missing: {fragment}")
+    pause_text = " ".join(paths["pause_checkpoint"].read_text().split())
+    for fragment in (
+        "936 paired paths and 3,744 SCC values",
+        "every country component changes sign",
+        "No U.S. causal climate-damage coefficient",
+        "fisheries project has no local SCC",
+        "Do not stack PDSI, SPEI, raw precipitation, and temperature",
+        "full precipitation-agriculture SCC `false`",
+    ):
+        require(fragment in pause_text, f"pause checkpoint fragment missing: {fragment}")
 
     manuscript_source = manuscript_validation["sources"]["manuscript"]
     require(digest(paths["manuscript"]) == manuscript_source["sha256"], "manuscript changed after validation")
@@ -331,6 +342,7 @@ def main() -> None:
             "readme_local_links_resolved": 58,
             "readme_current_status_hash_bound": True,
             "reproduction_guide_hash_bound": True,
+            "pause_checkpoint_hash_bound": True,
             "manuscript_hash_bound": True,
             "manuscript_doi_references_validated": 6,
             "wildfire_agriculture_doi_nonconflation": True,
