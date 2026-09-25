@@ -51,6 +51,9 @@ crops, trade, storage, and adaptation costs remain outside this result.
 - Implementation: `scripts/decompose_quantity_scc_by_country.py`
 - Machine-readable receipt:
   `data/provenance/quantity_scc_country_decomposition_20260925.json`
+- Audited figure: `manuscript/figures/quantity_scc_country_decomposition_20260925.svg`
+- Figure receipt:
+  `data/provenance/quantity_scc_country_decomposition_figure_20260925.json`
 - Memory-bounded job receipt:
   `data/provenance/quantity_scc_country_decomposition_job_20260925.json`
 - Derived country table (gitignored):

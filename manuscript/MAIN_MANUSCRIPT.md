@@ -2031,6 +2031,14 @@ changes sign across at least one climate model. These are accounting
 components of the transported narrow response, not country causal effects or
 local total precipitation damages.
 
+![Country components of the narrow quantity-channel SCC](figures/quantity_scc_country_decomposition_20260925.svg)
+
+**Figure 4b. Geographic accounting and climate-model spread.** Points show
+the 12 largest country components by absolute equal-model mean; bars span the
+26 named climate models. Negative values are modeled benefits in the damage-
+positive convention. The broad bars and sign reversals caution against reading
+the global mean as a uniform local response.
+
 The corresponding discount-schedule, adaptation, and market summaries are
 reported in [Table 3](tables/TABLE_3_SCC_RESULTS.md). The table keeps
 coefficient intervals distinct from structural design percentiles.
@@ -2117,6 +2125,7 @@ CIAM-covered coastal damages before combination with GIVE.
 | Figure 3c | Conditional baseline-value-weight sensitivity |
 | Figure 3d | Unrestricted versus published-style tail treatment |
 | Figure 4 | Model-specific quantity SCCs and coefficient-only intervals |
+| Figure 4b | Leading country SCC components and climate-model ranges |
 | Figure 5 | Structural design distributions by adaptation and market scenario |
 | Table 1 | Data sources, versions, licenses, coverage, and roles |
 | Table 2 | Main response specification and validation gates |

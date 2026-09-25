@@ -51,6 +51,8 @@ def main() -> None:
         "country_decomposition": root / "data/provenance/quantity_scc_country_decomposition_20260925.json",
         "country_decomposition_job": root / "data/provenance/quantity_scc_country_decomposition_job_20260925.json",
         "country_decomposition_report": root / "QUANTITY_SCC_COUNTRY_DECOMPOSITION_RESULTS_20260925.md",
+        "country_decomposition_figure": root / "manuscript/figures/quantity_scc_country_decomposition_20260925.svg",
+        "country_decomposition_figure_validation": root / "data/provenance/quantity_scc_country_decomposition_figure_20260925.json",
         "manuscript_validation": root / "data/provenance/manuscript_scc_claim_validation_20260925.json",
         "figure_validation": root / "data/provenance/quantity_coefficient_interval_figure_20260925.json",
         "manuscript": root / "manuscript/MAIN_MANUSCRIPT.md",
@@ -78,6 +80,11 @@ def main() -> None:
         "central_fixed_uncapped_two_percent_country_decomposition_complete",
     )
     country_job = json.loads(paths["country_decomposition_job"].read_text())
+    country_figure = load(
+        paths["country_decomposition_figure_validation"],
+        "quantity_scc_country_decomposition_figure/v1",
+        "pass",
+    )
     manuscript_validation = load(paths["manuscript_validation"], "manuscript_scc_claim_validation/v1", "pass")
     figure_validation = load(paths["figure_validation"], "quantity_coefficient_interval_figure/v1", "pass")
     table3_validation = load(paths["table3_validation"], "manuscript_scc_table/v1", "pass")
@@ -124,6 +131,11 @@ def main() -> None:
             "country decomposition job failed")
     require(country_job["sampled_peak_group_rss_bytes"] <= 768 * 1024 * 1024,
             "country decomposition exceeded memory contract")
+    require(digest(paths["country_decomposition_figure"]) == country_figure["output"]["sha256"],
+            "country figure changed after validation")
+    require(digest(paths["country_decomposition"]) ==
+            country_figure["sources"]["decomposition_receipt"]["sha256"],
+            "country figure source changed after validation")
     manuscript_text = paths["manuscript"].read_text()
     for fragment in (
         "Sixty-one of 106 country components are negative",
@@ -186,6 +198,7 @@ def main() -> None:
             "country_accounting_components": 106,
             "country_decomposition_models": 26,
             "country_decomposition_memory_budget_mib": 768,
+            "country_decomposition_figure_hash_bound": True,
             "manuscript_hash_bound": True,
             "figure_hash_bound": True,
             "table3_hash_bound": True,
