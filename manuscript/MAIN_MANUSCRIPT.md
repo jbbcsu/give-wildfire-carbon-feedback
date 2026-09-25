@@ -1983,9 +1983,10 @@ wholly negative, two include zero, and one is wholly positive. The 2%
 descriptive standard deviation across the 26 central model estimates is
 $0.00285 per tCO2; it is climate-model spread, not sampling uncertainty.
 
-Report global agricultural marginal damages and SCC under each adaptation
-scenario with draw-level uncertainty. Do not present a precipitation add-on to
-baseline MooreAg agriculture.
+These values are reported as a replacement of MooreAg's marginal agriculture
+response while retaining its baseline levels, not as an additive precipitation
+sector. A complete agriculture replacement still requires the omitted
+mechanisms and crops described above.
 
 ### 6.4 Sensitivity and accounting checks
 

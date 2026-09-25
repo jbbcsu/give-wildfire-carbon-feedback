@@ -30,9 +30,11 @@ from all 1,052,064 annual rows within `1.22e-16` USD per tCO2. The smallest two
 pulses agree within `6.89e-6` relatively. The central 104-value subset matches
 the fully paired 26-model GIVE replacement summary exactly.
 
-Only the central subset has been rerun through paired GIVE. The other cells are
-paired-equivalent diagnostics under the validated anchored-linear accounting
-identity; they are not described as paired executions. This envelope captures
-registered climate-model and structural-choice spread, not empirical
-coefficient uncertainty, and still omits rainfall timing, drought, temperature,
-other crops, irrigation adaptation, trade, storage, and adaptation costs.
+This envelope was first produced before the five alternative market
+specifications were directly rerun. The subsequent registered paired ensemble
+now executes all 936 paths through GIVE and reproduces all 3,744 stored values;
+see `QUANTITY_FULL_STRUCTURAL_PAIRED_ENSEMBLE_RESULTS_20260924.md`. The
+envelope captures registered climate-model and structural-choice spread, not
+empirical coefficient uncertainty, and still omits rainfall timing, drought,
+temperature, other crops, irrigation adaptation, trade, storage, and
+adaptation costs.
