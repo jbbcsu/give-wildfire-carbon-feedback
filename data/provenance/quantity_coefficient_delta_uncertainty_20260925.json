@@ -1,0 +1,87 @@
+{
+  "claim_gates": {
+    "full_precipitation_agriculture_scc": false,
+    "joint_climate_structural_or_adaptation_uncertainty": false,
+    "probabilistic_total_scc_interval": false,
+    "published_coefficient_covariance_delta_method": true
+  },
+  "created_at_utc": "2026-09-25T13:36:35.305510+00:00",
+  "estimand": "equal-climate-model mean central fixed-adaptation uncapped annual-maize rainfall-quantity SCC at the 2% Ramsey schedule",
+  "implementation": {
+    "path": "scripts/estimate_quantity_coefficient_delta_uncertainty.py",
+    "sha256": "f3677bf086e8c802ab31307aaa052b37496c4569f6c7c3c52afbb6c626c67902"
+  },
+  "limitations": [
+    "The interval is a first-order normal delta approximation using only the published 49-by-49 coefficient covariance.",
+    "The coefficient draw is common across climate models; climate-model spread is not treated as sampling uncertainty.",
+    "Market structure, adaptation, tail, transport, valuation, climate response, and omitted precipitation mechanisms are not probabilistically combined."
+  ],
+  "result": {
+    "central_mean_usd2020_per_tco2": -0.0061017295490773385,
+    "coefficient_only_delta_standard_error_usd2020_per_tco2": 0.002176911221178319,
+    "normal_approximation_95_interval_usd2020_per_tco2": [
+      -0.010368475542586842,
+      -0.001834983555567834
+    ]
+  },
+  "schema": "quantity_coefficient_delta_uncertainty/v1",
+  "sources": {
+    "coefficients": {
+      "path": "data/interim/hultgren_maize_response_20260923/coefficients.csv",
+      "sha256": "f3f3c011c4ebb4d4e49712bae1fdc320271460d0ff7d6942d21aa910a553318a"
+    },
+    "covariance": {
+      "path": "data/interim/hultgren_maize_response_20260923/covariance.csv",
+      "sha256": "e8b11fc5ac8b3087918987aaf02e959e66d323649835647ae7c9972d32c45cc6"
+    },
+    "cpc": {
+      "path": "data/interim/give_deterministic_discount_path_20260924.csv",
+      "sha256": "23e939af062ae1313738ec4b535793cb7014fea320430a834fd485980121f4b0"
+    },
+    "diagnostic": {
+      "path": "data/interim/epa_fair_hultgren_quantity_partial_scc_diagnostic_20260924.csv",
+      "receipt": "data/provenance/epa_fair_hultgren_quantity_partial_scc_diagnostic_20260924.json",
+      "receipt_sha256": "a0321b59c48e8a0a4445e73697aef1906155dbb1c81fa3540e3c6a7e8b656f9e",
+      "sha256": "3f8edfb67ddf6dd52cdba0889edda397f07dd7cb38692b36ddac063c17eba934"
+    },
+    "fair": {
+      "path": "data/interim/give_fair_temperature_path_smoke/temperature_paths.csv",
+      "sha256": "aedf6b66dd296337e1cb6105d2aa56ec94f3e15e5ac92c2abcdf74b6a42b6067"
+    },
+    "response_panel": {
+      "path": "data/interim/hultgren_quantity_response_panel_20260924.parquet",
+      "receipt": "data/provenance/hultgren_quantity_response_panel_20260924.json",
+      "receipt_sha256": "6f3487624e4deb319d6e6ec004c532a95000d0c6b457ec6e14a0403250d9e1f9",
+      "sha256": "af389bc3050cf7074f0a3869ae03cdcd959b3ba8a8017910ff5bc6f5507ffcdc"
+    },
+    "slopes": {
+      "path": "data/interim/epa_annual_country_pattern_benchmark_20260921/country_model_slopes.csv",
+      "sha256": "e6bc9a4dbc0af19650f2f243802e0e1974d3599292cf2704aad0e746bf0c0572"
+    }
+  },
+  "status": "published_coefficient_covariance_delta_method_complete",
+  "support": {
+    "climate_models": 26,
+    "precipitation_terms_used": 36,
+    "published_coefficients": 49,
+    "published_covariance_shape": [
+      49,
+      49
+    ],
+    "years": [
+      2020,
+      2300
+    ]
+  },
+  "validation": {
+    "analytic_directional_derivative": -0.0007885384082136609,
+    "directional_derivative_absolute_error": 3.0956574718389585e-07,
+    "directional_derivative_relative_error": 0.0003925816979355259,
+    "directional_derivative_relative_tolerance": 0.0005,
+    "finite_difference_direction_epsilon_in_standard_deviation_units": 0.0001,
+    "finite_difference_directional_derivative": -0.0007888479739608448,
+    "maximum_central_scc_reconstruction_error_usd2020_per_tco2": 9.280770596475918e-17,
+    "maximum_market_formula_reconstruction_error_source_usd": 7.105427357601002e-15,
+    "minimum_covariance_eigenvalue": -7.521255568024258e-21
+  }
+}

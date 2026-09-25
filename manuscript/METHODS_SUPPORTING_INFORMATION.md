@@ -4096,8 +4096,10 @@ at most $0.00822. The maximum paired-versus-external disagreement is `5.38e-8`
 The 2020-dollar conversion and summaries are accepted only after an independent
 one-to-one join reconstructs all 104 values from the checksum-pinned external
 diagnostic. This validates the central fixed-adaptation, uncapped-tail,
-smallest-pulse quantity-channel ensemble. Paired execution of the market,
-adaptation, tail, and empirical-response uncertainty grid remains future work.
+smallest-pulse quantity-channel ensemble. Paired execution of the registered
+market, adaptation, and tail grid is described below. Empirical-response
+uncertainty is propagated separately rather than treated as another structural
+design cell.
 
 We next expand direct paired execution to every combination of 26 climate
 models, three adaptation scenarios, and two tail rules under the central market
@@ -4132,10 +4134,38 @@ We additionally summarize the complete smallest-pulse balanced design without
 assigning probabilities: 26 climate models by three adaptation cases, two tail
 rules, three elasticity pairs, two supply mappings, and four discount schedules
 (3,744 cells). We report the full range and unweighted design-cell quantiles,
-explicitly not confidence or credible intervals. The central 104-cell subset is
-linked to the paired runs exactly; remaining cells are labeled paired-equivalent
-diagnostics under the validated anchored-linear identity rather than paired
-executions. Empirical coefficient uncertainty remains outside this envelope.
+explicitly not confidence or credible intervals. All 3,744 cells are linked to
+direct paired executions. Empirical coefficient uncertainty remains outside
+this structural design envelope.
+
+### Published-coefficient delta uncertainty
+
+For the central fixed-adaptation, uncapped annual-maize quantity channel at the
+2% Ramsey schedule, we propagate the published Hultgren et al. 49-by-49
+coefficient covariance matrix by a first-order delta method. Thirty-six
+precipitation-related coefficients enter the response. We reconstruct each
+climate model's annual country response, market outcome, regional allocation,
+and discounted SCC as a differentiable function of the shared empirical
+coefficient vector, then differentiate the equal-26-model mean. A single
+coefficient draw is common to all climate models; treating models as having
+independent empirical coefficient draws would incorrectly shrink response
+uncertainty.
+
+The analytic gradient reproduces the central mean to `9.28e-17` USD per tCO2.
+As an independent numerical check, a centered finite difference in the largest
+covariance-eigenvector direction agrees with the analytic directional
+derivative to relative error `3.93e-4`, below the disclosed `5e-4` tolerance.
+The successful job peaks at 222,281,728 bytes sampled process-group RSS.
+
+The resulting coefficient-only standard error is $0.00217691 per tCO2 and the
+normal-approximation 95% interval is -$0.01036848 to -$0.00183498 around the
+-$0.00610173 central mean, all in 2020 USD. This interval is conditional on the
+narrow channel and first-order normal approximation. It excludes uncertainty
+in climate-model response, adaptation, market structure, response tails,
+transport, valuation, discounting choices, and omitted precipitation timing,
+extremes, drought, temperature, irrigation, crops, and other mechanisms. It is
+therefore neither a probabilistic interval for the structural design envelope
+nor a total precipitation-agriculture SCC interval.
 
 ### Alternative Hultgren impact-region transport geometry
 

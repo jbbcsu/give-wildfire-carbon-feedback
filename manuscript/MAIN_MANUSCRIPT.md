@@ -1966,6 +1966,17 @@ registered structural envelope is now paired rather than merely paired-
 equivalent. These design cells still are not probability draws and do not
 include empirical response uncertainty or omitted precipitation mechanisms.
 
+We separately propagate the published 49-by-49 empirical coefficient
+covariance through the equal-model mean of the central fixed-adaptation,
+uncapped quantity channel at the 2% schedule. The first-order delta-method
+standard error is $0.00218 per tCO2 and the normal-approximation 95% interval
+is -$0.01037 to -$0.00183 around the -$0.00610 central mean (2020 USD). The
+coefficient draw is shared across all 26 climate models. This interval is
+conditional on the narrow annual-maize quantity specification: it excludes
+climate, market, adaptation, transport, valuation, and omitted-mechanism
+uncertainty and therefore is not an uncertainty interval for a complete
+precipitation-agriculture SCC.
+
 Report global agricultural marginal damages and SCC under each adaptation
 scenario with draw-level uncertainty. Do not present a precipitation add-on to
 baseline MooreAg agriculture.
