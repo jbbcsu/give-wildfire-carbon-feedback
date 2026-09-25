@@ -1,10 +1,165 @@
 # GIVE precipitation and hydrologic-damages extension
 
+## Current research state (September 25, 2026)
+
+The project now has a validated, paired GIVE estimate for one deliberately
+narrow mechanism: climate-driven annual rainfall-quantity changes evaluated
+through a published global maize response. The central fixed-adaptation,
+uncapped equal-26-model mean is -$0.00610/tCO2 (2020 USD) at GIVE's 2% Ramsey
+schedule. The complete registered structural design contains 936 paired paths
+and 3,744 SCC values; its 2% design percentiles are -$0.01137 to +$0.00104.
+The central coefficient-only normal interval is -$0.01037 to -$0.00183.
+These are not estimates of total precipitation-agriculture damages.
+
+The latest interpretation audits show that the narrow result is geographically
+concentrated and climate-model sensitive. The United States and China account
+for 74.9% of gross absolute country components, and all 106 country components
+change sign somewhere across the 26 climate models. At 2%, 71.4% of the signed
+present value accrues by 2100; this share ranges from 60.2% at the 1.5%
+schedule to 87.2% at 3.0%. See the [preliminary results and claim-boundary
+brief](PRELIMINARY_RESULTS_AND_CLAIM_BOUNDARIES_20260925.md), [country
+decomposition](QUANTITY_SCC_COUNTRY_DECOMPOSITION_RESULTS_20260925.md),
+[time decomposition](QUANTITY_SCC_PERIOD_DECOMPOSITION_RESULTS_20260925.md),
+and [audited Table 3](manuscript/tables/TABLE_3_SCC_RESULTS.md).
+
+The U.S. NASS work supports irrigation stratification and a quantity-first
+model hierarchy, with PDSI and within-season distribution retained as serious
+competitors; it does not yet supply a causal or SCC-transfer coefficient. The
+fisheries track has a published external scale benchmark and reproducible
+FishMIP/FAO validation, but no local GIVE SCC. Its published total is blocked
+from addition until mortality/nutrition and market overlap with GIVE are
+resolved.
+
+The current release gate validates the paired design, coefficient covariance,
+market cases, country/time decompositions, manuscript claims, figures,
+references, local links, memory-bounded tests, credential exclusions, and
+wildfire-project isolation. Raw and interim data remain gitignored. The full
+precipitation-agriculture SCC remains closed because drought, rainfall timing
+and extremes, additional crops, endogenous irrigation/adaptation costs,
+trade/storage, and joint uncertainty are not yet defensibly integrated.
+
+### Earlier engineering history (retained for provenance)
+
+The [contiguous global GFDL climate-feature extension](GLOBAL_CONTIGUOUS_GFDL_28YR_AND_CENTERED_RESULTS_20260917.md)
+now has independently audited rainfed-maize daily-source features for
+67,420 crop-calendar cells across 28 consecutive harvest years, plus
+eight properly centered 21-year source-feature years. The centered
+global audit validates 539,360 season and 1,618,080 stage rows under
+the 512 MiB monitored-memory ceiling. This removes a source-support
+gap for one ESM and SSP; it is not yet a fitted GMT-to-precipitation
+response or an agricultural-damage/SCC estimate.
+
+The [GFDL SSP1-2.6 two-window weather
+diagnostic](GLOBAL_DIRECT_DAILY_GFDL_TWO_WINDOW_WEATHER_RESULTS_20260917.md)
+now passes exact anchor parity, both full-grid eight-year source audits,
+and an independent 45-statistic arithmetic audit. Later-minus-earlier
+rainfed-maize season rainfall averages +10.656 mm and Rx5day +1.299 mm
+over equal calendar cells, while same-realization mean GMST is slightly
+**lower** (-0.024 K). The predeclared same-scenario UKESM check agrees
+in these weather-feature directions but has a +0.370 K GMST change.
+Neither short-window contrast identifies a forced rainfall-per-K
+response, crop-yield change, damage or SCC.
+
+The [MRI within-SSP5-8.5 two-window weather diagnostic](GLOBAL_DIRECT_DAILY_MRI_TWO_WINDOW_WEATHER_RESULTS_20260917.md)
+now passes both eight-year daily-source audits and an independent 45-statistic
+arithmetic audit. Equal rainfed-maize calendar-cell late-minus-mid means are
++16.063 mm season rain, -0.205 wet days, +0.698 maximum dry-spell days, and
++4.945 mm Rx5day. The wet-day median instead rises slightly, so even within
+this one model the frequency summary is not uniform. This is a transient
+single-scenario weather contrast, not rainfall per kelvin, crop damage, or SCC.
+
+The latest [three-climate-model late-century weather
+check](GLOBAL_DIRECT_DAILY_THREE_ESM_LATE_WEATHER_RESULTS_20260917.md)
+reverses a tempting two-model conclusion: growing-season rainfall is
+higher in UKESM and IPSL but slightly lower in MPI under SSP5-8.5
+versus SSP1-2.6, while heavy one-/five-day rain increases in all
+three. Early-stage rain and wet-day frequency have mixed signs.
+All underlying daily-source and arithmetic audits pass; these are
+short-window weather contrasts, not crop-yield damages or SCC.
+
+The [independently checked two-climate-model late-century weather
+comparison](GLOBAL_DIRECT_DAILY_TWO_ESM_LATE_WEATHER_RESULTS_20260917.md)
+finds higher rainfed-maize growing-season rainfall totals and heavier
+one-/five-day rainfall extremes under the higher-forcing scenarios in
+both UKESM and IPSL, but wet-day-frequency and early-season rainfall
+directions differ by model. The two-model rainfall-total agreement is
+not stable after adding MPI. These are climate-source diagnostics on
+equally weighted calendar cells, **not** an identified precipitation
+response to an extra tonne of CO₂ or crop damages.
+The remaining climate-to-GMT response and crop-yield/SCC gates are
+spelled out in
+[the response-readiness memo](GLOBAL_GMT_FEATURE_RESPONSE_READINESS_20260917.md).
+
+The [six-window UKESM full-grid rainfed-maize weather
+comparison](GLOBAL_DIRECT_DAILY_UKESM_SIX_WINDOW_WEATHER_RESULTS_20260917.md)
+now passes all daily-source and cross-year gates, plus an independent
+315-statistic arithmetic audit. It compares three SSPs across two
+eight-year harvest windows, retaining total rainfall, growth-stage
+timing, dry spells, wet days, and extremes separately. This is a
+one-climate-model **weather-input diagnostic**, not a fitted global
+warming-to-precipitation response, yield damage, or SCC estimate.
+
+The isolated U.S. validation route now has an official NOAA daily
+county-area-average weather series for 1981–2025, fixed crop-year calendars,
+and USDA NASS corn/soy county yields. The first fixed 2017 <=10%-irrigated-
+acreage *all-practice* sample predicts 2020–2025 yields better with rain
+total and temperature than without weather. Adding the prespecified *joint*
+timing/extreme-rain group improves soybean log-yield RMSE from 0.15546 to
+0.14781 but only marginally changes corn (0.18291 to 0.18224). Broader
+fixed-2017 irrigation-share screens, a competing PDSI predictor,
+state-specific trends, and source/weather-estimator sensitivities are
+documented in [RESULTS_STATUS.md](RESULTS_STATUS.md). The older directly
+reported irrigated/non-irrigated regional NASS association is nearly
+unchanged under the new NOAA weather route. All post-result checks are
+labeled as such; these are not causal precipitation effects, global
+agricultural damages, or an SCC estimate.
+
+The corrected 2001--2013 USDM benchmark now also has a completed
+[agricultural-area spatial-fidelity sensitivity](US_USDM_AGRICULTURAL_AREA_RESULTS_20260922.md).
+All 679 official weekly drought maps were intersected with two frozen 2008 CDL
+agricultural masks using a memory-bounded 3.96 km route. On fixed support,
+agricultural weighting changes mean exposures modestly; all twenty
+drought-only slopes remain negative, and the main direct-weather/state-
+robustness conclusion is unchanged. The largest weather-controlled
+agricultural-versus-county coefficient movement is 0.01292 percentage point
+per equivalent week. This resolves the first-pass land-weighting sensitivity,
+not the still-open multi-resolution, causal, future-drought, global-transfer,
+or SCC gates.
+
+The journal-style [main manuscript](manuscript/MAIN_MANUSCRIPT.md) and
+[Methods Supporting Information](manuscript/METHODS_SUPPORTING_INFORMATION.md)
+now lead with the scientific narrative and reproducible methods. The complete
+dated audit trail remains in the [research development
+log](manuscript/RESEARCH_DEVELOPMENT_LOG.md) and [Methods development
+log](manuscript/METHODS_DEVELOPMENT_LOG.md); no prior notes were discarded.
+
+To reverify the current U.S. acquisition/feature/panel/result chain from
+the project environment without reacquiring valid source files:
+
+```bash
+./.venv/bin/python -B scripts/continue_us_county_average_analysis.py
+./.venv/bin/python -B scripts/test_us_county_post_result_sensitivities.py
+```
+
+The controller checks source/protocol/script and result hashes before
+reusing a checkpoint; new work is sequentially guarded at 512 MiB sampled
+process RSS, a per-step output cap, and a 130 GiB free-disk floor. The
+sampled guard is not a kernel memory limit. Raw NOAA/NASS sources and all
+`data/interim/` panels/receipts are Git-ignored; do not commit them or local
+credentials. Standalone aggregate reports, code and manuscript/Methods SI
+live here, never in the separate wildfire CO₂ project. The broader multi-
+mechanism climate-attribution, observational transport, and welfare gates
+remain unresolved and closed for total-SCC use; the narrow annual-maize
+quantity pathway described above has since passed paired GIVE execution. See
+[ACTIVE_CONTINUATION_CHECKPOINT.md](ACTIVE_CONTINUATION_CHECKPOINT.md).
+
 This directory is a standalone research/implementation track for adding the
 marginal damages of CO2-induced precipitation change to GIVE's social cost of
 carbon (SCC).  It does not modify or import any wildfire/biomass-burning work.
-The files here are specifications and an unintegrated component interface;
-they are intentionally not wired into the baseline model.
+The narrow annual-maize quantity benchmark is now paired with GIVE while
+retaining MooreAg baseline damage levels. The broader multi-crop,
+drought/timing-aware replacement component remains under development and is
+not yet authorized as a total agriculture replacement.
 
 ## Current boundary
 

@@ -60,6 +60,8 @@ def main() -> None:
         "period_discount_figure": root / "manuscript/figures/quantity_scc_period_discount_grid_20260925.svg",
         "period_discount_figure_validation": root / "data/provenance/quantity_scc_period_discount_figure_20260925.json",
         "results_brief": root / "PRELIMINARY_RESULTS_AND_CLAIM_BOUNDARIES_20260925.md",
+        "readme": root / "README.md",
+        "readme_link_validation": root / "data/provenance/readme_link_validation_20260925.json",
         "manuscript_validation": root / "data/provenance/manuscript_scc_claim_validation_20260925.json",
         "manuscript_reference_registry": root / "data/provenance/manuscript_reference_registry_20260925.json",
         "manuscript_reference_validation": root / "data/provenance/manuscript_reference_validation_20260925.json",
@@ -116,6 +118,7 @@ def main() -> None:
         paths["manuscript_reference_validation"], "manuscript_reference_validation/v1", "pass"
     )
     link_validation = load(paths["manuscript_link_validation"], "manuscript_link_validation/v1", "pass")
+    readme_validation = load(paths["readme_link_validation"], "manuscript_link_validation/v1", "pass")
     figure_validation = load(paths["figure_validation"], "quantity_coefficient_interval_figure/v1", "pass")
     table3_validation = load(paths["table3_validation"], "manuscript_scc_table/v1", "pass")
     targeted_test_job = json.loads(paths["targeted_test_job"].read_text())
@@ -221,6 +224,15 @@ def main() -> None:
         "overlap gate",
     ):
         require(fragment in results_brief, f"results brief fragment missing: {fragment}")
+    readme_text = " ".join(paths["readme"].read_text().split())
+    for fragment in (
+        "Current research state (September 25, 2026)",
+        "validated, paired GIVE estimate",
+        "not estimates of total precipitation-agriculture damages",
+        "all 106 country components change sign",
+        "no local GIVE SCC",
+    ):
+        require(fragment in readme_text, f"README status fragment missing: {fragment}")
 
     manuscript_source = manuscript_validation["sources"]["manuscript"]
     require(digest(paths["manuscript"]) == manuscript_source["sha256"], "manuscript changed after validation")
@@ -243,6 +255,12 @@ def main() -> None:
     require(digest(paths["methods_si"]) ==
             link_validation["sources"]["manuscript/METHODS_SUPPORTING_INFORMATION.md"]["sha256"],
             "Methods SI changed after link validation")
+    require(readme_validation["checks"]["local_links_resolved"] == 58,
+            "README local-link support differs")
+    require(readme_validation["checks"]["missing_local_links"] == 0,
+            "README local links missing")
+    require(digest(paths["readme"]) == readme_validation["sources"]["README.md"]["sha256"],
+            "README changed after link validation")
     require(digest(paths["figure"]) == figure_validation["output"]["sha256"], "figure changed after validation")
     require(digest(paths["coefficient_by_model"]) == figure_validation["sources"]["input"]["sha256"],
             "figure source changed after validation")
@@ -300,6 +318,8 @@ def main() -> None:
             "period_discount_schedules": 4,
             "period_discount_figure_hash_bound": True,
             "cross_track_results_brief_hash_bound": True,
+            "readme_local_links_resolved": 58,
+            "readme_current_status_hash_bound": True,
             "manuscript_hash_bound": True,
             "manuscript_doi_references_validated": 6,
             "wildfire_agriculture_doi_nonconflation": True,
