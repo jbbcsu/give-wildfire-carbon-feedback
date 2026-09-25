@@ -51,6 +51,7 @@ def main() -> None:
         "manuscript": root / "manuscript/MAIN_MANUSCRIPT.md",
         "methods_si": root / "manuscript/METHODS_SUPPORTING_INFORMATION.md",
         "figure": root / "manuscript/figures/quantity_coefficient_intervals_20260925.svg",
+        "targeted_test_job": root / "data/provenance/preliminary_scc_targeted_tests_job_20260925.json",
     }
     for path in paths.values():
         require(path.is_file(), f"release file missing: {path}")
@@ -63,6 +64,7 @@ def main() -> None:
                     "coefficient_only_delta_by_climate_model_complete")
     manuscript_validation = load(paths["manuscript_validation"], "manuscript_scc_claim_validation/v1", "pass")
     figure_validation = load(paths["figure_validation"], "quantity_coefficient_interval_figure/v1", "pass")
+    targeted_test_job = json.loads(paths["targeted_test_job"].read_text())
 
     require(paired["support"]["paired_paths"] == 936, "paired path count differs")
     require(paired["support"]["result_rows"] == 3744, "paired SCC count differs")
@@ -92,6 +94,10 @@ def main() -> None:
     require(digest(paths["figure"]) == figure_validation["output"]["sha256"], "figure changed after validation")
     require(digest(paths["coefficient_by_model"]) == figure_validation["sources"]["input"]["sha256"],
             "figure source changed after validation")
+    require(targeted_test_job["status"] == "completed" and targeted_test_job["returncode"] == 0,
+            "targeted quantity/welfare tests failed")
+    require(targeted_test_job["sampled_peak_group_rss_bytes"] <= 512 * 1024 * 1024,
+            "targeted tests exceeded memory contract")
 
     tracked_raw = subprocess.run(
         ["git", "ls-files", "-z"], cwd=root, check=True, capture_output=True
@@ -136,6 +142,7 @@ def main() -> None:
             "restricted_tracked_paths": 0,
             "credential_like_tracked_assignments": 0,
             "wildfire_named_tracked_paths": 0,
+            "targeted_quantity_welfare_unit_tests": 11,
         },
         "claim_gates": {
             "paired_quantity_channel_scc": True,

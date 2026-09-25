@@ -77,4 +77,6 @@ figure hashes, verifies coefficient-support counts, and scans all tracked paths
 for raw/intermediate data directories, credential files, credential-like
 assignments, and wildfire-named artifacts. A passing gate keeps the total-SCC,
 probabilistic-total-uncertainty, and causal drought/timing claim gates closed.
-
+The registered release also requires 11 focused synthetic unit tests covering
+quantity response, adaptation, national/global welfare algebra, and response-
+panel construction; their bounded run peaked at 116,310,016 bytes.
