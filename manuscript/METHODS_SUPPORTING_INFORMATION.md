@@ -4239,6 +4239,13 @@ run peaks at 178,323,456 bytes sampled process-group RSS under a 768 MiB cap.
 This is intertemporal accounting after the climate-response calculation, not
 evidence about within-season precipitation timing.
 
+We then reweight the validated undiscounted model-year path under all four
+registered GIVE Ramsey schedules without rerunning the physical response. The
+shares accruing through 2100 are 60.2%, 71.4%, 80.6%, and 87.2% under the
+1.5%, 2.0%, 2.5%, and 3.0% schedules. All 104 model-by-schedule totals
+reconstruct the independent diagnostic within `3.5e-15` USD per tCO2. The
+schedules remain distinct normative choices, not probability draws.
+
 ### Alternative Hultgren impact-region transport geometry
 
 For the external published-response transport, the public Hultgren impact-

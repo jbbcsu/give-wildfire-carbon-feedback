@@ -1,0 +1,199 @@
+{
+  "claim_gates": {
+    "full_precipitation_agriculture_scc": false,
+    "probabilistic_discount_uncertainty": false,
+    "registered_discount_schedule_temporal_accounting": true
+  },
+  "created_at_utc": "2026-09-25T15:44:18.991055+00:00",
+  "estimand": "time-period contributions to the equal-26-model fixed-adaptation uncapped annual-maize rainfall-quantity SCC under four GIVE Ramsey schedules",
+  "implementation": {
+    "path": "scripts/summarize_quantity_scc_period_discount_grid.py",
+    "sha256": "e1154f22e4bd1410e580a4f20bfd412ef31df5a0a5f4833ccaf0fc2e45472187"
+  },
+  "results": [
+    {
+      "discount_rate_label": "1.5%",
+      "equal_model_mean_usd2020_per_tco2": -0.00882968762310989,
+      "eta": 1.01601,
+      "periods": [
+        {
+          "discounted_contribution_usd2020_per_tco2": -0.002993058361988868,
+          "share_of_signed_total": 0.33897669880813835,
+          "years": [
+            2020,
+            2050
+          ]
+        },
+        {
+          "discounted_contribution_usd2020_per_tco2": -0.0023194176529776895,
+          "share_of_signed_total": 0.2626839987982238,
+          "years": [
+            2051,
+            2100
+          ]
+        },
+        {
+          "discounted_contribution_usd2020_per_tco2": -0.002421722245405947,
+          "share_of_signed_total": 0.27427043274640744,
+          "years": [
+            2101,
+            2200
+          ]
+        },
+        {
+          "discounted_contribution_usd2020_per_tco2": -0.001095489362737384,
+          "share_of_signed_total": 0.12406886964723035,
+          "years": [
+            2201,
+            2300
+          ]
+        }
+      ],
+      "prtp": 9.150024589210659e-05
+    },
+    {
+      "discount_rate_label": "2.0%",
+      "equal_model_mean_usd2020_per_tco2": -0.006101729549075568,
+      "eta": 1.244458999,
+      "periods": [
+        {
+          "discounted_contribution_usd2020_per_tco2": -0.002688964646639137,
+          "share_of_signed_total": 0.4406889268054373,
+          "years": [
+            2020,
+            2050
+          ]
+        },
+        {
+          "discounted_contribution_usd2020_per_tco2": -0.0016681991945525884,
+          "share_of_signed_total": 0.27339776060794535,
+          "years": [
+            2051,
+            2100
+          ]
+        },
+        {
+          "discounted_contribution_usd2020_per_tco2": -0.001320402993675642,
+          "share_of_signed_total": 0.2163981512218429,
+          "years": [
+            2101,
+            2200
+          ]
+        },
+        {
+          "discounted_contribution_usd2020_per_tco2": -0.00042416271420819997,
+          "share_of_signed_total": 0.06951516136477436,
+          "years": [
+            2201,
+            2300
+          ]
+        }
+      ],
+      "prtp": 0.0019745879362491614
+    },
+    {
+      "discount_rate_label": "2.5%",
+      "equal_model_mean_usd2020_per_tco2": -0.00454292075316766,
+      "eta": 1.421158088,
+      "periods": [
+        {
+          "discounted_contribution_usd2020_per_tco2": -0.002436598512790785,
+          "share_of_signed_total": 0.53635065306649,
+          "years": [
+            2020,
+            2050
+          ]
+        },
+        {
+          "discounted_contribution_usd2020_per_tco2": -0.001224078722254303,
+          "share_of_signed_total": 0.2694475181854724,
+          "years": [
+            2051,
+            2100
+          ]
+        },
+        {
+          "discounted_contribution_usd2020_per_tco2": -0.0007221097368914463,
+          "share_of_signed_total": 0.15895274783033317,
+          "years": [
+            2101,
+            2200
+          ]
+        },
+        {
+          "discounted_contribution_usd2020_per_tco2": -0.00016013378123112587,
+          "share_of_signed_total": 0.03524908091770449,
+          "years": [
+            2201,
+            2300
+          ]
+        }
+      ],
+      "prtp": 0.004629467024013456
+    },
+    {
+      "discount_rate_label": "3.0%",
+      "equal_model_mean_usd2020_per_tco2": -0.0035903650812730836,
+      "eta": 1.567899391,
+      "periods": [
+        {
+          "discounted_contribution_usd2020_per_tco2": -0.002220772436158674,
+          "share_of_signed_total": 0.6185366629544049,
+          "years": [
+            2020,
+            2050
+          ]
+        },
+        {
+          "discounted_contribution_usd2020_per_tco2": -0.0009109304838601845,
+          "share_of_signed_total": 0.2537152805466746,
+          "years": [
+            2051,
+            2100
+          ]
+        },
+        {
+          "discounted_contribution_usd2020_per_tco2": -0.0003986669296392145,
+          "share_of_signed_total": 0.11103799213027492,
+          "years": [
+            2101,
+            2200
+          ]
+        },
+        {
+          "discounted_contribution_usd2020_per_tco2": -5.999523161501018e-05,
+          "share_of_signed_total": 0.01671006436864545,
+          "years": [
+            2201,
+            2300
+          ]
+        }
+      ],
+      "prtp": 0.007732453194507549
+    }
+  ],
+  "schema": "quantity_scc_period_discount_grid/v1",
+  "sources": {
+    "annual_receipt": {
+      "path": "data/provenance/quantity_scc_period_decomposition_20260925.json",
+      "sha256": "8d5e28d323aea2d55c8c21cf7bd45c0d11df2ed19a6a368806d54e58d2824fca"
+    },
+    "annual_table": {
+      "path": "data/interim/quantity_scc_period_decomposition_20260925.csv",
+      "sha256": "66999ee062a3ebfe39e33e0c51a6704fc44e9a1863aafec59abe242157ea9ab4"
+    },
+    "cpc": {
+      "path": "data/interim/give_deterministic_discount_path_20260924.csv",
+      "sha256": "23e939af062ae1313738ec4b535793cb7014fea320430a834fd485980121f4b0"
+    },
+    "diagnostic_receipt": {
+      "path": "data/provenance/epa_fair_hultgren_quantity_partial_scc_diagnostic_20260924.json",
+      "sha256": "a0321b59c48e8a0a4445e73697aef1906155dbb1c81fa3540e3c6a7e8b656f9e"
+    }
+  },
+  "status": "four_schedule_period_decomposition_complete",
+  "validation": {
+    "maximum_model_reconstruction_error_usd2020_per_tco2": 3.4850594632374055e-15,
+    "model_schedule_totals": 104
+  }
+}

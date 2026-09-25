@@ -56,6 +56,7 @@ def main() -> None:
         "period_decomposition": root / "data/provenance/quantity_scc_period_decomposition_20260925.json",
         "period_decomposition_job": root / "data/provenance/quantity_scc_period_decomposition_job_20260925.json",
         "period_decomposition_report": root / "QUANTITY_SCC_PERIOD_DECOMPOSITION_RESULTS_20260925.md",
+        "period_discount_grid": root / "data/provenance/quantity_scc_period_discount_grid_20260925.json",
         "manuscript_validation": root / "data/provenance/manuscript_scc_claim_validation_20260925.json",
         "manuscript_reference_registry": root / "data/provenance/manuscript_reference_registry_20260925.json",
         "manuscript_reference_validation": root / "data/provenance/manuscript_reference_validation_20260925.json",
@@ -97,6 +98,11 @@ def main() -> None:
         "central_fixed_uncapped_two_percent_period_decomposition_complete",
     )
     period_job = json.loads(paths["period_decomposition_job"].read_text())
+    period_grid = load(
+        paths["period_discount_grid"],
+        "quantity_scc_period_discount_grid/v1",
+        "four_schedule_period_decomposition_complete",
+    )
     manuscript_validation = load(paths["manuscript_validation"], "manuscript_scc_claim_validation/v1", "pass")
     reference_validation = load(
         paths["manuscript_reference_validation"], "manuscript_reference_validation/v1", "pass"
@@ -172,6 +178,15 @@ def main() -> None:
             "period decomposition job failed")
     require(period_job["sampled_peak_group_rss_bytes"] <= 768 * 1024 * 1024,
             "period decomposition exceeded memory contract")
+    require(len(period_grid["results"]) == 4, "period discount grid differs")
+    require(period_grid["validation"]["model_schedule_totals"] == 104,
+            "period model-schedule support differs")
+    require(period_grid["validation"]["maximum_model_reconstruction_error_usd2020_per_tco2"] <= 2e-14,
+            "period discount-grid reconstruction failed")
+    through_2100 = [sum(row["share_of_signed_total"] for row in result["periods"][:2])
+                    for result in period_grid["results"]]
+    require(all(left < right for left, right in zip(through_2100, through_2100[1:])),
+            "through-2100 shares not ordered by discount schedule")
     manuscript_text = " ".join(paths["manuscript"].read_text().split())
     for fragment in (
         "Sixty-one of 106 country components are negative",
@@ -182,6 +197,7 @@ def main() -> None:
         "remaining global mean to -$0.00025 per tCO2",
         "44.1% accrues in 2020--2050",
         "quantity channel is therefore small per year",
+        "60.2%, 71.4%, 80.6%, and 87.2%",
     ):
         require(fragment in manuscript_text, f"country claim fragment missing: {fragment}")
 
@@ -260,6 +276,7 @@ def main() -> None:
             "country_decomposition_figure_hash_bound": True,
             "period_accounting_bins": 4,
             "period_decomposition_memory_budget_mib": 768,
+            "period_discount_schedules": 4,
             "manuscript_hash_bound": True,
             "manuscript_doi_references_validated": 6,
             "wildfire_agriculture_doi_nonconflation": True,

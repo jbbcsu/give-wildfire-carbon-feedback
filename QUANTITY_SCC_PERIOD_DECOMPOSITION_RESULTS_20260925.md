@@ -19,6 +19,19 @@ SCC-equivalent contribution is similar across the four periods (about
 late-century artifact: the narrow modeled channel is small per year, and
 discounting progressively reduces its distant contributions.
 
+The timing shares vary transparently with the registered discount schedule:
+
+| GIVE schedule | Total (2020 USD/tCO2) | Share through 2100 | Share in 2201--2300 |
+|---|---:|---:|---:|
+| 1.5% | -0.00882969 | 60.2% | 12.4% |
+| 2.0% | -0.00610173 | 71.4% | 7.0% |
+| 2.5% | -0.00454292 | 80.6% | 3.5% |
+| 3.0% | -0.00359037 | 87.2% | 1.7% |
+
+These are four policy schedules, not probability draws. Higher discount rates
+mechanically shift the signed present-value share toward earlier years; they
+do not change the physical annual response path.
+
 ## Validation and interpretation
 
 The 7,306 model-year contributions reconstruct every climate model's central
@@ -36,6 +49,8 @@ MiB) sampled peak process-group RSS under a 768 MiB budget.
 - Implementation: `scripts/decompose_quantity_scc_by_period.py`
 - Machine-readable receipt:
   `data/provenance/quantity_scc_period_decomposition_20260925.json`
+- Four-schedule reweighting receipt:
+  `data/provenance/quantity_scc_period_discount_grid_20260925.json`
 - Memory-bounded job receipt:
   `data/provenance/quantity_scc_period_decomposition_job_20260925.json`
 - Derived model-year table (gitignored):

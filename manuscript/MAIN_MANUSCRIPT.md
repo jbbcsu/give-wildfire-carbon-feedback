@@ -2048,7 +2048,10 @@ explanation for the small value. Of the -$0.00610 per tCO2 central mean, 44.1%
 accrues in 2020--2050 and another 27.3% in 2051--2100; 21.6% and 7.0% accrue
 in 2101--2200 and 2201--2300. Mean undiscounted annual equivalents are similar
 across those periods. The quantity channel is therefore small per year, while
-discounting progressively reduces its distant contribution.
+discounting progressively reduces its distant contribution. Across the 1.5%,
+2.0%, 2.5%, and 3.0% GIVE schedules, the signed share accruing through 2100 is
+60.2%, 71.4%, 80.6%, and 87.2%, respectively. These schedules are policy
+choices rather than probability draws and reweight the same physical path.
 
 The corresponding discount-schedule, adaptation, and market summaries are
 reported in [Table 3](tables/TABLE_3_SCC_RESULTS.md). The table keeps
