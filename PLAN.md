@@ -74,6 +74,13 @@ reduces every post-1980 FishMIP level and first-difference correlation. The
 calibration protocol must therefore freeze a primary family and an `A`-only
 robustness case before any fitted model; no outcome-based family selection is
 allowed.
+The blocked level-prediction diagnostic also fails to support model weighting.
+After a single multiplicative calibration on 1990--1999, none of four paths
+beats a constant observed-mean benchmark in 2000--2014 under the contract
+quality status family; only GFDL/BOATS narrowly beats it under `A` only. Direct
+historical-fit weights are therefore disallowed. Future welfare work must carry
+the ecosystem/climate structures as named scenarios or use an independently
+justified weighting scheme.
 A post-export concentration audit finds material compositional change over the
 FishMIP historical overlap: top-five vessel-flag-country and species shares
 decline from 51.34%/37.71% in 1950 to 41.07%/24.23% in 2014, while the

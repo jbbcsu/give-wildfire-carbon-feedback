@@ -79,6 +79,11 @@ substantially weakens 1980--2014 level correlations (from 0.726--0.903 under
 the contract quality set to 0.241--0.521) and first-difference correlations
 (from 0.217--0.338 to 0.042--0.198). This is evidence that observation-status
 composition matters, not a basis for selecting either a model or status family.
+A 1990--1999 calibration / 2000--2014 blocked prediction reinforces that
+restriction. No FishMIP path beats a constant observed-mean benchmark under the
+contract quality set; under `A` only, only GFDL/BOATS is slightly better. The
+four paths therefore remain unweighted structural scenarios rather than an
+empirically ranked ensemble.
 A separate positive-tonnage concentration audit finds that top-five
 vessel-flag-country and reported-species shares fall from 51.34% and 37.71% in
 1950 to 41.07% and 24.23% in 2014, while the top-five FAO-area share remains

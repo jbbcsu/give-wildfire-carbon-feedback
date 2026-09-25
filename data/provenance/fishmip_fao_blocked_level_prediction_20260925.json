@@ -1,0 +1,238 @@
+{
+  "claim_gates": {
+    "blocked_predictive_diagnostic": true,
+    "causal_climate_response": false,
+    "model_or_status_selection": false,
+    "welfare_damage_or_scc": false
+  },
+  "created_at_utc": "2026-09-25T11:21:31.176476+00:00",
+  "design": {
+    "benchmark": "constant calibration-block observed mean",
+    "calibration": "one multiplicative scale equalizing calibration-block arithmetic means",
+    "calibration_years": [
+      1990,
+      1999
+    ],
+    "holdout_years": [
+      2000,
+      2014
+    ],
+    "metrics": [
+      "relative_rmse",
+      "relative_mae",
+      "log_rmse"
+    ]
+  },
+  "implementation": {
+    "path": "scripts/evaluate_fishmip_fao_blocked_prediction.py",
+    "sha256": "2eb77836ca7479193cd4690e98d3ce2f5f9be96d86bf0eab74145b717ce1a8b4"
+  },
+  "limitations": [
+    "The split is evaluated after related historical evidence was inspected and is not a pristine preregistered test.",
+    "Observed landings combine ecology, effort, management, markets, technology, and reporting.",
+    "The four paths are not probability draws and no winner is selected."
+  ],
+  "results": [
+    {
+      "calibration_scale_tonnes_per_density_unit": 4016227874291182.0,
+      "constant_mean_benchmark": {
+        "log_rmse": 0.07562898111220119,
+        "relative_mae": 0.06713271650255395,
+        "relative_rmse": 0.0795547626937101
+      },
+      "fishmip_beats_benchmark_relative_rmse": true,
+      "fishmip_minus_benchmark": {
+        "log_rmse": -0.004528131372252109,
+        "relative_mae": -0.004035294242295262,
+        "relative_rmse": -0.005613602603933315
+      },
+      "path_id": "gfdl-esm4/boats",
+      "scaled_fishmip": {
+        "log_rmse": 0.07110084973994908,
+        "relative_mae": 0.06309742226025869,
+        "relative_rmse": 0.07394116008977679
+      },
+      "status_family": "A_only"
+    },
+    {
+      "calibration_scale_tonnes_per_density_unit": 815492394.4733552,
+      "constant_mean_benchmark": {
+        "log_rmse": 0.07562898111220119,
+        "relative_mae": 0.06713271650255395,
+        "relative_rmse": 0.0795547626937101
+      },
+      "fishmip_beats_benchmark_relative_rmse": false,
+      "fishmip_minus_benchmark": {
+        "log_rmse": 0.07603432785658677,
+        "relative_mae": 0.08852757984702306,
+        "relative_rmse": 0.08619440175592528
+      },
+      "path_id": "gfdl-esm4/ecoocean",
+      "scaled_fishmip": {
+        "log_rmse": 0.15166330896878796,
+        "relative_mae": 0.155660296349577,
+        "relative_rmse": 0.1657491644496354
+      },
+      "status_family": "A_only"
+    },
+    {
+      "calibration_scale_tonnes_per_density_unit": 6628074814365407.0,
+      "constant_mean_benchmark": {
+        "log_rmse": 0.07562898111220119,
+        "relative_mae": 0.06713271650255395,
+        "relative_rmse": 0.0795547626937101
+      },
+      "fishmip_beats_benchmark_relative_rmse": false,
+      "fishmip_minus_benchmark": {
+        "log_rmse": 0.0857637611770491,
+        "relative_mae": 0.10098739617038877,
+        "relative_rmse": 0.09743527126780642
+      },
+      "path_id": "ipsl-cm6a-lr/boats",
+      "scaled_fishmip": {
+        "log_rmse": 0.1613927422892503,
+        "relative_mae": 0.16812011267294272,
+        "relative_rmse": 0.17699003396151652
+      },
+      "status_family": "A_only"
+    },
+    {
+      "calibration_scale_tonnes_per_density_unit": 1039140735.845079,
+      "constant_mean_benchmark": {
+        "log_rmse": 0.07562898111220119,
+        "relative_mae": 0.06713271650255395,
+        "relative_rmse": 0.0795547626937101
+      },
+      "fishmip_beats_benchmark_relative_rmse": false,
+      "fishmip_minus_benchmark": {
+        "log_rmse": 0.07901326210170738,
+        "relative_mae": 0.0919475499298204,
+        "relative_rmse": 0.08971806382007265
+      },
+      "path_id": "ipsl-cm6a-lr/ecoocean",
+      "scaled_fishmip": {
+        "log_rmse": 0.15464224321390857,
+        "relative_mae": 0.15908026643237436,
+        "relative_rmse": 0.16927282651378275
+      },
+      "status_family": "A_only"
+    },
+    {
+      "calibration_scale_tonnes_per_density_unit": 4297377024199670.0,
+      "constant_mean_benchmark": {
+        "log_rmse": 0.03331341115608767,
+        "relative_mae": 0.029113741241315567,
+        "relative_rmse": 0.033960832931580726
+      },
+      "fishmip_beats_benchmark_relative_rmse": false,
+      "fishmip_minus_benchmark": {
+        "log_rmse": 0.0053774765131575225,
+        "relative_mae": 0.0003416985668926696,
+        "relative_rmse": 0.003531196002061053
+      },
+      "path_id": "gfdl-esm4/boats",
+      "scaled_fishmip": {
+        "log_rmse": 0.038690887669245194,
+        "relative_mae": 0.029455439808208236,
+        "relative_rmse": 0.03749202893364178
+      },
+      "status_family": "contract_observed_or_quality"
+    },
+    {
+      "calibration_scale_tonnes_per_density_unit": 872579542.0753787,
+      "constant_mean_benchmark": {
+        "log_rmse": 0.03331341115608767,
+        "relative_mae": 0.029113741241315567,
+        "relative_rmse": 0.033960832931580726
+      },
+      "fishmip_beats_benchmark_relative_rmse": false,
+      "fishmip_minus_benchmark": {
+        "log_rmse": 0.06975257318922345,
+        "relative_mae": 0.07636256007871467,
+        "relative_rmse": 0.07509485080865975
+      },
+      "path_id": "gfdl-esm4/ecoocean",
+      "scaled_fishmip": {
+        "log_rmse": 0.10306598434531113,
+        "relative_mae": 0.10547630132003023,
+        "relative_rmse": 0.10905568374024048
+      },
+      "status_family": "contract_observed_or_quality"
+    },
+    {
+      "calibration_scale_tonnes_per_density_unit": 7092061833507736.0,
+      "constant_mean_benchmark": {
+        "log_rmse": 0.03331341115608767,
+        "relative_mae": 0.029113741241315567,
+        "relative_rmse": 0.033960832931580726
+      },
+      "fishmip_beats_benchmark_relative_rmse": false,
+      "fishmip_minus_benchmark": {
+        "log_rmse": 0.08176417159398439,
+        "relative_mae": 0.08856737949157163,
+        "relative_rmse": 0.08865611753357262
+      },
+      "path_id": "ipsl-cm6a-lr/boats",
+      "scaled_fishmip": {
+        "log_rmse": 0.11507758275007206,
+        "relative_mae": 0.1176811207328872,
+        "relative_rmse": 0.12261695046515335
+      },
+      "status_family": "contract_observed_or_quality"
+    },
+    {
+      "calibration_scale_tonnes_per_density_unit": 1111884002.328604,
+      "constant_mean_benchmark": {
+        "log_rmse": 0.03331341115608767,
+        "relative_mae": 0.029113741241315567,
+        "relative_rmse": 0.033960832931580726
+      },
+      "fishmip_beats_benchmark_relative_rmse": false,
+      "fishmip_minus_benchmark": {
+        "log_rmse": 0.07574578749646653,
+        "relative_mae": 0.07996795024159385,
+        "relative_rmse": 0.08207169079874292
+      },
+      "path_id": "ipsl-cm6a-lr/ecoocean",
+      "scaled_fishmip": {
+        "log_rmse": 0.1090591986525542,
+        "relative_mae": 0.10908169148290942,
+        "relative_rmse": 0.11603252373032365
+      },
+      "status_family": "contract_observed_or_quality"
+    }
+  ],
+  "schema": "fishmip_fao_blocked_level_prediction/v1",
+  "sources": {
+    "ledger": {
+      "path": "data/derived/fao/fishstat_marine_status_ledger_1950_2024.csv",
+      "receipt": "data/provenance/fao_fishstat_marine_status_ledger_20260924.json",
+      "receipt_sha256": "854294d81139f646ab4412524da72b4fe80bd5e7919023958f723a30211194df",
+      "sha256": "5f0b5dac464ee903caccb014cdde4c80725f707ebf40c1cd551bc192f9206988"
+    },
+    "status_result": {
+      "path": "data/provenance/fishmip_fao_status_sensitivity_20260924.json",
+      "sha256": "acb5d01b4a6e1b844ae6da48e4970fab302c24e99bd81f3a9e4201a7d432a75d"
+    },
+    "temporal": {
+      "path": "data/interim/fishmip_fao_global_temporal_20260921.json",
+      "sha256": "24552000bf4292cc6f8f9d1c85c46cea49a904cf9c47a30b716121389e25e00f"
+    }
+  },
+  "status": "post_existing_evidence_blocked_level_prediction_complete",
+  "support": {
+    "comparisons": 8,
+    "paths": 4,
+    "status_families": {
+      "A_only": [
+        "A"
+      ],
+      "contract_observed_or_quality": [
+        "A",
+        "E",
+        "I",
+        "X"
+      ]
+    }
+  }
+}
