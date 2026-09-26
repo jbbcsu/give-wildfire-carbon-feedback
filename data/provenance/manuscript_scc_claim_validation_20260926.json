@@ -1,0 +1,51 @@
+{
+  "created_at_utc": "2026-09-26T01:06:01.470229+00:00",
+  "implementation": {
+    "path": "scripts/validate_manuscript_scc_claims.py",
+    "sha256": "1282ab8a70cfaff4ffcc86294e28a9443bdb6c61aa6efba10599f0cc4b17d2b3"
+  },
+  "prohibited_stale_fragments_absent": [
+    "no global damage or SCC estimate is reported",
+    "empirical coefficient uncertainty is not yet included",
+    "SCC results and scenario definitions (after estimation)"
+  ],
+  "required_claim_fragments": {
+    "central_mean": "-$0.00610",
+    "coefficient_lower": "-$0.01037",
+    "coefficient_se": "$0.00218",
+    "coefficient_upper": "-$0.00183",
+    "design_mean": "-$0.00661",
+    "design_p025": "-$0.01137",
+    "design_p975": "+$0.00104",
+    "model_interval_count": "23 model-specific coefficient-only intervals",
+    "model_sd": "$0.00285",
+    "negative_design_cells": "900 paths are negative",
+    "paired_paths": "936 paired paths"
+  },
+  "required_safeguards_present": [
+    "not the total precipitation effect on agriculture",
+    "design summaries, not probabilities",
+    "climate-model spread, not sampling uncertainty",
+    "not as an additive precipitation sector"
+  ],
+  "schema": "manuscript_scc_claim_validation/v1",
+  "sources": {
+    "by_model": {
+      "path": "data/provenance/quantity_coefficient_delta_by_model_20260925.json",
+      "sha256": "950b262f2b0ea0593846d878c20db3eaf861790ce0c58ab3719490f4f27d1dc6"
+    },
+    "coefficient_grid": {
+      "path": "data/provenance/quantity_coefficient_delta_uncertainty_grid_20260925.json",
+      "sha256": "797ad9fd227d396a50157fbae39613d4aab48eae94fe4a4d6150532aaa3dc7b1"
+    },
+    "manuscript": {
+      "path": "manuscript/MAIN_MANUSCRIPT.md",
+      "sha256": "0a891bb95aea5c1926d23c91440d23f967b2d9eca80d58c7bfc4328a823af568"
+    },
+    "structural": {
+      "path": "data/provenance/quantity_structural_sensitivity_envelope_20260924.json",
+      "sha256": "c1ba62a1fc1155f936e60c1338dece636af22cd648037442bc0809f73e7e4a79"
+    }
+  },
+  "status": "pass"
+}
