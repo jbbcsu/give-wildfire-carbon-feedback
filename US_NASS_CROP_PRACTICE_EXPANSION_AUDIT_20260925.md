@@ -52,11 +52,20 @@ not built and validated class-specific bases and county/year class weights.
 Treating the candidate calendars as duplicate observations or selecting one
 after looking at coefficients remains invalid.
 
-No direct-practice rice, sorghum, cotton, or other additional-crop panel is
-present in the locked acquisition. Recent practice-specific expansion also
-remains blocked: the state terminal screen returns only one corn row per year
-and no soybean rows, and Census production/area queries cannot construct the
-required county practice-specific yields. See
+No additional-crop direct-practice value panel is present in the locked
+acquisition. A new credential-safe count-only screen finds enough marginal
+county survey yield counts to justify an exact-record overlap audit for
+sorghum grain, upland cotton, barley, and oats. Their 1981--2019 paired-count
+upper bounds are 6,439, 4,524, 5,766, and 1,978 respectively; these are not
+actual county pairs. Barley and oats stop after 2008. Rice is blocked: 9,725
+broad county survey yield records exist, but zero are labeled irrigated and
+zero non-irrigated. See
+`US_ADDITIONAL_CROP_DIRECT_PRACTICE_COUNT_RESULTS_20260925.md`.
+
+Recent practice-specific expansion also remains blocked: the state terminal
+screen returns only one corn row per year and no soybean rows, and Census
+production/area queries cannot construct the required county
+practice-specific yields. See
 `US_STATE_DIRECT_PRACTICE_TERMINAL_SUPPORT_RESULTS_20260921.md` and
 `US_CENSUS_DIRECT_PRACTICE_OUTCOME_SUPPORT_RESULTS_20260921.md`.
 

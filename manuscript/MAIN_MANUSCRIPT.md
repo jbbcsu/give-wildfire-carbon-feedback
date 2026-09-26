@@ -525,6 +525,16 @@ both assembly and exact recomputation pass. This regional construction enables
 a historical predictive comparison but does not estimate a causal weather--
 yield response or create a damage/SCC input.
 
+A count-only Quick Stats screen identifies sorghum grain and upland cotton as
+the strongest next direct irrigated/non-irrigated U.S. extensions, with paired
+county-year upper bounds of 6,439 and 4,524; actual county overlap and usable
+unsuppressed outcomes remain to be established. Barley and oats also pass a
+permissive count gate but end in 2008 and have weaker recent support. Rice has
+9,725 county survey yield records but zero irrigated or non-irrigated practice
+labels even under a broadened query, so Quick Stats cannot supply the requested
+direct-practice rice comparison. No yield values or models were used in this
+screen, and every causal, national, damage, and SCC gate remains closed.
+
 ## 4. Empirical design
 
 The production registry includes a hierarchically pooled fixed-effects

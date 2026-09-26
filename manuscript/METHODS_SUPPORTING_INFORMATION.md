@@ -798,6 +798,22 @@ solves by reduced QR, and separately forms the county-cluster sandwich. All
 fields agree within a maximum absolute difference of `1.04e-13` against a registered
 `1e-10` tolerance.
 
+### Additional-crop direct-practice count screen
+
+A credential-safe Quick Stats feasibility screen issues count-only requests
+for sorghum grain, upland cotton, rice, barley, and oats. It never requests the
+value field. For each year from 1981 through 2019, the smaller of irrigated and
+non-irrigated marginal record counts is treated only as an upper bound on
+same-county overlap. Sorghum, upland cotton, barley, and oats have upper bounds
+of 6,439, 4,524, 5,766, and 1,978 paired county-years, respectively. Barley and
+oats end in 2008; sorghum and cotton extend through 2018. A broadened rice
+diagnostic finds 9,725 unstratified county survey yield records but zero records
+under either practice label, so it fails the direct-practice gate. The
+structural validator reconstructs all 325 requests and gates. Acquisition,
+actual county overlap, suppression handling, geography, crop calendars,
+weather construction, estimation, and interpretation remain separate closed
+gates; the current NASS calendar input covers only corn, soybean, and wheat.
+
 ### Exploratory all-classes-wheat PDSI sensitivity
 
 All-classes wheat is the only additional acquired NASS outcome with paired
