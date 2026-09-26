@@ -439,7 +439,13 @@ paths and a non-overlapping GIVE welfare replacement.
 The planned production outcome set includes GDHY gridded yield for maize,
 rice, wheat, and soybean; current corrected aggregate-regime diagnostics cover
 maize and soybean only. A source-validated published rice response is available
-for future transport but has not entered any projection or SCC. Daily ISIMIP
+for future transport but has not entered any projection or SCC. A transparent
+year-2000 MIRCA rice sensitivity now proportionally reconciles Rice1--Rice3 to
+the annual broad-rice total within each cell and irrigation system. The global
+source discrepancies are small (0.0632% irrigated and 0.00828% rainfed), no
+annual-positive cell lacks seasonal support, and the repair is explicitly
+barred from production use pending the Rice1/Rice2 outcome crosswalk and a
+result sensitivity. Daily ISIMIP
 climate fields and GGCMI Phase 3 crop calendars supply
 stage-level temperature and precipitation information. Features include
 stage-weighted temperature, seasonal precipitation or water balance,

@@ -2122,6 +2122,19 @@ nonnegativity, and aggregation checks, but the seasonal
 maxima exceed the released annual Rice areas by 64,247.23 irrigated ha and
 5,302.04 rainfed ha. Because both predeclared reconciliations fail, no rice
 weight table is promoted while publisher generation logic is investigated.
+As a separately frozen sensitivity, all three seasonal areas can be multiplied
+within each cell and irrigation system by the official annual area divided by
+their seasonal sum. No annual-positive cell lacks seasonal support and no
+season-positive cell lacks annual support. The adjustment exactly preserves
+within-cell season shares and reconciles annual totals to numerical precision.
+The original excess equals 0.0632% of irrigated and 0.00828% of rainfed global
+area. Of annual area, 0.210% irrigated and 0.0438% rainfed receives a correction
+above 5%; none of the irrigated area and 0.00838% of rainfed area receives a
+correction above 10%. The 30,903-cell Rice1/Rice2 candidate remains labeled
+`production_eligible=false` and `scc_authorized=false`. It can enter only a
+future sensitivity after the outcome-calendar crosswalk, season moderators,
+and unrepaired/repaired result comparison pass; it does not replace the failed
+source gate.
 MIRCA's numeric wheat subcrops do not provide a documented spring/winter
 identity, so no timing-based inference is allowed.
 

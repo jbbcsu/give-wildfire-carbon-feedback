@@ -1,0 +1,210 @@
+{
+  "annual_sources": [
+    {
+      "bytes": 86291,
+      "path": "data/raw/mirca_os_v2/extracted_30arcmin/00/30-arcminute/MIRCA-OS_Rice_2000_ir_30arcmin_v2.tif",
+      "sha256": "88eb83b7f97ffea752aa49aa35d57446e0e9ac66f01494cc4052ac2e6c49f246",
+      "system": "ir"
+    },
+    {
+      "bytes": 107919,
+      "path": "data/raw/mirca_os_v2/extracted_30arcmin/00/30-arcminute/MIRCA-OS_Rice_2000_rf_30arcmin_v2.tif",
+      "sha256": "ed3aff28823300cf1cf4b9ae1fd85ebb9446ba713f960c766aa9f65705e8aa9e",
+      "system": "rf"
+    }
+  ],
+  "claim_gates": {
+    "postrepair_reconciliation_exact": true,
+    "production_weights_authorized": false,
+    "publisher_data_reproduced_without_repair": false,
+    "response_damage_or_scc_authorized": false,
+    "support_complete": true
+  },
+  "created_at_utc": "2026-09-26T01:52:00.235174+00:00",
+  "implementation": {
+    "path": "scripts/audit_mirca_rice_proportional_reconciliation.py",
+    "sha256": "2139d0bd2789341ea23a7597d26c8fa686e3926398a0d21cb5ec38266f6ce7fb"
+  },
+  "monthly_sources": [
+    {
+      "aggregated_area_ha": 60895862.43858055,
+      "annual_maximum_area_ha": 60895862.43858048,
+      "file_name": "MIRCA-OS_Rice1_2000_ir.nc",
+      "finite_month_grid_values": 1173266,
+      "missing_month_grid_values": 110801134,
+      "season": 1,
+      "sha512": "11300437eeb675a92dfd77c2d2d01d73f901edf52d86d79604b8cc925759b31cf2a5613bcbc411b604e1cf3d81400cce75eb4c655a70c49fa5c2e52dbb806947",
+      "size_bytes": 5629325,
+      "system": "ir",
+      "variable_units": "ha from the source README; the NetCDF variable omits a units attribute"
+    },
+    {
+      "aggregated_area_ha": 39560234.34438202,
+      "annual_maximum_area_ha": 39560234.344381966,
+      "file_name": "MIRCA-OS_Rice1_2000_rf.nc",
+      "finite_month_grid_values": 111974400,
+      "missing_month_grid_values": 0,
+      "season": 1,
+      "sha512": "a87a070900cbb5337991ad687af835b928e0286128420c4cb17752f9cd0469d47969897752be5d13e80fd8242d48c31f8ce11ea384345cb749646e103959298b",
+      "size_bytes": 8164695,
+      "system": "rf",
+      "variable_units": "ha from the source README; the NetCDF variable omits a units attribute"
+    },
+    {
+      "aggregated_area_ha": 34089076.5158981,
+      "annual_maximum_area_ha": 34089076.51589809,
+      "file_name": "MIRCA-OS_Rice2_2000_ir.nc",
+      "finite_month_grid_values": 489469,
+      "missing_month_grid_values": 111484931,
+      "season": 2,
+      "sha512": "f75e836da6e751c9eefb458ad5b22fd741d89066755d573119c4d69ad6f26165a85471e19e84ae99af85f0cefb166a59b1ee9c45d1e18fcb57cd86024d54a762",
+      "size_bytes": 2640785,
+      "system": "ir",
+      "variable_units": "ha from the source README; the NetCDF variable omits a units attribute"
+    },
+    {
+      "aggregated_area_ha": 23713098.34311795,
+      "annual_maximum_area_ha": 23713098.343117945,
+      "file_name": "MIRCA-OS_Rice2_2000_rf.nc",
+      "finite_month_grid_values": 111974400,
+      "missing_month_grid_values": 0,
+      "season": 2,
+      "sha512": "37f285ad0446856f394c76a817a461b5d274d6192e2581539ee04358d4fe8975c0268dc9a96f759f84fbb17bfbcb58457cf2514ec4148c7187ca69d81326b8e5",
+      "size_bytes": 3284242,
+      "system": "rf",
+      "variable_units": "ha from the source README; the NetCDF variable omits a units attribute"
+    },
+    {
+      "aggregated_area_ha": 6644710.92047373,
+      "annual_maximum_area_ha": 6644710.92047373,
+      "file_name": "MIRCA-OS_Rice3_2000_ir.nc",
+      "finite_month_grid_values": 61259,
+      "missing_month_grid_values": 111913141,
+      "season": 3,
+      "sha512": "574f47edad4f53e63785c7dd836ebe7cbfd7f133003102576092ba5bb2371d905fa4fab061a1899e8da2ab2b2e2fb701d007b43c102c3f0af41c6cf40828e311",
+      "size_bytes": 802073,
+      "system": "ir",
+      "variable_units": "ha from the source README; the NetCDF variable omits a units attribute"
+    },
+    {
+      "aggregated_area_ha": 748788.1597910654,
+      "annual_maximum_area_ha": 748788.1597910654,
+      "file_name": "MIRCA-OS_Rice3_2000_rf.nc",
+      "finite_month_grid_values": 111974400,
+      "missing_month_grid_values": 0,
+      "season": 3,
+      "sha512": "95dc9639dbac73402d0896b81a3629cc44a99a6e0be7f135b006964964e3b086137292420eacec6870ae7e840383ecc4a9955cbc4422e5fa46109a54c6274bc9",
+      "size_bytes": 565703,
+      "system": "rf",
+      "variable_units": "ha from the source README; the NetCDF variable omits a units attribute"
+    }
+  ],
+  "output": {
+    "bytes": 969876,
+    "path": "data/interim/mirca_os_v2/rice_season_proportional_reconciliation_candidate_2000.parquet",
+    "rows": 30903,
+    "sha256": "8079785c4196e590d35ec802c8715ad4779a42497bd825495e6cc155b8420528"
+  },
+  "protocol": {
+    "path": "MIRCA_RICE_PROPORTIONAL_RECONCILIATION_PROTOCOL_20260926.md",
+    "sha256": "2eba5be037fb563931df02c5e63b567236130973140641619d770b7f03753160"
+  },
+  "schema": "mirca_rice_proportional_reconciliation_sensitivity/v1",
+  "status": "validated_candidate_sensitivity_not_production_eligible",
+  "system_audits": [
+    {
+      "annual_area_fraction_by_absolute_relative_correction": {
+        "above_0.001": 0.04171386982375397,
+        "above_0.01": 0.01967706101598033,
+        "above_0.05": 0.002100919917436074,
+        "above_0.1": 0.0
+      },
+      "annual_area_ha": 101565402.64712049,
+      "annual_area_without_seasonal_support_ha": 0.0,
+      "annual_positive_seasonal_zero_cells": 0,
+      "common_positive_cells": 13637,
+      "maximum_absolute_cell_difference_ha": 4988.61767578125,
+      "postrepair_global_error_ha": 0.0,
+      "postrepair_maximum_absolute_cell_error_ha": 5.820766091346741e-11,
+      "reconstructed_area_ha": 101629649.87495238,
+      "scale_quantiles_common_positive": {
+        "maximum": 1.0000003401872781,
+        "minimum": 0.9108519082687996,
+        "p01": 0.9999998059911124,
+        "p50": 1.0,
+        "p99": 1.00000016773919
+      },
+      "season_areas": [
+        {
+          "change_ha": -36316.006673268974,
+          "original_area_ha": 60895862.43858055,
+          "repaired_area_ha": 60859546.43190728,
+          "season": 1
+        },
+        {
+          "change_ha": -27821.851229928434,
+          "original_area_ha": 34089076.5158981,
+          "repaired_area_ha": 34061254.66466817,
+          "season": 2
+        },
+        {
+          "change_ha": -109.36992867849767,
+          "original_area_ha": 6644710.92047373,
+          "repaired_area_ha": 6644601.550545052,
+          "season": 3
+        }
+      ],
+      "seasonal_area_without_annual_support_ha": 0.0,
+      "seasonal_positive_annual_zero_cells": 0,
+      "signed_global_difference_ha": 64247.22783188522,
+      "system": "ir"
+    },
+    {
+      "annual_area_fraction_by_absolute_relative_correction": {
+        "above_0.001": 0.0031371916393227194,
+        "above_0.01": 0.0007192083753774591,
+        "above_0.05": 0.00043798710495519344,
+        "above_0.1": 8.379843765107594e-05
+      },
+      "annual_area_ha": 64016818.80694567,
+      "annual_area_without_seasonal_support_ha": 0.0,
+      "annual_positive_seasonal_zero_cells": 0,
+      "common_positive_cells": 18903,
+      "maximum_absolute_cell_difference_ha": 2137.869599342346,
+      "postrepair_global_error_ha": 0.0,
+      "postrepair_maximum_absolute_cell_error_ha": 2.9103830456733704e-11,
+      "reconstructed_area_ha": 64022120.847291045,
+      "scale_quantiles_common_positive": {
+        "maximum": 1.000000710701844,
+        "minimum": 0.6423561838638155,
+        "p01": 0.999999765911971,
+        "p50": 1.0,
+        "p99": 1.0000002072078407
+      },
+      "season_areas": [
+        {
+          "change_ha": -5302.131176792085,
+          "original_area_ha": 39560234.34438202,
+          "repaired_area_ha": 39554932.213205226,
+          "season": 1
+        },
+        {
+          "change_ha": 0.08799277991056442,
+          "original_area_ha": 23713098.34311795,
+          "repaired_area_ha": 23713098.43111073,
+          "season": 2
+        },
+        {
+          "change_ha": 0.0028386454796418548,
+          "original_area_ha": 748788.1597910654,
+          "repaired_area_ha": 748788.1626297109,
+          "season": 3
+        }
+      ],
+      "seasonal_area_without_annual_support_ha": 0.0,
+      "seasonal_positive_annual_zero_cells": 0,
+      "signed_global_difference_ha": 5302.04034537822,
+      "system": "rf"
+    }
+  ]
+}
