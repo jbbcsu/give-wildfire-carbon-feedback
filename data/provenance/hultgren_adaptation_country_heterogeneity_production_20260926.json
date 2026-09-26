@@ -1,0 +1,218 @@
+{
+  "claim_gates": {
+    "causal_country_damage": false,
+    "country_scenario_accounting": true,
+    "estimated_adaptation_response": false,
+    "marginal_scc": false
+  },
+  "country_count": 144,
+  "created_at_utc": "2026-09-26T00:17:38.395423+00:00",
+  "estimand": "country contributions to production-weighted late-century maize precipitation log-yield response under registered loss-only attenuation scenarios",
+  "implementation": {
+    "path": "scripts/summarize_hultgren_adaptation_country_heterogeneity.py",
+    "sha256": "aa7bc4a6f067a86657bb6107c6e0f78aa946c3021e9e50d53d0aef73af02e209"
+  },
+  "limitations": [
+    "The adaptation rules are exogenous loss-only attenuation scenarios, not estimated farmer behavior.",
+    "Scenario endpoints combine multiple forcings and internal variability and are not marginal CO2 pulses.",
+    "Country contributions are physical production-weighted log-yield accounting, not welfare damages.",
+    "Five named climate models are structural scenarios, not probability draws."
+  ],
+  "model_reconstructions": [
+    {
+      "climate_model": "GFDL-ESM4",
+      "scenarios": {
+        "fixed": {
+          "absolute_error": 6.938893903907228e-18,
+          "reconstructed": -0.03846923501337712,
+          "source": -0.03846923501337713
+        },
+        "trend": {
+          "absolute_error": 6.938893903907228e-18,
+          "reconstructed": -0.02378777248821279,
+          "source": -0.023787772488212795
+        },
+        "upper": {
+          "absolute_error": 8.673617379884035e-19,
+          "reconstructed": -0.004212489121327007,
+          "source": -0.004212489121327006
+        }
+      }
+    },
+    {
+      "climate_model": "IPSL-CM6A-LR",
+      "scenarios": {
+        "fixed": {
+          "absolute_error": 3.469446951953614e-18,
+          "reconstructed": -0.03115159178203196,
+          "source": -0.031151591782031963
+        },
+        "trend": {
+          "absolute_error": 1.0408340855860843e-17,
+          "reconstructed": -0.01732986220341987,
+          "source": -0.01732986220341988
+        },
+        "upper": {
+          "absolute_error": 1.3010426069826053e-18,
+          "reconstructed": 0.001099110568062913,
+          "source": 0.0010991105680629143
+        }
+      }
+    },
+    {
+      "climate_model": "MPI-ESM1-2-HR",
+      "scenarios": {
+        "fixed": {
+          "absolute_error": 3.469446951953614e-18,
+          "reconstructed": -0.018867118633443362,
+          "source": -0.01886711863344336
+        },
+        "trend": {
+          "absolute_error": 2.6020852139652106e-18,
+          "reconstructed": -0.007202904396018492,
+          "source": -0.007202904396018489
+        },
+        "upper": {
+          "absolute_error": 5.204170427930421e-18,
+          "reconstructed": 0.008349381253881348,
+          "source": 0.008349381253881343
+        }
+      }
+    },
+    {
+      "climate_model": "MRI-ESM2-0",
+      "scenarios": {
+        "fixed": {
+          "absolute_error": 4.336808689942018e-18,
+          "reconstructed": -0.0054795831396990315,
+          "source": -0.005479583139699036
+        },
+        "trend": {
+          "absolute_error": 0.0,
+          "reconstructed": 0.004732218599257192,
+          "source": 0.004732218599257192
+        },
+        "upper": {
+          "absolute_error": 3.469446951953614e-18,
+          "reconstructed": 0.018347954251198832,
+          "source": 0.01834795425119883
+        }
+      }
+    },
+    {
+      "climate_model": "UKESM1-0-LL",
+      "scenarios": {
+        "fixed": {
+          "absolute_error": 2.168404344971009e-18,
+          "reconstructed": -0.00384604118679531,
+          "source": -0.003846041186795312
+        },
+        "trend": {
+          "absolute_error": 1.734723475976807e-18,
+          "reconstructed": 0.0076889735110146585,
+          "source": 0.00768897351101466
+        },
+        "upper": {
+          "absolute_error": 3.469446951953614e-18,
+          "reconstructed": 0.023068993108094626,
+          "source": 0.02306899310809463
+        }
+      }
+    }
+  ],
+  "output": {
+    "path": "data/interim/hultgren_adaptation_country_heterogeneity_production_20260926.csv",
+    "rows": 2160,
+    "sha256": "b0e0914efdd1faecbba16ca84bd7a46ac5bb619c8154e7c9c978a04e9925d2c9"
+  },
+  "scenarios": {
+    "fixed": {
+      "annual_attenuation_rate": 0.0,
+      "cap": 0.0
+    },
+    "trend": {
+      "annual_attenuation_rate": 0.003,
+      "cap": 0.35
+    },
+    "upper": {
+      "annual_attenuation_rate": 0.007,
+      "cap": 0.7
+    }
+  },
+  "schema": "hultgren_adaptation_country_heterogeneity/v1",
+  "sign_flips": {
+    "fixed_negative_to_upper_positive": 52,
+    "fixed_positive_to_upper_negative": 0
+  },
+  "sources": {
+    "components": [
+      {
+        "path": "data/interim/hultgren_timing_component_cells_production_20260925/hultgren_gfdl_timing_component_cells_20260925.parquet",
+        "receipt": "data/interim/hultgren_timing_component_cells_production_20260925/hultgren_gfdl_timing_component_transport_20260925.json",
+        "receipt_sha256": "1f4d2d80c8eac3f51c041c8d4b13048f192c62ded52d19c357ec690fc1fbef76",
+        "sha256": "89beb34d1fcb7f35addb166bc66896a67b1cc9b3548782bcd3ab0e4d6ffc3c2c"
+      },
+      {
+        "path": "data/interim/hultgren_timing_component_cells_production_20260925/hultgren_ipsl_timing_component_cells_20260925.parquet",
+        "receipt": "data/interim/hultgren_timing_component_cells_production_20260925/hultgren_ipsl_timing_component_transport_20260925.json",
+        "receipt_sha256": "b3f876a9bf9314d8648d980226cd0a9b2843727c0784f1d8e1923bb258f8599a",
+        "sha256": "bcd6d4f53b4dc0d4ede9570758435132ed4fed768de98450699c084505b8f6b5"
+      },
+      {
+        "path": "data/interim/hultgren_timing_component_cells_production_20260925/hultgren_mpi_timing_component_cells_20260925.parquet",
+        "receipt": "data/interim/hultgren_timing_component_cells_production_20260925/hultgren_mpi_timing_component_transport_20260925.json",
+        "receipt_sha256": "46f5f2fe9054ee29eab24d0736f8e655fd4629b44073dbb17e1101aead6d38d3",
+        "sha256": "58cf400ca7e5f2766cdebb12464b68efd67c57dc47b47370832f9650ac7e1a97"
+      },
+      {
+        "path": "data/interim/hultgren_timing_component_cells_production_20260925/hultgren_mri_timing_component_cells_20260925.parquet",
+        "receipt": "data/interim/hultgren_timing_component_cells_production_20260925/hultgren_mri_timing_component_transport_20260925.json",
+        "receipt_sha256": "5972909004ae5d8207c34c56b9ec29b44b86e831f9e8f096a5c9b1a313b8725c",
+        "sha256": "58381010fc634fec7b6329c76cafd54a0024cbee70f5467ee04c3e71d0a721d5"
+      },
+      {
+        "path": "data/interim/hultgren_timing_component_cells_production_20260925/hultgren_ukesm_timing_component_cells_20260925.parquet",
+        "receipt": "data/interim/hultgren_timing_component_cells_production_20260925/hultgren_ukesm_timing_component_transport_20260925.json",
+        "receipt_sha256": "c622091dd31402626207b1577c4ec5f60c718d2089032ade0780d79fdabf7738",
+        "sha256": "bef92ea3c64b60c131a84060e70f383955400b0d3e60330173433ed88bdfe17d"
+      }
+    ],
+    "moderators": {
+      "path": "data/interim/hultgren_cell_moderators_20260924.parquet",
+      "sha256": "7657a5617a0c8d0af0036329dc34dd0062e2e0457aa28d2551c38e5408c85d29"
+    }
+  },
+  "status": "exogenous_adaptation_scenario_heterogeneity_not_damage_or_scc",
+  "summaries": {
+    "fixed": {
+      "countries_mean_negative": 111,
+      "countries_mean_positive": 33,
+      "countries_mixed_sign_across_models": 76,
+      "countries_negative_all_five_models": 65,
+      "countries_positive_all_five_models": 3,
+      "global_equal_model_mean_log_yield": -0.01956271395106936,
+      "gross_negative_country_contribution": -0.021674284742970625,
+      "gross_positive_country_contribution": 0.0021115707919012686
+    },
+    "trend": {
+      "countries_mean_negative": 89,
+      "countries_mean_positive": 55,
+      "countries_mixed_sign_across_models": 82,
+      "countries_negative_all_five_models": 49,
+      "countries_positive_all_five_models": 13,
+      "global_equal_model_mean_log_yield": -0.007179869395475861,
+      "gross_negative_country_contribution": -0.012043328760347756,
+      "gross_positive_country_contribution": 0.004863459364871895
+    },
+    "upper": {
+      "countries_mean_negative": 59,
+      "countries_mean_positive": 85,
+      "countries_mixed_sign_across_models": 75,
+      "countries_negative_all_five_models": 28,
+      "countries_positive_all_five_models": 41,
+      "global_equal_model_mean_log_yield": 0.009330590011982142,
+      "gross_negative_country_contribution": -0.002427969921774955,
+      "gross_positive_country_contribution": 0.011758559933757096
+    }
+  }
+}

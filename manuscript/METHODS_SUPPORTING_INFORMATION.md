@@ -1653,6 +1653,18 @@ benefits are unchanged. Because this rule is applied separately to each
 component, component additivity applies only before adaptation. Adaptation
 costs are zero pending empirical calibration.
 
+For the country heterogeneity audit, the registered factor is applied to each
+cell-year's net precipitation log-yield response before aggregation. Cells are
+mapped to the frozen country crosswalk and weighted by fixed MapSPAM 2000
+physical maize production. Country contributions divide each country's
+weighted response by the model-wide weight, and are then averaged equally
+across the five named ESMs. The audit reports gross positive and negative
+country contributions, sign counts, all-model sign stability, and fixed-to-
+upper sign changes. It requires trend contributions to be weakly greater than
+fixed and upper contributions weakly greater than trend for every country,
+which follows mechanically from attenuating only negative cell responses.
+This monotonicity is a numerical check, not evidence about adaptation behavior.
+
 The final GFDL full-support run used 511.6 MB peak sampled process-group RSS
 under a 768 MiB cap; IPSL builders and validators stayed below 341 MB. MPI
 uses the same bounded streaming implementation and validation contract. A

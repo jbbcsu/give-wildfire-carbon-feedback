@@ -1937,6 +1937,17 @@ heterogeneity, not evidence that adaptation will create a global rainfall
 benefit. Adapted component means are nonadditive because loss-only attenuation
 is applied separately to each component.
 
+The corresponding country decomposition makes that asymmetry explicit. Under
+fixed adaptation, 111 of 144 countries have negative equal-model maize
+contributions and 33 have positive contributions. The trend case changes those
+counts to 89 and 55, while the upper case changes them to 59 and 85. Fifty-two
+countries switch from negative under fixed adaptation to positive under upper
+adaptation and none switches in the opposite direction. Gross loss/gain
+contributions move from -0.02167/+0.00211 log-yield points under fixed to
+-0.00243/+0.01176 under upper adaptation. These are scenario-accounting
+effects of an exogenous loss-only rule, not estimated adaptation behavior or
+benefits net of adaptation costs.
+
 ![Five-ESM precipitation-response decomposition](figures/hultgren_five_esm_yield_decomposition_20260924.svg)
 
 **Figure 3. Preliminary five-ESM maize precipitation-response transport.**
