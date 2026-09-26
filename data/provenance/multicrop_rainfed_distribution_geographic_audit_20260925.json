@@ -1,0 +1,1753 @@
+{
+  "bootstrap_draws_exported": false,
+  "causal_interpretation_authorized": false,
+  "coefficients_suppressed": true,
+  "comparison_count": 30,
+  "comparisons_passing_descriptive_predictive_support_gate": [],
+  "config_sha256": "289ee048df51e773a5e63ad309247b26b2c9d39b756542749bb17cf5970d33e7",
+  "contract_id": "multicrop_rainfed_distribution_geographic_paired_loss_audit_v1",
+  "crop_geographic_support": [
+    {
+      "crop": "mai",
+      "effective_cluster_count_from_pair_shares": 67.312778234122,
+      "maximum_cluster_pair_share": 0.026360584649619143,
+      "occupied_10degree_clusters": 129,
+      "pair_count": 105157
+    },
+    {
+      "crop": "ri1",
+      "effective_cluster_count_from_pair_shares": 48.84255042654243,
+      "maximum_cluster_pair_share": 0.03735011990407674,
+      "occupied_10degree_clusters": 108,
+      "pair_count": 66720
+    },
+    {
+      "crop": "ri2",
+      "effective_cluster_count_from_pair_shares": 10.576017641691674,
+      "maximum_cluster_pair_share": 0.1657513279913568,
+      "occupied_10degree_clusters": 27,
+      "pair_count": 11107
+    },
+    {
+      "crop": "soy",
+      "effective_cluster_count_from_pair_shares": 28.02343537203412,
+      "maximum_cluster_pair_share": 0.058428805237315876,
+      "occupied_10degree_clusters": 56,
+      "pair_count": 42770
+    },
+    {
+      "crop": "swh",
+      "effective_cluster_count_from_pair_shares": 32.96214550365993,
+      "maximum_cluster_pair_share": 0.06446571596014847,
+      "occupied_10degree_clusters": 64,
+      "pair_count": 35833
+    },
+    {
+      "crop": "wwh",
+      "effective_cluster_count_from_pair_shares": 45.62614885863956,
+      "maximum_cluster_pair_share": 0.04349274565655556,
+      "occupied_10degree_clusters": 86,
+      "pair_count": 60033
+    }
+  ],
+  "damage_calculation_authorized": false,
+  "economic_winner_loser_interpretation_authorized": false,
+  "parent_result_path": "data/provenance/multicrop_rainfed_distribution_diagnostic_20260925.json",
+  "parent_result_sha256": "1ee38418a8419cea5b274d646e08da833ed0aefe6511ecfd1f59cb77b68ddbff",
+  "production_model_selection_authorized": false,
+  "response_draw_export_authorized": false,
+  "results": [
+    {
+      "all_five_spatial_folds_have_lower_candidate_rmse": true,
+      "candidate_minus_reference_rmse": -0.0008499132226333916,
+      "candidate_model": "quantity_plus_timing_concentration",
+      "candidate_oof_rmse": 0.2950417824209639,
+      "cluster_share_with_lower_candidate_mean_squared_loss": 0.5813953488372093,
+      "clusters_with_lower_candidate_mean_squared_loss": 75,
+      "crop": "mai",
+      "holm_adjusted_tail_probability_30_tests": 0.3599280143971206,
+      "median_cluster_candidate_minus_reference_mean_squared_loss": -0.00021192644218821747,
+      "occupied_10degree_clusters": 129,
+      "pair_count": 105157,
+      "paired_cluster_bootstrap_rmse_difference_quantiles": {
+        "p2_5": -0.0015358988598865766,
+        "p50": -0.0008434844160456478,
+        "p97_5": -0.00020329625264053214
+      },
+      "passes_prespecified_descriptive_predictive_support_gate": false,
+      "reference_model": "seasonal_quantity",
+      "reference_oof_rmse": 0.2958916956435973,
+      "sign_convention": "candidate_minus_reference_negative_favors_candidate",
+      "spatial_fold_differences": [
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.000716325681075658,
+          "fold": 0,
+          "test_rows": 19345
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.00015013754922443834,
+          "fold": 1,
+          "test_rows": 21407
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.0007616742975594115,
+          "fold": 2,
+          "test_rows": 18009
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.0020941494187221577,
+          "fold": 3,
+          "test_rows": 22035
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.0005137935317878761,
+          "fold": 4,
+          "test_rows": 24361
+        }
+      ],
+      "two_sided_bootstrap_tail_probability": 0.01199760047990402
+    },
+    {
+      "all_five_spatial_folds_have_lower_candidate_rmse": false,
+      "candidate_minus_reference_rmse": -0.0010099207505614993,
+      "candidate_model": "quantity_plus_occurrence_intensity",
+      "candidate_oof_rmse": 0.2948817748930358,
+      "cluster_share_with_lower_candidate_mean_squared_loss": 0.5891472868217055,
+      "clusters_with_lower_candidate_mean_squared_loss": 76,
+      "crop": "mai",
+      "holm_adjusted_tail_probability_30_tests": 1.0,
+      "median_cluster_candidate_minus_reference_mean_squared_loss": -0.0007259640770519468,
+      "occupied_10degree_clusters": 129,
+      "pair_count": 105157,
+      "paired_cluster_bootstrap_rmse_difference_quantiles": {
+        "p2_5": -0.001973073397439387,
+        "p50": -0.0010053339397533556,
+        "p97_5": -4.595460943110499e-05
+      },
+      "passes_prespecified_descriptive_predictive_support_gate": false,
+      "reference_model": "seasonal_quantity",
+      "reference_oof_rmse": 0.2958916956435973,
+      "sign_convention": "candidate_minus_reference_negative_favors_candidate",
+      "spatial_fold_differences": [
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.0009671648038476754,
+          "fold": 0,
+          "test_rows": 19345
+        },
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 0.00012511504538770257,
+          "fold": 1,
+          "test_rows": 21407
+        },
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 0.000687729275890836,
+          "fold": 2,
+          "test_rows": 18009
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.0026199935821411002,
+          "fold": 3,
+          "test_rows": 22035
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.001802956937443756,
+          "fold": 4,
+          "test_rows": 24361
+        }
+      ],
+      "two_sided_bootstrap_tail_probability": 0.038792241551689664
+    },
+    {
+      "all_five_spatial_folds_have_lower_candidate_rmse": false,
+      "candidate_minus_reference_rmse": -0.00027062088077395297,
+      "candidate_model": "quantity_plus_dry_spells",
+      "candidate_oof_rmse": 0.29562107476282334,
+      "cluster_share_with_lower_candidate_mean_squared_loss": 0.5348837209302325,
+      "clusters_with_lower_candidate_mean_squared_loss": 69,
+      "crop": "mai",
+      "holm_adjusted_tail_probability_30_tests": 1.0,
+      "median_cluster_candidate_minus_reference_mean_squared_loss": -0.00010318860153856912,
+      "occupied_10degree_clusters": 129,
+      "pair_count": 105157,
+      "paired_cluster_bootstrap_rmse_difference_quantiles": {
+        "p2_5": -0.0006509483479097258,
+        "p50": -0.0002705243067414598,
+        "p97_5": 9.930624505230236e-05
+      },
+      "passes_prespecified_descriptive_predictive_support_gate": false,
+      "reference_model": "seasonal_quantity",
+      "reference_oof_rmse": 0.2958916956435973,
+      "sign_convention": "candidate_minus_reference_negative_favors_candidate",
+      "spatial_fold_differences": [
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.00019711711917425045,
+          "fold": 0,
+          "test_rows": 19345
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.0001052235723352779,
+          "fold": 1,
+          "test_rows": 21407
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.000708386592269239,
+          "fold": 2,
+          "test_rows": 18009
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.0006445709326975413,
+          "fold": 3,
+          "test_rows": 22035
+        },
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 0.00017274209052814404,
+          "fold": 4,
+          "test_rows": 24361
+        }
+      ],
+      "two_sided_bootstrap_tail_probability": 0.14757048590281943
+    },
+    {
+      "all_five_spatial_folds_have_lower_candidate_rmse": false,
+      "candidate_minus_reference_rmse": -0.0004343472152508743,
+      "candidate_model": "quantity_plus_wet_extremes",
+      "candidate_oof_rmse": 0.2954573484283464,
+      "cluster_share_with_lower_candidate_mean_squared_loss": 0.5426356589147286,
+      "clusters_with_lower_candidate_mean_squared_loss": 70,
+      "crop": "mai",
+      "holm_adjusted_tail_probability_30_tests": 1.0,
+      "median_cluster_candidate_minus_reference_mean_squared_loss": -0.00013799275420793764,
+      "occupied_10degree_clusters": 129,
+      "pair_count": 105157,
+      "paired_cluster_bootstrap_rmse_difference_quantiles": {
+        "p2_5": -0.000942568901465661,
+        "p50": -0.0004374021131944572,
+        "p97_5": 8.370599855463661e-05
+      },
+      "passes_prespecified_descriptive_predictive_support_gate": false,
+      "reference_model": "seasonal_quantity",
+      "reference_oof_rmse": 0.2958916956435973,
+      "sign_convention": "candidate_minus_reference_negative_favors_candidate",
+      "spatial_fold_differences": [
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 0.0005138472484905177,
+          "fold": 0,
+          "test_rows": 19345
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.00012125012926600398,
+          "fold": 1,
+          "test_rows": 21407
+        },
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 0.000196603274192797,
+          "fold": 2,
+          "test_rows": 18009
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.0016017236290387094,
+          "fold": 3,
+          "test_rows": 22035
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.0008325196863944173,
+          "fold": 4,
+          "test_rows": 24361
+        }
+      ],
+      "two_sided_bootstrap_tail_probability": 0.10317936412717456
+    },
+    {
+      "all_five_spatial_folds_have_lower_candidate_rmse": false,
+      "candidate_minus_reference_rmse": -0.0010665712828919482,
+      "candidate_model": "quantity_plus_all_distribution",
+      "candidate_oof_rmse": 0.29482512436070535,
+      "cluster_share_with_lower_candidate_mean_squared_loss": 0.5426356589147286,
+      "clusters_with_lower_candidate_mean_squared_loss": 70,
+      "crop": "mai",
+      "holm_adjusted_tail_probability_30_tests": 0.7166566686662668,
+      "median_cluster_candidate_minus_reference_mean_squared_loss": -0.0006231585879974894,
+      "occupied_10degree_clusters": 129,
+      "pair_count": 105157,
+      "paired_cluster_bootstrap_rmse_difference_quantiles": {
+        "p2_5": -0.002068038733017906,
+        "p50": -0.0010571035305874388,
+        "p97_5": -0.00011472352383910452
+      },
+      "passes_prespecified_descriptive_predictive_support_gate": false,
+      "reference_model": "seasonal_quantity",
+      "reference_oof_rmse": 0.2958916956435973,
+      "sign_convention": "candidate_minus_reference_negative_favors_candidate",
+      "spatial_fold_differences": [
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.0013421016295330213,
+          "fold": 0,
+          "test_rows": 19345
+        },
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 0.00015980366554113612,
+          "fold": 1,
+          "test_rows": 21407
+        },
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 0.00041088148321760665,
+          "fold": 2,
+          "test_rows": 18009
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.0028742286049088794,
+          "fold": 3,
+          "test_rows": 22035
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.0013628849958405298,
+          "fold": 4,
+          "test_rows": 24361
+        }
+      ],
+      "two_sided_bootstrap_tail_probability": 0.02559488102379524
+    },
+    {
+      "all_five_spatial_folds_have_lower_candidate_rmse": false,
+      "candidate_minus_reference_rmse": 0.0001851815298819781,
+      "candidate_model": "quantity_plus_timing_concentration",
+      "candidate_oof_rmse": 0.22581647012411607,
+      "cluster_share_with_lower_candidate_mean_squared_loss": 0.5092592592592593,
+      "clusters_with_lower_candidate_mean_squared_loss": 55,
+      "crop": "ri1",
+      "holm_adjusted_tail_probability_30_tests": 1.0,
+      "median_cluster_candidate_minus_reference_mean_squared_loss": -1.7614324792383653e-05,
+      "occupied_10degree_clusters": 108,
+      "pair_count": 66720,
+      "paired_cluster_bootstrap_rmse_difference_quantiles": {
+        "p2_5": -0.00021507848864467868,
+        "p50": 0.00017463270913886664,
+        "p97_5": 0.0006620156928090202
+      },
+      "passes_prespecified_descriptive_predictive_support_gate": false,
+      "reference_model": "seasonal_quantity",
+      "reference_oof_rmse": 0.2256312885942341,
+      "sign_convention": "candidate_minus_reference_negative_favors_candidate",
+      "spatial_fold_differences": [
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.00017463130561795603,
+          "fold": 0,
+          "test_rows": 16736
+        },
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 0.0004928831910162024,
+          "fold": 1,
+          "test_rows": 11835
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -2.8320416442517704e-06,
+          "fold": 2,
+          "test_rows": 11641
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.00013692694141870243,
+          "fold": 3,
+          "test_rows": 15523
+        },
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 0.001026666930227682,
+          "fold": 4,
+          "test_rows": 10985
+        }
+      ],
+      "two_sided_bootstrap_tail_probability": 0.41831633673265345
+    },
+    {
+      "all_five_spatial_folds_have_lower_candidate_rmse": false,
+      "candidate_minus_reference_rmse": -0.0008015941892277334,
+      "candidate_model": "quantity_plus_occurrence_intensity",
+      "candidate_oof_rmse": 0.22482969440500636,
+      "cluster_share_with_lower_candidate_mean_squared_loss": 0.6203703703703703,
+      "clusters_with_lower_candidate_mean_squared_loss": 67,
+      "crop": "ri1",
+      "holm_adjusted_tail_probability_30_tests": 1.0,
+      "median_cluster_candidate_minus_reference_mean_squared_loss": -0.00030842394184066844,
+      "occupied_10degree_clusters": 108,
+      "pair_count": 66720,
+      "paired_cluster_bootstrap_rmse_difference_quantiles": {
+        "p2_5": -0.001747648681679708,
+        "p50": -0.0007839298163984376,
+        "p97_5": 0.00010023156668842081
+      },
+      "passes_prespecified_descriptive_predictive_support_gate": false,
+      "reference_model": "seasonal_quantity",
+      "reference_oof_rmse": 0.2256312885942341,
+      "sign_convention": "candidate_minus_reference_negative_favors_candidate",
+      "spatial_fold_differences": [
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.001457830957166395,
+          "fold": 0,
+          "test_rows": 16736
+        },
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 0.0009598524763145821,
+          "fold": 1,
+          "test_rows": 11835
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.0011531850350385842,
+          "fold": 2,
+          "test_rows": 11641
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.001705915715989631,
+          "fold": 3,
+          "test_rows": 15523
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -9.305100741796579e-05,
+          "fold": 4,
+          "test_rows": 10985
+        }
+      ],
+      "two_sided_bootstrap_tail_probability": 0.07958408318336332
+    },
+    {
+      "all_five_spatial_folds_have_lower_candidate_rmse": false,
+      "candidate_minus_reference_rmse": 1.1114562088965219e-05,
+      "candidate_model": "quantity_plus_dry_spells",
+      "candidate_oof_rmse": 0.22564240315632306,
+      "cluster_share_with_lower_candidate_mean_squared_loss": 0.5,
+      "clusters_with_lower_candidate_mean_squared_loss": 54,
+      "crop": "ri1",
+      "holm_adjusted_tail_probability_30_tests": 1.0,
+      "median_cluster_candidate_minus_reference_mean_squared_loss": 3.00486079603235e-06,
+      "occupied_10degree_clusters": 108,
+      "pair_count": 66720,
+      "paired_cluster_bootstrap_rmse_difference_quantiles": {
+        "p2_5": -0.0004652091001766362,
+        "p50": 1.7431740470877366e-05,
+        "p97_5": 0.0005213160361715093
+      },
+      "passes_prespecified_descriptive_predictive_support_gate": false,
+      "reference_model": "seasonal_quantity",
+      "reference_oof_rmse": 0.2256312885942341,
+      "sign_convention": "candidate_minus_reference_negative_favors_candidate",
+      "spatial_fold_differences": [
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 0.00011948160837796373,
+          "fold": 0,
+          "test_rows": 16736
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.000199021792157833,
+          "fold": 1,
+          "test_rows": 11835
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.0004446476366007368,
+          "fold": 2,
+          "test_rows": 11641
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.00029322602912798534,
+          "fold": 3,
+          "test_rows": 15523
+        },
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 0.0010348220338339542,
+          "fold": 4,
+          "test_rows": 10985
+        }
+      ],
+      "two_sided_bootstrap_tail_probability": 0.9482103579284143
+    },
+    {
+      "all_five_spatial_folds_have_lower_candidate_rmse": false,
+      "candidate_minus_reference_rmse": -0.0004722230160530694,
+      "candidate_model": "quantity_plus_wet_extremes",
+      "candidate_oof_rmse": 0.22515906557818102,
+      "cluster_share_with_lower_candidate_mean_squared_loss": 0.5740740740740741,
+      "clusters_with_lower_candidate_mean_squared_loss": 62,
+      "crop": "ri1",
+      "holm_adjusted_tail_probability_30_tests": 1.0,
+      "median_cluster_candidate_minus_reference_mean_squared_loss": -0.00015216478973610018,
+      "occupied_10degree_clusters": 108,
+      "pair_count": 66720,
+      "paired_cluster_bootstrap_rmse_difference_quantiles": {
+        "p2_5": -0.0011390286937153374,
+        "p50": -0.0004625928933540274,
+        "p97_5": 0.0001975081144325926
+      },
+      "passes_prespecified_descriptive_predictive_support_gate": false,
+      "reference_model": "seasonal_quantity",
+      "reference_oof_rmse": 0.2256312885942341,
+      "sign_convention": "candidate_minus_reference_negative_favors_candidate",
+      "spatial_fold_differences": [
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.000679002839921311,
+          "fold": 0,
+          "test_rows": 16736
+        },
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 0.00037800192080553185,
+          "fold": 1,
+          "test_rows": 11835
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.0006633308239945845,
+          "fold": 2,
+          "test_rows": 11641
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.0007884303438512597,
+          "fold": 3,
+          "test_rows": 15523
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.0004387355174449159,
+          "fold": 4,
+          "test_rows": 10985
+        }
+      ],
+      "two_sided_bootstrap_tail_probability": 0.16076784643071385
+    },
+    {
+      "all_five_spatial_folds_have_lower_candidate_rmse": false,
+      "candidate_minus_reference_rmse": -0.0005105776327537781,
+      "candidate_model": "quantity_plus_all_distribution",
+      "candidate_oof_rmse": 0.2251207109614803,
+      "cluster_share_with_lower_candidate_mean_squared_loss": 0.5277777777777778,
+      "clusters_with_lower_candidate_mean_squared_loss": 57,
+      "crop": "ri1",
+      "holm_adjusted_tail_probability_30_tests": 1.0,
+      "median_cluster_candidate_minus_reference_mean_squared_loss": -9.256581658910736e-05,
+      "occupied_10degree_clusters": 108,
+      "pair_count": 66720,
+      "paired_cluster_bootstrap_rmse_difference_quantiles": {
+        "p2_5": -0.0016240695049303464,
+        "p50": -0.0004988724652142673,
+        "p97_5": 0.0005914437723022531
+      },
+      "passes_prespecified_descriptive_predictive_support_gate": false,
+      "reference_model": "seasonal_quantity",
+      "reference_oof_rmse": 0.2256312885942341,
+      "sign_convention": "candidate_minus_reference_negative_favors_candidate",
+      "spatial_fold_differences": [
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.0012183697668028681,
+          "fold": 0,
+          "test_rows": 16736
+        },
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 0.0007433012922135884,
+          "fold": 1,
+          "test_rows": 11835
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.0014343654953477003,
+          "fold": 2,
+          "test_rows": 11641
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.0005116913404183965,
+          "fold": 3,
+          "test_rows": 15523
+        },
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 1.5787248454135483e-05,
+          "fold": 4,
+          "test_rows": 10985
+        }
+      ],
+      "two_sided_bootstrap_tail_probability": 0.3675264947010598
+    },
+    {
+      "all_five_spatial_folds_have_lower_candidate_rmse": false,
+      "candidate_minus_reference_rmse": -0.0005080145540677372,
+      "candidate_model": "quantity_plus_timing_concentration",
+      "candidate_oof_rmse": 0.2724494128619929,
+      "cluster_share_with_lower_candidate_mean_squared_loss": 0.5555555555555556,
+      "clusters_with_lower_candidate_mean_squared_loss": 15,
+      "crop": "ri2",
+      "holm_adjusted_tail_probability_30_tests": 1.0,
+      "median_cluster_candidate_minus_reference_mean_squared_loss": -0.0002806220873344748,
+      "occupied_10degree_clusters": 27,
+      "pair_count": 11107,
+      "paired_cluster_bootstrap_rmse_difference_quantiles": {
+        "p2_5": -0.0028444326321761236,
+        "p50": -0.00040742464378090704,
+        "p97_5": 0.0019764655288641653
+      },
+      "passes_prespecified_descriptive_predictive_support_gate": false,
+      "reference_model": "seasonal_quantity",
+      "reference_oof_rmse": 0.27295742741606066,
+      "sign_convention": "candidate_minus_reference_negative_favors_candidate",
+      "spatial_fold_differences": [
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.0004623323886130959,
+          "fold": 0,
+          "test_rows": 3890
+        },
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 0.003884723487130315,
+          "fold": 1,
+          "test_rows": 1701
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.003861973731351165,
+          "fold": 2,
+          "test_rows": 1274
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -7.962824010454561e-05,
+          "fold": 3,
+          "test_rows": 1722
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.002425868013665289,
+          "fold": 4,
+          "test_rows": 2520
+        }
+      ],
+      "two_sided_bootstrap_tail_probability": 0.7430513897220556
+    },
+    {
+      "all_five_spatial_folds_have_lower_candidate_rmse": false,
+      "candidate_minus_reference_rmse": 0.0008732139515082449,
+      "candidate_model": "quantity_plus_occurrence_intensity",
+      "candidate_oof_rmse": 0.2738306413675689,
+      "cluster_share_with_lower_candidate_mean_squared_loss": 0.4444444444444444,
+      "clusters_with_lower_candidate_mean_squared_loss": 12,
+      "crop": "ri2",
+      "holm_adjusted_tail_probability_30_tests": 1.0,
+      "median_cluster_candidate_minus_reference_mean_squared_loss": 0.0006309802512614303,
+      "occupied_10degree_clusters": 27,
+      "pair_count": 11107,
+      "paired_cluster_bootstrap_rmse_difference_quantiles": {
+        "p2_5": -0.004448717991532186,
+        "p50": 0.0008260746514505146,
+        "p97_5": 0.006141935866080801
+      },
+      "passes_prespecified_descriptive_predictive_support_gate": false,
+      "reference_model": "seasonal_quantity",
+      "reference_oof_rmse": 0.27295742741606066,
+      "sign_convention": "candidate_minus_reference_negative_favors_candidate",
+      "spatial_fold_differences": [
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 0.003559967979446521,
+          "fold": 0,
+          "test_rows": 3890
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.005449005310866117,
+          "fold": 1,
+          "test_rows": 1701
+        },
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 0.0009115482496760974,
+          "fold": 2,
+          "test_rows": 1274
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.004695969575618797,
+          "fold": 3,
+          "test_rows": 1722
+        },
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 0.004800210263889826,
+          "fold": 4,
+          "test_rows": 2520
+        }
+      ],
+      "two_sided_bootstrap_tail_probability": 0.7646470705858828
+    },
+    {
+      "all_five_spatial_folds_have_lower_candidate_rmse": false,
+      "candidate_minus_reference_rmse": 0.0014652631698143792,
+      "candidate_model": "quantity_plus_dry_spells",
+      "candidate_oof_rmse": 0.27442269058587504,
+      "cluster_share_with_lower_candidate_mean_squared_loss": 0.5185185185185185,
+      "clusters_with_lower_candidate_mean_squared_loss": 14,
+      "crop": "ri2",
+      "holm_adjusted_tail_probability_30_tests": 1.0,
+      "median_cluster_candidate_minus_reference_mean_squared_loss": -0.00021071142570370873,
+      "occupied_10degree_clusters": 27,
+      "pair_count": 11107,
+      "paired_cluster_bootstrap_rmse_difference_quantiles": {
+        "p2_5": -0.00026891403358018093,
+        "p50": 0.0014971269750112676,
+        "p97_5": 0.002893487549747168
+      },
+      "passes_prespecified_descriptive_predictive_support_gate": false,
+      "reference_model": "seasonal_quantity",
+      "reference_oof_rmse": 0.27295742741606066,
+      "sign_convention": "candidate_minus_reference_negative_favors_candidate",
+      "spatial_fold_differences": [
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 0.004433663960637213,
+          "fold": 0,
+          "test_rows": 3890
+        },
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 0.0012905104526524935,
+          "fold": 1,
+          "test_rows": 1701
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.002680208949383006,
+          "fold": 2,
+          "test_rows": 1274
+        },
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 0.00028353163473054943,
+          "fold": 3,
+          "test_rows": 1722
+        },
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 4.610690329498457e-05,
+          "fold": 4,
+          "test_rows": 2520
+        }
+      ],
+      "two_sided_bootstrap_tail_probability": 0.09478104379124175
+    },
+    {
+      "all_five_spatial_folds_have_lower_candidate_rmse": false,
+      "candidate_minus_reference_rmse": -0.0009157428740414475,
+      "candidate_model": "quantity_plus_wet_extremes",
+      "candidate_oof_rmse": 0.2720416845420192,
+      "cluster_share_with_lower_candidate_mean_squared_loss": 0.5925925925925926,
+      "clusters_with_lower_candidate_mean_squared_loss": 16,
+      "crop": "ri2",
+      "holm_adjusted_tail_probability_30_tests": 1.0,
+      "median_cluster_candidate_minus_reference_mean_squared_loss": -0.0007613416429597246,
+      "occupied_10degree_clusters": 27,
+      "pair_count": 11107,
+      "paired_cluster_bootstrap_rmse_difference_quantiles": {
+        "p2_5": -0.0033396951022795543,
+        "p50": -0.0009048071992267259,
+        "p97_5": 0.0016211339536657675
+      },
+      "passes_prespecified_descriptive_predictive_support_gate": false,
+      "reference_model": "seasonal_quantity",
+      "reference_oof_rmse": 0.27295742741606066,
+      "sign_convention": "candidate_minus_reference_negative_favors_candidate",
+      "spatial_fold_differences": [
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.0026838279620955974,
+          "fold": 0,
+          "test_rows": 3890
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.0022717662779921377,
+          "fold": 1,
+          "test_rows": 1701
+        },
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 0.00033244628671372234,
+          "fold": 2,
+          "test_rows": 1274
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.003662837272804309,
+          "fold": 3,
+          "test_rows": 1722
+        },
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 0.003370918978034876,
+          "fold": 4,
+          "test_rows": 2520
+        }
+      ],
+      "two_sided_bootstrap_tail_probability": 0.4563087382523495
+    },
+    {
+      "all_five_spatial_folds_have_lower_candidate_rmse": false,
+      "candidate_minus_reference_rmse": -0.0012160964221009096,
+      "candidate_model": "quantity_plus_all_distribution",
+      "candidate_oof_rmse": 0.27174133099395975,
+      "cluster_share_with_lower_candidate_mean_squared_loss": 0.5925925925925926,
+      "clusters_with_lower_candidate_mean_squared_loss": 16,
+      "crop": "ri2",
+      "holm_adjusted_tail_probability_30_tests": 1.0,
+      "median_cluster_candidate_minus_reference_mean_squared_loss": -0.0007356838639283579,
+      "occupied_10degree_clusters": 27,
+      "pair_count": 11107,
+      "paired_cluster_bootstrap_rmse_difference_quantiles": {
+        "p2_5": -0.006729423546595109,
+        "p50": -0.001171653692042876,
+        "p97_5": 0.005497998908169442
+      },
+      "passes_prespecified_descriptive_predictive_support_gate": false,
+      "reference_model": "seasonal_quantity",
+      "reference_oof_rmse": 0.27295742741606066,
+      "sign_convention": "candidate_minus_reference_negative_favors_candidate",
+      "spatial_fold_differences": [
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 0.0017839037038105965,
+          "fold": 0,
+          "test_rows": 3890
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.0025445947503531796,
+          "fold": 1,
+          "test_rows": 1701
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.006558443493680344,
+          "fold": 2,
+          "test_rows": 1274
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.00816383181132635,
+          "fold": 3,
+          "test_rows": 1722
+        },
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 0.0019494206296186145,
+          "fold": 4,
+          "test_rows": 2520
+        }
+      ],
+      "two_sided_bootstrap_tail_probability": 0.714257148570286
+    },
+    {
+      "all_five_spatial_folds_have_lower_candidate_rmse": true,
+      "candidate_minus_reference_rmse": -0.0007585198047312947,
+      "candidate_model": "quantity_plus_timing_concentration",
+      "candidate_oof_rmse": 0.22322542874448148,
+      "cluster_share_with_lower_candidate_mean_squared_loss": 0.5357142857142857,
+      "clusters_with_lower_candidate_mean_squared_loss": 30,
+      "crop": "soy",
+      "holm_adjusted_tail_probability_30_tests": 1.0,
+      "median_cluster_candidate_minus_reference_mean_squared_loss": -9.550158473094509e-05,
+      "occupied_10degree_clusters": 56,
+      "pair_count": 42770,
+      "paired_cluster_bootstrap_rmse_difference_quantiles": {
+        "p2_5": -0.0020845780630997512,
+        "p50": -0.000748933773059221,
+        "p97_5": 0.0005278486114734392
+      },
+      "passes_prespecified_descriptive_predictive_support_gate": false,
+      "reference_model": "seasonal_quantity",
+      "reference_oof_rmse": 0.22398394854921277,
+      "sign_convention": "candidate_minus_reference_negative_favors_candidate",
+      "spatial_fold_differences": [
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -7.437984119570973e-05,
+          "fold": 0,
+          "test_rows": 9940
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.00043050878241229773,
+          "fold": 1,
+          "test_rows": 6798
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.001030282819160122,
+          "fold": 2,
+          "test_rows": 7821
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.001542735935595868,
+          "fold": 3,
+          "test_rows": 8149
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.0007950634167845916,
+          "fold": 4,
+          "test_rows": 10062
+        }
+      ],
+      "two_sided_bootstrap_tail_probability": 0.2751449710057988
+    },
+    {
+      "all_five_spatial_folds_have_lower_candidate_rmse": false,
+      "candidate_minus_reference_rmse": -0.0011471942679374125,
+      "candidate_model": "quantity_plus_occurrence_intensity",
+      "candidate_oof_rmse": 0.22283675428127536,
+      "cluster_share_with_lower_candidate_mean_squared_loss": 0.6607142857142857,
+      "clusters_with_lower_candidate_mean_squared_loss": 37,
+      "crop": "soy",
+      "holm_adjusted_tail_probability_30_tests": 1.0,
+      "median_cluster_candidate_minus_reference_mean_squared_loss": -0.0004693713883253711,
+      "occupied_10degree_clusters": 56,
+      "pair_count": 42770,
+      "paired_cluster_bootstrap_rmse_difference_quantiles": {
+        "p2_5": -0.0028290790029821154,
+        "p50": -0.0011708956998554981,
+        "p97_5": 0.0006615125932265073
+      },
+      "passes_prespecified_descriptive_predictive_support_gate": false,
+      "reference_model": "seasonal_quantity",
+      "reference_oof_rmse": 0.22398394854921277,
+      "sign_convention": "candidate_minus_reference_negative_favors_candidate",
+      "spatial_fold_differences": [
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.001302272541605698,
+          "fold": 0,
+          "test_rows": 9940
+        },
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 7.549482355467818e-05,
+          "fold": 1,
+          "test_rows": 6798
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.0008473739063476482,
+          "fold": 2,
+          "test_rows": 7821
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.001703255966960332,
+          "fold": 3,
+          "test_rows": 8149
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.001706791534963531,
+          "fold": 4,
+          "test_rows": 10062
+        }
+      ],
+      "two_sided_bootstrap_tail_probability": 0.1967606478704259
+    },
+    {
+      "all_five_spatial_folds_have_lower_candidate_rmse": false,
+      "candidate_minus_reference_rmse": -0.0007461047884136374,
+      "candidate_model": "quantity_plus_dry_spells",
+      "candidate_oof_rmse": 0.22323784376079914,
+      "cluster_share_with_lower_candidate_mean_squared_loss": 0.6607142857142857,
+      "clusters_with_lower_candidate_mean_squared_loss": 37,
+      "crop": "soy",
+      "holm_adjusted_tail_probability_30_tests": 1.0,
+      "median_cluster_candidate_minus_reference_mean_squared_loss": -0.0002530384041099533,
+      "occupied_10degree_clusters": 56,
+      "pair_count": 42770,
+      "paired_cluster_bootstrap_rmse_difference_quantiles": {
+        "p2_5": -0.0018681314743123581,
+        "p50": -0.000740081079769514,
+        "p97_5": 0.00047875212723406507
+      },
+      "passes_prespecified_descriptive_predictive_support_gate": false,
+      "reference_model": "seasonal_quantity",
+      "reference_oof_rmse": 0.22398394854921277,
+      "sign_convention": "candidate_minus_reference_negative_favors_candidate",
+      "spatial_fold_differences": [
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.001087956355021319,
+          "fold": 0,
+          "test_rows": 9940
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.0008799183604684679,
+          "fold": 1,
+          "test_rows": 6798
+        },
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 0.0005899331220876325,
+          "fold": 2,
+          "test_rows": 7821
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.0010466390583377394,
+          "fold": 3,
+          "test_rows": 8149
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.0010787362324128913,
+          "fold": 4,
+          "test_rows": 10062
+        }
+      ],
+      "two_sided_bootstrap_tail_probability": 0.21755648870225955
+    },
+    {
+      "all_five_spatial_folds_have_lower_candidate_rmse": true,
+      "candidate_minus_reference_rmse": -0.0003235096141316063,
+      "candidate_model": "quantity_plus_wet_extremes",
+      "candidate_oof_rmse": 0.22366043893508117,
+      "cluster_share_with_lower_candidate_mean_squared_loss": 0.5714285714285714,
+      "clusters_with_lower_candidate_mean_squared_loss": 32,
+      "crop": "soy",
+      "holm_adjusted_tail_probability_30_tests": 1.0,
+      "median_cluster_candidate_minus_reference_mean_squared_loss": -0.000324549610132614,
+      "occupied_10degree_clusters": 56,
+      "pair_count": 42770,
+      "paired_cluster_bootstrap_rmse_difference_quantiles": {
+        "p2_5": -0.0013611661404855388,
+        "p50": -0.00033132159134718897,
+        "p97_5": 0.0006993746303070979
+      },
+      "passes_prespecified_descriptive_predictive_support_gate": false,
+      "reference_model": "seasonal_quantity",
+      "reference_oof_rmse": 0.22398394854921277,
+      "sign_convention": "candidate_minus_reference_negative_favors_candidate",
+      "spatial_fold_differences": [
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.00015126541727250586,
+          "fold": 0,
+          "test_rows": 9940
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.0003189587005513195,
+          "fold": 1,
+          "test_rows": 6798
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.0002163868774105182,
+          "fold": 2,
+          "test_rows": 7821
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.00018785421433870075,
+          "fold": 3,
+          "test_rows": 8149
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.0007130609820357736,
+          "fold": 4,
+          "test_rows": 10062
+        }
+      ],
+      "two_sided_bootstrap_tail_probability": 0.5450909818036392
+    },
+    {
+      "all_five_spatial_folds_have_lower_candidate_rmse": true,
+      "candidate_minus_reference_rmse": -0.0025752255033610616,
+      "candidate_model": "quantity_plus_all_distribution",
+      "candidate_oof_rmse": 0.2214087230458517,
+      "cluster_share_with_lower_candidate_mean_squared_loss": 0.5535714285714286,
+      "clusters_with_lower_candidate_mean_squared_loss": 31,
+      "crop": "soy",
+      "holm_adjusted_tail_probability_30_tests": 0.6842631473705258,
+      "median_cluster_candidate_minus_reference_mean_squared_loss": -0.0004571906259140824,
+      "occupied_10degree_clusters": 56,
+      "pair_count": 42770,
+      "paired_cluster_bootstrap_rmse_difference_quantiles": {
+        "p2_5": -0.004946200968652821,
+        "p50": -0.0025334486071157958,
+        "p97_5": -0.00035192818943726426
+      },
+      "passes_prespecified_descriptive_predictive_support_gate": false,
+      "reference_model": "seasonal_quantity",
+      "reference_oof_rmse": 0.22398394854921277,
+      "sign_convention": "candidate_minus_reference_negative_favors_candidate",
+      "spatial_fold_differences": [
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.0034694471910756697,
+          "fold": 0,
+          "test_rows": 9940
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.002489816537478484,
+          "fold": 1,
+          "test_rows": 6798
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.0007907446477449509,
+          "fold": 2,
+          "test_rows": 7821
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.0033487042743021167,
+          "fold": 3,
+          "test_rows": 8149
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.002464422817932882,
+          "fold": 4,
+          "test_rows": 10062
+        }
+      ],
+      "two_sided_bootstrap_tail_probability": 0.023595280943811237
+    },
+    {
+      "all_five_spatial_folds_have_lower_candidate_rmse": true,
+      "candidate_minus_reference_rmse": -0.002975330656643349,
+      "candidate_model": "quantity_plus_timing_concentration",
+      "candidate_oof_rmse": 0.377120976291548,
+      "cluster_share_with_lower_candidate_mean_squared_loss": 0.59375,
+      "clusters_with_lower_candidate_mean_squared_loss": 38,
+      "crop": "swh",
+      "holm_adjusted_tail_probability_30_tests": 1.0,
+      "median_cluster_candidate_minus_reference_mean_squared_loss": -0.0005769227376612944,
+      "occupied_10degree_clusters": 64,
+      "pair_count": 35833,
+      "paired_cluster_bootstrap_rmse_difference_quantiles": {
+        "p2_5": -0.00615918664751171,
+        "p50": -0.002935513502292847,
+        "p97_5": 0.0001893808855766344
+      },
+      "passes_prespecified_descriptive_predictive_support_gate": false,
+      "reference_model": "seasonal_quantity",
+      "reference_oof_rmse": 0.38009630694819135,
+      "sign_convention": "candidate_minus_reference_negative_favors_candidate",
+      "spatial_fold_differences": [
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.0031329741363416708,
+          "fold": 0,
+          "test_rows": 7219
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.001620843790162363,
+          "fold": 1,
+          "test_rows": 6608
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.0022745494217450424,
+          "fold": 2,
+          "test_rows": 8643
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.0028628435815411524,
+          "fold": 3,
+          "test_rows": 5949
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.004939257838770916,
+          "fold": 4,
+          "test_rows": 7414
+        }
+      ],
+      "two_sided_bootstrap_tail_probability": 0.0655868826234753
+    },
+    {
+      "all_five_spatial_folds_have_lower_candidate_rmse": true,
+      "candidate_minus_reference_rmse": -0.0025323571219327268,
+      "candidate_model": "quantity_plus_occurrence_intensity",
+      "candidate_oof_rmse": 0.3775639498262586,
+      "cluster_share_with_lower_candidate_mean_squared_loss": 0.671875,
+      "clusters_with_lower_candidate_mean_squared_loss": 43,
+      "crop": "swh",
+      "holm_adjusted_tail_probability_30_tests": 1.0,
+      "median_cluster_candidate_minus_reference_mean_squared_loss": -0.002435296648293096,
+      "occupied_10degree_clusters": 64,
+      "pair_count": 35833,
+      "paired_cluster_bootstrap_rmse_difference_quantiles": {
+        "p2_5": -0.004726035679818566,
+        "p50": -0.002548461159140425,
+        "p97_5": -4.549501116188229e-05
+      },
+      "passes_prespecified_descriptive_predictive_support_gate": false,
+      "reference_model": "seasonal_quantity",
+      "reference_oof_rmse": 0.38009630694819135,
+      "sign_convention": "candidate_minus_reference_negative_favors_candidate",
+      "spatial_fold_differences": [
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.002488155646627521,
+          "fold": 0,
+          "test_rows": 7219
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.002876809527636248,
+          "fold": 1,
+          "test_rows": 6608
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.004083778893717693,
+          "fold": 2,
+          "test_rows": 8643
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.00020906144648535907,
+          "fold": 3,
+          "test_rows": 5949
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.002345295960980598,
+          "fold": 4,
+          "test_rows": 7414
+        }
+      ],
+      "two_sided_bootstrap_tail_probability": 0.04599080183963208
+    },
+    {
+      "all_five_spatial_folds_have_lower_candidate_rmse": false,
+      "candidate_minus_reference_rmse": -0.0013160232457584686,
+      "candidate_model": "quantity_plus_dry_spells",
+      "candidate_oof_rmse": 0.3787802837024329,
+      "cluster_share_with_lower_candidate_mean_squared_loss": 0.46875,
+      "clusters_with_lower_candidate_mean_squared_loss": 30,
+      "crop": "swh",
+      "holm_adjusted_tail_probability_30_tests": 1.0,
+      "median_cluster_candidate_minus_reference_mean_squared_loss": 0.00037494388518628536,
+      "occupied_10degree_clusters": 64,
+      "pair_count": 35833,
+      "paired_cluster_bootstrap_rmse_difference_quantiles": {
+        "p2_5": -0.0036973991691634928,
+        "p50": -0.0011971354956955282,
+        "p97_5": 0.0011093911248269614
+      },
+      "passes_prespecified_descriptive_predictive_support_gate": false,
+      "reference_model": "seasonal_quantity",
+      "reference_oof_rmse": 0.38009630694819135,
+      "sign_convention": "candidate_minus_reference_negative_favors_candidate",
+      "spatial_fold_differences": [
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.002055556611887166,
+          "fold": 0,
+          "test_rows": 7219
+        },
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 0.0020549203516819214,
+          "fold": 1,
+          "test_rows": 6608
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.0016451539550759176,
+          "fold": 2,
+          "test_rows": 8643
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.004308433318744087,
+          "fold": 3,
+          "test_rows": 5949
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.0005916308972395701,
+          "fold": 4,
+          "test_rows": 7414
+        }
+      ],
+      "two_sided_bootstrap_tail_probability": 0.3059388122375525
+    },
+    {
+      "all_five_spatial_folds_have_lower_candidate_rmse": false,
+      "candidate_minus_reference_rmse": -0.0015849443110165229,
+      "candidate_model": "quantity_plus_wet_extremes",
+      "candidate_oof_rmse": 0.37851136263717483,
+      "cluster_share_with_lower_candidate_mean_squared_loss": 0.578125,
+      "clusters_with_lower_candidate_mean_squared_loss": 37,
+      "crop": "swh",
+      "holm_adjusted_tail_probability_30_tests": 1.0,
+      "median_cluster_candidate_minus_reference_mean_squared_loss": -0.0006060446299245,
+      "occupied_10degree_clusters": 64,
+      "pair_count": 35833,
+      "paired_cluster_bootstrap_rmse_difference_quantiles": {
+        "p2_5": -0.003215996999387617,
+        "p50": -0.0015939344564322722,
+        "p97_5": 0.00023356583856911137
+      },
+      "passes_prespecified_descriptive_predictive_support_gate": false,
+      "reference_model": "seasonal_quantity",
+      "reference_oof_rmse": 0.38009630694819135,
+      "sign_convention": "candidate_minus_reference_negative_favors_candidate",
+      "spatial_fold_differences": [
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 0.0003080444995914311,
+          "fold": 0,
+          "test_rows": 7219
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.00227734392842055,
+          "fold": 1,
+          "test_rows": 6608
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.0011591401117287958,
+          "fold": 2,
+          "test_rows": 8643
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.0043864796789798155,
+          "fold": 3,
+          "test_rows": 5949
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.001282110978866935,
+          "fold": 4,
+          "test_rows": 7414
+        }
+      ],
+      "two_sided_bootstrap_tail_probability": 0.07878424315136973
+    },
+    {
+      "all_five_spatial_folds_have_lower_candidate_rmse": false,
+      "candidate_minus_reference_rmse": -0.00472118788129372,
+      "candidate_model": "quantity_plus_all_distribution",
+      "candidate_oof_rmse": 0.37537511906689763,
+      "cluster_share_with_lower_candidate_mean_squared_loss": 0.5625,
+      "clusters_with_lower_candidate_mean_squared_loss": 36,
+      "crop": "swh",
+      "holm_adjusted_tail_probability_30_tests": 1.0,
+      "median_cluster_candidate_minus_reference_mean_squared_loss": -0.0028735942692602054,
+      "occupied_10degree_clusters": 64,
+      "pair_count": 35833,
+      "paired_cluster_bootstrap_rmse_difference_quantiles": {
+        "p2_5": -0.00915898359337791,
+        "p50": -0.004724526456394873,
+        "p97_5": 0.0005279946518350007
+      },
+      "passes_prespecified_descriptive_predictive_support_gate": false,
+      "reference_model": "seasonal_quantity",
+      "reference_oof_rmse": 0.38009630694819135,
+      "sign_convention": "candidate_minus_reference_negative_favors_candidate",
+      "spatial_fold_differences": [
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.007551165399973581,
+          "fold": 0,
+          "test_rows": 7219
+        },
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 0.0002574982385055713,
+          "fold": 1,
+          "test_rows": 6608
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.004940014473627519,
+          "fold": 2,
+          "test_rows": 8643
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.0037780208456572595,
+          "fold": 3,
+          "test_rows": 5949
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.006518446955027568,
+          "fold": 4,
+          "test_rows": 7414
+        }
+      ],
+      "two_sided_bootstrap_tail_probability": 0.07238552289542091
+    },
+    {
+      "all_five_spatial_folds_have_lower_candidate_rmse": false,
+      "candidate_minus_reference_rmse": 0.0002555878861698613,
+      "candidate_model": "quantity_plus_timing_concentration",
+      "candidate_oof_rmse": 0.2941045694800114,
+      "cluster_share_with_lower_candidate_mean_squared_loss": 0.5232558139534884,
+      "clusters_with_lower_candidate_mean_squared_loss": 45,
+      "crop": "wwh",
+      "holm_adjusted_tail_probability_30_tests": 1.0,
+      "median_cluster_candidate_minus_reference_mean_squared_loss": -1.3025219034620372e-05,
+      "occupied_10degree_clusters": 86,
+      "pair_count": 60033,
+      "paired_cluster_bootstrap_rmse_difference_quantiles": {
+        "p2_5": -0.0002523726871772408,
+        "p50": 0.0002562076931381385,
+        "p97_5": 0.0008537131903066609
+      },
+      "passes_prespecified_descriptive_predictive_support_gate": false,
+      "reference_model": "seasonal_quantity",
+      "reference_oof_rmse": 0.29384898159384154,
+      "sign_convention": "candidate_minus_reference_negative_favors_candidate",
+      "spatial_fold_differences": [
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 5.556625297947759e-05,
+          "fold": 0,
+          "test_rows": 10010
+        },
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 9.876579014506115e-05,
+          "fold": 1,
+          "test_rows": 13178
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.00013463525423540457,
+          "fold": 2,
+          "test_rows": 10592
+        },
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 0.0007085980160244088,
+          "fold": 3,
+          "test_rows": 13408
+        },
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 0.00039812536942862575,
+          "fold": 4,
+          "test_rows": 12845
+        }
+      ],
+      "two_sided_bootstrap_tail_probability": 0.33873225354929015
+    },
+    {
+      "all_five_spatial_folds_have_lower_candidate_rmse": false,
+      "candidate_minus_reference_rmse": -0.0009108645545780614,
+      "candidate_model": "quantity_plus_occurrence_intensity",
+      "candidate_oof_rmse": 0.2929381170392635,
+      "cluster_share_with_lower_candidate_mean_squared_loss": 0.46511627906976744,
+      "clusters_with_lower_candidate_mean_squared_loss": 40,
+      "crop": "wwh",
+      "holm_adjusted_tail_probability_30_tests": 1.0,
+      "median_cluster_candidate_minus_reference_mean_squared_loss": 0.00021999622264590838,
+      "occupied_10degree_clusters": 86,
+      "pair_count": 60033,
+      "paired_cluster_bootstrap_rmse_difference_quantiles": {
+        "p2_5": -0.002974215884734338,
+        "p50": -0.0008728909557518261,
+        "p97_5": 0.0012700041622191042
+      },
+      "passes_prespecified_descriptive_predictive_support_gate": false,
+      "reference_model": "seasonal_quantity",
+      "reference_oof_rmse": 0.29384898159384154,
+      "sign_convention": "candidate_minus_reference_negative_favors_candidate",
+      "spatial_fold_differences": [
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 0.0005628693610856272,
+          "fold": 0,
+          "test_rows": 10010
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.0005698186327184329,
+          "fold": 1,
+          "test_rows": 13178
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.0025386586086988405,
+          "fold": 2,
+          "test_rows": 10592
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.0018986863636904494,
+          "fold": 3,
+          "test_rows": 13408
+        },
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 0.00018136554159420282,
+          "fold": 4,
+          "test_rows": 12845
+        }
+      ],
+      "two_sided_bootstrap_tail_probability": 0.45990801839632073
+    },
+    {
+      "all_five_spatial_folds_have_lower_candidate_rmse": false,
+      "candidate_minus_reference_rmse": -0.00010275198820569598,
+      "candidate_model": "quantity_plus_dry_spells",
+      "candidate_oof_rmse": 0.29374622960563584,
+      "cluster_share_with_lower_candidate_mean_squared_loss": 0.5465116279069767,
+      "clusters_with_lower_candidate_mean_squared_loss": 47,
+      "crop": "wwh",
+      "holm_adjusted_tail_probability_30_tests": 1.0,
+      "median_cluster_candidate_minus_reference_mean_squared_loss": -0.00010962466118256796,
+      "occupied_10degree_clusters": 86,
+      "pair_count": 60033,
+      "paired_cluster_bootstrap_rmse_difference_quantiles": {
+        "p2_5": -0.0007518847014553589,
+        "p50": -9.67677881718032e-05,
+        "p97_5": 0.000626660958143124
+      },
+      "passes_prespecified_descriptive_predictive_support_gate": false,
+      "reference_model": "seasonal_quantity",
+      "reference_oof_rmse": 0.29384898159384154,
+      "sign_convention": "candidate_minus_reference_negative_favors_candidate",
+      "spatial_fold_differences": [
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 0.0008219063346723843,
+          "fold": 0,
+          "test_rows": 10010
+        },
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 6.144165767779652e-05,
+          "fold": 1,
+          "test_rows": 13178
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.0006499715043086218,
+          "fold": 2,
+          "test_rows": 10592
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.0004284947494461733,
+          "fold": 3,
+          "test_rows": 13408
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -9.831286441891463e-05,
+          "fold": 4,
+          "test_rows": 12845
+        }
+      ],
+      "two_sided_bootstrap_tail_probability": 0.794241151769646
+    },
+    {
+      "all_five_spatial_folds_have_lower_candidate_rmse": false,
+      "candidate_minus_reference_rmse": 0.00031408773827568126,
+      "candidate_model": "quantity_plus_wet_extremes",
+      "candidate_oof_rmse": 0.2941630693321172,
+      "cluster_share_with_lower_candidate_mean_squared_loss": 0.4883720930232558,
+      "clusters_with_lower_candidate_mean_squared_loss": 42,
+      "crop": "wwh",
+      "holm_adjusted_tail_probability_30_tests": 1.0,
+      "median_cluster_candidate_minus_reference_mean_squared_loss": 3.090255234263142e-05,
+      "occupied_10degree_clusters": 86,
+      "pair_count": 60033,
+      "paired_cluster_bootstrap_rmse_difference_quantiles": {
+        "p2_5": -0.0005106409275683774,
+        "p50": 0.0003101450898112812,
+        "p97_5": 0.0011883298965285366
+      },
+      "passes_prespecified_descriptive_predictive_support_gate": false,
+      "reference_model": "seasonal_quantity",
+      "reference_oof_rmse": 0.29384898159384154,
+      "sign_convention": "candidate_minus_reference_negative_favors_candidate",
+      "spatial_fold_differences": [
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 0.001158419160455726,
+          "fold": 0,
+          "test_rows": 10010
+        },
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 0.0006743210620538398,
+          "fold": 1,
+          "test_rows": 13178
+        },
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 0.00041495306050531866,
+          "fold": 2,
+          "test_rows": 10592
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -9.613792439272517e-05,
+          "fold": 3,
+          "test_rows": 13408
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.00030742191951538267,
+          "fold": 4,
+          "test_rows": 12845
+        }
+      ],
+      "two_sided_bootstrap_tail_probability": 0.46710657868426314
+    },
+    {
+      "all_five_spatial_folds_have_lower_candidate_rmse": false,
+      "candidate_minus_reference_rmse": -0.0006455651893924608,
+      "candidate_model": "quantity_plus_all_distribution",
+      "candidate_oof_rmse": 0.2932034164044491,
+      "cluster_share_with_lower_candidate_mean_squared_loss": 0.5116279069767442,
+      "clusters_with_lower_candidate_mean_squared_loss": 44,
+      "crop": "wwh",
+      "holm_adjusted_tail_probability_30_tests": 1.0,
+      "median_cluster_candidate_minus_reference_mean_squared_loss": -5.246586111284098e-05,
+      "occupied_10degree_clusters": 86,
+      "pair_count": 60033,
+      "paired_cluster_bootstrap_rmse_difference_quantiles": {
+        "p2_5": -0.002779009113599469,
+        "p50": -0.0006008554641646069,
+        "p97_5": 0.0017248098596802258
+      },
+      "passes_prespecified_descriptive_predictive_support_gate": false,
+      "reference_model": "seasonal_quantity",
+      "reference_oof_rmse": 0.29384898159384154,
+      "sign_convention": "candidate_minus_reference_negative_favors_candidate",
+      "spatial_fold_differences": [
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 0.0009621581198858142,
+          "fold": 0,
+          "test_rows": 10010
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.0003971331290869018,
+          "fold": 1,
+          "test_rows": 13178
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.0013699475214503654,
+          "fold": 2,
+          "test_rows": 10592
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.002035286068128861,
+          "fold": 3,
+          "test_rows": 13408
+        },
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 0.0001337834343347888,
+          "fold": 4,
+          "test_rows": 12845
+        }
+      ],
+      "two_sided_bootstrap_tail_probability": 0.6130773845230953
+    }
+  ],
+  "row_predictions_exported": false,
+  "runtime": {
+    "maximum_worker_rss_bytes": 493092864,
+    "worker_memory_bytes_maximum": 536870912,
+    "worker_rss_bytes": {
+      "mai": {
+        "level_build": 368476160,
+        "paired_loss_audit": 412958720,
+        "stage_extract": 493092864
+      },
+      "ri1": {
+        "level_build": 302514176,
+        "paired_loss_audit": 337100800,
+        "stage_extract": 472973312
+      },
+      "ri2": {
+        "level_build": 184942592,
+        "paired_loss_audit": 143491072,
+        "stage_extract": 267108352
+      },
+      "soy": {
+        "level_build": 269516800,
+        "paired_loss_audit": 225886208,
+        "stage_extract": 460292096
+      },
+      "swh": {
+        "level_build": 269516800,
+        "paired_loss_audit": 216973312,
+        "stage_extract": 459276288
+      },
+      "wwh": {
+        "level_build": 288079872,
+        "paired_loss_audit": 274055168,
+        "stage_extract": 469368832
+      }
+    }
+  },
+  "scc_use_authorized": false,
+  "spatial_oof_only": true,
+  "status": "validated_noncausal_multicrop_geographic_paired_predictive_loss_audit_not_scc_eligible",
+  "training_reestimated_within_bootstrap": false,
+  "warning": "Lower held-out predictive loss in a geographic block is not a causal crop benefit, an economic winner, a damage estimate, or evidence authorized for GIVE/SCC use."
+}

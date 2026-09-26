@@ -363,6 +363,17 @@ weather panels on rainfed and irrigated support, value weights, market
 interaction, and matched marginal-pulse validation. Source results and closed gates are in
 [`HULTGREN_RICE_RESPONSE_SOURCE_RESULTS_20260925.md`](../HULTGREN_RICE_RESPONSE_SOURCE_RESULTS_20260925.md).
 
+A first/main-season historical rice preflight now constructs the published
+weather basis for 272,808 complete cell-years per branch across 27 years. Only
+10,104 of 21,968 positive-rice cells with finite calendars (45.99%) satisfy the
+source-compatible 6--12-month season rule; shorter calendars are excluded
+rather than coerced into the response phases. The local `ri1_noirr` and
+`ri1_firr` calendars and all weather primitives are identical on common
+support, so they provide no irrigation-calendar contrast. Independent daily
+reconstruction agrees within `1.14e-13`. No rice response is evaluated because
+the author estimation-domain bounds and season-specific moderators remain
+unavailable, and annual MIRCA cannot allocate area among rice seasons.
+
 This study asks: how does the agricultural component of the global SCC change
 when a temperature-indexed agricultural pathway is replaced by a joint,
 crop-calendar-aligned temperature--precipitation response? The scope is crop
@@ -1304,6 +1315,16 @@ county-year wheat composition, this is a retrospective measurement sensitivity,
 not causal, nationally representative, predictive, future, damage, or SCC
 evidence.
 
+The preregistered first-difference prediction check does not promote wheat
+PDSI. In the fixed 2001--2007 terminal block, linear PDSI lowers RMSE by 5.05%
+for irrigated and 14.85% for non-irrigated wheat, but it clears the frozen
+leave-one-state-out materiality floor in only 8/14 and 11/14 states. The
+irrigated terminal out-of-sample R-squared is negative (-0.323), whereas the
+non-irrigated value is positive (0.200). Quadratic PDSI also fails geographic
+uniformity. PDSI is kept separate from rainfall throughout; the result remains
+a regional historical predictive diagnostic rather than a response, damage,
+or SCC input.
+
 The separate all-practice national weather route remains a construction
 diagnostic. It validates 932 of 2,628 county-weight receipts before failing
 closed at Trigg County, Kentucky, whose weather-valid area is 0.907267979 of
@@ -1428,6 +1449,17 @@ passes its hash-locked numerical audit, but the eight-year GDHY outcome,
 calendar-fraction timing proxies, retrospective wet-tail split, and absence of
 paired uncertainty or multiplicity correction keep every response, damage,
 and SCC gate closed.
+
+A paired geographic audit strengthens that negative gate. It compares all 30
+crop-by-distribution candidates using fixed spatial out-of-fold predictions,
+10-degree cluster bootstrap intervals, a Holm correction across the full
+family, five-fold sign stability, and majority-block improvement. Five
+unadjusted intervals favor distribution, including maize timing, soybean's
+full distribution set, and spring-wheat occurrence/intensity; none survives
+multiplicity correction, and zero of 30 candidates passes the combined gate.
+Second-season rice is especially concentrated, with only 27 occupied blocks
+and an effective block count of 10.6. Grid-block prediction improvements are
+not interpreted as geographic or economic winners.
 
 All earlier rainfed-panel response rankings were generated under a superseded,
 endpoint-overlapping split and are excluded from current manuscript results.

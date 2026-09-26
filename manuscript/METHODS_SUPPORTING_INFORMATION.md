@@ -821,6 +821,17 @@ is restricted to a retrospective historical measurement sensitivity. All
 causal, irrigation-treatment, national-representativeness, predictive, future,
 global-transfer, damage, and SCC gates remain false.
 
+The follow-on prediction protocol first-differences each practice separately,
+purges every training difference sharing a yield endpoint with its test set,
+and compares a trend-only benchmark with linear and quadratic PDSI families.
+All 14 states exceed the fixed 50-row threshold for leave-one-state-out tests;
+2001--2007 is the terminal block. Promotion requires linear PDSI to reduce
+RMSE by at least the greater of `0.0001` and 1% of trend-only RMSE in every
+eligible state. It clears that floor in 8/14 irrigated and 11/14 non-irrigated
+tests, so both primary gates fail despite positive terminal improvements. The
+independent reconstruction repeats all 90 fitted result rows and endpoint
+purges; maximum metric discrepancy is `6.66e-16`.
+
 ## S3. Crop-year alignment
 
 For every grid cell, crop, season, irrigation regime, and harvest year, read
@@ -1530,6 +1541,20 @@ over the crop season. It conservatively requires at least six and no more than
 twelve calendar months so all three phases are nonempty. The next rice gate is
 application to separate first/second-season, rainfed/irrigated daily panels;
 no future response, valuation, damage, or SCC is inferred from the method test.
+
+The historical `ri1` preflight streams local GSWP3-W5E5 precipitation, Tmin,
+and Tmax into three nine-year chunks for each of the separate rainfed and
+irrigated calendar branches. Annual MIRCA rice is used only as a Boolean
+positive-crop mask, never as a weight or season allocator. A cell is retained
+only when the calendar yields six through twelve complete months. The resulting
+272,808 cell-years per branch cover 10,104 cells; 11,864 other positive-rice
+cells have three- through five-month calendars and are excluded. A separate
+validator checks the published 46-term weather contract, exact branch support,
+calendar and feature equality, source and output hashes, and two independently
+reconstructed daily rows per chunk. The local branch calendars are identical,
+so the preflight supplies no irrigation contrast. It deliberately emits no
+response because moderator support, author-domain bounds, the India reporting-
+year exception, and season-specific crop weights remain unresolved.
 
 For the maize winners-and-losers diagnostic, the transport evaluator exports
 the net precipitation response, the proportional total-quantity reference,
@@ -2627,6 +2652,17 @@ consecutive differences, and 126 crop-by-model-by-holdout results; every
 recorded endpoint-overlap count is zero. Coefficients are suppressed and the
 independent validator repeats the full calculation while holding causal,
 production-selection, response-draw, damage, and SCC gates false.
+
+The geographic follow-up pairs each distribution candidate's fixed spatial
+out-of-fold squared loss with the seasonal-quantity loss on identical rows.
+It aggregates signs over occupied 10-degree blocks and forms 5,000 conditional
+cluster-bootstrap replicates by resampling those blocks. The prespecified gate
+requires an interval wholly below zero, a Holm-adjusted tail probability at or
+below 0.05 across all 30 crop-by-extension comparisons, improvement in all
+five folds, and improvement in a majority of occupied blocks. Zero candidates
+pass. Five unadjusted intervals exclude zero, but none survives the familywise
+correction. Fits are not reestimated within bootstrap draws, and block-level
+prediction errors are never labeled geographic or economic impacts.
 
 When daily climate coverage crosses source-file boundaries, the builders take
 an ordered list of NetCDF inputs, require identical latitude/longitude grids and units,

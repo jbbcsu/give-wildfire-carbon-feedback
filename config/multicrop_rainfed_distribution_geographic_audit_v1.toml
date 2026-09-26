@@ -1,0 +1,64 @@
+schema_version = 1
+contract_id = "multicrop_rainfed_distribution_geographic_paired_loss_audit_v1"
+description = "Noncausal geographic stability and paired uncertainty audit of fixed spatial out-of-fold losses from the six-crop rainfed distribution diagnostic."
+
+parent_result_path = "data/provenance/multicrop_rainfed_distribution_diagnostic_20260925.json"
+parent_result_sha256 = "1ee38418a8419cea5b274d646e08da833ed0aefe6511ecfd1f59cb77b68ddbff"
+parent_lock_path = "config/multicrop_rainfed_distribution_diagnostic_v1.lock.toml"
+parent_lock_sha256 = "9e9afc03bd2a8ef6f7ef7a420116ed72a2d9d689f1335df275308590379c8796"
+parent_spec_path = "config/precipitation_distribution_diagnostic_v1.toml"
+parent_spec_sha256 = "4b10f63deceec58b1792d519428b97f116ad1a6e916e085cdd47530f3b46115c"
+parent_evaluator_path = "scripts/evaluate_multicrop_rainfed_distribution_diagnostic.py"
+parent_evaluator_sha256 = "d4f0de48e00e07d2b1d2d61a4442057af8b1b7d55b6e60df625a72cbe2155aba"
+
+reference_model = "seasonal_quantity"
+candidate_models = [
+  "quantity_plus_timing_concentration",
+  "quantity_plus_occurrence_intensity",
+  "quantity_plus_dry_spells",
+  "quantity_plus_wet_extremes",
+  "quantity_plus_all_distribution",
+]
+crops = ["mai", "ri1", "ri2", "soy", "swh", "wwh"]
+spatial_folds = 5
+
+[geographic_clusters]
+latitude_degrees = 10
+longitude_degrees = 10
+minimum_occupied_clusters_per_crop = 20
+maximum_pair_share = 0.20
+cluster_sign_metric = "within_cluster_mean_paired_squared_loss_candidate_minus_reference"
+cluster_weighting_for_sign_share = "equal_occupied_cluster"
+
+[uncertainty]
+scheme = "paired_10degree_cluster_bootstrap_of_fixed_spatial_oof_losses"
+replicates = 5000
+generator = "numpy.random.Generator(PCG64)"
+seed = 20260925
+interval_probabilities = [0.025, 0.5, 0.975]
+training_reestimated_within_bootstrap = false
+tail_probability = "two_sided_fraction_of_bootstrap_rmse_differences_across_zero_with_plus_one_correction"
+multiplicity = "holm_across_all_30_crop_by_candidate_comparisons"
+familywise_alpha = 0.05
+
+[descriptive_support_gate]
+rmse_difference_interval_upper_below_zero = true
+holm_adjusted_tail_probability_at_most_alpha = true
+all_five_spatial_fold_rmse_differences_below_zero = true
+majority_of_occupied_geographic_clusters_have_lower_mean_squared_loss = true
+
+[resources]
+worker_memory_bytes_maximum = 536870912
+one_crop_per_worker = true
+row_predictions_exported = false
+bootstrap_draws_exported = false
+
+[authorization]
+predictive_geographic_audit_authorized = true
+coefficient_export_authorized = false
+causal_interpretation_authorized = false
+economic_winner_loser_interpretation_authorized = false
+production_model_selection_authorized = false
+response_draw_export_authorized = false
+damage_calculation_authorized = false
+scc_use_authorized = false

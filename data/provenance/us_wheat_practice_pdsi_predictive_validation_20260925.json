@@ -1,0 +1,671 @@
+{
+  "checked_result_rows": 90,
+  "claim_boundary": "historical regional predictive diagnostic for a separate PDSI family; not causal, an irrigation treatment effect, national, future-facing, global, damage, or SCC evidence",
+  "first_difference_support": {
+    "irrigated": {
+      "counties": 573,
+      "difference_rows": 8171,
+      "difference_year_max": 2007,
+      "difference_year_min": 1982,
+      "states": 14,
+      "terminal_rows": 1602
+    },
+    "non_irrigated": {
+      "counties": 573,
+      "difference_rows": 8171,
+      "difference_year_max": 2007,
+      "difference_year_min": 1982,
+      "states": 14,
+      "terminal_rows": 1602
+    }
+  },
+  "independent_result_checks": [
+    {
+      "irrigation_practice": "irrigated",
+      "maximum_absolute_metric_difference": 6.661338147750939e-16,
+      "model": "pdsi_linear",
+      "split": "development_leave_state_out",
+      "split_id": "CA"
+    },
+    {
+      "irrigation_practice": "irrigated",
+      "maximum_absolute_metric_difference": 5.551115123125783e-17,
+      "model": "pdsi_quadratic",
+      "split": "development_leave_state_out",
+      "split_id": "CA"
+    },
+    {
+      "irrigation_practice": "irrigated",
+      "maximum_absolute_metric_difference": 2.7755575615628914e-17,
+      "model": "trend_only",
+      "split": "development_leave_state_out",
+      "split_id": "CA"
+    },
+    {
+      "irrigation_practice": "irrigated",
+      "maximum_absolute_metric_difference": 0.0,
+      "model": "pdsi_linear",
+      "split": "development_leave_state_out",
+      "split_id": "CO"
+    },
+    {
+      "irrigation_practice": "irrigated",
+      "maximum_absolute_metric_difference": 1.1102230246251565e-16,
+      "model": "pdsi_quadratic",
+      "split": "development_leave_state_out",
+      "split_id": "CO"
+    },
+    {
+      "irrigation_practice": "irrigated",
+      "maximum_absolute_metric_difference": 2.7755575615628914e-17,
+      "model": "trend_only",
+      "split": "development_leave_state_out",
+      "split_id": "CO"
+    },
+    {
+      "irrigation_practice": "irrigated",
+      "maximum_absolute_metric_difference": 1.1102230246251565e-16,
+      "model": "pdsi_linear",
+      "split": "development_leave_state_out",
+      "split_id": "ID"
+    },
+    {
+      "irrigation_practice": "irrigated",
+      "maximum_absolute_metric_difference": 0.0,
+      "model": "pdsi_quadratic",
+      "split": "development_leave_state_out",
+      "split_id": "ID"
+    },
+    {
+      "irrigation_practice": "irrigated",
+      "maximum_absolute_metric_difference": 2.0816681711721685e-17,
+      "model": "trend_only",
+      "split": "development_leave_state_out",
+      "split_id": "ID"
+    },
+    {
+      "irrigation_practice": "irrigated",
+      "maximum_absolute_metric_difference": 1.6653345369377348e-16,
+      "model": "pdsi_linear",
+      "split": "development_leave_state_out",
+      "split_id": "KS"
+    },
+    {
+      "irrigation_practice": "irrigated",
+      "maximum_absolute_metric_difference": 0.0,
+      "model": "pdsi_quadratic",
+      "split": "development_leave_state_out",
+      "split_id": "KS"
+    },
+    {
+      "irrigation_practice": "irrigated",
+      "maximum_absolute_metric_difference": 8.326672684688674e-17,
+      "model": "trend_only",
+      "split": "development_leave_state_out",
+      "split_id": "KS"
+    },
+    {
+      "irrigation_practice": "irrigated",
+      "maximum_absolute_metric_difference": 1.1102230246251565e-16,
+      "model": "pdsi_linear",
+      "split": "development_leave_state_out",
+      "split_id": "MT"
+    },
+    {
+      "irrigation_practice": "irrigated",
+      "maximum_absolute_metric_difference": 1.1102230246251565e-16,
+      "model": "pdsi_quadratic",
+      "split": "development_leave_state_out",
+      "split_id": "MT"
+    },
+    {
+      "irrigation_practice": "irrigated",
+      "maximum_absolute_metric_difference": 0.0,
+      "model": "trend_only",
+      "split": "development_leave_state_out",
+      "split_id": "MT"
+    },
+    {
+      "irrigation_practice": "irrigated",
+      "maximum_absolute_metric_difference": 2.0816681711721685e-17,
+      "model": "pdsi_linear",
+      "split": "development_leave_state_out",
+      "split_id": "ND"
+    },
+    {
+      "irrigation_practice": "irrigated",
+      "maximum_absolute_metric_difference": 5.551115123125783e-17,
+      "model": "pdsi_quadratic",
+      "split": "development_leave_state_out",
+      "split_id": "ND"
+    },
+    {
+      "irrigation_practice": "irrigated",
+      "maximum_absolute_metric_difference": 2.0816681711721685e-17,
+      "model": "trend_only",
+      "split": "development_leave_state_out",
+      "split_id": "ND"
+    },
+    {
+      "irrigation_practice": "irrigated",
+      "maximum_absolute_metric_difference": 5.551115123125783e-17,
+      "model": "pdsi_linear",
+      "split": "development_leave_state_out",
+      "split_id": "NE"
+    },
+    {
+      "irrigation_practice": "irrigated",
+      "maximum_absolute_metric_difference": 1.3877787807814457e-17,
+      "model": "pdsi_quadratic",
+      "split": "development_leave_state_out",
+      "split_id": "NE"
+    },
+    {
+      "irrigation_practice": "irrigated",
+      "maximum_absolute_metric_difference": 2.220446049250313e-16,
+      "model": "trend_only",
+      "split": "development_leave_state_out",
+      "split_id": "NE"
+    },
+    {
+      "irrigation_practice": "irrigated",
+      "maximum_absolute_metric_difference": 5.551115123125783e-17,
+      "model": "pdsi_linear",
+      "split": "development_leave_state_out",
+      "split_id": "NM"
+    },
+    {
+      "irrigation_practice": "irrigated",
+      "maximum_absolute_metric_difference": 4.440892098500626e-16,
+      "model": "pdsi_quadratic",
+      "split": "development_leave_state_out",
+      "split_id": "NM"
+    },
+    {
+      "irrigation_practice": "irrigated",
+      "maximum_absolute_metric_difference": 0.0,
+      "model": "trend_only",
+      "split": "development_leave_state_out",
+      "split_id": "NM"
+    },
+    {
+      "irrigation_practice": "irrigated",
+      "maximum_absolute_metric_difference": 0.0,
+      "model": "pdsi_linear",
+      "split": "development_leave_state_out",
+      "split_id": "OK"
+    },
+    {
+      "irrigation_practice": "irrigated",
+      "maximum_absolute_metric_difference": 0.0,
+      "model": "pdsi_quadratic",
+      "split": "development_leave_state_out",
+      "split_id": "OK"
+    },
+    {
+      "irrigation_practice": "irrigated",
+      "maximum_absolute_metric_difference": 1.1102230246251565e-16,
+      "model": "trend_only",
+      "split": "development_leave_state_out",
+      "split_id": "OK"
+    },
+    {
+      "irrigation_practice": "irrigated",
+      "maximum_absolute_metric_difference": 2.7755575615628914e-17,
+      "model": "pdsi_linear",
+      "split": "development_leave_state_out",
+      "split_id": "OR"
+    },
+    {
+      "irrigation_practice": "irrigated",
+      "maximum_absolute_metric_difference": 4.163336342344337e-17,
+      "model": "pdsi_quadratic",
+      "split": "development_leave_state_out",
+      "split_id": "OR"
+    },
+    {
+      "irrigation_practice": "irrigated",
+      "maximum_absolute_metric_difference": 2.7755575615628914e-17,
+      "model": "trend_only",
+      "split": "development_leave_state_out",
+      "split_id": "OR"
+    },
+    {
+      "irrigation_practice": "irrigated",
+      "maximum_absolute_metric_difference": 2.7755575615628914e-17,
+      "model": "pdsi_linear",
+      "split": "development_leave_state_out",
+      "split_id": "TX"
+    },
+    {
+      "irrigation_practice": "irrigated",
+      "maximum_absolute_metric_difference": 3.3306690738754696e-16,
+      "model": "pdsi_quadratic",
+      "split": "development_leave_state_out",
+      "split_id": "TX"
+    },
+    {
+      "irrigation_practice": "irrigated",
+      "maximum_absolute_metric_difference": 2.220446049250313e-16,
+      "model": "trend_only",
+      "split": "development_leave_state_out",
+      "split_id": "TX"
+    },
+    {
+      "irrigation_practice": "irrigated",
+      "maximum_absolute_metric_difference": 5.551115123125783e-17,
+      "model": "pdsi_linear",
+      "split": "development_leave_state_out",
+      "split_id": "UT"
+    },
+    {
+      "irrigation_practice": "irrigated",
+      "maximum_absolute_metric_difference": 5.551115123125783e-17,
+      "model": "pdsi_quadratic",
+      "split": "development_leave_state_out",
+      "split_id": "UT"
+    },
+    {
+      "irrigation_practice": "irrigated",
+      "maximum_absolute_metric_difference": 4.163336342344337e-17,
+      "model": "trend_only",
+      "split": "development_leave_state_out",
+      "split_id": "UT"
+    },
+    {
+      "irrigation_practice": "irrigated",
+      "maximum_absolute_metric_difference": 5.551115123125783e-17,
+      "model": "pdsi_linear",
+      "split": "development_leave_state_out",
+      "split_id": "WA"
+    },
+    {
+      "irrigation_practice": "irrigated",
+      "maximum_absolute_metric_difference": 2.0816681711721685e-16,
+      "model": "pdsi_quadratic",
+      "split": "development_leave_state_out",
+      "split_id": "WA"
+    },
+    {
+      "irrigation_practice": "irrigated",
+      "maximum_absolute_metric_difference": 5.551115123125783e-17,
+      "model": "trend_only",
+      "split": "development_leave_state_out",
+      "split_id": "WA"
+    },
+    {
+      "irrigation_practice": "irrigated",
+      "maximum_absolute_metric_difference": 2.7755575615628914e-17,
+      "model": "pdsi_linear",
+      "split": "development_leave_state_out",
+      "split_id": "WY"
+    },
+    {
+      "irrigation_practice": "irrigated",
+      "maximum_absolute_metric_difference": 1.3877787807814457e-17,
+      "model": "pdsi_quadratic",
+      "split": "development_leave_state_out",
+      "split_id": "WY"
+    },
+    {
+      "irrigation_practice": "irrigated",
+      "maximum_absolute_metric_difference": 0.0,
+      "model": "trend_only",
+      "split": "development_leave_state_out",
+      "split_id": "WY"
+    },
+    {
+      "irrigation_practice": "irrigated",
+      "maximum_absolute_metric_difference": 2.7755575615628914e-17,
+      "model": "pdsi_linear",
+      "split": "terminal_same_counties",
+      "split_id": "2001_2007"
+    },
+    {
+      "irrigation_practice": "irrigated",
+      "maximum_absolute_metric_difference": 4.440892098500626e-16,
+      "model": "pdsi_quadratic",
+      "split": "terminal_same_counties",
+      "split_id": "2001_2007"
+    },
+    {
+      "irrigation_practice": "irrigated",
+      "maximum_absolute_metric_difference": 2.220446049250313e-16,
+      "model": "trend_only",
+      "split": "terminal_same_counties",
+      "split_id": "2001_2007"
+    },
+    {
+      "irrigation_practice": "non_irrigated",
+      "maximum_absolute_metric_difference": 2.220446049250313e-16,
+      "model": "pdsi_linear",
+      "split": "development_leave_state_out",
+      "split_id": "CA"
+    },
+    {
+      "irrigation_practice": "non_irrigated",
+      "maximum_absolute_metric_difference": 4.440892098500626e-16,
+      "model": "pdsi_quadratic",
+      "split": "development_leave_state_out",
+      "split_id": "CA"
+    },
+    {
+      "irrigation_practice": "non_irrigated",
+      "maximum_absolute_metric_difference": 0.0,
+      "model": "trend_only",
+      "split": "development_leave_state_out",
+      "split_id": "CA"
+    },
+    {
+      "irrigation_practice": "non_irrigated",
+      "maximum_absolute_metric_difference": 1.1102230246251565e-16,
+      "model": "pdsi_linear",
+      "split": "development_leave_state_out",
+      "split_id": "CO"
+    },
+    {
+      "irrigation_practice": "non_irrigated",
+      "maximum_absolute_metric_difference": 1.1102230246251565e-16,
+      "model": "pdsi_quadratic",
+      "split": "development_leave_state_out",
+      "split_id": "CO"
+    },
+    {
+      "irrigation_practice": "non_irrigated",
+      "maximum_absolute_metric_difference": 6.938893903907228e-17,
+      "model": "trend_only",
+      "split": "development_leave_state_out",
+      "split_id": "CO"
+    },
+    {
+      "irrigation_practice": "non_irrigated",
+      "maximum_absolute_metric_difference": 5.551115123125783e-17,
+      "model": "pdsi_linear",
+      "split": "development_leave_state_out",
+      "split_id": "ID"
+    },
+    {
+      "irrigation_practice": "non_irrigated",
+      "maximum_absolute_metric_difference": 2.220446049250313e-16,
+      "model": "pdsi_quadratic",
+      "split": "development_leave_state_out",
+      "split_id": "ID"
+    },
+    {
+      "irrigation_practice": "non_irrigated",
+      "maximum_absolute_metric_difference": 0.0,
+      "model": "trend_only",
+      "split": "development_leave_state_out",
+      "split_id": "ID"
+    },
+    {
+      "irrigation_practice": "non_irrigated",
+      "maximum_absolute_metric_difference": 0.0,
+      "model": "pdsi_linear",
+      "split": "development_leave_state_out",
+      "split_id": "KS"
+    },
+    {
+      "irrigation_practice": "non_irrigated",
+      "maximum_absolute_metric_difference": 1.6653345369377348e-16,
+      "model": "pdsi_quadratic",
+      "split": "development_leave_state_out",
+      "split_id": "KS"
+    },
+    {
+      "irrigation_practice": "non_irrigated",
+      "maximum_absolute_metric_difference": 7.632783294297951e-17,
+      "model": "trend_only",
+      "split": "development_leave_state_out",
+      "split_id": "KS"
+    },
+    {
+      "irrigation_practice": "non_irrigated",
+      "maximum_absolute_metric_difference": 1.1102230246251565e-16,
+      "model": "pdsi_linear",
+      "split": "development_leave_state_out",
+      "split_id": "MT"
+    },
+    {
+      "irrigation_practice": "non_irrigated",
+      "maximum_absolute_metric_difference": 0.0,
+      "model": "pdsi_quadratic",
+      "split": "development_leave_state_out",
+      "split_id": "MT"
+    },
+    {
+      "irrigation_practice": "non_irrigated",
+      "maximum_absolute_metric_difference": 5.204170427930421e-17,
+      "model": "trend_only",
+      "split": "development_leave_state_out",
+      "split_id": "MT"
+    },
+    {
+      "irrigation_practice": "non_irrigated",
+      "maximum_absolute_metric_difference": 1.1102230246251565e-16,
+      "model": "pdsi_linear",
+      "split": "development_leave_state_out",
+      "split_id": "ND"
+    },
+    {
+      "irrigation_practice": "non_irrigated",
+      "maximum_absolute_metric_difference": 2.220446049250313e-16,
+      "model": "pdsi_quadratic",
+      "split": "development_leave_state_out",
+      "split_id": "ND"
+    },
+    {
+      "irrigation_practice": "non_irrigated",
+      "maximum_absolute_metric_difference": 1.3877787807814457e-17,
+      "model": "trend_only",
+      "split": "development_leave_state_out",
+      "split_id": "ND"
+    },
+    {
+      "irrigation_practice": "non_irrigated",
+      "maximum_absolute_metric_difference": 1.1102230246251565e-16,
+      "model": "pdsi_linear",
+      "split": "development_leave_state_out",
+      "split_id": "NE"
+    },
+    {
+      "irrigation_practice": "non_irrigated",
+      "maximum_absolute_metric_difference": 1.1102230246251565e-16,
+      "model": "pdsi_quadratic",
+      "split": "development_leave_state_out",
+      "split_id": "NE"
+    },
+    {
+      "irrigation_practice": "non_irrigated",
+      "maximum_absolute_metric_difference": 3.122502256758253e-17,
+      "model": "trend_only",
+      "split": "development_leave_state_out",
+      "split_id": "NE"
+    },
+    {
+      "irrigation_practice": "non_irrigated",
+      "maximum_absolute_metric_difference": 0.0,
+      "model": "pdsi_linear",
+      "split": "development_leave_state_out",
+      "split_id": "NM"
+    },
+    {
+      "irrigation_practice": "non_irrigated",
+      "maximum_absolute_metric_difference": 2.220446049250313e-16,
+      "model": "pdsi_quadratic",
+      "split": "development_leave_state_out",
+      "split_id": "NM"
+    },
+    {
+      "irrigation_practice": "non_irrigated",
+      "maximum_absolute_metric_difference": 6.938893903907228e-17,
+      "model": "trend_only",
+      "split": "development_leave_state_out",
+      "split_id": "NM"
+    },
+    {
+      "irrigation_practice": "non_irrigated",
+      "maximum_absolute_metric_difference": 3.3306690738754696e-16,
+      "model": "pdsi_linear",
+      "split": "development_leave_state_out",
+      "split_id": "OK"
+    },
+    {
+      "irrigation_practice": "non_irrigated",
+      "maximum_absolute_metric_difference": 2.220446049250313e-16,
+      "model": "pdsi_quadratic",
+      "split": "development_leave_state_out",
+      "split_id": "OK"
+    },
+    {
+      "irrigation_practice": "non_irrigated",
+      "maximum_absolute_metric_difference": 8.326672684688674e-17,
+      "model": "trend_only",
+      "split": "development_leave_state_out",
+      "split_id": "OK"
+    },
+    {
+      "irrigation_practice": "non_irrigated",
+      "maximum_absolute_metric_difference": 5.551115123125783e-17,
+      "model": "pdsi_linear",
+      "split": "development_leave_state_out",
+      "split_id": "OR"
+    },
+    {
+      "irrigation_practice": "non_irrigated",
+      "maximum_absolute_metric_difference": 4.440892098500626e-16,
+      "model": "pdsi_quadratic",
+      "split": "development_leave_state_out",
+      "split_id": "OR"
+    },
+    {
+      "irrigation_practice": "non_irrigated",
+      "maximum_absolute_metric_difference": 0.0,
+      "model": "trend_only",
+      "split": "development_leave_state_out",
+      "split_id": "OR"
+    },
+    {
+      "irrigation_practice": "non_irrigated",
+      "maximum_absolute_metric_difference": 0.0,
+      "model": "pdsi_linear",
+      "split": "development_leave_state_out",
+      "split_id": "TX"
+    },
+    {
+      "irrigation_practice": "non_irrigated",
+      "maximum_absolute_metric_difference": 0.0,
+      "model": "pdsi_quadratic",
+      "split": "development_leave_state_out",
+      "split_id": "TX"
+    },
+    {
+      "irrigation_practice": "non_irrigated",
+      "maximum_absolute_metric_difference": 2.42861286636753e-17,
+      "model": "trend_only",
+      "split": "development_leave_state_out",
+      "split_id": "TX"
+    },
+    {
+      "irrigation_practice": "non_irrigated",
+      "maximum_absolute_metric_difference": 2.220446049250313e-16,
+      "model": "pdsi_linear",
+      "split": "development_leave_state_out",
+      "split_id": "UT"
+    },
+    {
+      "irrigation_practice": "non_irrigated",
+      "maximum_absolute_metric_difference": 0.0,
+      "model": "pdsi_quadratic",
+      "split": "development_leave_state_out",
+      "split_id": "UT"
+    },
+    {
+      "irrigation_practice": "non_irrigated",
+      "maximum_absolute_metric_difference": 1.3877787807814457e-17,
+      "model": "trend_only",
+      "split": "development_leave_state_out",
+      "split_id": "UT"
+    },
+    {
+      "irrigation_practice": "non_irrigated",
+      "maximum_absolute_metric_difference": 5.551115123125783e-17,
+      "model": "pdsi_linear",
+      "split": "development_leave_state_out",
+      "split_id": "WA"
+    },
+    {
+      "irrigation_practice": "non_irrigated",
+      "maximum_absolute_metric_difference": 2.220446049250313e-16,
+      "model": "pdsi_quadratic",
+      "split": "development_leave_state_out",
+      "split_id": "WA"
+    },
+    {
+      "irrigation_practice": "non_irrigated",
+      "maximum_absolute_metric_difference": 2.7755575615628914e-17,
+      "model": "trend_only",
+      "split": "development_leave_state_out",
+      "split_id": "WA"
+    },
+    {
+      "irrigation_practice": "non_irrigated",
+      "maximum_absolute_metric_difference": 2.220446049250313e-16,
+      "model": "pdsi_linear",
+      "split": "development_leave_state_out",
+      "split_id": "WY"
+    },
+    {
+      "irrigation_practice": "non_irrigated",
+      "maximum_absolute_metric_difference": 5.551115123125783e-17,
+      "model": "pdsi_quadratic",
+      "split": "development_leave_state_out",
+      "split_id": "WY"
+    },
+    {
+      "irrigation_practice": "non_irrigated",
+      "maximum_absolute_metric_difference": 2.7755575615628914e-17,
+      "model": "trend_only",
+      "split": "development_leave_state_out",
+      "split_id": "WY"
+    },
+    {
+      "irrigation_practice": "non_irrigated",
+      "maximum_absolute_metric_difference": 1.1102230246251565e-16,
+      "model": "pdsi_linear",
+      "split": "terminal_same_counties",
+      "split_id": "2001_2007"
+    },
+    {
+      "irrigation_practice": "non_irrigated",
+      "maximum_absolute_metric_difference": 1.1102230246251565e-16,
+      "model": "pdsi_quadratic",
+      "split": "terminal_same_counties",
+      "split_id": "2001_2007"
+    },
+    {
+      "irrigation_practice": "non_irrigated",
+      "maximum_absolute_metric_difference": 1.5265566588595902e-16,
+      "model": "trend_only",
+      "split": "terminal_same_counties",
+      "split_id": "2001_2007"
+    }
+  ],
+  "maximum_absolute_metric_difference": 6.661338147750939e-16,
+  "primary_gates": {
+    "irrigated": false,
+    "non_irrigated": false
+  },
+  "production_resource": {
+    "path": "data/interim/us_county/us_wheat_practice_pdsi_predictive_resource_20260925.json",
+    "peak_rss_bytes": 402489344,
+    "sha256": "cd254365511bc09d3d43bd50b85d1d6b4b31a62b7d46a2d48d6802cd186c8e5e"
+  },
+  "result": {
+    "path": "data/provenance/us_wheat_practice_pdsi_predictive_20260925.json",
+    "sha256": "6a5248018ada9186b3263aacd7e4a686c1b29ae98e73997572dc761e63da5ac8"
+  },
+  "schema": "us_wheat_practice_pdsi_predictive_independent_validation_v1",
+  "status": "passed",
+  "stronger_claim_gates_all_closed": true
+}

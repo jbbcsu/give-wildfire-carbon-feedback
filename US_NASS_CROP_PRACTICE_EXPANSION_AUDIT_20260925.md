@@ -98,14 +98,22 @@ causally. The fixed 2009 state acreage mix postdates the 1981--2007 outcomes,
 does not observe county/year wheat composition, and is suitable only as a
 retrospective measurement sensitivity.
 
-## Next defensible low-memory step and promotion blocker
+## Completed predictive check and promotion blocker
 
-With current local inputs, the next estimation should be a preregistered
-first-difference predictive check of this same weighted wheat PDSI feature,
-fitted separately by practice with leave-one-state-out development tests and a
-fixed terminal-year block. It requires no daily-weather reacquisition and can
-reuse the sub-512 MiB panel builder. It should compare a controls-only/trend
-benchmark with seasonal PDSI, not stack PDSI with direct rainfall.
+The preregistered first-difference predictive check is now complete. Each
+practice has 8,171 consecutive-year differences across 573 counties and all
+14 states. Linear PDSI improves fixed 2001--2007 terminal RMSE by 5.05% for
+irrigated wheat and 14.85% for non-irrigated wheat relative to the trend-only
+benchmark. However, the primary gate fails for both practices because the
+prespecified materiality floor is cleared in only 8/14 irrigated and 11/14
+non-irrigated leave-one-state-out development tests. California is the largest
+reversal in both strata. The independently reconstructed maximum metric
+discrepancy is `6.66e-16`; production and validation peak below 512 MiB. See
+`US_WHEAT_PRACTICE_PDSI_PREDICTIVE_RESULTS_20260925.md`.
+
+This check preserves PDSI as a separate alternative moisture family and does
+not stack it with direct rainfall. Its failed primary gate prevents promotion
+from a regional historical exploratory diagnostic.
 
 Promotion of wheat into the direct-rainfall response remains blocked until an
 independent historical county/year winter/spring/durum harvested-area source is
@@ -123,6 +131,12 @@ not the primary crop-response family.
 - Independent validator: `us_county_validation/scripts/validate_wheat_practice_pdsi_sensitivity.py`
 - Validation receipt:
   `data/provenance/us_wheat_practice_pdsi_sensitivity_validation_20260925.json`
+- Predictive protocol:
+  `US_WHEAT_PRACTICE_PDSI_PREDICTIVE_PROTOCOL_20260925.md`
+- Predictive result:
+  `data/provenance/us_wheat_practice_pdsi_predictive_20260925.json`
+- Predictive independent validation:
+  `data/provenance/us_wheat_practice_pdsi_predictive_validation_20260925.json`
 - Ignored resource receipts:
   `data/interim/us_county/us_wheat_practice_pdsi_sensitivity_resource_20260925.json`
   and
