@@ -1,0 +1,87 @@
+schema_version = 1
+contract_id = "rainfed_distribution_later_period_external_confirmation_v1"
+description = "Independent-period structural-family confirmation on local 2012-2016 rainfed panels for two patterns frozen from the 1982-1989 geographic screen."
+
+selection_audit_path = "data/provenance/multicrop_rainfed_distribution_geographic_audit_20260925.json"
+selection_audit_sha256 = "1cb3a568bab0a3235262c8570b5908bb0c6ac3d10e6e2d49a810954b5758f375"
+feature_spec_path = "config/precipitation_distribution_diagnostic_v1.toml"
+feature_spec_sha256 = "4b10f63deceec58b1792d519428b97f116ad1a6e916e085cdd47530f3b46115c"
+reference_model = "seasonal_quantity"
+confirmation_period = "2012-2016"
+selection_period = "1982-1989"
+confirmation_scope = "model_family_refit_and_spatial_oof_scoring_in_independent_later_outcomes_not_coefficient_transport"
+
+[[confirmations]]
+crop = "mai"
+candidate_model = "quantity_plus_timing_concentration"
+source_path = "data/interim/mai_noirr_2012_2016_stage_estimation_panel.parquet"
+source_sha256 = "f79b0ab9fa39e75604d1076c050059a64676b5fe04a459f096c5e07aa3378155"
+expected_rows = 337100
+expected_observed_outcomes = 61302
+expected_year_start = 2012
+expected_year_end = 2016
+expected_irrigation = "noirr"
+
+[[confirmations]]
+crop = "soy"
+candidate_model = "quantity_plus_all_distribution"
+source_path = "data/interim/soy_noirr_2012_2016_stage_estimation_panel.parquet"
+source_sha256 = "4888d8589ef0217b77c6b92b87c9e79aea26272c0e6ffeaf28ac790920df7c22"
+expected_rows = 337100
+expected_observed_outcomes = 27181
+expected_year_start = 2012
+expected_year_end = 2016
+expected_irrigation = "noirr"
+
+[[unavailable]]
+crop = "swh"
+frozen_candidate_model = "quantity_plus_occurrence_intensity"
+expected_source_path = "data/interim/swh_noirr_2012_2016_stage_estimation_panel.parquet"
+status = "unavailable_no_local_2012_2016_rainfed_stage_panel_no_imputation_or_proxy_authorized"
+
+[spatial_validation]
+folds = 5
+block_degrees = 5.0
+seed = "precipitation-distribution-diagnostic-v1"
+outcome_blind = true
+
+[geographic_clusters]
+latitude_degrees = 10
+longitude_degrees = 10
+minimum_occupied_clusters_per_crop = 20
+maximum_pair_share = 0.20
+
+[uncertainty]
+scheme = "paired_10degree_cluster_bootstrap_of_fixed_spatial_oof_losses"
+replicates = 5000
+generator = "numpy.random.Generator(PCG64)"
+seed = 20260925
+interval_probabilities = [0.025, 0.5, 0.975]
+training_reestimated_within_bootstrap = false
+tail_probability = "two_sided_fraction_of_bootstrap_rmse_differences_across_zero_with_plus_one_correction"
+multiplicity = "holm_across_the_two_frozen_confirmations"
+familywise_alpha = 0.05
+
+[confirmation_gate]
+rmse_difference_below_zero = true
+rmse_difference_interval_upper_below_zero = true
+holm_adjusted_tail_probability_at_most_alpha = true
+all_five_spatial_fold_rmse_differences_below_zero = true
+majority_of_occupied_geographic_clusters_have_lower_mean_squared_loss = true
+both_available_confirmations_must_pass_for_family_level_promotion = true
+
+[resources]
+worker_memory_bytes_maximum = 536870912
+one_crop_per_worker = true
+row_predictions_exported = false
+bootstrap_draws_exported = false
+
+[authorization]
+independent_period_predictive_confirmation_authorized = true
+coefficient_export_authorized = false
+causal_interpretation_authorized = false
+economic_winner_loser_interpretation_authorized = false
+production_model_selection_authorized = false
+response_draw_export_authorized = false
+damage_calculation_authorized = false
+scc_use_authorized = false

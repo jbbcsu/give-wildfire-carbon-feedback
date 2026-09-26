@@ -1,0 +1,118 @@
+{
+  "author_support": {
+    "path": "data/provenance/hultgren_rice_author_sample_support_20260925.json",
+    "sha256": "45462b20acaaa3daf10958bd129c3b120cd54f4870ef3f7ee15371d78907f326"
+  },
+  "author_support_validation": {
+    "path": "data/provenance/hultgren_rice_author_sample_support_validation_20260925.json",
+    "sha256": "febcddc5d847c7e3edc27baaf230d8148f83a6b2a6d7ba7d25ea9a0fbdccc994"
+  },
+  "claim_gates": {
+    "author_weather_application_domain_diagnosed": true,
+    "damage_or_scc_validated": false,
+    "full_response_application_domain_diagnosed": false
+  },
+  "created_at_utc": "2026-09-26T01:24:37.531562+00:00",
+  "implementation": {
+    "path": "scripts/diagnose_hultgren_rice_historical_domain.py",
+    "sha256": "d2a73c0f42f6a9a4a8d1b36cd2e357cf129fb93943cf4b57afec16f24ca6ca6a"
+  },
+  "inputs": [
+    {
+      "path": "data/interim/hultgren_rice_historical_preflight_india_corrected_20260925/ri1_noirr_1982_1990.parquet",
+      "rows": 90936,
+      "sha256": "30d3a3b15a5c1e004bef6e83ab10ea1fd7bc5375c4e286e61d2becea0db8dd83"
+    },
+    {
+      "path": "data/interim/hultgren_rice_historical_preflight_india_corrected_20260925/ri1_noirr_1992_2000.parquet",
+      "rows": 90936,
+      "sha256": "818e77c2a7254dfad6537802d9657678c11f4f693df2a0b2a5d9bbf9f31de16b"
+    },
+    {
+      "path": "data/interim/hultgren_rice_historical_preflight_india_corrected_20260925/ri1_noirr_2002_2010.parquet",
+      "rows": 90936,
+      "sha256": "6ef1acce7d81e1532548e5d44c46e0fcd4b34baaba10772409179967bb32901c"
+    },
+    {
+      "path": "data/interim/hultgren_rice_historical_preflight_india_corrected_20260925/ri1_firr_1982_1990.parquet",
+      "rows": 90936,
+      "sha256": "9bab254e50171a5c23ca56f5daff1ab06bcd86851857634b347d4bd745496e7f"
+    },
+    {
+      "path": "data/interim/hultgren_rice_historical_preflight_india_corrected_20260925/ri1_firr_1992_2000.parquet",
+      "rows": 90936,
+      "sha256": "8d4a219bf06e86da32b6bb738fcdd2d00ac174e84a026906b4f4cdb10e5ad373"
+    },
+    {
+      "path": "data/interim/hultgren_rice_historical_preflight_india_corrected_20260925/ri1_firr_2002_2010.parquet",
+      "rows": 90936,
+      "sha256": "7e5b94772eea55517440271d12230ef6d4f67ca146432a99affe5c0860fffab1"
+    }
+  ],
+  "joint_weather_support": {
+    "cell_years": 545616,
+    "unweighted_fraction_inside_author_minmax_all_weather": 0.9706130318758981,
+    "unweighted_fraction_inside_author_p01_p99_all_weather": 0.5768159291516378
+  },
+  "limitations": {
+    "area_or_production_weighting_used": false,
+    "moderator_domain_applied": false,
+    "reason": "season-separated cell moderator ledger is not yet available",
+    "response_evaluated": false
+  },
+  "output": {
+    "bytes": 310461,
+    "path": "data/interim/hultgren_rice_historical_preflight_india_corrected_20260925/author_weather_domain_cell_diagnostics.parquet",
+    "rows": 545616,
+    "sha256": "4c4245b5bf36f10fea1ec77ba689e9b611fd61c1e6c446cc118f064e20e8f384"
+  },
+  "schema": "hultgren_rice_historical_weather_domain/v1",
+  "status": "unweighted_cell_level_author_weather_domain_diagnosed",
+  "unweighted_weather_support": {
+    "gdd": {
+      "cell_years": 545616,
+      "unweighted_fraction_inside_author_minmax": 0.9987793613090525,
+      "unweighted_fraction_inside_author_p01_p99": 0.900109234333304
+    },
+    "kdd": {
+      "cell_years": 545616,
+      "unweighted_fraction_inside_author_minmax": 0.9745645288994458,
+      "unweighted_fraction_inside_author_p01_p99": 0.8605466115363186
+    },
+    "prcp_poly_1_bin1": {
+      "cell_years": 545616,
+      "unweighted_fraction_inside_author_minmax": 0.9999816720917275,
+      "unweighted_fraction_inside_author_p01_p99": 0.8616976041758306
+    },
+    "prcp_poly_1_bin2": {
+      "cell_years": 545616,
+      "unweighted_fraction_inside_author_minmax": 0.9980682384680801,
+      "unweighted_fraction_inside_author_p01_p99": 0.8499494149731679
+    },
+    "prcp_poly_1_bin3": {
+      "cell_years": 545616,
+      "unweighted_fraction_inside_author_minmax": 0.9998790358054016,
+      "unweighted_fraction_inside_author_p01_p99": 0.9418492126330607
+    },
+    "prcp_poly_2_bin1": {
+      "cell_years": 545616,
+      "unweighted_fraction_inside_author_minmax": 1.0,
+      "unweighted_fraction_inside_author_p01_p99": 0.8603706636169027
+    },
+    "prcp_poly_2_bin2": {
+      "cell_years": 545616,
+      "unweighted_fraction_inside_author_minmax": 0.9990066273716314,
+      "unweighted_fraction_inside_author_p01_p99": 0.8412949766869007
+    },
+    "prcp_poly_2_bin3": {
+      "cell_years": 545616,
+      "unweighted_fraction_inside_author_minmax": 0.999985337673382,
+      "unweighted_fraction_inside_author_p01_p99": 0.9424283745344711
+    },
+    "tmin": {
+      "cell_years": 545616,
+      "unweighted_fraction_inside_author_minmax": 0.9990689422597577,
+      "unweighted_fraction_inside_author_p01_p99": 0.8867335268760447
+    }
+  }
+}

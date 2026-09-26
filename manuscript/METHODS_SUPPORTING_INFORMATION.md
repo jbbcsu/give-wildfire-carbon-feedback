@@ -1553,8 +1553,35 @@ validator checks the published 46-term weather contract, exact branch support,
 calendar and feature equality, source and output hashes, and two independently
 reconstructed daily rows per chunk. The local branch calendars are identical,
 so the preflight supplies no irrigation contrast. It deliberately emits no
-response because moderator support, author-domain bounds, the India reporting-
-year exception, and season-specific crop weights remain unresolved.
+response because season-separated moderators and crop weights remain
+unresolved.
+
+The rice regression panel omitted from the current public tree remains
+reachable in the repository's public history at commit
+`dae5fe8d0d4a260328e4baa45b547368bd6790b3` (blob
+`3bf4ad7bea38a217f752328c20851e0175582c4f`; SHA-256
+`a118f3ce5dd54f506b75de9fc1dff0b01a9e9034509f6b9b925b937a1beb63b4`).
+Because no repository license was found, the 143,208,457-byte raw file remains
+ignored and is not redistributed. Chunked processing reproduces 166,354
+complete cases, two singleton-removal iterations of 180 and zero rows, 166,174
+estimation observations, 656 country-year clusters, and 581 ADM1 clusters.
+Independent validation exactly reproduces every stored minimum and 1st, 99th,
+and maximum percentile summary. On the corrected historical rice basis,
+97.0613% of 545,616 unweighted cell-years lie jointly within the author's
+weather minima/maxima and 57.6816% within its joint 1st--99th percentile
+envelope. These domain shares are diagnostic and are not used as weights.
+
+The author-region crosswalk identifies 423 cells exclusively in India and 77
+mixed-country border cells. Exactly 12 cells differ under India-specific and
+generic reporting-year rules; all are exclusively Indian, leaving no
+rule-sensitive border ambiguity. Rebuilding both calendar branches changes
+648 cell-years and leaves 544,968 rows unchanged exactly. Direct daily
+reconstruction matches all 648 changed rows exactly, and 576 available
+one-year-shift parity checks agree within `5.82e-11`. Corrected rainfed and
+irrigated branches remain identical. These checks close the historical domain
+and India timing gates only; season-separated moderators, season-specific area
+allocation, matched future/pulse weather, valuation, damage, and SCC remain
+closed.
 
 For the maize winners-and-losers diagnostic, the transport evaluator exports
 the net precipitation response, the proportional total-quantity reference,
@@ -2673,6 +2700,29 @@ on crop-grid-year keys, and the exact declared contiguous harvest-year set.
 The response audit records that set, and the validator checks it whenever an
 expected start and end year are supplied. These are coverage and reproducibility
 gates; they do not strengthen causal identification.
+
+### Independent later-period confirmation of frozen distribution families
+
+The confirmation contract is
+`config/rainfed_distribution_later_period_confirmation_v1.toml`. It freezes
+maize timing/concentration and soybean full-distribution comparisons selected
+from the 1982--1989 screen, then refits and scores those model families on the
+independent 2012--2016 rainfed panels. No additional family is searched in the
+confirmation data. Fixed out-of-fold losses are paired within occupied
+10-degree blocks, with 5,000 block-bootstrap draws and Holm adjustment across
+the two available tests. Promotion requires lower pooled RMSE, a bootstrap
+interval wholly below zero, adjusted significance at 0.05, improvement in all
+five folds, and improvement in a majority of blocks.
+
+Neither test passes. Maize has 46,773 consecutive pairs in 126 blocks and a
+candidate-minus-reference RMSE of +0.000492 (95% block-bootstrap interval
++0.000030 to +0.001167), with zero of five folds improved. Soybean has 21,026
+pairs in 55 blocks and a difference of -0.001722 (-0.008388 to +0.003127),
+with two of five folds and 41.8% of blocks improved. The required later-period
+spring-wheat panel is absent and no proxy is substituted. A deterministic
+recomputation and an independently coded two-test Holm check match the stored
+result, while all causal, economic, response-draw, damage, and SCC gates remain
+closed. Peak validation memory remains below 512 MiB.
 
 Multi-crop audit reporting is fail-closed. The audit validator binds the JSON
 artifact to the SHA-256 of the frozen response specification; requires the

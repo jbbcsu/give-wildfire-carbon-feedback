@@ -1,0 +1,270 @@
+{
+  "cell_diagnostics": {
+    "bytes": 103354,
+    "path": "data/interim/hultgren_rice_historical_preflight_india_corrected_20260925/india_reporting_year_cell_diagnostics.parquet",
+    "rows": 648,
+    "sha256": "fb457bd715ad72be36c825243a3a88b6343dd512edd10d6b4bdab46a1d056d8d"
+  },
+  "claim_gates": {
+    "damage_or_scc_validated": false,
+    "india_reporting_year_exception_applied": true,
+    "published_response_evaluated": false,
+    "season_or_irrigation_weights_used": false
+  },
+  "country_crosswalk": {
+    "path": "data/interim/hultgren_impact_region_global_20260923/impact_region_grid_crosswalk_equal_area_v2.parquet",
+    "sha256": "12aa5ce4415801b3ae1ba5d09cb86ed4a641574c9bb46b9c39b2fc889cf65857",
+    "validation": "data/provenance/hultgren_impact_region_grid_crosswalk_validation_20260923.json",
+    "validation_sha256": "5c4a977256916498127618b4810d63a836ea61aaac8155d5b97f91d23f086460",
+    "validation_status": "validated_alternative_within_region_mirca_weight_proxy_not_sage_replication"
+  },
+  "country_rule_audit": {
+    "ambiguous_india_reporting_year_rule_sensitive_cells": 0,
+    "corrected_cell_coordinates": [
+      {
+        "harvest_month": 1,
+        "native_lat_index": 136,
+        "native_lon_index": 521,
+        "plant_month": 8
+      },
+      {
+        "harvest_month": 1,
+        "native_lat_index": 137,
+        "native_lon_index": 521,
+        "plant_month": 8
+      },
+      {
+        "harvest_month": 1,
+        "native_lat_index": 138,
+        "native_lon_index": 521,
+        "plant_month": 8
+      },
+      {
+        "harvest_month": 1,
+        "native_lat_index": 147,
+        "native_lon_index": 510,
+        "plant_month": 8
+      },
+      {
+        "harvest_month": 1,
+        "native_lat_index": 147,
+        "native_lon_index": 511,
+        "plant_month": 8
+      },
+      {
+        "harvest_month": 1,
+        "native_lat_index": 157,
+        "native_lon_index": 518,
+        "plant_month": 7
+      },
+      {
+        "harvest_month": 1,
+        "native_lat_index": 160,
+        "native_lon_index": 516,
+        "plant_month": 7
+      },
+      {
+        "harvest_month": 1,
+        "native_lat_index": 160,
+        "native_lon_index": 517,
+        "plant_month": 8
+      },
+      {
+        "harvest_month": 1,
+        "native_lat_index": 160,
+        "native_lon_index": 518,
+        "plant_month": 8
+      },
+      {
+        "harvest_month": 2,
+        "native_lat_index": 161,
+        "native_lon_index": 515,
+        "plant_month": 9
+      },
+      {
+        "harvest_month": 1,
+        "native_lat_index": 161,
+        "native_lon_index": 517,
+        "plant_month": 8
+      },
+      {
+        "harvest_month": 1,
+        "native_lat_index": 161,
+        "native_lon_index": 518,
+        "plant_month": 8
+      }
+    ],
+    "mixed_country_including_india_cells": 77,
+    "outside_all_author_region_geometry_cells": 136,
+    "reporting_year_rule_sensitive_cells": 4047,
+    "retained_cells": 10104,
+    "verified_india_cells": 423,
+    "verified_india_reporting_year_rule_sensitive_cells": 12
+  },
+  "counts": {
+    "corrected_cell_years": 648,
+    "input_and_output_rows": 545616
+  },
+  "created_at_utc": "2026-09-26T01:13:50.099470+00:00",
+  "implementation": {
+    "path": "scripts/apply_hultgren_rice_india_reporting_year.py",
+    "sha256": "7491d31a381b099892116f2a2acdc48b2eb17bf2266125e367ce97fe6be5637c"
+  },
+  "outputs": [
+    {
+      "calendar_branch": "ri1_noirr",
+      "corrected_cell_years": 108,
+      "input": {
+        "path": "data/interim/hultgren_rice_historical_preflight_20260925/ri1_noirr_1982_1990.parquet",
+        "rows": 90936,
+        "sha256": "e4cec5cb24197e0c9b1f06a1d19bac5c10febc4ffd8ffe5a38d22d7a66daad3b"
+      },
+      "output": {
+        "bytes": 7459606,
+        "path": "data/interim/hultgren_rice_historical_preflight_india_corrected_20260925/ri1_noirr_1982_1990.parquet",
+        "rows": 90936,
+        "sha256": "30d3a3b15a5c1e004bef6e83ab10ea1fd7bc5375c4e286e61d2becea0db8dd83"
+      }
+    },
+    {
+      "calendar_branch": "ri1_noirr",
+      "corrected_cell_years": 108,
+      "input": {
+        "path": "data/interim/hultgren_rice_historical_preflight_20260925/ri1_noirr_1992_2000.parquet",
+        "rows": 90936,
+        "sha256": "c8813d2173400dd5a4e3804a6816be3e627a98a307d3644a92e850a63a062ca8"
+      },
+      "output": {
+        "bytes": 7445847,
+        "path": "data/interim/hultgren_rice_historical_preflight_india_corrected_20260925/ri1_noirr_1992_2000.parquet",
+        "rows": 90936,
+        "sha256": "818e77c2a7254dfad6537802d9657678c11f4f693df2a0b2a5d9bbf9f31de16b"
+      }
+    },
+    {
+      "calendar_branch": "ri1_noirr",
+      "corrected_cell_years": 108,
+      "input": {
+        "path": "data/interim/hultgren_rice_historical_preflight_20260925/ri1_noirr_2002_2010.parquet",
+        "rows": 90936,
+        "sha256": "e1c0fbf84295302ab0620006db5bb95a8460d3c1d842ec715477c96a7ccc6bb1"
+      },
+      "output": {
+        "bytes": 7448224,
+        "path": "data/interim/hultgren_rice_historical_preflight_india_corrected_20260925/ri1_noirr_2002_2010.parquet",
+        "rows": 90936,
+        "sha256": "6ef1acce7d81e1532548e5d44c46e0fcd4b34baaba10772409179967bb32901c"
+      }
+    },
+    {
+      "calendar_branch": "ri1_firr",
+      "corrected_cell_years": 108,
+      "input": {
+        "path": "data/interim/hultgren_rice_historical_preflight_20260925/ri1_firr_1982_1990.parquet",
+        "rows": 90936,
+        "sha256": "151065da311dc1b2d57833159e73326d8a01788eca31821d3e4dccd693276137"
+      },
+      "output": {
+        "bytes": 7459601,
+        "path": "data/interim/hultgren_rice_historical_preflight_india_corrected_20260925/ri1_firr_1982_1990.parquet",
+        "rows": 90936,
+        "sha256": "9bab254e50171a5c23ca56f5daff1ab06bcd86851857634b347d4bd745496e7f"
+      }
+    },
+    {
+      "calendar_branch": "ri1_firr",
+      "corrected_cell_years": 108,
+      "input": {
+        "path": "data/interim/hultgren_rice_historical_preflight_20260925/ri1_firr_1992_2000.parquet",
+        "rows": 90936,
+        "sha256": "0f4d6b8772464b4381df46fc2039d3bda8aa7464f36e6402f507ad51b3e98a2b"
+      },
+      "output": {
+        "bytes": 7445842,
+        "path": "data/interim/hultgren_rice_historical_preflight_india_corrected_20260925/ri1_firr_1992_2000.parquet",
+        "rows": 90936,
+        "sha256": "8d4a219bf06e86da32b6bb738fcdd2d00ac174e84a026906b4f4cdb10e5ad373"
+      }
+    },
+    {
+      "calendar_branch": "ri1_firr",
+      "corrected_cell_years": 108,
+      "input": {
+        "path": "data/interim/hultgren_rice_historical_preflight_20260925/ri1_firr_2002_2010.parquet",
+        "rows": 90936,
+        "sha256": "720d60e455f6aec2151b2a94c9003c1e7282cd274723cbbc5434c4f60a83bfcd"
+      },
+      "output": {
+        "bytes": 7448219,
+        "path": "data/interim/hultgren_rice_historical_preflight_india_corrected_20260925/ri1_firr_2002_2010.parquet",
+        "rows": 90936,
+        "sha256": "7e5b94772eea55517440271d12230ef6d4f67ca146432a99affe5c0860fffab1"
+      }
+    }
+  ],
+  "schema": "hultgren_rice_india_reporting_year_correction/v1",
+  "status": "india_reporting_year_exception_applied_to_verified_cells",
+  "transformation": "only verified-India cells whose source IND and non-IND month assignments differ are rebuilt; all other cell-years retain the prior basis exactly",
+  "weather_sources": [
+    {
+      "path": "data/raw/isimip3a_gswp3_w5e5_v1_3/gswp3-w5e5_obsclim_pr_global_daily_1981_1990.nc",
+      "sha256": "770ed1eceeec22643a113a0a44f0150c581f8f6366cab97533219a17106c29d6",
+      "variable": "pr"
+    },
+    {
+      "path": "data/raw/isimip3a_gswp3_w5e5_v1_3/gswp3-w5e5_obsclim_tasmin_global_daily_1981_1990.nc",
+      "sha256": "7030423238d072d1ea81f2dab15f47803ec80f627b04343ecaebe867b7bb1638",
+      "variable": "tasmin"
+    },
+    {
+      "path": "data/raw/isimip3a_gswp3_w5e5_v1_3/gswp3-w5e5_obsclim_tasmax_global_daily_1981_1990.nc",
+      "sha256": "ddfd2ccac2cc3ef3f662be4da6ba34baf7a81458bfba2dcdefa1565bb5e5a528",
+      "variable": "tasmax"
+    },
+    {
+      "path": "data/raw/isimip3a_gswp3_w5e5_v1_3/gswp3-w5e5_obsclim_pr_global_daily_1991_2000.nc",
+      "sha256": "65b6dd941f4abcc796dba82c6b517aedff94dd98bf417e90f98d6e160b0d83f0",
+      "variable": "pr"
+    },
+    {
+      "path": "data/raw/isimip3a_gswp3_w5e5_v1_3/gswp3-w5e5_obsclim_tasmin_global_daily_1991_2000.nc",
+      "sha256": "a8c61c51c2d0c6906c307dcc6f6d89fc3eb5a1568affbc236da048c86e461084",
+      "variable": "tasmin"
+    },
+    {
+      "path": "data/raw/isimip3a_gswp3_w5e5_v1_3/gswp3-w5e5_obsclim_tasmax_global_daily_1991_2000.nc",
+      "sha256": "eaab349a6bb1480756de18523d9714d3cd3a170ebcf372db1631da6307d90ab8",
+      "variable": "tasmax"
+    },
+    {
+      "path": "data/raw/isimip3a_gswp3_w5e5_v1_3/gswp3-w5e5_obsclim_pr_global_daily_2001_2010.nc",
+      "sha256": "04bbb1e9924f80ea10f1456d32855a7c461ccae98c061ad2407fb1c61246f84f",
+      "variable": "pr"
+    },
+    {
+      "path": "data/raw/isimip3a_gswp3_w5e5_v1_3/gswp3-w5e5_obsclim_tasmin_global_daily_2001_2010.nc",
+      "sha256": "6bf102d3ed9d0bd40443a96111d8b8482124f590bfdc82b42c98d09721dbb9f2",
+      "variable": "tasmin"
+    },
+    {
+      "path": "data/raw/isimip3a_gswp3_w5e5_v1_3/gswp3-w5e5_obsclim_tasmax_global_daily_2001_2010.nc",
+      "sha256": "8c4c973f09b5b8753fcb30e6495630d4621c2d089587ac56d7d473b020acfaf3",
+      "variable": "tasmax"
+    },
+    {
+      "path": "data/raw/isimip3a_gswp3_w5e5_v1_3/gswp3-w5e5_obsclim_pr_global_daily_2011_2019.nc",
+      "sha256": "1b9662327e37e2e63a1d517a20cba2b5b276dda3485629babff2bac3684dba4a",
+      "variable": "pr"
+    },
+    {
+      "path": "data/raw/isimip3a_gswp3_w5e5_v1_3/gswp3-w5e5_obsclim_tasmin_global_daily_2011_2019.nc",
+      "sha256": "7cb6d13d403161ddb328745213fab06071cb31bd860c9e7e85f8e96a6d10ac48",
+      "variable": "tasmin"
+    },
+    {
+      "path": "data/raw/isimip3a_gswp3_w5e5_v1_3/gswp3-w5e5_obsclim_tasmax_global_daily_2011_2019.nc",
+      "sha256": "bc75961dbb073762d8b188235fc53bb85b349ca74f172b9fe300607c69827cf5",
+      "variable": "tasmax"
+    }
+  ]
+}

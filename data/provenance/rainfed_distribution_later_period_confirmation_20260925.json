@@ -1,0 +1,187 @@
+{
+  "available_crop_receipts": [
+    {
+      "consecutive_pairs": 46773,
+      "crop": "mai",
+      "geographic_support": {
+        "crop": "mai",
+        "effective_cluster_count_from_pair_shares": 62.50223104758057,
+        "maximum_cluster_pair_share": 0.03078699249567058,
+        "occupied_10degree_clusters": 126,
+        "pair_count": 46773
+      },
+      "observed_levels": 61302,
+      "stage_reconciliation_maximum_absolute_differences": {
+        "stage_days": 0.0,
+        "stage_precip_mm": 0.0,
+        "stage_wet_days": 0.0
+      }
+    },
+    {
+      "consecutive_pairs": 21026,
+      "crop": "soy",
+      "geographic_support": {
+        "crop": "soy",
+        "effective_cluster_count_from_pair_shares": 25.44302595738093,
+        "maximum_cluster_pair_share": 0.06677446970417578,
+        "occupied_10degree_clusters": 55,
+        "pair_count": 21026
+      },
+      "observed_levels": 27181,
+      "stage_reconciliation_maximum_absolute_differences": {
+        "stage_days": 0.0,
+        "stage_precip_mm": 0.0,
+        "stage_wet_days": 0.0
+      }
+    }
+  ],
+  "bootstrap_draws_exported": false,
+  "both_available_confirmations_pass": false,
+  "causal_interpretation_authorized": false,
+  "coefficients_suppressed": true,
+  "comparison_count": 2,
+  "config_sha256": "f08abfc0354696eeda852cab2574e43a190dea94023e92949b76364130a5e270",
+  "confirmation_period": "2012-2016",
+  "confirmation_scope": "model_family_refit_and_spatial_oof_scoring_in_independent_later_outcomes_not_coefficient_transport",
+  "contract_id": "rainfed_distribution_later_period_external_confirmation_v1",
+  "damage_calculation_authorized": false,
+  "economic_winner_loser_interpretation_authorized": false,
+  "predictive_family_level_promotion_authorized": false,
+  "production_model_selection_authorized": false,
+  "response_draw_export_authorized": false,
+  "results": [
+    {
+      "all_five_spatial_folds_have_lower_candidate_rmse": false,
+      "candidate_minus_reference_rmse": 0.0004921748200922282,
+      "candidate_model": "quantity_plus_timing_concentration",
+      "candidate_oof_rmse": 0.2827682644404827,
+      "cluster_share_with_lower_candidate_mean_squared_loss": 0.46825396825396826,
+      "clusters_with_lower_candidate_mean_squared_loss": 59,
+      "crop": "mai",
+      "holm_adjusted_tail_probability_two_tests": 0.06798640271945611,
+      "median_cluster_candidate_minus_reference_mean_squared_loss": 1.8072886785085497e-05,
+      "occupied_10degree_clusters": 126,
+      "pair_count": 46773,
+      "paired_cluster_bootstrap_rmse_difference_quantiles": {
+        "p2_5": 3.0481137813091063e-05,
+        "p50": 0.000463910510168003,
+        "p97_5": 0.0011672058716892413
+      },
+      "passes_prespecified_later_period_confirmation_gate": false,
+      "reference_model": "seasonal_quantity",
+      "reference_oof_rmse": 0.28227608962039047,
+      "sign_convention": "candidate_minus_reference_negative_favors_candidate",
+      "spatial_fold_differences": [
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 0.0004823267915650131,
+          "fold": 0,
+          "test_rows": 8889
+        },
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 0.0001103117904364126,
+          "fold": 1,
+          "test_rows": 8857
+        },
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 0.001330524651357523,
+          "fold": 2,
+          "test_rows": 9567
+        },
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 0.00030496240375327277,
+          "fold": 3,
+          "test_rows": 9668
+        },
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 0.0001681718926395126,
+          "fold": 4,
+          "test_rows": 9792
+        }
+      ],
+      "two_sided_bootstrap_tail_probability": 0.033993201359728054
+    },
+    {
+      "all_five_spatial_folds_have_lower_candidate_rmse": false,
+      "candidate_minus_reference_rmse": -0.0017216893157899205,
+      "candidate_model": "quantity_plus_all_distribution",
+      "candidate_oof_rmse": 0.18074533295940856,
+      "cluster_share_with_lower_candidate_mean_squared_loss": 0.41818181818181815,
+      "clusters_with_lower_candidate_mean_squared_loss": 23,
+      "crop": "soy",
+      "holm_adjusted_tail_probability_two_tests": 0.744251149770046,
+      "median_cluster_candidate_minus_reference_mean_squared_loss": 0.0005778647113172852,
+      "occupied_10degree_clusters": 55,
+      "pair_count": 21026,
+      "paired_cluster_bootstrap_rmse_difference_quantiles": {
+        "p2_5": -0.008387577758590148,
+        "p50": -0.0013492002465431002,
+        "p97_5": 0.0031269029443448996
+      },
+      "passes_prespecified_later_period_confirmation_gate": false,
+      "reference_model": "seasonal_quantity",
+      "reference_oof_rmse": 0.18246702227519848,
+      "sign_convention": "candidate_minus_reference_negative_favors_candidate",
+      "spatial_fold_differences": [
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 0.0017637220511306506,
+          "fold": 0,
+          "test_rows": 4168
+        },
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 0.00048018580899555907,
+          "fold": 1,
+          "test_rows": 4170
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.004404648773171427,
+          "fold": 2,
+          "test_rows": 3597
+        },
+        {
+          "candidate_has_lower_rmse": true,
+          "candidate_minus_reference_rmse": -0.006397811332999853,
+          "fold": 3,
+          "test_rows": 4593
+        },
+        {
+          "candidate_has_lower_rmse": false,
+          "candidate_minus_reference_rmse": 0.0026229362477857843,
+          "fold": 4,
+          "test_rows": 4498
+        }
+      ],
+      "two_sided_bootstrap_tail_probability": 0.744251149770046
+    }
+  ],
+  "row_predictions_exported": false,
+  "runtime": {
+    "maximum_worker_rss_bytes": 398442496,
+    "worker_memory_bytes_maximum": 536870912,
+    "worker_rss_bytes": {
+      "mai": 398442496,
+      "soy": 395165696
+    }
+  },
+  "scc_use_authorized": false,
+  "selection_audit_path": "data/provenance/multicrop_rainfed_distribution_geographic_audit_20260925.json",
+  "selection_audit_sha256": "1cb3a568bab0a3235262c8570b5908bb0c6ac3d10e6e2d49a810954b5758f375",
+  "selection_period": "1982-1989",
+  "status": "validated_noncausal_later_period_rainfed_distribution_confirmation_not_scc_eligible",
+  "unavailable_crops": [
+    {
+      "crop": "swh",
+      "expected_source_path": "data/interim/swh_noirr_2012_2016_stage_estimation_panel.parquet",
+      "frozen_candidate_model": "quantity_plus_occurrence_intensity",
+      "status": "unavailable_no_local_2012_2016_rainfed_stage_panel_no_imputation_or_proxy_authorized"
+    }
+  ],
+  "warning": "This confirms or rejects predictive model families after refitting on independent later outcomes. It does not transport early-period coefficients or identify causal, economic, damage, or SCC effects."
+}

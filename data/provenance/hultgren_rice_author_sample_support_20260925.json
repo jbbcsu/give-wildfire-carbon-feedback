@@ -1,0 +1,152 @@
+{
+  "absorbed_effect_singleton_groups": [
+    "uid",
+    "adm0_year",
+    "adm1_fact"
+  ],
+  "claim_gates": {
+    "author_primitive_minmax_and_p01_p99_available": true,
+    "future_response_damage_or_scc_validated": false,
+    "prepared_source_panel_recovered": true,
+    "published_estimation_sample_count_reproduced": true
+  },
+  "complete_case_columns": [
+    "ln_yield",
+    "ln_gdppc",
+    "irrigated_share",
+    "lr_tmax_crop",
+    "lr_prcp_crop",
+    "gdd",
+    "kdd",
+    "tmin",
+    "prcp_poly_1_bin1",
+    "prcp_poly_1_bin2",
+    "prcp_poly_1_bin3",
+    "prcp_poly_2_bin1",
+    "prcp_poly_2_bin2",
+    "prcp_poly_2_bin3"
+  ],
+  "counts": {
+    "adm1_clusters": 581,
+    "complete_case_rows_before_singleton_removal": 166354,
+    "country_year_clusters": 656,
+    "estimation_sample_rows": 166174,
+    "singleton_removal_rounds": [
+      {
+        "rows_removed": 180,
+        "singleton_rows_by_group_before_union": {
+          "adm0_year": 17,
+          "adm1_fact": 2,
+          "uid": 163
+        }
+      },
+      {
+        "rows_removed": 0,
+        "singleton_rows_by_group_before_union": {
+          "adm0_year": 0,
+          "adm1_fact": 0,
+          "uid": 0
+        }
+      }
+    ],
+    "source_rows": 178157
+  },
+  "created_at_utc": "2026-09-26T01:23:27.608534+00:00",
+  "implementation": {
+    "path": "scripts/build_hultgren_rice_author_sample_support.py",
+    "sha256": "81988942048f439131b8bba4e49f1c5244fb818d9349aaecc1bfd86b38f3ef2e"
+  },
+  "method": "drop rows incomplete on outcome, published moderators, or published rice weather primitives; then iteratively remove singleton uid, country-year, or ADM1 absorbed-effect groups until stable",
+  "quantiles": {
+    "gdd": {
+      "maximum": 4716.41943359375,
+      "minimum": 2.35713791847229,
+      "p01": 548.3952062988282,
+      "p99": 2819.247651367187
+    },
+    "irrigated_share": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "p01": 0.0003785528533626348,
+      "p99": 1.0
+    },
+    "kdd": {
+      "maximum": 485.987548828125,
+      "minimum": 0.0,
+      "p01": 0.0,
+      "p99": 206.31437438964844
+    },
+    "ln_gdppc": {
+      "maximum": 10.798665046691895,
+      "minimum": 6.770644187927246,
+      "p01": 6.836268901824951,
+      "p99": 10.130083084106445
+    },
+    "lr_prcp_crop": {
+      "maximum": 518.257080078125,
+      "minimum": 2.0397419929504395,
+      "p01": 25.975311279296875,
+      "p99": 326.3272399902344
+    },
+    "lr_tmax_crop": {
+      "maximum": 38.09247970581055,
+      "minimum": 10.353028297424316,
+      "p01": 20.914047241210938,
+      "p99": 33.354942321777344
+    },
+    "prcp_poly_1_bin1": {
+      "maximum": 3273.65673828125,
+      "minimum": 0.0,
+      "p01": 33.47355373382568,
+      "p99": 899.8861114501944
+    },
+    "prcp_poly_1_bin2": {
+      "maximum": 2649.001953125,
+      "minimum": 0.0,
+      "p01": 29.535928707122803,
+      "p99": 1274.0018444824198
+    },
+    "prcp_poly_1_bin3": {
+      "maximum": 1653.307861328125,
+      "minimum": 0.0,
+      "p01": 0.0,
+      "p99": 477.7418438720701
+    },
+    "prcp_poly_2_bin1": {
+      "maximum": 9635257.0,
+      "minimum": 0.0,
+      "p01": 774.7594055175781,
+      "p99": 434792.9268749978
+    },
+    "prcp_poly_2_bin2": {
+      "maximum": 3312257.25,
+      "minimum": 0.0,
+      "p01": 675.8034228515625,
+      "p99": 596031.7768749996
+    },
+    "prcp_poly_2_bin3": {
+      "maximum": 2230136.5,
+      "minimum": 0.0,
+      "p01": 0.0,
+      "p99": 138976.555624999
+    },
+    "tmin": {
+      "maximum": 278.7989196777344,
+      "minimum": -21.828100204467773,
+      "p01": 53.31909706115723,
+      "p99": 163.80601745605463
+    }
+  },
+  "schema": "hultgren_rice_author_sample_support/v1",
+  "source": {
+    "bytes": 143208457,
+    "git_blob_sha1": "3bf4ad7bea38a217f752328c20851e0175582c4f",
+    "historical_repository_path": "Fig1/Local_Impacts/data/crop_data/rice_gmfd_v1_ready.dta",
+    "path": "data/raw/hultgren_response/historical_git/dae5fe8d0d4a260328e4baa45b547368bd6790b3/rice_gmfd_v1_ready.dta",
+    "raw_source_redistributed": false,
+    "reachable_commit": "dae5fe8d0d4a260328e4baa45b547368bd6790b3",
+    "repository_license_located": false,
+    "sha256": "a118f3ce5dd54f506b75de9fc1dff0b01a9e9034509f6b9b925b937a1beb63b4"
+  },
+  "status": "published_rice_estimation_sample_support_recovered"
+}

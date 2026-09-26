@@ -371,8 +371,18 @@ rather than coerced into the response phases. The local `ri1_noirr` and
 `ri1_firr` calendars and all weather primitives are identical on common
 support, so they provide no irrigation-calendar contrast. Independent daily
 reconstruction agrees within `1.14e-13`. No rice response is evaluated because
-the author estimation-domain bounds and season-specific moderators remain
-unavailable, and annual MIRCA cannot allocate area among rice seasons.
+season-specific moderators and weights remain unavailable, and annual MIRCA
+cannot allocate area among rice seasons. The deleted public regression panel
+has now been recovered from Git history and independently reproduces 166,354
+complete cases, 180 absorbed-effect singleton removals, and the published
+166,174-observation sample. Applying its observed weather domain to the
+India-corrected historical basis places 97.06% of cell-years within the author
+minima/maxima but only 57.68% within the joint 1st--99th percentile envelope;
+these are unweighted diagnostics, not a transportability guarantee. The India
+reporting-year exception changes 648 cell-years in 12 exclusively Indian
+cells, leaves 544,968 other rows unchanged, and exactly matches direct daily
+reconstruction. No response, damage, or SCC is inferred from these resolved
+data-engineering gates.
 
 This study asks: how does the agricultural component of the global SCC change
 when a temperature-indexed agricultural pathway is replaced by a joint,
@@ -1460,6 +1470,19 @@ multiplicity correction, and zero of 30 candidates passes the combined gate.
 Second-season rice is especially concentrated, with only 27 occupied blocks
 and an effective block count of 10.6. Grid-block prediction improvements are
 not interpreted as geographic or economic winners.
+
+We then froze the two distribution comparisons that could be carried into the
+genuinely later 2012--2016 rainfed panels without searching over new model
+families. Neither confirms. Maize timing/concentration raises out-of-fold RMSE
+by 0.000492, is worse in all five spatial folds, and improves only 46.8% of
+10-degree blocks. The soybean full-distribution model lowers pooled RMSE by
+0.001722, but its paired block interval crosses zero, only two of five folds
+improve, and only 41.8% of blocks improve. Spring wheat cannot be tested
+because the corresponding later-period panel is unavailable; it is not
+proxied or imputed. Thus the exploratory distribution signals are not promoted
+to global response functions. Subsequent work retains seasonal quantity as the
+parsimonious reference and tests drought and stage-specific moisture families
+as alternatives, while preserving these null results.
 
 All earlier rainfed-panel response rankings were generated under a superseded,
 endpoint-overlapping split and are excluded from current manuscript results.
