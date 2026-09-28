@@ -901,6 +901,27 @@ amounts sum to seasonal rain within `1e-6` mm, and paired practices receive
 identical county exposure. This family excludes PDSI, SPEI, and scPDSI. It is
 not yet a fitted response, damage, or SCC input.
 
+Before fitting the direct-weather family, we froze five models under common
+linear/quadratic time and mean-temperature controls: temperature/trend only;
+quadratic seasonal rainfall quantity; three stage amounts; quantity plus two
+stage shares (stage 3 omitted); and quantity plus wet days, maximum dry spell,
+and Rx5day. The split, endpoint purge, SVD, finite-value, and 1%-RMSE
+materiality rules match the PDSI diagnostic. PDSI, SPEI, and scPDSI are absent.
+Independent validation reconstructs 112 fold-level gate comparisons from 140
+model-score rows.
+
+No candidate passes all seven folds in any crop--practice stratum. Seasonal
+quantity beats temperature/trend in 2/7 comparisons for irrigated cotton, 2/7
+for non-irrigated cotton, 1/7 for irrigated sorghum, and 3/7 for non-irrigated
+sorghum. Stage shares beat total quantity in 2/7, 4/7, 2/7, and 4/7; extremes
+do so in 3/7, 4/7, 3/7, and 3/7. Non-irrigated cotton stage shares improve the
+terminal RMSE by 0.0248 log-yield units but fail Louisiana, New Mexico, and
+Oklahoma. Non-irrigated sorghum stage shares pass four state folds but worsen
+terminal RMSE by 0.0186. These null promotion decisions are retained. They do
+not invalidate the separate global-maize quantity benchmark, which has a
+different outcome, geography, and estimand, and they do not create a new
+damage or SCC input.
+
 ### Exploratory all-classes-wheat PDSI sensitivity
 
 All-classes wheat is the only additional acquired NASS outcome with paired

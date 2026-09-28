@@ -567,8 +567,12 @@ damage input is released. The direct-weather input is now complete for the same
 8,727 pairs: seasonal total rain, wet days, longest dry spell, Rx5day, three
 stage amounts and shares, precipitation concentration, and temperature/heat
 fields have no missing cells and reconcile exactly. It remains a separately
-modeled family with no PDSI/SPEI/scPDSI co-inclusion; predictive evaluation is
-not yet reported. Barley and oats end in 2008. Rice has
+modeled family with no PDSI/SPEI/scPDSI co-inclusion. In the frozen predictive
+comparison, neither seasonal quantity, stage amounts, stage shares, nor
+wet/dry extremes passes all six state folds plus the terminal test in any
+crop--practice stratum. The strongest within-season result is non-irrigated
+cotton stage shares (4/7 folds including the terminal test), but it fails three
+states and is not promoted. Barley and oats end in 2008. Rice has
 9,725 county survey yield records but zero irrigated or non-irrigated practice
 labels even under a broadened query, so Quick Stats cannot supply the requested
 direct-practice rice comparison. No additional-crop response model has been
