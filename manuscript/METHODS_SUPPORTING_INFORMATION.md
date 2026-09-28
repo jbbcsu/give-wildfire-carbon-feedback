@@ -2144,6 +2144,24 @@ complete-positive-outcome coverage gate fails for both crops; a separately
 frozen common-support estimand and attrition sensitivity, season moderators,
 and unrepaired/repaired result comparison are required before use. The repair
 does not replace the failed source gate.
+
+The subsequent common-support audit is frozen before computing retained-versus-
+excluded feature contrasts. Its candidate estimand requires strictly positive
+observed 1982--1989 yield and an exact same-season MIRCA weight. It defines low
+attrition as at least 95% cell retention, at least 90% retention in every year,
+and absolute standardized differences no larger than 0.25 for yield,
+temperature, precipitation, wet days, maximum dry spell, Rx1day, and Rx5day.
+First rice retains 9,298/9,564 cells and 74,234/76,348 cell-years, but fails
+balance: mean yield is 3.44 versus 4.52 t/ha among excluded rows (standardized
+difference -0.329), and the Rx5day difference is +0.253. Second rice retains
+1,419/1,587 cells and 11,350/12,694 cell-years and is strongly selective.
+Retained versus excluded means are 4.60 versus 1.24 t/ha yield, 25.09 versus
+28.15 C, 449.7 versus 155.6 mm precipitation, 35.4 versus 12.6 wet days, and
+36.2 versus 73.2 maximum dry-spell days. Its seven absolute standardized
+differences range from 0.876 to 1.196. The unique country proxy places 89 of
+168 excluded second-rice cells in Nigeria and 19 in Cambodia; 41 are ambiguous.
+These are support diagnostics rather than national effects. No restricted rice
+response is promoted, and no missing weight is imputed.
 MIRCA's numeric wheat subcrops do not provide a documented spring/winter
 identity, so no timing-based inference is allowed.
 

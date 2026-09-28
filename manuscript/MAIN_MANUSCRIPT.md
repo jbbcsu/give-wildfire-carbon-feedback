@@ -449,6 +449,14 @@ barred from production use. The completed exact outcome crosswalk covers
 positive second-rice cells. No missing weight is imputed, so both strict
 complete-coverage gates fail; a common-support estimand and attrition
 sensitivity must be frozen before any response or heterogeneity calculation.
+That frozen attrition audit also fails. First-rice retention is 97.22%, but
+retained cells have lower mean yield than excluded cells (3.44 versus 4.52
+t/ha; standardized difference -0.329). Second-rice retention is only 89.41%
+and is strongly selective: retained cells average 4.60 versus 1.24 t/ha and
+are cooler, wetter, less drought-exposed, and more exposed to heavy-rain
+events, with absolute standardized differences of 0.876--1.196. We therefore
+do not promote a complete-case rice response or interpret its geography as
+global winners and losers.
 Daily ISIMIP
 climate fields and GGCMI Phase 3 crop calendars supply
 stage-level temperature and precipitation information. Features include
