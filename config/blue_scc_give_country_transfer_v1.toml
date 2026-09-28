@@ -1,0 +1,31 @@
+schema = "blue_scc_give_country_transfer_config_v1"
+role = "country_key_and_coverage_transfer_audit_only_not_damage_or_scc"
+registered_utc_date = "2026-09-28"
+
+[source]
+repository_url = "https://github.com/berbastien/blue-scc"
+repository_commit = "dbc0d8cb21c81f1508abfaf9e5c0f5671ccdd83f"
+repository_license_status = "no_explicit_root_license_file_found_at_audited_commit"
+coefficient_path = "Data/output_modules_input_rice50x/input_rice50x/fish_tcoeff.csv"
+coefficient_sha256 = "50a981d08a2939dc6e83cd537578ceea2eb9f6a4c1647b138b5d95f466814037"
+expected_coefficient_rows = 143
+
+[give]
+crosswalk_config = "config/give_country_fund_region_crosswalk_v1.toml"
+expected_country_rows = 184
+expected_region_count = 16
+
+[expected]
+overlap_countries = 142
+source_only_countries = 1
+give_only_countries = 42
+complete_regions = 6
+
+[claim_gates]
+source_redistribution_authorized = false
+complete_give_country_coverage = false
+missing_country_treatment_identified = false
+country_coefficient_transfer_authorized = false
+welfare_measure_compatible = false
+matched_co2_pulse_available = false
+damage_or_scc_authorized = false

@@ -4,7 +4,7 @@ This is a standalone, future GIVE damage-sector track. It is separate from
 the precipitation-agriculture and wildfire projects and must never import,
 modify, or overwrite their code, data, results, or manuscripts.
 
-## Current status (September 25, 2026)
+## Current status (September 28, 2026)
 
 No local fisheries SCC has been produced. The published Blue-SCC benchmark is
 retained only as an external scale reference: $22.09755/tCO2 under its own
@@ -31,6 +31,14 @@ matched marginal-climate/pulse link, value consumer and producer surplus
 rather than revenue, and include nutrition/mortality only after explicit
 baseline-sector subtraction. Until those gates pass, the fisheries estimate
 remains unavailable rather than fabricated.
+
+The [country-transfer coverage audit](BLUE_SCC_GIVE_COUNTRY_TRANSFER_AUDIT_20260928.md)
+adds a separate fail-closed gate for the published market coefficients. Only
+142 of the frozen 184 GIVE countries match the pinned 143-row source table,
+and only 6 of 16 FUND regions are complete. The source still lacks an explicit
+root license. No missing country is treated as zero, no source coefficient is
+copied, and the published market pathway remains welfare-incompatible with the
+consumer-plus-producer-surplus contract.
 
 ## Proposed scope
 

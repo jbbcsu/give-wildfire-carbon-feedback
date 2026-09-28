@@ -1,0 +1,145 @@
+{
+  "claim_gates": {
+    "complete_give_country_coverage": false,
+    "country_coefficient_transfer_authorized": false,
+    "damage_or_scc_authorized": false,
+    "matched_co2_pulse_available": false,
+    "missing_country_treatment_identified": false,
+    "source_redistribution_authorized": false,
+    "welfare_measure_compatible": false
+  },
+  "config": {
+    "path": "config/blue_scc_give_country_transfer_v1.toml",
+    "sha256": "90738dad060f05c3ec93f09b3f213f4a09223a3184dcdc4efd25c2bcab379435"
+  },
+  "coverage": {
+    "complete_regions": 6,
+    "give_country_count_coverage_fraction": 0.7717391304347826,
+    "give_country_rows": 184,
+    "give_only_countries": 42,
+    "incomplete_regions": 10,
+    "overlap_countries": 142,
+    "region_coverage": {
+      "ANZ": {
+        "complete": true,
+        "give_countries": 2,
+        "source_covered_countries": 2,
+        "uncovered_countries": 0
+      },
+      "CAM": {
+        "complete": false,
+        "give_countries": 9,
+        "source_covered_countries": 8,
+        "uncovered_countries": 1
+      },
+      "CAN": {
+        "complete": true,
+        "give_countries": 1,
+        "source_covered_countries": 1,
+        "uncovered_countries": 0
+      },
+      "CHI": {
+        "complete": false,
+        "give_countries": 4,
+        "source_covered_countries": 1,
+        "uncovered_countries": 3
+      },
+      "EEU": {
+        "complete": false,
+        "give_countries": 13,
+        "source_covered_countries": 7,
+        "uncovered_countries": 6
+      },
+      "FSU": {
+        "complete": false,
+        "give_countries": 15,
+        "source_covered_countries": 9,
+        "uncovered_countries": 6
+      },
+      "JPK": {
+        "complete": true,
+        "give_countries": 2,
+        "source_covered_countries": 2,
+        "uncovered_countries": 0
+      },
+      "LAM": {
+        "complete": false,
+        "give_countries": 12,
+        "source_covered_countries": 10,
+        "uncovered_countries": 2
+      },
+      "MAF": {
+        "complete": true,
+        "give_countries": 5,
+        "source_covered_countries": 5,
+        "uncovered_countries": 0
+      },
+      "MDE": {
+        "complete": false,
+        "give_countries": 15,
+        "source_covered_countries": 13,
+        "uncovered_countries": 2
+      },
+      "SAS": {
+        "complete": false,
+        "give_countries": 7,
+        "source_covered_countries": 4,
+        "uncovered_countries": 3
+      },
+      "SEA": {
+        "complete": false,
+        "give_countries": 13,
+        "source_covered_countries": 12,
+        "uncovered_countries": 1
+      },
+      "SIS": {
+        "complete": true,
+        "give_countries": 21,
+        "source_covered_countries": 21,
+        "uncovered_countries": 0
+      },
+      "SSA": {
+        "complete": false,
+        "give_countries": 44,
+        "source_covered_countries": 29,
+        "uncovered_countries": 15
+      },
+      "USA": {
+        "complete": true,
+        "give_countries": 1,
+        "source_covered_countries": 1,
+        "uncovered_countries": 0
+      },
+      "WEU": {
+        "complete": false,
+        "give_countries": 20,
+        "source_covered_countries": 17,
+        "uncovered_countries": 3
+      }
+    },
+    "source_country_rows": 143,
+    "source_only_countries": 1
+  },
+  "give_crosswalk": {
+    "mapping_version": "give_rennert_2022_v1",
+    "path": "data/provenance/give_country_fund_region_crosswalk_v1.csv",
+    "sha256": "7f14d56b7811560fe2a7b4c75574f49b19c946346deccefb0e3931e055917bad"
+  },
+  "interpretation": {
+    "coefficient_values_or_country_membership_embedded": false,
+    "complete_region_totals_available_under_current_contract": false,
+    "coverage_fraction_is_unweighted_country_count": true,
+    "external_source_files_copied": false,
+    "missing_countries_may_not_be_treated_as_zero": true
+  },
+  "role": "country_key_and_coverage_transfer_audit_only_not_damage_or_scc",
+  "schema": "blue_scc_give_country_transfer_audit_v1",
+  "source": {
+    "coefficient_path": "Data/output_modules_input_rice50x/input_rice50x/fish_tcoeff.csv",
+    "coefficient_sha256": "50a981d08a2939dc6e83cd537578ceea2eb9f6a4c1647b138b5d95f466814037",
+    "repository_commit": "dbc0d8cb21c81f1508abfaf9e5c0f5671ccdd83f",
+    "repository_license_status": "no_explicit_root_license_file_found_at_audited_commit",
+    "repository_url": "https://github.com/berbastien/blue-scc"
+  },
+  "status": "blocked_incomplete_country_coverage_and_unlicensed_source"
+}
