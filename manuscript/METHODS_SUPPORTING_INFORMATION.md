@@ -826,11 +826,24 @@ The independent validator checks all 152 raw SHA-512 digests, reparses every
 raw JSON response, exactly reconstructs all 8,771 pairs and 17,542 long rows,
 checks the panel digest, and scans tracked receipts for the exact locally
 loaded credential value. The credential is absent, and raw API responses and
-the derived panel remain ignored. These regional outcome panels do not yet
-contain crop-calendar, daily-weather, PDSI/SPEI, or distributional-rainfall
-features. No model is fit, and all causal, national, damage, and SCC gates
-remain closed. The current NASS calendar input covers only corn, soybean, and
-wheat.
+the derived panel remain ignored.
+
+The pinned NASS 2010 usual-date report supplies 17 all-cotton state definitions
+and 14 sorghum-for-grain definitions. Expansion over 1981--2018 gives 2,356
+rows across the primary most-active-midpoint window and broad begin-to-end
+sensitivity. Every one of the 8,771 paired crop--county--year keys receives
+both roles. The validator checks hashes, source-row counts, unique keys,
+chronology, duration, fixed month/day invariance, three source anchors, and
+exact outcome coverage. These are state-level fixed dates, identical across
+practices, not realized county-year phenology. The cotton source scope is all
+cotton whereas the outcome is upland cotton. Texas sorghum's aggregated
+planting tail overlaps harvest onset, so the implementation validates each
+constructed window rather than imposing a false sequence across all eight
+statewide bounds.
+
+These regional outcome panels do not yet contain daily-weather, PDSI/SPEI, or
+distributional-rainfall features. No model is fit, and all causal, national,
+damage, and SCC gates remain closed.
 
 ### Exploratory all-classes-wheat PDSI sensitivity
 

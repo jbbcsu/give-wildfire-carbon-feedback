@@ -1,0 +1,51 @@
+{
+  "calendar": {
+    "path": "data/interim/us_county/nass_sorghum_cotton_usual_date_calendars_1981_2018.csv",
+    "rows": 2356,
+    "sha256": "04202d4573eb590fd95f23c71bc4dffadbf718196b31af9cb658f185027fde4d"
+  },
+  "definition_rows_by_crop": {
+    "cotton_upland": 17,
+    "sorghum_grain": 14
+  },
+  "definitions": {
+    "path": "config/us_county_nass_sorghum_cotton_usual_date_definitions_2010.csv",
+    "rows": 31,
+    "sha256": "e992f00af117e8767d986956d7620a8ca25c3b9001667a7785814427cda8662a"
+  },
+  "implementation": {
+    "path": "us_county_validation/scripts/build_nass_sorghum_cotton_usual_date_calendars.py",
+    "sha256": "1e24a2babb5d16d8894c336090855865fbd525937309133993f26b94aac566fb"
+  },
+  "outcome_states_by_crop": {
+    "cotton_upland": [
+      "AR",
+      "LA",
+      "MS",
+      "NM",
+      "OK",
+      "TX"
+    ],
+    "sorghum_grain": [
+      "CO",
+      "KS",
+      "NE",
+      "NM",
+      "OK",
+      "TX"
+    ]
+  },
+  "paired_outcome_keys": 8771,
+  "paired_outcome_keys_with_both_roles": 8771,
+  "realized_phenology": false,
+  "response_estimation_authorized": false,
+  "same_calendar_for_both_practices": true,
+  "scc_authorized": false,
+  "source": {
+    "bytes": 2051038,
+    "path": "data/raw/us_county/crop_calendar/fcdate10.pdf",
+    "sha512": "32038684035bc4e7e4191ad58ff45657db93da0da6c0a3da4d4dfbe3ad34aa805cd9aee7e500efa8d045580b9a847d9dbff7921c1a62f78122536bd152731e41"
+  },
+  "status": "calendar_source_and_outcome_state_support_pass",
+  "weather_joined": false
+}

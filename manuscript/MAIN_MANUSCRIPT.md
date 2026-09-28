@@ -549,8 +549,12 @@ upland-cotton pairs (193 counties) over 1981--2018. Each crop spans only six
 states, so neither panel is nationally representative. Sorghum support also
 falls to 3--29 pairs per year after 2007; cotton retains 17--66. These are
 usable historical outcomes, not the earlier marginal-count upper bounds of
-6,439 and 4,524, but crop calendars, daily weather, and moisture-family
-comparisons have not yet been joined. Barley and oats end in 2008. Rice has
+6,439 and 4,524. Source-pinned 2010 NASS usual-date definitions now provide
+both a primary most-active window and a broad begin-to-end sensitivity for all
+8,771 paired outcome keys. These are state-level fixed dates, identical across
+practices; the cotton source covers all cotton while the outcome is upland
+cotton. Daily weather and moisture-family comparisons have not yet been
+joined. Barley and oats end in 2008. Rice has
 9,725 county survey yield records but zero irrigated or non-irrigated practice
 labels even under a broadened query, so Quick Stats cannot supply the requested
 direct-practice rice comparison. No additional-crop response model has been
