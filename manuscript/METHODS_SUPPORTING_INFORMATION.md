@@ -2131,10 +2131,19 @@ The original excess equals 0.0632% of irrigated and 0.00828% of rainfed global
 area. Of annual area, 0.210% irrigated and 0.0438% rainfed receives a correction
 above 5%; none of the irrigated area and 0.00838% of rainfed area receives a
 correction above 10%. The 30,903-cell Rice1/Rice2 candidate remains labeled
-`production_eligible=false` and `scc_authorized=false`. It can enter only a
-future sensitivity after the outcome-calendar crosswalk, season moderators,
-and unrepaired/repaired result comparison pass; it does not replace the failed
-source gate.
+`production_eligible=false` and `scc_authorized=false`. The exact 0.5-degree
+outcome crosswalk matches 9,298 of 9,564 positive first-rice cells (97.22%) and
+1,419 of 1,587 positive second-rice cells (89.41%). The unmatched counts are
+266 and 168; they are not nearest-neighbor matched, averaged, or imputed.
+Candidate area on any locked calendar support is 99.951% for Rice1 and 99.724%
+for Rice2, whereas 68.51% and 57.48% lies on positive-outcome support. Across
+31,005 cells with both calendars, only one has identical planting and maturity
+days and the median circular planting-date separation is 99 days. These are
+descriptive checks, not a universal calendar-year ordering. The strict
+complete-positive-outcome coverage gate fails for both crops; a separately
+frozen common-support estimand and attrition sensitivity, season moderators,
+and unrepaired/repaired result comparison are required before use. The repair
+does not replace the failed source gate.
 MIRCA's numeric wheat subcrops do not provide a documented spring/winter
 identity, so no timing-based inference is allowed.
 

@@ -444,8 +444,12 @@ year-2000 MIRCA rice sensitivity now proportionally reconciles Rice1--Rice3 to
 the annual broad-rice total within each cell and irrigation system. The global
 source discrepancies are small (0.0632% irrigated and 0.00828% rainfed), no
 annual-positive cell lacks seasonal support, and the repair is explicitly
-barred from production use pending the Rice1/Rice2 outcome crosswalk and a
-result sensitivity. Daily ISIMIP
+barred from production use. The completed exact outcome crosswalk covers
+9,298/9,564 (97.22%) positive first-rice cells but only 1,419/1,587 (89.41%)
+positive second-rice cells. No missing weight is imputed, so both strict
+complete-coverage gates fail; a common-support estimand and attrition
+sensitivity must be frozen before any response or heterogeneity calculation.
+Daily ISIMIP
 climate fields and GGCMI Phase 3 crop calendars supply
 stage-level temperature and precipitation information. Features include
 stage-weighted temperature, seasonal precipitation or water balance,

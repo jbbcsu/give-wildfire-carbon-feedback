@@ -1,0 +1,84 @@
+{
+  "claim_gates": {
+    "candidate_sensitivity_crosswalk_described": true,
+    "complete_positive_outcome_coverage": false,
+    "production_weights_authorized": false,
+    "response_damage_or_scc_authorized": false
+  },
+  "created_at_utc": "2026-09-28T17:06:07.329682+00:00",
+  "crop_summaries": [
+    {
+      "calendar_cells": 67420,
+      "calendar_cells_with_weight": 21914,
+      "calendar_match_fraction": 0.32503708098487094,
+      "complete_positive_outcome_coverage_gate": false,
+      "crop": "ri1",
+      "positive_observed_cells": 9564,
+      "positive_observed_cells_with_weight": 9298,
+      "positive_observed_cells_without_weight": 266,
+      "positive_observed_match_fraction": 0.9721873693015475,
+      "weight_area_fraction_on_calendar_support": 0.9995074998069718,
+      "weight_area_fraction_on_positive_observed_support": 0.6851317215483881,
+      "weight_cells": 22067,
+      "weight_cells_without_calendar": 153
+    },
+    {
+      "calendar_cells": 31005,
+      "calendar_cells_with_weight": 8412,
+      "calendar_match_fraction": 0.2713110788582487,
+      "complete_positive_outcome_coverage_gate": false,
+      "crop": "ri2",
+      "positive_observed_cells": 1587,
+      "positive_observed_cells_with_weight": 1419,
+      "positive_observed_cells_without_weight": 168,
+      "positive_observed_match_fraction": 0.8941398865784499,
+      "weight_area_fraction_on_calendar_support": 0.9972384886797612,
+      "weight_area_fraction_on_positive_observed_support": 0.5747545091297394,
+      "weight_cells": 8836,
+      "weight_cells_without_calendar": 424
+    }
+  ],
+  "implementation": {
+    "path": "scripts/audit_mirca_rice_outcome_crosswalk.py",
+    "sha256": "6128f901070d75a03e42868666eebd170ff981a6f109bf61b958c29cacf8a267"
+  },
+  "output": {
+    "bytes": 1104933,
+    "path": "data/interim/mirca_os_v2/rice_season_outcome_crosswalk_audit_2000.parquet",
+    "rows": 99002,
+    "sha256": "5c47ad2bf7bd70d69ccdf93d20a82c9f81488c558da5fc06c3a7372a6ac54541"
+  },
+  "protocol_disclosure": "formalized after preliminary support counts; descriptive coverage audit, not preregistered hypothesis test",
+  "schema": "mirca_rice_outcome_crosswalk_audit/v1",
+  "sources": {
+    "ri1_panel": {
+      "path": "data/interim/ri1_noirr_1982_1989_stage_estimation_panel.parquet",
+      "sha256": "2461687e38f4436cc241138cb8251db01a969353484196df904bc930b493363d"
+    },
+    "ri2_panel": {
+      "path": "data/interim/ri2_noirr_1982_1989_stage_estimation_panel.parquet",
+      "sha256": "ff4d2367574807ac5de122116170f629b07be8d7e65b4070d6dc808096f85e33"
+    },
+    "weights": {
+      "path": "data/interim/mirca_os_v2/rice_season_proportional_reconciliation_candidate_2000.parquet",
+      "sha256": "8079785c4196e590d35ec802c8715ad4779a42497bd825495e6cc155b8420528"
+    },
+    "weights_receipt": {
+      "path": "data/provenance/mirca_rice_proportional_reconciliation_sensitivity_20260926.json",
+      "sha256": "765284b98ad0b507a4e8d94d56f1da622e26b90040d6420a24b4b70e8db313c9"
+    }
+  },
+  "status": "audited_exact_crosswalk_incomplete_positive_outcome_coverage",
+  "timing_separation": {
+    "cells_with_both_calendars": 31005,
+    "circular_planting_day_separation_quantiles": {
+      "maximum": 182.0,
+      "minimum": 0.0,
+      "p01": 0.0,
+      "p50": 99.0,
+      "p99": 180.0
+    },
+    "identical_plant_and_maturity_calendars": 1,
+    "interpretation": "descriptive only; numeric rice seasons do not impose a universal calendar-year ordering"
+  }
+}
