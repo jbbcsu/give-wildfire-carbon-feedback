@@ -469,6 +469,15 @@ including all internal block boundaries, reproduce the output within
 weather. This opens only the Rice2 weather-engineering gate. A complete
 season-separated production crosswalk is not yet available, and no rice
 response, damage, or SCC is estimated from these audits.
+The next application-domain audit remains fail-closed at zero authorized
+response rows. The recovered estimation sample contains 56 second-season
+UIDs, all in Sri Lanka or Vietnam, but the current terminal-region name
+crosswalk links none of them. Only four of 6,197 strict Rice2 cells have both
+one full-cell author region and one exact estimation UID, and all four link to
+annual `total` rather than `second` series. Forty-three of the 56 second-season
+UIDs do match exactly one higher-level hierarchy node, providing a bounded
+descendant-expansion route; this is not yet a cell-to-UID crosswalk and does
+not authorize coefficient evaluation.
 That frozen attrition audit also fails. First-rice retention is 97.22%, but
 retained cells have lower mean yield than excluded cells (3.44 versus 4.52
 t/ha; standardized difference -0.329). Second-rice retention is only 89.41%

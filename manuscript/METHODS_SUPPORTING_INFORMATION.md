@@ -2294,7 +2294,8 @@ seasons at every block boundary, gives a maximum absolute error of
 outputs coincide because the resident rainfed and irrigated Rice2 calendar
 arrays coincide, not because regimes were pooled. Builder peaks are 257 and
 261 MB and the independent validator peaks at 485 MB, below the frozen 512 MiB
-cap. The basis is unweighted and opens no response, damage, or SCC gate. We prohibit
+cap. The basis is unweighted and opens no response, damage, or SCC gate. We
+prohibit
 nearest-neighbor matching, opposite-irrigation substitution, Rice3 transfer,
 country-average or unmatched-cell filling, copying a Rice1 calendar to Rice2,
 and matched-support renormalization. The exact Rice1 join is retained only as
@@ -2313,6 +2314,28 @@ The one-year pilot and its independent validation are recorded in
 The superseding historical basis and validation are recorded in
 `HULTGREN_RICE2_HISTORICAL_MULTIBLOCK_RESULTS_20260928.md` and
 `data/provenance/hultgren_rice2_historical_multiblock_validation_20260928.json`.
+
+The response-application audit reconstructs the 166,174-observation author
+estimation sample and 6,274 UIDs. Each UID has constant, finite values of the
+four required moderators: log GDP per capita, irrigation share, long-run crop
+temperature, and long-run crop precipitation. These values cannot be attached
+to the Rice2 grid without an unambiguous cell-to-UID map; substituting country
+income, binary irrigation status, or a new GSWP climatology is prohibited.
+The author sample contains 56 `second`-season UIDs (25 Sri Lanka and 31
+Vietnam), whereas the exact terminal-region name crosswalk links 336 UIDs,
+all `total` series. Of 6,197 strict Rice2 cells, 6,197 intersect some author
+region, 669 lie wholly within one region, 42 reach one distinct exact UID, and
+only four combine one full-cell region with one exact UID; all four are
+`total`, leaving zero authorized second-season application cells. Exact ADM1
+name or alternative-name matching does identify one hierarchy parent for 43
+second-season UIDs (18 Sri Lanka and 25 Vietnam), with 10 unmatched and three
+ambiguous. The next gate expands only those 43 parents to pinned terminal
+descendants, then requires one UID and exact planting-month, harvest-month, and
+season-length concordance. Partial, ambiguous, unmatched, and discordant cells
+remain excluded. This protocol, including the zero-row current gate, is
+recorded in
+`HULTGREN_RICE2_RESPONSE_APPLICATION_DOMAIN_RESULTS_20260928.md` and
+`data/provenance/hultgren_rice2_response_application_domain_validation_20260928.json`.
 
 The exact 0.5-degree outcome crosswalk matches 9,298 of 9,564 positive
 first-rice cells (97.22%) and

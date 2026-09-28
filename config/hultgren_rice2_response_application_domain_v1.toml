@@ -1,0 +1,52 @@
+schema_version = 1
+contract_id = "hultgren_rice2_response_application_domain_v1"
+memory_cap_bytes = 536870912
+
+[sources.author_panel]
+path = "data/raw/hultgren_response/historical_git/dae5fe8d0d4a260328e4baa45b547368bd6790b3/rice_gmfd_v1_ready.dta"
+sha256 = "a118f3ce5dd54f506b75de9fc1dff0b01a9e9034509f6b9b925b937a1beb63b4"
+
+[sources.author_sample_receipt]
+path = "data/provenance/hultgren_rice_author_sample_support_20260925.json"
+sha256 = "45462b20acaaa3daf10958bd129c3b120cd54f4870ef3f7ee15371d78907f326"
+
+[sources.response_contract]
+path = "config/hultgren_rice_response_source_v1.toml"
+sha256 = "a828e160904253b69d8d8e25fdb14de81e7b8961cd39c968e2d8fbd988d05d74"
+
+[sources.author_hierarchy]
+path = "data/raw/hultgren_response/gitlab_main_20250702/Table1/data/shapes/hierarchy.csv"
+sha256 = "1598e28b8f23173668914740ac2b68c427c067258a4e04d3f79d9b74dffbd15d"
+
+[sources.author_region_points]
+path = "data/interim/hultgren_impact_region_global_20260923/impact_region_points.csv.gz"
+sha256 = "27ab6f6b8755053b812a3e2a2817b16e9cdf2c60973798c0968504286955dceb"
+
+[sources.rice2_basis]
+path = "data/interim/hultgren_rice2_historical_multiblock_20260928/ri2_noirr_1982_2019.parquet"
+sha256 = "b2d46d4e745ef7e000240c2c50ef2a7413d8a88a440df98d57f5f128ba21eb2f"
+
+[sources.rice2_validation]
+path = "data/provenance/hultgren_rice2_historical_multiblock_validation_20260928.json"
+sha256 = "83b99a658b6e855887260e9dfcbfd56e2e7f4469ef4eb7fe2a39968786667369"
+
+[sources.crop_specification]
+path = "data/raw/hultgren_response/3ccdffcd4e4ff6e55566ce76e2aac130ee86349a/set_crop_variables.do"
+sha256 = "2e898575c49ee52e74947dc40a5571400c051ae451e8b78a393319f582ef38e8"
+
+[sources.season_aggregation]
+path = "data/raw/hultgren_response/3ccdffcd4e4ff6e55566ce76e2aac130ee86349a/collapse_clim.do"
+sha256 = "8a0fdfdf7e55212e5ce7c958c9b68cb4b2bb23c11c6949af9ff3c188e90b47e6"
+
+[sources.moderator_transform]
+path = "data/raw/hultgren_response/3ccdffcd4e4ff6e55566ce76e2aac130ee86349a/generate_covariates_splines.do"
+sha256 = "ef456fb0b6b1ea170253f1a501c9f3565b9000f0b2f53bd68ef455581b41763a"
+
+[claim_gates]
+application_domain_audit_authorized = true
+response_evaluation_authorized = false
+mirca_weight_attachment_authorized = false
+yield_effects_authorized = false
+damages_authorized = false
+scc_authorized = false
+give_integration_authorized = false

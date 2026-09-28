@@ -1,0 +1,534 @@
+{
+  "author_estimation_sample": {
+    "complete_case_rows": 166354,
+    "countries": 28,
+    "estimation_rows": 166174,
+    "moderators_constant_within_uid": true,
+    "season_rows": {
+      "first": 1560,
+      "second": 1189,
+      "third": 791,
+      "total": 162634
+    },
+    "season_uids": {
+      "first": 77,
+      "second": 56,
+      "third": 52,
+      "total": 6089
+    },
+    "singleton_iterations": [
+      180,
+      0
+    ],
+    "source_rows": 178157,
+    "uids": 6274,
+    "year_maximum": 2010,
+    "year_minimum": 1950
+  },
+  "claim_gates": {
+    "application_domain_inventory_validated": true,
+    "damages_authorized": false,
+    "give_integration_authorized": false,
+    "mirca_weight_attachment_authorized": false,
+    "published_response_evaluation_authorized": false,
+    "scc_authorized": false,
+    "source_faithful_rice2_uid_mapping_validated": false,
+    "yield_effects_authorized": false
+  },
+  "contract": {
+    "path": "config/hultgren_rice2_response_application_domain_v1.toml",
+    "sha256": "f9164d4f8ea8743c7f6f05d6e200aa3008de396871ec2ab756a883a5c1c506ca"
+  },
+  "created_at_utc": "2026-09-28T23:35:04.612716+00:00",
+  "exact_name_crosswalk": {
+    "by_season": {
+      "first": {
+        "ambiguous_uids": 0,
+        "uids": 77,
+        "unique_region_uids": 0,
+        "unmatched_uids": 77
+      },
+      "second": {
+        "ambiguous_uids": 0,
+        "uids": 56,
+        "unique_region_uids": 0,
+        "unmatched_uids": 56
+      },
+      "third": {
+        "ambiguous_uids": 0,
+        "uids": 52,
+        "unique_region_uids": 0,
+        "unmatched_uids": 52
+      },
+      "total": {
+        "ambiguous_uids": 2,
+        "uids": 6089,
+        "unique_region_uids": 336,
+        "unmatched_uids": 5751
+      }
+    },
+    "candidate_count_distribution": {
+      "0": 5936,
+      "1": 336,
+      "2": 2
+    },
+    "second_season_any_hierarchy_node_diagnostic": {
+      "by_country": {
+        "LKA": {
+          "0": 5,
+          "1": 18,
+          "2": 2
+        },
+        "VNM": {
+          "0": 5,
+          "1": 25,
+          "2": 1
+        }
+      },
+      "candidate_count_distribution": {
+        "0": 10,
+        "1": 43,
+        "2": 3
+      },
+      "interpretation": "Exact author ADM1 name/alternative match to any hierarchy node; descendant-terminal expansion and calendar concordance have not been performed."
+    },
+    "terminal_regions": 24378,
+    "unique_region_uids": 336
+  },
+  "fail_closed_protocol": {
+    "authorized_application_rows": 0,
+    "reason": "No pinned author crosswalk maps GGCMI Rice2 season cells to the prepared panel's season-specific UIDs; exact label/calendar concordance is diagnostic, not proof of source identity.",
+    "required_before_response_evaluation": [
+      "author-supplied or source-reconstructed grid-to-UID membership for the prepared rice panel",
+      "authoritative mapping of GGCMI ri2 season identity to the panel's total/first/second/third reporting series",
+      "verbatim attachment of all four author moderators from one unambiguous estimation-sample UID",
+      "preserve pooled coefficients and evaluate weather contrasts only; do not reconstruct fixed-effect levels or refit",
+      "report author-domain bounds separately; never trim, winsorize, or impute without a new protocol"
+    ]
+  },
+  "implementation": {
+    "path": "scripts/audit_hultgren_rice2_response_application_domain.py",
+    "sha256": "99559c3ae5dabe09052b64e518118a16db2397f52dc466d3be629230641c2512"
+  },
+  "moderator_inventory": {
+    "fixed_effects": {
+      "authorized_for_transported_level_prediction_or_refit": false,
+      "needed_for_weather_contrast_at_fixed_moderators": false,
+      "published_structure": "UID FE; ADM1-specific linear and quadratic time trends; country-year FE; two-way clustering by ADM1 and country-year"
+    },
+    "irrigated_share": {
+      "author_value_available_by_exact_uid": true,
+      "grid_mapping_complete": false,
+      "substitute_authorized": false
+    },
+    "ln_gdppc": {
+      "author_value_available_by_exact_uid": true,
+      "grid_mapping_complete": false,
+      "substitute_authorized": false
+    },
+    "lr_prcp_crop": {
+      "author_value_available_by_exact_uid": true,
+      "grid_mapping_complete": false,
+      "substitute_authorized": false,
+      "weather_specific_caps": {
+        "gdd": 200,
+        "kdd": 300,
+        "prcp": 250,
+        "tmin": 175
+      }
+    },
+    "lr_tmax_crop": {
+      "author_value_available_by_exact_uid": true,
+      "grid_mapping_complete": false,
+      "substitute_authorized": false
+    },
+    "season": {
+      "author_labels": {
+        "first": 77,
+        "second": 56,
+        "third": 52,
+        "total": 6089
+      },
+      "ggcmi_ri2_to_author_second_crosswalk_available": false,
+      "label_equality_claimed": false
+    }
+  },
+  "resources": {
+    "memory_cap_bytes": 536870912,
+    "memory_gate_passed": true,
+    "peak_rss_bytes": 506855424
+  },
+  "rice2_spatial_coverage": {
+    "cell_counts": {
+      "any_author_region_intersection": 6197,
+      "any_exact_name_linked_uid": 70,
+      "one_distinct_exact_name_linked_uid": 42,
+      "second_label_after_strict_geography": 0,
+      "second_label_and_exact_calendar_after_strict_geography": 0,
+      "single_full_author_region": 669,
+      "single_full_region_one_exact_uid": 4,
+      "total_label_after_strict_geography": 4
+    },
+    "cell_fractions": {
+      "any_author_region_intersection": 1.0,
+      "any_exact_name_linked_uid": 0.011295788284653864,
+      "one_distinct_exact_name_linked_uid": 0.006777472970792319,
+      "second_label_after_strict_geography": 0.0,
+      "second_label_and_exact_calendar_after_strict_geography": 0.0,
+      "single_full_author_region": 0.10795546232047765,
+      "single_full_region_one_exact_uid": 0.0006454736162659351,
+      "total_label_after_strict_geography": 0.0006454736162659351
+    },
+    "cell_year_counts_1982_2019": {
+      "any_author_region_intersection": 235486,
+      "any_exact_name_linked_uid": 2660,
+      "one_distinct_exact_name_linked_uid": 1596,
+      "second_label_after_strict_geography": 0,
+      "second_label_and_exact_calendar_after_strict_geography": 0,
+      "single_full_author_region": 25422,
+      "single_full_region_one_exact_uid": 152,
+      "total_label_after_strict_geography": 152
+    },
+    "distinct_exact_uid_candidates_reached": 20,
+    "examples": [
+      {
+        "candidate_seasons": [
+          "total"
+        ],
+        "exact_uid_candidates": [
+          7835
+        ],
+        "harvest_month": 8,
+        "intersected_regions": 2,
+        "native_lat_index": 111,
+        "native_lon_index": 129,
+        "plant_month": 1,
+        "season_months": 8,
+        "single_full_region": false
+      },
+      {
+        "candidate_seasons": [
+          "total"
+        ],
+        "exact_uid_candidates": [
+          7835
+        ],
+        "harvest_month": 8,
+        "intersected_regions": 2,
+        "native_lat_index": 111,
+        "native_lon_index": 130,
+        "plant_month": 1,
+        "season_months": 8,
+        "single_full_region": false
+      },
+      {
+        "candidate_seasons": [
+          "total"
+        ],
+        "exact_uid_candidates": [
+          7835
+        ],
+        "harvest_month": 8,
+        "intersected_regions": 4,
+        "native_lat_index": 111,
+        "native_lon_index": 131,
+        "plant_month": 1,
+        "season_months": 8,
+        "single_full_region": false
+      },
+      {
+        "candidate_seasons": [
+          "total"
+        ],
+        "exact_uid_candidates": [
+          7835
+        ],
+        "harvest_month": 8,
+        "intersected_regions": 1,
+        "native_lat_index": 112,
+        "native_lon_index": 126,
+        "plant_month": 1,
+        "season_months": 8,
+        "single_full_region": true
+      },
+      {
+        "candidate_seasons": [
+          "total"
+        ],
+        "exact_uid_candidates": [
+          7835
+        ],
+        "harvest_month": 8,
+        "intersected_regions": 1,
+        "native_lat_index": 112,
+        "native_lon_index": 127,
+        "plant_month": 1,
+        "season_months": 8,
+        "single_full_region": true
+      },
+      {
+        "candidate_seasons": [
+          "total"
+        ],
+        "exact_uid_candidates": [
+          7835
+        ],
+        "harvest_month": 8,
+        "intersected_regions": 1,
+        "native_lat_index": 112,
+        "native_lon_index": 128,
+        "plant_month": 1,
+        "season_months": 8,
+        "single_full_region": true
+      },
+      {
+        "candidate_seasons": [
+          "total"
+        ],
+        "exact_uid_candidates": [
+          7835
+        ],
+        "harvest_month": 8,
+        "intersected_regions": 1,
+        "native_lat_index": 112,
+        "native_lon_index": 129,
+        "plant_month": 1,
+        "season_months": 8,
+        "single_full_region": true
+      },
+      {
+        "candidate_seasons": [
+          "total"
+        ],
+        "exact_uid_candidates": [
+          7835
+        ],
+        "harvest_month": 8,
+        "intersected_regions": 2,
+        "native_lat_index": 112,
+        "native_lon_index": 130,
+        "plant_month": 1,
+        "season_months": 8,
+        "single_full_region": false
+      },
+      {
+        "candidate_seasons": [
+          "total"
+        ],
+        "exact_uid_candidates": [
+          7835
+        ],
+        "harvest_month": 8,
+        "intersected_regions": 2,
+        "native_lat_index": 113,
+        "native_lon_index": 125,
+        "plant_month": 1,
+        "season_months": 8,
+        "single_full_region": false
+      },
+      {
+        "candidate_seasons": [
+          "total"
+        ],
+        "exact_uid_candidates": [
+          7835
+        ],
+        "harvest_month": 8,
+        "intersected_regions": 2,
+        "native_lat_index": 113,
+        "native_lon_index": 126,
+        "plant_month": 1,
+        "season_months": 8,
+        "single_full_region": false
+      },
+      {
+        "candidate_seasons": [
+          "total"
+        ],
+        "exact_uid_candidates": [
+          7828,
+          7835
+        ],
+        "harvest_month": 8,
+        "intersected_regions": 3,
+        "native_lat_index": 113,
+        "native_lon_index": 127,
+        "plant_month": 1,
+        "season_months": 8,
+        "single_full_region": false
+      },
+      {
+        "candidate_seasons": [
+          "total"
+        ],
+        "exact_uid_candidates": [
+          7828,
+          7835
+        ],
+        "harvest_month": 8,
+        "intersected_regions": 2,
+        "native_lat_index": 113,
+        "native_lon_index": 128,
+        "plant_month": 1,
+        "season_months": 8,
+        "single_full_region": false
+      },
+      {
+        "candidate_seasons": [
+          "total"
+        ],
+        "exact_uid_candidates": [
+          7828,
+          7835
+        ],
+        "harvest_month": 8,
+        "intersected_regions": 2,
+        "native_lat_index": 113,
+        "native_lon_index": 129,
+        "plant_month": 1,
+        "season_months": 8,
+        "single_full_region": false
+      },
+      {
+        "candidate_seasons": [
+          "total"
+        ],
+        "exact_uid_candidates": [
+          7828,
+          7835
+        ],
+        "harvest_month": 8,
+        "intersected_regions": 4,
+        "native_lat_index": 113,
+        "native_lon_index": 130,
+        "plant_month": 1,
+        "season_months": 8,
+        "single_full_region": false
+      },
+      {
+        "candidate_seasons": [
+          "total"
+        ],
+        "exact_uid_candidates": [
+          7828
+        ],
+        "harvest_month": 8,
+        "intersected_regions": 3,
+        "native_lat_index": 114,
+        "native_lon_index": 127,
+        "plant_month": 1,
+        "season_months": 8,
+        "single_full_region": false
+      },
+      {
+        "candidate_seasons": [
+          "total"
+        ],
+        "exact_uid_candidates": [
+          7828
+        ],
+        "harvest_month": 8,
+        "intersected_regions": 3,
+        "native_lat_index": 114,
+        "native_lon_index": 128,
+        "plant_month": 1,
+        "season_months": 8,
+        "single_full_region": false
+      },
+      {
+        "candidate_seasons": [
+          "total"
+        ],
+        "exact_uid_candidates": [
+          7828
+        ],
+        "harvest_month": 8,
+        "intersected_regions": 2,
+        "native_lat_index": 114,
+        "native_lon_index": 129,
+        "plant_month": 1,
+        "season_months": 8,
+        "single_full_region": false
+      },
+      {
+        "candidate_seasons": [
+          "total"
+        ],
+        "exact_uid_candidates": [
+          7828
+        ],
+        "harvest_month": 8,
+        "intersected_regions": 3,
+        "native_lat_index": 114,
+        "native_lon_index": 130,
+        "plant_month": 1,
+        "season_months": 8,
+        "single_full_region": false
+      },
+      {
+        "candidate_seasons": [
+          "total"
+        ],
+        "exact_uid_candidates": [
+          6064
+        ],
+        "harvest_month": 8,
+        "intersected_regions": 4,
+        "native_lat_index": 115,
+        "native_lon_index": 576,
+        "plant_month": 2,
+        "season_months": 7,
+        "single_full_region": false
+      },
+      {
+        "candidate_seasons": [
+          "total"
+        ],
+        "exact_uid_candidates": [
+          6064,
+          6069
+        ],
+        "harvest_month": 8,
+        "intersected_regions": 4,
+        "native_lat_index": 116,
+        "native_lon_index": 576,
+        "plant_month": 2,
+        "season_months": 7,
+        "single_full_region": false
+      }
+    ],
+    "geometry": {
+      "invalid_regions_repaired": 0,
+      "invalid_rings_repaired": 0,
+      "regions": 24376,
+      "robinson_polygon_area_over_stored_area_quantiles": {
+        "0.0": 0.9999994560826305,
+        "0.01": 0.9999999994340162,
+        "0.5": 1.0000000000000013,
+        "0.99": 1.0000000005023644,
+        "1.0": 1.0000013173608944
+      }
+    },
+    "strict_support_cells": 6197
+  },
+  "schema": "hultgren_rice2_response_application_domain_audit/v1",
+  "status": "audited_fail_closed_rice2_response_application_domain_not_response_evaluation",
+  "temporal_scope": {
+    "author_panel_years": [
+      1950,
+      2010
+    ],
+    "outside_author_panel_year_count": 9,
+    "overlap_year_count": 29,
+    "overlap_years": [
+      1982,
+      2010
+    ],
+    "rice2_weather_years": [
+      1982,
+      2019
+    ],
+    "rows_per_branch_in_overlap": 179713,
+    "rows_per_branch_outside_author_panel_years": 55773
+  }
+}

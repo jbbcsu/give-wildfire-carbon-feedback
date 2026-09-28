@@ -1,0 +1,50 @@
+{
+  "audit": {
+    "path": "data/provenance/hultgren_rice2_response_application_domain_audit_20260928.json",
+    "sha256": "9c4f5118ff86ae59e83758e5210393bf9907d752e906b1c7bf1ef8d2eda8582d"
+  },
+  "checks": {
+    "authorized_application_rows": 0,
+    "estimation_rows": 166174,
+    "estimation_uids": 6274,
+    "exact_link_candidate_counts": {
+      "0": 5936,
+      "1": 336,
+      "2": 2
+    },
+    "second_season_hierarchy_node_candidate_counts": {
+      "0": 10,
+      "1": 43,
+      "2": 3
+    },
+    "spatial_counts": {
+      "any_author_region_intersection": 6197,
+      "any_exact_name_linked_uid": 70,
+      "one_distinct_exact_name_linked_uid": 42,
+      "second_label_after_strict_geography": 0,
+      "single_full_author_region": 669,
+      "single_full_region_one_exact_uid": 4,
+      "total_label_after_strict_geography": 4
+    }
+  },
+  "claim_gates": {
+    "application_domain_audit_validated": true,
+    "response_or_downstream_calculation_authorized": false
+  },
+  "config": {
+    "path": "config/hultgren_rice2_response_application_domain_v1.toml",
+    "sha256": "f9164d4f8ea8743c7f6f05d6e200aa3008de396871ec2ab756a883a5c1c506ca"
+  },
+  "created_at_utc": "2026-09-28T23:35:18.059322+00:00",
+  "implementation": {
+    "path": "scripts/validate_hultgren_rice2_response_application_domain.py",
+    "sha256": "b1a26c8e57e18bd8dd59d03d4974c2b9e34fc33200c991ed244a2fd260a39e61"
+  },
+  "resources": {
+    "memory_cap_bytes": 536870912,
+    "memory_gate_passed": true,
+    "peak_rss_bytes": 467238912
+  },
+  "schema": "hultgren_rice2_response_application_domain_validation/v1",
+  "status": "validated_fail_closed_rice2_application_domain_audit"
+}
