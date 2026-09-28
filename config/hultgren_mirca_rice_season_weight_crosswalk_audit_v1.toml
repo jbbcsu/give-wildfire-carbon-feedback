@@ -1,0 +1,73 @@
+schema_version = 1
+contract_id = "hultgren_mirca_rice_season_weight_crosswalk_audit_v1"
+description = "Exact-cell audit of preserved Hultgren ri1 weather branches against original and proportionally reconciled MIRCA Rice1/Rice2 weights."
+
+hultgren_response_validation_path = "data/provenance/hultgren_rice_response_source_validation_20260925.json"
+hultgren_response_validation_sha256 = "7b9d70feaa1058f25e47b4d44d59a812ff05b65d48901c7ddd0fb11904d21cf5"
+hultgren_preflight_validation_path = "data/provenance/hultgren_rice_historical_preflight_validation_20260925.json"
+hultgren_preflight_validation_sha256 = "21a1c4eef3955942a009cb56ccbd5da12eb1adee071e76707690078a95bbf5d8"
+hultgren_india_correction_path = "data/provenance/hultgren_rice_india_reporting_year_correction_20260925.json"
+hultgren_india_correction_sha256 = "b34abee870b3ab5b334a1b7b1d137d4418cc8c06f7f78c672228e6e352f6efbe"
+hultgren_india_validation_path = "data/provenance/hultgren_rice_india_reporting_year_validation_20260925.json"
+hultgren_india_validation_sha256 = "ea3154c88d86861211679fa2e48905e072cfaadf173bb143a46544f9c6af94fc"
+
+mirca_reconciliation_receipt_path = "data/provenance/mirca_rice_proportional_reconciliation_sensitivity_20260926.json"
+mirca_reconciliation_receipt_sha256 = "765284b98ad0b507a4e8d94d56f1da622e26b90040d6420a24b4b70e8db313c9"
+mirca_reconciliation_validation_path = "data/provenance/mirca_rice_proportional_reconciliation_validation_20260926.json"
+mirca_reconciliation_validation_sha256 = "e28562dc830015180e00cc0c3e515e7acaf54c3352d9aaf5ef8ef4a17154877c"
+mirca_candidate_path = "data/interim/mirca_os_v2/rice_season_proportional_reconciliation_candidate_2000.parquet"
+mirca_candidate_sha256 = "8079785c4196e590d35ec802c8715ad4779a42497bd825495e6cc155b8420528"
+
+[[branch_mapping]]
+hultgren_branch = "ri1_noirr"
+mirca_crop = "ri1"
+weight_system = "rainfed"
+repaired_area_column = "rainfed_area_ha"
+repair_scale_column = "rainfed_repair_scale"
+
+[[branch_mapping]]
+hultgren_branch = "ri1_firr"
+mirca_crop = "ri1"
+weight_system = "irrigated"
+repaired_area_column = "irrigated_area_ha"
+repair_scale_column = "irrigated_repair_scale"
+
+[[unavailable_branch]]
+hultgren_branch = "ri2_noirr"
+mirca_crop = "ri2"
+weight_system = "rainfed"
+status = "unavailable_no_preserved_hultgren_ri2_weather_basis_no_substitution_authorized"
+
+[[unavailable_branch]]
+hultgren_branch = "ri2_firr"
+mirca_crop = "ri2"
+weight_system = "irrigated"
+status = "unavailable_no_preserved_hultgren_ri2_weather_basis_no_substitution_authorized"
+
+[crosswalk]
+join_keys = ["latitude=lat", "longitude=lon"]
+coordinate_tolerance = 0.0
+nearest_neighbor_authorized = false
+opposite_irrigation_weight_authorized = false
+rice3_transfer_authorized = false
+unmatched_cell_fill_authorized = false
+country_average_fill_authorized = false
+renormalization_over_matched_cells_authorized = false
+
+[production_gate]
+both_ri1_branches_require_complete_positive_corresponding_weight = true
+both_ri2_branches_require_preserved_hultgren_weather_basis = true
+unrepaired_mirca_source_reconciliation_required = true
+
+[resources]
+worker_memory_bytes_maximum = 536870912
+
+[authorization]
+source_crosswalk_audit_authorized = true
+candidate_sensitivity_table_authorized = true
+response_fit_authorized = false
+published_response_evaluation_authorized = false
+causal_interpretation_authorized = false
+production_weights_authorized = false
+damage_calculation_authorized = false
+scc_use_authorized = false

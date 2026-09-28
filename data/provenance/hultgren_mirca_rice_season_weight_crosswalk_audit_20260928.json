@@ -1,0 +1,222 @@
+{
+  "claim_gates": {
+    "complete_ri1_branch_weight_coverage": false,
+    "damage_calculation_authorized": false,
+    "exact_ri1_candidate_sensitivity_crosswalk_available": true,
+    "no_imputation_or_substitution_used": true,
+    "preserved_hultgren_ri2_basis_available": false,
+    "production_season_weight_crosswalk_authorized": false,
+    "published_response_evaluated": false,
+    "response_fit_authorized": false,
+    "scc_use_authorized": false,
+    "unrepaired_mirca_source_reconciliation_passed": false
+  },
+  "config_sha256": "3e1fce83f58160e63b39233ce14c7f39375a32f8283d59b3545bfea392064ff3",
+  "contract_id": "hultgren_mirca_rice_season_weight_crosswalk_audit_v1",
+  "created_at_utc": "2026-09-28T21:31:44.406939+00:00",
+  "hultgren_support": {
+    "ri1_firr": {
+      "cell_year_rows": 272808,
+      "harvest_year_count": 27,
+      "harvest_years": [
+        1982,
+        1983,
+        1984,
+        1985,
+        1986,
+        1987,
+        1988,
+        1989,
+        1990,
+        1992,
+        1993,
+        1994,
+        1995,
+        1996,
+        1997,
+        1998,
+        1999,
+        2000,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010
+      ],
+      "sources": [
+        {
+          "path": "data/interim/hultgren_rice_historical_preflight_india_corrected_20260925/ri1_firr_1982_1990.parquet",
+          "rows": 90936,
+          "sha256": "9bab254e50171a5c23ca56f5daff1ab06bcd86851857634b347d4bd745496e7f"
+        },
+        {
+          "path": "data/interim/hultgren_rice_historical_preflight_india_corrected_20260925/ri1_firr_1992_2000.parquet",
+          "rows": 90936,
+          "sha256": "8d4a219bf06e86da32b6bb738fcdd2d00ac174e84a026906b4f4cdb10e5ad373"
+        },
+        {
+          "path": "data/interim/hultgren_rice_historical_preflight_india_corrected_20260925/ri1_firr_2002_2010.parquet",
+          "rows": 90936,
+          "sha256": "7e5b94772eea55517440271d12230ef6d4f67ca146432a99affe5c0860fffab1"
+        }
+      ],
+      "unique_cells": 10104
+    },
+    "ri1_noirr": {
+      "cell_year_rows": 272808,
+      "harvest_year_count": 27,
+      "harvest_years": [
+        1982,
+        1983,
+        1984,
+        1985,
+        1986,
+        1987,
+        1988,
+        1989,
+        1990,
+        1992,
+        1993,
+        1994,
+        1995,
+        1996,
+        1997,
+        1998,
+        1999,
+        2000,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010
+      ],
+      "sources": [
+        {
+          "path": "data/interim/hultgren_rice_historical_preflight_india_corrected_20260925/ri1_noirr_1982_1990.parquet",
+          "rows": 90936,
+          "sha256": "30d3a3b15a5c1e004bef6e83ab10ea1fd7bc5375c4e286e61d2becea0db8dd83"
+        },
+        {
+          "path": "data/interim/hultgren_rice_historical_preflight_india_corrected_20260925/ri1_noirr_1992_2000.parquet",
+          "rows": 90936,
+          "sha256": "818e77c2a7254dfad6537802d9657678c11f4f693df2a0b2a5d9bbf9f31de16b"
+        },
+        {
+          "path": "data/interim/hultgren_rice_historical_preflight_india_corrected_20260925/ri1_noirr_2002_2010.parquet",
+          "rows": 90936,
+          "sha256": "6ef1acce7d81e1532548e5d44c46e0fcd4b34baaba10772409179967bb32901c"
+        }
+      ],
+      "unique_cells": 10104
+    }
+  },
+  "mapping_rule": "Rice1_to_preserved_ri1_branches_by_exact_half_degree_cell; Rice2_unavailable_without_preserved_ri2_basis",
+  "output": {
+    "bytes": 336717,
+    "path": "data/interim/hultgren_mirca_rice_season_weight_crosswalk_audit_20260928.parquet",
+    "rows": 10104,
+    "sha256": "ccec961df15403bcc24794f0cbe3cd2c65e4ddc5a58c7ebcb56baa7b776b4d07"
+  },
+  "resources": {
+    "maximum_rss_bytes": 230129664,
+    "memory_cap_bytes": 536870912
+  },
+  "ri1_branch_summaries": [
+    {
+      "cells_without_positive_corresponding_weight": 1529,
+      "complete_positive_corresponding_weight_coverage": false,
+      "exact_cells_with_any_mirca_ri1_row": 10089,
+      "exact_cells_with_positive_corresponding_weight": 8575,
+      "global_repaired_rice1_area_ha": 39554932.213205226,
+      "global_unrepaired_rice1_area_ha": 39560234.344382025,
+      "hultgren_branch": "ri1_noirr",
+      "hultgren_cell_years": 272808,
+      "hultgren_cells": 10104,
+      "matched_cell_years_with_positive_corresponding_weight": 231525,
+      "mirca_crop": "ri1",
+      "positive_weight_cell_fraction": 0.848673792557403,
+      "repaired_area_fraction_on_hultgren_support": 0.4068213128181591,
+      "repaired_rice1_area_on_hultgren_support_ha": 16091789.45140944,
+      "unmatched_cell_years_without_positive_corresponding_weight": 41283,
+      "unrepaired_area_fraction_on_hultgren_support": 0.40676931010124273,
+      "unrepaired_rice1_area_on_hultgren_support_ha": 16091889.231707765,
+      "weight_system": "rainfed"
+    },
+    {
+      "cells_without_positive_corresponding_weight": 4087,
+      "complete_positive_corresponding_weight_coverage": false,
+      "exact_cells_with_any_mirca_ri1_row": 10089,
+      "exact_cells_with_positive_corresponding_weight": 6017,
+      "global_repaired_rice1_area_ha": 60859546.43190728,
+      "global_unrepaired_rice1_area_ha": 60895862.43858054,
+      "hultgren_branch": "ri1_firr",
+      "hultgren_cell_years": 272808,
+      "hultgren_cells": 10104,
+      "matched_cell_years_with_positive_corresponding_weight": 162459,
+      "mirca_crop": "ri1",
+      "positive_weight_cell_fraction": 0.5955067300079177,
+      "repaired_area_fraction_on_hultgren_support": 0.4324120059546374,
+      "repaired_rice1_area_on_hultgren_support_ha": 26316398.554110423,
+      "unmatched_cell_years_without_positive_corresponding_weight": 110349,
+      "unrepaired_area_fraction_on_hultgren_support": 0.4323584788792303,
+      "unrepaired_rice1_area_on_hultgren_support_ha": 26328842.453983538,
+      "weight_system": "irrigated"
+    }
+  ],
+  "ri1_joint_support": {
+    "both_corresponding_weights_positive": 4503,
+    "irrigated_only_positive": 1514,
+    "neither_rice1_weight_positive": 15,
+    "rainfed_only_positive": 4072
+  },
+  "ri2_inventory": {
+    "crosswalk_executable_without_substitution": false,
+    "mirca_ri2_weight_rows": 8836,
+    "positive_irrigated_weight_cells": 4561,
+    "positive_rainfed_weight_cells": 7143,
+    "preserved_hultgren_ri2_weather_branches": 0,
+    "repaired_irrigated_area_ha": 34061254.66466818,
+    "repaired_rainfed_area_ha": 23713098.43111073
+  },
+  "schema": "hultgren_mirca_rice_season_weight_crosswalk_audit/v1",
+  "sources": {
+    "hultgren_india_correction": {
+      "path": "data/provenance/hultgren_rice_india_reporting_year_correction_20260925.json",
+      "sha256": "b34abee870b3ab5b334a1b7b1d137d4418cc8c06f7f78c672228e6e352f6efbe"
+    },
+    "hultgren_india_validation": {
+      "path": "data/provenance/hultgren_rice_india_reporting_year_validation_20260925.json",
+      "sha256": "ea3154c88d86861211679fa2e48905e072cfaadf173bb143a46544f9c6af94fc"
+    },
+    "hultgren_preflight_validation": {
+      "path": "data/provenance/hultgren_rice_historical_preflight_validation_20260925.json",
+      "sha256": "21a1c4eef3955942a009cb56ccbd5da12eb1adee071e76707690078a95bbf5d8"
+    },
+    "hultgren_response_validation": {
+      "path": "data/provenance/hultgren_rice_response_source_validation_20260925.json",
+      "sha256": "7b9d70feaa1058f25e47b4d44d59a812ff05b65d48901c7ddd0fb11904d21cf5"
+    },
+    "mirca_candidate": {
+      "path": "data/interim/mirca_os_v2/rice_season_proportional_reconciliation_candidate_2000.parquet",
+      "sha256": "8079785c4196e590d35ec802c8715ad4779a42497bd825495e6cc155b8420528"
+    },
+    "mirca_reconciliation_receipt": {
+      "path": "data/provenance/mirca_rice_proportional_reconciliation_sensitivity_20260926.json",
+      "sha256": "765284b98ad0b507a4e8d94d56f1da622e26b90040d6420a24b4b70e8db313c9"
+    },
+    "mirca_reconciliation_validation": {
+      "path": "data/provenance/mirca_rice_proportional_reconciliation_validation_20260926.json",
+      "sha256": "e28562dc830015180e00cc0c3e515e7acaf54c3352d9aaf5ef8ef4a17154877c"
+    }
+  },
+  "status": "exact_ri1_candidate_crosswalk_incomplete_and_hultgren_ri2_basis_unavailable",
+  "warning": "The table is an exact-cell source audit and proportional-reconciliation sensitivity. It is not a production weight crosswalk, response evaluation, damage estimate, or SCC input."
+}

@@ -449,6 +449,15 @@ barred from production use. The completed exact outcome crosswalk covers
 positive second-rice cells. No missing weight is imputed, so both strict
 complete-coverage gates fail; a common-support estimand and attrition
 sensitivity must be frozen before any response or heterogeneity calculation.
+An additional exact-cell audit asks whether the proportionally reconciled
+seasonal areas can weight the already preserved Hultgren first-season weather
+basis. Positive same-regime Rice1 weights exist for 8,575/10,104 rainfed cells
+and 6,017/10,104 irrigated cells, representing 40.68% and 43.24% of the
+corresponding global repaired Rice1 areas. The archive contains no preserved
+Hultgren Rice2 weather branch even though MIRCA Rice2 weights exist. Thus an
+unimputed Rice1 restricted-support sensitivity is technically feasible, but a
+complete season-separated production crosswalk is not; no rice response,
+damage, or SCC is estimated from this audit.
 That frozen attrition audit also fails. First-rice retention is 97.22%, but
 retained cells have lower mean yield than excluded cells (3.44 versus 4.52
 t/ha; standardized difference -0.329). Second-rice retention is only 89.41%

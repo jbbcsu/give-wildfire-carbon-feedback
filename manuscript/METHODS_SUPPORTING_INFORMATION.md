@@ -2249,8 +2249,30 @@ The original excess equals 0.0632% of irrigated and 0.00828% of rainfed global
 area. Of annual area, 0.210% irrigated and 0.0438% rainfed receives a correction
 above 5%; none of the irrigated area and 0.00838% of rainfed area receives a
 correction above 10%. The 30,903-cell Rice1/Rice2 candidate remains labeled
-`production_eligible=false` and `scc_authorized=false`. The exact 0.5-degree
-outcome crosswalk matches 9,298 of 9,564 positive first-rice cells (97.22%) and
+`production_eligible=false` and `scc_authorized=false`.
+
+The Hultgren-weather crosswalk is evaluated separately from the yield-outcome
+crosswalk. Both preserved first-season weather branches contain the same
+10,104 cells and 272,808 cell-years. Exact coordinate matching finds positive
+same-regime Rice1 weights for 8,575 rainfed cells (84.87%; 231,525 cell-years)
+and 6,017 irrigated cells (59.55%; 162,459 cell-years). These cells contain
+16.092 million repaired rainfed hectares and 26.316 million repaired irrigated
+hectares, or 40.68% and 43.24% of the corresponding global repaired Rice1
+areas. Of the common cells, 4,503 have both weights, 4,072 only rainfed, 1,514
+only irrigated, and 15 neither. MIRCA contains 8,836 Rice2 weight rows, but the
+preserved Hultgren artifacts contain zero Rice2 weather branches. We prohibit
+nearest-neighbor matching, opposite-irrigation substitution, Rice3 transfer,
+country-average or unmatched-cell filling, copying a Rice1 calendar to Rice2,
+and matched-support renormalization. The exact Rice1 join is retained only as
+a restricted-support sensitivity candidate. The unrepaired seasonal source
+still fails annual reconciliation, and all production-weight,
+response-fitting, damage, and SCC gates remain closed. The audit and independent
+validation are recorded in
+`HULTGREN_MIRCA_RICE_SEASON_WEIGHT_CROSSWALK_AUDIT_RESULTS_20260928.md` and
+`data/provenance/hultgren_mirca_rice_season_weight_crosswalk_validation_20260928.json`.
+
+The exact 0.5-degree outcome crosswalk matches 9,298 of 9,564 positive
+first-rice cells (97.22%) and
 1,419 of 1,587 positive second-rice cells (89.41%). The unmatched counts are
 266 and 168; they are not nearest-neighbor matched, averaged, or imputed.
 Candidate area on any locked calendar support is 99.951% for Rice1 and 99.724%
