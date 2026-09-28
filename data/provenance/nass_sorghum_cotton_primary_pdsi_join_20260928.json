@@ -1,0 +1,46 @@
+{
+  "counties_by_crop": {
+    "cotton_upland": 193,
+    "sorghum_grain": 371
+  },
+  "direct_precipitation_coincluded": false,
+  "feature_sha256": "d3a2172f75c76274ad1c76844a2005169fd682bcff75d2ad24e47f6c7131aa53",
+  "features_shared_across_practices": true,
+  "moisture_family": "pdsi_only_competing_representation",
+  "monthly_index": {
+    "counties": 472,
+    "index_source_id": "noaa_nclimdiv_county_pdsi_v1_0_0_20260806",
+    "path": "data/interim/us_county/nass_sorghum_cotton_pdsi_monthly_1980_2019.parquet",
+    "rows": 226560,
+    "sha256": "9480e992dc5fdbf4074e657c8ae7eb98893b522c2dc7c19e24bd95909b8c677e",
+    "year_max": 2019,
+    "year_min": 1980
+  },
+  "output": {
+    "path": "data/interim/us_county/nass_sorghum_cotton_primary_pdsi_join_20260928.parquet",
+    "rows": 17454,
+    "sha256": "4043f488971ac8dab4bd03bcdad76e618bffa1dc2ed5817fb914dd888df88a38"
+  },
+  "paired_crop_county_years": 8727,
+  "pairs_by_crop": {
+    "cotton_upland": 3501,
+    "sorghum_grain": 5226
+  },
+  "panel_sha256": "539f20a638c8c58885970a424a7746c3132d77a92cfc3716f5ff669d4a89fe29",
+  "pdsi_feature_columns": 25,
+  "response_estimation_authorized": false,
+  "scc_authorized": false,
+  "source_provenance": {
+    "path": "data/provenance/nclimdiv_county_pdsi_20260806.toml",
+    "sha256": "6017d8cce745c5b338db915382f73348165d7fd9c1c397d5c411790f73ccbd6e"
+  },
+  "status": "complete_primary_calendar_pdsi_join",
+  "temperature_coincluded": false,
+  "windows": [
+    "preplant90",
+    "stage1",
+    "stage2",
+    "stage3",
+    "season"
+  ]
+}

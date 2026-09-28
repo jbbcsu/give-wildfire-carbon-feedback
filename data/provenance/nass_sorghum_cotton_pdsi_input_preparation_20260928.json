@@ -1,0 +1,41 @@
+{
+  "all_cotton_calendar_for_upland_outcome": true,
+  "calendar_shared_across_practices": true,
+  "eligible_counties": 472,
+  "eligible_counties_by_crop": {
+    "cotton_upland": 193,
+    "sorghum_grain": 371
+  },
+  "eligible_pairs_by_crop": {
+    "cotton_upland": 3501,
+    "sorghum_grain": 5226
+  },
+  "exact_tiger2019_matches": 475,
+  "geometry_review_counties_excluded": 3,
+  "outputs": {
+    "eligible_panel": {
+      "path": "data/interim/us_county/nass_sorghum_cotton_geography_eligible_panel_20260928.parquet",
+      "sha256": "539f20a638c8c58885970a424a7746c3132d77a92cfc3716f5ff669d4a89fe29"
+    },
+    "geography": {
+      "path": "data/interim/us_county/nass_sorghum_cotton_geography_gate_20260928.csv",
+      "sha256": "8513a71a67377c19ef896231aa5a91c47981e99115b6e25e2d50888e985cec7a"
+    },
+    "inventory": {
+      "path": "data/interim/us_county/nass_sorghum_cotton_pdsi_county_inventory_20260928.csv",
+      "sha256": "460bd0e71d64e8087584ec6ddacfd4f256d1e916f2d52b426b6cc3ca9571efb6"
+    },
+    "primary_calendar": {
+      "path": "data/interim/us_county/nass_sorghum_cotton_primary_calendar_support_20260928.csv",
+      "sha256": "8ee9325de1140d4eec11c2955e48810c63f3acc06bc9a920a4f24e2593d33706"
+    }
+  },
+  "primary_calendar_crop_state_year_rows": 361,
+  "response_estimation_authorized": false,
+  "scc_authorized": false,
+  "source_calendar_sha256": "04202d4573eb590fd95f23c71bc4dffadbf718196b31af9cb658f185027fde4d",
+  "source_panel_sha256": "d681b73ba92b23b858ba1e4b19c66d3cd9d6f3105e0ab6464dfb36993d19abac",
+  "status": "geography_gate_and_primary_calendar_inputs_pass",
+  "unique_source_counties": 475,
+  "weather_joined": false
+}

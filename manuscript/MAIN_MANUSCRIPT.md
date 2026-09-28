@@ -553,8 +553,12 @@ usable historical outcomes, not the earlier marginal-count upper bounds of
 both a primary most-active window and a broad begin-to-end sensitivity for all
 8,771 paired outcome keys. These are state-level fixed dates, identical across
 practices; the cotton source covers all cotton while the outcome is upland
-cotton. Daily weather and moisture-family comparisons have not yet been
-joined. Barley and oats end in 2008. Rice has
+cotton. A separately gated, mutually exclusive PDSI input is now complete for
+8,727 pairs after three Colorado counties with historical-boundary flags remove
+44 sorghum pairs. It contains preplant, three stage, and seasonal summaries
+with no missing feature cells; raw precipitation and temperature are not
+co-included. This is an input panel, not a response estimate. Daily weather
+and comparative predictive evaluation have not yet been completed. Barley and oats end in 2008. Rice has
 9,725 county survey yield records but zero irrigated or non-irrigated practice
 labels even under a broadened query, so Quick Stats cannot supply the requested
 direct-practice rice comparison. No additional-crop response model has been

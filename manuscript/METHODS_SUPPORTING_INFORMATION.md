@@ -841,9 +841,25 @@ planting tail overlaps harvest onset, so the implementation validates each
 constructed window rather than imposing a false sequence across all eight
 statewide bounds.
 
-These regional outcome panels do not yet contain daily-weather, PDSI/SPEI, or
-distributional-rainfall features. No model is fit, and all causal, national,
-damage, and SCC gates remain closed.
+These regional outcome panels do not yet contain daily-weather, SPEI, or
+distributional-rainfall features in the direct-weather family. A separate
+PDSI-only family is complete. All 475 outcome counties match 2019 TIGER; the
+prespecified Census-change screen excludes Adams, Arapahoe, and Weld Counties,
+Colorado, pending historical-boundary resolution. This removes 44 sorghum
+pairs and no cotton pairs, leaving 5,226 sorghum and 3,501 cotton pairs.
+
+The hash-pinned NOAA nClimDiv snapshot supplies 226,560 county-months over
+1980--2019 for the 472 eligible counties. Under the fixed-primary crop window,
+the existing locked drought-feature operator constructs preplant-90-day,
+three equal-duration stage, and full-season summaries of the monthly index.
+Exact joining produces 17,454 practice rows and 8,727 pairs with 25 complete
+PDSI fields. An independent validator checks the output hash, pair structure,
+window schema, missingness, and exact equality of all PDSI features across the
+two practices. The panel is labeled `pdsi_only_competing_representation`; raw
+precipitation and temperature are affirmatively absent as co-predictors. These
+are day-weighted monthly-index statistics, not daily PDSI observations, and
+NOAA PDSI contains no irrigation input. No model is fit, and all causal,
+national, future-climate, damage, and SCC gates remain closed.
 
 ### Exploratory all-classes-wheat PDSI sensitivity
 
