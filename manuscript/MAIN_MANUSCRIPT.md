@@ -563,7 +563,12 @@ practice stratum. Seasonal PDSI improves four of seven comparisons for both
 non-irrigated crops, and stage-specific PDSI improves four of seven for
 non-irrigated cotton, but the signs and materiality are geographically
 unstable. These null promotion decisions are retained; no coefficient or
-damage input is released. Daily-weather evaluation remains incomplete. Barley and oats end in 2008. Rice has
+damage input is released. The direct-weather input is now complete for the same
+8,727 pairs: seasonal total rain, wet days, longest dry spell, Rx5day, three
+stage amounts and shares, precipitation concentration, and temperature/heat
+fields have no missing cells and reconcile exactly. It remains a separately
+modeled family with no PDSI/SPEI/scPDSI co-inclusion; predictive evaluation is
+not yet reported. Barley and oats end in 2008. Rice has
 9,725 county survey yield records but zero irrigated or non-irrigated practice
 labels even under a broadened query, so Quick Stats cannot supply the requested
 direct-practice rice comparison. No additional-crop response model has been

@@ -887,6 +887,20 @@ Stage detail improves terminal non-irrigated cotton by 0.0431 but worsens
 terminal non-irrigated sorghum by 0.0291. No PDSI candidate is promoted to a
 response, damage, or SCC input.
 
+The separate direct-weather family reuses the fully certified NOAA nClimGrid-
+Daily published county-average archive: 2,700 objects and 2,362,010,369 bytes.
+No new download is required. Thirty-eight one-year jobs run sequentially with
+peak concurrency one. Each revalidates the applicable source receipts and
+hashes before using the existing physical/schema-checked loader. The jobs
+produce 21,141 outcome-blind crop/state/county/year rows; exact joining leaves
+17,454 practice rows and all 8,727 geography-eligible pairs. Fourteen checked
+fields contain no missing values: seasonal rain, wet days, maximum consecutive
+dry days, Rx5day, mean temperature, two heat-exceedance measures, three stage
+rainfall amounts, three stage shares, and rainfall-concentration HHI. Stage
+amounts sum to seasonal rain within `1e-6` mm, and paired practices receive
+identical county exposure. This family excludes PDSI, SPEI, and scPDSI. It is
+not yet a fitted response, damage, or SCC input.
+
 ### Exploratory all-classes-wheat PDSI sensitivity
 
 All-classes wheat is the only additional acquired NASS outcome with paired
