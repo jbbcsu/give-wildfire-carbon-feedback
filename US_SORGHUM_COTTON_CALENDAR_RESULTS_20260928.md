@@ -24,4 +24,3 @@ and broad windows rather than pretending all eight bounds describe one farm.
 
 No weather was joined and no response, causal irrigation effect, national
 damage, or SCC was estimated.
-
