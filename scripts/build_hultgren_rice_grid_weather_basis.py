@@ -180,9 +180,7 @@ def load_support(
     return frame, audit
 
 
-def validate_sources(
-    pr: xr.Dataset, tmin: xr.Dataset, tmax: xr.Dataset, start_year: int, end_year: int
-) -> pd.DatetimeIndex:
+def validate_sources(pr: xr.Dataset, tmin: xr.Dataset, tmax: xr.Dataset) -> pd.DatetimeIndex:
     for dataset, variable, units in (
         (pr, "pr", "kg m-2 s-1"),
         (tmin, "tasmin", "K"),
@@ -204,15 +202,18 @@ def validate_sources(
     dates = pd.DatetimeIndex(pr.time.values).normalize()
     require(dates.equals(pd.DatetimeIndex(tmin.time.values).normalize()), "pr/tasmin dates differ")
     require(dates.equals(pd.DatetimeIndex(tmax.time.values).normalize()), "pr/tasmax dates differ")
-    expected = pd.date_range(f"{start_year}-01-01", f"{end_year}-12-31", freq="D")
-    require(dates.equals(expected), "daily chronology differs from declared full-year period")
+    require(len(dates) > 0, "daily chronology is empty")
+    require(dates[0].month == 1 and dates[0].day == 1, "weather block does not start January 1")
+    require(dates[-1].month == 12 and dates[-1].day == 31, "weather block does not end December 31")
+    expected = pd.date_range(dates[0], dates[-1], freq="D")
+    require(dates.equals(expected), "weather block chronology is not complete daily")
     return dates
 
 
 def stream_monthly(
-    pr_path: Path,
-    tmin_path: Path,
-    tmax_path: Path,
+    pr_paths: list[Path],
+    tmin_paths: list[Path],
+    tmax_paths: list[Path],
     support: pd.DataFrame,
     start_year: int,
     end_year: int,
@@ -232,29 +233,46 @@ def stream_monthly(
     counts = np.zeros(shape, dtype=np.int16)
     minimum_margin = math.inf
     missing_triplets = 0
-    with xr.open_dataset(pr_path, engine="h5netcdf", decode_times=True, cache=False) as pr, xr.open_dataset(
-        tmin_path, engine="h5netcdf", decode_times=True, cache=False
-    ) as tmin, xr.open_dataset(tmax_path, engine="h5netcdf", decode_times=True, cache=False) as tmax:
-        dates = validate_sources(pr, tmin, tmax, start_year, end_year)
-        for position, day in enumerate(dates):
-            daily_rain = np.asarray(pr.pr.isel(time=position).values, dtype=np.float64).reshape(-1)[flat] * 86_400.0
-            daily_min = np.asarray(tmin.tasmin.isel(time=position).values, dtype=np.float64).reshape(-1)[flat] - 273.15
-            daily_max = np.asarray(tmax.tasmax.isel(time=position).values, dtype=np.float64).reshape(-1)[flat] - 273.15
-            complete = np.isfinite(daily_rain) & np.isfinite(daily_min) & np.isfinite(daily_max)
-            missing_triplets += int(np.count_nonzero(~complete))
-            require(not np.any(daily_rain[complete] < -1e-10), "negative precipitation on rice support")
-            margin = daily_max[complete] - daily_min[complete]
-            if margin.size:
-                minimum_margin = min(minimum_margin, float(margin.min()))
-            require(not np.any(margin < -5e-5), "Tmax below Tmin on rice support")
-            month_index = (day.year - start_year) * 12 + day.month - 1
-            if np.any(complete):
-                lo, hi = daily_min[complete], daily_max[complete]
-                arrays["rain"][month_index, complete] += np.maximum(daily_rain[complete], 0.0)
-                arrays["dd14"][month_index, complete] += single_sine_degree_days_above_array(lo, hi, 14.0)
-                arrays["dd30"][month_index, complete] += single_sine_degree_days_above_array(lo, hi, 30.0)
-                arrays["tmin_sum"][month_index, complete] += lo
-                counts[month_index, complete] += 1
+    require(len(pr_paths) == len(tmin_paths) == len(tmax_paths) > 0, "weather path-list lengths differ")
+    previous_last: pd.Timestamp | None = None
+    source_blocks: list[dict[str, object]] = []
+    daily_steps = 0
+    for pr_path, tmin_path, tmax_path in zip(pr_paths, tmin_paths, tmax_paths, strict=True):
+        with xr.open_dataset(pr_path, engine="h5netcdf", decode_times=True, cache=False) as pr, xr.open_dataset(
+            tmin_path, engine="h5netcdf", decode_times=True, cache=False
+        ) as tmin, xr.open_dataset(tmax_path, engine="h5netcdf", decode_times=True, cache=False) as tmax:
+            dates = validate_sources(pr, tmin, tmax)
+            if previous_last is None:
+                require(dates[0] == pd.Timestamp(start_year, 1, 1), "first weather block starts outside declared period")
+            else:
+                require(dates[0] == previous_last + pd.Timedelta(days=1), "weather blocks overlap or have a gap")
+            previous_last = dates[-1]
+            source_blocks.append({
+                "start_date": dates[0].date().isoformat(),
+                "end_date": dates[-1].date().isoformat(),
+                "daily_steps": len(dates),
+            })
+            daily_steps += len(dates)
+            for position, day in enumerate(dates):
+                daily_rain = np.asarray(pr.pr.isel(time=position).values, dtype=np.float64).reshape(-1)[flat] * 86_400.0
+                daily_min = np.asarray(tmin.tasmin.isel(time=position).values, dtype=np.float64).reshape(-1)[flat] - 273.15
+                daily_max = np.asarray(tmax.tasmax.isel(time=position).values, dtype=np.float64).reshape(-1)[flat] - 273.15
+                complete = np.isfinite(daily_rain) & np.isfinite(daily_min) & np.isfinite(daily_max)
+                missing_triplets += int(np.count_nonzero(~complete))
+                require(not np.any(daily_rain[complete] < -1e-10), "negative precipitation on rice support")
+                margin = daily_max[complete] - daily_min[complete]
+                if margin.size:
+                    minimum_margin = min(minimum_margin, float(margin.min()))
+                require(not np.any(margin < -5e-5), "Tmax below Tmin on rice support")
+                month_index = (day.year - start_year) * 12 + day.month - 1
+                if np.any(complete):
+                    lo, hi = daily_min[complete], daily_max[complete]
+                    arrays["rain"][month_index, complete] += np.maximum(daily_rain[complete], 0.0)
+                    arrays["dd14"][month_index, complete] += single_sine_degree_days_above_array(lo, hi, 14.0)
+                    arrays["dd30"][month_index, complete] += single_sine_degree_days_above_array(lo, hi, 30.0)
+                    arrays["tmin_sum"][month_index, complete] += lo
+                    counts[month_index, complete] += 1
+    require(previous_last == pd.Timestamp(end_year, 12, 31), "last weather block ends outside declared period")
     expected_counts = months.days_in_month.to_numpy(dtype=np.int16)[:, None]
     complete_months = counts == expected_counts
     for name in ("rain", "dd14", "dd30"):
@@ -266,7 +284,8 @@ def stream_monthly(
     arrays["monthly_tmin"] = monthly_tmin
     del arrays["tmin_sum"]
     audit = {
-        "daily_steps": len(dates),
+        "daily_steps": daily_steps,
+        "source_blocks": source_blocks,
         "support_cells": len(support),
         "support_missing_daily_triplets": missing_triplets,
         "incomplete_cell_months": int(np.count_nonzero(~complete_months)),
@@ -373,9 +392,9 @@ def write_year_batches(
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--pr", type=Path, required=True)
-    parser.add_argument("--tasmin", type=Path, required=True)
-    parser.add_argument("--tasmax", type=Path, required=True)
+    parser.add_argument("--pr", action="append", type=Path, required=True)
+    parser.add_argument("--tasmin", action="append", type=Path, required=True)
+    parser.add_argument("--tasmax", action="append", type=Path, required=True)
     parser.add_argument("--calendar", type=Path, required=True)
     parser.add_argument("--annual-rice-irrigated", type=Path)
     parser.add_argument("--annual-rice-rainfed", type=Path)
@@ -396,6 +415,7 @@ def main() -> None:
         args.source_start_year <= args.harvest_year_start <= args.harvest_year_end <= args.source_end_year,
         "year range invalid",
     )
+    require(len(args.pr) == len(args.tasmin) == len(args.tasmax), "weather path-list lengths differ")
     require(args.calendar_branch in args.calendar.name, "calendar path and declared branch differ")
 
     started = time.perf_counter()
@@ -429,11 +449,16 @@ def main() -> None:
         "harvest_years": [args.harvest_year_start, args.harvest_year_end],
         "sources": {
             name: {
-                "path": recorded_path(path),
-                "bytes": path.stat().st_size,
-                "sha512": digest(path, "sha512"),
+                "files": [
+                    {
+                        "path": recorded_path(path),
+                        "bytes": path.stat().st_size,
+                        "sha512": digest(path, "sha512"),
+                    }
+                    for path in paths
+                ]
             }
-            for name, path in (("pr", args.pr), ("tasmin", args.tasmin), ("tasmax", args.tasmax))
+            for name, paths in (("pr", args.pr), ("tasmin", args.tasmin), ("tasmax", args.tasmax))
         },
         "support_sources": {
             name: {"path": recorded_path(path), "bytes": path.stat().st_size, "sha256": digest(path)}

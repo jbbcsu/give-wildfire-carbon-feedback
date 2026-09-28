@@ -1,0 +1,113 @@
+schema_version = 1
+contract_id = "hultgren_rice2_historical_multiblock_v1"
+source_years = [1981, 2019]
+harvest_years = [1982, 2019]
+memory_cap_bytes = 536870912
+
+[weather]
+daily_steps = 14244
+
+[[weather.blocks]]
+start_date = "1981-01-01"
+end_date = "1990-12-31"
+pr_path = "data/raw/isimip3a_gswp3_w5e5_v1_3/gswp3-w5e5_obsclim_pr_global_daily_1981_1990.nc"
+pr_sha512 = "c2b0688e59196088a1eaeac6fdc25b0bf1419f78c8662e9c21038c63b58aa6c40df5f22cc723d0ad9e24104a081bd215b9760f9003f0fc557b947341dc2d03f2"
+tasmin_path = "data/raw/isimip3a_gswp3_w5e5_v1_3/gswp3-w5e5_obsclim_tasmin_global_daily_1981_1990.nc"
+tasmin_sha512 = "51b056a9601417e124801f18878951d794ebe6a42153946e6172d13ade8d00748cff70e2cf15ff23b04c76ae0a3a1e62fee0baa6c8f21642886b0d8d7e579678"
+tasmax_path = "data/raw/isimip3a_gswp3_w5e5_v1_3/gswp3-w5e5_obsclim_tasmax_global_daily_1981_1990.nc"
+tasmax_sha512 = "b22a9d2be2fc6f36fd37452adf74b04737c29fed89611a73b3209dc159c514e674c09fd7940782035b1f1e3c52284e0684c231a3f83452312640cb0eb323ab42"
+
+[[weather.blocks]]
+start_date = "1991-01-01"
+end_date = "2000-12-31"
+pr_path = "data/raw/isimip3a_gswp3_w5e5_v1_3/gswp3-w5e5_obsclim_pr_global_daily_1991_2000.nc"
+pr_sha512 = "48daa05dbac176127e34e70fb6149e39f259695928276f4c968d01d60f4e1e0a0a6f1978734a0425f9fcd1012370dd6f8c3f356ff4798d265f4349a5d5d660c6"
+tasmin_path = "data/raw/isimip3a_gswp3_w5e5_v1_3/gswp3-w5e5_obsclim_tasmin_global_daily_1991_2000.nc"
+tasmin_sha512 = "d6ed21a567ddde391df2eaad616ce9553fa2a95df6ce3e571129dc607c7ef3aa6c04b6b921677a6ebc4ffc5af1675e85258cf5a7bef3ba3160985027dddf09bf"
+tasmax_path = "data/raw/isimip3a_gswp3_w5e5_v1_3/gswp3-w5e5_obsclim_tasmax_global_daily_1991_2000.nc"
+tasmax_sha512 = "07b81dea409566f786b846bc2a91d0e5735c1a23fe56d03b1aa7da25e97f950f09d4b98d6ef2863d29f605fed3409a030d178663f2a4d52f02668d6e112b9750"
+
+[[weather.blocks]]
+start_date = "2001-01-01"
+end_date = "2010-12-31"
+pr_path = "data/raw/isimip3a_gswp3_w5e5_v1_3/gswp3-w5e5_obsclim_pr_global_daily_2001_2010.nc"
+pr_sha512 = "5208a595e7f7ed16d88588651313ee4415bb50a96f5592e50d1902a86943fdd1d3f7913ca2149d5f6a0eee5eef3c9198e85ebb112fccf12116011b1db466c8c4"
+tasmin_path = "data/raw/isimip3a_gswp3_w5e5_v1_3/gswp3-w5e5_obsclim_tasmin_global_daily_2001_2010.nc"
+tasmin_sha512 = "482bcd2b97c6117acf38ef2e896a25172458b47ebc6f25dfa617d49aabee3f0eba6187c745bed79c891c40a58524589205eced36375734d5894032d19cdae636"
+tasmax_path = "data/raw/isimip3a_gswp3_w5e5_v1_3/gswp3-w5e5_obsclim_tasmax_global_daily_2001_2010.nc"
+tasmax_sha512 = "67fd765c75947f909db349bba60c84c97500995547a81aa4132a5252c4eba035be4812387491598840ff75b7a45c734af22785d92fa50793cf254bd15a53c2be"
+
+[[weather.blocks]]
+start_date = "2011-01-01"
+end_date = "2019-12-31"
+pr_path = "data/raw/isimip3a_gswp3_w5e5_v1_3/gswp3-w5e5_obsclim_pr_global_daily_2011_2019.nc"
+pr_sha512 = "fcbc1b7bdddaec12b8661ad0f0a5e48ea3297f1d13d25d19199502e6c74e7e26ba00e96f00b41b1a51915fe9802a724163281690bd9fc43ebb789f211b49d00c"
+tasmin_path = "data/raw/isimip3a_gswp3_w5e5_v1_3/gswp3-w5e5_obsclim_tasmin_global_daily_2011_2019.nc"
+tasmin_sha512 = "6b2d4f5d6f174cc12e8c9e5e1f4f8dbc5f334234fd8daeec1396cd42ad7fdcdeea60313ee8ca1fce37c0c26240b6ad25e775ce97aec6f50dd09f1292ebbdfa02"
+tasmax_path = "data/raw/isimip3a_gswp3_w5e5_v1_3/gswp3-w5e5_obsclim_tasmax_global_daily_2011_2019.nc"
+tasmax_sha512 = "2f7083c48b8c947f4d59b65298366916bc93c4bfbd7f7c80f506c9a9100601e5d5672f64be8aecdd7f2f02245fee3fe8329be08af7bca7f4994b4f670b583d2b"
+
+[[branches]]
+branch = "ri2_noirr"
+calendar_path = "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_ri2_noirr.nc"
+calendar_sha256 = "e8fbee16a2b86560409a90b11fe5af35f5886c1689ed534c41a7453c2ace6299"
+basis_path = "data/interim/hultgren_rice2_historical_multiblock_20260928/ri2_noirr_1982_2019.parquet"
+basis_sha256 = "b2d46d4e745ef7e000240c2c50ef2a7413d8a88a440df98d57f5f128ba21eb2f"
+build_receipt_path = "data/interim/hultgren_rice2_historical_multiblock_20260928/ri2_noirr_1982_2019.parquet.result.json"
+build_receipt_sha256 = "261a932bb8d8b6aec3c6bd501aec02efc58fa44da20b5d9301a7476c11b8f8df"
+
+[[branches]]
+branch = "ri2_firr"
+calendar_path = "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_ri2_firr.nc"
+calendar_sha256 = "22468e93f3aaed3c0a25a451132a9497b0175d67ae30d872c9453af79523fab7"
+basis_path = "data/interim/hultgren_rice2_historical_multiblock_20260928/ri2_firr_1982_2019.parquet"
+basis_sha256 = "95de0e92f2e0ed498d488e5a34ae5aee8daee1ce98685f92017dd1e05ed332b3"
+build_receipt_path = "data/interim/hultgren_rice2_historical_multiblock_20260928/ri2_firr_1982_2019.parquet.result.json"
+build_receipt_sha256 = "c91339c559566b5c00da9b369b159b78f191e6eb298b93ac6d8a85c6eb0c05d2"
+
+[rice1_regression]
+calendar_path = "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_ri1_noirr.nc"
+calendar_sha256 = "1cd9a8fa665f91b660b7401ee978d34e3d376ce6cc740c3ebce12a7f876b5684"
+annual_irrigated_path = "data/raw/mirca_os_v2/extracted_30arcmin/00/30-arcminute/MIRCA-OS_Rice_2000_ir_30arcmin_v2.tif"
+annual_irrigated_sha256 = "88eb83b7f97ffea752aa49aa35d57446e0e9ac66f01494cc4052ac2e6c49f246"
+annual_rainfed_path = "data/raw/mirca_os_v2/extracted_30arcmin/00/30-arcminute/MIRCA-OS_Rice_2000_rf_30arcmin_v2.tif"
+annual_rainfed_sha256 = "ed3aff28823300cf1cf4b9ae1fd85ebb9446ba713f960c766aa9f65705e8aa9e"
+preserved_basis_path = "data/interim/hultgren_rice_historical_preflight_20260925/ri1_noirr_1982_1990.parquet"
+preserved_basis_sha256 = "e4cec5cb24197e0c9b1f06a1d19bac5c10febc4ffd8ffe5a38d22d7a66daad3b"
+expected_cells = 10104
+
+[implementation]
+weather_module_path = "src/hultgren_rice_weather.py"
+weather_module_sha256 = "270c16e7c7189542ccaedb108e7a21e0b6f9061cd693b29b419b540978dda068"
+builder_path = "scripts/build_hultgren_rice_grid_weather_basis.py"
+builder_sha256 = "132abb13e3551b79e33eb5b4d8a6d7a7640e48ebe30a83e1cae3a931cd444d7c"
+weather_test_path = "scripts/test_hultgren_rice_weather.py"
+weather_test_sha256 = "84ddb892b217ef6764ed738d2ac2ad0e36ba50d42c22949da2f8bceea2203325"
+builder_test_path = "scripts/test_build_hultgren_rice2_grid_weather_basis.py"
+builder_test_sha256 = "8638f6af4968076ae6984a72c45f8232ecfebb15a1afeb0470409f523c44217d"
+multiblock_test_path = "scripts/test_build_hultgren_rice_multiblock_weather_basis.py"
+multiblock_test_sha256 = "73750072d048c0e63db363f1ad9d3ae66dc5a25d10fe1038485709062fe0707e"
+
+[support]
+required_cells_per_year = 6197
+required_rows_per_branch = 235486
+cross_year_cells_per_year = 1616
+minimum_months = 3
+maximum_months = 12
+finite_calendar_required = true
+positive_publisher_fraction_required = true
+rice1_substitution_authorized = false
+calendar_fill_authorized = false
+support_values_as_weights_authorized = false
+
+[validation]
+sentinel_kinds = ["cross_year_1982", "cross_year_1991", "cross_year_2001", "cross_year_2011", "cross_year_2019", "3_month_2019", "4_month_2019", "5_month_2019"]
+maximum_absolute_weather_error = 1e-7
+
+[claim_gates]
+unweighted_historical_weather_basis_authorized = true
+mirca_weight_attachment_authorized = false
+published_response_evaluation_authorized = false
+response_fit_authorized = false
+damage_calculation_authorized = false
+scc_use_authorized = false

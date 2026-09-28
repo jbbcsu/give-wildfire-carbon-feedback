@@ -2,6 +2,11 @@
 
 Date: 2026-09-28
 
+Status note: this one-year gate was subsequently extended across the complete
+resident historical period in
+`HULTGREN_RICE2_HISTORICAL_MULTIBLOCK_RESULTS_20260928.md`. Its contract hashes
+intentionally identify the builder version used for this frozen pilot.
+
 ## Result
 
 The bounded Rice2 gate passes. The scalar rice weather primitive now accepts

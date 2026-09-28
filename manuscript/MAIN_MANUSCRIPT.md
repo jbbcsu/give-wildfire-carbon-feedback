@@ -459,14 +459,16 @@ However, a follow-on source audit finds that the recovered estimation panel
 contains 1,189 second-season rows, all four or five months long, and encodes
 the absent third precipitation phase as exact zero. Independent GGCMI Rice2
 calendars therefore make a separate, non-imputed Rice2 weather basis feasible.
-After a bounded correction to the Rice1-only, six-month-minimum code, a 1982
-pilot produces 6,197 complete unweighted cells in each Rice2 branch. All 4,585
-three- through five-month rows per branch have exact-zero third-phase rainfall,
-and eight direct daily-weather sentinels reproduce the output within
-`1.14e-13`; the legacy 10,104-cell Rice1 support is unchanged. This opens only
-the Rice2 weather-engineering gate. A complete season-separated production
-crosswalk is not yet available, and no rice response, damage, or SCC is
-estimated from these audits.
+After a bounded correction to the Rice1-only, six-month-minimum code, the
+historical basis now contains 235,486 complete unweighted cells per Rice2
+branch across 1982--2019. The 174,230 three- through five-month rows per branch
+have exact-zero third-phase rainfall, and 16 direct daily-weather sentinels,
+including all internal block boundaries, reproduce the output within
+`2.28e-13`; the legacy 10,104-cell Rice1 support is unchanged. Harvest year
+1981 is excluded because 1,616 cross-year cells require unavailable 1980
+weather. This opens only the Rice2 weather-engineering gate. A complete
+season-separated production crosswalk is not yet available, and no rice
+response, damage, or SCC is estimated from these audits.
 That frozen attrition audit also fails. First-rice retention is 97.22%, but
 retained cells have lower mean yield than excluded cells (3.44 versus 4.52
 t/ha; standardized difference -0.329). Second-rice retention is only 89.41%
