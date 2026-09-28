@@ -26,4 +26,3 @@ NASS usual dates are fixed state-level calendars shared across practices; the
 cotton calendar covers all cotton while the outcome is upland cotton. NOAA's
 PDSI excludes irrigation and is not realized soil moisture. No causal,
 national, future-climate, damage, or SCC claim is authorized.
-
