@@ -861,6 +861,32 @@ are day-weighted monthly-index statistics, not daily PDSI observations, and
 NOAA PDSI contains no irrigation input. No model is fit, and all causal,
 national, future-climate, damage, and SCC gates remain closed.
 
+Before score inspection, we froze a PDSI-only predictive comparison on
+consecutive-year log-yield changes, separately for crop and practice. The
+development period ends in 2007. Six leave-one-state-out folds and a 2008--
+2018 same-county terminal test compare a quadratic year trend with linear
+seasonal PDSI, quadratic seasonal PDSI, and an alternative three-stage linear
+PDSI representation. Level-year endpoints shared between train and test are
+purged; scaling and SVD rank selection use training rows only. Materiality is
+an RMSE reduction of at least `max(0.0001, 1% of comparator RMSE)`, and
+promotion requires every state fold plus the terminal test. An initial matrix-
+multiplication run that emitted numerical warnings was discarded to an
+ignored diagnostic location. The accepted implementation uses the previously
+validated einsum SVD calculation, explicit finite gates, and a warning-as-error
+run; an independent validator reconstructs sample counts and all 84 fold-level
+gate comparisons from the 112 model-score rows.
+
+No candidate passes the all-fold gate in any of four crop--practice strata.
+Seasonal linear PDSI beats trend in 1/7 irrigated-cotton, 4/7 non-irrigated-
+cotton, 2/7 irrigated-sorghum, and 4/7 non-irrigated-sorghum comparisons.
+Stage-specific PDSI beats seasonal linear PDSI in 1/7, 4/7, 3/7, and 4/7,
+respectively. The quadratic seasonal candidate passes 1/7, 1/7, 4/7, and 5/7.
+The terminal seasonal improvements for non-irrigated cotton and sorghum are
+0.0308 and 0.0508 log-yield RMSE units, but each fails three state folds.
+Stage detail improves terminal non-irrigated cotton by 0.0431 but worsens
+terminal non-irrigated sorghum by 0.0291. No PDSI candidate is promoted to a
+response, damage, or SCC input.
+
 ### Exploratory all-classes-wheat PDSI sensitivity
 
 All-classes wheat is the only additional acquired NASS outcome with paired

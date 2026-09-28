@@ -557,8 +557,13 @@ cotton. A separately gated, mutually exclusive PDSI input is now complete for
 8,727 pairs after three Colorado counties with historical-boundary flags remove
 44 sorghum pairs. It contains preplant, three stage, and seasonal summaries
 with no missing feature cells; raw precipitation and temperature are not
-co-included. This is an input panel, not a response estimate. Daily weather
-and comparative predictive evaluation have not yet been completed. Barley and oats end in 2008. Rice has
+co-included. A frozen first-difference predictive test finds no candidate that
+passes all six state folds plus the 2008--2018 terminal test in any crop--
+practice stratum. Seasonal PDSI improves four of seven comparisons for both
+non-irrigated crops, and stage-specific PDSI improves four of seven for
+non-irrigated cotton, but the signs and materiality are geographically
+unstable. These null promotion decisions are retained; no coefficient or
+damage input is released. Daily-weather evaluation remains incomplete. Barley and oats end in 2008. Rice has
 9,725 county survey yield records but zero irrigated or non-irrigated practice
 labels even under a broadened query, so Quick Stats cannot supply the requested
 direct-practice rice comparison. No additional-crop response model has been
