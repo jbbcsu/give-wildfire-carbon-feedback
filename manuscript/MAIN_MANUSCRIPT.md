@@ -572,7 +572,11 @@ comparison, neither seasonal quantity, stage amounts, stage shares, nor
 wet/dry extremes passes all six state folds plus the terminal test in any
 crop--practice stratum. The strongest within-season result is non-irrigated
 cotton stage shares (4/7 folds including the terminal test), but it fails three
-states and is not promoted. Barley and oats end in 2008. Rice has
+states and is not promoted. Among 15 analogous non-irrigated comparisons in
+the three states shared by both crops, seven rainfall/PDSI representations
+produce opposite signs of predictive improvement across crops and only four
+materially improve both. This documents transfer heterogeneity, not climate-
+damage winners and losers. Barley and oats end in 2008. Rice has
 9,725 county survey yield records but zero irrigated or non-irrigated practice
 labels even under a broadened query, so Quick Stats cannot supply the requested
 direct-practice rice comparison. No additional-crop response model has been

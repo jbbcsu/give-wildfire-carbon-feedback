@@ -922,6 +922,16 @@ not invalidate the separate global-maize quantity benchmark, which has a
 different outcome, geography, and estimand, and they do not create a new
 damage or SCC input.
 
+A deterministic post-score heterogeneity audit classifies all 168 frozen
+state-fold comparisons as material improvement, positive below threshold, or
+worse; it does not refit models. New Mexico, Oklahoma, and Texas are common to
+both crop panels. Across five analogous non-irrigated comparisons in these
+three states (15 crop-paired records), four materially improve prediction for
+both crops and seven have opposite signs of RMSE improvement across crops.
+This is a transfer/performance diagnostic, not a welfare winner/loser result.
+Response signs, future exposures, production/value weights, and adaptation
+remain required before any winner/loser or SCC interpretation.
+
 ### Exploratory all-classes-wheat PDSI sensitivity
 
 All-classes wheat is the only additional acquired NASS outcome with paired
