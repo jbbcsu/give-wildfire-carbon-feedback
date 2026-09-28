@@ -458,13 +458,15 @@ built Hultgren Rice2 weather branch even though MIRCA Rice2 weights exist.
 However, a follow-on source audit finds that the recovered estimation panel
 contains 1,189 second-season rows, all four or five months long, and encodes
 the absent third precipitation phase as exact zero. Independent GGCMI Rice2
-calendars therefore make a separate, non-imputed Rice2 weather basis feasible
-after a bounded correction to the current Rice1-only, six-month-minimum code.
-That basis has not yet been built or validated. Thus an unimputed Rice1
-restricted-support sensitivity is technically feasible and the Rice2
-engineering blocker is identified, but a complete season-separated production
-crosswalk is not yet available; no rice response, damage, or SCC is estimated
-from either audit.
+calendars therefore make a separate, non-imputed Rice2 weather basis feasible.
+After a bounded correction to the Rice1-only, six-month-minimum code, a 1982
+pilot produces 6,197 complete unweighted cells in each Rice2 branch. All 4,585
+three- through five-month rows per branch have exact-zero third-phase rainfall,
+and eight direct daily-weather sentinels reproduce the output within
+`1.14e-13`; the legacy 10,104-cell Rice1 support is unchanged. This opens only
+the Rice2 weather-engineering gate. A complete season-separated production
+crosswalk is not yet available, and no rice response, damage, or SCC is
+estimated from these audits.
 That frozen attrition audit also fails. First-rice retention is 97.22%, but
 retained cells have lower mean yield than excluded cells (3.44 versus 4.52
 t/ha; standardized difference -0.329). Second-rice retention is only 89.41%

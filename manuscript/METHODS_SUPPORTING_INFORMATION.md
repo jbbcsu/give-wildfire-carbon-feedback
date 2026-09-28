@@ -2272,11 +2272,23 @@ finite-calendar, positive-publisher-fraction, unrepaired-MIRCA intersection,
 Rice2 retains 2,751 rainfed cells and 20.389 million ha (85.98% of global
 Rice2 rainfed area), and 2,796 irrigated cells and 26.666 million ha (78.22%).
 The current six-month minimum would retain only 5.84% and 20.19% of those
-direct-support areas. We therefore require a bounded code correction that
-admits explicitly declared Rice2 branches and source-observed 3--12-month
-seasons while preserving exact zero for absent later phases, followed by a
-one-year daily-weather sentinel validation before any response evaluation.
-We prohibit
+direct-support areas. We therefore made a bounded code correction that admits
+explicitly declared Rice2 branches and source-observed 3--12-month seasons
+while preserving exact zero for absent later phases. Existing Rice1 builds
+retain their annual broad-rice Boolean mask and six-month minimum; regression
+against the preserved basis recovers the same 10,104 cells.
+
+The resulting 1982 Rice2 pilot contains 6,197 complete unweighted cells in
+each branch. The whole-month distribution is 14 three-month, 1,174 four-month,
+3,397 five-month, 851 six-month, 445 seven-month, and 316 eight-month rows;
+1,616 rows cross a calendar year. Every third-phase linear and quadratic
+precipitation term is exactly zero among the 4,585 three- through five-month
+rows. Independent reconstruction from raw daily precipitation, Tmin, and Tmax
+for a three-, four-, five-month, and cross-year sentinel in each branch gives
+a maximum absolute error of `1.14e-13`, with all precipitation-basis errors
+exactly zero. The two branch outputs coincide because the resident rainfed and
+irrigated Rice2 calendar arrays coincide, not because regimes were pooled.
+The pilot is unweighted and opens no response, damage, or SCC gate. We prohibit
 nearest-neighbor matching, opposite-irrigation substitution, Rice3 transfer,
 country-average or unmatched-cell filling, copying a Rice1 calendar to Rice2,
 and matched-support renormalization. The exact Rice1 join is retained only as
@@ -2289,6 +2301,9 @@ validation are recorded in
 Rice2 feasibility evidence and closed claim gates are recorded in
 `HULTGREN_RICE2_WEATHER_BASIS_FEASIBILITY_RESULTS_20260928.md` and
 `data/provenance/hultgren_rice2_weather_basis_feasibility_validation_20260928.json`.
+The one-year pilot and its independent validation are recorded in
+`HULTGREN_RICE2_ONE_YEAR_WEATHER_PILOT_RESULTS_20260928.md` and
+`data/provenance/hultgren_rice2_one_year_pilot_validation_20260928.json`.
 
 The exact 0.5-degree outcome crosswalk matches 9,298 of 9,564 positive
 first-rice cells (97.22%) and

@@ -62,18 +62,20 @@ def build_rice_weather_basis(
 ) -> RiceWeatherBasis:
     """Build the published 2/3/remainder rainfall phases and temperature basis.
 
-    At least six months are required so every published phase is nonempty. The
-    source configuration permits at most twelve crop-season months. Monthly
-    precipitation is squared before summing within phase; this is not the
-    square of a phase total. The Tmin primitive is the sum of monthly mean
+    The recovered estimation panel contains complete three- through twelve-
+    month seasons.  The published phase slices are months 1--2, months 3--5
+    when present, and month 6 through harvest.  An absent later phase is an
+    exact structural zero, matching the prepared panel; no weather is imputed.
+    Monthly precipitation is squared before summing within phase; this is not
+    the square of a phase total. The Tmin primitive is the sum of monthly mean
     daily minima, matching the source collapse logic.
     """
     precipitation = _finite(monthly_precipitation_mm, "monthly_precipitation_mm")
     monthly_tmin = _finite(monthly_mean_daily_tmin_c, "monthly_mean_daily_tmin_c")
     daily_tmin = _finite(daily_tmin_c, "daily_tmin_c")
     daily_tmax = _finite(daily_tmax_c, "daily_tmax_c")
-    if not 6 <= len(precipitation) <= 12:
-        raise ValueError("rice crop-calendar season must contain 6 through 12 months")
+    if not 3 <= len(precipitation) <= 12:
+        raise ValueError("rice crop-calendar season must contain 3 through 12 months")
     if len(monthly_tmin) != len(precipitation):
         raise ValueError("monthly precipitation and Tmin must have identical lengths")
     if any(value < 0.0 for value in precipitation):

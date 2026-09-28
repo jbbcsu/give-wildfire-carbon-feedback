@@ -1,0 +1,73 @@
+schema_version = 1
+contract_id = "hultgren_rice2_one_year_pilot_v1"
+harvest_year = 1982
+memory_cap_bytes = 536870912
+
+[weather]
+pr_path = "data/raw/isimip3a_gswp3_w5e5_v1_3/gswp3-w5e5_obsclim_pr_global_daily_1981_1990.nc"
+pr_sha512 = "c2b0688e59196088a1eaeac6fdc25b0bf1419f78c8662e9c21038c63b58aa6c40df5f22cc723d0ad9e24104a081bd215b9760f9003f0fc557b947341dc2d03f2"
+tasmin_path = "data/raw/isimip3a_gswp3_w5e5_v1_3/gswp3-w5e5_obsclim_tasmin_global_daily_1981_1990.nc"
+tasmin_sha512 = "51b056a9601417e124801f18878951d794ebe6a42153946e6172d13ade8d00748cff70e2cf15ff23b04c76ae0a3a1e62fee0baa6c8f21642886b0d8d7e579678"
+tasmax_path = "data/raw/isimip3a_gswp3_w5e5_v1_3/gswp3-w5e5_obsclim_tasmax_global_daily_1981_1990.nc"
+tasmax_sha512 = "b22a9d2be2fc6f36fd37452adf74b04737c29fed89611a73b3209dc159c514e674c09fd7940782035b1f1e3c52284e0684c231a3f83452312640cb0eb323ab42"
+
+[[branches]]
+branch = "ri2_noirr"
+calendar_path = "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_ri2_noirr.nc"
+calendar_sha256 = "e8fbee16a2b86560409a90b11fe5af35f5886c1689ed534c41a7453c2ace6299"
+basis_path = "data/interim/hultgren_rice2_one_year_pilot_20260928/ri2_noirr_1982.parquet"
+basis_sha256 = "bf58910ab6ffeb7f25adb980f6d2691bba06972fb21ac79c12de96064fbe4e7a"
+build_receipt_path = "data/interim/hultgren_rice2_one_year_pilot_20260928/ri2_noirr_1982.parquet.result.json"
+build_receipt_sha256 = "6943f93760a5d2230719eea89c18edd74ecc911d6a715678e95ca7a8e5a9a188"
+
+[[branches]]
+branch = "ri2_firr"
+calendar_path = "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_ri2_firr.nc"
+calendar_sha256 = "22468e93f3aaed3c0a25a451132a9497b0175d67ae30d872c9453af79523fab7"
+basis_path = "data/interim/hultgren_rice2_one_year_pilot_20260928/ri2_firr_1982.parquet"
+basis_sha256 = "0c61b734bdbf5cabe5d78531ba7c48ad408ac0d8a858264623cae654630f627d"
+build_receipt_path = "data/interim/hultgren_rice2_one_year_pilot_20260928/ri2_firr_1982.parquet.result.json"
+build_receipt_sha256 = "a872fac493f83f0697c9025e524a9f2cd8cb53deb759284e8e57600d3c47e3f0"
+
+[rice1_regression]
+calendar_path = "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_ri1_noirr.nc"
+calendar_sha256 = "1cd9a8fa665f91b660b7401ee978d34e3d376ce6cc740c3ebce12a7f876b5684"
+annual_irrigated_path = "data/raw/mirca_os_v2/extracted_30arcmin/00/30-arcminute/MIRCA-OS_Rice_2000_ir_30arcmin_v2.tif"
+annual_irrigated_sha256 = "88eb83b7f97ffea752aa49aa35d57446e0e9ac66f01494cc4052ac2e6c49f246"
+annual_rainfed_path = "data/raw/mirca_os_v2/extracted_30arcmin/00/30-arcminute/MIRCA-OS_Rice_2000_rf_30arcmin_v2.tif"
+annual_rainfed_sha256 = "ed3aff28823300cf1cf4b9ae1fd85ebb9446ba713f960c766aa9f65705e8aa9e"
+preserved_basis_path = "data/interim/hultgren_rice_historical_preflight_20260925/ri1_noirr_1982_1990.parquet"
+preserved_basis_sha256 = "e4cec5cb24197e0c9b1f06a1d19bac5c10febc4ffd8ffe5a38d22d7a66daad3b"
+expected_cells = 10104
+
+[implementation]
+weather_module_path = "src/hultgren_rice_weather.py"
+weather_module_sha256 = "270c16e7c7189542ccaedb108e7a21e0b6f9061cd693b29b419b540978dda068"
+builder_path = "scripts/build_hultgren_rice_grid_weather_basis.py"
+builder_sha256 = "982d789de7d0c2e03804823160a220ba1505239849ce998d8b07ca07300b6246"
+weather_test_path = "scripts/test_hultgren_rice_weather.py"
+weather_test_sha256 = "84ddb892b217ef6764ed738d2ac2ad0e36ba50d42c22949da2f8bceea2203325"
+builder_test_path = "scripts/test_build_hultgren_rice2_grid_weather_basis.py"
+builder_test_sha256 = "8638f6af4968076ae6984a72c45f8232ecfebb15a1afeb0470409f523c44217d"
+
+[support]
+required_cells_per_branch = 6197
+minimum_months = 3
+maximum_months = 12
+finite_calendar_required = true
+positive_publisher_fraction_required = true
+rice1_substitution_authorized = false
+calendar_fill_authorized = false
+support_values_as_weights_authorized = false
+
+[validation]
+sentinel_kinds = ["three_month", "four_month", "five_month", "cross_year"]
+maximum_absolute_weather_error = 1e-7
+
+[claim_gates]
+unweighted_weather_pilot_authorized = true
+mirca_weight_attachment_authorized = false
+published_response_evaluation_authorized = false
+response_fit_authorized = false
+damage_calculation_authorized = false
+scc_use_authorized = false

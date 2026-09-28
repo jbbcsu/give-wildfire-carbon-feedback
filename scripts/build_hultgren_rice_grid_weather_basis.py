@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """Build an unweighted, season-specific historical rice weather basis.
 
-This is a transport preflight for one GGCMI rice calendar branch.  The broad
-annual MIRCA rice rasters are used only as a positive-support mask: their
-values are never emitted or used as weights, and the two calendar branches
-must be built and interpreted separately.
+This is a transport preflight for one GGCMI rice calendar branch. Existing
+Rice1 builds retain their broad annual MIRCA positive-support mask and 6--12
+month domain. Rice2 builds use only finite calendars with positive publisher
+season fraction and the source-observed 3--12 month domain. Support magnitudes
+are never emitted or used as weights, and branches remain separate.
 """
 
 from __future__ import annotations
@@ -68,13 +69,16 @@ def peak_rss_bytes() -> int:
 
 
 def load_support(
-    calendar_path: Path, annual_rice_irrigated_path: Path, annual_rice_rainfed_path: Path
+    calendar_path: Path,
+    annual_rice_irrigated_path: Path | None,
+    annual_rice_rainfed_path: Path | None,
+    calendar_branch: str,
 ) -> tuple[pd.DataFrame, dict[str, object]]:
     with xr.open_dataset(
         calendar_path, engine="h5netcdf", decode_timedelta=False, cache=False
     ) as dataset:
         require(
-            {"planting_day", "maturity_day"} <= set(dataset.data_vars),
+            {"planting_day", "maturity_day", "fraction_of_harvested_area"} <= set(dataset.data_vars),
             "calendar variables absent",
         )
         latitude = np.asarray(dataset.lat.values, dtype=np.float64)
@@ -89,19 +93,36 @@ def load_support(
         )
         planting = np.asarray(dataset.planting_day.values, dtype=np.float64)
         maturity = np.asarray(dataset.maturity_day.values, dtype=np.float64)
+        publisher_fraction = np.asarray(dataset.fraction_of_harvested_area.values, dtype=np.float64)
 
-    masks = []
-    for path in (annual_rice_irrigated_path, annual_rice_rainfed_path):
-        with rasterio.open(path) as source:
-            require(source.shape == (360, 720), "annual MIRCA rice grid shape changed")
-            require(
-                source.crs == rasterio.crs.CRS.from_epsg(4326),
-                "annual MIRCA rice CRS changed",
-            )
-            values = np.asarray(source.read(1), dtype=np.float64)
-            masks.append(np.isfinite(values) & (values > 0.0))
-    annual_support = masks[0] | masks[1]
-    calendar_support = annual_support & np.isfinite(planting) & np.isfinite(maturity)
+    finite_calendar = np.isfinite(planting) & np.isfinite(maturity)
+    is_rice2 = calendar_branch.startswith("ri2_")
+    if is_rice2:
+        positive_publisher_fraction = np.isfinite(publisher_fraction) & (publisher_fraction > 0.0)
+        support_mask = positive_publisher_fraction
+        support_policy = "finite Rice2 calendar and positive publisher fraction; no fill or Rice1 substitution"
+        minimum_months = 3
+        annual_positive_cells = None
+    else:
+        require(
+            annual_rice_irrigated_path is not None and annual_rice_rainfed_path is not None,
+            "Rice1 builds require both broad annual MIRCA support rasters",
+        )
+        masks = []
+        for path in (annual_rice_irrigated_path, annual_rice_rainfed_path):
+            with rasterio.open(path) as source:
+                require(source.shape == (360, 720), "annual MIRCA rice grid shape changed")
+                require(
+                    source.crs == rasterio.crs.CRS.from_epsg(4326),
+                    "annual MIRCA rice CRS changed",
+                )
+                values = np.asarray(source.read(1), dtype=np.float64)
+                masks.append(np.isfinite(values) & (values > 0.0))
+        support_mask = masks[0] | masks[1]
+        support_policy = "broad annual MIRCA positive-cell union retained for Rice1 compatibility"
+        minimum_months = 6
+        annual_positive_cells = int(np.count_nonzero(support_mask))
+    calendar_support = support_mask & finite_calendar
     rows, cols = np.nonzero(calendar_support)
     plant_month = np.fromiter(
         (source_month_from_day(planting[i, j]) for i, j in zip(rows, cols, strict=True)),
@@ -115,7 +136,7 @@ def load_support(
         (len(season_months(p, h)) for p, h in zip(plant_month, harvest_month, strict=True)),
         dtype=np.int16,
     )
-    eligible = (month_count >= 6) & (month_count <= 12)
+    eligible = (month_count >= minimum_months) & (month_count <= 12)
     frame = pd.DataFrame(
         {
             "native_lat_index": rows[eligible].astype(np.int16),
@@ -134,15 +155,27 @@ def load_support(
         for value in sorted(set(month_count.tolist()))
     }
     audit = {
-        "annual_positive_rice_cells": int(np.count_nonzero(annual_support)),
-        "annual_positive_rice_cells_with_finite_calendar": int(len(rows)),
-        "eligible_six_to_twelve_month_cells": int(np.count_nonzero(eligible)),
-        "excluded_three_to_five_month_cells": int(np.count_nonzero(~eligible)),
+        "support_policy": support_policy,
+        "annual_positive_rice_cells": annual_positive_cells,
+        "positive_publisher_fraction_cells": int(np.count_nonzero(np.isfinite(publisher_fraction) & (publisher_fraction > 0.0))),
+        "support_cells_with_finite_calendar": int(len(rows)),
+        "eligible_minimum_months": minimum_months,
+        "eligible_calendar_cells": int(np.count_nonzero(eligible)),
+        "excluded_outside_calendar_domain_cells": int(np.count_nonzero(~eligible)),
         "eligible_cell_fraction_of_finite_calendar_support": float(np.mean(eligible)),
         "calendar_month_count_distribution": distribution,
+        "annual_mirca_inputs_used": not is_rice2,
         "annual_mirca_values_used_as_weights": False,
         "annual_mirca_values_emitted": False,
+        "publisher_fraction_used_only_as_boolean_support": is_rice2,
+        "publisher_fraction_values_emitted": False,
+        "support_magnitudes_used_as_weights": False,
+        "rice1_calendar_or_weather_substituted": False,
     }
+    if not is_rice2:
+        audit["annual_positive_rice_cells_with_finite_calendar"] = int(len(rows))
+        audit["eligible_six_to_twelve_month_cells"] = int(np.count_nonzero(eligible))
+        audit["excluded_three_to_five_month_cells"] = int(np.count_nonzero(~eligible))
     require(not frame.empty, "no eligible positive-rice calendar support")
     return frame, audit
 
@@ -344,9 +377,13 @@ def main() -> None:
     parser.add_argument("--tasmin", type=Path, required=True)
     parser.add_argument("--tasmax", type=Path, required=True)
     parser.add_argument("--calendar", type=Path, required=True)
-    parser.add_argument("--annual-rice-irrigated", type=Path, required=True)
-    parser.add_argument("--annual-rice-rainfed", type=Path, required=True)
-    parser.add_argument("--calendar-branch", choices=("ri1_noirr", "ri1_firr"), required=True)
+    parser.add_argument("--annual-rice-irrigated", type=Path)
+    parser.add_argument("--annual-rice-rainfed", type=Path)
+    parser.add_argument(
+        "--calendar-branch",
+        choices=("ri1_noirr", "ri1_firr", "ri2_noirr", "ri2_firr"),
+        required=True,
+    )
     parser.add_argument("--source-start-year", type=int, required=True)
     parser.add_argument("--source-end-year", type=int, required=True)
     parser.add_argument("--harvest-year-start", type=int, required=True)
@@ -363,7 +400,10 @@ def main() -> None:
 
     started = time.perf_counter()
     support, support_audit = load_support(
-        args.calendar, args.annual_rice_irrigated, args.annual_rice_rainfed
+        args.calendar,
+        args.annual_rice_irrigated,
+        args.annual_rice_rainfed,
+        args.calendar_branch,
     )
     months, arrays, stream_audit = stream_monthly(
         args.pr, args.tasmin, args.tasmax, support, args.source_start_year, args.source_end_year
@@ -402,6 +442,7 @@ def main() -> None:
                 ("annual_rice_irrigated", args.annual_rice_irrigated),
                 ("annual_rice_rainfed", args.annual_rice_rainfed),
             )
+            if path is not None
         },
         "support_audit": support_audit,
         "stream_audit": stream_audit,
@@ -413,15 +454,17 @@ def main() -> None:
             "sha256": digest(args.output),
         },
         "transformation": {
-            "calendar": "whole months from the declared GGCMI ri1 branch, retained separately",
+            "calendar": f"whole months from the declared GGCMI {args.calendar_branch} branch, retained separately",
             "temperature": "Snyder single-sine daily Tmin/Tmax; GDD 14-30 C, KDD above 30 C; Tmin is sum of monthly mean daily minima",
             "precipitation": "daily-to-monthly totals; 2/3/remainder phase sums and sums of monthly squares",
-            "support": "boolean union of positive annual MIRCA Rice irrigated/rainfed cells; no MIRCA magnitude retained",
+            "support": support_audit["support_policy"],
             "aggregation": "none across cells or calendar branches",
         },
         "claim_gates": {
             "calendar_branch_grid_basis_complete": True,
-            "annual_rice_used_only_as_boolean_support": True,
+            "annual_rice_used_only_as_boolean_support": not args.calendar_branch.startswith("ri2_"),
+            "strict_positive_publisher_fraction_support": args.calendar_branch.startswith("ri2_"),
+            "three_to_twelve_month_rice2_domain": args.calendar_branch.startswith("ri2_"),
             "ri1_ri2_or_calendar_branch_aggregation": False,
             "published_response_evaluated": False,
             "author_application_domain_available": False,

@@ -2,6 +2,11 @@
 
 Date: 2026-09-28
 
+Status note: this is the frozen pre-implementation audit. Its recommended gate
+was subsequently implemented and validated in
+`HULTGREN_RICE2_ONE_YEAR_WEATHER_PILOT_RESULTS_20260928.md`; the hashes in this
+audit's contract intentionally identify the pre-patch implementation.
+
 ## Finding
 
 A separate Rice2 weather basis is technically reconstructable on a strict,

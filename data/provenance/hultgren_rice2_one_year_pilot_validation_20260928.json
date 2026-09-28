@@ -1,0 +1,302 @@
+{
+  "branch_comparison": {
+    "exact_support_calendar_and_weather_equal_except_branch_label": true,
+    "reason": "resident GGCMI ri2_noirr and ri2_firr calendar arrays are identical"
+  },
+  "branches": {
+    "ri2_firr": {
+      "build_peak_rss_bytes": 158400512,
+      "build_wall_seconds": 37.437646041973494,
+      "calendar_month_distribution": {
+        "3": 14,
+        "4": 1174,
+        "5": 3397,
+        "6": 851,
+        "7": 445,
+        "8": 316
+      },
+      "cross_year_rows": 1616,
+      "path": "data/interim/hultgren_rice2_one_year_pilot_20260928/ri2_firr_1982.parquet",
+      "rows": 6197,
+      "sha256": "0c61b734bdbf5cabe5d78531ba7c48ad408ac0d8a858264623cae654630f627d",
+      "short_season_third_phase_nonzero_values": 0,
+      "three_to_five_month_rows": 4585
+    },
+    "ri2_noirr": {
+      "build_peak_rss_bytes": 163987456,
+      "build_wall_seconds": 37.39760400005616,
+      "calendar_month_distribution": {
+        "3": 14,
+        "4": 1174,
+        "5": 3397,
+        "6": 851,
+        "7": 445,
+        "8": 316
+      },
+      "cross_year_rows": 1616,
+      "path": "data/interim/hultgren_rice2_one_year_pilot_20260928/ri2_noirr_1982.parquet",
+      "rows": 6197,
+      "sha256": "bf58910ab6ffeb7f25adb980f6d2691bba06972fb21ac79c12de96064fbe4e7a",
+      "short_season_third_phase_nonzero_values": 0,
+      "three_to_five_month_rows": 4585
+    }
+  },
+  "build_receipts": {
+    "ri2_firr": {
+      "path": "data/interim/hultgren_rice2_one_year_pilot_20260928/ri2_firr_1982.parquet.result.json",
+      "sha256": "a872fac493f83f0697c9025e524a9f2cd8cb53deb759284e8e57600d3c47e3f0"
+    },
+    "ri2_noirr": {
+      "path": "data/interim/hultgren_rice2_one_year_pilot_20260928/ri2_noirr_1982.parquet.result.json",
+      "sha256": "6943f93760a5d2230719eea89c18edd74ecc911d6a715678e95ca7a8e5a9a188"
+    }
+  },
+  "claim_gates": {
+    "damage_calculated": false,
+    "mirca_weight_attachment_authorized": false,
+    "multi_year_rice2_basis_validated": false,
+    "prior_rice1_support_preserved": true,
+    "published_response_evaluated": false,
+    "response_fit_authorized": false,
+    "scalar_three_to_twelve_month_weather_method_validated": true,
+    "scc_calculated": false,
+    "strict_support_rice2_one_year_weather_pilot_validated": true
+  },
+  "config": {
+    "path": "config/hultgren_rice2_one_year_pilot_v1.toml",
+    "sha256": "8861a25db7301dd7e83d4809eb4bc34796b152c1e0e6de2bfa91fb6fd4eabe47"
+  },
+  "contract_id": "hultgren_rice2_one_year_pilot_v1",
+  "created_at_utc": "2026-09-28T22:32:50.885361+00:00",
+  "direct_daily_reaggregation": {
+    "maximum_absolute_weather_error": 1.1368683772161603e-13,
+    "sentinel_count": 8,
+    "sentinels": [
+      {
+        "absolute_errors": {
+          "gdd": 1.1368683772161603e-13,
+          "kdd": 0.0,
+          "prcp_poly_1_bin1": 0.0,
+          "prcp_poly_1_bin2": 0.0,
+          "prcp_poly_1_bin3": 0.0,
+          "prcp_poly_2_bin1": 0.0,
+          "prcp_poly_2_bin2": 0.0,
+          "prcp_poly_2_bin3": 0.0,
+          "tmin": 0.0
+        },
+        "branch": "ri2_noirr",
+        "cross_year": false,
+        "daily_records_reaggregated": 89,
+        "harvest_month": 4,
+        "latitude": 29.25,
+        "longitude": 79.25,
+        "maximum_absolute_weather_error": 1.1368683772161603e-13,
+        "native_lat_index": 121,
+        "native_lon_index": 518,
+        "plant_month": 2,
+        "season_months": 3,
+        "sentinel_kind": "three_month"
+      },
+      {
+        "absolute_errors": {
+          "gdd": 1.1368683772161603e-13,
+          "kdd": 3.552713678800501e-15,
+          "prcp_poly_1_bin1": 0.0,
+          "prcp_poly_1_bin2": 0.0,
+          "prcp_poly_1_bin3": 0.0,
+          "prcp_poly_2_bin1": 0.0,
+          "prcp_poly_2_bin2": 0.0,
+          "prcp_poly_2_bin3": 0.0,
+          "tmin": 0.0
+        },
+        "branch": "ri2_noirr",
+        "cross_year": false,
+        "daily_records_reaggregated": 122,
+        "harvest_month": 7,
+        "latitude": 30.75,
+        "longitude": 119.75,
+        "maximum_absolute_weather_error": 1.1368683772161603e-13,
+        "native_lat_index": 118,
+        "native_lon_index": 599,
+        "plant_month": 4,
+        "season_months": 4,
+        "sentinel_kind": "four_month"
+      },
+      {
+        "absolute_errors": {
+          "gdd": 0.0,
+          "kdd": 0.0,
+          "prcp_poly_1_bin1": 0.0,
+          "prcp_poly_1_bin2": 0.0,
+          "prcp_poly_1_bin3": 0.0,
+          "prcp_poly_2_bin1": 0.0,
+          "prcp_poly_2_bin2": 0.0,
+          "prcp_poly_2_bin3": 0.0,
+          "tmin": 1.4210854715202004e-14
+        },
+        "branch": "ri2_noirr",
+        "cross_year": false,
+        "daily_records_reaggregated": 153,
+        "harvest_month": 7,
+        "latitude": 34.25,
+        "longitude": 116.75,
+        "maximum_absolute_weather_error": 1.4210854715202004e-14,
+        "native_lat_index": 111,
+        "native_lon_index": 593,
+        "plant_month": 3,
+        "season_months": 5,
+        "sentinel_kind": "five_month"
+      },
+      {
+        "absolute_errors": {
+          "gdd": 0.0,
+          "kdd": 0.0,
+          "prcp_poly_1_bin1": 0.0,
+          "prcp_poly_1_bin2": 0.0,
+          "prcp_poly_1_bin3": 0.0,
+          "prcp_poly_2_bin1": 0.0,
+          "prcp_poly_2_bin2": 0.0,
+          "prcp_poly_2_bin3": 0.0,
+          "tmin": 0.0
+        },
+        "branch": "ri2_noirr",
+        "cross_year": true,
+        "daily_records_reaggregated": 121,
+        "harvest_month": 3,
+        "latitude": 28.75,
+        "longitude": 80.75,
+        "maximum_absolute_weather_error": 0.0,
+        "native_lat_index": 122,
+        "native_lon_index": 521,
+        "plant_month": 12,
+        "season_months": 4,
+        "sentinel_kind": "cross_year"
+      },
+      {
+        "absolute_errors": {
+          "gdd": 1.1368683772161603e-13,
+          "kdd": 0.0,
+          "prcp_poly_1_bin1": 0.0,
+          "prcp_poly_1_bin2": 0.0,
+          "prcp_poly_1_bin3": 0.0,
+          "prcp_poly_2_bin1": 0.0,
+          "prcp_poly_2_bin2": 0.0,
+          "prcp_poly_2_bin3": 0.0,
+          "tmin": 0.0
+        },
+        "branch": "ri2_firr",
+        "cross_year": false,
+        "daily_records_reaggregated": 89,
+        "harvest_month": 4,
+        "latitude": 29.25,
+        "longitude": 79.25,
+        "maximum_absolute_weather_error": 1.1368683772161603e-13,
+        "native_lat_index": 121,
+        "native_lon_index": 518,
+        "plant_month": 2,
+        "season_months": 3,
+        "sentinel_kind": "three_month"
+      },
+      {
+        "absolute_errors": {
+          "gdd": 1.1368683772161603e-13,
+          "kdd": 3.552713678800501e-15,
+          "prcp_poly_1_bin1": 0.0,
+          "prcp_poly_1_bin2": 0.0,
+          "prcp_poly_1_bin3": 0.0,
+          "prcp_poly_2_bin1": 0.0,
+          "prcp_poly_2_bin2": 0.0,
+          "prcp_poly_2_bin3": 0.0,
+          "tmin": 0.0
+        },
+        "branch": "ri2_firr",
+        "cross_year": false,
+        "daily_records_reaggregated": 122,
+        "harvest_month": 7,
+        "latitude": 30.75,
+        "longitude": 119.75,
+        "maximum_absolute_weather_error": 1.1368683772161603e-13,
+        "native_lat_index": 118,
+        "native_lon_index": 599,
+        "plant_month": 4,
+        "season_months": 4,
+        "sentinel_kind": "four_month"
+      },
+      {
+        "absolute_errors": {
+          "gdd": 0.0,
+          "kdd": 0.0,
+          "prcp_poly_1_bin1": 0.0,
+          "prcp_poly_1_bin2": 0.0,
+          "prcp_poly_1_bin3": 0.0,
+          "prcp_poly_2_bin1": 0.0,
+          "prcp_poly_2_bin2": 0.0,
+          "prcp_poly_2_bin3": 0.0,
+          "tmin": 1.4210854715202004e-14
+        },
+        "branch": "ri2_firr",
+        "cross_year": false,
+        "daily_records_reaggregated": 153,
+        "harvest_month": 7,
+        "latitude": 34.25,
+        "longitude": 116.75,
+        "maximum_absolute_weather_error": 1.4210854715202004e-14,
+        "native_lat_index": 111,
+        "native_lon_index": 593,
+        "plant_month": 3,
+        "season_months": 5,
+        "sentinel_kind": "five_month"
+      },
+      {
+        "absolute_errors": {
+          "gdd": 0.0,
+          "kdd": 0.0,
+          "prcp_poly_1_bin1": 0.0,
+          "prcp_poly_1_bin2": 0.0,
+          "prcp_poly_1_bin3": 0.0,
+          "prcp_poly_2_bin1": 0.0,
+          "prcp_poly_2_bin2": 0.0,
+          "prcp_poly_2_bin3": 0.0,
+          "tmin": 0.0
+        },
+        "branch": "ri2_firr",
+        "cross_year": true,
+        "daily_records_reaggregated": 121,
+        "harvest_month": 3,
+        "latitude": 28.75,
+        "longitude": 80.75,
+        "maximum_absolute_weather_error": 0.0,
+        "native_lat_index": 122,
+        "native_lon_index": 521,
+        "plant_month": 12,
+        "season_months": 4,
+        "sentinel_kind": "cross_year"
+      }
+    ]
+  },
+  "harvest_year": 1982,
+  "implementation": {
+    "path": "scripts/validate_hultgren_rice2_one_year_pilot.py",
+    "sha256": "c1dde665aa28f86b68ccf2185b34918b02908eea9095335d1c157d114927be89"
+  },
+  "resources": {
+    "maximum_rss_bytes": 199622656,
+    "memory_cap_bytes": 536870912,
+    "memory_gate_passed": true
+  },
+  "rice1_regression": {
+    "broad_annual_mirca_boolean_mask_retained": true,
+    "cells": 10104,
+    "exact_cell_support_unchanged": true,
+    "minimum_months": 6,
+    "preserved_basis": "data/interim/hultgren_rice_historical_preflight_20260925/ri1_noirr_1982_1990.parquet"
+  },
+  "schema": "hultgren_rice2_one_year_pilot_validation/v1",
+  "status": "validated_unweighted_strict_support_rice2_weather_pilot_not_response_damage_or_scc",
+  "weighting": {
+    "mirca_area_or_production_weight_attached": false,
+    "publisher_fraction_used_only_as_boolean_support": true,
+    "publisher_fraction_values_emitted": false,
+    "weighted_statistics_reported": false
+  }
+}

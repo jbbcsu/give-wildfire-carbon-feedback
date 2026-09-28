@@ -30,6 +30,24 @@ def expect_failure(function, *args, **kwargs):
 
 
 def main() -> None:
+    three_month = build_rice_weather_basis(
+        [1, 2, 3], [10, 11, 12], [20], [20]
+    )
+    assert three_month.prcp_poly_1_bins == (3.0, 3.0, 0.0)
+    assert three_month.prcp_poly_2_bins == (5.0, 9.0, 0.0)
+
+    four_month = build_rice_weather_basis(
+        [1, 2, 3, 4], [10, 11, 12, 13], [20], [20]
+    )
+    assert four_month.prcp_poly_1_bins == (3.0, 7.0, 0.0)
+    assert four_month.prcp_poly_2_bins == (5.0, 25.0, 0.0)
+
+    five_month = build_rice_weather_basis(
+        [1, 2, 3, 4, 5], [10, 11, 12, 13, 14], [20], [20]
+    )
+    assert five_month.prcp_poly_1_bins == (3.0, 12.0, 0.0)
+    assert five_month.prcp_poly_2_bins == (5.0, 50.0, 0.0)
+
     basis = build_rice_weather_basis(
         [1, 2, 3, 4, 5, 6],
         [10, 11, 12, 13, 14, 15],
@@ -80,7 +98,7 @@ def main() -> None:
     assert cross_year.prcp_poly_1_bins == (61.0, 91.0, 31.0)
     assert cross_year.tmin == 120.0
 
-    expect_failure(build_rice_weather_basis, [1] * 5, [20] * 5, [20], [20])
+    expect_failure(build_rice_weather_basis, [1] * 2, [20] * 2, [20], [20])
     expect_failure(build_rice_weather_basis, [1] * 13, [20] * 13, [20], [20])
     expect_failure(build_rice_weather_basis, [1] * 6, [20] * 5, [20], [20])
     expect_failure(build_rice_weather_basis, [1, 1, 1, 1, 1, -1], [20] * 6, [20], [20])
