@@ -1,0 +1,397 @@
+{
+  "claim_gates": {
+    "damage_calculated": false,
+    "mirca_candidate_promoted_to_production_weights": false,
+    "published_response_evaluated": false,
+    "response_fit_authorized": false,
+    "rice2_weather_basis_built": false,
+    "rice2_weather_basis_independently_validated": false,
+    "scc_calculated": false,
+    "source_inventory_and_calendar_feasibility_validated": true
+  },
+  "config": {
+    "path": "config/hultgren_rice2_weather_basis_feasibility_v1.toml",
+    "sha256": "730ec81edcacefe405a545f0ad598d3a946176fad4167a50e2af8f11af911cef"
+  },
+  "contract_id": "hultgren_rice2_weather_basis_feasibility_v1",
+  "created_at_utc": "2026-09-28T22:23:19.935532+00:00",
+  "decision": {
+    "current_builder_can_execute_source_faithful_rice2": false,
+    "exact_hultgren_gmfd_sage_historical_reproduction_available": false,
+    "published_panel_contains_second_season_observations": true,
+    "rice2_calendar_distinct_from_rice1": true,
+    "rice2_weather_basis_feasible_without_copying_ri1_or_filling_missing_calendars_after_bounded_code_fix": true,
+    "separate_rice2_calendar_available": true,
+    "source_short_season_zero_phase_semantics_observed": true
+  },
+  "ggcmi_calendars": {
+    "branches": {
+      "ri1_firr": {
+        "data_source_index_distribution_on_finite_cells": {
+          "4": 67420
+        },
+        "finite_calendar_cells": 67420,
+        "finite_positive_fraction_cells": 67384,
+        "metadata": {
+          "data_source_used": {
+            "long_name": "Data source used: 1 - MIRCA; 2 - SAGE; 3 - IIZUMI et al. 2019; 4. RICEATLAS; 5. Dimou et al. 2018; 6. ChinCropPhen; 7. IndiaAgStat; 8. Brazil CONAB; 9. Australia ABARES",
+            "units": "index"
+          },
+          "fraction_of_harvested_area": {
+            "long_name": "Fraction of total harvested rice area associated with this season, 3 seasons in total",
+            "units": "fraction"
+          },
+          "growing_season_length": {
+            "long_name": "Growing season length irrigated",
+            "units": "days"
+          },
+          "maturity_day": {
+            "long_name": "Maturity day irrigated",
+            "units": "day of year"
+          },
+          "planting_day": {
+            "long_name": "Planting day irrigated",
+            "units": "day of year"
+          }
+        },
+        "path": "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_ri1_firr.nc",
+        "positive_publisher_fraction_cells": 67392,
+        "whole_month_season_distribution_on_finite_cells": {
+          "3": 24,
+          "4": 4762,
+          "5": 29444,
+          "6": 21978,
+          "7": 9868,
+          "8": 1269,
+          "9": 75
+        }
+      },
+      "ri1_noirr": {
+        "data_source_index_distribution_on_finite_cells": {
+          "4": 67420
+        },
+        "finite_calendar_cells": 67420,
+        "finite_positive_fraction_cells": 67384,
+        "metadata": {
+          "data_source_used": {
+            "long_name": "Data source used: 1 - MIRCA; 2 - SAGE; 3 - IIZUMI et al. 2019; 4. RICEATLAS; 5. Dimou et al. 2018; 6. ChinCropPhen; 7. IndiaAgStat; 8. Brazil CONAB; 9. Australia ABARES",
+            "units": "index"
+          },
+          "fraction_of_harvested_area": {
+            "long_name": "Fraction of total harvested rice area associated with this season, 3 seasons in total",
+            "units": "fraction"
+          },
+          "growing_season_length": {
+            "long_name": "Growing season length rainfed",
+            "units": "days"
+          },
+          "maturity_day": {
+            "long_name": "Maturity day rainfed",
+            "units": "day of year"
+          },
+          "planting_day": {
+            "long_name": "Planting day rainfed",
+            "units": "day of year"
+          }
+        },
+        "path": "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_ri1_noirr.nc",
+        "positive_publisher_fraction_cells": 67392,
+        "whole_month_season_distribution_on_finite_cells": {
+          "3": 24,
+          "4": 4762,
+          "5": 29444,
+          "6": 21978,
+          "7": 9868,
+          "8": 1269,
+          "9": 75
+        }
+      },
+      "ri2_firr": {
+        "data_source_index_distribution_on_finite_cells": {
+          "4": 31005
+        },
+        "finite_calendar_cells": 31005,
+        "finite_positive_fraction_cells": 6197,
+        "metadata": {
+          "data_source_used": {
+            "long_name": "Data source used: 1 - MIRCA; 2 - SAGE; 3 - IIZUMI et al. 2019; 4. RICEATLAS; 5. Dimou et al. 2018; 6. ChinCropPhen; 7. IndiaAgStat; 8. Brazil CONAB; 9. Australia ABARES",
+            "units": "index"
+          },
+          "fraction_of_harvested_area": {
+            "long_name": "Fraction of total harvested rice area associated with this season, 3 seasons in total",
+            "units": "fraction"
+          },
+          "growing_season_length": {
+            "long_name": "Growing season length irrigated",
+            "units": "days"
+          },
+          "maturity_day": {
+            "long_name": "Maturity day irrigated",
+            "units": "day of year"
+          },
+          "planting_day": {
+            "long_name": "Planting day irrigated",
+            "units": "day of year"
+          }
+        },
+        "path": "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_ri2_firr.nc",
+        "positive_publisher_fraction_cells": 6204,
+        "whole_month_season_distribution_on_finite_cells": {
+          "3": 72,
+          "4": 6076,
+          "5": 12591,
+          "6": 2886,
+          "7": 3391,
+          "8": 5989
+        }
+      },
+      "ri2_noirr": {
+        "data_source_index_distribution_on_finite_cells": {
+          "4": 31005
+        },
+        "finite_calendar_cells": 31005,
+        "finite_positive_fraction_cells": 6197,
+        "metadata": {
+          "data_source_used": {
+            "long_name": "Data source used: 1 - MIRCA; 2 - SAGE; 3 - IIZUMI et al. 2019; 4. RICEATLAS; 5. Dimou et al. 2018; 6. ChinCropPhen; 7. IndiaAgStat; 8. Brazil CONAB; 9. Australia ABARES",
+            "units": "index"
+          },
+          "fraction_of_harvested_area": {
+            "long_name": "Fraction of total harvested rice area associated with this season, 3 seasons in total",
+            "units": "fraction"
+          },
+          "growing_season_length": {
+            "long_name": "Growing season length rainfed",
+            "units": "days"
+          },
+          "maturity_day": {
+            "long_name": "Maturity day rainfed",
+            "units": "day of year"
+          },
+          "planting_day": {
+            "long_name": "Planting day rainfed",
+            "units": "day of year"
+          }
+        },
+        "path": "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_ri2_noirr.nc",
+        "positive_publisher_fraction_cells": 6204,
+        "whole_month_season_distribution_on_finite_cells": {
+          "3": 72,
+          "4": 6076,
+          "5": 12591,
+          "6": 2886,
+          "7": 3391,
+          "8": 5989
+        }
+      }
+    },
+    "calendar_interpretation": "All finite GGCMI Rice2 cells declare data-source index 4 (RICEATLAS). The separate rainfed and irrigated Rice2 files contain identical calendar arrays, but the Rice2 calendar is not a copy of Rice1.",
+    "ri1_ri2_comparisons": {
+      "firr": {
+        "common_finite_cells": 31005,
+        "different_whole_month_calendar_cells": 30887,
+        "ri1_finite_only_cells": 36415,
+        "ri2_finite_only_cells": 0,
+        "same_whole_month_calendar_cells": 118
+      },
+      "noirr": {
+        "common_finite_cells": 31005,
+        "different_whole_month_calendar_cells": 30887,
+        "ri1_finite_only_cells": 36415,
+        "ri2_finite_only_cells": 0,
+        "same_whole_month_calendar_cells": 118
+      }
+    },
+    "ri2_noirr_firr_calendar_arrays_identical": true,
+    "strict_direct_ri2_calendar_and_mirca_support": {
+      "irrigated": {
+        "current_six_to_twelve_area_fraction_of_direct_support": 0.20186906387186213,
+        "current_six_to_twelve_month_area_ha": 5382989.8258111235,
+        "current_six_to_twelve_month_cells": 504,
+        "direct_no_fill_area_fraction": 0.7822373590704991,
+        "direct_no_fill_area_ha": 26665749.186948307,
+        "direct_no_fill_cells": 2796,
+        "direct_no_fill_cells_distinct_from_ri1": 2788,
+        "direct_no_fill_month_distribution": {
+          "3": 13,
+          "4": 669,
+          "5": 1610,
+          "6": 414,
+          "7": 90
+        },
+        "positive_unrepaired_mirca_rice2_cells": 4561,
+        "unrepaired_global_rice2_area_ha": 34089076.51589811
+      },
+      "rainfed": {
+        "current_six_to_twelve_area_fraction_of_direct_support": 0.058434827842153106,
+        "current_six_to_twelve_month_area_ha": 1191405.8703204542,
+        "current_six_to_twelve_month_cells": 545,
+        "direct_no_fill_area_fraction": 0.859804402127737,
+        "direct_no_fill_area_ha": 20388626.343500756,
+        "direct_no_fill_cells": 2751,
+        "direct_no_fill_cells_distinct_from_ri1": 2751,
+        "direct_no_fill_month_distribution": {
+          "3": 4,
+          "4": 871,
+          "5": 1331,
+          "6": 495,
+          "7": 42,
+          "8": 8
+        },
+        "positive_unrepaired_mirca_rice2_cells": 7143,
+        "unrepaired_global_rice2_area_ha": 23713098.343117945
+      }
+    }
+  },
+  "historical_weather_inventory": {
+    "complete_calendar_year_blocks": [
+      "1981-1990",
+      "1991-2000",
+      "2001-2010",
+      "2011-2019"
+    ],
+    "files": [
+      {
+        "bytes": 2351177152,
+        "path": "data/raw/isimip3a_gswp3_w5e5_v1_3/gswp3-w5e5_obsclim_pr_global_daily_1981_1990.nc"
+      },
+      {
+        "bytes": 2361459207,
+        "path": "data/raw/isimip3a_gswp3_w5e5_v1_3/gswp3-w5e5_obsclim_pr_global_daily_1991_2000.nc"
+      },
+      {
+        "bytes": 2354163982,
+        "path": "data/raw/isimip3a_gswp3_w5e5_v1_3/gswp3-w5e5_obsclim_pr_global_daily_2001_2010.nc"
+      },
+      {
+        "bytes": 2111921882,
+        "path": "data/raw/isimip3a_gswp3_w5e5_v1_3/gswp3-w5e5_obsclim_pr_global_daily_2011_2019.nc"
+      },
+      {
+        "bytes": 2045681376,
+        "path": "data/raw/isimip3a_gswp3_w5e5_v1_3/gswp3-w5e5_obsclim_tasmax_global_daily_1981_1990.nc"
+      },
+      {
+        "bytes": 2046372269,
+        "path": "data/raw/isimip3a_gswp3_w5e5_v1_3/gswp3-w5e5_obsclim_tasmax_global_daily_1991_2000.nc"
+      },
+      {
+        "bytes": 2045915343,
+        "path": "data/raw/isimip3a_gswp3_w5e5_v1_3/gswp3-w5e5_obsclim_tasmax_global_daily_2001_2010.nc"
+      },
+      {
+        "bytes": 1842014493,
+        "path": "data/raw/isimip3a_gswp3_w5e5_v1_3/gswp3-w5e5_obsclim_tasmax_global_daily_2011_2019.nc"
+      },
+      {
+        "bytes": 2056386729,
+        "path": "data/raw/isimip3a_gswp3_w5e5_v1_3/gswp3-w5e5_obsclim_tasmin_global_daily_1981_1990.nc"
+      },
+      {
+        "bytes": 2057309879,
+        "path": "data/raw/isimip3a_gswp3_w5e5_v1_3/gswp3-w5e5_obsclim_tasmin_global_daily_1991_2000.nc"
+      },
+      {
+        "bytes": 2056480718,
+        "path": "data/raw/isimip3a_gswp3_w5e5_v1_3/gswp3-w5e5_obsclim_tasmin_global_daily_2001_2010.nc"
+      },
+      {
+        "bytes": 1851441309,
+        "path": "data/raw/isimip3a_gswp3_w5e5_v1_3/gswp3-w5e5_obsclim_tasmin_global_daily_2011_2019.nc"
+      }
+    ],
+    "local_daily_file_count": 12,
+    "previously_validated_ri1_periods": [
+      "1981-1990",
+      "1991-2000",
+      "2001-2010"
+    ],
+    "variables": [
+      "pr",
+      "tasmin",
+      "tasmax"
+    ],
+    "weather_product_role": "alternative GSWP3-W5E5 transport; not exact Hultgren GMFD reproduction"
+  },
+  "hultgren_panel": {
+    "complete_case_rows_before_singleton_removal": 166354,
+    "interpretation": "The pooled published rice estimation sample explicitly includes second seasons; all second-season rows are 4--5 months, and absent phase 3 is encoded as exact zero.",
+    "published_estimation_rows": 166174,
+    "published_estimation_season_rows": {
+      "first": 1560,
+      "second": 1189,
+      "third": 791,
+      "total": 162634
+    },
+    "season_variable_label": "growing season w/in year",
+    "second_season_countries": {
+      "LKA": 708,
+      "VNM": 481
+    },
+    "second_season_length_rows": {
+      "4": 708,
+      "5": 481
+    },
+    "short_season_length_rows": {
+      "3": 48,
+      "4": 13541,
+      "5": 110999
+    },
+    "short_season_phase3_nonzero_values": 0,
+    "short_three_to_five_month_estimation_rows": 124588,
+    "singleton_removal_rounds": [
+      180,
+      0
+    ],
+    "source_rows": 178157,
+    "source_season_rows": {
+      "first": 1764,
+      "second": 1305,
+      "third": 983,
+      "total": 174105
+    }
+  },
+  "implementation": {
+    "path": "scripts/audit_hultgren_rice2_weather_basis_feasibility.py",
+    "sha256": "cc92b80fc0feebca998311a92941b7f29dfc55ecdb02689e17b0831f3b3e9e68"
+  },
+  "implementation_audit": {
+    "current_builder_calendar_choices_are_ri1_only": true,
+    "current_builder_filters_to_six_through_twelve_months": true,
+    "current_scalar_weather_method_rejects_under_six_months": true,
+    "explicit_ri2_or_rice2_tokens_in_preserved_do_files": 0,
+    "mechanical_phase_slices_already_allow_empty_phase3": true,
+    "preserved_hultgren_do_file_count": 12,
+    "required_correction": "Permit explicitly declared ri2_noirr/ri2_firr and source-observed 3--12 month seasons; retain missing later phase months as structural zeros, not imputed weather."
+  },
+  "mirca_administrative_calendar_inventory": {
+    "irrigated": {
+      "countries_with_positive_growing_area": 45,
+      "direct_grid_join_available_from_csv_alone": false,
+      "path": "data/raw/mirca_os_v2/crop_calendar/MIRCA-OS_2000_ir_v2.csv",
+      "positive_growing_area_rows": 614,
+      "positive_rows_with_complete_unit_and_calendar": 614,
+      "reported_growing_area_ha": 35484341.0,
+      "rice2_rows": 4849,
+      "unique_positive_plant_harvest_month_pairs": 17
+    },
+    "rainfed": {
+      "countries_with_positive_growing_area": 37,
+      "direct_grid_join_available_from_csv_alone": false,
+      "path": "data/raw/mirca_os_v2/crop_calendar/MIRCA-OS_2000_rf_v2.csv",
+      "positive_growing_area_rows": 144,
+      "positive_rows_with_complete_unit_and_calendar": 144,
+      "reported_growing_area_ha": 23713101.0,
+      "rice2_rows": 4849,
+      "unique_positive_plant_harvest_month_pairs": 30
+    }
+  },
+  "resources": {
+    "maximum_rss_bytes": 365838336,
+    "memory_cap_bytes": 536870912,
+    "memory_gate_passed": true
+  },
+  "schema": "hultgren_rice2_weather_basis_feasibility/v1",
+  "single_safest_next_gate": "Patch only the rice weather primitive and builder guards to accept explicitly declared ri2_noirr/ri2_firr and 3--12 month seasons, encode absent later phase months as exact zeros, then run and independently reaggregate a one-harvest-year pilot on the strict finite, positive-publisher-fraction Rice2 support. Do not attach production weights or evaluate the response.",
+  "status": "rice2_source_inputs_available_current_builder_blocked_by_short_season_and_branch_guards"
+}

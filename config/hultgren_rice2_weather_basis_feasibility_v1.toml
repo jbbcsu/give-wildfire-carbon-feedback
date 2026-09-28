@@ -1,0 +1,85 @@
+schema_version = 1
+contract_id = "hultgren_rice2_weather_basis_feasibility_v1"
+audit_date = "2026-09-28"
+
+[sources]
+hultgren_panel_path = "data/raw/hultgren_response/historical_git/dae5fe8d0d4a260328e4baa45b547368bd6790b3/rice_gmfd_v1_ready.dta"
+hultgren_panel_sha256 = "a118f3ce5dd54f506b75de9fc1dff0b01a9e9034509f6b9b925b937a1beb63b4"
+hultgren_code_directory = "data/raw/hultgren_response/3ccdffcd4e4ff6e55566ce76e2aac130ee86349a"
+set_crop_variables_path = "data/raw/hultgren_response/3ccdffcd4e4ff6e55566ce76e2aac130ee86349a/set_crop_variables.do"
+set_crop_variables_sha256 = "2e898575c49ee52e74947dc40a5571400c051ae451e8b78a393319f582ef38e8"
+collapse_clim_path = "data/raw/hultgren_response/3ccdffcd4e4ff6e55566ce76e2aac130ee86349a/collapse_clim.do"
+collapse_clim_sha256 = "8a0fdfdf7e55212e5ce7c958c9b68cb4b2bb23c11c6949af9ff3c188e90b47e6"
+response_validation_path = "data/provenance/hultgren_rice_response_source_validation_20260925.json"
+response_validation_sha256 = "7b9d70feaa1058f25e47b4d44d59a812ff05b65d48901c7ddd0fb11904d21cf5"
+author_support_path = "data/provenance/hultgren_rice_author_sample_support_20260925.json"
+author_support_sha256 = "45462b20acaaa3daf10958bd129c3b120cd54f4870ef3f7ee15371d78907f326"
+weather_method_validation_path = "data/provenance/hultgren_rice_weather_method_validation_20260925.json"
+weather_method_validation_sha256 = "e4f052214da1cdb35274050c99830cbc21d1c1d46534b615b58465ac351ba084"
+historical_preflight_validation_path = "data/provenance/hultgren_rice_historical_preflight_validation_20260925.json"
+historical_preflight_validation_sha256 = "21a1c4eef3955942a009cb56ccbd5da12eb1adee071e76707690078a95bbf5d8"
+calendar_manifest_path = "data/provenance/isimip_crop_calendar_2015soc.toml"
+calendar_manifest_sha256 = "7d637597f1836b41bd2faebdfa70a8ae67daf3a5faa179d32dd72dd11d7a1b3f"
+calendar_crosswalk_path = "data/provenance/crop_calendar_gdhy_crosswalk.md"
+calendar_crosswalk_sha256 = "c4c0310a280972912f8fb4474bdde185a4e47208443af8b61b08a015b047fe0a"
+mirca_metadata_path = "data/provenance/mirca_os_v2_rice_season_inputs.toml"
+mirca_metadata_sha256 = "b08e3553be28aa980db66931dc2669dd6b1c7706e8b5983eeebd1552ce8e3692"
+mirca_candidate_path = "data/interim/mirca_os_v2/rice_season_proportional_reconciliation_candidate_2000.parquet"
+mirca_candidate_sha256 = "8079785c4196e590d35ec802c8715ad4779a42497bd825495e6cc155b8420528"
+mirca_calendar_rainfed_path = "data/raw/mirca_os_v2/crop_calendar/MIRCA-OS_2000_rf_v2.csv"
+mirca_calendar_rainfed_sha256 = "6427085e10d126edb8b2a68fd2e7c2b0397f15688bec3adf69a3d382156e2faf"
+mirca_calendar_irrigated_path = "data/raw/mirca_os_v2/crop_calendar/MIRCA-OS_2000_ir_v2.csv"
+mirca_calendar_irrigated_sha256 = "0f2381a76839097864a6112f179a2aa8a1e7604350b598b32198e5648beb356c"
+weather_module_path = "src/hultgren_rice_weather.py"
+weather_module_sha256 = "c6843091aa394a4acbcfdbe2592a706f7d56bed1df903ff1701a2e9623a6b1df"
+weather_builder_path = "scripts/build_hultgren_rice_grid_weather_basis.py"
+weather_builder_sha256 = "d76e51d6bdae869d3dd9cc4ce0e20b3b5900b5cf8a4f8ea398e8f9f2e14dbbf4"
+
+[[calendar_branches]]
+branch = "ri1_noirr"
+path = "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_ri1_noirr.nc"
+sha256 = "1cd9a8fa665f91b660b7401ee978d34e3d376ce6cc740c3ebce12a7f876b5684"
+
+[[calendar_branches]]
+branch = "ri1_firr"
+path = "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_ri1_firr.nc"
+sha256 = "d738f23dc3bed40098a145538d08306c5cb75d8d4a2ee6057e4f65c3b93c81b4"
+
+[[calendar_branches]]
+branch = "ri2_noirr"
+path = "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_ri2_noirr.nc"
+sha256 = "e8fbee16a2b86560409a90b11fe5af35f5886c1689ed534c41a7453c2ace6299"
+
+[[calendar_branches]]
+branch = "ri2_firr"
+path = "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_ri2_firr.nc"
+sha256 = "22468e93f3aaed3c0a25a451132a9497b0175d67ae30d872c9453af79523fab7"
+
+[published_weather_contract]
+gdd_base_c = 14.0
+kdd_threshold_c = 30.0
+precipitation_phase_month_counts = [2, 3, 7]
+maximum_crop_season_months = 12
+minimum_observed_complete_crop_season_months = 3
+short_season_phase_rule = "phase slices are months 1-2, months 3-5 when present, and month 6 through harvest; absent later months contribute exact zeros"
+
+[support_policy]
+calendar_branch_must_be_ri2 = true
+copy_ri1_calendar_authorized = false
+fill_missing_ri2_calendar_authorized = false
+nearest_neighbor_calendar_authorized = false
+use_only_finite_ri2_calendar_with_positive_publisher_fraction = true
+mirca_candidate_is_sensitivity_not_production_weight = true
+
+[authorization]
+source_inventory_audit_authorized = true
+calendar_feasibility_audit_authorized = true
+weather_basis_build_authorized = false
+published_response_evaluation_authorized = false
+response_fit_authorized = false
+damage_calculation_authorized = false
+scc_use_authorized = false
+
+[resources]
+worker_memory_bytes_maximum = 536870912
+panel_chunk_rows = 25000

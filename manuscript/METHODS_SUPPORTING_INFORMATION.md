@@ -2260,7 +2260,23 @@ and 6,017 irrigated cells (59.55%; 162,459 cell-years). These cells contain
 hectares, or 40.68% and 43.24% of the corresponding global repaired Rice1
 areas. Of the common cells, 4,503 have both weights, 4,072 only rainfed, 1,514
 only irrigated, and 15 neither. MIRCA contains 8,836 Rice2 weight rows, but the
-preserved Hultgren artifacts contain zero Rice2 weather branches. We prohibit
+preserved Hultgren artifacts contain zero already-built Rice2 weather branches.
+This absence is an implementation rather than a source-data dead end. The
+recovered Hultgren estimation panel includes 1,189 second-season observations
+(708 from Sri Lanka and 481 from Vietnam), all with four- or five-month
+calendars. Across all 124,588 three- through five-month estimation rows, the
+third-phase linear and quadratic precipitation terms are exactly zero.
+Separate GGCMI `ri2_noirr` and `ri2_firr` calendars contain 31,005 finite cells;
+30,887 of their calendars differ from Rice1 on common support. On the strict
+finite-calendar, positive-publisher-fraction, unrepaired-MIRCA intersection,
+Rice2 retains 2,751 rainfed cells and 20.389 million ha (85.98% of global
+Rice2 rainfed area), and 2,796 irrigated cells and 26.666 million ha (78.22%).
+The current six-month minimum would retain only 5.84% and 20.19% of those
+direct-support areas. We therefore require a bounded code correction that
+admits explicitly declared Rice2 branches and source-observed 3--12-month
+seasons while preserving exact zero for absent later phases, followed by a
+one-year daily-weather sentinel validation before any response evaluation.
+We prohibit
 nearest-neighbor matching, opposite-irrigation substitution, Rice3 transfer,
 country-average or unmatched-cell filling, copying a Rice1 calendar to Rice2,
 and matched-support renormalization. The exact Rice1 join is retained only as
@@ -2270,6 +2286,9 @@ response-fitting, damage, and SCC gates remain closed. The audit and independent
 validation are recorded in
 `HULTGREN_MIRCA_RICE_SEASON_WEIGHT_CROSSWALK_AUDIT_RESULTS_20260928.md` and
 `data/provenance/hultgren_mirca_rice_season_weight_crosswalk_validation_20260928.json`.
+Rice2 feasibility evidence and closed claim gates are recorded in
+`HULTGREN_RICE2_WEATHER_BASIS_FEASIBILITY_RESULTS_20260928.md` and
+`data/provenance/hultgren_rice2_weather_basis_feasibility_validation_20260928.json`.
 
 The exact 0.5-degree outcome crosswalk matches 9,298 of 9,564 positive
 first-rice cells (97.22%) and
