@@ -798,21 +798,39 @@ solves by reduced QR, and separately forms the county-cluster sandwich. All
 fields agree within a maximum absolute difference of `1.04e-13` against a registered
 `1e-10` tolerance.
 
-### Additional-crop direct-practice count screen
+### Additional-crop direct-practice outcome acquisition
 
-A credential-safe Quick Stats feasibility screen issues count-only requests
-for sorghum grain, upland cotton, rice, barley, and oats. It never requests the
-value field. For each year from 1981 through 2019, the smaller of irrigated and
-non-irrigated marginal record counts is treated only as an upper bound on
-same-county overlap. Sorghum, upland cotton, barley, and oats have upper bounds
-of 6,439, 4,524, 5,766, and 1,978 paired county-years, respectively. Barley and
-oats end in 2008; sorghum and cotton extend through 2018. A broadened rice
-diagnostic finds 9,725 unstratified county survey yield records but zero records
-under either practice label, so it fails the direct-practice gate. The
-structural validator reconstructs all 325 requests and gates. Acquisition,
-actual county overlap, suppression handling, geography, crop calendars,
-weather construction, estimation, and interpretation remain separate closed
-gates; the current NASS calendar input covers only corn, soybean, and wheat.
+A credential-safe Quick Stats feasibility screen first issues count-only
+requests for sorghum grain, upland cotton, rice, barley, and oats. For each year
+from 1981 through 2019, the smaller of irrigated and non-irrigated marginal
+record counts is treated only as an upper bound on same-county overlap. The
+screen gives upper bounds of 6,439, 4,524, 5,766, and 1,978 paired county-years
+for sorghum, upland cotton, barley, and oats, respectively. Barley and oats end
+in 2008. A broadened rice diagnostic finds 9,725 unstratified county survey
+yield records but zero records under either practice label, so it fails the
+direct-practice gate.
+
+We subsequently acquired the exact `YIELD`, county, annual, survey series for
+`SORGHUM / ALL CLASSES / GRAIN / BU / ACRE` and `COTTON / UPLAND / ALL
+UTILIZATION PRACTICES / LB / ACRE`, separately for the `IRRIGATED` and
+`NON-IRRIGATED` practice labels and each year from 1981 through 2018. The 152
+requests return 29,186 records. A row is eligible only if the reported value
+parses to a finite positive number and both two-digit state and three-digit
+county ANSI codes are present; suppression markers and aggregate geographies
+are not imputed. Exact crop--county--year inner pairing leaves 5,270 sorghum
+pairs in 374 counties and 3,501 cotton pairs in 193 counties. Each panel spans
+six states. Annual sorghum support ranges from 3 to 299 pairs and falls to
+3--29 after 2007; cotton ranges from 17 to 128 and retains 17--66 after 2008.
+
+The independent validator checks all 152 raw SHA-512 digests, reparses every
+raw JSON response, exactly reconstructs all 8,771 pairs and 17,542 long rows,
+checks the panel digest, and scans tracked receipts for the exact locally
+loaded credential value. The credential is absent, and raw API responses and
+the derived panel remain ignored. These regional outcome panels do not yet
+contain crop-calendar, daily-weather, PDSI/SPEI, or distributional-rainfall
+features. No model is fit, and all causal, national, damage, and SCC gates
+remain closed. The current NASS calendar input covers only corn, soybean, and
+wheat.
 
 ### Exploratory all-classes-wheat PDSI sensitivity
 
