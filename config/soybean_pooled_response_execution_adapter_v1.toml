@@ -5,11 +5,11 @@ supported_families = ["quantity", "distribution", "scpdsi_season"]
 
 [bindings.gate_config]
 path = "config/soybean_pooled_response_execution_gate_v1.toml"
-sha256 = "5e8250a7006d5997c722e1e4eccef25258b7c0e2f1e77453b2257d9b8f887f2c"
+sha256 = "8e6a27c910de64366ecd8cc3a3bf6839dfb9848c4de87979f206914e43f0a621"
 
 [bindings.gate_module]
 path = "scripts/soybean_pooled_response_execution_gate.py"
-sha256 = "a9f98d047d2a6393523264e69455f23441456ea9a8248101b5800e77ab8c4c41"
+sha256 = "8ac5bf4ec69eb1df062bac70a0ad0fe00851b6467a87cbe402c0cbc5f721048f"
 
 [bindings.protocol]
 path = "config/soybean_pooled_response_inference_protocol_v1.toml"
@@ -21,13 +21,18 @@ sha256 = "a437fab438e17fccdc6bf9780de6799e5d11306174f18c55e2bd286f494f0b66"
 
 [bindings.dry_run_manifest]
 path = "data/provenance/soybean_pooled_response_execution_dry_run_20260929.json"
-sha256 = "dcb9e6ab5a34b4b2bc448a5337915f99b42d0d54b95a0600021f07435a51ab38"
+sha256 = "d6b385aa34f0c2faf4ac630cb7bb0578d58f674251402b3a7eab8583cfe5436e"
+
+[bindings.portability_manifest]
+path = "data/provenance/soybean_pooled_response_production_portability_20260929.json"
+sha256 = "2bf8dd44682d1a1619f14586d5df7e2acdb0f9028dc904974d1f5c1f506e9b13"
 
 [execution]
 synthetic_mode_name = "synthetic"
 production_mode_name = "production"
 synthetic_requires_empty_declared_paths = true
 production_requires_validated_token_before_loader = true
+production_declared_path_roles = ["direct", "heat", "scpdsi", "country_proxy"]
 engine_is_dependency_injected = true
 level_loader_is_dependency_injected = true
 

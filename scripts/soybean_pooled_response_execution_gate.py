@@ -111,11 +111,18 @@ def build_dry_run_manifest(root: Path, gate_config_path: Path) -> dict[str, Any]
     preflight = loaded["design_preflight"]
     readiness = loaded["readiness_audit"]
     engine_validation = loaded["engine_validation"]
+    portability = loaded["portability_manifest"]
+    portability_validation = loaded["portability_validation"]
     require(protocol_validation["promotion_state"]["protocol_mechanically_validated"] is True, "protocol is not mechanically validated")
     require(protocol_validation["promotion_state"]["real_outcome_slope_fit_authorized"] is False, "unexpected prior fit authorization")
     require(preflight["outcome_blinding"]["production_response_fit_performed"] is False, "preflight reports a response fit")
     require(preflight["resolution"]["finest_support_qualified_geographic_resolution"] == "pooled_global", "pooled-only resolution differs")
     require(engine_validation["claim_gates"]["real_outcome_fit_authorized"] is False, "engine validation reports real-fit authorization")
+    require(portability["status"] == "metadata_only_portability_bound_no_real_access_or_fit", "portability manifest status differs")
+    require(portability["production_declared_path_roles"] == ["direct", "heat", "scpdsi", "country_proxy"], "production declared-path closure differs")
+    require(not any(portability["claim_gates"].values()), "portability manifest opens a claim gate")
+    require(portability_validation["status"] == "validated_metadata_only_portability_no_real_access_or_fit", "portability manifest is not independently validated")
+    require(all(portability_validation["checks"].values()), "portability validation reports a failed check")
 
     candidates = readiness["assets"]["continuous_candidate_families"]
     outcome_sources = {}
@@ -127,6 +134,15 @@ def build_dry_run_manifest(root: Path, gate_config_path: Path) -> dict[str, Any]
             "outcome_bearing": True, "opened": False, "hashed_by_dry_run": False,
             "binding_source": metadata["readiness_audit"],
         }
+    proxy = portability["country_proxy_transform"]["input"]
+    production_paths = {
+        name: {"path": item["path"], "pinned_sha256": item["pinned_sha256"], "bytes": next(record["bytes"] for record in portability["direct_artifacts"] if record["path"] == item["path"])}
+        for name, item in outcome_sources.items()
+    }
+    production_paths["country_proxy"] = {
+        "path": proxy["path"], "pinned_sha256": proxy["sha256"], "bytes": proxy["bytes"],
+        "outcome_bearing": False, "role": "singleton_country_proxy_preprocessing_input",
+    }
 
     direct = preflight["pair_construction"]["direct_heat_pairs"]
     scpdsi = preflight["pair_construction"]["scpdsi_heat_pairs"]
@@ -160,6 +176,7 @@ def build_dry_run_manifest(root: Path, gate_config_path: Path) -> dict[str, Any]
         "contract": {"path": str(gate_config_path.relative_to(root)), "sha256": digest(gate_config_path)},
         "metadata_bindings": metadata,
         "outcome_source_bindings": outcome_sources,
+        "production_declared_path_bindings": production_paths,
         "expected_schemas": expected_schemas(protocol),
         "expected_support": support,
         "authorization": {
@@ -192,6 +209,10 @@ def validate_authorization_token(token_path: Path | None, manifest_path: Path, g
     require(token.get("dry_run_manifest_sha256") == digest(manifest_path), "authorization token does not bind the dry-run manifest")
     require(token.get("protocol_sha256") == config["metadata"]["protocol"]["sha256"], "authorization token does not bind the protocol")
     require(token.get("engine_sha256") == config["metadata"]["engine"]["sha256"], "authorization token does not bind the engine")
+    portability_path = resolve_inside(root.resolve(), config["metadata"]["portability_manifest"]["path"])
+    portability_sha256 = digest(portability_path)
+    require(portability_sha256 == config["metadata"]["portability_manifest"]["sha256"], "configured portability manifest hash differs")
+    require(token.get("portability_manifest_sha256") == portability_sha256, "authorization token does not bind the portability manifest")
     require(isinstance(token.get("nonce"), str) and len(token["nonce"]) >= 16, "authorization nonce is absent or too short")
     if test_mode:
         require(token.get("synthetic") is True and token.get("issuer") == "synthetic_test", "test authorization must be explicitly synthetic")
@@ -201,6 +222,7 @@ def validate_authorization_token(token_path: Path | None, manifest_path: Path, g
     return {
         "authorized": True, "scope": auth["scope"], "synthetic": bool(token["synthetic"]),
         "manifest_sha256": digest(manifest_path), "protocol_sha256": token["protocol_sha256"], "engine_sha256": token["engine_sha256"],
+        "portability_manifest_sha256": portability_sha256,
     }
 
 

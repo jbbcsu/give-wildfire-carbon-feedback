@@ -1,0 +1,35 @@
+{
+  "bindings": {
+    "implementation": {
+      "path": "scripts/validate_soybean_pooled_response_portability.py",
+      "sha256": "0738ce7154c40906e3700ae3018984ddb788f4c34be4e99c81ab5e64f7dae890"
+    },
+    "manifest": {
+      "path": "data/provenance/soybean_pooled_response_production_portability_20260929.json",
+      "sha256": "2bf8dd44682d1a1619f14586d5df7e2acdb0f9028dc904974d1f5c1f506e9b13"
+    },
+    "tests": {
+      "path": "data/provenance/soybean_pooled_response_production_portability_tests_20260929.json",
+      "sha256": "c1438450adc5a3e750fb4a1c19bee125436061d70ca042f2aae469bd683b8ac4"
+    }
+  },
+  "checks": {
+    "aggregate_fallback_20_bound": true,
+    "claim_gates_closed": true,
+    "country_proxy_transform_bound": true,
+    "direct_15_bound": true,
+    "metadata_only": true,
+    "period_9_bound": true,
+    "production_declared_path_closure_bound": true,
+    "reacquisition_and_license_bound": true,
+    "rebuild_environment_bound": true
+  },
+  "created_at_utc": "2026-09-29T19:57:20.648558+00:00",
+  "resources": {
+    "memory_cap_bytes": 536870912,
+    "memory_gate_passed": true,
+    "peak_rss_bytes": 143065088
+  },
+  "schema": "soybean_pooled_response_production_portability_validation/v1",
+  "status": "validated_metadata_only_portability_no_real_access_or_fit"
+}

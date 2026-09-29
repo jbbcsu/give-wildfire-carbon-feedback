@@ -141,7 +141,8 @@ def run(root: Path, config_path: Path) -> dict[str, Any]:
 
     production_loader, production_engine = LoaderSpy(tables), EngineSpy()
     manifest = json.loads((root / adapter_config["bindings"]["dry_run_manifest"]["path"]).read_text())
-    declared = {name: item["path"] for name, item in manifest["outcome_source_bindings"].items()}
+    declared = {name: item["path"] for name, item in manifest["production_declared_path_bindings"].items()}
+    require(set(declared) == {"direct", "heat", "scpdsi", "country_proxy"}, "production declared-path closure differs")
     production_dependencies = adapter.ExecutionDependencies(production_loader, production_engine, "production", declared)
     expect_violation(lambda: adapter.execute_family("production", "quantity", production_dependencies, root, config_path), "production execution accepted a missing token")
     require(production_loader.calls == [] and production_engine.calls == [], "missing production token reached loader or engine")
@@ -160,6 +161,7 @@ def run(root: Path, config_path: Path) -> dict[str, Any]:
         "duplicate_levels_rejected": True,
         "synthetic_mode_rejects_declared_real_paths_before_loader": True,
         "production_missing_or_invalid_token_rejected_before_loader": True,
+        "production_declared_paths_include_country_proxy": True,
         "claim_gates_remain_closed": True,
         "memory_guard_passes": True,
     }

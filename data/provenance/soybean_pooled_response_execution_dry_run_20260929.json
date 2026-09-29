@@ -10,9 +10,9 @@
   },
   "contract": {
     "path": "config/soybean_pooled_response_execution_gate_v1.toml",
-    "sha256": "5e8250a7006d5997c722e1e4eccef25258b7c0e2f1e77453b2257d9b8f887f2c"
+    "sha256": "8e6a27c910de64366ecd8cc3a3bf6839dfb9848c4de87979f206914e43f0a621"
   },
-  "created_at_utc": "2026-09-29T13:04:17.181188+00:00",
+  "created_at_utc": "2026-09-29T19:57:49.444497+00:00",
   "execution_audit": {
     "engine_imported": false,
     "fit_functions_called": [],
@@ -192,6 +192,16 @@
       "sha256": "e76a73e1ce4c51a4722e6fdc1f0ecfd64cf835d8e8f517f311f5f717ecde791c",
       "verified": true
     },
+    "portability_manifest": {
+      "path": "data/provenance/soybean_pooled_response_production_portability_20260929.json",
+      "sha256": "2bf8dd44682d1a1619f14586d5df7e2acdb0f9028dc904974d1f5c1f506e9b13",
+      "verified": true
+    },
+    "portability_validation": {
+      "path": "data/provenance/soybean_pooled_response_production_portability_validation_20260929.json",
+      "sha256": "0c83aabfed5fe391fdccf3d99934f8576f62dcddf5f046fb3d3476eb1eec727f",
+      "verified": true
+    },
     "protocol": {
       "path": "config/soybean_pooled_response_inference_protocol_v1.toml",
       "sha256": "c410c2d4e59e54c70bdb507db63383282e471dd00059359d05163fe2b98263a4",
@@ -252,6 +262,30 @@
       "rows_from_metadata": 772352
     }
   },
+  "production_declared_path_bindings": {
+    "country_proxy": {
+      "bytes": 44362,
+      "outcome_bearing": false,
+      "path": "data/interim/global_country_proxy_20260907.parquet",
+      "pinned_sha256": "3094440e2de49e1e385ea69876efa773dcbf370d22ebaa68a919f8a27838d961",
+      "role": "singleton_country_proxy_preprocessing_input"
+    },
+    "direct": {
+      "bytes": 224668565,
+      "path": "data/interim/continuous_global_panel_1982_2016_v1/continuous_candidates/soy_1982_2016_direct.parquet",
+      "pinned_sha256": "ce26936cd3d175c56c89333c9f5805e242b6a32961e41babe67e8f55117518dd"
+    },
+    "heat": {
+      "bytes": 47734156,
+      "path": "data/interim/continuous_global_panel_1982_2016_v1/continuous_candidates/soy_1982_2016_heat.parquet",
+      "pinned_sha256": "a949b4b1fa62708775fad10ba9f01105d5fe3e29dd5472d6792dea9b19a4c100"
+    },
+    "scpdsi": {
+      "bytes": 45257433,
+      "path": "data/interim/continuous_global_panel_1982_2016_v1/continuous_candidates/soy_1982_2016_scpdsi.parquet",
+      "pinned_sha256": "e686440825910e4ef36f80677085561e70448993d6f8479b34cf1479f944cbc2"
+    }
+  },
   "promotion_gates": {
     "associational_response_authorized": false,
     "causal_response_authorized": false,
@@ -273,7 +307,7 @@
   "resources": {
     "memory_cap_bytes": 536870912,
     "memory_gate_passed": true,
-    "peak_rss_bytes": 24657920
+    "peak_rss_bytes": 24838144
   },
   "schema": "soybean_pooled_response_execution_dry_run/v1",
   "status": "dry_run_complete_metadata_only_authorization_absent"

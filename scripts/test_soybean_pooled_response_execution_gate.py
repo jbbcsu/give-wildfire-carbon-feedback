@@ -81,6 +81,7 @@ def run(root: Path, config_path: Path) -> dict:
             "dry_run_manifest_sha256": digest(manifest_path),
             "protocol_sha256": config["metadata"]["protocol"]["sha256"],
             "engine_sha256": config["metadata"]["engine"]["sha256"],
+            "portability_manifest_sha256": config["metadata"]["portability_manifest"]["sha256"],
             "nonce": "synthetic-test-nonce-20260929",
             "issuer": "synthetic_test",
             "synthetic": True,
@@ -92,7 +93,7 @@ def run(root: Path, config_path: Path) -> dict:
         expect_violation(lambda: gate.validate_authorization_token(None, manifest_path, config_path, root), "missing token accepted")
         expect_violation(lambda: gate.validate_authorization_token(token_path, manifest_path, config_path, root), "synthetic token unlocked production")
         expect_violation(lambda: gate.validate_authorization_token(token_path, manifest_path, config_path, root, test_mode=1), "non-Boolean test_mode accepted")
-        for field in ("dry_run_manifest_sha256", "protocol_sha256", "engine_sha256", "authorization_scope", "authorization_statement"):
+        for field in ("dry_run_manifest_sha256", "protocol_sha256", "engine_sha256", "portability_manifest_sha256", "authorization_scope", "authorization_statement"):
             mutated = dict(token); mutated[field] = "wrong"
             bad_path = directory / f"bad_{field}.json"
             bad_path.write_text(json.dumps(mutated), encoding="utf-8")
@@ -111,6 +112,7 @@ def run(root: Path, config_path: Path) -> dict:
         "synthetic_token_rejected_in_production": True,
         "test_mode_requires_boolean": True,
         "manifest_protocol_engine_scope_statement_mutations_rejected": True,
+        "portability_manifest_mutation_rejected": True,
         "explicit_authorization_required": True,
         "valid_synthetic_token_accepted_only_in_test_mode": True,
     }

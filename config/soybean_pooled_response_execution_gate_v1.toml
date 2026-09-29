@@ -27,6 +27,14 @@ sha256 = "a437fab438e17fccdc6bf9780de6799e5d11306174f18c55e2bd286f494f0b66"
 path = "data/provenance/soybean_pooled_response_engine_validation_20260928.json"
 sha256 = "e76a73e1ce4c51a4722e6fdc1f0ecfd64cf835d8e8f517f311f5f717ecde791c"
 
+[metadata.portability_manifest]
+path = "data/provenance/soybean_pooled_response_production_portability_20260929.json"
+sha256 = "2bf8dd44682d1a1619f14586d5df7e2acdb0f9028dc904974d1f5c1f506e9b13"
+
+[metadata.portability_validation]
+path = "data/provenance/soybean_pooled_response_production_portability_validation_20260929.json"
+sha256 = "0c83aabfed5fe391fdccf3d99934f8576f62dcddf5f046fb3d3476eb1eec727f"
+
 [authorization]
 required = true
 token_schema = "soybean_pooled_response_real_access_authorization/v1"
@@ -37,6 +45,7 @@ required_statement = "I explicitly authorize reading the frozen soybean outcome 
 token_must_bind_manifest_sha256 = true
 token_must_bind_protocol_sha256 = true
 token_must_bind_engine_sha256 = true
+token_must_bind_portability_manifest_sha256 = true
 
 [dry_run]
 open_outcome_files = false

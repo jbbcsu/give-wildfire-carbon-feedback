@@ -2,40 +2,42 @@
   "bindings": {
     "config": {
       "path": "config/soybean_pooled_response_execution_gate_v1.toml",
-      "sha256": "5e8250a7006d5997c722e1e4eccef25258b7c0e2f1e77453b2257d9b8f887f2c"
+      "sha256": "8e6a27c910de64366ecd8cc3a3bf6839dfb9848c4de87979f206914e43f0a621"
     },
     "gate": {
       "path": "scripts/soybean_pooled_response_execution_gate.py",
-      "sha256": "a9f98d047d2a6393523264e69455f23441456ea9a8248101b5800e77ab8c4c41"
+      "sha256": "8ac5bf4ec69eb1df062bac70a0ad0fe00851b6467a87cbe402c0cbc5f721048f"
     },
     "manifest": {
       "path": "data/provenance/soybean_pooled_response_execution_dry_run_20260929.json",
-      "sha256": "dcb9e6ab5a34b4b2bc448a5337915f99b42d0d54b95a0600021f07435a51ab38"
+      "sha256": "d6b385aa34f0c2faf4ac630cb7bb0578d58f674251402b3a7eab8583cfe5436e"
     },
     "tests": {
       "path": "data/provenance/soybean_pooled_response_execution_gate_tests_20260929.json",
-      "sha256": "0d9ecb5bcd6489a594b90ebb83b49537d1399e210b014536421f6e146f782577"
+      "sha256": "308a08516cf0053b81a5f55a30336ed72434b75ed7f2272b380f5ce5999e15af"
     }
   },
   "checks": {
     "authorization_absent": true,
+    "country_proxy_declared_path_bound": true,
     "engine_imported": false,
     "fit_called": false,
     "focused_tests_pass": true,
     "metadata_only": true,
     "outcome_files_opened": false,
+    "portability_manifest_bound": true,
     "promotion_gates_closed": true,
     "redactions_closed": true
   },
-  "created_at_utc": "2026-09-29T13:05:02.412112+00:00",
+  "created_at_utc": "2026-09-29T19:57:49.577856+00:00",
   "implementation": {
     "path": "scripts/validate_soybean_pooled_response_execution_gate.py",
-    "sha256": "a46ed751cc853b66a8e1af0885a8fca0adf519f3aba16618b13040ff8a9588a7"
+    "sha256": "c7e03b718ad3c1b8a3c3c39b401ad2d85e9face0eacf3fd519ffb3eef16455dc"
   },
   "resources": {
     "memory_cap_bytes": 536870912,
     "memory_gate_passed": true,
-    "peak_rss_bytes": 25198592
+    "peak_rss_bytes": 25362432
   },
   "schema": "soybean_pooled_response_execution_gate_validation/v1",
   "status": "validated_metadata_only_dry_run_and_fail_closed_authorization_gate"

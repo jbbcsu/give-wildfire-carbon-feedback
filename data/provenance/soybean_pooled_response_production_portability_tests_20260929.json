@@ -1,0 +1,35 @@
+{
+  "builder": {
+    "path": "scripts/build_soybean_pooled_response_portability_manifest.py",
+    "sha256": "ac19ff385b94c4682df322f4cb21a36733828d85f24062c3085da79ebbbd3f03"
+  },
+  "created_at_utc": "2026-09-29T19:57:19.768367+00:00",
+  "implementation": {
+    "path": "scripts/test_soybean_pooled_response_portability.py",
+    "sha256": "b17f9e784ef34a542c5af499dc437f6c19b8f9e82b30e4e121dc552e56835586"
+  },
+  "manifest": {
+    "path": "data/provenance/soybean_pooled_response_production_portability_20260929.json",
+    "sha256": "2bf8dd44682d1a1619f14586d5df7e2acdb0f9028dc904974d1f5c1f506e9b13"
+  },
+  "resources": {
+    "memory_cap_bytes": 536870912,
+    "memory_gate_passed": true,
+    "peak_rss_bytes": 25100288
+  },
+  "schema": "soybean_pooled_response_production_portability_tests/v1",
+  "status": "passed_metadata_only_portability_tests_no_real_access_or_fit",
+  "tests": {
+    "all_pass": true,
+    "checks": {
+      "builder_has_no_table_reader_or_fit_import": true,
+      "claim_gates_fail_closed": true,
+      "composite_redistribution_fail_closed": true,
+      "country_proxy_required_in_declared_paths": true,
+      "duplicate_direct_paths_rejected": true,
+      "missing_middle_requires_fallback": true,
+      "synthetic_hash_size_and_path_checks": true,
+      "valid_structure_passes": true
+    }
+  }
+}

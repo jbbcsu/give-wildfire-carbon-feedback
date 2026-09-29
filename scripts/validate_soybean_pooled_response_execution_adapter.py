@@ -58,6 +58,8 @@ def main() -> None:
     require(source.index("authorization = authorize_before_loader") < source.index("dependencies.level_loader(source_name)"), "loader is reachable before authorization")
     require("fit = dependencies.engine.fit_pooled" in source, "dependency-injected engine invocation absent")
     require("test_mode=(mode == adapter" in source, "synthetic-only engine test-mode boundary absent")
+    require(set(config["execution"]["production_declared_path_roles"]) == {"direct", "heat", "scpdsi", "country_proxy"}, "country proxy absent from production declared paths")
+    require("portability_manifest" in config["bindings"], "portability manifest binding absent")
     require(all(config["output"][key] for key in config["output"] if key.startswith("redact_")), "an output redaction is disabled")
     require(not any(config["claim_gates"].values()), "a claim gate is open")
 
@@ -78,6 +80,7 @@ def main() -> None:
             "production_authorization_precedes_loader": True, "synthetic_family_fits_pass": True,
             "output_redaction_closed": True, "claim_gates_closed": True,
             "real_outcome_files_opened": False, "production_token_created": False,
+            "portability_manifest_bound": True, "country_proxy_declared_path_bound": True,
         },
         "resources": {"peak_rss_bytes": rss, "memory_cap_bytes": int(config["memory_cap_bytes"]), "memory_gate_passed": True},
         "implementation": {"path": str(implementation.relative_to(args.root.resolve())), "sha256": digest(implementation)},

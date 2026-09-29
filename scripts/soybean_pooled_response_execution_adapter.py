@@ -87,7 +87,8 @@ def authorize_before_loader(
         raise AdapterViolation(f"production authorization failed before loader access: {error}") from error
     require(verdict["authorized"] and verdict["synthetic"] is False, "production token did not authorize real access")
     manifest = access_gate.read_json(manifest_path)
-    expected_paths = {name: item["path"] for name, item in manifest["outcome_source_bindings"].items()}
+    expected_paths = {name: item["path"] for name, item in manifest["production_declared_path_bindings"].items()}
+    require(set(expected_paths) == set(adapter["execution"]["production_declared_path_roles"]), "production declared-path roles differ from adapter contract")
     require(dependencies.declared_paths == expected_paths, "production loader paths differ from the frozen manifest")
     return {**verdict, "real_outcome_access_authorized": True}
 

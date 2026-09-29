@@ -1,25 +1,25 @@
 {
   "config": {
     "path": "config/soybean_pooled_response_execution_gate_v1.toml",
-    "sha256": "5e8250a7006d5997c722e1e4eccef25258b7c0e2f1e77453b2257d9b8f887f2c"
+    "sha256": "8e6a27c910de64366ecd8cc3a3bf6839dfb9848c4de87979f206914e43f0a621"
   },
-  "created_at_utc": "2026-09-29T13:04:17.301779+00:00",
+  "created_at_utc": "2026-09-29T19:57:49.520541+00:00",
   "gate": {
     "path": "scripts/soybean_pooled_response_execution_gate.py",
-    "sha256": "a9f98d047d2a6393523264e69455f23441456ea9a8248101b5800e77ab8c4c41"
+    "sha256": "8ac5bf4ec69eb1df062bac70a0ad0fe00851b6467a87cbe402c0cbc5f721048f"
   },
   "implementation": {
     "path": "scripts/test_soybean_pooled_response_execution_gate.py",
-    "sha256": "34833837145c6c0f1542fce64c428a0e4f3c2e9ebbc6357b330fab6b1e9dc697"
+    "sha256": "c8aab63af49f69e0ef267b4d2eb878641872f6347e1920096c25d788a2a3d72b"
   },
   "resources": {
     "memory_cap_bytes": 536870912,
     "memory_gate_passed": true,
-    "peak_rss_bytes": 25051136
+    "peak_rss_bytes": 24903680
   },
   "results": {
     "all_pass": true,
-    "metadata_files_opened": 7,
+    "metadata_files_opened": 9,
     "outcome_files_opened": 0,
     "tests": {
       "engine_never_imported_or_invoked": true,
@@ -28,6 +28,7 @@
       "metadata_hashes_bound": true,
       "missing_token_rejected": true,
       "outcome_sources_never_opened_or_hashed": true,
+      "portability_manifest_mutation_rejected": true,
       "redactions_and_promotion_fail_closed": true,
       "schemas_and_support_materialized": true,
       "synthetic_token_rejected_in_production": true,

@@ -51,6 +51,9 @@ def main() -> None:
     require(all(manifest["redactions"].values()), "a redaction is disabled")
     require(not any(manifest["promotion_gates"].values()), "a promotion gate is open")
     require(all(not item["opened"] and not item["hashed_by_dry_run"] for item in manifest["outcome_source_bindings"].values()), "outcome source reports access")
+    require(set(manifest["production_declared_path_bindings"]) == {"direct", "heat", "scpdsi", "country_proxy"}, "production declared-path closure differs")
+    require(manifest["production_declared_path_bindings"]["country_proxy"]["outcome_bearing"] is False, "country proxy mislabeled as outcome-bearing")
+    require("portability_manifest" in manifest["metadata_bindings"] and "portability_validation" in manifest["metadata_bindings"], "portability metadata binding absent")
 
     source = args.gate.read_text(encoding="utf-8")
     tree = ast.parse(source)
@@ -83,6 +86,7 @@ def main() -> None:
             "metadata_only": True, "outcome_files_opened": False, "engine_imported": False,
             "fit_called": False, "authorization_absent": True, "redactions_closed": True,
             "promotion_gates_closed": True, "focused_tests_pass": True,
+            "portability_manifest_bound": True, "country_proxy_declared_path_bound": True,
         },
         "resources": {"peak_rss_bytes": rss, "memory_cap_bytes": int(config["memory_cap_bytes"]), "memory_gate_passed": True},
         "implementation": {"path": str(implementation.relative_to(args.root.resolve())), "sha256": digest(implementation)},
