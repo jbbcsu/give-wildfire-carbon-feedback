@@ -1,0 +1,51 @@
+schema_version = 1
+contract_id = "soybean_pooled_response_execution_adapter_v1"
+memory_cap_bytes = 536870912
+supported_families = ["quantity", "distribution", "scpdsi_season"]
+
+[bindings.gate_config]
+path = "config/soybean_pooled_response_execution_gate_v1.toml"
+sha256 = "5e8250a7006d5997c722e1e4eccef25258b7c0e2f1e77453b2257d9b8f887f2c"
+
+[bindings.gate_module]
+path = "scripts/soybean_pooled_response_execution_gate.py"
+sha256 = "a9f98d047d2a6393523264e69455f23441456ea9a8248101b5800e77ab8c4c41"
+
+[bindings.protocol]
+path = "config/soybean_pooled_response_inference_protocol_v1.toml"
+sha256 = "c410c2d4e59e54c70bdb507db63383282e471dd00059359d05163fe2b98263a4"
+
+[bindings.engine]
+path = "scripts/soybean_pooled_response_engine.py"
+sha256 = "a437fab438e17fccdc6bf9780de6799e5d11306174f18c55e2bd286f494f0b66"
+
+[bindings.dry_run_manifest]
+path = "data/provenance/soybean_pooled_response_execution_dry_run_20260929.json"
+sha256 = "dcb9e6ab5a34b4b2bc448a5337915f99b42d0d54b95a0600021f07435a51ab38"
+
+[execution]
+synthetic_mode_name = "synthetic"
+production_mode_name = "production"
+synthetic_requires_empty_declared_paths = true
+production_requires_validated_token_before_loader = true
+engine_is_dependency_injected = true
+level_loader_is_dependency_injected = true
+
+[output]
+schema = "soybean_pooled_response_execution_result/v1"
+redact_yield_magnitudes = true
+redact_coefficients = true
+redact_standard_errors = true
+redact_p_values = true
+redact_confidence_intervals = true
+redact_residuals = true
+redact_predictions = true
+
+[claim_gates]
+real_outcome_access_authorized = false
+production_fit_authorized = false
+causal_response_authorized = false
+winner_loser_claims_authorized = false
+damage_calculation_authorized = false
+scc_authorized = false
+give_integration_authorized = false

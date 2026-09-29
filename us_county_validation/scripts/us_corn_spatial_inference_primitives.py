@@ -108,7 +108,7 @@ def county_plus_spatial_covariance(
 ) -> np.ndarray:
     """Frozen county-CR1 plus contemporaneous cross-county spatial sandwich."""
     design = np.asarray(x, dtype=float)
-    gram = design.T @ design
+    gram = np.einsum("ni,nj->ij", design, design, optimize=False)
     if np.linalg.matrix_rank(gram) != gram.shape[0]:
         raise ValueError("residualized design is not full rank")
     bread = np.linalg.inv(gram)
@@ -116,14 +116,16 @@ def county_plus_spatial_covariance(
     meat += spatial_cross_county_meat(
         design, residual, counties, years, latitudes, longitudes, cutoff_km
     )
-    covariance = bread @ meat @ bread
+    covariance = np.einsum(
+        "ij,jk,kl->il", bread, meat, bread, optimize=False
+    )
     return (covariance + covariance.T) / 2
 
 
 def contrast_standard_error(covariance: np.ndarray, contrast: np.ndarray) -> float:
     cov = np.asarray(covariance, dtype=float)
     vector = np.asarray(contrast, dtype=float)
-    variance = float(vector @ cov @ vector)
+    variance = float(np.einsum("i,ij,j->", vector, cov, vector, optimize=False))
     if not np.isfinite(variance) or variance < 0:
         raise ValueError("contrast variance is nonfinite or negative")
     return float(np.sqrt(variance))
