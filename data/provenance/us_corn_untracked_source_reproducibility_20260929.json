@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "created_date": "2026-09-29",
+  "scope": "Ten intentionally untracked source/resource paths referenced by the frozen U.S. corn quantity/PDSI spatial adapter and synthetic executor.",
+  "inspection_policy": {
+    "allowed": ["filesystem stat", "streaming whole-file cryptographic hash", "git tracked/ignore queries", "existing provenance metadata"],
+    "forbidden_and_not_performed": ["Parquet column reads", "outcome reads", "model fits", "credential reads", "raw-data copying"],
+    "parquet_data_pages_read": 0,
+    "outcome_columns_opened": false
+  },
+  "credential_boundary": "Publisher reacquisition of USDA NASS Quick Stats payloads requires a local API key. Existing retained NASS payloads plus public NOAA inputs permit local regeneration without opening a credential. NOAA and Census source reacquisition is credential-free.",
+  "artifacts": [
+    {
+      "path": "data/interim/us_county/nass_direct_practice_nclimgrid_1981_2019.parquet",
+      "role": "Hash-bound direct-practice NASS outcome plus nClimGrid daily-weather assembly used by the corn quantity family.",
+      "present": true, "size_bytes": 5300890, "sha256": "205a94ae92c12810026c9c5d0ac0fa3760e46ebc39669e528ba20a125a0c46d7",
+      "git_tracked": false, "git_ignored": true, "ignore_rule": ".gitignore:3:data/interim/",
+      "contains_outcome_values": true,
+      "source_urls": ["https://quickstats.nass.usda.gov/api/api_GET/", "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids"],
+      "license": "USDA: United States government public data; retain NASS attribution and disclosure flags. NOAA: U.S. Government work; embedded per-object license is no restrictions/NOASSERTION.",
+      "provenance": ["data/provenance/nass_irrigation_practice_screen.toml", "data/provenance/nclimgrid_daily_1981_2019_http_inventory.toml", "data/provenance/nclimgrid_daily_1981_2019_content_receipt.json", "outputs/us_county/national_nclimgrid_features_v1/assembly_validation.json"],
+      "regeneration_without_credentials": {"from_retained_local_nass_inputs_and_public_noaa": true, "from_publishers_only": false, "reason": "Both retained corn-practice NASS payloads are present; evicted NOAA grids have public credential-free object identities. A clean NASS publisher reacquisition requires an API key."}
+    },
+    {
+      "path": "data/interim/us_county/nass_direct_practice_pdsi_join_1981_2019.parquet",
+      "role": "Hash-bound data-only NASS/PDSI join used by the mutually exclusive corn PDSI family.",
+      "present": true, "size_bytes": 4709143, "sha256": "70237da1bc759144cbc9adaaab4f0c30f805f5deb526683a60edc75d84e971a6",
+      "git_tracked": false, "git_ignored": true, "ignore_rule": ".gitignore:3:data/interim/",
+      "contains_outcome_values": true,
+      "source_urls": ["https://quickstats.nass.usda.gov/api/api_GET/", "https://www.ncei.noaa.gov/monitoring-content/data/us/climdiv/monthly/current/climdiv-pdsicy-v1.0.0-20260806"],
+      "license": "USDA: United States government public data; retain NASS attribution and disclosure flags. NOAA: U.S. federal-government data with citation and NOAA/NCEI warranty limitations.",
+      "provenance": ["data/provenance/nass_irrigation_practice_screen.toml", "data/provenance/nclimdiv_county_pdsi_20260806.toml", "data/interim/us_county/nass_direct_practice_pdsi_join_1981_2019.audit.json"],
+      "regeneration_without_credentials": {"from_retained_local_nass_inputs_and_public_noaa": true, "from_publishers_only": false, "reason": "The immediate NASS panel, PDSI feature artifact, and dated NOAA raw snapshot are present. A clean NASS publisher reacquisition requires an API key."}
+    },
+    {
+      "path": "data/interim/us_county/us_corn_quantity_pdsi_spatial_synthetic_tests_resource_20260928.json",
+      "role": "Resource receipt for the synthetic-only executor/validator command (return code, wall time, peak RSS).",
+      "present": true, "size_bytes": 253, "sha256": "e1e8a848c5382e8358b8c4920e0177e6316fb5d881c70f68962d5818d5087e79",
+      "git_tracked": false, "git_ignored": true, "ignore_rule": ".gitignore:3:data/interim/",
+      "contains_outcome_values": false, "source_urls": [], "license": "Not applicable: locally generated command resource receipt.",
+      "provenance": ["us_county_validation/scripts/run_us_corn_quantity_pdsi_spatial_synthetic_executor.py", "us_county_validation/scripts/validate_us_corn_quantity_pdsi_spatial_synthetic_executor.py"],
+      "regeneration_without_credentials": {"from_retained_local_nass_inputs_and_public_noaa": true, "from_publishers_only": true, "reason": "Synthetic-only command uses committed code and generated data; no external source or credential is needed."}
+    },
+    {
+      "path": "data/raw/us_county/tigerline/MANIFEST.jsonl",
+      "role": "Local acquisition receipt binding the Census TIGER/Line county archive URL, date, size, and SHA-512.",
+      "present": true, "size_bytes": 534, "sha256": "d80f6f2c229e63cb24d6c228c1b5974d5d3c1e9e933f2e573b6ab8f291f6d43f",
+      "git_tracked": false, "git_ignored": true, "ignore_rule": ".gitignore:2:data/raw/", "contains_outcome_values": false,
+      "source_urls": ["https://www2.census.gov/geo/tiger/TIGER2019/COUNTY/tl_2019_us_county.zip"],
+      "license": "No explicit license field is recorded in the local acquisition manifest; Census source identity and attribution are retained.",
+      "provenance": ["data/raw/us_county/tigerline/MANIFEST.jsonl"],
+      "regeneration_without_credentials": {"from_retained_local_nass_inputs_and_public_noaa": true, "from_publishers_only": true, "reason": "The Census HTTPS archive is public and requires no credential; the receipt can be regenerated after download and validation."}
+    },
+    {
+      "path": "data/raw/us_county/tigerline/tl_2019_us_county.zip",
+      "role": "Exact Census 2019 TIGER/Line national county archive.",
+      "present": true, "size_bytes": 79237324, "sha256": "4a2cdcc8a5d58caf88f9dc6595c4d89c51fdb56de738f615a8c5e3814dfcdea5", "sha512": "47f23dfca8fef559e8ecc0eae1c5d4378aef806ff6905603d7c89e46fbec4c8ab08b5441844587603c0eb28e18cb3e4cc07f65c9c4429c755816ac080600eece",
+      "git_tracked": false, "git_ignored": true, "ignore_rule": ".gitignore:2:data/raw/", "contains_outcome_values": false,
+      "source_urls": ["https://www2.census.gov/geo/tiger/TIGER2019/COUNTY/tl_2019_us_county.zip"], "license": "No explicit license field is recorded in the local acquisition manifest; Census source identity and attribution are retained.",
+      "provenance": ["data/raw/us_county/tigerline/MANIFEST.jsonl"],
+      "regeneration_without_credentials": {"from_retained_local_nass_inputs_and_public_noaa": true, "from_publishers_only": true, "reason": "Public Census HTTPS download; no credential required."}
+    },
+    {
+      "path": "data/raw/us_county/tigerline/tl_2019_us_county/tl_2019_us_county.cpg", "role": "Extracted TIGER shapefile code-page declaration.",
+      "present": true, "size_bytes": 5, "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824", "git_tracked": false, "git_ignored": true, "ignore_rule": ".gitignore:2:data/raw/", "contains_outcome_values": false,
+      "source_urls": ["https://www2.census.gov/geo/tiger/TIGER2019/COUNTY/tl_2019_us_county.zip"], "license": "Inherited from the exact Census archive; no explicit license field is recorded locally.", "provenance": ["data/raw/us_county/tigerline/MANIFEST.jsonl"],
+      "regeneration_without_credentials": {"from_retained_local_nass_inputs_and_public_noaa": true, "from_publishers_only": true, "reason": "Deterministic extraction from the public archive; no credential required."}
+    },
+    {
+      "path": "data/raw/us_county/tigerline/tl_2019_us_county/tl_2019_us_county.dbf", "role": "Extracted TIGER county attribute table.",
+      "present": true, "size_bytes": 947847, "sha256": "7250428e9b6b0fa9e3c16d16f7d5bbeb2c0ab3b1f16395a954fcbad4624bf5e6", "git_tracked": false, "git_ignored": true, "ignore_rule": ".gitignore:2:data/raw/", "contains_outcome_values": false,
+      "source_urls": ["https://www2.census.gov/geo/tiger/TIGER2019/COUNTY/tl_2019_us_county.zip"], "license": "Inherited from the exact Census archive; no explicit license field is recorded locally.", "provenance": ["data/raw/us_county/tigerline/MANIFEST.jsonl"],
+      "regeneration_without_credentials": {"from_retained_local_nass_inputs_and_public_noaa": true, "from_publishers_only": true, "reason": "Deterministic extraction from the public archive; no credential required."}
+    },
+    {
+      "path": "data/raw/us_county/tigerline/tl_2019_us_county/tl_2019_us_county.prj", "role": "Extracted TIGER coordinate-reference declaration.",
+      "present": true, "size_bytes": 165, "sha256": "0b9041e921d9ebb43247d314608fe9e38a0b008ee793067fc1806199ea1fb9dd", "git_tracked": false, "git_ignored": true, "ignore_rule": ".gitignore:2:data/raw/", "contains_outcome_values": false,
+      "source_urls": ["https://www2.census.gov/geo/tiger/TIGER2019/COUNTY/tl_2019_us_county.zip"], "license": "Inherited from the exact Census archive; no explicit license field is recorded locally.", "provenance": ["data/raw/us_county/tigerline/MANIFEST.jsonl"],
+      "regeneration_without_credentials": {"from_retained_local_nass_inputs_and_public_noaa": true, "from_publishers_only": true, "reason": "Deterministic extraction from the public archive; no credential required."}
+    },
+    {
+      "path": "data/raw/us_county/tigerline/tl_2019_us_county/tl_2019_us_county.shp", "role": "Extracted TIGER county polygon geometry.",
+      "present": true, "size_bytes": 127354224, "sha256": "0b102f2e292be5a81f46ecb2956136e93da03de692980714fabc16e1925e0b51", "git_tracked": false, "git_ignored": true, "ignore_rule": ".gitignore:2:data/raw/", "contains_outcome_values": false,
+      "source_urls": ["https://www2.census.gov/geo/tiger/TIGER2019/COUNTY/tl_2019_us_county.zip"], "license": "Inherited from the exact Census archive; no explicit license field is recorded locally.", "provenance": ["data/raw/us_county/tigerline/MANIFEST.jsonl"],
+      "regeneration_without_credentials": {"from_retained_local_nass_inputs_and_public_noaa": true, "from_publishers_only": true, "reason": "Deterministic extraction from the public archive; no credential required."}
+    },
+    {
+      "path": "data/raw/us_county/tigerline/tl_2019_us_county/tl_2019_us_county.shx", "role": "Extracted TIGER shapefile positional index.",
+      "present": true, "size_bytes": 25964, "sha256": "fb4263d31f02ccc9d7c1b0affd030cd528b6a2d13f3c1611e41e7dbc5fb57c9d", "git_tracked": false, "git_ignored": true, "ignore_rule": ".gitignore:2:data/raw/", "contains_outcome_values": false,
+      "source_urls": ["https://www2.census.gov/geo/tiger/TIGER2019/COUNTY/tl_2019_us_county.zip"], "license": "Inherited from the exact Census archive; no explicit license field is recorded locally.", "provenance": ["data/raw/us_county/tigerline/MANIFEST.jsonl"],
+      "regeneration_without_credentials": {"from_retained_local_nass_inputs_and_public_noaa": true, "from_publishers_only": true, "reason": "Deterministic extraction from the public archive; no credential required."}
+    }
+  ]
+}
