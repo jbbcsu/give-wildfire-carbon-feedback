@@ -1,0 +1,73 @@
+schema_version = 1
+protocol_id = "us_corn_soy_response_design_readiness_v1"
+analysis_role = "outcome_blind_response_design_readiness_audit_only"
+response_fit_authorized = false
+coefficient_output_authorized = false
+causal_claim_authorized = false
+national_claim_authorized = false
+damage_claim_authorized = false
+scc_claim_authorized = false
+
+[sample]
+crops = ["corn_grain", "soybeans"]
+practices = ["non_irrigated", "irrigated"]
+year_min = 1981
+year_max = 2018
+primary_practice = "non_irrigated"
+practice_rule = "audit each practice separately and require exact pairwise identity of all exposures"
+fixed_effects = ["county_geoid", "state_by_harvest_year"]
+inference_cluster = "county_geoid"
+terminal_year_min = 2012
+
+[inputs]
+direct_panel = "data/interim/us_county/nass_direct_practice_nclimgrid_1981_2019.parquet"
+direct_sha256 = "205a94ae92c12810026c9c5d0ac0fa3760e46ebc39669e528ba20a125a0c46d7"
+direct_receipt = "outputs/us_county/competing_moisture_predictive_v1/direct_source_validation.json"
+pdsi_panel = "data/interim/us_county/nass_direct_practice_pdsi_join_1981_2019.parquet"
+pdsi_sha256 = "70237da1bc759144cbc9adaaab4f0c30f805f5deb526683a60edc75d84e971a6"
+pdsi_receipt = "outputs/us_county/competing_moisture_predictive_v1/pdsi_source_validation.json"
+spei_direct_practice_panel = ""
+spei_gate = "closed_no_validated_direct_practice_county_crop_panel"
+
+[design]
+temperature_controls = ["stage1_tmean_c", "stage2_tmean_c", "stage3_tmean_c"]
+temperature_form = "linear_and_quadratic"
+quantity_features = ["precip_mm"]
+quantity_form = "linear_and_quadratic"
+distribution_features = ["precip_mm", "cdd_max_days", "wet_day_frequency", "mean_wet_day_intensity_mm", "rx1day_mm", "rx5day_mm", "precipitation_concentration_hhi", "stage1_precip_share", "stage2_precip_share"]
+distribution_form = "frozen_direct_quantity_plus_distribution_extension"
+pdsi_features = ["pdsi_season_mean"]
+pdsi_form = "linear_and_quadratic"
+moisture_family_rule = "quantity, distribution, PDSI, and SPEI are separate fits; never stack direct precipitation with PDSI or SPEI, and never stack PDSI with SPEI"
+outcome_values_permitted = false
+demeaning_tolerance = 1e-10
+demeaning_max_iterations = 1000
+svd_relative_rank_tolerance = 1e-10
+
+[gates]
+minimum_rows = 3000
+minimum_counties = 100
+minimum_states = 5
+minimum_terminal_rows = 500
+minimum_leave_one_state_rows = 2500
+minimum_leave_one_state_counties = 100
+maximum_state_row_share = 0.50
+minimum_residual_to_raw_sd_ratio = 0.01
+maximum_standardized_condition_number = 1000.0
+maximum_vif = 100.0
+maximum_row_leverage = 0.05
+maximum_top_one_percent_leverage_share = 0.20
+maximum_county_leverage_share = 0.05
+minimum_effective_county_leverage_clusters = 30.0
+maximum_state_leverage_share = 0.50
+
+[decision]
+family_ready_rule = "all source, support, practice-pair, rank, variation, conditioning, leverage, cluster, terminal, and leave-one-state gates pass for both practices of the crop"
+response_protocol_rule = "a family may be frozen for a later historical association fit only after this outcome-blind audit passes; passing does not itself authorize fitting"
+spatial_inference_rule = "county CR1 may be prespecified only as conditional primary inference; geographic influence and a spatial-dependence sensitivity remain required before manuscript promotion"
+spei_rule = "SPEI remains unavailable until a separately validated direct-practice county-crop feature panel exists on the exact support"
+
+[output]
+result = "data/provenance/us_corn_soy_response_design_readiness_20260928.json"
+independent_validation = "data/provenance/us_corn_soy_response_design_readiness_independent_validation_20260928.json"
+results_note = "us_county_validation/US_CORN_SOY_RESPONSE_DESIGN_READINESS_RESULTS_20260928.md"

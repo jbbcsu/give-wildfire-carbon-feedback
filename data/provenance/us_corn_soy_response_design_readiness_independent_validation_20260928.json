@@ -1,0 +1,112 @@
+{
+  "candidate": {
+    "path": "data/provenance/us_corn_soy_response_design_readiness_20260928.json",
+    "sha256": "cfa853a54a9d006235d2fe1de1fb96744abcc058845875be89612145aeeaea07"
+  },
+  "causal_claim_authorized": false,
+  "damage_claim_authorized": false,
+  "family_readiness_reconciled": [
+    {
+      "both_practices_pass": true,
+      "crop": "corn_grain",
+      "family": "quantity"
+    },
+    {
+      "both_practices_pass": false,
+      "crop": "corn_grain",
+      "family": "distribution"
+    },
+    {
+      "both_practices_pass": true,
+      "crop": "corn_grain",
+      "family": "pdsi"
+    },
+    {
+      "both_practices_pass": false,
+      "crop": "soybeans",
+      "family": "quantity"
+    },
+    {
+      "both_practices_pass": false,
+      "crop": "soybeans",
+      "family": "distribution"
+    },
+    {
+      "both_practices_pass": false,
+      "crop": "soybeans",
+      "family": "pdsi"
+    }
+  ],
+  "maximum_absolute_disagreement": 1.1187439863391546e-12,
+  "national_claim_authorized": false,
+  "numeric_comparisons": 30,
+  "outcome_columns_read": [],
+  "protocol": {
+    "path": "us_county_validation/us_corn_soy_response_design_readiness_v1.toml",
+    "sha256": "c32dec293e6a666ba5171561e898109d274abe73982f20d716b9cfa10161ca7d"
+  },
+  "recomputed_diagnostics": [
+    {
+      "crop": "corn_grain",
+      "family": "quantity",
+      "maximum_row_leverage": 0.03936962791703185,
+      "maximum_vif": 52.688398447568176,
+      "minimum_residual_to_raw_sd_ratio": 0.06742072375740267,
+      "rank": 8,
+      "standardized_condition_number": 17.797607887599266
+    },
+    {
+      "crop": "corn_grain",
+      "family": "distribution",
+      "maximum_row_leverage": 0.07630181361584265,
+      "maximum_vif": 71.54829235031772,
+      "minimum_residual_to_raw_sd_ratio": 0.06742072375740267,
+      "rank": 16,
+      "standardized_condition_number": 21.618586363245935
+    },
+    {
+      "crop": "corn_grain",
+      "family": "pdsi",
+      "maximum_row_leverage": 0.03396446349807888,
+      "maximum_vif": 52.378943867130296,
+      "minimum_residual_to_raw_sd_ratio": 0.06742072375740267,
+      "rank": 8,
+      "standardized_condition_number": 17.42154734621797
+    },
+    {
+      "crop": "soybeans",
+      "family": "quantity",
+      "maximum_row_leverage": 0.02060897345579826,
+      "maximum_vif": 68.05156837503328,
+      "minimum_residual_to_raw_sd_ratio": 0.11013489559731693,
+      "rank": 8,
+      "standardized_condition_number": 20.709168090518297
+    },
+    {
+      "crop": "soybeans",
+      "family": "distribution",
+      "maximum_row_leverage": 0.035564104512358134,
+      "maximum_vif": 98.58083750783109,
+      "minimum_residual_to_raw_sd_ratio": 0.11013489559731693,
+      "rank": 16,
+      "standardized_condition_number": 25.72064793856045
+    },
+    {
+      "crop": "soybeans",
+      "family": "pdsi",
+      "maximum_row_leverage": 0.02283586661219779,
+      "maximum_vif": 67.15201704540206,
+      "minimum_residual_to_raw_sd_ratio": 0.11013489559731693,
+      "rank": 8,
+      "standardized_condition_number": 20.246610506121932
+    }
+  ],
+  "response_fit_authorized": false,
+  "scc_claim_authorized": false,
+  "schema": "us_corn_soy_response_design_readiness_independent_validation_v1",
+  "status": "validated_independent_sparse_dummy_projection",
+  "validation_implementation": {
+    "path": "us_county_validation/scripts/validate_us_corn_soy_response_design_readiness_independent.py",
+    "sha256": "3225d941d072c9d71c2ad8b62de16991eef0d806677f3df6df947d0667a0d639"
+  }
+}

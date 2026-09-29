@@ -675,6 +675,17 @@ Thus the yield records are internally consistent, but the earlier null
 predictive gates remain selected regional tests rather than national-response
 evidence.
 
+For the main paired-practice corn and soybean panels, an outcome-blind design
+audit finds that corn quantity and seasonal PDSI pass the frozen numerical and
+support gates as separate candidate families. Corn distribution fails only
+the row-leverage ceiling (0.0763 versus 0.05), with the influential exposure
+at county 48277 in 2011 retained rather than outcome-selected away. Every
+soybean family fails the 2012--2018 terminal-support floor (367 versus 500
+rows), despite passing rank and conditioning checks. SPEI remains unavailable
+on validated direct-practice support. No response fit is authorized: spatial-
+dependence and geographic-influence rules must be frozen first, and the
+results remain regional rather than national.
+
 ## 4. Empirical design
 
 The production registry includes a hierarchically pooled fixed-effects

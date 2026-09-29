@@ -871,6 +871,29 @@ keeps national representativeness, irrigation-treatment, causal, future,
 damage, and SCC gates closed; it also prevents interpreting the existing null
 predictive screens as national response tests.
 
+The outcome-blind design-readiness audit for the primary corn/soybean panels
+reads no yield column. It requires exact irrigated/non-irrigated exposure
+pairing and evaluates quantity, expanded distribution, and seasonal PDSI as
+separate families after absorbing county and state-by-year fixed effects.
+Direct and PDSI keys coincide for 23,714 practice rows, or 11,857 exact
+practice pairs through 2018. Every full and leave-one-state design is full
+rank, and an independent sparse-dummy projection reproduces 30 numerical
+diagnostics within `1.12e-12`.
+
+Corn quantity and PDSI pass the frozen design gates in both practice strata:
+each has 7,013 rows, 361 counties, 10 states, and 640 terminal-period rows.
+Their standardized conditions are 17.80 and 17.42 and maximum row leverages
+are 0.03937 and 0.03396. Corn distribution fails only its maximum-leverage
+gate (0.07630 above 0.05), with the common influential exposure row at county
+48277, Texas, in 2011 retained. All soybean families have 4,844 rows in 255
+counties and five states and pass the nonterminal design checks, but each has
+only 367 rows in 2012--2018 against the 500-row floor; Nebraska supplies
+46.61% of rows. SPEI remains blocked because no validated direct-practice
+county-crop panel exists. County-clustered CR1 inference remains conditional,
+not a complete spatial-dependence treatment, so a frozen geographic-influence
+and spatial-covariance sensitivity is required before any response protocol
+can be promoted. No coefficient, national claim, damage, or SCC is authorized.
+
 The hash-pinned NOAA nClimDiv snapshot supplies 226,560 county-months over
 1980--2019 for the 472 eligible counties. Under the fixed-primary crop window,
 the existing locked drought-feature operator constructs preplant-90-day,
