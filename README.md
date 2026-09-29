@@ -497,3 +497,22 @@ reconciliation rather than automatic addition. The market pathway remains
 blocked on direct-surplus versus multiplier effects and overlap with other
 market damages. See
 [`FISHERIES_GIVE_OVERLAP_AUDIT_20260925.md`](FISHERIES_GIVE_OVERLAP_AUDIT_20260925.md).
+
+## Alternative global welfare-model feasibility
+
+A primary-source screen of five plausible climate-fisheries systems found no
+published model or official dataset that jointly provides usable global
+geographic coverage, climate response, consumer and producer surplus,
+auditable licensed inputs/code, marginal-pulse compatibility, and a resolved
+GIVE overlap boundary. The closest Free/Gaines system has broad country and
+species coverage plus modeled profit, but no consumer surplus, incomplete
+global catch coverage, missing raw model inputs, no explicit repository
+license, uniform range-share allocation, and RCP rather than marginal-pulse
+outputs. BOATS is globally spatial and openly archived but has no consumer
+demand/surplus or pulse welfare outputs; other screened studies provide only
+consumer surplus or gross revenue over narrower or incomplete support.
+
+The source-pinned negative result and exact seven-item external-data request
+are documented in
+[`ALTERNATIVE_GLOBAL_FISHERIES_WELFARE_AUDIT_20260928.md`](ALTERNATIVE_GLOBAL_FISHERIES_WELFARE_AUDIT_20260928.md).
+No coefficient transfer, fit, damage estimate, or SCC is authorized.

@@ -1,0 +1,148 @@
+schema = "alternative_global_fisheries_welfare_audit_config_v1"
+role = "source_first_fail_closed_screen_for_global_climate_fisheries_consumer_and_producer_surplus"
+registered_utc_date = "2026-09-28"
+
+[qualification]
+required = ["usable_global_geographic_coverage", "climate_response", "consumer_surplus", "producer_surplus", "auditable_data_and_code", "usable_license", "marginal_pulse_compatible_or_pairable", "overlap_boundary_resolved"]
+
+[source_pin]
+candidate_id = "free_gaines_climate_linked_bioeconomic_model"
+repository = "https://github.com/SFG-UCSB/cc_trade"
+commit = "dfd250ddd806973f463e83097a3ed39dd27f8bfb"
+commit_date = "2021-12-12T11:37:41-08:00"
+readme = "README.md"
+readme_sha256 = "295c46c7b911ffeddf2af3a6b9a4f49efc36fafc7d18f938e8c49bc285df4e80"
+format_script = "code/Step1_format_gaines_data.R"
+format_script_sha256 = "fc2683b45be1d306e56ed1e01dd0527d850c3f8f222e66dbf653a7d006c95477"
+approach1_csv = "data/gaines/gaines_country_level_results_approach1_2050.csv"
+approach1_csv_sha256 = "d3c4ca013bd91564d59d32d661dca3b631ed03635e578cdea528b0185b1b915b"
+approach2_csv = "data/gaines/gaines_country_level_results_approach2_2050.csv"
+approach2_csv_sha256 = "da8ea881281d4fa9ed20f40ce338eef9e839bf063c6a182e275bd7b24b283507"
+expected_rows_each_csv = 3816
+expected_sovereign_iso3_each_csv = 156
+expected_sovereign_labels_each_csv = 159
+expected_rcps_each_csv = ["RCP26", "RCP45", "RCP60", "RCP85"]
+expected_scenarios_each_csv = ["Full Adaptation", "Imperfect Full Adaptation", "Imperfect Productivity Only", "No Adaptation", "Productivity Only", "Range Shift Only"]
+expected_r_or_rmd_source_files = 56
+expected_surplus_term_hits = 0
+missing_raw_inputs = ["data/gaines/raw/eez_delta_k_df.rds", "data/gaines/raw/global_cc_1nation_manuscript_2019Feb12.rds"]
+
+[[candidates]]
+id = "free_gaines_climate_linked_bioeconomic_model"
+title = "Realistic fisheries management reforms could mitigate the impacts of climate change in most countries"
+primary_source = "https://doi.org/10.1371/journal.pone.0224347"
+official_repository = "https://github.com/SFG-UCSB/cc_trade"
+license_access = "Paper is CC BY; repository is public but has no root LICENSE/COPYING file at the pinned commit, and the two raw inputs named by Step1 are absent. Derived country CSVs and R scripts are present."
+geographic_coverage = "156 coastal sovereign countries, 779 single-species stocks, and 58.2% of reported 2012 global catch; released CSVs also contain ABNJ, Antarctica, and joint-area labels. Broad but explicitly incomplete."
+response_semantics = "RCP scenario projections of species distribution, carrying capacity, biomass, catch, and profit under management adaptations; not a marginal emissions pulse."
+welfare_semantics = "Profit equals revenue minus fishing cost in the paper. Neither consumer surplus nor an output explicitly identified as producer surplus appears in the released source."
+pulse_compatibility = "RCP pathways and management contrasts are not a same-realization baseline versus one-ton-CO2 pulse pair."
+overlap_risks = "Profit must not be added to output-multiplier damages; country allocation assumes biomass, catch, and profit are uniform over modeled species range; aquaculture, nutrition/mortality, terrestrial-food substitution, and trade incidence remain outside the model."
+usable_global_geographic_coverage = false
+climate_response = true
+consumer_surplus = false
+producer_surplus = false
+auditable_data_and_code = false
+usable_license = false
+marginal_pulse_compatible_or_pairable = false
+overlap_boundary_resolved = false
+
+[[candidates]]
+id = "moore_us_inverse_demand"
+title = "Estimating the economic impacts of climate change on 16 major US fisheries"
+primary_source = "https://doi.org/10.1142/S2010007821500020"
+official_repository = "https://repository.library.noaa.gov/view/noaa/63753"
+license_access = "Official NOAA article copy is CC BY-NC 4.0; no reusable model/data package was identified in the official record."
+geographic_coverage = "16 US fisheries representing 56% of current US commercial fishing revenue; not global."
+response_semantics = "Consumer-welfare response to projected thermally available habitat/landings under high and low emissions scenarios."
+welfare_semantics = "Two-stage inverse demand model reports consumer surplus only; producer surplus is not supplied."
+pulse_compatibility = "High-versus-low climate scenarios are not a marginal emissions pulse."
+overlap_risks = "Seafood consumer surplus is conceptually direct market welfare, but coverage is US-only and producer, fleet, and trade incidence are absent."
+usable_global_geographic_coverage = false
+climate_response = true
+consumer_surplus = true
+producer_surplus = false
+auditable_data_and_code = false
+usable_license = false
+marginal_pulse_compatible_or_pairable = false
+overlap_boundary_resolved = false
+
+[[candidates]]
+id = "speers_global_coral_reef_demand"
+title = "Impacts of climate change and ocean acidification on coral reef fisheries: An integrated ecological-economic model"
+primary_source = "https://doi.org/10.1016/j.ecolecon.2016.04.012"
+official_repository = ""
+license_access = "Publisher full text is subscription-restricted and no official reusable code/data archive was identified."
+geographic_coverage = "Global demand regions with substantial coral reef area; reef fisheries only, not the global capture-fisheries sector."
+response_semantics = "Consumer-surplus losses from reef-fish supply changes driven by coral cover under RCP scenarios."
+welfare_semantics = "Consumer surplus only; producer surplus is not supplied."
+pulse_compatibility = "RCP scenarios are not a marginal emissions pulse."
+overlap_risks = "Material ecological overlap with any separate coral-reef damage module; commercial reef-fish demand must not double count coral ecosystem-service values."
+usable_global_geographic_coverage = false
+climate_response = true
+consumer_surplus = true
+producer_surplus = false
+auditable_data_and_code = false
+usable_license = false
+marginal_pulse_compatible_or_pairable = false
+overlap_boundary_resolved = false
+
+[[candidates]]
+id = "boats_global_bioeconomic_model"
+title = "Formulation, general features and global calibration of a bioenergetically-constrained fishery model"
+primary_source = "https://doi.org/10.1371/journal.pone.0169763"
+official_repository = "https://doi.org/10.5281/zenodo.53934"
+license_access = "The 1.7 GB Zenodo dataset and MATLAB analysis files are CC BY 4.0."
+geographic_coverage = "Spatially resolved global grid calibrated against Large Marine Ecosystems; aggregated size classes rather than country/commodity markets."
+response_semantics = "Biomass, harvest, effort, and grid-cell profit respond to temperature, primary production, and economic forcings; the archived calibration outputs are not a climate-damage scenario or marginal pulse pair."
+welfare_semantics = "Open-access fishing effort responds to average profit. No consumer demand or consumer surplus is modeled, and profit is not released as a separate producer-surplus accounting output."
+pulse_compatibility = "Could be rerun with climate forcings in principle, but the archived package does not supply a matched baseline/pulse welfare pair."
+overlap_risks = "No country producer/consumer/trade incidence and no commodity demand system; using harvest or revenue as welfare would double count output rather than surplus."
+usable_global_geographic_coverage = false
+climate_response = false
+consumer_surplus = false
+producer_surplus = false
+auditable_data_and_code = true
+usable_license = true
+marginal_pulse_compatible_or_pairable = false
+overlap_boundary_resolved = false
+
+[[candidates]]
+id = "lam_global_revenue_projection"
+title = "Projected change in global fisheries revenues under climate change"
+primary_source = "https://doi.org/10.1038/srep32607"
+official_repository = ""
+license_access = "Open-access article and supplement; no official reusable model/output repository with an explicit data license was identified in this bounded screen."
+geographic_coverage = "887 species, 280 EEZs and high seas, 192 fishing nations, representing about 60% of reconstructed catch; broad but incomplete."
+response_semantics = "DBEM maximum catch potential under RCP2.6/RCP8.5 multiplied by ex-vessel prices to obtain maximum revenue potential."
+welfare_semantics = "Revenue/landed value, not consumer or producer surplus; the authors explicitly call for full economic analysis."
+pulse_compatibility = "Mid-century RCP contrasts are not a marginal emissions pulse."
+overlap_risks = "Gross revenue cannot be added to profit or output-multiplier damages; distant-water fleet allocation is not consumer incidence."
+usable_global_geographic_coverage = false
+climate_response = true
+consumer_surplus = false
+producer_surplus = false
+auditable_data_and_code = false
+usable_license = false
+marginal_pulse_compatible_or_pairable = false
+overlap_boundary_resolved = false
+
+[external_data_request]
+target = "Free/Gaines climate-linked bioeconomic model custodians"
+request = [
+  "Attach an explicit redistribution and derivative-use license to the exact code and data release.",
+  "Provide checksum-pinned copies of eez_delta_k_df.rds and global_cc_1nation_manuscript_2019Feb12.rds, plus the realistic-adaptation raw counterpart used to build the published outputs.",
+  "Provide the executable model code and dependency lock that derive stock-year biomass, harvest, price, cost, effort, and profit from inputs, rather than only downstream formatting scripts.",
+  "Provide stock/species, EEZ/territory/sovereign, producer/fleet, landing, trade, and consumer-market keys; declare high-seas, joint/disputed, missing, zero, and out-of-scope records without imputation or renormalization.",
+  "Provide the demand system, baseline quantities/prices, elasticities or parameters, and direct consumer-surplus outputs; separately identify whether modeled profit is intended and validated as producer surplus/resource rent.",
+  "Provide same-model, same-realization annual baseline and one-ton-CO2-pulse paths (or inputs sufficient for authorized reruns) with identical geographic/stock/market masks; RCP or management contrasts are not substitutes.",
+  "Document the accounting boundary for aquaculture, terrestrial-food substitution, nutrition/mortality, coral services, and indirect/induced output so direct market surplus can be screened for GIVE additivity."
+]
+
+[claim_gates]
+qualifying_alternative_found = false
+consumer_and_producer_surplus_jointly_available = false
+globally_complete_or_declared_usable_coverage = false
+matched_co2_pulse_available = false
+overlap_resolved = false
+damage_or_scc_authorized = false

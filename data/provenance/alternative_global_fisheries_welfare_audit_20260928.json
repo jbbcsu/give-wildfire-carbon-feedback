@@ -1,0 +1,283 @@
+{
+  "claim_gates": {
+    "consumer_and_producer_surplus_jointly_available": false,
+    "damage_or_scc_authorized": false,
+    "globally_complete_or_declared_usable_coverage": false,
+    "matched_co2_pulse_available": false,
+    "overlap_resolved": false,
+    "qualifying_alternative_found": false
+  },
+  "closest_candidate_source_audit": {
+    "allocation_semantics": "global biomass_harvest_profit_times_species_range_share_assuming_uniform_distribution",
+    "commit": "dfd250ddd806973f463e83097a3ed39dd27f8bfb",
+    "commit_date": "2021-12-12T11:37:41-08:00",
+    "country_outputs": {
+      "approach1": {
+        "columns": [
+          "sovereign_iso3",
+          "sovereign",
+          "rcp",
+          "scenario",
+          "b1",
+          "b2",
+          "c1",
+          "c2",
+          "p1",
+          "p2",
+          "msy_tot1",
+          "msy_tot2",
+          "bbmsy_avg1",
+          "bbmsy_avg2",
+          "bbmsy_prop1",
+          "bbmsy_prop2",
+          "b_pdiff",
+          "c_pdiff",
+          "p_pdiff",
+          "bbmsy_prop_diff"
+        ],
+        "consumer_surplus_column": false,
+        "producer_surplus_column": false,
+        "profit_columns": [
+          "p1",
+          "p2",
+          "p_pdiff"
+        ],
+        "rcps": [
+          "RCP26",
+          "RCP45",
+          "RCP60",
+          "RCP85"
+        ],
+        "rows": 3816,
+        "scenarios": [
+          "Full Adaptation",
+          "Imperfect Full Adaptation",
+          "Imperfect Productivity Only",
+          "No Adaptation",
+          "Productivity Only",
+          "Range Shift Only"
+        ],
+        "sovereign_iso3_count": 156,
+        "sovereign_label_count": 159
+      },
+      "approach2": {
+        "columns": [
+          "sovereign_iso3",
+          "sovereign",
+          "rcp",
+          "scenario",
+          "msy_tot1",
+          "msy_tot2",
+          "c_tot",
+          "p_tot",
+          "bbmsy_avg2",
+          "bbmsy_good_prop",
+          "c_tot_rel",
+          "p_tot_rel",
+          "b_prop_diff"
+        ],
+        "consumer_surplus_column": false,
+        "producer_surplus_column": false,
+        "profit_columns": [
+          "p_tot",
+          "p_tot_rel"
+        ],
+        "rcps": [
+          "RCP26",
+          "RCP45",
+          "RCP60",
+          "RCP85"
+        ],
+        "rows": 3816,
+        "scenarios": [
+          "Full Adaptation",
+          "Imperfect Full Adaptation",
+          "Imperfect Productivity Only",
+          "No Adaptation",
+          "Productivity Only",
+          "Range Shift Only"
+        ],
+        "sovereign_iso3_count": 156,
+        "sovereign_label_count": 159
+      }
+    },
+    "missing_raw_inputs": [
+      "data/gaines/raw/eez_delta_k_df.rds",
+      "data/gaines/raw/global_cc_1nation_manuscript_2019Feb12.rds"
+    ],
+    "pinned_files": {
+      "approach1_csv": {
+        "path": "data/gaines/gaines_country_level_results_approach1_2050.csv",
+        "sha256": "d3c4ca013bd91564d59d32d661dca3b631ed03635e578cdea528b0185b1b915b"
+      },
+      "approach2_csv": {
+        "path": "data/gaines/gaines_country_level_results_approach2_2050.csv",
+        "sha256": "da8ea881281d4fa9ed20f40ce338eef9e839bf063c6a182e275bd7b24b283507"
+      },
+      "format_script": {
+        "path": "code/Step1_format_gaines_data.R",
+        "sha256": "fc2683b45be1d306e56ed1e01dd0527d850c3f8f222e66dbf653a7d006c95477"
+      },
+      "readme": {
+        "path": "README.md",
+        "sha256": "295c46c7b911ffeddf2af3a6b9a4f49efc36fafc7d18f938e8c49bc285df4e80"
+      }
+    },
+    "r_or_rmd_source_files": 56,
+    "repository": "https://github.com/SFG-UCSB/cc_trade",
+    "root_license_files": [],
+    "surplus_term_hits": {
+      "consumer surplus": 0,
+      "consumer_surplus": 0,
+      "producer surplus": 0,
+      "producer_surplus": 0
+    }
+  },
+  "config": {
+    "path": "config/alternative_global_fisheries_welfare_audit_v1.toml",
+    "sha256": "348f5ecb8b5318a8dbc6ee874ec77ea29e51dc9e5cfde790cfaba50d73fd25ee"
+  },
+  "decision": {
+    "closest_candidate": "free_gaines_climate_linked_bioeconomic_model",
+    "coefficient_transfer_authorized": false,
+    "damage_or_scc_authorized": false,
+    "fit_authorized": false,
+    "why_it_fails": [
+      "coverage_is_58.2_percent_of_reported_2012_global_catch_not_complete",
+      "profit_is_not_a_joint_consumer_plus_producer_surplus_measure",
+      "consumer_surplus_is_absent",
+      "raw_model_inputs_and_executable_model_core_are_not_in_the_release",
+      "repository_has_no_explicit_root_license_at_pinned_commit",
+      "released_outputs_are_rcp_and_management_scenarios_not_a_marginal_co2_pulse_pair",
+      "uniform_range_share_allocation_does_not_identify_producer_or_consumer_incidence"
+    ]
+  },
+  "external_data_request": {
+    "items": [
+      "Attach an explicit redistribution and derivative-use license to the exact code and data release.",
+      "Provide checksum-pinned copies of eez_delta_k_df.rds and global_cc_1nation_manuscript_2019Feb12.rds, plus the realistic-adaptation raw counterpart used to build the published outputs.",
+      "Provide the executable model code and dependency lock that derive stock-year biomass, harvest, price, cost, effort, and profit from inputs, rather than only downstream formatting scripts.",
+      "Provide stock/species, EEZ/territory/sovereign, producer/fleet, landing, trade, and consumer-market keys; declare high-seas, joint/disputed, missing, zero, and out-of-scope records without imputation or renormalization.",
+      "Provide the demand system, baseline quantities/prices, elasticities or parameters, and direct consumer-surplus outputs; separately identify whether modeled profit is intended and validated as producer surplus/resource rent.",
+      "Provide same-model, same-realization annual baseline and one-ton-CO2-pulse paths (or inputs sufficient for authorized reruns) with identical geographic/stock/market masks; RCP or management contrasts are not substitutes.",
+      "Document the accounting boundary for aquaculture, terrestrial-food substitution, nutrition/mortality, coral services, and indirect/induced output so direct market surplus can be screened for GIVE additivity."
+    ],
+    "target": "Free/Gaines climate-linked bioeconomic model custodians"
+  },
+  "qualification_criteria": [
+    "usable_global_geographic_coverage",
+    "climate_response",
+    "consumer_surplus",
+    "producer_surplus",
+    "auditable_data_and_code",
+    "usable_license",
+    "marginal_pulse_compatible_or_pairable",
+    "overlap_boundary_resolved"
+  ],
+  "qualifying_candidates": [],
+  "role": "source_first_fail_closed_screen_for_global_climate_fisheries_consumer_and_producer_surplus",
+  "schema": "alternative_global_fisheries_welfare_audit_v1",
+  "screened_candidates": [
+    {
+      "auditable_data_and_code": false,
+      "climate_response": true,
+      "consumer_surplus": false,
+      "geographic_coverage": "156 coastal sovereign countries, 779 single-species stocks, and 58.2% of reported 2012 global catch; released CSVs also contain ABNJ, Antarctica, and joint-area labels. Broad but explicitly incomplete.",
+      "id": "free_gaines_climate_linked_bioeconomic_model",
+      "license_access": "Paper is CC BY; repository is public but has no root LICENSE/COPYING file at the pinned commit, and the two raw inputs named by Step1 are absent. Derived country CSVs and R scripts are present.",
+      "marginal_pulse_compatible_or_pairable": false,
+      "official_repository": "https://github.com/SFG-UCSB/cc_trade",
+      "overlap_boundary_resolved": false,
+      "overlap_risks": "Profit must not be added to output-multiplier damages; country allocation assumes biomass, catch, and profit are uniform over modeled species range; aquaculture, nutrition/mortality, terrestrial-food substitution, and trade incidence remain outside the model.",
+      "primary_source": "https://doi.org/10.1371/journal.pone.0224347",
+      "producer_surplus": false,
+      "pulse_compatibility": "RCP pathways and management contrasts are not a same-realization baseline versus one-ton-CO2 pulse pair.",
+      "response_semantics": "RCP scenario projections of species distribution, carrying capacity, biomass, catch, and profit under management adaptations; not a marginal emissions pulse.",
+      "title": "Realistic fisheries management reforms could mitigate the impacts of climate change in most countries",
+      "usable_global_geographic_coverage": false,
+      "usable_license": false,
+      "welfare_semantics": "Profit equals revenue minus fishing cost in the paper. Neither consumer surplus nor an output explicitly identified as producer surplus appears in the released source."
+    },
+    {
+      "auditable_data_and_code": false,
+      "climate_response": true,
+      "consumer_surplus": true,
+      "geographic_coverage": "16 US fisheries representing 56% of current US commercial fishing revenue; not global.",
+      "id": "moore_us_inverse_demand",
+      "license_access": "Official NOAA article copy is CC BY-NC 4.0; no reusable model/data package was identified in the official record.",
+      "marginal_pulse_compatible_or_pairable": false,
+      "official_repository": "https://repository.library.noaa.gov/view/noaa/63753",
+      "overlap_boundary_resolved": false,
+      "overlap_risks": "Seafood consumer surplus is conceptually direct market welfare, but coverage is US-only and producer, fleet, and trade incidence are absent.",
+      "primary_source": "https://doi.org/10.1142/S2010007821500020",
+      "producer_surplus": false,
+      "pulse_compatibility": "High-versus-low climate scenarios are not a marginal emissions pulse.",
+      "response_semantics": "Consumer-welfare response to projected thermally available habitat/landings under high and low emissions scenarios.",
+      "title": "Estimating the economic impacts of climate change on 16 major US fisheries",
+      "usable_global_geographic_coverage": false,
+      "usable_license": false,
+      "welfare_semantics": "Two-stage inverse demand model reports consumer surplus only; producer surplus is not supplied."
+    },
+    {
+      "auditable_data_and_code": false,
+      "climate_response": true,
+      "consumer_surplus": true,
+      "geographic_coverage": "Global demand regions with substantial coral reef area; reef fisheries only, not the global capture-fisheries sector.",
+      "id": "speers_global_coral_reef_demand",
+      "license_access": "Publisher full text is subscription-restricted and no official reusable code/data archive was identified.",
+      "marginal_pulse_compatible_or_pairable": false,
+      "official_repository": "",
+      "overlap_boundary_resolved": false,
+      "overlap_risks": "Material ecological overlap with any separate coral-reef damage module; commercial reef-fish demand must not double count coral ecosystem-service values.",
+      "primary_source": "https://doi.org/10.1016/j.ecolecon.2016.04.012",
+      "producer_surplus": false,
+      "pulse_compatibility": "RCP scenarios are not a marginal emissions pulse.",
+      "response_semantics": "Consumer-surplus losses from reef-fish supply changes driven by coral cover under RCP scenarios.",
+      "title": "Impacts of climate change and ocean acidification on coral reef fisheries: An integrated ecological-economic model",
+      "usable_global_geographic_coverage": false,
+      "usable_license": false,
+      "welfare_semantics": "Consumer surplus only; producer surplus is not supplied."
+    },
+    {
+      "auditable_data_and_code": true,
+      "climate_response": false,
+      "consumer_surplus": false,
+      "geographic_coverage": "Spatially resolved global grid calibrated against Large Marine Ecosystems; aggregated size classes rather than country/commodity markets.",
+      "id": "boats_global_bioeconomic_model",
+      "license_access": "The 1.7 GB Zenodo dataset and MATLAB analysis files are CC BY 4.0.",
+      "marginal_pulse_compatible_or_pairable": false,
+      "official_repository": "https://doi.org/10.5281/zenodo.53934",
+      "overlap_boundary_resolved": false,
+      "overlap_risks": "No country producer/consumer/trade incidence and no commodity demand system; using harvest or revenue as welfare would double count output rather than surplus.",
+      "primary_source": "https://doi.org/10.1371/journal.pone.0169763",
+      "producer_surplus": false,
+      "pulse_compatibility": "Could be rerun with climate forcings in principle, but the archived package does not supply a matched baseline/pulse welfare pair.",
+      "response_semantics": "Biomass, harvest, effort, and grid-cell profit respond to temperature, primary production, and economic forcings; the archived calibration outputs are not a climate-damage scenario or marginal pulse pair.",
+      "title": "Formulation, general features and global calibration of a bioenergetically-constrained fishery model",
+      "usable_global_geographic_coverage": false,
+      "usable_license": true,
+      "welfare_semantics": "Open-access fishing effort responds to average profit. No consumer demand or consumer surplus is modeled, and profit is not released as a separate producer-surplus accounting output."
+    },
+    {
+      "auditable_data_and_code": false,
+      "climate_response": true,
+      "consumer_surplus": false,
+      "geographic_coverage": "887 species, 280 EEZs and high seas, 192 fishing nations, representing about 60% of reconstructed catch; broad but incomplete.",
+      "id": "lam_global_revenue_projection",
+      "license_access": "Open-access article and supplement; no official reusable model/output repository with an explicit data license was identified in this bounded screen.",
+      "marginal_pulse_compatible_or_pairable": false,
+      "official_repository": "",
+      "overlap_boundary_resolved": false,
+      "overlap_risks": "Gross revenue cannot be added to profit or output-multiplier damages; distant-water fleet allocation is not consumer incidence.",
+      "primary_source": "https://doi.org/10.1038/srep32607",
+      "producer_surplus": false,
+      "pulse_compatibility": "Mid-century RCP contrasts are not a marginal emissions pulse.",
+      "response_semantics": "DBEM maximum catch potential under RCP2.6/RCP8.5 multiplied by ex-vessel prices to obtain maximum revenue potential.",
+      "title": "Projected change in global fisheries revenues under climate change",
+      "usable_global_geographic_coverage": false,
+      "usable_license": false,
+      "welfare_semantics": "Revenue/landed value, not consumer or producer surplus; the authors explicitly call for full economic analysis."
+    }
+  ],
+  "status": "negative_no_qualifying_published_global_climate_consumer_plus_producer_surplus_model"
+}
