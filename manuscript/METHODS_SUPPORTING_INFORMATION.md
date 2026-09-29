@@ -889,10 +889,10 @@ gate (0.07630 above 0.05), with the common influential exposure row at county
 counties and five states and pass the nonterminal design checks, but each has
 only 367 rows in 2012--2018 against the 500-row floor; Nebraska supplies
 46.61% of rows. SPEI remains blocked because no validated direct-practice
-county-crop panel exists. County-clustered CR1 inference remains conditional,
-not a complete spatial-dependence treatment, so a frozen geographic-influence
-and spatial-covariance sensitivity is required before any response protocol
-can be promoted. No coefficient, national claim, damage, or SCC is authorized.
+county-crop panel exists. County-clustered CR1 inference remained conditional
+at this design-audit stage, so geographic-influence and spatial-covariance
+rules were frozen before any real response fit could be considered. No
+coefficient, national claim, damage, or SCC is authorized.
 
 The follow-on synthetic-only corn protocol freezes separate fits by reported
 practice and retains county plus state-by-year fixed effects. County CR1 is
@@ -914,6 +914,16 @@ ineligible until an outcome-blind redesign passes the original leverage gate
 on unchanged support. Ten synthetic tests verify the covariance arithmetic,
 row-order invariance, same-county exclusion, distant-county reduction to CR1,
 and fail-closed influence, terminal, family-stacking, and real-fit gates.
+The follow-on metadata-only run adapter binds the protocol, its validation
+receipt, the outcome-blind readiness receipt, the direct-weather and PDSI
+Parquet hashes and footers, and the 2019 Census coordinate archive and DBF
+schema. It reads no outcome column, data page, coordinate record, or geometry,
+and all four real practice-by-family cells remain blocked. Seven focused tests
+and 25 independent checks pass. A separate synthetic executor verifies the
+complete computational seam for the four practice-by-family cells, including
+county CR1, 250/500 km covariance, five leave-state omissions, and the
+1981--2011/2012--2018 split. Seven executor tests and 36 independent checks
+pass; no real outcome row or empirical response fit enters these tests.
 
 The hash-pinned NOAA nClimDiv snapshot supplies 226,560 county-months over
 1980--2019 for the 472 eligible counties. Under the fixed-primary crop window,
@@ -3107,7 +3117,7 @@ authoritative ownership geography. Only 21 country labels remain, with one
 terminal fold containing a single scoring country, so the required country
 bootstrap is unsupported.
 
-The next computation is therefore an outcome-blind 1982--2010
+At that stage the next computation was therefore an outcome-blind 1982--2010
 design-and-heterogeneity preflight rather than an immediate slope estimate.
 It preserves one GDHY outcome, first differences by cell, fixed-2000 MIRCA
 basis-before-weighting, and preregistered country- or region-year controls.
@@ -3189,6 +3199,20 @@ mechanics tests pass, including negative tests for coordinates, types, years,
 buffer leakage, zero or reduced production draws, stacked moisture families,
 and geographic slopes. The engine has no filesystem data reader and has not
 read or fit real outcomes.
+
+A separate execution gate now makes that boundary operational. Its metadata-
+only dry run verifies the hashes of the protocol, preflight, readiness audit,
+estimator, and validation receipts without opening or hashing any outcome-
+bearing source. Any production authorization must be non-synthetic and bind
+the exact manifest, protocol, and engine before a loader can run. Eleven
+focused tests verify that missing, synthetic, scope-mismatched, or hash-
+mismatched authorization fails closed. A dependency-injected adapter then
+exercises level-to-pair construction and the actual estimator on synthetic
+quantity, distribution, and seasonal-scPDSI tables. Twelve tests verify
+current-minus-prior differencing, mutually exclusive moisture families,
+redaction of numeric fit outputs, and rejection before loader access. Across
+both layers, no real outcome file was opened and no production token was
+created; causal, damage, SCC, and GIVE-integration gates remain false.
 
 Multi-crop audit reporting is fail-closed. The audit validator binds the JSON
 artifact to the SHA-256 of the frozen response specification; requires the

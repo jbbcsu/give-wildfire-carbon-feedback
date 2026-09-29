@@ -610,6 +610,15 @@ block-CR2 covariance, Satterthwaite degrees of freedom, Webb bootstrap, and
 terminal scoring on synthetic data. It contains no data reader and enforces
 the frozen years, coordinate and outcome contracts, family separation, and
 pooled-only scope before execution; no real coefficient has been fit.
+The execution boundary is now also hash-bound and fail-closed. A metadata-only
+dry run opened no outcome file, imported no estimator, and invoked no fit; 11
+focused tests require any future non-synthetic authorization to bind the exact
+dry-run manifest, protocol, and engine. A dependency-injected adapter then
+exercised the actual engine on synthetic quantity, distribution, and seasonal-
+scPDSI tables. Each family converted 720 levels into 660 consecutive pairs
+across 60 cells and 11 end-years, with numeric fit outputs redacted. All 12
+adapter tests passed, no real outcome file was opened, and no production
+authorization token was created.
 
 The secondary U.S. validation track now contains 21,596 paired irrigated and
 non-irrigated crop-county-years over 1981--2019: 7,079 corn, 4,845 soybean,
@@ -687,9 +696,9 @@ the row-leverage ceiling (0.0763 versus 0.05), with the influential exposure
 at county 48277 in 2011 retained rather than outcome-selected away. Every
 soybean family fails the 2012--2018 terminal-support floor (367 versus 500
 rows), despite passing rank and conditioning checks. SPEI remains unavailable
-on validated direct-practice support. No response fit is authorized: spatial-
-dependence and geographic-influence rules must be frozen first, and the
-results remain regional rather than national.
+on validated direct-practice support. At that stage no response fit was
+authorized because spatial-dependence and geographic-influence rules had not
+yet been frozen; the results also remained regional rather than national.
 
 The missing corn inference step is now frozen and synthetic-tested, without
 reading outcomes. Non-irrigated and irrigated fits remain separate, and
@@ -700,6 +709,15 @@ The preidentified Texas 2011 exposure stays in every primary candidate; row-
 and county-deletion results are sensitivities only. All 10 mechanical tests
 pass, but real fitting and all national, causal, damage, and SCC claims remain
 closed.
+The subsequent metadata-only dry run binds the exact protocol, readiness
+receipt, direct-weather and PDSI input hashes, and 2019 Census coordinate
+provenance while opening zero outcome columns or Parquet data pages. All four
+practice-by-family real cells remain blocked. Seven dry-run tests and 25
+independent checks pass. A synthetic executor then runs the four separate
+practice-by-family designs through county CR1 and 250/500 km spatial-covariance
+paths, five leave-state omissions per cell, and separate 1981--2011 and
+2012--2018 fits. Seven focused tests and 36 independent checks pass, with zero
+real outcome rows read and zero real response fits.
 
 ## 4. Empirical design
 
