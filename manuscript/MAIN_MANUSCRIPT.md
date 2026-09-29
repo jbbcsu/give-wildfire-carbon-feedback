@@ -583,6 +583,20 @@ outcome-blind design-and-heterogeneity preflight on the continuous 1982--2010
 support. No soybean coefficient, geographic impact, damage, or SCC result is
 reported from this readiness audit.
 
+That preflight supports only a pooled global estimation design. Its primary
+direct-weather sample has 167,841 consecutive pairs in 6,001 cells, 56
+ten-degree blocks, and 21 singleton country proxies, but the inverse-
+Herfindahl effective counts are only 27.46 blocks and 5.45 countries. All 12
+prespecified moisture-family/control designs are full rank, well conditioned,
+and low leverage, so numerical instability is not the binding constraint.
+Only China and the United States pass every frozen country-support gate; they
+cover 53.83% of singleton-country pairs, and China alone contains 54.40% of
+qualifying pairs. The requirements for at least 10 countries, 80% coverage,
+and no qualifying country above 25% all fail. Country- or block-specific
+responses and geographic winners/losers therefore remain unauthorized. A
+pooled-only response protocol, outcome scale, and spatial inference rule must
+be frozen and externally reviewed before any soybean slope is estimated.
+
 The secondary U.S. validation track now contains 21,596 paired irrigated and
 non-irrigated crop-county-years over 1981--2019: 7,079 corn, 4,845 soybean,
 and 9,672 all-classes-wheat pairs. This support is regional, not nationally

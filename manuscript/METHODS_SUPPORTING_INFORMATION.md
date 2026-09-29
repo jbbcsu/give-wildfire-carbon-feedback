@@ -3077,6 +3077,33 @@ audit and independent validation are recorded in
 `data/provenance/soybean_global_response_readiness_validation_20260928.json`;
 both keep response, causal, damage, and SCC gates false.
 
+The resulting outcome-blind design preflight uses positive yield only as a
+support mask and discards its magnitude before constructing diagnostics. On
+1982--2010 levels it forms 167,841 direct/heat first-difference pairs in 6,001
+cells and 166,870 scPDSI/heat pairs in 5,967 cells. The direct sample spans 56
+ten-degree blocks and 21 singleton crop-footprint country proxies, but its
+pair-share inverse-Herfindahl counts are only 27.463 blocks and 5.445
+countries. All 12 combinations of quantity, distribution, seasonal scPDSI,
+or stage scPDSI with global-year, country-year, or block-year residualization
+are full rank. Scaled condition numbers range from 2.386 to 5.847 and maximum
+leverage is at most 0.002568. The primary country-year quantity design has
+rank 7/7, condition 2.592, maximum leverage 0.001340, and 77,464 inverse-
+Herfindahl effective leverage rows.
+
+Country qualification requires at least 1,000 pairs, 20 end-years, 50 cells,
+eight occupied ten-degree blocks, two-sided quantity variation, at least 50%
+global-range overlap, full rank, condition no greater than 10,000, maximum
+leverage no greater than 0.01, and no more than 20% of leverage in the top 1%
+of rows. Only China and the United States pass. They account for 84,982 of
+157,868 singleton-country pairs (53.831%), and China contains 54.400% of the
+qualifying pairs. The family gate of at least 10 qualifying countries, 80%
+coverage, and no country above 25% fails in all three dimensions. A ten-degree
+block cannot serve as a response stratum because it would leave only one
+prespecified spatial cluster for inference. The finest support-qualified
+resolution is therefore pooled global. This is design support, not a response
+estimate; country/block heterogeneity, winners and losers, damages, SCC, and
+GIVE integration remain closed.
+
 Multi-crop audit reporting is fail-closed. The audit validator binds the JSON
 artifact to the SHA-256 of the frozen response specification; requires the
 explicitly declared crop-season set and every crop-by-model-by-holdout result;

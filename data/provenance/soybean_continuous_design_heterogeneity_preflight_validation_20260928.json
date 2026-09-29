@@ -1,0 +1,54 @@
+{
+  "audit": {
+    "path": "/private/tmp/soybean_design_corrected_audit.json",
+    "sha256": "d562654aeeec6e9d14be2438e335586468ad309d761449a0c8293cdbb591e8b2"
+  },
+  "checks": {
+    "country_resolution_gate_passes": false,
+    "direct_heat_support": {
+      "absent_pairs": 2848,
+      "ambiguous_pairs": 7125,
+      "blocks": 56,
+      "cells": 6001,
+      "countries": 21,
+      "effective_blocks": 27.46289117139801,
+      "effective_countries": 5.4450389572054165,
+      "pairs": 167841,
+      "singleton_pairs": 157868,
+      "year_maximum": 2010,
+      "year_minimum": 1983,
+      "years": 28
+    },
+    "direct_positive_levels": 173871,
+    "finest_resolution": "pooled_global",
+    "heat_positive_levels": 173871,
+    "quantity_country_year_design": {
+      "condition": 2.5924237605723714,
+      "leverage_sum": 7.000000000000004,
+      "maximum_leverage": 0.0013402664872744533,
+      "p99_leverage": 0.00021378849471061042,
+      "pairs": 157868,
+      "rank": 7,
+      "top_one_percent_share": 0.06496315338570961
+    },
+    "response_fit_or_downstream_claim_authorized": false,
+    "scpdsi_heat_pairs": 166870,
+    "scpdsi_positive_levels": 172878
+  },
+  "config": {
+    "path": "config/soybean_continuous_design_heterogeneity_preflight_v1.toml",
+    "sha256": "c086163b71fb141f60d11acd6b8ddc08f02f5b4be664b93c362e59bb6223cb49"
+  },
+  "created_at_utc": "2026-09-29T01:35:00.164070+00:00",
+  "implementation": {
+    "path": "scripts/validate_soybean_continuous_design_heterogeneity.py",
+    "sha256": "748b71b609028c3637fdade6344146684b28e88a909174c0bc24e0c22fdb70c4"
+  },
+  "resources": {
+    "memory_cap_bytes": 536870912,
+    "memory_gate_passed": true,
+    "peak_rss_bytes": 383877120
+  },
+  "schema": "soybean_continuous_design_heterogeneity_preflight_validation/v1",
+  "status": "validated_outcome_blind_design_preflight_fail_closed"
+}

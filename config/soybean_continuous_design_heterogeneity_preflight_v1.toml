@@ -1,0 +1,176 @@
+schema_version = 1
+contract_id = "soybean_continuous_design_heterogeneity_preflight_v1"
+memory_cap_bytes = 536870912
+scope = "outcome-blind soybean continuous first-difference design and geographic-support preflight only"
+
+[sources.readiness_audit]
+path = "data/provenance/soybean_global_response_readiness_audit_20260928.json"
+sha256 = "11a02900d4ccd1de8906173ecaa9fff0f1f454157b38f6826b362bd2561109d7"
+
+[sources.direct_receipt]
+path = "outputs/continuous_global_panel_1982_2016_v1/soy_1982_2016_direct_assembly_receipt.json"
+sha256 = "50462d0e14e0e6a6972e088119552f370627e64d7cceeb0c11b845e5d6d908d0"
+
+[sources.direct_panel]
+path = "data/interim/continuous_global_panel_1982_2016_v1/continuous_candidates/soy_1982_2016_direct.parquet"
+sha256 = "ce26936cd3d175c56c89333c9f5805e242b6a32961e41babe67e8f55117518dd"
+
+[sources.heat_receipt]
+path = "outputs/continuous_global_panel_1982_2016_v1/soy_1982_2016_heat_assembly_receipt.json"
+sha256 = "6039edf8b2f14fd0ceb390cc9811a31bc186cbd33e4a1161fd12b5063fb2a2e8"
+
+[sources.heat_panel]
+path = "data/interim/continuous_global_panel_1982_2016_v1/continuous_candidates/soy_1982_2016_heat.parquet"
+sha256 = "a949b4b1fa62708775fad10ba9f01105d5fe3e29dd5472d6792dea9b19a4c100"
+
+[sources.scpdsi_receipt]
+path = "outputs/continuous_global_panel_1982_2016_v1/soy_1982_2016_scpdsi_assembly_receipt.json"
+sha256 = "dacbef432471f4561db9b1a105d069c999e40a1d607d77862b1bceab33d7e31a"
+
+[sources.scpdsi_panel]
+path = "data/interim/continuous_global_panel_1982_2016_v1/continuous_candidates/soy_1982_2016_scpdsi.parquet"
+sha256 = "e686440825910e4ef36f80677085561e70448993d6f8479b34cf1479f944cbc2"
+
+[sources.country_proxy_receipt]
+path = "data/provenance/global_country_proxy_20260907.json"
+sha256 = "e32ceea337b61542e1ae395be9c7ec82824a054a6b0661ffdd11b3f4b2bf2b6c"
+
+[sources.country_proxy]
+path = "data/interim/global_country_proxy_20260907.parquet"
+sha256 = "3094440e2de49e1e385ea69876efa773dcbf370d22ebaa68a919f8a27838d961"
+
+[sources.mirca_weights]
+path = "data/interim/mirca_os_v2/irrigation_shares_2000.parquet"
+sha256 = "7512ffc580928a03f75bbce5f3d4263c9bb2c631a8ff04075973acb4b149e4ba"
+
+[sample]
+crop = "soy"
+level_year_minimum = 1982
+level_year_maximum = 2010
+pair_year_minimum = 1983
+pair_year_maximum = 2010
+one_gdhy_outcome_per_cell_year = true
+support_requires_yield_observed = true
+support_requires_strictly_positive_yield = true
+outcome_magnitude_may_enter_design = false
+pair_requires_consecutive_positive_yield_levels = true
+cell_keys = ["lat", "lon_360"]
+first_difference_order = "current level minus prior-year level"
+fixed_exposure_basis = "nonlinear rainfed/irrigated response bases constructed first, then weighted by fixed MIRCA 2000 area shares"
+
+[basis_contract]
+irrigation = "area_weighted"
+exposure_allocation = "one_outcome_independent_fixed_area_weighted"
+weight_source_id = "MIRCA-OS_v2_March_2026_AHAG_30arcmin_2000"
+weight_vintage = "fixed_2000"
+basis_allocation_order = "regime_basis_before_fixed_area_weighting"
+direct_response_basis_contract_id = "gdhy_aggregate_irrigation_distribution_candidate_v1"
+scpdsi_response_basis_contract_id = "gdhy_aggregate_irrigation_scpdsi_candidate_v1"
+nonlinear_post_allocation_transform_authorized = false
+scpdsi_direct_weather_terms_included = false
+
+[heat_contract]
+diagnostic_fit_authorized = true
+family_stacking_authorized = false
+causal_interpretation_authorized = false
+production_fit_authorized = false
+scc_authorized = false
+
+[spatial]
+longitude_convention = "0_to_360"
+block_width_degrees = 10
+latitude_block_rule = "floor((lat + 90) / 10), with the north-pole endpoint clipped to the preceding bin"
+longitude_block_rule = "floor(lon_360 / 10), with the 360 endpoint wrapped to zero"
+country_mapping_rule = "retain only country_count == 1 with one nonempty country_label; ambiguous and absent mappings are excluded from country-year diagnostics"
+country_is_crop_footprint_proxy_not_authoritative_boundary = true
+block_is_spatial_support_and_cluster_not_economic_unit = true
+
+[heat_controls]
+columns = [
+  "stage1_tmean_c", "stage2_tmean_c", "stage3_tmean_c",
+  "stage1_tmax_30c_degree_days", "stage2_tmax_30c_degree_days", "stage3_tmax_30c_degree_days",
+]
+
+[families.quantity]
+source = "direct_plus_heat"
+moisture_columns = ["log1p_precip_mm"]
+role = "primary"
+
+[families.distribution]
+source = "direct_plus_heat"
+moisture_columns = [
+  "log1p_precip_mm", "stage1_precip_share", "stage2_precip_share",
+  "cdd_max_days", "rx5day_mm", "precipitation_concentration_hhi",
+]
+role = "separate direct-pattern candidate family"
+composition_rule = "stage3 precipitation share omitted as the reference share"
+
+[families.scpdsi_season]
+source = "scpdsi_plus_heat"
+moisture_columns = ["season_scpdsi_mean"]
+role = "mutually exclusive climatic-water-balance alternative"
+
+[families.scpdsi_stages]
+source = "scpdsi_plus_heat"
+moisture_columns = ["stage1_scpdsi_mean", "stage2_scpdsi_mean", "stage3_scpdsi_mean"]
+role = "mutually exclusive climatic-water-balance alternative"
+
+[family_rules]
+include_heat_controls_in_every_family = true
+simultaneous_direct_and_scpdsi_stacking_allowed = false
+distribution_may_be_reported_as_incremental_evidence = false
+family_selection_or_slope_estimation_allowed = false
+
+[control_alternatives.global_year]
+sample = "all finite family pairs"
+residualization = "demean each differenced column within pair end-year"
+
+[control_alternatives.country_year]
+sample = "finite family pairs with singleton country proxy"
+residualization = "demean each differenced column within singleton country proxy by pair end-year"
+
+[control_alternatives.block10_year]
+sample = "all finite family pairs"
+residualization = "demean each differenced column within 10-degree block by pair end-year"
+
+[numerics]
+rank_relative_tolerance = 1e-10
+condition_definition = "largest divided by smallest singular value of column-standardized residualized design"
+leverage_definition = "diagonal of the projection matrix for the full residualized family design, using the declared rank tolerance"
+leverage_top_fraction = 0.01
+effective_cluster_definition = "inverse Herfindahl of pair shares"
+overlap_reference = "global p05-p95 interval of the primary quantity first difference"
+quantiles = [0.01, 0.05, 0.5, 0.95, 0.99]
+
+[country_qualification]
+family = "quantity"
+residualization = "within-country pair-end-year"
+minimum_pairs = 1000
+minimum_pair_end_years = 20
+minimum_cells = 50
+minimum_occupied_10degree_blocks = 8
+require_primary_quantity_p05_below_zero_and_p95_above_zero = true
+minimum_fraction_primary_quantity_values_inside_global_p05_p95 = 0.5
+require_full_column_rank = true
+maximum_scaled_condition_number = 10000.0
+maximum_maximum_leverage = 0.01
+maximum_top_one_percent_leverage_share = 0.20
+
+[country_resolution_gate]
+minimum_qualifying_countries = 10
+minimum_singleton_pair_coverage_fraction = 0.80
+maximum_largest_qualifying_country_pair_share = 0.25
+fallback_resolution = "pooled_global"
+block10_response_strata_authorized = false
+block10_reason = "a block-specific response would leave only one predeclared spatial block cluster for inference"
+
+[claim_gates]
+design_preflight_authorized = true
+outcome_slope_estimation_authorized = false
+production_response_fit_authorized = false
+causal_interpretation_authorized = false
+geographic_response_heterogeneity_authorized = false
+economic_winner_loser_interpretation_authorized = false
+damage_calculation_authorized = false
+scc_authorized = false
+give_integration_authorized = false
