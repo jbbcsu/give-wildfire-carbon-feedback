@@ -1,0 +1,214 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://give.local/contracts/global-fisheries-welfare-bridge-input-v1.schema.json",
+  "title": "Global fisheries direct-welfare bridge input contract",
+  "description": "Versioned input contract only. The current validator accepts synthetic contract-test bundles and does not authorize estimation, damages, discounting, or an SCC.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract_version",
+    "bundle_id",
+    "synthetic_only",
+    "authorization",
+    "license",
+    "coverage",
+    "pulse",
+    "request_components",
+    "sources",
+    "responses",
+    "incidence",
+    "welfare",
+    "overlap"
+  ],
+  "properties": {
+    "contract_version": {"const": "global_fisheries_welfare_bridge_input_v1"},
+    "bundle_id": {"type": "string", "minLength": 1},
+    "synthetic_only": {"type": "boolean"},
+    "authorization": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["purpose", "coefficient_transfer", "fit", "damage", "scc"],
+      "properties": {
+        "purpose": {"const": "synthetic_contract_test_only"},
+        "coefficient_transfer": {"const": false},
+        "fit": {"const": false},
+        "damage": {"const": false},
+        "scc": {"const": false}
+      }
+    },
+    "license": {"$ref": "#/$defs/license"},
+    "coverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["scope", "complete", "missing_semantics"],
+      "properties": {
+        "scope": {"const": "global_declared_support"},
+        "complete": {"const": true},
+        "missing_semantics": {"const": "explicit_no_imputation_or_renormalization"}
+      }
+    },
+    "pulse": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pulse_id", "gas", "mass", "mass_unit", "counterfactual"],
+      "properties": {
+        "pulse_id": {"type": "string", "minLength": 1},
+        "gas": {"const": "CO2"},
+        "mass": {"const": 1.0},
+        "mass_unit": {"const": "tCO2"},
+        "counterfactual": {"const": "same_realization_baseline"}
+      }
+    },
+    "request_components": {
+      "type": "array",
+      "minItems": 7,
+      "maxItems": 7,
+      "items": {"$ref": "#/$defs/request_component"}
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/source"}
+    },
+    "responses": {
+      "type": "array",
+      "minItems": 2,
+      "items": {"$ref": "#/$defs/response"}
+    },
+    "incidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/incidence"}
+    },
+    "welfare": {
+      "type": "array",
+      "minItems": 2,
+      "items": {"$ref": "#/$defs/welfare"}
+    },
+    "overlap": {"$ref": "#/$defs/overlap"}
+  },
+  "$defs": {
+    "license": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["spdx_id", "redistribution_allowed", "derivatives_allowed"],
+      "properties": {
+        "spdx_id": {"type": "string", "minLength": 1, "not": {"enum": ["NOASSERTION", "NONE"]}},
+        "redistribution_allowed": {"const": true},
+        "derivatives_allowed": {"const": true}
+      }
+    },
+    "request_component": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["component_id", "provided", "source_ids"],
+      "properties": {
+        "component_id": {
+          "enum": [
+            "license_and_reuse",
+            "raw_model_inputs",
+            "executable_model_and_dependency_lock",
+            "incidence_and_geographic_keys",
+            "consumer_and_producer_surplus",
+            "matched_marginal_pulse",
+            "overlap_accounting_boundary"
+          ]
+        },
+        "provided": {"const": true},
+        "source_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_id", "role", "version", "uri", "sha256", "license"],
+      "properties": {
+        "source_id": {"type": "string", "minLength": 1},
+        "role": {
+          "enum": ["license", "raw_input", "model_code", "dependency_lock", "incidence", "demand", "producer_cost", "pulse", "overlap_review"]
+        },
+        "version": {"type": "string", "minLength": 1},
+        "uri": {"type": "string", "format": "uri", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "license": {"$ref": "#/$defs/license"}
+      }
+    },
+    "response": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["draw_id", "pulse_id", "scenario", "year", "stock_id", "source_area_id", "climate_model_id", "ecosystem_model_id", "management_scenario", "socioeconomic_scenario", "harvest_or_availability", "harvest_unit", "coverage_status"],
+      "properties": {
+        "draw_id": {"type": "string", "minLength": 1},
+        "pulse_id": {"type": "string", "minLength": 1},
+        "scenario": {"enum": ["baseline", "pulse"]},
+        "year": {"type": "integer", "minimum": 1900, "maximum": 2300},
+        "stock_id": {"type": "string", "minLength": 1},
+        "source_area_id": {"type": "string", "minLength": 1},
+        "climate_model_id": {"type": "string", "minLength": 1},
+        "ecosystem_model_id": {"type": "string", "minLength": 1},
+        "management_scenario": {"type": "string", "minLength": 1},
+        "socioeconomic_scenario": {"type": "string", "minLength": 1},
+        "harvest_or_availability": {"type": "number", "minimum": 0},
+        "harvest_unit": {"const": "tonne_wet_weight"},
+        "coverage_status": {"const": "complete"}
+      }
+    },
+    "incidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["draw_id", "year", "stock_id", "source_area_id", "market_id", "producer_country_iso3", "consumer_country_iso3", "harvest_fraction", "landing_fraction", "consumption_fraction", "coverage_status"],
+      "properties": {
+        "draw_id": {"type": "string", "minLength": 1},
+        "year": {"type": "integer", "minimum": 1900, "maximum": 2300},
+        "stock_id": {"type": "string", "minLength": 1},
+        "source_area_id": {"type": "string", "minLength": 1},
+        "market_id": {"type": "string", "minLength": 1},
+        "producer_country_iso3": {"type": "string", "pattern": "^[A-Z]{3}$"},
+        "consumer_country_iso3": {"type": "string", "pattern": "^[A-Z]{3}$"},
+        "harvest_fraction": {"type": "number", "minimum": 0, "maximum": 1},
+        "landing_fraction": {"type": "number", "minimum": 0, "maximum": 1},
+        "consumption_fraction": {"type": "number", "minimum": 0, "maximum": 1},
+        "coverage_status": {"const": "complete"}
+      }
+    },
+    "welfare": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["draw_id", "pulse_id", "scenario", "year", "stock_id", "source_area_id", "market_id", "consumer_surplus", "producer_surplus", "welfare_unit", "consumer_welfare_semantics", "producer_welfare_semantics", "valuation_method_id", "coverage_status"],
+      "properties": {
+        "draw_id": {"type": "string", "minLength": 1},
+        "pulse_id": {"type": "string", "minLength": 1},
+        "scenario": {"enum": ["baseline", "pulse"]},
+        "year": {"type": "integer", "minimum": 1900, "maximum": 2300},
+        "stock_id": {"type": "string", "minLength": 1},
+        "source_area_id": {"type": "string", "minLength": 1},
+        "market_id": {"type": "string", "minLength": 1},
+        "consumer_surplus": {"type": "number"},
+        "producer_surplus": {"type": "number"},
+        "welfare_unit": {"const": "USD_2020"},
+        "consumer_welfare_semantics": {"const": "consumer_surplus"},
+        "producer_welfare_semantics": {"const": "producer_surplus"},
+        "valuation_method_id": {"type": "string", "minLength": 1},
+        "coverage_status": {"const": "complete"}
+      }
+    },
+    "overlap": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["accounting_boundary_id", "review_status", "trade_closure_id", "includes_aquaculture", "includes_terrestrial_food_market_welfare", "includes_nutrition_or_mortality", "includes_coral_or_reef_services", "includes_biodiversity_nonuse_value", "includes_ciam_coastal_impacts", "includes_indirect_or_induced_output", "uses_gross_revenue_as_welfare"],
+      "properties": {
+        "accounting_boundary_id": {"type": "string", "minLength": 1},
+        "review_status": {"const": "passed"},
+        "trade_closure_id": {"type": "string", "minLength": 1},
+        "includes_aquaculture": {"const": false},
+        "includes_terrestrial_food_market_welfare": {"const": false},
+        "includes_nutrition_or_mortality": {"const": false},
+        "includes_coral_or_reef_services": {"const": false},
+        "includes_biodiversity_nonuse_value": {"const": false},
+        "includes_ciam_coastal_impacts": {"const": false},
+        "includes_indirect_or_induced_output": {"const": false},
+        "uses_gross_revenue_as_welfare": {"const": false}
+      }
+    }
+  }
+}
