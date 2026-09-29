@@ -2329,13 +2329,24 @@ only four combine one full-cell region with one exact UID; all four are
 `total`, leaving zero authorized second-season application cells. Exact ADM1
 name or alternative-name matching does identify one hierarchy parent for 43
 second-season UIDs (18 Sri Lanka and 25 Vietnam), with 10 unmatched and three
-ambiguous. The next gate expands only those 43 parents to pinned terminal
-descendants, then requires one UID and exact planting-month, harvest-month, and
-season-length concordance. Partial, ambiguous, unmatched, and discordant cells
-remain excluded. This protocol, including the zero-row current gate, is
-recorded in
+ambiguous. We expand only those 43 parents to 147 pinned terminal descendants
+(38 Sri Lanka and 109 Vietnam); no terminal polygon belongs to multiple
+selected UIDs. Of 6,197 strict Rice2 cells, 79 intersect a mapped UID and 27
+reach exactly one UID (2 Sri Lanka and 25 Vietnam), but none matches the
+author's planting month, harvest month, and season length. Eleven of the 27
+also avoid competing terminal intersections, yet none reaches the frozen
+full-cell threshold; the largest mapped fraction is 0.999995653 against a
+0.999999 threshold. The calendar gate is independently decisive: the author
+series are uniformly 5--8/four months in Sri Lanka and 5--9/five months in
+Vietnam, whereas the uniquely assigned GGCMI Rice2 calendars differ in every
+case. Partial, ambiguous, unmatched, and discordant cells remain excluded.
+The ordinal `Rice2` label is not treated as proof of the author `second`
+series. This protocol and its zero authorized rows are recorded in
 `HULTGREN_RICE2_RESPONSE_APPLICATION_DOMAIN_RESULTS_20260928.md` and
 `data/provenance/hultgren_rice2_response_application_domain_validation_20260928.json`.
+The executed descendant ledger and independent validation are recorded in
+`HULTGREN_RICE2_SECOND_SEASON_PARENT_CROSSWALK_RESULTS_20260928.md` and
+`data/provenance/hultgren_rice2_second_season_parent_crosswalk_validation_20260928.json`.
 
 The exact 0.5-degree outcome crosswalk matches 9,298 of 9,564 positive
 first-rice cells (97.22%) and

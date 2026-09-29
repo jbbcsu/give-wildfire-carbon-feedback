@@ -1,0 +1,53 @@
+schema_version = 1
+contract_id = "hultgren_rice2_second_season_parent_crosswalk_v1"
+memory_cap_bytes = 536870912
+
+[sources.author_panel]
+path = "data/raw/hultgren_response/historical_git/dae5fe8d0d4a260328e4baa45b547368bd6790b3/rice_gmfd_v1_ready.dta"
+sha256 = "a118f3ce5dd54f506b75de9fc1dff0b01a9e9034509f6b9b925b937a1beb63b4"
+
+[sources.author_hierarchy]
+path = "data/raw/hultgren_response/gitlab_main_20250702/Table1/data/shapes/hierarchy.csv"
+sha256 = "1598e28b8f23173668914740ac2b68c427c067258a4e04d3f79d9b74dffbd15d"
+
+[sources.author_region_points]
+path = "data/interim/hultgren_impact_region_global_20260923/impact_region_points.csv.gz"
+sha256 = "27ab6f6b8755053b812a3e2a2817b16e9cdf2c60973798c0968504286955dceb"
+
+[sources.rice2_noirr_basis]
+path = "data/interim/hultgren_rice2_historical_multiblock_20260928/ri2_noirr_1982_2019.parquet"
+sha256 = "b2d46d4e745ef7e000240c2c50ef2a7413d8a88a440df98d57f5f128ba21eb2f"
+
+[sources.rice2_firr_basis]
+path = "data/interim/hultgren_rice2_historical_multiblock_20260928/ri2_firr_1982_2019.parquet"
+sha256 = "95de0e92f2e0ed498d488e5a34ae5aee8daee1ce98685f92017dd1e05ed332b3"
+
+[sources.rice2_weather_validation]
+path = "data/provenance/hultgren_rice2_historical_multiblock_validation_20260928.json"
+sha256 = "83b99a658b6e855887260e9dfcbfd56e2e7f4469ef4eb7fe2a39968786667369"
+
+[sources.application_domain_contract]
+path = "config/hultgren_rice2_response_application_domain_v1.toml"
+sha256 = "f9164d4f8ea8743c7f6f05d6e200aa3008de396871ec2ab756a883a5c1c506ca"
+
+[sources.application_domain_audit]
+path = "data/provenance/hultgren_rice2_response_application_domain_audit_20260928.json"
+sha256 = "9c4f5118ff86ae59e83758e5210393bf9907d752e906b1c7bf1ef8d2eda8582d"
+
+[sources.application_domain_validation]
+path = "data/provenance/hultgren_rice2_response_application_domain_validation_20260928.json"
+sha256 = "6629a4623ccbff5bae65bfd9cf6175afc356859868ec0e20f29487f2d587fe53"
+
+[spatial]
+full_coverage_tolerance = 1e-6
+competing_positive_area_allowed = false
+partial_cell_assignment_allowed = false
+
+[claim_gates]
+crosswalk_build_authorized = true
+response_evaluation_authorized = false
+mirca_weights_authorized = false
+yield_effects_authorized = false
+damages_authorized = false
+scc_authorized = false
+give_integration_authorized = false

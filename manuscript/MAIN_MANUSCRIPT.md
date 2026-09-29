@@ -477,7 +477,14 @@ one full-cell author region and one exact estimation UID, and all four link to
 annual `total` rather than `second` series. Forty-three of the 56 second-season
 UIDs do match exactly one higher-level hierarchy node, providing a bounded
 descendant-expansion route; this is not yet a cell-to-UID crosswalk and does
-not authorize coefficient evaluation.
+not authorize coefficient evaluation. Executing that route still yields zero
+authorized cells. Twenty-seven Rice2 cells reach exactly one mapped
+second-season UID, but none matches the author's planting month, harvest month,
+and season length even before the full-cell spatial gate. In the observed
+countries, the ordinal product name `Rice2` is therefore not evidence that it
+represents the author's `second` reporting series. Response evaluation remains
+blocked pending an authoritative season crosswalk or a separately frozen
+all-season calendar audit.
 That frozen attrition audit also fails. First-rice retention is 97.22%, but
 retained cells have lower mean yield than excluded cells (3.44 versus 4.52
 t/ha; standardized difference -0.329). Second-rice retention is only 89.41%

@@ -1,0 +1,43 @@
+{
+  "checks": {
+    "authorized_cells": 0,
+    "cells_calendar_concordant_before_spatial_gate": 0,
+    "cells_intersecting_lka_vnm_terminal_regions": 156,
+    "cells_with_any_mapped_second_uid": 79,
+    "cells_with_exactly_one_second_uid": 27,
+    "cells_with_full_spatial_ownership": 0,
+    "cells_without_competing_terminal_intersection_after_one_uid": 11,
+    "maximum_absolute_overlap_fraction_error": 0.0,
+    "selected_parent_uids": 43,
+    "strict_support_cells": 6197,
+    "terminal_descendants": 147
+  },
+  "claim_gates": {
+    "parent_crosswalk_validated": true,
+    "response_or_downstream_calculation_authorized": false
+  },
+  "config": {
+    "path": "config/hultgren_rice2_second_season_parent_crosswalk_v1.toml",
+    "sha256": "1bfab20478ac996a1e05d0de1fe1516b81d92e88d97b46a6d1fca22134d7fae0"
+  },
+  "created_at_utc": "2026-09-29T00:01:50.678640+00:00",
+  "crosswalk": {
+    "path": "data/interim/hultgren_rice2_second_season_parent_crosswalk_20260928.parquet",
+    "sha256": "f6bed0618e66df47f1439bc62edd57b654700520e1b3600d22f0466b45cd29d1"
+  },
+  "implementation": {
+    "path": "scripts/validate_hultgren_rice2_second_season_parent_crosswalk.py",
+    "sha256": "ce31581d60297dd10f1ec54f64b0eb0c307d2176a976332bc4099f5d98984179"
+  },
+  "receipt": {
+    "path": "data/provenance/hultgren_rice2_second_season_parent_crosswalk_20260928.json",
+    "sha256": "aad1894cdca770257facbb46c8da1fa4519f094918c5a0e09c58f1af5026eff7"
+  },
+  "resources": {
+    "memory_cap_bytes": 536870912,
+    "memory_gate_passed": true,
+    "peak_rss_bytes": 291553280
+  },
+  "schema": "hultgren_rice2_second_season_parent_crosswalk_validation/v1",
+  "status": "validated_fail_closed_second_season_parent_crosswalk"
+}
