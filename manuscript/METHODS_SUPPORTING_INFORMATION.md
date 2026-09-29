@@ -2348,6 +2348,21 @@ The executed descendant ledger and independent validation are recorded in
 `HULTGREN_RICE2_SECOND_SEASON_PARENT_CROSSWALK_RESULTS_20260928.md` and
 `data/provenance/hultgren_rice2_second_season_parent_crosswalk_validation_20260928.json`.
 
+A preregistered symmetric audit then compares every genuinely resident GGCMI
+rice-season calendar against the same 56 author second-season UIDs. The local
+inventory contains `ri1_noirr`, `ri1_firr`, `ri2_noirr`, and `ri2_firr`; no
+`ri3` branch is present, and irrigation branches are checks rather than extra
+independent seasons. Rice1 has 67,384 strict-support cells per branch; 46 map
+to exactly one selected UID, but zero match the author calendar before the
+full-cell gate. Rice2 has 6,197 cells per branch and 27 exact-one-UID cells,
+again with zero calendar matches. Rainfed and irrigated calendar signatures
+are identical within each product. Because the contract forbids nearest-season
+selection, neither product passes and none is selected. An author- or
+publisher-supplied season crosswalk or exact source calendar raster is required
+before further response transport. The audit is recorded in
+`HULTGREN_ALL_GGCMI_RICE_SEASON_CALENDAR_AUDIT_RESULTS_20260928.md` and
+`data/provenance/hultgren_all_ggcmi_rice_season_calendar_audit_validation_20260928.json`.
+
 The exact 0.5-degree outcome crosswalk matches 9,298 of 9,564 positive
 first-rice cells (97.22%) and
 1,419 of 1,587 positive second-rice cells (89.41%). The unmatched counts are

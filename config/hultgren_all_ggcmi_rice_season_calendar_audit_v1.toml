@@ -1,0 +1,102 @@
+schema_version = 1
+contract_id = "hultgren_all_ggcmi_rice_season_calendar_audit_v1"
+memory_cap_bytes = 536870912
+audit_scope = "diagnostic-only comparison of every genuinely resident independent GGCMI rice season calendar against the 56 author second-season UIDs in LKA/VNM"
+
+[sources.author_panel]
+path = "data/raw/hultgren_response/historical_git/dae5fe8d0d4a260328e4baa45b547368bd6790b3/rice_gmfd_v1_ready.dta"
+sha256 = "a118f3ce5dd54f506b75de9fc1dff0b01a9e9034509f6b9b925b937a1beb63b4"
+
+[sources.author_hierarchy]
+path = "data/raw/hultgren_response/gitlab_main_20250702/Table1/data/shapes/hierarchy.csv"
+sha256 = "1598e28b8f23173668914740ac2b68c427c067258a4e04d3f79d9b74dffbd15d"
+
+[sources.author_region_points]
+path = "data/interim/hultgren_impact_region_global_20260923/impact_region_points.csv.gz"
+sha256 = "27ab6f6b8755053b812a3e2a2817b16e9cdf2c60973798c0968504286955dceb"
+
+[sources.frozen_parent_crosswalk]
+path = "data/interim/hultgren_rice2_second_season_parent_crosswalk_20260928.parquet"
+sha256 = "f6bed0618e66df47f1439bc62edd57b654700520e1b3600d22f0466b45cd29d1"
+
+[calendar_inventory]
+directory = "data/raw/crop_calendars"
+resident_branches = ["ri1_noirr", "ri1_firr", "ri2_noirr", "ri2_firr"]
+resident_independent_season_products = ["ri1", "ri2"]
+absent_branches = ["ri3_noirr", "ri3_firr"]
+no_nearest_product_selection = true
+count_firr_noirr_as_separate_independent_seasons = false
+
+[calendars.ri1_noirr]
+season_product = "ri1"
+irrigation_branch = "noirr"
+path = "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_ri1_noirr.nc"
+sha256 = "1cd9a8fa665f91b660b7401ee978d34e3d376ce6cc740c3ebce12a7f876b5684"
+
+[calendars.ri1_firr]
+season_product = "ri1"
+irrigation_branch = "firr"
+path = "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_ri1_firr.nc"
+sha256 = "d738f23dc3bed40098a145538d08306c5cb75d8d4a2ee6057e4f65c3b93c81b4"
+
+[calendars.ri2_noirr]
+season_product = "ri2"
+irrigation_branch = "noirr"
+path = "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_ri2_noirr.nc"
+sha256 = "e8fbee16a2b86560409a90b11fe5af35f5886c1689ed534c41a7453c2ace6299"
+
+[calendars.ri2_firr]
+season_product = "ri2"
+irrigation_branch = "firr"
+path = "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_ri2_firr.nc"
+sha256 = "22468e93f3aaed3c0a25a451132a9497b0175d67ae30d872c9453af79523fab7"
+
+[support]
+require_finite_planting_day = true
+require_finite_maturity_day = true
+require_positive_publisher_fraction = true
+minimum_inclusive_season_months = 3
+maximum_inclusive_season_months = 12
+
+[author_domain]
+countries = ["LKA", "VNM"]
+season_label = "second"
+expected_second_season_uids = 56
+expected_second_season_uids_lka = 25
+expected_second_season_uids_vnm = 31
+expected_unique_hierarchy_parents = 43
+expected_terminal_descendants = 147
+
+[spatial]
+grid_half_width_degrees = 0.25
+area_crs = "EPSG:6933"
+full_coverage_tolerance = 1e-6
+require_exactly_one_selected_uid = true
+competing_positive_area_allowed = false
+partial_cell_assignment_allowed = false
+
+[calendar_match]
+plant_month_rule = "month containing source planting_day_of_year on a 365-day no-leap calendar"
+harvest_month_rule = "month containing source maturity_day_of_year on a 365-day no-leap calendar"
+season_length_rule = "inclusive cyclic count of calendar months from planting month through harvest month"
+require_exact_plant_month = true
+require_exact_harvest_month = true
+require_exact_season_length = true
+allow_distance_or_nearest_match = false
+
+[promotion]
+independent_product_definition = "GGCMI rice season identity ri1/ri2/ri3; irrigation branches are concordance checks, not extra independent products"
+unique_exact_product_rule = "exactly one resident independent season product has at least one cell passing support, exact UID/full-cell spatial ownership, and all three exact author-calendar criteria, with its resident irrigation branches reported separately"
+authoritative_crosswalk_required_for_authoritative_claim = true
+weather_build_if_unique_product_passes = false
+
+[claim_gates]
+calendar_audit_authorized = true
+calendar_product_selected = false
+weather_build_authorized = false
+response_evaluation_authorized = false
+mirca_weights_authorized = false
+yield_effects_authorized = false
+damages_authorized = false
+scc_authorized = false
+give_integration_authorized = false

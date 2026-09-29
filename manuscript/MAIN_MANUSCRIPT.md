@@ -484,7 +484,11 @@ and season length even before the full-cell spatial gate. In the observed
 countries, the ordinal product name `Rice2` is therefore not evidence that it
 represents the author's `second` reporting series. Response evaluation remains
 blocked pending an authoritative season crosswalk or a separately frozen
-all-season calendar audit.
+all-season calendar audit. That symmetric audit also fails: neither resident
+GGCMI Rice1 nor Rice2 has a single exact author-calendar match among uniquely
+assigned Sri Lankan or Vietnamese cells, even before full-cell ownership, and
+no Rice3 calendar is resident. No product is selected post hoc; external
+recovery of an author- or publisher-supplied season map is now required.
 That frozen attrition audit also fails. First-rice retention is 97.22%, but
 retained cells have lower mean yield than excluded cells (3.44 versus 4.52
 t/ha; standardized difference -0.329). Second-rice retention is only 89.41%

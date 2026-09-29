@@ -1,0 +1,81 @@
+{
+  "checks_by_branch": {
+    "ri1_firr": {
+      "cells_calendar_concordant_before_spatial_gate": 0,
+      "cells_intersecting_lka_vnm_terminal_regions": 209,
+      "cells_with_any_mapped_second_uid": 111,
+      "cells_with_exact_author_calendar_after_spatial_gate": 0,
+      "cells_with_exactly_one_second_uid": 46,
+      "cells_with_full_spatial_ownership": 0,
+      "strict_support_cells": 67384
+    },
+    "ri1_noirr": {
+      "cells_calendar_concordant_before_spatial_gate": 0,
+      "cells_intersecting_lka_vnm_terminal_regions": 209,
+      "cells_with_any_mapped_second_uid": 111,
+      "cells_with_exact_author_calendar_after_spatial_gate": 0,
+      "cells_with_exactly_one_second_uid": 46,
+      "cells_with_full_spatial_ownership": 0,
+      "strict_support_cells": 67384
+    },
+    "ri2_firr": {
+      "cells_calendar_concordant_before_spatial_gate": 0,
+      "cells_intersecting_lka_vnm_terminal_regions": 156,
+      "cells_with_any_mapped_second_uid": 79,
+      "cells_with_exact_author_calendar_after_spatial_gate": 0,
+      "cells_with_exactly_one_second_uid": 27,
+      "cells_with_full_spatial_ownership": 0,
+      "strict_support_cells": 6197
+    },
+    "ri2_noirr": {
+      "cells_calendar_concordant_before_spatial_gate": 0,
+      "cells_intersecting_lka_vnm_terminal_regions": 156,
+      "cells_with_any_mapped_second_uid": 79,
+      "cells_with_exact_author_calendar_after_spatial_gate": 0,
+      "cells_with_exactly_one_second_uid": 27,
+      "cells_with_full_spatial_ownership": 0,
+      "strict_support_cells": 6197
+    }
+  },
+  "config": {
+    "path": "config/hultgren_all_ggcmi_rice_season_calendar_audit_v1.toml",
+    "sha256": "0c26e16bd0d65d19886410a96b411039b88bb73324c365797f1702ba781ad7d8"
+  },
+  "created_at_utc": "2026-09-29T00:27:41.164730+00:00",
+  "fail_closed_checks": {
+    "all_authorized_cell_counts_zero": true,
+    "authoritative_crosswalk_absent": true,
+    "no_independent_product_passed": true,
+    "weather_or_downstream_authorized": false
+  },
+  "implementation": {
+    "path": "scripts/validate_hultgren_all_ggcmi_rice_season_calendar_audit.py",
+    "sha256": "c95a2d04a61f3449a7a59394caf79dc6c40a5d76a351b0d732d8f4b880f8b2ae"
+  },
+  "inventory": {
+    "resident_files": [
+      "ggcmi-crop-calendar-phase3_2015soc_ri1_firr.nc",
+      "ggcmi-crop-calendar-phase3_2015soc_ri1_noirr.nc",
+      "ggcmi-crop-calendar-phase3_2015soc_ri2_firr.nc",
+      "ggcmi-crop-calendar-phase3_2015soc_ri2_noirr.nc"
+    ],
+    "ri3_present": false
+  },
+  "ledger": {
+    "path": "data/interim/hultgren_all_ggcmi_rice_season_calendar_audit_20260928.parquet",
+    "rows": 147162,
+    "sha256": "36395c5b8711c4011e9339c49f1984944a6d050be1b422a0e011ee6e0458e2b0"
+  },
+  "maximum_absolute_overlap_fraction_error": 0.0,
+  "receipt": {
+    "path": "data/provenance/hultgren_all_ggcmi_rice_season_calendar_audit_20260928.json",
+    "sha256": "b477b4928fb79c7ed5f87f931cbe52097535454bea03edb894a4f6d91a8e5b84"
+  },
+  "resources": {
+    "memory_cap_bytes": 536870912,
+    "memory_gate_passed": true,
+    "peak_rss_bytes": 407486464
+  },
+  "schema": "hultgren_all_ggcmi_rice_season_calendar_audit_validation/v1",
+  "status": "validated_diagnostic_all_resident_ggcmi_rice_season_calendar_audit_fail_closed"
+}
