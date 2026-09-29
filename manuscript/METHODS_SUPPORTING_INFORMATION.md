@@ -848,6 +848,29 @@ prespecified Census-change screen excludes Adams, Arapahoe, and Weld Counties,
 Colorado, pending historical-boundary resolution. This removes 44 sorghum
 pairs and no cotton pairs, leaving 5,226 sorghum and 3,501 cotton pairs.
 
+A frozen same-source outcome benchmark then queries the NASS
+`ALL PRODUCTION PRACTICES` county yield series for each crop and year without
+reading weather or drought inputs. The positive all-practice universes contain
+25,025 sorghum county-years in 1,578 counties and 24 states and 16,596 cotton
+county-years in 732 counties and 18 states. Exact-key matches exist for
+5,225/5,226 sorghum pairs and all 3,501 cotton pairs. Respectively 5,214/5,225
+and 3,499/3,501 matched all-practice yields lie inside the exact interval
+between reported irrigated and non-irrigated yields; the frozen rounding
+sensitivity leaves both shares above 99.7%. The rare violations remain in the
+audit, and no practice acreage weights are invented to reconstruct aggregate
+yield.
+
+The benchmark also establishes material sample selection. Direct-practice
+pairs cover 20.88% of the positive sorghum universe and 21.10% of cotton, and
+only six states per crop. Coverage falls from 22.21% to 7.75% for sorghum and
+from 23.06% to 13.55% for cotton between 1981--2007 and 2008--2018. The
+independent validator reparses all 76 hash-bound raw responses and 46,409 rows
+and exactly reconstructs the reported support and coherence metrics. Raw data
+and credentials remain ignored. This audit validates outcome consistency but
+keeps national representativeness, irrigation-treatment, causal, future,
+damage, and SCC gates closed; it also prevents interpreting the existing null
+predictive screens as national response tests.
+
 The hash-pinned NOAA nClimDiv snapshot supplies 226,560 county-months over
 1980--2019 for the 472 eligible counties. Under the fixed-primary crop window,
 the existing locked drought-feature operator constructs preplant-90-day,

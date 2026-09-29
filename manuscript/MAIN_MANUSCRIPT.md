@@ -640,6 +640,18 @@ labels even under a broadened query, so Quick Stats cannot supply the requested
 direct-practice rice comparison. No additional-crop response model has been
 fit, and every causal, national, damage, and SCC gate remains closed.
 
+A same-source all-production-practice benchmark confirms outcome coherence
+but quantifies that selection. Nearly every direct-practice pair matches a
+positive NASS all-practice yield (5,225/5,226 sorghum and 3,501/3,501 cotton),
+and more than 99.7% of matched all-practice yields lie within the two reported
+practice yields under the frozen rounding rule. Yet the paired panels cover
+only 20.88% and 21.10% of the corresponding all-practice county-year
+universes. Coverage falls to 7.75% for sorghum and 13.55% for cotton in
+2008--2018, and the paired samples span only 6 of 24 and 6 of 18 states.
+Thus the yield records are internally consistent, but the earlier null
+predictive gates remain selected regional tests rather than national-response
+evidence.
+
 ## 4. Empirical design
 
 The production registry includes a hierarchically pooled fixed-effects
