@@ -1,0 +1,283 @@
+{
+  "assets": {
+    "calendars": {
+      "firr": {
+        "finite_calendar_cells": 67420,
+        "growing_season_length_days_maximum": 223.0,
+        "growing_season_length_days_minimum": 69.0,
+        "title": "GGCMI crop calendar for Phase 3",
+        "version": "1.01"
+      },
+      "noirr": {
+        "finite_calendar_cells": 67420,
+        "growing_season_length_days_maximum": 224.0,
+        "growing_season_length_days_minimum": 69.0,
+        "title": "GGCMI crop calendar for Phase 3",
+        "version": "1.01"
+      }
+    },
+    "candidate_value_weights": {
+      "faostat_baseline_constant_usd_countries": 75,
+      "mapspam_global_production_mt": 160731545.4999106,
+      "mapspam_positive_5arcmin_cells": 335460,
+      "matched_faostat_value_production_share": 0.9863029308083149,
+      "spatial_value_weights_authorized": false
+    },
+    "continuous_candidate_families": {
+      "direct": {
+        "bytes": 224668565,
+        "observed_outcomes": 206087,
+        "path": "data/interim/continuous_global_panel_1982_2016_v1/continuous_candidates/soy_1982_2016_direct.parquet",
+        "rows": 837690,
+        "sha256": "ce26936cd3d175c56c89333c9f5805e242b6a32961e41babe67e8f55117518dd"
+      },
+      "direct_and_heat_share_rows_and_observed_outcomes": true,
+      "heat": {
+        "bytes": 47734156,
+        "observed_outcomes": 206087,
+        "path": "data/interim/continuous_global_panel_1982_2016_v1/continuous_candidates/soy_1982_2016_heat.parquet",
+        "rows": 837690,
+        "sha256": "a949b4b1fa62708775fad10ba9f01105d5fe3e29dd5472d6792dea9b19a4c100"
+      },
+      "scpdsi": {
+        "bytes": 45257433,
+        "observed_outcomes": 204917,
+        "path": "data/interim/continuous_global_panel_1982_2016_v1/continuous_candidates/soy_1982_2016_scpdsi.parquet",
+        "rows": 772352,
+        "sha256": "e686440825910e4ef36f80677085561e70448993d6f8479b34cf1479f944cbc2"
+      },
+      "scpdsi_is_mutually_exclusive_and_has_narrower_support": true
+    },
+    "historical_welfare_support": {
+      "consecutive_pair_area_coverage_fraction": 0.8928807356561087,
+      "global_observed_production_coverage_identified": false,
+      "observed_cell_count_coverage_fraction": 0.9799118079372856,
+      "revenue_coverage_identified": false
+    },
+    "irrigation_exposure_weights": {
+      "fixed_vintage": [
+        "fixed_2000"
+      ],
+      "global_area_weighted_irrigated_share": 0.08223633259647914,
+      "global_irrigated_area_ha": 6093136.444215447,
+      "global_rainfed_area_ha": 67999861.77001083,
+      "global_total_area_ha": 74092998.21422628,
+      "irrigation_regimes": [
+        "firr",
+        "noirr"
+      ],
+      "maximum_absolute_cell_share_sum_error": 0.0,
+      "production_eligible": true,
+      "rows": 48108,
+      "supported_cells": 24054
+    },
+    "outcome_and_direct_weather": {
+      "cells_with_positive_outcome": 6001,
+      "direct_only_consecutive_positive_pairs": 199457,
+      "one_outcome_per_cell_year": true,
+      "positive_observed_outcomes": 206087,
+      "positive_observed_outcomes_by_year": {
+        "1982": 5987,
+        "1983": 5989,
+        "1984": 5986,
+        "1985": 5989,
+        "1986": 5986,
+        "1987": 5987,
+        "1988": 6000,
+        "1989": 5998,
+        "1990": 5995,
+        "1991": 5997,
+        "1992": 5998,
+        "1993": 5998,
+        "1994": 5994,
+        "1995": 5997,
+        "1996": 5997,
+        "1997": 5997,
+        "1998": 6000,
+        "1999": 5999,
+        "2000": 5999,
+        "2001": 5997,
+        "2002": 5998,
+        "2003": 5998,
+        "2004": 5996,
+        "2005": 6000,
+        "2006": 5999,
+        "2007": 5996,
+        "2008": 5999,
+        "2009": 5998,
+        "2010": 5997,
+        "2011": 5468,
+        "2012": 5467,
+        "2013": 5470,
+        "2014": 5470,
+        "2015": 4873,
+        "2016": 5468
+      },
+      "rows": 837690,
+      "rows_by_year": {
+        "1982": 23934,
+        "1983": 23934,
+        "1984": 23934,
+        "1985": 23934,
+        "1986": 23934,
+        "1987": 23934,
+        "1988": 23934,
+        "1989": 23934,
+        "1990": 23934,
+        "1991": 23934,
+        "1992": 23934,
+        "1993": 23934,
+        "1994": 23934,
+        "1995": 23934,
+        "1996": 23934,
+        "1997": 23934,
+        "1998": 23934,
+        "1999": 23934,
+        "2000": 23934,
+        "2001": 23934,
+        "2002": 23934,
+        "2003": 23934,
+        "2004": 23934,
+        "2005": 23934,
+        "2006": 23934,
+        "2007": 23934,
+        "2008": 23934,
+        "2009": 23934,
+        "2010": 23934,
+        "2011": 23934,
+        "2012": 23934,
+        "2013": 23934,
+        "2014": 23934,
+        "2015": 23934,
+        "2016": 23934
+      },
+      "unique_cells": 23934,
+      "year_maximum": 2016,
+      "year_minimum": 1982
+    }
+  },
+  "claim_gates": {
+    "causal_interpretation_authorized": false,
+    "damage_calculation_authorized": false,
+    "economic_winner_loser_interpretation_authorized": false,
+    "geographic_response_heterogeneity_authorized": false,
+    "give_integration_authorized": false,
+    "readiness_audit_authorized": true,
+    "response_fit_authorized": false,
+    "response_protocol_frozen": false,
+    "scc_authorized": false
+  },
+  "contract": {
+    "path": "config/soybean_global_response_readiness_audit_v1.toml",
+    "sha256": "6d0e1aa31798bc5c4486bc35637fe9e9fc56c3b47a0e7290115de4dc3075218f"
+  },
+  "created_at_utc": "2026-09-29T00:53:12.361081+00:00",
+  "crop_selection": {
+    "reason": "soybean has identified single-season outcome/calendar mapping and production-eligible rainfed/irrigated MIRCA shares; resident wheat weights do not identify spring versus winter GDHY outcomes",
+    "selected": "soybean",
+    "wheat_detailed_audit_needed": false
+  },
+  "implementation": {
+    "path": "scripts/audit_soybean_global_response_readiness.py",
+    "sha256": "c6664596a2936c78c12f971c4d212ba870612c2b79941960c6c5099e888c2e8f"
+  },
+  "readiness": {
+    "causal_response_ready": false,
+    "competing_historical_scpdsi_family_ready": true,
+    "continuous_1982_2016_direct_and_heat_panel_ready": true,
+    "damage_or_scc_ready": false,
+    "economic_winner_loser_weights_ready": false,
+    "geographic_heterogeneity_response_ready": false,
+    "matched_marginal_co2_climate_path_ready": false,
+    "outcome_weather_calendar_exposure_chain_ready": true,
+    "response_protocol_frozen": false,
+    "soil_moisture_family_ready": false
+  },
+  "resources": {
+    "memory_cap_bytes": 536870912,
+    "memory_gate_passed": true,
+    "peak_rss_bytes": 502497280
+  },
+  "response_evidence": {
+    "causal_interpretation": false,
+    "country_mapping": {
+      "country_is_crop_footprint_proxy_not_authoritative_boundary": true,
+      "mapped_country_labels": 21,
+      "mapped_country_years": 588,
+      "training_pairs_absent_country": 2798,
+      "training_pairs_ambiguous_country": 7069,
+      "training_pairs_single_country": 157003
+    },
+    "external_structural_spatial_benchmark": {
+      "conclusion": "global_mean_drying_robust_but_spatial_concordance_with_published_historical_eta_sensitivity_is_weak_and_mixed",
+      "validation_passed": true,
+      "yield_response_gate": false
+    },
+    "historical_equal_weight_association_pairs": 166870,
+    "independent_later_rainfed_distribution_confirmation": {
+      "bootstrap_interval": {
+        "p2_5": -0.008387577758590148,
+        "p50": -0.0013492002465431002,
+        "p97_5": 0.0031269029443448996
+      },
+      "candidate_minus_quantity_rmse": -0.0017216893157899205,
+      "folds_improving": 2,
+      "occupied_10degree_clusters": 55,
+      "pairs": 21026,
+      "passes": false
+    },
+    "nonlinear_rescue": {
+      "passes": false,
+      "quantity_nonlinear_minus_linear_pooled_rmse": 0.0037283285669180155,
+      "terminal_pairs": 24863,
+      "training_pairs": 157003,
+      "uncertainty_status": "unsupported_scoring_country_count"
+    },
+    "spatial_terminal_prediction": {
+      "distribution_minus_quantity_rmse": {
+        "cluster_bootstrap": {
+          "median": -0.0009919034663956466,
+          "p025": -0.0025176867806527684,
+          "p975": 0.000734133731658176
+        },
+        "point_rmse_difference": -0.0010117300475937785
+      },
+      "quantity_minus_heat_rmse": {
+        "cluster_bootstrap": {
+          "median": -0.0009450374522734645,
+          "p025": -0.00230053039135349,
+          "p975": 0.0005352082662165719
+        },
+        "point_rmse_difference": -0.0009495330333030017
+      },
+      "scpdsi_mean_minus_quantity_rmse": {
+        "cluster_bootstrap": {
+          "median": 0.002261085444032293,
+          "p025": 0.0013487871995731553,
+          "p975": 0.003118975560343371
+        },
+        "point_rmse_difference": 0.0022526073915315192
+      },
+      "terminal_10degree_blocks": 55,
+      "terminal_pairs": 26004,
+      "training_10degree_blocks": 56,
+      "training_pairs": 166870
+    }
+  },
+  "schema": "soybean_global_response_readiness_audit/v1",
+  "single_highest_value_next_computation": {
+    "action": "freeze, then run an outcome-blind continuous-panel design/heterogeneity preflight; do not estimate yield slopes",
+    "exact_scope": "1982-2010 soybean direct seasonal-quantity basis with fixed-MIRCA-2000 basis-before-weighting, one GDHY outcome, cell first differences, predeclared country/region-year controls, and separate direct-distribution and climatic-water-balance views",
+    "fit_authorized": false,
+    "name": "soybean_continuous_design_and_heterogeneity_preflight",
+    "outputs": [
+      "residualized rank and condition",
+      "within-stratum precipitation variation and overlap",
+      "country and 10-degree-block pair/year support",
+      "leverage and effective cluster counts",
+      "support-qualified heterogeneity resolution"
+    ],
+    "why": "the physical input chain is already continuous; another response fit before proving heterogeneity design support would repeat the existing noncausal and unstable evidence"
+  },
+  "status": "complete_soybean_selected_nonmaize_readiness_audit_fail_closed_no_fit"
+}

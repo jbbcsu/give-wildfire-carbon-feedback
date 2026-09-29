@@ -1,0 +1,137 @@
+{
+  "audit": {
+    "path": "data/provenance/soybean_global_response_readiness_audit_20260928.json",
+    "sha256": "11a02900d4ccd1de8906173ecaa9fff0f1f454157b38f6826b362bd2561109d7"
+  },
+  "checks": {
+    "calendar_finite_cells": {
+      "firr": 67420,
+      "noirr": 67420
+    },
+    "country_support": {
+      "absent_pairs": 2798,
+      "ambiguous_pairs": 7069,
+      "countries": 21,
+      "singleton_pairs": 157003
+    },
+    "direct_panel": {
+      "cells_with_positive_outcome": 6001,
+      "direct_only_consecutive_positive_pairs": 199457,
+      "one_outcome_per_cell_year": true,
+      "positive_observed_outcomes": 206087,
+      "positive_observed_outcomes_by_year": {
+        "1982": 5987,
+        "1983": 5989,
+        "1984": 5986,
+        "1985": 5989,
+        "1986": 5986,
+        "1987": 5987,
+        "1988": 6000,
+        "1989": 5998,
+        "1990": 5995,
+        "1991": 5997,
+        "1992": 5998,
+        "1993": 5998,
+        "1994": 5994,
+        "1995": 5997,
+        "1996": 5997,
+        "1997": 5997,
+        "1998": 6000,
+        "1999": 5999,
+        "2000": 5999,
+        "2001": 5997,
+        "2002": 5998,
+        "2003": 5998,
+        "2004": 5996,
+        "2005": 6000,
+        "2006": 5999,
+        "2007": 5996,
+        "2008": 5999,
+        "2009": 5998,
+        "2010": 5997,
+        "2011": 5468,
+        "2012": 5467,
+        "2013": 5470,
+        "2014": 5470,
+        "2015": 4873,
+        "2016": 5468
+      },
+      "rows": 837690,
+      "rows_by_year": {
+        "1982": 23934,
+        "1983": 23934,
+        "1984": 23934,
+        "1985": 23934,
+        "1986": 23934,
+        "1987": 23934,
+        "1988": 23934,
+        "1989": 23934,
+        "1990": 23934,
+        "1991": 23934,
+        "1992": 23934,
+        "1993": 23934,
+        "1994": 23934,
+        "1995": 23934,
+        "1996": 23934,
+        "1997": 23934,
+        "1998": 23934,
+        "1999": 23934,
+        "2000": 23934,
+        "2001": 23934,
+        "2002": 23934,
+        "2003": 23934,
+        "2004": 23934,
+        "2005": 23934,
+        "2006": 23934,
+        "2007": 23934,
+        "2008": 23934,
+        "2009": 23934,
+        "2010": 23934,
+        "2011": 23934,
+        "2012": 23934,
+        "2013": 23934,
+        "2014": 23934,
+        "2015": 23934,
+        "2016": 23934
+      },
+      "unique_cells": 23934,
+      "year_maximum": 2016,
+      "year_minimum": 1982
+    },
+    "later_confirmation_pairs": 21026,
+    "spatial_support": {
+      "terminal_blocks": 55,
+      "terminal_pairs": 26004,
+      "training_blocks": 56,
+      "training_pairs": 166870
+    },
+    "weights": {
+      "cells": 24054,
+      "irrigated_area_ha": 6093136.444215447,
+      "maximum_absolute_share_error": 0.0,
+      "rainfed_area_ha": 67999861.77001083,
+      "rows": 48108,
+      "total_area_ha": 74092998.21422628
+    }
+  },
+  "claim_gates": {
+    "audit_validated": true,
+    "response_fit_or_downstream_authorized": false
+  },
+  "config": {
+    "path": "config/soybean_global_response_readiness_audit_v1.toml",
+    "sha256": "6d0e1aa31798bc5c4486bc35637fe9e9fc56c3b47a0e7290115de4dc3075218f"
+  },
+  "created_at_utc": "2026-09-29T00:54:17.568509+00:00",
+  "implementation": {
+    "path": "scripts/validate_soybean_global_response_readiness.py",
+    "sha256": "c16f61c0da023bcd120cfb03c8b7436aef48d7fdd62dae4331e7cbd02c58b4f5"
+  },
+  "resources": {
+    "memory_cap_bytes": 536870912,
+    "memory_gate_passed": true,
+    "peak_rss_bytes": 249479168
+  },
+  "schema": "soybean_global_response_readiness_audit_validation/v1",
+  "status": "validated_soybean_global_response_readiness_fail_closed_no_fit"
+}

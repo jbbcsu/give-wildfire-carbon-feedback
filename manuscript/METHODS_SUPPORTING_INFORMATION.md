@@ -3012,6 +3012,48 @@ recomputation and an independently coded two-test Holm check match the stored
 result, while all causal, economic, response-draw, damage, and SCC gates remain
 closed. Peak validation memory remains below 512 MiB.
 
+### Soybean continuous-response readiness and next design gate
+
+Before estimating another soybean response, we audit the entire resident
+chain under `config/soybean_global_response_readiness_audit_v1.toml`. The
+direct-weather and heat-control panels each contain 837,690 rows in 23,934
+cells for every year from 1982 through 2016. There are 206,087 positive
+observed outcomes in 6,001 cells and 199,457 direct-only consecutive positive
+pairs. Separate GGCMI `noirr` and `firr` calendars each have 67,420 finite
+cells. The fixed-2000 MIRCA basis has 48,108 regime rows in 24,054 cells,
+74.093 million ha total soybean area, and shares summing exactly to one; all
+nonlinear bases are constructed within regime before weighting. The
+historical pair support represents 89.2881% of positive MIRCA area, and the
+remaining area is neither assigned a zero response nor renormalized away.
+
+Existing prediction results do not clear a response-selection gate. On
+166,870 training and 26,004 terminal pairs, seasonal quantity minus heat-only
+RMSE is -0.0009495 with a 10-degree-block bootstrap interval of
+[-0.0023005, +0.0005352]. Distribution minus quantity RMSE is -0.0010117
+[-0.0025177, +0.0007341]. On the independently later 21,026-pair rainfed
+confirmation, distribution minus quantity RMSE is -0.0017217
+[-0.0083876, +0.0031269], only two of five folds and 41.8% of occupied blocks
+improve, and nonlinear quantity worsens terminal RMSE by 0.0037283. The
+country overlay assigns 157,003 training pairs uniquely, 7,069 ambiguously,
+and 2,798 not at all, but it is a crop-footprint proxy rather than an
+authoritative ownership geography. Only 21 country labels remain, with one
+terminal fold containing a single scoring country, so the required country
+bootstrap is unsupported.
+
+The next computation is therefore an outcome-blind 1982--2010
+design-and-heterogeneity preflight rather than an immediate slope estimate.
+It preserves one GDHY outcome, first differences by cell, fixed-2000 MIRCA
+basis-before-weighting, and preregistered country- or region-year controls.
+Seasonal direct quantity is primary; distribution and climatic-water-balance
+representations remain separate competing families. The preflight reports
+only residualized rank and condition numbers, within-geography variation and
+overlap, support, leverage, and effective cluster counts. Any later slope fit
+requires a separately frozen response protocol and attribution rule. The
+audit and independent validation are recorded in
+`SOYBEAN_GLOBAL_RESPONSE_READINESS_AUDIT_RESULTS_20260928.md` and
+`data/provenance/soybean_global_response_readiness_validation_20260928.json`;
+both keep response, causal, damage, and SCC gates false.
+
 Multi-crop audit reporting is fail-closed. The audit validator binds the JSON
 artifact to the SHA-256 of the frozen response specification; requires the
 explicitly declared crop-season set and every crop-by-model-by-holdout result;

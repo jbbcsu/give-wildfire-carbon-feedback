@@ -1,0 +1,136 @@
+schema_version = 1
+contract_id = "soybean_global_response_readiness_audit_v1"
+memory_cap_bytes = 536870912
+scope = "resident soybean outcome/weather/calendar/weight/response readiness and gap audit only"
+
+[sources.primary_response_registry]
+path = "config/primary_response_spec.toml"
+sha256 = "9305c134d2e6d96215d6c0a671ed549f71442fa61f15ca573a6e59d7e7350429"
+
+[sources.irrigation_estimand]
+path = "config/irrigation_aggregate_estimand.toml"
+sha256 = "949a411441c7a678b1a643af063e331e2e923e5ea83c4b8c11c7f8d21088a16e"
+
+[sources.direct_receipt]
+path = "outputs/continuous_global_panel_1982_2016_v1/soy_1982_2016_direct_assembly_receipt.json"
+sha256 = "50462d0e14e0e6a6972e088119552f370627e64d7cceeb0c11b845e5d6d908d0"
+
+[sources.direct_panel]
+path = "data/interim/continuous_global_panel_1982_2016_v1/continuous_candidates/soy_1982_2016_direct.parquet"
+sha256 = "ce26936cd3d175c56c89333c9f5805e242b6a32961e41babe67e8f55117518dd"
+
+[sources.heat_receipt]
+path = "outputs/continuous_global_panel_1982_2016_v1/soy_1982_2016_heat_assembly_receipt.json"
+sha256 = "6039edf8b2f14fd0ceb390cc9811a31bc186cbd33e4a1161fd12b5063fb2a2e8"
+
+[sources.heat_panel]
+path = "data/interim/continuous_global_panel_1982_2016_v1/continuous_candidates/soy_1982_2016_heat.parquet"
+sha256 = "a949b4b1fa62708775fad10ba9f01105d5fe3e29dd5472d6792dea9b19a4c100"
+
+[sources.scpdsi_receipt]
+path = "outputs/continuous_global_panel_1982_2016_v1/soy_1982_2016_scpdsi_assembly_receipt.json"
+sha256 = "dacbef432471f4561db9b1a105d069c999e40a1d607d77862b1bceab33d7e31a"
+
+[sources.scpdsi_panel]
+path = "data/interim/continuous_global_panel_1982_2016_v1/continuous_candidates/soy_1982_2016_scpdsi.parquet"
+sha256 = "e686440825910e4ef36f80677085561e70448993d6f8479b34cf1479f944cbc2"
+
+[sources.calendar_noirr]
+path = "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_soy_noirr.nc"
+sha256 = "0c6d5fe1f5d6fc262e5c2e46d626204d36200a4890402f52ffd4f3b0d38834d3"
+
+[sources.calendar_firr]
+path = "data/raw/crop_calendars/ggcmi-crop-calendar-phase3_2015soc_soy_firr.nc"
+sha256 = "268eaa89d5cbfe2545f760dc65b44dc423bf47f0a508817cf279516ba9ad3ee3"
+
+[sources.mirca_weights]
+path = "data/interim/mirca_os_v2/irrigation_shares_2000.parquet"
+sha256 = "7512ffc580928a03f75bbce5f3d4263c9bb2c631a8ff04075973acb4b149e4ba"
+
+[sources.mirca_audit]
+path = "data/interim/mirca_os_v2/irrigation_shares_2000_audit.json"
+sha256 = "a4b4365a863bcef058443af5936b60197c6db711aed1248206edc5bdbe8b486a"
+
+[sources.mirca_welfare_support]
+path = "data/interim/mirca_os_v2/irrigation_shares_2000_welfare_support_audit.json"
+sha256 = "7c0e9b6fe9b16b7b0b29139fe48d02900ee03a476d066b661a97e737d6742212"
+
+[sources.country_proxy_receipt]
+path = "data/provenance/global_country_proxy_20260907.json"
+sha256 = "e32ceea337b61542e1ae395be9c7ec82824a054a6b0661ffdd11b3f4b2bf2b6c"
+
+[sources.country_proxy]
+path = "data/interim/global_country_proxy_20260907.parquet"
+sha256 = "3094440e2de49e1e385ea69876efa773dcbf370d22ebaa68a919f8a27838d961"
+
+[sources.spatial_prediction]
+path = "data/provenance/global_continuous_geographic_cluster_audit_20260907.json"
+sha256 = "7d570f825259e72764b6ddb54c501c6f2c2833005f05290ef6558bb0eb1fb3a3"
+
+[sources.country_association]
+path = "data/provenance/global_country_control_associations_20260907.json"
+sha256 = "0c1e9b7b9317e5bd248e6b775a82b4111376962243c4c6ba7626a695a2019c4d"
+
+[sources.historical_association]
+path = "data/provenance/global_historical_moisture_associations_20260907.v2.json"
+sha256 = "94d24683f35246bb3841d983f988fb2989d42636a5a914bb0da9e77f0d39c18a"
+
+[sources.later_distribution_confirmation]
+path = "data/provenance/rainfed_distribution_later_period_confirmation_20260925.json"
+sha256 = "b6f05db1b2844dd62ffbefb771cb4661b95f406b89135ed24a93eb43cd74ca02"
+
+[sources.nonlinear_prediction]
+path = "data/provenance/matiu_structure_soy_20260925.json"
+sha256 = "da4ed7d8e1cb8021a11ce1ba683335e79da15b0865b620d11957c6c66e3ea596"
+
+[sources.mapspam_production_audit]
+path = "data/interim/welfare_weights/mapspam2000_maize_soy_production.audit.json"
+sha256 = "7187655f33f73e788151e021c34afb852f895e1c855e04222393ef998277b17b"
+
+[sources.faostat_value_audit]
+path = "data/interim/welfare_weights/faostat_qv_maize_soy.audit.json"
+sha256 = "79a23ee31c7fabee9f8aeeeb6e28a57e8ccc2fad6f6922a025a1be074ad2e4d1"
+
+[sources.value_crosswalk_audit]
+path = "data/interim/welfare_weights/mapspam_faostat_crosswalk.audit.json"
+sha256 = "b8321b988621b675148242fc80674e64668176996fc0c4d384e1d95463876024"
+
+[sources.structural_source_audit]
+path = "data/provenance/tuninetti_2026_source_audit_20260922.json"
+sha256 = "ebf22a3205d2576c004b0021eb6ec0fd377e5ddadca4b155337d80befc8b6c55"
+
+[sources.structural_spatial_validation]
+path = "data/provenance/tuninetti_2026_spatial_validation_public_evidence_20260922.json"
+sha256 = "c6edb6494311e216091273efad2c5a3c3a3ac729133c7f86fda2a93869b79891"
+
+[family_rules]
+primary_direct_family = "seasonal precipitation quantity with temperature/heat controls"
+distribution_family = "incremental direct-pattern candidate, not stacked automatically"
+climatic_water_balance_family = "mutually exclusive alternative to direct precipitation"
+soil_moisture_family = "unavailable"
+simultaneous_moisture_family_stacking_allowed = false
+one_gdhy_outcome_per_cell_year = true
+basis_before_irrigation_weighting_required = true
+
+[next_gate]
+name = "soybean_continuous_design_and_heterogeneity_preflight"
+fit_outcome_response = false
+purpose = "freeze and audit residualized design rank, overlap, leverage, country/block support, and feasible heterogeneity resolution before any response fit"
+training_years = "1982-2010"
+terminal_years = "2012-2016 retained as already-inspected predictive validation, not fresh causal validation"
+required_fixed_effects = "cell first differences plus country-by-year or defensibly predeclared regional-year controls"
+required_primary_moisture_family = "direct seasonal quantity"
+required_comparison_families = ["direct distribution extension", "climatic water balance"]
+required_nonstacking = true
+required_heterogeneity_output = "support-qualified geographic response strata only; no economic winner/loser label"
+
+[claim_gates]
+readiness_audit_authorized = true
+response_protocol_frozen = false
+response_fit_authorized = false
+causal_interpretation_authorized = false
+geographic_response_heterogeneity_authorized = false
+economic_winner_loser_interpretation_authorized = false
+damage_calculation_authorized = false
+scc_authorized = false
+give_integration_authorized = false

@@ -565,6 +565,24 @@ crop-value input is yet pinned. We therefore do not normalize represented
 cells to global agricultural welfare or characterize the sample as global
 production coverage.
 
+A dedicated soybean readiness audit confirms that soybean is the strongest
+resident non-maize expansion path, but does not authorize a response fit. The
+continuous 1982--2016 direct-weather panel contains 837,690 cell-years,
+206,087 positive observed outcomes in 6,001 cells, and 199,457 consecutive
+positive-outcome pairs. The matched 1982--1989 pair support represents 89.29%
+of positive MIRCA soybean area without renormalizing the omitted area.
+Seasonal quantity lowers terminal pooled RMSE relative to heat controls by
+0.000950, but its paired block-bootstrap interval includes zero
+(-0.002301 to +0.000535). Adding within-season distribution lowers RMSE
+relative to quantity by 0.001012, again with an interval spanning zero
+(-0.002518 to +0.000734); the independent later-period distribution check
+also fails its stability rule. The available country overlay is only a
+crop-footprint proxy and yields too few scoring countries in one fold for the
+prespecified country bootstrap. We therefore proceed first to an
+outcome-blind design-and-heterogeneity preflight on the continuous 1982--2010
+support. No soybean coefficient, geographic impact, damage, or SCC result is
+reported from this readiness audit.
+
 The secondary U.S. validation track now contains 21,596 paired irrigated and
 non-irrigated crop-county-years over 1981--2019: 7,079 corn, 4,845 soybean,
 and 9,672 all-classes-wheat pairs. This support is regional, not nationally
