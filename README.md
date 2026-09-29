@@ -48,6 +48,15 @@ versioned `countrycode` dependency are absent. Even a future multiplier-free
 profit response would not supply consumer surplus or establish producer-
 surplus equivalence.
 
+The independent [FishMIP–FAO welfare-bridge audit](FISHMIP_FAO_WELFARE_BRIDGE_READINESS_20260928.md)
+finds no defensible resident-data coupling. FishMIP supplies global aggregate
+catch density on 40,398 common model cells but no commodity, incidence,
+economic, or matched-pulse dimensions. FAO supplies physical species-level
+vessel-flag landings but no prices, costs, elasticities, trade, or surplus.
+The audit records a five-component external bioeconomic data request and
+forbids scalar-price, fixed-share, revenue-as-welfare, and scenario-as-pulse
+shortcuts.
+
 ## Proposed scope
 
 Estimate the marginal welfare consequences of CO2-driven changes to marine

@@ -1,0 +1,88 @@
+schema = "fishmip_fao_welfare_bridge_readiness_config_v1"
+role = "source_pinned_biophysical_to_welfare_bridge_audit_and_external_data_request"
+registered_utc_date = "2026-09-28"
+
+[inputs]
+fishmip_catalog = "data/provenance/fishmip_isimip3b_tc_catalog.toml"
+fishmip_catalog_sha256 = "d6a01b383d138c246003c547bc5fbbc4b165b41a8572d16766d6fb85a026e31e"
+fishmip_spatial = "data/provenance/fishmip_control_adjusted_spatial_consensus_20260830.json"
+fishmip_spatial_sha256 = "a7d40125cb182002ac563b16f31473d55ca05d79c2fa02a35c8a94c10c1ec8cc"
+fishmip_fao_prediction = "data/provenance/fishmip_fao_blocked_level_prediction_20260925.json"
+fishmip_fao_prediction_sha256 = "b1db757306d4a27eecc180e16c636fefd9d0278ec9f7a7f4ec9c1948bfb1ae7a"
+fao_panel_receipt = "data/provenance/fao_fishstat_marine_tonnage_panel_20260924.json"
+fao_panel_receipt_sha256 = "c13c45f6001497292ba2eeb0f2e0d4aa730c24ba19ac2c4f5b1c05ac720dfba9"
+fao_panel = "data/derived/fao/fishstat_marine_tonnage_1950_2024.csv.gz"
+fao_panel_sha256 = "7b3dcb8bfcd9b1857274c7972ef9d0ddfb62deec825b0ff7af1af26918b97ec4"
+fao_turnover = "data/provenance/fao_fishstat_marine_composition_turnover_20260903.json"
+fao_turnover_sha256 = "03d4b283c3a08e924a077d07737355380af628c4de35b2a3eeece96c4f1ae353"
+eez_decision = "data/provenance/marine_regions_eez_source_decision_20260828.toml"
+eez_decision_sha256 = "eea6129a6286784d452ced4a2e978e5845f4f69f31d8512b7a867da36628f2ee"
+give_overlap = "data/provenance/fisheries_give_overlap_audit_20260925.json"
+give_overlap_sha256 = "77e73d1d332f0399163e0edc8fca91b0ec62c9d0c40233ee3c1a006e588778a8"
+model_contract = "MODEL_CONTRACT.md"
+model_contract_sha256 = "675763981dc483ddd5c9d65422b2fe8b10184f112cd1dbe4c0790065b7d6f69f"
+
+[expected]
+fishmip_files = 20
+fishmip_matrix_results = 8
+fishmip_common_finite_cells = 40398
+fao_records = 27625
+fao_years = 75
+fao_static_fields = 14
+fao_economic_static_field_count = 0
+contract_status_family_paths_beating_constant = 0
+request_components = 5
+
+[[external_data_request.components]]
+id = "matched_marginal_biophysical_counterfactual"
+purpose = "Replace SSP contrasts with same-realization baseline and one-ton-CO2-pulse harvest or availability paths."
+required_keys = ["draw_id", "climate_model", "ecosystem_model", "management_scenario", "year", "grid_cell_or_stock_id", "commodity_id"]
+required_variables = ["baseline_harvest_or_availability", "pulse_harvest_or_availability", "unit", "coverage_status"]
+requirements = ["global declared support", "identical baseline/pulse masks", "stock or market-commodity identity", "no scenario contrast substituted for pulse"]
+
+[[external_data_request.components]]
+id = "spatial_and_market_incidence"
+purpose = "Map modeled supply to harvest rights, producers, landings, trade, and consumers without equating EEZ location with incidence."
+required_keys = ["grid_cell_or_stock_id", "year", "producer_country_iso3", "consumer_country_iso3"]
+required_variables = ["harvest_fraction", "landing_fraction", "trade_or_consumption_fraction", "high_seas_flag", "joint_or_disputed_flag", "coverage_status"]
+requirements = ["licensed checksum-pinned geometry", "fractions conserve within declared support", "high seas and disputed waters remain explicit", "no missing allocation treated as zero"]
+
+[[external_data_request.components]]
+id = "direct_market_welfare"
+purpose = "Identify consumer and producer surplus rather than revenue or multiplied output."
+required_keys = ["commodity_id", "country_iso3", "year", "management_scenario"]
+required_variables = ["baseline_price", "baseline_quantity", "demand_parameter_or_elasticity", "supply_or_cost_parameter", "currency_price_year", "coverage_status"]
+requirements = ["consumer surplus reported separately", "producer surplus reported separately", "management and effort response explicit", "trade closure explicit", "no indirect or induced output multiplier"]
+
+[[external_data_request.components]]
+id = "overlap_and_substitution_boundary"
+purpose = "Prevent overlap with GIVE agriculture, mortality, CIAM, and excluded ocean services."
+required_keys = ["accounting_boundary_id"]
+required_variables = ["aquaculture_treatment", "terrestrial_food_substitution_treatment", "nutrition_mortality_treatment", "ciam_exclusion", "coral_and_biodiversity_exclusion"]
+requirements = ["nutrition excluded unless incremental causes and deaths are reconciled", "terrestrial food feedback excluded or jointly modeled", "gross revenue excluded as welfare"]
+
+[[external_data_request.components]]
+id = "provenance_and_missingness"
+purpose = "Make every bridge input independently auditable and distributable."
+required_keys = ["source_id", "version"]
+required_variables = ["license", "source_url_or_doi", "sha256_or_sha512", "coverage_definition", "missing_zero_suppressed_codes"]
+requirements = ["redistribution permission explicit", "raw and derived hashes pinned", "no imputation or renormalization before registered review"]
+
+[forbidden_shortcuts]
+global_tc_times_single_price = true
+fixed_fao_country_or_species_shares = true
+eez_location_equals_producer_or_consumer_incidence = true
+historical_fit_probability_weights = true
+gross_revenue_equals_welfare = true
+blue_scc_coefficient_transfer = true
+ssp_difference_equals_marginal_co2_pulse = true
+
+[claim_gates]
+globally_complete_welfare_ready_biophysical_response = false
+fishmip_to_fao_commodity_bridge_identified = false
+country_incidence_identified = false
+consumer_surplus_identified = false
+producer_surplus_identified = false
+overlap_resolved = false
+matched_co2_pulse_available = false
+damage_or_scc_authorized = false
