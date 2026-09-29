@@ -1,0 +1,127 @@
+schema_version = 1
+protocol_id = "us_corn_quantity_pdsi_spatial_inference_v1"
+analysis_role = "frozen_future_response_and_spatial_inference_protocol_only"
+synthetic_validation_authorized = true
+real_outcome_read_authorized = false
+real_response_fit_authorized = false
+coefficient_output_authorized = false
+national_claim_authorized = false
+causal_claim_authorized = false
+damage_claim_authorized = false
+scc_claim_authorized = false
+
+[sample]
+crop = "corn_grain"
+practices = ["non_irrigated", "irrigated"]
+practice_rule = "fit and report each practice separately; pooling, practice interactions, and cross-practice model selection are forbidden"
+year_min = 1981
+year_max = 2018
+terminal_year_min = 2012
+terminal_year_max = 2018
+minimum_full_rows = 3000
+minimum_full_counties = 100
+minimum_full_states = 5
+minimum_terminal_rows = 500
+minimum_terminal_counties = 100
+minimum_terminal_states = 5
+exact_practice_pair_exposure_identity_required = true
+
+[fixed_effects]
+effects = ["county_geoid", "state_by_harvest_year"]
+outcome = "log_yield_bu_acre"
+primary_covariance = "county_CR1"
+county_cluster = "county_geoid"
+demeaning_tolerance = 1e-10
+demeaning_max_iterations = 1000
+
+[common_controls]
+features = ["stage1_tmean_c", "stage2_tmean_c", "stage3_tmean_c"]
+form = "linear_and_quadratic"
+
+[quantity_family]
+features = ["precip_mm"]
+form = "linear_and_quadratic"
+increment_mm = 100.0
+reference_quantiles = [0.25, 0.50, 0.75]
+candidate_authorized_for_future_fit = true
+
+[pdsi_family]
+features = ["pdsi_season_mean"]
+form = "linear_and_quadratic"
+decrement_units = 1.0
+reference_quantiles = [0.25, 0.50, 0.75]
+candidate_authorized_for_future_fit = true
+
+[family_separation]
+candidate_families = ["quantity", "pdsi"]
+stacking_direct_rainfall_and_pdsi = false
+stacking_with_spei = false
+cross_family_selection_on_response_results = false
+comparison_rule = "report both candidate families as mutually exclusive alternatives; do not choose or average them using in-sample significance"
+
+[spatial_covariance]
+method = "county_CR1_plus_same_year_cross_county_Bartlett_distance_scores"
+coordinate_source_required = "Census_TIGER_Line_2019_county_internal_point_INTPTLAT_INTPTLON"
+coordinate_file_hash_required_before_real_fit = true
+distance = "great_circle_haversine_km"
+kernel = "Bartlett"
+cutoffs_km = [250.0, 500.0]
+same_harvest_year_pairs_only = true
+exclude_same_county_pairs_from_spatial_addition = true
+base_meat = "county_CR1_score_meat_including_diagonal_and_all_within_county_year_pairs"
+spatial_addition = "sum over ordered cross-county same-year pairs of max(1-distance/cutoff,0) times score_i score_j_transpose"
+bread = "inverse_of_residualized_X_transpose_X"
+psd_clipping_authorized = false
+nonfinite_or_negative_contrast_variance_rule = "fail_spatial_sensitivity"
+promotion_rule = "a target contrast may be described as spatially robust only if its pointwise normal 95_percent interval excludes zero under county_CR1 and both frozen spatial cutoffs"
+
+[geographic_influence]
+unit = "state"
+omit_each_observed_state = true
+reference_values = "full_sample_exposure_quantiles_fixed_before_outcome_fit"
+minimum_omission_rows = 2500
+minimum_omission_counties = 100
+all_omission_designs_full_rank_required = true
+maximum_absolute_dfbeta_in_full_sample_CR1_se_units = 1.0
+sign_rule = "if the full-sample contrast magnitude is at least one full-sample CR1 standard error, every leave-state-out contrast must retain its sign"
+report_all_omissions = true
+
+[terminal_validation]
+development_year_min = 1981
+development_year_max = 2011
+terminal_year_min = 2012
+terminal_year_max = 2018
+fit_rule = "fit development and terminal samples separately with the unchanged family design and fixed effects"
+reference_values = "full_sample_exposure_quantiles_fixed_without_outcomes"
+minimum_development_rows = 2500
+minimum_terminal_rows = 500
+minimum_terminal_counties = 100
+minimum_terminal_states = 5
+all_designs_full_rank_required = true
+maximum_absolute_standardized_difference = 1.96
+standardized_difference = "absolute_terminal_minus_development_contrast_divided_by_square_root_of_sum_of_independent_county_CR1_contrast_variances"
+sign_rule = "if either split contrast magnitude is at least one of its own standard errors, development and terminal signs must agree"
+role = "parameter_stability_confirmation_not_model_selection_or_causal_validation"
+
+[preidentified_influence]
+county_geoid = "48277"
+state = "TX"
+harvest_year = 2011
+identified_without_outcomes = true
+primary_quantity_and_pdsi_rule = "retain the row in every primary and spatial-sensitivity fit"
+quantity_pdsi_sensitivity = "report predeclared leave-row-out and leave-entire-county-out target-contrast changes; do not choose a result based on either sensitivity"
+maximum_leave_row_absolute_dfbeta = 0.5
+maximum_leave_county_absolute_dfbeta = 0.75
+distribution_family_status = "ineligible_after_outcome_blind_row_leverage_gate"
+distribution_reentry_rule = "no outcome fit and no deletion repair; reentry requires a separately frozen outcome-blind redesign that passes the 0.05 maximum-row-leverage gate on the unchanged full sample"
+
+[execution]
+real_run_requires_separate_authorization = true
+protocol_and_all_input_hashes_must_be_bound = true
+output_coefficients_before_real_run_authorization = false
+synthetic_test_module = "us_county_validation/scripts/test_us_corn_quantity_pdsi_spatial_protocol.py"
+protocol_validator = "us_county_validation/scripts/validate_us_corn_quantity_pdsi_spatial_protocol.py"
+
+[output]
+validation_receipt = "data/provenance/us_corn_quantity_pdsi_spatial_protocol_validation_20260928.json"
+required_disclaimer = "Any future result is a selected-sample historical association, not a national or causal effect, damage function, or SCC input."

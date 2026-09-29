@@ -686,6 +686,16 @@ on validated direct-practice support. No response fit is authorized: spatial-
 dependence and geographic-influence rules must be frozen first, and the
 results remain regional rather than national.
 
+The missing corn inference step is now frozen and synthetic-tested, without
+reading outcomes. Non-irrigated and irrigated fits remain separate, and
+quantity and PDSI remain mutually exclusive. County-clustered CR1 is paired
+with 250 km and 500 km same-year Bartlett spatial-covariance sensitivities,
+leave-one-state influence checks, and a 2012--2018 parameter-stability test.
+The preidentified Texas 2011 exposure stays in every primary candidate; row-
+and county-deletion results are sensitivities only. All 10 mechanical tests
+pass, but real fitting and all national, causal, damage, and SCC claims remain
+closed.
+
 ## 4. Empirical design
 
 The production registry includes a hierarchically pooled fixed-effects

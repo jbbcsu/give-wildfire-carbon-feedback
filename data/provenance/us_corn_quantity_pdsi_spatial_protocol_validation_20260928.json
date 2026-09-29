@@ -1,0 +1,55 @@
+{
+  "candidate_families": [
+    "quantity",
+    "pdsi"
+  ],
+  "causal_claim_authorized": false,
+  "coefficient_output_authorized": false,
+  "damage_claim_authorized": false,
+  "distribution_family_eligible": false,
+  "inference_primitives": {
+    "path": "us_county_validation/scripts/us_corn_spatial_inference_primitives.py",
+    "sha256": "6fc0aea321d3ad556b55771c6224eab39808165c1901ebc656d141f4bac0d49b"
+  },
+  "national_claim_authorized": false,
+  "practices_fitted_separately": true,
+  "preidentified_exposure_retained_in_primary_candidates": true,
+  "protocol": {
+    "path": "us_county_validation/us_corn_quantity_pdsi_spatial_inference_v1.toml",
+    "sha256": "d668b246b1fe4cdd362df9105df8bdb05d586385494f2709f9d4e9db3eb8a687"
+  },
+  "real_outcome_read_authorized": false,
+  "real_outcome_rows_read": 0,
+  "real_response_fit_authorized": false,
+  "real_response_fits": 0,
+  "scc_claim_authorized": false,
+  "schema": "us_corn_quantity_pdsi_spatial_protocol_validation_v1",
+  "spatial_cutoffs_km": [
+    250.0,
+    500.0
+  ],
+  "status": "validated_synthetic_only_protocol",
+  "synthetic_test_module": {
+    "path": "us_county_validation/scripts/test_us_corn_quantity_pdsi_spatial_protocol.py",
+    "sha256": "f5aa97c37dad28c0265652b52e484239531a6f9467408d83340cfb4549f5193c"
+  },
+  "synthetic_test_result": {
+    "bound": true,
+    "path": "data/provenance/us_corn_quantity_pdsi_spatial_synthetic_tests_20260928.json",
+    "sha256": "4a432641e5a44766043f237acbb193eb76b9154650919bf97dd593d66ab6b2f4",
+    "status": "passed",
+    "tests_run": 10
+  },
+  "synthetic_tests": {
+    "bound": true,
+    "path": "data/interim/us_county/us_corn_quantity_pdsi_spatial_synthetic_tests_resource_20260928.json",
+    "peak_rss_bytes": 96698368,
+    "sha256": "865fb02abdd608fd1668add3ff59822fc153d9d29550479b11da172cd976785e",
+    "status": "command_completed",
+    "wall_seconds": 0.5534270830685273
+  },
+  "validator": {
+    "path": "us_county_validation/scripts/validate_us_corn_quantity_pdsi_spatial_protocol.py",
+    "sha256": "10b2364c5854101b8b268992e0e96c8f330cd2c2c104e80d29486f6f566a0c49"
+  }
+}

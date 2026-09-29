@@ -894,6 +894,27 @@ not a complete spatial-dependence treatment, so a frozen geographic-influence
 and spatial-covariance sensitivity is required before any response protocol
 can be promoted. No coefficient, national claim, damage, or SCC is authorized.
 
+The follow-on synthetic-only corn protocol freezes separate fits by reported
+practice and retains county plus state-by-year fixed effects. County CR1 is
+the conditional primary covariance. Two sensitivities add ordered cross-
+county, same-year score products under Bartlett kernels with fixed 250 km and
+500 km cutoffs, using hash-bound 2019 Census county internal points. Same-
+county pairs are excluded from the spatial addition because they already
+enter the county meat; positive-semidefinite clipping is prohibited. A target
+contrast is spatially robust only if its normal 95% interval excludes zero
+under CR1 and both cutoffs.
+
+Every state is omitted in turn with minimum retained-support, rank, sign, and
+one-standard-error DFBETA gates. Separate 1981--2011 and 2012--2018 fits must
+agree within 1.96 pooled independent standard errors and preserve sign when
+either split is material. County 48277, Texas, in 2011 remains in the primary
+quantity and PDSI candidates; leave-row and leave-county checks are declared
+sensitivities rather than deletion rules. The distribution family remains
+ineligible until an outcome-blind redesign passes the original leverage gate
+on unchanged support. Ten synthetic tests verify the covariance arithmetic,
+row-order invariance, same-county exclusion, distant-county reduction to CR1,
+and fail-closed influence, terminal, family-stacking, and real-fit gates.
+
 The hash-pinned NOAA nClimDiv snapshot supplies 226,560 county-months over
 1980--2019 for the 472 eligible counties. Under the fixed-primary crop window,
 the existing locked drought-feature operator constructs preplant-90-day,
