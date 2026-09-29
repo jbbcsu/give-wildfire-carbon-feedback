@@ -1,0 +1,56 @@
+schema = "blue_scc_market_welfare_decomposition_config_v1"
+role = "source_pinned_multiplier_separability_and_welfare_semantics_audit_only"
+registered_utc_date = "2026-09-28"
+
+[source]
+repository_url = "https://github.com/berbastien/blue-scc"
+repository_commit = "dbc0d8cb21c81f1508abfaf9e5c0f5671ccdd83f"
+repository_license_status = "no_explicit_root_license_file_found_at_audited_commit"
+
+[files]
+market_projection_script = "Code/Fisheries_and_Mariculture/001_Read_FisheriesProjections_Free.r"
+market_projection_script_sha256 = "6db24bc30dc6847be8454db34089f3d38a367277676a18a7ba06d7a05a85ee61"
+market_damage_script = "Code/Fisheries_and_Mariculture/002_Damage_Function_Free.r"
+market_damage_script_sha256 = "0b6ad3656ebfb2519c2b7af229db8046c1724f8cf85ee67ab6f6c606f19f2da3"
+crosscutting_script = "Code/Misc/crosscutting_data.r"
+crosscutting_script_sha256 = "ab618d891c5dbcfda3639db87334345144dc002f63ba4cf3c14cc95a3364ca09"
+main_script = "main.R"
+main_script_sha256 = "241f1c1d402e84784de08f411575d9eaff9e0bc0e746b22c8dcb13ba36085822"
+
+[local_inputs]
+transfer_receipt = "data/provenance/blue_scc_give_country_transfer_audit_20260928.json"
+transfer_receipt_sha256 = "7b103c6b7115da8cceb580b2a4336467c9d8341b8c6bcfd30af45a35372f9979"
+
+[expected]
+tracked_required_upstream_files = 0
+required_upstream_files = 10
+tracked_dependency_locks = 0
+dependency_lock_candidates = 3
+complete_give_regions = 6
+
+[required_upstream]
+paths = [
+  "External_Data/input_modules/fish/Statistical/total_catch_profit_timeseries.Rds",
+  "External_Data/output_modules/fish/fisheries_Free_EtAl.csv",
+  "External_Data/SSPs/SspDb_country_data_2013-06-12.csv",
+  "External_Data/SSPs/ssp_gdp.csv",
+  "External_Data/SSPs/ssp_pop.csv",
+  "External_Data/other/scenarios/SSP245_magicc_202303021423.csv",
+  "External_Data/other/scenarios/SSP585_magicc_202303221353.csv",
+  "External_Data/other/scenarios/SSP126_magicc_202308040902.csv",
+  "External_Data/other/scenarios/SSP460_magicc_202402051249.csv",
+  "External_Data/other/r5regions.csv",
+]
+
+[dependency_lock]
+paths = ["renv.lock", "DESCRIPTION", "setup.r"]
+
+[claim_gates]
+exact_multiplier_free_coefficients_reproducible = false
+consumer_surplus_identified = false
+producer_surplus_identified = false
+consumer_plus_producer_surplus_available = false
+country_coefficient_transfer_authorized = false
+source_redistribution_authorized = false
+matched_co2_pulse_available = false
+damage_or_scc_authorized = false

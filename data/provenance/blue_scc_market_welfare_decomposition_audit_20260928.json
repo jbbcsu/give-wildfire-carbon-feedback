@@ -1,0 +1,94 @@
+{
+  "claim_gates": {
+    "consumer_plus_producer_surplus_available": false,
+    "consumer_surplus_identified": false,
+    "country_coefficient_transfer_authorized": false,
+    "damage_or_scc_authorized": false,
+    "exact_multiplier_free_coefficients_reproducible": false,
+    "matched_co2_pulse_available": false,
+    "producer_surplus_identified": false,
+    "source_redistribution_authorized": false
+  },
+  "country_coverage_context": {
+    "complete_give_regions": 6,
+    "incomplete_give_regions": 10,
+    "six_complete_regions_do_not_cure_welfare_semantics": true
+  },
+  "dependency_lock_candidates": 3,
+  "dependency_locks": {
+    "DESCRIPTION": false,
+    "renv.lock": false,
+    "setup.r": false
+  },
+  "formula_findings": {
+    "country_multiplier_constant_within_country_in_released_code": true,
+    "multiplier_free_slope_equals_published_slope_divided_by_exact_country_multiplier": true,
+    "published_regression_outcome_is_profit_gdp_difference_times_country_multiplier": true,
+    "raw_profit_contrast_computed_before_multiplier": true,
+    "regional_total_multipliers": {
+      "Africa": 4.21,
+      "Asia": 4.29,
+      "Europe": 4.88,
+      "Latin America & Caribbean": 3.61,
+      "North America": 5.74,
+      "Oceania": 5.0,
+      "unmatched_default": 4.55
+    }
+  },
+  "interpretation": {
+    "external_source_files_copied": false,
+    "no_country_coefficient_derived": true,
+    "no_incomplete_region_renormalized": true,
+    "no_missing_country_filled_or_zeroed": true
+  },
+  "provenance": {
+    "config_path": "config/blue_scc_market_welfare_decomposition_v1.toml",
+    "config_sha256": "db7fab4c4e29c9d1baf2e0f9053214a46908325e1212eba3988f211d18893ee2",
+    "country_transfer_receipt_path": "data/provenance/blue_scc_give_country_transfer_audit_20260928.json",
+    "country_transfer_receipt_sha256": "7b103c6b7115da8cceb580b2a4336467c9d8341b8c6bcfd30af45a35372f9979"
+  },
+  "reproducibility_findings": {
+    "countrycode_package_version_pinned": false,
+    "derived_regression_panel_tracked": false,
+    "exact_multiplier_free_coefficients_reproducible": false,
+    "live_wdi_gdp_query_snapshot_pinned": false,
+    "per_country_multiplier_assignment_persisted": false,
+    "raw_profit_series_tracked": false
+  },
+  "required_upstream_files": 10,
+  "role": "source_pinned_multiplier_separability_and_welfare_semantics_audit_only",
+  "schema": "blue_scc_market_welfare_decomposition_audit_v1",
+  "source": {
+    "repository_commit": "dbc0d8cb21c81f1508abfaf9e5c0f5671ccdd83f",
+    "repository_license_status": "no_explicit_root_license_file_found_at_audited_commit",
+    "repository_url": "https://github.com/berbastien/blue-scc"
+  },
+  "status": "multiplier_algebraically_separable_but_exact_decomposition_not_reproducible",
+  "tracked_dependency_locks": 0,
+  "tracked_required_upstream_files": 0,
+  "tracked_upstream_inputs": {
+    "External_Data/SSPs/SspDb_country_data_2013-06-12.csv": false,
+    "External_Data/SSPs/ssp_gdp.csv": false,
+    "External_Data/SSPs/ssp_pop.csv": false,
+    "External_Data/input_modules/fish/Statistical/total_catch_profit_timeseries.Rds": false,
+    "External_Data/other/r5regions.csv": false,
+    "External_Data/other/scenarios/SSP126_magicc_202308040902.csv": false,
+    "External_Data/other/scenarios/SSP245_magicc_202303021423.csv": false,
+    "External_Data/other/scenarios/SSP460_magicc_202402051249.csv": false,
+    "External_Data/other/scenarios/SSP585_magicc_202303221353.csv": false,
+    "External_Data/output_modules/fish/fisheries_Free_EtAl.csv": false
+  },
+  "verified_file_sha256": {
+    "crosscutting_script": "ab618d891c5dbcfda3639db87334345144dc002f63ba4cf3c14cc95a3364ca09",
+    "main_script": "241f1c1d402e84784de08f411575d9eaff9e0bc0e746b22c8dcb13ba36085822",
+    "market_damage_script": "0b6ad3656ebfb2519c2b7af229db8046c1724f8cf85ee67ab6f6c606f19f2da3",
+    "market_projection_script": "6db24bc30dc6847be8454db34089f3d38a367277676a18a7ba06d7a05a85ee61"
+  },
+  "welfare_findings": {
+    "consumer_plus_producer_surplus_available": false,
+    "consumer_surplus_present": false,
+    "indirect_and_induced_multiplier_algebraically_separable": true,
+    "profit_established_as_producer_surplus": false,
+    "released_input_named_profit_not_revenue": true
+  }
+}

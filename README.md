@@ -40,6 +40,14 @@ root license. No missing country is treated as zero, no source coefficient is
 copied, and the published market pathway remains welfare-incompatible with the
 consumer-plus-producer-surplus contract.
 
+The follow-on [market decomposition audit](BLUE_SCC_MARKET_WELFARE_DECOMPOSITION_AUDIT_20260928.md)
+shows that the regional output multiplier is algebraically separable, but not
+reproducibly removable from the pinned artifacts. The upstream profit panel,
+GDP and temperature inputs, exact country-to-multiplier assignment, and
+versioned `countrycode` dependency are absent. Even a future multiplier-free
+profit response would not supply consumer surplus or establish producer-
+surplus equivalence.
+
 ## Proposed scope
 
 Estimate the marginal welfare consequences of CO2-driven changes to marine
