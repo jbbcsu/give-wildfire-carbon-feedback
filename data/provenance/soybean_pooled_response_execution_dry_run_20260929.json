@@ -1,0 +1,280 @@
+{
+  "authorization": {
+    "engine_import_authorized": false,
+    "fit_invocation_authorized": false,
+    "present": false,
+    "real_outcome_access_authorized": false,
+    "required": true,
+    "scope": "read_real_soybean_yield_magnitudes_and_invoke_pooled_response_fit",
+    "validated": false
+  },
+  "contract": {
+    "path": "config/soybean_pooled_response_execution_gate_v1.toml",
+    "sha256": "5e8250a7006d5997c722e1e4eccef25258b7c0e2f1e77453b2257d9b8f887f2c"
+  },
+  "created_at_utc": "2026-09-29T13:04:17.181188+00:00",
+  "execution_audit": {
+    "engine_imported": false,
+    "fit_functions_called": [],
+    "outcome_files_opened": []
+  },
+  "expected_schemas": {
+    "distribution_engine_pair": {
+      "required_differenced_features": [
+        "d_stage1_tmean_c",
+        "d_stage2_tmean_c",
+        "d_stage3_tmean_c",
+        "d_stage1_tmax_30c_degree_days",
+        "d_stage2_tmax_30c_degree_days",
+        "d_stage3_tmax_30c_degree_days",
+        "d_log1p_precip_mm",
+        "d_stage1_precip_share",
+        "d_stage2_precip_share",
+        "d_cdd_max_days",
+        "d_rx5day_mm",
+        "d_precipitation_concentration_hhi"
+      ]
+    },
+    "distribution_level_source": {
+      "required_feature_columns": [
+        "stage1_tmean_c",
+        "stage2_tmean_c",
+        "stage3_tmean_c",
+        "stage1_tmax_30c_degree_days",
+        "stage2_tmax_30c_degree_days",
+        "stage3_tmax_30c_degree_days",
+        "log1p_precip_mm",
+        "stage1_precip_share",
+        "stage2_precip_share",
+        "cdd_max_days",
+        "rx5day_mm",
+        "precipitation_concentration_hhi"
+      ]
+    },
+    "engine_pair_common": {
+      "constraints": {
+        "consecutive_years": true,
+        "latitude_range_inclusive": [
+          -90.0,
+          90.0
+        ],
+        "longitude_range_half_open": [
+          0.0,
+          360.0
+        ],
+        "pair_end_years": [
+          1983,
+          2010
+        ],
+        "singleton_country_proxy": true,
+        "strict_boolean_endpoint_flags": true,
+        "strictly_positive_yield_endpoints": true
+      },
+      "required_columns": [
+        "cell_id",
+        "lat",
+        "lon_360",
+        "country_label",
+        "country_count",
+        "prior_year",
+        "pair_end_year",
+        "yield_observed_prior",
+        "yield_observed_current",
+        "yield_t_ha_prior",
+        "yield_t_ha_current"
+      ]
+    },
+    "level_source_common": {
+      "constraints": {
+        "crop": "soy",
+        "level_years": [
+          1982,
+          2010
+        ],
+        "one_row_per_cell_year": true,
+        "outcome_use_before_authorization": "forbidden"
+      },
+      "required_columns": [
+        "lat",
+        "lon_360",
+        "harvest_year",
+        "crop",
+        "yield_observed",
+        "yield_t_ha"
+      ]
+    },
+    "quantity_engine_pair": {
+      "required_differenced_features": [
+        "d_stage1_tmean_c",
+        "d_stage2_tmean_c",
+        "d_stage3_tmean_c",
+        "d_stage1_tmax_30c_degree_days",
+        "d_stage2_tmax_30c_degree_days",
+        "d_stage3_tmax_30c_degree_days",
+        "d_log1p_precip_mm"
+      ]
+    },
+    "quantity_level_source": {
+      "required_feature_columns": [
+        "stage1_tmean_c",
+        "stage2_tmean_c",
+        "stage3_tmean_c",
+        "stage1_tmax_30c_degree_days",
+        "stage2_tmax_30c_degree_days",
+        "stage3_tmax_30c_degree_days",
+        "log1p_precip_mm"
+      ]
+    },
+    "scpdsi_season_engine_pair": {
+      "required_differenced_features": [
+        "d_stage1_tmean_c",
+        "d_stage2_tmean_c",
+        "d_stage3_tmean_c",
+        "d_stage1_tmax_30c_degree_days",
+        "d_stage2_tmax_30c_degree_days",
+        "d_stage3_tmax_30c_degree_days",
+        "d_season_scpdsi_mean"
+      ]
+    },
+    "scpdsi_season_level_source": {
+      "required_feature_columns": [
+        "stage1_tmean_c",
+        "stage2_tmean_c",
+        "stage3_tmean_c",
+        "stage1_tmax_30c_degree_days",
+        "stage2_tmax_30c_degree_days",
+        "stage3_tmax_30c_degree_days",
+        "season_scpdsi_mean"
+      ]
+    }
+  },
+  "expected_support": {
+    "already_inspected_terminal_metadata": {
+      "blocks10": 55,
+      "buffer_year_excluded": 2011,
+      "pairs": 26004,
+      "status": "metadata_only_not_recomputed_and_not_fresh_confirmation",
+      "years": [
+        2012,
+        2016
+      ]
+    },
+    "quantity_and_distribution_training": {
+      "all_finite_pairs": 167841,
+      "blocks10": 56,
+      "cells": 6001,
+      "country_proxies": 21,
+      "pair_end_years": 28,
+      "primary_singleton_country_pairs": 157868
+    },
+    "scpdsi_training": {
+      "all_finite_pairs": 166870,
+      "blocks10": 56,
+      "cells": 5967,
+      "country_proxies": 21,
+      "pair_end_years": 28,
+      "primary_singleton_country_pairs": 157003
+    }
+  },
+  "metadata_bindings": {
+    "design_preflight": {
+      "path": "data/provenance/soybean_continuous_design_heterogeneity_preflight_20260928.json",
+      "sha256": "d562654aeeec6e9d14be2438e335586468ad309d761449a0c8293cdbb591e8b2",
+      "verified": true
+    },
+    "engine": {
+      "path": "scripts/soybean_pooled_response_engine.py",
+      "sha256": "a437fab438e17fccdc6bf9780de6799e5d11306174f18c55e2bd286f494f0b66",
+      "verified": true
+    },
+    "engine_validation": {
+      "path": "data/provenance/soybean_pooled_response_engine_validation_20260928.json",
+      "sha256": "e76a73e1ce4c51a4722e6fdc1f0ecfd64cf835d8e8f517f311f5f717ecde791c",
+      "verified": true
+    },
+    "protocol": {
+      "path": "config/soybean_pooled_response_inference_protocol_v1.toml",
+      "sha256": "c410c2d4e59e54c70bdb507db63383282e471dd00059359d05163fe2b98263a4",
+      "verified": true
+    },
+    "protocol_validation": {
+      "path": "data/provenance/soybean_pooled_response_inference_protocol_validation_20260928.json",
+      "sha256": "d436ff1e25556043d83ab2c8f40184ff48b4c76421466df1b19c430bd69845d1",
+      "verified": true
+    },
+    "readiness_audit": {
+      "path": "data/provenance/soybean_global_response_readiness_audit_20260928.json",
+      "sha256": "11a02900d4ccd1de8906173ecaa9fff0f1f454157b38f6826b362bd2561109d7",
+      "verified": true
+    }
+  },
+  "outcome_source_bindings": {
+    "direct": {
+      "binding_source": {
+        "path": "data/provenance/soybean_global_response_readiness_audit_20260928.json",
+        "sha256": "11a02900d4ccd1de8906173ecaa9fff0f1f454157b38f6826b362bd2561109d7",
+        "verified": true
+      },
+      "hashed_by_dry_run": false,
+      "observed_outcomes_from_metadata": 206087,
+      "opened": false,
+      "outcome_bearing": true,
+      "path": "data/interim/continuous_global_panel_1982_2016_v1/continuous_candidates/soy_1982_2016_direct.parquet",
+      "pinned_sha256": "ce26936cd3d175c56c89333c9f5805e242b6a32961e41babe67e8f55117518dd",
+      "rows_from_metadata": 837690
+    },
+    "heat": {
+      "binding_source": {
+        "path": "data/provenance/soybean_global_response_readiness_audit_20260928.json",
+        "sha256": "11a02900d4ccd1de8906173ecaa9fff0f1f454157b38f6826b362bd2561109d7",
+        "verified": true
+      },
+      "hashed_by_dry_run": false,
+      "observed_outcomes_from_metadata": 206087,
+      "opened": false,
+      "outcome_bearing": true,
+      "path": "data/interim/continuous_global_panel_1982_2016_v1/continuous_candidates/soy_1982_2016_heat.parquet",
+      "pinned_sha256": "a949b4b1fa62708775fad10ba9f01105d5fe3e29dd5472d6792dea9b19a4c100",
+      "rows_from_metadata": 837690
+    },
+    "scpdsi": {
+      "binding_source": {
+        "path": "data/provenance/soybean_global_response_readiness_audit_20260928.json",
+        "sha256": "11a02900d4ccd1de8906173ecaa9fff0f1f454157b38f6826b362bd2561109d7",
+        "verified": true
+      },
+      "hashed_by_dry_run": false,
+      "observed_outcomes_from_metadata": 204917,
+      "opened": false,
+      "outcome_bearing": true,
+      "path": "data/interim/continuous_global_panel_1982_2016_v1/continuous_candidates/soy_1982_2016_scpdsi.parquet",
+      "pinned_sha256": "e686440825910e4ef36f80677085561e70448993d6f8479b34cf1479f944cbc2",
+      "rows_from_metadata": 772352
+    }
+  },
+  "promotion_gates": {
+    "associational_response_authorized": false,
+    "causal_response_authorized": false,
+    "damage_calculation_authorized": false,
+    "give_integration_authorized": false,
+    "real_fit_authorized": false,
+    "real_outcome_access_authorized": false,
+    "scc_authorized": false,
+    "winner_loser_claims_authorized": false
+  },
+  "redactions": {
+    "coefficients": true,
+    "p_values": true,
+    "predictions": true,
+    "residuals": true,
+    "standard_errors": true,
+    "yield_magnitudes": true
+  },
+  "resources": {
+    "memory_cap_bytes": 536870912,
+    "memory_gate_passed": true,
+    "peak_rss_bytes": 24657920
+  },
+  "schema": "soybean_pooled_response_execution_dry_run/v1",
+  "status": "dry_run_complete_metadata_only_authorization_absent"
+}

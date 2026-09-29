@@ -1,0 +1,65 @@
+schema_version = 1
+adapter_id = "us_corn_quantity_pdsi_spatial_run_adapter_v1"
+analysis_role = "metadata_only_dry_run_manifest"
+dry_run_authorized = true
+real_outcome_read_authorized = false
+real_response_fit_authorized = false
+coefficient_output_authorized = false
+national_claim_authorized = false
+causal_claim_authorized = false
+damage_claim_authorized = false
+scc_claim_authorized = false
+
+[protocol]
+path = "us_county_validation/us_corn_quantity_pdsi_spatial_inference_v1.toml"
+sha256 = "d668b246b1fe4cdd362df9105df8bdb05d586385494f2709f9d4e9db3eb8a687"
+validation_receipt = "data/provenance/us_corn_quantity_pdsi_spatial_protocol_validation_20260928.json"
+validation_sha256 = "8e2b4f78f1af8d68e1c2590f9f8aac85f2f6b5dc72c546f61ebd39580f8faf53"
+
+[readiness]
+receipt = "data/provenance/us_corn_soy_response_design_readiness_20260928.json"
+sha256 = "cfa853a54a9d006235d2fe1de1fb96744abcc058845875be89612145aeeaea07"
+required_corn_families = ["quantity", "pdsi"]
+required_practices = ["non_irrigated", "irrigated"]
+practice_evidence_rule = "reuse hash-bound outcome-blind receipt; do not reread row values"
+
+[direct]
+path = "data/interim/us_county/nass_direct_practice_nclimgrid_1981_2019.parquet"
+sha256 = "205a94ae92c12810026c9c5d0ac0fa3760e46ebc39669e528ba20a125a0c46d7"
+required_schema_columns = ["county_geoid", "state", "outcome_crop", "harvest_year", "irrigation_practice", "yield_bu_acre", "precip_mm", "stage1_tmean_c", "stage2_tmean_c", "stage3_tmean_c"]
+future_feature_columns = ["county_geoid", "state", "outcome_crop", "harvest_year", "irrigation_practice", "precip_mm", "stage1_tmean_c", "stage2_tmean_c", "stage3_tmean_c"]
+
+[pdsi]
+path = "data/interim/us_county/nass_direct_practice_pdsi_join_1981_2019.parquet"
+sha256 = "70237da1bc759144cbc9adaaab4f0c30f805f5deb526683a60edc75d84e971a6"
+required_schema_columns = ["county_geoid", "state", "outcome_crop", "harvest_year", "irrigation_practice", "yield_bu_acre", "calendar_role", "window_id", "index_day_weighted_mean"]
+future_feature_columns = ["county_geoid", "state", "outcome_crop", "harvest_year", "irrigation_practice", "calendar_role", "window_id", "index_day_weighted_mean"]
+
+[coordinates]
+source_manifest = "data/raw/us_county/tigerline/MANIFEST.jsonl"
+source_manifest_sha256 = "d80f6f2c229e63cb24d6c228c1b5974d5d3c1e9e933f2e573b6ab8f291f6d43f"
+archive = "data/raw/us_county/tigerline/tl_2019_us_county.zip"
+archive_sha256 = "4a2cdcc8a5d58caf88f9dc6595c4d89c51fdb56de738f615a8c5e3814dfcdea5"
+archive_sha512 = "47f23dfca8fef559e8ecc0eae1c5d4378aef806ff6905603d7c89e46fbec4c8ab08b5441844587603c0eb28e18cb3e4cc07f65c9c4429c755816ac080600eece"
+dbf = "data/raw/us_county/tigerline/tl_2019_us_county/tl_2019_us_county.dbf"
+shp = "data/raw/us_county/tigerline/tl_2019_us_county/tl_2019_us_county.shp"
+shx = "data/raw/us_county/tigerline/tl_2019_us_county/tl_2019_us_county.shx"
+prj = "data/raw/us_county/tigerline/tl_2019_us_county/tl_2019_us_county.prj"
+cpg = "data/raw/us_county/tigerline/tl_2019_us_county/tl_2019_us_county.cpg"
+required_dbf_fields = ["STATEFP", "COUNTYFP", "GEOID", "INTPTLAT", "INTPTLON"]
+required_record_count = 3233
+required_crs_tokens = ["North_American_1983", "Degree"]
+source_url = "https://www2.census.gov/geo/tiger/TIGER2019/COUNTY/tl_2019_us_county.zip"
+
+[authorization]
+real_run_enabled = false
+authorization_artifact_required = true
+required_status = "explicitly_authorized_for_one_bound_run"
+required_scope = "us_corn_quantity_pdsi_spatial_v1_real_outcome_fit"
+authorization_must_bind_protocol_and_input_hashes = true
+gate_must_precede_outcome_column_open = true
+gate_must_precede_fit_import_or_invocation = true
+
+[output]
+dry_run_manifest = "data/provenance/us_corn_quantity_pdsi_spatial_dry_run_manifest_20260929.json"
+independent_validation = "data/provenance/us_corn_quantity_pdsi_spatial_dry_run_manifest_independent_validation_20260929.json"

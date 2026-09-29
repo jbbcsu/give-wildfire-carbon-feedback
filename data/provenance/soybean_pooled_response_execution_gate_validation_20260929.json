@@ -1,0 +1,42 @@
+{
+  "bindings": {
+    "config": {
+      "path": "config/soybean_pooled_response_execution_gate_v1.toml",
+      "sha256": "5e8250a7006d5997c722e1e4eccef25258b7c0e2f1e77453b2257d9b8f887f2c"
+    },
+    "gate": {
+      "path": "scripts/soybean_pooled_response_execution_gate.py",
+      "sha256": "a9f98d047d2a6393523264e69455f23441456ea9a8248101b5800e77ab8c4c41"
+    },
+    "manifest": {
+      "path": "data/provenance/soybean_pooled_response_execution_dry_run_20260929.json",
+      "sha256": "dcb9e6ab5a34b4b2bc448a5337915f99b42d0d54b95a0600021f07435a51ab38"
+    },
+    "tests": {
+      "path": "data/provenance/soybean_pooled_response_execution_gate_tests_20260929.json",
+      "sha256": "0d9ecb5bcd6489a594b90ebb83b49537d1399e210b014536421f6e146f782577"
+    }
+  },
+  "checks": {
+    "authorization_absent": true,
+    "engine_imported": false,
+    "fit_called": false,
+    "focused_tests_pass": true,
+    "metadata_only": true,
+    "outcome_files_opened": false,
+    "promotion_gates_closed": true,
+    "redactions_closed": true
+  },
+  "created_at_utc": "2026-09-29T13:05:02.412112+00:00",
+  "implementation": {
+    "path": "scripts/validate_soybean_pooled_response_execution_gate.py",
+    "sha256": "a46ed751cc853b66a8e1af0885a8fca0adf519f3aba16618b13040ff8a9588a7"
+  },
+  "resources": {
+    "memory_cap_bytes": 536870912,
+    "memory_gate_passed": true,
+    "peak_rss_bytes": 25198592
+  },
+  "schema": "soybean_pooled_response_execution_gate_validation/v1",
+  "status": "validated_metadata_only_dry_run_and_fail_closed_authorization_gate"
+}

@@ -1,0 +1,394 @@
+{
+  "adapter_contract": {
+    "path": "us_county_validation/us_corn_quantity_pdsi_spatial_run_adapter_v1.toml",
+    "sha256": "57b9ede4a5c85d67fe3f4a3b494b1223adb2ba4424f7b478e32aff9ea6d98e61"
+  },
+  "adapter_implementation": {
+    "path": "us_county_validation/scripts/build_us_corn_quantity_pdsi_spatial_dry_run.py",
+    "sha256": "6e768cb56e567666f30a435b4192f745546f66185145fbd3ac995fa786a0929c"
+  },
+  "authorization": {
+    "authorization_artifact_required": true,
+    "gate_precedes_fit_import_or_invocation": true,
+    "gate_precedes_outcome_open": true,
+    "real_run_enabled": false
+  },
+  "causal_claim_authorized": false,
+  "coefficient_output_authorized": false,
+  "coefficients_written": 0,
+  "coordinate_records_read": 0,
+  "damage_claim_authorized": false,
+  "data_pages_read": 0,
+  "inputs": {
+    "coordinates": {
+      "archive": {
+        "members": [
+          "tl_2019_us_county.cpg",
+          "tl_2019_us_county.dbf",
+          "tl_2019_us_county.prj",
+          "tl_2019_us_county.shp",
+          "tl_2019_us_county.shp.ea.iso.xml",
+          "tl_2019_us_county.shp.iso.xml",
+          "tl_2019_us_county.shx"
+        ],
+        "path": "data/raw/us_county/tigerline/tl_2019_us_county.zip",
+        "sha256": "4a2cdcc8a5d58caf88f9dc6595c4d89c51fdb56de738f615a8c5e3814dfcdea5",
+        "sha512": "47f23dfca8fef559e8ecc0eae1c5d4378aef806ff6905603d7c89e46fbec4c8ab08b5441844587603c0eb28e18cb3e4cc07f65c9c4429c755816ac080600eece"
+      },
+      "components": {
+        "cpg": {
+          "path": "data/raw/us_county/tigerline/tl_2019_us_county/tl_2019_us_county.cpg",
+          "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824",
+          "size_bytes": 5
+        },
+        "dbf": {
+          "path": "data/raw/us_county/tigerline/tl_2019_us_county/tl_2019_us_county.dbf",
+          "sha256": "7250428e9b6b0fa9e3c16d16f7d5bbeb2c0ab3b1f16395a954fcbad4624bf5e6",
+          "size_bytes": 947847
+        },
+        "prj": {
+          "path": "data/raw/us_county/tigerline/tl_2019_us_county/tl_2019_us_county.prj",
+          "sha256": "0b9041e921d9ebb43247d314608fe9e38a0b008ee793067fc1806199ea1fb9dd",
+          "size_bytes": 165
+        },
+        "shp": {
+          "path": "data/raw/us_county/tigerline/tl_2019_us_county/tl_2019_us_county.shp",
+          "sha256": "0b102f2e292be5a81f46ecb2956136e93da03de692980714fabc16e1925e0b51",
+          "size_bytes": 127354224
+        },
+        "shx": {
+          "path": "data/raw/us_county/tigerline/tl_2019_us_county/tl_2019_us_county.shx",
+          "sha256": "fb4263d31f02ccc9d7c1b0affd030cd528b6a2d13f3c1611e41e7dbc5fb57c9d",
+          "size_bytes": 25964
+        }
+      },
+      "coordinate_fields": [
+        "INTPTLAT",
+        "INTPTLON"
+      ],
+      "coordinate_records_read": 0,
+      "crs_wkt": "GEOGCS[\"GCS_North_American_1983\",DATUM[\"D_North_American_1983\",SPHEROID[\"GRS_1980\",6378137,298.257222101]],PRIMEM[\"Greenwich\",0],UNIT[\"Degree\",0.017453292519943295]]",
+      "dbf_fields_from_header": {
+        "ALAND": {
+          "decimals": 0,
+          "length": 14,
+          "type": "N"
+        },
+        "AWATER": {
+          "decimals": 0,
+          "length": 14,
+          "type": "N"
+        },
+        "CBSAFP": {
+          "decimals": 0,
+          "length": 5,
+          "type": "C"
+        },
+        "CLASSFP": {
+          "decimals": 0,
+          "length": 2,
+          "type": "C"
+        },
+        "COUNTYFP": {
+          "decimals": 0,
+          "length": 3,
+          "type": "C"
+        },
+        "COUNTYNS": {
+          "decimals": 0,
+          "length": 8,
+          "type": "C"
+        },
+        "CSAFP": {
+          "decimals": 0,
+          "length": 3,
+          "type": "C"
+        },
+        "FUNCSTAT": {
+          "decimals": 0,
+          "length": 1,
+          "type": "C"
+        },
+        "GEOID": {
+          "decimals": 0,
+          "length": 5,
+          "type": "C"
+        },
+        "INTPTLAT": {
+          "decimals": 0,
+          "length": 11,
+          "type": "C"
+        },
+        "INTPTLON": {
+          "decimals": 0,
+          "length": 12,
+          "type": "C"
+        },
+        "LSAD": {
+          "decimals": 0,
+          "length": 2,
+          "type": "C"
+        },
+        "METDIVFP": {
+          "decimals": 0,
+          "length": 5,
+          "type": "C"
+        },
+        "MTFCC": {
+          "decimals": 0,
+          "length": 5,
+          "type": "C"
+        },
+        "NAME": {
+          "decimals": 0,
+          "length": 100,
+          "type": "C"
+        },
+        "NAMELSAD": {
+          "decimals": 0,
+          "length": 100,
+          "type": "C"
+        },
+        "STATEFP": {
+          "decimals": 0,
+          "length": 2,
+          "type": "C"
+        }
+      },
+      "dbf_record_count_from_header": 3233,
+      "geometry_records_read": 0,
+      "manifest": {
+        "path": "data/raw/us_county/tigerline/MANIFEST.jsonl",
+        "sha256": "d80f6f2c229e63cb24d6c228c1b5974d5d3c1e9e933f2e573b6ab8f291f6d43f"
+      },
+      "source": "Census TIGER/Line 2019 county",
+      "source_url": "https://www2.census.gov/geo/tiger/TIGER2019/COUNTY/tl_2019_us_county.zip"
+    },
+    "direct": {
+      "data_pages_read": false,
+      "future_feature_columns": [
+        "county_geoid",
+        "state",
+        "outcome_crop",
+        "harvest_year",
+        "irrigation_practice",
+        "precip_mm",
+        "stage1_tmean_c",
+        "stage2_tmean_c",
+        "stage3_tmean_c"
+      ],
+      "outcome_column_opened": false,
+      "outcome_column_present_in_schema_only": true,
+      "path": "data/interim/us_county/nass_direct_practice_nclimgrid_1981_2019.parquet",
+      "row_groups": 1,
+      "rows_from_footer": 23722,
+      "schema_columns": [
+        "county_geoid",
+        "state",
+        "county_name",
+        "outcome_crop",
+        "harvest_year",
+        "irrigation_practice",
+        "yield_bu_acre",
+        "source_value_raw",
+        "outcome_source_id",
+        "sample_role",
+        "weather_exposure_role",
+        "calendar_mapping_status",
+        "geography_harmonization_status",
+        "feature_construction_eligible",
+        "response_estimation_authorized",
+        "scc_authorized",
+        "season_start",
+        "season_end",
+        "calendar_source_id",
+        "calendar_vintage",
+        "calendar_role",
+        "calendar_boundary_rule",
+        "stage_definition",
+        "weather_source_id",
+        "weather_grid_id",
+        "weight_role",
+        "crop_pixel_exposure",
+        "weather_day_alignment",
+        "wet_day_threshold_mm",
+        "positive_weather_cells",
+        "coverage_fraction",
+        "weather_valid_coverage_fraction",
+        "weather_valid_area_relative_to_declared_land",
+        "precip_mm",
+        "tmean_c",
+        "tmin_mean_c",
+        "tmax_mean_c",
+        "wet_days_n",
+        "cdd_max_days",
+        "rx1day_mm",
+        "rx5day_mm",
+        "season_days",
+        "stage1_days",
+        "stage1_precip_mm",
+        "stage1_tmean_c",
+        "stage1_tmin_mean_c",
+        "stage1_tmax_mean_c",
+        "stage1_wet_days_n",
+        "stage1_cdd_max_days",
+        "stage1_rx1day_mm",
+        "stage1_rx5day_mm",
+        "stage2_days",
+        "stage2_precip_mm",
+        "stage2_tmean_c",
+        "stage2_tmin_mean_c",
+        "stage2_tmax_mean_c",
+        "stage2_wet_days_n",
+        "stage2_cdd_max_days",
+        "stage2_rx1day_mm",
+        "stage2_rx5day_mm",
+        "stage3_days",
+        "stage3_precip_mm",
+        "stage3_tmean_c",
+        "stage3_tmin_mean_c",
+        "stage3_tmax_mean_c",
+        "stage3_wet_days_n",
+        "stage3_cdd_max_days",
+        "stage3_rx1day_mm",
+        "stage3_rx5day_mm",
+        "stage1_precip_share",
+        "stage2_precip_share",
+        "stage3_precip_share",
+        "precipitation_concentration_hhi",
+        "precipitation_timing_centroid",
+        "zero_precipitation_season",
+        "wet_day_frequency",
+        "mean_wet_day_intensity_mm",
+        "weather_exposure_shared_across_practices",
+        "analysis_role"
+      ],
+      "sha256": "205a94ae92c12810026c9c5d0ac0fa3760e46ebc39669e528ba20a125a0c46d7",
+      "size_bytes": 5300890
+    },
+    "pdsi": {
+      "data_pages_read": false,
+      "future_feature_columns": [
+        "county_geoid",
+        "state",
+        "outcome_crop",
+        "harvest_year",
+        "irrigation_practice",
+        "calendar_role",
+        "window_id",
+        "index_day_weighted_mean"
+      ],
+      "outcome_column_opened": false,
+      "outcome_column_present_in_schema_only": true,
+      "path": "data/interim/us_county/nass_direct_practice_pdsi_join_1981_2019.parquet",
+      "row_groups": 1,
+      "rows_from_footer": 558680,
+      "schema_columns": [
+        "county_geoid",
+        "state",
+        "county_name",
+        "outcome_crop",
+        "harvest_year",
+        "irrigation_practice",
+        "yield_bu_acre",
+        "source_value_raw",
+        "outcome_source_id",
+        "sample_role",
+        "weather_exposure_role",
+        "calendar_mapping_status",
+        "geography_harmonization_status",
+        "feature_construction_eligible",
+        "response_estimation_authorized",
+        "scc_authorized",
+        "geography_gate_status",
+        "geography_eligible",
+        "calendar_crop",
+        "calendar_mapping_role",
+        "calendar_role",
+        "calendar_source_id",
+        "calendar_vintage",
+        "boundary_rule",
+        "stage_definition",
+        "window_id",
+        "window_start",
+        "window_end",
+        "window_days",
+        "index_day_weighted_mean",
+        "index_monthly_minimum",
+        "index_day_equivalents_at_or_below_moderate",
+        "index_day_equivalents_at_or_below_severe",
+        "monthly_index_days_covered",
+        "moderate_threshold",
+        "severe_threshold",
+        "monthly_value_day_weighted_not_daily_observation",
+        "drought_family",
+        "index_name",
+        "index_scale_months",
+        "index_scale_role",
+        "index_distribution",
+        "index_source_id",
+        "index_calibration_start_year",
+        "index_calibration_end_year",
+        "index_calibration_role",
+        "source_role",
+        "irrigation_in_index",
+        "analysis_role",
+        "response_estimation_authorized_pdsi",
+        "scc_authorized_pdsi",
+        "feature_family",
+        "moisture_family_rule"
+      ],
+      "sha256": "70237da1bc759144cbc9adaaab4f0c30f805f5deb526683a60edc75d84e971a6",
+      "size_bytes": 4709143
+    }
+  },
+  "national_claim_authorized": false,
+  "outcome_columns_opened": [],
+  "planned_run_cells": [
+    {
+      "crop": "corn_grain",
+      "family": "quantity",
+      "practice": "non_irrigated",
+      "status": "blocked_pending_explicit_real_run_authorization"
+    },
+    {
+      "crop": "corn_grain",
+      "family": "pdsi",
+      "practice": "non_irrigated",
+      "status": "blocked_pending_explicit_real_run_authorization"
+    },
+    {
+      "crop": "corn_grain",
+      "family": "quantity",
+      "practice": "irrigated",
+      "status": "blocked_pending_explicit_real_run_authorization"
+    },
+    {
+      "crop": "corn_grain",
+      "family": "pdsi",
+      "practice": "irrigated",
+      "status": "blocked_pending_explicit_real_run_authorization"
+    }
+  ],
+  "protocol": {
+    "path": "us_county_validation/us_corn_quantity_pdsi_spatial_inference_v1.toml",
+    "sha256": "d668b246b1fe4cdd362df9105df8bdb05d586385494f2709f9d4e9db3eb8a687"
+  },
+  "protocol_validation": {
+    "path": "data/provenance/us_corn_quantity_pdsi_spatial_protocol_validation_20260928.json",
+    "sha256": "8e2b4f78f1af8d68e1c2590f9f8aac85f2f6b5dc72c546f61ebd39580f8faf53"
+  },
+  "readiness_evidence": {
+    "evidence_reused_without_row_read": true,
+    "exact_practice_pairs_and_exposures": true,
+    "paired_exposure_rows": 11857,
+    "path": "data/provenance/us_corn_soy_response_design_readiness_20260928.json",
+    "sha256": "cfa853a54a9d006235d2fe1de1fb96744abcc058845875be89612145aeeaea07"
+  },
+  "real_outcome_read_authorized": false,
+  "real_response_fit_authorized": false,
+  "real_response_fits": 0,
+  "scc_claim_authorized": false,
+  "schema": "us_corn_quantity_pdsi_spatial_dry_run_manifest_v1",
+  "status": "dry_run_ready_but_real_run_unauthorized"
+}

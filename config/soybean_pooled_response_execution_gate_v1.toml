@@ -1,0 +1,64 @@
+schema_version = 1
+contract_id = "soybean_pooled_response_execution_gate_v1"
+memory_cap_bytes = 536870912
+allowed_mode = "dry-run"
+
+[metadata.protocol]
+path = "config/soybean_pooled_response_inference_protocol_v1.toml"
+sha256 = "c410c2d4e59e54c70bdb507db63383282e471dd00059359d05163fe2b98263a4"
+
+[metadata.protocol_validation]
+path = "data/provenance/soybean_pooled_response_inference_protocol_validation_20260928.json"
+sha256 = "d436ff1e25556043d83ab2c8f40184ff48b4c76421466df1b19c430bd69845d1"
+
+[metadata.design_preflight]
+path = "data/provenance/soybean_continuous_design_heterogeneity_preflight_20260928.json"
+sha256 = "d562654aeeec6e9d14be2438e335586468ad309d761449a0c8293cdbb591e8b2"
+
+[metadata.readiness_audit]
+path = "data/provenance/soybean_global_response_readiness_audit_20260928.json"
+sha256 = "11a02900d4ccd1de8906173ecaa9fff0f1f454157b38f6826b362bd2561109d7"
+
+[metadata.engine]
+path = "scripts/soybean_pooled_response_engine.py"
+sha256 = "a437fab438e17fccdc6bf9780de6799e5d11306174f18c55e2bd286f494f0b66"
+
+[metadata.engine_validation]
+path = "data/provenance/soybean_pooled_response_engine_validation_20260928.json"
+sha256 = "e76a73e1ce4c51a4722e6fdc1f0ecfd64cf835d8e8f517f311f5f717ecde791c"
+
+[authorization]
+required = true
+token_schema = "soybean_pooled_response_real_access_authorization/v1"
+scope = "read_real_soybean_yield_magnitudes_and_invoke_pooled_response_fit"
+required_issuer = "user"
+required_explicit_authorization = true
+required_statement = "I explicitly authorize reading the frozen soybean outcome magnitudes and invoking the pooled response fit under this exact manifest."
+token_must_bind_manifest_sha256 = true
+token_must_bind_protocol_sha256 = true
+token_must_bind_engine_sha256 = true
+
+[dry_run]
+open_outcome_files = false
+inspect_outcome_schemas = false
+import_engine = false
+call_fit_functions = false
+hash_outcome_files = false
+
+[redaction]
+yield_magnitudes = true
+coefficients = true
+standard_errors = true
+p_values = true
+residuals = true
+predictions = true
+
+[promotion_gates]
+real_outcome_access_authorized = false
+real_fit_authorized = false
+associational_response_authorized = false
+causal_response_authorized = false
+winner_loser_claims_authorized = false
+damage_calculation_authorized = false
+scc_authorized = false
+give_integration_authorized = false

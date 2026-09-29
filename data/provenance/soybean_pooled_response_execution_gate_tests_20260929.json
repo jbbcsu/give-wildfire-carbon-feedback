@@ -1,0 +1,40 @@
+{
+  "config": {
+    "path": "config/soybean_pooled_response_execution_gate_v1.toml",
+    "sha256": "5e8250a7006d5997c722e1e4eccef25258b7c0e2f1e77453b2257d9b8f887f2c"
+  },
+  "created_at_utc": "2026-09-29T13:04:17.301779+00:00",
+  "gate": {
+    "path": "scripts/soybean_pooled_response_execution_gate.py",
+    "sha256": "a9f98d047d2a6393523264e69455f23441456ea9a8248101b5800e77ab8c4c41"
+  },
+  "implementation": {
+    "path": "scripts/test_soybean_pooled_response_execution_gate.py",
+    "sha256": "34833837145c6c0f1542fce64c428a0e4f3c2e9ebbc6357b330fab6b1e9dc697"
+  },
+  "resources": {
+    "memory_cap_bytes": 536870912,
+    "memory_gate_passed": true,
+    "peak_rss_bytes": 25051136
+  },
+  "results": {
+    "all_pass": true,
+    "metadata_files_opened": 7,
+    "outcome_files_opened": 0,
+    "tests": {
+      "engine_never_imported_or_invoked": true,
+      "explicit_authorization_required": true,
+      "manifest_protocol_engine_scope_statement_mutations_rejected": true,
+      "metadata_hashes_bound": true,
+      "missing_token_rejected": true,
+      "outcome_sources_never_opened_or_hashed": true,
+      "redactions_and_promotion_fail_closed": true,
+      "schemas_and_support_materialized": true,
+      "synthetic_token_rejected_in_production": true,
+      "test_mode_requires_boolean": true,
+      "valid_synthetic_token_accepted_only_in_test_mode": true
+    }
+  },
+  "schema": "soybean_pooled_response_execution_gate_tests/v1",
+  "status": "passed_metadata_only_fail_closed_authorization_tests"
+}
