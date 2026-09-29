@@ -1,0 +1,57 @@
+{
+  "checks": {
+    "control_sensitivities": true,
+    "country_year_residualization": true,
+    "cr2_satterthwaite": true,
+    "empty_or_zero_denominators_fail_closed": true,
+    "engine_has_no_filesystem_data_reader": true,
+    "family_nonstacking_enforced": true,
+    "first_difference_input_contract": true,
+    "frozen_training_years_enforced": true,
+    "geographic_slopes_prohibited": true,
+    "independent_reference_tests_pass": true,
+    "leave_one_block_influence": true,
+    "real_coefficient_fit": false,
+    "real_outcome_data_read": false,
+    "reduced_draws_test_mode_only": true,
+    "restricted_null_webb_bootstrap": true,
+    "strict_coordinate_and_dtype_contracts": true,
+    "terminal_transport_scoring": true,
+    "terminal_years_and_buffer_enforced": true
+  },
+  "claim_gates": {
+    "causal_interpretation_authorized": false,
+    "country_or_block_response_heterogeneity_authorized": false,
+    "damage_calculation_authorized": false,
+    "engine_validated_on_synthetic_data": true,
+    "give_integration_authorized": false,
+    "production_response_authorized": false,
+    "real_outcome_fit_authorized": false,
+    "scc_authorized": false,
+    "winner_loser_claims_authorized": false
+  },
+  "config": {
+    "path": "config/soybean_pooled_response_inference_protocol_v1.toml",
+    "sha256": "c410c2d4e59e54c70bdb507db63383282e471dd00059359d05163fe2b98263a4"
+  },
+  "created_at_utc": "2026-09-29T02:35:19.780563+00:00",
+  "engine": {
+    "path": "scripts/soybean_pooled_response_engine.py",
+    "sha256": "a437fab438e17fccdc6bf9780de6799e5d11306174f18c55e2bd286f494f0b66"
+  },
+  "implementation": {
+    "path": "scripts/validate_soybean_pooled_response_engine.py",
+    "sha256": "d3ebcef7ecb02fdc1accc3dfad61a97ddb803c7da133cf1bc114cc1854907b2b"
+  },
+  "resources": {
+    "memory_cap_bytes": 536870912,
+    "memory_gate_passed": true,
+    "peak_rss_bytes": 27410432
+  },
+  "schema": "soybean_pooled_response_engine_validation/v1",
+  "status": "validated_synthetic_only_engine_and_fail_closed_boundaries",
+  "synthetic_tests": {
+    "path": "data/provenance/soybean_pooled_response_engine_synthetic_validation_20260928.json",
+    "sha256": "05cf9c223b784767a0943e30b79c2c6d3a2ba2fb64c676e5eb403fcfeb623955"
+  }
+}

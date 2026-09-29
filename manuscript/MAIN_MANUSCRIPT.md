@@ -605,6 +605,11 @@ are mutually exclusive challengers. Synthetic recovery and deliberate
 fail-closed tests pass, while the already inspected terminal evidence remains
 non-promotable. A separate explicit fit authorization is therefore still
 required.
+The corresponding estimator now independently reproduces pooled OLS,
+block-CR2 covariance, Satterthwaite degrees of freedom, Webb bootstrap, and
+terminal scoring on synthetic data. It contains no data reader and enforces
+the frozen years, coordinate and outcome contracts, family separation, and
+pooled-only scope before execution; no real coefficient has been fit.
 
 The secondary U.S. validation track now contains 21,596 paired irrigated and
 non-irrigated crop-county-years over 1981--2019: 7,079 corn, 4,845 soybean,

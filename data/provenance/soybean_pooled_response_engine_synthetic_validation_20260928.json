@@ -1,0 +1,71 @@
+{
+  "config": {
+    "path": "config/soybean_pooled_response_inference_protocol_v1.toml",
+    "sha256": "c410c2d4e59e54c70bdb507db63383282e471dd00059359d05163fe2b98263a4"
+  },
+  "created_at_utc": "2026-09-29T02:35:19.676993+00:00",
+  "engine": {
+    "path": "scripts/soybean_pooled_response_engine.py",
+    "sha256": "a437fab438e17fccdc6bf9780de6799e5d11306174f18c55e2bd286f494f0b66"
+  },
+  "implementation": {
+    "path": "scripts/test_soybean_pooled_response_engine.py",
+    "sha256": "94dee6c05687cf817ca2839f41a0815bee5c96c35a9538fb0892e13c0ebf100d"
+  },
+  "real_coefficient_fit": false,
+  "real_outcome_data_read": false,
+  "resources": {
+    "memory_cap_bytes": 536870912,
+    "memory_gate_passed": true,
+    "peak_rss_bytes": 164528128
+  },
+  "schema": "soybean_pooled_response_engine_synthetic_validation/v1",
+  "status": "validated_engine_on_synthetic_data_only_no_real_outcome_read",
+  "tests": {
+    "all_pass": true,
+    "reference_tolerances": {
+      "bootstrap": 1e-10,
+      "coefficient": 1e-11,
+      "cr2_covariance": 1e-10,
+      "satterthwaite_df": 1e-08,
+      "terminal": 1e-12
+    },
+    "synthetic_recovery": {
+      "absolute_error": 0.0002570184202796699,
+      "known": -0.14,
+      "recovered": -0.13974298157972034
+    },
+    "synthetic_support": {
+      "blocks10": 12,
+      "countries": 6,
+      "terminal_pairs": 300,
+      "training_pairs": 720
+    },
+    "test_bootstrap_draws": 199,
+    "test_terminal_bootstrap_draws": 199,
+    "tests": {
+      "control_sensitivities_match_reference": true,
+      "coordinate_bounds_fail_closed": true,
+      "country_year_residualization_matches_pandas_reference": true,
+      "cr2_matches_bruteforce_reference": true,
+      "family_nonstacking_enforced": true,
+      "first_difference_input_contract": true,
+      "geographic_slopes_prohibited": true,
+      "integer_years_fail_closed": true,
+      "invalid_input_contracts_fail_closed": true,
+      "leave_one_block_matches_reference": true,
+      "pooled_ols_matches_reference": true,
+      "production_training_years_enforced": true,
+      "reduced_draws_rejected_outside_test_mode": true,
+      "restricted_null_webb_bootstrap_matches_reference": true,
+      "satterthwaite_matches_bruteforce_reference": true,
+      "strict_boolean_flags_fail_closed": true,
+      "synthetic_alternate_years_require_test_mode": true,
+      "synthetic_coefficient_recovery": true,
+      "terminal_transport_matches_reference": true,
+      "terminal_years_and_buffer_enforced": true,
+      "test_mode_requires_boolean": true,
+      "zero_draws_fail_closed": true
+    }
+  }
+}

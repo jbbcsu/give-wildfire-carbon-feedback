@@ -3170,6 +3170,26 @@ closed. These tests validate protocol mechanics only: no real outcome
 magnitude or slope was read, and a separate explicit authorization is required
 before fitting.
 
+The file-I/O-free pooled estimator implements the frozen mechanics on an
+in-memory pair table. It derives the log-yield first difference internally,
+requires observed positive consecutive endpoints, validates singleton country
+proxies and coordinate-derived ten-degree blocks, and enforces the complete
+1983--2010 training and 2012--2016 terminal year sets with the 2011 buffer.
+It residualizes by country-year, global-year, or block-year; computes pooled
+OLS, low-rank block CR2 covariance and Satterthwaite degrees of freedom; and
+implements a restricted-null, studentized six-point Webb bootstrap that
+reabsorbs fixed effects on every draw. It also implements leave-one-block
+influence, control sensitivities, and paired-block terminal RMSE scoring.
+
+An independent brute-force synthetic implementation matches coefficients to
+`1e-11`, CR2 covariance to `1e-10`, Satterthwaite degrees of freedom to
+`1e-8`, bootstrap results to `1e-10`, and terminal scoring to `1e-12`. A
+known -0.14 coefficient is recovered as -0.139743. Twenty-two contract and
+mechanics tests pass, including negative tests for coordinates, types, years,
+buffer leakage, zero or reduced production draws, stacked moisture families,
+and geographic slopes. The engine has no filesystem data reader and has not
+read or fit real outcomes.
+
 Multi-crop audit reporting is fail-closed. The audit validator binds the JSON
 artifact to the SHA-256 of the frozen response specification; requires the
 explicitly declared crop-season set and every crop-by-model-by-holdout result;
