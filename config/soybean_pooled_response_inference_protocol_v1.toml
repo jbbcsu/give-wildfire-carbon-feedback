@@ -1,0 +1,248 @@
+schema_version = 1
+contract_id = "soybean_pooled_response_inference_protocol_v1"
+memory_cap_bytes = 536870912
+scope = "pooled-only soybean precipitation-response and inference protocol; protocol validation and synthetic tests only"
+created_date = "2026-09-28"
+
+[sources.readiness_audit]
+path = "data/provenance/soybean_global_response_readiness_audit_20260928.json"
+sha256 = "11a02900d4ccd1de8906173ecaa9fff0f1f454157b38f6826b362bd2561109d7"
+
+[sources.design_preflight]
+path = "data/provenance/soybean_continuous_design_heterogeneity_preflight_20260928.json"
+sha256 = "d562654aeeec6e9d14be2438e335586468ad309d761449a0c8293cdbb591e8b2"
+
+[sources.design_preflight_validation]
+path = "data/provenance/soybean_continuous_design_heterogeneity_preflight_validation_20260928.json"
+sha256 = "0436e534e386ff61fe92b13988fa7ce02ee3b8ba286ea295c723769ca1e83581"
+
+[estimand]
+crop = "soy"
+outcome_level = "natural_log_of_yield_t_ha"
+outcome_transform = "log(yield_t_ha); no offset and no winsorization"
+outcome_difference = "current harvest-year log yield minus prior harvest-year log yield"
+interpretation = "pooled within-cell associational semi-elasticity after first differencing and declared group-year controls"
+causal_interpretation = false
+pair_weighting = "equal_weight_per_cell_pair"
+production_or_value_weighting_in_estimation = false
+fixed_exposure_basis = "MIRCA 2000 regime basis before fixed-area weighting"
+irrigation_specific_slopes_allowed = false
+
+[sample]
+training_level_year_minimum = 1982
+training_level_year_maximum = 2010
+training_pair_end_year_minimum = 1983
+training_pair_end_year_maximum = 2010
+buffer_year = 2011
+terminal_level_year_minimum = 2012
+terminal_level_year_maximum = 2016
+requires_yield_observed = true
+requires_strictly_positive_yield_at_both_pair_endpoints = true
+requires_consecutive_years = true
+requires_finite_outcome_and_all_declared_family_covariates = true
+primary_requires_singleton_country_proxy = true
+ambiguous_or_absent_country_proxy_action = "exclude from primary and common-support family comparisons; retain only in separately labeled block-year breadth sensitivity"
+one_gdhy_outcome_per_cell_year = true
+training_outcome_magnitudes_may_be_read_only_after_protocol_promotion = true
+
+[expected_training_support.direct_primary]
+pairs = 157868
+pair_end_years = 28
+cells_minimum = 5600
+singleton_country_proxies = 21
+blocks10_minimum = 55
+
+[expected_training_support.scpdsi_common]
+pairs = 157003
+pair_end_years = 28
+cells_minimum = 5600
+singleton_country_proxies = 21
+blocks10_minimum = 55
+
+[controls]
+heat_columns = [
+  "stage1_tmean_c", "stage2_tmean_c", "stage3_tmean_c",
+  "stage1_tmax_30c_degree_days", "stage2_tmax_30c_degree_days", "stage3_tmax_30c_degree_days",
+]
+primary_group_year_control = "singleton_country_proxy_by_pair_end_year"
+primary_residualization = "demean differenced outcome and every differenced regressor within singleton country proxy by pair end-year"
+sensitivity_group_year_controls = ["global_pair_end_year", "block10_by_pair_end_year"]
+sensitivity_common_support = "same singleton-country finite pairs as the corresponding primary-family fit"
+intercept_after_residualization = false
+cell_fixed_effect_treatment = "removed by cell first differences"
+additional_trends_allowed = false
+post_treatment_controls_allowed = false
+
+[families.quantity]
+role = "sole confirmatory primary"
+moisture_columns = ["log1p_precip_mm"]
+includes_heat_controls = true
+
+[families.distribution]
+role = "mutually exclusive direct-pattern challenger; cannot auto-replace v1 primary"
+moisture_columns = [
+  "log1p_precip_mm", "stage1_precip_share", "stage2_precip_share",
+  "cdd_max_days", "rx5day_mm", "precipitation_concentration_hhi",
+]
+includes_heat_controls = true
+reference_share = "stage3_precip_share"
+
+[families.scpdsi_season]
+role = "mutually exclusive climatic-water-balance challenger; cannot auto-replace v1 primary"
+moisture_columns = ["season_scpdsi_mean"]
+includes_heat_controls = true
+
+[family_hierarchy]
+primary = "quantity"
+challengers = ["distribution", "scpdsi_season"]
+direct_and_scpdsi_stacking_allowed = false
+distribution_and_scpdsi_stacking_allowed = false
+automatic_family_selection_allowed = false
+challenger_can_trigger_only = "candidate_for_preregistered_protocol_revision"
+challenger_cannot_trigger = ["coefficient_substitution", "damage_application", "scc_application"]
+quantity_test_familywise_alpha = 0.05
+challenger_multiplicity_family = "two paired terminal-loss tests controlled by Holm at familywise alpha 0.05"
+previously_inspected_distribution_confirmation_is_binding = true
+previously_inspected_distribution_confirmation_passed = false
+
+[inference]
+primary_spatial_cluster = "10_degree_block"
+cluster_definition = "floor((lat + 90) / 10) and floor(lon_360 / 10), with endpoint clipping/wrapping from the design preflight"
+cluster_covariance = "CR2 small-sample cluster-robust covariance"
+reference_distribution = "Satterthwaite degrees of freedom"
+wild_cluster_bootstrap = "restricted-null studentized wild cluster bootstrap-t with Webb six-point weights"
+wild_cluster_bootstrap_draws = 9999
+wild_cluster_bootstrap_seed = 20260928
+test_sidedness = "two_sided"
+alpha = 0.05
+arbitrary_dependence_allowed_within_block_across_cells_and_years = true
+independence_assumed_only_across_blocks = true
+country_clustering_as_primary_allowed = false
+heteroskedastic_only_inference_allowed = false
+
+[prefit_gates]
+minimum_primary_pairs = 150000
+minimum_pair_end_years = 28
+minimum_cells = 5500
+minimum_raw_blocks10 = 50
+minimum_effective_blocks10 = 25.0
+minimum_effective_country_proxies = 5.0
+maximum_largest_block_pair_share = 0.10
+require_full_column_rank = true
+maximum_scaled_condition_number = 10.0
+maximum_row_leverage = 0.005
+maximum_p99_row_leverage = 0.001
+maximum_top_one_percent_leverage_share = 0.10
+require_each_block_quantity_p05_below_zero_and_p95_above_zero = true
+minimum_each_block_fraction_inside_global_quantity_p05_p95 = 0.50
+
+[postfit_influence_gates]
+leave_one_block_out_required = true
+minimum_leave_one_block_out_primary_sign_concordance = 0.90
+maximum_leave_one_block_out_absolute_shift_in_primary_cr2_se = 0.50
+maximum_single_block_score_share = 0.20
+maximum_single_block_squared_residual_share = 0.20
+coefficient_sign_must_match_all_control_sensitivities = true
+maximum_control_sensitivity_absolute_shift_in_primary_cr2_se = 1.00
+
+[primary_inference_promotion]
+primary_quantity_coefficient_must_be_finite = true
+cr2_standard_error_must_be_positive_finite = true
+cr2_two_sided_p_value_maximum = 0.05
+wild_cluster_bootstrap_two_sided_p_value_maximum = 0.05
+cr2_and_bootstrap_confidence_intervals_must_exclude_zero = true
+sign_is_not_predeclared = true
+sign_cherry_picking_allowed = false
+
+[later_period_validation]
+status = "locked but previously inspected; valid as a transport stress test, not fresh confirmation"
+training_years = "1982-2010"
+buffer_year_excluded = 2011
+terminal_years = "2012-2016"
+target = "within-country-year residualized log-yield first-difference anomaly"
+prediction_rule = "apply training-period pooled coefficients to terminal covariates residualized within terminal singleton-country by year; never re-estimate response coefficients on terminal outcomes"
+quantity_reference = "heat_controls_only"
+distribution_reference = "quantity"
+scpdsi_reference = "quantity_on_exact_direct_scpdsi_common_support"
+loss = "root_mean_squared_error"
+paired_loss_difference = "candidate_rmse_minus_reference_rmse; negative favors candidate"
+bootstrap_cluster = "10_degree_block"
+bootstrap_draws = 9999
+bootstrap_seed = 20260928
+minimum_terminal_pairs = 20000
+minimum_terminal_blocks10 = 40
+required_point_loss_difference_below_zero = true
+required_95_percent_cluster_bootstrap_upper_bound_below_zero = true
+minimum_improving_terminal_years_of_five = 4
+hyperparameter_or_family_tuning_on_terminal_period_allowed = false
+reuse_as_fresh_confirmation_allowed = false
+
+[challenger_rules]
+holm_familywise_alpha = 0.05
+number_of_tests = 2
+distribution_requires_existing_later_confirmation_pass = true
+scpdsi_requires_exact_common_support_comparison = true
+challenger_that_passes_may_auto_replace_quantity = false
+challenger_that_passes_requires_new_protocol_version = true
+
+[adaptation_interface]
+historical_estimation_assumes_endogenous_realized_adaptation_is_embedded_but_not_separately_identified = true
+primary_projection_mode = "no_additional_adaptation"
+primary_projection_multiplier = 1.0
+optional_sensitivity_name = "global_exogenous_response_attenuation_path"
+optional_multiplier_domain = "closed interval [0, 1]"
+optional_multiplier_application = "multiply projected weather-induced log-yield change after response evaluation and before economic aggregation"
+optional_multiplier_may_vary_by_time = true
+optional_multiplier_may_vary_by_country_block_cell_or_irrigation = false
+adaptation_sensitivity_may_change_historical_coefficient = false
+adaptation_sensitivity_may_be_labeled_empirical = false
+irrigation_or_area_share_reweighting_inside_adaptation_interface_allowed = false
+
+[promotion]
+protocol_mechanically_validated = "all config, source-hash, synthetic, boundary, and memory checks pass"
+fit_authorization_requires_separate_explicit_gate = true
+associational_fit_diagnostic_requires = ["all prefit gates", "all inference gates", "all influence gates", "all control-sensitivity gates"]
+predictive_response_candidate_requires = ["associational fit diagnostic", "quantity later-period validation gate"]
+causal_response_requires_separate_identification_evidence = true
+damage_application_requires_separate_transport_and_economic_weight_protocol = true
+scc_application_requires_matched_marginal_co2_climate_perturbation_and_GIVE_integration_protocol = true
+any_failed_required_gate_action = "fail closed; publish diagnostic only and do not substitute a challenger"
+
+[prohibitions]
+country_specific_response_slopes = true
+block_specific_response_slopes = true
+cell_specific_response_slopes = true
+irrigation_specific_response_slopes = true
+post_hoc_geographic_subgroup_search = true
+geographic_winner_loser_claims = true
+economic_winner_loser_claims = true
+causal_language_from_this_protocol = true
+real_outcome_fit_during_protocol_validation = true
+damage_or_scc_calculation_during_protocol_validation = true
+
+[synthetic_tests]
+seed = 20260928
+known_primary_coefficient = -0.12
+maximum_absolute_recovery_error = 0.02
+minimum_synthetic_blocks = 24
+minimum_synthetic_years = 10
+require_recovery_test = true
+require_rank_failure_test = true
+require_overlap_failure_test = true
+require_influence_failure_test = true
+require_family_nonstacking_failure_test = true
+require_geographic_slope_prohibition_test = true
+require_later_validation_fail_closed_test = true
+require_all_tests_pass = true
+
+[claim_gates]
+protocol_draft_authorized = true
+protocol_mechanically_validated = false
+real_outcome_slope_fit_authorized = false
+production_response_authorized = false
+causal_interpretation_authorized = false
+country_or_block_response_heterogeneity_authorized = false
+winner_loser_claims_authorized = false
+damage_calculation_authorized = false
+scc_authorized = false
+give_integration_authorized = false

@@ -596,6 +596,15 @@ and no qualifying country above 25% all fail. Country- or block-specific
 responses and geographic winners/losers therefore remain unauthorized. A
 pooled-only response protocol, outcome scale, and spatial inference rule must
 be frozen and externally reviewed before any soybean slope is estimated.
+That protocol is now mechanically frozen, but it still withholds authorization
+to fit real outcomes. It specifies first differences in log yield,
+country-proxy-by-year controls, ten-degree-block CR2/Satterthwaite inference
+plus a restricted-null wild-cluster bootstrap, and a locked 2012--2016
+transport test. Quantity remains primary; distribution and seasonal scPDSI
+are mutually exclusive challengers. Synthetic recovery and deliberate
+fail-closed tests pass, while the already inspected terminal evidence remains
+non-promotable. A separate explicit fit authorization is therefore still
+required.
 
 The secondary U.S. validation track now contains 21,596 paired irrigated and
 non-irrigated crop-county-years over 1981--2019: 7,079 corn, 4,845 soybean,

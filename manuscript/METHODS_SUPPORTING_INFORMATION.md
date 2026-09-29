@@ -3104,6 +3104,28 @@ resolution is therefore pooled global. This is design support, not a response
 estimate; country/block heterogeneity, winners and losers, damages, SCC, and
 GIVE integration remain closed.
 
+The pooled-only response protocol freezes the prospective outcome as the cell
+first difference of natural-log yield, with no offset, winsorization, or
+production weighting. The primary sample is the 157,868 singleton-country
+pairs; differenced outcomes and regressors are demeaned by country proxy and
+end-year. Primary inference clusters arbitrary cell/year dependence within
+the 56 ten-degree blocks and requires both CR2/Satterthwaite and restricted-
+null Webb wild-cluster-bootstrap inference with 9,999 draws. Global-year and
+block-year controls are mandatory common-support sensitivities. Quantity is
+the sole confirmatory moisture family; distribution and seasonal scPDSI are
+mutually exclusive challengers and can only motivate a new protocol version.
+
+The protocol also freezes prefit rank, condition, overlap, leverage, and
+effective-cluster gates; leave-one-block-out and score/residual influence
+gates; and a 2012--2016 anomaly-transport test separated by a 2011 buffer.
+The terminal period was previously inspected and is labeled a binding stress
+test, not fresh confirmation. Synthetic data recover a known -0.12 coefficient
+as -0.12093, and deliberate collinearity, overlap, influential-cluster,
+family-stacking, geographic-slope, and terminal-interval failures all fail
+closed. These tests validate protocol mechanics only: no real outcome
+magnitude or slope was read, and a separate explicit authorization is required
+before fitting.
+
 Multi-crop audit reporting is fail-closed. The audit validator binds the JSON
 artifact to the SHA-256 of the frozen response specification; requires the
 explicitly declared crop-season set and every crop-by-model-by-holdout result;

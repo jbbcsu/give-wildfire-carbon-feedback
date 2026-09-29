@@ -1,0 +1,81 @@
+{
+  "config": {
+    "path": "config/soybean_pooled_response_inference_protocol_v1.toml",
+    "sha256": "c410c2d4e59e54c70bdb507db63383282e471dd00059359d05163fe2b98263a4"
+  },
+  "created_at_utc": "2026-09-29T01:43:56.397862+00:00",
+  "implementation": {
+    "path": "scripts/test_soybean_pooled_response_protocol_synthetic.py",
+    "sha256": "6d74f1fa6da6e7af2981430aef5e2c609adc12fdb69893e984d8504e3f4c6703"
+  },
+  "real_outcome_data_read": false,
+  "resources": {
+    "memory_cap_bytes": 536870912,
+    "memory_gate_passed": true,
+    "peak_rss_bytes": 40468480
+  },
+  "results": {
+    "all_pass": true,
+    "tests": {
+      "coefficient_recovery": {
+        "absolute_error": 0.0009258331304407563,
+        "finite_positive_cluster_standard_error": true,
+        "full_rank": true,
+        "known_coefficient": -0.12,
+        "passes": true,
+        "recovered_coefficient": -0.12092583313044075,
+        "synthetic_only": true
+      },
+      "family_nonstacking_failure": {
+        "detected": true,
+        "passes": true
+      },
+      "geographic_slope_prohibition": {
+        "detected": true,
+        "passes": true
+      },
+      "influence_failure": {
+        "detected": true,
+        "diagnostic": {
+          "full_primary": 0.14506998647910352,
+          "maximum_shift_in_cluster_se": 1.0145357513307258,
+          "passes": false,
+          "sign_concordance": 1.0
+        },
+        "passes": true
+      },
+      "later_validation_fail_closed": {
+        "failing_case_rejected": true,
+        "passes": true,
+        "passing_case_accepted": true
+      },
+      "overlap_failure": {
+        "detected": true,
+        "diagnostic": {
+          "blocks": 40,
+          "passes": false,
+          "passing_blocks": 39
+        },
+        "passes": true
+      },
+      "rank_failure": {
+        "detected": true,
+        "diagnostic": {
+          "columns": 8,
+          "condition": null,
+          "full_rank": false,
+          "rank": 7
+        },
+        "passes": true
+      },
+      "stable_influence_acceptance": {
+        "full_primary": -0.12092583313044075,
+        "maximum_shift_in_cluster_se": 0.3473378069197825,
+        "passes": true,
+        "sign_concordance": 1.0
+      }
+    }
+  },
+  "schema": "soybean_pooled_response_protocol_synthetic_tests/v1",
+  "status": "passed_synthetic_only_no_real_outcome_fit"
+}

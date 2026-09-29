@@ -1,0 +1,89 @@
+{
+  "checks": {
+    "contract_errors": [],
+    "country_or_block_slopes_prohibited": true,
+    "deliberate_mutation_checks": {
+      "any_downstream_claim_gate_would_fail": true,
+      "geographic_slope_would_fail": true,
+      "stacking_would_fail": true,
+      "terminal_upper_bound_at_or_above_zero_would_fail": true
+    },
+    "family_nonstacking": true,
+    "inherited_terminal_evidence": {
+      "distribution_existing_confirmation_passed": false,
+      "quantity_bootstrap_upper_below_zero": false,
+      "quantity_point_favors_candidate": true,
+      "scpdsi_bootstrap_upper_below_zero": false,
+      "scpdsi_point_favors_candidate": false
+    },
+    "pooled_only_resolution": true,
+    "prefit_support": {
+      "block_overlap": true,
+      "full_column_rank": true,
+      "maximum_largest_block_pair_share": true,
+      "maximum_p99_row_leverage": true,
+      "maximum_row_leverage": true,
+      "maximum_scaled_condition_number": true,
+      "maximum_top_one_percent_leverage_share": true,
+      "minimum_cells": true,
+      "minimum_effective_blocks10": true,
+      "minimum_effective_country_proxies": true,
+      "minimum_pair_end_years": true,
+      "minimum_primary_pairs": true,
+      "minimum_raw_blocks10": true
+    },
+    "real_outcome_magnitudes_read": false,
+    "real_outcome_slope_fit": false,
+    "synthetic_all_pass": true
+  },
+  "config": {
+    "path": "config/soybean_pooled_response_inference_protocol_v1.toml",
+    "sha256": "c410c2d4e59e54c70bdb507db63383282e471dd00059359d05163fe2b98263a4"
+  },
+  "created_at_utc": "2026-09-29T02:03:10.933794+00:00",
+  "implementation": {
+    "path": "scripts/validate_soybean_pooled_response_inference_protocol.py",
+    "sha256": "26cd309fbf7c15d6f74f202b12ef866b8b52c566d3d66f48d997f6dc4194ca54"
+  },
+  "promotion_state": {
+    "associational_fit_diagnostic": false,
+    "causal_response": false,
+    "country_or_block_response_heterogeneity": false,
+    "damage_calculation": false,
+    "give_integration": false,
+    "predictive_response_candidate": false,
+    "protocol_mechanically_validated": true,
+    "real_outcome_slope_fit_authorized": false,
+    "scc": false,
+    "winner_loser_claims": false
+  },
+  "protocol": {
+    "path": "SOYBEAN_POOLED_RESPONSE_INFERENCE_PROTOCOL_20260928.md",
+    "sha256": "5fa45709acb459bd8b5c48c0ad1276281e40de4a24fcc968879e68360045feff"
+  },
+  "resources": {
+    "memory_cap_bytes": 536870912,
+    "memory_gate_passed": true,
+    "peak_rss_bytes": 24903680
+  },
+  "schema": "soybean_pooled_response_inference_protocol_validation/v1",
+  "source_bindings": {
+    "design_preflight": {
+      "path": "data/provenance/soybean_continuous_design_heterogeneity_preflight_20260928.json",
+      "sha256": "d562654aeeec6e9d14be2438e335586468ad309d761449a0c8293cdbb591e8b2"
+    },
+    "design_preflight_validation": {
+      "path": "data/provenance/soybean_continuous_design_heterogeneity_preflight_validation_20260928.json",
+      "sha256": "0436e534e386ff61fe92b13988fa7ce02ee3b8ba286ea295c723769ca1e83581"
+    },
+    "readiness_audit": {
+      "path": "data/provenance/soybean_global_response_readiness_audit_20260928.json",
+      "sha256": "11a02900d4ccd1de8906173ecaa9fff0f1f454157b38f6826b362bd2561109d7"
+    }
+  },
+  "status": "mechanically_validated_protocol_only_fail_closed_no_real_fit",
+  "synthetic_tests": {
+    "path": "data/provenance/soybean_pooled_response_protocol_synthetic_tests_20260928.json",
+    "sha256": "5b96a3602695534e40e0e13095b87c787b5ad5ed23e1055f89bea9a0d911d7fd"
+  }
+}
