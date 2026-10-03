@@ -1,0 +1,31 @@
+schema = "loca2_us_county_weights/v1"
+status = "frozen_before_weight_construction"
+created = "2026-10-03"
+
+[source]
+store = "mdmf/gdp/LOCA2/CMIP6-LOCA2.historical.daily.zarr"
+endpoint_url = "https://usgs.osn.mghpcc.org/"
+precipitation_version = "v20240915"
+grid_id = "CMIP6_LOCA2_1_16_degree"
+
+[county]
+geoid = "31039"
+name = "Cuming"
+display_name = "Cuming County, Nebraska"
+boundary_vintage = 2019
+shapefile = "data/raw/us_county/tigerline/tl_2019_us_county/tl_2019_us_county.shp"
+minimum_grid_coverage = 0.999
+maximum_declared_area_relative_error = 0.03
+prevalue_amendment = "TIGER NAME stores Cuming rather than the display label Cuming County; corrected after the fail-closed metadata check and before geometry weights or climate values were produced"
+
+[outputs]
+weights = "loca2_us/data/interim/weights/tiger2019/county_geoid=31039/weights.parquet"
+receipt = "loca2_us/data/provenance/loca2_cuming_tiger2019_weights_20261003.json"
+
+[claim_gates]
+county_geometry_weights = false
+weather_validity = false
+historical_climate_validation = false
+outcome_response = false
+causal_damage = false
+SCC = false

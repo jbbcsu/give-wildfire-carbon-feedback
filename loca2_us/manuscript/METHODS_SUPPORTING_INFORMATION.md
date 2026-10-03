@@ -43,6 +43,14 @@ include bias, RMSE, correlation, trend difference, quantile error, dry-spell
 error, and Rx5day error. TIGER 2019 versus TIGER 2023 boundary differences are
 crosswalked and reported; no silent GEOID coercion is allowed.
 
+The first geometry sentinel uses the same TIGER 2019 Cuming County polygon as
+the nClimGrid pipeline. LOCA2 cell edges are inferred from the regular
+one-dimensional coordinates, transformed with the county to EPSG:5070, and
+intersected exactly. Sixty-three cells have positive intersection. Coverage,
+declared-area reconciliation, unique cell keys, and weight sum are fail-closed
+checks. This stage uses coordinate metadata only and does not establish
+weather validity.
+
 ## M6. Agricultural response families
 
 The response stage remains closed. When authorized, the primary quantity

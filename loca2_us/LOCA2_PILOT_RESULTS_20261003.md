@@ -46,15 +46,30 @@ change.
 
 ## Gates and next step
 
-The source-access engineering gate is open. County averaging, crop-season
-feature construction, historical nClimGrid validation, outcome response,
-causal damage, and SCC gates remain closed. The next bounded step is to create
-TIGER-consistent LOCA2-to-county weights for fixed historical sentinel
-counties, then compare daily historical LOCA2 and nClimGrid features on the
-predeclared 2001--2014 validation block without reading yields.
+The source-access engineering gate is open. A subsequent geometry-only step
+also constructed TIGER 2019 county-to-LOCA2 weights for Cuming County. The
+1,488,343,219 m2 projected polygon is represented by 63 positive LOCA2 cells;
+grid coverage is 0.999999999999999 and the weights sum to 0.9999999999999999.
+Projected area differs from TIGER's declared land-plus-water area by only
+3.05e-8 relative. The monitored job peaked at 182.17 MiB RAM. It read
+coordinate metadata and geometry only, not weather values or outcomes.
+
+The first weight attempt stopped before geometry construction because the
+frozen display label `Cuming County` did not equal TIGER's exact `NAME` value,
+`Cuming`. The failed job receipt is retained. The config records the pre-value
+metadata amendment, and the successful rerun used the exact source label.
+
+County geometry weights are now open. Weather validity, crop-season feature
+construction, historical nClimGrid validation, outcome response, causal
+damage, and SCC gates remain closed. The next bounded step is to compare daily
+historical LOCA2 and nClimGrid features on fixed sentinel windows without
+reading yields.
 
 Primary receipts:
 
 - `data/provenance/loca2_official_catalog_audit_20261003.json`
 - `data/provenance/loca2_cuming_gfdl_ssp245_2030summer_pilot.json`
 - `data/provenance/loca2_cuming_gfdl_ssp245_2030summer_pilot_job.json`
+- `data/provenance/loca2_cuming_tiger2019_weights_20261003.json`
+- `data/provenance/loca2_cuming_tiger2019_weights_job_20261003.json` (failed metadata check)
+- `data/provenance/loca2_cuming_tiger2019_weights_job_v2_20261003.json`
