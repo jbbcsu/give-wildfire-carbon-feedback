@@ -1,0 +1,77 @@
+{
+  "claim_gates": {
+    "SCC": false,
+    "access_engineering": true,
+    "causal_damage": false,
+    "county_average": false,
+    "crop_season_feature": false,
+    "historical_validation": false,
+    "outcome_response": false
+  },
+  "config": {
+    "path": "loca2_us/config/loca2_us_bounded_pilot_v1.toml",
+    "sha256": "25b3486bf763a78868d71dd8286de4b018b8e996051758e9f0f9e89518bc54de"
+  },
+  "daily_output": {
+    "bytes": 3405,
+    "path": "loca2_us/data/interim/cuming_gfdl_ssp245_2030summer_daily.csv",
+    "sha256": "daa1de836140598e946e746e0d277c23dd40dc73d606f73c2756d680f38210e7"
+  },
+  "metrics": {
+    "days": 92,
+    "maximum_consecutive_dry_days_lt_1mm": 14,
+    "maximum_tasmax_c": 38.980255126953125,
+    "mean_tasmax_c": 31.152173249617867,
+    "mean_tasmin_c": 16.28830320938774,
+    "precipitation_total_mm": 289.7050858139992,
+    "rx1day_mm": 41.09138488769531,
+    "rx5day_mm": 62.809707045555115,
+    "wet_days_ge_1mm": 25
+  },
+  "role": "access_engineering_only_not_county_average_or_crop_season",
+  "schema": "loca2_us_bounded_daily_point_pilot/v1",
+  "selection": {
+    "coordinate_role": "fixed_approximate_county_internal_point_for_access_engineering_only",
+    "county_geoid": "31039",
+    "county_name": "Cuming County, Nebraska",
+    "end_date": "2030-08-31",
+    "lat_index": 288,
+    "latitude": 41.92,
+    "lon_index": 459,
+    "longitude": -96.79,
+    "outcome_data_read": false,
+    "selected_latitude": 41.90625,
+    "selected_longitude_degrees_east": 263.21875,
+    "selected_longitude_native": 263.21875,
+    "start_date": "2030-06-01"
+  },
+  "source": {
+    "LOCA2_precipitation_version": "v20240915",
+    "endpoint_url": "https://usgs.osn.mghpcc.org/",
+    "ensemble_index": 105,
+    "experiment_id": "ssp245",
+    "remote_chunk_bytes_upper_bound": 60253980,
+    "remote_chunk_mib_upper_bound": 57.46267318725586,
+    "remote_chunks": [
+      {
+        "compressed_bytes": 9016112,
+        "key": "pr/105.12.1.3",
+        "variable": "pr"
+      },
+      {
+        "compressed_bytes": 25452062,
+        "key": "tasmin/105.12.1.3",
+        "variable": "tasmin"
+      },
+      {
+        "compressed_bytes": 25785806,
+        "key": "tasmax/105.12.1.3",
+        "variable": "tasmax"
+      }
+    ],
+    "source_id": "GFDL-ESM4",
+    "store": "mdmf/gdp/LOCA2/CMIP6-LOCA2.future.daily.zarr",
+    "variant_label": "r1i1p1f1"
+  },
+  "status": "pass"
+}

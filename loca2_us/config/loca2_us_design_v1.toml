@@ -1,0 +1,84 @@
+schema = "loca2_us_design/v1"
+status = "outcome_blind_climate_protocol"
+created = "2026-10-03"
+primary_role = "US_high_resolution_climate_validation_and_projection"
+global_role = "none_global_GIVE_remains_ISIMIP_based"
+
+[sources]
+daily_store = "USGS_WMA_STAC_CMIP6_LOCA2_daily_Zarr"
+historical_period = [1950, 2014]
+future_period = [2015, 2100]
+scenarios = ["ssp245", "ssp370", "ssp585"]
+variables = ["pr", "tasmin", "tasmax"]
+precipitation_version_required = "v20240915"
+license_audit_required = true
+calendar_audit_required = true
+
+[geography]
+projection_domain = "North_America_LOCA2"
+outcome_domain = "CONUS_counties_with_eligible_NASS_outcomes"
+historical_weather_boundaries = "TIGER_2019"
+official_county_summary_boundaries = "TIGER_2023"
+crosswalk_required = true
+historical_boundary_change_exclusions_preserved = true
+
+[features]
+wet_day_threshold_mm = 1.0
+stage_fractions = [0.0, 0.3, 0.7, 1.0]
+primary_quantity = ["crop_season_precip_mm"]
+distribution = ["stage1_precip_share", "stage2_precip_share", "wet_days_n", "conditional_wet_day_intensity_mm", "precipitation_timing_centroid", "precipitation_concentration_hhi"]
+dry_spell = ["crop_season_cdd_max_days"]
+extremes = ["crop_season_rx1day_mm", "crop_season_rx5day_mm"]
+temperature = ["stage1_tmean_c", "stage2_tmean_c", "stage3_tmean_c", "stage1_heat_degree_days", "stage2_heat_degree_days", "stage3_heat_degree_days"]
+official_annual_extremes_role = "climate_validation_only_unless_crop_season_alignment_is_exact"
+monthly_county_summary_limit = "cannot_identify_daily_dry_spells_rx5day_or_exact_crop_stage_features"
+
+[ensemble]
+primary_weighting = "equal_GCM_then_equal_variant_within_GCM"
+group_key = "source_id"
+keep_all_scenarios_for_each_retained_source = true
+never_treat_scenarios_or_variants_as_independent_GCMs = true
+selection_uses_crop_outcomes = false
+external_sensitivity = "official_CRIS_14_model_weighting_only_if_weights_and_members_are_source_verified"
+global_bridge_models = ["GFDL-ESM4", "IPSL-CM6A-LR", "MPI-ESM1-2-HR", "MRI-ESM2-0"]
+global_bridge_note = "intersection_with_current_five_ESM_ISIMIP_path; UKESM1-0-LL_is_not_in_the_USGS_27_model_list"
+
+[holdouts]
+fold_assignment = "sha256(source_id)_first_8_hex_mod_5"
+fold_unit = "all_variants_and_scenarios_of_one_source_id"
+fold_count = 5
+historical_calibration_years = [1981, 2000]
+historical_validation_years = [2001, 2014]
+projection_windows = [[2025, 2049], [2050, 2074], [2075, 2099]]
+outcome_blind = true
+climate_skill_only = true
+no_yield_tuned_ensemble_weights = true
+
+[historical_validation]
+reference = "NOAA_nClimGrid_Daily_existing_county_pipeline"
+common_period = [1981, 2014]
+metrics = ["bias", "rmse", "correlation", "trend_difference", "quantile_error", "dry_spell_error", "rx5day_error"]
+independence_note = "nClimGrid_is_not_LOCA2_training_data; LOCA2_uses_unsplit_Livneh_but_gridding_and_station_dependencies_still_require_care"
+
+[irrigation]
+primary_strata = ["non_irrigated", "irrigated"]
+all_practice_role = "secondary_coverage_benchmark"
+fixed_historical_practice = "NASS_direct_practice_where_supported"
+projection_scenarios = ["fixed", "trend", "upper"]
+do_not_infer_irrigation_from_LOCA2 = true
+
+[resource_guards]
+max_worker_mib = 512
+one_worker_at_a_time = true
+pilot_max_download_mib = 64
+prefer_cloud_region_reads = true
+prohibit_full_national_NetCDF_download_in_pilot = true
+raw_data_tracked = false
+
+[claim_gates]
+climate_source_audit = false
+climate_feature_validation = false
+outcome_fit_authorized = false
+causal_agricultural_effect = false
+damage_estimate = false
+SCC_estimate = false

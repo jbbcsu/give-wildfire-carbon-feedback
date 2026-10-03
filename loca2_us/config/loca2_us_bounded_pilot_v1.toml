@@ -1,0 +1,41 @@
+schema = "loca2_us_bounded_pilot/v1"
+status = "frozen_before_climate_value_read"
+created = "2026-10-03"
+
+[source]
+store = "mdmf/gdp/LOCA2/CMIP6-LOCA2.future.daily.zarr"
+endpoint_url = "https://usgs.osn.mghpcc.org/"
+precipitation_version = "v20240915"
+source_id = "GFDL-ESM4"
+experiment_id = "ssp245"
+variant_label = "r1i1p1f1"
+variables = ["pr", "tasmin", "tasmax"]
+
+[selection]
+county_geoid = "31039"
+county_name = "Cuming County, Nebraska"
+coordinate_role = "fixed_approximate_county_internal_point_for_access_engineering_only"
+latitude = 41.92
+longitude = -96.79
+start_date = "2030-06-01"
+end_date = "2030-08-31"
+outcome_data_read = false
+
+[resources]
+maximum_remote_chunk_mib = 64
+maximum_worker_mib = 512
+one_worker = true
+full_national_download = false
+
+[outputs]
+daily_csv = "loca2_us/data/interim/cuming_gfdl_ssp245_2030summer_daily.csv"
+receipt = "loca2_us/data/provenance/loca2_cuming_gfdl_ssp245_2030summer_pilot.json"
+
+[claim_gates]
+access_engineering = false
+county_average = false
+crop_season_feature = false
+historical_validation = false
+outcome_response = false
+causal_damage = false
+SCC = false

@@ -1,0 +1,432 @@
+{
+  "decisions": {
+    "causal_damage_or_SCC_claim": false,
+    "full_national_NetCDF_download": false,
+    "official_annual_extremes_role": "climate_validation_not_crop_season_substitute",
+    "outcome_fit_authorized": false,
+    "pilot_access": "bounded_Zarr_region_reads",
+    "precipitation_version": "v20240915",
+    "primary_daily_source": "USGS_WMA_STAC_Zarr"
+  },
+  "fetches": {
+    "county_v20220519": {
+      "bytes": 18292,
+      "content_type": "application/json;charset=UTF-8",
+      "sha256": "ad0f1f9ab2bebc3267356a59cc39a14299931f2d053392fa33d625b0a5ab5d33",
+      "url": "https://www.sciencebase.gov/catalog/item/673d0719d34e6b795de6b593?format=json"
+    },
+    "future_daily": {
+      "bytes": 7000,
+      "content_type": "application/json",
+      "sha256": "7e3c2ed7bcff43dbc1954ef4efa933fc85c1472c8dac55811f34310668da37df",
+      "url": "https://api.water.usgs.gov/gdp/pygeoapi/stac/stac-collection/LOCA2/CMIP6-LOCA2.future.daily?f=json"
+    },
+    "historical_daily": {
+      "bytes": 7022,
+      "content_type": "application/json",
+      "sha256": "477b1092264ed0a773f35de0b215dbe14f840aaae2bc4f7777ade615c4c8d386",
+      "url": "https://api.water.usgs.gov/gdp/pygeoapi/stac/stac-collection/LOCA2/CMIP6-LOCA2.historical.daily?f=json"
+    },
+    "precip_extremes_v20240915": {
+      "bytes": 23315,
+      "content_type": "application/json;charset=UTF-8",
+      "sha256": "4b6ae3e873e37f95cd7d6d5623548363f8619cd25653099754cb8012b2dcbbe4",
+      "url": "https://www.sciencebase.gov/catalog/item/691cfb65d4be021d1d89b487?format=json"
+    },
+    "root": {
+      "bytes": 3091,
+      "content_type": "application/json",
+      "sha256": "dbcf96e10d36b28fbc646fdaf0b5b54fec2e48072df1b2667f5566d426113132",
+      "url": "https://api.water.usgs.gov/gdp/pygeoapi/stac/stac-collection/LOCA2?f=json"
+    },
+    "zmetadata_future_daily": {
+      "bytes": 10223,
+      "content_type": "binary/octet-stream",
+      "sha256": "81720180259ece130927cb427d5b50ae8e9a640e18c4966afc9adabeb8d2f59a",
+      "url": "https://usgs.osn.mghpcc.org/mdmf/gdp/LOCA2/CMIP6-LOCA2.future.daily.zarr/.zmetadata"
+    },
+    "zmetadata_historical_daily": {
+      "bytes": 10224,
+      "content_type": "binary/octet-stream",
+      "sha256": "eda7a227ef433715eada76c4c6ce4a59d27bec688bb9fa71ab83515a376b6117",
+      "url": "https://usgs.osn.mghpcc.org/mdmf/gdp/LOCA2/CMIP6-LOCA2.historical.daily.zarr/.zmetadata"
+    }
+  },
+  "schema": "loca2_official_catalog_audit/v1",
+  "sciencebase": {
+    "county_v20220519": {
+      "files": [
+        {
+          "bytes": 19873,
+          "name": "CMIP6-LOCA2_counties2023.xml",
+          "url": "https://www.sciencebase.gov/catalog/file/get/673d0719d34e6b795de6b593?f=__disk__0b%2F57%2F98%2F0b5798b151b34f6d09ae9ca4ba1ef27c4d863058"
+        },
+        {
+          "bytes": 35292413,
+          "name": "CMIP6-LOCA2_bias_correction_data_Livneh2021_1915-2018_County2023_monthly.nc",
+          "url": "https://sciencebase.usgs.gov/manager/item/673d0719d34e6b795de6b593/file/cm3xenixg00dx0uo7gu5n6xv8"
+        },
+        {
+          "bytes": 1869350991,
+          "name": "CMIP6-LOCA2_Thresholds_1950-2100_County2023_annual.nc",
+          "url": "https://sciencebase.usgs.gov/manager/item/673d0719d34e6b795de6b593/file/cm3xeo16j00dz0uo7bb7p8080"
+        },
+        {
+          "bytes": 2421869295,
+          "name": "CMIP6-LOCA2_Thresholds_1950-2100_County2023_monthly.nc",
+          "url": "https://sciencebase.usgs.gov/manager/item/673d0719d34e6b795de6b593/file/cm3xeo31r00e00uo72krmhe66"
+        },
+        {
+          "bytes": 2334576014,
+          "name": "CMIP6-LOCA2_1950-2100_County2023_monthly.nc",
+          "url": "https://sciencebase.usgs.gov/manager/item/673d0719d34e6b795de6b593/file/cm3xenfaw00dw0uo7epz913u0"
+        },
+        {
+          "bytes": 3108508716,
+          "name": "CMIP6-LOCA2_MWBM_1950-2100_County2023_monthly.nc",
+          "url": "https://sciencebase.usgs.gov/manager/item/673d0719d34e6b795de6b593/file/cm3xenpky00dy0uo724ah63mq"
+        },
+        {
+          "bytes": 18660,
+          "name": "variable_metadata_and_description.txt",
+          "url": "https://www.sciencebase.gov/catalog/file/get/673d0719d34e6b795de6b593?f=__disk__dd%2Fe5%2Fc9%2Fdde5c941f1d7b999ea581b4c0a85be1546105724"
+        }
+      ],
+      "has_children": false,
+      "id": "673d0719d34e6b795de6b593",
+      "rights": "This work is marked with Creative Commons Zero v1.0 Universal (https://creativecommons.org/publicdomain/zero/1.0/). ",
+      "title": "CMIP6-LOCA2 spatial summaries of counties (TIGER 2023) from 1950-2100 for the Contiguous United States",
+      "total_file_bytes": 9769635962
+    },
+    "precip_extremes_v20240915": {
+      "files": [
+        {
+          "bytes": 14678191450,
+          "name": "CMIP6-LOCA2_1950-2014_pr_metrics_historical_grids.zip",
+          "url": "https://sciencebase.usgs.gov/manager/item/691cfb65d4be021d1d89b487/file/cmievmf31004v0upme1wa27q6"
+        },
+        {
+          "bytes": 2676023132,
+          "name": "CMIP6-LOCA2_1950-2100_pr_metrics_County2023_timeseries.nc",
+          "url": "https://sciencebase.usgs.gov/manager/item/691cfb65d4be021d1d89b487/file/cmievmj4d004w0upma8s9fiaj"
+        },
+        {
+          "bytes": 351215719,
+          "name": "CMIP6-LOCA2_1950-2100_pr_metrics_Tribal_timeseries.nc",
+          "url": "https://sciencebase.usgs.gov/manager/item/691cfb65d4be021d1d89b487/file/cmievmnbj004x0upmgbf7ebpk"
+        },
+        {
+          "bytes": 1887608949,
+          "name": "CMIP6-LOCA2_1950-2100_pr_metrics_WBDHU8_timeseries.nc",
+          "url": "https://sciencebase.usgs.gov/manager/item/691cfb65d4be021d1d89b487/file/cmievmqhr004y0upmhjps63jp"
+        },
+        {
+          "bytes": 17700309568,
+          "name": "CMIP6-LOCA2_2015-2100_pr_metrics_ssp245_grids.zip",
+          "url": "https://sciencebase.usgs.gov/manager/item/691cfb65d4be021d1d89b487/file/cmievmzi8004z0upmbpfk0v66"
+        },
+        {
+          "bytes": 17014155955,
+          "name": "CMIP6-LOCA2_2015-2100_pr_metrics_ssp370_grids.zip",
+          "url": "https://sciencebase.usgs.gov/manager/item/691cfb65d4be021d1d89b487/file/cmievna1900500upm35zp3knz"
+        },
+        {
+          "bytes": 18441233765,
+          "name": "CMIP6-LOCA2_2015-2100_pr_metrics_ssp585_grids.zip",
+          "url": "https://sciencebase.usgs.gov/manager/item/691cfb65d4be021d1d89b487/file/cmievnguy00510upm8dvj07u6"
+        },
+        {
+          "bytes": 15711,
+          "name": "LOCA2_pr_metrics.xml",
+          "url": "https://www.sciencebase.gov/catalog/file/get/691cfb65d4be021d1d89b487?f=__disk__17%2Fc9%2F3b%2F17c93b3fa79927beb0d25bb163000246be83f195"
+        },
+        {
+          "bytes": 17175,
+          "name": "CHIMP6-LOCA2_bounding_box.jpg",
+          "url": "https://www.sciencebase.gov/catalog/file/get/691cfb65d4be021d1d89b487?f=__disk__25%2F95%2F0a%2F25950a4db357741ff2cb0541fa6c434fb709726e"
+        }
+      ],
+      "has_children": false,
+      "id": "691cfb65d4be021d1d89b487",
+      "rights": "This work is marked with the Creative Commons Zero v1.0 Universal (CC0-1.0) public domain dedication; https://creativecommons.org/publicdomain/zero/1.0/. ",
+      "title": "Revised CMIP6-LOCA2 (v20240915) precipitation extreme metrics from 1950-2100 for the Contiguous United States",
+      "total_file_bytes": 72748771424
+    }
+  },
+  "scope": "metadata_only_no_climate_array_download",
+  "stac": {
+    "future_daily": {
+      "description": "LOCA bias corrected output David Pierce SIO/CASPO",
+      "extent": {
+        "spatial": {
+          "bbox": [
+            [
+              -125.46874999999997,
+              23.90625,
+              -66.53124999999999,
+              53.46875
+            ]
+          ]
+        },
+        "temporal": {
+          "interval": [
+            [
+              "2015-01-01T00:00:00Z",
+              "2100-12-31T00:00:00Z"
+            ]
+          ]
+        }
+      },
+      "id": "CMIP6-LOCA2.future.daily",
+      "storage_options": {
+        "anon": true,
+        "client_kwargs": {
+          "endpoint_url": "https://usgs.osn.mghpcc.org/"
+        }
+      },
+      "zarr_href": "s3://mdmf/gdp/LOCA2/CMIP6-LOCA2.future.daily.zarr/",
+      "zarr_type": "application/vnd+zarr"
+    },
+    "historical_daily": {
+      "description": "LOCA bias corrected output David Pierce SIO/CASPO",
+      "extent": {
+        "spatial": {
+          "bbox": [
+            [
+              -125.46874999999997,
+              23.90625,
+              -66.53124999999999,
+              53.46875
+            ]
+          ]
+        },
+        "temporal": {
+          "interval": [
+            [
+              "1950-01-01T00:00:00Z",
+              "2014-12-31T00:00:00Z"
+            ]
+          ]
+        }
+      },
+      "id": "CMIP6-LOCA2.historical.daily",
+      "storage_options": {
+        "anon": true,
+        "client_kwargs": {
+          "endpoint_url": "https://usgs.osn.mghpcc.org/"
+        }
+      },
+      "zarr_href": "s3://mdmf/gdp/LOCA2/CMIP6-LOCA2.historical.daily.zarr/",
+      "zarr_type": "application/vnd+zarr"
+    }
+  },
+  "status": "pass",
+  "zmetadata": {
+    "future_daily": {
+      "arrays": {
+        "pr": {
+          "attributes": {
+            "LOCA2_version": "v20240915",
+            "_ARRAY_DIMENSIONS": [
+              "ensemble",
+              "time",
+              "lat",
+              "lon"
+            ],
+            "_CoordinateAxes": "ensemble, time, lat, lon",
+            "coordinates": "experiment_id source_id variant_label",
+            "grid_mapping": "crs",
+            "long_name": "Precipitation",
+            "units": "mm d-1"
+          },
+          "chunks": [
+            1,
+            468,
+            158,
+            118
+          ],
+          "dtype": "<f4",
+          "shape": [
+            221,
+            31411,
+            474,
+            944
+          ]
+        },
+        "tasmax": {
+          "attributes": {
+            "LOCA2_version": "v20220413",
+            "_ARRAY_DIMENSIONS": [
+              "ensemble",
+              "time",
+              "lat",
+              "lon"
+            ],
+            "_CoordinateAxes": "ensemble, time, lat, lon",
+            "coordinates": "experiment_id source_id variant_label",
+            "grid_mapping": "crs",
+            "long_name": "Maximum Near-Surface Air Temperature",
+            "units": "degC"
+          },
+          "chunks": [
+            1,
+            468,
+            158,
+            118
+          ],
+          "dtype": "<f4",
+          "shape": [
+            221,
+            31411,
+            474,
+            944
+          ]
+        },
+        "tasmin": {
+          "attributes": {
+            "LOCA2_version": "v20220413",
+            "_ARRAY_DIMENSIONS": [
+              "ensemble",
+              "time",
+              "lat",
+              "lon"
+            ],
+            "_CoordinateAxes": "ensemble, time, lat, lon",
+            "coordinates": "experiment_id source_id variant_label",
+            "grid_mapping": "crs",
+            "long_name": "Minimum Near-Surface Air Temperature",
+            "units": "degC"
+          },
+          "chunks": [
+            1,
+            468,
+            158,
+            118
+          ],
+          "dtype": "<f4",
+          "shape": [
+            221,
+            31411,
+            474,
+            944
+          ]
+        }
+      },
+      "global_attributes": {
+        "Conventions": "CF-1.8",
+        "comments": "Release notes for v20240915 : https://cirrus.ucsd.edu/~pierce/docs/LOCA2_new_precip_release_notes_2024-10-15.pdf",
+        "history": "Temperature (tasmin/tasmax) converted from K to degC, precipitation (pr) converted from kg m-2 s-1 to mm day-1, timestamps standardized across models, NetCDF data converted to zarr format.",
+        "source": "Pierce, D. W., Cayan, D. R., Feldman, D. R., & Risser, M. D. (2023). Future Increases in North American Extreme Precipitation in CMIP6 Downscaled with LOCA. Journal of Hydrometeorology, 24(5), 951\u2013975. https://doi.org/10.1175/JHM-D-22-0194.1",
+        "title": "LOCA bias corrected output David Pierce SIO/CASPO"
+      },
+      "variables": [
+        "pr",
+        "tasmax",
+        "tasmin"
+      ]
+    },
+    "historical_daily": {
+      "arrays": {
+        "pr": {
+          "attributes": {
+            "LOCA2_version": "v20240915",
+            "_ARRAY_DIMENSIONS": [
+              "ensemble",
+              "time",
+              "lat",
+              "lon"
+            ],
+            "_CoordinateAxes": "ensemble, time, lat, lon",
+            "coordinates": "experiment_id source_id variant_label",
+            "grid_mapping": "crs",
+            "long_name": "Precipitation",
+            "units": "mm d-1"
+          },
+          "chunks": [
+            1,
+            468,
+            158,
+            118
+          ],
+          "dtype": "<f4",
+          "shape": [
+            108,
+            23741,
+            474,
+            944
+          ]
+        },
+        "tasmax": {
+          "attributes": {
+            "LOCA2_version": "v20220413",
+            "_ARRAY_DIMENSIONS": [
+              "ensemble",
+              "time",
+              "lat",
+              "lon"
+            ],
+            "_CoordinateAxes": "ensemble, time, lat, lon",
+            "coordinates": "experiment_id source_id variant_label",
+            "grid_mapping": "crs",
+            "long_name": "Maximum Near-Surface Air Temperature",
+            "units": "degC"
+          },
+          "chunks": [
+            1,
+            468,
+            158,
+            118
+          ],
+          "dtype": "<f4",
+          "shape": [
+            108,
+            23741,
+            474,
+            944
+          ]
+        },
+        "tasmin": {
+          "attributes": {
+            "LOCA2_version": "v20220413",
+            "_ARRAY_DIMENSIONS": [
+              "ensemble",
+              "time",
+              "lat",
+              "lon"
+            ],
+            "_CoordinateAxes": "ensemble, time, lat, lon",
+            "coordinates": "experiment_id source_id variant_label",
+            "grid_mapping": "crs",
+            "long_name": "Minimum Near-Surface Air Temperature",
+            "units": "degC"
+          },
+          "chunks": [
+            1,
+            468,
+            158,
+            118
+          ],
+          "dtype": "<f4",
+          "shape": [
+            108,
+            23741,
+            474,
+            944
+          ]
+        }
+      },
+      "global_attributes": {
+        "Conventions": "CF-1.8",
+        "comments": "Release notes for v20240915 : https://cirrus.ucsd.edu/~pierce/docs/LOCA2_new_precip_release_notes_2024-10-15.pdf",
+        "history": "Temperature (tasmin/tasmax) converted from K to degC, precipitation (pr) converted from kg m-2 s-1 to mm day-1, timestamps standardized across models, NetCDF data converted to zarr format.",
+        "source": "Pierce, D. W., Cayan, D. R., Feldman, D. R., & Risser, M. D. (2023). Future Increases in North American Extreme Precipitation in CMIP6 Downscaled with LOCA. Journal of Hydrometeorology, 24(5), 951\u2013975. https://doi.org/10.1175/JHM-D-22-0194.1",
+        "title": "LOCA bias corrected output David Pierce SIO/CASPO"
+      },
+      "variables": [
+        "pr",
+        "tasmax",
+        "tasmin"
+      ]
+    }
+  }
+}
