@@ -65,6 +65,38 @@ damage, and SCC gates remain closed. The next bounded step is to compare daily
 historical LOCA2 and nClimGrid features on fixed sentinel windows without
 reading yields.
 
+## First historical climate-distribution sentinel
+
+An outcome-blind 2001--2012 Cuming-corn sentinel now compares one free-running
+historical LOCA2 realization (GFDL-ESM4 `r1i1p1f1`) with the existing
+nClimGrid county feature pipeline. Only climate and key columns were read; no
+yield column was loaded. Paired-year correlation and RMSE were prohibited
+because a free-running historical GCM is not initialized to reproduce the
+observed sequence of individual years. The comparison instead uses fixed-
+period climatology, standard deviations, and five distributional quantiles.
+
+Across the 12 fixed 170-day seasons, LOCA2 mean rainfall is 432.15 mm versus
+461.58 mm in nClimGrid, a -29.44 mm bias. Mean maximum dry spell is 22.22
+versus 18.19 days, a +4.03-day bias. In contrast, mean Rx5day is 84.24 versus
+84.67 mm, a -0.43 mm bias, although its upper-middle quantile differs. Mean
+season temperature is 20.29 versus 19.41 C, a +0.89 C product difference.
+Rainfall, dry-spell, Rx5day, and temperature quantile RMSEs are 60.02 mm,
+4.52 days, 5.84 mm, and 0.82 C. These are one-model, one-county climate-product
+diagnostics, not agricultural effects or generalized LOCA2 skill estimates.
+
+The successful run addressed two disclosed pre-value failures: the existing
+full-feature nClimGrid panel lacks Cuming corn rows in 2013--2014, so the first
+continuous sentinel is 2001--2012 and the full 2001--2014 gate stays closed;
+and simultaneous chunk decoding marginally exceeded the 512 MiB contract, so
+variables were decoded sequentially. The successful run planned 559.88 MiB of
+compressed remote chunks, persisted no remote arrays, and peaked at 462.14 MiB
+RAM. An independent validator reproduced 400 saved arithmetic and support
+checks with zero saved-precision disagreement.
+
+This sentinel shows why the U.S. paper must retain quantity, dry-spell, and
+extreme-rain diagnostics separately: bias is not uniform across those
+representations. Multi-model and multi-county validation remains closed.
+
 Primary receipts:
 
 - `data/provenance/loca2_official_catalog_audit_20261003.json`
@@ -73,3 +105,6 @@ Primary receipts:
 - `data/provenance/loca2_cuming_tiger2019_weights_20261003.json`
 - `data/provenance/loca2_cuming_tiger2019_weights_job_20261003.json` (failed metadata check)
 - `data/provenance/loca2_cuming_tiger2019_weights_job_v2_20261003.json`
+- `data/provenance/loca2_cuming_gfdl_historical_climate_sentinel_2001_2012_20261003.json`
+- `data/provenance/loca2_cuming_gfdl_historical_climate_sentinel_validation_20261003.json`
+- `data/provenance/loca2_cuming_gfdl_historical_climate_sentinel_job_v4_20261003.json`

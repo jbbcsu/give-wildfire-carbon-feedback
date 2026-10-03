@@ -51,6 +51,21 @@ declared-area reconciliation, unique cell keys, and weight sum are fail-closed
 checks. This stage uses coordinate metadata only and does not establish
 weather validity.
 
+Historical CMIP6 simulations are free-running realizations, so their year
+ordering is not treated as a prediction of observed annual weather. Validation
+therefore compares fixed-period means, standard deviations, and quantiles; it
+does not report paired-year correlation or RMSE. The first sentinel uses the
+continuous 2001--2012 support available in the existing outcome-keyed
+nClimGrid feature panel. The intended 2001--2014 gate remains closed until
+2013--2014 are reconstructed independently of outcome availability.
+
+Nonlinear bases are constructed per LOCA2 cell before county area weighting,
+matching the nClimGrid operation order. Precipitation totals, wet-day counts,
+maximum dry spells, Rx1day, Rx5day, three stage totals/shares, concentration,
+timing centroid, and temperature summaries are then compared on identical
+calendar windows. Remote variables are decoded sequentially to respect the
+512 MiB memory guard.
+
 ## M6. Agricultural response families
 
 The response stage remains closed. When authorized, the primary quantity

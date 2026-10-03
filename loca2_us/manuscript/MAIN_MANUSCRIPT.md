@@ -54,3 +54,12 @@ temperature. The audited precipitation field is LOCA2 `v20240915`. A fixed
 compressed cloud chunks while peaking at 278.19 MiB RAM. This demonstrates a
 storage-bounded access route only; it supplies no county or agricultural
 effect estimate.
+
+A first climate-only county sentinel aggregates 63 LOCA2 cells over Cuming
+County and compares 12 fixed corn seasons with nClimGrid. For GFDL-ESM4,
+season rainfall is 29.44 mm lower, maximum dry spell is 4.03 days longer,
+Rx5day is 0.43 mm lower, and mean season temperature is 0.89 C higher on
+average. These product differences are not paired-year forecast errors and
+cannot be generalized beyond the single model, county, and period. They
+motivate the preregistered multi-model and multi-county climate validation
+before any outcome fit.

@@ -57,8 +57,9 @@ no_yield_tuned_ensemble_weights = true
 [historical_validation]
 reference = "NOAA_nClimGrid_Daily_existing_county_pipeline"
 common_period = [1981, 2014]
-metrics = ["bias", "rmse", "correlation", "trend_difference", "quantile_error", "dry_spell_error", "rx5day_error"]
+metrics = ["climatology_bias", "standard_deviation_ratio", "quantile_error", "dry_spell_distribution_error", "rx5day_distribution_error"]
 independence_note = "nClimGrid_is_not_LOCA2_training_data; LOCA2_uses_unsplit_Livneh_but_gridding_and_station_dependencies_still_require_care"
+free_running_model_rule = "Do not score paired-year correlation or RMSE against observed years because historical GCM weather sequences are not initialized to reproduce observed year ordering; compare fixed-period climatology and distributions instead"
 
 [irrigation]
 primary_strata = ["non_irrigated", "irrigated"]
