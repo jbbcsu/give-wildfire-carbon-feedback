@@ -516,3 +516,22 @@ The source-pinned negative result and exact seven-item external-data request
 are documented in
 [`ALTERNATIVE_GLOBAL_FISHERIES_WELFARE_AUDIT_20260928.md`](ALTERNATIVE_GLOBAL_FISHERIES_WELFARE_AUDIT_20260928.md).
 No coefficient transfer, fit, damage estimate, or SCC is authorized.
+
+The later seven-part welfare-bridge admission audit keeps the closest
+Free/Gaines candidate at 0 of 7 components ready for scientific review. The
+machine-readable candidate inventory admits only the commit-pinned downstream
+formatting script and contains no response, incidence, or welfare rows. An
+authoritative GitHub API refresh confirms that the default branch remains at
+the pinned commit and that the complete 244-entry repository tree supplies no
+recognized license file, dependency lock/manifest, or either named raw RDS
+input; GitHub also reports no releases or tags. These are repository-scoped
+negative findings, not proof that no off-repository evidence exists.
+
+The claim is machine-bound by
+[`data/provenance/free_gaines_welfare_bridge_candidate_inventory_20261004.json`](data/provenance/free_gaines_welfare_bridge_candidate_inventory_20261004.json)
+and
+[`data/provenance/free_gaines_github_metadata_20261004.json`](data/provenance/free_gaines_github_metadata_20261004.json),
+with the human-readable admission record in
+[`FREE_GAINES_WELFARE_BRIDGE_CANDIDATE_ADMISSION_20261004.md`](FREE_GAINES_WELFARE_BRIDGE_CANDIDATE_ADMISSION_20261004.md).
+All scientific-validation, coefficient-transfer, fitting, damage,
+aggregation, discounting, and SCC gates remain closed.

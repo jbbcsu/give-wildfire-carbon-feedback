@@ -13,6 +13,22 @@ country-coefficient sign/count summaries, and published sectoral SCC values;
 it stores no external coefficient row or source workbook and authorizes no
 GIVE damage function or SCC integration.
 
+`free_gaines_welfare_bridge_candidate_inventory_20261004.json` applies the
+seven-part global welfare-bridge contract to the closest screened integrated
+candidate. It admits only one independently hash-pinned downstream formatting
+script, marks its model-code component incomplete, contains no scientific
+rows, and leaves all 7 components blocked. It authorizes no scientific
+validation, coefficient transfer, fit, damage, aggregation, discounting, or
+SCC operation.
+
+`free_gaines_github_metadata_20261004.json` records the official GitHub API
+repository, default-head, pinned-commit/tree, release, and tag queries for that
+candidate. The complete 244-entry tree contains no recognized license file,
+dependency lock/manifest, or either named raw RDS input, and GitHub reports no
+release or tag. This is a repository-scoped source-availability result: it
+does not establish that no off-repository evidence exists and does not change
+the 0-of-7 readiness result.
+
 For the staged FishMIP `tc` benchmark, the catalogue record and exact all-file
 plan are kept separately: `fishmip_isimip3b_tc_catalog.toml` records
 the reviewed source and gates, while
