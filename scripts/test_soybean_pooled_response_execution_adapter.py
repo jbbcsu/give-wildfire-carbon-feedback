@@ -133,6 +133,21 @@ def run(root: Path, config_path: Path) -> dict[str, Any]:
     duplicate = pd.concat([tables["direct"], tables["direct"].iloc[[0]]], ignore_index=True)
     expect_violation(lambda: adapter.construct_pair_frame(duplicate, tables["heat"], "quantity", protocol), "duplicate cell-year accepted")
 
+    full_years = np.arange(1983, 2017, dtype=np.int64)
+    full_pairs = pd.DataFrame({
+        "pair_end_year": full_years,
+        "cell_id": ["0.000000:0.000000"] * len(full_years),
+    })
+    selected, selection = adapter.select_fit_pairs(full_pairs, protocol, test_mode=False)
+    require(selected.pair_end_year.tolist() == list(range(1983, 2011)), "production selection did not freeze 1983-2010")
+    require(selection["buffer_year"] == 2011 and selection["buffer_pairs_excluded"] == 1, "2011 buffer was not excluded exactly")
+    require(selection["terminal_pairs_locked"] == 5 and selection["terminal_pair_end_year_minimum"] == 2012 and selection["terminal_pair_end_year_maximum"] == 2016, "2012-2016 terminal block was not locked")
+    synthetic_selected, synthetic_selection = adapter.select_fit_pairs(full_pairs, protocol, test_mode=True)
+    require(len(synthetic_selected) == len(full_pairs) and synthetic_selection["test_mode"] is True, "explicit synthetic alternate-year path was not preserved")
+    missing_terminal = full_pairs.loc[full_pairs.pair_end_year.ne(2016)].copy()
+    expect_violation(lambda: adapter.select_fit_pairs(missing_terminal, protocol, test_mode=False), "incomplete production year support accepted")
+    expect_violation(lambda: adapter.select_fit_pairs(full_pairs, protocol, test_mode=1), "non-Boolean sample-selection test_mode accepted")
+
     synthetic_loader, synthetic_engine = LoaderSpy(tables), EngineSpy()
     real_path = next(iter(json.loads((root / adapter_config["bindings"]["dry_run_manifest"]["path"]).read_text())["outcome_source_bindings"].values()))["path"]
     path_dependencies = adapter.ExecutionDependencies(synthetic_loader, synthetic_engine, "synthetic", {"direct": real_path})
@@ -159,6 +174,10 @@ def run(root: Path, config_path: Path) -> dict[str, Any]:
         "direct_scpdsi_stacking_rejected": True,
         "source_heat_outcome_mismatch_rejected": True,
         "duplicate_levels_rejected": True,
+        "production_fit_sample_frozen_to_1983_2010": True,
+        "buffer_2011_excluded_and_terminal_2012_2016_locked": True,
+        "incomplete_production_year_support_rejected": True,
+        "synthetic_alternate_years_require_explicit_test_mode": True,
         "synthetic_mode_rejects_declared_real_paths_before_loader": True,
         "production_missing_or_invalid_token_rejected_before_loader": True,
         "production_declared_paths_include_country_proxy": True,

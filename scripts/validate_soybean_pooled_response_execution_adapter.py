@@ -56,8 +56,12 @@ def main() -> None:
     require(not ({"read_parquet", "read_csv", "ParquetFile", "read_feather", "read_pickle"} & called), "adapter contains a real table reader")
     require("authorization = authorize_before_loader" in source, "authorization call absent")
     require(source.index("authorization = authorize_before_loader") < source.index("dependencies.level_loader(source_name)"), "loader is reachable before authorization")
+    require("fit_pairs, sample_selection = select_fit_pairs" in source, "frozen production sample selection is absent")
+    require(source.index("fit_pairs, sample_selection = select_fit_pairs") < source.index("fit = dependencies.engine.fit_pooled"), "fit is reachable before frozen sample selection")
+    require("production pair years must equal" in source and "buffer year entered the fit" in source and "terminal years entered the fit" in source, "fail-closed year boundaries are absent")
     require("fit = dependencies.engine.fit_pooled" in source, "dependency-injected engine invocation absent")
-    require("test_mode=(mode == adapter" in source, "synthetic-only engine test-mode boundary absent")
+    require('test_mode = mode == adapter["execution"]["synthetic_mode_name"]' in source, "synthetic-only engine test-mode boundary absent")
+    require("test_mode=test_mode" in source, "engine invocation does not use the checked test-mode flag")
     require(set(config["execution"]["production_declared_path_roles"]) == {"direct", "heat", "scpdsi", "country_proxy"}, "country proxy absent from production declared paths")
     require("portability_manifest" in config["bindings"], "portability manifest binding absent")
     require(all(config["output"][key] for key in config["output"] if key.startswith("redact_")), "an output redaction is disabled")
@@ -78,6 +82,8 @@ def main() -> None:
         "checks": {
             "dependency_injected_engine": True, "adapter_has_no_outcome_table_reader": True,
             "production_authorization_precedes_loader": True, "synthetic_family_fits_pass": True,
+            "production_fit_sample_frozen_to_1983_2010": True,
+            "buffer_and_terminal_years_excluded_before_fit": True,
             "output_redaction_closed": True, "claim_gates_closed": True,
             "real_outcome_files_opened": False, "production_token_created": False,
             "portability_manifest_bound": True, "country_proxy_declared_path_bound": True,

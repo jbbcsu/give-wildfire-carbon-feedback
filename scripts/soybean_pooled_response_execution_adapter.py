@@ -184,6 +184,68 @@ def construct_pair_frame(
     return out
 
 
+def select_fit_pairs(
+    pairs: pd.DataFrame,
+    protocol: dict[str, Any],
+    *,
+    test_mode: bool,
+) -> tuple[pd.DataFrame, dict[str, Any]]:
+    """Select the frozen training block before invoking the production engine.
+
+    The declared production sources contain levels through 2016. Pair
+    construction therefore also produces the excluded 2011 buffer and locked
+    2012--2016 terminal pairs. Passing that full table to ``fit_pooled`` would
+    violate the engine's 1983--2010 production-year contract. Synthetic tests
+    may retain alternate years only through the explicit ``test_mode`` path.
+    """
+    require(type(test_mode) is bool, "test_mode must be an explicit boolean")
+    require(len(pairs) > 0, "pair table is empty")
+    years = pairs["pair_end_year"]
+    require(is_integer_dtype(years.dtype), "pair_end_year must be integer before sample selection")
+    if test_mode:
+        return pairs.copy(), {
+            "test_mode": True,
+            "all_pairs": int(len(pairs)),
+            "fit_pairs": int(len(pairs)),
+            "fit_pair_end_year_minimum": int(years.min()),
+            "fit_pair_end_year_maximum": int(years.max()),
+            "buffer_pairs_excluded": 0,
+            "terminal_pairs_locked": 0,
+        }
+
+    sample = protocol["sample"]
+    train_min = int(sample["training_pair_end_year_minimum"])
+    train_max = int(sample["training_pair_end_year_maximum"])
+    buffer_year = int(sample["buffer_year"])
+    terminal_min = int(sample["terminal_level_year_minimum"])
+    terminal_max = int(sample["terminal_level_year_maximum"])
+    require(buffer_year == train_max + 1, "buffer year is not immediately after training")
+    require(terminal_min == buffer_year + 1, "terminal block is not immediately after the buffer")
+    expected_all = set(range(train_min, terminal_max + 1))
+    observed_all = set(years.astype(int).unique())
+    require(observed_all == expected_all, f"production pair years must equal {train_min}-{terminal_max}")
+    fit = pairs.loc[years.between(train_min, train_max, inclusive="both")].copy()
+    require(set(fit["pair_end_year"].astype(int).unique()) == set(range(train_min, train_max + 1)), "production training years are incomplete")
+    buffer_pairs = int(years.eq(buffer_year).sum())
+    terminal_pairs = int(years.between(terminal_min, terminal_max, inclusive="both").sum())
+    require(buffer_pairs > 0, "declared buffer year has no support")
+    require(terminal_pairs > 0, "locked terminal block has no support")
+    require(not fit["pair_end_year"].eq(buffer_year).any(), "buffer year entered the fit")
+    require(not fit["pair_end_year"].between(terminal_min, terminal_max, inclusive="both").any(), "terminal years entered the fit")
+    return fit, {
+        "test_mode": False,
+        "all_pairs": int(len(pairs)),
+        "fit_pairs": int(len(fit)),
+        "fit_pair_end_year_minimum": int(fit["pair_end_year"].min()),
+        "fit_pair_end_year_maximum": int(fit["pair_end_year"].max()),
+        "buffer_year": buffer_year,
+        "buffer_pairs_excluded": buffer_pairs,
+        "terminal_pair_end_year_minimum": terminal_min,
+        "terminal_pair_end_year_maximum": terminal_max,
+        "terminal_pairs_locked": terminal_pairs,
+    }
+
+
 def execute_family(
     mode: str,
     family: str,
@@ -199,9 +261,11 @@ def execute_family(
     source_levels = dependencies.level_loader(source_name)
     heat_levels = dependencies.level_loader("heat")
     pairs = construct_pair_frame(source_levels, heat_levels, family, protocol)
+    test_mode = mode == adapter["execution"]["synthetic_mode_name"]
+    fit_pairs, sample_selection = select_fit_pairs(pairs, protocol, test_mode=test_mode)
     require(hasattr(dependencies.engine, "fit_pooled"), "injected engine lacks fit_pooled")
     fit = dependencies.engine.fit_pooled(
-        pairs, protocol, family, "country_year", test_mode=(mode == adapter["execution"]["synthetic_mode_name"])
+        fit_pairs, protocol, family, "country_year", test_mode=test_mode
     )
     rss = peak_rss_bytes()
     require(rss < int(adapter["memory_cap_bytes"]), "adapter memory cap exceeded")
@@ -210,7 +274,8 @@ def execute_family(
         "schema": adapter["output"]["schema"],
         "status": "synthetic_execution_complete_redacted" if authorization["synthetic"] else "authorized_production_execution_complete_redacted",
         "mode": mode, "family": family, "synthetic": bool(authorization["synthetic"]),
-        "support": {"levels": len(source_levels), "pairs": len(pairs), "pair_end_years": int(pairs["pair_end_year"].nunique()), "cells": int(pairs["cell_id"].nunique())},
+        "support": {"levels": len(source_levels), "pairs": len(fit_pairs), "pair_end_years": int(fit_pairs["pair_end_year"].nunique()), "cells": int(fit_pairs["cell_id"].nunique())},
+        "sample_selection": sample_selection,
         "fit_structure": {"clusters": len(fit.adjustments), "rank": int(np.linalg.matrix_rank(fit.x)), "columns": int(fit.x.shape[1]), "group_mode": fit.group_mode},
         "redaction": {"applied": True, "fields": redacted_fields, "numeric_fit_outputs_emitted": False},
         "execution_audit": {"loader_calls": [source_name, "heat"], "engine_method": "fit_pooled", "real_paths_opened_by_adapter": []},
