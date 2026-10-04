@@ -56,3 +56,23 @@ coverage must not be imputed or renormalized.
 
 No outreach was performed, no external data were downloaded, and no welfare
 or SCC estimate was calculated.
+
+## Authoritative repository metadata refresh
+
+On 2026-10-04, the GitHub API was queried for the repository, current default
+branch head, exact pinned commit and recursive tree, releases, and tags. The
+machine-readable receipt is
+`data/provenance/free_gaines_github_metadata_20261004.json`; the reproducible
+query is `scripts/audit_free_gaines_github_metadata.py`.
+
+The default branch still resolves to the pinned commit. GitHub reports no
+detected repository license, releases, or tags. Its untruncated 244-entry tree
+contains no recognized license filename, no recognized dependency-lock
+filename, and neither named raw RDS input. The admitted formatting script is
+present as a 12,521-byte Git blob. These facts leave all seven contract
+components blocked.
+
+This is a repository-scoped negative result. It does not prove that no
+off-repository license, release, dependency record, or source artifact exists;
+it establishes that the authoritative repository endpoints do not supply the
+required evidence.
