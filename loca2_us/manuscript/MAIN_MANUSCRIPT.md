@@ -4,10 +4,11 @@
 
 Study-design manuscript. The official source audit, bounded point-access
 pilot, Cuming and Box Butte County geometry aggregation, and two prespecified
-single-model historical climate-distribution sentinels at Cuming pass. The
-Box Butte climate run has not begun because its metadata-only remote-chunk plan
-exceeds the frozen cap. General multi-model and multi-county climate validation
-remain open. No crop-response, causal, damage, or SCC result is claimed.
+single-model historical climate-distribution sentinels at Cuming pass. A
+split-period Box Butte attempt stopped at the memory gate without producing a
+climate artifact or comparison. General multi-model and multi-county climate
+validation remain open. No crop-response, causal, damage, or SCC result is
+claimed.
 
 ## Research question
 
@@ -98,7 +99,14 @@ farthest from Cuming (520.4337 km). This rule used neither climate skill nor
 crop outcomes. Its 100-cell geometry weights pass coverage, area, uniqueness,
 and sum checks while peaking at 192,364,544 bytes (183.45 MiB). A metadata-only
 GFDL preflight identified 60 required remote objects totaling 1,206,323,507
-compressed bytes (1,150.44 MiB), above the unchanged 1,024 MiB plan cap. No
-Box Butte climate value was read; the metadata-only preflight peaked at
-185,270,272 bytes (176.69 MiB). Its climate sentinel and the multi-county
-validation gate remain closed pending the prespecified serial six-year build.
+compressed bytes (1,150.44 MiB), above the unchanged 1,024 MiB plan cap. The
+metadata-only preflight read no climate value and peaked at 185,270,272 bytes
+(176.69 MiB).
+
+Two frozen chronological partitions subsequently passed the same plan cap:
+2001--2006 at 602,729,539 bytes (574.81 MiB) and 2007--2012 at 724,320,234
+bytes (690.77 MiB). The first serial climate build was terminated by the
+monitor at 560,070,656 bytes (534.13 MiB), above the 512 MiB gate, and produced
+no feature file or successful receipt. The second partition and concatenation
+were not run. Thus no Box Butte climate comparison is available, and its
+sentinel and the multi-county validation gate remain closed.

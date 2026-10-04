@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import tomllib
 from pathlib import Path
 
 
@@ -18,6 +19,25 @@ BOX_BUTTE_WEIGHTS = ROOT / "loca2_us/data/provenance/loca2_box_butte_tiger2019_w
 BOX_BUTTE_JOB = ROOT / "loca2_us/data/provenance/loca2_box_butte_tiger2019_weights_job_20261004.json"
 BOX_BUTTE_PREFLIGHT = ROOT / "loca2_us/data/provenance/loca2_box_butte_gfdl_historical_chunk_preflight_20261004.json"
 BOX_BUTTE_PREFLIGHT_JOB = ROOT / "loca2_us/data/provenance/loca2_box_butte_gfdl_historical_chunk_preflight_job_20261004.json"
+BOX_BUTTE_PART_CONFIGS = (
+    ROOT / "loca2_us/config/loca2_us_box_butte_gfdl_historical_2001_2006_v1.toml",
+    ROOT / "loca2_us/config/loca2_us_box_butte_gfdl_historical_2007_2012_v1.toml",
+)
+BOX_BUTTE_PART_PREFLIGHTS = (
+    ROOT / "loca2_us/data/provenance/loca2_box_butte_gfdl_historical_2001_2006_preflight_20261004.json",
+    ROOT / "loca2_us/data/provenance/loca2_box_butte_gfdl_historical_2007_2012_preflight_20261004.json",
+)
+BOX_BUTTE_PART_PREFLIGHT_JOBS = (
+    ROOT / "loca2_us/data/provenance/loca2_box_butte_gfdl_historical_2001_2006_preflight_job_20261004.json",
+    ROOT / "loca2_us/data/provenance/loca2_box_butte_gfdl_historical_2007_2012_preflight_job_20261004.json",
+)
+BOX_BUTTE_PART1_JOB = ROOT / "loca2_us/data/provenance/loca2_box_butte_gfdl_historical_2001_2006_job_20261004.json"
+BOX_BUTTE_EXPECTED_ABSENT = (
+    ROOT / "loca2_us/data/interim/box_butte_gfdl_historical_2001_2006_corn_features.parquet",
+    ROOT / "loca2_us/data/provenance/loca2_box_butte_gfdl_historical_climate_sentinel_2001_2006_20261004.json",
+    ROOT / "loca2_us/data/interim/box_butte_gfdl_historical_2007_2012_corn_features.parquet",
+    ROOT / "loca2_us/data/provenance/loca2_box_butte_gfdl_historical_climate_sentinel_2007_2012_20261004.json",
+)
 MAIN = ROOT / "loca2_us/manuscript/MAIN_MANUSCRIPT.md"
 METHODS = ROOT / "loca2_us/manuscript/METHODS_SUPPORTING_INFORMATION.md"
 
@@ -44,6 +64,10 @@ def validate() -> dict[str, object]:
     box_butte_job = json.loads(BOX_BUTTE_JOB.read_text())
     box_butte_preflight = json.loads(BOX_BUTTE_PREFLIGHT.read_text())
     box_butte_preflight_job = json.loads(BOX_BUTTE_PREFLIGHT_JOB.read_text())
+    part_configs = [tomllib.loads(path.read_text()) for path in BOX_BUTTE_PART_CONFIGS]
+    part_preflights = [json.loads(path.read_text()) for path in BOX_BUTTE_PART_PREFLIGHTS]
+    part_preflight_jobs = [json.loads(path.read_text()) for path in BOX_BUTTE_PART_PREFLIGHT_JOBS]
+    part1_job = json.loads(BOX_BUTTE_PART1_JOB.read_text())
     main = MAIN.read_text()
     methods = METHODS.read_text()
 
@@ -76,6 +100,23 @@ def validate() -> dict[str, object]:
     require(box_butte_preflight_job["sampled_peak_group_rss_bytes"] < 512 * 1024**2, "Box Butte preflight memory guard failed")
     for gate in ("second_county_climate_sentinel", "multi_county_validation", "outcome_response", "causal_damage", "SCC"):
         require(box_butte_preflight["claim_gates"][gate] is False, f"Box Butte claim gate opened: {gate}")
+    part_years = [
+        set(range(config["sample"]["year_min"], config["sample"]["year_max"] + 1))
+        for config in part_configs
+    ]
+    require(not part_years[0] & part_years[1] and part_years[0] | part_years[1] == set(range(2001, 2013)), "Box Butte partitions overlap or omit years")
+    require([item["plan"]["compressed_bytes"] for item in part_preflights] == [602729539, 724320234], "Box Butte partition plans changed")
+    for config, preflight, preflight_job in zip(part_configs, part_preflights, part_preflight_jobs, strict=True):
+        require(config["sample"]["outcome_columns_read"] is False and config["sample"]["paired_year_scoring"] is False, "Box Butte partition read/scoring gate opened")
+        require(all(value is False for value in config["claim_gates"].values()), "Box Butte partition claim gate opened")
+        require(preflight["status"] == "pass_metadata_only_plan_within_cap", "Box Butte partition preflight failed")
+        require(preflight["inspection"] == {"climate_values_read": False, "outcome_columns_read": False}, "Box Butte partition preflight opened a data gate")
+        require(preflight_job["status"] == "completed" and preflight_job["returncode"] == 0, "Box Butte partition preflight job failed")
+        require(preflight_job["sampled_peak_group_rss_bytes"] < 512 * 1024**2, "Box Butte partition preflight memory guard failed")
+    require(part1_job["status"] == "memory_budget_exceeded" and part1_job["returncode"] == -9, "Box Butte execution did not fail closed")
+    require(part1_job["sampled_peak_group_rss_bytes"] == 560070656, "Box Butte execution peak changed")
+    require(part1_job["sampled_peak_group_rss_bytes"] > 512 * 1024**2, "Box Butte memory gate was not exceeded")
+    require(all(not path.exists() for path in BOX_BUTTE_EXPECTED_ABSENT), "Box Butte failed/stopped execution left a promoted artifact")
 
     expected = {
         "precip_mm": ("432.15", "461.58", "-29.44", "0.931", "60.02 mm"),
@@ -93,9 +134,12 @@ def validate() -> dict[str, object]:
     require("general multi-model validation gate" in methods, "methods lacks two-model gate boundary")
     for value in ("59 counties", "520.4337 km", "1,206,323,507", "1,150.44 MiB", "1,024 MiB"):
         require(value in main and value in methods, f"manuscripts lack geographic-preflight value: {value}")
-    require("No\nBox Butte climate value was read" in main, "main lacks no-value-read boundary")
     require("execution therefore fails closed" in methods, "methods lacks fail-closed boundary")
-    require("185,270,272 bytes (176.69 MiB)" in main and "185,270,272 bytes (176.69 MiB)" in methods, "manuscripts lack preflight memory receipt")
+    require(all(value in main and value in methods for value in ("185,270,272", "176.69 MiB")), "manuscripts lack preflight memory receipt")
+    for value in ("602,729,539", "574.81 MiB", "724,320,234", "690.77 MiB", "560,070,656", "534.13 MiB"):
+        require(value in main and value in methods, f"manuscripts lack Box Butte split-gate value: {value}")
+    require("No\nfeature file or successful sentinel receipt was written" in methods, "methods lacks absent-artifact boundary")
+    require("The second partition and concatenation\nwere not run" in main, "main lacks stopped-execution boundary")
     require("paired-year RMSE, correlation, or trend agreement" in methods, "methods lacks free-running boundary")
     require(
         "multi-model,\nmulti-county, outcome-response, causal-damage, and SCC gates remain closed" in methods,
@@ -123,7 +167,19 @@ def validate() -> dict[str, object]:
         "role": "outcome_blind_manuscript_evidence_reconciliation_only",
         "source_receipts": {
             str(path.relative_to(ROOT)): sha256(path)
-            for path in (SOURCE, INDEPENDENT, JOB, TWO_MODEL, BOX_BUTTE_WEIGHTS, BOX_BUTTE_JOB, BOX_BUTTE_PREFLIGHT, BOX_BUTTE_PREFLIGHT_JOB)
+            for path in (
+                SOURCE, INDEPENDENT, JOB, TWO_MODEL, BOX_BUTTE_WEIGHTS,
+                BOX_BUTTE_JOB, BOX_BUTTE_PREFLIGHT, BOX_BUTTE_PREFLIGHT_JOB,
+                *BOX_BUTTE_PART_PREFLIGHTS, *BOX_BUTTE_PART_PREFLIGHT_JOBS,
+                BOX_BUTTE_PART1_JOB,
+            )
+        },
+        "design_configs": {str(path.relative_to(ROOT)): sha256(path) for path in BOX_BUTTE_PART_CONFIGS},
+        "box_butte_split_gate": {
+            "partition_plan_bytes": [item["plan"]["compressed_bytes"] for item in part_preflights],
+            "execution_status": part1_job["status"],
+            "execution_peak_rss_bytes": part1_job["sampled_peak_group_rss_bytes"],
+            "expected_absent_outputs": [str(path.relative_to(ROOT)) for path in BOX_BUTTE_EXPECTED_ABSENT],
         },
         "manuscripts": {str(path.relative_to(ROOT)): sha256(path) for path in (MAIN, METHODS)},
         "support": source["support"],

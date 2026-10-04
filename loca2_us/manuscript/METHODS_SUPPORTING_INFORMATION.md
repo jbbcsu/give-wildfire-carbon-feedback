@@ -5,8 +5,9 @@
 The current release contains the preregistered source and validation design,
 an official-catalog audit, synthetic tests, Cuming and Box Butte County
 geometry weights, and validated GFDL-ESM4 and IPSL-CM6A-LR 2001--2012
-climate-distribution sentinels at Cuming. The Box Butte climate sentinel is
-not yet run. The release does not contain restricted NASS credentials or
+climate-distribution sentinels at Cuming. A split-period Box Butte attempt was
+terminated by the 512 MiB monitor and produced no climate artifact or
+comparison. The release does not contain restricted NASS credentials or
 tracked raw climate arrays. Raw and interim files are ignored.
 
 ## M2. Climate sources
@@ -109,13 +110,21 @@ reference fixed. It finds 60 objects over two spatial chunks totaling
 plan cap. The metadata-only process peaks at 185,270,272 bytes (176.69 MiB),
 and execution therefore fails closed.
 
-The next execution must preregister two chronological six-year partitions,
-verify each metadata-only plan under the unchanged cap, and build them
-serially under the 512 MiB process-group monitor. Concatenation is allowed only
-after exact key, calendar, feature, source, and nonoverlap checks. The combined
-2001--2012 comparison remains distributional and prohibits paired-year
-scoring. Until that receipt passes, the Box Butte climate sentinel and all
-multi-county, outcome-response, causal-damage, and SCC gates remain closed.
+Two chronological six-year configs were frozen with identical source, member,
+county, calendar, features, reference, and scoring rules. Their metadata-only
+preflights passed the unchanged 1,024 MiB plan cap: 2001--2006 requires
+602,729,539 bytes (574.81 MiB), and 2007--2012 requires 724,320,234 bytes
+(690.77 MiB). Neither preflight reads climate values or outcomes.
+
+The 2001--2006 climate build was then launched under the 512 MiB process-group
+monitor. The monitor terminated it at 560,070,656 bytes (534.13 MiB). No
+feature file or successful sentinel receipt was written. The 2007--2012 build
+was therefore not launched, and exact-support/source/nonoverlap concatenation
+was not attempted. Any retry requires a separately frozen spatial-chunk
+accumulation method with synthetic equivalence tests. Until a bounded combined
+receipt passes, the Box Butte climate sentinel and all multi-county,
+outcome-response, causal-damage, and SCC gates remain closed; paired-year
+scoring remains prohibited.
 
 ## M6. Agricultural response families
 

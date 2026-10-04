@@ -151,11 +151,21 @@ the unchanged 1,024 MiB remote-plan cap. The metadata-only preflight itself
 peaked at 185,270,272 bytes (176.69 MiB). The second-county climate sentinel
 and multi-county validation gates therefore remain closed.
 
-The exact next step is to freeze two chronological six-year partitions, verify
-each metadata-only plan against the same cap, run them serially under the 512
-MiB monitor, and concatenate only after exact key, calendar, feature, source,
-and nonoverlap checks. The combined 2001--2012 distribution will retain the
-free-running-GCM prohibition on paired-year scoring.
+Two chronological six-year partitions were then frozen without changing the
+source, member, county, calendar, features, reference, or scoring rule. Their
+metadata-only plans both pass: 2001--2006 requires 30 objects and 602,729,539
+bytes (574.81 MiB), while 2007--2012 requires 36 objects and 724,320,234 bytes
+(690.77 MiB). The preflights peaked at 182,730,752 and 182,747,136 bytes,
+respectively, and read neither climate values nor outcomes.
+
+The first serial climate build began only after both preflights passed. The
+resource monitor terminated it at 560,070,656 bytes (534.13 MiB), above the
+512 MiB gate. It produced neither a feature file nor a successful sentinel
+receipt. As required, the second partition was not run and concatenation was
+not attempted. No Box Butte climate comparison is reported, and the
+second-county and multi-county climate gates remain closed. A future retry
+requires a separately frozen lower-memory spatial-chunk accumulation method
+and equivalence tests before any new climate-value access.
 
 Primary receipts:
 
@@ -177,3 +187,8 @@ Primary receipts:
 - `data/provenance/loca2_box_butte_tiger2019_weights_job_20261004.json`
 - `data/provenance/loca2_box_butte_gfdl_historical_chunk_preflight_20261004.json`
 - `data/provenance/loca2_box_butte_gfdl_historical_chunk_preflight_job_20261004.json`
+- `data/provenance/loca2_box_butte_gfdl_historical_2001_2006_preflight_20261004.json`
+- `data/provenance/loca2_box_butte_gfdl_historical_2001_2006_preflight_job_20261004.json`
+- `data/provenance/loca2_box_butte_gfdl_historical_2007_2012_preflight_20261004.json`
+- `data/provenance/loca2_box_butte_gfdl_historical_2007_2012_preflight_job_20261004.json`
+- `data/provenance/loca2_box_butte_gfdl_historical_2001_2006_job_20261004.json` (memory gate)
