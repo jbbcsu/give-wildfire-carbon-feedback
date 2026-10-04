@@ -1,0 +1,163 @@
+{
+  "config": {
+    "path": "config/soybean_pooled_response_orchestrator_v1.toml",
+    "sha256": "a1d05ae18431d49130fe61615fbb77281904a4280f94627ba8d31afa459f6297"
+  },
+  "created_at_utc": "2026-10-04T09:24:45.676094+00:00",
+  "implementation": {
+    "path": "scripts/test_soybean_pooled_response_orchestrator.py",
+    "sha256": "f9183d0fcd0f87e9c8d11b7f2e85fe7941c95bb77c805bdd49e67eb336ceaf18"
+  },
+  "orchestrator": {
+    "path": "scripts/soybean_pooled_response_orchestrator.py",
+    "sha256": "02ed93c9eb29d98ce2610dac848a05d81385b14f939f5ab7460bc5aa40b20d17"
+  },
+  "resources": {
+    "memory_cap_bytes": 536870912,
+    "memory_gate_passed": true,
+    "peak_rss_bytes": 179486720
+  },
+  "schema": "soybean_pooled_response_orchestrator_tests/v1",
+  "status": "synthetic_full_execution_path_validated_no_real_access_or_token",
+  "tests": {
+    "all_pass": true,
+    "fit_structures": {
+      "distribution": {
+        "clusters": 30,
+        "columns": 12,
+        "group_mode": "country_year",
+        "rank": 12
+      },
+      "quantity": {
+        "clusters": 30,
+        "columns": 7,
+        "group_mode": "country_year",
+        "rank": 7
+      },
+      "scpdsi_season": {
+        "clusters": 30,
+        "columns": 7,
+        "group_mode": "country_year",
+        "rank": 7
+      }
+    },
+    "production_sample_selection": {
+      "distribution": {
+        "all_pairs": 2040,
+        "buffer_pairs_excluded": 60,
+        "buffer_year": 2011,
+        "fit_pair_end_year_maximum": 2010,
+        "fit_pair_end_year_minimum": 1983,
+        "fit_pairs": 1680,
+        "terminal_pair_end_year_maximum": 2016,
+        "terminal_pair_end_year_minimum": 2012,
+        "terminal_pairs_locked": 300,
+        "test_mode": false
+      },
+      "quantity": {
+        "all_pairs": 2040,
+        "buffer_pairs_excluded": 60,
+        "buffer_year": 2011,
+        "fit_pair_end_year_maximum": 2010,
+        "fit_pair_end_year_minimum": 1983,
+        "fit_pairs": 1680,
+        "terminal_pair_end_year_maximum": 2016,
+        "terminal_pair_end_year_minimum": 2012,
+        "terminal_pairs_locked": 300,
+        "test_mode": false
+      },
+      "scpdsi_season": {
+        "all_pairs": 2040,
+        "buffer_pairs_excluded": 60,
+        "buffer_year": 2011,
+        "fit_pair_end_year_maximum": 2010,
+        "fit_pair_end_year_minimum": 1983,
+        "fit_pairs": 1680,
+        "terminal_pair_end_year_maximum": 2016,
+        "terminal_pair_end_year_minimum": 2012,
+        "terminal_pairs_locked": 300,
+        "test_mode": false
+      }
+    },
+    "production_tokens_created": 0,
+    "real_outcome_files_opened": 0,
+    "synthetic_support": {
+      "distribution": {
+        "cells": 60,
+        "levels": 2100,
+        "pair_end_years": 34,
+        "pairs": 2040
+      },
+      "quantity": {
+        "cells": 60,
+        "levels": 2100,
+        "pair_end_years": 34,
+        "pairs": 2040
+      },
+      "scpdsi_season": {
+        "cells": 60,
+        "levels": 2100,
+        "pair_end_years": 34,
+        "pairs": 2040
+      }
+    },
+    "terminal_status": {
+      "distribution": {
+        "buffer_year": 2011,
+        "executed": false,
+        "fit_summary_cannot_promote_response": true,
+        "passed": false,
+        "required_next_operation": "separately authorized in-memory terminal transport using unchanged training fit; never infer pass from fit summary",
+        "status": "not_run_fit_summary_nonpromotable",
+        "terminal_years": [
+          2012,
+          2016
+        ]
+      },
+      "quantity": {
+        "buffer_year": 2011,
+        "executed": false,
+        "fit_summary_cannot_promote_response": true,
+        "passed": false,
+        "required_next_operation": "separately authorized in-memory terminal transport using unchanged training fit; never infer pass from fit summary",
+        "status": "not_run_fit_summary_nonpromotable",
+        "terminal_years": [
+          2012,
+          2016
+        ]
+      },
+      "scpdsi_season": {
+        "buffer_year": 2011,
+        "executed": false,
+        "fit_summary_cannot_promote_response": true,
+        "passed": false,
+        "required_next_operation": "separately authorized in-memory terminal transport using unchanged training fit; never infer pass from fit summary",
+        "status": "not_run_fit_summary_nonpromotable",
+        "terminal_years": [
+          2012,
+          2016
+        ]
+      }
+    },
+    "tests": {
+      "claim_gates_remain_closed": true,
+      "family_nonstacking_preserved": true,
+      "fit_summary_nonpromotable": true,
+      "metadata_packet_exact_and_authorization_absent": true,
+      "missing_production_token_stops_before_engine_import": true,
+      "numeric_fit_outputs_redacted": true,
+      "one_family_per_execution": true,
+      "packet_does_not_create_token": true,
+      "production_cli_has_no_test_mode": true,
+      "production_sample_selection_locks_2011_buffer_and_2012_2016_terminal": true,
+      "production_token_created": false,
+      "real_outcome_paths_opened": false,
+      "synthetic_reader_to_adapter_to_real_engine_distribution": true,
+      "synthetic_reader_to_adapter_to_real_engine_quantity": true,
+      "synthetic_reader_to_adapter_to_real_engine_scpdsi": true,
+      "synthetic_token_stops_before_reader_construction_and_engine_import": true,
+      "terminal_validation_explicitly_not_run": true,
+      "token_binds_orchestrator_and_config": true
+    }
+  }
+}

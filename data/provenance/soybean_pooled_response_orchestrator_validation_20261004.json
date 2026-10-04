@@ -1,0 +1,50 @@
+{
+  "bindings": {
+    "authorization_packet": {
+      "path": "data/provenance/soybean_pooled_response_authorization_packet_20261004.json",
+      "sha256": "a33f3104a39742184c6b6b3dacdb86f5995b7470a8c764a5bc457e5705290c6f"
+    },
+    "config": {
+      "path": "config/soybean_pooled_response_orchestrator_v1.toml",
+      "sha256": "a1d05ae18431d49130fe61615fbb77281904a4280f94627ba8d31afa459f6297"
+    },
+    "orchestrator": {
+      "path": "scripts/soybean_pooled_response_orchestrator.py",
+      "sha256": "02ed93c9eb29d98ce2610dac848a05d81385b14f939f5ab7460bc5aa40b20d17"
+    },
+    "tests": {
+      "path": "data/provenance/soybean_pooled_response_orchestrator_tests_20261004.json",
+      "sha256": "0afb0ea267395775f3cdf978f118b56d6770a7f0b0ed6478ce93e8ae18dc2e11"
+    }
+  },
+  "checks": {
+    "all_bound_hashes_verified": true,
+    "authorization_absent_and_no_token_created": true,
+    "base_and_orchestrator_token_validation_precede_reader_construction": true,
+    "claim_gates_closed": true,
+    "engine_import_precedes_adapter_invocation": true,
+    "exact_authorization_packet_hash_bound": true,
+    "family_nonstacking_preserved": true,
+    "fit_summary_nonpromotable": true,
+    "no_production_token_created": true,
+    "no_real_outcome_access": true,
+    "numeric_fit_outputs_redacted": true,
+    "one_family_per_execution": true,
+    "production_cli_has_no_synthetic_mode": true,
+    "reader_construction_precedes_deferred_engine_import": true,
+    "real_engine_full_path_exercised_on_synthetic_sources": true,
+    "terminal_validation_explicitly_not_run": true
+  },
+  "created_at_utc": "2026-10-04T09:24:58.036976+00:00",
+  "implementation": {
+    "path": "scripts/validate_soybean_pooled_response_orchestrator.py",
+    "sha256": "19bbf98da0ea257d34295b3a6b1989da91be7cc95169510f9f9a93ef1280ceab"
+  },
+  "resources": {
+    "memory_cap_bytes": 536870912,
+    "memory_gate_passed": true,
+    "peak_rss_bytes": 25313280
+  },
+  "schema": "soybean_pooled_response_orchestrator_validation/v1",
+  "status": "validated_fail_closed_orchestration_synthetic_only_no_real_access_or_token"
+}

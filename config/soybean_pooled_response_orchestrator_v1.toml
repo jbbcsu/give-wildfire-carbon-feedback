@@ -1,0 +1,88 @@
+schema_version = 1
+contract_id = "soybean_pooled_response_orchestrator_v1"
+memory_cap_bytes = 536870912
+
+[orchestrator_identity]
+path = "scripts/soybean_pooled_response_orchestrator.py"
+sha256 = "02ed93c9eb29d98ce2610dac848a05d81385b14f939f5ab7460bc5aa40b20d17"
+
+[bindings.gate_config]
+path = "config/soybean_pooled_response_execution_gate_v1.toml"
+sha256 = "8e6a27c910de64366ecd8cc3a3bf6839dfb9848c4de87979f206914e43f0a621"
+
+[bindings.gate_module]
+path = "scripts/soybean_pooled_response_execution_gate.py"
+sha256 = "8ac5bf4ec69eb1df062bac70a0ad0fe00851b6467a87cbe402c0cbc5f721048f"
+
+[bindings.dry_run_manifest]
+path = "data/provenance/soybean_pooled_response_execution_dry_run_20260929.json"
+sha256 = "d6b385aa34f0c2faf4ac630cb7bb0578d58f674251402b3a7eab8583cfe5436e"
+
+[bindings.reader]
+path = "scripts/soybean_pooled_response_production_reader.py"
+sha256 = "8ea2621bd3c4ce70c40d85e4e90441feb2fbd686a093cf971e76bb51e6b386b3"
+
+[bindings.reader_config]
+path = "config/soybean_pooled_response_production_reader_v1.toml"
+sha256 = "3a0d9257554a8f4563a4f03f61e49414d772ac7a30171da5bce144be7116a4e1"
+
+[bindings.adapter]
+path = "scripts/soybean_pooled_response_execution_adapter.py"
+sha256 = "fff3210c36fe65c517b38e067e21f0d039594f1775cfb3e9da51c53cc8c9b883"
+
+[bindings.adapter_config]
+path = "config/soybean_pooled_response_execution_adapter_v1.toml"
+sha256 = "ae156a2c75e06a5f927b471fa6dab93252665b17f86518dff86dd81327b65184"
+
+[bindings.engine]
+path = "scripts/soybean_pooled_response_engine.py"
+sha256 = "a437fab438e17fccdc6bf9780de6799e5d11306174f18c55e2bd286f494f0b66"
+
+[bindings.protocol]
+path = "config/soybean_pooled_response_inference_protocol_v1.toml"
+sha256 = "c410c2d4e59e54c70bdb507db63383282e471dd00059359d05163fe2b98263a4"
+
+[execution]
+allowed_families = ["quantity", "distribution", "scpdsi_season"]
+one_family_per_process = true
+engine_module = "soybean_pooled_response_engine"
+engine_import_only_after_production_authorization = true
+production_cli_exposes_test_mode = false
+
+[family_hierarchy]
+primary = "quantity"
+challengers = ["distribution", "scpdsi_season"]
+direct_and_scpdsi_stacking_allowed = false
+automatic_challenger_substitution_allowed = false
+
+[public_output]
+schema = "soybean_pooled_response_orchestration_result/v1"
+numeric_fit_outputs_redacted = true
+coefficient_redacted = true
+standard_error_redacted = true
+p_value_redacted = true
+confidence_interval_redacted = true
+residual_redacted = true
+prediction_redacted = true
+support_and_design_shape_only = true
+
+[terminal_validation]
+run_in_fit_orchestrator = false
+public_status = "not_run_fit_summary_nonpromotable"
+buffer_year = 2011
+year_minimum = 2012
+year_maximum = 2016
+required_next_operation = "separately authorized in-memory terminal transport using unchanged training fit; never infer pass from fit summary"
+terminal_pass_cannot_be_inferred = true
+fit_summary_cannot_promote_response = true
+
+[claim_gates]
+real_outcome_access_authorized = false
+production_fit_authorized = false
+associational_response_authorized = false
+predictive_response_authorized = false
+causal_response_authorized = false
+winner_loser_claims_authorized = false
+damage_calculation_authorized = false
+scc_authorized = false
+give_integration_authorized = false

@@ -1,0 +1,82 @@
+{
+  "allowed_families_one_at_a_time": [
+    "quantity",
+    "distribution",
+    "scpdsi_season"
+  ],
+  "authorization_granted": false,
+  "claim_gates": {
+    "associational_response_authorized": false,
+    "causal_response_authorized": false,
+    "damage_calculation_authorized": false,
+    "give_integration_authorized": false,
+    "predictive_response_authorized": false,
+    "production_fit_authorized": false,
+    "real_outcome_access_authorized": false,
+    "scc_authorized": false,
+    "winner_loser_claims_authorized": false
+  },
+  "created_at_utc": "2026-10-04T09:21:53.983723+00:00",
+  "execution_audit": {
+    "engine_imported": false,
+    "fit_invoked": false,
+    "real_outcome_paths_opened": []
+  },
+  "family_hierarchy": {
+    "automatic_challenger_substitution_allowed": false,
+    "challengers": [
+      "distribution",
+      "scpdsi_season"
+    ],
+    "direct_and_scpdsi_stacking_allowed": false,
+    "primary": "quantity"
+  },
+  "public_output_policy": {
+    "coefficient_redacted": true,
+    "confidence_interval_redacted": true,
+    "numeric_fit_outputs_redacted": true,
+    "p_value_redacted": true,
+    "prediction_redacted": true,
+    "residual_redacted": true,
+    "schema": "soybean_pooled_response_orchestration_result/v1",
+    "standard_error_redacted": true,
+    "support_and_design_shape_only": true
+  },
+  "required_nonce_rule": "string with at least 16 characters; value must be supplied only after explicit authorization",
+  "required_token_fields_and_exact_values": {
+    "authorization_scope": "read_real_soybean_yield_magnitudes_and_invoke_pooled_response_fit",
+    "authorization_statement": "I explicitly authorize reading the frozen soybean outcome magnitudes and invoking the pooled response fit under this exact manifest.",
+    "contract_id": "soybean_pooled_response_execution_gate_v1",
+    "dry_run_manifest_sha256": "d6b385aa34f0c2faf4ac630cb7bb0578d58f674251402b3a7eab8583cfe5436e",
+    "engine_sha256": "a437fab438e17fccdc6bf9780de6799e5d11306174f18c55e2bd286f494f0b66",
+    "explicit_user_authorization": true,
+    "issuer": "user",
+    "portability_manifest_sha256": "2bf8dd44682d1a1619f14586d5df7e2acdb0f9028dc904974d1f5c1f506e9b13",
+    "production_orchestrator_config_sha256": "a1d05ae18431d49130fe61615fbb77281904a4280f94627ba8d31afa459f6297",
+    "production_orchestrator_sha256": "02ed93c9eb29d98ce2610dac848a05d81385b14f939f5ab7460bc5aa40b20d17",
+    "production_reader_config_sha256": "3a0d9257554a8f4563a4f03f61e49414d772ac7a30171da5bce144be7116a4e1",
+    "production_reader_sha256": "8ea2621bd3c4ce70c40d85e4e90441feb2fbd686a093cf971e76bb51e6b386b3",
+    "protocol_sha256": "c410c2d4e59e54c70bdb507db63383282e471dd00059359d05163fe2b98263a4",
+    "schema": "soybean_pooled_response_real_access_authorization/v1",
+    "synthetic": false
+  },
+  "required_user_statement": "I explicitly authorize reading the frozen soybean outcome magnitudes and invoking the pooled response fit under this exact manifest.",
+  "resources": {
+    "memory_cap_bytes": 536870912,
+    "memory_gate_passed": true,
+    "peak_rss_bytes": 95322112
+  },
+  "schema": "soybean_pooled_response_authorization_packet/v1",
+  "status": "exact_requirements_frozen_authorization_absent",
+  "terminal_validation_policy": {
+    "buffer_year": 2011,
+    "fit_summary_cannot_promote_response": true,
+    "public_status": "not_run_fit_summary_nonpromotable",
+    "required_next_operation": "separately authorized in-memory terminal transport using unchanged training fit; never infer pass from fit summary",
+    "run_in_fit_orchestrator": false,
+    "terminal_pass_cannot_be_inferred": true,
+    "year_maximum": 2016,
+    "year_minimum": 2012
+  },
+  "token_created": false
+}
