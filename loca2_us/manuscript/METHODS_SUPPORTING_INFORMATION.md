@@ -3,8 +3,10 @@
 ## M1. Reproducibility state
 
 The current release contains the preregistered source and validation design,
-an official-catalog audit, and synthetic tests. It does not contain restricted
-NASS credentials or raw climate arrays. Raw and interim files are ignored.
+an official-catalog audit, synthetic tests, Cuming County geometry weights,
+and a validated single-model 2001--2012 climate-distribution sentinel. It does
+not contain restricted NASS credentials or tracked raw climate arrays. Raw and
+interim files are ignored.
 
 ## M2. Climate sources
 
@@ -38,10 +40,13 @@ validation uses 2001--2014.
 ## M5. Historical climate validation
 
 LOCA2 historical features are evaluated against the existing NOAA
-nClimGrid-Daily county feature pipeline on a predeclared common sample. Metrics
-include bias, RMSE, correlation, trend difference, quantile error, dry-spell
-error, and Rx5day error. TIGER 2019 versus TIGER 2023 boundary differences are
-crosswalked and reported; no silent GEOID coercion is allowed.
+nClimGrid-Daily county feature pipeline on a predeclared common sample. Because
+the historical GCM simulations are free-running, the climate-only comparison
+uses fixed-period climatology bias, standard-deviation ratios, and quantile
+errors for quantity, dry-spell, extreme-rain, distribution, and temperature
+features. It does not use paired-year RMSE, correlation, or trend agreement.
+TIGER 2019 versus TIGER 2023 boundary differences are crosswalked and reported;
+no silent GEOID coercion is allowed.
 
 The first geometry sentinel uses the same TIGER 2019 Cuming County polygon as
 the nClimGrid pipeline. LOCA2 cell edges are inferred from the regular
@@ -65,6 +70,13 @@ maximum dry spells, Rx1day, Rx5day, three stage totals/shares, concentration,
 timing centroid, and temperature summaries are then compared on identical
 calendar windows. Remote variables are decoded sequentially to respect the
 512 MiB memory guard.
+
+The successful sentinel planned 559.88 MiB of compressed remote chunks but
+persisted no remote climate arrays. Its sampled process-group peak was
+484,589,568 bytes (462.14 MiB). Independent validation reconstructed 400
+support and arithmetic checks with zero saved-precision disagreement. These
+checks open only the single-county historical climate sentinel; multi-model,
+multi-county, outcome-response, causal-damage, and SCC gates remain closed.
 
 ## M6. Agricultural response families
 
