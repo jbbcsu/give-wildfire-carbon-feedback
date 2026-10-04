@@ -1,0 +1,49 @@
+schema = "loca2_us_historical_climate_sentinel/v1"
+status = "frozen_before_IPSL_LOCA2_climate_value_read"
+created = "2026-10-04"
+
+[source]
+store = "mdmf/gdp/LOCA2/CMIP6-LOCA2.historical.daily.zarr"
+endpoint_url = "https://usgs.osn.mghpcc.org/"
+precipitation_version = "v20240915"
+source_id = "IPSL-CM6A-LR"
+experiment_id = "historical"
+variant_label = "r1i1p1f1"
+variables = ["pr", "tasmin", "tasmax"]
+selection_rule = "second global-bridge GCM after GFDL-ESM4; choose the lowest numeric historical realization r1 before reading climate values; do not select on climate skill or outcomes"
+metadata_only_catalog_check = "2026-10-04: historical ensemble indices 60-69 contain r10 then r1-r9; r1i1p1f1 is unique at index 61"
+
+[sample]
+county_geoid = "31039"
+crop = "corn_grain"
+year_min = 2001
+year_max = 2012
+season_start_month_day = "05-06"
+season_end_month_day = "10-22"
+wet_day_threshold_mm = 1.0
+stage_fractions = [0.0, 0.3, 0.7, 1.0]
+outcome_columns_read = false
+paired_year_scoring = false
+support_rule = "identical to the GFDL-ESM4 sentinel; no support, calendar, feature, or reference change"
+
+[inputs]
+weights = "loca2_us/data/interim/weights/tiger2019/county_geoid=31039/weights.parquet"
+weights_receipt = "loca2_us/data/provenance/loca2_cuming_tiger2019_weights_20261003.json"
+nclimgrid_feature_pattern = "data/interim/us_county/nclimgrid_features_national_v1/harvest_year={year}/features.parquet"
+
+[resources]
+maximum_remote_chunk_mib = 1024
+maximum_worker_mib = 512
+one_worker = true
+persist_remote_arrays = false
+
+[outputs]
+features = "loca2_us/data/interim/cuming_ipsl_historical_2001_2012_corn_features.parquet"
+receipt = "loca2_us/data/provenance/loca2_cuming_ipsl_historical_climate_sentinel_2001_2012_20261004.json"
+
+[claim_gates]
+historical_climate_sentinel = false
+multi_model_validation = false
+outcome_response = false
+causal_damage = false
+SCC = false

@@ -97,6 +97,35 @@ This sentinel shows why the U.S. paper must retain quantity, dry-spell, and
 extreme-rain diagnostics separately: bias is not uniform across those
 representations. Multi-model and multi-county validation remains closed.
 
+## Second-GCM Cuming sentinel
+
+The next outcome-blind step froze IPSL-CM6A-LR `r1i1p1f1` before climate-value
+access. This is the second global-bridge GCM after GFDL-ESM4, and `r1` was
+selected as the lowest numeric historical realization rather than on climate
+skill or any crop outcome. Geography, 2001--2012 support, crop calendar,
+features, nClimGrid reference, and distributional diagnostics are identical to
+the first sentinel.
+
+IPSL mean season rainfall is 466.49 mm, a +4.90 mm difference from nClimGrid;
+maximum dry spell is 18.92 days, a +0.73-day difference; Rx5day is 80.35 mm, a
+-4.32 mm difference; and season mean temperature is 20.75 C, a +1.34 C
+difference. Their quantile RMSEs are 12.17 mm, 3.10 days, 6.88 mm, and 1.34 C.
+Independent validation again reconstructed 400 checks with zero saved-
+precision disagreement.
+
+Under the frozen equal-GCM rule, the two-model mean climatology differences
+are -12.27 mm for season rainfall, +2.38 days for maximum dry spell, -2.38 mm
+for Rx5day, and +1.11 C for season mean temperature. These averages are
+descriptive climate-product sentinels, not skill weights: the model-specific
+bias ranges are retained and no model is selected using climate or outcome
+performance. The IPSL job read 566.98 MiB of compressed remote chunks,
+persisted no raw arrays, and peaked at 483,278,848 bytes (460.89 MiB), below
+the 512 MiB guard.
+
+The second-GCM sentinel gate is open. General multi-model validation remains
+closed with only two GCMs and one county; multi-county, outcome-response,
+causal-damage, and SCC gates also remain closed.
+
 Primary receipts:
 
 - `data/provenance/loca2_official_catalog_audit_20261003.json`
@@ -108,3 +137,8 @@ Primary receipts:
 - `data/provenance/loca2_cuming_gfdl_historical_climate_sentinel_2001_2012_20261003.json`
 - `data/provenance/loca2_cuming_gfdl_historical_climate_sentinel_validation_20261003.json`
 - `data/provenance/loca2_cuming_gfdl_historical_climate_sentinel_job_v4_20261003.json`
+- `data/provenance/loca2_cuming_ipsl_historical_climate_sentinel_2001_2012_20261004.json`
+- `data/provenance/loca2_cuming_ipsl_historical_climate_sentinel_validation_20261004.json`
+- `data/provenance/loca2_cuming_ipsl_historical_climate_sentinel_job_20261004.json`
+- `data/provenance/loca2_cuming_two_model_climate_sentinels_20261004.json`
+- `data/provenance/loca2_cuming_two_model_climate_sentinels_validation_20261004.json`

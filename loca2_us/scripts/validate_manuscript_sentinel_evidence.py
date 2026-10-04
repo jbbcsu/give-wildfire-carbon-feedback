@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parents[2]
 SOURCE = ROOT / "loca2_us/data/provenance/loca2_cuming_gfdl_historical_climate_sentinel_2001_2012_20261003.json"
 INDEPENDENT = ROOT / "loca2_us/data/provenance/loca2_cuming_gfdl_historical_climate_sentinel_validation_20261003.json"
 JOB = ROOT / "loca2_us/data/provenance/loca2_cuming_gfdl_historical_climate_sentinel_job_v4_20261003.json"
+TWO_MODEL = ROOT / "loca2_us/data/provenance/loca2_cuming_two_model_climate_sentinels_20261004.json"
 MAIN = ROOT / "loca2_us/manuscript/MAIN_MANUSCRIPT.md"
 METHODS = ROOT / "loca2_us/manuscript/METHODS_SUPPORTING_INFORMATION.md"
 
@@ -34,6 +35,7 @@ def validate() -> dict[str, object]:
     source = json.loads(SOURCE.read_text())
     independent = json.loads(INDEPENDENT.read_text())
     job = json.loads(JOB.read_text())
+    two_model = json.loads(TWO_MODEL.read_text())
     main = MAIN.read_text()
     methods = METHODS.read_text()
 
@@ -47,6 +49,12 @@ def validate() -> dict[str, object]:
     require(job["sampled_peak_group_rss_bytes"] < 512 * 1024**2, "memory guard failed")
     for gate in ("multi_model_validation", "outcome_response", "causal_damage", "SCC"):
         require(source["claim_gates"][gate] is False, f"claim gate opened: {gate}")
+    require(two_model["status"] == "pass", "two-model sentinel failed")
+    require(two_model["models"] == ["GFDL-ESM4", "IPSL-CM6A-LR"], "two-model identities changed")
+    require(two_model["weighting"] == "equal_GCM", "two-model weighting changed")
+    require(two_model["support"] == source["support"], "two-model support changed")
+    for gate in ("multi_model_validation", "multi_county_validation", "outcome_response", "causal_damage", "SCC"):
+        require(two_model["claim_gates"][gate] is False, f"two-model claim gate opened: {gate}")
 
     expected = {
         "precip_mm": ("432.15", "461.58", "-29.44", "0.931", "60.02 mm"),
@@ -58,6 +66,10 @@ def validate() -> dict[str, object]:
         require(all(value in main for value in values), f"manuscript table lacks {values}")
     require("400 saved arithmetic and\nsupport checks" in main, "main manuscript lacks independent-check statement")
     require("484,589,568 bytes (462.14 MiB)" in main, "main manuscript lacks exact memory receipt")
+    for value in ("+4.90 mm", "+0.73 days", "-4.32 mm", "+1.34 C", "-12.27 mm", "+2.38 days", "-2.38 mm", "+1.11 C"):
+        require(value in main, f"main manuscript lacks two-model value: {value}")
+    require("483,278,848\nbytes" in methods, "methods lacks IPSL memory receipt")
+    require("general multi-model validation gate" in methods, "methods lacks two-model gate boundary")
     require("paired-year RMSE, correlation, or trend agreement" in methods, "methods lacks free-running boundary")
     require(
         "multi-model,\nmulti-county, outcome-response, causal-damage, and SCC gates remain closed" in methods,
@@ -83,7 +95,10 @@ def validate() -> dict[str, object]:
         "schema": "loca2_us_manuscript_sentinel_evidence_validation/v1",
         "status": "pass",
         "role": "outcome_blind_manuscript_evidence_reconciliation_only",
-        "source_receipts": {str(path.relative_to(ROOT)): sha256(path) for path in (SOURCE, INDEPENDENT, JOB)},
+        "source_receipts": {
+            str(path.relative_to(ROOT)): sha256(path)
+            for path in (SOURCE, INDEPENDENT, JOB, TWO_MODEL)
+        },
         "manuscripts": {str(path.relative_to(ROOT)): sha256(path) for path in (MAIN, METHODS)},
         "support": source["support"],
         "machine_values": machine,

@@ -1,0 +1,77 @@
+{
+  "claim_gates": {
+    "SCC": false,
+    "causal_damage": false,
+    "historical_climate_sentinel": true,
+    "multi_model_validation": false,
+    "outcome_response": false
+  },
+  "independent_checks": 400,
+  "machine_values": {
+    "cdd_max_days": {
+      "climatology_bias_model_minus_observed": 4.026527207171874,
+      "model_mean": 22.215918703275225,
+      "observed_mean": 18.18939149610335,
+      "quantile_rmse": 4.518884325336615,
+      "standard_deviation_ratio": 0.8701511604695624
+    },
+    "precip_mm": {
+      "climatology_bias_model_minus_observed": -29.4367575828511,
+      "model_mean": 432.14619145005344,
+      "observed_mean": 461.58294903290454,
+      "quantile_rmse": 60.02141842950519,
+      "standard_deviation_ratio": 0.9310021349078754
+    },
+    "rx5day_mm": {
+      "climatology_bias_model_minus_observed": -0.4327466789582246,
+      "model_mean": 84.23778093358315,
+      "observed_mean": 84.67052761254138,
+      "quantile_rmse": 5.8413750571485465,
+      "standard_deviation_ratio": 0.9533867410888294
+    },
+    "tmean_c": {
+      "climatology_bias_model_minus_observed": 0.8854603528215605,
+      "model_mean": 20.293749602162176,
+      "observed_mean": 19.408289249340616,
+      "quantile_rmse": 0.8243890859305778,
+      "standard_deviation_ratio": 0.7498693146337111
+    }
+  },
+  "manuscripts": {
+    "loca2_us/manuscript/MAIN_MANUSCRIPT.md": "9805fcb262cac1c3f5f16cb520696302f9595d54ad1a77ac2ff4fe6adeef95d3",
+    "loca2_us/manuscript/METHODS_SUPPORTING_INFORMATION.md": "afc5675aa2b1ef76ccf1931c4a2da33438529c62d7a1ff027db51809841cb56a"
+  },
+  "peak_rss_bytes": 484589568,
+  "role": "outcome_blind_manuscript_evidence_reconciliation_only",
+  "schema": "loca2_us_manuscript_sentinel_evidence_validation/v1",
+  "source_receipts": {
+    "loca2_us/data/provenance/loca2_cuming_gfdl_historical_climate_sentinel_2001_2012_20261003.json": "b8daf073db1cf4402e0e8733997d6c1615f983026133644927a97ec131cd2b83",
+    "loca2_us/data/provenance/loca2_cuming_gfdl_historical_climate_sentinel_job_v4_20261003.json": "cb5548cc67686f83abc85194a04fa8df23c85c5e392b31e8d1138c8e88f0b904",
+    "loca2_us/data/provenance/loca2_cuming_gfdl_historical_climate_sentinel_validation_20261003.json": "d7ef929efb20ed6199e56d013c73876bc386fe17cda311a62f380a2d2a510d16",
+    "loca2_us/data/provenance/loca2_cuming_two_model_climate_sentinels_20261004.json": "01fec9d3b315c5c377cf7dd7991404f163b4b36e6410d0405502ef7d5df7eb69"
+  },
+  "status": "pass",
+  "support": {
+    "county_geoid": "31039",
+    "crop": "corn_grain",
+    "grid_cells": 63,
+    "outcome_columns_read": false,
+    "paired_year_scoring": false,
+    "season_days_each": 170,
+    "year_count": 12,
+    "years": [
+      2001,
+      2002,
+      2003,
+      2004,
+      2005,
+      2006,
+      2007,
+      2008,
+      2009,
+      2010,
+      2011,
+      2012
+    ]
+  }
+}

@@ -4,9 +4,9 @@
 
 The current release contains the preregistered source and validation design,
 an official-catalog audit, synthetic tests, Cuming County geometry weights,
-and a validated single-model 2001--2012 climate-distribution sentinel. It does
-not contain restricted NASS credentials or tracked raw climate arrays. Raw and
-interim files are ignored.
+and validated GFDL-ESM4 and IPSL-CM6A-LR 2001--2012 climate-distribution
+sentinels. It does not contain restricted NASS credentials or tracked raw
+climate arrays. Raw and interim files are ignored.
 
 ## M2. Climate sources
 
@@ -77,6 +77,17 @@ persisted no remote climate arrays. Its sampled process-group peak was
 support and arithmetic checks with zero saved-precision disagreement. These
 checks open only the single-county historical climate sentinel; multi-model,
 multi-county, outcome-response, causal-damage, and SCC gates remain closed.
+
+The second-GCM sentinel uses IPSL-CM6A-LR `r1i1p1f1`. The model was selected
+from the preregistered global-bridge list, and `r1` was selected as the lowest
+numeric historical realization in a metadata-only catalog check before any
+IPSL climate value was read. All support and feature definitions are identical
+to the GFDL-ESM4 sentinel. The cross-model summary applies the frozen equal-GCM
+rule and reports each model separately; it performs no climate-skill or crop-
+outcome weighting. IPSL independent validation reproduces 400 checks with zero
+saved-precision disagreement. Its sampled process-group peak is 483,278,848
+bytes, below the 512 MiB guard. This opens a second-GCM sentinel only, not the
+general multi-model validation gate.
 
 ## M6. Agricultural response families
 

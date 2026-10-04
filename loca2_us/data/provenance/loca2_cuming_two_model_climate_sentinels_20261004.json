@@ -1,0 +1,428 @@
+{
+  "claim_gates": {
+    "SCC": false,
+    "causal_damage": false,
+    "multi_county_validation": false,
+    "multi_model_validation": false,
+    "outcome_response": false,
+    "second_GCM_sentinel": true
+  },
+  "headline_features": [
+    "precip_mm",
+    "cdd_max_days",
+    "rx5day_mm",
+    "tmean_c"
+  ],
+  "maximum_sampled_peak_group_rss_bytes": 484589568,
+  "metrics": {
+    "cdd_max_days": {
+      "equal_gcm_mean_climatology_bias": 2.3768765153028166,
+      "equal_gcm_mean_model_climatology": 20.566268011406166,
+      "equal_gcm_mean_of_model_quantile_rmse": 3.807773557674577,
+      "model_bias_maximum": 4.026527207171874,
+      "model_bias_minimum": 0.7272258234337592,
+      "models": {
+        "GFDL-ESM4": {
+          "climatology_bias_model_minus_observed": 4.026527207171874,
+          "model_mean": 22.215918703275225,
+          "quantile_rmse": 4.518884325336615,
+          "standard_deviation_ratio": 0.8701511604695624
+        },
+        "IPSL-CM6A-LR": {
+          "climatology_bias_model_minus_observed": 0.7272258234337592,
+          "model_mean": 18.91661731953711,
+          "quantile_rmse": 3.0966627900125387,
+          "standard_deviation_ratio": 0.731258533036595
+        }
+      },
+      "observed_mean": 18.18939149610335
+    },
+    "precip_mm": {
+      "equal_gcm_mean_climatology_bias": -12.266941903814882,
+      "equal_gcm_mean_model_climatology": 449.31600712908966,
+      "equal_gcm_mean_of_model_quantile_rmse": 36.096514534234075,
+      "model_bias_maximum": 4.902873775221337,
+      "model_bias_minimum": -29.4367575828511,
+      "models": {
+        "GFDL-ESM4": {
+          "climatology_bias_model_minus_observed": -29.4367575828511,
+          "model_mean": 432.14619145005344,
+          "quantile_rmse": 60.02141842950519,
+          "standard_deviation_ratio": 0.9310021349078754
+        },
+        "IPSL-CM6A-LR": {
+          "climatology_bias_model_minus_observed": 4.902873775221337,
+          "model_mean": 466.4858228081259,
+          "quantile_rmse": 12.171610638962958,
+          "standard_deviation_ratio": 1.011478371587381
+        }
+      },
+      "observed_mean": 461.58294903290454
+    },
+    "precipitation_concentration_hhi": {
+      "equal_gcm_mean_climatology_bias": 0.0030621639108394105,
+      "equal_gcm_mean_model_climatology": 0.3860985233665468,
+      "equal_gcm_mean_of_model_quantile_rmse": 0.011493052580330239,
+      "model_bias_maximum": 0.010095841036669051,
+      "model_bias_minimum": -0.00397151321499023,
+      "models": {
+        "GFDL-ESM4": {
+          "climatology_bias_model_minus_observed": 0.010095841036669051,
+          "model_mean": 0.39313220049237646,
+          "quantile_rmse": 0.016158264078822957,
+          "standard_deviation_ratio": 1.0056402196195007
+        },
+        "IPSL-CM6A-LR": {
+          "climatology_bias_model_minus_observed": -0.00397151321499023,
+          "model_mean": 0.3790648462407172,
+          "quantile_rmse": 0.00682784108183752,
+          "standard_deviation_ratio": 0.9346527165526922
+        }
+      },
+      "observed_mean": 0.3830363594557074
+    },
+    "precipitation_timing_centroid": {
+      "equal_gcm_mean_climatology_bias": 0.01054857880303503,
+      "equal_gcm_mean_model_climatology": 0.44832802175176956,
+      "equal_gcm_mean_of_model_quantile_rmse": 0.029298186878046823,
+      "model_bias_maximum": 0.01890416187434596,
+      "model_bias_minimum": 0.002192995731724101,
+      "models": {
+        "GFDL-ESM4": {
+          "climatology_bias_model_minus_observed": 0.01890416187434596,
+          "model_mean": 0.45668360482308046,
+          "quantile_rmse": 0.03361193154887408,
+          "standard_deviation_ratio": 0.5684751116811643
+        },
+        "IPSL-CM6A-LR": {
+          "climatology_bias_model_minus_observed": 0.002192995731724101,
+          "model_mean": 0.4399724386804586,
+          "quantile_rmse": 0.024984442207219563,
+          "standard_deviation_ratio": 0.7043960917539629
+        }
+      },
+      "observed_mean": 0.4377794429487345
+    },
+    "rx1day_mm": {
+      "equal_gcm_mean_climatology_bias": -2.958217191085158,
+      "equal_gcm_mean_model_climatology": 50.60798114071005,
+      "equal_gcm_mean_of_model_quantile_rmse": 5.65783711941638,
+      "model_bias_maximum": -1.8363180478343608,
+      "model_bias_minimum": -4.080116334335955,
+      "models": {
+        "GFDL-ESM4": {
+          "climatology_bias_model_minus_observed": -1.8363180478343608,
+          "model_mean": 51.72988028396085,
+          "quantile_rmse": 4.140101299360938,
+          "standard_deviation_ratio": 1.0574368972772459
+        },
+        "IPSL-CM6A-LR": {
+          "climatology_bias_model_minus_observed": -4.080116334335955,
+          "model_mean": 49.48608199745926,
+          "quantile_rmse": 7.175572939471822,
+          "standard_deviation_ratio": 0.6864096682589008
+        }
+      },
+      "observed_mean": 53.56619833179521
+    },
+    "rx5day_mm": {
+      "equal_gcm_mean_climatology_bias": -2.377629934725718,
+      "equal_gcm_mean_model_climatology": 82.29289767781566,
+      "equal_gcm_mean_of_model_quantile_rmse": 6.35827921664829,
+      "model_bias_maximum": -0.4327466789582246,
+      "model_bias_minimum": -4.322513190493211,
+      "models": {
+        "GFDL-ESM4": {
+          "climatology_bias_model_minus_observed": -0.4327466789582246,
+          "model_mean": 84.23778093358315,
+          "quantile_rmse": 5.8413750571485465,
+          "standard_deviation_ratio": 0.9533867410888294
+        },
+        "IPSL-CM6A-LR": {
+          "climatology_bias_model_minus_observed": -4.322513190493211,
+          "model_mean": 80.34801442204817,
+          "quantile_rmse": 6.875183376148034,
+          "standard_deviation_ratio": 0.7171801986130678
+        }
+      },
+      "observed_mean": 84.67052761254138
+    },
+    "stage1_precip_mm": {
+      "equal_gcm_mean_climatology_bias": -19.650298665593,
+      "equal_gcm_mean_model_climatology": 168.76598301849234,
+      "equal_gcm_mean_of_model_quantile_rmse": 24.88938440052523,
+      "model_bias_maximum": -7.219996790321375,
+      "model_bias_minimum": -32.08060054086462,
+      "models": {
+        "GFDL-ESM4": {
+          "climatology_bias_model_minus_observed": -32.08060054086462,
+          "model_mean": 156.3356811432207,
+          "quantile_rmse": 32.5759955911036,
+          "standard_deviation_ratio": 0.9153921053153895
+        },
+        "IPSL-CM6A-LR": {
+          "climatology_bias_model_minus_observed": -7.219996790321375,
+          "model_mean": 181.19628489376396,
+          "quantile_rmse": 17.202773209946862,
+          "standard_deviation_ratio": 0.626955289377898
+        }
+      },
+      "observed_mean": 188.41628168408533
+    },
+    "stage1_precip_share": {
+      "equal_gcm_mean_climatology_bias": -0.039178902399809146,
+      "equal_gcm_mean_model_climatology": 0.38004752724390334,
+      "equal_gcm_mean_of_model_quantile_rmse": 0.048536515165080896,
+      "model_bias_maximum": -0.01837858698490047,
+      "model_bias_minimum": -0.05997921781471782,
+      "models": {
+        "GFDL-ESM4": {
+          "climatology_bias_model_minus_observed": -0.05997921781471782,
+          "model_mean": 0.35924721182899466,
+          "quantile_rmse": 0.06846610387565683,
+          "standard_deviation_ratio": 0.7420763419154136
+        },
+        "IPSL-CM6A-LR": {
+          "climatology_bias_model_minus_observed": -0.01837858698490047,
+          "model_mean": 0.400847842658812,
+          "quantile_rmse": 0.02860692645450497,
+          "standard_deviation_ratio": 0.8113030755875407
+        }
+      },
+      "observed_mean": 0.4192264296437125
+    },
+    "stage2_precip_mm": {
+      "equal_gcm_mean_climatology_bias": 11.049615931049885,
+      "equal_gcm_mean_model_climatology": 171.74690512823304,
+      "equal_gcm_mean_of_model_quantile_rmse": 13.925543033305775,
+      "model_bias_maximum": 12.046914045458323,
+      "model_bias_minimum": 10.052317816641448,
+      "models": {
+        "GFDL-ESM4": {
+          "climatology_bias_model_minus_observed": 10.052317816641448,
+          "model_mean": 170.7496070138246,
+          "quantile_rmse": 14.356196081535453,
+          "standard_deviation_ratio": 1.02661747184168
+        },
+        "IPSL-CM6A-LR": {
+          "climatology_bias_model_minus_observed": 12.046914045458323,
+          "model_mean": 172.74420324264148,
+          "quantile_rmse": 13.4948899850761,
+          "standard_deviation_ratio": 0.8963819940211596
+        }
+      },
+      "observed_mean": 160.69728919718315
+    },
+    "stage2_precip_share": {
+      "equal_gcm_mean_climatology_bias": 0.048219008219517856,
+      "equal_gcm_mean_model_climatology": 0.3875391690785658,
+      "equal_gcm_mean_of_model_quantile_rmse": 0.0728230743245766,
+      "model_bias_maximum": 0.06594654455987531,
+      "model_bias_minimum": 0.030491471879160403,
+      "models": {
+        "GFDL-ESM4": {
+          "climatology_bias_model_minus_observed": 0.06594654455987531,
+          "model_mean": 0.40526670541892323,
+          "quantile_rmse": 0.09864593565682175,
+          "standard_deviation_ratio": 1.7631070288369501
+        },
+        "IPSL-CM6A-LR": {
+          "climatology_bias_model_minus_observed": 0.030491471879160403,
+          "model_mean": 0.36981163273820833,
+          "quantile_rmse": 0.04700021299233144,
+          "standard_deviation_ratio": 1.1720787479738393
+        }
+      },
+      "observed_mean": 0.3393201608590479
+    },
+    "stage3_precip_mm": {
+      "equal_gcm_mean_climatology_bias": -3.666259169271825,
+      "equal_gcm_mean_model_climatology": 108.80311898236427,
+      "equal_gcm_mean_of_model_quantile_rmse": 12.081981244608173,
+      "model_bias_maximum": 0.0759565200843042,
+      "model_bias_minimum": -7.4084748586279545,
+      "models": {
+        "GFDL-ESM4": {
+          "climatology_bias_model_minus_observed": -7.4084748586279545,
+          "model_mean": 105.06090329300814,
+          "quantile_rmse": 15.841240277197201,
+          "standard_deviation_ratio": 0.9869453022484527
+        },
+        "IPSL-CM6A-LR": {
+          "climatology_bias_model_minus_observed": 0.0759565200843042,
+          "model_mean": 112.5453346717204,
+          "quantile_rmse": 8.322722212019146,
+          "standard_deviation_ratio": 1.1046829864000276
+        }
+      },
+      "observed_mean": 112.46937815163609
+    },
+    "stage3_precip_share": {
+      "equal_gcm_mean_climatology_bias": -0.00904010581970878,
+      "equal_gcm_mean_model_climatology": 0.23241330367753077,
+      "equal_gcm_mean_of_model_quantile_rmse": 0.026197836688875775,
+      "model_bias_maximum": -0.005967326745157597,
+      "model_bias_minimum": -0.012112884894259962,
+      "models": {
+        "GFDL-ESM4": {
+          "climatology_bias_model_minus_observed": -0.005967326745157597,
+          "model_mean": 0.23548608275208197,
+          "quantile_rmse": 0.017815532384954175,
+          "standard_deviation_ratio": 1.0137080031796104
+        },
+        "IPSL-CM6A-LR": {
+          "climatology_bias_model_minus_observed": -0.012112884894259962,
+          "model_mean": 0.2293405246029796,
+          "quantile_rmse": 0.034580140992797374,
+          "standard_deviation_ratio": 0.7584308005807712
+        }
+      },
+      "observed_mean": 0.24145340949723956
+    },
+    "tmax_mean_c": {
+      "equal_gcm_mean_climatology_bias": 1.6523178438729396,
+      "equal_gcm_mean_model_climatology": 27.564057977915873,
+      "equal_gcm_mean_of_model_quantile_rmse": 1.620596218858809,
+      "model_bias_maximum": 1.9330481794125802,
+      "model_bias_minimum": 1.371587508333299,
+      "models": {
+        "GFDL-ESM4": {
+          "climatology_bias_model_minus_observed": 1.371587508333299,
+          "model_mean": 27.283327642376232,
+          "quantile_rmse": 1.3372460900212775,
+          "standard_deviation_ratio": 0.6937348182947942
+        },
+        "IPSL-CM6A-LR": {
+          "climatology_bias_model_minus_observed": 1.9330481794125802,
+          "model_mean": 27.844788313455513,
+          "quantile_rmse": 1.9039463476963405,
+          "standard_deviation_ratio": 1.0430771461674269
+        }
+      },
+      "observed_mean": 25.911740134042933
+    },
+    "tmean_c": {
+      "equal_gcm_mean_climatology_bias": 1.1119410469871625,
+      "equal_gcm_mean_model_climatology": 20.520230296327778,
+      "equal_gcm_mean_of_model_quantile_rmse": 1.0798809515119487,
+      "model_bias_maximum": 1.3384217411527644,
+      "model_bias_minimum": 0.8854603528215605,
+      "models": {
+        "GFDL-ESM4": {
+          "climatology_bias_model_minus_observed": 0.8854603528215605,
+          "model_mean": 20.293749602162176,
+          "quantile_rmse": 0.8243890859305778,
+          "standard_deviation_ratio": 0.7498693146337111
+        },
+        "IPSL-CM6A-LR": {
+          "climatology_bias_model_minus_observed": 1.3384217411527644,
+          "model_mean": 20.74671099049338,
+          "quantile_rmse": 1.3353728170933197,
+          "standard_deviation_ratio": 1.0073211692103663
+        }
+      },
+      "observed_mean": 19.408289249340616
+    },
+    "tmin_mean_c": {
+      "equal_gcm_mean_climatology_bias": 0.571587297288759,
+      "equal_gcm_mean_model_climatology": 13.476402614739687,
+      "equal_gcm_mean_of_model_quantile_rmse": 0.570678388013052,
+      "model_bias_maximum": 0.743818350080323,
+      "model_bias_minimum": 0.399356244497195,
+      "models": {
+        "GFDL-ESM4": {
+          "climatology_bias_model_minus_observed": 0.399356244497195,
+          "model_mean": 13.304171561948122,
+          "quantile_rmse": 0.36006402052163483,
+          "standard_deviation_ratio": 0.9512401636805121
+        },
+        "IPSL-CM6A-LR": {
+          "climatology_bias_model_minus_observed": 0.743818350080323,
+          "model_mean": 13.64863366753125,
+          "quantile_rmse": 0.7812927555044692,
+          "standard_deviation_ratio": 0.9357374538511224
+        }
+      },
+      "observed_mean": 12.904815317450927
+    },
+    "wet_days_n": {
+      "equal_gcm_mean_climatology_bias": -3.0116228234957028,
+      "equal_gcm_mean_model_climatology": 44.28643648163033,
+      "equal_gcm_mean_of_model_quantile_rmse": 4.090976859237595,
+      "model_bias_maximum": -0.6119101690864781,
+      "model_bias_minimum": -5.411335477904927,
+      "models": {
+        "GFDL-ESM4": {
+          "climatology_bias_model_minus_observed": -5.411335477904927,
+          "model_mean": 41.886723827221104,
+          "quantile_rmse": 6.290419585972185,
+          "standard_deviation_ratio": 0.7747557232932162
+        },
+        "IPSL-CM6A-LR": {
+          "climatology_bias_model_minus_observed": -0.6119101690864781,
+          "model_mean": 46.68614913603955,
+          "quantile_rmse": 1.8915341325030046,
+          "standard_deviation_ratio": 0.8175156775839674
+        }
+      },
+      "observed_mean": 47.29805930512603
+    }
+  },
+  "models": [
+    "GFDL-ESM4",
+    "IPSL-CM6A-LR"
+  ],
+  "role": "outcome_blind_two_GCM_climate_distribution_sentinel_not_generalized_validation",
+  "schema": "loca2_us_cuming_two_model_climate_sentinels/v1",
+  "source_files": {
+    "loca2_us/data/provenance/loca2_cuming_gfdl_historical_climate_sentinel_2001_2012_20261003.json": {
+      "role": "GFDL-ESM4_receipt",
+      "sha256": "b8daf073db1cf4402e0e8733997d6c1615f983026133644927a97ec131cd2b83"
+    },
+    "loca2_us/data/provenance/loca2_cuming_gfdl_historical_climate_sentinel_job_v4_20261003.json": {
+      "role": "GFDL-ESM4_job",
+      "sha256": "cb5548cc67686f83abc85194a04fa8df23c85c5e392b31e8d1138c8e88f0b904"
+    },
+    "loca2_us/data/provenance/loca2_cuming_gfdl_historical_climate_sentinel_validation_20261003.json": {
+      "role": "GFDL-ESM4_validation",
+      "sha256": "d7ef929efb20ed6199e56d013c73876bc386fe17cda311a62f380a2d2a510d16"
+    },
+    "loca2_us/data/provenance/loca2_cuming_ipsl_historical_climate_sentinel_2001_2012_20261004.json": {
+      "role": "IPSL-CM6A-LR_receipt",
+      "sha256": "3554d233420606cbaae23e05b930f2072883680ee815f8d8f316e82d0df3af02"
+    },
+    "loca2_us/data/provenance/loca2_cuming_ipsl_historical_climate_sentinel_job_20261004.json": {
+      "role": "IPSL-CM6A-LR_job",
+      "sha256": "608ac44614c4a89c73337bac79b8d285e4bd50d5304cb8234fa3bf45c2bbf474"
+    },
+    "loca2_us/data/provenance/loca2_cuming_ipsl_historical_climate_sentinel_validation_20261004.json": {
+      "role": "IPSL-CM6A-LR_validation",
+      "sha256": "dc26c04de8498aa8bc3ffdc45c6a694676e32c40e68b7c6e51b9e4d546bb09f9"
+    }
+  },
+  "status": "pass",
+  "support": {
+    "county_geoid": "31039",
+    "crop": "corn_grain",
+    "grid_cells": 63,
+    "outcome_columns_read": false,
+    "paired_year_scoring": false,
+    "season_days_each": 170,
+    "year_count": 12,
+    "years": [
+      2001,
+      2002,
+      2003,
+      2004,
+      2005,
+      2006,
+      2007,
+      2008,
+      2009,
+      2010,
+      2011,
+      2012
+    ]
+  },
+  "weighting": "equal_GCM"
+}

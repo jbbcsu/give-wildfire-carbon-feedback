@@ -1,0 +1,45 @@
+{
+  "candidate": {
+    "path": "loca2_us/data/provenance/loca2_cuming_two_model_climate_sentinels_20261004.json",
+    "sha256": "01fec9d3b315c5c377cf7dd7991404f163b4b36e6410d0405502ef7d5df7eb69"
+  },
+  "checks": 224,
+  "claim_gates": {
+    "SCC": false,
+    "causal_damage": false,
+    "multi_county_validation": false,
+    "multi_model_validation": false,
+    "outcome_response": false,
+    "second_GCM_sentinel": true
+  },
+  "maximum_absolute_saved_precision_difference": 0.0,
+  "models": [
+    "GFDL-ESM4",
+    "IPSL-CM6A-LR"
+  ],
+  "schema": "loca2_us_cuming_two_model_climate_sentinels_validation/v1",
+  "status": "pass",
+  "support": {
+    "county_geoid": "31039",
+    "crop": "corn_grain",
+    "grid_cells": 63,
+    "outcome_columns_read": false,
+    "paired_year_scoring": false,
+    "season_days_each": 170,
+    "year_count": 12,
+    "years": [
+      2001,
+      2002,
+      2003,
+      2004,
+      2005,
+      2006,
+      2007,
+      2008,
+      2009,
+      2010,
+      2011,
+      2012
+    ]
+  }
+}

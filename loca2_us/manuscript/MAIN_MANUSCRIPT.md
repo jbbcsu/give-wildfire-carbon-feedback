@@ -3,10 +3,10 @@
 ## Status
 
 Study-design manuscript. The official source audit, bounded point-access
-pilot, Cuming County geometry aggregation, and first single-model historical
-climate-distribution sentinel pass. Multi-county and multi-model climate
-validation remain open. No crop-response, causal, damage, or SCC result is
-claimed.
+pilot, Cuming County geometry aggregation, and two prespecified single-model
+historical climate-distribution sentinels pass. General multi-model and
+multi-county climate validation remain open. No crop-response, causal, damage,
+or SCC result is claimed.
 
 ## Research question
 
@@ -80,3 +80,12 @@ panel lacks Cuming-corn rows for 2013--2014; the successful sentinel therefore
 uses continuous 2001--2012 support. Remote variables were decoded one at a
 time, yielding a sampled process-group peak of 484,589,568 bytes (462.14 MiB),
 below the 512 MiB guard.
+
+A second sentinel holds that support and feature construction fixed for
+IPSL-CM6A-LR `r1i1p1f1`, chosen before climate-value access as the lowest
+numeric historical realization of the second global-bridge GCM. Its rainfall,
+dry-spell, Rx5day, and temperature biases are +4.90 mm, +0.73 days, -4.32 mm,
+and +1.34 C. Under equal GCM weights, the two-model mean biases are -12.27 mm,
++2.38 days, -2.38 mm, and +1.11 C, respectively. Model-specific results remain
+visible; these averages are not climate-skill weights. Two GCMs at one county
+do not open the general multi-model or multi-county validation gates.
