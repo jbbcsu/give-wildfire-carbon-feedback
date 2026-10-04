@@ -1,0 +1,66 @@
+{
+  "agreement_gates_recomputed": {
+    "bread_root": true,
+    "cluster_grams": true,
+    "cluster_products": true,
+    "coefficient": true,
+    "covariance": true,
+    "gram_vs_decimal50": true,
+    "gram_vs_einsum": true,
+    "gram_vs_longdouble": true,
+    "standard_error": true
+  },
+  "bindings": {
+    "config": {
+      "path": "config/soybean_pooled_response_matmul_diagnostic_v1.toml",
+      "sha256": "8c20ce23f26aac8ab9706f1bb1003f169440230f30696edf5036bfddf5f00bc8"
+    },
+    "diagnostic": {
+      "path": "scripts/diagnose_soybean_orchestrator_matmul_warnings.py",
+      "sha256": "9c120e7e7f7ab4a5cb4b880ff2d25aebc2da296dc452c458ce77420f1a07fd05"
+    },
+    "receipt": {
+      "path": "data/provenance/soybean_pooled_response_matmul_diagnostic_20261004.json",
+      "sha256": "f7641952136a17b5eab4d4a91308ca2e1d3ef5d4d59f016466ee417a50ae9b5c"
+    }
+  },
+  "checks": {
+    "all_downstream_arrays_finite": true,
+    "all_hash_bindings_verified": true,
+    "claim_gates_closed": true,
+    "conditioning_and_leverage_finite": true,
+    "frozen_engine_unchanged": true,
+    "gram_agreement": true,
+    "independent_cr2_covariance_agreement": true,
+    "independent_lstsq_coefficient_agreement": true,
+    "no_material_numerical_discrepancy": true,
+    "no_production_token_created": true,
+    "no_real_outcome_access": true,
+    "non_blas_and_decimal_reference_paths_warning_free": true,
+    "synthetic_distribution_design_reproduced": true,
+    "target_matmul_warnings_reproduced": true
+  },
+  "claim_gates": {
+    "associational_response_authorized": false,
+    "causal_response_authorized": false,
+    "damage_calculation_authorized": false,
+    "give_integration_authorized": false,
+    "predictive_response_authorized": false,
+    "production_fit_authorized": false,
+    "real_outcome_access_authorized": false,
+    "scc_authorized": false,
+    "winner_loser_claims_authorized": false
+  },
+  "created_at_utc": "2026-10-04T09:32:59.354583+00:00",
+  "implementation": {
+    "path": "scripts/validate_soybean_matmul_numerical_diagnostic.py",
+    "sha256": "2e6e78c23af1169b9bb3b6a683d4276709a3eca23420a7838e8948fea02c4dfd"
+  },
+  "resources": {
+    "memory_cap_bytes": 536870912,
+    "memory_gate_passed": true,
+    "peak_rss_bytes": 23314432
+  },
+  "schema": "soybean_pooled_response_matmul_numerical_validation/v1",
+  "status": "validated_environment_matmul_warning_no_material_numerical_discrepancy"
+}

@@ -1,0 +1,209 @@
+{
+  "agreement": {
+    "bread_root_matmul_vs_einsum_relative_max": 0.0,
+    "cluster_gram_matmul_vs_einsum_relative_max": 0.0,
+    "cluster_product_matmul_vs_einsum_relative_max": 0.0,
+    "coefficient_engine_vs_lstsq_relative_max": 1.942890293094024e-16,
+    "covariance_engine_vs_einsum_relative_max": 2.710505431213761e-20,
+    "gram_einsum_vs_decimal50_relative_max": 1.5938106100287927e-15,
+    "gram_einsum_vs_longdouble_relative_max": 0.0,
+    "gram_matmul_vs_einsum_relative_max": 0.0,
+    "standard_error_engine_vs_einsum_relative_max": 1.734723475976807e-18
+  },
+  "agreement_gates": {
+    "bread_root": true,
+    "cluster_grams": true,
+    "cluster_products": true,
+    "coefficient": true,
+    "covariance": true,
+    "gram_vs_decimal50": true,
+    "gram_vs_einsum": true,
+    "gram_vs_longdouble": true,
+    "standard_error": true
+  },
+  "bindings": {
+    "adapter": {
+      "path": "scripts/soybean_pooled_response_execution_adapter.py",
+      "sha256": "fff3210c36fe65c517b38e067e21f0d039594f1775cfb3e9da51c53cc8c9b883"
+    },
+    "engine": {
+      "path": "scripts/soybean_pooled_response_engine.py",
+      "sha256": "a437fab438e17fccdc6bf9780de6799e5d11306174f18c55e2bd286f494f0b66"
+    },
+    "orchestrator_config": {
+      "path": "config/soybean_pooled_response_orchestrator_v1.toml",
+      "sha256": "a1d05ae18431d49130fe61615fbb77281904a4280f94627ba8d31afa459f6297"
+    },
+    "protocol": {
+      "path": "config/soybean_pooled_response_inference_protocol_v1.toml",
+      "sha256": "c410c2d4e59e54c70bdb507db63383282e471dd00059359d05163fe2b98263a4"
+    },
+    "reader": {
+      "path": "scripts/soybean_pooled_response_production_reader.py",
+      "sha256": "8ea2621bd3c4ce70c40d85e4e90441feb2fbd686a093cf971e76bb51e6b386b3"
+    },
+    "synthetic_fixture": {
+      "path": "scripts/test_soybean_pooled_response_orchestrator.py",
+      "sha256": "f9183d0fcd0f87e9c8d11b7f2e85fe7941c95bb77c805bdd49e67eb336ceaf18"
+    }
+  },
+  "claim_gates": {
+    "associational_response_authorized": false,
+    "causal_response_authorized": false,
+    "damage_calculation_authorized": false,
+    "give_integration_authorized": false,
+    "predictive_response_authorized": false,
+    "production_fit_authorized": false,
+    "real_outcome_access_authorized": false,
+    "scc_authorized": false,
+    "winner_loser_claims_authorized": false
+  },
+  "classification": {
+    "basis": "warning-producing BLAS matmul results agree with non-BLAS einsum and 50-digit Decimal Gram accumulation; independent least-squares and CR2 reconstructions agree and all downstream arrays are finite",
+    "environment_or_blas_warning": true,
+    "material_numerical_discrepancy_detected": false
+  },
+  "conditioning": {
+    "design_condition_number_2": 154.8544457447439,
+    "gram_condition_number_2": 23979.899366911824,
+    "maximum_cluster_hat_eigenvalue": 0.08743020742937267
+  },
+  "configuration": {
+    "path": "config/soybean_pooled_response_matmul_diagnostic_v1.toml",
+    "sha256": "8c20ce23f26aac8ab9706f1bb1003f169440230f30696edf5036bfddf5f00bc8"
+  },
+  "created_at_utc": "2026-10-04T09:32:00.926545+00:00",
+  "environment": {
+    "blas": {
+      "detection method": "system",
+      "found": true,
+      "include directory": "unknown",
+      "lib directory": "unknown",
+      "name": "accelerate",
+      "openblas configuration": "unknown",
+      "pc file directory": "unknown",
+      "version": "unknown"
+    },
+    "longdouble_bits": 64,
+    "longdouble_epsilon": 2.220446049250313e-16,
+    "numpy": "2.2.6",
+    "pandas": "2.2.3",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "pyarrow": "19.0.1",
+    "python": "3.12.14",
+    "scipy": "1.18.1"
+  },
+  "finiteness": {
+    "design": true,
+    "einsum_covariance": true,
+    "einsum_standard_error": true,
+    "engine_coefficient": true,
+    "engine_confidence_interval": true,
+    "engine_covariance": true,
+    "engine_degrees_of_freedom": true,
+    "engine_p_value": true,
+    "engine_standard_error": true,
+    "gram_decimal50": true,
+    "gram_einsum": true,
+    "gram_longdouble": true,
+    "gram_matmul": true,
+    "lstsq_coefficient": true,
+    "outcome": true
+  },
+  "implementation": {
+    "path": "scripts/diagnose_soybean_orchestrator_matmul_warnings.py",
+    "sha256": "9c120e7e7f7ab4a5cb4b880ff2d25aebc2da296dc452c458ce77420f1a07fd05"
+  },
+  "reader_audit": {
+    "memory_gate_passed": true,
+    "synthetic_authorization": true,
+    "verified_roles": [
+      "country_proxy",
+      "direct",
+      "heat"
+    ]
+  },
+  "resources": {
+    "memory_cap_bytes": 536870912,
+    "memory_gate_passed": true,
+    "peak_rss_bytes": 174882816
+  },
+  "schema": "soybean_pooled_response_matmul_numerical_diagnostic/v1",
+  "scope": {
+    "engine_modified": false,
+    "family": "distribution",
+    "production_tokens_created": 0,
+    "real_outcome_paths_opened": [],
+    "synthetic_only": true
+  },
+  "status": "warning_reproduced_no_material_numerical_discrepancy_synthetic_only",
+  "support": {
+    "cells": 60,
+    "design_columns": 12,
+    "design_rank": 12,
+    "design_rows": 2040,
+    "levels": 2100,
+    "pair_end_years": 34,
+    "pairs": 2040,
+    "sample_selection": {
+      "all_pairs": 2040,
+      "buffer_pairs_excluded": 0,
+      "fit_pair_end_year_maximum": 2016,
+      "fit_pair_end_year_minimum": 1983,
+      "fit_pairs": 2040,
+      "terminal_pairs_locked": 0,
+      "test_mode": true
+    },
+    "spatial_clusters": 30
+  },
+  "tolerances": {
+    "coefficient_relative_max": 1e-10,
+    "covariance_relative_max": 1e-10,
+    "gram_decimal50_relative_max": 1e-13,
+    "gram_longdouble_relative_max": 1e-13,
+    "gram_relative_max": 1e-13,
+    "matrix_product_relative_max": 1e-13
+  },
+  "warnings": {
+    "bread_root_matmul": {
+      "count": 3,
+      "messages": [
+        "divide by zero encountered in matmul",
+        "invalid value encountered in matmul",
+        "overflow encountered in matmul"
+      ]
+    },
+    "cluster_matmul_products": {
+      "count": 180,
+      "messages": [
+        "divide by zero encountered in matmul",
+        "invalid value encountered in matmul",
+        "overflow encountered in matmul"
+      ]
+    },
+    "engine_fit_total": {
+      "count": 279,
+      "messages": [
+        "divide by zero encountered in matmul",
+        "invalid value encountered in matmul",
+        "overflow encountered in matmul"
+      ]
+    },
+    "gram_einsum": {
+      "count": 0,
+      "messages": []
+    },
+    "gram_longdouble_einsum": {
+      "count": 0,
+      "messages": []
+    },
+    "gram_matmul": {
+      "count": 3,
+      "messages": [
+        "divide by zero encountered in matmul",
+        "invalid value encountered in matmul",
+        "overflow encountered in matmul"
+      ]
+    }
+  }
+}

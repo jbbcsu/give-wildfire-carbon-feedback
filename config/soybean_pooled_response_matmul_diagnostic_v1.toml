@@ -1,0 +1,50 @@
+schema_version = 1
+contract_id = "soybean_pooled_response_matmul_diagnostic_v1"
+memory_cap_bytes = 536870912
+
+[diagnostic_identity]
+path = "scripts/diagnose_soybean_orchestrator_matmul_warnings.py"
+sha256 = "9c120e7e7f7ab4a5cb4b880ff2d25aebc2da296dc452c458ce77420f1a07fd05"
+
+[bindings.engine]
+path = "scripts/soybean_pooled_response_engine.py"
+sha256 = "a437fab438e17fccdc6bf9780de6799e5d11306174f18c55e2bd286f494f0b66"
+
+[bindings.adapter]
+path = "scripts/soybean_pooled_response_execution_adapter.py"
+sha256 = "fff3210c36fe65c517b38e067e21f0d039594f1775cfb3e9da51c53cc8c9b883"
+
+[bindings.reader]
+path = "scripts/soybean_pooled_response_production_reader.py"
+sha256 = "8ea2621bd3c4ce70c40d85e4e90441feb2fbd686a093cf971e76bb51e6b386b3"
+
+[bindings.synthetic_fixture]
+path = "scripts/test_soybean_pooled_response_orchestrator.py"
+sha256 = "f9183d0fcd0f87e9c8d11b7f2e85fe7941c95bb77c805bdd49e67eb336ceaf18"
+
+[bindings.orchestrator_config]
+path = "config/soybean_pooled_response_orchestrator_v1.toml"
+sha256 = "a1d05ae18431d49130fe61615fbb77281904a4280f94627ba8d31afa459f6297"
+
+[bindings.protocol]
+path = "config/soybean_pooled_response_inference_protocol_v1.toml"
+sha256 = "c410c2d4e59e54c70bdb507db63383282e471dd00059359d05163fe2b98263a4"
+
+[tolerances]
+gram_relative_max = 1e-13
+gram_longdouble_relative_max = 1e-13
+gram_decimal50_relative_max = 1e-13
+matrix_product_relative_max = 1e-13
+coefficient_relative_max = 1e-10
+covariance_relative_max = 1e-10
+
+[claim_gates]
+real_outcome_access_authorized = false
+production_fit_authorized = false
+associational_response_authorized = false
+predictive_response_authorized = false
+causal_response_authorized = false
+winner_loser_claims_authorized = false
+damage_calculation_authorized = false
+scc_authorized = false
+give_integration_authorized = false
