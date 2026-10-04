@@ -1,0 +1,98 @@
+{
+  "contract_version": "global_fisheries_welfare_bridge_input_v1",
+  "bundle_id": "candidate:free-gaines-dfd250d-partial",
+  "synthetic_only": false,
+  "authorization": {
+    "purpose": "candidate_inventory_only_no_validation_or_estimation",
+    "coefficient_transfer": false,
+    "fit": false,
+    "damage": false,
+    "scc": false
+  },
+  "license": {
+    "spdx_id": "UNSET",
+    "redistribution_allowed": false,
+    "derivatives_allowed": false
+  },
+  "coverage": {
+    "scope": "published_scope_779_stocks_156_coastal_sovereigns_58.2_percent_of_reported_2012_catch",
+    "complete": false,
+    "missing_semantics": "not_documented_in_candidate_release"
+  },
+  "pulse": {
+    "pulse_id": "",
+    "gas": "",
+    "mass": null,
+    "mass_unit": "",
+    "counterfactual": ""
+  },
+  "request_components": [
+    {
+      "component_id": "license_and_reuse",
+      "provided": false,
+      "source_ids": []
+    },
+    {
+      "component_id": "raw_model_inputs",
+      "provided": false,
+      "source_ids": []
+    },
+    {
+      "component_id": "executable_model_and_dependency_lock",
+      "provided": false,
+      "source_ids": [
+        "free-gaines-step1-format-script-dfd250d"
+      ]
+    },
+    {
+      "component_id": "incidence_and_geographic_keys",
+      "provided": false,
+      "source_ids": []
+    },
+    {
+      "component_id": "consumer_and_producer_surplus",
+      "provided": false,
+      "source_ids": []
+    },
+    {
+      "component_id": "matched_marginal_pulse",
+      "provided": false,
+      "source_ids": []
+    },
+    {
+      "component_id": "overlap_accounting_boundary",
+      "provided": false,
+      "source_ids": []
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "free-gaines-step1-format-script-dfd250d",
+      "role": "model_code",
+      "version": "dfd250ddd806973f463e83097a3ed39dd27f8bfb",
+      "uri": "https://github.com/SFG-UCSB/cc_trade/blob/dfd250ddd806973f463e83097a3ed39dd27f8bfb/code/Step1_format_gaines_data.R",
+      "sha256": "fc2683b45be1d306e56ed1e01dd0527d850c3f8f222e66dbf653a7d006c95477",
+      "license": {
+        "spdx_id": "UNSET",
+        "redistribution_allowed": false,
+        "derivatives_allowed": false
+      }
+    }
+  ],
+  "responses": [],
+  "incidence": [],
+  "welfare": [],
+  "overlap": {
+    "accounting_boundary_id": "",
+    "review_status": "pending",
+    "trade_closure_id": "",
+    "includes_aquaculture": null,
+    "includes_terrestrial_food_market_welfare": null,
+    "includes_nutrition_or_mortality": null,
+    "includes_coral_or_reef_services": null,
+    "includes_biodiversity_nonuse_value": null,
+    "includes_ciam_coastal_impacts": null,
+    "includes_indirect_or_induced_output": null,
+    "uses_gross_revenue_as_welfare": null
+  }
+}
