@@ -3,10 +3,11 @@
 ## M1. Reproducibility state
 
 The current release contains the preregistered source and validation design,
-an official-catalog audit, synthetic tests, Cuming County geometry weights,
-and validated GFDL-ESM4 and IPSL-CM6A-LR 2001--2012 climate-distribution
-sentinels. It does not contain restricted NASS credentials or tracked raw
-climate arrays. Raw and interim files are ignored.
+an official-catalog audit, synthetic tests, Cuming and Box Butte County
+geometry weights, and validated GFDL-ESM4 and IPSL-CM6A-LR 2001--2012
+climate-distribution sentinels at Cuming. The Box Butte climate sentinel is
+not yet run. The release does not contain restricted NASS credentials or
+tracked raw climate arrays. Raw and interim files are ignored.
 
 ## M2. Climate sources
 
@@ -88,6 +89,33 @@ outcome weighting. IPSL independent validation reproduces 400 checks with zero
 saved-precision disagreement. Its sampled process-group peak is 483,278,848
 bytes, below the 512 MiB guard. This opens a second-GCM sentinel only, not the
 general multi-model validation gate.
+
+The second-county rule is outcome- and climate-value-blind. The completed
+direct-practice nClimGrid reference contains no Fresno rows, so Fresno cannot
+support the frozen comparison. From the 59 counties with complete 2001--2012
+corn key/calendar support in both irrigation strata, the rule selects the
+TIGER 2019 internal point farthest from Cuming. Box Butte County, Nebraska
+(`31013`) is 520.4337 km away and is selected. The support audit reads only
+county, crop, year, practice, and season-calendar keys; it does not read yield.
+
+Box Butte geometry is intersected using the same algorithm and source vintage
+as Cuming. One hundred positive LOCA2 cells cover effectively the full county,
+weights sum to 0.9999999999999999, and the projected-versus-declared area error
+is 3.46e-7 relative. The monitored geometry job peaks at 192,364,544 bytes.
+Before any climate value is accessed, a hash-bound remote-object preflight
+holds the GFDL member, 2001--2012 years, corn calendar, features, and nClimGrid
+reference fixed. It finds 60 objects over two spatial chunks totaling
+1,206,323,507 compressed bytes (1,150.44 MiB), exceeding the frozen 1,024 MiB
+plan cap. The metadata-only process peaks at 185,270,272 bytes (176.69 MiB),
+and execution therefore fails closed.
+
+The next execution must preregister two chronological six-year partitions,
+verify each metadata-only plan under the unchanged cap, and build them
+serially under the 512 MiB process-group monitor. Concatenation is allowed only
+after exact key, calendar, feature, source, and nonoverlap checks. The combined
+2001--2012 comparison remains distributional and prohibits paired-year
+scoring. Until that receipt passes, the Box Butte climate sentinel and all
+multi-county, outcome-response, causal-damage, and SCC gates remain closed.
 
 ## M6. Agricultural response families
 

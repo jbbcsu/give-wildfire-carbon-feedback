@@ -3,10 +3,11 @@
 ## Status
 
 Study-design manuscript. The official source audit, bounded point-access
-pilot, Cuming County geometry aggregation, and two prespecified single-model
-historical climate-distribution sentinels pass. General multi-model and
-multi-county climate validation remain open. No crop-response, causal, damage,
-or SCC result is claimed.
+pilot, Cuming and Box Butte County geometry aggregation, and two prespecified
+single-model historical climate-distribution sentinels at Cuming pass. The
+Box Butte climate run has not begun because its metadata-only remote-chunk plan
+exceeds the frozen cap. General multi-model and multi-county climate validation
+remain open. No crop-response, causal, damage, or SCC result is claimed.
 
 ## Research question
 
@@ -89,3 +90,15 @@ and +1.34 C. Under equal GCM weights, the two-model mean biases are -12.27 mm,
 +2.38 days, -2.38 mm, and +1.11 C, respectively. Model-specific results remain
 visible; these averages are not climate-skill weights. Two GCMs at one county
 do not open the general multi-model or multi-county validation gates.
+
+The second county was frozen before climate-value access. Among 59 counties
+with complete 2001--2012 corn key/calendar support in both direct-practice
+strata, Box Butte County, Nebraska (`31013`) is the TIGER 2019 internal point
+farthest from Cuming (520.4337 km). This rule used neither climate skill nor
+crop outcomes. Its 100-cell geometry weights pass coverage, area, uniqueness,
+and sum checks while peaking at 192,364,544 bytes (183.45 MiB). A metadata-only
+GFDL preflight identified 60 required remote objects totaling 1,206,323,507
+compressed bytes (1,150.44 MiB), above the unchanged 1,024 MiB plan cap. No
+Box Butte climate value was read; the metadata-only preflight peaked at
+185,270,272 bytes (176.69 MiB). Its climate sentinel and the multi-county
+validation gate remain closed pending the prespecified serial six-year build.

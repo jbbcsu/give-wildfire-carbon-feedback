@@ -126,6 +126,37 @@ The second-GCM sentinel gate is open. General multi-model validation remains
 closed with only two GCMs and one county; multi-county, outcome-response,
 causal-damage, and SCC gates also remain closed.
 
+## Second-county geographic preflight
+
+The geographic extension was selected without climate values or crop outcomes.
+The first proposed contrast, Fresno County, had no rows in the completed
+direct-practice nClimGrid reference. Among the 59 counties with complete
+2001--2012 corn key/calendar support in both direct-practice strata, the frozen
+rule therefore selects the TIGER 2019 internal point farthest from Cuming.
+This selects Box Butte County, Nebraska (`31013`), 520.4337 km from Cuming.
+The support audit read only county, crop, year, practice, and season-calendar
+keys.
+
+Geometry construction passed. The 2,791,584,336.25 m2 projected polygon is
+represented by 100 positive LOCA2 cells; coverage is effectively one, weights
+sum to 0.9999999999999999, and projected area differs from TIGER's declared
+land-plus-water area by 3.46e-7 relative. The monitored job peaked at
+192,364,544 bytes (183.45 MiB), below the 512 MiB guard.
+
+The metadata-only climate preflight then stopped before reading any climate
+value. Holding the original GFDL-ESM4 member, 2001--2012 support, calendar,
+features, and reference fixed requires 60 remote objects across two spatial
+chunks, totaling 1,206,323,507 compressed bytes (1,150.44 MiB). This exceeds
+the unchanged 1,024 MiB remote-plan cap. The metadata-only preflight itself
+peaked at 185,270,272 bytes (176.69 MiB). The second-county climate sentinel
+and multi-county validation gates therefore remain closed.
+
+The exact next step is to freeze two chronological six-year partitions, verify
+each metadata-only plan against the same cap, run them serially under the 512
+MiB monitor, and concatenate only after exact key, calendar, feature, source,
+and nonoverlap checks. The combined 2001--2012 distribution will retain the
+free-running-GCM prohibition on paired-year scoring.
+
 Primary receipts:
 
 - `data/provenance/loca2_official_catalog_audit_20261003.json`
@@ -142,3 +173,7 @@ Primary receipts:
 - `data/provenance/loca2_cuming_ipsl_historical_climate_sentinel_job_20261004.json`
 - `data/provenance/loca2_cuming_two_model_climate_sentinels_20261004.json`
 - `data/provenance/loca2_cuming_two_model_climate_sentinels_validation_20261004.json`
+- `data/provenance/loca2_box_butte_tiger2019_weights_20261004.json`
+- `data/provenance/loca2_box_butte_tiger2019_weights_job_20261004.json`
+- `data/provenance/loca2_box_butte_gfdl_historical_chunk_preflight_20261004.json`
+- `data/provenance/loca2_box_butte_gfdl_historical_chunk_preflight_job_20261004.json`

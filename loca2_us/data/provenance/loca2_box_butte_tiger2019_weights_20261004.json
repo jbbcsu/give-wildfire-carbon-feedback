@@ -1,0 +1,73 @@
+{
+  "audit": {
+    "county_geoid": "31013",
+    "county_name": "Box Butte",
+    "county_polygon_area_m2_epsg5070": 2791584336.254841,
+    "coverage_fraction": 0.9999999999999998,
+    "declared_area_relative_error": 3.461314647575186e-07,
+    "declared_land_area_m2": 2784994713,
+    "declared_tiger_total_area_m2": 2791583370,
+    "declared_water_area_m2": 6588657,
+    "intersected_area_m2": 2791584336.2548404,
+    "positive_grid_cells": 100,
+    "spatial_weight_sum": 0.9999999999999999
+  },
+  "boundary_components": {
+    ".cpg": {
+      "bytes": 5,
+      "path": "data/raw/us_county/tigerline/tl_2019_us_county/tl_2019_us_county.cpg",
+      "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824"
+    },
+    ".dbf": {
+      "bytes": 947847,
+      "path": "data/raw/us_county/tigerline/tl_2019_us_county/tl_2019_us_county.dbf",
+      "sha256": "7250428e9b6b0fa9e3c16d16f7d5bbeb2c0ab3b1f16395a954fcbad4624bf5e6"
+    },
+    ".prj": {
+      "bytes": 165,
+      "path": "data/raw/us_county/tigerline/tl_2019_us_county/tl_2019_us_county.prj",
+      "sha256": "0b9041e921d9ebb43247d314608fe9e38a0b008ee793067fc1806199ea1fb9dd"
+    },
+    ".shp": {
+      "bytes": 127354224,
+      "path": "data/raw/us_county/tigerline/tl_2019_us_county/tl_2019_us_county.shp",
+      "sha256": "0b102f2e292be5a81f46ecb2956136e93da03de692980714fabc16e1925e0b51"
+    },
+    ".shx": {
+      "bytes": 25964,
+      "path": "data/raw/us_county/tigerline/tl_2019_us_county/tl_2019_us_county.shx",
+      "sha256": "fb4263d31f02ccc9d7c1b0affd030cd528b6a2d13f3c1611e41e7dbc5fb57c9d"
+    }
+  },
+  "claim_gates": {
+    "SCC": false,
+    "causal_damage": false,
+    "county_geometry_weights": true,
+    "historical_climate_validation": false,
+    "outcome_response": false,
+    "weather_validity": false
+  },
+  "config": {
+    "path": "loca2_us/config/loca2_us_box_butte_weights_v1.toml",
+    "sha256": "e04aa76fb244476f018842179f01d38c61065802d1669a82a551ab1a6bfc9782"
+  },
+  "grid": {
+    "endpoint_url": "https://usgs.osn.mghpcc.org/",
+    "latitude_count": 474,
+    "latitude_max": 53.46875,
+    "latitude_min": 23.90625,
+    "longitude_count": 944,
+    "longitude_max": -66.53125,
+    "longitude_min": -125.46875,
+    "precipitation_version": "v20240915",
+    "store": "mdmf/gdp/LOCA2/CMIP6-LOCA2.historical.daily.zarr"
+  },
+  "output": {
+    "bytes": 11856,
+    "path": "loca2_us/data/interim/weights/tiger2019/county_geoid=31013/weights.parquet",
+    "sha256": "b48ee06c7e078d19cc6254338f019a38853f1a783314729abbb46392621da763"
+  },
+  "role": "geometry_only_no_climate_values_or_outcomes",
+  "schema": "loca2_us_county_weights/v1",
+  "status": "pass"
+}
