@@ -1,0 +1,45 @@
+{
+  "bindings": {
+    "config": {
+      "path": "config/soybean_pooled_response_production_reader_v1.toml",
+      "sha256": "3a0d9257554a8f4563a4f03f61e49414d772ac7a30171da5bce144be7116a4e1"
+    },
+    "reader": {
+      "path": "scripts/soybean_pooled_response_production_reader.py",
+      "sha256": "8ea2621bd3c4ce70c40d85e4e90441feb2fbd686a093cf971e76bb51e6b386b3"
+    },
+    "tests": {
+      "path": "data/provenance/soybean_pooled_response_production_reader_tests_20261004.json",
+      "sha256": "486841e5cb4fd62285ed25c30210bd0e4f15e2647cbe60736b9c4140bc2f5f22"
+    }
+  },
+  "checks": {
+    "all_config_bindings_verified": true,
+    "authorization_precedes_reader_creation": true,
+    "basis_contract_validation": true,
+    "batch_validation_precedes_observed_row_filter": true,
+    "claim_gates_closed": true,
+    "family_support_alignment_synthetic": true,
+    "full_source_year_support_tracked_separately": true,
+    "hash_verification_precedes_parquet_decode": true,
+    "no_production_token_created": true,
+    "no_real_outcome_access": true,
+    "outcome_missingness_contract_validation": true,
+    "projected_sequential_batches": true,
+    "reader_and_config_token_bound": true,
+    "reader_does_not_import_engine": true,
+    "unobserved_rows_not_accumulated_in_pandas": true
+  },
+  "created_at_utc": "2026-10-04T06:27:24.960100+00:00",
+  "implementation": {
+    "path": "scripts/validate_soybean_pooled_response_production_reader.py",
+    "sha256": "167d0fba770d7115a4210a6cf5f76b2b0045526ba67953b22474169addd51e38"
+  },
+  "resources": {
+    "memory_cap_bytes": 536870912,
+    "memory_gate_passed": true,
+    "peak_rss_bytes": 25411584
+  },
+  "schema": "soybean_pooled_response_production_reader_validation/v1",
+  "status": "validated_token_gated_reader_synthetic_only_no_real_access_or_fit"
+}

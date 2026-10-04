@@ -1,0 +1,42 @@
+{
+  "bindings": {
+    "adapter": {
+      "path": "scripts/soybean_pooled_response_execution_adapter.py",
+      "sha256": "fff3210c36fe65c517b38e067e21f0d039594f1775cfb3e9da51c53cc8c9b883"
+    },
+    "config": {
+      "path": "config/soybean_pooled_response_execution_adapter_v1.toml",
+      "sha256": "ae156a2c75e06a5f927b471fa6dab93252665b17f86518dff86dd81327b65184"
+    },
+    "tests": {
+      "path": "data/provenance/soybean_pooled_response_execution_adapter_tests_20261004.json",
+      "sha256": "8ceb561147de29ce15085792fe29f6b77565bc4c08d061cddd8953b0064559e8"
+    }
+  },
+  "checks": {
+    "adapter_has_no_outcome_table_reader": true,
+    "buffer_and_terminal_years_excluded_before_fit": true,
+    "claim_gates_closed": true,
+    "country_proxy_declared_path_bound": true,
+    "dependency_injected_engine": true,
+    "output_redaction_closed": true,
+    "portability_manifest_bound": true,
+    "production_authorization_precedes_loader": true,
+    "production_fit_sample_frozen_to_1983_2010": true,
+    "production_token_created": false,
+    "real_outcome_files_opened": false,
+    "synthetic_family_fits_pass": true
+  },
+  "created_at_utc": "2026-10-04T06:20:53.214999+00:00",
+  "implementation": {
+    "path": "scripts/validate_soybean_pooled_response_execution_adapter.py",
+    "sha256": "00c3b47d098585c31d0fa92f5492558bf2b716599dbd4ca30517ae78a8502a81"
+  },
+  "resources": {
+    "memory_cap_bytes": 536870912,
+    "memory_gate_passed": true,
+    "peak_rss_bytes": 25378816
+  },
+  "schema": "soybean_pooled_response_execution_adapter_validation/v1",
+  "status": "validated_synthetic_only_adapter_no_real_access_or_token"
+}

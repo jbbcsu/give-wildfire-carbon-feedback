@@ -1,0 +1,69 @@
+{
+  "adapter": {
+    "path": "scripts/soybean_pooled_response_execution_adapter.py",
+    "sha256": "fff3210c36fe65c517b38e067e21f0d039594f1775cfb3e9da51c53cc8c9b883"
+  },
+  "config": {
+    "path": "config/soybean_pooled_response_execution_adapter_v1.toml",
+    "sha256": "ae156a2c75e06a5f927b471fa6dab93252665b17f86518dff86dd81327b65184"
+  },
+  "created_at_utc": "2026-10-04T06:20:53.019502+00:00",
+  "implementation": {
+    "path": "scripts/test_soybean_pooled_response_execution_adapter.py",
+    "sha256": "11c0854a841aec00a0637ae8164851d8a2aa62bf33ad593d15bf4082ff3e2841"
+  },
+  "resources": {
+    "memory_cap_bytes": 536870912,
+    "memory_gate_passed": true,
+    "peak_rss_bytes": 153862144
+  },
+  "schema": "soybean_pooled_response_execution_adapter_tests/v1",
+  "status": "synthetic_only_adapter_validated_no_real_access_or_token",
+  "tests": {
+    "all_pass": true,
+    "engine_invocations": 3,
+    "production_tokens_created": 0,
+    "real_outcome_files_opened": 0,
+    "synthetic_support": {
+      "distribution": {
+        "cells": 60,
+        "levels": 720,
+        "pair_end_years": 11,
+        "pairs": 660
+      },
+      "quantity": {
+        "cells": 60,
+        "levels": 720,
+        "pair_end_years": 11,
+        "pairs": 660
+      },
+      "scpdsi_season": {
+        "cells": 60,
+        "levels": 720,
+        "pair_end_years": 11,
+        "pairs": 660
+      }
+    },
+    "tests": {
+      "actual_engine_invoked_by_dependency_injection": true,
+      "buffer_2011_excluded_and_terminal_2012_2016_locked": true,
+      "claim_gates_remain_closed": true,
+      "direct_scpdsi_stacking_rejected": true,
+      "duplicate_levels_rejected": true,
+      "engine_test_mode_only_for_synthetic": true,
+      "exact_current_minus_prior_pair_construction": true,
+      "incomplete_production_year_support_rejected": true,
+      "memory_guard_passes": true,
+      "output_schema_redacts_all_numeric_fit_results": true,
+      "production_declared_paths_include_country_proxy": true,
+      "production_fit_sample_frozen_to_1983_2010": true,
+      "production_missing_or_invalid_token_rejected_before_loader": true,
+      "quantity_distribution_scpdsi_family_separation": true,
+      "source_heat_outcome_mismatch_rejected": true,
+      "synthetic_alternate_years_require_explicit_test_mode": true,
+      "synthetic_mode_rejects_declared_real_paths_before_loader": true,
+      "unobserved_missing_yield_contract_supported": true,
+      "yield_flag_magnitude_mismatch_rejected": true
+    }
+  }
+}

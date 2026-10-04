@@ -105,8 +105,12 @@ def _validate_level_table(frame: pd.DataFrame, features: list[str], label: str) 
     require(is_bool_dtype(frame["yield_observed"].dtype), f"{label} yield_observed must be Boolean")
     require(is_integer_dtype(frame["harvest_year"].dtype), f"{label} harvest_year must be integer")
     require(is_integer_dtype(frame["country_count"].dtype), f"{label} country_count must be integer")
-    numeric = ["lat", "lon_360", "yield_t_ha"] + features
-    require(np.isfinite(frame[numeric].to_numpy(float)).all(), f"{label} contains nonfinite values")
+    numeric = ["lat", "lon_360"] + features
+    require(np.isfinite(frame[numeric].to_numpy(float)).all(), f"{label} contains nonfinite coordinate or feature values")
+    observed = frame["yield_observed"].to_numpy(dtype=bool)
+    yields = pd.to_numeric(frame["yield_t_ha"], errors="coerce").to_numpy(dtype=float)
+    require(np.array_equal(observed, np.isfinite(yields)), f"{label} yield flag and finite magnitude differ")
+    require(np.all(yields[observed] > 0), f"{label} observed yields must be strictly positive")
     require(frame["lat"].between(-90.0, 90.0, inclusive="both").all(), f"{label} latitude outside [-90,90]")
     require(frame["lon_360"].ge(0.0).all() and frame["lon_360"].lt(360.0).all(), f"{label} longitude outside [0,360)")
     require(frame["country_count"].eq(1).all(), f"{label} contains a non-singleton country proxy")
@@ -139,7 +143,7 @@ def construct_pair_frame(
     for name in ("country_label", "country_count", "yield_observed", "yield_t_ha"):
         left, right = merged[f"{name}_source"], merged[f"{name}_heat"]
         if name == "yield_t_ha":
-            require(np.array_equal(left.to_numpy(float), right.to_numpy(float)), "source/heat yield magnitudes differ")
+            require(np.array_equal(left.to_numpy(float), right.to_numpy(float), equal_nan=True), "source/heat yield magnitudes differ")
         else:
             require(left.equals(right), f"source/heat {name} differs")
     level = merged[keys].copy()

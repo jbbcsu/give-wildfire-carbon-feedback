@@ -133,6 +133,18 @@ def run(root: Path, config_path: Path) -> dict[str, Any]:
     duplicate = pd.concat([tables["direct"], tables["direct"].iloc[[0]]], ignore_index=True)
     expect_violation(lambda: adapter.construct_pair_frame(duplicate, tables["heat"], "quantity", protocol), "duplicate cell-year accepted")
 
+    unobserved_direct = tables["direct"].copy()
+    unobserved_heat = tables["heat"].copy()
+    for frame in (unobserved_direct, unobserved_heat):
+        frame.loc[0, "yield_observed"] = False
+        frame.loc[0, "yield_t_ha"] = np.nan
+    unobserved_pairs = adapter.construct_pair_frame(unobserved_direct, unobserved_heat, "quantity", protocol)
+    require(len(unobserved_pairs) == 659, "valid missing unobserved outcome was not excluded at pairing")
+    bad_observed = tables["direct"].copy(); bad_observed.loc[0, "yield_t_ha"] = np.nan
+    expect_violation(lambda: adapter.construct_pair_frame(bad_observed, tables["heat"], "quantity", protocol), "observed missing yield accepted")
+    bad_unobserved = tables["direct"].copy(); bad_unobserved.loc[0, "yield_observed"] = False
+    expect_violation(lambda: adapter.construct_pair_frame(bad_unobserved, tables["heat"], "quantity", protocol), "unobserved finite yield accepted")
+
     full_years = np.arange(1983, 2017, dtype=np.int64)
     full_pairs = pd.DataFrame({
         "pair_end_year": full_years,
@@ -174,6 +186,8 @@ def run(root: Path, config_path: Path) -> dict[str, Any]:
         "direct_scpdsi_stacking_rejected": True,
         "source_heat_outcome_mismatch_rejected": True,
         "duplicate_levels_rejected": True,
+        "unobserved_missing_yield_contract_supported": True,
+        "yield_flag_magnitude_mismatch_rejected": True,
         "production_fit_sample_frozen_to_1983_2010": True,
         "buffer_2011_excluded_and_terminal_2012_2016_locked": True,
         "incomplete_production_year_support_rejected": True,

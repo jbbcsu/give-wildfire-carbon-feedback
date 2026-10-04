@@ -1,0 +1,103 @@
+schema_version = 1
+contract_id = "soybean_pooled_response_production_reader_v1"
+memory_cap_bytes = 536870912
+
+[reader_identity]
+path = "scripts/soybean_pooled_response_production_reader.py"
+sha256 = "8ea2621bd3c4ce70c40d85e4e90441feb2fbd686a093cf971e76bb51e6b386b3"
+
+[bindings.gate_config]
+path = "config/soybean_pooled_response_execution_gate_v1.toml"
+sha256 = "8e6a27c910de64366ecd8cc3a3bf6839dfb9848c4de87979f206914e43f0a621"
+
+[bindings.gate_module]
+path = "scripts/soybean_pooled_response_execution_gate.py"
+sha256 = "8ac5bf4ec69eb1df062bac70a0ad0fe00851b6467a87cbe402c0cbc5f721048f"
+
+[bindings.adapter_config]
+path = "config/soybean_pooled_response_execution_adapter_v1.toml"
+sha256 = "ae156a2c75e06a5f927b471fa6dab93252665b17f86518dff86dd81327b65184"
+
+[bindings.adapter_module]
+path = "scripts/soybean_pooled_response_execution_adapter.py"
+sha256 = "fff3210c36fe65c517b38e067e21f0d039594f1775cfb3e9da51c53cc8c9b883"
+
+[bindings.protocol]
+path = "config/soybean_pooled_response_inference_protocol_v1.toml"
+sha256 = "c410c2d4e59e54c70bdb507db63383282e471dd00059359d05163fe2b98263a4"
+
+[bindings.design_preflight_config]
+path = "config/soybean_continuous_design_heterogeneity_preflight_v1.toml"
+sha256 = "c086163b71fb141f60d11acd6b8ddc08f02f5b4be664b93c362e59bb6223cb49"
+
+[bindings.dry_run_manifest]
+path = "data/provenance/soybean_pooled_response_execution_dry_run_20260929.json"
+sha256 = "d6b385aa34f0c2faf4ac630cb7bb0578d58f674251402b3a7eab8583cfe5436e"
+
+[bindings.portability_manifest]
+path = "data/provenance/soybean_pooled_response_production_portability_20260929.json"
+sha256 = "2bf8dd44682d1a1619f14586d5df7e2acdb0f9028dc904974d1f5c1f506e9b13"
+
+[reader]
+batch_rows = 8192
+project_columns_only = true
+hash_before_open = true
+authorization_before_hash_or_open = true
+engine_import_allowed = false
+fit_invocation_allowed = false
+
+[sample]
+crop = "soy"
+level_year_minimum = 1982
+level_year_maximum = 2016
+singleton_country_proxy_only = true
+
+[source_contracts.direct]
+path_role = "direct"
+features = [
+  "log1p_precip_mm", "stage1_precip_share", "stage2_precip_share",
+  "cdd_max_days", "rx5day_mm", "precipitation_concentration_hhi",
+]
+irrigation = "area_weighted"
+exposure_allocation = "one_outcome_independent_fixed_area_weighted"
+weight_source_id = "MIRCA-OS_v2_March_2026_AHAG_30arcmin_2000"
+weight_vintage = "fixed_2000"
+response_basis_contract_id = "gdhy_aggregate_irrigation_distribution_candidate_v1"
+basis_allocation_order = "regime_basis_before_fixed_area_weighting"
+fit_authorized = false
+scc_authorized = false
+nonlinear_post_allocation_transform_authorized = false
+
+[source_contracts.scpdsi]
+path_role = "scpdsi"
+features = ["season_scpdsi_mean"]
+irrigation = "area_weighted"
+exposure_allocation = "one_outcome_independent_fixed_area_weighted"
+weight_source_id = "MIRCA-OS_v2_March_2026_AHAG_30arcmin_2000"
+weight_vintage = "fixed_2000"
+response_basis_contract_id = "gdhy_aggregate_irrigation_scpdsi_candidate_v1"
+basis_allocation_order = "regime_basis_before_fixed_area_weighting"
+fit_authorized = false
+scc_authorized = false
+direct_weather_terms_included = false
+
+[source_contracts.heat]
+path_role = "heat"
+features = [
+  "stage1_tmean_c", "stage2_tmean_c", "stage3_tmean_c",
+  "stage1_tmax_30c_degree_days", "stage2_tmax_30c_degree_days", "stage3_tmax_30c_degree_days",
+]
+diagnostic_fit_authorized = true
+family_stacking_authorized = false
+causal_interpretation_authorized = false
+production_fit_authorized = false
+scc_authorized = false
+
+[claim_gates]
+real_outcome_access_authorized = false
+production_fit_authorized = false
+causal_response_authorized = false
+winner_loser_claims_authorized = false
+damage_calculation_authorized = false
+scc_authorized = false
+give_integration_authorized = false
