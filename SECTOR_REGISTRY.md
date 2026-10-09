@@ -18,6 +18,27 @@ are not mutually additive unless explicitly stated.
 | Surface ozone health | RFF priority pathway; no local SCC | No promoted SCC | Open research gap | Published-response/source audit with wildfire and crop effects excluded |
 | Wildfire smoke/CO2 feedback | Separate wildfire project | Separate paper and codebase | Excluded from this repository | Cite final published/replicated result only; never modify its files here |
 | Coral reef services | RFF priority pathway | No mutually exclusive local SCC | Open research gap | Allocate fisheries, nonuse, coastal protection, and tourism once |
+| Municipal water systems | Future drought/water-supply pathway | No promoted SCC | Deferred research gap | After agricultural drought: screen scarcity, treatment, pumping, and infrastructure costs while excluding household adaptation already captured elsewhere |
+
+## Authorized integration order
+
+1. Replace legacy GIVE agriculture and add labor using the reproducible Moore
+   et al. package.
+2. Add the separate wildfire-carbon feedback only after importing its final
+   reviewed marginal-damage output through a documented interface; the
+   wildfire codebase remains untouched.
+3. Add fisheries after reproducing the published paths and allocating its
+   nutrition/mortality and market endpoints against existing GIVE sectors.
+4. Estimate drought and other precipitation-pattern effects on agriculture as
+   an incremental correction to the Moore agriculture replacement, not as a
+   second total agriculture sector. Total precipitation, timing, dry spells,
+   extremes, and drought indices compete in pre-specified models; irrigation
+   is treated explicitly where data permit.
+5. Develop municipal drought and water-supply damages later.
+6. Screen the remaining RFF-identified omissions, prioritizing surface ozone,
+   biodiversity, inland extreme-weather/flood damages, coral reefs, and other
+   ocean services. Only reproducible, overlap-cleared pathways enter a combined
+   SCC.
 
 ## Non-negotiable combination rule
 
