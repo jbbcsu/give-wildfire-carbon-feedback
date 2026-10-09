@@ -37,8 +37,21 @@ reported without replacement by an unregistered specification.
 Before combination, every endpoint is mapped across sectors. Particular checks
 include agricultural labor versus crop-market welfare; fish nutrition versus
 mortality and terrestrial food substitution; biodiversity nonuse versus coral
-and fisheries use values; coastal protection versus CIAM; ozone mortality
-versus heat mortality; and adaptation energy costs versus building energy.
+and fisheries use values; coastal protection versus CIAM; wildfire-smoke and
+ozone mortality versus existing climate mortality; wildfire-smoke PM2.5 versus
+the separate wildfire-CO2 feedback; and adaptation energy costs versus
+building energy. Air-pollution modules retain separate physical chains for
+wildfire PM2.5, surface ozone, and additional wildfire CO2, while recording
+shared fire and climate inputs.
+
+## S5.1 Wildfire-smoke evidence gate
+
+The provisional smoke module is promoted only after reproducing: the 43-source
+simulation inventory, regridding and fixed population weights, country-model
+fixed-effects coefficients, PM2.5 concentration-response transformation,
+country-year mortality and VSL scaling, paired GIVE pulse calculation, and
+leave-one-model-out sensitivity. Its reported interval is labeled conditional
+unless structural fire-model and functional-form uncertainty are propagated.
 
 ## S6. SCC calculation
 

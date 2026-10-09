@@ -16,7 +16,8 @@ are not mutually additive unless explicitly stated.
 | Inland riverine/pluvial flooding | Literature/data screen only | No promoted SCC | Open research gap | Defer until precipitation agriculture replacement is stable |
 | Building energy | Existing GIVE sector | Existing model component | Baseline | Preserve; audit adaptation-energy overlap with labor heat exposure |
 | Surface ozone health | RFF priority pathway; no local SCC | No promoted SCC | Open research gap | Published-response/source audit with wildfire and crop effects excluded |
-| Wildfire smoke/CO2 feedback | Separate wildfire project | Separate paper and codebase | Excluded from this repository | Cite final published/replicated result only; never modify its files here |
+| Wildfire smoke PM2.5 mortality | Williams et al. draft supplied by the investigator (9 October 2026) | Provisional global mean $50/tCO2; 95% conditional interval $18.5-$102.6; 2025 pulse and 2% discounting | Unpublished external module; not yet additive | Reproduce the draft's country coefficients and Monte Carlo result; audit mortality valuation and shared fire-climate inputs |
+| Wildfire CO2 feedback | Separate wildfire-carbon project | Separate paper and codebase | External until final interface is reviewed | Import only its reviewed marginal-damage output; never modify its files here |
 | Coral reef services | RFF priority pathway | No mutually exclusive local SCC | Open research gap | Allocate fisheries, nonuse, coastal protection, and tourism once |
 | Municipal water systems | Future drought/water-supply pathway | No promoted SCC | Deferred research gap | After agricultural drought: screen scarcity, treatment, pumping, and infrastructure costs while excluding household adaptation already captured elsewhere |
 
@@ -24,9 +25,12 @@ are not mutually additive unless explicitly stated.
 
 1. Replace legacy GIVE agriculture and add labor using the reproducible Moore
    et al. package.
-2. Add the separate wildfire-carbon feedback only after importing its final
-   reviewed marginal-damage output through a documented interface; the
-   wildfire codebase remains untouched.
+2. Add wildfire smoke PM2.5 mortality after reproducing the investigator's
+   global draft module and resolving overlap with existing mortality. Add the
+   separate wildfire-carbon feedback only after importing its final reviewed
+   marginal-damage output through a documented interface. Shared fire-climate
+   inputs must be identified, but the two distinct endpoints - air-pollution
+   mortality and additional atmospheric CO2 - are valued only once.
 3. Add fisheries after reproducing the published paths and allocating its
    nutrition/mortality and market endpoints against existing GIVE sectors.
 4. Estimate drought and other precipitation-pattern effects on agriculture as
@@ -37,8 +41,9 @@ are not mutually additive unless explicitly stated.
 5. Develop municipal drought and water-supply damages later.
 6. Screen the remaining RFF-identified omissions, prioritizing surface ozone,
    biodiversity, inland extreme-weather/flood damages, coral reefs, and other
-   ocean services. Only reproducible, overlap-cleared pathways enter a combined
-   SCC.
+   ocean services. The air-pollution work therefore has two separate tracks:
+   wildfire smoke PM2.5 and climate-driven surface ozone. Only reproducible,
+   overlap-cleared pathways enter a combined SCC.
 
 ## Non-negotiable combination rule
 

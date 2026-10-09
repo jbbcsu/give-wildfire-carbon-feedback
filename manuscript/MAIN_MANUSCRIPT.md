@@ -18,7 +18,9 @@ with overlapping mortality, nutrition, market, or ecosystem-service pathways
 must remain external benchmarks until their endpoints are allocated once. The
 analysis therefore reports an integrated SCC only for locally reproduced,
 overlap-cleared components and a separate evidence envelope for other omitted
-damages. This architecture illustrates how AI can increase the scale and pace
+damages. A newly supplied global wildfire-smoke draft provides a concrete air-
+pollution application but remains validation-pending. This architecture
+illustrates how AI can increase the scale and pace
 of economic research without relaxing standards for identification,
 provenance, uncertainty, or reproducibility.
 
@@ -121,6 +123,29 @@ benchmark of approximately $8/tCO2 is similarly retained outside the combined
 SCC pending regional coefficients, joint uncertainty, and ecosystem-service
 allocation.
 
+### 4.4 Air pollution and wildfire feedbacks
+
+An investigator-supplied draft estimates a provisional global wildfire-smoke
+PM2.5 mortality partial SCC of $50/tCO2 for a 2025 pulse at a 2% discount rate
+(95% conditional interval $18.5-$102.6). The draft combines 43 historical and
+future simulations from several global fire-smoke modeling studies, estimates
+country-specific linear mappings from GMT to population-weighted wildfire
+PM2.5 exposure, applies a long-run all-cause mortality response, and values
+deaths within GIVE. The reported interval is explicitly conditional: it does
+not fully propagate between-model structural uncertainty, alternative
+functional forms, changing population exposure weights, adaptation, or
+regional susceptibility. Leave-one-model-out estimates range materially; the
+global mean falls from $50.04 to $25.91 when CESM is excluded. We therefore
+classify $50 as an unpublished external module until its data, coefficients,
+code, and Monte Carlo results reproduce locally.
+
+Wildfire smoke mortality is distinct from the separate wildfire-CO2 feedback:
+the former values PM2.5 exposure and deaths, whereas the latter values
+additional greenhouse-gas emissions and downstream climate damages. They may
+share fire projections and must not count the same emissions or health outcome
+twice. Climate-driven surface ozone is a third air-pollution pathway and
+requires a separate climate-chemistry-to-exposure-and-health module.
+
 ## 5. Interpretation
 
 The initial evidence suggests that the fastest substantial extension is labor
@@ -141,10 +166,13 @@ damages through overlapping endpoints.
    mortality endpoints.
 4. Obtain the biodiversity coefficient and joint-draw inputs or report the
    benchmark as irreducibly external.
-5. Construct the overlap-cleared combined SCC and evidence envelope.
-6. Run leave-one-sector-out, structural, discounting, climate, socioeconomic,
+5. Reproduce the global wildfire-smoke coefficients and SCC, then integrate it
+   with the wildfire-carbon module under a shared-input and endpoint audit.
+6. Develop a published-response benchmark for climate-driven surface ozone.
+7. Construct the overlap-cleared combined SCC and evidence envelope.
+8. Run leave-one-sector-out, structural, discounting, climate, socioeconomic,
    and adaptation sensitivities.
-7. Release code, manifests, receipts, and an adversarial replication checklist.
+9. Release code, manifests, receipts, and an adversarial replication checklist.
 
 ## 7. Contribution
 

@@ -26,11 +26,14 @@ treated as zero or added as scalars.
 
 The authorized target portfolio is baseline GIVE plus the Moore labor and
 updated-agriculture replacement, the separately developed wildfire-carbon
-feedback, fisheries, and an incremental drought/precipitation agriculture
-extension. Municipal drought/water-system damages are a later module. The
-remaining RFF-identified gaps are screened in priority order, with surface
-ozone and biodiversity among the leading candidates. This is an integration
-target, not a claim that every listed partial SCC is presently additive.
+feedback, wildfire-smoke PM2.5 mortality, fisheries, and an incremental
+drought/precipitation agriculture extension. Municipal drought/water-system
+damages are a later module. The remaining RFF-identified gaps are screened in
+priority order, with surface ozone and biodiversity among the leading
+candidates. Smoke mortality, wildfire CO2, and surface ozone are separate
+physical and welfare pathways, with shared inputs and mortality endpoints
+explicitly audited. This is an integration target, not a claim that every
+listed partial SCC is presently additive.
 
 See [the sector registry](SECTOR_REGISTRY.md), [main manuscript](manuscript/MAIN_MANUSCRIPT.md),
 and [Methods SI](manuscript/METHODS_SUPPORTING_INFORMATION.md).
