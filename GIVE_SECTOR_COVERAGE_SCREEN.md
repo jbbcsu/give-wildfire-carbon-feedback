@@ -1,6 +1,6 @@
 # GIVE coverage and next-sector screen
 
-Updated 2026-08-22. This is a literature-based prioritization note, not a
+Updated 2026-10-09. This is a literature-based prioritization note, not a
 damage estimate. It uses current RFF documentation to define the baseline and
 does not rank sectors by invented SCC values.
 
@@ -17,6 +17,16 @@ broader 2023 implementation, which also includes labor productivity, and lists
 wildfire, extreme-weather, and biodiversity damages among remaining omissions:
 https://www.rff.org/publications/reports/adopting-the-social-cost-of-carbon-for-state-benefit-cost-analysis-a-primer-for-practitioners/
 
+Moore et al. (2026) now provide a directly relevant modern-IAM labor result:
+heat-related labor productivity has a published 2025 partial SCC of USD
+41/tCO2 (90% interval USD 1--108). The same paper updates agriculture in GIVE
+and reports a 2025 agriculture partial SCC of USD 29/tCO2. The labor result is
+therefore no longer only an EPA precedent; it is the most implementation-ready
+large published candidate identified by this screen. It remains an external
+publication result until its country damage arrays, currency and pulse
+conventions, uncertainty dependence, and overlaps are locally reproduced.
+Primary source: https://doi.org/10.1038/s41558-026-02749-z.
+
 RFF's 2026 air-quality review concludes that climate-driven air pollution is
 missing from current SCC models and specifically prioritizes wildfire smoke
 and surface-level ozone for near-term modeling:
@@ -24,23 +34,19 @@ https://www.rff.org/publications/journal-articles/incorporating-air-quality-heal
 
 ## Assessment
 
-No reviewed RFF source provides a common global SCC distribution across all
-omitted sectors, so calling one omission the numerically “largest” would be
-unsupported. The strongest evidence-backed **next research priority** outside
-the already active agriculture, fisheries, and biodiversity tracks is
-climate-driven air-quality health, because the newest RFF review explicitly
-prioritizes it. Under this program's strict wildfire isolation rule, the
-implementable candidate narrows to **surface-level ozone morbidity and
-mortality**. This is a priority judgment, not a magnitude claim.
+No reviewed source provides a common, mutually exclusive global SCC
+distribution across every omitted sector, so a numerical ranking of all gaps
+would still be unsupported. However, the September 2026 labor paper changes
+the implementation ranking. **Labor productivity is now the preferred next
+published-sector replication** because it has a peer-reviewed global damage
+chain, explicit uncertainty, and a modern partial SCC. This is a readiness
+decision, not a claim that labor is the largest omitted damage in nature.
 
-Labor productivity is one alternative: RFF documents that it is
-included in EPA's 2023 enumerative implementation but absent from GIVE's four-
-sector core. It may be more implementation-ready than global ozone, but its
-market-output endpoint has wider overlap with agriculture, energy use,
-mortality, and any macroeconomic damage function. It should not be labeled the
-second-largest omission or second research priority unless a direct comparison
-of data coverage, identification, and additive boundaries supports that
-ordering.
+Climate-driven air-quality health remains the preferred next *newly modeled*
+sector after labor. Under this program's strict wildfire isolation rule, the
+implementable candidate is **surface-level ozone morbidity and mortality**.
+Its lower readiness relative to labor reflects the need to assemble and pair
+climate-chemistry concentration fields, not evidence of a smaller effect.
 
 Coral-reef ecosystem services are a co-candidate, not evidence that labor is
 unambiguously second. RFF's ocean assessment identifies coral reefs and
@@ -78,18 +84,23 @@ Required exclusions and reconciliation rules:
 - Keep optional DICE and Howard--Sterner aggregate damage functions disabled
   in any future sectoral run.
 
-## Scaffold gate
+## Implementation order
 
-No data download or numerical code should begin until a coordinator chooses
-between (A) non-wildfire surface ozone health, (B) labor productivity, and
-(C) a named coral-reef service, and approves the endpoint reconciliation. For
-ozone, the next safe artifact is a source/provenance manifest covering climate-
-chemistry concentration fields, baseline mortality/morbidity rates,
-concentration-response functions, population, and valuation—without
-coefficients filled by assumption. Labor requires one locked market endpoint
-and reconciliation against agriculture, energy/adaptation spending, health,
-and any macro damage representation. Coral requires service-by-service
-ownership: fisheries values stay in fisheries, nonuse values in biodiversity,
-shoreline/property protection in CIAM, and tourism/recreation only in a
-separately identified residual. No candidate is additive eligible before that
-review passes.
+1. Reproduce Moore et al. (2026) labor country damage paths and partial SCC
+   under their published configuration. If the exact package is not public,
+   request the arrays/code rather than reverse-engineering the headline SCC.
+2. Audit labor overlap against agriculture, heat mortality, energy/adaptation
+   spending, and macroeconomic incidence. Agricultural labor must not be
+   counted both through yield/GTAP agriculture and economy-wide labor losses.
+3. Install labor as an explicit paired baseline/pulse component only after
+   the reproduction and overlap gates pass.
+4. Continue fisheries and biodiversity as separate residual pathways. Their
+   published USD 22.10 and USD 8/tCO2 benchmarks are not directly additive.
+5. Develop non-wildfire surface ozone next, beginning with a source/provenance
+   manifest for climate chemistry, health endpoints, population, and valuation.
+6. Treat coral services separately: fisheries values stay in fisheries,
+   nonuse values in biodiversity, shoreline/property protection in CIAM, and
+   tourism/recreation only in a separately identified residual.
+
+No candidate is additive eligible before its overlap review passes. Published
+point estimates must never be pasted into GIVE as scalar damages.
