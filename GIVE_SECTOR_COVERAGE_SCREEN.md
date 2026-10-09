@@ -23,9 +23,14 @@ heat-related labor productivity has a published 2025 partial SCC of USD
 and reports a 2025 agriculture partial SCC of USD 29/tCO2. The labor result is
 therefore no longer only an EPA precedent; it is the most implementation-ready
 large published candidate identified by this screen. It remains an external
-publication result until its country damage arrays, currency and pulse
-conventions, uncertainty dependence, and overlaps are locally reproduced.
-Primary source: https://doi.org/10.1038/s41558-026-02749-z.
+publication result until its currency and pulse conventions, uncertainty
+dependence, and overlaps are locally reproduced. The authors' complete
+MIT-licensed GIVE archive has now been acquired from
+https://doi.org/10.5281/zenodo.21483095; its checksum, pinned Julia 1.12.5
+environment, country damage arrays, and deterministic sector-isolation path
+pass local checks in the separate `labor_productivity_scc` project. Exact
+10,000-draw reproduction remains in progress. Primary article:
+https://doi.org/10.1038/s41558-026-02749-z.
 
 RFF's 2026 air-quality review concludes that climate-driven air pollution is
 missing from current SCC models and specifically prioritizes wildfire smoke
@@ -87,8 +92,7 @@ Required exclusions and reconciliation rules:
 ## Implementation order
 
 1. Reproduce Moore et al. (2026) labor country damage paths and partial SCC
-   under their published configuration. If the exact package is not public,
-   request the arrays/code rather than reverse-engineering the headline SCC.
+   under their published configuration using the verified public archive.
 2. Audit labor overlap against agriculture, heat mortality, energy/adaptation
    spending, and macroeconomic incidence. Agricultural labor must not be
    counted both through yield/GTAP agriculture and economy-wide labor losses.
