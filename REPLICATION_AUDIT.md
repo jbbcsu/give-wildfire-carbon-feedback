@@ -63,3 +63,14 @@ that the two response functions materially differ and that the Lancet staging
 total is close to the paper's rounded $179 total. The registered next gate is
 1,000 draws, followed by the authors' 10,000 draws; no function will be chosen
 post hoc based on the preferred magnitude.
+
+The 1,000-draw Lancet staging run has now completed under the same registered
+configuration. It estimates agriculture at $30.32/tCO2 (Monte Carlo standard
+error $0.82), labor at $30.06/tCO2 (standard error $0.71), and the total SCC at
+$171.03/tCO2 (standard error $2.52). The 5th-95th percentile intervals are
+-$0.20 to $79.59 for agriculture, $0.91 to $72.84 for labor, and $77.65 to
+$312.46 for the total. These are still staging diagnostics: they demonstrate
+that 100 draws were inadequate for convergence, and they do not match the
+rounded published labor mean of $41 or total of $179. The prespecified
+10,000-draw run is therefore required before assessing reproduction success or
+investigating any remaining configuration difference.
