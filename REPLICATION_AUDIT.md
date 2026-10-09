@@ -41,7 +41,14 @@ instantiate under Julia 1.12.5, and a one-thread deterministic SSP2-4.5 smoke
 test successfully produced distinct ISO labor, Lancet labor, and agriculture
 partial SCCs. Those values are diagnostic only and are not manuscript results.
 
+A separate fail-closed audit confirms that the agriculture array is a complete
+160-region by 7-warming-knot by 3-percentile panel, while each labor array is a
+complete 160-region by 7-knot by 16-climate-model panel with unique keys and
+finite values. The published loader uses the agricultural and non-agricultural
+labor welfare columns directly; it does not use the separate total-welfare
+column, so numerical equality among those columns is recorded as a diagnostic
+rather than imposed as an undocumented identity.
+
 The remaining exact-replication dependency is the 1.46 GB RFF-SP archive. It is
 CC-BY-4.0 and is being acquired into the ignored project-local Julia depot. The
 download is a throughput bottleneck, not an identification or code bottleneck.
-

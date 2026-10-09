@@ -1,0 +1,125 @@
+{
+  "agriculture": {
+    "checks": {
+      "balanced_panel": true,
+      "countries_equal_160": true,
+      "degrees_match_knots": true,
+      "keys_unique": true,
+      "numeric_values_finite": true,
+      "percentiles_match": true,
+      "rows_equal_160x7x3": true
+    },
+    "countries": 160,
+    "degrees": [
+      1.0,
+      1.5,
+      2.0,
+      2.5,
+      3.0,
+      3.5,
+      4.0
+    ],
+    "path": "vendor/moore_2026/lrennels-paper-2026-give-labor-ag-5d034e7/data/gtap_output/202505_Plants_People_Agriculture.csv",
+    "percentiles": [
+      "2.50%",
+      "50.00%",
+      "97.50%"
+    ],
+    "rows": 3360,
+    "sha256": "484b153ec80947962b78db33ff0d676447dea15759d1368fb7c4ba23bc41666d"
+  },
+  "created_at_utc": "2026-10-09T18:26:25.910095+00:00",
+  "labor_iso": {
+    "checks": {
+      "balanced_panel": true,
+      "countries_equal_160": true,
+      "degrees_match_knots": true,
+      "gcms_equal_16": true,
+      "keys_unique": true,
+      "labor_shock_matches_file": true,
+      "numeric_values_finite": true,
+      "rows_equal_160x7x16": true
+    },
+    "countries": 160,
+    "decomposition_note": "Diagnostic only: the published loader uses the ST_AG and ST_NONAG columns directly and does not use Welfare_in_M_USD. Exact additivity is therefore not imposed as a validation gate.",
+    "degrees": [
+      1.0,
+      1.5,
+      2.0,
+      2.5,
+      3.0,
+      3.5,
+      4.0
+    ],
+    "gcms": [
+      "ACCESS-CM2",
+      "BCC-CSM2-MR",
+      "CMCC-CM2-SR5",
+      "CMCC-ESM2",
+      "CanESM5",
+      "EC-Earth3_r1i1p1f1",
+      "GFDL-ESM4",
+      "HadGEM3-GC31-LL",
+      "HadGEM3-GC31-MM",
+      "KACE-1-0-G",
+      "KIOST-ESM",
+      "MIROC-ES2L",
+      "MIROC6",
+      "MPI-ESM1-2-HR_r1i1p1f1",
+      "MPI-ESM1-2-LR",
+      "model_ensemble"
+    ],
+    "max_welfare_decomposition_error_musd": 13.085928999998941,
+    "path": "vendor/moore_2026/lrennels-paper-2026-give-labor-ag-5d034e7/data/gtap_output/20260428_Plants_People_results_v4_ISO_Revision.csv",
+    "rows": 17920,
+    "sha256": "0e6c9b5c09af29037242c15857e13be9a6dd2e3f2e4cd650ffc3a957fa214aeb"
+  },
+  "labor_lancet": {
+    "checks": {
+      "balanced_panel": true,
+      "countries_equal_160": true,
+      "degrees_match_knots": true,
+      "gcms_equal_16": true,
+      "keys_unique": true,
+      "labor_shock_matches_file": true,
+      "numeric_values_finite": true,
+      "rows_equal_160x7x16": true
+    },
+    "countries": 160,
+    "decomposition_note": "Diagnostic only: the published loader uses the ST_AG and ST_NONAG columns directly and does not use Welfare_in_M_USD. Exact additivity is therefore not imposed as a validation gate.",
+    "degrees": [
+      1.0,
+      1.5,
+      2.0,
+      2.5,
+      3.0,
+      3.5,
+      4.0
+    ],
+    "gcms": [
+      "ACCESS-CM2",
+      "BCC-CSM2-MR",
+      "CMCC-CM2-SR5",
+      "CMCC-ESM2",
+      "CanESM5",
+      "EC-Earth3_r1i1p1f1",
+      "GFDL-ESM4",
+      "HadGEM3-GC31-LL",
+      "HadGEM3-GC31-MM",
+      "KACE-1-0-G",
+      "KIOST-ESM",
+      "MIROC-ES2L",
+      "MIROC6",
+      "MPI-ESM1-2-HR_r1i1p1f1",
+      "MPI-ESM1-2-LR",
+      "model_ensemble"
+    ],
+    "max_welfare_decomposition_error_musd": 0.23348804500001563,
+    "path": "vendor/moore_2026/lrennels-paper-2026-give-labor-ag-5d034e7/data/gtap_output/20260428_Plants_People_results_v4_Lancet_Revision.csv",
+    "rows": 17920,
+    "sha256": "978c5e5af3a06f413f47449dbb16e34ebf1d267caa9ffbb242a4b91737af28d9"
+  },
+  "schema": "published_damage_array_validation/v1",
+  "source_doi": "10.5281/zenodo.21483095",
+  "status": "pass"
+}
