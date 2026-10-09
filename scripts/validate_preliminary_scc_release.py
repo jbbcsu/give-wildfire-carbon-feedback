@@ -61,13 +61,13 @@ def main() -> None:
         "period_discount_figure_validation": root / "data/provenance/quantity_scc_period_discount_figure_20260925.json",
         "results_brief": root / "PRELIMINARY_RESULTS_AND_CLAIM_BOUNDARIES_20260925.md",
         "readme": root / "README.md",
-        "readme_link_validation": root / "data/provenance/readme_link_validation_20260925.json",
+        "readme_link_validation": root / "data/provenance/readme_link_validation_20261009.json",
         "reproduction_guide": root / "REPRODUCE_PRELIMINARY_SCC_RELEASE_20260925.md",
         "pause_checkpoint": root / "THRESHOLD_PAUSE_CHECKPOINT_20260925.md",
-        "manuscript_validation": root / "data/provenance/manuscript_scc_claim_validation_20261003.json",
+        "manuscript_validation": root / "data/provenance/manuscript_scc_claim_validation_20261009.json",
         "manuscript_reference_registry": root / "data/provenance/manuscript_reference_registry_20260925.json",
-        "manuscript_reference_validation": root / "data/provenance/manuscript_reference_validation_20261003.json",
-        "manuscript_link_validation": root / "data/provenance/manuscript_link_validation_20261003.json",
+        "manuscript_reference_validation": root / "data/provenance/manuscript_reference_validation_20261009.json",
+        "manuscript_link_validation": root / "data/provenance/manuscript_link_validation_20261009.json",
         "figure_validation": root / "data/provenance/quantity_coefficient_interval_figure_20260925.json",
         "manuscript": root / "manuscript/MAIN_MANUSCRIPT.md",
         "methods_si": root / "manuscript/METHODS_SUPPORTING_INFORMATION.md",
@@ -237,7 +237,7 @@ def main() -> None:
         require(fragment in results_brief, f"results brief fragment missing: {fragment}")
     readme_text = " ".join(paths["readme"].read_text().split())
     for fragment in (
-        "Current research state (September 25, 2026)",
+        "Current research state (October 9, 2026)",
         "validated, paired GIVE estimate",
         "not estimates of total precipitation-agriculture damages",
         "all 106 country components change sign",
@@ -271,7 +271,7 @@ def main() -> None:
     require(digest(paths["manuscript_reference_registry"]) ==
             reference_validation["sources"]["registry"]["sha256"],
             "reference registry changed after validation")
-    require(reference_validation["checks"]["registered_dois"] == 8,
+    require(reference_validation["checks"]["registered_dois"] == 9,
             "manuscript reference support differs")
     require(reference_validation["checks"]["wildfire_agriculture_doi_nonconflation"],
             "wildfire and agriculture citations conflated")
@@ -285,7 +285,7 @@ def main() -> None:
     require(digest(paths["methods_si"]) ==
             link_validation["sources"]["manuscript/METHODS_SUPPORTING_INFORMATION.md"]["sha256"],
             "Methods SI changed after link validation")
-    require(readme_validation["checks"]["local_links_resolved"] == 58,
+    require(readme_validation["checks"]["local_links_resolved"] == 59,
             "README local-link support differs")
     require(readme_validation["checks"]["missing_local_links"] == 0,
             "README local links missing")
@@ -360,12 +360,12 @@ def main() -> None:
             "period_discount_schedules": 4,
             "period_discount_figure_hash_bound": True,
             "cross_track_results_brief_hash_bound": True,
-            "readme_local_links_resolved": 58,
+            "readme_local_links_resolved": 59,
             "readme_current_status_hash_bound": True,
             "reproduction_guide_hash_bound": True,
             "pause_checkpoint_hash_bound": True,
             "manuscript_hash_bound": True,
-            "manuscript_doi_references_validated": 8,
+            "manuscript_doi_references_validated": 9,
             "wildfire_agriculture_doi_nonconflation": True,
             "manuscript_local_links_resolved": 26,
             "figure_hash_bound": True,

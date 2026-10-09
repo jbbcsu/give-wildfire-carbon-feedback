@@ -347,6 +347,24 @@ moderator-trajectory, damage, or SCC gates. The published values therefore
 remain an external scale/methods benchmark rather than an SCC imported into
 GIVE.
 
+A newer total-agriculture benchmark further clarifies this paper's marginal
+contribution. [Moore et al.
+(2026)](https://doi.org/10.1038/s41558-026-02749-z) update GIVE's agriculture
+damage function using 8,703 crop-model estimates from 202 studies covering
+maize, rice, wheat, and soybean. Their projected damage function combines
+temperature, CO2 fertilization, adaptation, and general-equilibrium adjustment
+and reports a 2025 agriculture partial SCC of $29/tCO2. Rainfall change is
+included as a control in the underlying yield meta-regression, but its
+coefficient is reported as small and statistically insignificant (p=0.6), so
+rainfall is omitted from their projected damage function. This is useful
+evidence about aggregate precipitation in that literature, not evidence that
+within-season timing, dry spells, extremes, or irrigation scarcity are
+unimportant. It therefore supplies a contemporary total-agriculture comparator
+and strengthens the case for treating the precipitation mechanisms studied
+here as an explicit decomposition or replacement, never as an additive damage
+term. The authors also caution that their estimated adaptation benefit includes
+irrigation and fertilizer benefits without their costs.
+
 The same pinned repository also contains a published rice response, which we
 have now source-validated. Its 46 coefficients and complete covariance matrix
 cover 166,174 observations and combine GDD, KDD, minimum temperature, and
@@ -2511,6 +2529,14 @@ irrigation coverage and explicit market incidence. A future noncoastal
 infrastructure module must remain separate and exclude crop losses and
 CIAM-covered coastal damages before combination with GIVE.
 
+For the broader damage-expansion program, Moore et al. (2026) also provide a
+published 2025 heat-related labor-productivity partial SCC of $41/tCO2 (90%
+interval $1--108). That estimate identifies labor as a high-value next sector
+for rapid replication in GIVE, but it is not part of this precipitation paper
+and cannot be inserted as a scalar without reproducing its country damage
+paths, pulse convention, uncertainty dependence, and overlap with agriculture
+and mortality.
+
 ## Exhibit plan
 
 | Exhibit | Content |
@@ -2539,6 +2565,10 @@ Hultgren, A., Carleton, T., Delgado, M., et al. (2025). Impacts of climate
 change on global agriculture accounting for adaptation. *Nature*, 642,
 644--652.
 [https://doi.org/10.1038/s41586-025-09085-w](https://doi.org/10.1038/s41586-025-09085-w)
+
+Moore, F. C., Haqiqi, I., Kong, Q., et al. (2026). New labour and
+agricultural damages improve climate cost estimates. *Nature Climate Change*.
+[https://doi.org/10.1038/s41558-026-02749-z](https://doi.org/10.1038/s41558-026-02749-z)
 
 Kuwayama, Y., Thompson, A., Bernknopf, R., Zaitchik, B., & Vail, P. (2019).
 Estimating the impact of drought on agriculture using the U.S. Drought

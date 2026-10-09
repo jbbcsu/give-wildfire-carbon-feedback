@@ -1,0 +1,184 @@
+{
+  "checks": {
+    "coefficient_discount_schedules": 4,
+    "coefficient_market_specifications": 6,
+    "coefficient_model_schedule_rows": 104,
+    "country_accounting_components": 106,
+    "country_decomposition_figure_hash_bound": true,
+    "country_decomposition_memory_budget_mib": 768,
+    "country_decomposition_models": 26,
+    "country_fixed_denominator_unit_tests": 1,
+    "country_unit_test_memory_budget_mib": 256,
+    "credential_like_tracked_assignments": 0,
+    "cross_track_results_brief_hash_bound": true,
+    "figure_hash_bound": true,
+    "manuscript_doi_references_validated": 9,
+    "manuscript_hash_bound": true,
+    "manuscript_local_links_resolved": 26,
+    "paired_paths": 936,
+    "paired_scc_values": 3744,
+    "pause_checkpoint_hash_bound": true,
+    "period_accounting_bins": 4,
+    "period_decomposition_memory_budget_mib": 768,
+    "period_discount_figure_hash_bound": true,
+    "period_discount_schedules": 4,
+    "period_models_with_sign_change": 0,
+    "readme_current_status_hash_bound": true,
+    "readme_local_links_resolved": 59,
+    "reproduction_guide_hash_bound": true,
+    "restricted_tracked_paths": 0,
+    "table3_hash_bound": true,
+    "targeted_quantity_welfare_unit_tests": 11,
+    "tracked_files_scanned": 2577,
+    "wildfire_agriculture_doi_nonconflation": true,
+    "wildfire_named_tracked_paths": 0
+  },
+  "claim_gates": {
+    "causal_drought_or_timing_scc": false,
+    "full_precipitation_agriculture_scc": false,
+    "paired_quantity_channel_scc": true,
+    "probabilistic_total_uncertainty": false
+  },
+  "created_at_utc": "2026-10-09T17:59:05.778424+00:00",
+  "implementation": {
+    "path": "scripts/validate_preliminary_scc_release.py",
+    "sha256": "10e1155ed0010c10122e6857120cab13ab290ced7fd13cb7cf91a80c6176fa89"
+  },
+  "release_scope": "paired annual-global-maize rainfall-quantity SCC benchmark; not total precipitation-agriculture SCC",
+  "schema": "preliminary_scc_release_validation/v2",
+  "sources": {
+    "coefficient_by_model": {
+      "path": "data/provenance/quantity_coefficient_delta_by_model_20260925.json",
+      "sha256": "950b262f2b0ea0593846d878c20db3eaf861790ce0c58ab3719490f4f27d1dc6"
+    },
+    "coefficient_grid": {
+      "path": "data/provenance/quantity_coefficient_delta_uncertainty_grid_20260925.json",
+      "sha256": "797ad9fd227d396a50157fbae39613d4aab48eae94fe4a4d6150532aaa3dc7b1"
+    },
+    "coefficient_market_grid": {
+      "path": "data/provenance/quantity_coefficient_delta_market_grid_20260925.json",
+      "sha256": "ea1f26240441ff5306614194f4c3a199026bb5514c24bb6ad5dd6b648e4e1e07"
+    },
+    "coefficient_market_job": {
+      "path": "data/provenance/quantity_coefficient_delta_market_grid_job_20260925.json",
+      "sha256": "33ca5d63c8fb6c9c1e95548230792dc27f28f1e9fd52489793c33f58c3e26f19"
+    },
+    "country_decomposition": {
+      "path": "data/provenance/quantity_scc_country_decomposition_20260925.json",
+      "sha256": "dae78b35d17ca20316017e7b70ae66a2025c87587748ebd09a880235ca7bcbc3"
+    },
+    "country_decomposition_figure": {
+      "path": "manuscript/figures/quantity_scc_country_decomposition_20260925.svg",
+      "sha256": "279baf0032fbc0d464430b185b7b6417c8087ce2a61323bafcc456b28f433468"
+    },
+    "country_decomposition_figure_validation": {
+      "path": "data/provenance/quantity_scc_country_decomposition_figure_20260925.json",
+      "sha256": "3aab436169e1353a6a5310fe793717c17616b819950b6ce527c576fe301748fa"
+    },
+    "country_decomposition_job": {
+      "path": "data/provenance/quantity_scc_country_decomposition_job_20260925.json",
+      "sha256": "01b85e75c69172e2ee40c92e72ce618a4fc73b6e613d57956f08ccbe1c7b2016"
+    },
+    "country_decomposition_report": {
+      "path": "QUANTITY_SCC_COUNTRY_DECOMPOSITION_RESULTS_20260925.md",
+      "sha256": "d93e56a5b01edcba8239f9e5d643fd7487fd6c8c26ff787bedc11a795d5066fd"
+    },
+    "country_unit_test_job": {
+      "path": "data/provenance/country_decomposition_unit_test_job_20260925.json",
+      "sha256": "847fa427b21f3585286fba5fb2aefd14b95bad0a6258f85a367b7eabc980d2b1"
+    },
+    "figure": {
+      "path": "manuscript/figures/quantity_coefficient_intervals_20260925.svg",
+      "sha256": "58620dcc326f5ed9a9cd6acf93dcb36188f4413b6ee44ceb62f94e6293b27702"
+    },
+    "figure_validation": {
+      "path": "data/provenance/quantity_coefficient_interval_figure_20260925.json",
+      "sha256": "ab7f26e136d0ca4379c9b4f84e171d27e253356bed59e8ba76830a53969134bf"
+    },
+    "manuscript": {
+      "path": "manuscript/MAIN_MANUSCRIPT.md",
+      "sha256": "31d92d16b5df42aebd1a0cb5ce327025081c786a95f66efb3702d2075bfccdc0"
+    },
+    "manuscript_link_validation": {
+      "path": "data/provenance/manuscript_link_validation_20261009.json",
+      "sha256": "3b365f13533082cc56131836b25b6ed58b2201bd652095596556fc57dbc59d75"
+    },
+    "manuscript_reference_registry": {
+      "path": "data/provenance/manuscript_reference_registry_20260925.json",
+      "sha256": "f03cac86bd7b72081eec3eced217fb6cafae3fa19a6601971d06ec090bca2b92"
+    },
+    "manuscript_reference_validation": {
+      "path": "data/provenance/manuscript_reference_validation_20261009.json",
+      "sha256": "58e65817efa32db1108791bb72422e7adb559fcd6478f21f1e285910926c30e2"
+    },
+    "manuscript_validation": {
+      "path": "data/provenance/manuscript_scc_claim_validation_20261009.json",
+      "sha256": "1549b365342d8e8ef750a9501f838f274873b97cc83d9eb4380dc0f3b6884375"
+    },
+    "methods_si": {
+      "path": "manuscript/METHODS_SUPPORTING_INFORMATION.md",
+      "sha256": "11581e990abd81e1e02fecce9da46516dbb1ff77c3fc82f0ce2663ea708d7587"
+    },
+    "paired_structural": {
+      "path": "data/provenance/quantity_full_structural_paired_ensemble_20260924.json",
+      "sha256": "8e4cb168e6e737901e26341687777ac26058875c7f5fb19cda2e4326c82bedaf"
+    },
+    "pause_checkpoint": {
+      "path": "THRESHOLD_PAUSE_CHECKPOINT_20260925.md",
+      "sha256": "818c21f78766dfe4aca187f6904beefb4c957356a594737aa34f2134f1492377"
+    },
+    "period_decomposition": {
+      "path": "data/provenance/quantity_scc_period_decomposition_20260925.json",
+      "sha256": "0873cce89575458c9a41f3e7af0ca3a3ea54ea15d52d30ab3e6e07100b0676b2"
+    },
+    "period_decomposition_job": {
+      "path": "data/provenance/quantity_scc_period_decomposition_job_20260925.json",
+      "sha256": "4c8fa8e68704332f6176427965e99c328137059eaba9299da1874f514a6ece4f"
+    },
+    "period_decomposition_report": {
+      "path": "QUANTITY_SCC_PERIOD_DECOMPOSITION_RESULTS_20260925.md",
+      "sha256": "50a0fdee8b7409e473108cb46525d4112ff029ef09802a7277a9e58415635eec"
+    },
+    "period_discount_figure": {
+      "path": "manuscript/figures/quantity_scc_period_discount_grid_20260925.svg",
+      "sha256": "71dabb83a204b4c3b2b98dc8bdf3ef7348b266769edfb5fb87f44f0ff79f05d8"
+    },
+    "period_discount_figure_validation": {
+      "path": "data/provenance/quantity_scc_period_discount_figure_20260925.json",
+      "sha256": "09fbc95ffabdbe0cf01b2c177a07349a957ef880c750928e7d740f91784435ee"
+    },
+    "period_discount_grid": {
+      "path": "data/provenance/quantity_scc_period_discount_grid_20260925.json",
+      "sha256": "0751be9905f6b422c72b53e75b6a0e11cae19ba3c5fa8408b7f3bbaec43c7e1a"
+    },
+    "readme": {
+      "path": "README.md",
+      "sha256": "770367bdecf763b80d2e6d70455c88c828196a622a24db6f4072dcef9471a5c3"
+    },
+    "readme_link_validation": {
+      "path": "data/provenance/readme_link_validation_20261009.json",
+      "sha256": "2a68e724fd297ec44dcbf26515cb1d2dcc5b8588bf05e5e2634c1fafafb4f588"
+    },
+    "reproduction_guide": {
+      "path": "REPRODUCE_PRELIMINARY_SCC_RELEASE_20260925.md",
+      "sha256": "a3f0d46654430b265fa7473ca8a7a388eec7550beee34369826e90b2973a2c0b"
+    },
+    "results_brief": {
+      "path": "PRELIMINARY_RESULTS_AND_CLAIM_BOUNDARIES_20260925.md",
+      "sha256": "9a7762d5c3f7be59e40dc9717805ae98ff1544dd3096445ba331b216336ba3a2"
+    },
+    "table3": {
+      "path": "manuscript/tables/TABLE_3_SCC_RESULTS.md",
+      "sha256": "32b55e07741e13003047233b13526319796693204f7ed2ecdb488476bec9cb0e"
+    },
+    "table3_validation": {
+      "path": "data/provenance/manuscript_scc_table_20260925.json",
+      "sha256": "0c8da5c16cc27134572f232aa66616e297765ed27d2fc9637a7913a059646e1d"
+    },
+    "targeted_test_job": {
+      "path": "data/provenance/preliminary_scc_targeted_tests_job_20260925.json",
+      "sha256": "1cd90e9b6558b58129d147d018032cc11fa4936b95a1792b363020a13404008e"
+    }
+  },
+  "status": "pass"
+}

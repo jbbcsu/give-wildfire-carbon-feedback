@@ -1,6 +1,6 @@
 # GIVE precipitation and hydrologic-damages extension
 
-## Current research state (September 25, 2026)
+## Current research state (October 9, 2026)
 
 The project now has a validated, paired GIVE estimate for one deliberately
 narrow mechanism: climate-driven annual rainfall-quantity changes evaluated
@@ -37,6 +37,17 @@ wildfire-project isolation. Raw and interim data remain gitignored. The full
 precipitation-agriculture SCC remains closed because drought, rainfall timing
 and extremes, additional crops, endogenous irrigation/adaptation costs,
 trade/storage, and joint uncertainty are not yet defensibly integrated.
+
+A new literature fast-route audit evaluates Moore et al. (2026), which reports
+an updated four-crop GIVE agriculture partial SCC of $29/tCO2 for 2025 and a
+new heat-related labor-productivity partial SCC of $41/tCO2. The agriculture
+update controls for aggregate rainfall in its underlying meta-regression but
+does not project precipitation impacts; it therefore supplies a contemporary
+total-agriculture comparator rather than replacing this project's timing,
+drought, irrigation, and extremes estimand. Labor is now the highest-value
+published next-sector candidate, conditional on obtaining and reproducing its
+country damage arrays and resolving overlap. See
+[the fast-route audit](MOORE_2026_LABOR_AG_FAST_ROUTE_AUDIT.md).
 
 ### Earlier engineering history (retained for provenance)
 
