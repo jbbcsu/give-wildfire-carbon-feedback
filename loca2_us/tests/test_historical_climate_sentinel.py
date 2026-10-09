@@ -2,6 +2,7 @@ import importlib.util
 import unittest
 from pathlib import Path
 
+import numpy as np
 import pandas as pd
 
 
@@ -28,6 +29,46 @@ class HistoricalSentinelTests(unittest.TestCase):
     def test_year_mismatch_fails(self):
         with self.assertRaisesRegex(ValueError, "years differ"):
             MODULE.compare_distributions(pd.DataFrame({"harvest_year": [1]}), pd.DataFrame({"harvest_year": [2]}))
+
+    def test_spatial_partition_accumulator_is_bit_exact(self):
+        rng = np.random.default_rng(20261004)
+        days, cells = 170, 11
+        rain = rng.gamma(1.4, 3.0, size=(days, cells))
+        rain[rng.random((days, cells)) < 0.65] = 0.0
+        tmin = rng.normal(12.0, 4.0, size=(days, cells))
+        tmax = tmin + rng.uniform(4.0, 18.0, size=(days, cells))
+        weights = rng.uniform(size=cells)
+        weights /= weights.sum()
+        legacy_basis = pd.DataFrame([
+            MODULE.build_cell_basis(
+                rain[:, cell],
+                (tmin[:, cell] + tmax[:, cell]) / 2,
+                tmin[:, cell],
+                tmax[:, cell],
+                1.0,
+            )
+            for cell in range(cells)
+        ])
+        full = {
+            column: float(np.dot(legacy_basis[column].to_numpy(dtype=float), weights))
+            for column in legacy_basis.columns
+        }
+        split = MODULE.aggregate_spatial_partitions(
+            rain,
+            tmin,
+            tmax,
+            weights,
+            [np.array([0, 1, 4, 8]), np.array([2, 3, 6]), np.array([5, 7, 9, 10])],
+            1.0,
+        )
+        self.assertEqual(full, split)
+
+    def test_spatial_partition_accumulator_rejects_missing_cell(self):
+        values = np.ones((170, 3))
+        with self.assertRaisesRegex(ValueError, "overlap or omit"):
+            MODULE.aggregate_spatial_partitions(
+                values, values, values + 1, np.full(3, 1 / 3), [np.array([0, 2])], 1.0
+            )
 
 
 if __name__ == "__main__":

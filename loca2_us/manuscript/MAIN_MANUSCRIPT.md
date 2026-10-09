@@ -110,3 +110,10 @@ monitor at 560,070,656 bytes (534.13 MiB), above the 512 MiB gate, and produced
 no feature file or successful receipt. The second partition and concatenation
 were not run. Thus no Box Butte climate comparison is available, and its
 sentinel and the multi-county validation gate remain closed.
+
+A separately frozen source-spatial-chunk accumulator then passed bit-for-bit
+synthetic equivalence against the legacy all-cell calculation and repeated the
+metadata gate at 602,729,539 bytes (574.81 MiB). The climate-only retry still
+exceeded the worker gate, reaching 546,308,096 bytes (521.00 MiB) before the
+512 MiB monitor terminated it. It wrote no feature file or successful receipt;
+part 2 and concatenation were not run. This failure changes no claim gate.

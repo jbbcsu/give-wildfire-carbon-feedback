@@ -32,6 +32,14 @@ BOX_BUTTE_PART_PREFLIGHT_JOBS = (
     ROOT / "loca2_us/data/provenance/loca2_box_butte_gfdl_historical_2007_2012_preflight_job_20261004.json",
 )
 BOX_BUTTE_PART1_JOB = ROOT / "loca2_us/data/provenance/loca2_box_butte_gfdl_historical_2001_2006_job_20261004.json"
+BOX_BUTTE_LOW_MEMORY_CONFIG = ROOT / "loca2_us/config/loca2_us_box_butte_gfdl_historical_2001_2006_spatial_chunk_v1.toml"
+BOX_BUTTE_LOW_MEMORY_PREFLIGHT = ROOT / "loca2_us/data/provenance/loca2_box_butte_gfdl_historical_2001_2006_spatial_chunk_v1_preflight_20261004.json"
+BOX_BUTTE_LOW_MEMORY_PREFLIGHT_JOB = ROOT / "loca2_us/data/provenance/loca2_box_butte_gfdl_historical_2001_2006_spatial_chunk_v1_preflight_job_20261004.json"
+BOX_BUTTE_LOW_MEMORY_JOB = ROOT / "loca2_us/data/provenance/loca2_box_butte_gfdl_historical_2001_2006_spatial_chunk_v1_job_20261004.json"
+BOX_BUTTE_LOW_MEMORY_ABSENT = (
+    ROOT / "loca2_us/data/interim/box_butte_gfdl_historical_2001_2006_spatial_chunk_v1_corn_features.parquet",
+    ROOT / "loca2_us/data/provenance/loca2_box_butte_gfdl_historical_climate_sentinel_2001_2006_spatial_chunk_v1_20261004.json",
+)
 BOX_BUTTE_EXPECTED_ABSENT = (
     ROOT / "loca2_us/data/interim/box_butte_gfdl_historical_2001_2006_corn_features.parquet",
     ROOT / "loca2_us/data/provenance/loca2_box_butte_gfdl_historical_climate_sentinel_2001_2006_20261004.json",
@@ -68,6 +76,10 @@ def validate() -> dict[str, object]:
     part_preflights = [json.loads(path.read_text()) for path in BOX_BUTTE_PART_PREFLIGHTS]
     part_preflight_jobs = [json.loads(path.read_text()) for path in BOX_BUTTE_PART_PREFLIGHT_JOBS]
     part1_job = json.loads(BOX_BUTTE_PART1_JOB.read_text())
+    low_memory_config = tomllib.loads(BOX_BUTTE_LOW_MEMORY_CONFIG.read_text())
+    low_memory_preflight = json.loads(BOX_BUTTE_LOW_MEMORY_PREFLIGHT.read_text())
+    low_memory_preflight_job = json.loads(BOX_BUTTE_LOW_MEMORY_PREFLIGHT_JOB.read_text())
+    low_memory_job = json.loads(BOX_BUTTE_LOW_MEMORY_JOB.read_text())
     main = MAIN.read_text()
     methods = METHODS.read_text()
 
@@ -117,6 +129,17 @@ def validate() -> dict[str, object]:
     require(part1_job["sampled_peak_group_rss_bytes"] == 560070656, "Box Butte execution peak changed")
     require(part1_job["sampled_peak_group_rss_bytes"] > 512 * 1024**2, "Box Butte memory gate was not exceeded")
     require(all(not path.exists() for path in BOX_BUTTE_EXPECTED_ABSENT), "Box Butte failed/stopped execution left a promoted artifact")
+    require(low_memory_config["resources"]["spatial_accumulator"] == "one_source_spatial_chunk_at_a_time_v1", "Box Butte low-memory strategy changed")
+    require(low_memory_config["sample"]["outcome_columns_read"] is False and low_memory_config["sample"]["paired_year_scoring"] is False, "Box Butte low-memory read/scoring gate opened")
+    require(all(value is False for value in low_memory_config["claim_gates"].values()), "Box Butte low-memory claim gate opened")
+    require(low_memory_preflight["status"] == "pass_metadata_only_plan_within_cap", "Box Butte low-memory preflight failed")
+    require(low_memory_preflight["plan"]["compressed_bytes"] == 602729539, "Box Butte low-memory plan changed")
+    require(low_memory_preflight["inspection"] == {"climate_values_read": False, "outcome_columns_read": False}, "Box Butte low-memory preflight opened a data gate")
+    require(low_memory_preflight_job["status"] == "completed" and low_memory_preflight_job["returncode"] == 0, "Box Butte low-memory preflight job failed")
+    require(low_memory_preflight_job["sampled_peak_group_rss_bytes"] == 182190080, "Box Butte low-memory preflight peak changed")
+    require(low_memory_job["status"] == "memory_budget_exceeded" and low_memory_job["returncode"] == -9, "Box Butte low-memory retry did not fail closed")
+    require(low_memory_job["sampled_peak_group_rss_bytes"] == 546308096, "Box Butte low-memory retry peak changed")
+    require(all(not path.exists() for path in BOX_BUTTE_LOW_MEMORY_ABSENT), "Box Butte low-memory failure left a promoted artifact")
 
     expected = {
         "precip_mm": ("432.15", "461.58", "-29.44", "0.931", "60.02 mm"),
@@ -140,6 +163,10 @@ def validate() -> dict[str, object]:
         require(value in main and value in methods, f"manuscripts lack Box Butte split-gate value: {value}")
     require("No\nfeature file or successful sentinel receipt was written" in methods, "methods lacks absent-artifact boundary")
     require("The second partition and concatenation\nwere not run" in main, "main lacks stopped-execution boundary")
+    for value in ("one_source_spatial_chunk_at_a_time_v1", "546,308,096", "521.00 MiB"):
+        require(value in methods, f"methods lack low-memory retry value: {value}")
+    require("bit-for-bit\nsynthetic equivalence" in main, "main lacks exact-equivalence boundary")
+    require("Part 2 and\nconcatenation were not run" in methods, "methods lacks low-memory stop boundary")
     require("paired-year RMSE, correlation, or trend agreement" in methods, "methods lacks free-running boundary")
     require(
         "multi-model,\nmulti-county, outcome-response, causal-damage, and SCC gates remain closed" in methods,
@@ -171,15 +198,26 @@ def validate() -> dict[str, object]:
                 SOURCE, INDEPENDENT, JOB, TWO_MODEL, BOX_BUTTE_WEIGHTS,
                 BOX_BUTTE_JOB, BOX_BUTTE_PREFLIGHT, BOX_BUTTE_PREFLIGHT_JOB,
                 *BOX_BUTTE_PART_PREFLIGHTS, *BOX_BUTTE_PART_PREFLIGHT_JOBS,
-                BOX_BUTTE_PART1_JOB,
+                BOX_BUTTE_PART1_JOB, BOX_BUTTE_LOW_MEMORY_PREFLIGHT,
+                BOX_BUTTE_LOW_MEMORY_PREFLIGHT_JOB, BOX_BUTTE_LOW_MEMORY_JOB,
             )
         },
-        "design_configs": {str(path.relative_to(ROOT)): sha256(path) for path in BOX_BUTTE_PART_CONFIGS},
+        "design_configs": {
+            str(path.relative_to(ROOT)): sha256(path)
+            for path in (*BOX_BUTTE_PART_CONFIGS, BOX_BUTTE_LOW_MEMORY_CONFIG)
+        },
         "box_butte_split_gate": {
             "partition_plan_bytes": [item["plan"]["compressed_bytes"] for item in part_preflights],
             "execution_status": part1_job["status"],
             "execution_peak_rss_bytes": part1_job["sampled_peak_group_rss_bytes"],
             "expected_absent_outputs": [str(path.relative_to(ROOT)) for path in BOX_BUTTE_EXPECTED_ABSENT],
+        },
+        "box_butte_low_memory_gate": {
+            "strategy": low_memory_config["resources"]["spatial_accumulator"],
+            "preflight_bytes": low_memory_preflight["plan"]["compressed_bytes"],
+            "execution_status": low_memory_job["status"],
+            "execution_peak_rss_bytes": low_memory_job["sampled_peak_group_rss_bytes"],
+            "expected_absent_outputs": [str(path.relative_to(ROOT)) for path in BOX_BUTTE_LOW_MEMORY_ABSENT],
         },
         "manuscripts": {str(path.relative_to(ROOT)): sha256(path) for path in (MAIN, METHODS)},
         "support": source["support"],

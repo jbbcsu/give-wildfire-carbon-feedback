@@ -48,6 +48,23 @@ class SecondCountyPreregistrationTests(unittest.TestCase):
             ):
                 self.assertEqual(part["sample"][key], whole["sample"][key])
 
+    def test_low_memory_retry_changes_only_strategy_and_outputs(self):
+        prior = tomllib.loads((ROOT / "loca2_us/config/loca2_us_box_butte_gfdl_historical_2001_2006_v1.toml").read_text())
+        retry = tomllib.loads((ROOT / "loca2_us/config/loca2_us_box_butte_gfdl_historical_2001_2006_spatial_chunk_v1.toml").read_text())
+        self.assertEqual(retry["source"], prior["source"])
+        self.assertEqual(retry["inputs"], prior["inputs"])
+        self.assertEqual(retry["claim_gates"], prior["claim_gates"])
+        for key in (
+            "county_geoid", "crop", "year_min", "year_max", "season_start_month_day",
+            "season_end_month_day", "wet_day_threshold_mm", "stage_fractions",
+            "outcome_columns_read", "paired_year_scoring",
+        ):
+            self.assertEqual(retry["sample"][key], prior["sample"][key])
+        expected_resources = dict(prior["resources"])
+        expected_resources["spatial_accumulator"] = "one_source_spatial_chunk_at_a_time_v1"
+        self.assertEqual(retry["resources"], expected_resources)
+        self.assertNotEqual(retry["outputs"], prior["outputs"])
+
 
 if __name__ == "__main__":
     unittest.main()

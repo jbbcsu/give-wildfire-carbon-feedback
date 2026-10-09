@@ -126,6 +126,24 @@ receipt passes, the Box Butte climate sentinel and all multi-county,
 outcome-response, causal-damage, and SCC gates remain closed; paired-year
 scoring remains prohibited.
 
+The first low-memory revision freezes
+`one_source_spatial_chunk_at_a_time_v1` before retry. For each season it
+decodes only the county cells belonging to one native LOCA2 spatial chunk,
+constructs nonlinear features per cell, releases the climate arrays, and then
+reassembles the cell-basis rows in their original global order. County
+aggregation uses the same full weight vector and dot-product order as the
+legacy implementation. A deterministic 170-day synthetic fixture reproduces
+the independently written legacy calculation bit-for-bit, while an omitted
+cell fails the partition check.
+
+The retry-specific metadata-only plan remains 602,729,539 bytes (574.81 MiB),
+passes the 1,024 MiB cap, reads neither climate values nor outcomes, and peaks
+at 182,190,080 bytes (173.75 MiB). The monitored 2001--2006 climate retry then
+reached 546,308,096 bytes (521.00 MiB) and was terminated above the unchanged
+512 MiB gate. No feature file or successful receipt was written. Part 2 and
+concatenation were not run. The geographic climate, outcome-response,
+causal-damage, and SCC gates therefore remain closed.
+
 ## M6. Agricultural response families
 
 The response stage remains closed. When authorized, the primary quantity

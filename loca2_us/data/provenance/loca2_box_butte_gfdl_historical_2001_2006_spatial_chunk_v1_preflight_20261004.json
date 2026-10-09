@@ -1,0 +1,216 @@
+{
+  "claim_gates": {
+    "SCC": false,
+    "causal_damage": false,
+    "county_geometry_weights": true,
+    "multi_county_validation": false,
+    "outcome_response": false,
+    "second_county_climate_sentinel": false
+  },
+  "config": {
+    "path": "loca2_us/config/loca2_us_box_butte_gfdl_historical_2001_2006_spatial_chunk_v1.toml",
+    "sha256": "cd74f63ad072f0b3f950b402bd84f64e17284156d678164f743d28d048a081cc"
+  },
+  "inspection": {
+    "climate_values_read": false,
+    "outcome_columns_read": false
+  },
+  "next_step_if_blocked": "Freeze two chronological six-year partitions, require each partition plan below the unchanged cap, build each serially under the 512 MiB monitor, then concatenate only after exact key, calendar, feature, source, and nonoverlap checks; compare the combined 2001-2012 distribution without paired-year scoring.",
+  "plan": {
+    "compressed_bytes": 602729539,
+    "compressed_mib": 574.8076810836792,
+    "maximum_remote_chunk_mib": 1024,
+    "remote_chunks": [
+      {
+        "compressed_bytes": 9402353,
+        "key": "pr/48.40.1.2",
+        "variable": "pr"
+      },
+      {
+        "compressed_bytes": 9439560,
+        "key": "pr/48.40.1.3",
+        "variable": "pr"
+      },
+      {
+        "compressed_bytes": 9802410,
+        "key": "pr/48.41.1.2",
+        "variable": "pr"
+      },
+      {
+        "compressed_bytes": 7844429,
+        "key": "pr/48.41.1.3",
+        "variable": "pr"
+      },
+      {
+        "compressed_bytes": 7648669,
+        "key": "pr/48.42.1.2",
+        "variable": "pr"
+      },
+      {
+        "compressed_bytes": 6433758,
+        "key": "pr/48.42.1.3",
+        "variable": "pr"
+      },
+      {
+        "compressed_bytes": 8991235,
+        "key": "pr/48.43.1.2",
+        "variable": "pr"
+      },
+      {
+        "compressed_bytes": 8127890,
+        "key": "pr/48.43.1.3",
+        "variable": "pr"
+      },
+      {
+        "compressed_bytes": 8080886,
+        "key": "pr/48.44.1.2",
+        "variable": "pr"
+      },
+      {
+        "compressed_bytes": 8336189,
+        "key": "pr/48.44.1.3",
+        "variable": "pr"
+      },
+      {
+        "compressed_bytes": 26186475,
+        "key": "tasmin/48.40.1.2",
+        "variable": "tasmin"
+      },
+      {
+        "compressed_bytes": 25192668,
+        "key": "tasmin/48.40.1.3",
+        "variable": "tasmin"
+      },
+      {
+        "compressed_bytes": 26179860,
+        "key": "tasmin/48.41.1.2",
+        "variable": "tasmin"
+      },
+      {
+        "compressed_bytes": 25346089,
+        "key": "tasmin/48.41.1.3",
+        "variable": "tasmin"
+      },
+      {
+        "compressed_bytes": 26217892,
+        "key": "tasmin/48.42.1.2",
+        "variable": "tasmin"
+      },
+      {
+        "compressed_bytes": 25177452,
+        "key": "tasmin/48.42.1.3",
+        "variable": "tasmin"
+      },
+      {
+        "compressed_bytes": 26166530,
+        "key": "tasmin/48.43.1.2",
+        "variable": "tasmin"
+      },
+      {
+        "compressed_bytes": 25151496,
+        "key": "tasmin/48.43.1.3",
+        "variable": "tasmin"
+      },
+      {
+        "compressed_bytes": 26335128,
+        "key": "tasmin/48.44.1.2",
+        "variable": "tasmin"
+      },
+      {
+        "compressed_bytes": 25416659,
+        "key": "tasmin/48.44.1.3",
+        "variable": "tasmin"
+      },
+      {
+        "compressed_bytes": 26544357,
+        "key": "tasmax/48.40.1.2",
+        "variable": "tasmax"
+      },
+      {
+        "compressed_bytes": 25624793,
+        "key": "tasmax/48.40.1.3",
+        "variable": "tasmax"
+      },
+      {
+        "compressed_bytes": 26675254,
+        "key": "tasmax/48.41.1.2",
+        "variable": "tasmax"
+      },
+      {
+        "compressed_bytes": 25687862,
+        "key": "tasmax/48.41.1.3",
+        "variable": "tasmax"
+      },
+      {
+        "compressed_bytes": 26433082,
+        "key": "tasmax/48.42.1.2",
+        "variable": "tasmax"
+      },
+      {
+        "compressed_bytes": 25470573,
+        "key": "tasmax/48.42.1.3",
+        "variable": "tasmax"
+      },
+      {
+        "compressed_bytes": 26525253,
+        "key": "tasmax/48.43.1.2",
+        "variable": "tasmax"
+      },
+      {
+        "compressed_bytes": 25733333,
+        "key": "tasmax/48.43.1.3",
+        "variable": "tasmax"
+      },
+      {
+        "compressed_bytes": 26737466,
+        "key": "tasmax/48.44.1.2",
+        "variable": "tasmax"
+      },
+      {
+        "compressed_bytes": 25819938,
+        "key": "tasmax/48.44.1.3",
+        "variable": "tasmax"
+      }
+    ],
+    "remote_objects": 30,
+    "spatial_chunks": [
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ]
+    ],
+    "time_chunks": [
+      40,
+      41,
+      42,
+      43,
+      44
+    ]
+  },
+  "role": "metadata_only_remote_chunk_plan_no_climate_values_or_outcomes",
+  "schema": "loca2_us_historical_climate_sentinel_preflight/v1",
+  "source": {
+    "chunk_shape": [
+      1,
+      468,
+      158,
+      118
+    ],
+    "ensemble_index": 48,
+    "experiment_id": "historical",
+    "precipitation_version": "v20240915",
+    "source_id": "GFDL-ESM4",
+    "store": "mdmf/gdp/LOCA2/CMIP6-LOCA2.historical.daily.zarr",
+    "variant_label": "r1i1p1f1"
+  },
+  "status": "pass_metadata_only_plan_within_cap",
+  "weights": {
+    "grid_cells": 100,
+    "path": "loca2_us/data/interim/weights/tiger2019/county_geoid=31013/weights.parquet",
+    "sha256": "b48ee06c7e078d19cc6254338f019a38853f1a783314729abbb46392621da763"
+  }
+}

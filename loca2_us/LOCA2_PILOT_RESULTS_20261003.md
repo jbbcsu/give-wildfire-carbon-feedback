@@ -167,6 +167,23 @@ second-county and multi-county climate gates remain closed. A future retry
 requires a separately frozen lower-memory spatial-chunk accumulation method
 and equivalence tests before any new climate-value access.
 
+That lower-memory method was subsequently frozen as
+`one_source_spatial_chunk_at_a_time_v1`. It decodes cells from only one source
+spatial chunk at a time, constructs the same nonlinear cell basis, then
+reassembles cell rows in the original global order before applying the same
+full-vector dot product. A deterministic 170-day synthetic test is bit-for-bit
+equal to an independently written copy of the legacy all-cell calculation;
+missing-cell partitions fail closed. The retry-specific metadata preflight
+again passes at 602,729,539 bytes (574.81 MiB), with no climate values or
+outcomes read and a 182,190,080-byte (173.75 MiB) peak.
+
+The authorized 2001--2006 retry nevertheless reached 546,308,096 bytes
+(521.00 MiB) and was terminated by the unchanged 512 MiB monitor. It wrote no
+feature file or successful sentinel receipt. The second partition and
+concatenation again were not run. The implementation and failed receipt are
+retained as reproducibility evidence, but no geographic climate result or
+downstream claim gate is opened.
+
 Primary receipts:
 
 - `data/provenance/loca2_official_catalog_audit_20261003.json`
@@ -192,3 +209,6 @@ Primary receipts:
 - `data/provenance/loca2_box_butte_gfdl_historical_2007_2012_preflight_20261004.json`
 - `data/provenance/loca2_box_butte_gfdl_historical_2007_2012_preflight_job_20261004.json`
 - `data/provenance/loca2_box_butte_gfdl_historical_2001_2006_job_20261004.json` (memory gate)
+- `data/provenance/loca2_box_butte_gfdl_historical_2001_2006_spatial_chunk_v1_preflight_20261004.json`
+- `data/provenance/loca2_box_butte_gfdl_historical_2001_2006_spatial_chunk_v1_preflight_job_20261004.json`
+- `data/provenance/loca2_box_butte_gfdl_historical_2001_2006_spatial_chunk_v1_job_20261004.json` (memory gate)

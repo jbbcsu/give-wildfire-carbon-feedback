@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import gc
 import hashlib
 import importlib.util
 import json
@@ -76,6 +77,81 @@ def compare_distributions(model: pd.DataFrame, observed: pd.DataFrame) -> dict[s
     return result
 
 
+def build_basis_frame(
+    rain: np.ndarray,
+    tmin: np.ndarray,
+    tmax: np.ndarray,
+    cell_positions: np.ndarray,
+    wet_day_threshold_mm: float,
+) -> pd.DataFrame:
+    """Construct nonlinear cell features while retaining global cell order."""
+    cell_positions = np.asarray(cell_positions, dtype=int)
+    require(rain.ndim == 2 and rain.shape == tmin.shape == tmax.shape, "cell arrays differ")
+    require(rain.shape[1] == len(cell_positions), "cell positions differ from arrays")
+    require(len(np.unique(cell_positions)) == len(cell_positions), "duplicate cell positions")
+    rows = [
+        build_cell_basis(
+            rain[:, cell],
+            (tmin[:, cell] + tmax[:, cell]) / 2,
+            tmin[:, cell],
+            tmax[:, cell],
+            wet_day_threshold_mm,
+        )
+        for cell in range(len(cell_positions))
+    ]
+    return pd.DataFrame(rows, index=cell_positions)
+
+
+def aggregate_basis_frames(frames: list[pd.DataFrame], weight_values: np.ndarray) -> dict[str, float]:
+    """Reassemble partitions, then use the original full-vector dot order."""
+    require(bool(frames), "no cell-basis partitions")
+    weights = np.asarray(weight_values, dtype=float)
+    cell_basis = pd.concat(frames).sort_index()
+    require(cell_basis.index.tolist() == list(range(len(weights))), "cell partitions overlap or omit cells")
+    return {column: float(np.dot(cell_basis[column].to_numpy(dtype=float), weights)) for column in cell_basis.columns}
+
+
+def aggregate_all_cells(
+    rain: np.ndarray,
+    tmin: np.ndarray,
+    tmax: np.ndarray,
+    weight_values: np.ndarray,
+    wet_day_threshold_mm: float,
+) -> dict[str, float]:
+    positions = np.arange(rain.shape[1], dtype=int)
+    return aggregate_basis_frames(
+        [build_basis_frame(rain, tmin, tmax, positions, wet_day_threshold_mm)],
+        weight_values,
+    )
+
+
+def aggregate_spatial_partitions(
+    rain: np.ndarray,
+    tmin: np.ndarray,
+    tmax: np.ndarray,
+    weight_values: np.ndarray,
+    partitions: list[np.ndarray],
+    wet_day_threshold_mm: float,
+) -> dict[str, float]:
+    """Synthetic/reference entry point for exact partition equivalence."""
+    frames = [
+        build_basis_frame(rain[:, positions], tmin[:, positions], tmax[:, positions], positions, wet_day_threshold_mm)
+        for positions in partitions
+    ]
+    return aggregate_basis_frames(frames, weight_values)
+
+
+def spatial_cell_partitions(weights: pd.DataFrame, chunk_shape: tuple[int, ...]) -> list[np.ndarray]:
+    require(len(chunk_shape) == 4, "unexpected source chunk rank")
+    groups: dict[tuple[int, int], list[int]] = {}
+    for position, row in enumerate(weights.itertuples(index=False)):
+        key = (int(row.grid_lat_index) // chunk_shape[2], int(row.grid_lon_index) // chunk_shape[3])
+        groups.setdefault(key, []).append(position)
+    partitions = [np.asarray(groups[key], dtype=int) for key in sorted(groups)]
+    require(sorted(np.concatenate(partitions).tolist()) == list(range(len(weights))), "spatial partitions differ from weights")
+    return partitions
+
+
 def read_observed(root: Path, config: dict) -> pd.DataFrame:
     columns = ["county_geoid", "outcome_crop", "harvest_year", "irrigation_practice", "season_start", "season_end", *FEATURES]
     rows = []
@@ -113,7 +189,7 @@ def main() -> None:
     weights_receipt = json.loads(weights_receipt_path.read_text())
     require(weights_receipt["status"] == "pass", "county weights receipt failed")
     require(sha256(weights_path) == weights_receipt["output"]["sha256"], "county weights changed")
-    weights = pd.read_parquet(weights_path).sort_values(["grid_lat_index", "grid_lon_index"])
+    weights = pd.read_parquet(weights_path).sort_values(["grid_lat_index", "grid_lon_index"]).reset_index(drop=True)
     require(np.isclose(weights.spatial_weight.sum(), 1.0, rtol=0, atol=1e-12), "county weights do not sum to one")
 
     observed = read_observed(root, config)
@@ -145,6 +221,11 @@ def main() -> None:
         all_time_indices.extend(indices.tolist())
     time_chunks = sorted({int(index // chunk_shape[1]) for index in all_time_indices})
     spatial_chunks = sorted({(int(y // chunk_shape[2]), int(x // chunk_shape[3])) for y, x in zip(lat_indices, lon_indices, strict=True)})
+    accumulator = config["resources"].get("spatial_accumulator", "all_cells_v1")
+    require(accumulator in {"all_cells_v1", "one_source_spatial_chunk_at_a_time_v1"}, "unknown spatial accumulator")
+    cell_partitions = spatial_cell_partitions(weights, tuple(int(value) for value in chunk_shape))
+    if accumulator == "all_cells_v1":
+        cell_partitions = [np.arange(len(weights), dtype=int)]
     chunk_records = []
     for variable in config["source"]["variables"]:
         require(tuple(ds[variable].encoding["chunks"]) == tuple(chunk_shape), "variable chunks differ")
@@ -156,26 +237,32 @@ def main() -> None:
     require(remote_bytes <= int(config["resources"]["maximum_remote_chunk_mib"]) * 1024**2, "remote chunk plan exceeds cap")
 
     modeled_rows = []
-    lat_indexer = xr.DataArray(lat_indices, dims="cell")
-    lon_indexer = xr.DataArray(lon_indices, dims="cell")
     for row in observed.itertuples(index=False):
-        indexers = {"ensemble": ensemble_index, "lat": lat_indexer, "lon": lon_indexer}
         dates = slice(str(row.season_start.date()), str(row.season_end.date()))
-        # Load one variable at a time so only one decompressed remote chunk is
-        # resident. The selected 170-day by 63-cell arrays are retained; the
-        # full 468-day spatial chunk can be released before the next variable.
-        rain = ds.pr.isel(**indexers).sel(time=dates).values.astype(float)
-        tmin = ds.tasmin.isel(**indexers).sel(time=dates).values.astype(float)
-        tmax = ds.tasmax.isel(**indexers).sel(time=dates).values.astype(float)
-        require(rain.shape == (170, len(weights)), "unexpected LOCA2 season shape")
-        require(np.isfinite(rain).all() and np.isfinite(tmin).all() and np.isfinite(tmax).all(), "nonfinite LOCA2 values")
-        require((rain >= 0).all() and (tmax >= tmin).all(), "LOCA2 physical checks failed")
-        cell_rows = [
-            build_cell_basis(rain[:, cell], (tmin[:, cell] + tmax[:, cell]) / 2, tmin[:, cell], tmax[:, cell], float(config["sample"]["wet_day_threshold_mm"]))
-            for cell in range(len(weights))
-        ]
-        cell_basis = pd.DataFrame(cell_rows)
-        aggregated = {column: float(np.dot(cell_basis[column], weight_values)) for column in cell_basis.columns}
+        basis_frames = []
+        for positions in cell_partitions:
+            partition_lat = xr.DataArray(lat_indices[positions], dims="cell")
+            partition_lon = xr.DataArray(lon_indices[positions], dims="cell")
+            indexers = {"ensemble": ensemble_index, "lat": partition_lat, "lon": partition_lon}
+            # Exactly one source spatial chunk is decoded at a time under the
+            # low-memory strategy. Only the small selected cell arrays survive
+            # long enough to construct that partition's nonlinear basis.
+            rain = ds.pr.isel(**indexers).sel(time=dates).values.astype(float)
+            tmin = ds.tasmin.isel(**indexers).sel(time=dates).values.astype(float)
+            tmax = ds.tasmax.isel(**indexers).sel(time=dates).values.astype(float)
+            require(rain.shape == (170, len(positions)), "unexpected LOCA2 season shape")
+            require(np.isfinite(rain).all() and np.isfinite(tmin).all() and np.isfinite(tmax).all(), "nonfinite LOCA2 values")
+            require((rain >= 0).all() and (tmax >= tmin).all(), "LOCA2 physical checks failed")
+            basis_frames.append(build_basis_frame(
+                rain,
+                tmin,
+                tmax,
+                positions,
+                float(config["sample"]["wet_day_threshold_mm"]),
+            ))
+            del rain, tmin, tmax
+            gc.collect()
+        aggregated = aggregate_basis_frames(basis_frames, weight_values)
         modeled_rows.append({"harvest_year": int(row.harvest_year), **aggregated})
     modeled = pd.DataFrame(modeled_rows).sort_values("harvest_year").reset_index(drop=True)
     comparisons = compare_distributions(modeled, observed)
@@ -195,6 +282,8 @@ def main() -> None:
             "precipitation_version": ds.pr.attrs["LOCA2_version"],
             "remote_chunks": chunk_records,
             "remote_chunk_mib_upper_bound": remote_bytes / 1024**2,
+            "spatial_accumulator": accumulator,
+            "spatial_accumulator_partitions": len(cell_partitions),
         },
         "support": {
             "county_geoid": config["sample"]["county_geoid"],
