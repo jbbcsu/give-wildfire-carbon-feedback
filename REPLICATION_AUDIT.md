@@ -49,6 +49,17 @@ labor welfare columns directly; it does not use the separate total-welfare
 column, so numerical equality among those columns is recorded as a diagnostic
 rather than imposed as an undocumented identity.
 
-The remaining exact-replication dependency is the 1.46 GB RFF-SP archive. It is
-CC-BY-4.0 and is being acquired into the ignored project-local Julia depot. The
-download is a throughput bottleneck, not an identification or code bottleneck.
+The 1.46 GB CC-BY-4.0 RFF-SP archive has now been acquired into the ignored
+project-local Julia depot, independently matched to its published MD5, and
+successfully extracted to 11,007 files.
+
+The first 100-draw RFF-SP staging runs complete under the paper's seed and 2%
+discount schedule. Agriculture is $28.82/tCO2 under ISO and $28.76/tCO2 under
+Lancet, already close to the paper's rounded $29 headline. Labor is $60.28
+under ISO and $33.34 under Lancet; total SCC is $205.78 and $178.42,
+respectively. These small-run means have Monte Carlo standard errors of $4.96
+and $2.48 for labor and are not the published reproduction. They demonstrate
+that the two response functions materially differ and that the Lancet staging
+total is close to the paper's rounded $179 total. The registered next gate is
+1,000 draws, followed by the authors' 10,000 draws; no function will be chosen
+post hoc based on the preferred magnitude.

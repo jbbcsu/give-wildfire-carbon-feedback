@@ -1,0 +1,73 @@
+{
+  "claim_status": "staged Monte Carlo diagnostic; not eligible as a paper reproduction until 10,000 draws and prespecified comparison checks pass",
+  "created_at_utc": "2026-10-09T18:50:34.567444+00:00",
+  "currency": "2020 USD per metric ton CO2",
+  "discount_rate_label": "2.0%",
+  "draws": 100,
+  "files": {
+    "manifest": {
+      "path": "vendor/moore_2026/lrennels-paper-2026-give-labor-ag-5d034e7/Manifest.toml",
+      "sha256": "08890942824db91a81b45fcb60b35e820d3d12aaa5c6a044d0ba0ec93dcca448"
+    },
+    "runner": {
+      "path": "scripts/replicate_sectoral_scc.jl",
+      "sha256": "f7550fa7a3066eee3d7a08ab327cae4a9c3c990436e9a3399be8f4a74510b248"
+    },
+    "summary": {
+      "path": "output/replication/pulse2025_n100_iso_seed24523438/sectoral_scc_summary.csv",
+      "sha256": "f8bd5dcd3cb4daf3910733e5f631be14c2f93257d5ae6a82f7cb431131011a0f"
+    }
+  },
+  "julia_threads": 1,
+  "julia_version": "1.12.5",
+  "labor_function": "ISO",
+  "pulse_year": 2025,
+  "schema": "labor_ag_sectoral_scc_stage_receipt/v1",
+  "seed": 24523438,
+  "socioeconomics": "RFF-SP",
+  "source_doi": "10.5281/zenodo.21483095",
+  "summary": {
+    "agriculture": {
+      "expected_scc_2020usd_per_tco2": 28.820265885508512,
+      "median": 24.178788293169454,
+      "q05": 2.3827141290263545,
+      "q95": 77.71319331661309,
+      "se_expected_scc": 2.4281753586534034
+    },
+    "cromar_mortality": {
+      "expected_scc_2020usd_per_tco2": 104.17946055924455,
+      "median": 93.35604669898012,
+      "q05": 45.31790780357597,
+      "q95": 196.52605907772377,
+      "se_expected_scc": 5.0902240532526575
+    },
+    "energy": {
+      "expected_scc_2020usd_per_tco2": 9.96535609331258,
+      "median": 9.482462121918571,
+      "q05": 4.7160739253877315,
+      "q95": 18.00568223007577,
+      "se_expected_scc": 0.41624815766686785
+    },
+    "labor": {
+      "expected_scc_2020usd_per_tco2": 60.282347303680915,
+      "median": 45.80423648380369,
+      "q05": 0.05596668614962265,
+      "q95": 153.64931243037344,
+      "se_expected_scc": 4.961890095107049
+    },
+    "slr": {
+      "expected_scc_2020usd_per_tco2": 2.533893933843055,
+      "median": 1.6741166094350917,
+      "q05": 0.6391053751101016,
+      "q95": 5.718649150705571,
+      "se_expected_scc": 0.34577202339042307
+    },
+    "total": {
+      "expected_scc_2020usd_per_tco2": 205.78132377529855,
+      "median": 178.9300923664867,
+      "q05": 84.28446480288032,
+      "q95": 411.4528295355102,
+      "se_expected_scc": 10.44683585010537
+    }
+  }
+}
