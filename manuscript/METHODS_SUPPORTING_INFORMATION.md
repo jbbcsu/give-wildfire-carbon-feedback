@@ -53,6 +53,16 @@ country-year mortality and VSL scaling, paired GIVE pulse calculation, and
 leave-one-model-out sensitivity. Its reported interval is labeled conditional
 unless structural fire-model and functional-form uncertainty are propagated.
 
+## S5.2 Meteorological ozone and non-wildfire PM2.5 evidence gate
+
+The McDuffie et al. reduced-form model is reproduced from its versioned public
+repository before integration. Validation separately checks article and code
+versions, the two GCM-specific impact-per-degree functions, 10,000 RFF paths,
+the marginal-pulse carbon-to-CO2 conversion, country aggregation, Ramsey
+discounting, certainty-equivalent adjustment, and the identity between ozone,
+PM2.5, and net summaries. Any mismatch between article and repository output
+fails promotion rather than being reconciled through undocumented arithmetic.
+
 ## S6. SCC calculation
 
 Eligible damage modules are evaluated in paired baseline and marginal-emission

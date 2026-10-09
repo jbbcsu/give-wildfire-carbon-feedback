@@ -146,6 +146,19 @@ share fire projections and must not count the same emissions or health outcome
 twice. Climate-driven surface ozone is a third air-pollution pathway and
 requires a separate climate-chemistry-to-exposure-and-health module.
 
+McDuffie et al. (2026) now provide such a published fast route for
+meteorologically driven air pollution. Their peer-reviewed analysis reports a
+global mean partial SCC of +$23/tCO2 for surface ozone (90% interval +$7 to
++$45), -$38/tCO2 for non-wildfire PM2.5 (-$118 to -$3), and -$15/tCO2 net at
+2% Ramsey discounting. Open burning is held fixed and excluded, making the
+PM2.5 pathway conceptually separable from wildfire smoke. The official code is
+public, but the available commit predates the final article: equal averaging of
+its checked-in CESM2 and GISS summaries yields +$16.67 for ozone and -$24.53
+for PM2.5, while its separate net summary yields -$34.67 and does not equal the
+component sum. We record this discrepancy as a failed reproduction gate. The
+published values remain external benchmarks until the final release alignment
+is resolved.
+
 ## 5. Interpretation
 
 The initial evidence suggests that the fastest substantial extension is labor
@@ -168,7 +181,8 @@ damages through overlapping endpoints.
    benchmark as irreducibly external.
 5. Reproduce the global wildfire-smoke coefficients and SCC, then integrate it
    with the wildfire-carbon module under a shared-input and endpoint audit.
-6. Develop a published-response benchmark for climate-driven surface ozone.
+6. Resolve the EPA public-release discrepancy and reproduce its surface-ozone
+   and non-wildfire PM2.5 country paths.
 7. Construct the overlap-cleared combined SCC and evidence envelope.
 8. Run leave-one-sector-out, structural, discounting, climate, socioeconomic,
    and adaptation sensitivities.
