@@ -28,6 +28,7 @@ def main():
     p.add_argument('--result', type=Path, required=True)
     p.add_argument('--out', type=Path, required=True)
     args = p.parse_args()
+    np.seterr(all='raise')
     frames, mask, binding, _ = load_inputs()
     if json.loads(args.manifest.read_text()) != binding:
         raise ValueError('input binding changed')
@@ -57,19 +58,19 @@ def main():
             raise ValueError('SVD rank differs')
         beta = b/scale
         np.testing.assert_allclose(beta, r['beta'], rtol=1e-7, atol=1e-10)
-        error = y-z@b
-        orthogonality = float(np.max(np.abs(z.T@error))/len(f))
+        error = y-np.einsum('ni,i->n', z, b, optimize=False)
+        orthogonality = float(np.max(np.abs(np.einsum('ni,n->i', z, error, optimize=False)))/len(f))
         group_mean = max(float(np.max(np.abs(pd.DataFrame(np.column_stack([y, z])).groupby(g).mean().to_numpy()))) for g in groups)
-        if orthogonality > 1e-8 or group_mean > 1e-8:
+        if not np.isfinite([orthogonality, group_mean]).all() or orthogonality > 1e-8 or group_mean > 1e-8:
             raise ValueError('OLS/fixed-effect orthogonality failed')
         # Independent scaled cross-product sandwich; original FE-degree-of-freedom
         # limitation retained explicitly, not corrected by this numerical audit.
         codes, labels = pd.factorize(f.county_geoid, sort=True)
         scores = np.zeros((len(labels), len(b)))
         np.add.at(scores, codes, z*error[:, None])
-        influence = np.linalg.solve(z.T@z, scores.T).T/scale
+        influence = np.linalg.solve(np.einsum('ni,nj->ij', z, z, optimize=False), scores.T).T/scale
         n, k = x.shape
-        covariance = len(labels)/(len(labels)-1)*(n-1)/(n-k)*(influence.T@influence)
+        covariance = len(labels)/(len(labels)-1)*(n-1)/(n-k)*np.einsum('gi,gj->ij', influence, influence, optimize=False)
         np.testing.assert_allclose(covariance, r['covariance_county_cluster'], rtol=1e-6, atol=1e-11)
         checks.append(dict(status='numerically_replicated', weather_source=entry['weather_source'], crop=entry['crop'],
             practice=entry['practice'], form=entry['form'], threshold_c=entry['threshold_c'], cohort=entry['cohort'],

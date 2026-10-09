@@ -1,5 +1,981 @@
 # Analysis status and claim ledger
 
+Entries are chronological snapshots, newest first. An older entry's
+"in progress" or "not yet estimated" describes its date, not the current
+state; use the newest relevant entry and its linked result receipt.
+
+## September 23 published global maize response reproduced
+
+A 345,639,713-byte maize regression dataset omitted from the current Hultgren
+et al. replication tree was recovered from the repository's public Git history
+and hash-bound to commit `dae5fe8d0d4a260328e4baa45b547368bd6790b3` and blob
+`da2ac691b32db1b98dea95b8f0ff4256659c8a96`. The raw Stata data remain ignored
+and are not redistributed because no repository license was located. Running
+the published 49-term model reproduces the exact 377,824-observation sample,
+cluster counts, fixed effects, regressor order, and coefficient vector (relative
+L2 error `2.42e-14`); covariance relative L2 error is `2.65e-6`. A bounded
+50,000-row chunk audit over all 412,282 source rows confirms that the three
+phase-specific linear and quadratic precipitation terms sum to their respective
+full-season terms within single-precision tolerance. This establishes the
+published historical maize response and phase-basis arithmetic. It does not
+validate future weather transformation, moderator trajectories, damages, or an
+SCC increment. See `HULTGREN_MAIZE_RESPONSE_SOURCE_RESULTS_20260923.md` and the
+strict provenance receipt.
+
+## September 22 five-ESM late-century crop-calendar drought exposure
+
+All 15 five-ESM by three-SSP 2091--2100 daily climate cases now pass
+case-level climate and crop-window validation. Frozen observational
+1982--2011 parameters convert monthly precipitation minus Hargreaves--Samani
+reference evapotranspiration to SPEI-1/3/6 without refitting the future.
+GGCMI calendars and fixed MIRCA-OS v2 hectares produce maize/soybean season,
+stage and preplant summaries for harvest years 2092--2099. An independent
+matrix implementation reproduced 1,350 case means, 900 named-model contrasts
+and 180 cross-model records in 7,065 checks with zero saved-precision
+disagreement.
+
+For the primary rainfed crop-season SPEI-3 diagnostic, SSP3-7.0/SSP5-8.5
+minus SSP1-2.6 five-model mean differences are -0.449/-0.662 for maize and
+-0.326/-0.542 for soybean. All five named ESMs are negative for each of these
+four contrasts. Across five windows, three SPEI scales and three fixed area
+bases, at least four of five models are negative in every one of 180
+crop--scenario cells. These signs are not probabilities or confidence
+intervals. Scenario exposure is not anthropogenic attribution, a marginal
+CO2-pulse response, yield loss, damage, or SCC. No coefficient is applied
+because the global drought-response promotion gate remains closed. See
+`FIVE_ESM_LATE_DROUGHT_EXPOSURE_RESULTS_20260922.md`.
+
+## September17 contiguous global rainfed-maize source and centered features
+
+The GFDL-ESM4 SSP1-2.6 2032--2059 full-grid, daily-derived maize/rainfed
+feature panel passes an independent 28-year audit: 67,420 calendar cells,
+1,887,760 season rows, 5,663,280 stage rows and 252 new raw-daily
+cell-season reconstructions. A separate centered 21-year source-feature
+operation also passes all 36 tile receipts and an independent global
+audit: eight 2042--49 centers, 539,360 season and 1,618,080 stage rows,
+with 168 independent annual-feature mean reconstructions. Peak sampled
+audit RSS was 177 MB (annual) and 413 MB (centered); the largest
+feature tile used 273 MB. Failed first audit/parity attempts and their
+specific empty-tile/schema corrections are retained, not hidden.
+These heavily overlapping one-ESM/one-scenario source windows are **not**
+an identified GMT-to-precipitation response, yield effect, damage, or
+SCC result. See
+`GLOBAL_CONTIGUOUS_GFDL_28YR_AND_CENTERED_RESULTS_20260917.md`.
+
+## September17 GFDL within-SSP1-2.6 two-window crop-weather diagnostic
+
+GFDL-ESM4 rainfed-maize 2042--2049 and 2092--2099 full-grid panels
+pass exact 144-frame generic/bespoke anchor parity, both independent
+eight-year source audits, and a 45/45 independent weather-arithmetic
+audit. Equal-cell late-minus-mid means are +10.656 mm season rain,
++0.800 wet days, -0.071 maximum dry-spell days and +1.299 mm Rx5day.
+Same-realization mean GMST is -0.02364 K later-minus-mid: the tiny
+negative temperature contrast alongside positive rainfall illustrates
+why dividing short-window rainfall differences by GMST is invalid.
+The preregistered same-SSP UKESM comparison passes exact metadata
+alignment and its own 315-statistic audit; UKESM season rain is
++7.922 mm and Rx5day +1.410 mm, but its GMST change is +0.370 K.
+All nine equal-cell mean weather-feature signs match across these
+two ESMs; no pooled estimate, forced per-K response, crop-yield
+effect, damage or SCC follows. See
+`GLOBAL_DIRECT_DAILY_GFDL_TWO_WINDOW_WEATHER_RESULTS_20260917.md`.
+
+## September17 MRI within-SSP5-8.5 two-window crop-weather diagnostic
+
+MRI-ESM2-0 rainfed-maize 2042--2049 and 2092--2099 full-grid daily panels
+pass independent eight-year source/calendar/hash audits, 21 fixed raw-cell
+checks per year, and a separate 45/45 weather-arithmetic checker. Equal-cell
+late-minus-mid means are +16.063 mm season rainfall, -0.205 wet days,
++0.698 maximum dry-spell days, +4.945 mm Rx5day, and +2.382 C season
+temperature. Spatial wet-day median is +0.125 days, opposite its mean;
+5th/95th spatial rainfall differences are -124.215/+155.553 mm, not
+confidence bounds. Same-realization mean GMST rises 2.249 K. None of
+these differences identifies a forced per-K response, yield, damage or
+SCC. A pre-result inventory correction recorded GFDL SSP1-2.6 as another
+resident two-window candidate; MRI was chosen for generic-pipeline
+convenience, not because it was uniquely eligible. See
+`GLOBAL_DIRECT_DAILY_MRI_TWO_WINDOW_WEATHER_RESULTS_20260917.md`.
+The separate GFDL generic 2042/2092 anchors pass exact 144-frame parity
+with their previously audited bespoke versions; remaining years and audits
+are in progress. Its different SSP is not an MRI replication.
+
+## September17 three-ESM late-window crop-weather sign-stability check
+
+MPI-ESM1-2-HR joins UKESM/IPSL for all three 2092--2099 SSP windows
+on 67,420 global rainfed-maize calendar cells. All 72 yearly panels,
+nine eight-year source audits, per-ESM 315/90/90 summary arithmetic
+checks, and the three-ESM 114/114 merge check pass. For SSP5-8.5
+minus SSP1-2.6, seasonal rainfall is +7.231/+23.543/**-1.180** mm
+(UKESM/IPSL/MPI): the two-ESM positive-total sign fails the third
+model. Rx5day is +6.288/+7.748/+3.089 mm; wet days and stage rain
+have mixed signs. These short one-window weather contrasts are not
+forced precipitation-per-K, crop-yield effects, damages, or SCC.
+See `GLOBAL_DIRECT_DAILY_THREE_ESM_LATE_WEATHER_RESULTS_20260917.md`.
+
+## September17 two-ESM late-window crop-weather robustness
+
+IPSL-CM6A-LR now joins UKESM1-0-LL for SSP1-2.6/3-7.0/5-8.5
+2092--2099 global rainfed-maize calendar features. All 48
+ESM×scenario×year full-grid panels and six separate eight-year
+cross-year audits pass; the IPSL grouped-table arithmetic check
+reproduced 90/90 statistics and the hash-bound two-ESM merger audit
+112/112. Under late-century SSP5-8.5 minus SSP1-2.6, equal-cell
+season rainfall is +7.231/+23.543 mm (UKESM/IPSL) and Rx5day
++6.288/+7.748 mm, but wet-day differences are -1.056/+0.221 and
+early-stage rain -0.938/+1.560 mm: signs disagree for the latter two.
+This is two-ESM, short-window weather evidence, not a forced GMT
+response, crop-yield effect, damage or SCC. See
+`GLOBAL_DIRECT_DAILY_TWO_ESM_LATE_WEATHER_RESULTS_20260917.md`.
+
+## September17 UKESM six-window global crop-weather diagnostic
+
+All three SSP1-2.6/3-7.0/5-8.5 × two 2042--49/2092--99 eight-year
+UKESM rainfed-maize windows now have full-grid, daily-source-checked
+season/stage features and separate cross-year audits. A pre-registered,
+equal-calendar-cell comparison distinguishes seasonal total, stage
+rainfall, wet days, dry spells, extreme rain, and temperature. The
+independent grouped-table auditor reproduced 315/315 descriptive
+statistics. In late-century SSP5-8.5 minus SSP1-2.6, mean seasonal
+rain is +7.231 mm, wet days -1.056 days, and Rx5day +6.288 mm; the
+spatial distribution is wide. These are one-ESM, short-window
+weather-only contrasts, not precipitation-per-K, causal yield/damage,
+or SCC. The failed script runs and passed retries are retained.
+Details: `GLOBAL_DIRECT_DAILY_UKESM_SIX_WINDOW_WEATHER_RESULTS_20260917.md`.
+
+## September17 UKESM two eight-year full-grid crop-weather windows
+
+UKESM SSP1-2.6 harvest years 2042--2049 and 2092--2099 now pass
+source-bound 36-tile, 21-raw-cell-per-year independent checks and
+separate cross-year hash/calendar audits. Together: 1,078,720
+crop-season and 3,236,160 within-season stage *weather* rows.
+The 2042--2049 auditor first failed on an implementation shadowing
+error, then passed a separately receipted corrected rerun without
+source/feature changes. The eight-year simultaneous tile memory
+failure also remains disclosed; one-year workers stayed under the
+512 MiB guard. See
+`GLOBAL_DIRECT_DAILY_UKESM_TWO_EIGHT_YEAR_WINDOWS_RESULTS_20260917.md`.
+No fitted GMT response, yields, damage or SCC follows from the
+two-window one-ESM/one-scenario coverage.
+
+## September17 UKESM mid-/end-century source-only anchors and multiyear weather
+
+All UKESM1-0-LL 2042 SSP1-2.6/3-7.0/5-8.5 full-grid daily
+rainfed-maize panels passed source hashes, 36 tiles each, and 21
+independent raw-cell recomputations per panel. The 2042 matched-cell
+scenario rainfall differences are +2.04/-4.06 mm versus SSP1-2.6,
+and a separate 92-check numeric reconstruction passes. Six 2042/2092
+feature anchors match their SHA-pinned same-realization annual-GMST
+parquets and source receipts; this is support alignment, **not a
+precipitation-per-K fit**. An eight-year UKESM SSP1-2.6 2092--2099
+panel (539,360 season rows, 1,618,080 stages) passed independent
+per-year and cross-year audits; a simultaneous eight-year tile
+previously exceeded 512 MiB and was stopped, so safe one-year
+workers were used. See `GLOBAL_DIRECT_DAILY_UKESM_TWO_WINDOW_ANCHOR_RESULTS_20260917.md`
+and `GLOBAL_DIRECT_DAILY_UKESM_MULTYEAR_ENGINEERING_STATUS_20260917.md`.
+No yield, damage or SCC is inferred.
+
+## September17 five-ESM × three-SSP daily crop-weather source cohort
+
+All 15 ISIMIP3b 2092 rainfed-maize ESM/SSP panels now pass source
+hashes, 36 bounded tiles and 21 fixed independent raw-cell checks per
+panel. Cohort audit rehashed 30 raw files and all feature partitions;
+exact calendar masks and resource receipts pass. Total 1,011,300
+seasonal cells and 3,033,900 stages; maximum sampled builder RSS
+247,218,176 bytes and 137 GiB disk free. Two source-receipt schema
+stops were disclosed and normalized against declared, hash-pinned
+metadata. This is input engineering for **one year**, not a fitted GMT
+response, yields, damages or SCC. See
+`GLOBAL_DIRECT_DAILY_FIVE_ESM_2092_COHORT_RESULTS_20260917.md`.
+
+## September17 UKESM late-century scenario weather comparison: descriptive only
+
+Full-grid UKESM1-0-LL SSP1-2.6/3-7.0/5-8.5 harvest-year 2092 daily
+rainfed-maize features pass source hashes, 36/36 bounded tiles per
+scenario, exact crop-calendar masks and 21 independent raw-cell checks
+per scenario. On 67,420 equal-weighted calendar cells, the mean seasonal
+rain differences relative to SSP1-2.6 are +9.60/+26.23 mm, while only
+50.2%/52.2% of cells are wetter; the SSP5-8.5 dry-spell mean difference
+is near zero. A separate 92-check keyed-merge arithmetic reconstruction
+passes. These are one-year scenario weather differences, not GMT causal
+responses, yields, damages or SCC. See
+`GLOBAL_DIRECT_DAILY_UKESM_2092_THREE_SCENARIO_RESULTS_20260917.md`.
+
+## September17 full-grid rainfed-maize climate features: input only
+
+The GFDL-ESM4 SSP1-2.6 daily `pr`/`tas` source produces independently
+checked full-grid `mai_noirr` features for harvest years 2032--2039,
+2042 and 2092: ten years, 674,200 crop-calendar cell-year rows and
+2,022,600 stage rows across three source decades, still only one ESM and
+one scenario. Each year passed 36 bounded tiles and 21 fixed raw daily
+cell recomputations; exact calendar-mask and physical checks passed for
+both the eight-year panel and later anchors. Maximum sampled builder RSS
+was 255,983,616 bytes, with 137 GiB disk free after the work. These are
+weather-input engineering results, **not** an estimated GMT response,
+yield, agricultural damage or SCC. See
+`GLOBAL_DIRECT_DAILY_GFDL_2032_2039_MAIZE_PANEL_RESULTS_20260917.md`
+and `GLOBAL_DIRECT_DAILY_GFDL_THREE_WINDOW_ANCHOR_RESULTS_20260917.md`.
+
+## September16 fixed-forecast U.S. state-composition check
+
+The post-result 2017 <=10% all-practice NASS/NOAA terminal forecast
+decomposition reproduces exact parent scores and passes 498 independent
+state/score checks. Soybean's joint-pattern gain remains positive after
+omitting any one state from scoring (minimum +0.00589 log-yield RMSE), but
+only 18/28 state scores favor patterns and North Dakota worsens. Corn's
+pooled increment remains near zero and its leave-one-state-out range crosses
+zero. This is neither a fresh geographic holdout nor a causal/global/SCC
+result. See `US_COUNTY_AVERAGE_STATE_COMPOSITION_RESULTS_20260916.md`.
+
+## September16 GMT-to-precipitation literature feasibility qualification
+
+Published RIME-X, MESMER-M-TP, Kemsley and STITCHES methods cover important
+GMT-to-indicator, monthly, wet/dry daily, and archived daily-sequence
+functions. They do not automatically satisfy the joint crop-feature/pulse
+contract. Current RIME-X template distinctness and five-track catalogue
+shortfalls, plus failed MRI dependence stability, prohibit promotion even
+if the remaining five-track files are acquired. See the updated
+`CLIMATE_PRECIPITATION_EMULATOR_AUDIT.md` and original gate receipts.
+
+## September16 historical direct-practice weather-route sensitivity
+
+The old 11,857 exact NASS irrigated/non-irrigated corn/soy pairs were
+refitted with the same county/state-year FE and clustered design using
+the new NOAA county-area-average crop-year weather. The previous primary
+corn +100mm irrigated/non-irrigated yield-ratio association shifts
+−7.550%→−7.525%; soybean primary quantity-plus-timing shifts
+−4.324%→−4.306%. A separate QR/cluster-sandwich implementation passed
+151 checks. This is post-result measurement robustness of a selected
+regional historical association, not causal irrigation, national yield,
+climate attribution or SCC. See
+`US_PAIRED_PRACTICE_WEATHER_ROUTE_RESULTS_20260916.md`.
+
+## September16 matched U.S. weather-estimator measurement audit
+
+All 11,861 old regional crop/county/year weather keys match the new NOAA
+county-average features and identical crop-calendar dates. Median absolute
+seasonal-rain differences are 0.621/0.713 mm for corn/soy; maximum-dry-spell
+differences are 0.523/0.450 days, with p95 4.774/4.707 days. A separate
+source reconstruction passed 191 checks. The two spatial estimators are
+not interchangeable for nonlinear weather features, and this old regional
+footprint is not national; no yield or SCC response was fit. See
+`US_COUNTY_WEATHER_ESTIMATOR_COMPARISON_RESULTS_20260916.md`.
+
+## September16 U.S. irrigation-share screen robustness independently checked
+
+The post-result 2017 <=20/30% and 2022-vintage screens reuse the same
+NASS/NOAA sources, county-FE ladder and 2020–2025 years; the fixed 2017
+<=10% panel reproduces the primary exactly. Across fixed-2017 screens,
+soybean quantity-to-joint-pattern RMSE changes are 0.15546→0.14781,
+0.16609→0.15836, and 0.17085→0.16491; corn changes are only
+0.18291→0.18224, 0.19161→0.19123, and 0.20525→0.20512. A separate
+source/OLS reconstruction passed 498 checks. The 2022 screen is a
+test-period composition diagnostic, not prospective validation. The
+all-practice outcome is not directly observed rainfed yield; this remains
+predictive and not climate/SCC evidence. Numerical runtime warnings in
+repeated fits are disclosed with finite/rank/residual and independent-score
+checks in `US_COUNTY_AVERAGE_IRRIGATION_SCREEN_RESULTS_20260916.md`.
+
+## September16 PDSI competitor on exact U.S. terminal support
+
+An explicitly post-result PDSI sensitivity retains all 4,075 terminal
+county-years and compares moisture representations on identical rows.
+Under the common trend, 2020–2025 corn RMSE is 0.18291 for rain total,
+0.18224 for the expanded rain-pattern group, and 0.18469 for seasonal-mean
+PDSI; soybean is 0.15546, 0.14781, and 0.15307 respectively. The expanded
+rain group remains best for soybean under state-specific trends too.
+Historical-blocked corn rankings differ from the terminal rankings, so no
+stable winner is asserted there. Independent reconstruction passed 96 score
+checks. PDSI contains temperature and this is predictive robustness, not
+precipitation attribution, a rainfed-yield estimate, or SCC. See
+`US_COUNTY_AVERAGE_PDSI_COMPETITOR_RESULTS_20260916.md`.
+
+## September16 independently checked U.S. post-2019 predictive benchmark
+
+On fixed 2017 <=10%-irrigated-share all-practice NASS county outcomes,
+1981–2019 fitted county-FE models scored identical 2020–2025 rows. Corn
+log-yield RMSE is 0.20494 no-weather, 0.18291 rain-total-plus-temperature,
+0.18224 after timing/extremes; the last increment is tiny, changes sign by
+year and its conditional state-bootstrap interval crosses zero. Soybean is
+0.18919, 0.15546, 0.14781, with the joint timing/extreme group improving
+all six terminal years and the historical blocked diagnostic. Independent
+raw-feature and prediction reconstructions pass 608 and 68 checks. This is
+predictive evidence only; all-practice selected yields are not observed
+non-irrigated yields, rain versus temperature is not causally separated,
+and no climate-change damage, global transfer or SCC has been estimated.
+See `US_COUNTY_AVERAGE_TERMINAL_PREDICTION_RESULTS_20260916.md`.
+An explicitly post-result state-trend sensitivity retains soybean's
+incremental pattern gain (0.15742 to 0.14769) but not a substantive corn
+gain (0.17633 to 0.17525); 36 independent score checks pass. This is
+robustness of prediction, not a climate/SCC result.
+
+## September16 complete NOAA nationwide daily source and calendar gate
+
+The 1981–2025 NOAA nClimGrid-Daily county-average source acquisition is
+complete: 90 six-month batches, 540 months, 2,160 daily-variable CSVs plus
+540 source-version texts, and 2,362,010,369 source bytes. All batches passed
+exact URL/HTTP identity, SHA, 3,107-county schema, daily calendar, physical
+and bounded-resource checks; raw files remain Git-ignored. The 2010 NASS crop
+calendar extension to 2025 reproduced the preexisting 1981–2022 calendar
+exactly; yearwise outcome-blind weather features are being constructed.
+No yield association, climate-attributable effect, valuation or SCC follows
+from source acquisition.
+
+## September16 nationwide daily-weather route passed pilot and entered batches
+
+The fixed three-month NOAA nClimGrid-Daily county-average pilot passed for
+January1981, leap February2024 and July2025: four variables, 3,107 identical
+county keys, source identities and calendar/physical checks. The first
+January run failed an over-tight analyst midpoint tolerance; the disclosed
+source-only amendment passed at 0.020°C, with 0.015°C observed. The first
+2020 six-month production batch passed its 512MiB/64MiB/130GiB guards.
+Sequential, resumable 1981–2025 acquisition is in progress. This route is
+not numerically equivalent to previous polygon-weighted weather, and no
+outcome relationship has been fit. See
+`US_NCLIMGRID_COUNTY_AVERAGE_PILOT_RESULTS_20260916.md`.
+
+## September16 post-2019 U.S. county outcome support acquired and verified
+
+The fixed 2020–2025 NASS all-practice corn/soy county snapshot has 12 source
+responses and 16,544 raw API rows; key-only availability audit and 316
+independent checks pass. Under the fixed 2017 <=10% irrigated-acreage screen,
+2025 positive real-county outcomes number 310 corn and 299 soybean nationally,
+but only 70/32 overlap the existing regional weather geography. The actual
+practice-specific series has just 1–3 positive paired counties per crop-year
+after 2019. Therefore a direct-practice recent holdout is not credible;
+all-practice high-rainfed-share validation is a separate proxy estimand and
+requires a consistent nationwide weather route. No 2020–2025 weather/yield
+effect, welfare or SCC has been estimated. See
+`US_2020_2025_NASS_HOLDOUT_SUPPORT_RESULTS_20260916.md`.
+
+## September16 exact-corner global raw-versus-polynomial fidelity checked
+
+The original EPIC-TAMU maize C360/N200/A0 baseline and uniform
+T+3°C/W−50% simulations were compared with the published polynomial on a
+fixed, physically comparable rainfed production subset. On the unchanged
+all-source denominator, last-30 raw/polynomial contributions are −50.941/
+−50.624 percentage points (81.200% comparable production); first-30 are
+−57.835/−57.505 points (93.632% comparable). An independent vector-basis
+reconstruction passed 87 checks. Missing raw cells, zero baselines and
+negative polynomial yields remain excluded-but-accounted, not clipped or
+reweighted. This is not precipitation-only, actual future climate, daily
+distribution, money damage or SCC. See
+`EPIC_RAW_GLOBAL_FIDELITY_RESULTS_20260916.md`.
+
+## September16 original simulation global support independently audited
+
+Fixed MapSPAM all-source rainfed maize production covers 490.057 million
+tonnes. Original EPIC-TAMU baseline/stress simulations are complete together
+over 83.285% of that fixed weight in the preregistered last-30 window, but
+95.718% in the first-30 sensitivity. The 31st stored growing-season record
+has a large missing-value increase, although the published protocol describes
+30-year outputs; its cause and the authors' fitting window are unresolved.
+The prior emulator `common_response` footprint (95.030%) is not raw-model
+support. Independent slab traversal passed 543 checks and reconciled all 75
+Morocco cells. No global damage or SCC follows from a coverage audit. See
+`EPIC_RAW_GLOBAL_MASK_RESULTS_20260916.md`.
+
+## September16 original simulation comparison reveals spatial-support gap
+
+Both pinned EPIC-TAMU maize A0 source members are recovered and coordinate-
+audited. A frozen75-cell Morocco comparison reads only selected yield series;
+4,650 original values and6,450 independent checks pass. Eight cells (19.316%
+of fixed baseline production weight) are missing in **both** raw simulation
+states for all31 records; these exactly coincide with the eight cells where
+the published polynomial predicts negative yield at the T+3/W−50% corner
+and with the earlier projected-input flags. On the remaining67 cells, the
+last-30-record raw versus polynomial supported contributions are −52.157
+versus −47.511 percentage points on the unchanged full75-cell denominator.
+This is a uniform-perturbation source-model fidelity test, not a Morocco
+damage estimate, observational validation, rainfall-timing response or SCC.
+The raw spatial mask mismatch must be audited beyond Morocco before any
+global benchmark is qualified. See `EPIC_RAW_MOROCCO_COMPARISON_RESULTS_20260916.md`.
+
+## September16 original baseline yield file accessible, not analyzed
+
+The source baseline NetCDF member was reassembled and hash-pinned from60
+individually verified small ranges, without downloading the2.7GB archive.
+Header inspection confirms31 annual records and a compressed yield variable;
+no yield value was read, fitted window inferred, or crop result changed. Full
+archive MD5 remains unverified. See
+`EPIC_RAW_BASELINE_MEMBER_RESULTS_20260916.md`.
+
+## September16 original simulation transfer constraint
+
+A3.917MB member-range request timed out at the source (504). A separately
+capped4KiB request from the same pinned offset returned exact206 and HDF5
+signature. A chunked route may be possible, but no full member or yield
+array was acquired and no crop conclusion follows. Failed attempt retained;
+see `EPIC_RAW_MEMBER_TRANSFER_STATUS_20260916.md`.
+
+## September15 header index locates matched experimental source files
+
+A capped128-header index locates C360/N200/A0 baseline and T+3/W−50%
+simulation members without downloading their bodies or the2.7GB archive.
+Six synthetic checks pass; exact range/tar safeguards apply to each request.
+Index remains partial, source yields/time conventions uninspected and full
+archive checksum unverified. No new yield, damage or SCC result. See
+`GGCMI_TAR_HEADER_INDEX_RESULTS_20260915.md`.
+
+## September15 original simulation access route verified
+
+Official Table4 and exact archive metadata identify EPIC-TAMU maize outputs
+at Zenodo2582349. A capped512-byte probe verifies tar-header range access,
+offering a potential bounded-storage extraction route without downloading
+the2.7GB archive. No yield member body, training-state comparison, refit,
+crop-response validation, welfare or SCC. See
+`GGCMI_RAW_OUTPUT_ACCESS_RESULTS_20260915.md`.
+
+## September15 remediation assessment; no corrected benchmark
+
+Source review distinguishes polynomial coefficient assets from raw GGCMI
+simulation outputs advertised separately in the protocol's Table4. The exact
+EPIC-TAMU output release/layout is not yet verified. Clipping, constrained
+refit, raw-simulation validation and published alternatives are distinct
+choices; none has been silently adopted. No new empirical result or SCC.
+See `CROP_BENCHMARK_REMEDIATION_MEMO_20260915.md`.
+
+## September15 invalid crop-model outcome traced, not corrected
+
+Morocco's two calendar entries reproduce exactly from75 saved common-support
+cells and published coefficients (600 corner comparisons;608 independent
+checks). Eight cells yield negative future production despite inputs inside
+the registered T/W application bounds. No arithmetic/join discrepancy was
+found; the polynomial response remains physically unqualified for valuation.
+No clipping, dropping, refit, empirical damage or SCC. See
+`MOROCCO_NEGATIVE_CORNER_TRACE_RESULTS_20260915.md`.
+
+## September15 welfare-input readiness and invalid benchmark flag
+
+32 maize cases/3,360 country-case-regime rows reconcile to the resident
+baseline ledger;3 tests and364 independent checks pass. Annual pulse-draw
+and adaptation-cost inputs are absent from these summaries. Two Morocco
+EPIC/IPSL/SSP585 rainfed entries imply nonpositive joint production and cannot
+enter a log-supply mapping; this is a benchmark qualification failure, not
+an estimated real crop loss. No clipping or monetization. See
+`WELFARE_INPUT_READINESS_RESULTS_20260915.md`.
+
+## September15 independent welfare design, not empirical results
+
+The proposed fully anticipated benchmark now has an explicit mathematical
+specification, paired surplus differences, two alternative yield-to-supply
+mappings and within-market irrigation aggregation. It distinguishes a
+precipitation contribution from total-agriculture replacement and retains
+adaptation/coverage/attribution gaps. It is not adopted or calibrated and does
+not replicate the unresolved published storage/surplus route. No new numerical
+damage or SCC. See `FULLY_ANTICIPATED_WELFARE_SPECIFICATION_20260915.md`.
+
+## September15 price convention resolved; welfare not calculated
+
+Nine affected test groups validate a source-pinned GDP-wide price rebase:
+central0.8357992263240843 and a2015 midpoint sensitivity. Only the price-basis
+gate is now resolved. Source is a state-government reproduction of BEA's
+March2022 series, not an exact archived2021 BEA file; pairwise GIVE constants
+match. The FAOSTAT farm-gate/GDP price-concept approximation is disclosed.
+No ledger conversion or empiricalmoney/SCC. Expectation, realized surplus and
+adaptation-accounting gates remain closed. See
+`PRICE_BASIS_REGISTRY_RESULTS_20260915.md`.
+
+## September14 welfare scenario registry
+
+Twenty-seven configuration identities now cover country/continent/global
+markets, three published elasticity assumption pairs and fixed/trend/upper
+adaptation cases. Three test groups pass. Empirical execution remains
+programmatically disabled while expectation, surplus and adaptation
+accounting gates are open. These are scenario labels, not estimates. See
+`WELFARE_SCENARIO_REGISTRY_RESULTS_20260914.md`.
+
+## September14 baseline value proxy ledger
+
+A source-pinned150-country/231-regime ledger allocates complete1999--2001
+FAOSTAT maize value to fixed MapSPAM rainfed/irrigated production shares while
+retaining physical-response support gaps. Three synthetic tests and2,118
+independent checks pass. The complete-value baseline is143.163billion constant
+2014--2016USD;130.471billion (91.135%) lies on common response support under
+this production-proportional proxy. Five codes remain explicitly unmapped to
+FUND. This is baseline accounting, not regime-observed value, welfare damage,
+USD2005, climate attribution or SCC. See
+`WELFARE_BASELINE_LEDGER_RESULTS_20260914.md`.
+
+## September8 annual-money engineering boundary
+
+Seven Python contract test groups and27 native-Mimi assertions passed. The
+actual, source-pinned GIVE damage aggregator preserves artificial money signs,
+applies the expected billion-to-dollar scale, and does not multiply this money
+by GDP again. No full GIVE run, empirical valuation or SCC estimate. Separate
+cross-language transport also passed14Julia assertions plus Python overwrite
+and axis-rejection checks. See
+`MONETARY_ADAPTER_ENGINEERING_RESULTS_20260908.md` for scope and failed/passing
+receipts. Existing fractional-loss components remain unchanged.
+
+September14 continuation: the full archived GIVE ordinary-path wiring control
+also passed20 assertions. It preserves nonagricultural topology and an altered
+sector flag, leaves the caller model unchanged, maps artificial regional money
+to the expected global/domestic aggregates, and leaves mortality/energy outputs
+unchanged in a zero-money rerun. This completes the synthetic software boundary,
+not empirical welfare, climate attribution, discounting or SCC calculation.
+
+## September8 preliminary package updated
+
+The brief now leads with a current, plain-language synthesis. A new separate
+291-claim source-bound extension includes all 32 physical benchmark cases,
+geographic illustrations, coverage and selection results. Four traceability
+tests pass. The earlier 50-claim historical and 148-claim SPEI registries remain
+unchanged. See `PRELIMINARY_EVIDENCE_PACKAGE_20260908.md`.
+
+The final journal-linked Liu proof was retrieved after diagnosing its larger
+size; it does not resolve the model-specific feature contract. All identified
+journal-linked alternatives have now been inspected for this question. The
+author query remains unsent, and the annual model remains disabled. This is a
+source-resolution constraint, not proof that no other implementation exists.
+
+The subsequent already-monetized annual input contract and source-pinned
+adapter test are now implemented, as recorded above. No empirical monetary
+damages have been created.
+
+## September8 baseline economic-input coverage complete
+
+All-three-year FAOSTAT value coverage is 97.898% of common rainfed production
+and 98.736% of common irrigated production. Belgium/Luxembourg have two years;
+missing and unmapped categories remain separate, with no published zeros in
+this footprint. Independent 2,418 checks pass, maximum scaled error 3.66e-16.
+This is physical-production coverage of national value inputs, not a value
+weight or monetary damage. No imputation or model promotion. Report:
+`EPIC_CARAIB_ECONOMIC_INPUT_RESULTS_20260908.md`.
+The subsequent physical-response selection diagnostic is also complete:
+32 cases, 1,984 independent checks, maximum scaled error 5.00e-16. The
+complete-value-country restriction changes rainfed precipitation responses by
+−0.0357 to +0.0766 percentage points, with no monetary weights or welfare
+interpretation. See `ECONOMIC_COVERAGE_RESPONSE_SELECTION_RESULTS_20260908.md`.
+
+## September8 geographic comparison complete; welfare source search advancing
+
+The new EPIC/CARAIB country comparison reuses 39,289 validated country-cell
+quantity records and produces 3,360 country/case responses. Independent 52,074
+checks pass (max2.17e−15). Prespecified GFDL126 EPIC rainfall contributions from
+the United States and China are +2.315/+0.815 global percentage points; the
+global total is +3.462%. In GFDL585 the U.S. net +0.026 points masks
++0.667/−0.641 across-cell contributions. Country/source coverage exclusions
+remain explicit. No empirical damages, welfare or SCC is inferred.
+Report: `GGCMI_EPIC_CARAIB_GEOGRAPHIC_RESULTS_20260908.md`.
+
+Next work moves to the missing economic link rather than adding more crop-model
+benchmarks. The pinned Hultgren public replication tree now has a complete
+1,039-entry/11-page metadata index. No filenames match explicit welfare/market/
+monetization/elasticity/license terms. This is not evidence of nonpublication.
+The subsequent 108-unique-file source index and four candidate-context reviews
+are complete. They did not locate the monetary-market implementation. This is
+not a nonpublication claim. Read `HULTGREN_MONETIZATION_SEARCH_RESULTS_20260908.md`.
+An author-clarification draft remains unsent. Next executable local step:
+`EPIC_CARAIB_ECONOMIC_INPUT_COVERAGE_STAGE_20260908.md`; no welfare weights yet.
+
+## September8 global EPIC/CARAIB comparison and external weighting complete
+
+Supersedes the older next-stage notes below. Four EPIC global cases, independent
+spatial transfer checks, exact common-area comparison and identical external
+production weighting are complete. No analysis worker remains active at this
+checkpoint. Full results: `GGCMI_EPIC_CARAIB_GLOBAL_RESULTS_20260908.md`.
+On identical external weights, rainfall contributions in the four harvest-year
+cases span −0.098% to +3.462% for EPIC and −0.024% to +0.339% for CARAIB.
+Joint warming-plus-rainfall responses are negative in all eight model/case rows.
+Common external production coverage is 95.03% rainfed / 85.67% irrigated.
+Independent audits pass 762 common-area and 2,648 external-weight checks.
+These conditional physical-production benchmarks do not validate empirical
+response, daily extremes, adaptation, economic welfare or SCC.
+
+Next justified calculation: geographic decomposition using the already
+source-validated country/cell MapSPAM ledger, with the new common support.
+Do not rerun raw source aggregation or older CARAIB/JULES geography.
+
+## September8 same-forcing spatial benchmark and own global support complete
+
+EPIC-TAMU sparse author/raw/corner checks pass. On82common positive-baseline
+rainfed nodes, hypothetical−10%rain gives median−9.66%EPIC-TAMU versus−1.11%
+CARAIB at unchangedT. No global inference. Own-model global coverage also
+passes258797ledger rows,58429raw regime/cells and14811author-baseline signs.
+Supported2000area94.03%rainfed/85.71%irrigated atN200; source/input coverage
+is not response validation. Both result notes and manuscript/SI are updated.
+Next: `GGCMI_EPIC_TAMU_GLOBAL_CLIMATE_STAGE_20260908.md`, separate source-
+domain evaluator qualification before existing-climate coupling. No new
+download, model-primary promotion, agricultural welfare or SCC claim.
+
+## September8 EPIC-TAMU parameters and fixed-point benchmark complete
+
+Source MD5/SHA256, exact34/19interface,24author-reference evaluations, six
+derivative checks and30record/sixcorner comparison audit pass. At one fixed
+point, hypothetical10%lessrain gives−18.85%EPIC-TAMU versus−1.17%CARAIB rainfed
+yield, relative to each model's baseline. This is a model benchmark, not
+observational evidence, global damage or SCC. Common nominal weather source
+does not remove nitrogen/model differences. Details:
+`GGCMI_EPIC_TAMU_POINT_RESULTS_20260908.md`. Acquisition used two bounded
+chunks and<32MiBRSS, no duplicate parameter file or raw climate hydration.
+Next registered step: `GGCMI_EPIC_TAMU_SPARSE_STAGE_20260908.md`.
+
+## September8 fixed preplant comparison and moisture synthesis complete
+
+Preplant historical diagnostics pass64effective fit/covariance records and
+92contrasts, retaining the two original numerical-verifier failures and their
+exact-value precision repairs. Predictive diagnostics pass170fits and all50
+available maize intervals; every interval includes zero. Soybean retains
+unsupported country-bootstrap coverage and all17models exceed zero-change
+error. Positive historical preplant associations do not establish forecasting,
+climate damage or SCC. See `SPEI_PREPLANT_RESULTS_20260908.md` and
+`GLOBAL_MOISTURE_EVIDENCE_SYNTHESIS_20260908.md`. Current prespecified SPEI
+window sensitivities are done, with no model promotion. Next bounded source-
+qualified crop-model comparison is specified in
+`GGCMI_SAME_FORCING_BENCHMARK_STAGE_20260908.md`; acquisition not started.
+
+## September 8 month-end prediction sensitivity complete
+
+All170fits and independent audits passed. Maize:48423testpairs/99countries,
+56conditional intervals, six excluding zero only for comparisons within/between
+SPEI specifications. Every drought-versus-quantity interval includes zero.
+Soybean:24789testpairs/21countries; fixed-bootstrap support remains insufficient
+and all17estimated models have higher error than zero-change. No scale,
+allocation, production-model or SCC promotion. Full table/all nonzero intervals:
+`SPEI_MONTH_END_PREDICTION_RESULTS_20260908.md`.
+Next: fixed preplant90 diagnostics under
+`SPEI_PREPLANT_DIAGNOSTIC_STAGE_20260908.md`, not implemented or run yet.
+
+## September 8 prediction and full SPEI evidence registry complete
+
+Subsequent month-end historical sensitivity also passed: 64 fit/covariance
+records, 68 contrasts, exact primary-loader parity and four synthetic tests.
+Maize associations are similar across allocation conventions. Soybean's
+6-month month-end result depends on clustering, not a robust new discovery.
+See `SPEI_MONTH_END_ASSOCIATION_RESULTS_20260908.md`. Next executable stage:
+`SPEI_MONTH_END_PREDICTION_STAGE_20260908.md`, implementation still needed.
+
+The primary SPEI country-separated prediction comparison and independent audit
+pass. All 26 maize conditional RMSE contrast intervals include zero. Soybean's
+singleton-country scoring fold prevents the prescribed bootstrap; all eleven
+estimated models perform worse than zero-change on both aggregate scores.
+Positive associations do not establish incremental prediction gains. No model
+promotion or causal/future/welfare/SCC result. Full results:
+`SPEI_COUNTRY_PREDICTION_RESULTS_20260908.md`. The separate 148-claim SPEI
+registry and all 70 available intervals pass exact source validation.
+This supersedes the prediction-next statement in the older section below.
+
+## September8 first exact-support global SPEI–yield associations
+
+Fortyfit/covariance records and44contrasts completed and independently verified
+on352,288maize/157,003soybean historical differences. Seasonal SPEI+1unit
+associations for maize are+1.668%,+2.127%,+2.510%at1/3/6months, with conditional
+country-proxy intervals excluding zero. Soybean seasonal intervals all include
+zero. These are competing moisture specifications with common heat and country-
+year controls, not isolated precipitation effects or evidence of predictive
+superiority. No scale/model promotion, future yield projection, welfare or SCC.
+`SPEI_HISTORICAL_ASSOCIATION_RESULTS_20260908.md`.
+All master support/source-loss audits passed; see
+`SPEI_MASTER_SUPPORT_RESULTS_20260908.md`. Next: the unchanged country-separated
+terminal prediction test under `SPEI_COUNTRY_PREDICTION_STAGE_20260908.md`.
+
+## September8 global crop-window and lossless wide SPEI inputs complete
+
+All61global crop-window blocks and both final manifest audits pass. The wide
+layout preserves1,825,770candidate crop-years/696,835observed flags with
+109,546,200exact inverse field comparisons. Fixed calendars/positive-regime
+weights, source exclusions and CDFclips are retained. This supersedes older
+statements below that global crop-window construction remains unfinished.
+Exact heat/outcome/common-support preparation is now the active data stage.
+No SPEI-yield effect, predictive advantage, climate damage or SCC is claimed.
+`SPEI_GLOBAL_CROP_FEATURE_RESULTS_20260908.md`.
+
+## September8 historical crop-footprint SPEI candidates complete
+
+Memory-safe day-wise preprocessing completed39years/468months for31,208frozen
+native maize/soy cells. Candidate SPEI1/3/6 now constructed in61bounded blocks:
+all1,123,488 distribution fits valid; expected leading missingness only; CDF
+clips retained. All198reference cells reconcile,1,425,600array comparisons
+pass with zero SPEI difference. The60continuation fit/validation jobs took
+148.82s total and used at most159.91MiB sampled RSS perjob. No new yield effect,
+predictor promotion, climate damage or SCC result is claimed. Crop-window
+allocation and final comparative estimation remain unfinished.
+`SPEI_GLOBAL_CANDIDATE_INDEX_RESULTS_20260908.md`.
+
+## September8 SPEI calendar and crop-window pipeline verified
+
+64-cell construction and7,200 anchor comparisons pass. The complete historical
+candidate footprint (1,825,770crop-years) has source-month/calendar coverage
+audited without reading yield values. Within the test tile, all132,588 complete
+regime feature rows pass independent daily-expansion checks; all67,200combined
+feature rows reconcile. Preplant1982 and numerical clipping remain explicit.
+Every new construction/validation job used less than317MiB sampled RSS.
+This is engineering progress only: no global production SPEI, fitted drought
+response, predictive promotion, causal damage or SCC result.
+`SPEI_CALENDAR_AND_TILE_RESULTS_20260908.md`.
+
+## September8 spatial climate cancellation and source-compatibility review
+
+All16 monthly ledgers: positive/negative area shares and pooled rainfall
+contributions independently verified with189,944 checks. GFDL585 rainfed
+harvest-year net+0.051% comprises+2.801/−2.750pp contributions;45.946% of area
+has less seasonal rainfall. Across4cases, annual/seasonal signs differ on
+19.932–22.165% of area. TwoGCM seasonal signs disagree on41.604% (126) and
+46.902% (585). Climate-only descriptive shares, not probabilities/damages.
+`MONTHLY_SPATIAL_CANCELLATION_RESULTS_20260908.md`.
+
+OSCAR beta forcings acquired with checksums;292beta regions cannot silently
+replace311current regions. Units/reference/member gaps block this optional
+current-model projection route. Source checks, Methods SI and an UNSENT author
+inquiry are saved. `OSCAR_FORCING_FEASIBILITY_RESULTS_20260908.md`.
+
+## September 8 global monthly climate quantity/pattern distinction
+
+New climate-only results cover 99.309% of mapped rainfed and 99.781% of irrigated
+maize area without crop-response-domain filtering. Rainfed pooled seasonal
+amount changes: +2.794/+0.051/+2.161/+2.008% for GFDL126/585, IPSL126/585;
+area-mean monthly redistribution indices 0.0451/0.0498/0.0361/0.0441. Thus the
+near-zero pooled amount case does not have an unchanged monthly distribution.
+Five synthetic tests and 13,688 independent numerical checks pass. Not daily
+drought, identified forced effects, crop losses, welfare or SCC. No distribution
+predictor is promoted. `MONTHLY_PRECIPITATION_PATTERN_RESULTS_20260908.md`.
+
+## September 8 OSCAR-crop engineering contract
+
+133,356 arithmetic comparisons and 389,376 independent support/count checks
+pass; 17,795 source parameter combinations qualified before extreme flags.
+Only audited source lambdas ran, not the upstream simulator. No climate scenario
+or yield/SCC projection followed. `OSCAR_FUNCTION_CONTRACT_RESULTS_20260908.md`.
+
+## September 8 OSCAR-crop parameter interface prepared
+
+Nine small source-hashed parameter files (about 4.37 MB) and the frozen source
+interface are acquired; read-only inspection succeeds in the existing environment.
+No upstream code or yield predictions were run. Exact baseline/unit and
+nonpositive-response discrepancies are documented in
+`OSCAR_CROP_ASSET_REVIEW_20260908.md`. This advances an already selected aggregate
+benchmark; it does not solve daily drought, causal attribution or SCC linkage.
+
+## September 8 geographic benchmark decomposition
+
+Fixed-source production was allocated by source country within half-degree
+cells without choosing a single country for border cells. All 148 rainfed/83
+irrigated source-country coverage records and 3,440 supported case summaries
+are retained. Independent source/corner accounting passes 186,113 checks.
+In the first prespecified GFDL126 harvest-year case, the U.S. contributes
++0.213pp to CARAIB's +0.333% global rainfed P result and +5.943pp to JULES's
++9.456%; China contributes +0.085/+2.579pp. These are model-configuration
+production sensitivities, not NASS estimates or country damages. Lower
+coverage (e.g., Indonesia 77.29%) remains explicit. No welfare/SCC promotion.
+`MAPSPAM_GEOGRAPHIC_DIAGNOSTIC_RESULTS_20260908.md`.
+
+## September 8 annual distribution-aware model: not prediction-ready
+
+The published Liu annual CARAIB model exists and has been safely inspected
+without unpickling. Its54 actual features disagree with generic55-column
+documentation; crop-month window and exact ordering remain unresolved. Do not
+guess/drop columns. The419MB serialized model was not retained or loaded;
+metadata inspection stayed near122MiB peak. No new ML was trained or claimed.
+`LIU_ANNUAL_EMULATOR_ASSET_REVIEW_20260908.md`. Public code/schema clarification
+is needed for this optional annual track; other work continues.
+
+## September 8 external-production weighting sensitivity
+
+Identical MapSPAM production weights preserve the CARAIB/JULES disagreement:
+rainfed precipitation contributions range−0.028% to+0.333% in CARAIB and+0.346%
+to+9.456% in JULES across the fixed cases. This is NOT independent observed-yield
+validation: MapSPAM is modeled disaggregation. Common source-production coverage
+is98.018% rainfed/95.519% irrigated, with exclusions unrenormalized.164,052
+source-grid and676 independent weighted-result checks pass; no downloads.
+`MAPSPAM_GLOBAL_WEIGHT_DIAGNOSTIC_RESULTS_20260908.md`.
+Important source qualification: crop-model configurations also differ in
+historical forcing; do not call their contrast purely structural uncertainty.
+`CROP_MODEL_BASELINE_FORCING_QUALIFICATION_20260908.md`. No economic promotion.
+
+## September 8 two-crop-model global benchmark complete
+
+The independent JULES branch now has all four actual monthly climate cases,
+not just sparse perturbations. On the same rainfed cells (97.039% of mapped
+hectares), precipitation contributions are +4.181%, +0.052%, +2.261%, +2.351%
+for JULES versus CARAIB +0.179%, −0.048%, +0.116%, +0.148% (GFDL126/585,
+IPSL126/585, harvest-year). Denominators are explicitly model-specific positive
+baseline production, NOT observed production. Regional gains/losses offset;
+joint warming+precipitation responses are negative in all eight cases.
+These are structural quantity-at-mean-climate benchmarks, not empirical global
+losses, daily drought/timing effects or SCC. No model selected on magnitude.
+See `GGCMI_TWO_MODEL_GLOBAL_RESULTS_20260908.md`. JULES additional checks:
+15,288 author-R corners,528 aggregate checks,18,560 independent climate checks;
+peak370.14MiB. Empirical weighting and annual nonlinear sensitivity remain next.
+
+## September 8 independent crop-model qualification
+
+JULES source acquisition now succeeds through the same public record's file
+route; original API failures were not a data-permission blocker. Its registered
+common-node sparse benchmark shows substantially stronger rainfall responses
+than CARAIB: median −17.06% versus −1.03% for hypothetical −10% rain at +2 °C.
+These are NOT global losses. All 1,824 author-R and 936 support checks pass.
+This specifically cautions against treating the CARAIB global precipitation
+term below as general evidence that agricultural precipitation damages are small.
+See `GGCMI_JULES_SPARSE_COMPARISON_RESULTS_20260908.md`.
+
+## September 8 first global climate-to-maize process benchmark
+
+All four raw-CMIP6/CARAIB cases and both calendar conventions are now coupled
+and independently checked. On a fixed common support covering 97.05% of mapped
+rainfed maize hectares, harvest-year precipitation order-average contributions
+are +0.179%, −0.048%, +0.116%, +0.148% of supported modeled baseline production
+(GFDL126/585, IPSL126/585). Temperature contributions are −6.37% to −12.05%.
+These are quantity-focused, fixed-C360/A0 responses at mean climate, NOT observed
+global losses, a timing/drought result, welfare or SCC. Opposite SSP585 signs,
+spatial cancellation, excluded hectares and raw negative yields are retained.
+21,280 author-R, 576 aggregate and 18,080 independent climate-transfer checks
+pass; peak 411 MiB. `GGCMI_GLOBAL_MONTHLY_BENCHMARK_RESULTS_20260908.md`.
+
+## September 8 cross-year calendar and global monthly access
+
+The source-faithful calendar interface now has explicit harvest-year support:
+six tests, 1,248 exact author-R weights and 80 area reconciliations pass.
+22.6913% of mapped rainfed maize hectares (6.4989% irrigated) need preceding-year
+weather in the primary exposure map. These are calendar shares, not damages.
+`GGCMI_CALENDAR_YEAR_ALIGNMENT_RESULTS_20260908.md` documents the result.
+
+Published PEEPS already supports monthly pattern scaling; no novelty claim for
+that feature. A bounded public-cloud route now has twelve verified raw-CMIP6
+monthly stores and their coordinate axes, with all required baseline/future
+months. Source-specific licensing and calendars are retained. These are not
+ISIMIP bias-adjusted data. The subsequent first actual global monthly climate
+reduction (IPSL historical precipitation) has completed at 201.19 MiB peak,
+retaining 5.92 MB and passing 240 independent scalar checks. Remaining stores
+were chained serially and are now ALL COMPLETE: twelve global monthly products,
+78.79 MiB derived arrays retained, 375.61 MiB maximum peak RSS. All sixteen source
+MD5 checks and 2,160 independent saved-array Decimal checks pass. No global
+crop-response calculation is implied. `PANGEO_MONTHLY_REDUCTION_RESULTS_20260908.md`.
+See `PUBLISHED_MONTHLY_CLIMATE_ROUTE_20260908.md`. No user decision needed.
+
+## September 8 global crop-area coverage, not global damages
+
+Existing MIRCA-OS v2 rasters are now joined to the CARAIB benchmark globally.
+Year-2000 supported positive-baseline/calendar/coefficient coverage is 98.7764%
+of mapped rainfed maize area and 99.2437% of irrigated area; all excluded
+denominators and four alternative vintages are retained. 258,797 ledger rows,
+10,348 author-R baseline/sign checks and 100 independent area aggregates pass.
+No downloads; 260.36 MiB peak. This advances exposure support only, NOT response
+validation, actual global climate coupling, damages or SCC. Details:
+`GGCMI_CROP_AREA_SUPPORT_RESULTS_20260908.md`.
+
+The second JULES download attempt returned HTTP504 with no payload. Stop
+immediate identical retries; this is a source-service constraint, not missing
+download permission. Generalized model-selector code is prepared but JULES
+has not been evaluated. Existing-data research continues independently.
+
+## September 8 sparse spatial process-model diagnostic
+
+The fixed 468-node lattice gives 111 rainfed/115 irrigated eligible CARAIB
+maize nodes; 15 in each regime have nonpositive baseline yields. Hypothetical
+±10% rainfall/+2 °C responses show spatial heterogeneity and some negative
+raw corners or very large relative changes; none are clipped. These are not
+actual future climate projections or global damages. All 1,808 author-R
+corner checks, 936 raw eligibility rereads and 112 summary checks pass.
+No downloads; 59.22 MiB sampled peak. See `GGCMI_SPATIAL_BENCHMARK_RESULTS_20260908.md`.
+Harvested-area support and independent-model/empirical validation remain open.
+
+## September 8 temperature–precipitation interaction accounting
+
+All four fixed climate cases × two calendars × two irrigation regimes now
+have jointly evaluated temperature/rainfall corners. Phase 2 rainfed joint
+T+P responses are -6.5488%, -12.8555%, -8.1074% and -10.8043% (GFDL126/585,
+IPSL126/585); order-averaged rainfall contributions are +1.1516%, -0.9528%,
++0.5569% and +0.7600%. These are SINGLE-POINT CARAIB structural responses,
+not global/observed impacts or SCC. CO2 remains fixed; daily timing is excluded.
+Five unit tests, 64 author-R comparisons, prior W-only parity and 256 independent
+accounting checks pass. No downloads or clipping. See
+`GGCMI_POINT_INTERACTION_RESULTS_20260908.md`. Not in frozen 50-claim registry.
+
+## September 8 two-model/two-scenario point comparison
+
+The registered matrix is complete: quantity-only rainfed contributions at
+the single fixed CARAIB maize point are GFDL SSP126 +1.1436%, GFDL SSP585
+-0.9911%, IPSL SSP126 +0.5580%, IPSL SSP585 +0.7748%. Opposite signs under
+SSP585 are retained. These are structural point benchmarks, not net climate
+impacts, global estimates or SCC. A 5.37MB point archive replaces additional
+global-file downloads; the chained calculation used 166.47MiB sampled RSS.
+7,306 exact sentinel values, 3,600 raw monthly comparisons, all period
+aggregates and author-R arithmetic pass. Full limits/results:
+`GGCMI_POINT_CLIMATE_MATRIX_RESULTS_20260908.md`. Not in frozen50claimregistry.
+
+## September 8 actual climate-to-crop point coupling
+
+Actual climate coupling is complete at one fixed point: GFDL SSP126 gives
++11.2384% calendar-weighted mean rainfall (2031–2060 versus own-model
+1981–2010), implying a +1.14358% uniform-amount-only CARAIB rainfed maize
+contribution with temperature/CO2 fixed. This is a local process-model
+benchmark, NOT an observed effect, net climate impact, global damage or SCC.
+It excludes altered rainfall timing. No downloads; 136.31 MiB sampled RSS.
+Independent raw-month/aggregate checks and author-R arithmetic pass.
+See `GGCMI_CLIMATE_POINT_ALIGNMENT_RESULTS_20260908.md`. These later point
+results are documented separately, not added to the frozen 50-claim package.
+
+## September 8 author-bound process-model point benchmark
+
+The earlier CARAIB ordering blocker is resolved by the recovered Müller
+author code, not by inference. Nine unit tests and 384 additional synthetic
+reference comparisons pass. One preselected real CARAIB maize A0 point now
+evaluates correctly: hypothetical uniform -10% precipitation gives -1.1664%
+rainfed yield relative to that model's baseline; +10% gives +1.0264%.
+This is NOT a climate projection, observed agricultural effect, global
+estimate, irrigation treatment effect or SCC. Author/R arithmetic and
+derivative checks pass. See `GGCMI_CARAIB_POINT_RESULTS_20260908.md`.
+Immediately acquired the matching small Phase 2 calendar archive and checked
+it against resident Phase 3 calendars; their planting dates differ even at
+the fixed point. Real climate-to-model coupling still requires explicit
+calendar/baseline alignment. Prior engineering status below is historical.
+
+## September 8 published-model interface validation
+
+Published osiris reference arithmetic is now reproduced in an isolated
+34-term rainfed/19-term irrigated evaluator: six synthetic unit tests and
+660 Python/base-R comparisons pass. These are engineering results only.
+The resident CARAIB 20/10 parameter layout remains explicitly unsupported;
+no actual process-model yield or SCC was calculated. Raw HDF5 dimensions
+are resolved, baseline precipitation multiplier is source-bound to one,
+and the precise remaining issue is no-nitrogen coefficient ordering.
+See `GGCMI_REFERENCE_INTERFACE_PROTOCOL_20260908.md` and the updated
+`PUBLISHED_CROP_EMULATOR_BENCHMARK_20260908.md`. Public author-archive
+timeouts/rate limiting are recorded; no repeat-download approval is needed.
+
+## September 8 whole-country validation supplement
+
+Country-held-out terminal prediction is complete: fifty numerical fits,
+nine supported crop-fold score cells, one unsupported soybean fold (one
+country/three pairs). Maize quantity's small improvement has descriptive
+intervals crossing zero; soybean quantity is worse than zero change on the
+supported folds. Independent aggregate arithmetic and country-separation
+checks pass. See `GLOBAL_COUNTRY_HELDOUT_RESULTS_20260908.md`. The next
+distinct benchmark uses published crop emulators, not another custom climate
+emulator or automatic promotion of the existing global regression.
+
+## September 8 direct support and traceable preliminary package
+
+The direct future joint-weather support diagnostic and independent numerical
+check are complete; no response was fitted on the very small common subset.
+Source-linked package `PRELIMINARY_EVIDENCE_PACKAGE_20260908.md` now documents
+50 selected claims from six saved JSON sources, with exact paths/hashes,
+cohorts, intervals where available and scientific limitations. Global added
+heat-day controls retain the maize association and uncertain soybean result.
+This package is local, not a new GitHub publication or empirical SCC estimate.
+
+## September 8 subsequent predictive qualification
+
+Source-matched blocked prediction, naive-baseline audit, temporal component
+decomposition and separately refitted constant/linear-time sensitivities are
+complete. Original264/new528 predictive fits pass numerical gates; ten small
+geographic folds remain unsupported. Simpler time control improves corn
+forecasting, but soybean and timing transfer remain mixed. These are repeated-
+validation development diagnostics, NOT causal response or SCC promotion.
+See `US_PREDICTIVE_TREND_SENSITIVITY_RESULTS_20260908.md` and the active checkpoint.
+
+## Current September 8 update (supersedes historical chronology below)
+
+Regional paired climate inputs/comparisons COMPLETE: 54 validated daily
+cutouts; 6,092 corn/4,308 soy county-years; 345/252 counties. Source-matched
+historical yield diagnostic COMPLETE: 32 registered fits, four synthetic tests
+and all 32 numerical replications passed. See
+`US_SOURCE_MATCHED_RESPONSE_RESULTS_20260908.md` and its prepared local aggregate.
+These remain exploratory associations, not independently validated response
+functions, counterclim yield impacts, global damages or SCC. Quantity stays
+primary; in-sample timing fit cannot reopen promotion. Earlier 'missing Tmax'
+and active-job descriptions below are historical, not current blockers.
+
 Updated: 2026-09-07. This file records completed computational milestones; it
 does not report final response estimates or SCC values.
 
@@ -105,7 +1081,7 @@ described in their rows.
 | MIRCA-OS v2 irrigation weights | The 284,005,995-byte annual harvested-area archive is MD5/SHA-512 verified; 40 publisher-supplied 0.5° GeoTIFFs for four crops and five vintages pass grid, finiteness, nonnegativity, uniqueness, and unit-share gates. Fixed-2000 maize and soybean weights cover 97.79% and 97.99% of observed-yield cells in the existing 1982--89 panels. | Independent exposure-weight input only. Exact maize/soybean mappings are eligible for allocation; annual rice/wheat maps remain blocked from season-specific outcomes. No response or SCC input. |
 | MIRCA rice-season source gate | The 1,537,240,142-byte official monthly archive is object-identity/SHA-512 pinned and all 30 Rice1--Rice3 filenames exist. Metadata pass 21/30: all nine 2005--2015 rainfed files declare year 2020 and are blocked. The six 2000 files pass full input checks, but their maximum-over-month reconstruction exceeds annual Rice by 64,247.23 irrigated ha and 5,302.04 rainfed ha, so both reconciliations fail and no table is emitted. | Failed source-consistency gate only; rice weights remain blocked pending publisher clarification/correction, and neither discrepancy is relaxed or converted into an effect estimate. |
 | Rainfed/irrigated outcome-allocation gate | Synthetic failure modes plus real fixed-2000 maize/soybean source/coverage allocations pass. The one-outcome tables retain 117,679/120,325 maize and 47,922/48,900 soybean observations; 2,646 and 978 unmatched outcomes are explicitly excluded without infill or renormalization. | The legacy tables weighted primitive weather before constructing nonlinear terms, so they are not valid response inputs. Only their source, support, exclusion, and one-row-per-outcome audits stand. Production must construct every nonlinear regime basis before area weighting. |
-| U.S. county outcome, irrigation, and historical-weather gate | The key-safe Quick Stats fallback retained 7,253 real-FIPS 2018--2022 all-practice corn county-years. The direct-practice screen retains 7,079 corn, 4,845 soybean, and 9,672 all-classes-wheat crop-county-year pairs, but only regional support. All 468 monthly 1981--2019 nClimGrid objects (27,857,685,556 bytes), 419 eligible corn/soy county weights, and 39 harvest-year partitions pass identity/content/schema/calendar/coverage gates. Exact assembly and recomputation produce 23,722 paired-practice corn/soy rows (SHA-256 `205a94ae...c46d7`) and 20,228 common direct-weather/PDSI consecutive-year changes. A second isolated all-practice smoke validates Acadia Parish, Louisiana (22001) in 2019: 119 polygon/grid weights, five monthly weather objects, and one soybean crop-county-year feature row. | Input, construction, and common-support evidence only. Direct-practice support remains regional, the Louisiana result is one engineering row rather than national validation, all-wheat class weights are unresolved, eight historical-boundary cases need sensitivity treatment, and a predictive comparison cannot supply a causal response. No global transfer, damage, or SCC input is created. |
+| U.S. county outcome, irrigation, and historical-weather gate | The key-safe Quick Stats fallback retained 7,253 real-FIPS 2018--2022 all-practice corn county-years. The direct-practice screen retains 7,079 corn, 4,845 soybean, and 9,672 all-classes-wheat crop-county-year pairs, but only regional support. All 468 monthly 1981--2019 nClimGrid objects (27,857,685,556 bytes), 419 eligible corn/soy county weights, and 39 harvest-year partitions pass identity/content/schema/calendar/coverage gates. Exact assembly and recomputation produce 23,722 paired-practice corn/soy rows (SHA-256 `205a94ae...c46d7`) and 20,228 common direct-weather/PDSI consecutive-year changes. After validation, the 25.944-GiB reproducible raw grid cache was evicted on 21 September 2026; the complete URL/HTTP/checksum receipt, official daily county-average source, derived panels, and student-share file remain. A second isolated all-practice smoke validates Acadia Parish, Louisiana (22001) in 2019: 119 polygon/grid weights, five monthly weather objects, and one soybean crop-county-year feature row. | Input, construction, and common-support evidence only. Direct-practice support remains regional, the Louisiana result is one engineering row rather than national validation, all-wheat class weights are unresolved, eight historical-boundary cases need sensitivity treatment, and a predictive comparison cannot supply a causal response. No global transfer, damage, or SCC input is created. |
 | U.S. all-practice national county-weight expansion | The registered all-county launcher validates and resumes 932 of 2,628 isolated county-weight receipts, then fails closed at Trigg County, Kentucky (21221). Exact recomputation gives full geometric grid coverage but only 0.907267979 weather-valid area relative to declared land, below the fixed 0.95 gate; 209,051,009 m2 of polygon intersection is masked. The same 77 valid cells and area terms recur exactly in January 1981, July 2000, and January 2019, and separate `prcp`, `tavg`, `tmin`, and `tmax` masks reproduce that exact result. Sixteen masked whole-cell intersections total 2.030 times declared county water; even assigning all water to them leaves at least 106,051,904 m2 beyond declared water. A hash-bound scan revalidates all 932 completed receipts and weight hashes: 60 have positive masked area, the minimum completed land-relative ratio is 0.960832366, only one is below 0.97, and seven are below 1.0. | Reproducible structural-coverage blocker only. Completed receipts are 35.46% of registered counties across 16 states, but reflect FIPS-ordered execution plus earlier smokes and are not representative. Trigg is below every completed ratio, yet the threshold is unchanged, no Trigg partition is written, and no partial national feature panel, response, damage, or SCC input is authorized. Resolve the common cell mask against fractional land/water geometry and preregister any corrected denominator, exclusion, or sensitivity rule before resuming. |
 | U.S. corn/soy competing-moisture predictive diagnostic | On 20,228 exact-support consecutive-year changes, distribution fails the frozen uniform eligible-state gate for irrigated corn (1/5 states) and non-irrigated corn (4/5; South Dakota reverses), but passes for irrigated and non-irrigated soybean (3/3 each). Non-irrigated corn PDSI is the most stable drought competitor: seasonal and stage PDSI beat quantity-only in all five eligible states and in terminal/extreme tests. Non-irrigated soybean distribution also improves quantity-only in every eligible state, terminal, and extreme test; irrigated-soy distribution reverses in the terminal test. A clean-room raw-level QR audit reproduces all 120 metrics within `2.00e-15` and every discrete gate exactly. A separate hash-bound 5,000-draw county bootstrap exactly reconstructs all fits and reports 62 conditional RMSE/MAE comparisons; the tracked aggregate receipt SHA-256 is `192655a3...2c457e`. | Regional historical prediction only. Direct-practice county support shrinks to 63/25 corn/soy levels in 2018 and 3/1 in 2019; nothing is filled. The 2019-exclusion check is a no-op because no 2019 difference survives the registered same-county terminal rule. A post hoc balanced 2012--2018 check retains only 13/8 corn/soy counties and is point-only; distribution-versus-quantity rankings do not flip. The bootstrap is conditional on fitted models/splits, not refit, model-selection, population, causal, damage, welfare, or SCC uncertainty, and it does not revise the frozen promotion rule. |
 | U.S. competing-moisture Tmax-control sensitivity | The same 20,228 observations and locked splits were evaluated under original controls and six additional stage-average Tmax/squared-level controls, yielding 240 aggregate metrics. The original-control soybean promotions reproduce, but neither soybean practice passes the frozen geographic materiality rule with the richer controls; corn fails under both. Non-irrigated soybean distribution still improves RMSE in AR, KS, and NE under richer controls, but Nebraska is 0.001085 below its materiality floor. A preregistered aggregate-artifact audit verifies all metric keys, eight summaries, full-rank retained designs, endpoint-purge/sample accounting, source hashes, terminal values, and promotion arithmetic with zero discrepancy at saved precision. | Exploratory temperature-control sensitivity on previously examined splits, not fresh confirmation. Stage-average Tmax is not daily extreme-heat exposure. The audit does not reopen inputs or independently refit, and no precipitation attribution, causal effect, damage, welfare, or SCC use is authorized. |

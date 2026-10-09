@@ -45,8 +45,10 @@ update controls for aggregate rainfall in its underlying meta-regression but
 does not project precipitation impacts; it therefore supplies a contemporary
 total-agriculture comparator rather than replacing this project's timing,
 drought, irrigation, and extremes estimand. Labor is now the highest-value
-published next-sector candidate, conditional on obtaining and reproducing its
-country damage arrays and resolving overlap. See
+published next-sector candidate. The authors' MIT-licensed model archive and
+country damage arrays have now been acquired and passed an isolated
+deterministic code-path test; exact 10,000-draw reproduction and overlap review
+remain open. See
 [the fast-route audit](MOORE_2026_LABOR_AG_FAST_ROUTE_AUDIT.md).
 
 ### Earlier engineering history (retained for provenance)

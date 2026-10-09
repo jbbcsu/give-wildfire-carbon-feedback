@@ -35,7 +35,7 @@ The shortest defensible publication route is consequently:
    benchmark and continue the timing/drought/irrigation work as the novel
    extension;
 3. reproduce the published labor sector as the next major missing GIVE damage
-   category once the authors' source package is located; and
+   category using the authors' now-identified MIT-licensed source package; and
 4. keep fisheries, biodiversity, inland flooding, and other sectors in a
    separate overlap-controlled portfolio rather than adding published SCC
    point estimates directly.
@@ -78,11 +78,17 @@ is much closer to a drop-in GIVE replacement than a stand-alone SCC number.
 3. The agricultural evidence base is process-model based. The U.S. NASS and
    global empirical work remain complementary validation evidence rather than
    redundant estimation.
-4. The supplement reports the damage architecture and headline decomposition,
-   but the public replication package for the 2026 labor/agriculture article
-   was not identified in the bounded 9 October search. Numerical transfer is
-   blocked until the exact country damage arrays and joint uncertainty inputs
-   are obtained or independently reconstructed from published source data.
+4. The article links a complete MIT-licensed GIVE replication archive at
+   https://doi.org/10.5281/zenodo.21483095 and an associated CC-BY-4.0 gridded
+   heat-stress archive at https://doi.org/10.5281/zenodo.21712766. The code
+   archive contains the country agriculture and labor damage arrays, two labor
+   response specifications, GCM dimension, uncertainty machinery, and SCC
+   scripts. Its published MD5 checksum has been independently verified and its
+   exact Julia 1.12.5 environment instantiated in the isolated
+   `labor_productivity_scc` project. A deterministic SSP2-4.5 sector-isolation
+   smoke test passed. Exact 10,000-draw RFF-SP reproduction remains in progress,
+   so the published headline values are still external rather than promoted
+   local results.
 5. Labor is potentially large and plausibly distinct from GIVE's current
    mortality, agriculture, energy, and coastal sectors, but agricultural labor
    and heat mortality still require explicit overlap checks. The published
@@ -110,10 +116,12 @@ the projected impacts of climate change on four major crops*, Scientific Data
 |---|---|
 | Publisher supplement identity | Passed |
 | Published headline values documented | Passed |
-| 2026 agriculture country damage arrays reproduced | Closed |
-| 2026 labor damage arrays reproduced | Closed |
+| Official MIT code and country damage arrays acquired | Passed |
+| Exact Julia 1.12.5 environment instantiated | Passed |
+| Deterministic sector-isolation smoke test | Passed; diagnostic only |
+| 2026 agriculture 10,000-draw SCC reproduced | In progress |
+| 2026 labor 10,000-draw SCC reproduced | In progress |
 | Labor overlap with agriculture/mortality resolved | Closed |
 | Updated agriculture installed in local GIVE | Closed |
 | Labor installed in local GIVE | Closed |
 | Combined missing-sector SCC | Closed |
-

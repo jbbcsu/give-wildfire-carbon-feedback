@@ -1,5 +1,44 @@
 # Active continuation checkpoint
 
+## Latest: regional climate AND source-matched historical fits COMPLETE
+
+Chain15641 finished07:53:22UTC with54/54; actual PID confirmed absent before
+new tests/fits. Regional outputs validated:345corn/252soy counties,6092/4308
+county-years,10400rows/path,687dailycells. Only48355 corn2years partialexcluded.
+Both573pilotparities pass max3.91e-14. Do NOT rerun regional construction.
+
+Immediately completed the separately registered source-matched study:
+`scripts/estimate_us_source_matched_response.py`,4synthetictests, real input
+binding,32fits (0failures), numericalreplication. Ignored outputs in
+`data/interim/us_source_matched_response_20260908/`:input_manifest.json,
+result.json,numerical_validation.json (first warningrun preserved),
+numerical_validation_explicit_reductions.json (warningfree, floatingerrors
+raise),public_summary.json. Originalnumericalvalidatorversion79e367d; explicit
+reductionaudit changes nofit/data/tolerance. Maxbeta discrepancy4.44e-15.
+All jobs finished; no analysis process is currently running at this write.
+
+Results:`US_SOURCE_MATCHED_RESPONSE_RESULTS_20260908.md`;
+publicaggregate`data/provenance/us_source_matched_response_20260908.json`.
+Regional factual-counterP+22.83corn/+23.17soy mm;sourceoffset+32.56/+26.08mm.
+Soy stage2heat30difference−5.44Cdays (do not reuse positive narrowpilot sign).
+Bothfactualsourcesconcaveamountassociations, source-sensitive nonirr pairs.
+No counterclimyield/SCC, no timing promotion or new untouchedholdout.
+MaxregionalRSS779.09MiB; fits282.86MiB/4.46s; regionalnewretained918.66MiB
+before531151byteexport;157.25GiBfree. Initialexport call rejected beforeexec
+for noninterim ownedpath; reissued toignoredsummary with guardunchanged.
+
+NEXT executable: predeclare common-reference rainfall contrasts/support and a
+PAIRED source-difference uncertainty calculation on these fitted factual
+models. Then implement/run small existing-input diagnostics; do not repeat32
+fits as new evidence or rerun broad source/design audits. Use same reference
+rainfall acrosssources, no unsupported contrasts disguised as support; do not
+use intervaloverlap or independent-error arithmetic for paired sourceeffects.
+Actual held-out predictive testing and conditional counterclimyield use remain
+separate gates, historicaloutcomesalreadyinspected. Continue toward defensible
+response/climate/welfare links, not coefficient export from barred candidates.
+No user decision or perfiledownload approval needed. One1024MiB/64MiB owned
+job,130GiBfloor; notifications muted. Older active/next descriptions superseded.
+
 ## September 8 source-matched response contract registered while chain runs
 
 Regional chain PID15641 confirmed live at07:47UTC (one small controller);

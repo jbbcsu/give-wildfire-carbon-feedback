@@ -2532,10 +2532,12 @@ CIAM-covered coastal damages before combination with GIVE.
 For the broader damage-expansion program, Moore et al. (2026) also provide a
 published 2025 heat-related labor-productivity partial SCC of $41/tCO2 (90%
 interval $1--108). That estimate identifies labor as a high-value next sector
-for rapid replication in GIVE, but it is not part of this precipitation paper
-and cannot be inserted as a scalar without reproducing its country damage
-paths, pulse convention, uncertainty dependence, and overlap with agriculture
-and mortality.
+for rapid replication in GIVE. The authors' MIT-licensed code and country
+damage arrays have now been acquired, the pinned Julia 1.12.5 environment has
+been instantiated, and a deterministic sector-isolation smoke test passes in a
+separate project. Exact 10,000-draw reproduction and overlap review remain open;
+the headline estimate is therefore not part of this precipitation paper and is
+not inserted as a scalar.
 
 ## Exhibit plan
 
