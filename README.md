@@ -39,3 +39,19 @@ env JULIA_NUM_THREADS=1 \
 The smoke result is a code-path check, not the paper's Monte Carlo estimate.
 Promotion requires reproducing the authors' 10,000-draw configuration and
 matching their reported sectoral summaries within a prespecified tolerance.
+
+After the RFF-SP dependency is installed, a staged Monte Carlo replication can
+be run with one labor response and the paper's 2% discount schedule:
+
+```sh
+env JULIA_NUM_THREADS=1 DATADEPS_ALWAYS_ACCEPT=true \
+  JULIA_DEPOT_PATH="$PWD/.julia_depot" \
+  N_TRIALS=100 LABOR_FUNCTION=ISO \
+  ../tools/julia-1.12.5/bin/julia \
+  --project=vendor/moore_2026/lrennels-paper-2026-give-labor-ag-5d034e7 \
+  scripts/replicate_sectoral_scc.jl
+```
+
+The staging sequence is 100, 1,000, then 10,000 draws. Advancement requires a
+successful receipt, bounded memory, and stable signs and magnitudes; only the
+10,000-draw run is eligible for comparison with the paper's headline values.
