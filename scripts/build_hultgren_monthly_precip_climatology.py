@@ -11,6 +11,8 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import resource
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -22,6 +24,7 @@ from build_hultgren_precip_basis_climatology import EXPECTED, digest, require, s
 
 ROOT = Path(__file__).resolve().parents[1]
 MAX_MONTHS = 10
+MEMORY_CEILING_BYTES = 512 * 2**20
 RAIN_COLUMNS = [f"crop_month_offset_{index:02d}_precip_mm" for index in range(1, MAX_MONTHS + 1)]
 RAIN_SQUARED_COLUMNS = [f"crop_month_offset_{index:02d}_precip_mm2_mean" for index in range(1, MAX_MONTHS + 1)]
 CALENDAR_COLUMNS = [f"crop_month_offset_{index:02d}_calendar_month" for index in range(1, MAX_MONTHS + 1)]
@@ -33,6 +36,11 @@ def sha256(path: Path) -> str:
         for block in iter(lambda: handle.read(8 * 1024 * 1024), b""):
             value.update(block)
     return value.hexdigest()
+
+
+def peak_rss_bytes() -> int:
+    value = int(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)
+    return value if sys.platform == "darwin" else value * 1024
 
 
 def offset_climatology(
@@ -133,6 +141,8 @@ def main() -> None:
     args.output.parent.mkdir(parents=True, exist_ok=True)
     output.to_parquet(args.output, index=False, compression="zstd")
     require(args.output.stat().st_size < 64 * 2**20, "output exceeds 64 MiB owned-output budget")
+    observed_peak_rss = peak_rss_bytes()
+    require(observed_peak_rss < MEMORY_CEILING_BYTES, "monthly climatology build exceeded 512 MiB RSS ceiling")
 
     result = {
         "schema": "hultgren_monthly_precip_climatology/v1",
@@ -151,6 +161,7 @@ def main() -> None:
         },
         "support": {"union_cells": int(len(union)), "rainfed_cells": int(len(rainfed)), "irrigated_cells": int(len(irrigated)), "output_rows": int(len(output)), "rainfed": rainfed_audit, "irrigated": irrigated_audit, **stream_audit},
         "output": {"path": str(args.output), "bytes": args.output.stat().st_size, "sha256": sha256(args.output)},
+        "resources": {"peak_rss_bytes": observed_peak_rss, "memory_ceiling_bytes": MEMORY_CEILING_BYTES, "memory_gate_passed": True},
         "limitations": [
             "This is a historical climatology, not a climate-change projection.",
             "Monthly timing cannot identify daily dry spells, drought indices, or precipitation extremes.",
