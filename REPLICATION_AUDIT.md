@@ -104,3 +104,37 @@ paper's cross-function distribution. The official Supplementary Information
 confirms that ISO 7243:2017 and the alternative empirical Lancet response are
 the two structural labor specifications; it does not provide a scalar shortcut
 that would justify substituting the headline mean for either one.
+
+## Full 10,000-draw ISO result and structural reconciliation
+
+The matching ISO run completed with the same Julia environment, seed, RFF-SP
+socioeconomics, 2025 pulse, discount schedule, one-thread execution, and
+10,000 draws. Its results are:
+
+| Sector | Mean | MC standard error | 5th percentile | Median | 95th percentile |
+|---|---:|---:|---:|---:|---:|
+| Agriculture | 29.10 | 0.28 | -2.90 | 23.70 | 80.47 |
+| Labor (ISO) | 51.86 | 0.44 | 1.04 | 42.15 | 133.88 |
+| Mortality | 98.19 | 0.44 | 43.18 | 90.42 | 179.15 |
+| Energy | 9.45 | 0.04 | 4.61 | 8.64 | 16.95 |
+| Sea-level rise | 2.04 | 0.04 | 0.51 | 1.61 | 4.43 |
+| Total (ISO) | 190.64 | 0.95 | 76.35 | 172.42 | 364.94 |
+
+The arithmetic midpoint of the independently replicated ISO and Lancet means
+is $40.56/tCO2 for labor, $29.07/tCO2 for agriculture, and $179.16/tCO2 for
+the total. These reproduce the article abstract's rounded $41, $29, and $179
+headlines, respectively. We treat this as a transparent equal-weight
+structural-mean reconciliation, not proof of an undocumented pooling rule:
+the archived analysis script runs both functions separately but does not
+encode a cross-function aggregator.
+
+The local wrapper retained sector summaries rather than trial-level draws.
+Consequently, we do not average the two functions' quantiles or standard
+errors and do not claim to have reconstructed the article's cross-function
+confidence interval. That would require retained trial-level outputs and a
+source-verified pooling rule. The two complete single-function distributions
+remain the structural sensitivities. For the cross-sector GIVE expansion, the
+equal-weight mean is an evidence-backed central benchmark, with $29.26--$51.86
+as the labor structural range. The $29.07 updated agriculture mean is a
+candidate replacement for existing GIVE agriculture; it must not be added on
+top of either total agriculture or the precipitation replacement module.

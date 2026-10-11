@@ -1,0 +1,130 @@
+{
+  "claim_gates": {
+    "cross_function_uncertainty_distribution": false,
+    "equal_weight_mean_reconciliation": true,
+    "single_function_replications": true
+  },
+  "created_at_utc": "2026-10-11T20:31:23.114628+00:00",
+  "invariants": {
+    "currency": "2020 USD per metric ton CO2",
+    "discount_rate_label": "2.0%",
+    "draws": 10000,
+    "julia_threads": 1,
+    "julia_version": "1.12.5",
+    "pulse_year": 2025,
+    "seed": 24523438,
+    "socioeconomics": "RFF-SP",
+    "source_doi": "10.5281/zenodo.21483095"
+  },
+  "limitations": [
+    "The equal structural weights are a transparent reconciliation that reproduces the rounded published means; the archived analysis code runs the two functions separately and does not itself document a cross-function pooling operator.",
+    "Trial-level outputs were not retained by the local summary wrapper, so cross-function standard errors, quantiles, and confidence intervals are not reconstructed.",
+    "Averages of the two reported quantiles or standard errors would not be valid and are intentionally omitted.",
+    "Agriculture is a replacement candidate for GIVE agriculture, not an additive precipitation damage term."
+  ],
+  "method": "arithmetic mean of independently replicated ISO and Lancet 10,000-draw expected SCCs, with equal 0.5 structural weights",
+  "published_article": {
+    "claim": "article abstract reports labor 41, agriculture 29, and total 179 in 2020 USD/tCO2 for 2025 and states that two labor response functions are used",
+    "doi": "10.1038/s41558-026-02749-z"
+  },
+  "published_headline_consistency": {
+    "agriculture": {
+      "consistent_with_nearest_dollar_rounding": true,
+      "difference_from_published_rounded": 0.0744764859632312,
+      "published_rounded_2020usd_per_tco2": 29.0,
+      "replicated_structural_midpoint_2020usd_per_tco2": 29.07447648596323
+    },
+    "labor": {
+      "consistent_with_nearest_dollar_rounding": true,
+      "difference_from_published_rounded": -0.43574301951910854,
+      "published_rounded_2020usd_per_tco2": 41.0,
+      "replicated_structural_midpoint_2020usd_per_tco2": 40.56425698048089
+    },
+    "total": {
+      "consistent_with_nearest_dollar_rounding": true,
+      "difference_from_published_rounded": 0.15811432259994262,
+      "published_rounded_2020usd_per_tco2": 179.0,
+      "replicated_structural_midpoint_2020usd_per_tco2": 179.15811432259994
+    }
+  },
+  "schema": "labor_ag_equal_weight_structural_means/v1",
+  "sectors": {
+    "agriculture": {
+      "equal_weight_structural_mean_2020usd_per_tco2": 29.07447648596323,
+      "single_function_means_2020usd_per_tco2": {
+        "ISO": 29.10096418611888,
+        "LANCET": 29.047988785807586
+      },
+      "structural_range_2020usd_per_tco2": [
+        29.047988785807586,
+        29.10096418611888
+      ]
+    },
+    "cromar_mortality": {
+      "equal_weight_structural_mean_2020usd_per_tco2": 98.05485383882487,
+      "single_function_means_2020usd_per_tco2": {
+        "ISO": 98.1922520768225,
+        "LANCET": 97.91745560082724
+      },
+      "structural_range_2020usd_per_tco2": [
+        97.91745560082724,
+        98.1922520768225
+      ]
+    },
+    "energy": {
+      "equal_weight_structural_mean_2020usd_per_tco2": 9.43164126527792,
+      "single_function_means_2020usd_per_tco2": {
+        "ISO": 9.446515145571444,
+        "LANCET": 9.416767384984395
+      },
+      "structural_range_2020usd_per_tco2": [
+        9.416767384984395,
+        9.446515145571444
+      ]
+    },
+    "labor": {
+      "equal_weight_structural_mean_2020usd_per_tco2": 40.56425698048089,
+      "single_function_means_2020usd_per_tco2": {
+        "ISO": 51.86467799826219,
+        "LANCET": 29.2638359626996
+      },
+      "structural_range_2020usd_per_tco2": [
+        29.2638359626996,
+        51.86467799826219
+      ]
+    },
+    "slr": {
+      "equal_weight_structural_mean_2020usd_per_tco2": 2.0328857519375276,
+      "single_function_means_2020usd_per_tco2": {
+        "ISO": 2.035915429310908,
+        "LANCET": 2.029856074564148
+      },
+      "structural_range_2020usd_per_tco2": [
+        2.029856074564148,
+        2.035915429310908
+      ]
+    },
+    "total": {
+      "equal_weight_structural_mean_2020usd_per_tco2": 179.15811432259994,
+      "single_function_means_2020usd_per_tco2": {
+        "ISO": 190.64032483602557,
+        "LANCET": 167.67590380917432
+      },
+      "structural_range_2020usd_per_tco2": [
+        167.67590380917432,
+        190.64032483602557
+      ]
+    }
+  },
+  "sources": {
+    "ISO": {
+      "path": "data/provenance/labor_ag_sectoral_scc_n10000_iso_20261011.json",
+      "sha256": "6641a397ff9f18231a720c8f5a2a0f39ca6aa49198db94053acdb2b1a4539fe9"
+    },
+    "LANCET": {
+      "path": "data/provenance/labor_ag_sectoral_scc_n10000_lancet_20261010.json",
+      "sha256": "cd6b8f958a702805a8db12f941579f313045e573efd3924568390dc94c4542fd"
+    }
+  },
+  "status": "complete_structural_mean_reconciliation_not_cross_function_uncertainty_distribution"
+}
