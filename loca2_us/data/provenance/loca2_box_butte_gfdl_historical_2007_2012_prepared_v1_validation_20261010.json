@@ -1,0 +1,43 @@
+{
+  "checks": 352,
+  "claim_gates": {
+    "SCC": false,
+    "causal_damage": false,
+    "historical_climate_sentinel": true,
+    "multi_model_validation": false,
+    "outcome_response": false
+  },
+  "memory": {
+    "maximum_bytes": 536870912,
+    "peak_group_rss_bytes": 530923520
+  },
+  "role": "independent_local_cache_equivalence_and_saved_arithmetic_validation",
+  "schema": "loca2_us_prepared_historical_climate_sentinel_validation/v1",
+  "sources": {
+    "loca2_us/config/loca2_us_box_butte_gfdl_historical_2007_2012_prepared_v1.toml": "0537cd561f7714c5bf8a1fd10483b315303f1113bc80b6516aa493b17cc0e4b8",
+    "loca2_us/data/interim/box_butte_gfdl_historical_2007_2012_prepared_v1_corn_features.parquet": "d38d4871f4567af8bc50862a1288ee34d988a872cfc991dfc96c1e5a1b234985",
+    "loca2_us/data/interim/box_butte_gfdl_historical_2007_2012_prepared_v1_local_inputs.npz": "a266143ccd8b3eb815f1e746ec0879b079974a2073e6e3fc0faadb85e06c5187",
+    "loca2_us/data/provenance/loca2_box_butte_gfdl_historical_2007_2012_prepared_v1_local_inputs_20261010.json": "1e3486e21d4b287e9bf22ab073f16bb5df46d409f8917bd24c808c4841f23fa1",
+    "loca2_us/data/provenance/loca2_box_butte_gfdl_historical_2007_2012_prepared_v1_pressure_job_20261010.json": "875310be132fab9557a6faf6ff90beff1c6b0fbdfb1b5caac8fa6c12edc46342",
+    "loca2_us/data/provenance/loca2_box_butte_gfdl_historical_climate_sentinel_2007_2012_prepared_v1_20261010.json": "15ddfa39ab79e7e3e8ac02c92d17dda8435dc6ace69bfa8eab7f91b86ed4c0cd",
+    "loca2_us/scripts/build_historical_climate_sentinel.py": "a1c0edc2680e92344c5c4581d64b578113d23a748ba5bd5f5e2970891f39d7a9"
+  },
+  "status": "pass",
+  "support": {
+    "county_geoid": "31013",
+    "crop": "corn_grain",
+    "grid_cells": 100,
+    "outcome_columns_read": false,
+    "paired_year_scoring": false,
+    "season_days_each": 170,
+    "year_count": 6,
+    "years": [
+      2007,
+      2008,
+      2009,
+      2010,
+      2011,
+      2012
+    ]
+  }
+}

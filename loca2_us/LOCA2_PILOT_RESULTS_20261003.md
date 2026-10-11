@@ -184,6 +184,23 @@ concatenation again were not run. The implementation and failed receipt are
 retained as reproducibility evidence, but no geographic climate result or
 downstream claim gate is opened.
 
+A subsequent process-memory-only revision succeeded. The local outcome-blind
+nClimGrid and geometry slice is prepared in a separate bounded process and
+verified exactly against the original Parquet inputs, so the remote climate
+worker no longer retains PyArrow. The two climate partitions peak at
+531,464,192 bytes (506.84 MiB) and 530,923,520 bytes (506.33 MiB), below the
+unchanged 512 MiB ceiling. Independent validators pass 352 saved checks per
+partition, and exact-support concatenation produces the frozen 2001--2012 Box
+Butte sentinel.
+
+The combined GFDL minus nClimGrid climatology differences are -9.61 mm for
+season precipitation, +1.62 days for maximum dry spell, -5.63 mm for Rx5day,
+and +0.89 C for mean season temperature. Standard-deviation ratios are 0.620,
+1.245, 0.715, and 0.513. These are free-running climate distribution
+diagnostics, not paired-year errors or crop effects. The second-county
+sentinel opens; general multi-county, outcome-response, causal-damage, and SCC
+gates remain closed.
+
 Primary receipts:
 
 - `data/provenance/loca2_official_catalog_audit_20261003.json`
@@ -212,3 +229,8 @@ Primary receipts:
 - `data/provenance/loca2_box_butte_gfdl_historical_2001_2006_spatial_chunk_v1_preflight_20261004.json`
 - `data/provenance/loca2_box_butte_gfdl_historical_2001_2006_spatial_chunk_v1_preflight_job_20261004.json`
 - `data/provenance/loca2_box_butte_gfdl_historical_2001_2006_spatial_chunk_v1_job_20261004.json` (memory gate)
+- `data/provenance/loca2_box_butte_gfdl_historical_2001_2006_prepared_v1_job_20261010.json`
+- `data/provenance/loca2_box_butte_gfdl_historical_2001_2006_prepared_v1_validation_v2_20261010.json`
+- `data/provenance/loca2_box_butte_gfdl_historical_2007_2012_prepared_v1_pressure_job_20261010.json`
+- `data/provenance/loca2_box_butte_gfdl_historical_2007_2012_prepared_v1_validation_20261010.json`
+- `data/provenance/loca2_box_butte_gfdl_historical_climate_sentinel_2001_2012_prepared_v1_20261010.json`

@@ -5,10 +5,10 @@
 Study-design manuscript. The official source audit, bounded point-access
 pilot, Cuming and Box Butte County geometry aggregation, and two prespecified
 single-model historical climate-distribution sentinels at Cuming pass. A
-split-period Box Butte attempt stopped at the memory gate without producing a
-climate artifact or comparison. General multi-model and multi-county climate
-validation remain open. No crop-response, causal, damage, or SCC result is
-claimed.
+revised split-period Box Butte build now passes the 512 MiB memory gate and
+provides a second-county GFDL climate-distribution sentinel. General
+multi-model and multi-county climate validation remain open. No crop-response,
+causal, damage, or SCC result is claimed.
 
 ## Research question
 
@@ -117,3 +117,23 @@ metadata gate at 602,729,539 bytes (574.81 MiB). The climate-only retry still
 exceeded the worker gate, reaching 546,308,096 bytes (521.00 MiB) before the
 512 MiB monitor terminated it. It wrote no feature file or successful receipt;
 part 2 and concatenation were not run. This failure changes no claim gate.
+
+The successful revision isolates the outcome-blind local Parquet slice before
+remote climate decoding, preventing the climate worker from retaining the
+PyArrow reader. It changes no source, member, county, years, calendar, feature,
+reference, weighting, or scoring rule. Independent validators establish exact
+equivalence between the prepared slice and the original Parquet inputs and
+recompute 352 saved support and distribution checks per partition. The first
+climate worker peaks at 531,464,192 bytes (506.84 MiB); the second peaks at
+530,923,520 bytes (506.33 MiB). Both are below the unchanged 512 MiB gate. The
+two validated, nonoverlapping partitions concatenate to the prespecified
+2001--2012 support.
+
+For Box Butte, GFDL season rainfall averages 267.23 mm versus 276.84 mm in
+nClimGrid, a -9.61 mm climatology bias. Maximum dry spell is 1.62 days longer,
+the Rx5day bias is -5.63 mm, and mean season temperature is 0.89 C higher. The
+standard-deviation ratios are 0.620, 1.245, 0.715, and 0.513, respectively.
+These are climate-product distribution diagnostics, not paired-year forecast
+errors or agricultural effects. They open the prespecified second-county
+sentinel only; broader multi-county, outcome-response, causal-damage, and SCC
+gates remain closed.

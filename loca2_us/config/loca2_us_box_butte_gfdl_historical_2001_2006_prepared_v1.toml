@@ -1,0 +1,52 @@
+schema = "loca2_us_historical_climate_sentinel/v1"
+status = "frozen_before_prepared_local_input_low_memory_retry"
+created = "2026-10-10"
+
+[source]
+store = "mdmf/gdp/LOCA2/CMIP6-LOCA2.historical.daily.zarr"
+endpoint_url = "https://usgs.osn.mghpcc.org/"
+precipitation_version = "v20240915"
+source_id = "GFDL-ESM4"
+experiment_id = "historical"
+variant_label = "r1i1p1f1"
+variables = ["pr", "tasmin", "tasmax"]
+selection_rule = "Hold GFDL-ESM4 r1i1p1f1 and every scientific choice fixed; isolate only outcome-blind local Parquet reads so PyArrow is absent during remote climate decoding."
+
+[sample]
+county_geoid = "31013"
+crop = "corn_grain"
+year_min = 2001
+year_max = 2006
+season_start_month_day = "05-06"
+season_end_month_day = "10-22"
+wet_day_threshold_mm = 1.0
+stage_fractions = [0.0, 0.3, 0.7, 1.0]
+outcome_columns_read = false
+paired_year_scoring = false
+support_rule = "Exact prior six-year partition, county, model, member, calendar, feature, and reference support. Only process-memory staging changes."
+
+[inputs]
+weights = "loca2_us/data/interim/weights/tiger2019/county_geoid=31013/weights.parquet"
+weights_receipt = "loca2_us/data/provenance/loca2_box_butte_tiger2019_weights_20261004.json"
+nclimgrid_feature_pattern = "data/interim/us_county/nclimgrid_features_national_v1/harvest_year={year}/features.parquet"
+prepared_local_inputs = "loca2_us/data/interim/box_butte_gfdl_historical_2001_2006_prepared_v1_local_inputs.npz"
+prepared_local_inputs_receipt = "loca2_us/data/provenance/loca2_box_butte_gfdl_historical_2001_2006_prepared_v1_local_inputs_20261010.json"
+
+[resources]
+maximum_remote_chunk_mib = 1024
+maximum_worker_mib = 512
+one_worker = true
+persist_remote_arrays = false
+spatial_accumulator = "one_source_spatial_chunk_at_a_time_v1"
+local_parquet_reader_isolated = true
+
+[outputs]
+features = "loca2_us/data/interim/box_butte_gfdl_historical_2001_2006_prepared_v1_corn_features.parquet"
+receipt = "loca2_us/data/provenance/loca2_box_butte_gfdl_historical_climate_sentinel_2001_2006_prepared_v1_20261010.json"
+
+[claim_gates]
+historical_climate_sentinel = false
+multi_county_validation = false
+outcome_response = false
+causal_damage = false
+SCC = false

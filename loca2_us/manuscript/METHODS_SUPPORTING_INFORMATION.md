@@ -5,10 +5,10 @@
 The current release contains the preregistered source and validation design,
 an official-catalog audit, synthetic tests, Cuming and Box Butte County
 geometry weights, and validated GFDL-ESM4 and IPSL-CM6A-LR 2001--2012
-climate-distribution sentinels at Cuming. A split-period Box Butte attempt was
-terminated by the 512 MiB monitor and produced no climate artifact or
-comparison. The release does not contain restricted NASS credentials or
-tracked raw climate arrays. Raw and interim files are ignored.
+climate-distribution sentinels at Cuming. A prepared-input split-period GFDL
+sentinel now passes at Box Butte under the same 512 MiB monitor. The release
+does not contain restricted NASS credentials or tracked raw climate arrays.
+Raw and interim files are ignored.
 
 ## M2. Climate sources
 
@@ -143,6 +143,33 @@ reached 546,308,096 bytes (521.00 MiB) and was terminated above the unchanged
 512 MiB gate. No feature file or successful receipt was written. Part 2 and
 concatenation were not run. The geographic climate, outcome-response,
 causal-damage, and SCC gates therefore remain closed.
+
+The next memory-only revision separates local Parquet decoding from remote
+climate decoding. A preparatory process reads only county identifiers, crop,
+year, irrigation-practice labels, season dates, and the climate reference
+features; it reads no yield or other outcome. It writes a hash-bound NumPy
+slice containing 100 geometry weights and six reference years. Independent
+validation requires exact frame equality with the original weight and
+nClimGrid Parquet inputs. The climate worker then loads this small slice and
+does not load PyArrow while decoding LOCA2 chunks. The existing source-spatial-
+chunk accumulator, cell ordering, nonlinear feature construction, full-vector
+dot product, and all scientific choices remain unchanged.
+
+Both frozen partitions pass. The 2001--2006 worker peaks at 531,464,192 bytes
+(506.84 MiB); the 2007--2012 worker peaks at 530,923,520 bytes (506.33 MiB).
+Each is below the unchanged 536,870,912-byte ceiling. Independent validation
+per partition confirms exact prepared-input equivalence and 352 saved support,
+moment, and quantile checks. Concatenation requires identical source identity,
+county and crop, exact nonoverlapping 2001--2012 year support, successful
+partition validation, and hash equality for every source artifact.
+
+The combined Box Butte diagnostics are a -9.61 mm season-precipitation bias,
++1.62 days for maximum dry spell, -5.63 mm for Rx5day, and +0.89 C for season
+mean temperature. Corresponding standard-deviation ratios are 0.620, 1.245,
+0.715, and 0.513; quantile RMSE values are 30.57 mm, 2.33 days, 6.28 mm, and
+0.92 C. Because the GCM is free-running, no paired-year error or correlation
+is calculated. The second-county climate sentinel opens, but general
+multi-county, outcome-response, causal-damage, and SCC gates remain closed.
 
 ## M6. Agricultural response families
 

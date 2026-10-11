@@ -40,6 +40,19 @@ BOX_BUTTE_LOW_MEMORY_ABSENT = (
     ROOT / "loca2_us/data/interim/box_butte_gfdl_historical_2001_2006_spatial_chunk_v1_corn_features.parquet",
     ROOT / "loca2_us/data/provenance/loca2_box_butte_gfdl_historical_climate_sentinel_2001_2006_spatial_chunk_v1_20261004.json",
 )
+BOX_BUTTE_PREPARED_CONFIGS = (
+    ROOT / "loca2_us/config/loca2_us_box_butte_gfdl_historical_2001_2006_prepared_v1.toml",
+    ROOT / "loca2_us/config/loca2_us_box_butte_gfdl_historical_2007_2012_prepared_v1.toml",
+)
+BOX_BUTTE_PREPARED_JOBS = (
+    ROOT / "loca2_us/data/provenance/loca2_box_butte_gfdl_historical_2001_2006_prepared_v1_job_20261010.json",
+    ROOT / "loca2_us/data/provenance/loca2_box_butte_gfdl_historical_2007_2012_prepared_v1_pressure_job_20261010.json",
+)
+BOX_BUTTE_PREPARED_VALIDATIONS = (
+    ROOT / "loca2_us/data/provenance/loca2_box_butte_gfdl_historical_2001_2006_prepared_v1_validation_v2_20261010.json",
+    ROOT / "loca2_us/data/provenance/loca2_box_butte_gfdl_historical_2007_2012_prepared_v1_validation_20261010.json",
+)
+BOX_BUTTE_PREPARED_COMBINED = ROOT / "loca2_us/data/provenance/loca2_box_butte_gfdl_historical_climate_sentinel_2001_2012_prepared_v1_20261010.json"
 BOX_BUTTE_EXPECTED_ABSENT = (
     ROOT / "loca2_us/data/interim/box_butte_gfdl_historical_2001_2006_corn_features.parquet",
     ROOT / "loca2_us/data/provenance/loca2_box_butte_gfdl_historical_climate_sentinel_2001_2006_20261004.json",
@@ -80,6 +93,10 @@ def validate() -> dict[str, object]:
     low_memory_preflight = json.loads(BOX_BUTTE_LOW_MEMORY_PREFLIGHT.read_text())
     low_memory_preflight_job = json.loads(BOX_BUTTE_LOW_MEMORY_PREFLIGHT_JOB.read_text())
     low_memory_job = json.loads(BOX_BUTTE_LOW_MEMORY_JOB.read_text())
+    prepared_configs = [tomllib.loads(path.read_text()) for path in BOX_BUTTE_PREPARED_CONFIGS]
+    prepared_jobs = [json.loads(path.read_text()) for path in BOX_BUTTE_PREPARED_JOBS]
+    prepared_validations = [json.loads(path.read_text()) for path in BOX_BUTTE_PREPARED_VALIDATIONS]
+    prepared_combined = json.loads(BOX_BUTTE_PREPARED_COMBINED.read_text())
     main = MAIN.read_text()
     methods = METHODS.read_text()
 
@@ -140,6 +157,23 @@ def validate() -> dict[str, object]:
     require(low_memory_job["status"] == "memory_budget_exceeded" and low_memory_job["returncode"] == -9, "Box Butte low-memory retry did not fail closed")
     require(low_memory_job["sampled_peak_group_rss_bytes"] == 546308096, "Box Butte low-memory retry peak changed")
     require(all(not path.exists() for path in BOX_BUTTE_LOW_MEMORY_ABSENT), "Box Butte low-memory failure left a promoted artifact")
+    require([job["sampled_peak_group_rss_bytes"] for job in prepared_jobs] == [531464192, 530923520], "Box Butte prepared-worker peaks changed")
+    require(all(job["status"] == "completed" and job["returncode"] == 0 and job["sampled_peak_group_rss_bytes"] < 512 * 1024**2 for job in prepared_jobs), "Box Butte prepared worker failed")
+    require(all(config["resources"]["local_parquet_reader_isolated"] is True for config in prepared_configs), "prepared-input isolation changed")
+    require(all(item["status"] == "pass" and item["checks"] == 352 for item in prepared_validations), "prepared partition validation failed")
+    require(prepared_combined["status"] == "pass", "combined Box Butte sentinel failed")
+    require(prepared_combined["support"]["years"] == list(range(2001, 2013)), "combined Box Butte years changed")
+    require(prepared_combined["support"]["outcome_columns_read"] is False and prepared_combined["support"]["paired_year_scoring"] is False, "combined Box Butte gate opened")
+    require(prepared_combined["claim_gates"] == {"second_county_climate_sentinel": True, "multi_county_validation": False, "outcome_response": False, "causal_damage": False, "SCC": False}, "combined Box Butte claim gates changed")
+    prepared_expected = {
+        "precip_mm": (-9.61376105939621, 0.620352520626601, 30.571141451816434),
+        "cdd_max_days": (1.6241069264271637, 1.244919712521713, 2.333094468108002),
+        "rx5day_mm": (-5.629423499369729, 0.7150936361003426, 6.2849350825829475),
+        "tmean_c": (0.894661986734004, 0.5128492812304998, 0.9210447735165941),
+    }
+    for feature, values in prepared_expected.items():
+        item = prepared_combined["comparisons"][feature]
+        require((item["climatology_bias_model_minus_observed"], item["standard_deviation_ratio"], item["quantile_rmse"]) == values, f"combined Box Butte values changed: {feature}")
 
     expected = {
         "precip_mm": ("432.15", "461.58", "-29.44", "0.931", "60.02 mm"),
@@ -167,6 +201,10 @@ def validate() -> dict[str, object]:
         require(value in methods, f"methods lack low-memory retry value: {value}")
     require("bit-for-bit\nsynthetic equivalence" in main, "main lacks exact-equivalence boundary")
     require("Part 2 and\nconcatenation were not run" in methods, "methods lacks low-memory stop boundary")
+    for value in ("531,464,192", "506.84 MiB", "530,923,520", "506.33 MiB", "352 saved"):
+        require(value in main and value in methods, f"manuscripts lack successful prepared-worker value: {value}")
+    for value in ("-9.61 mm", "1.62 days", "-5.63 mm", "0.89 C", "0.620", "1.245", "0.715", "0.513"):
+        require(value in main and value in methods, f"manuscripts lack Box Butte climate value: {value}")
     require("paired-year RMSE, correlation, or trend agreement" in methods, "methods lacks free-running boundary")
     require(
         "multi-model,\nmulti-county, outcome-response, causal-damage, and SCC gates remain closed" in methods,
@@ -200,11 +238,13 @@ def validate() -> dict[str, object]:
                 *BOX_BUTTE_PART_PREFLIGHTS, *BOX_BUTTE_PART_PREFLIGHT_JOBS,
                 BOX_BUTTE_PART1_JOB, BOX_BUTTE_LOW_MEMORY_PREFLIGHT,
                 BOX_BUTTE_LOW_MEMORY_PREFLIGHT_JOB, BOX_BUTTE_LOW_MEMORY_JOB,
+                *BOX_BUTTE_PREPARED_JOBS, *BOX_BUTTE_PREPARED_VALIDATIONS,
+                BOX_BUTTE_PREPARED_COMBINED,
             )
         },
         "design_configs": {
             str(path.relative_to(ROOT)): sha256(path)
-            for path in (*BOX_BUTTE_PART_CONFIGS, BOX_BUTTE_LOW_MEMORY_CONFIG)
+            for path in (*BOX_BUTTE_PART_CONFIGS, BOX_BUTTE_LOW_MEMORY_CONFIG, *BOX_BUTTE_PREPARED_CONFIGS)
         },
         "box_butte_split_gate": {
             "partition_plan_bytes": [item["plan"]["compressed_bytes"] for item in part_preflights],
@@ -218,6 +258,12 @@ def validate() -> dict[str, object]:
             "execution_status": low_memory_job["status"],
             "execution_peak_rss_bytes": low_memory_job["sampled_peak_group_rss_bytes"],
             "expected_absent_outputs": [str(path.relative_to(ROOT)) for path in BOX_BUTTE_LOW_MEMORY_ABSENT],
+        },
+        "box_butte_prepared_success": {
+            "worker_peak_rss_bytes": [job["sampled_peak_group_rss_bytes"] for job in prepared_jobs],
+            "partition_checks": [item["checks"] for item in prepared_validations],
+            "support": prepared_combined["support"],
+            "claim_gates": prepared_combined["claim_gates"],
         },
         "manuscripts": {str(path.relative_to(ROOT)): sha256(path) for path in (MAIN, METHODS)},
         "support": source["support"],

@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import ctypes
 import gc
 import hashlib
 import importlib.util
@@ -49,6 +50,18 @@ def sha256(path: Path) -> str:
         for block in iter(lambda: stream.read(1024 * 1024), b""):
             digest.update(block)
     return digest.hexdigest()
+
+
+def release_process_memory() -> None:
+    """Return unused allocator pages before the next bounded decode on macOS."""
+    gc.collect()
+    try:
+        pressure_relief = ctypes.CDLL(None).malloc_zone_pressure_relief
+        pressure_relief.argtypes = [ctypes.c_void_p, ctypes.c_size_t]
+        pressure_relief.restype = ctypes.c_size_t
+        pressure_relief(None, 0)
+    except AttributeError:
+        pass
 
 
 def compare_distributions(model: pd.DataFrame, observed: pd.DataFrame) -> dict[str, dict[str, object]]:
@@ -172,6 +185,29 @@ def read_observed(root: Path, config: dict) -> pd.DataFrame:
     return result
 
 
+def read_prepared_local_inputs(root: Path, config_path: Path, config: dict) -> tuple[pd.DataFrame, pd.DataFrame, dict]:
+    """Load the tiny outcome-blind local slice without importing Parquet readers."""
+    cache_path = root / config["inputs"]["prepared_local_inputs"]
+    receipt_path = root / config["inputs"]["prepared_local_inputs_receipt"]
+    receipt = json.loads(receipt_path.read_text())
+    require(receipt["status"] == "pass", "prepared local-input receipt failed")
+    require(receipt["config"]["sha256"] == sha256(config_path), "prepared local-input config changed")
+    require(receipt["output"]["sha256"] == sha256(cache_path), "prepared local inputs changed")
+    with np.load(cache_path, allow_pickle=False) as cache:
+        weights = pd.DataFrame({
+            "grid_lat_index": cache["grid_lat_index"].astype(int),
+            "grid_lon_index": cache["grid_lon_index"].astype(int),
+            "spatial_weight": cache["spatial_weight"].astype(float),
+        })
+        observed = pd.DataFrame({
+            "harvest_year": cache["harvest_year"].astype(int),
+            "season_start": pd.to_datetime(cache["season_start"].astype(str)),
+            "season_end": pd.to_datetime(cache["season_end"].astype(str)),
+            **{feature: cache[feature].astype(float) for feature in FEATURES},
+        })
+    return weights, observed, receipt
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--config", type=Path, required=True)
@@ -189,13 +225,19 @@ def main() -> None:
     weights_receipt = json.loads(weights_receipt_path.read_text())
     require(weights_receipt["status"] == "pass", "county weights receipt failed")
     require(sha256(weights_path) == weights_receipt["output"]["sha256"], "county weights changed")
-    weights = pd.read_parquet(weights_path).sort_values(["grid_lat_index", "grid_lon_index"]).reset_index(drop=True)
+    prepared_receipt = None
+    if "prepared_local_inputs" in config["inputs"]:
+        weights, observed, prepared_receipt = read_prepared_local_inputs(root, args.config, config)
+    else:
+        weights = pd.read_parquet(weights_path)
+        observed = read_observed(root, config)
+    weights = weights.sort_values(["grid_lat_index", "grid_lon_index"]).reset_index(drop=True)
     require(np.isclose(weights.spatial_weight.sum(), 1.0, rtol=0, atol=1e-12), "county weights do not sum to one")
-
-    observed = read_observed(root, config)
+    observed = observed.sort_values("harvest_year").reset_index(drop=True)
     expected_start = [pd.Timestamp(f"{year}-{config['sample']['season_start_month_day']}") for year in observed.harvest_year]
     expected_end = [pd.Timestamp(f"{year}-{config['sample']['season_end_month_day']}") for year in observed.harvest_year]
     require(observed.season_start.tolist() == expected_start and observed.season_end.tolist() == expected_end, "observed calendars differ from frozen dates")
+    release_process_memory()
 
     fs = s3fs.S3FileSystem(anon=True, client_kwargs={"endpoint_url": config["source"]["endpoint_url"]})
     store = config["source"]["store"]
@@ -261,7 +303,7 @@ def main() -> None:
                 float(config["sample"]["wet_day_threshold_mm"]),
             ))
             del rain, tmin, tmax
-            gc.collect()
+            release_process_memory()
         aggregated = aggregate_basis_frames(basis_frames, weight_values)
         modeled_rows.append({"harvest_year": int(row.harvest_year), **aggregated})
     modeled = pd.DataFrame(modeled_rows).sort_values("harvest_year").reset_index(drop=True)
@@ -300,6 +342,11 @@ def main() -> None:
             "weights": {"path": config["inputs"]["weights"], "sha256": sha256(weights_path)},
             "weights_receipt": {"path": config["inputs"]["weights_receipt"], "sha256": sha256(weights_receipt_path)},
             "nclimgrid_columns_read": ["county_geoid", "outcome_crop", "harvest_year", "irrigation_practice", "season_start", "season_end", *FEATURES],
+            "prepared_local_inputs": None if prepared_receipt is None else {
+                "path": config["inputs"]["prepared_local_inputs"],
+                "sha256": prepared_receipt["output"]["sha256"],
+                "receipt": config["inputs"]["prepared_local_inputs_receipt"],
+            },
         },
         "output": {"path": str(output.relative_to(root)), "bytes": output.stat().st_size, "sha256": sha256(output)},
         "claim_gates": {

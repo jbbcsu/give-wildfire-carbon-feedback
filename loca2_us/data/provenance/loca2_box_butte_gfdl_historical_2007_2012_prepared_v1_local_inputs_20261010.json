@@ -1,0 +1,90 @@
+{
+  "config": {
+    "path": "loca2_us/config/loca2_us_box_butte_gfdl_historical_2007_2012_prepared_v1.toml",
+    "sha256": "0537cd561f7714c5bf8a1fd10483b315303f1113bc80b6516aa493b17cc0e4b8"
+  },
+  "inputs": {
+    "columns_read": [
+      "county_geoid",
+      "outcome_crop",
+      "harvest_year",
+      "irrigation_practice",
+      "season_start",
+      "season_end",
+      "precip_mm",
+      "tmean_c",
+      "tmin_mean_c",
+      "tmax_mean_c",
+      "wet_days_n",
+      "cdd_max_days",
+      "rx1day_mm",
+      "rx5day_mm",
+      "stage1_precip_mm",
+      "stage2_precip_mm",
+      "stage3_precip_mm",
+      "stage1_precip_share",
+      "stage2_precip_share",
+      "stage3_precip_share",
+      "precipitation_concentration_hhi",
+      "precipitation_timing_centroid"
+    ],
+    "nclimgrid": [
+      {
+        "path": "data/interim/us_county/nclimgrid_features_national_v1/harvest_year=2007/features.parquet",
+        "sha256": "4a46ffb6973f59ad9ddbedf66548fddfd99e1498ac2f77bb3145d4edbc73919f"
+      },
+      {
+        "path": "data/interim/us_county/nclimgrid_features_national_v1/harvest_year=2008/features.parquet",
+        "sha256": "8dff04128a78c23f9f83530a6b94adf9fc949a4f20cc398bd348308b2a57be72"
+      },
+      {
+        "path": "data/interim/us_county/nclimgrid_features_national_v1/harvest_year=2009/features.parquet",
+        "sha256": "f790ee18e5cf5b24b054cb76b4b1a69c1efe431a4d4caad2ba0e6ed7ab925352"
+      },
+      {
+        "path": "data/interim/us_county/nclimgrid_features_national_v1/harvest_year=2010/features.parquet",
+        "sha256": "3fec861f38c459557516d1a9eb49ff829d3950b4a6b8a0538670ec678eb99af8"
+      },
+      {
+        "path": "data/interim/us_county/nclimgrid_features_national_v1/harvest_year=2011/features.parquet",
+        "sha256": "a34eb62e27f5d8e760cc3cc7dead02dc04bb84f805d9e05df298468ae7fd42e6"
+      },
+      {
+        "path": "data/interim/us_county/nclimgrid_features_national_v1/harvest_year=2012/features.parquet",
+        "sha256": "162e0097692f5aff885c7d436481e9b7bf6ab7583de5a0ae6494666413b89b04"
+      }
+    ],
+    "weights": {
+      "path": "loca2_us/data/interim/weights/tiger2019/county_geoid=31013/weights.parquet",
+      "sha256": "b48ee06c7e078d19cc6254338f019a38853f1a783314729abbb46392621da763"
+    },
+    "weights_receipt": {
+      "path": "loca2_us/data/provenance/loca2_box_butte_tiger2019_weights_20261004.json",
+      "sha256": "456d06e7d821ac152b24153bf24b29d9290c6853ca4805b20c5401aa63abd4df"
+    }
+  },
+  "inspection": {
+    "outcome_columns_read": false,
+    "paired_year_scoring": false
+  },
+  "output": {
+    "bytes": 9460,
+    "path": "loca2_us/data/interim/box_butte_gfdl_historical_2007_2012_prepared_v1_local_inputs.npz",
+    "sha256": "a266143ccd8b3eb815f1e746ec0879b079974a2073e6e3fc0faadb85e06c5187"
+  },
+  "role": "outcome_blind_local_climate_reference_slice_no_yield_or_paired_scoring",
+  "schema": "loca2_us_prepared_historical_local_inputs/v1",
+  "status": "pass",
+  "support": {
+    "county_geoid": "31013",
+    "grid_cells": 100,
+    "years": [
+      2007,
+      2008,
+      2009,
+      2010,
+      2011,
+      2012
+    ]
+  }
+}
