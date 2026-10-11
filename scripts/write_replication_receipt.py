@@ -60,8 +60,12 @@ def main() -> None:
         "schema": "labor_ag_sectoral_scc_stage_receipt/v1",
         "created_at_utc": datetime.now(timezone.utc).isoformat(),
         "claim_status": (
-            "staged Monte Carlo diagnostic; not eligible as a paper reproduction "
-            "until 10,000 draws and prespecified comparison checks pass"
+            "full 10,000-draw single-response-function replication output; "
+            "headline-paper reproduction still requires the companion response "
+            "function and the paper's cross-function aggregation"
+            if int(match.group("n")) >= 10_000
+            else "staged Monte Carlo diagnostic; not eligible as a paper "
+            "reproduction until 10,000 draws and prespecified comparison checks pass"
         ),
         "source_doi": "10.5281/zenodo.21483095",
         "julia_version": "1.12.5",

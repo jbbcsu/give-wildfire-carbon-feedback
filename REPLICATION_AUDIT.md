@@ -74,3 +74,33 @@ that 100 draws were inadequate for convergence, and they do not match the
 rounded published labor mean of $41 or total of $179. The prespecified
 10,000-draw run is therefore required before assessing reproduction success or
 investigating any remaining configuration difference.
+
+## Full 10,000-draw Lancet result
+
+The prespecified 10,000-draw Lancet run completed successfully under Julia
+1.12.5, one thread, the authors' random seed (`24523438`), RFF-SP
+socioeconomics, a 2025 CO2 pulse, and the paper's 2% near-term Ramsey discount
+schedule. The resulting partial SCCs, in 2020 US dollars per metric ton of CO2,
+are:
+
+| Sector | Mean | MC standard error | 5th percentile | Median | 95th percentile |
+|---|---:|---:|---:|---:|---:|
+| Agriculture | 29.05 | 0.28 | -2.90 | 23.64 | 80.41 |
+| Labor (Lancet) | 29.26 | 0.23 | 0.19 | 25.01 | 70.78 |
+| Mortality | 97.92 | 0.44 | 43.10 | 90.27 | 178.66 |
+| Energy | 9.42 | 0.04 | 4.60 | 8.61 | 16.86 |
+| Sea-level rise | 2.03 | 0.04 | 0.51 | 1.61 | 4.42 |
+| Total (Lancet) | 167.68 | 0.78 | 70.15 | 152.53 | 310.75 |
+
+This is a successful numerical replication of the paper's rounded agriculture
+estimate of $29/tCO2 for the Lancet specification. It is not, by itself, a
+replication of the paper's $41 labor or $179 total headline estimates. The
+article explicitly bases those headline results on two labor response
+functions, whereas this completed run fixes the Lancet response function. The
+Lancet-only mean is therefore a structural sensitivity result, not a failed
+estimate to be overwritten or relabelled. The exact headline comparison remains
+gated on completing the matching 10,000-draw ISO run and reconstructing the
+paper's cross-function distribution. The official Supplementary Information
+confirms that ISO 7243:2017 and the alternative empirical Lancet response are
+the two structural labor specifications; it does not provide a scalar shortcut
+that would justify substituting the headline mean for either one.
