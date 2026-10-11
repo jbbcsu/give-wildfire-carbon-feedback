@@ -4665,6 +4665,45 @@ basis supports proportional annual-quantity scaling only: it fixes baseline
 within-season shares and does not represent changes in timing, dry spells,
 extremes, or drought. It opens no response, damage, or SCC gate.
 
+#### Pre-registered published monthly-pattern sensitivity
+
+To obtain a marginal within-season benchmark without fitting a new climate
+emulator, we pre-register a one-model sensitivity using the author-provided
+PEEPS MPI-ESM1-2-HR SSP5-8.5 slope for each calendar month. Only the published
+monthly slopes are used. We do not use the fitted intercepts or extrapolated
+absolute PEEPS rainfall levels: the latter produced at least one negative
+month on 2.856% of mapped rainfed-maize area in 2015 and 9.879% in 2100 and
+therefore failed the physical-level gate.
+
+The resident positive GSWP3-W5E5 historical climatology supplies the rainfall
+level. For every rainfed and irrigated crop-calendar cell we preserve, by
+month from planting through harvest, both the 1982--2010 mean rainfall
+`E[P]` and mean squared rainfall `E[P^2]`. The second moment is retained
+explicitly because the published response squares monthly amounts and, in
+general, `E[P^2]` is not `(E[P])^2`. Before any response is evaluated, these
+monthly moments must reproduce all three phase rainfall totals and all three
+phase sums of squared monthly rainfall in the frozen quantity basis, on
+exactly identical support.
+
+For year `t` and calendar month `m`, the marginal anomaly is the PEEPS slope
+in `kg m-2 s-1 K-1`, converted using that year's actual month duration, times
+the paired FAIR pulse-minus-baseline global-mean temperature change. Adding
+this anomaly `d[m,t]` changes a phase's linear term by `sum_m d[m,t]` and its
+squared-month term by `sum_m {2 d[m,t] E[P_m] + d[m,t]^2}`. Rainfed and
+irrigated calendars remain separate through this transformation. The same
+published cell coefficients, common-price maize weights, market mapping, GIVE
+replacement, and discounting used in the annual-quantity benchmark are then
+applied, subject to unchanged support rules.
+
+The gate requires exact source hashes and units, circular-longitude nearest-
+cell mapping sentinels, crop-area conservation, phase-basis reconstruction,
+nonnegative perturbed rainfall, and convergence across three shrinking pulse
+sizes. A passed result is still a one-ESM structural sensitivity, not a global
+probabilistic timing SCC, and it cannot identify daily dry spells, rainfall
+extremes, or drought. The frozen implementation protocol is
+`docs/PEEPS_MONTHLY_MARGINAL_BENCHMARK_PROTOCOL_20261011.md`; no result is
+reported until the monthly-input and marginal-response validators pass.
+
 For the marginal quantity checkpoint, country/model annual-rainfall slopes
 from the published EPA pattern set are multiplied by the matched FAIR
 pulse-minus-baseline temperature path. For cell `g`, the resulting absolute
