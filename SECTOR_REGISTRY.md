@@ -1,15 +1,15 @@
 # GIVE damage-sector evidence registry
 
-Status date: 9 October 2026. Values below retain their source configuration and
+Status date: 10 October 2026. Values below retain their source configuration and
 are not mutually additive unless explicitly stated.
 
 | Pathway | Current evidence | Estimate/status | Integration state | Fastest defensible next step |
 |---|---|---|---|---|
 | Temperature mortality | Existing GIVE sector | Existing model component | Baseline | Preserve; audit overlap with labor and air pollution |
-| Agriculture, total | Moore et al. (2026), DOI [10.1038/s41558-026-02749-z](https://doi.org/10.1038/s41558-026-02749-z) | Published 2025 partial SCC: $29/tCO2 | Official code acquired; exact 10,000-draw reproduction in progress | Reproduce before replacing legacy GIVE agriculture |
+| Agriculture, total | Moore et al. (2026), DOI [10.1038/s41558-026-02749-z](https://doi.org/10.1038/s41558-026-02749-z) | Locally reproduced 10,000-draw mean: $29.05/tCO2 (MC SE $0.28); published rounded value $29 | Full Lancet run reproduced; replacement/overlap review remains | Verify companion ISO run, then replace legacy GIVE agriculture without adding the precipitation module wholesale |
 | Agriculture, precipitation quantity | Original isolated precipitation project | Preliminary central fixed-adaptation maize quantity channel: -$0.00610/tCO2 in 2020 USD at 2%; not total precipitation-agriculture damages | Original bounded estimate; non-additive to total agriculture | Complete drought/timing, irrigation, other crops, and replacement design |
 | Agriculture, drought/timing/extremes | Original global and U.S. validation tracks | No promoted global SCC | Open research gap with empirical scaffolding | Retain only features with incremental out-of-sample value; benchmark PDSI/scPDSI and SPEI |
-| Labor productivity | Moore et al. (2026) | Published 2025 partial SCC: $41/tCO2; 90% interval $1–108 | Official MIT code and arrays acquired; exact reproduction in progress | Match published 10,000-draw result and audit overlap |
+| Labor productivity | Moore et al. (2026) | Locally reproduced Lancet-only mean: $29.26/tCO2 (5th-95th $0.19-$70.78); published two-function headline $41 ($1-$108) | Full 10,000-draw Lancet specification reproduced; headline aggregation remains open | Complete matching ISO run and reconstruct the paper's two-function distribution |
 | Fisheries market + nutrition | Bastien-Olvera et al. (2025/2026), DOI [10.1038/s41558-025-02533-5](https://doi.org/10.1038/s41558-025-02533-5) | Published benchmark: $22.09755/tCO2 ($0.05704 market; $22.04051 nutrition/use) | External, non-additive; mortality/nutrition and market overlap unresolved | Reproduce country paths and allocate endpoints once |
 | Biodiversity nonuse | Published benchmark audited in isolated biodiversity project | Approximately $8/tCO2; published external benchmark | External, non-additive; regional coefficients/joint draws unavailable locally | Obtain coefficients and joint uncertainty, then audit overlap with reef/nonuse values |
 | Coastal flooding | Existing GIVE/CIAM sector | Existing model component | Baseline | Preserve; exclude coastal protection from new flood and reef modules |

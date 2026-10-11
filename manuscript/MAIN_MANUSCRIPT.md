@@ -106,12 +106,16 @@ and international market adjustment remain outside the promoted result.
 ### 4.2 Labor productivity and updated agriculture
 
 Moore et al. (2026) report 2025 partial SCCs of $41/tCO2 for labor productivity
-(90% interval $1–108) and $29/tCO2 for updated agriculture. We have verified
-the official code archive and its exact dependency environment. A diagnostic
-SSP2-4.5 deterministic isolation run produces distinct labor and agriculture
-partial SCCs, and the published GTAP arrays pass structural checks. Exact RFF
-10,000-draw reproduction is in progress; published headline values remain
-external until that gate passes.
+(90% interval $1–108) and $29/tCO2 for updated agriculture. We verified the
+official code archive, exact dependency environment, and published GTAP arrays,
+then completed the registered 10,000-draw Lancet run under the authors' seed.
+It reproduces updated agriculture at $29.05/tCO2 (Monte Carlo standard error
+$0.28) and estimates the Lancet-only labor pathway at $29.26/tCO2 (5th-95th
+percentiles $0.19-$70.78). The Lancet-only total is $167.68/tCO2. These are
+structural-specification results, not substitutes for the article's headline
+distribution across two labor response functions. The matching ISO run and
+cross-function aggregation remain required before claiming exact reproduction
+of the published $41 labor and $179 total values.
 
 ### 4.3 Fisheries and biodiversity
 
@@ -172,7 +176,8 @@ damages through overlapping endpoints.
 
 ## 6. Planned final analyses
 
-1. Complete and verify the 10,000-draw labor and updated-agriculture SCCs.
+1. Complete the 10,000-draw ISO labor run and verify the paper's two-function
+   aggregation; the matching Lancet run and agriculture estimate are complete.
 2. Finish the precipitation replacement design, prioritizing drought/timing,
    additional crops, irrigation, and heterogeneous winners and losers.
 3. Reproduce fisheries country paths and separate market from nutrition and
