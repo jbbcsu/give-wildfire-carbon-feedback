@@ -23,6 +23,7 @@ from build_hultgren_precip_basis_climatology import EXPECTED, digest, require, s
 ROOT = Path(__file__).resolve().parents[1]
 MAX_MONTHS = 10
 RAIN_COLUMNS = [f"crop_month_offset_{index:02d}_precip_mm" for index in range(1, MAX_MONTHS + 1)]
+RAIN_SQUARED_COLUMNS = [f"crop_month_offset_{index:02d}_precip_mm2_mean" for index in range(1, MAX_MONTHS + 1)]
 CALENDAR_COLUMNS = [f"crop_month_offset_{index:02d}_calendar_month" for index in range(1, MAX_MONTHS + 1)]
 
 
@@ -40,8 +41,8 @@ def offset_climatology(
     plant_month: int,
     harvest_month: int,
     harvest_years: range = range(1982, 2011),
-) -> tuple[np.ndarray, np.ndarray]:
-    """Return mean rainfall and calendar month for each crop-season offset."""
+) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+    """Return rainfall mean, rainfall-square mean, and calendar month by offset."""
     sequences = []
     calendar_months = None
     for harvest_year in harvest_years:
@@ -55,7 +56,11 @@ def offset_climatology(
         sequences.append(monthly_rain[[month_lookup[key] for key in keys]])
     matrix = np.stack(sequences)
     require(np.isfinite(matrix).all() and np.all(matrix >= 0), "invalid crop-season monthly rainfall")
-    return matrix.mean(axis=0, dtype=np.float64), calendar_months
+    return (
+        matrix.mean(axis=0, dtype=np.float64),
+        np.square(matrix).mean(axis=0, dtype=np.float64),
+        calendar_months,
+    )
 
 
 def summarize_regime(
@@ -69,7 +74,7 @@ def summarize_regime(
     records = []
     for row in support.itertuples(index=False):
         union_index = union_lookup[(int(row.native_lat_index), int(row.native_lon_index))]
-        values, calendar_months = offset_climatology(
+        values, squared_values, calendar_months = offset_climatology(
             rain[:, union_index], month_lookup, int(row.plant_month), int(row.harvest_month)
         )
         record = {
@@ -87,12 +92,15 @@ def summarize_regime(
         for index in range(MAX_MONTHS):
             active = index < len(values)
             record[RAIN_COLUMNS[index]] = float(values[index]) if active else 0.0
+            record[RAIN_SQUARED_COLUMNS[index]] = float(squared_values[index]) if active else 0.0
             record[CALENDAR_COLUMNS[index]] = int(calendar_months[index]) if active else 0
         records.append(record)
     output = pd.DataFrame(records)
     require(len(output) == len(support), f"{regime} output rows differ")
     require(np.isfinite(output[RAIN_COLUMNS].to_numpy()).all(), f"{regime} rainfall invalid")
+    require(np.isfinite(output[RAIN_SQUARED_COLUMNS].to_numpy()).all(), f"{regime} squared rainfall invalid")
     require((output[RAIN_COLUMNS] >= 0).all().all(), f"{regime} rainfall negative")
+    require((output[RAIN_SQUARED_COLUMNS] >= 0).all().all(), f"{regime} squared rainfall negative")
     return output
 
 
@@ -133,7 +141,7 @@ def main() -> None:
         "source_period": [1981, 2010],
         "harvest_years": [1982, 2010],
         "definition": "mean monthly precipitation across 29 complete crop harvest years, indexed from planting through harvest and kept separate by irrigation regime",
-        "columns": {"rainfall_mm": RAIN_COLUMNS, "calendar_month": CALENDAR_COLUMNS},
+        "columns": {"rainfall_mm_mean": RAIN_COLUMNS, "rainfall_mm2_mean": RAIN_SQUARED_COLUMNS, "calendar_month": CALENDAR_COLUMNS},
         "sources": [{"path": str(path), "bytes": path.stat().st_size, "sha512": digest(path, "sha512")} for path in sorted(args.pr)],
         "support_sources": {
             "rainfed_calendar": {"path": str(args.rainfed_calendar), "sha256": sha256(args.rainfed_calendar)},
