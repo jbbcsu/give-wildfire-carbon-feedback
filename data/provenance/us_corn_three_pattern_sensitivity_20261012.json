@@ -1,0 +1,336 @@
+{
+  "claim_gates": {
+    "damage": false,
+    "national_yield_effect": false,
+    "project_pattern_structural_sensitivity": true,
+    "published_peeps_transport": true,
+    "scc": false,
+    "validated_multi_model_climate_ensemble": false
+  },
+  "climate_slope_mm_per_k_equal_county": {
+    "PEEPS_MPI-ESM1-2-HR_published": {
+      "maximum": 22.012603085438386,
+      "mean": -25.20360254956943,
+      "median": -25.95670737115426,
+      "minimum": -46.712482898917635,
+      "negative_counties": 349,
+      "positive_counties": 12
+    },
+    "project_fit_GFDL-ESM4": {
+      "maximum": 62.63317402015641,
+      "mean": 3.6810824294681312,
+      "median": 2.829791179782808,
+      "minimum": -26.639753840200164,
+      "negative_counties": 142,
+      "positive_counties": 219
+    },
+    "project_fit_IPSL-CM6A-LR": {
+      "maximum": 18.523952148758543,
+      "mean": -5.655791669831131,
+      "median": -5.847641132945515,
+      "minimum": -22.535290446031205,
+      "negative_counties": 259,
+      "positive_counties": 102
+    }
+  },
+  "created_at_utc": "2026-10-12T22:14:36.596977+00:00",
+  "definition": "U.S. selected-sample corn rainfall-response transport under one published PEEPS pattern and two independently audited project-fitted PEEPS-style monthly patterns",
+  "descriptive_nonirrigated_response_across_patterns_percent_per_k": {
+    "equal_pattern_mean": -0.8086050154941251,
+    "maximum": 0.5806474467612184,
+    "minimum": -2.3241260927203853
+  },
+  "implementation": {
+    "path": "/Users/jbb/Dropbox/GIVE/precipitation_scc/us_county_validation/scripts/build_us_corn_three_pattern_sensitivity.py",
+    "sha256": "d602c797afc9f0a82005ebbf68a69427433274335d545ccbcba80445715caabb"
+  },
+  "limitations": [
+    "The three patterns are not a homogeneous probability-weighted ensemble.",
+    "GFDL and IPSL slopes are project-fitted SSP5-8.5 patterns whose source algebra was independently audited but whose holdout gains were small and whose raw fitted levels can be negative; only slopes are used here.",
+    "Monthly mean patterns omit daily drought and extremes.",
+    "The U.S. historical response and ten-state support retain the limitations documented upstream.",
+    "No acreage, production, welfare, or adaptation weighting is applied."
+  ],
+  "national_selected_sample_equal_county": {
+    "PEEPS_MPI-ESM1-2-HR_published": {
+      "irrigated": {
+        "estimate_log_yield_per_k": 0.0003315628967366941,
+        "estimate_percent_yield_per_k": 0.03316178697894473,
+        "normal_95_intervals_percent_yield": {
+          "county_cr1": [
+            -0.08816522556938995,
+            0.15463613186290448
+          ],
+          "spatial_250km": [
+            -0.12682447906962263,
+            0.1934043341078989
+          ],
+          "spatial_500km": [
+            -0.13902328354910848,
+            0.205643747237978
+          ]
+        },
+        "spatially_robust_excludes_zero": false,
+        "standard_errors_log_yield": {
+          "county_cr1": 0.0006191857328423379,
+          "spatial_250km": 0.0008166390767715215,
+          "spatial_500km": 0.0008789607155547988
+        }
+      },
+      "non_irrigated": {
+        "estimate_log_yield_per_k": -0.023515597994280622,
+        "estimate_percent_yield_per_k": -2.3241260927203853,
+        "normal_95_intervals_percent_yield": {
+          "county_cr1": [
+            -2.586372292717323,
+            -2.0611739024936253
+          ],
+          "spatial_250km": [
+            -2.747667612106496,
+            -1.8987400168672022
+          ],
+          "spatial_500km": [
+            -2.8246236393912265,
+            -1.8210507552181094
+          ]
+        },
+        "spatially_robust_excludes_zero": true,
+        "standard_errors_log_yield": {
+          "county_cr1": 0.0013716695272077927,
+          "spatial_250km": 0.0022171542651955693,
+          "spatial_500km": 0.0026210399204863104
+        }
+      }
+    },
+    "project_fit_GFDL-ESM4": {
+      "irrigated": {
+        "estimate_log_yield_per_k": 0.0002983616326032441,
+        "estimate_percent_yield_per_k": 0.02984061468621545,
+        "normal_95_intervals_percent_yield": {
+          "county_cr1": [
+            -0.0030213445325192106,
+            0.06271337331487443
+          ],
+          "spatial_250km": [
+            -0.010015932134720231,
+            0.06971304854163063
+          ],
+          "spatial_500km": [
+            -0.014299908237942529,
+            0.07400062425458585
+          ]
+        },
+        "spatially_robust_excludes_zero": false,
+        "standard_errors_log_yield": {
+          "county_cr1": 0.00016764057875702507,
+          "spatial_250km": 0.00020332957664807502,
+          "spatial_500km": 0.0002251892552685059
+        }
+      },
+      "non_irrigated": {
+        "estimate_log_yield_per_k": 0.005789681867254249,
+        "estimate_percent_yield_per_k": 0.5806474467612184,
+        "normal_95_intervals_percent_yield": {
+          "county_cr1": [
+            0.511192047381037,
+            0.6501508413189
+          ],
+          "spatial_250km": [
+            0.46771508703995507,
+            0.6937067499275593
+          ],
+          "spatial_500km": [
+            0.4409957748870143,
+            0.7204932882501979
+          ]
+        },
+        "spatially_robust_excludes_zero": true,
+        "standard_errors_log_yield": {
+          "county_cr1": 0.00035244025569082765,
+          "spatial_250km": 0.000573181061632053,
+          "spatial_500km": 0.0007088874940782532
+        }
+      }
+    },
+    "project_fit_IPSL-CM6A-LR": {
+      "irrigated": {
+        "estimate_log_yield_per_k": -0.0001567376998756274,
+        "estimate_percent_yield_per_k": -0.015672541716407595,
+        "normal_95_intervals_percent_yield": {
+          "county_cr1": [
+            -0.052020862477630145,
+            0.020688997925612355
+          ],
+          "spatial_250km": [
+            -0.06127975211166554,
+            0.02995548160936295
+          ],
+          "spatial_500km": [
+            -0.06532858657772693,
+            0.034008176491573075
+          ]
+        },
+        "spatially_robust_excludes_zero": false,
+        "standard_errors_log_yield": {
+          "county_cr1": 0.00018551340834255302,
+          "spatial_250km": 0.00023277941754250758,
+          "spatial_500km": 0.00025344982147723903
+        }
+      },
+      "non_irrigated": {
+        "estimate_log_yield_per_k": -0.006846749593034342,
+        "estimate_percent_yield_per_k": -0.6823364005232085,
+        "normal_95_intervals_percent_yield": {
+          "county_cr1": [
+            -0.760849899317353,
+            -0.6037607854222774
+          ],
+          "spatial_250km": [
+            -0.8091951829094662,
+            -0.5553153737565548
+          ],
+          "spatial_500km": [
+            -0.8364972010046678,
+            -0.5279359397662016
+          ]
+        },
+        "spatially_robust_excludes_zero": true,
+        "standard_errors_log_yield": {
+          "county_cr1": 0.0004034906573018541,
+          "spatial_250km": 0.0006521019268519843,
+          "spatial_500km": 0.0007925536399945984
+        }
+      }
+    }
+  },
+  "schema": "us_corn_three_pattern_sensitivity/v1",
+  "sources": {
+    "coordinates": {
+      "path": "data/raw/us_county/tigerline/tl_2019_us_county/tl_2019_us_county.dbf",
+      "sha256": "7250428e9b6b0fa9e3c16d16f7d5bbeb2c0ab3b1f16395a954fcbad4624bf5e6"
+    },
+    "panel": {
+      "path": "data/interim/us_county/nass_direct_practice_nclimgrid_1981_2019.parquet",
+      "sha256": "205a94ae92c12810026c9c5d0ac0fa3760e46ebc39669e528ba20a125a0c46d7"
+    },
+    "project_patterns": {
+      "GFDL-ESM4": {
+        "path": "data/interim/pangeo_gfdl_esm4_ssp585_monthly_pattern_fit_20260917/monthly_pattern_coefficients.npz",
+        "sha256": "73df9b7ff6b0fa1aa16c35382be6c984dbe8d434f1e11c47827f2b4be3716cce"
+      },
+      "IPSL-CM6A-LR": {
+        "path": "data/interim/pangeo_ipsl_cm6a_lr_ssp585_monthly_pattern_fit_20260917/monthly_pattern_coefficients.npz",
+        "sha256": "cc7ce586ee3a12a686f098f8b65b0542096ee3cd68cb102a0a27a21e6fbdcbcb"
+      },
+      "audit": {
+        "path": "data/interim/pangeo_monthly_pattern_fit_validation_20260917/result.json",
+        "sha256": "fe7ba6b2e02285f92eb5d0a674b6ec032fa95fdc4410f51a0d59081f2ea98726"
+      }
+    },
+    "published_peeps": {
+      "members": [
+        {
+          "bytes": 1196250,
+          "month": "jan",
+          "path": "data/interim/peeps_author_mpi_ssp585_monthly_20260917/MPI-ESM1-2-HR_ssp585_pr_monthly_patterns_jan.nc",
+          "sha256": "cbf763f01ad20e6b7cea2287e25f2bc4644813d31c0446a37f2be4c37103d50e"
+        },
+        {
+          "bytes": 1196250,
+          "month": "feb",
+          "path": "data/interim/peeps_author_mpi_ssp585_monthly_20260917/MPI-ESM1-2-HR_ssp585_pr_monthly_patterns_feb.nc",
+          "sha256": "386fb457932dd96f4687fcb3fc96ca5dddbd568d1f83c299a3552b37c3e3911d"
+        },
+        {
+          "bytes": 1196250,
+          "month": "mar",
+          "path": "data/interim/peeps_author_mpi_ssp585_monthly_20260917/MPI-ESM1-2-HR_ssp585_pr_monthly_patterns_mar.nc",
+          "sha256": "11f217967d1eff2cdbd1eb23be873189758cf1617d3fbe905122a4486c017e75"
+        },
+        {
+          "bytes": 1196250,
+          "month": "apr",
+          "path": "data/interim/peeps_author_mpi_ssp585_monthly_20260917/MPI-ESM1-2-HR_ssp585_pr_monthly_patterns_apr.nc",
+          "sha256": "0fbee548c713b7061462db397ddbd653da0eda72ffc1db7942d4271a2ff3f4f3"
+        },
+        {
+          "bytes": 1196250,
+          "month": "may",
+          "path": "data/interim/peeps_author_mpi_ssp585_monthly_20260917/MPI-ESM1-2-HR_ssp585_pr_monthly_patterns_may.nc",
+          "sha256": "96e70ec27065eda1c9186a5070ce508711a8b4fd6c3dbfeac0766bcdadc4036e"
+        },
+        {
+          "bytes": 1196250,
+          "month": "jun",
+          "path": "data/interim/peeps_author_mpi_ssp585_monthly_20260917/MPI-ESM1-2-HR_ssp585_pr_monthly_patterns_jun.nc",
+          "sha256": "2c982643b0a652006240ccdee233022e9c622237ef14473673badc70adee02ba"
+        },
+        {
+          "bytes": 1196250,
+          "month": "jul",
+          "path": "data/interim/peeps_author_mpi_ssp585_monthly_20260917/MPI-ESM1-2-HR_ssp585_pr_monthly_patterns_jul.nc",
+          "sha256": "00a799eb4d9c7c430134928b1fb0603d2115921a8586d85b7b10f7f66d56e6ec"
+        },
+        {
+          "bytes": 1196250,
+          "month": "aug",
+          "path": "data/interim/peeps_author_mpi_ssp585_monthly_20260917/MPI-ESM1-2-HR_ssp585_pr_monthly_patterns_aug.nc",
+          "sha256": "3796af842e3ec887276c3619d5e175df6a89e66010ed38aadeffbfcbd86006f9"
+        },
+        {
+          "bytes": 1196250,
+          "month": "sep",
+          "path": "data/interim/peeps_author_mpi_ssp585_monthly_20260917/MPI-ESM1-2-HR_ssp585_pr_monthly_patterns_sep.nc",
+          "sha256": "3bce9782f7c52eae5eec0f7ef7421b85fd118520c175c36e322588d1fa057b0d"
+        },
+        {
+          "bytes": 1196250,
+          "month": "oct",
+          "path": "data/interim/peeps_author_mpi_ssp585_monthly_20260917/MPI-ESM1-2-HR_ssp585_pr_monthly_patterns_oct.nc",
+          "sha256": "223f1c3c3cb174e519f7914663cd8a19f87960ba4c8880e737952dfbc0d9ea91"
+        },
+        {
+          "bytes": 1196250,
+          "month": "nov",
+          "path": "data/interim/peeps_author_mpi_ssp585_monthly_20260917/MPI-ESM1-2-HR_ssp585_pr_monthly_patterns_nov.nc",
+          "sha256": "b369bee78027c4d777e0fc9c9fe280391f99c01bbc28730be9aa59cb69b266be"
+        },
+        {
+          "bytes": 1196250,
+          "month": "dec",
+          "path": "data/interim/peeps_author_mpi_ssp585_monthly_20260917/MPI-ESM1-2-HR_ssp585_pr_monthly_patterns_dec.nc",
+          "sha256": "13e17ee549adfe109356b765cc25a50c2adc539399b95c09eeae73ec0b237699"
+        }
+      ],
+      "receipt": "data/interim/peeps_author_mpi_ssp585_monthly_20260917/selected_months_receipt.json",
+      "receipt_sha256": "fafe91fafb0f64b1448501bb49b623e21ad86e3c882a6b65b5fb337d8b6fa753"
+    },
+    "us_response": {
+      "receipt": "data/provenance/us_corn_quantity_pdsi_spatial_real_v1_20261012.json",
+      "receipt_sha256": "4c5fa17a20f48befef8b9d919830ee4d3afd5ad641daf8f0eb868d27edcf4993"
+    }
+  },
+  "state_output": {
+    "bytes": 29410,
+    "path": "data/interim/us_corn_three_pattern_state_20261012.csv",
+    "sha256": "6f3d9d989bee0e2d53a4107965ed4e369551299526e9847f49355e17c29c74f1"
+  },
+  "status": "three_monthly_pattern_structural_sensitivity_not_validated_climate_ensemble_damage_or_scc",
+  "support": {
+    "counties": 361,
+    "counties_with_same_nonzero_slope_sign_all_patterns": 84,
+    "paired_county_years": 7013,
+    "patterns": [
+      "PEEPS_MPI-ESM1-2-HR_published",
+      "project_fit_GFDL-ESM4",
+      "project_fit_IPSL-CM6A-LR"
+    ],
+    "states": 10
+  },
+  "validation": {
+    "finite_outputs": true,
+    "frozen_us_quantity_response_reproduced_tolerance": 1e-13,
+    "monthly_day_reconciliation": true,
+    "one_k_total_season_rainfall_nonnegative": true
+  }
+}

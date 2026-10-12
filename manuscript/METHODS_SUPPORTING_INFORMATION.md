@@ -2246,6 +2246,20 @@ opens a one-ESM climate-to-seasonal-rainfall and selected-sample transport
 diagnostic, not multi-model attribution, national yield, damage, or SCC gates.
 See `../US_CORN_PEEPS_CLIMATE_YIELD_BRIDGE_RESULTS_20261012.md`.
 
+For structural climate-response uncertainty, identical mapping, crop-season
+integration, historical response, and equal-county weighting are applied to
+the independently audited project-fitted GFDL-ESM4 and IPSL-CM6A-LR monthly
+slopes. Mean selected-support rainfall slopes are +3.68 and -5.66 mm/K,
+compared with -25.20 mm/K for published MPI; only 84 of 361 counties retain
+the same nonzero sign across all three. Non-irrigated transports are +0.58%,
+-0.68%, and -2.32%/K, respectively. All observed one-degree seasonal rainfall
+levels remain nonnegative. The project fits were not promoted by their
+holdout tests and raw fitted levels can be negative, so their slopes are
+reported only as sensitivities and the equal-pattern mean (-0.81%/K) is
+descriptive. The 194.9 MB bounded run opens no validated-ensemble, national,
+damage, or SCC gate. See
+`../US_CORN_THREE_PATTERN_SENSITIVITY_RESULTS_20261012.md`.
+
 Fit the candidate responses on crop-grid-year observations with grid/crop
 fixed effects and flexible year effects. The reference uses joint temperature
 and crop-calendar seasonal quantity; direct-pattern extensions and separate

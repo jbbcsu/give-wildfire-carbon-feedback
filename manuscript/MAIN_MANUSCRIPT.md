@@ -1555,6 +1555,20 @@ transport without climate-model uncertainty, PDSI/daily extremes, acreage or
 welfare weights; the unstable historical quantity coefficient prevents SCC
 promotion. See `US_CORN_PEEPS_CLIMATE_YIELD_BRIDGE_RESULTS_20261012.md`.
 
+Two independently audited project-fitted PEEPS-style monthly patterns expose
+the climate-response uncertainty around that published benchmark. On the same
+support, mean crop-season slopes are +3.68 mm/K for GFDL-ESM4 and -5.66 mm/K
+for IPSL-CM6A-LR, versus -25.20 mm/K for published MPI. The corresponding
+non-irrigated transports are +0.58%, -0.68%, and -2.32%/K. Only 84 of 361
+counties have the same nonzero rainfall-slope sign under all three patterns.
+The descriptive equal-pattern mean is -0.81%/K, but it is not a central
+estimate: GFDL/IPSL are project fits with small holdout gains and physically
+invalid raw fitted levels, so only their slopes enter a structural sensitivity.
+The much wider between-pattern spread relative to conditional sampling
+intervals makes multi-model climate response, rather than yield precision,
+the immediate U.S. bottleneck. See
+`US_CORN_THREE_PATTERN_SENSITIVITY_RESULTS_20261012.md`.
+
 An exploratory extension uses the only additional acquired paired-practice
 crop, all-classes wheat. Independent fixed 2009 state harvested-area shares
 combine winter, spring, and durum seasonal PDSI candidates before estimation.
