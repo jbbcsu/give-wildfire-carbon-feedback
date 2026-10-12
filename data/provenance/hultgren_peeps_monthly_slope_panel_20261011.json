@@ -1,0 +1,129 @@
+{
+  "claim_gates": {
+    "damage": false,
+    "marginal_response": false,
+    "published_monthly_slope_input": true,
+    "scc": false
+  },
+  "created_at_utc": "2026-10-12T01:59:34.292345+00:00",
+  "definition": "PEEPS MPI-ESM1-2-HR SSP5-8.5 monthly precipitation slopes mapped by nearest native grid center to each rainfed and irrigated crop-calendar cell",
+  "limitations": [
+    "One ESM and one scenario; structural sensitivity only.",
+    "Slopes describe monthly mean precipitation and not daily dry spells, extremes, or drought.",
+    "No PEEPS intercept or absolute fitted precipitation level is used.",
+    "No FAIR pulse, crop response, damage, or SCC is evaluated here."
+  ],
+  "mapping": {
+    "area_conserved": true,
+    "mapped_native_cells": 10792,
+    "method": "nearest native latitude and circular-longitude grid center",
+    "rows": 48889,
+    "sentinel_rows": 100,
+    "total_crop_area_ha": 131760861.56175886
+  },
+  "monthly_input": {
+    "path": "data/interim/hultgren_monthly_precip_climatology_20261011.parquet",
+    "receipt": "data/provenance/hultgren_monthly_precip_climatology_20261011.json",
+    "receipt_sha256": "1cfee1f0b9c63d85643c7d39b6d79f337b5e8a6eb0bc659a15efed40a103ce2e",
+    "sha256": "5baa267d6b113507d4caca27f75b98fdf5e0bd3be1f84413acb183c439b2b894"
+  },
+  "output": {
+    "bytes": 5233910,
+    "path": "data/interim/hultgren_peeps_monthly_slope_panel_20261011.parquet",
+    "sha256": "5f8319564609c32f96bd06878ffc49aa922ae48803427df7d03b0399e993a94a",
+    "slope_columns": [
+      "crop_month_offset_01_peeps_slope_kg_m2_s_K",
+      "crop_month_offset_02_peeps_slope_kg_m2_s_K",
+      "crop_month_offset_03_peeps_slope_kg_m2_s_K",
+      "crop_month_offset_04_peeps_slope_kg_m2_s_K",
+      "crop_month_offset_05_peeps_slope_kg_m2_s_K",
+      "crop_month_offset_06_peeps_slope_kg_m2_s_K",
+      "crop_month_offset_07_peeps_slope_kg_m2_s_K",
+      "crop_month_offset_08_peeps_slope_kg_m2_s_K",
+      "crop_month_offset_09_peeps_slope_kg_m2_s_K",
+      "crop_month_offset_10_peeps_slope_kg_m2_s_K"
+    ]
+  },
+  "peeps_input": {
+    "license": "CC-BY-4.0",
+    "outer_archive_md5": "eed1a0e8a43bf915c78ec68d0f37e357",
+    "receipt": "data/interim/peeps_author_mpi_ssp585_monthly_20260917/selected_months_receipt.json",
+    "receipt_sha256": "fafe91fafb0f64b1448501bb49b623e21ad86e3c882a6b65b5fb337d8b6fa753",
+    "sources": [
+      {
+        "bytes": 1196250,
+        "month": 1,
+        "path": "data/interim/peeps_author_mpi_ssp585_monthly_20260917/MPI-ESM1-2-HR_ssp585_pr_monthly_patterns_jan.nc",
+        "sha256": "cbf763f01ad20e6b7cea2287e25f2bc4644813d31c0446a37f2be4c37103d50e"
+      },
+      {
+        "bytes": 1196250,
+        "month": 2,
+        "path": "data/interim/peeps_author_mpi_ssp585_monthly_20260917/MPI-ESM1-2-HR_ssp585_pr_monthly_patterns_feb.nc",
+        "sha256": "386fb457932dd96f4687fcb3fc96ca5dddbd568d1f83c299a3552b37c3e3911d"
+      },
+      {
+        "bytes": 1196250,
+        "month": 3,
+        "path": "data/interim/peeps_author_mpi_ssp585_monthly_20260917/MPI-ESM1-2-HR_ssp585_pr_monthly_patterns_mar.nc",
+        "sha256": "11f217967d1eff2cdbd1eb23be873189758cf1617d3fbe905122a4486c017e75"
+      },
+      {
+        "bytes": 1196250,
+        "month": 4,
+        "path": "data/interim/peeps_author_mpi_ssp585_monthly_20260917/MPI-ESM1-2-HR_ssp585_pr_monthly_patterns_apr.nc",
+        "sha256": "0fbee548c713b7061462db397ddbd653da0eda72ffc1db7942d4271a2ff3f4f3"
+      },
+      {
+        "bytes": 1196250,
+        "month": 5,
+        "path": "data/interim/peeps_author_mpi_ssp585_monthly_20260917/MPI-ESM1-2-HR_ssp585_pr_monthly_patterns_may.nc",
+        "sha256": "96e70ec27065eda1c9186a5070ce508711a8b4fd6c3dbfeac0766bcdadc4036e"
+      },
+      {
+        "bytes": 1196250,
+        "month": 6,
+        "path": "data/interim/peeps_author_mpi_ssp585_monthly_20260917/MPI-ESM1-2-HR_ssp585_pr_monthly_patterns_jun.nc",
+        "sha256": "2c982643b0a652006240ccdee233022e9c622237ef14473673badc70adee02ba"
+      },
+      {
+        "bytes": 1196250,
+        "month": 7,
+        "path": "data/interim/peeps_author_mpi_ssp585_monthly_20260917/MPI-ESM1-2-HR_ssp585_pr_monthly_patterns_jul.nc",
+        "sha256": "00a799eb4d9c7c430134928b1fb0603d2115921a8586d85b7b10f7f66d56e6ec"
+      },
+      {
+        "bytes": 1196250,
+        "month": 8,
+        "path": "data/interim/peeps_author_mpi_ssp585_monthly_20260917/MPI-ESM1-2-HR_ssp585_pr_monthly_patterns_aug.nc",
+        "sha256": "3796af842e3ec887276c3619d5e175df6a89e66010ed38aadeffbfcbd86006f9"
+      },
+      {
+        "bytes": 1196250,
+        "month": 9,
+        "path": "data/interim/peeps_author_mpi_ssp585_monthly_20260917/MPI-ESM1-2-HR_ssp585_pr_monthly_patterns_sep.nc",
+        "sha256": "3bce9782f7c52eae5eec0f7ef7421b85fd118520c175c36e322588d1fa057b0d"
+      },
+      {
+        "bytes": 1196250,
+        "month": 10,
+        "path": "data/interim/peeps_author_mpi_ssp585_monthly_20260917/MPI-ESM1-2-HR_ssp585_pr_monthly_patterns_oct.nc",
+        "sha256": "223f1c3c3cb174e519f7914663cd8a19f87960ba4c8880e737952dfbc0d9ea91"
+      },
+      {
+        "bytes": 1196250,
+        "month": 11,
+        "path": "data/interim/peeps_author_mpi_ssp585_monthly_20260917/MPI-ESM1-2-HR_ssp585_pr_monthly_patterns_nov.nc",
+        "sha256": "b369bee78027c4d777e0fc9c9fe280391f99c01bbc28730be9aa59cb69b266be"
+      },
+      {
+        "bytes": 1196250,
+        "month": 12,
+        "path": "data/interim/peeps_author_mpi_ssp585_monthly_20260917/MPI-ESM1-2-HR_ssp585_pr_monthly_patterns_dec.nc",
+        "sha256": "13e17ee549adfe109356b765cc25a50c2adc539399b95c09eeae73ec0b237699"
+      }
+    ]
+  },
+  "schema": "hultgren_peeps_monthly_slope_panel/v1",
+  "status": "complete_published_monthly_slope_input_not_response_damage_or_scc"
+}

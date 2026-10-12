@@ -4704,6 +4704,16 @@ extremes, or drought. The frozen implementation protocol is
 `docs/PEEPS_MONTHLY_MARGINAL_BENCHMARK_PROTOCOL_20261011.md`; no result is
 reported until the monthly-input and marginal-response validators pass.
 
+The monthly-input gate is now complete. The bounded build produced 48,889
+rainfed/irrigated regime-cell records and peaked at 346.8 MB sampled process-
+group RSS, below the 512 MiB ceiling. An independent validator found exact
+support, valid crop-calendar padding, valid second moments, and reconstructed
+all six frozen Hultgren phase inputs with maximum absolute discrepancy
+`1.86e-9`. The twelve source- and hash-verified PEEPS slopes were then mapped
+to those crop months, touching 10,792 native MPI cells while conserving all
+131.761 million eligible crop hectares. This opens the monthly climate-input
+gate only. The FAIR marginal response, welfare, and SCC gates remain closed.
+
 For the marginal quantity checkpoint, country/model annual-rainfall slopes
 from the published EPA pattern set are multiplied by the matched FAIR
 pulse-minus-baseline temperature path. For cell `g`, the resulting absolute

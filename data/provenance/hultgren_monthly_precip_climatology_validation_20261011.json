@@ -1,0 +1,33 @@
+{
+  "checks": {
+    "calendar_and_padding_valid": true,
+    "exact_support_match": true,
+    "maximum_absolute_basis_difference": 1.862645149230957e-09,
+    "phase_basis_reconstructed": true,
+    "rows": 48889,
+    "second_moment_inequality_valid": true
+  },
+  "claim_gates": {
+    "damage": false,
+    "monthly_precipitation_input": true,
+    "response": false,
+    "scc": false
+  },
+  "created_at_utc": "2026-10-11T23:26:08.515398+00:00",
+  "schema": "hultgren_monthly_precip_climatology_validation/v1",
+  "sources": {
+    "basis": {
+      "path": "data/interim/hultgren_precip_basis_climatology_20260924.parquet",
+      "receipt": "data/provenance/hultgren_precip_basis_climatology_20260924.json",
+      "receipt_sha256": "bc608ec10182c7f0cdf9ea99deb2a198c2bf3e48ed57492b0fd44aee3bef6a1b",
+      "sha256": "b32eb27c5723d3cd861e7f78bccfd74d67931139c6c90a3f7f8afb104f3f33a9"
+    },
+    "monthly": {
+      "path": "data/interim/hultgren_monthly_precip_climatology_20261011.parquet",
+      "receipt": "data/provenance/hultgren_monthly_precip_climatology_20261011.json",
+      "receipt_sha256": "1cfee1f0b9c63d85643c7d39b6d79f337b5e8a6eb0bc659a15efed40a103ce2e",
+      "sha256": "5baa267d6b113507d4caca27f75b98fdf5e0bd3be1f84413acb183c439b2b894"
+    }
+  },
+  "status": "validated_historical_monthly_input_not_response_damage_or_scc"
+}
