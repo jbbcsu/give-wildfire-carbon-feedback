@@ -1,0 +1,141 @@
+{
+  "adaptation": {
+    "fixed": {
+      "annual_attenuation_rate": 0.0,
+      "application": "attenuate negative cell log-yield responses only",
+      "base_year": 2020,
+      "cap": 0.0
+    },
+    "trend": {
+      "annual_attenuation_rate": 0.003,
+      "application": "attenuate negative cell log-yield responses only",
+      "base_year": 2020,
+      "cap": 0.35
+    },
+    "upper": {
+      "annual_attenuation_rate": 0.007,
+      "application": "attenuate negative cell log-yield responses only",
+      "base_year": 2020,
+      "cap": 0.7
+    }
+  },
+  "claim_gates": {
+    "agriculture_replacement": false,
+    "central_structural_damage_path": true,
+    "currency_aligned_give_damage": false,
+    "monthly_marginal_response": true,
+    "scc": false
+  },
+  "created_at_utc": "2026-10-12T13:05:47.516103+00:00",
+  "estimand": "published PEEPS MPI monthly precipitation slope times paired FAIR marginal temperature, transported through exact Hultgren monthly first/second moments and separate fully anticipated national maize markets",
+  "implementation": {
+    "path": "scripts/build_peeps_fair_hultgren_monthly_damage_paths.py",
+    "sha256": "c502d3add1b21a95b6c27a0a7513e994683974228f3d99c300091cb7681eae4b"
+  },
+  "limitations": [
+    "One ESM/scenario structural sensitivity; not a probabilistic timing SCC.",
+    "A fixed common physical support excludes an entire crop cell if either irrigation regime would have negative monthly rainfall under any registered pulse/year; excluded area and value are reported without renormalization.",
+    "Monthly means cannot represent daily dry spells, extremes, or drought.",
+    "Only maize and the uncapped published response are included.",
+    "The fixed common-price value base remains in its source price basis; GIVE currency conversion and paired replacement are not yet applied.",
+    "No trade, storage, cross-crop substitution, adaptation costs, or future maize-value growth is modeled."
+  ],
+  "market": {
+    "demand_elasticity_magnitude": 0.04,
+    "expectations": "fully anticipated",
+    "geography": "separate national maize markets",
+    "supply_elasticity": 0.1,
+    "yield_to_supply_mapping": "horizontal_output"
+  },
+  "output": {
+    "bytes": 71736,
+    "path": "data/interim/peeps_fair_hultgren_monthly_damage_paths_20261011.parquet",
+    "sha256": "15a03293270edcefd7da49cbed95770cad7949aa718efd2867c371b57d1ce7f9"
+  },
+  "schema": "peeps_fair_hultgren_monthly_damage_paths/v1",
+  "smallest_pulse_damage_path_summaries_usd_source_price_basis": [
+    {
+      "adaptation": "fixed",
+      "max": 9.738232707861682,
+      "mean": 8.107830016714606,
+      "median": 8.066402202719274,
+      "min": 0.9869290759544184
+    },
+    {
+      "adaptation": "trend",
+      "max": 8.805355429527252,
+      "mean": 0.8735322289942029,
+      "median": -1.0253023192055442,
+      "min": -1.0880626723479399
+    },
+    {
+      "adaptation": "upper",
+      "max": 7.781316718732437,
+      "mean": -6.899881370538943,
+      "median": -10.00208251274645,
+      "min": -10.466569603434845
+    }
+  ],
+  "sources": {
+    "fair": {
+      "path": "data/interim/give_fair_temperature_path_smoke/temperature_paths.csv",
+      "receipt": "data/provenance/give_fair_temperature_path_smoke_20260827.json",
+      "receipt_sha256": "a406ac1978b13df17fc519923ec4f38e5d4cb1ac3ac4ab67b8e395a25fc2fd33",
+      "sha256": "aedf6b66dd296337e1cb6105d2aa56ec94f3e15e5ac92c2abcdf74b6a42b6067"
+    },
+    "response_panel": {
+      "path": "data/interim/hultgren_quantity_response_panel_20260924.parquet",
+      "receipt": "data/provenance/hultgren_quantity_response_panel_20260924.json",
+      "receipt_sha256": "6f3487624e4deb319d6e6ec004c532a95000d0c6b457ec6e14a0403250d9e1f9",
+      "sha256": "af389bc3050cf7074f0a3869ae03cdcd959b3ba8a8017910ff5bc6f5507ffcdc"
+    },
+    "slope_panel": {
+      "path": "data/interim/hultgren_peeps_monthly_slope_panel_20261011.parquet",
+      "receipt": "data/provenance/hultgren_peeps_monthly_slope_panel_20261011.json",
+      "receipt_sha256": "fab0c25b56ae3e9c533062d2ff6d7639e4c93f880ed97f747da89404504d7815",
+      "sha256": "5f8319564609c32f96bd06878ffc49aa922ae48803427df7d03b0399e993a94a"
+    }
+  },
+  "status": "one_esm_monthly_pattern_damage_paths_not_give_replacement_or_scc",
+  "support": {
+    "climate_models": 1,
+    "countries": 107,
+    "excluded_combined_crop_cells": 360,
+    "excluded_crop_area_fraction": 0.006487244366748978,
+    "excluded_crop_area_ha": 854764.9069245122,
+    "excluded_response_value_fraction": 0.009983974310426748,
+    "excluded_response_value_usd": 955529980.5408936,
+    "no_renormalization": true,
+    "pulses_gtc": [
+      0.0,
+      2.5e-05,
+      5e-05,
+      0.0001
+    ],
+    "response_rows": 22300,
+    "retained_combined_crop_cells": 31941,
+    "retained_response_value_usd": 94750844137.72855,
+    "rows": 3372,
+    "source_combined_crop_cells": 32301,
+    "source_crop_area_ha": 131760861.56175888,
+    "source_response_value_usd": 95706374118.26944,
+    "years": [
+      2020,
+      2300
+    ]
+  },
+  "validation": {
+    "convergence_by_adaptation": {
+      "fixed": 0.0001341865154246719,
+      "trend": 1.903634979232861e-05,
+      "upper": 0.0001547487565712544
+    },
+    "maximum_absolute_cell_log_yield_response": 8.23204556512063e-08,
+    "maximum_relative_normalized_damage_disagreement": 0.0001547487565712544,
+    "minimum_perturbed_monthly_rainfall_mm_on_common_physical_support": 0.0,
+    "pre_2021_identity": true,
+    "shrinking_pulse_relative_tolerance": 0.0002,
+    "unrestricted_minimum_perturbed_monthly_rainfall_mm": -2.799111032149357e-07,
+    "zero_pulse_identity": true
+  }
+}

@@ -4714,6 +4714,29 @@ to those crop months, touching 10,792 native MPI cells while conserving all
 131.761 million eligible crop hectares. This opens the monthly climate-input
 gate only. The FAIR marginal response, welfare, and SCC gates remain closed.
 
+The first marginal monthly-pattern diagnostic is also complete, but remains
+outside the paired-replacement SCC gate. Applying the PEEPS monthly slopes to
+the paired FAIR pulse initially produced a minimum monthly amount of
+`-2.80e-7` mm because a small set of historical cell-month climatologies is
+exactly zero. We did not clip those values. Instead, a fixed common physical
+support excludes an entire crop cell from every baseline and pulse path if
+either irrigation regime would become negative in any registered year or
+pulse. This removes 360 of 32,301 crop cells, 0.649% of eligible area and
+0.998% of response value, without renormalization; the retained minimum is
+zero.
+
+On the retained 107-country support, the uncapped monthly response passes
+zero-pulse and pre-2021 identity and shrinking-pulse convergence (maximum
+relative normalized-damage disagreement `1.55e-4`, below the pre-registered
+`2e-4` ceiling). Discounting these marginal differences on the deterministic
+standard-GIVE consumption path gives 2% diagnostics of `$0.00427/tCO2`
+(fixed adaptation), `$0.00214/tCO2` (trend) and `-$0.00038/tCO2` (upper), in
+2020 dollars. These are one-MPI-model joint monthly-pattern diagnostics, not
+an incremental timing effect and not a probabilistic or paired-replacement
+precipitation SCC. A same-pattern annual-quantity comparator and exact joint-
+minus-quantity decomposition remain required before interpreting the timing
+contribution.
+
 For the marginal quantity checkpoint, country/model annual-rainfall slopes
 from the published EPA pattern set are multiplied by the matched FAIR
 pulse-minus-baseline temperature path. For cell `g`, the resulting absolute

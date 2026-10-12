@@ -1,0 +1,99 @@
+{
+  "central_2pct_smallest_pulse_usd2020_per_tco2": {
+    "fixed": 0.004268549561468498,
+    "trend": 0.00214327649738735,
+    "upper": -0.0003757717501962818
+  },
+  "claim_gates": {
+    "agriculture_replacement": false,
+    "give_replacement_scc": false,
+    "paired_agriculture_levels": false,
+    "standard_give_baseline_discount_diagnostic": true
+  },
+  "created_at_utc": "2026-10-12T13:07:44.500327+00:00",
+  "currency": {
+    "approximation_disclosure": "US GDP-wide rebase of FAOSTAT farm-gate production value; these price concepts are not identical.",
+    "source_to_usd2005_scalar": 0.8357992263240843
+  },
+  "definition": "one-ESM monthly precipitation-pattern maize marginal damage differences discounted with the deterministic standard GIVE baseline consumption path",
+  "discounting": {
+    "emission_year": 2020,
+    "formula": "(CPC_2020/CPC_t)^eta / (1+prtp)^(t-2020)",
+    "last_year": 2300,
+    "molecular_conversion_C_to_CO2": 0.2727272727272727,
+    "pricelevel_2005_to_2020": 1.2987749131468274,
+    "rates": [
+      {
+        "eta": 1.01601,
+        "label": "1.5%",
+        "prtp": 9.150024589210659e-05
+      },
+      {
+        "eta": 1.244458999,
+        "label": "2.0%",
+        "prtp": 0.0019745879362491614
+      },
+      {
+        "eta": 1.421158088,
+        "label": "2.5%",
+        "prtp": 0.004629467024013456
+      },
+      {
+        "eta": 1.567899391,
+        "label": "3.0%",
+        "prtp": 0.007732453194507549
+      }
+    ],
+    "rff_sample_id": 6546
+  },
+  "implementation": {
+    "path": "/Users/jbb/Dropbox/GIVE/precipitation_scc/scripts/build_peeps_monthly_partial_scc_diagnostic.py",
+    "sha256": "237eb4ed3349a5ae1bb0f2a19d94f72f10f92d2de40bd45b3b596b8a0ec5c1c5"
+  },
+  "limitations": [
+    "This is a one-ESM monthly-pattern diagnostic, not a probabilistic precipitation SCC.",
+    "Discount factors come from standard deterministic GIVE retaining MooreAg; no paired agriculture replacement is installed.",
+    "The GDP-wide price conversion approximates the agricultural price concept.",
+    "Only maize and monthly mean precipitation are included; daily drought/extremes and other crops remain omitted.",
+    "The common physical support excludes 1.0% of response value without renormalization, as documented upstream."
+  ],
+  "output": {
+    "bytes": 5015,
+    "path": "data/interim/peeps_monthly_partial_scc_diagnostic_20261012.csv",
+    "sha256": "fe67f08bc4e5f2cc9f729a4bc28991a48a9b86dcdae5c13318b212a620c127f6"
+  },
+  "schema": "peeps_monthly_partial_scc_diagnostic/v1",
+  "sources": {
+    "damage_paths": {
+      "path": "data/interim/peeps_fair_hultgren_monthly_damage_paths_20261011.parquet",
+      "receipt": "data/provenance/peeps_fair_hultgren_monthly_damage_paths_20261011.json",
+      "receipt_sha256": "c3ba3c516c59f8f385396e7c60156faacd8a00428550a12c00e53d49a16a3131",
+      "sha256": "15a03293270edcefd7da49cbed95770cad7949aa718efd2867c371b57d1ce7f9"
+    },
+    "give_cpc": {
+      "job_receipt": "data/provenance/give_deterministic_discount_path_job_20260924.json",
+      "job_receipt_sha256": "4a4fe7249cc7812e68b819c3a211c1525b6e064c3a565ec769e027b422c40d94",
+      "path": "data/interim/give_deterministic_discount_path_20260924.csv",
+      "sha256": "23e939af062ae1313738ec4b535793cb7014fea320430a834fd485980121f4b0"
+    },
+    "price_registry": {
+      "path": "config/price_basis_registry.toml",
+      "sha256": "128c2fbdc8481a588aa07bbce23520f3cd6df48ea1132edc33c9ee4c756b3e72"
+    }
+  },
+  "status": "one_esm_monthly_pattern_standard_give_baseline_discount_diagnostic_not_paired_replacement_scc",
+  "support": {
+    "adaptation_cases": 3,
+    "annual_years_per_path": 281,
+    "climate_models": 1,
+    "discount_schedules": 4,
+    "output_rows": 36,
+    "positive_pulses": 3
+  },
+  "validation": {
+    "maximum_cpc_identity_error": 5.820766091346741e-11,
+    "maximum_net_consumption_identity_error_billion_usd2005": 4.656612873077393e-10,
+    "maximum_relative_small_pulse_scc_disagreement": 1.0799847802464428e-05,
+    "pulse_convergence_tolerance": 0.0002
+  }
+}
