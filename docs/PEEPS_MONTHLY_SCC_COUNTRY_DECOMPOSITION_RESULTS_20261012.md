@@ -44,10 +44,14 @@ markets, not causal local effects or total country damages. Daily drought,
 extremes, other crops, trade, and paired GIVE agriculture replacement remain
 outside the result.
 
+![Country and FUND-region accounting components](../manuscript/figures/peeps_monthly_country_decomposition_20261012.svg)
+
 ## Reproducibility
 
 - `scripts/decompose_peeps_monthly_scc_by_country.py`
 - `data/provenance/peeps_monthly_scc_country_decomposition_20261012.json`
+- `scripts/render_peeps_monthly_country_decomposition.py`
+- `data/provenance/peeps_monthly_country_decomposition_figure_20261012.json`
 - Country table (gitignored):
   `data/interim/peeps_monthly_scc_country_decomposition_20261012.csv`
 - Region table (gitignored):

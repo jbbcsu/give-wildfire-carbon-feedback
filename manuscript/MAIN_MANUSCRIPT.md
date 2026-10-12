@@ -1915,6 +1915,17 @@ South Africa (`-$0.00024`) and India (`-$0.00016`). These are national-market
 accounting components of the one-model maize diagnostic, not local causal
 effects or total country damages. See
 `docs/PEEPS_MONTHLY_SCC_COUNTRY_DECOMPOSITION_RESULTS_20261012.md`.
+
+![Country and FUND-region precipitation diagnostic decomposition](figures/peeps_monthly_country_decomposition_20261012.svg)
+
+**Figure 4d. Geographic offsetting in the one-model monthly precipitation
+diagnostic.** Bars show the matched quantity reference and exact
+joint-minus-quantity timing increment; diamonds show their joint total. The
+left panel selects the seven largest positive and negative country components,
+while the right reports all mapped FUND regions. Values use fixed adaptation,
+the smallest pulse, and the 2% schedule. They are national-market accounting
+components, not local causal effects or total country damages.
+
 On the separate, physically valid direct-daily ISIMIP route, fixed
 year-2000 rainfed-maize area weights reframe three-ESM late-window
 scenario weather. Under SSP5-8.5 minus SSP1-2.6 in 2092--2099,

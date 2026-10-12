@@ -1,0 +1,38 @@
+{
+  "claim_boundary": "visual accounting decomposition of one-ESM maize diagnostic; not local causal effects, total country damages, or paired-replacement SCC",
+  "created_at_utc": "2026-10-12T22:17:17.483838+00:00",
+  "filters": {
+    "adaptation": "fixed",
+    "discount_rate_label": "2.0%",
+    "pulse_size_gtc": 2.5e-05
+  },
+  "implementation": {
+    "path": "/Users/jbb/Dropbox/GIVE/precipitation_scc/scripts/render_peeps_monthly_country_decomposition.py",
+    "sha256": "1762fbd28226e15e8de5692361c8ddce22cb5c59b53e31fc7dbdd59f405127f2"
+  },
+  "output": {
+    "bytes": 15672,
+    "path": "manuscript/figures/peeps_monthly_country_decomposition_20261012.svg",
+    "sha256": "d396693b8962577e2761227cde12c76d5063e0e947288d672b501bb09bb3d70a"
+  },
+  "schema": "peeps_monthly_country_decomposition_figure/v1",
+  "source": {
+    "country": {
+      "path": "data/interim/peeps_monthly_scc_country_decomposition_20261012.csv",
+      "sha256": "d927c12924c91bcd368a92e389e189dee0213f0657413e524c1fc6bcbf2ba8cb"
+    },
+    "receipt": "data/provenance/peeps_monthly_scc_country_decomposition_20261012.json",
+    "receipt_sha256": "96d404d6f926b12d51cef3e62317d38abc0fe33f4efad4e9801a6847a28b1734",
+    "region": {
+      "path": "data/interim/peeps_monthly_scc_region_decomposition_20261012.csv",
+      "sha256": "c4ee9f5fe3cdc3997cd5f5f0f4566ef80e545b5ed5394fe47d9a8217118c5f98"
+    }
+  },
+  "status": "rendered_from_validated_accounting_decomposition",
+  "support": {
+    "country_displayed": 14,
+    "country_total": 107,
+    "region_displayed": 16,
+    "region_total_including_unmapped": 17
+  }
+}
