@@ -1524,6 +1524,22 @@ normal 95% intervals exclude zero for all three non-irrigated quantity
 contrasts and for the non-irrigated soybean timing contrast; this sampling
 uncertainty statement does not remove the design and transport limitations.
 
+A subsequently authorized corn-only run applies the frozen spatial covariance,
+leave-state, temporal-stability, and preidentified-influence protocol. At the
+median exposure, +100 mm is associated with +7.72% non-irrigated yield (500 km
+spatial interval +5.96% to +9.51%), while a one-unit PDSI decline is associated
+with -4.30% (-5.02% to -3.57%). The irrigated rainfall contrast is -0.41% and
+does not exclude zero spatially; the irrigated PDSI contrast is -0.27% (-0.51%
+to -0.02%). The non-irrigated rainfall contrast nevertheless fails the strict
+leave-state gate and rises from +6.93% in 1981--2011 to +13.18% in 2012--2018.
+Median non-irrigated PDSI passes the leave-state gate and narrowly passes the
+temporal gate, but other reference points fail one of them. Thus the selected
+NASS support establishes a large historical moisture association and strong
+irrigation-practice heterogeneity, not one stable national coefficient for SCC
+transport. The ten-state reported-practice sample excludes several major Corn
+Belt states. Design, results, and gates are reported in
+`US_CORN_QUANTITY_PDSI_SPATIAL_REAL_RESULTS_20261012.md`.
+
 An exploratory extension uses the only additional acquired paired-practice
 crop, all-classes wheat. Independent fixed 2009 state harvested-area shares
 combine winter, spring, and durum seasonal PDSI candidates before estimation.
@@ -1859,6 +1875,17 @@ probabilistic or paired-replacement precipitation SCC. Daily drought,
 extremes, other crops, and climate-model uncertainty remain omitted. Full
 scope and validation are in
 `docs/PEEPS_MONTHLY_SCC_DECOMPOSITION_RESULTS_20261012.md`.
+The corresponding country accounting reveals why the global net is small.
+Under fixed practice, the positive country components sum to
+`+$0.01157/tCO2` and negative components to `-$0.00730/tCO2`. The United
+States contributes `+$0.00723`, exceeding the global `+$0.00427` net by
+itself, while China, Brazil, and India contribute `-$0.00283`, `-$0.00135`,
+and `-$0.00083/tCO2`. The timing increments are also heterogeneous: positive
+in the United States (`+$0.00109`) and Mexico (`+$0.00024`), but negative in
+South Africa (`-$0.00024`) and India (`-$0.00016`). These are national-market
+accounting components of the one-model maize diagnostic, not local causal
+effects or total country damages. See
+`docs/PEEPS_MONTHLY_SCC_COUNTRY_DECOMPOSITION_RESULTS_20261012.md`.
 On the separate, physically valid direct-daily ISIMIP route, fixed
 year-2000 rainfed-maize area weights reframe three-ESM late-window
 scenario weather. Under SSP5-8.5 minus SSP1-2.6 in 2092--2099,

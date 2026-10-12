@@ -2207,6 +2207,24 @@ non-irrigated corn PDSI and retain distribution as a sensitivity, but prohibit
 causal interpretation or global transfer. See
 `US_NASS_EVIDENCE_SYNTHESIS_RESULTS_20260919.md`.
 
+The later authorized real-outcome corn run retains the outcome-blind frozen
+design and opens only historical-association output. It uses 7,013 exact
+irrigated/non-irrigated county-year exposure pairs from 361 counties in ten
+reported-practice states. County and state-by-year fixed effects, quadratic
+stage-temperature controls, and mutually exclusive rainfall-quantity and
+seasonal-PDSI families are unchanged. County CR1 covariance is augmented in
+separate sensitivities by same-year cross-county Bartlett score covariance at
+250 and 500 km, using hash-bound TIGER/Line county internal points. At the
+median exposure, the 500 km intervals are +5.96% to +9.51% for a +100 mm
+non-irrigated rainfall contrast and -5.02% to -3.57% for a one-unit
+non-irrigated PDSI decline. The rainfall contrast fails leave-state and median
+temporal-stability gates despite spatial precision; median PDSI passes both,
+while other PDSI reference points do not pass every gate. All preidentified
+Texas row/county influence checks pass. The bounded run peaked at 285.5 MB.
+No raw coefficients or row predictions are serialized, and national, causal,
+climate-attribution, damage, and SCC gates remain closed. Full results are in
+`../US_CORN_QUANTITY_PDSI_SPATIAL_REAL_RESULTS_20261012.md`.
+
 Fit the candidate responses on crop-grid-year observations with grid/crop
 fixed effects and flexible year effects. The reference uses joint temperature
 and crop-calendar seasonal quantity; direct-pattern extensions and separate
@@ -4753,6 +4771,21 @@ the `2e-4` gate. The result shows a material monthly-redistribution contrast
 within this one-model maize calculation, but remains neither a daily drought
 or extremes result nor a probabilistic paired-replacement SCC. Full results
 and scope are in `docs/PEEPS_MONTHLY_SCC_DECOMPOSITION_RESULTS_20261012.md`.
+
+Country and FUND-region accounting is reconstructed before aggregation. At
+the fixed-practice, 2%, smallest-pulse diagnostic, gross positive country
+components sum to `+$0.011572/tCO2` and gross negative components to
+`-$0.007304/tCO2`, yielding the `+$0.004269/tCO2` global net. The United
+States is the largest positive component (`+$0.007231`); China, Brazil, and
+India are the largest negative components (`-$0.002829`, `-$0.001348`, and
+`-$0.000832`). Fifty-nine of 107 countries are positive and 48 negative.
+Country aggregation reconstructs every global pulse/adaptation/discount/
+channel cell with maximum absolute error `1.04e-16`, and the country-level
+joint = quantity + timing identity differs by at most `1.11e-17`. Antigua and
+Barbuda remains explicitly `UNMAPPED` because the archived GIVE/FUND crosswalk
+lacks ATG; no region was guessed. These are market-accounting contributions,
+not local causal or total-country damages. See
+`docs/PEEPS_MONTHLY_SCC_COUNTRY_DECOMPOSITION_RESULTS_20261012.md`.
 
 For the marginal quantity checkpoint, country/model annual-rainfall slopes
 from the published EPA pattern set are multiplied by the matched FAIR

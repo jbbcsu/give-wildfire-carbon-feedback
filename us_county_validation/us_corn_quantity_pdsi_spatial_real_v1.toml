@@ -1,0 +1,51 @@
+schema_version = 1
+run_id = "us_corn_quantity_pdsi_spatial_real_v1"
+analysis_role = "one_bound_real_outcome_historical_association_run"
+explicit_user_authorization_date = "2026-10-12"
+real_outcome_read_authorized = true
+real_response_fit_authorized = true
+target_contrast_output_authorized = true
+raw_coefficient_output_authorized = false
+national_claim_authorized = false
+causal_claim_authorized = false
+damage_claim_authorized = false
+scc_claim_authorized = false
+
+[protocol]
+path = "us_county_validation/us_corn_quantity_pdsi_spatial_inference_v1.toml"
+sha256 = "d668b246b1fe4cdd362df9105df8bdb05d586385494f2709f9d4e9db3eb8a687"
+validation_receipt = "data/provenance/us_corn_quantity_pdsi_spatial_protocol_validation_20260928.json"
+validation_sha256 = "97a2eff3a950931d4114f7ad653d08f9f8d7cf25b20286af08f126995b2c3f47"
+
+[readiness]
+receipt = "data/provenance/us_corn_soy_response_design_readiness_20260928.json"
+sha256 = "cfa853a54a9d006235d2fe1de1fb96744abcc058845875be89612145aeeaea07"
+
+[direct]
+path = "data/interim/us_county/nass_direct_practice_nclimgrid_1981_2019.parquet"
+sha256 = "205a94ae92c12810026c9c5d0ac0fa3760e46ebc39669e528ba20a125a0c46d7"
+
+[pdsi]
+path = "data/interim/us_county/nass_direct_practice_pdsi_join_1981_2019.parquet"
+sha256 = "70237da1bc759144cbc9adaaab4f0c30f805f5deb526683a60edc75d84e971a6"
+calendar_role = "fixed_primary"
+window_id = "season"
+
+[coordinates]
+dbf = "data/raw/us_county/tigerline/tl_2019_us_county/tl_2019_us_county.dbf"
+archive = "data/raw/us_county/tigerline/tl_2019_us_county.zip"
+archive_sha256 = "4a2cdcc8a5d58caf88f9dc6595c4d89c51fdb56de738f615a8c5e3814dfcdea5"
+
+[sample]
+crop = "corn_grain"
+practices = ["non_irrigated", "irrigated"]
+year_min = 1981
+year_max = 2018
+development_year_max = 2011
+terminal_year_min = 2012
+terminal_year_max = 2018
+
+[output]
+result = "data/interim/us_corn_quantity_pdsi_spatial_real_v1_20261012.json"
+receipt = "data/provenance/us_corn_quantity_pdsi_spatial_real_v1_20261012.json"
+# End of bound real-run contract.
