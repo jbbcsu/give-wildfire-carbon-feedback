@@ -1,0 +1,82 @@
+{
+  "claim_gates": {
+    "matched_quantity_reference": true,
+    "paired_agriculture_replacement": false,
+    "scc": false,
+    "timing_increment_damage": true
+  },
+  "created_at_utc": "2026-10-12T16:12:10.274483+00:00",
+  "definition": "joint PEEPS monthly-pattern market damage decomposed into a fixed-historical-month-share quantity reference and the exact joint-minus-quantity market-level timing increment",
+  "implementation": {
+    "path": "/Users/jbb/Dropbox/GIVE/precipitation_scc/scripts/decompose_peeps_monthly_damage_paths.py",
+    "sha256": "b0f7f3d55382f2ab324636dd496f73895b906a6cbffbf233eb563957fc1a9270"
+  },
+  "limitations": [
+    "The timing increment is joint market damage minus the same-pattern quantity reference; it is not a separately additive damage function.",
+    "One ESM/scenario and maize only.",
+    "Monthly patterns omit daily drought, persistence, and extremes.",
+    "No currency conversion, discounting, or paired GIVE replacement is performed here."
+  ],
+  "output": {
+    "bytes": 78275,
+    "path": "data/interim/peeps_monthly_damage_decomposition_20261012.parquet",
+    "sha256": "ee303bda6db87aeb0d02a66e801f04b120773c558b74a93989aef64504f9b93a"
+  },
+  "schema": "peeps_monthly_damage_decomposition/v1",
+  "smallest_pulse_mean_annual_damage_usd_source_price_basis": [
+    {
+      "adaptation": "fixed",
+      "joint_monthly_pattern_damage_usd_source_price_basis": 8.107830016714606,
+      "quantity_reference_damage_usd_source_price_basis": 5.584745907533761,
+      "timing_increment_damage_usd_source_price_basis": 2.5230841091808442
+    },
+    {
+      "adaptation": "trend",
+      "joint_monthly_pattern_damage_usd_source_price_basis": 0.8735322289942029,
+      "quantity_reference_damage_usd_source_price_basis": -0.5564251957599787,
+      "timing_increment_damage_usd_source_price_basis": 1.4299574247541817
+    },
+    {
+      "adaptation": "upper",
+      "joint_monthly_pattern_damage_usd_source_price_basis": -6.899881370538943,
+      "quantity_reference_damage_usd_source_price_basis": -7.155247965599069,
+      "timing_increment_damage_usd_source_price_basis": 0.2553665950601262
+    }
+  ],
+  "sources": {
+    "fair": {
+      "path": "data/interim/give_fair_temperature_path_smoke/temperature_paths.csv",
+      "sha256": "aedf6b66dd296337e1cb6105d2aa56ec94f3e15e5ac92c2abcdf74b6a42b6067"
+    },
+    "joint_paths": {
+      "path": "data/interim/peeps_fair_hultgren_monthly_damage_paths_20261011.parquet",
+      "receipt": "data/provenance/peeps_fair_hultgren_monthly_damage_paths_20261011.json",
+      "receipt_sha256": "c3ba3c516c59f8f385396e7c60156faacd8a00428550a12c00e53d49a16a3131",
+      "sha256": "15a03293270edcefd7da49cbed95770cad7949aa718efd2867c371b57d1ce7f9"
+    },
+    "response_panel": {
+      "path": "data/interim/hultgren_quantity_response_panel_20260924.parquet",
+      "sha256": "af389bc3050cf7074f0a3869ae03cdcd959b3ba8a8017910ff5bc6f5507ffcdc"
+    },
+    "slope_panel": {
+      "path": "data/interim/hultgren_peeps_monthly_slope_panel_20261011.parquet",
+      "sha256": "5f8319564609c32f96bd06878ffc49aa922ae48803427df7d03b0399e993a94a"
+    }
+  },
+  "status": "one_esm_joint_quantity_timing_damage_decomposition_not_paired_replacement_or_scc",
+  "support": {
+    "countries": 107,
+    "physical_common_support_inherited": true,
+    "response_rows": 22300,
+    "rows": 3372
+  },
+  "validation": {
+    "convergence": {
+      "quantity_reference_damage_usd_source_price_basis": 0.00015606702028429692,
+      "timing_increment_damage_usd_source_price_basis": 0.0001352811608987877
+    },
+    "maximum_absolute_decomposition_identity_error_usd": 0.0,
+    "minimum_quantity_reference_proportional_rainfall_scale": 0.9999987213555765,
+    "shrinking_pulse_relative_tolerance": 0.0002
+  }
+}

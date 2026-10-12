@@ -1839,6 +1839,26 @@ negative in at least one month on 6.131% of mapped area. Even this
 favorable same-source, twenty-year smoothing therefore leaves the raw
 published pattern unsuitable for GIVE forcing; see
 `PEEPS_MPI_20YR_CLIMATOLOGY_RESULTS_20260918.md`.
+A separate marginal calculation avoids using those physically invalid raw
+levels: it applies only the published PEEPS monthly slopes to paired FAIR
+pulse-minus-baseline temperature changes on a positive historical rainfall
+climatology and removes a fixed common-support set whenever either irrigation
+regime could become negative. On the resulting one-model maize support, a
+matched quantity reference preserves each crop-season rainfall anomaly while
+holding historical monthly shares fixed. At the smallest registered pulse and
+2% discount schedule, the fixed-practice joint monthly-pattern diagnostic is
+`$0.00427/tCO2` (2020 dollars), decomposed exactly into `$0.00294` from the
+quantity reference and a `$0.00133` joint-minus-quantity timing increment.
+Trend values are `$0.00214`, `$0.00113`, and `$0.00101`; under the upper rule,
+a `-$0.00100` quantity benefit is partly offset by a `$0.00063` timing damage,
+leaving `-$0.00038` jointly. All channels pass the shrinking-pulse gate. This
+demonstrates that monthly redistribution is material in this particular
+transport, but it remains a one-ESM, SSP5-8.5, maize-only diagnostic using the
+standard GIVE discount path with Moore agriculture still installed—not a
+probabilistic or paired-replacement precipitation SCC. Daily drought,
+extremes, other crops, and climate-model uncertainty remain omitted. Full
+scope and validation are in
+`docs/PEEPS_MONTHLY_SCC_DECOMPOSITION_RESULTS_20261012.md`.
 On the separate, physically valid direct-daily ISIMIP route, fixed
 year-2000 rainfed-maize area weights reframe three-ESM late-window
 scenario weather. Under SSP5-8.5 minus SSP1-2.6 in 2092--2099,
@@ -2193,6 +2213,10 @@ the failed transient/whole-ESM promotion gate, spatial variation, and changing
 market exposure. It shows that proportional timing alone would not make the
 current maize-only channel large; drought, crop coverage, water costs, and
 other omitted mechanisms remain decisive.
+
+This endpoint-ratio exercise preceded the matched marginal PEEPS calculation
+reported above. It remains a cross-model sensitivity, but it is not used in
+place of the later same-pattern quantity/timing decomposition.
 
 The exogenous adaptation sensitivities are deliberately not interpreted as
 estimated behavior. The five-model full-support mean net precipitation

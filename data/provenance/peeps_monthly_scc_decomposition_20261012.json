@@ -1,0 +1,129 @@
+{
+  "central_2pct_smallest_pulse_usd2020_per_tco2": {
+    "fixed": {
+      "joint_monthly_pattern": 0.004268549561468498,
+      "quantity_reference": 0.0029388354249274638,
+      "timing_increment": 0.0013297141365410346
+    },
+    "trend": {
+      "joint_monthly_pattern": 0.00214327649738735,
+      "quantity_reference": 0.0011347000979228586,
+      "timing_increment": 0.0010085763994644912
+    },
+    "upper": {
+      "joint_monthly_pattern": -0.0003757717501962818,
+      "quantity_reference": -0.0010037070478015836,
+      "timing_increment": 0.0006279352976053021
+    }
+  },
+  "claim_gates": {
+    "agriculture_replacement": false,
+    "give_replacement_scc": false,
+    "matched_quantity_timing_discount_decomposition": true,
+    "paired_agriculture_levels": false
+  },
+  "created_at_utc": "2026-10-12T16:13:28.143720+00:00",
+  "currency": {
+    "approximation_disclosure": "US GDP-wide rebase of FAOSTAT farm-gate production value; these price concepts are not identical.",
+    "source_to_usd2005_scalar": 0.8357992263240843
+  },
+  "definition": "one-ESM monthly precipitation-pattern maize diagnostic decomposed into a proportional seasonal-quantity reference and exact joint-minus-quantity timing increment, discounted on the deterministic standard GIVE baseline",
+  "discounting": {
+    "emission_year": 2020,
+    "formula": "(CPC_2020/CPC_t)^eta / (1+prtp)^(t-2020)",
+    "last_year": 2300,
+    "molecular_conversion_C_to_CO2": 0.2727272727272727,
+    "pricelevel_2005_to_2020": 1.2987749131468274,
+    "rates": [
+      {
+        "eta": 1.01601,
+        "label": "1.5%",
+        "prtp": 9.150024589210659e-05
+      },
+      {
+        "eta": 1.244458999,
+        "label": "2.0%",
+        "prtp": 0.0019745879362491614
+      },
+      {
+        "eta": 1.421158088,
+        "label": "2.5%",
+        "prtp": 0.004629467024013456
+      },
+      {
+        "eta": 1.567899391,
+        "label": "3.0%",
+        "prtp": 0.007732453194507549
+      }
+    ],
+    "rff_sample_id": 6546
+  },
+  "implementation": {
+    "path": "/Users/jbb/Dropbox/GIVE/precipitation_scc/scripts/build_peeps_monthly_scc_decomposition.py",
+    "sha256": "7ebf6cbf4061a55c1b188aa1f8197f0b77dd04a945f722dbcc86aca16d6a49c5"
+  },
+  "limitations": [
+    "This is a one-ESM diagnostic decomposition, not a probabilistic precipitation SCC.",
+    "The timing increment is an exact matched-reference contrast, not an independently additive damage sector.",
+    "Discount factors come from standard deterministic GIVE retaining MooreAg; no paired agriculture replacement is installed.",
+    "Only maize and monthly mean precipitation are included; daily drought/extremes and other crops remain omitted.",
+    "The GDP-wide price conversion approximates the agricultural price concept."
+  ],
+  "output": {
+    "bytes": 16791,
+    "path": "data/interim/peeps_monthly_scc_decomposition_20261012.csv",
+    "sha256": "148713ac094e2d67b7bdb9221cbc4e4e81ebed2c6f8ad20172d2a12c38fbb8a6"
+  },
+  "schema": "peeps_monthly_scc_decomposition/v1",
+  "sources": {
+    "decomposition_paths": {
+      "path": "data/interim/peeps_monthly_damage_decomposition_20261012.parquet",
+      "receipt": "data/provenance/peeps_monthly_damage_decomposition_20261012.json",
+      "receipt_sha256": "6de8890ef47397b207efa9d993db82275a18a0bddabece797e00a47c340ae109",
+      "sha256": "ee303bda6db87aeb0d02a66e801f04b120773c558b74a93989aef64504f9b93a"
+    },
+    "give_cpc": {
+      "job_receipt": "data/provenance/give_deterministic_discount_path_job_20260924.json",
+      "job_receipt_sha256": "4a4fe7249cc7812e68b819c3a211c1525b6e064c3a565ec769e027b422c40d94",
+      "path": "data/interim/give_deterministic_discount_path_20260924.csv",
+      "sha256": "23e939af062ae1313738ec4b535793cb7014fea320430a834fd485980121f4b0"
+    },
+    "price_registry": {
+      "path": "config/price_basis_registry.toml",
+      "sha256": "128c2fbdc8481a588aa07bbce23520f3cd6df48ea1132edc33c9ee4c756b3e72"
+    },
+    "prior_joint_scc": {
+      "path": "data/interim/peeps_monthly_partial_scc_diagnostic_20261012.csv",
+      "receipt": "data/provenance/peeps_monthly_partial_scc_diagnostic_20261012.json",
+      "receipt_sha256": "82673a87c70d0ea71cdfc674400e6ad17ee804a775cec35ecf806bc18d1fc24b",
+      "sha256": "fe67f08bc4e5f2cc9f729a4bc28991a48a9b86dcdae5c13318b212a620c127f6"
+    }
+  },
+  "status": "one_esm_matched_quantity_timing_standard_give_baseline_discount_decomposition_not_paired_replacement_scc",
+  "support": {
+    "adaptation_cases": 3,
+    "annual_years_per_path": 281,
+    "channels": [
+      "joint_monthly_pattern",
+      "quantity_reference",
+      "timing_increment"
+    ],
+    "climate_models": 1,
+    "discount_schedules": 4,
+    "output_rows": 108,
+    "positive_pulses": 3
+  },
+  "validation": {
+    "maximum_absolute_discounted_identity_error_usd2005_per_tco2": 6.505213034913027e-19,
+    "maximum_absolute_prior_joint_reproduction_error_usd2005_per_tco2": 9.8879238130678e-17,
+    "maximum_absolute_prior_joint_schedule_error": 6.158268339717665e-17,
+    "maximum_cpc_identity_error": 5.820766091346741e-11,
+    "maximum_net_consumption_identity_error_billion_usd2005": 4.656612873077393e-10,
+    "pulse_convergence_tolerance": 0.0002,
+    "small_pulse_relative_disagreement_by_channel": {
+      "joint_monthly_pattern": 1.0799847802464428e-05,
+      "quantity_reference": 1.4824137502091579e-05,
+      "timing_increment": 5.944332737786787e-06
+    }
+  }
+}

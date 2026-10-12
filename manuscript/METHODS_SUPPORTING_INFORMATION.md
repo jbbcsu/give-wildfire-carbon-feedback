@@ -4733,9 +4733,26 @@ standard-GIVE consumption path gives 2% diagnostics of `$0.00427/tCO2`
 (fixed adaptation), `$0.00214/tCO2` (trend) and `-$0.00038/tCO2` (upper), in
 2020 dollars. These are one-MPI-model joint monthly-pattern diagnostics, not
 an incremental timing effect and not a probabilistic or paired-replacement
-precipitation SCC. A same-pattern annual-quantity comparator and exact joint-
-minus-quantity decomposition remain required before interpreting the timing
-contribution.
+precipitation SCC.
+
+The matched quantity/timing decomposition is now complete. For every regime,
+year, and pulse, the quantity reference preserves the joint crop-season
+rainfall anomaly exactly but allocates it across crop months in proportion to
+the positive historical monthly climatology. The timing increment is defined
+after the nonlinear crop response and national-market aggregation as joint
+monthly-pattern damage minus matched quantity-reference damage; it is not an
+independently additive damage function. At the smallest registered pulse and
+2% discount schedule, fixed-practice joint, quantity, and timing diagnostics
+are respectively `$0.004269`, `$0.002939`, and `$0.001330/tCO2` in 2020
+dollars. The corresponding trend values are `$0.002143`, `$0.001135`, and
+`$0.001009`; upper-adaptation values are `-$0.000376`, `-$0.001004`, and
+`$0.000628`. Exact damage and discounted identities pass, the joint channel
+reproduces the frozen prior diagnostic to `9.89e-17` 2005 dollars per tCO2,
+and maximum shrinking-pulse disagreement across channels is `1.48e-5`, below
+the `2e-4` gate. The result shows a material monthly-redistribution contrast
+within this one-model maize calculation, but remains neither a daily drought
+or extremes result nor a probabilistic paired-replacement SCC. Full results
+and scope are in `docs/PEEPS_MONTHLY_SCC_DECOMPOSITION_RESULTS_20261012.md`.
 
 For the marginal quantity checkpoint, country/model annual-rainfall slopes
 from the published EPA pattern set are multiplied by the matched FAIR
