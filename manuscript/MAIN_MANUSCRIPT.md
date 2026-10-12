@@ -1540,6 +1540,21 @@ transport. The ten-state reported-practice sample excludes several major Corn
 Belt states. Design, results, and gates are reported in
 `US_CORN_QUANTITY_PDSI_SPATIAL_REAL_RESULTS_20261012.md`.
 
+The first linked climate-response sensitivity then maps author-published PEEPS
+monthly MPI-ESM1-2-HR SSP5-8.5 precipitation slopes to the same 361 county
+internal points and integrates them over exact corn-season dates. On this
+selected support, the equal-county crop-season slope averages -25.20 mm/K;
+349 counties are negative and 12 positive. Evaluating those changes through
+the conditional historical rainfall response gives an equal-county fitted
+non-irrigated yield response of -2.32%/K (500 km spatial interval -2.82% to
+-1.82%) and irrigated response of +0.03%/K (-0.14% to +0.21%). This is the
+precipitation-mediated channel with temperature held fixed. It shows that the
+small global net can coexist with a material U.S. rainfed penalty in the same
+published pattern. But it remains a one-ESM, one-scenario, selected-ten-state
+transport without climate-model uncertainty, PDSI/daily extremes, acreage or
+welfare weights; the unstable historical quantity coefficient prevents SCC
+promotion. See `US_CORN_PEEPS_CLIMATE_YIELD_BRIDGE_RESULTS_20261012.md`.
+
 An exploratory extension uses the only additional acquired paired-practice
 crop, all-classes wheat. Independent fixed 2009 state harvested-area shares
 combine winter, spring, and durum seasonal PDSI candidates before estimation.

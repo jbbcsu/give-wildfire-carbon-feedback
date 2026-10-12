@@ -2225,6 +2225,27 @@ No raw coefficients or row predictions are serialized, and national, causal,
 climate-attribution, damage, and SCC gates remain closed. Full results are in
 `../US_CORN_QUANTITY_PDSI_SPATIAL_REAL_RESULTS_20261012.md`.
 
+A one-model linked-chain sensitivity uses only the author-published PEEPS
+MPI-ESM1-2-HR SSP5-8.5 monthly slopes, not fitted intercepts or raw predicted
+levels. County TIGER internal points are mapped to the nearest native PEEPS
+grid center using circular longitude distance. For every supported county-year,
+the monthly slope in kg m-2 s-1 K-1 is multiplied by 86,400 seconds and the
+exact number of included crop-season days, including partial months. The
+resulting rainfall change per K is evaluated through the frozen quadratic
+quantity response at the observed rainfall level, holding temperature fixed.
+County-year design contrasts are first averaged within county and then equally
+across the 361 counties. The frozen +100 mm median response is reproduced to
+`1e-13` before the climate slope is applied.
+
+The equal-county crop-season rainfall slope is -25.20 mm/K, with 349 negative
+and 12 positive counties. The resulting non-irrigated fitted response is
+-2.32%/K (500 km interval -2.82% to -1.82%); the irrigated response is +0.03%/K
+(-0.14% to +0.21%). These intervals condition on the one climate pattern and
+propagate only historical coefficient covariance. The 166.2 MB bounded run
+opens a one-ESM climate-to-seasonal-rainfall and selected-sample transport
+diagnostic, not multi-model attribution, national yield, damage, or SCC gates.
+See `../US_CORN_PEEPS_CLIMATE_YIELD_BRIDGE_RESULTS_20261012.md`.
+
 Fit the candidate responses on crop-grid-year observations with grid/crop
 fixed effects and flexible year effects. The reference uses joint temperature
 and crop-calendar seasonal quantity; direct-pattern extensions and separate
