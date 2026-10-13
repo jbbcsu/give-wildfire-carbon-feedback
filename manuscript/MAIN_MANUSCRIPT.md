@@ -137,6 +137,16 @@ benchmark of approximately $8/tCO2 is similarly retained outside the combined
 SCC pending regional coefficients, joint uncertainty, and ecosystem-service
 allocation.
 
+The shortest published nutrition transfer now also fails reproducibility and
+coverage gates. Requiring all published nutrition and mortality fields to be
+numeric leaves 116 of 184 GIVE countries and only 4 of 16 complete FUND
+regions. The broader released 2020 country-SCC file covers 154 countries, but
+its fisheries sum is 4.92% above the separate Figure 4 total. The repository
+lacks the RICE50x baseline and one-million-ton-pulse result files needed to
+reconstruct annual damages. No missing coefficient is zero-filled or
+renormalized; the benchmark remains external pending a licensed complete
+release and explicit mortality-overlap allocation.
+
 ### 4.4 Air pollution and wildfire feedbacks
 
 An investigator-supplied draft estimates a provisional global wildfire-smoke

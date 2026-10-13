@@ -74,6 +74,17 @@ discounting, certainty-equivalent adjustment, and the identity between ozone,
 PM2.5, and net summaries. Any mismatch between article and repository output
 fails promotion rather than being reconciled through undocumented arithmetic.
 
+## S5.3 Fisheries transfer evidence gate
+
+The Blue-SCC fisheries benchmark is not transferred as a scalar. Promotion
+requires complete numeric country inputs or source-defined missingness,
+reconciliation between country exports and the published aggregate, licensed
+versioned RICE50x baseline and pulse results sufficient to reconstruct annual
+damages, and an endpoint crosswalk separating seafood-nutrition mortality from
+existing GIVE mortality. Missing countries and unavailable nutrition fields
+are never treated as observed zeros; incomplete FUND regions are not
+renormalized.
+
 ## S6. SCC calculation
 
 Eligible damage modules are evaluated in paired baseline and marginal-emission
