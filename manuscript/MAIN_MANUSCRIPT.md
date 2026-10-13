@@ -112,6 +112,15 @@ the frozen spatial, leave-state, terminal-period, and influence gates, but it
 cannot enter an SCC until a separately validated climate-to-future-PDSI stage
 exists. Direct rainfall and drought indices remain competing channels.
 
+The first exact-support audit sharply narrows that remaining stage. Existing
+historical and future SPEI archives already cover 351 of the 361 frozen
+counties at the 0.999 geometric threshold. Ten counties fail because only 11
+additional half-degree cells are absent; minimum coverage is 0.412. We do not
+fit a biased 351-county subset or renormalize failed counties. The immediate
+task is therefore bounded: construct the 11 historical cells and reacquire
+matching future temperature extrema for five ESMs and three SSPs before
+estimating the same-source SPEI response.
+
 ### 4.2 Labor productivity and updated agriculture
 
 Moore et al. (2026) report 2025 partial SCCs of $41/tCO2 for labor productivity
@@ -146,6 +155,15 @@ lacks the RICE50x baseline and one-million-ton-pulse result files needed to
 reconstruct annual damages. No missing coefficient is zero-filled or
 renormalized; the benchmark remains external pending a licensed complete
 release and explicit mortality-overlap allocation.
+
+The smaller market component also fails the country-transfer gate despite an
+exact aggregate reproduction. The Figure 4 workbook gives
+$0.0570404/tCO2, while the 155 released country rows sum to $0.0526646/tCO2,
+7.67% lower, because the global and country utilities use different
+aggregation and discounting. Upstream coefficients and outputs overlap on
+only 120 country keys. The released market measure is multiplier-expanded
+profit/GDP rather than consumer plus producer surplus. It is therefore shown
+as an external benchmark, not treated as an additive country decomposition.
 
 ### 4.4 Air pollution and wildfire feedbacks
 
