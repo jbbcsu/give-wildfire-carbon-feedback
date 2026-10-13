@@ -1,0 +1,71 @@
+schema_version = 1
+contract_id = "us_direct_practice_spei_bridge_readiness_v1"
+reference_date = "2026-10-13"
+analysis_role = "outcome_blind_exact_support_and_source_readiness_audit"
+
+[sample]
+panel = "data/interim/us_county/nass_direct_practice_nclimgrid_1981_2019.parquet"
+panel_sha256 = "205a94ae92c12810026c9c5d0ac0fa3760e46ebc39669e528ba20a125a0c46d7"
+crop = "corn_grain"
+practice = "non_irrigated"
+year_min = 1981
+year_max = 2018
+expected_rows = 7013
+expected_counties = 361
+expected_states = 10
+outcome_columns_forbidden = ["yield_bu_acre", "source_value_raw"]
+
+[calendar]
+source_id = "usda_nass_field_crops_usual_dates_2010"
+vintage = "2010"
+boundary_rule = "floor_midpoint_of_most_active_planting_and_harvest_intervals"
+stage_definition = "equal_duration_0_30_70_100_engineering_proxy"
+
+[historical_spei]
+candidate_manifest = "data/interim/spei_sparse_candidate_indices_20260908/all_blocks.json"
+candidate_manifest_sha256 = "459f6968685b1ec828a68b7dc0a4fb54a3c32096ccad5a2f8ef460d19f866b3e"
+candidate_validation = "data/interim/spei_sparse_candidate_manifest_validation_20260908/result.json"
+candidate_validation_sha256 = "78fc1411d5e900b9c78af0fbdf096f66d9706216263e062eaa3e4eb9f140c97f"
+source = "ISIMIP3a_GSWP3_W5E5_v1_3"
+period = "1981-2019"
+cells = 31208
+months = 468
+calibration = "1982-2011_frozen_GLO_UBPWM"
+pet = "Hargreaves_Samani"
+
+[future_spei]
+evidence = "data/provenance/us_future_spei_exposure_20261013.json"
+evidence_sha256 = "84b8607afcdb5e90bd9e4bd04b8a3fd9d8e473158dea6189005a32a6c04d0513"
+pair_root = "data/interim/five_esm_late_drought_20260921"
+support_rule = "same_31208_fixed_crop_support_cells_as_historical_candidate"
+models = ["gfdl-esm4", "ipsl-cm6a-lr", "mpi-esm1-2-hr", "mri-esm2-0", "ukesm1-0-ll"]
+scenarios = ["ssp126", "ssp370", "ssp585"]
+expected_cases = 15
+
+[geography]
+tiger_shapefile = "data/raw/us_county/tigerline/tl_2019_us_county/tl_2019_us_county.shp"
+tiger_shp_sha256 = "0b102f2e292be5a81f46ecb2956136e93da03de692980714fabc16e1925e0b51"
+tiger_shx_sha256 = "fb4263d31f02ccc9d7c1b0affd030cd528b6a2d13f3c1611e41e7dbc5fb57c9d"
+tiger_dbf_sha256 = "7250428e9b6b0fa9e3c16d16f7d5bbeb2c0ab3b1f16395a954fcbad4624bf5e6"
+tiger_prj_sha256 = "0b9041e921d9ebb43247d314608fe9e38a0b008ee793067fc1806199ea1fb9dd"
+area_crs = "EPSG:5070"
+grid_resolution_degrees = 0.5
+minimum_geometric_coverage = 0.999
+weight = "equal_area_county_polygon_intersection_normalized_within_available_cells"
+
+[authorization]
+read_outcome_values = false
+fit_outcomes = false
+construct_partial_scientific_panel = false
+historical_county_spei_panel = false
+future_county_spei_panel = false
+bridge_to_nass_response = false
+future_yield_projection = false
+causal_claim = false
+damage = false
+scc = false
+
+[decision]
+exact_support_rule = "all_361_counties_must_meet_0_999_coverage_in_both_historical_and_future_spei_before_panel_construction"
+missing_cell_rule = "record_native_indices_and_reacquisition_requirements_without_renormalizing_a_failed_county_into_scientific_use"
+moisture_family_rule = "SPEI_and_direct_rainfall_are_competing_families_and_must_not_be_stacked_or_added"

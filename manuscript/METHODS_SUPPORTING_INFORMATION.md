@@ -621,6 +621,42 @@ any outcome fit, a master intersection must make direct precipitation,
 PDSI/scPDSI, and all three SPEI scales share identical outcomes, calendars,
 controls, weights, split labels, and first-difference endpoints.
 
+### October 13 exact-support SPEI bridge audit
+
+Before reading yields or fitting a response, we intersected the fixed
+non-irrigated corn sample with the shared historical/future half-degree SPEI
+footprint. The audit reads only county, crop, year, practice, eligibility,
+calendar, and provenance fields. It requires all 361 counties to reach 0.999
+coverage in equal-area EPSG:5070 county--grid intersections; failed counties
+cannot be renormalized into scientific use. Calendar ordering and harvest-year
+alignment pass for all 7,013 rows. Of 361 counties, 351 pass and ten fail;
+eleven unique native half-degree cells recover the failed support. The minimum
+coverage is 0.4116296624. The bounded audit peaks at 220,332,032 bytes and an
+independent validator passes 83 source-identity, geometry, arithmetic, support,
+and gate checks. No outcome is read and no partial panel is constructed.
+Historical inputs can reconstruct the eleven cells, but corresponding future
+minimum/maximum-temperature inputs must be reacquired for all 15 ESM--SSP
+cases before a common-source SPEI panel is admissible. Exact inputs and native
+indices are recorded in
+`data/provenance/us_direct_practice_spei_bridge_readiness_20261013.json`.
+
+### October 13 LOCA2 three-county historical sentinel
+
+To expand the direct-rainfall validation without selecting on results, Furnas
+County, Nebraska, was preregistered from the 59 counties with complete
+2001--2012 paired-practice corn calendars. Excluding Cuming and Box Butte, the
+rule maximized minimum TIGER-2019 internal-point distance to those anchors.
+County weights cover 60 LOCA2 cells and sum to one to floating precision.
+GFDL-ESM4 and IPSL-CM6A-LR were each processed as two nonoverlapping six-year
+native-chunk jobs under the 512 MiB cap and recombined only after independent
+partition validation. The four workers peak between 329.36 and 359.14 MiB;
+each partition passes 376 checks and each model combination passes 517 checks
+with zero saved-statistic discrepancy. Relative to nClimGrid, Furnas seasonal
+rain biases are -63.87 and -22.54 mm and maximum-dry-spell biases are +12.08
+and +7.16 days for GFDL and IPSL. Rx5day biases have opposite signs (+4.90 and
+-4.75 mm). This purposive diagnostic keeps all outcome, representativeness,
+causal, damage, and SCC gates closed.
+
 The fixed-calendar source is the exact checksummed USDA NASS 2010 *Field Crops
 Usual Planting and Harvesting Dates* report. NASS defines published begin/end
 dates as approximately 5/95 percent completion and most-active intervals as

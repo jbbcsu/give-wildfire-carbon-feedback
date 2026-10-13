@@ -1,0 +1,896 @@
+{
+  "claim_gates": {
+    "SCC": false,
+    "causal_damage": false,
+    "multi_county_validation": false,
+    "multi_model_validation": false,
+    "one_county_one_model_historical_climate_sentinel": true,
+    "outcome_response": false
+  },
+  "comparisons": {
+    "cdd_max_days": {
+      "climatology_bias_model_minus_observed": 7.163772666207652,
+      "model_mean": 24.47659548959955,
+      "model_quantiles": [
+        15.029429686449005,
+        18.407444843981168,
+        22.148732996784886,
+        27.846768242908343,
+        31.268791441282456
+      ],
+      "model_standard_deviation": 10.419342690320754,
+      "observed_mean": 17.312822823391897,
+      "observed_quantiles": [
+        13.138987060540382,
+        14.512728468566525,
+        16.342532083267304,
+        19.762147597750833,
+        21.170354459585212
+      ],
+      "observed_standard_deviation": 4.667197910800848,
+      "quantile_differences_model_minus_observed": [
+        1.8904426259086229,
+        3.8947163754146423,
+        5.806200913517582,
+        8.08462064515751,
+        10.098436981697244
+      ],
+      "quantile_probabilities": [
+        0.1,
+        0.25,
+        0.5,
+        0.75,
+        0.9
+      ],
+      "quantile_rmse": 6.630144469984425,
+      "standard_deviation_ratio": 2.232462151692404
+    },
+    "precip_mm": {
+      "climatology_bias_model_minus_observed": -22.536642170125845,
+      "model_mean": 383.5598981001144,
+      "model_quantiles": [
+        256.11916148276066,
+        293.1711681063024,
+        422.14288467066615,
+        460.4039296701104,
+        497.13028746033405
+      ],
+      "model_standard_deviation": 101.80529377085013,
+      "observed_mean": 406.09654027024027,
+      "observed_quantiles": [
+        229.30860490205927,
+        343.24761272991725,
+        419.4873635831086,
+        474.06991526957154,
+        545.2858906755524
+      ],
+      "observed_standard_deviation": 134.28421277449408,
+      "quantile_differences_model_minus_observed": [
+        26.810556580701387,
+        -50.07644462361486,
+        2.6555210875575312,
+        -13.665985599461123,
+        -48.15560321521838
+      ],
+      "quantile_probabilities": [
+        0.1,
+        0.25,
+        0.5,
+        0.75,
+        0.9
+      ],
+      "quantile_rmse": 33.87987404339528,
+      "standard_deviation_ratio": 0.7581330051196234
+    },
+    "precipitation_concentration_hhi": {
+      "climatology_bias_model_minus_observed": 0.041802370186424465,
+      "model_mean": 0.41840980290473334,
+      "model_quantiles": [
+        0.34167475263103403,
+        0.3537586313563434,
+        0.3874103117856941,
+        0.43142290644331577,
+        0.4656141573066236
+      ],
+      "model_standard_deviation": 0.10496795143796774,
+      "observed_mean": 0.3766074327183089,
+      "observed_quantiles": [
+        0.3464654946030483,
+        0.3604994926709972,
+        0.3642586702118885,
+        0.3860616367976968,
+        0.426209890852827
+      ],
+      "observed_standard_deviation": 0.03168411146526019,
+      "quantile_differences_model_minus_observed": [
+        -0.00479074197201429,
+        -0.00674086131465379,
+        0.02315164157380556,
+        0.045361269645618985,
+        0.03940426645379658
+      ],
+      "quantile_probabilities": [
+        0.1,
+        0.25,
+        0.5,
+        0.75,
+        0.9
+      ],
+      "quantile_rmse": 0.02903353208306606,
+      "standard_deviation_ratio": 3.3129523468903037
+    },
+    "precipitation_timing_centroid": {
+      "climatology_bias_model_minus_observed": -0.006946289132670425,
+      "model_mean": 0.44132824755298,
+      "model_quantiles": [
+        0.3347937418916381,
+        0.43354306920396746,
+        0.4721247668649535,
+        0.4829824922693135,
+        0.5052622853043444
+      ],
+      "model_standard_deviation": 0.08739605029768306,
+      "observed_mean": 0.4482745366856504,
+      "observed_quantiles": [
+        0.3611165564856598,
+        0.42004282816493765,
+        0.44655325680323243,
+        0.48373443622641,
+        0.5240322918535544
+      ],
+      "observed_standard_deviation": 0.06340733891219037,
+      "quantile_differences_model_minus_observed": [
+        -0.02632281459402175,
+        0.013500241039029803,
+        0.025571510061721092,
+        -0.0007519439570964903,
+        -0.018770006549210017
+      ],
+      "quantile_probabilities": [
+        0.1,
+        0.25,
+        0.5,
+        0.75,
+        0.9
+      ],
+      "quantile_rmse": 0.019400658590222407,
+      "standard_deviation_ratio": 1.3783270485253047
+    },
+    "rx1day_mm": {
+      "climatology_bias_model_minus_observed": 1.9228077296947248,
+      "model_mean": 43.3029529159889,
+      "model_quantiles": [
+        32.10787759567467,
+        32.34993803438128,
+        38.69693997350429,
+        46.5590657352613,
+        52.114277545774655
+      ],
+      "model_standard_deviation": 15.664990653013945,
+      "observed_mean": 41.38014518629417,
+      "observed_quantiles": [
+        28.200601535154433,
+        33.24358204592611,
+        39.328697371667474,
+        41.884849146874515,
+        67.72161296168126
+      ],
+      "observed_standard_deviation": 14.686444678391828,
+      "quantile_differences_model_minus_observed": [
+        3.907276060520239,
+        -0.8936440115448292,
+        -0.631757398163181,
+        4.674216588386784,
+        -15.607335415906604
+      ],
+      "quantile_probabilities": [
+        0.1,
+        0.25,
+        0.5,
+        0.75,
+        0.9
+      ],
+      "quantile_rmse": 7.508684874761775,
+      "standard_deviation_ratio": 1.0666291942025867
+    },
+    "rx5day_mm": {
+      "climatology_bias_model_minus_observed": -4.75312266670322,
+      "model_mean": 68.96354454858523,
+      "model_quantiles": [
+        52.05262306558946,
+        57.61276550158617,
+        63.1411071447835,
+        80.78045799590052,
+        94.66328962198963
+      ],
+      "model_standard_deviation": 17.420110407434453,
+      "observed_mean": 73.71666721528845,
+      "observed_quantiles": [
+        41.291915912614336,
+        56.296840584679295,
+        70.2704458731755,
+        84.84241889750746,
+        108.93499201698977
+      ],
+      "observed_standard_deviation": 29.878262763417656,
+      "quantile_differences_model_minus_observed": [
+        10.760707152975122,
+        1.315924916906873,
+        -7.129338728392007,
+        -4.061960901606938,
+        -14.271702395000133
+      ],
+      "quantile_probabilities": [
+        0.1,
+        0.25,
+        0.5,
+        0.75,
+        0.9
+      ],
+      "quantile_rmse": 8.815134294391804,
+      "standard_deviation_ratio": 0.583036254328792
+    },
+    "stage1_precip_mm": {
+      "climatology_bias_model_minus_observed": -10.926528820139282,
+      "model_mean": 138.17848889953353,
+      "model_quantiles": [
+        85.9313867073731,
+        113.56514335766238,
+        139.685264745981,
+        151.65518519806596,
+        172.48912545626516
+      ],
+      "model_standard_deviation": 44.36038841280199,
+      "observed_mean": 149.10501771967282,
+      "observed_quantiles": [
+        72.14391385209805,
+        101.55345989591939,
+        162.63120172920438,
+        179.08285194976978,
+        229.477716505704
+      ],
+      "observed_standard_deviation": 59.32240874063384,
+      "quantile_differences_model_minus_observed": [
+        13.787472855275041,
+        12.01168346174299,
+        -22.94593698322339,
+        -27.42766675170381,
+        -56.98859104943884
+      ],
+      "quantile_probabilities": [
+        0.1,
+        0.25,
+        0.5,
+        0.75,
+        0.9
+      ],
+      "quantile_rmse": 31.179696549520216,
+      "standard_deviation_ratio": 0.7477846795930359
+    },
+    "stage1_precip_share": {
+      "climatology_bias_model_minus_observed": 0.007496413862928597,
+      "model_mean": 0.38215930925090325,
+      "model_quantiles": [
+        0.25624370301985583,
+        0.2918296525000572,
+        0.340676670099074,
+        0.37232999184441284,
+        0.5646975053196197
+      ],
+      "model_standard_deviation": 0.1692364817134939,
+      "observed_mean": 0.37466289538797465,
+      "observed_quantiles": [
+        0.2353504558335064,
+        0.3031765110700043,
+        0.35646798246800215,
+        0.45454491244371387,
+        0.5308681396161755
+      ],
+      "observed_standard_deviation": 0.11648761228655416,
+      "quantile_differences_model_minus_observed": [
+        0.02089324718634944,
+        -0.011346858569947105,
+        -0.015791312368928168,
+        -0.08221492059930102,
+        0.03382936570344419
+      ],
+      "quantile_probabilities": [
+        0.1,
+        0.25,
+        0.5,
+        0.75,
+        0.9
+      ],
+      "quantile_rmse": 0.0417573075683193,
+      "standard_deviation_ratio": 1.452828145341154
+    },
+    "stage2_precip_mm": {
+      "climatology_bias_model_minus_observed": 0.07371846828323214,
+      "model_mean": 161.91653308806573,
+      "model_quantiles": [
+        70.45795556327691,
+        83.51619651386471,
+        175.75444335794688,
+        219.17217550352552,
+        240.55546740894914
+      ],
+      "model_standard_deviation": 84.76336472861463,
+      "observed_mean": 161.8428146197825,
+      "observed_quantiles": [
+        78.58278217808787,
+        132.97952296899172,
+        164.6153080617376,
+        202.16948358504675,
+        238.1148590492752
+      ],
+      "observed_standard_deviation": 60.618892261044806,
+      "quantile_differences_model_minus_observed": [
+        -8.124826614810956,
+        -49.463326455127,
+        11.139135296209275,
+        17.002691918478774,
+        2.440608359673945
+      ],
+      "quantile_probabilities": [
+        0.1,
+        0.25,
+        0.5,
+        0.75,
+        0.9
+      ],
+      "quantile_rmse": 24.21471415612613,
+      "standard_deviation_ratio": 1.3982994668328121
+    },
+    "stage2_precip_share": {
+      "climatology_bias_model_minus_observed": 0.004853712653201558,
+      "model_mean": 0.403314959918251,
+      "model_quantiles": [
+        0.24237176273890687,
+        0.3130133621003058,
+        0.42398427390816773,
+        0.5104090759529685,
+        0.5584124629809168
+      ],
+      "model_standard_deviation": 0.15002873502292013,
+      "observed_mean": 0.39846124726504945,
+      "observed_quantiles": [
+        0.28447073079441,
+        0.36036016822490535,
+        0.40706561546757436,
+        0.4514517864290747,
+        0.4651681050092193
+      ],
+      "observed_standard_deviation": 0.0794783677892308,
+      "quantile_differences_model_minus_observed": [
+        -0.042098968055503116,
+        -0.04734680612459957,
+        0.01691865844059337,
+        0.058957289523893786,
+        0.09324435797169756
+      ],
+      "quantile_probabilities": [
+        0.1,
+        0.25,
+        0.5,
+        0.75,
+        0.9
+      ],
+      "quantile_rmse": 0.05739469739710536,
+      "standard_deviation_ratio": 1.887667540188826
+    },
+    "stage3_precip_mm": {
+      "climatology_bias_model_minus_observed": -11.683831818269908,
+      "model_mean": 83.46487611251509,
+      "model_quantiles": [
+        24.092995863929406,
+        63.559431029601,
+        74.16304161293898,
+        92.28768941166493,
+        157.65390217274938
+      ],
+      "model_standard_deviation": 52.29324827330795,
+      "observed_mean": 95.148707930785,
+      "observed_quantiles": [
+        41.31354043123887,
+        54.89612452447436,
+        101.90759567546976,
+        130.9769111333841,
+        132.2133948785846
+      ],
+      "observed_standard_deviation": 48.82764010621876,
+      "quantile_differences_model_minus_observed": [
+        -17.220544567309464,
+        8.663306505126641,
+        -27.74455406253078,
+        -38.68922172171918,
+        25.440507294164775
+      ],
+      "quantile_probabilities": [
+        0.1,
+        0.25,
+        0.5,
+        0.75,
+        0.9
+      ],
+      "quantile_rmse": 25.63371063167388,
+      "standard_deviation_ratio": 1.0709763601015772
+    },
+    "stage3_precip_share": {
+      "climatology_bias_model_minus_observed": -0.012350126516129961,
+      "model_mean": 0.21452573083084595,
+      "model_quantiles": [
+        0.08894862598854206,
+        0.1406323942438218,
+        0.1805535947160072,
+        0.30801720628559714,
+        0.35493346675773735
+      ],
+      "model_standard_deviation": 0.11742707626610313,
+      "observed_mean": 0.2268758573469759,
+      "observed_quantiles": [
+        0.13627254328536254,
+        0.16983900343955932,
+        0.2334501197609825,
+        0.29018729989942194,
+        0.30425753076645645
+      ],
+      "observed_standard_deviation": 0.07745455109458965,
+      "quantile_differences_model_minus_observed": [
+        -0.04732391729682048,
+        -0.029206609195737532,
+        -0.0528965250449753,
+        0.01782990638617521,
+        0.050675935991280896
+      ],
+      "quantile_probabilities": [
+        0.1,
+        0.25,
+        0.5,
+        0.75,
+        0.9
+      ],
+      "quantile_rmse": 0.04189648572659696,
+      "standard_deviation_ratio": 1.5160771653391667
+    },
+    "tmax_mean_c": {
+      "climatology_bias_model_minus_observed": 1.7554789831510078,
+      "model_mean": 29.942329227555618,
+      "model_quantiles": [
+        28.979247193260004,
+        29.278127144095986,
+        29.632580834749817,
+        30.572053681113143,
+        31.369526177510853
+      ],
+      "model_standard_deviation": 1.1251885139817253,
+      "observed_mean": 28.18685024440461,
+      "observed_quantiles": [
+        27.144517030320582,
+        27.741404766872435,
+        28.300763083058882,
+        28.893860828722488,
+        29.14539425108723
+      ],
+      "observed_standard_deviation": 1.232603703973669,
+      "quantile_differences_model_minus_observed": [
+        1.8347301629394224,
+        1.5367223772235512,
+        1.3318177516909344,
+        1.678192852390655,
+        2.224131926423624
+      ],
+      "quantile_probabilities": [
+        0.1,
+        0.25,
+        0.5,
+        0.75,
+        0.9
+      ],
+      "quantile_rmse": 1.7472597422896436,
+      "standard_deviation_ratio": 0.9128550485077576
+    },
+    "tmean_c": {
+      "climatology_bias_model_minus_observed": 1.3321787782272736,
+      "model_mean": 21.71996628237244,
+      "model_quantiles": [
+        20.758059694056048,
+        21.05719367795468,
+        21.587734312619794,
+        22.268641951411706,
+        22.740338143600955
+      ],
+      "model_standard_deviation": 0.9122142335492291,
+      "observed_mean": 20.387787504145166,
+      "observed_quantiles": [
+        19.681085000237303,
+        20.06113992260727,
+        20.564475099921182,
+        21.003770607079364,
+        21.09599780242722
+      ],
+      "observed_standard_deviation": 0.811323804494983,
+      "quantile_differences_model_minus_observed": [
+        1.0769746938187446,
+        0.9960537553474076,
+        1.023259212698612,
+        1.2648713443323416,
+        1.6443403411737343
+      ],
+      "quantile_probabilities": [
+        0.1,
+        0.25,
+        0.5,
+        0.75,
+        0.9
+      ],
+      "quantile_rmse": 1.2249744214770113,
+      "standard_deviation_ratio": 1.124352852086038
+    },
+    "tmin_mean_c": {
+      "climatology_bias_model_minus_observed": 0.9088800100937906,
+      "model_mean": 13.497603337189261,
+      "model_quantiles": [
+        12.505705930639866,
+        12.704817731812097,
+        13.586138771431926,
+        14.225285655336354,
+        14.622400851607782
+      ],
+      "model_standard_deviation": 0.9352799863946964,
+      "observed_mean": 12.58872332709547,
+      "observed_quantiles": [
+        11.752540205882815,
+        12.193143077376803,
+        12.532921694895077,
+        13.052089847303362,
+        13.350627485520292
+      ],
+      "observed_standard_deviation": 0.6816060013190396,
+      "quantile_differences_model_minus_observed": [
+        0.7531657247570518,
+        0.5116746544352946,
+        1.0532170765368498,
+        1.1731958080329914,
+        1.2717733660874906
+      ],
+      "quantile_probabilities": [
+        0.1,
+        0.25,
+        0.5,
+        0.75,
+        0.9
+      ],
+      "quantile_rmse": 0.993189978798096,
+      "standard_deviation_ratio": 1.3721709970052327
+    },
+    "wet_days_n": {
+      "climatology_bias_model_minus_observed": -4.99973196198939,
+      "model_mean": 37.98072404270661,
+      "model_quantiles": [
+        27.212199622633957,
+        31.34536076390387,
+        40.609234392684286,
+        42.25402188268268,
+        45.054261732508095
+      ],
+      "model_standard_deviation": 7.930052080995222,
+      "observed_mean": 42.980456004696,
+      "observed_quantiles": [
+        26.222527022279646,
+        36.89829382721388,
+        43.68964551439504,
+        47.70766720438838,
+        59.5546164878677
+      ],
+      "observed_standard_deviation": 11.835708150282631,
+      "quantile_differences_model_minus_observed": [
+        0.9896726003543108,
+        -5.552933063310007,
+        -3.0804111217107533,
+        -5.4536453217057,
+        -14.500354755359602
+      ],
+      "quantile_probabilities": [
+        0.1,
+        0.25,
+        0.5,
+        0.75,
+        0.9
+      ],
+      "quantile_rmse": 7.500746435742181,
+      "standard_deviation_ratio": 0.6700107826506229
+    }
+  },
+  "created_at_utc": "2026-10-13T13:34:32.203510+00:00",
+  "implementation": {
+    "path": "/Users/jbb/Dropbox/GIVE/precipitation_scc/loca2_us/scripts/combine_historical_climate_partitions.py",
+    "sha256": "6b3707953f95d2857683dcdf3b6578f5b2059c50f0c7dd3fec3ca1ad68c7e38e"
+  },
+  "output": {
+    "bytes": 12606,
+    "path": "loca2_us/data/interim/furnas_ipsl_historical_2001_2012_direct_v2_corn_features.parquet",
+    "sha256": "a14254b5fb9a1baa390f3c9c104b055cbbb1dcec7333a39c5e31dbd755d2ab49"
+  },
+  "partitions": [
+    {
+      "config": {
+        "path": "loca2_us/config/loca2_us_furnas_ipsl_historical_2001_2006_direct_v2.toml",
+        "sha256": "cc23dff885a030deb594adc00a6fbeaa905dc2c4d1b80e4174389c45b1f71c3c"
+      },
+      "output": {
+        "bytes": 11679,
+        "path": "loca2_us/data/interim/furnas_ipsl_historical_2001_2006_direct_v2_corn_features.parquet",
+        "sha256": "f00ae55acfa1022aee28d619ac8c9402e128424e9c1213c1cf3e62a067fe5438"
+      },
+      "receipt": "loca2_us/data/provenance/loca2_furnas_ipsl_historical_climate_sentinel_2001_2006_direct_v2_20261013.json",
+      "receipt_sha256": "f2b85ca898724d729b446d26726d6b550d8d826c08d629e5355bfc6f683c91e0",
+      "source": {
+        "ensemble_index": 61,
+        "experiment_id": "historical",
+        "precipitation_version": "v20240915",
+        "remote_chunk_mib_upper_bound": 283.77536392211914,
+        "remote_chunks": [
+          {
+            "compressed_bytes": 9242303,
+            "key": "pr/61.40.1.3",
+            "variable": "pr"
+          },
+          {
+            "compressed_bytes": 8705884,
+            "key": "pr/61.41.1.3",
+            "variable": "pr"
+          },
+          {
+            "compressed_bytes": 7078697,
+            "key": "pr/61.42.1.3",
+            "variable": "pr"
+          },
+          {
+            "compressed_bytes": 8829434,
+            "key": "pr/61.43.1.3",
+            "variable": "pr"
+          },
+          {
+            "compressed_bytes": 8986390,
+            "key": "pr/61.44.1.3",
+            "variable": "pr"
+          },
+          {
+            "compressed_bytes": 25291864,
+            "key": "tasmin/61.40.1.3",
+            "variable": "tasmin"
+          },
+          {
+            "compressed_bytes": 25283273,
+            "key": "tasmin/61.41.1.3",
+            "variable": "tasmin"
+          },
+          {
+            "compressed_bytes": 25043825,
+            "key": "tasmin/61.42.1.3",
+            "variable": "tasmin"
+          },
+          {
+            "compressed_bytes": 25092734,
+            "key": "tasmin/61.43.1.3",
+            "variable": "tasmin"
+          },
+          {
+            "compressed_bytes": 25432694,
+            "key": "tasmin/61.44.1.3",
+            "variable": "tasmin"
+          },
+          {
+            "compressed_bytes": 25751871,
+            "key": "tasmax/61.40.1.3",
+            "variable": "tasmax"
+          },
+          {
+            "compressed_bytes": 25794408,
+            "key": "tasmax/61.41.1.3",
+            "variable": "tasmax"
+          },
+          {
+            "compressed_bytes": 25825703,
+            "key": "tasmax/61.42.1.3",
+            "variable": "tasmax"
+          },
+          {
+            "compressed_bytes": 25586147,
+            "key": "tasmax/61.43.1.3",
+            "variable": "tasmax"
+          },
+          {
+            "compressed_bytes": 25614809,
+            "key": "tasmax/61.44.1.3",
+            "variable": "tasmax"
+          }
+        ],
+        "source_id": "IPSL-CM6A-LR",
+        "spatial_accumulator": "one_source_spatial_chunk_variable_serial_v2",
+        "spatial_accumulator_partitions": 1,
+        "store": "mdmf/gdp/LOCA2/CMIP6-LOCA2.historical.daily.zarr",
+        "variant_label": "r1i1p1f1"
+      },
+      "support": {
+        "county_geoid": "31065",
+        "crop": "corn_grain",
+        "grid_cells": 60,
+        "outcome_columns_read": false,
+        "paired_year_scoring": false,
+        "season_days_each": 170,
+        "year_count": 6,
+        "years": [
+          2001,
+          2002,
+          2003,
+          2004,
+          2005,
+          2006
+        ]
+      }
+    },
+    {
+      "config": {
+        "path": "loca2_us/config/loca2_us_furnas_ipsl_historical_2007_2012_direct_v2.toml",
+        "sha256": "64a72a3bad60df7e56b7828b2205d515be788d64e9d585136a9ac169740719b5"
+      },
+      "output": {
+        "bytes": 11679,
+        "path": "loca2_us/data/interim/furnas_ipsl_historical_2007_2012_direct_v2_corn_features.parquet",
+        "sha256": "f722ab025263343f2b56787f2bd95d5b760270c4343187435cc0ddedf1d4b642"
+      },
+      "receipt": "loca2_us/data/provenance/loca2_furnas_ipsl_historical_climate_sentinel_2007_2012_direct_v2_20261013.json",
+      "receipt_sha256": "eb75ece6ddcf6cec3b4e0fa023c4f57db85cb1ec87910a1e2ec3a221bcb921fb",
+      "source": {
+        "ensemble_index": 61,
+        "experiment_id": "historical",
+        "precipitation_version": "v20240915",
+        "remote_chunk_mib_upper_bound": 340.45328998565674,
+        "remote_chunks": [
+          {
+            "compressed_bytes": 8986390,
+            "key": "pr/61.44.1.3",
+            "variable": "pr"
+          },
+          {
+            "compressed_bytes": 8000691,
+            "key": "pr/61.45.1.3",
+            "variable": "pr"
+          },
+          {
+            "compressed_bytes": 8792470,
+            "key": "pr/61.46.1.3",
+            "variable": "pr"
+          },
+          {
+            "compressed_bytes": 7817895,
+            "key": "pr/61.47.1.3",
+            "variable": "pr"
+          },
+          {
+            "compressed_bytes": 9138103,
+            "key": "pr/61.48.1.3",
+            "variable": "pr"
+          },
+          {
+            "compressed_bytes": 8581578,
+            "key": "pr/61.49.1.3",
+            "variable": "pr"
+          },
+          {
+            "compressed_bytes": 25432694,
+            "key": "tasmin/61.44.1.3",
+            "variable": "tasmin"
+          },
+          {
+            "compressed_bytes": 25194694,
+            "key": "tasmin/61.45.1.3",
+            "variable": "tasmin"
+          },
+          {
+            "compressed_bytes": 25095254,
+            "key": "tasmin/61.46.1.3",
+            "variable": "tasmin"
+          },
+          {
+            "compressed_bytes": 25159094,
+            "key": "tasmin/61.47.1.3",
+            "variable": "tasmin"
+          },
+          {
+            "compressed_bytes": 25311719,
+            "key": "tasmin/61.48.1.3",
+            "variable": "tasmin"
+          },
+          {
+            "compressed_bytes": 25158686,
+            "key": "tasmin/61.49.1.3",
+            "variable": "tasmin"
+          },
+          {
+            "compressed_bytes": 25614809,
+            "key": "tasmax/61.44.1.3",
+            "variable": "tasmax"
+          },
+          {
+            "compressed_bytes": 25856028,
+            "key": "tasmax/61.45.1.3",
+            "variable": "tasmax"
+          },
+          {
+            "compressed_bytes": 25683092,
+            "key": "tasmax/61.46.1.3",
+            "variable": "tasmax"
+          },
+          {
+            "compressed_bytes": 25843328,
+            "key": "tasmax/61.47.1.3",
+            "variable": "tasmax"
+          },
+          {
+            "compressed_bytes": 25772747,
+            "key": "tasmax/61.48.1.3",
+            "variable": "tasmax"
+          },
+          {
+            "compressed_bytes": 25551877,
+            "key": "tasmax/61.49.1.3",
+            "variable": "tasmax"
+          }
+        ],
+        "source_id": "IPSL-CM6A-LR",
+        "spatial_accumulator": "one_source_spatial_chunk_variable_serial_v2",
+        "spatial_accumulator_partitions": 1,
+        "store": "mdmf/gdp/LOCA2/CMIP6-LOCA2.historical.daily.zarr",
+        "variant_label": "r1i1p1f1"
+      },
+      "support": {
+        "county_geoid": "31065",
+        "crop": "corn_grain",
+        "grid_cells": 60,
+        "outcome_columns_read": false,
+        "paired_year_scoring": false,
+        "season_days_each": 170,
+        "year_count": 6,
+        "years": [
+          2007,
+          2008,
+          2009,
+          2010,
+          2011,
+          2012
+        ]
+      }
+    }
+  ],
+  "role": "one_county_one_model_free_running_climate_distribution_sentinel_not_outcome_or_damage_validation",
+  "schema": "loca2_us_historical_climate_partition_combination/v1",
+  "status": "pass",
+  "support": {
+    "county_geoid": "31065",
+    "crop": "corn_grain",
+    "grid_cells": 60,
+    "year_count": 12,
+    "years": [
+      2001,
+      2002,
+      2003,
+      2004,
+      2005,
+      2006,
+      2007,
+      2008,
+      2009,
+      2010,
+      2011,
+      2012
+    ]
+  },
+  "validation": {
+    "nonoverlapping_complete_years": true,
+    "observed_calendar_rebuilt": true,
+    "partition_hashes": true,
+    "source_identity": true
+  }
+}

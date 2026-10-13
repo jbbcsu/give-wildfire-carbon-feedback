@@ -1,0 +1,35 @@
+schema = "loca2_us_county_weights/v1"
+status = "frozen_before_weight_construction"
+created = "2026-10-13"
+
+[source]
+store = "mdmf/gdp/LOCA2/CMIP6-LOCA2.historical.daily.zarr"
+endpoint_url = "https://usgs.osn.mghpcc.org/"
+precipitation_version = "v20240915"
+grid_id = "CMIP6_LOCA2_1_16_degree"
+
+[county]
+geoid = "31065"
+name = "Furnas"
+display_name = "Furnas County, Nebraska"
+boundary_vintage = 2019
+shapefile = "data/raw/us_county/tigerline/tl_2019_us_county/tl_2019_us_county.shp"
+minimum_grid_coverage = 0.999
+maximum_declared_area_relative_error = 0.03
+selection_rule = "Among the unchanged 59 counties with complete 2001-2012 corn calendar/key support in both direct-practice strata, exclude Cuming and Box Butte and maximize the minimum TIGER-2019 internal-point haversine distance to those anchors; break exact ties by ascending GEOID; use no yield or climate value."
+selection_audit = "Furnas 31065 at TIGER INTPTLAT 40.1918650, INTPTLON -99.9096631 has a 324.37349239581437 km minimum anchor distance, the maximum among 57 unselected eligible counties."
+selection_receipt = "loca2_us/data/provenance/loca2_third_county_preregistration_20261013.json"
+reference_support_audit = "Read only county_geoid, state, county_name, outcome_crop, harvest_year, irrigation_practice, season_start, and season_end from existing nClimGrid partitions; no yield, raw outcome, or climate-value column was read."
+
+[outputs]
+weights = "loca2_us/data/interim/weights/tiger2019/county_geoid=31065/weights.parquet"
+receipt = "loca2_us/data/provenance/loca2_furnas_tiger2019_weights_20261013.json"
+
+[claim_gates]
+county_geometry_weights = false
+weather_validity = false
+historical_climate_validation = false
+multi_county_validation = false
+outcome_response = false
+causal_damage = false
+SCC = false

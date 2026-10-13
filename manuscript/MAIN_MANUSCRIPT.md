@@ -1629,6 +1629,33 @@ source, calendar, and spatial support simultaneously. A same-source historical
 county SPEI response or a separately validated outcome-blind PDSI-to-SPEI
 crosswalk remains required. See `US_FUTURE_SPEI_EXPOSURE_RESULTS_20261013.md`.
 
+An outcome-blind exact-support audit shows that this same-source bridge is
+close but not yet complete. The frozen non-irrigated corn sample contains
+7,013 county-years in 361 counties. The existing historical and future SPEI
+archives share a validated 31,208-cell half-degree footprint, and all county
+calendar checks pass, but only 351 counties meet the preregistered 0.999
+geometric-coverage threshold. Ten counties fail because 11 additional cells
+are needed; minimum county coverage is 0.412. We do not renormalize those
+counties onto partial support or fit outcomes on the remaining 351. Historical
+weather for the missing cells remains local, whereas the matching future
+temperature-extreme inputs must be reacquired for five ESMs and three SSPs.
+This precise, small support gap is now the binding computational step before a
+same-source county SPEI response can be estimated. See
+`us_county_validation/US_DIRECT_PRACTICE_SPEI_BRIDGE_READINESS_20261013.md`.
+
+The separate LOCA2 historical diagnostic reinforces the need to preserve
+climate-pattern heterogeneity. A third county, Furnas County, Nebraska, was
+selected before reading climate values by maximizing its minimum distance to
+the two earlier sentinels among 59 complete-support counties. Over 2001--2012,
+both GFDL-ESM4 and IPSL-CM6A-LR are drier than nClimGrid in Furnas by 63.87
+and 22.54 mm per corn season and lengthen the maximum dry spell by 12.08 and
+7.16 days, while their Rx5day biases have opposite signs. Across the three
+counties, sign and magnitude depend on both county and model. This is an
+outcome-free sentinel, not representative national validation or model-skill
+evidence, but it independently rules out treating one model-location pair as
+the U.S. precipitation response. See
+`loca2_us/LOCA2_THREE_COUNTY_TWO_MODEL_RESULTS_20261013.md`.
+
 An exploratory extension uses the only additional acquired paired-practice
 crop, all-classes wheat. Independent fixed 2009 state harvested-area shares
 combine winter, spring, and durum seasonal PDSI candidates before estimation.

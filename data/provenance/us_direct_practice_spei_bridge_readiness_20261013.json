@@ -1,0 +1,110 @@
+{
+  "schema": "us_direct_practice_spei_bridge_readiness_provenance_v1",
+  "reference_date": "2026-10-13",
+  "status": "validated_blocker_exact_361_county_support_incomplete",
+  "role": "outcome_blind_source_and_geographic_readiness_audit_no_panel_no_fit",
+  "sample": {
+    "crop": "corn_grain",
+    "practice": "non_irrigated",
+    "rows": 7013,
+    "counties": 361,
+    "states": 10,
+    "years": "1981-2018",
+    "outcome_columns_read": [],
+    "calendar": {
+      "source": "usda_nass_field_crops_usual_dates_2010",
+      "vintage": "2010",
+      "boundary_rule": "floor_midpoint_of_most_active_planting_and_harvest_intervals",
+      "state_windows": 10,
+      "all_boundaries_in_harvest_year": true,
+      "fixed_month_day_within_state": true
+    }
+  },
+  "source_bindings": {
+    "direct_practice_panel": {
+      "path": "data/interim/us_county/nass_direct_practice_nclimgrid_1981_2019.parquet",
+      "sha256": "205a94ae92c12810026c9c5d0ac0fa3760e46ebc39669e528ba20a125a0c46d7",
+      "projection": "metadata_and_calendar_columns_only"
+    },
+    "historical_candidate_manifest": {
+      "path": "data/interim/spei_sparse_candidate_indices_20260908/all_blocks.json",
+      "sha256": "459f6968685b1ec828a68b7dc0a4fb54a3c32096ccad5a2f8ef460d19f866b3e",
+      "cells": 31208,
+      "months": 468
+    },
+    "historical_candidate_validation": {
+      "path": "data/interim/spei_sparse_candidate_manifest_validation_20260908/result.json",
+      "sha256": "78fc1411d5e900b9c78af0fbdf096f66d9706216263e062eaa3e4eb9f140c97f",
+      "status": "passed"
+    },
+    "future_spei_evidence": {
+      "path": "data/provenance/us_future_spei_exposure_20261013.json",
+      "sha256": "84b8607afcdb5e90bd9e4bd04b8a3fd9d8e473158dea6189005a32a6c04d0513",
+      "support_rule": "same_31208_fixed_crop_support_cells_as_historical_candidate",
+      "independently_validated_model_scenario_cases": 15
+    }
+  },
+  "implementation": {
+    "contract": {
+      "path": "config/us_direct_practice_spei_bridge_readiness_v1.toml",
+      "sha256": "45bb8d6c8061bc2a7e414d822688802d20038f92178afd75c7cde2f3813d65c9"
+    },
+    "audit": {
+      "path": "us_county_validation/scripts/audit_us_direct_practice_spei_bridge_readiness.py",
+      "sha256": "28daee0f3bb9bb40e32086ada2699b5c43bdf949acdf5716cf29ac086ee28d4c"
+    },
+    "validator": {
+      "path": "us_county_validation/scripts/validate_us_direct_practice_spei_bridge_readiness.py",
+      "sha256": "6abbc08f78fa3ad6c6fff8ace1de75cc6e5ec63f2d113cf62dad3d6b2557e2b2"
+    },
+    "synthetic_tests": {
+      "path": "us_county_validation/scripts/test_audit_us_direct_practice_spei_bridge_readiness.py",
+      "sha256": "d8b485b5e1f4aa5a7d9f538e86e7e248753b9635a1cc65547d8a09390fdfd16f",
+      "checks": 12,
+      "status": "passed"
+    }
+  },
+  "receipts": {
+    "audit_result": {
+      "path": "data/interim/us_county/us_direct_practice_spei_bridge_readiness_v4_20261013/result.json",
+      "sha256": "cc322461b494b6a84eb898f53dd935d0cb0825b67b2c05a5ad3765e0f4e6289d"
+    },
+    "resource": {
+      "path": "data/interim/us_county/us_direct_practice_spei_bridge_readiness_v4_20261013.resource.json",
+      "sha256": "e28ebc835014e992ddeb64e2dc225d886f9b608eb4db3b91991e1646d65805d7",
+      "sampled_peak_group_rss_bytes": 220332032,
+      "memory_limit_bytes": 536870912,
+      "status": "completed"
+    },
+    "independent_validation": {
+      "path": "data/interim/us_county/us_direct_practice_spei_bridge_readiness_v4_20261013.validation.json",
+      "sha256": "58d7d92430b402a2556b45df2a92a7034b2b058ea65f7919c9bcf0743249e0db",
+      "checks": 83,
+      "status": "passed"
+    }
+  },
+  "validated_result": {
+    "coverage_threshold": 0.999,
+    "passing_counties": 351,
+    "failing_counties": 10,
+    "minimum_coverage": 0.41162966236146015,
+    "unique_missing_half_degree_cells": 11,
+    "historical_panel_built": false,
+    "future_panel_built": false
+  },
+  "gates": {
+    "historical_exact_361_county_support": false,
+    "future_exact_361_county_support": false,
+    "historical_county_spei_panel": false,
+    "future_county_spei_panel": false,
+    "bridge_to_nass_response": false,
+    "fit_outcomes": false,
+    "future_yield_projection": false,
+    "causal_claim": false,
+    "damage": false,
+    "scc": false
+  },
+  "blocker": "Eleven native half-degree cells intersecting ten frozen NASS counties are absent from both the validated historical and future sparse SPEI footprints. Historical raw GSWP3-W5E5 inputs remain local, but the corresponding future tasmin/tasmax inputs must be reacquired and all fifteen model-scenario cases processed before exact county support is available.",
+  "next_step": "Acquire and process the eleven cells for historical GSWP3-W5E5 and all fifteen future model-scenario cases, validate identical county weights and NASS calendar allocation, then construct the exact 361-county SPEI-1/3/6 panel without reading outcomes.",
+  "moisture_family_rule": "SPEI and direct rainfall remain competing families and must not be stacked or added."
+}

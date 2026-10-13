@@ -1,0 +1,210 @@
+{
+  "claim_gates": {
+    "SCC": false,
+    "causal_damage": false,
+    "multi_county_validation": false,
+    "outcome_response": false,
+    "third_county_climate_sentinel": false,
+    "third_county_geometry": false,
+    "third_county_selected": true
+  },
+  "created_at_utc": "2026-10-13T13:28:09.019165+00:00",
+  "next_gate": "build and independently validate TIGER-2019 county-to-LOCA2 weights, then freeze two six-year direct-native-chunk configs for GFDL-ESM4 and IPSL-CM6A-LR without inspecting climate values",
+  "resources": {
+    "memory_cap_bytes": 536870912,
+    "memory_gate_passed": true,
+    "peak_rss_bytes": 114425856
+  },
+  "schema": "loca2_us_third_county_preregistration/v1",
+  "selected": {
+    "county_geoid": "31065",
+    "county_name": "Furnas",
+    "distance_to_box_butte_km": 347.53040008035146,
+    "distance_to_cuming_km": 324.37349239581437,
+    "latitude": 40.191865,
+    "longitude": -99.9096631,
+    "minimum_anchor_distance_km": 324.37349239581437,
+    "state_fips": "31"
+  },
+  "selection_inputs": {
+    "anchors": [
+      "31039",
+      "31013"
+    ],
+    "climate_values_read": false,
+    "columns_read": [
+      "county_geoid",
+      "state",
+      "county_name",
+      "outcome_crop",
+      "harvest_year",
+      "irrigation_practice",
+      "season_start",
+      "season_end"
+    ],
+    "crop": "corn_grain",
+    "direct_practices": [
+      "irrigated",
+      "non_irrigated"
+    ],
+    "eligible_counties": 59,
+    "feature_partitions": [
+      {
+        "bytes": 200911,
+        "path": "data/interim/us_county/nclimgrid_features_national_v1/harvest_year=2001/features.parquet",
+        "sha256": "da18a2dbbd8877474c299f37548767a2f243b302782c4855718aed0567a1f26f"
+      },
+      {
+        "bytes": 187869,
+        "path": "data/interim/us_county/nclimgrid_features_national_v1/harvest_year=2002/features.parquet",
+        "sha256": "5cf274f612628f55ba52f77b2566c78acfe58d8aad1b1bbb79814db2b4ba37e2"
+      },
+      {
+        "bytes": 193093,
+        "path": "data/interim/us_county/nclimgrid_features_national_v1/harvest_year=2003/features.parquet",
+        "sha256": "a8a0f7e7bed00c5694e1546c3ad04258cab8766ff7899e22e6b8e86a92e101b0"
+      },
+      {
+        "bytes": 178796,
+        "path": "data/interim/us_county/nclimgrid_features_national_v1/harvest_year=2004/features.parquet",
+        "sha256": "e726369bc4986f8243357da1db3073649fcf8256ffc24a22f7a4844d922c9f58"
+      },
+      {
+        "bytes": 196616,
+        "path": "data/interim/us_county/nclimgrid_features_national_v1/harvest_year=2005/features.parquet",
+        "sha256": "2b90fe286da152f1526899d5dc4f48c2df9cb7779ef5f384810a65de978464db"
+      },
+      {
+        "bytes": 192518,
+        "path": "data/interim/us_county/nclimgrid_features_national_v1/harvest_year=2006/features.parquet",
+        "sha256": "185dbfb7650c8e37797b530d70f86dc81a7f03dbbbe0f35bc5355ec2fd0c7b43"
+      },
+      {
+        "bytes": 186242,
+        "path": "data/interim/us_county/nclimgrid_features_national_v1/harvest_year=2007/features.parquet",
+        "sha256": "4a46ffb6973f59ad9ddbedf66548fddfd99e1498ac2f77bb3145d4edbc73919f"
+      },
+      {
+        "bytes": 135017,
+        "path": "data/interim/us_county/nclimgrid_features_national_v1/harvest_year=2008/features.parquet",
+        "sha256": "8dff04128a78c23f9f83530a6b94adf9fc949a4f20cc398bd348308b2a57be72"
+      },
+      {
+        "bytes": 140713,
+        "path": "data/interim/us_county/nclimgrid_features_national_v1/harvest_year=2009/features.parquet",
+        "sha256": "f790ee18e5cf5b24b054cb76b4b1a69c1efe431a4d4caad2ba0e6ed7ab925352"
+      },
+      {
+        "bytes": 139691,
+        "path": "data/interim/us_county/nclimgrid_features_national_v1/harvest_year=2010/features.parquet",
+        "sha256": "3fec861f38c459557516d1a9eb49ff829d3950b4a6b8a0538670ec678eb99af8"
+      },
+      {
+        "bytes": 135190,
+        "path": "data/interim/us_county/nclimgrid_features_national_v1/harvest_year=2011/features.parquet",
+        "sha256": "a34eb62e27f5d8e760cc3cc7dead02dc04bb84f805d9e05df298468ae7fd42e6"
+      },
+      {
+        "bytes": 129712,
+        "path": "data/interim/us_county/nclimgrid_features_national_v1/harvest_year=2012/features.parquet",
+        "sha256": "162e0097692f5aff885c7d436481e9b7bf6ab7583de5a0ae6494666413b89b04"
+      }
+    ],
+    "outcome_columns_read": false,
+    "tiger_components": [
+      {
+        "bytes": 127354224,
+        "path": "data/raw/us_county/tigerline/tl_2019_us_county/tl_2019_us_county.shp",
+        "sha256": "0b102f2e292be5a81f46ecb2956136e93da03de692980714fabc16e1925e0b51"
+      },
+      {
+        "bytes": 25964,
+        "path": "data/raw/us_county/tigerline/tl_2019_us_county/tl_2019_us_county.shx",
+        "sha256": "fb4263d31f02ccc9d7c1b0affd030cd528b6a2d13f3c1611e41e7dbc5fb57c9d"
+      },
+      {
+        "bytes": 947847,
+        "path": "data/raw/us_county/tigerline/tl_2019_us_county/tl_2019_us_county.dbf",
+        "sha256": "7250428e9b6b0fa9e3c16d16f7d5bbeb2c0ab3b1f16395a954fcbad4624bf5e6"
+      },
+      {
+        "bytes": 165,
+        "path": "data/raw/us_county/tigerline/tl_2019_us_county/tl_2019_us_county.prj",
+        "sha256": "0b9041e921d9ebb43247d314608fe9e38a0b008ee793067fc1806199ea1fb9dd"
+      },
+      {
+        "bytes": 5,
+        "path": "data/raw/us_county/tigerline/tl_2019_us_county/tl_2019_us_county.cpg",
+        "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824"
+      }
+    ],
+    "years": [
+      2001,
+      2002,
+      2003,
+      2004,
+      2005,
+      2006,
+      2007,
+      2008,
+      2009,
+      2010,
+      2011,
+      2012
+    ]
+  },
+  "selection_rule": "Among the unchanged 59 counties with complete 2001-2012 corn calendar/key support in both direct-practice strata, exclude Cuming and Box Butte and select the county maximizing its minimum TIGER-2019 internal-point haversine distance to those two anchors; break exact ties by ascending GEOID.",
+  "status": "third_county_selected_before_loca2_climate_value_access",
+  "top_five": [
+    {
+      "county_geoid": "31065",
+      "county_name": "Furnas",
+      "distance_to_box_butte_km": 347.53040008035146,
+      "distance_to_cuming_km": 324.37349239581437,
+      "latitude": 40.191865,
+      "longitude": -99.9096631,
+      "minimum_anchor_distance_km": 324.37349239581437,
+      "state_fips": "31"
+    },
+    {
+      "county_geoid": "31145",
+      "county_name": "Red Willow",
+      "distance_to_box_butte_km": 315.11728994265167,
+      "distance_to_cuming_km": 364.59124602823584,
+      "latitude": 40.1694196,
+      "longitude": -100.4685764,
+      "minimum_anchor_distance_km": 315.11728994265167,
+      "state_fips": "31"
+    },
+    {
+      "county_geoid": "31073",
+      "county_name": "Gosper",
+      "distance_to_box_butte_km": 331.2451584782328,
+      "distance_to_cuming_km": 298.1456504762212,
+      "latitude": 40.5090947,
+      "longitude": -99.8232058,
+      "minimum_anchor_distance_km": 298.1456504762212,
+      "state_fips": "31"
+    },
+    {
+      "county_geoid": "31083",
+      "county_name": "Harlan",
+      "distance_to_box_butte_km": 381.7223103839097,
+      "distance_to_cuming_km": 292.1981386979953,
+      "latitude": 40.1787663,
+      "longitude": -99.4034177,
+      "minimum_anchor_distance_km": 292.1981386979953,
+      "state_fips": "31"
+    },
+    {
+      "county_geoid": "31063",
+      "county_name": "Frontier",
+      "distance_to_box_butte_km": 291.01204624237073,
+      "distance_to_cuming_km": 339.4947100733906,
+      "latitude": 40.5309469,
+      "longitude": -100.4066834,
+      "minimum_anchor_distance_km": 291.01204624237073,
+      "state_fips": "31"
+    }
+  ]
+}
