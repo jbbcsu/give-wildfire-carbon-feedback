@@ -522,6 +522,13 @@ consumer plus producer surplus or resolve multiplier overlap with other GIVE
 market damages. See
 [`BLUE_SCC_MARKET_COMPONENT_TRANSFER_AUDIT_20261013.md`](BLUE_SCC_MARKET_COMPONENT_TRANSFER_AUDIT_20261013.md).
 
+The exact author-facing request for the missing licensed source chain,
+matched RICE50x runs, additive country decomposition, welfare semantics, and
+machine-readable annual outputs is in
+[`BLUE_SCC_AUTHOR_ARTIFACT_REQUEST_20261013.md`](BLUE_SCC_AUTHOR_ARTIFACT_REQUEST_20261013.md).
+It also supplies manuscript-safe wording for the published Figure 4 fisheries
+benchmark as external context only; the benchmark is not added to GIVE.
+
 ## Alternative global welfare-model feasibility
 
 A primary-source screen of five plausible climate-fisheries systems found no

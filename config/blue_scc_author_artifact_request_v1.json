@@ -1,0 +1,262 @@
+{
+  "schema": "blue_scc_author_artifact_request_v1",
+  "role": "source_artifact_request_only_no_estimation_authority",
+  "source": {
+    "repository_url": "https://github.com/berbastien/blue-scc",
+    "repository_commit": "dbc0d8cb21c81f1508abfaf9e5c0f5671ccdd83f",
+    "paper_doi": "10.1038/s41558-025-02533-5"
+  },
+  "requested_files": [
+    {
+      "id": "market_profit_source",
+      "source_code_path": "External_Data/input_modules/fish/Statistical/total_catch_profit_timeseries.Rds",
+      "status_at_pinned_commit": "absent"
+    },
+    {
+      "id": "market_regression_panel",
+      "source_code_path": "External_Data/output_modules/fish/fisheries_Free_EtAl.csv",
+      "status_at_pinned_commit": "absent"
+    },
+    {
+      "id": "ssp_country_data",
+      "source_code_path": "External_Data/SSPs/SspDb_country_data_2013-06-12.csv",
+      "status_at_pinned_commit": "absent"
+    },
+    {
+      "id": "ssp_gdp",
+      "source_code_path": "External_Data/SSPs/ssp_gdp.csv",
+      "status_at_pinned_commit": "absent"
+    },
+    {
+      "id": "ssp_population",
+      "source_code_path": "External_Data/SSPs/ssp_pop.csv",
+      "status_at_pinned_commit": "absent"
+    },
+    {
+      "id": "temperature_ssp245",
+      "source_code_path": "External_Data/other/scenarios/SSP245_magicc_202303021423.csv",
+      "status_at_pinned_commit": "absent"
+    },
+    {
+      "id": "temperature_ssp585",
+      "source_code_path": "External_Data/other/scenarios/SSP585_magicc_202303221353.csv",
+      "status_at_pinned_commit": "absent"
+    },
+    {
+      "id": "temperature_ssp126",
+      "source_code_path": "External_Data/other/scenarios/SSP126_magicc_202308040902.csv",
+      "status_at_pinned_commit": "absent"
+    },
+    {
+      "id": "temperature_ssp460",
+      "source_code_path": "External_Data/other/scenarios/SSP460_magicc_202402051249.csv",
+      "status_at_pinned_commit": "absent"
+    },
+    {
+      "id": "wdi_gdp_snapshot",
+      "source_code_query": "WDI indicator NY.GDP.MKTP.PP.KD, all countries, 2012-2021",
+      "requested_delivery_name": "WDI_NY.GDP.MKTP.PP.KD_2012_2021.csv",
+      "status_at_pinned_commit": "live_query_not_snapshotted"
+    },
+    {
+      "id": "wdi_deflator_snapshot",
+      "source_code_query": "WDI indicator NY.GDP.DEFL.ZS, USA, 2000-2021",
+      "requested_delivery_name": "WDI_NY.GDP.DEFL.ZS_USA_2000_2021.csv",
+      "status_at_pinned_commit": "live_query_not_snapshotted"
+    },
+    {
+      "id": "country_multiplier_mapping",
+      "requested_delivery_name": "fisheries_country_multiplier_mapping.csv",
+      "status_at_pinned_commit": "not_persisted"
+    },
+    {
+      "id": "rice50x_model",
+      "requested_delivery_name": "RICE50x_commit_and_blue_scc_patch_manifest.json",
+      "status_at_pinned_commit": "external_model_commit_and_patch_not_pinned"
+    },
+    {
+      "id": "ocean_today_result",
+      "source_code_runtime_path": "bluerice/baseline/results/results_ocean_today_BASELINE.gdx",
+      "status_at_pinned_commit": "absent"
+    },
+    {
+      "id": "baseline_result",
+      "source_code_runtime_path": "bluerice/baseline/results/results_ocean_damage_BASELINE.gdx",
+      "status_at_pinned_commit": "absent"
+    },
+    {
+      "id": "pulse_result",
+      "source_code_runtime_path": "bluerice/baseline/results/results_ocean_damage_pulse_BASELINE.gdx",
+      "status_at_pinned_commit": "absent"
+    },
+    {
+      "id": "dependency_locks",
+      "requested_delivery_name": "environment_manifests_and_exact_R_Python_GAMS_versions",
+      "status_at_pinned_commit": "absent"
+    }
+  ],
+  "license_request": {
+    "required_per_artifact_fields": [
+      "artifact_id",
+      "rights_holder",
+      "spdx_identifier_or_full_terms",
+      "redistribution_allowed",
+      "derivative_use_allowed",
+      "attribution_text",
+      "third_party_restrictions"
+    ],
+    "code_and_data_may_have_different_terms": true,
+    "license_file_or_machine_readable_manifest_required": true
+  },
+  "minimum_machine_readable_delivery": {
+    "manifest_required_fields": [
+      "artifact_id",
+      "relative_path",
+      "sha256",
+      "byte_size",
+      "format",
+      "source_or_derivation",
+      "license_id",
+      "software_versions"
+    ],
+    "annual_country_market_flows": {
+      "accepted_formats": [
+        "csv",
+        "parquet"
+      ],
+      "primary_key": [
+        "run_id",
+        "pulse_id",
+        "country_iso3",
+        "year",
+        "valuation"
+      ],
+      "required_columns": [
+        "run_id",
+        "pulse_id",
+        "country_iso3",
+        "year",
+        "valuation",
+        "welfare_concept",
+        "baseline_value",
+        "pulse_value",
+        "currency",
+        "price_year",
+        "time_basis",
+        "missingness_status"
+      ],
+      "required_valuation": "fisheries_market",
+      "requirements": [
+        "baseline_and_pulse_rows_are_from_the_same_run_configuration",
+        "numeric_values_are_not_zero_filled_when_unavailable",
+        "country_iso3_is_explicit_and_unique_within_the_primary_key",
+        "currency_price_year_and_annual_flow_basis_are_explicit"
+      ]
+    },
+    "pulse_metadata": {
+      "required_fields": [
+        "pulse_id",
+        "gas",
+        "mass",
+        "mass_unit",
+        "pulse_year",
+        "baseline_run_id",
+        "pulse_run_id",
+        "climate_module",
+        "socioeconomic_scenario",
+        "discounting_parameters"
+      ]
+    },
+    "country_support_crosswalk": {
+      "accepted_formats": [
+        "csv",
+        "parquet"
+      ],
+      "primary_key": [
+        "source_country_key"
+      ],
+      "required_columns": [
+        "source_country_key",
+        "country_iso3",
+        "coefficient_available",
+        "country_scc_available",
+        "missingness_status",
+        "missingness_reason"
+      ]
+    },
+    "country_multiplier_mapping": {
+      "accepted_formats": [
+        "csv",
+        "parquet"
+      ],
+      "primary_key": [
+        "country_iso3"
+      ],
+      "required_columns": [
+        "country_iso3",
+        "countrycode_package_version",
+        "assigned_region",
+        "direct_multiplier",
+        "indirect_multiplier",
+        "induced_multiplier",
+        "total_multiplier",
+        "source_citation"
+      ]
+    }
+  },
+  "required_reconciliation_identities": [
+    {
+      "id": "annual_country_additivity",
+      "identity": "global_market_delta_by_year == sum_country_market_delta_by_year",
+      "tolerance_must_be_declared": true
+    },
+    {
+      "id": "discounted_country_additivity",
+      "identity": "global_market_scc == sum_country_additive_market_scc_using_the_global_run_weights",
+      "tolerance_must_be_declared": true
+    },
+    {
+      "id": "figure4_market_reproduction",
+      "identity": "reproduced_global_market_scc == 0.05704041587845721_2020_USD_per_tCO2",
+      "tolerance_must_be_declared": true
+    }
+  ],
+  "reconciliation_questions": [
+    "Why do the released 155 country market rows sum to 0.05266463482912126 USD/tCO2 while the Figure 4 market value is 0.05704041587845721 USD/tCO2?",
+    "Why do the released 155 country non-market rows sum to 23.132225131011346 USD/tCO2 while the Figure 4 non-market value is 22.04050947136718 USD/tCO2?",
+    "Were country_level=True outputs intended as standalone country SCCs rather than additive contributions to the global SCC?",
+    "What exact rule maps 143 fish_tcoeff country keys to 155 country-level SCC keys, including the 23 coefficient-only and 35 SCC-only keys?",
+    "Does profits_usd represent producer surplus, accounting profit, or another concept, and can a consumer-surplus series be released?",
+    "Can multiplier-free direct fisheries market effects be supplied separately from indirect and induced output effects?",
+    "What market-damage categories should be excluded when combining the fisheries result with an economy-wide IAM?"
+  ],
+  "external_benchmark_presentation": {
+    "source_file": "Code/MainText_Figures_Code/figure_source_data/Fig4_source_data.xlsx",
+    "source_file_sha256": "23dd228434dac4cd3377a27a54ecedde33f6a84ef911dfa342c79f044783feb6",
+    "year": 2020,
+    "currency": "USD",
+    "price_year": 2020,
+    "denominator": "tCO2",
+    "fisheries_market": 0.05704041587845721,
+    "fisheries_nonmarket_use": 22.04050947136718,
+    "fisheries_total": 22.097549887245638,
+    "allowed_presentation": "published_external_context_only",
+    "added_to_give": false,
+    "required_disclosures": [
+      "not_a_local_estimate",
+      "not_added_to_give",
+      "market_and_nonmarket_split",
+      "welfare_country_support_mortality_overlap_and_discounting_not_harmonized"
+    ]
+  },
+  "acceptance_gates": {
+    "license_complete": false,
+    "source_chain_reproducible": false,
+    "baseline_pulse_matched": false,
+    "annual_country_additivity_verified": false,
+    "figure4_reconciled": false,
+    "consumer_plus_producer_surplus_available": false,
+    "give_overlap_boundary_resolved": false,
+    "give_transfer_authorized": false
+  }
+}
