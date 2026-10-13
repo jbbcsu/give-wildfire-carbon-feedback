@@ -38,10 +38,23 @@ NPV script. Therefore the article values remain published external benchmarks,
 not local reproductions, until the final input/output release is identified or
 the model is rebuilt from its documented inputs.
 
+A current official-source reconciliation confirms that this is not resolved by
+a newer public version. As of 2026-10-13, the EPA repository still exposes only
+the 2025-09-29 submission commit, with no release or tag. Its 33-entry tree has
+no Parquet stream or dependency lock. A second checked-in mean-path summary
+also misses the article components (+$20.66 ozone and -$21.91 PM2.5), while the
+10,000-path component and net summaries are not additive to each other. The
+exact versioned author-artifact request is documented in
+[`EPA_GLOBALAQ_FINAL_RELEASE_ARTIFACT_REQUEST_20261013.md`](EPA_GLOBALAQ_FINAL_RELEASE_ARTIFACT_REQUEST_20261013.md).
+All article-reproduction, non-wildfire-boundary, and GIVE-transfer gates remain
+closed.
+
 Run the fail-closed summary audit with:
 
 ```bash
 python3 scripts/validate_upstream_summaries.py
+python3 scripts/audit_release_reconciliation.py
+python3 test/test_release_reconciliation.py
 ```
 
 ## Combination rules

@@ -1,0 +1,156 @@
+{
+  "article_comparison": {
+    "article_minus_checked_in_rff": {
+      "Net": 19.66761788076073,
+      "Ozone": 6.328351088951223,
+      "PM": -13.470951239286006
+    },
+    "article_net_equals_article_component_sum": true,
+    "checked_in_net_equals_checked_in_component_sum": false,
+    "mean_path_components_reproduce_article": false,
+    "reported_usd_per_tco2": {
+      "Net": -15.0,
+      "Ozone": 23.0,
+      "PM": -38.0
+    },
+    "rff_components_reproduce_article": false
+  },
+  "artifact_inventory": {
+    "checked_in_parquet_paths": [],
+    "dependency_manifest_paths": [],
+    "ignored_upstream_patterns": [
+      "input/RFF/pop_income/*",
+      "input/RFF/temperature/**",
+      "input/RFF/rft_inputs/*",
+      "output/rft/*",
+      "output/npd/npd_country*",
+      "output/npd/npd_full_streams*"
+    ],
+    "missing_required_artifacts": [
+      "input/RFF/pop_income/rffsp_pop_income_run_<trial>.feather",
+      "input/RFF/temperature/rffsp_fair_sequence.csv",
+      "input/RFF/temperature/CO2-2030-climate_variables_with_carbon_feedbacks/model_1/TempNorm_1850to1900_global_temperature_norm.csv",
+      "input/RFF/temperature/CO2-2030-climate_variables_with_carbon_feedbacks/model_2/TempNorm_1850to1900_global_temperature_norm.csv",
+      "input/IFs/mx_trajectories.csv",
+      "input/IFs/pop_trajectories.csv",
+      "input/RFF/rft_inputs/sampled_pop_trajectory_numbers.csv",
+      "input/RFF/rft_inputs/global_mean_surface_temperature_baseline.parquet",
+      "input/RFF/rft_inputs/global_mean_surface_temperature_perturbed_co2_2030.parquet",
+      "input/RFF/rft_inputs/All Trajectories Baseline Mortality_Cause Specific.parquet",
+      "input/RFF/rft_inputs/rffsp_pop_gdp_all_trials.parquet",
+      "output/rft/damages_<trial>_rft.parquet",
+      "output/npd/damages_<trial_chunk>.parquet",
+      "output/npd/npd_full_streams_rff_<country>.parquet",
+      "output/npd/npd_country_rff_means_<country>.csv",
+      "environment_lock_or_session_info"
+    ]
+  },
+  "checked_in_2pct_ramsey": {
+    "mean_path_component_means_usd_per_tco2": {
+      "Ozone": 20.658544995202234,
+      "PM": -21.90869516466148
+    },
+    "mean_path_component_model_values": {
+      "Ozone": {
+        "CESM2": 29.297175899182914,
+        "GISS": 12.019914091221557
+      },
+      "PM": {
+        "CESM2": -53.7524587430272,
+        "GISS": 9.935068413704238
+      }
+    },
+    "rff_component_means_usd_per_tco2": {
+      "Ozone": 16.671648911048777,
+      "PM": -24.529048760713994
+    },
+    "rff_component_model_values": {
+      "Ozone": {
+        "CESM2": 24.231615722508035,
+        "GISS": 9.111682099589522
+      },
+      "PM": {
+        "CESM2": -46.45472006138792,
+        "GISS": -2.603377460040072
+      }
+    },
+    "rff_component_sum_usd_per_tco2": -7.857399849665217,
+    "rff_net_mean_usd_per_tco2": -34.66761788076073,
+    "rff_net_minus_component_sum_usd_per_tco2": -26.810218031095513,
+    "rff_net_model_values": {
+      "CESM2": -57.147771703221736,
+      "GISS": -12.187464058299721
+    }
+  },
+  "claim_gates": {
+    "article_component_benchmarks_reproduced": false,
+    "article_generating_release_identified": false,
+    "component_and_net_outputs_same_run_verified": false,
+    "currency_price_year_resolved": false,
+    "full_annual_country_streams_available": false,
+    "give_transfer_authorized": false,
+    "wildfire_exclusion_machine_verified": false
+  },
+  "config": {
+    "path": "config/epa_globalaq_release_reconciliation_v1.json",
+    "sha256": "4ad4d350533b3506021b05bfcfe0cc7363187d3564b18f386f1b6b557c3458c6"
+  },
+  "interpretation": {
+    "article_values_remain_external_benchmarks_only": true,
+    "checked_in_component_and_net_summaries_are_not_same_run_additive": true,
+    "checked_in_summary_variants_do_not_reproduce_article_components": true,
+    "currency_price_year_conflict_requires_author_clarification": true,
+    "new_estimate_or_imputation_performed": false,
+    "official_head_still_equals_submission_commit_at_observation_date": true,
+    "official_release_or_tag_identifies_article_version": false,
+    "wildfire_files_or_estimates_used": false
+  },
+  "official_api_observation": {
+    "head_commit": "1139e7aff1ca7806b6b542268e829f9759dd8808",
+    "observed_date": "2026-10-13",
+    "pushed_at": "2025-09-29T16:16:33Z",
+    "release_count": 0,
+    "releases_endpoint": "https://api.github.com/repos/USEPA/globalAQ_rft/releases",
+    "remote_refs": {
+      "refs/heads/main": "1139e7aff1ca7806b6b542268e829f9759dd8808"
+    },
+    "repository_endpoint": "https://api.github.com/repos/USEPA/globalAQ_rft",
+    "tag_count": 0,
+    "tags_endpoint": "https://api.github.com/repos/USEPA/globalAQ_rft/tags"
+  },
+  "required_author_delivery": [
+    "article_generating_commit_or_versioned_archive",
+    "artifact_manifest_with_sha256_license_and_derivation",
+    "exact_R_environment_lock_and_session_info",
+    "complete_RFF_population_income_temperature_and_mortality_inputs",
+    "matched_2030_CO2_baseline_and_perturbed_pulse_metadata",
+    "complete_10000_trial_country_year_pollutant_damage_streams_or_equivalent_reproducible_chunks",
+    "same_run_component_and_net_summaries_reconciling_to_article_values",
+    "explicit_currency_price_year_reconciling_2024_inputs_with_2020_NPV_header",
+    "machine_readable_nonwildfire_PM25_emissions_and_species_boundary"
+  ],
+  "role": "source_version_and_artifact_reconciliation_only",
+  "schema": "epa_globalaq_release_reconciliation_audit_v1",
+  "source": {
+    "code_license": "MIT",
+    "commit": "1139e7aff1ca7806b6b542268e829f9759dd8808",
+    "commit_date": "2025-09-29T16:16:13Z",
+    "repository_data_license": "CC-BY-4.0",
+    "repository_url": "https://github.com/USEPA/globalAQ_rft",
+    "tree_entry_count": 33,
+    "verified_file_sha256": {
+      ".gitignore": "b93af29f6576a89668486bfc015145ab68a3198e0fceba4a06ba9c3cfbb82d88",
+      "LICENSE": "69bb99985f1422a9abe887b2cb00925cd3743dcbd5ab925888cf28d331b5c700",
+      "README.md": "66587dd48a628149d406954ccea988527796553d682657922d1c53d07dcfcc0b",
+      "analysis/plot_damage_figures.Rmd": "c1d1033e76ec89a56f10d1e2afb7ec86a194b2aec9453710cbee5ed9812390ed",
+      "code/2_build_inputs_for_rft.R": "3a807430d48557af2de2068cabd2f84d2e1f45c5b4fd0d95821dc4ced8d3eebe",
+      "code/3_global_reduced_form_tool.R": "7e192102249dd5644cdcf5d60acfcb75f8e37515df1f4826341c95c8523c0795",
+      "code/4_npv_calculation.R": "25cad230c7ad43d5568968fdf446d7520cfd31e53bd5b845f71c84ed3cd29157",
+      "code/npv_damages_load.R": "b0d8b91eee03803eb5380c80f48e22f979fd4b06952a4a7031af6d16a083a8a1",
+      "output/npd/npd_global_means.csv": "d9ad8f4eb61d8936d0cecc119d0af304c2a53925df57793da6476482b676c2dd",
+      "output/npd/npd_global_rff_means.csv": "90026ff52cd8c7c58e85294b6b99649e400a016dcc39697548db00593e4f8626",
+      "output/npd/npd_global_rff_net_means.csv": "053145edd8cd9bc3b75a2fa9639d584c042c63087ff3242772fe5188314725bd"
+    }
+  },
+  "status": "blocked_no_post_submission_release_and_article_generating_streams_absent"
+}
