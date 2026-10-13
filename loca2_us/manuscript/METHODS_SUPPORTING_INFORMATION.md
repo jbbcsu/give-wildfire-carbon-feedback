@@ -182,6 +182,19 @@ mean temperature. Corresponding standard-deviation ratios are 0.620, 1.245,
 is calculated. The second-county climate sentinel opens, but general
 multi-county, outcome-response, causal-damage, and SCC gates remain closed.
 
+The same direct native-chunk reader was then applied without scientific
+changes to IPSL-CM6A-LR (`r1i1p1f1`) for both Box Butte partitions. Each
+metadata-only plan contains 30 remote objects and 611,104,818 compressed bytes
+(582.79 MiB). The 2001--2006 and 2007--2012 climate workers complete at
+375,160,832 and 400,506,880 sampled bytes, respectively; the local combine
+completes at 112,721,920 bytes. The combined diagnostic gives model-minus-
+nClimGrid biases of +36.63 mm for seasonal precipitation, -1.51 days for
+maximum dry spell, +7.92 mm for Rx5day, and +1.03 C for mean seasonal
+temperature. Source/member, county, crop calendar, reference product, feature
+definitions, and no-outcome/no-paired-year rules match the GFDL sentinel.
+This opens only a two-model/two-county engineering diagnostic; it does not
+establish predictive skill over the NASS support.
+
 ## M6. Agricultural response families
 
 The response stage remains closed. When authorized, the primary quantity

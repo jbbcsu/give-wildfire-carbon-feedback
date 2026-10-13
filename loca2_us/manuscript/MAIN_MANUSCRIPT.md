@@ -144,3 +144,16 @@ feature and distribution statistic within `3.55e-15`, while reducing the two
 six-year worker peaks from 506.84/506.33 MiB to 352.38/368.72 MiB. Scientific
 results and claim gates are unchanged; the additional headroom makes
 multi-county and multi-model validation operationally safer.
+
+Using that direct-chunk route, the prespecified IPSL-CM6A-LR historical member
+now completes the same Box Butte support under the unchanged 512 MiB ceiling
+(357.78 and 381.95 MiB sampled peaks for the two partitions). Relative to
+nClimGrid, IPSL has a +36.63 mm season-rainfall bias, a -1.51-day maximum-
+dry-spell bias, a +7.92 mm Rx5day bias, and a +1.03 C mean-temperature bias.
+The corresponding GFDL signs at Box Butte are -9.61 mm, +1.62 days, -5.63 mm,
+and +0.89 C. Together with the same two models at Cuming County, this produces
+a two-county-by-two-model historical distribution sentinel. The opposing
+precipitation and extreme biases show why one climate model cannot define the
+U.S. stage-1 response. Two counties and two free-running members remain a
+diagnostic rather than a validated ensemble; no paired-year, crop-response,
+damage, or SCC gate opens.

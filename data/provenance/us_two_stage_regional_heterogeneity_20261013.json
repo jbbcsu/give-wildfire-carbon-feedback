@@ -1,0 +1,57 @@
+{
+  "audit": {
+    "linked_chain_rows_promoted": 0,
+    "stage2_cells_passing_all_association_gates": 3,
+    "stage2_cells_total": 12,
+    "state_practice_rows": 20,
+    "state_practice_rows_with_climate_sign_agreement": 4,
+    "state_practice_rows_with_transport_sign_agreement": 3
+  },
+  "claim_gates": {
+    "damage": false,
+    "descriptive_state_support_diagnostic": true,
+    "national_yield_effect": false,
+    "scc": false,
+    "stable_quantity_response_all_contrasts": false,
+    "state_specific_causal_effect": false,
+    "validated_multi_model_climate_attribution": false
+  },
+  "created_at_utc": "2026-10-13T10:22:08.612837+00:00",
+  "implementation": {
+    "path": "us_county_validation/scripts/build_us_two_stage_regional_heterogeneity.py",
+    "sha256": "7c36eae1d80243e33e91f2a6b960d21609a99298c4746e4b2e85722e117ff2b5"
+  },
+  "outputs": {
+    "stage2_gates": {
+      "path": "us_county_validation/US_STAGE2_CORN_STABILITY_GATES_20261013.csv",
+      "rows": 12,
+      "sha256": "3f5a762e5f47924dc64513d479ff73dd94292af71d2947721d8b358600ce1f80"
+    },
+    "state_diagnostics": {
+      "path": "us_county_validation/US_TWO_STAGE_STATE_DIAGNOSTICS_20261013.csv",
+      "rows": 20,
+      "sha256": "95cf46cc435ba7cf355d50f6e09c6066a98eb53c483c254187fbea8acfbc4de0"
+    }
+  },
+  "required_interpretation": "State rows summarize existing pattern transports on selected support; they are not state-specific fitted effects, a probability-weighted climate ensemble, causal impacts, damages, or SCC inputs.",
+  "schema": "us_two_stage_regional_heterogeneity/v1",
+  "sources": {
+    "pattern_receipt": {
+      "path": "data/provenance/us_corn_three_pattern_sensitivity_20261012.json",
+      "sha256": "23579aed3ecbd8da4cb8266ff091f1201f7d4d3fe3ad985d53200bb5c9ab33bc"
+    },
+    "pattern_state_output": {
+      "path": "data/interim/us_corn_three_pattern_state_20261012.csv",
+      "sha256": "6f3d9d989bee0e2d53a4107965ed4e369551299526e9847f49355e17c29c74f1"
+    },
+    "response_receipt": {
+      "path": "data/provenance/us_corn_quantity_pdsi_spatial_real_v1_20261012.json",
+      "sha256": "4c5fa17a20f48befef8b9d919830ee4d3afd5ad641daf8f0eb868d27edcf4993"
+    },
+    "response_result": {
+      "path": "data/interim/us_corn_quantity_pdsi_spatial_real_v1_20261012.json",
+      "sha256": "76d97c5eab0b1e6283797f0fad2653132716deea74e4632ab00772074f38b3f8"
+    }
+  },
+  "status": "descriptive_geographic_outputs_all_linked_chain_promotion_closed"
+}

@@ -1601,6 +1601,20 @@ identify precipitation separately from temperature demand and supplies no
 marginal-warming-to-PDSI projection. It therefore opens no climate-attribution,
 damage, or SCC gate. See `US_NATIONAL_CORN_PDSI_SPATIAL_RESULTS_20261012.md`.
 
+We therefore organize the U.S. extension as a Qiu-et-al.-style linked chain
+with separately gated stages: climate forcing to crop-season rainfall or
+drought, moisture to county yield, and yield to production/welfare and SCC.
+The strongest stage-2 cell is direct-practice non-irrigated corn at median
+PDSI: a one-unit PDSI decline is associated with -4.30% yield (500 km interval
+-5.02% to -3.57%) and passes the frozen spatial, leave-state, terminal, and
+influence gates. It remains noncausal and unlinked because a validated future
+climate-to-PDSI stage does not yet exist. Conversely, the existing rainfall
+stage-1 patterns can be linked mechanically, but the stage-2 quantity response
+fails the full geographic/temporal stability battery. Direct rainfall and
+PDSI/SPEI remain competing moisture representations, not stacked channels.
+The formal design and reproducible state diagnostics are in
+`us_county_validation/US_TWO_STAGE_PRECIPITATION_YIELD_DESIGN_MEMO_20261013.md`.
+
 An exploratory extension uses the only additional acquired paired-practice
 crop, all-classes wheat. Independent fixed 2009 state harvested-area shares
 combine winter, spring, and durum seasonal PDSI candidates before estimation.
@@ -1947,6 +1961,20 @@ South Africa (`-$0.00024`) and India (`-$0.00016`). These are national-market
 accounting components of the one-model maize diagnostic, not local causal
 effects or total country damages. See
 `docs/PEEPS_MONTHLY_SCC_COUNTRY_DECOMPOSITION_RESULTS_20261012.md`.
+
+An independent audit quantifies the cancellation. Gross absolute country
+components are `$0.018876/tCO2`, 4.42 times the `+$0.004269/tCO2` global net;
+77.4% of their magnitude cancels. Only 4.5 percentage points are removed by
+netting countries within FUND regions, whereas 72.9 points are removed when
+oppositely signed regional totals are netted globally. The distribution is
+concentrated: the five largest countries account for 71.7% of gross absolute
+magnitude, and the United States component alone exceeds the global net.
+Across all 36 registered pulse, adaptation, and discount cells, cancellation
+ranges from 77.3% to 97.5%. Thus the small diagnostic is principally a result
+of concentrated geographic offsets, not uniformly negligible components.
+These remain one-model national-market accounting contributions rather than
+local causal effects or total country damages; see
+`docs/PEEPS_MONTHLY_SCC_HETEROGENEITY_AUDIT_20261013.md`.
 
 ![Country and FUND-region precipitation diagnostic decomposition](figures/peeps_monthly_country_decomposition_20261012.svg)
 
@@ -2694,6 +2722,10 @@ change on global agriculture accounting for adaptation. *Nature*, 642,
 Moore, F. C., Haqiqi, I., Kong, Q., et al. (2026). New labour and
 agricultural damages improve climate cost estimates. *Nature Climate Change*.
 [https://doi.org/10.1038/s41558-026-02749-z](https://doi.org/10.1038/s41558-026-02749-z)
+
+Qiu, M., Li, J., Gould, C. F., et al. (2025). Wildfire smoke exposure and
+mortality burden in the USA under climate change. *Nature*, 647, 935--943.
+[https://doi.org/10.1038/s41586-025-09611-w](https://doi.org/10.1038/s41586-025-09611-w)
 
 Kuwayama, Y., Thompson, A., Bernknopf, R., Zaitchik, B., & Vail, P. (2019).
 Estimating the impact of drought on agriculture using the U.S. Drought

@@ -1,0 +1,42 @@
+{
+  "bindings": {
+    "audit": {
+      "path": "data/provenance/peeps_monthly_scc_heterogeneity_audit_20261013.json",
+      "sha256": "734314e7dcf3f936cde2f48962845cc7bc7c084cc63dc3dc05f39a888acdbdca"
+    },
+    "country": {
+      "path": "data/interim/peeps_monthly_scc_country_decomposition_20261012.csv",
+      "sha256": "d927c12924c91bcd368a92e389e189dee0213f0657413e524c1fc6bcbf2ba8cb"
+    },
+    "region": {
+      "path": "data/interim/peeps_monthly_scc_region_decomposition_20261012.csv",
+      "sha256": "c4ee9f5fe3cdc3997cd5f5f0f4566ef80e545b5ed5394fe47d9a8217118c5f98"
+    },
+    "source_receipt": {
+      "path": "data/provenance/peeps_monthly_scc_country_decomposition_20261012.json",
+      "sha256": "96d404d6f926b12d51cef3e62317d38abc0fe33f4efad4e9801a6847a28b1734"
+    }
+  },
+  "checks": {
+    "all_36_country_design_cells_recomputed": true,
+    "central_country_signed_metrics_recomputed": true,
+    "central_region_signed_metrics_recomputed": true,
+    "claim_gates_closed": true,
+    "fund_region_unmapped_boundary_recomputed": true,
+    "source_hashes_verified": true,
+    "timing_quantity_interactions_recomputed": true,
+    "within_and_between_region_cancellation_recomputed": true
+  },
+  "created_at_utc": "2026-10-13T10:22:51.236819+00:00",
+  "implementation": {
+    "path": "/Users/jbb/Dropbox/GIVE/precipitation_scc/scripts/validate_peeps_monthly_scc_heterogeneity_audit.py",
+    "sha256": "4d13fb4e92cef9fd06329d77c22daa99d6fc5a80e77dd7ca75869f8f7c03fd13"
+  },
+  "resources": {
+    "memory_cap_bytes": 536870912,
+    "memory_gate_passed": true,
+    "peak_rss_bytes": 35913728
+  },
+  "schema": "peeps_monthly_scc_heterogeneity_validation/v1",
+  "status": "validated_country_and_fund_region_cancellation_accounting"
+}
