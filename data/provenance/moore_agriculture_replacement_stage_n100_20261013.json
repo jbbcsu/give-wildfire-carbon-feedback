@@ -1,0 +1,68 @@
+{
+  "claim_status": "the source contains both configurations and the like-for-like execution path passed; numerical delta is staging-only",
+  "contract": {
+    "currency": "2020 USD per metric ton CO2",
+    "discount_rate_label": "2.0%",
+    "draws": 100,
+    "fair_sampling": "random",
+    "gas": "CO2",
+    "julia_threads": 1,
+    "julia_version": "1.12.5",
+    "last_year": 2300,
+    "pulse_size": 0.0001,
+    "pulse_year": 2025,
+    "rffsp_sampling": "random",
+    "seed": 24523438,
+    "socioeconomics": "RFF-SP"
+  },
+  "created_at_utc": "2026-10-13T13:18:38.154008+00:00",
+  "inference": {
+    "delta_interval_available": false,
+    "draw_level_delta_allowed": false,
+    "mean_delta_promoted": false,
+    "reason": "legacy and updated agriculture use different uncertainty parameterizations; resetting the common seed does not establish paired draws"
+  },
+  "schema": "moore_agriculture_replacement_stage/v1",
+  "source": {
+    "archive_doi": "10.5281/zenodo.21483095",
+    "article_doi": "10.1038/s41558-026-02749-z",
+    "manifest": {
+      "path": "vendor/moore_2026/lrennels-paper-2026-give-labor-ag-5d034e7/Manifest.toml",
+      "sha256": "08890942824db91a81b45fcb60b35e820d3d12aaa5c6a044d0ba0ec93dcca448"
+    },
+    "runner": {
+      "path": "scripts/compare_agriculture_replacement.jl",
+      "sha256": "a3936b92bee9e74d82d5b1d77677e72afedff4a4c015f47d91c591b2c93de670"
+    },
+    "source_evolution_script": {
+      "path": "vendor/moore_2026/lrennels-paper-2026-give-labor-ag-5d034e7/analysis/03_ag_scc_evolution.jl",
+      "sha256": "c2a2dfd4dd79e9b262ba62091b39b783d605cb010c13bd56bb830e3caa8a42c5"
+    }
+  },
+  "status": "staged_code_path_diagnostic_not_replacement_delta",
+  "updated_minus_legacy_mean_2020usd_per_tco2": -64.69441487513129,
+  "versions": {
+    "legacy": {
+      "draw_file": {
+        "path": "output/agriculture_replacement/pulse2025_n100_seed24523438/legacy_agriculture_draws_2020usd_per_tco2.csv",
+        "sha256": "a2eb5d5fe3c7923188aed8a1f6692b4f647bee0cec8448346f5c3b7bd01741b8"
+      },
+      "expected_scc_2020usd_per_tco2": 92.93249637899349,
+      "median": 55.18602346681499,
+      "q05": -22.90731101522676,
+      "q95": 293.18509046831707,
+      "se_expected_scc": 12.205844011828408
+    },
+    "updated": {
+      "draw_file": {
+        "path": "output/agriculture_replacement/pulse2025_n100_seed24523438/updated_agriculture_draws_2020usd_per_tco2.csv",
+        "sha256": "0ad1a7fefe7b37be6ee890579e4f3fcc9004fd6c314784ae9226dfb6d5a348df"
+      },
+      "expected_scc_2020usd_per_tco2": 28.23808150386221,
+      "median": 24.06999976084257,
+      "q05": 2.346961087127412,
+      "q95": 77.10502799082512,
+      "se_expected_scc": 2.4046627685339685
+    }
+  }
+}
