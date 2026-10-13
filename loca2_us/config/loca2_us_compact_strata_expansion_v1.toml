@@ -1,0 +1,78 @@
+schema = "loca2_us_compact_strata_expansion/v1"
+status = "frozen_before_loca2_or_observed_climate_value_access"
+created = "2026-10-13"
+
+[inputs]
+panel = "data/interim/us_county/nass_national_all_practice_panel_1981_2019.parquet"
+geography_gate = "data/interim/us_county/nass_national_all_practice_panel_1981_2019_geography_gate.csv"
+calendar = "data/interim/us_county/nass_usual_date_calendars_1981_2022.csv"
+tiger_shapefile = "data/raw/us_county/tigerline/tl_2019_us_county/tl_2019_us_county.shp"
+nclimgrid_weight_root = "data/interim/us_county/nclimgrid_polygon_weights_national_all_practice_v1"
+
+[selection]
+crop = "corn_grain"
+practice = "all_practices"
+year_min = 2001
+year_max = 2012
+calendar_role = "fixed_primary"
+geography_status = "fixed_2019_proxy_no_substantial_page_hit"
+existing_anchor_geoids = ["31039", "31013", "31065"]
+exclude_states = ["NE"]
+stratum_order = ["western_irrigated", "southeast_early_rainfed", "humid_midwest_late_rainfed"]
+selection_rule = "Within each stratum in fixed order, select the county maximizing its minimum TIGER-2019 internal-point haversine distance to all prior Nebraska anchors and already selected expansion counties; break exact ties by ascending GEOID."
+input_rule = "Use support flags, irrigation shares, primary calendar dates, geography status, county internal points, and existing nClimGrid weight readiness only; never read yield magnitudes, nClimGrid feature values, or LOCA2 climate values."
+
+[strata.western_irrigated]
+role = "western state-group climate-geography proxy with irrigation-dominant corn support"
+states = ["AZ", "CA", "CO", "ID", "NM", "NV", "OR", "UT", "WA"]
+minimum_irrigation_share = 0.25
+maximum_irrigation_share = 1.0
+minimum_primary_start_doy = 1
+maximum_primary_start_doy = 366
+
+[strata.southeast_early_rainfed]
+role = "southeastern state-group climate-geography proxy with early, mostly rainfed corn support"
+states = ["AL", "FL", "GA", "NC", "SC", "VA"]
+minimum_irrigation_share = 0.0
+maximum_irrigation_share = 0.25
+minimum_primary_start_doy = 1
+maximum_primary_start_doy = 100
+
+[strata.humid_midwest_late_rainfed]
+role = "upper-Midwest and Ohio-Valley state-group climate-geography proxy with later, rainfed corn support"
+states = ["IA", "IL", "IN", "KY", "MI", "MN", "MO", "OH", "TN", "WI", "WV"]
+minimum_irrigation_share = 0.0
+maximum_irrigation_share = 0.10
+minimum_primary_start_doy = 100
+maximum_primary_start_doy = 366
+
+[models.gfdl]
+source_id = "GFDL-ESM4"
+variant_label = "r1i1p1f1"
+
+[models.ipsl]
+source_id = "IPSL-CM6A-LR"
+variant_label = "r1i1p1f1"
+
+[execution]
+year_partitions = [[2001, 2006], [2007, 2012]]
+worker_memory_mib = 512
+minimum_free_gib = 3
+one_worker = true
+county_serial = true
+model_serial = true
+partition_serial = true
+spatial_accumulator = "one_source_spatial_chunk_variable_serial_v2"
+large_download_launched_by_preregistration = false
+defer_climate_io_until = "The separate 11-cell SPEI bridge is idle or complete; metadata/geometry selection does not compete for network, memory, or raw-data storage."
+
+[claim_gates]
+compact_county_design_selected = false
+loca2_county_weights = false
+observed_climate_features = false
+historical_climate_sentinels = false
+representative_multi_county_validation = false
+model_skill = false
+outcome_response = false
+causal_damage = false
+SCC = false

@@ -1,0 +1,446 @@
+{
+  "claim_gates": {
+    "SCC": false,
+    "causal_damage": false,
+    "compact_county_design_selected": true,
+    "historical_climate_sentinels": false,
+    "loca2_county_weights": false,
+    "model_skill": false,
+    "observed_climate_features": false,
+    "outcome_response": false,
+    "representative_multi_county_validation": false
+  },
+  "config": {
+    "bytes": 3299,
+    "path": "loca2_us/config/loca2_us_compact_strata_expansion_v1.toml",
+    "sha256": "712e458eb2e5af13fbec89d57f4a248085b8b6a05e08ecbbd99ce0012142ff02"
+  },
+  "created_at_utc": "2026-10-13T16:35:37.326085+00:00",
+  "execution_plan": {
+    "downloads_launched": false,
+    "phase_1": "Build and validate one LOCA2 TIGER-2019 weight table per selected county sequentially.",
+    "phase_2": "Build outcome-free nClimGrid primary-calendar features for only the three selected counties and 2001-2012 from the existing validated county weights; this prerequisite is not resident today.",
+    "phase_3": "Run metadata-only LOCA2 preflights for every planned model/partition and require the direct-native-chunk plan below 512 MiB.",
+    "phase_4": "Run the 12 climate jobs strictly sequentially, independently validate each partition, combine exact nonoverlapping years by county/model, and summarize signs without skill weighting.",
+    "planned_climate_job_count": 12,
+    "planned_climate_jobs": [
+      {
+        "county_geoid": "06095",
+        "county_name": "SOLANO",
+        "model_key": "gfdl",
+        "source_id": "GFDL-ESM4",
+        "state": "CA",
+        "status": "blocked_until_loca2_weights_and_observed_features_exist",
+        "stratum": "western_irrigated",
+        "variant_label": "r1i1p1f1",
+        "year_max": 2006,
+        "year_min": 2001
+      },
+      {
+        "county_geoid": "06095",
+        "county_name": "SOLANO",
+        "model_key": "gfdl",
+        "source_id": "GFDL-ESM4",
+        "state": "CA",
+        "status": "blocked_until_loca2_weights_and_observed_features_exist",
+        "stratum": "western_irrigated",
+        "variant_label": "r1i1p1f1",
+        "year_max": 2012,
+        "year_min": 2007
+      },
+      {
+        "county_geoid": "06095",
+        "county_name": "SOLANO",
+        "model_key": "ipsl",
+        "source_id": "IPSL-CM6A-LR",
+        "state": "CA",
+        "status": "blocked_until_loca2_weights_and_observed_features_exist",
+        "stratum": "western_irrigated",
+        "variant_label": "r1i1p1f1",
+        "year_max": 2006,
+        "year_min": 2001
+      },
+      {
+        "county_geoid": "06095",
+        "county_name": "SOLANO",
+        "model_key": "ipsl",
+        "source_id": "IPSL-CM6A-LR",
+        "state": "CA",
+        "status": "blocked_until_loca2_weights_and_observed_features_exist",
+        "stratum": "western_irrigated",
+        "variant_label": "r1i1p1f1",
+        "year_max": 2012,
+        "year_min": 2007
+      },
+      {
+        "county_geoid": "13131",
+        "county_name": "GRADY",
+        "model_key": "gfdl",
+        "source_id": "GFDL-ESM4",
+        "state": "GA",
+        "status": "blocked_until_loca2_weights_and_observed_features_exist",
+        "stratum": "southeast_early_rainfed",
+        "variant_label": "r1i1p1f1",
+        "year_max": 2006,
+        "year_min": 2001
+      },
+      {
+        "county_geoid": "13131",
+        "county_name": "GRADY",
+        "model_key": "gfdl",
+        "source_id": "GFDL-ESM4",
+        "state": "GA",
+        "status": "blocked_until_loca2_weights_and_observed_features_exist",
+        "stratum": "southeast_early_rainfed",
+        "variant_label": "r1i1p1f1",
+        "year_max": 2012,
+        "year_min": 2007
+      },
+      {
+        "county_geoid": "13131",
+        "county_name": "GRADY",
+        "model_key": "ipsl",
+        "source_id": "IPSL-CM6A-LR",
+        "state": "GA",
+        "status": "blocked_until_loca2_weights_and_observed_features_exist",
+        "stratum": "southeast_early_rainfed",
+        "variant_label": "r1i1p1f1",
+        "year_max": 2006,
+        "year_min": 2001
+      },
+      {
+        "county_geoid": "13131",
+        "county_name": "GRADY",
+        "model_key": "ipsl",
+        "source_id": "IPSL-CM6A-LR",
+        "state": "GA",
+        "status": "blocked_until_loca2_weights_and_observed_features_exist",
+        "stratum": "southeast_early_rainfed",
+        "variant_label": "r1i1p1f1",
+        "year_max": 2012,
+        "year_min": 2007
+      },
+      {
+        "county_geoid": "18145",
+        "county_name": "SHELBY",
+        "model_key": "gfdl",
+        "source_id": "GFDL-ESM4",
+        "state": "IN",
+        "status": "blocked_until_loca2_weights_and_observed_features_exist",
+        "stratum": "humid_midwest_late_rainfed",
+        "variant_label": "r1i1p1f1",
+        "year_max": 2006,
+        "year_min": 2001
+      },
+      {
+        "county_geoid": "18145",
+        "county_name": "SHELBY",
+        "model_key": "gfdl",
+        "source_id": "GFDL-ESM4",
+        "state": "IN",
+        "status": "blocked_until_loca2_weights_and_observed_features_exist",
+        "stratum": "humid_midwest_late_rainfed",
+        "variant_label": "r1i1p1f1",
+        "year_max": 2012,
+        "year_min": 2007
+      },
+      {
+        "county_geoid": "18145",
+        "county_name": "SHELBY",
+        "model_key": "ipsl",
+        "source_id": "IPSL-CM6A-LR",
+        "state": "IN",
+        "status": "blocked_until_loca2_weights_and_observed_features_exist",
+        "stratum": "humid_midwest_late_rainfed",
+        "variant_label": "r1i1p1f1",
+        "year_max": 2006,
+        "year_min": 2001
+      },
+      {
+        "county_geoid": "18145",
+        "county_name": "SHELBY",
+        "model_key": "ipsl",
+        "source_id": "IPSL-CM6A-LR",
+        "state": "IN",
+        "status": "blocked_until_loca2_weights_and_observed_features_exist",
+        "stratum": "humid_midwest_late_rainfed",
+        "variant_label": "r1i1p1f1",
+        "year_max": 2012,
+        "year_min": 2007
+      }
+    ],
+    "resources": {
+      "county_serial": true,
+      "defer_climate_io_until": "The separate 11-cell SPEI bridge is idle or complete; metadata/geometry selection does not compete for network, memory, or raw-data storage.",
+      "large_download_launched_by_preregistration": false,
+      "minimum_free_gib": 3,
+      "model_serial": true,
+      "one_worker": true,
+      "partition_serial": true,
+      "spatial_accumulator": "one_source_spatial_chunk_variable_serial_v2",
+      "worker_memory_mib": 512,
+      "year_partitions": [
+        [
+          2001,
+          2006
+        ],
+        [
+          2007,
+          2012
+        ]
+      ]
+    },
+    "status": "not_started_to_avoid_competing_with_11_cell_spei_bridge"
+  },
+  "implementation": {
+    "path": "loca2_us/scripts/preregister_compact_strata_expansion.py",
+    "sha256": "4521c71df1d879fed40867f511332c06c01d3899e93d2c02cbb6045447ccccea"
+  },
+  "input_access_contract": {
+    "calendar_columns_read": [
+      "state",
+      "calendar_crop",
+      "harvest_year",
+      "season_start",
+      "season_end",
+      "calendar_source_id",
+      "calendar_vintage",
+      "calendar_role",
+      "feature_construction_eligible"
+    ],
+    "forbidden_columns": [
+      "cdd_max_days",
+      "precip_mm",
+      "rx1day_mm",
+      "rx5day_mm",
+      "source_value_raw",
+      "tmax_mean_c",
+      "tmean_c",
+      "tmin_mean_c",
+      "yield_bu_acre",
+      "yield_value",
+      "yield_value_raw"
+    ],
+    "loca2_climate_values_read": false,
+    "nclimgrid_climate_values_read": false,
+    "panel_columns_read": [
+      "county_geoid",
+      "state",
+      "county_name",
+      "outcome_crop",
+      "harvest_year",
+      "irrigation_practice",
+      "irrigation_share",
+      "outcome_value_eligible",
+      "feature_construction_authorized"
+    ],
+    "yield_magnitudes_read": false
+  },
+  "input_files": {
+    "calendar": {
+      "bytes": 3430111,
+      "path": "data/interim/us_county/nass_usual_date_calendars_1981_2022.csv",
+      "sha256": "f3ed5d2932b3f709483f7d0064733d8dab9d783baa56384328c49da7b633fcb8"
+    },
+    "geography_gate": {
+      "bytes": 373873,
+      "path": "data/interim/us_county/nass_national_all_practice_panel_1981_2019_geography_gate.csv",
+      "sha256": "5194ff66eab5dfff82dacb610c221463918f9f9b4b4d9332ffa4c0f9cb047993"
+    },
+    "panel": {
+      "bytes": 346597,
+      "path": "data/interim/us_county/nass_national_all_practice_panel_1981_2019.parquet",
+      "sha256": "9fc15801d5c6ec82b8c8ec2cb2edcb10db3ff674a36c61c6b5dc2268a8353e11"
+    }
+  },
+  "resources": {
+    "memory_cap_mib": 512,
+    "memory_gate_passed": true,
+    "peak_rss_bytes": 174768128
+  },
+  "schema": "loca2_us_compact_strata_expansion_preregistration/v1",
+  "selected": [
+    {
+      "calendar_source_id": "usda_nass_field_crops_usual_dates_2010",
+      "calendar_vintage": "2010",
+      "county_geoid": "06095",
+      "county_name": "SOLANO",
+      "distances_to_prior_design_km": {
+        "31013": 1655.7634837457144,
+        "31039": 2169.4440286559516,
+        "31065": 1904.6010381884735
+      },
+      "geography_gate_status": "fixed_2019_proxy_no_substantial_page_hit",
+      "irrigation_share_maximum": 0.9973142345568488,
+      "irrigation_share_median": 0.9973142345568488,
+      "irrigation_share_minimum": 0.9973142345568488,
+      "latitude": 38.2672255,
+      "longitude": -121.939594,
+      "minimum_distance_to_prior_design_km": 1655.7634837457144,
+      "primary_end_month_day": "10-16",
+      "primary_season_days": 154,
+      "primary_start_doy": 136,
+      "primary_start_month_day": "05-16",
+      "state": "CA",
+      "stratum": "western_irrigated",
+      "stratum_candidate_count": 6,
+      "stratum_role": "western state-group climate-geography proxy with irrigation-dominant corn support",
+      "support_years": 12
+    },
+    {
+      "calendar_source_id": "usda_nass_field_crops_usual_dates_2010",
+      "calendar_vintage": "2010",
+      "county_geoid": "13131",
+      "county_name": "GRADY",
+      "distances_to_prior_design_km": {
+        "06095": 3522.0659029941194,
+        "31013": 2094.4143417972755,
+        "31039": 1659.930603223732,
+        "31065": 1751.2153191005666
+      },
+      "geography_gate_status": "fixed_2019_proxy_no_substantial_page_hit",
+      "irrigation_share_maximum": 0.1893576222435282,
+      "irrigation_share_median": 0.1893576222435282,
+      "irrigation_share_minimum": 0.1893576222435282,
+      "latitude": 30.8759076,
+      "longitude": -84.2450803,
+      "minimum_distance_to_prior_design_km": 1659.930603223732,
+      "primary_end_month_day": "09-03",
+      "primary_season_days": 151,
+      "primary_start_doy": 96,
+      "primary_start_month_day": "04-06",
+      "state": "GA",
+      "stratum": "southeast_early_rainfed",
+      "stratum_candidate_count": 5,
+      "stratum_role": "southeastern state-group climate-geography proxy with early, mostly rainfed corn support",
+      "support_years": 12
+    },
+    {
+      "calendar_source_id": "usda_nass_field_crops_usual_dates_2010",
+      "calendar_vintage": "2010",
+      "county_geoid": "18145",
+      "county_name": "SHELBY",
+      "distances_to_prior_design_km": {
+        "06095": 3110.3130793415426,
+        "13131": 971.8120673535161,
+        "31013": 1481.4802041592793,
+        "31039": 963.336442708606,
+        "31065": 1206.0404944138688
+      },
+      "geography_gate_status": "fixed_2019_proxy_no_substantial_page_hit",
+      "irrigation_share_maximum": 0.0336491714421664,
+      "irrigation_share_median": 0.0336491714421664,
+      "irrigation_share_minimum": 0.0336491714421664,
+      "latitude": 39.5241345,
+      "longitude": -85.7921742,
+      "minimum_distance_to_prior_design_km": 963.336442708606,
+      "primary_end_month_day": "10-21",
+      "primary_season_days": 159,
+      "primary_start_doy": 136,
+      "primary_start_month_day": "05-16",
+      "state": "IN",
+      "stratum": "humid_midwest_late_rainfed",
+      "stratum_candidate_count": 101,
+      "stratum_role": "upper-Midwest and Ohio-Valley state-group climate-geography proxy with later, rainfed corn support",
+      "support_years": 12
+    }
+  ],
+  "selected_nclimgrid_weight_readiness": {
+    "06095": {
+      "coverage_fraction": 1.0000000000000004,
+      "output_path": "data/interim/us_county/nclimgrid_polygon_weights_national_all_practice_v1/county_geoid=06095/weights.parquet",
+      "output_sha256": "bb3de54e183303c507afeacdbe829fb1d429ec7581eff6e8e22a27f31fa9f762",
+      "positive_weather_cells": 168,
+      "receipt_path": "data/interim/us_county/nclimgrid_polygon_weights_national_all_practice_v1/county_geoid=06095/receipt.json",
+      "receipt_sha256": "34fce268bab1b3902f7a8ae60b5f867a8239bed0fc3b2896ed22d9765245b687",
+      "weather_valid_area_relative_to_declared_land": 1.0793805977220272
+    },
+    "13131": {
+      "coverage_fraction": 1.0,
+      "output_path": "data/interim/us_county/nclimgrid_polygon_weights_national_all_practice_v1/county_geoid=13131/weights.parquet",
+      "output_sha256": "4c4cf0fc940c26fb10c6eb41a6ce5ff72b12601eafea43fd83fcaaaf46dcc483",
+      "positive_weather_cells": 87,
+      "receipt_path": "data/interim/us_county/nclimgrid_polygon_weights_national_all_practice_v1/county_geoid=13131/receipt.json",
+      "receipt_sha256": "f36a3d58138b58b37998f95ea42165582fd8cc86d2262bb27c8e1dbbe155a8ea",
+      "weather_valid_area_relative_to_declared_land": 1.0126788493751502
+    },
+    "18145": {
+      "coverage_fraction": 1.0000000000000007,
+      "output_path": "data/interim/us_county/nclimgrid_polygon_weights_national_all_practice_v1/county_geoid=18145/weights.parquet",
+      "output_sha256": "d367e69086112ed0a1b53e3245d59fcffd1ff6bb84863bd16a37fb2015aba449",
+      "positive_weather_cells": 72,
+      "receipt_path": "data/interim/us_county/nclimgrid_polygon_weights_national_all_practice_v1/county_geoid=18145/receipt.json",
+      "receipt_sha256": "34ff8ad0698e86fdc5fe6ee86256e7d7cc11dbbec7b41651fd0db522c589e689",
+      "weather_valid_area_relative_to_declared_land": 1.0039352225661031
+    }
+  },
+  "selection_rule": "Within each stratum in fixed order, select the county maximizing its minimum TIGER-2019 internal-point haversine distance to all prior Nebraska anchors and already selected expansion counties; break exact ties by ascending GEOID.",
+  "status": "compact_outcome_blind_county_design_selected_execution_deferred",
+  "support": {
+    "candidate_states": {
+      "AL": 3,
+      "AR": 10,
+      "CA": 4,
+      "CO": 2,
+      "DE": 3,
+      "GA": 11,
+      "IA": 40,
+      "IL": 42,
+      "IN": 34,
+      "KS": 30,
+      "KY": 9
+    },
+    "candidates_after_all_gates": 188,
+    "complete_panel_support_before_other_gates": 636,
+    "crop": "corn_grain",
+    "nclimgrid_ready_count": 932,
+    "nclimgrid_ready_receipt_set_sha256": "e712159ec8b59405e438a6fa2cb4491c811bca0bc0d7352408e43d5bcec57e49",
+    "practice": "all_practices",
+    "stratum_candidate_counts": {
+      "humid_midwest_late_rainfed": 101,
+      "southeast_early_rainfed": 5,
+      "western_irrigated": 6
+    },
+    "years": [
+      2001,
+      2002,
+      2003,
+      2004,
+      2005,
+      2006,
+      2007,
+      2008,
+      2009,
+      2010,
+      2011,
+      2012
+    ]
+  },
+  "tiger_components": [
+    {
+      "bytes": 127354224,
+      "path": "data/raw/us_county/tigerline/tl_2019_us_county/tl_2019_us_county.shp",
+      "sha256": "0b102f2e292be5a81f46ecb2956136e93da03de692980714fabc16e1925e0b51"
+    },
+    {
+      "bytes": 25964,
+      "path": "data/raw/us_county/tigerline/tl_2019_us_county/tl_2019_us_county.shx",
+      "sha256": "fb4263d31f02ccc9d7c1b0affd030cd528b6a2d13f3c1611e41e7dbc5fb57c9d"
+    },
+    {
+      "bytes": 947847,
+      "path": "data/raw/us_county/tigerline/tl_2019_us_county/tl_2019_us_county.dbf",
+      "sha256": "7250428e9b6b0fa9e3c16d16f7d5bbeb2c0ab3b1f16395a954fcbad4624bf5e6"
+    },
+    {
+      "bytes": 165,
+      "path": "data/raw/us_county/tigerline/tl_2019_us_county/tl_2019_us_county.prj",
+      "sha256": "0b9041e921d9ebb43247d314608fe9e38a0b008ee793067fc1806199ea1fb9dd"
+    },
+    {
+      "bytes": 5,
+      "path": "data/raw/us_county/tigerline/tl_2019_us_county/tl_2019_us_county.cpg",
+      "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824"
+    }
+  ]
+}
