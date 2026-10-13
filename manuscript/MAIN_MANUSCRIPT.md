@@ -1586,6 +1586,21 @@ fails the geographic/temporal promotion gates, so this result remains outside
 the SCC calculation. See
 `US_CORN_ACREAGE_WEIGHTED_HETEROGENEITY_RESULTS_20261012.md`.
 
+The broader national all-practice panel provides a complementary drought
+test. Restricting to counties with fixed 2017 irrigated corn area at or below
+10% yields 15,660 county-years, 424 counties, and 28 states. With county and
+state-by-year fixed effects, PDSI -1, -2, and -4 relative to zero are associated
+with -3.70%, -8.32%, and -19.67% corn yield; the respective 500 km spatial
+intervals are [-4.31, -3.09], [-9.63, -6.98], and [-22.59, -16.64] percent.
+The -2 contrast is -8.60% in 1981--2011 and -7.08% in 2012--2019 and passes
+the temporal-stability gate. All leave-state estimates remain negative, but
+the strict influence gate fails because omitting Kansas moves the estimate to
+-7.71%, 1.40 full-sample standard errors from the central value. This national
+rainfed-proxy result strengthens the historical drought evidence but does not
+identify precipitation separately from temperature demand and supplies no
+marginal-warming-to-PDSI projection. It therefore opens no climate-attribution,
+damage, or SCC gate. See `US_NATIONAL_CORN_PDSI_SPATIAL_RESULTS_20261012.md`.
+
 An exploratory extension uses the only additional acquired paired-practice
 crop, all-classes wheat. Independent fixed 2009 state harvested-area shares
 combine winter, spring, and durum seasonal PDSI candidates before estimation.

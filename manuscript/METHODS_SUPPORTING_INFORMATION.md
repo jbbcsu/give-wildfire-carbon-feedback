@@ -2276,6 +2276,23 @@ acreage weight, not a production, price, welfare, or adaptation model; no
 national-yield, damage, or SCC gate is opened. See
 `../US_CORN_ACREAGE_WEIGHTED_HETEROGENEITY_RESULTS_20261012.md`.
 
+The national drought robustness run uses the separate NASS all-practice
+1981--2019 panel and selects counties whose fixed 2017 crop-specific irrigated
+area is at most 10%. The outcome remains all-practice yield. The quadratic
+growing-season PDSI model absorbs county and state-by-year fixed effects.
+County CR1 is augmented by contemporaneous cross-county Bartlett score terms
+at 250 and 500 km, using 2019 TIGER county internal points. The 15,660-row,
+424-county, 28-state run estimates PDSI -2 versus zero at -8.32% (500 km
+interval -9.63% to -6.98%). The 1981--2011 and 2012--2019 estimates are -8.60%
+and -7.08%; their standardized difference is 1.19 and passes the frozen 1.96
+gate. Every leave-state estimate remains negative, but the maximum DFBETA is
+1.40 when Kansas is omitted, so the strict one-standard-error geographic gate
+fails. The bounded run peaks at 390.1 MiB and independent hash, arithmetic,
+interval, and resource checks pass. PDSI is not stacked with direct weather;
+because it combines precipitation and evaporative demand and has no validated
+marginal-warming projection here, no attribution, damage, or SCC gate opens.
+See `../US_NATIONAL_CORN_PDSI_SPATIAL_RESULTS_20261012.md`.
+
 Fit the candidate responses on crop-grid-year observations with grid/crop
 fixed effects and flexible year effects. The reference uses joint temperature
 and crop-calendar seasonal quantity; direct-pattern extensions and separate

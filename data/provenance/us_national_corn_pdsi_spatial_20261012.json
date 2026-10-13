@@ -1,0 +1,384 @@
+{
+  "claim_gates": {
+    "damage": false,
+    "future_climate_attribution": false,
+    "historical_association": true,
+    "national_rainfed_yield_effect": false,
+    "precipitation_attribution": false,
+    "scc": false
+  },
+  "contrasts": {
+    "pdsi_minus1_vs_0": {
+      "estimate_log_yield": -0.03773612369925192,
+      "estimate_percent_yield": -3.703298845913847,
+      "normal_95_intervals_percent_yield": {
+        "county_cr1": [
+          -4.08925860670707,
+          -3.3157859229326605
+        ],
+        "spatial_250km": [
+          -4.22643210511666,
+          -3.17730813435858
+        ],
+        "spatial_500km": [
+          -4.31053232705915,
+          -3.0922119364906893
+        ]
+      },
+      "spatially_robust_excludes_zero": true,
+      "standard_errors_log_yield": {
+        "county_cr1": 0.0020490206556594143,
+        "spatial_250km": 0.002779247255711753,
+        "spatial_500km": 0.0032274620156376548
+      }
+    },
+    "pdsi_minus2_vs_0": {
+      "estimate_log_yield": -0.08681397029703024,
+      "estimate_percent_yield": -8.315235933629904,
+      "normal_95_intervals_percent_yield": {
+        "county_cr1": [
+          -9.151195130219271,
+          -7.4715845304191735
+        ],
+        "spatial_250km": [
+          -9.45048277191581,
+          -7.165756160445053
+        ],
+        "spatial_500km": [
+          -9.634754131140488,
+          -6.976450060180182
+        ]
+      },
+      "spatially_robust_excludes_zero": true,
+      "standard_errors_log_yield": {
+        "county_cr1": 0.004673253019673217,
+        "spatial_250km": 0.006356817819668714,
+        "spatial_500km": 0.007396158451769655
+      }
+    },
+    "pdsi_minus4_vs_0": {
+      "estimate_log_yield": -0.21899483218816612,
+      "estimate_percent_yield": -19.66741304201651,
+      "normal_95_intervals_percent_yield": {
+        "county_cr1": [
+          -21.517595964696497,
+          -17.773612994078274
+        ],
+        "spatial_250km": [
+          -22.179538912060245,
+          -17.074193121658528
+        ],
+        "spatial_500km": [
+          -22.58777571534106,
+          -16.636880195666233
+        ]
+      },
+      "spatially_robust_excludes_zero": true,
+      "standard_errors_log_yield": {
+        "county_cr1": 0.011888217629584707,
+        "spatial_250km": 0.016209674083683293,
+        "spatial_500km": 0.01889318835744763
+      }
+    }
+  },
+  "created_at_utc": "2026-10-13T04:19:23.892666+00:00",
+  "definition": "National NASS all-practice corn yield in counties with 2017 irrigated share <=10%, associated with growing-season NOAA nClimDiv PDSI using county and state-year fixed effects.",
+  "implementation": {
+    "path": "/Users/jbb/Dropbox/GIVE/precipitation_scc/us_county_validation/scripts/estimate_us_national_corn_pdsi_spatial.py",
+    "sha256": "ff2b7c1588e9a0634cb64b2e69092b556b2b02f0dc70bb2f89882889a3a7241a"
+  },
+  "leave_state_out": {
+    "gate": {
+      "all_pass": false,
+      "dfbeta_pass": false,
+      "maximum_absolute_dfbeta": 1.398023590896277,
+      "sign_check_required": true,
+      "sign_pass": true
+    },
+    "records": [
+      {
+        "counties": 421,
+        "estimate_log_yield": -0.08679279229688489,
+        "estimate_percent_yield": -8.313294213122372,
+        "omitted_state": "AL",
+        "rows": 15553
+      },
+      {
+        "counties": 421,
+        "estimate_log_yield": -0.08671177754602201,
+        "estimate_percent_yield": -8.30586593659969,
+        "omitted_state": "CO",
+        "rows": 15579
+      },
+      {
+        "counties": 422,
+        "estimate_log_yield": -0.08688441435829732,
+        "estimate_percent_yield": -8.321694353285727,
+        "omitted_state": "FL",
+        "rows": 15627
+      },
+      {
+        "counties": 420,
+        "estimate_log_yield": -0.08652623166199655,
+        "estimate_percent_yield": -8.288850888947733,
+        "omitted_state": "GA",
+        "rows": 15568
+      },
+      {
+        "counties": 387,
+        "estimate_log_yield": -0.0911404786046154,
+        "estimate_percent_yield": -8.711053954631774,
+        "omitted_state": "IA",
+        "rows": 14223
+      },
+      {
+        "counties": 385,
+        "estimate_log_yield": -0.08869655125944323,
+        "estimate_percent_yield": -8.487677556417133,
+        "omitted_state": "IL",
+        "rows": 14165
+      },
+      {
+        "counties": 397,
+        "estimate_log_yield": -0.08949111882998735,
+        "estimate_percent_yield": -8.560361400199392,
+        "omitted_state": "IN",
+        "rows": 14630
+      },
+      {
+        "counties": 388,
+        "estimate_log_yield": -0.08028065232929982,
+        "estimate_percent_yield": -7.714269201462674,
+        "omitted_state": "KS",
+        "rows": 14383
+      },
+      {
+        "counties": 414,
+        "estimate_log_yield": -0.08673716444953969,
+        "estimate_percent_yield": -8.308193737186343,
+        "omitted_state": "KY",
+        "rows": 15280
+      },
+      {
+        "counties": 423,
+        "estimate_log_yield": -0.08681397029703024,
+        "estimate_percent_yield": -8.315235933629904,
+        "omitted_state": "MD",
+        "rows": 15624
+      },
+      {
+        "counties": 404,
+        "estimate_log_yield": -0.08570963464940984,
+        "estimate_percent_yield": -8.21392925233377,
+        "omitted_state": "MI",
+        "rows": 14892
+      },
+      {
+        "counties": 388,
+        "estimate_log_yield": -0.09135384362407212,
+        "estimate_percent_yield": -8.73052974458089,
+        "omitted_state": "MN",
+        "rows": 14294
+      },
+      {
+        "counties": 392,
+        "estimate_log_yield": -0.08432897484992498,
+        "estimate_percent_yield": -8.0871163917349,
+        "omitted_state": "MO",
+        "rows": 14507
+      },
+      {
+        "counties": 423,
+        "estimate_log_yield": -0.08681397029703024,
+        "estimate_percent_yield": -8.315235933629904,
+        "omitted_state": "MS",
+        "rows": 15622
+      },
+      {
+        "counties": 401,
+        "estimate_log_yield": -0.08711131898224796,
+        "estimate_percent_yield": -8.342494224870164,
+        "omitted_state": "NC",
+        "rows": 14820
+      },
+      {
+        "counties": 403,
+        "estimate_log_yield": -0.08903593102325243,
+        "estimate_percent_yield": -8.518729717258115,
+        "omitted_state": "ND",
+        "rows": 14898
+      },
+      {
+        "counties": 417,
+        "estimate_log_yield": -0.08623156845370868,
+        "estimate_percent_yield": -8.26182300564906,
+        "omitted_state": "NE",
+        "rows": 15390
+      },
+      {
+        "counties": 421,
+        "estimate_log_yield": -0.08694943148540576,
+        "estimate_percent_yield": -8.32765481956875,
+        "omitted_state": "NJ",
+        "rows": 15585
+      },
+      {
+        "counties": 421,
+        "estimate_log_yield": -0.08703406156569285,
+        "estimate_percent_yield": -8.335412729220588,
+        "omitted_state": "NY",
+        "rows": 15553
+      },
+      {
+        "counties": 414,
+        "estimate_log_yield": -0.08659694119714231,
+        "estimate_percent_yield": -8.295335512404002,
+        "omitted_state": "OH",
+        "rows": 15270
+      },
+      {
+        "counties": 422,
+        "estimate_log_yield": -0.08688941084329288,
+        "estimate_percent_yield": -8.322152421419943,
+        "omitted_state": "OK",
+        "rows": 15614
+      },
+      {
+        "counties": 414,
+        "estimate_log_yield": -0.08749119210551524,
+        "estimate_percent_yield": -8.377305835443616,
+        "omitted_state": "PA",
+        "rows": 15281
+      },
+      {
+        "counties": 416,
+        "estimate_log_yield": -0.08524357705342976,
+        "estimate_percent_yield": -8.171141686896203,
+        "omitted_state": "SC",
+        "rows": 15388
+      },
+      {
+        "counties": 392,
+        "estimate_log_yield": -0.08425628017634564,
+        "estimate_percent_yield": -8.080434571799845,
+        "omitted_state": "SD",
+        "rows": 14459
+      },
+      {
+        "counties": 415,
+        "estimate_log_yield": -0.08724145260965033,
+        "estimate_percent_yield": -8.354421172510024,
+        "omitted_state": "TN",
+        "rows": 15319
+      },
+      {
+        "counties": 415,
+        "estimate_log_yield": -0.08614148043282012,
+        "estimate_percent_yield": -8.253558122565824,
+        "omitted_state": "TX",
+        "rows": 15335
+      },
+      {
+        "counties": 416,
+        "estimate_log_yield": -0.0863774393615566,
+        "estimate_percent_yield": -8.275203960841772,
+        "omitted_state": "VA",
+        "rows": 15387
+      },
+      {
+        "counties": 396,
+        "estimate_log_yield": -0.08678527863033177,
+        "estimate_percent_yield": -8.312605307199636,
+        "omitted_state": "WI",
+        "rows": 14574
+      }
+    ],
+    "target": "pdsi_minus2_vs_0"
+  },
+  "limitations": [
+    "All-practice yield in low-irrigation counties is a rainfed proxy, not directly reported non-irrigated yield.",
+    "PDSI combines precipitation supply and temperature-driven atmospheric demand.",
+    "The fixed 2017 irrigation selector is applied retrospectively.",
+    "No projected PDSI response to marginal warming is supplied by this analysis."
+  ],
+  "schema": "us_national_corn_pdsi_spatial/v1",
+  "sources": {
+    "config": {
+      "path": "us_county_validation/us_national_all_practice_pdsi_association_v1.toml",
+      "sha256": "35a0ca2ecf18ac752bbc800ce405ef7232015ea445d3e31282a8055edc6d43a9"
+    },
+    "coordinates": {
+      "path": "data/raw/us_county/tigerline/tl_2019_us_county/tl_2019_us_county.dbf",
+      "sha256": "7250428e9b6b0fa9e3c16d16f7d5bbeb2c0ab3b1f16395a954fcbad4624bf5e6"
+    },
+    "panel": {
+      "path": "data/interim/us_county/nass_national_all_practice_pdsi_join_1981_2019.parquet",
+      "rows_read": 75089,
+      "sha256": "aaaac965801c7b14a898c09ccfb66f1de55dd17c35c032a9827c96daf19d37fd"
+    }
+  },
+  "status": "spatially_robust_historical_all_practice_rainfed_proxy_association_not_climate_attribution_damage_or_scc",
+  "support": {
+    "counties": 424,
+    "rows": 15660,
+    "states": 28,
+    "years": [
+      1981,
+      2019
+    ]
+  },
+  "temporal_stability": {
+    "gate": {
+      "absolute_standardized_difference": 1.1906822414882148,
+      "all_pass": true,
+      "difference_pass": true,
+      "sign_check_required": true,
+      "sign_pass": true
+    },
+    "splits": {
+      "development_1981_2011": {
+        "counties": 424,
+        "estimate_log_yield": -0.08991380255732842,
+        "estimate_percent_yield": -8.599003280247212,
+        "normal_95_intervals_percent_yield": {
+          "county_cr1": [
+            -9.446557491315174,
+            -7.743516205217393
+          ]
+        },
+        "rows": 12815,
+        "spatially_robust_excludes_zero": false,
+        "standard_errors_log_yield": {
+          "county_cr1": 0.004753154111372387
+        },
+        "states": 28
+      },
+      "terminal_2012_2019": {
+        "counties": 417,
+        "estimate_log_yield": -0.0734504200175353,
+        "estimate_percent_yield": -7.081778651265669,
+        "normal_95_intervals_percent_yield": {
+          "county_cr1": [
+            -9.416620352730869,
+            -4.686754984939707
+          ]
+        },
+        "rows": 2845,
+        "spatially_robust_excludes_zero": false,
+        "standard_errors_log_yield": {
+          "county_cr1": 0.012984192526570338
+        },
+        "states": 27
+      }
+    },
+    "target": "pdsi_minus2_vs_0"
+  },
+  "validation": {
+    "finite_outputs": true,
+    "frozen_primary_coefficient_reproduced": true,
+    "spatial_cutoffs_km": [
+      250,
+      500
+    ]
+  }
+}
