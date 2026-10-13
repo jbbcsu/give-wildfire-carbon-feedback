@@ -29,6 +29,16 @@ release or tag. This is a repository-scoped source-availability result: it
 does not establish that no off-repository evidence exists and does not change
 the 0-of-7 readiness result.
 
+`blue_scc_nutrition_give_transfer_audit_20261013.json` tests the dominant
+published fisheries nutrition pathway against the frozen GIVE country/region
+universe. Only 116 of 184 GIVE countries have complete numeric nutrition
+inputs and only 4 of 16 regions are complete; the published input builder
+zero-fills missing outer-join fields. The broader 2020 country-SCC output
+covers 154 countries but does not reconcile to the Figure 4 source values,
+and the repository lacks the baseline/pulse result GDX files and RICE50x model
+needed to reproduce annual paths. This is an aggregate-only source audit, not
+a damage calculation or SCC transfer.
+
 For the staged FishMIP `tc` benchmark, the catalogue record and exact all-file
 plan are kept separately: `fishmip_isimip3b_tc_catalog.toml` records
 the reviewed source and gates, while

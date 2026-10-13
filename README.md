@@ -498,6 +498,19 @@ blocked on direct-surplus versus multiplier effects and overlap with other
 market damages. See
 [`FISHERIES_GIVE_OVERLAP_AUDIT_20260925.md`](FISHERIES_GIVE_OVERLAP_AUDIT_20260925.md).
 
+The dominant published nutrition route has now been tested directly against
+the frozen GIVE country universe. Only 116 of 184 GIVE countries have complete
+numeric nutrition inputs and only 4 of 16 FUND regions are complete. The
+published builder zero-fills missing outer-join fields, which the local
+contract does not permit. Its broader released 2020 country-SCC output covers
+154 GIVE countries but does not sum to the separately published Figure 4
+values, and the repository omits the RICE50x model and baseline/pulse result
+GDX files needed to reproduce annual damages. The shortest defensible path is
+therefore a licensed, versioned RICE50x release plus resolved missingness,
+output reconciliation, and mortality-overlap accounting—not local coefficient
+estimation. See
+[`BLUE_SCC_NUTRITION_GIVE_TRANSFER_AUDIT_20261013.md`](BLUE_SCC_NUTRITION_GIVE_TRANSFER_AUDIT_20261013.md).
+
 ## Alternative global welfare-model feasibility
 
 A primary-source screen of five plausible climate-fisheries systems found no
