@@ -1,0 +1,82 @@
+{
+  "claim_status": "transfer_interface_ready; global means only; no target GIVE installation or combined SCC",
+  "contract": {
+    "path": "config/moore_sector_transfer_v1.json",
+    "sha256": "4528125cf9444f57a951b676c24cb77f6806191bd420cfba6dcd6f987106b4f1"
+  },
+  "created_at_utc": "2026-10-13T13:11:09.015328+00:00",
+  "excluded_source_outputs": [
+    "cromar_mortality",
+    "energy",
+    "slr",
+    "total"
+  ],
+  "invariants": {
+    "currency": "2020 USD per metric ton CO2",
+    "discount_rate_label": "2.0%",
+    "draws": 10000,
+    "julia_threads": 1,
+    "julia_version": "1.12.5",
+    "pulse_year": 2025,
+    "seed": 24523438,
+    "socioeconomics": "RFF-SP"
+  },
+  "overlap_and_claim_gates": {
+    "agriculture_replacement_delta_computed": false,
+    "combined_scc_authorized": false,
+    "joint_cross_function_uncertainty_reconstructed": false,
+    "labor_global_mean_benchmark_reproduced": true,
+    "labor_installed_in_target_give": false,
+    "precipitation_overlap_allocated": false,
+    "source_partial_sector_isolation_verified": true,
+    "updated_agriculture_global_mean_reproduced": true
+  },
+  "schema": "moore_sector_transfer_interface/v1",
+  "sectors": {
+    "agriculture": {
+      "claim_status": "replicated_updated_total_agriculture_partial_scc_candidate_replacement_not_increment",
+      "disposition": "replacement_only",
+      "equal_weight_structural_mean_2020usd_per_tco2": 29.07447648596323,
+      "promotion_blockers": [
+        "a like-for-like legacy GIVE agriculture run is required to calculate the replacement delta",
+        "the precipitation-agriculture module cannot be added wholesale to this total-agriculture estimate",
+        "country paths or model installation are required before replacing the active target component"
+      ],
+      "single_function_means_2020usd_per_tco2": {
+        "ISO": 29.10096418611888,
+        "LANCET": 29.047988785807586
+      },
+      "structural_range_2020usd_per_tco2": [
+        29.047988785807586,
+        29.10096418611888
+      ]
+    },
+    "labor": {
+      "claim_status": "replicated_global_partial_scc_benchmark_not_installed_in_target_give",
+      "disposition": "candidate_addition",
+      "equal_weight_structural_mean_2020usd_per_tco2": 40.56425698048089,
+      "promotion_blockers": [
+        "target GIVE must demonstrate that no labor-productivity damage sector is already active",
+        "joint Monte Carlo uncertainty cannot be transferred from summary means; retained compatible draws or a source-verified pooling rule are required for an uncertainty distribution",
+        "cross-sector adaptation interactions with energy and heat mortality are not quantified by this transfer"
+      ],
+      "single_function_means_2020usd_per_tco2": {
+        "ISO": 51.86467799826219,
+        "LANCET": 29.2638359626996
+      },
+      "structural_range_2020usd_per_tco2": [
+        29.2638359626996,
+        51.86467799826219
+      ]
+    }
+  },
+  "source": {
+    "archive_doi": "10.5281/zenodo.21483095",
+    "article_doi": "10.1038/s41558-026-02749-z",
+    "license": "MIT",
+    "receipt_hashes": {
+      "ISO": "6641a397ff9f18231a720c8f5a2a0f39ca6aa49198db94053acdb2b1a4539fe9",
+      "LANCET": "cd6b8f958a702805a8db12f941579f313045e573efd3924568390dc94c4542fd"
+    }
+  }
+}

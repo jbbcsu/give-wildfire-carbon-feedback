@@ -1,0 +1,79 @@
+{
+  "schema": "moore_sector_transfer_contract/v1",
+  "article_doi": "10.1038/s41558-026-02749-z",
+  "source_archive_doi": "10.5281/zenodo.21483095",
+  "license": "MIT",
+  "common_invariants": {
+    "currency": "2020 USD per metric ton CO2",
+    "discount_rate_label": "2.0%",
+    "draws": 10000,
+    "julia_threads": 1,
+    "julia_version": "1.12.5",
+    "pulse_year": 2025,
+    "seed": 24523438,
+    "socioeconomics": "RFF-SP"
+  },
+  "receipts": {
+    "ISO": {
+      "path": "data/provenance/labor_ag_sectoral_scc_n10000_iso_20261011.json",
+      "sha256": "6641a397ff9f18231a720c8f5a2a0f39ca6aa49198db94053acdb2b1a4539fe9"
+    },
+    "LANCET": {
+      "path": "data/provenance/labor_ag_sectoral_scc_n10000_lancet_20261010.json",
+      "sha256": "cd6b8f958a702805a8db12f941579f313045e573efd3924568390dc94c4542fd"
+    }
+  },
+  "implementation_evidence": {
+    "damage_aggregator": {
+      "path": "vendor/moore_2026/lrennels-paper-2026-give-labor-ag-5d034e7/src/components/DamageAggregator.jl",
+      "sha256": "46bcd8cc8aa12540e62bcc5e2e7737de5f8de6893960caf91c4906f467a04ff7"
+    },
+    "labor_component": {
+      "path": "vendor/moore_2026/lrennels-paper-2026-give-labor-ag-5d034e7/src/components/labor.jl",
+      "sha256": "cce057f6525f3cfc14c9c9ec39ee5633161c97ff3590980fa5bd904d9b69eae5"
+    },
+    "license_file": {
+      "path": "vendor/moore_2026/lrennels-paper-2026-give-labor-ag-5d034e7/LICENSE",
+      "sha256": "31db052cd62522064e18191026a6315e4623b2f6a68eb6a071e3a0a988d8a387"
+    }
+  },
+  "transfer_sectors": [
+    "labor",
+    "agriculture"
+  ],
+  "forbidden_import_sectors": [
+    "total",
+    "cromar_mortality",
+    "energy",
+    "slr"
+  ],
+  "sector_rules": {
+    "labor": {
+      "disposition": "candidate_addition",
+      "structural_combination": "equal_weight_mean_of_iso_and_lancet_expected_scc",
+      "claim_status": "replicated_global_partial_scc_benchmark_not_installed_in_target_give",
+      "promotion_blockers": [
+        "target GIVE must demonstrate that no labor-productivity damage sector is already active",
+        "joint Monte Carlo uncertainty cannot be transferred from summary means; retained compatible draws or a source-verified pooling rule are required for an uncertainty distribution",
+        "cross-sector adaptation interactions with energy and heat mortality are not quantified by this transfer"
+      ]
+    },
+    "agriculture": {
+      "disposition": "replacement_only",
+      "structural_combination": "equal_weight_mean_of_iso_and_lancet_expected_scc",
+      "claim_status": "replicated_updated_total_agriculture_partial_scc_candidate_replacement_not_increment",
+      "promotion_blockers": [
+        "a like-for-like legacy GIVE agriculture run is required to calculate the replacement delta",
+        "the precipitation-agriculture module cannot be added wholesale to this total-agriculture estimate",
+        "country paths or model installation are required before replacing the active target component"
+      ]
+    }
+  },
+  "hard_gates": {
+    "allow_total_scc_import": false,
+    "allow_forbidden_sector_import": false,
+    "allow_agriculture_addition": false,
+    "allow_cross_function_quantile_averaging": false,
+    "allow_combined_scc_claim": false
+  }
+}
