@@ -16,6 +16,7 @@ import numpy as np
 import pandas as pd
 import s3fs
 import xarray as xr
+import zarr
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -115,6 +116,57 @@ def build_basis_frame(
     return pd.DataFrame(rows, index=cell_positions)
 
 
+def build_precip_basis_frame(
+    rain: np.ndarray,
+    cell_positions: np.ndarray,
+    wet_day_threshold_mm: float,
+) -> pd.DataFrame:
+    """Construct only the precipitation features used by the sentinel."""
+    cell_positions = np.asarray(cell_positions, dtype=int)
+    require(rain.ndim == 2 and rain.shape[1] == len(cell_positions), "precipitation cell positions differ")
+    rows = []
+    for cell in range(len(cell_positions)):
+        values = np.asarray(rain[:, cell], dtype=float)
+        wet = values >= wet_day_threshold_mm
+        total = float(values.sum())
+        bounds = [int(np.floor(value * len(values))) for value in FEATURE_MODULE.STAGE_FRACTIONS]
+        stage = [float(values[left:right].sum()) for left, right in zip(bounds, bounds[1:])]
+        require(np.isclose(sum(stage), total, rtol=0, atol=1e-8), "cell stage precipitation does not reconcile")
+        shares = np.asarray(stage, dtype=float) / total if total > 0 else np.zeros(3, dtype=float)
+        midpoints = np.asarray([(left + right) / 2 for left, right in zip(FEATURE_MODULE.STAGE_FRACTIONS, FEATURE_MODULE.STAGE_FRACTIONS[1:])])
+        rows.append({
+            "precip_mm": total,
+            "wet_days_n": float(wet.sum()),
+            "cdd_max_days": float(FEATURE_MODULE.max_run(~wet)),
+            "rx1day_mm": float(values.max()),
+            "rx5day_mm": FEATURE_MODULE.rolling_max(values, 5),
+            "stage1_precip_mm": stage[0], "stage2_precip_mm": stage[1], "stage3_precip_mm": stage[2],
+            "stage1_precip_share": float(shares[0]), "stage2_precip_share": float(shares[1]), "stage3_precip_share": float(shares[2]),
+            "precipitation_concentration_hhi": float(np.square(shares).sum()),
+            "precipitation_timing_centroid": float(shares @ midpoints),
+        })
+    return pd.DataFrame(rows, index=cell_positions)
+
+
+def build_variable_serial_basis_frame(
+    rain: np.ndarray,
+    tmin_mean: np.ndarray,
+    tmax_mean: np.ndarray,
+    cell_positions: np.ndarray,
+    wet_day_threshold_mm: float,
+) -> pd.DataFrame:
+    """Join precipitation basis to separately decoded temperature means."""
+    result = build_precip_basis_frame(rain, cell_positions, wet_day_threshold_mm)
+    tmin = np.asarray(tmin_mean, dtype=float)
+    tmax = np.asarray(tmax_mean, dtype=float)
+    require(tmin.shape == tmax.shape == (len(cell_positions),), "temperature means differ")
+    result["tmin_mean_c"] = tmin
+    result["tmax_mean_c"] = tmax
+    result["tmean_c"] = (tmin + tmax) / 2
+    require(set(result.columns) == set(FEATURES), "variable-serial feature set differs")
+    return result
+
+
 def aggregate_basis_frames(frames: list[pd.DataFrame], weight_values: np.ndarray) -> dict[str, float]:
     """Reassemble partitions, then use the original full-vector dot order."""
     require(bool(frames), "no cell-basis partitions")
@@ -163,6 +215,38 @@ def spatial_cell_partitions(weights: pd.DataFrame, chunk_shape: tuple[int, ...])
     partitions = [np.asarray(groups[key], dtype=int) for key in sorted(groups)]
     require(sorted(np.concatenate(partitions).tolist()) == list(range(len(weights))), "spatial partitions differ from weights")
     return partitions
+
+
+def read_zarr_selected_cells(
+    array: object,
+    ensemble_index: int,
+    time_indices: np.ndarray,
+    lat_indices: np.ndarray,
+    lon_indices: np.ndarray,
+    chunk_shape: tuple[int, ...],
+) -> np.ndarray:
+    """Decode native chunks directly, then select county cells locally."""
+    times = np.asarray(time_indices, dtype=int)
+    lat = np.asarray(lat_indices, dtype=int)
+    lon = np.asarray(lon_indices, dtype=int)
+    require(times.ndim == lat.ndim == lon.ndim == 1 and len(times) > 0 and len(lat) == len(lon), "invalid direct-zarr selection")
+    spatial = {(int(y // chunk_shape[2]), int(x // chunk_shape[3])) for y, x in zip(lat, lon, strict=True)}
+    require(len(spatial) == 1, "direct-zarr reader requires one native spatial chunk")
+    lat_chunk, lon_chunk = next(iter(spatial))
+    y0, y1 = lat_chunk * chunk_shape[2], (lat_chunk + 1) * chunk_shape[2]
+    x0, x1 = lon_chunk * chunk_shape[3], (lon_chunk + 1) * chunk_shape[3]
+    output = np.empty((len(times), len(lat)), dtype=float)
+    for time_chunk in sorted({int(value // chunk_shape[1]) for value in times}):
+        positions = np.flatnonzero(times // chunk_shape[1] == time_chunk)
+        selected = times[positions]
+        first, last = int(selected.min()), int(selected.max())
+        block = np.asarray(array[ensemble_index, first:last + 1, y0:y1, x0:x1])
+        require(block.ndim == 3 and np.isfinite(block).all(), "invalid direct-zarr block")
+        local_time = selected - first
+        output[positions] = block[local_time][:, lat - y0, lon - x0]
+        del block
+        release_process_memory()
+    return output
 
 
 def read_observed(root: Path, config: dict) -> pd.DataFrame:
@@ -241,7 +325,11 @@ def main() -> None:
 
     fs = s3fs.S3FileSystem(anon=True, client_kwargs={"endpoint_url": config["source"]["endpoint_url"]})
     store = config["source"]["store"]
-    ds = xr.open_zarr(fs.get_mapper(store), consolidated=True, chunks=None)
+    # Disable xarray's in-memory array cache: each selected source chunk is
+    # consumed once, and retaining it can breach the bounded worker ceiling.
+    ds = xr.open_dataset(
+        fs.get_mapper(store), engine="zarr", consolidated=True, chunks=None, cache=False
+    )
     require(ds.pr.attrs.get("LOCA2_version") == config["source"]["precipitation_version"], "LOCA2 precipitation version differs")
     mask = (
         (ds.source_id.values == config["source"]["source_id"])
@@ -264,7 +352,7 @@ def main() -> None:
     time_chunks = sorted({int(index // chunk_shape[1]) for index in all_time_indices})
     spatial_chunks = sorted({(int(y // chunk_shape[2]), int(x // chunk_shape[3])) for y, x in zip(lat_indices, lon_indices, strict=True)})
     accumulator = config["resources"].get("spatial_accumulator", "all_cells_v1")
-    require(accumulator in {"all_cells_v1", "one_source_spatial_chunk_at_a_time_v1"}, "unknown spatial accumulator")
+    require(accumulator in {"all_cells_v1", "one_source_spatial_chunk_at_a_time_v1", "one_source_spatial_chunk_variable_serial_v2"}, "unknown spatial accumulator")
     cell_partitions = spatial_cell_partitions(weights, tuple(int(value) for value in chunk_shape))
     if accumulator == "all_cells_v1":
         cell_partitions = [np.arange(len(weights), dtype=int)]
@@ -278,9 +366,21 @@ def main() -> None:
     remote_bytes = sum(item["compressed_bytes"] for item in chunk_records)
     require(remote_bytes <= int(config["resources"]["maximum_remote_chunk_mib"]) * 1024**2, "remote chunk plan exceeds cap")
 
+    direct_group = None
+    time_values = np.asarray(ds.time.values)
+    if accumulator == "one_source_spatial_chunk_variable_serial_v2":
+        ds.close()
+        del ds
+        release_process_memory()
+        direct_group = zarr.open_consolidated(fs.get_mapper(store), mode="r")
+
     modeled_rows = []
     for row in observed.itertuples(index=False):
         dates = slice(str(row.season_start.date()), str(row.season_end.date()))
+        season_time_indices = np.flatnonzero(
+            (time_values >= np.datetime64(row.season_start))
+            & (time_values <= np.datetime64(row.season_end))
+        )
         basis_frames = []
         for positions in cell_partitions:
             partition_lat = xr.DataArray(lat_indices[positions], dims="cell")
@@ -289,20 +389,47 @@ def main() -> None:
             # Exactly one source spatial chunk is decoded at a time under the
             # low-memory strategy. Only the small selected cell arrays survive
             # long enough to construct that partition's nonlinear basis.
-            rain = ds.pr.isel(**indexers).sel(time=dates).values.astype(float)
-            tmin = ds.tasmin.isel(**indexers).sel(time=dates).values.astype(float)
-            tmax = ds.tasmax.isel(**indexers).sel(time=dates).values.astype(float)
+            if accumulator == "one_source_spatial_chunk_variable_serial_v2":
+                rain = read_zarr_selected_cells(
+                    direct_group["pr"], ensemble_index, season_time_indices,
+                    lat_indices[positions], lon_indices[positions], tuple(int(value) for value in chunk_shape),
+                )
+            else:
+                rain = ds.pr.isel(**indexers).sel(time=dates).values.astype(float)
             require(rain.shape == (170, len(positions)), "unexpected LOCA2 season shape")
-            require(np.isfinite(rain).all() and np.isfinite(tmin).all() and np.isfinite(tmax).all(), "nonfinite LOCA2 values")
-            require((rain >= 0).all() and (tmax >= tmin).all(), "LOCA2 physical checks failed")
-            basis_frames.append(build_basis_frame(
-                rain,
-                tmin,
-                tmax,
-                positions,
-                float(config["sample"]["wet_day_threshold_mm"]),
-            ))
-            del rain, tmin, tmax
+            require(np.isfinite(rain).all() and (rain >= 0).all(), "invalid LOCA2 precipitation")
+            if accumulator == "one_source_spatial_chunk_variable_serial_v2":
+                precip_frame = build_precip_basis_frame(rain, positions, float(config["sample"]["wet_day_threshold_mm"]))
+                del rain
+                release_process_memory()
+                tmin = read_zarr_selected_cells(
+                    direct_group["tasmin"], ensemble_index, season_time_indices,
+                    lat_indices[positions], lon_indices[positions], tuple(int(value) for value in chunk_shape),
+                )
+                require(tmin.shape == (170, len(positions)) and np.isfinite(tmin).all(), "invalid LOCA2 minimum temperature")
+                tmax = read_zarr_selected_cells(
+                    direct_group["tasmax"], ensemble_index, season_time_indices,
+                    lat_indices[positions], lon_indices[positions], tuple(int(value) for value in chunk_shape),
+                )
+                require(tmax.shape == (170, len(positions)) and np.isfinite(tmax).all(), "invalid LOCA2 maximum temperature")
+                require(np.all(tmax >= tmin), "LOCA2 daily temperature ordering failed")
+                tmin_mean = tmin.mean(axis=0)
+                tmax_mean = tmax.mean(axis=0)
+                del tmin, tmax
+                release_process_memory()
+                temperature_frame = pd.DataFrame({"tmin_mean_c": tmin_mean, "tmax_mean_c": tmax_mean, "tmean_c": (tmin_mean + tmax_mean) / 2}, index=positions)
+                basis_frame = precip_frame.join(temperature_frame, validate="one_to_one")
+                require(set(basis_frame.columns) == set(FEATURES), "variable-serial feature set differs")
+                basis_frames.append(basis_frame)
+                del precip_frame, temperature_frame, basis_frame, tmin_mean, tmax_mean
+            else:
+                tmin = ds.tasmin.isel(**indexers).sel(time=dates).values.astype(float)
+                tmax = ds.tasmax.isel(**indexers).sel(time=dates).values.astype(float)
+                require(np.isfinite(tmin).all() and np.isfinite(tmax).all() and (tmax >= tmin).all(), "invalid LOCA2 temperature")
+                basis_frames.append(build_basis_frame(
+                    rain, tmin, tmax, positions, float(config["sample"]["wet_day_threshold_mm"]),
+                ))
+                del rain, tmin, tmax
             release_process_memory()
         aggregated = aggregate_basis_frames(basis_frames, weight_values)
         modeled_rows.append({"harvest_year": int(row.harvest_year), **aggregated})
@@ -321,7 +448,7 @@ def main() -> None:
             "experiment_id": config["source"]["experiment_id"],
             "variant_label": config["source"]["variant_label"],
             "ensemble_index": ensemble_index,
-            "precipitation_version": ds.pr.attrs["LOCA2_version"],
+            "precipitation_version": config["source"]["precipitation_version"],
             "remote_chunks": chunk_records,
             "remote_chunk_mib_upper_bound": remote_bytes / 1024**2,
             "spatial_accumulator": accumulator,

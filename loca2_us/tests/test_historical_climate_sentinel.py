@@ -70,6 +70,34 @@ class HistoricalSentinelTests(unittest.TestCase):
                 values, values, values + 1, np.full(3, 1 / 3), [np.array([0, 2])], 1.0
             )
 
+    def test_variable_serial_basis_matches_full_basis(self):
+        rng = np.random.default_rng(20261013)
+        days, cells = 170, 7
+        rain = rng.gamma(1.3, 2.5, size=(days, cells))
+        rain[rng.random((days, cells)) < 0.7] = 0.0
+        tmin = rng.normal(11.0, 5.0, size=(days, cells))
+        tmax = tmin + rng.uniform(3.0, 17.0, size=(days, cells))
+        positions = np.arange(cells)
+        full = MODULE.build_basis_frame(rain, tmin, tmax, positions, 1.0)[MODULE.FEATURES]
+        serial = MODULE.build_variable_serial_basis_frame(
+            rain, tmin.mean(axis=0), tmax.mean(axis=0), positions, 1.0
+        )[MODULE.FEATURES]
+        self.assertTrue(np.allclose(full.to_numpy(), serial.to_numpy(), rtol=0, atol=1e-12))
+
+    def test_direct_zarr_reader_reconstructs_selected_cells(self):
+        class Array:
+            def __init__(self, values):
+                self.values = values
+            def __getitem__(self, key):
+                return self.values[key]
+        values = np.arange(1 * 8 * 4 * 6, dtype=float).reshape(1, 8, 4, 6)
+        times = np.array([1, 2, 5, 6])
+        lat = np.array([0, 1, 1])
+        lon = np.array([3, 4, 5])
+        result = MODULE.read_zarr_selected_cells(Array(values), 0, times, lat, lon, (1, 4, 2, 3))
+        expected = values[0, times][:, lat, lon]
+        self.assertTrue(np.array_equal(result, expected))
+
 
 if __name__ == "__main__":
     unittest.main()

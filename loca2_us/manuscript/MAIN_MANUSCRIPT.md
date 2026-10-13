@@ -137,3 +137,10 @@ These are climate-product distribution diagnostics, not paired-year forecast
 errors or agricultural effects. They open the prespecified second-county
 sentinel only; broader multi-county, outcome-response, causal-damage, and SCC
 gates remain closed.
+
+A later data-access-only replication decodes native Zarr chunks directly and
+selects county cells locally. It reproduces every common 2001--2012 Box Butte
+feature and distribution statistic within `3.55e-15`, while reducing the two
+six-year worker peaks from 506.84/506.33 MiB to 352.38/368.72 MiB. Scientific
+results and claim gates are unchanged; the additional headroom makes
+multi-county and multi-model validation operationally safer.

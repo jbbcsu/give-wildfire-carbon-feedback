@@ -80,6 +80,17 @@ support and arithmetic checks with zero saved-precision disagreement. These
 checks open only the single-county historical climate sentinel; multi-model,
 multi-county, outcome-response, causal-damage, and SCC gates remain closed.
 
+The direct-native-chunk `v2` reader is an exactly checked memory optimization.
+For each frozen time/spatial chunk it reads the Zarr array directly, performs
+county-cell selection locally, constructs precipitation features, releases
+precipitation, and then decodes the temperature pair. The two original
+six-year partitions and their combination are unchanged. A separate validator
+compares all common county-year features and every saved mean, standard
+deviation, bias, quantile, and quantile RMSE with the established prepared
+route; maximum absolute difference is `3.55e-15`. Worker peaks fall to 352.38
+and 368.72 MiB. See
+`../LOCA2_VARIABLE_SERIAL_PARTITION_RESULTS_20261013.md`.
+
 The second-GCM sentinel uses IPSL-CM6A-LR `r1i1p1f1`. The model was selected
 from the preregistered global-bridge list, and `r1` was selected as the lowest
 numeric historical realization in a metadata-only catalog check before any
