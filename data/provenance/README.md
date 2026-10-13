@@ -39,6 +39,15 @@ and the repository lacks the baseline/pulse result GDX files and RICE50x model
 needed to reproduce annual paths. This is an aggregate-only source audit, not
 a damage calculation or SCC transfer.
 
+`blue_scc_market_component_transfer_audit_20261013.json` tests the smaller
+published fisheries market component as a possible nutrition-free transfer.
+The Figure 4 workbook value is directly reproducible, but the released country
+rows sum 7.67% lower and use country-specific aggregation and discounting, so
+they are not an additive decomposition. The coefficient and country-output
+supports intersect on only 120 keys, each completes only 6 of 16 GIVE regions,
+and the repository omits the annual baseline/pulse results and RICE50x model.
+All transfer and SCC gates remain closed.
+
 For the staged FishMIP `tc` benchmark, the catalogue record and exact all-file
 plan are kept separately: `fishmip_isimip3b_tc_catalog.toml` records
 the reviewed source and gates, while

@@ -511,6 +511,17 @@ output reconciliation, and mortality-overlap accounting—not local coefficient
 estimation. See
 [`BLUE_SCC_NUTRITION_GIVE_TRANSFER_AUDIT_20261013.md`](BLUE_SCC_NUTRITION_GIVE_TRANSFER_AUDIT_20261013.md).
 
+The smaller market-only component has also been audited separately. Its
+$0.0570404/tCO2 Figure 4 value is reproducible from the published workbook,
+but the 155 released country rows sum to $0.0526646/tCO2 and are calculated
+with country-specific aggregation and discounting rather than as additive
+global shares. The upstream coefficients and country outputs overlap on only
+120 keys, and each covers just 6 of 16 GIVE regions completely. Market-only
+screening avoids the nutrition/mortality pathway, but it does not supply
+consumer plus producer surplus or resolve multiplier overlap with other GIVE
+market damages. See
+[`BLUE_SCC_MARKET_COMPONENT_TRANSFER_AUDIT_20261013.md`](BLUE_SCC_MARKET_COMPONENT_TRANSFER_AUDIT_20261013.md).
+
 ## Alternative global welfare-model feasibility
 
 A primary-source screen of five plausible climate-fisheries systems found no

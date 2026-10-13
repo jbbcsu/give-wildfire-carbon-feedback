@@ -1,0 +1,124 @@
+{
+  "annual_path": {
+    "annual_regional_market_damages_reproducible": false,
+    "baseline_and_pulse_result_gdx_released": false,
+    "published_code_uses_one_million_ton_pulse": true,
+    "released_gdx_paths": [
+      "Data/output_modules_input_rice50x/input_rice50x/ssp_navigate-ssp_base.gdx"
+    ],
+    "rice50x_model_present_in_repository": false
+  },
+  "claim_gates": {
+    "annual_regional_damage_path_reproduced": false,
+    "consumer_plus_producer_surplus_available": false,
+    "country_scc_is_additive_global_decomposition": false,
+    "give_market_overlap_resolved": false,
+    "give_scc_transfer_authorized": false,
+    "global_market_scc_reproduced_from_country_file": false,
+    "source_reuse_authorized": false
+  },
+  "config": {
+    "path": "config/blue_scc_market_component_transfer_v1.toml",
+    "sha256": "8dd9babe704c5fc1a5e7a47ce2bac33419bc41b5045f7701f390b0828ecd4446"
+  },
+  "formula_findings": {
+    "consumer_plus_producer_surplus_measure": false,
+    "country_export_uses_country_level_discounting_and_selects_2020": true,
+    "country_file_is_not_an_additive_decomposition_of_global_market_scc": true,
+    "global_and_country_files_use_different_aggregation_levels": true,
+    "market_coefficient_includes_regional_output_multiplier": true
+  },
+  "global_figure4_market_component": {
+    "country_file_sum_difference_usd_per_tco2": -0.004375781049335947,
+    "country_file_sum_relative_difference": -0.07671369470131395,
+    "reproduced_by_summing_country_file": false,
+    "reproduced_directly_from_figure_source_workbook": true,
+    "usd_per_tco2": 0.05704041587845721,
+    "year": 2020
+  },
+  "interpretation": {
+    "external_source_files_copied": false,
+    "figure4_value_is_published_benchmark_only": true,
+    "market_multiplier_and_other_market_damage_overlap_remains_unresolved": true,
+    "market_only_path_avoids_nutrition_mortality_overlap": true,
+    "missing_countries_may_not_be_filled_or_zeroed": true,
+    "partial_complete_regions_do_not_authorize_transfer": true
+  },
+  "market_temperature_coefficients": {
+    "country_values_or_membership_embedded": false,
+    "coverage": {
+      "complete_region_ids": [
+        "ANZ",
+        "CAN",
+        "JPK",
+        "MAF",
+        "SIS",
+        "USA"
+      ],
+      "complete_regions": 6,
+      "give_countries": 184,
+      "give_country_count_coverage_fraction": 0.7717391304347826,
+      "give_only_countries": 42,
+      "incomplete_regions": 10,
+      "overlap_countries": 142,
+      "source_countries": 143,
+      "source_only_countries": 1
+    },
+    "welfare_semantics": "Free_et_al_profit_GDP_temperature_slope_after_regional_output_multiplier"
+  },
+  "published_2020_country_market_scc": {
+    "country_values_or_membership_embedded": false,
+    "coverage": {
+      "complete_region_ids": [
+        "ANZ",
+        "CAN",
+        "EEU",
+        "JPK",
+        "USA",
+        "WEU"
+      ],
+      "complete_regions": 6,
+      "give_countries": 184,
+      "give_country_count_coverage_fraction": 0.8369565217391305,
+      "give_only_countries": 30,
+      "incomplete_regions": 10,
+      "overlap_countries": 154,
+      "source_countries": 155,
+      "source_only_countries": 1
+    },
+    "sum_usd_per_tco2": 0.05266463482912126
+  },
+  "required_source_artifacts": [
+    "explicit_code_and_data_reuse_license",
+    "same_run_additive_country_decomposition_summing_to_figure4_market_component",
+    "annual_country_baseline_and_pulse_fisheries_market_damage_flows",
+    "rice50x_model_commit_dependency_lock_and_baseline_pulse_result_gdx",
+    "exact_143_to_155_country_mapping_and_missingness_semantics",
+    "exact_country_multiplier_assignment_and_upstream_profit_panel",
+    "multiplier_free_direct_surplus_outputs_or_valid_consumer_plus_producer_surplus",
+    "give_market_overlap_accounting_boundary"
+  ],
+  "role": "published_market_component_reproduction_and_transfer_audit_only",
+  "schema": "blue_scc_market_component_transfer_audit_v1",
+  "source": {
+    "repository_commit": "dbc0d8cb21c81f1508abfaf9e5c0f5671ccdd83f",
+    "repository_license_status": "no_explicit_root_license_file_found_at_audited_commit",
+    "repository_url": "https://github.com/berbastien/blue-scc",
+    "verified_file_sha256": {
+      "country_export": "a3939c5517a658a8b5693c345bfaa5338328dac214af2fd6742fc09aa3ed692b",
+      "country_scc": "bbe8f4ac053174fae41874ede12548cc4f9dc37b81e4e8f026b8854a510a96d9",
+      "figure4": "23dd228434dac4cd3377a27a54ecedde33f6a84ef911dfa342c79f044783feb6",
+      "input_builder": "b0ca675eba3cb2a3018ebef3f508dfcfd92c5abac3b43fda553b67f39ed2d6a2",
+      "market_coefficients": "50a981d08a2939dc6e83cd537578ceea2eb9f6a4c1647b138b5d95f466814037",
+      "market_damage": "0b6ad3656ebfb2519c2b7af229db8046c1724f8cf85ee67ab6f6c606f19f2da3",
+      "market_projection": "6db24bc30dc6847be8454db34089f3d38a367277676a18a7ba06d7a05a85ee61",
+      "scc_utility": "82995129d0a95113903bf16d4f40a3bc062579856c256107b9b010f52f3929f1"
+    }
+  },
+  "status": "blocked_country_file_is_not_additive_global_decomposition_and_transfer_inputs_are_incomplete",
+  "support_relationship": {
+    "coefficient_only_countries": 23,
+    "country_scc_only_countries": 35,
+    "intersection_countries": 120
+  }
+}

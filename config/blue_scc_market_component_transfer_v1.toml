@@ -1,0 +1,67 @@
+schema = "blue_scc_market_component_transfer_config_v1"
+role = "published_market_component_reproduction_and_transfer_audit_only"
+registered_utc_date = "2026-10-13"
+
+[source]
+repository_url = "https://github.com/berbastien/blue-scc"
+repository_commit = "dbc0d8cb21c81f1508abfaf9e5c0f5671ccdd83f"
+repository_license_status = "no_explicit_root_license_file_found_at_audited_commit"
+market_coefficients_path = "Data/output_modules_input_rice50x/input_rice50x/fish_tcoeff.csv"
+market_coefficients_sha256 = "50a981d08a2939dc6e83cd537578ceea2eb9f6a4c1647b138b5d95f466814037"
+country_scc_path = "Data/SCC/out/country_level_scc.csv"
+country_scc_sha256 = "bbe8f4ac053174fae41874ede12548cc4f9dc37b81e4e8f026b8854a510a96d9"
+figure4_path = "Code/MainText_Figures_Code/figure_source_data/Fig4_source_data.xlsx"
+figure4_sha256 = "23dd228434dac4cd3377a27a54ecedde33f6a84ef911dfa342c79f044783feb6"
+market_projection_path = "Code/Fisheries_and_Mariculture/001_Read_FisheriesProjections_Free.r"
+market_projection_sha256 = "6db24bc30dc6847be8454db34089f3d38a367277676a18a7ba06d7a05a85ee61"
+market_damage_path = "Code/Fisheries_and_Mariculture/002_Damage_Function_Free.r"
+market_damage_sha256 = "0b6ad3656ebfb2519c2b7af229db8046c1724f8cf85ee67ab6f6c606f19f2da3"
+input_builder_path = "Code/SCC/make_input_data.py"
+input_builder_sha256 = "b0ca675eba3cb2a3018ebef3f508dfcfd92c5abac3b43fda553b67f39ed2d6a2"
+country_export_path = "Code/SCC/mc_analysis.py"
+country_export_sha256 = "a3939c5517a658a8b5693c345bfaa5338328dac214af2fd6742fc09aa3ed692b"
+scc_utility_path = "Code/SCC/utils.py"
+scc_utility_sha256 = "82995129d0a95113903bf16d4f40a3bc062579856c256107b9b010f52f3929f1"
+
+[give]
+crosswalk_config = "config/give_country_fund_region_crosswalk_v1.toml"
+expected_country_rows = 184
+expected_region_count = 16
+
+[expected.market_coefficients]
+source_countries = 143
+overlap_countries = 142
+source_only_countries = 1
+give_only_countries = 42
+complete_regions = 6
+
+[expected.country_scc]
+source_countries = 155
+overlap_countries = 154
+source_only_countries = 1
+give_only_countries = 30
+complete_regions = 6
+sum_usd_per_tco2 = 0.05266463482912126
+
+[expected.support_relationship]
+intersection_countries = 120
+coefficient_only_countries = 23
+country_scc_only_countries = 35
+
+[expected.figure4]
+sheet = "Upper panel"
+year = 2020
+market_usd_per_tco2 = 0.05704041587845721
+comparison_tolerance = 0.000000000001
+
+[expected.repository_tree]
+gdx_paths = ["Data/output_modules_input_rice50x/input_rice50x/ssp_navigate-ssp_base.gdx"]
+
+[claim_gates]
+global_market_scc_reproduced_from_country_file = false
+country_scc_is_additive_global_decomposition = false
+annual_regional_damage_path_reproduced = false
+consumer_plus_producer_surplus_available = false
+source_reuse_authorized = false
+give_market_overlap_resolved = false
+give_scc_transfer_authorized = false
