@@ -1615,6 +1615,20 @@ PDSI/SPEI remain competing moisture representations, not stacked channels.
 The formal design and reproducible state diagnostics are in
 `us_county_validation/US_TWO_STAGE_PRECIPITATION_YIELD_DESIGN_MEMO_20261013.md`.
 
+The first outcome-blind U.S. future-drought stage now narrows the climate-side
+uncertainty. On 1,897 uniquely U.S.-assigned half-degree rainfed-maize cells
+covering 24.77 million ha, all five named ESMs produce lower late-century
+crop-season SPEI-3 in both higher-forcing contrasts. For 2092--2099, the
+equal-model mean is -0.441 (range -0.700 to -0.222) under SSP3-7.0 minus
+SSP1-2.6 and -0.866 (range -1.493 to -0.187) under SSP5-8.5 minus SSP1-2.6.
+This is a stronger common-sign drought signal than the direct-rainfall totals,
+but it does not complete the yield bridge: the future exposure is half-degree
+SPEI on a GGCMI calendar, while the validated historical response is county-
+level NOAA PDSI on NASS calendars. Multiplication would change index, weather
+source, calendar, and spatial support simultaneously. A same-source historical
+county SPEI response or a separately validated outcome-blind PDSI-to-SPEI
+crosswalk remains required. See `US_FUTURE_SPEI_EXPOSURE_RESULTS_20261013.md`.
+
 An exploratory extension uses the only additional acquired paired-practice
 crop, all-classes wheat. Independent fixed 2009 state harvested-area shares
 combine winter, spring, and durum seasonal PDSI candidates before estimation.

@@ -1,0 +1,90 @@
+{
+  "schema": "us_future_spei_exposure_public_evidence_v1",
+  "status": "independently_validated_us_scenario_exposure_bridge_closed",
+  "role": "outcome_blind_us_rainfed_maize_spei_scenario_exposure_not_yield_damage_or_scc",
+  "support": {
+    "positive_rainfed_cells": 1897,
+    "rainfed_area_ha": 24772462.7335586,
+    "latitude_range": [26.25, 48.75],
+    "longitude_360_range": [237.75, 286.75],
+    "country_rule": "singleton USA label from the fixed MAPSPAM crop-footprint proxy"
+  },
+  "period": {
+    "source": "2091-2100",
+    "harvest_years": [2092, 2093, 2094, 2095, 2096, 2097, 2098, 2099]
+  },
+  "primary": {
+    "crop": "maize",
+    "irrigation": "rainfed",
+    "window": "crop season",
+    "scale_months": 3,
+    "ssp370_minus_ssp126": {
+      "gfdl-esm4": -0.7000196654859095,
+      "ipsl-cm6a-lr": -0.2275255280875792,
+      "mpi-esm1-2-hr": -0.6318825528218348,
+      "mri-esm2-0": -0.2224311765715705,
+      "ukesm1-0-ll": -0.4244703545467048,
+      "equal_model_mean": -0.4412658555027198,
+      "median": -0.4244703545467048,
+      "minimum": -0.7000196654859095,
+      "maximum": -0.2224311765715705,
+      "population_sd": 0.19856681122305309,
+      "negative_models": 5
+    },
+    "ssp585_minus_ssp126": {
+      "gfdl-esm4": -1.1751702336342036,
+      "ipsl-cm6a-lr": -1.4927176195700216,
+      "mpi-esm1-2-hr": -1.055264856601683,
+      "mri-esm2-0": -0.18719252512805193,
+      "ukesm1-0-ll": -0.42068827781797236,
+      "equal_model_mean": -0.8662067025503865,
+      "median": -1.055264856601683,
+      "minimum": -1.4927176195700216,
+      "maximum": -0.18719252512805193,
+      "population_sd": 0.48646979314535654,
+      "negative_models": 5
+    }
+  },
+  "validation": {
+    "validated_cases": 15,
+    "annual_records_recomputed": 1800,
+    "checks": 9360,
+    "maximum_numeric_absolute_difference": 1.1546319456101628e-14,
+    "builder_peak_sampled_process_group_rss_bytes": 372375552,
+    "validator_peak_sampled_process_group_rss_bytes": 256688128,
+    "memory_cap_mib": 512
+  },
+  "gates": {
+    "stage1_scenario_exposure": true,
+    "bridge_to_nass_response": false,
+    "future_yield_projection": false,
+    "causal_attribution": false,
+    "damage": false,
+    "scc": false
+  },
+  "bridge_blockers": [
+    "historical_same_source_spei_validated_on_nass_counties",
+    "future_grid_aggregated_to_exact_nass_county_support",
+    "future_calendar_matches_nass_county_calendar",
+    "historical_response_uses_same_spei_definition_and_scale",
+    "pdsi_to_spei_crosswalk_validated"
+  ],
+  "artifacts": {
+    "contract": {"path": "config/us_future_spei_exposure_v1.toml", "sha256": "f3269e708b0bce1f5aa10bda9ef84f74f8515de1655234d4c42f19723c4be402"},
+    "protocol": {"path": "US_FUTURE_SPEI_EXPOSURE_PROTOCOL_20261013.md", "sha256": "a7def4818bcd6b360e02ee4e439f12ae6a70dfa43806a1357ca41e076a9a78e5"},
+    "builder": {"path": "scripts/summarize_us_future_spei_exposure.py", "sha256": "afeb5c69c382fd8b810ed52e6bf0c1c74f32404122079a680fc41272537edc52"},
+    "validator": {"path": "scripts/validate_us_future_spei_exposure.py", "sha256": "096aa3745d715c2bf3ba5f9e0c60c79fb2626eb453c196765b81948952333e9f"},
+    "public_evidence_validator": {"path": "scripts/validate_us_future_spei_public_evidence.py", "sha256": "87080db834fb0a6c4311b1e1bbc8f8d2c0bf813670602e33b49289a1dbc2c7c5"},
+    "tests": {"path": "scripts/test_summarize_us_future_spei_exposure.py", "sha256": "f15233d1fb420c5979aa80692b645858c25ac5fab1a8049f5d1132b5eaec617c"},
+    "result": {"path": "data/interim/us_future_spei_exposure_v2_20261013/result.json", "bytes": 787766, "sha256": "6d38f7728ff4448364bcc584b51832bb5f76311d1086e5f96634af810043bd60"},
+    "independent_validation": {"path": "data/interim/us_future_spei_exposure_v2_20261013/validation.json", "bytes": 1198, "sha256": "dbf6cf69e3fa06fbb233a7e2a20a6c0a3e282b1bd08b930725f6122b7fc7a3db"},
+    "build_resource": {"path": "data/interim/us_future_spei_exposure_v2_20261013/build.resource.json", "bytes": 268, "sha256": "a6352578a6d62da9f4cf52a08f17a0fa17c726ce48811589458bc1e816a6c5ce"},
+    "validation_resource": {"path": "data/interim/us_future_spei_exposure_v2_20261013/validation.resource.json", "bytes": 268, "sha256": "034269731153cd1aad93806503fb85cb9b951a888d25dd5a971677919c9a117d"}
+  },
+  "interpretation": [
+    "Named-model spread is retained and is not a confidence interval or probability distribution.",
+    "SSP contrasts contain multiple forcings and internal variability and are not anthropogenic attribution.",
+    "The historical NASS coefficient is for county-level PDSI, not this half-degree SPEI exposure.",
+    "Direct rainfall and SPEI are competing moisture families and their effects cannot be added."
+  ]
+}

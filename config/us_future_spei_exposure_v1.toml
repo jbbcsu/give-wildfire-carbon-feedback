@@ -1,0 +1,64 @@
+schema_version = 1
+contract_id = "us_future_spei_exposure_v1"
+reference_date = "2026-10-13"
+status = "frozen_outcome_blind_us_exposure_benchmark"
+
+[estimand]
+country_label = "USA"
+country_count = 1
+crop = "mai"
+irrigation = "noirr"
+harvest_years = [2092, 2093, 2094, 2095, 2096, 2097, 2098, 2099]
+models = ["gfdl-esm4", "ipsl-cm6a-lr", "mpi-esm1-2-hr", "mri-esm2-0", "ukesm1-0-ll"]
+scenarios = ["ssp126", "ssp370", "ssp585"]
+reference_scenario = "ssp126"
+contrasts = ["ssp370_minus_ssp126", "ssp585_minus_ssp126"]
+windows = ["season", "stage1", "stage2", "stage3", "preplant90"]
+scales_months = [1, 3, 6]
+primary_window = "season"
+primary_scale_months = 3
+weight = "fixed_MIRCA_OS_v2_rainfed_maize_area"
+country_rule = "retain_only_half_degree_cells_with_one_MAPSPAM_crop_footprint_country_label_equal_to_USA"
+uncertainty_summary = "retain_all_named_model_contrasts_plus_equal_model_mean_median_range_and_population_sd"
+
+[method]
+index = "SPEI"
+water_balance = "daily_precipitation_minus_Hargreaves_Samani_reference_ET0_aggregated_monthly"
+calibration = "observational_GSWP3_W5E5_1982_2011_cell_calendar_month_GLO_UBPWM_frozen_without_future_refit"
+future_source = "ISIMIP3b_bias_adjusted_daily_pr_tas_tasmin_tasmax"
+future_period = "2091-2100"
+scenario_comparison = "within_named_model_higher_SSP_minus_SSP126"
+direct_rainfall_relationship = "competing_family_never_stacked_or_added"
+
+[sources]
+pair_root = "data/interim/five_esm_late_drought_20260921"
+country_proxy = "data/interim/global_country_proxy_20260907.parquet"
+country_proxy_receipt = "data/provenance/global_country_proxy_20260907.json"
+global_matrix_evidence = "data/provenance/five_esm_late_drought_public_evidence_20260922.json"
+crop_partition_manifest = "data/interim/spei_crop_key_partitions_20260908/result.json"
+crop_partition_validation = "data/interim/spei_crop_key_partition_validation_20260908/result.json"
+calendar_coverage = "data/interim/spei_calendar_coverage_20260908/result.json"
+
+[minimum_support]
+positive_rainfed_cells = 1000
+rainfed_area_ha = 1000000
+complete_area_fraction = 1.0
+required_validated_cases = 15
+
+[authorization]
+read_crop_outcomes = false
+fit_crop_outcomes = false
+stage1_scenario_exposure = true
+bridge_to_nass_response = false
+future_yield_projection = false
+causal_attribution = false
+damage_calculation = false
+scc_calculation = false
+
+[bridge_gates]
+historical_same_source_spei_validated_on_nass_counties = false
+future_grid_aggregated_to_exact_nass_county_support = false
+future_calendar_matches_nass_county_calendar = false
+historical_response_uses_same_spei_definition_and_scale = false
+pdsi_to_spei_crosswalk_validated = false
+all_required_before_response_composition = true
