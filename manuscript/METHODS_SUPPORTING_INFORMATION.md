@@ -2260,6 +2260,22 @@ descriptive. The 194.9 MB bounded run opens no validated-ensemble, national,
 damage, or SCC gate. See
 `../US_CORN_THREE_PATTERN_SENSITIVITY_RESULTS_20261012.md`.
 
+A separate aggregation sensitivity merges the 2017 Census corn-area screen
+onto the paired-practice panel. Eligible counties must have positive total
+harvested area and observed irrigated harvested area; suppressed numerators
+remain missing. Non-irrigated acres equal total minus irrigated acres. Annual
+climate-response design contrasts are averaged within county and then weighted
+by practice-specific harvested acres. The historical response coefficients
+and covariance remain frozen from the full 361-county panel and are reproduced
+to `1e-13` before weighting. This leaves 300 counties, 15.31 million
+non-irrigated acres, and 7.78 million irrigated acres. Under published MPI the
+responses are -2.69%/K (500 km interval -3.27% to -2.11%) and +0.06%/K
+(-0.12% to +0.24%), respectively. State results and GFDL/IPSL sensitivities
+are retained in the machine-readable output. The fixed 2017 snapshot is an
+acreage weight, not a production, price, welfare, or adaptation model; no
+national-yield, damage, or SCC gate is opened. See
+`../US_CORN_ACREAGE_WEIGHTED_HETEROGENEITY_RESULTS_20261012.md`.
+
 Fit the candidate responses on crop-grid-year observations with grid/crop
 fixed effects and flexible year effects. The reference uses joint temperature
 and crop-calendar seasonal quantity; direct-pattern extensions and separate

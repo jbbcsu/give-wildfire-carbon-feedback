@@ -1569,6 +1569,23 @@ intervals makes multi-model climate response, rather than yield precision,
 the immediate U.S. bottleneck. See
 `US_CORN_THREE_PATTERN_SENSITIVITY_RESULTS_20261012.md`.
 
+To avoid giving a small corn county the same aggregation weight as a major
+producer, a subsequent sensitivity uses 2017 Census harvested acres wherever
+both total and irrigated corn area are observed. It retains 300 counties and
+23.09 million acres; suppressed irrigated area is never coded as zero. Under
+the published MPI pattern, the acreage-weighted non-irrigated response is
+-2.69%/K (500 km interval -3.27% to -2.11%), compared with +0.06%/K (-0.12%
+to +0.24%) for irrigated corn. State non-irrigated estimates range from
+-3.88%/K in North Dakota and -3.72%/K in South Dakota to -0.60%/K in Texas and
++0.11%/K in Delaware; the single supported Oklahoma county is +0.33%/K and is
+not state-representative. GFDL and IPSL acreage-weighted non-irrigated
+sensitivities are +0.29% and -0.77%/K, again showing that climate-pattern
+uncertainty dominates conditional coefficient precision. Acreage weighting is
+not production or welfare weighting, and the selected ten-state response still
+fails the geographic/temporal promotion gates, so this result remains outside
+the SCC calculation. See
+`US_CORN_ACREAGE_WEIGHTED_HETEROGENEITY_RESULTS_20261012.md`.
+
 An exploratory extension uses the only additional acquired paired-practice
 crop, all-classes wheat. Independent fixed 2009 state harvested-area shares
 combine winter, spring, and durum seasonal PDSI candidates before estimation.

@@ -1,0 +1,230 @@
+{
+  "claim_gates": {
+    "acreage_weighted_selected_sample_yield_diagnostic": true,
+    "monetary_damage": false,
+    "national_yield_effect": false,
+    "scc": false
+  },
+  "created_at_utc": "2026-10-13T01:19:07.716369+00:00",
+  "definition": "Frozen practice-specific U.S. corn response transported through three precipitation patterns and weighted by 2017 Census harvested acres on complete irrigation-share support.",
+  "implementation": {
+    "path": "/Users/jbb/Dropbox/GIVE/precipitation_scc/us_county_validation/scripts/build_us_corn_three_pattern_acreage_weighted.py",
+    "sha256": "f7ade7ff2b9c032a430e1b4385b8c621518d621d3c70a70457fbb4d4801682f5"
+  },
+  "limitations": [
+    "The 2017 acreage snapshot is fixed over the historical panel.",
+    "Counties with suppressed irrigated acreage are excluded rather than treated as zero.",
+    "Acreage weighting is not production or welfare weighting.",
+    "The historical rainfall response fails strict geographic and temporal stability gates.",
+    "Only the MPI pattern is published; GFDL and IPSL are project-fitted structural sensitivities, not a probability-weighted ensemble."
+  ],
+  "output": {
+    "bytes": 33522,
+    "path": "data/interim/us_corn_three_pattern_acreage_weighted_20261012.csv",
+    "sha256": "d8ed59e05ad0231f3c8d9fb9ec60e5855e7726c172a8073f98a4764716a7db55"
+  },
+  "schema": "us_corn_three_pattern_acreage_weighted/v1",
+  "selected_sample_results": [
+    {
+      "counties": 300,
+      "estimate_log_yield_per_k": 0.0006187584126198945,
+      "estimate_percent_yield_per_k": 0.06189498830957746,
+      "geography": "selected_sample",
+      "harvested_acres": 7778323.0,
+      "model": "PEEPS_MPI-ESM1-2-HR_published",
+      "normal_95_intervals_percent_yield": {
+        "county_cr1": [
+          -0.06241519888311449,
+          0.18635980223925366
+        ],
+        "spatial_250km": [
+          -0.10438117062833537,
+          0.2284479137499169
+        ],
+        "spatial_500km": [
+          -0.11698468956155446,
+          0.2410950203375781
+        ]
+      },
+      "practice": "irrigated",
+      "spatially_robust_excludes_zero": false,
+      "standard_errors_log_yield": {
+        "county_cr1": 0.0006342373803015219,
+        "spatial_250km": 0.0008485281988428042,
+        "spatial_500km": 0.0009129031190026214
+      },
+      "weight": "irrigated_harvested_acres"
+    },
+    {
+      "counties": 300,
+      "estimate_log_yield_per_k": -0.027266934432133093,
+      "estimate_percent_yield_per_k": -2.6898547431078645,
+      "geography": "selected_sample",
+      "harvested_acres": 15306833.0,
+      "model": "PEEPS_MPI-ESM1-2-HR_published",
+      "normal_95_intervals_percent_yield": {
+        "county_cr1": [
+          -2.9936018140399576,
+          -2.385156577352902
+        ],
+        "spatial_250km": [
+          -3.1810453499883824,
+          -2.196172183973164
+        ],
+        "spatial_500km": [
+          -3.2665851895393505,
+          -2.109685795011852
+        ]
+      },
+      "practice": "non_irrigated",
+      "spatially_robust_excludes_zero": true,
+      "standard_errors_log_yield": {
+        "county_cr1": 0.0015950584427984755,
+        "spatial_250km": 0.0025818693582001255,
+        "spatial_500km": 0.0030328354532590663
+      },
+      "weight": "non_irrigated_harvested_acres"
+    },
+    {
+      "counties": 300,
+      "estimate_log_yield_per_k": 0.0004930289879173863,
+      "estimate_percent_yield_per_k": 0.049315054668536105,
+      "geography": "selected_sample",
+      "harvested_acres": 7778323.0,
+      "model": "project_fit_GFDL-ESM4",
+      "normal_95_intervals_percent_yield": {
+        "county_cr1": [
+          0.025835663900280754,
+          0.07279995683079471
+        ],
+        "spatial_250km": [
+          0.016539831197487788,
+          0.08210101851588007
+        ],
+        "spatial_500km": [
+          0.012585099434089581,
+          0.08605849910146883
+        ]
+      },
+      "practice": "irrigated",
+      "spatially_robust_excludes_zero": true,
+      "standard_errors_log_yield": {
+        "county_cr1": 0.00011974781492034418,
+        "spatial_250km": 0.00016716548608941445,
+        "spatial_500km": 0.00018733975109617976
+      },
+      "weight": "irrigated_harvested_acres"
+    },
+    {
+      "counties": 300,
+      "estimate_log_yield_per_k": 0.0028836083382648434,
+      "estimate_percent_yield_per_k": 0.2887769935966956,
+      "geography": "selected_sample",
+      "harvested_acres": 15306833.0,
+      "model": "project_fit_GFDL-ESM4",
+      "normal_95_intervals_percent_yield": {
+        "county_cr1": [
+          0.2502168463561421,
+          0.327351972575294
+        ],
+        "spatial_250km": [
+          0.22472000697755776,
+          0.35287492118862374
+        ],
+        "spatial_500km": [
+          0.20800335777432377,
+          0.3696157377939012
+        ]
+      },
+      "practice": "non_irrigated",
+      "spatially_robust_excludes_zero": true,
+      "standard_errors_log_yield": {
+        "county_cr1": 0.00019620667657930084,
+        "spatial_250km": 0.0003259844113326701,
+        "spatial_500km": 0.0004110893037006286
+      },
+      "weight": "non_irrigated_harvested_acres"
+    },
+    {
+      "counties": 300,
+      "estimate_log_yield_per_k": -0.00013541054406922823,
+      "estimate_percent_yield_per_k": -0.013540137647530663,
+      "geography": "selected_sample",
+      "harvested_acres": 7778323.0,
+      "model": "project_fit_IPSL-CM6A-LR",
+      "normal_95_intervals_percent_yield": {
+        "county_cr1": [
+          -0.04370885955252711,
+          0.016637689755188804
+        ],
+        "spatial_250km": [
+          -0.05134516573100126,
+          0.024279189979548213
+        ],
+        "spatial_500km": [
+          -0.05472196498653686,
+          0.027658658406119415
+        ]
+      },
+      "practice": "irrigated",
+      "spatially_robust_excludes_zero": false,
+      "standard_errors_log_yield": {
+        "county_cr1": 0.00015396612373473468,
+        "spatial_250km": 0.00019294539524552555,
+        "spatial_500km": 0.00021018310464933113
+      },
+      "weight": "irrigated_harvested_acres"
+    },
+    {
+      "counties": 300,
+      "estimate_log_yield_per_k": -0.007700388300326204,
+      "estimate_percent_yield_per_k": -0.7670816264408161,
+      "geography": "selected_sample",
+      "harvested_acres": 15306833.0,
+      "model": "project_fit_IPSL-CM6A-LR",
+      "normal_95_intervals_percent_yield": {
+        "county_cr1": [
+          -0.8550116127248564,
+          -0.679073656563115
+        ],
+        "spatial_250km": [
+          -0.9090755674288589,
+          -0.6248842129411103
+        ],
+        "spatial_500km": [
+          -0.939074542147796,
+          -0.594790090839901
+        ]
+      },
+      "practice": "non_irrigated",
+      "spatially_robust_excludes_zero": true,
+      "standard_errors_log_yield": {
+        "county_cr1": 0.0004522906967868676,
+        "spatial_250km": 0.0007305818565540186,
+        "spatial_500km": 0.0008850653950301474
+      },
+      "weight": "non_irrigated_harvested_acres"
+    }
+  ],
+  "sources": {
+    "acreage": {
+      "path": "data/interim/us_county/nass_2017_crop_irrigation_shares.csv",
+      "sha256": "21f5c2a2dd7e41a88945f5a67511b3cb942b4f13b3581d63aeafb8f0974eabc3"
+    },
+    "three_pattern_receipt": {
+      "path": "data/provenance/us_corn_three_pattern_sensitivity_20261012.json",
+      "sha256": "23579aed3ecbd8da4cb8266ff091f1201f7d4d3fe3ad985d53200bb5c9ab33bc"
+    }
+  },
+  "status": "acreage_weighted_selected_sample_structural_sensitivity_not_national_damage_or_scc",
+  "support": {
+    "complete_irrigation_area_required": true,
+    "counties": 300,
+    "states": 10
+  },
+  "validation": {
+    "finite_numeric_output": true,
+    "frozen_us_quantity_response_reproduced_tolerance": 1e-13,
+    "nonnegative_weights": true
+  }
+}
