@@ -1,0 +1,92 @@
+{
+  "schema": "give_damage_sector_status/v2",
+  "as_of": "2026-10-13",
+  "combination_rule": "Only locally reproduced and overlap-cleared modules enter the integrated SCC; original bounded estimates and published external benchmarks are reported separately.",
+  "sectors": [
+    {
+      "name": "precipitation_agriculture_monthly_maize_diagnostic",
+      "class": "original_bounded_diagnostic",
+      "value_2020usd_per_tco2": 0.00426855,
+      "gross_positive_2020usd_per_tco2": 0.01157205,
+      "gross_negative_2020usd_per_tco2": -0.00730350,
+      "country_cancellation_share": 0.7739,
+      "additive": false,
+      "reason_not_additive": "One ESM/scenario, maize only, and not a paired replacement for total agriculture."
+    },
+    {
+      "name": "us_nonirrigated_corn_pdsi_historical_association",
+      "class": "stable_historical_association_unlinked_to_future_climate",
+      "yield_percent_per_one_unit_pdsi_decline": -4.30,
+      "spatial_500km_interval_percent": [-5.02, -3.57],
+      "additive": false,
+      "reason_not_additive": "No validated climate-change-to-future-PDSI stage and no causal damage or welfare bridge."
+    },
+    {
+      "name": "labor_productivity",
+      "class": "two_structural_specifications_locally_reproduced_pending_integration",
+      "lancet_mean_2020usd_per_tco2": 29.2638359627,
+      "lancet_q05": 0.1874894942,
+      "lancet_q95": 70.7841946956,
+      "iso_mean_2020usd_per_tco2": 51.86467799826219,
+      "iso_q05": 1.042064811275526,
+      "iso_q95": 133.88272968223436,
+      "equal_function_mean_2020usd_per_tco2": 40.56425698048089,
+      "published_rounded_value_usd_per_tco2": 41.0,
+      "additive": false,
+      "reason_not_additive": "Overlap-cleared paired installation remains open; no source-verified cross-function quantile pooling rule."
+    },
+    {
+      "name": "updated_total_agriculture",
+      "class": "two_structural_specifications_locally_reproduced_pending_replacement_review",
+      "lancet_mean_2020usd_per_tco2": 29.047988785807586,
+      "iso_mean_2020usd_per_tco2": 29.10096418611888,
+      "equal_function_mean_2020usd_per_tco2": 29.07447648596323,
+      "published_rounded_value_usd_per_tco2": 29.0,
+      "additive": false,
+      "reason_not_additive": "Must replace legacy GIVE agriculture and cannot be stacked with a total precipitation-agriculture estimate."
+    },
+    {
+      "name": "fisheries_market_and_nutrition",
+      "class": "published_external_benchmark",
+      "published_value_usd_per_tco2": 22.09755,
+      "published_market_component_usd_per_tco2": 0.05704,
+      "published_nutrition_use_component_usd_per_tco2": 22.04051,
+      "additive": false,
+      "reason_not_additive": "Country paths and nutrition, mortality, agriculture, and macroeconomic endpoint allocation remain open."
+    },
+    {
+      "name": "biodiversity_nonuse",
+      "class": "published_external_benchmark",
+      "published_value_usd_per_tco2_approx": 8.0,
+      "additive": false
+    },
+    {
+      "name": "surface_ozone_health",
+      "class": "published_external_benchmark_failed_local_release_alignment",
+      "published_value_usd_per_tco2": 23.0,
+      "additive": false
+    },
+    {
+      "name": "nonwildfire_meteorological_pm25_health",
+      "class": "published_external_benchmark_failed_local_release_alignment",
+      "published_value_usd_per_tco2": -38.0,
+      "additive": false
+    },
+    {
+      "name": "wildfire_smoke_pm25_mortality",
+      "class": "unpublished_external_module_pending_local_reproduction",
+      "provisional_value_usd_per_tco2": 50.0,
+      "additive": false
+    },
+    {
+      "name": "inland_flooding",
+      "class": "open_research_gap",
+      "additive": false
+    },
+    {
+      "name": "coral_reef_residual_services",
+      "class": "open_research_gap",
+      "additive": false
+    }
+  ]
+}

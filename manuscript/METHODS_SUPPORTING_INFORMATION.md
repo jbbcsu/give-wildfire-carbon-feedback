@@ -24,14 +24,16 @@ molecular-weight convention, currency and price year, discount schedule,
 socioeconomic sampling, climate-model sampling, random seed, trial count, and
 sectoral aggregation. Replication tolerances are declared before the full run.
 
-For Moore et al. (2026), the full Lancet specification uses Julia 1.12.5, one
-thread, RFF-SP socioeconomic sampling, random seed 24523438, a 2025 CO2 pulse,
-10,000 draws, and the published 2% Ramsey schedule. The tracked receipt binds
-the output summary, runner, and package manifest by SHA-256. Agriculture is
-compared directly with the published rounded $29/tCO2 value. Labor is not
-compared directly with the $41 headline until both the ISO and Lancet response
-functions have been run and combined using the article's structural-uncertainty
-rule.
+For Moore et al. (2026), the full Lancet and ISO specifications use Julia
+1.12.5, one thread, RFF-SP socioeconomic sampling, random seed 24523438, a
+2025 CO2 pulse, 10,000 draws, and the published 2% Ramsey schedule. Tracked
+receipts bind each output summary, runner, and package manifest by SHA-256.
+The independently reproduced labor means are $29.26/tCO2 for Lancet and
+$51.86/tCO2 for ISO; agriculture is $29.05 and $29.10/tCO2. Their arithmetic
+equal-function means reproduce the article's rounded headlines. Because the
+archived code does not document a cross-function draw-pooling rule, separate
+quantiles are retained and pooled quantiles or standard errors are not
+constructed.
 
 ## S4. Original estimation
 

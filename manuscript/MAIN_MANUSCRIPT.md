@@ -95,27 +95,37 @@ receipt; failed and null results remain part of the research record.
 
 ### 4.1 Precipitation-sensitive agriculture
 
-The current original estimate is deliberately narrow. For a fixed-adaptation,
-annual-maize rainfall-quantity channel, the central partial SCC is
--$0.00610/tCO2 in 2020 USD at the GIVE 2% schedule. Across 936 structural paths,
-the 2% design range is -$0.01137 to +$0.00104/tCO2. These are design summaries,
-not probabilities, and the estimate is not total precipitation-agriculture
-damage. Drought, timing, extremes, other crops, endogenous irrigation costs,
-and international market adjustment remain outside the promoted result.
+The current original estimates are deliberately narrow and are not promoted
+as a precipitation-sector SCC. The later one-model monthly maize diagnostic is
++$0.004269/tCO2 in 2020 USD under fixed adaptation and the GIVE 2% schedule.
+Its positive country components sum to +$0.011572/tCO2 and its negative
+components to -$0.007304/tCO2, so 77.4% of gross magnitude cancels. The five
+largest countries account for 71.7% of gross magnitude; the small net therefore
+reflects concentrated geographic offsetting rather than uniformly small
+components. The calculation remains one ESM/scenario, maize only, and does not
+replace Moore agriculture.
+
+The strongest U.S. historical moisture result is larger: for directly
+reported non-irrigated corn, a one-unit PDSI decline is associated with a
+4.30% yield decline (500-km spatial interval 3.57% to 5.02% lower). It passes
+the frozen spatial, leave-state, terminal-period, and influence gates, but it
+cannot enter an SCC until a separately validated climate-to-future-PDSI stage
+exists. Direct rainfall and drought indices remain competing channels.
 
 ### 4.2 Labor productivity and updated agriculture
 
 Moore et al. (2026) report 2025 partial SCCs of $41/tCO2 for labor productivity
 (90% interval $1–108) and $29/tCO2 for updated agriculture. We verified the
 official code archive, exact dependency environment, and published GTAP arrays,
-then completed the registered 10,000-draw Lancet run under the authors' seed.
-It reproduces updated agriculture at $29.05/tCO2 (Monte Carlo standard error
-$0.28) and estimates the Lancet-only labor pathway at $29.26/tCO2 (5th-95th
-percentiles $0.19-$70.78). The Lancet-only total is $167.68/tCO2. These are
-structural-specification results, not substitutes for the article's headline
-distribution across two labor response functions. The matching ISO run and
-cross-function aggregation remain required before claiming exact reproduction
-of the published $41 labor and $179 total values.
+then completed registered 10,000-draw Lancet and ISO runs under the authors'
+seed. Updated agriculture is $29.05/tCO2 under Lancet and $29.10/tCO2 under
+ISO. Labor is $29.26/tCO2 under Lancet (5th-95th percentiles $0.19-$70.78)
+and $51.86/tCO2 under ISO ($1.04-$133.88). The arithmetic equal-function means
+are $29.07 for agriculture, $40.56 for labor, and $179.16/tCO2 for the total,
+reproducing the article's rounded $29, $41, and $179 headlines. The source code
+does not specify a pooled cross-function quantile rule, so the two full
+distributions remain structural sensitivities and no pooled uncertainty
+interval is invented.
 
 ### 4.3 Fisheries and biodiversity
 
@@ -165,9 +175,10 @@ is resolved.
 
 ## 5. Interpretation
 
-The initial evidence suggests that the fastest substantial extension is labor
-productivity, not precipitation agriculture: it has a large published effect
-and a complete reproducibility package. The precipitation project remains
+The initial evidence identifies labor productivity as the fastest substantial
+extension: it has a large published effect and both structural specifications
+now reproduce locally. The next step is overlap-cleared installation, not more
+estimation. The precipitation project remains
 scientifically valuable because the modern total-agriculture comparator omits
 projected rainfall effects and because annual-mean rainfall does not represent
 drought, timing, or irrigation scarcity. Fisheries and biodiversity may also
@@ -176,10 +187,11 @@ damages through overlapping endpoints.
 
 ## 6. Planned final analyses
 
-1. Complete the 10,000-draw ISO labor run and verify the paper's two-function
-   aggregation; the matching Lancet run and agriculture estimate are complete.
-2. Finish the precipitation replacement design, prioritizing drought/timing,
-   additional crops, irrigation, and heterogeneous winners and losers.
+1. Install the reproduced labor component and updated agriculture replacement
+   in paired GIVE runs while preserving both labor structural specifications.
+2. Finish the precipitation replacement design, prioritizing the climate-to-
+   PDSI/SPEI bridge, multi-model disagreement, additional crops, irrigation,
+   and heterogeneous winners and losers.
 3. Reproduce fisheries country paths and separate market from nutrition and
    mortality endpoints.
 4. Obtain the biodiversity coefficient and joint-draw inputs or report the
