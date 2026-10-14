@@ -83,13 +83,25 @@ triplets, incomplete cell-months, or temperature-order violations. The build
 peaked at 167,657,472 bytes RSS. Independent validation passed 1,206 checks,
 had a maximum SPEI difference of 7.363518683689563e-09, and peaked at
 125,632,512 bytes RSS. The final hash-rechecking eviction deleted both
-reacquirable extrema files (4,160,370,268 bytes). Eleven future cases remain;
-the next frozen case is IPSL-CM6A-LR SSP3-7.0, which was not started.
+reacquirable extrema files (4,160,370,268 bytes).
+
+The fifth case, IPSL-CM6A-LR SSP3-7.0, passed without acquisition retries. Its
+2,078,649,267-byte `tasmin` and 2,073,189,158-byte `tasmax` objects matched the
+frozen SHA-512 identities; acquisition peaks were 32,915,456 and 31,244,288
+bytes RSS.
+
+The reduced SSP3-7.0 output contains 120 months for all 11 cells with no
+missing triplets, incomplete cell-months, or temperature-order violations.
+The build peaked at 160,923,648 bytes RSS. Independent validation passed 1,206
+checks, had a maximum SPEI difference of 7.363518683689563e-09, and peaked at
+120,799,232 bytes RSS. Final hash-rechecking eviction deleted both reacquirable
+extrema files (4,151,838,425 bytes). Ten future cases remain; the next frozen
+case is IPSL-CM6A-LR SSP5-8.5, which was not started.
 
 ## Interpretation and gates
 
 This closes the historical raw-cell construction step but not the full bridge.
-Exact future support still requires the remaining 11 cases, followed by a
+Exact future support still requires the remaining 10 cases, followed by a
 fresh county-coverage audit, common county weights, NASS-calendar aggregation,
 and independent panel validation. No yield value was read and no response was
 fit. County-panel, projection, causal, damage, and SCC gates remain closed.
@@ -117,8 +129,9 @@ stacked or added.
   `data/provenance/gfdl-esm4_ssp126_us_spei_bridge_extrema_eviction_20261013.json`,
   `data/provenance/gfdl-esm4_ssp370_us_spei_bridge_extrema_eviction_20261014.json`,
   `data/provenance/gfdl-esm4_ssp585_us_spei_bridge_extrema_eviction_20261014.json`,
+  `data/provenance/ipsl-cm6a-lr_ssp126_us_spei_bridge_extrema_eviction_20261014.json`,
   and
-  `data/provenance/ipsl-cm6a-lr_ssp126_us_spei_bridge_extrema_eviction_20261014.json`.
+  `data/provenance/ipsl-cm6a-lr_ssp370_us_spei_bridge_extrema_eviction_20261014.json`.
 
 Detailed climate outputs and resource receipts remain under ignored
 `data/interim/us_county/us_spei_bridge_*` paths.
