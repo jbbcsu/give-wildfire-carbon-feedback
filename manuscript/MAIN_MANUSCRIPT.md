@@ -123,8 +123,8 @@ estimating the same-source SPEI response.
 
 That reconstruction has begun. All 11 historical cells now pass independent
 validation for 468 months and SPEI-1/3/6, with all 396 calibration fits valid.
-The first two future cases, GFDL-ESM4 SSP1-2.6 and SSP3-7.0, each pass 1,206
-checks. Thirteen cases remain, so no county response, future yield effect,
+All three GFDL-ESM4 future cases (SSP1-2.6, SSP3-7.0, and SSP5-8.5) each pass
+1,206 checks. Twelve cases remain, so no county response, future yield effect,
 damage, or SCC is claimed.
 
 ### 4.2 Labor productivity and updated agriculture
