@@ -1,0 +1,173 @@
+{
+  "schema": "biodiversity_nonuse_artifact_package_contract_v1",
+  "package_schema": "biodiversity_nonuse_artifact_package_v1",
+  "source_request": "config/biodiversity_replication_request_v1.json",
+  "purpose": "artifact_admission_only_no_damage_function_or_scc_authority",
+  "artifact_groups": {
+    "A1_executable_source_environment": [
+      "source_revision",
+      "project_toml",
+      "manifest_toml",
+      "run_instructions"
+    ],
+    "A2_regional_valuation_calibration": [
+      "regional_beta",
+      "regional_beta_derivation"
+    ],
+    "A3_temperature_response_calibration": [
+      "urban_phi_inputs",
+      "phi_draws",
+      "phi_bootstrap"
+    ],
+    "A4_country_region_mapping": [
+      "country_mapping"
+    ],
+    "A5_joint_uncertainty_pairing": [
+      "joint_draws",
+      "joint_draw_method"
+    ],
+    "A6_matched_baseline_pulse_outputs": [
+      "pulse_manifest",
+      "annual_country_nonuse",
+      "annual_global_nonuse"
+    ],
+    "A7_provenance_license_boundary": [
+      "checksums",
+      "licenses_document",
+      "nonuse_boundary_document"
+    ]
+  },
+  "required_counts": {
+    "fund_regions": 16,
+    "urban_groups": 389,
+    "censored_all_extinct_groups": 3,
+    "phi_draws": 20000,
+    "joint_draws": 10000
+  },
+  "parsed_csv_columns": {
+    "regional_beta": [
+      "fund_region_id",
+      "beta",
+      "eta",
+      "source_income",
+      "source_wtp",
+      "currency",
+      "price_year",
+      "income_unit",
+      "wtp_unit",
+      "derivation_id"
+    ],
+    "urban_phi_inputs": [
+      "group_id",
+      "study_id",
+      "prediction_year",
+      "temperature_change",
+      "taxon",
+      "region",
+      "species_count",
+      "predicted_extinct_count",
+      "sample_weight",
+      "included",
+      "censor_reason"
+    ],
+    "phi_draws": [
+      "phi_draw_id",
+      "phi",
+      "bootstrap_seed",
+      "method_id"
+    ],
+    "country_mapping": [
+      "country_id",
+      "country_iso3",
+      "fund_region_id",
+      "mapping_version",
+      "included",
+      "exclusion_reason"
+    ],
+    "joint_draws": [
+      "run_id",
+      "socioeconomic_draw_id",
+      "climate_draw_id",
+      "phi_draw_id",
+      "beta_draw_id",
+      "discount_draw_id"
+    ],
+    "annual_country_nonuse": [
+      "run_id",
+      "path_role",
+      "pulse_id",
+      "run_configuration_id",
+      "country_iso3",
+      "fund_region_id",
+      "year",
+      "temperature_change",
+      "biodiversity_stock",
+      "no_climate_stock",
+      "climate_deficit",
+      "population",
+      "income_per_capita",
+      "beta",
+      "undiscounted_damage_2020usd_per_year",
+      "discount_factor",
+      "missingness_status"
+    ],
+    "annual_global_nonuse": [
+      "run_id",
+      "path_role",
+      "pulse_id",
+      "run_configuration_id",
+      "year",
+      "undiscounted_damage_2020usd_per_year",
+      "currency",
+      "price_year",
+      "time_basis",
+      "missingness_status"
+    ]
+  },
+  "pulse_requirements": {
+    "gas": "CO2",
+    "mass_unit": "tCO2",
+    "positive_mass": true,
+    "normalization_applied": false,
+    "discounting_applied": false
+  },
+  "license_requirements": {
+    "resolved_terms": true,
+    "redistribution_allowed": true,
+    "derivative_use_allowed": true,
+    "give_research_use_allowed": true,
+    "unresolved_third_party_restrictions_allowed": false
+  },
+  "coverage_requirements": {
+    "complete_declared_country_universe": true,
+    "complete_run_country_year_rectangle": true,
+    "imputation_allowed": false,
+    "allocation_allowed": false,
+    "renormalization_allowed": false
+  },
+  "overlap_boundary": {
+    "included": [
+      "nonuse_existence_value_only"
+    ],
+    "excluded": [
+      "agriculture_and_crop_productivity",
+      "fisheries_and_aquaculture",
+      "coral_reef_tourism_and_recreation",
+      "coastal_protection",
+      "carbon_cycle_feedbacks",
+      "hunting_and_subsistence",
+      "commercial_harvest",
+      "other_recreation",
+      "other_market_and_use_ecosystem_services"
+    ]
+  },
+  "admission_does_not_authorize": [
+    "coefficient_estimation",
+    "imputation",
+    "pulse_normalization",
+    "discounting",
+    "damage_function_estimation",
+    "scc_calculation",
+    "give_inclusion"
+  ]
+}

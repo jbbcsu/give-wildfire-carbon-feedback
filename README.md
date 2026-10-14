@@ -46,6 +46,16 @@ scope and that exact author artifacts are required. See
 approximately USD 8/tCO2 publication benchmark has been reproduced or is
 eligible for inclusion in GIVE.
 
+`python/validate_biodiversity_artifact_package.py` now turns that seven-part
+request into a fail-closed admission gate. It validates checksummed licensed
+source/environment files, all 16 regional coefficients, the 389-group and
+20,000-draw climate response, complete mapping, 10,000 joint draw links,
+matched annual country/global baseline-pulse paths, and the nonuse-only
+overlap boundary. The annual reconciliation is streamed to keep memory
+bounded. The current public evidence supplies 0 of 7 groups and is rejected.
+See `BIODIVERSITY_ARTIFACT_PACKAGE_ADMISSION_GATE_20261014.md`. Passing this
+gate would not itself validate a damage function or SCC.
+
 ## Boundaries
 
 - Include existence/nonuse value only.
