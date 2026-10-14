@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0.0",
+  "source_manifest": "provenance/fredi_source_manifest_v4_1_1.json",
+  "alignment_audit": "provenance/fredi_v4_1_1_transport_alignment_audit.json",
+  "scope": {
+    "geography": "CONUS: 48 contiguous states plus District of Columbia",
+    "expected_postal_count": 49,
+    "driver": "CONUS annual temperature anomaly",
+    "driver_unit": "degrees Celsius relative to 1995 (central year of 1986-2005 baseline)",
+    "model_type": "GCM",
+    "allowed_released_aggregates": ["Roads", "Rail"],
+    "forbidden_drivers": ["SLR"],
+    "forbidden_sectors": ["CoastalProperties", "HTF", "InlandFlooding", "UrbanDrainage"]
+  },
+  "component_gates": [
+    {
+      "endpoint": "road_repair",
+      "available_in_public_v4_1_1_runtime": false,
+      "reason": "The public Roads scaled-impact table has impactType=NA and combines repair and road-user costs."
+    },
+    {
+      "endpoint": "road_user",
+      "available_in_public_v4_1_1_runtime": false,
+      "reason": "The public Roads scaled-impact table has impactType=NA and combines repair and road-user costs."
+    },
+    {
+      "endpoint": "rail_replacement",
+      "available_in_public_v4_1_1_runtime": false,
+      "reason": "The public Rail scaled-impact table has impactType=NA and combines replacement and delay costs."
+    },
+    {
+      "endpoint": "rail_delay",
+      "available_in_public_v4_1_1_runtime": false,
+      "reason": "The public Rail scaled-impact table has impactType=NA and combines replacement and delay costs."
+    }
+  ],
+  "released_aggregate_semantics": {
+    "Roads": "road repair plus road-user costs; inseparable in the public runtime surface",
+    "Rail": "rail replacement plus rail-delay costs; inseparable in the public runtime surface"
+  },
+  "smoke_test": {
+    "driver_conus_degC_rel1995": 1.5,
+    "economic_year": 2020,
+    "variants": ["NoAdapt", "Proactive", "Reactive"],
+    "models": ["CCSM4", "CanESM2", "GFDL-CM3", "GISS-E2-R", "HadGEM2-ES", "MIROC5"],
+    "temperature_bins_used": [1, 2],
+    "interpolation": "piecewise linear; no extrapolation",
+    "scaled_response_unit": "2015 USD per infrastructure mile per year",
+    "annual_impact_unit": "2015 USD per year",
+    "output": "data/derived/fredi_transport_heat_smoke_v4_1_1.csv",
+    "receipt": "provenance/fredi_transport_heat_smoke_v4_1_1_receipt.json"
+  },
+  "expected_source_support": {
+    "scaled_rows_per_aggregate": 4557,
+    "scaled_rows_by_bin": {"1": 882, "2": 882, "3": 882, "4": 735, "5": 735, "6": 441},
+    "impact_year_literal": "NA",
+    "impact_type_literal": "NA",
+    "road_adjustment_year_min": 2010,
+    "road_adjustment_year_max": 2090,
+    "road_adjustment_rows_per_variant": 3969,
+    "physical_miles_years": [2010, 2090],
+    "physical_miles_rows_per_aggregate": 98,
+    "rail_growth_years": [2010, 2015, 2020, 2025, 2030, 2035, 2040, 2045, 2050, 2055, 2060, 2065, 2070, 2075, 2080, 2085, 2090, 2100, 2200, 2300]
+  },
+  "claim_status": {
+    "deterministic_interface_smoke_test": "open",
+    "component_resolved_transport": "closed",
+    "matched_GIVE_pulse": "closed",
+    "global_extrapolation": "prohibited",
+    "SCC": "closed"
+  }
+}

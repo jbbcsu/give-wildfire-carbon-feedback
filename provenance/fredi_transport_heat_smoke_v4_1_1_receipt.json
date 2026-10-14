@@ -1,0 +1,74 @@
+{
+  "alignment_audit": {
+    "path": "provenance/fredi_v4_1_1_transport_alignment_audit.json",
+    "sha256": "d060882d85621fbd2153266ef473cfc949a941535397f049dc85c99302052219",
+    "status": "PASS"
+  },
+  "claim_status": {
+    "SCC": "closed",
+    "component_resolved_transport": "closed",
+    "deterministic_interface_smoke_test": "open",
+    "global_extrapolation": "prohibited",
+    "matched_GIVE_pulse": "closed"
+  },
+  "component_gates": {
+    "rail_delay": false,
+    "rail_replacement": false,
+    "road_repair": false,
+    "road_user": false
+  },
+  "config": {
+    "path": "config/fredi_transport_heat_v4_1_1.json",
+    "sha256": "84dfb5d038a997572c5992bc59c03a629ae41a6fd5c5e8c6f87b87c9bc6f5733"
+  },
+  "diagnostics": {
+    "gcm_count": 6,
+    "output_row_count": 36,
+    "released_aggregate_count": 2,
+    "state_dc_count": 49,
+    "variant_count": 3
+  },
+  "excluded": {
+    "drivers": [
+      "SLR"
+    ],
+    "global_extrapolation": true,
+    "sectors": [
+      "CoastalProperties",
+      "HTF",
+      "InlandFlooding",
+      "UrbanDrainage"
+    ]
+  },
+  "execution_code": {
+    "scripts/fredi_transport_heat_common.py": "3d449e9e1df241f228b57f99a8f6b0d16adb014e678e7363805a9741ef37e272",
+    "scripts/run_fredi_transport_heat_smoke.py": "76463d0fde7812d4dc40ad46e32457e5115d4af8daf817b8c3876585f1807306",
+    "scripts/validate_fredi_transport_heat_smoke.py": "f0ec89b68936db8354adb3e776590cc4279591ebeaf27c22230fa6ffef90c4c2"
+  },
+  "formula": {
+    "Rail": "scaled_response * 2010 rail miles * 2020 national rail-growth factor",
+    "Roads": "scaled_response * 2010 road miles * 2020 variant-specific road miles-and-population adjustment",
+    "national": "sum of 48 contiguous states and District of Columbia; no model averaging",
+    "scaled_response": "linear interpolation between 1 C and 2 C at 1.5 C"
+  },
+  "output": {
+    "path": "data/derived/fredi_transport_heat_smoke_v4_1_1.csv",
+    "rows": 36,
+    "sha256": "410dca12b52ae61ba9d6a881bcfc7d67207ba9a439f84bf7ebbd12fde4f69094"
+  },
+  "peak_rss_mib_internal": 27.609,
+  "run_date": "2026-10-14",
+  "schema_version": "1.0.0",
+  "source_manifest": {
+    "path": "provenance/fredi_source_manifest_v4_1_1.json",
+    "sha256": "80ea529a2a7182b50ad4ecc17812b106c7d114832c5571926ed2cdb2fb679544"
+  },
+  "units": {
+    "annual_impact": "2015 USD per year",
+    "driver": "degrees Celsius relative to 1995 (central year of 1986-2005 baseline)"
+  },
+  "upstream_commits": {
+    "FrEDI": "08ead1b64821acd0ff0ee95fdf662a1a73f242e1",
+    "FrEDI_Data": "b506a3e0085bb446f56acc8c7076a1aea599fbb6"
+  }
+}

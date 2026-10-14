@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0.0",
+  "audit_date": "2026-10-14",
+  "status": "PASS",
+  "purpose": "Verify that the selected FrEDI_Data slices at the pinned 2026 commit are the same transport inputs embedded in the FrEDI v4.1.1 package object.",
+  "embedded_source": {
+    "repository": "https://github.com/USEPA/FrEDI",
+    "tag": "v4.1.1",
+    "commit": "08ead1b64821acd0ff0ee95fdf662a1a73f242e1",
+    "path": "FrEDI/R/sysdata.rda",
+    "bytes": 13550619,
+    "sha256": "827a728615fcf9418fd101cf9eba007c15157520ade9763a4ef1ae9b55fbbce9"
+  },
+  "candidate_source": {
+    "repository": "https://github.com/USEPA/FrEDI_Data",
+    "commit": "b506a3e0085bb446f56acc8c7076a1aea599fbb6"
+  },
+  "method": "Loaded the pinned v4.1.1 sysdata.rda in R 4.4.2; compared Roads/Rail raw rows to stateData$data$data_scaledImpacts on sector/state/postal/model/variant/modelUnitValue; compared each scalar CSV to stateData$data$scalarDataframe on state/postal/year and scalarName. Numeric comparison was after R CSV parsing.",
+  "comparisons": [
+    {"name": "Roads_scaledimpacts", "candidate_rows": 4557, "embedded_rows": 4557, "unmatched_rows": 0, "max_abs_difference": 2.273737e-13},
+    {"name": "Rail_scaledimpacts", "candidate_rows": 4557, "embedded_rows": 4557, "unmatched_rows": 0, "max_abs_difference": 0.0},
+    {"name": "rail_growth_factor", "candidate_rows": 20, "embedded_matches": 20, "max_abs_difference": 0.0},
+    {"name": "road_miles_and_pop_NoAdapt", "candidate_rows": 3969, "embedded_matches": 3969, "max_abs_difference": 0.0},
+    {"name": "road_miles_and_pop_Proactive", "candidate_rows": 3969, "embedded_matches": 3969, "max_abs_difference": 2.220446e-16},
+    {"name": "road_miles_and_pop_Reactive", "candidate_rows": 3969, "embedded_matches": 3969, "max_abs_difference": 0.0},
+    {"name": "road_miles", "candidate_rows": 98, "embedded_matches": 98, "max_abs_difference": 0.0},
+    {"name": "rail_miles", "candidate_rows": 98, "embedded_matches": 98, "max_abs_difference": 0.0}
+  ],
+  "tolerance": 1e-12,
+  "conclusion": "All selected current FrEDI_Data transport rows align with the v4.1.1 embedded package inputs. The two nonzero maxima are below tolerance and reflect floating-point CSV serialization/parsing."
+}

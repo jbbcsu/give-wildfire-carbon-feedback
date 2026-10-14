@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0.0",
+  "generated_date": "2026-10-14",
+  "upstreams": {
+    "FrEDI": {
+      "repository": "https://github.com/USEPA/FrEDI",
+      "tag": "v4.1.1",
+      "commit": "08ead1b64821acd0ff0ee95fdf662a1a73f242e1",
+      "commit_date": "2024-08-23T16:49:20-04:00",
+      "license": "MIT with EPA disclaimer",
+      "release": "https://github.com/USEPA/FrEDI/releases/tag/v4.1.1"
+    },
+    "FrEDI_Data": {
+      "repository": "https://github.com/USEPA/FrEDI_Data",
+      "commit": "b506a3e0085bb446f56acc8c7076a1aea599fbb6",
+      "commit_date": "2026-01-29T16:13:14-05:00",
+      "license": "MIT",
+      "note": "No release tag was present at audit time; the exact commit is pinned."
+    }
+  },
+  "official_documentation": [
+    "https://www.epa.gov/system/files/documents/2024-08/technical-documentation-for-fredi_aug2024.pdf",
+    "https://www.epa.gov/system/files/documents/2024-08/technical-documentation-for-fredi_appendices_aug2024.pdf"
+  ],
+  "files": [
+    {"upstream": "FrEDI", "path": "FrEDI/DESCRIPTION", "raw_path": "data/raw/fredi_code/FrEDI/DESCRIPTION", "bytes": 2944, "git_blob": "31fb3803e0521c0ed4b0adf384b50c235e51e5b2", "sha256": "9afacff59eed69f21d343891f65bc792b384679d42b19d46764d303b4b1baeb5"},
+    {"upstream": "FrEDI", "path": "FrEDI/LICENSE", "raw_path": "data/raw/fredi_code/FrEDI/LICENSE", "bytes": 2249, "git_blob": "a2aaa184d59a4915106ed40a7a9d72aaa065d81f", "sha256": "32c75b619d533bd84df6ef7f6b8108e19ae98eb1c276d3fb84efeb97c43aed16"},
+    {"upstream": "FrEDI", "path": "FrEDI/R/run_fredi.R", "raw_path": "data/raw/fredi_code/FrEDI/R/run_fredi.R", "bytes": 58798, "git_blob": "eaa9991b5f298ee1b1334ca67d34abc43cf7e728", "sha256": "0d7279055cf2ffa78d6eff6ad90e618ffaa9e4a470121360d44e1af98ae5ea4f"},
+    {"upstream": "FrEDI", "path": "FrEDI/R/utils.R", "raw_path": "data/raw/fredi_code/FrEDI/R/utils.R", "bytes": 65081, "git_blob": "e43c51744a44c29bf66c05ddfba3a5e003a31993", "sha256": "b30dd7c5c43d52ea344c773b1277807f7c2a5d8cb20ae1db6edd17b81e04d8fe"},
+    {"upstream": "FrEDI", "path": "FrEDI/R/aggregate_impacts.R", "raw_path": "data/raw/fredi_code/FrEDI/R/aggregate_impacts.R", "bytes": 34793, "git_blob": "927185d663a01dd6301696dcc3a1a23f5ea146bc", "sha256": "b0a60b02039588e95810ce88cb5a0f7db82ef3d1f4a8355772684e05fa4a031e"},
+    {"upstream": "FrEDI", "path": "FrEDI/R/sysdata.rda", "raw_path": null, "bytes": 13550619, "git_blob": "e29ae24f3900a396c09cfefa87b5fad315bf97df", "sha256": "827a728615fcf9418fd101cf9eba007c15157520ade9763a4ef1ae9b55fbbce9", "vendored": false, "note": "Pinned but intentionally not copied; it expands to large R objects and is unnecessary for this bounded audit."},
+    {"upstream": "FrEDI_Data", "path": "LICENSE", "raw_path": "data/raw/fredi_data/LICENSE", "bytes": 1093, "git_blob": "edbd3c980f91763d1f9f8d32f0d873f942d34294", "sha256": "5e860c4acb9b90009fc6d61bc4b47625e80862e7a43b5b64a2c31b2fc0e19d36"},
+    {"upstream": "FrEDI_Data", "path": "README.md", "raw_path": "data/raw/fredi_data/README.md", "bytes": 42, "git_blob": "893fcb1e6fa54fc06e6c1fbc09bcc733c6f3cba2", "sha256": "d5fd6921a01768e3028f23b0510a0cc95ec31d5c0cf8cd6b2b47a36b1fa320cb"},
+    {"upstream": "FrEDI_Data", "path": "R/utils.R", "raw_path": null, "bytes": 29833, "git_blob": "c2a4e065a7295a50df5a80673d2f3c92863726dd", "sha256": "cf7b32a38925e792b676baf889128d5d60289b7d9ef79bdd6f23e5b88df35068", "vendored": false, "note": "Pinned transformation code; get_impactFunctions uses stats::approxfun(method='linear', rule=1)."},
+    {"upstream": "FrEDI_Data", "path": "inst/extdata/fredi/gcm/Roads_scaledimpacts.csv", "raw_path": "data/raw/fredi_data/inst/extdata/fredi/gcm/Roads_scaledimpacts.csv", "bytes": 575604, "git_blob": "3f7c24d12ed910a9c31cb821d4f9ef9514f7ef47", "sha256": "010b4d5344a50c0e037c795096ce91c19582e74cd3b9eaa9db22b6beeaa30343"},
+    {"upstream": "FrEDI_Data", "path": "inst/extdata/fredi/gcm/Rail_scaledimpacts.csv", "raw_path": "data/raw/fredi_data/inst/extdata/fredi/gcm/Rail_scaledimpacts.csv", "bytes": 543167, "git_blob": "f1c2f8d4629c1b23ce1fb9b94a8157f8483e11cf", "sha256": "258cb40c082774c63e65a916683b80a7de0719b7a8210a24be4b03f881593a52"},
+    {"upstream": "FrEDI_Data", "path": "inst/extdata/fredi/scalars/Scalar_damageAdj_rail_growth_factor.csv", "raw_path": "data/raw/fredi_data/inst/extdata/fredi/scalars/Scalar_damageAdj_rail_growth_factor.csv", "bytes": 1105, "git_blob": "d36ed583fa5499da1ef780083065d6f9e66264a6", "sha256": "33068faf5ebd289aa6432b53840f8089652d7d384425ef3981f4a774eb5ede1d"},
+    {"upstream": "FrEDI_Data", "path": "inst/extdata/fredi/scalars/Scalar_damageAdj_road_miles_and_pop_NoAdapt.csv", "raw_path": "data/raw/fredi_data/inst/extdata/fredi/scalars/Scalar_damageAdj_road_miles_and_pop_NoAdapt.csv", "bytes": 277230, "git_blob": "f31f1060e1f8dafed42c41fa6540bc2a9edf8c96", "sha256": "4e6844dc9313e09f85130ebeb8b83fe98641ae7b1b8fe83ecf09a42fbab0801d"},
+    {"upstream": "FrEDI_Data", "path": "inst/extdata/fredi/scalars/Scalar_damageAdj_road_miles_and_pop_Proactive.csv", "raw_path": "data/raw/fredi_data/inst/extdata/fredi/scalars/Scalar_damageAdj_road_miles_and_pop_Proactive.csv", "bytes": 285107, "git_blob": "6887b6378f62679aba8a71e16e9aab976a950d43", "sha256": "a86a02bd34e4e0d54cc857491c36b76abaaaea38fc85411b9931cf7eb2be9e7b"},
+    {"upstream": "FrEDI_Data", "path": "inst/extdata/fredi/scalars/Scalar_damageAdj_road_miles_and_pop_Reactive.csv", "raw_path": "data/raw/fredi_data/inst/extdata/fredi/scalars/Scalar_damageAdj_road_miles_and_pop_Reactive.csv", "bytes": 281166, "git_blob": "ad2d5ff74a47a84a5adda59b6409a1a392d117b4", "sha256": "4cc81db852f80ec00d87a63cda52310d7035c84f9779fbdba0f26996d46d5aa0"},
+    {"upstream": "FrEDI_Data", "path": "inst/extdata/fredi/scalars/Scalar_physScalar_road_miles.csv", "raw_path": "data/raw/fredi_data/inst/extdata/fredi/scalars/Scalar_physScalar_road_miles.csv", "bytes": 5103, "git_blob": "aec15fe8414c25a49265656b2b6e45ee134794e2", "sha256": "a10690783866b617c1c2d51a648e3c1055c2880291c74551fe30f34660fdb5c9"},
+    {"upstream": "FrEDI_Data", "path": "inst/extdata/fredi/scalars/Scalar_physScalar_rail_miles.csv", "raw_path": "data/raw/fredi_data/inst/extdata/fredi/scalars/Scalar_physScalar_rail_miles.csv", "bytes": 5107, "git_blob": "b8d0481b3257cecbe89d6e35d1f2a66dce1d1926", "sha256": "a0d557e21627dcbda6340858d75736a2c40ff690dffd726e33d0802acf962f0c"}
+  ]
+}
