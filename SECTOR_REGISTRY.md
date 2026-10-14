@@ -1,6 +1,6 @@
 # GIVE damage-sector evidence registry
 
-Status date: 13 October 2026. Values below retain their source configuration and
+Status date: 14 October 2026. Values below retain their source configuration and
 are not mutually additive unless explicitly stated.
 
 | Pathway | Current evidence | Estimate/status | Integration state | Fastest defensible next step |
@@ -19,7 +19,7 @@ are not mutually additive unless explicitly stated.
 | Non-wildfire meteorological PM2.5 health | McDuffie et al. (2026) | Published global mean -$38/tCO2 at 2% Ramsey; 90% interval -$118 to -$3 | Checked-in RFF/mean-path PM summaries are -$24.53/-21.91; released RFF component sum differs from its separate net by -$26.81/tCO2; wildfire exclusion and price-year metadata remain unresolved | Obtain the final same-run component/net release and machine-readable wildfire exclusion; do not calibrate checked-in outputs to the article |
 | Wildfire smoke PM2.5 mortality | Williams et al. draft supplied by the investigator (9 October 2026) | Provisional global mean $50/tCO2; 95% conditional interval $18.5-$102.6; 2025 pulse and 2% discounting | Unpublished external module; not yet additive | Reproduce the draft's country coefficients and Monte Carlo result; audit mortality valuation and shared fire-climate inputs |
 | Wildfire CO2 feedback | Separate wildfire-carbon project | Separate paper and codebase | External until final interface is reviewed | Import only its reviewed marginal-damage output; never modify its files here |
-| Coral reef services | RFF priority pathway | No mutually exclusive local SCC | Open research gap | Allocate fisheries, nonuse, coastal protection, and tourism once |
+| Coral reef residual services | Bastien-Olvera et al. (2026) Blue-SCC public-release audit | Published external coral non-market-use benchmark: $2.46/tCO2; bundles eight services | External, non-additive; recreation/tourism is not released separately, CES share-scaling is unsupported, country rows do not reconcile to the global result, and fisheries/nonuse/coastal overlaps remain | Obtain service-disaggregated recreation/tourism welfare paths and additive country-year baseline/pulse artifacts; exclude provisioning, nonuse, and coastal protection |
 | Municipal water systems | Future drought/water-supply pathway | No promoted SCC | Deferred research gap | After agricultural drought: screen scarcity, treatment, pumping, and infrastructure costs while excluding household adaptation already captured elsewhere |
 
 ## Authorized integration order

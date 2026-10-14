@@ -179,6 +179,17 @@ only 120 country keys. The released market measure is multiplier-expanded
 profit/GDP rather than consumer plus producer surplus. It is therefore shown
 as an external benchmark, not treated as an additive country decomposition.
 
+The same public release provides a $2.46/tCO2 global coral non-market-use
+benchmark, but it is not a residual coral-tourism estimate. Its valuation
+aggregate combines eight services, including recreation and tourism, coastal
+protection, erosion prevention, waste treatment, aesthetics, and cultural
+services. Only bundle-level uncertainty and income elasticity are released,
+and the nonseparable CES welfare structure does not support allocating the SCC
+by simple service-value shares. Released country SCC rows also fail to
+reconcile to the corresponding global rows. We therefore retain $2.46/tCO2 as
+external context only and request recreation-specific, additive annual
+baseline/pulse welfare paths before considering a coral residual component.
+
 ### 4.4 Air pollution and wildfire feedbacks
 
 The final-article air-pollution benchmarks also remain external. At the 2%
@@ -247,14 +258,17 @@ damages through overlapping endpoints.
    mortality endpoints.
 4. Obtain the biodiversity coefficient and joint-draw inputs or report the
    benchmark as irreducibly external.
-5. Reproduce the global wildfire-smoke coefficients and SCC, then integrate it
+5. Obtain a service-disaggregated coral recreation/tourism run with additive
+   country-year welfare paths; exclude fisheries, nonuse, and coastal
+   protection already assigned elsewhere.
+6. Reproduce the global wildfire-smoke coefficients and SCC, then integrate it
    with the wildfire-carbon module under a shared-input and endpoint audit.
-6. Resolve the EPA public-release discrepancy and reproduce its surface-ozone
+7. Resolve the EPA public-release discrepancy and reproduce its surface-ozone
    and non-wildfire PM2.5 country paths.
-7. Construct the overlap-cleared combined SCC and evidence envelope.
-8. Run leave-one-sector-out, structural, discounting, climate, socioeconomic,
+8. Construct the overlap-cleared combined SCC and evidence envelope.
+9. Run leave-one-sector-out, structural, discounting, climate, socioeconomic,
    and adaptation sensitivities.
-9. Release code, manifests, receipts, and an adversarial replication checklist.
+10. Release code, manifests, receipts, and an adversarial replication checklist.
 
 ## 7. Contribution
 

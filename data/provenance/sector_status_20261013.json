@@ -1,6 +1,6 @@
 {
   "schema": "give_damage_sector_status/v2",
-  "as_of": "2026-10-13",
+  "as_of": "2026-10-14",
   "combination_rule": "Only locally reproduced and overlap-cleared modules enter the integrated SCC; original bounded estimates and published external benchmarks are reported separately.",
   "sectors": [
     {
@@ -117,8 +117,13 @@
     },
     {
       "name": "coral_reef_residual_services",
-      "class": "open_research_gap",
-      "additive": false
+      "class": "published_external_benchmark_unallocated_service_bundle",
+      "published_blue_scc_corals_nonmarket_use_usd_per_tco2": 2.46,
+      "service_bundle_count": 8,
+      "recreation_tourism_scc_released": false,
+      "country_rows_additive_to_global": false,
+      "additive": false,
+      "reason_not_additive": "The published result bundles eight services under nonseparable CES welfare; recreation/tourism is not separately released and fisheries, biodiversity nonuse, and coastal-protection overlaps remain."
     }
   ]
 }

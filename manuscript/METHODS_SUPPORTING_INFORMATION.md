@@ -85,6 +85,20 @@ existing GIVE mortality. Missing countries and unavailable nutrition fields
 are never treated as observed zeros; incomplete FUND regions are not
 renormalized.
 
+## S5.4 Coral residual-services evidence gate
+
+The Blue-SCC coral non-market-use result is retained only as an external
+benchmark because it combines eight ecosystem services and publishes neither
+a recreation-specific SCC nor matched annual marginal-welfare paths. Simple
+share-scaling is prohibited under its nonseparable CES welfare function.
+Promotion requires licensed, service-disaggregated recreation/tourism inputs;
+matched baseline and pulse country-year welfare paths; exact annual regional-
+to-global reconciliation; recreation-specific uncertainty; and an explicit
+boundary excluding fisheries/provisioning, biodiversity nonuse, and reef
+coastal protection already assigned to other sectors. The published country
+SCC rows are not treated as additive because they do not sum to the global
+rows under the source model's country-specific consumption and discounting.
+
 ## S6. SCC calculation
 
 Eligible damage modules are evaluated in paired baseline and marginal-emission
