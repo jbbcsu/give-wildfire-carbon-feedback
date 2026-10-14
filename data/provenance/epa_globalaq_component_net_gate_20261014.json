@@ -1,0 +1,99 @@
+{
+  "article_alignment": {
+    "calibration_or_rescaling_performed": false,
+    "doi": "10.1021/acs.est.5c14713",
+    "released_component_values_equal_article": false,
+    "released_net_value_equals_article": false,
+    "reported_values_external_benchmark_only": {
+      "net": -15.0,
+      "ozone": 23.0,
+      "pm25_meteorological_excluding_open_burning": -38.0
+    }
+  },
+  "claim_status": "released summaries reconciled as separate ozone, PM2.5-candidate, and net artifacts; non-wildfire boundary, price year, final-article reproduction, and GIVE transfer remain closed",
+  "config": {
+    "path": "config/epa_globalaq_component_net_gate_v1.json",
+    "sha256": "68f44259e52e38e8f55b88bb1b444d6937c2417508dbbf637af73c992582029d"
+  },
+  "created_at_utc": "2026-10-14T21:17:36.589783+00:00",
+  "hard_gates": {
+    "article_generating_release_identified": false,
+    "article_values_locally_reproduced": false,
+    "give_transfer_authorized": false,
+    "price_year_resolved": false,
+    "replacement_scc_authorized": false,
+    "repository_machine_verifies_open_burning_exclusion": false,
+    "same_run_component_net_additivity_verified": false
+  },
+  "metadata_audit": {
+    "article_boundary_is_external_to_repository": true,
+    "component_and_net_aggregation_objects_are_distinct": true,
+    "explicit_2024_to_2020_conversion_verified": false,
+    "input_builder_uses_2024_dollars": true,
+    "npv_header_claims_2020": true,
+    "price_year_resolved": false,
+    "reduced_form_header_claims_2020": true,
+    "reduced_form_uses_2024_vsl": true,
+    "repository_burning_boundary_hits": [],
+    "repository_machine_verifies_open_burning_exclusion": false
+  },
+  "released_2pct_ramsey": {
+    "endpoint_roles": {
+      "Ozone": "meteorological_ozone",
+      "PM": "meteorological_pm25_candidate_article_says_open_burning_excluded"
+    },
+    "model_mean_reconciliation": {
+      "component_sum": -7.857399849665217,
+      "net_minus_component_sum": -26.810218031095513,
+      "ozone": 16.671648911048777,
+      "pm25_candidate": -24.529048760713994,
+      "separate_net": -34.66761788076073
+    },
+    "model_reconciliation": {
+      "CESM2": {
+        "component_sum": -22.22310433887988,
+        "net_minus_component_sum": -34.92466736434186,
+        "ozone": 24.231615722508035,
+        "pm25_candidate": -46.45472006138792,
+        "separate_net": -57.147771703221736
+      },
+      "GISS": {
+        "component_sum": 6.508304639549451,
+        "net_minus_component_sum": -18.69576869784917,
+        "ozone": 9.111682099589522,
+        "pm25_candidate": -2.603377460040072,
+        "separate_net": -12.187464058299721
+      }
+    },
+    "net_role": "separately_released_ozone_plus_pm_summary_not_same_stream_verified",
+    "same_stream_additivity_verified": false
+  },
+  "required_final_artifacts": [
+    "article-generating versioned code and environment",
+    "same-run trial/model ozone, PM2.5, and net streams with identifiers",
+    "explicit final currency/price year and any conversion",
+    "machine-readable emissions/species boundary confirming open-burning exclusion"
+  ],
+  "schema": "epa_globalaq_component_net_gate_receipt/v1",
+  "source": {
+    "bound_file_hashes_valid": true,
+    "commit": "1139e7aff1ca7806b6b542268e829f9759dd8808",
+    "official_remote_observation": {
+      "evidence_endpoints": [
+        "https://github.com/USEPA/globalAQ_rft",
+        "https://api.github.com/repos/USEPA/globalAQ_rft",
+        "https://api.github.com/repos/USEPA/globalAQ_rft/tags",
+        "https://api.github.com/repos/USEPA/globalAQ_rft/releases"
+      ],
+      "head": "1139e7aff1ca7806b6b542268e829f9759dd8808",
+      "main": "1139e7aff1ca7806b6b542268e829f9759dd8808",
+      "observed_date": "2026-10-14",
+      "pushed_at": "2025-09-29T16:16:33Z",
+      "releases": [],
+      "tags": []
+    },
+    "repository_url": "https://github.com/USEPA/globalAQ_rft",
+    "tree_entry_count": 33
+  },
+  "status": "blocked_final_article_artifacts_and_metadata_unavailable"
+}

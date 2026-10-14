@@ -1,0 +1,154 @@
+{
+  "schema": "epa_globalaq_component_net_gate_config/v1",
+  "source": {
+    "repository_url": "https://github.com/USEPA/globalAQ_rft",
+    "commit": "1139e7aff1ca7806b6b542268e829f9759dd8808",
+    "commit_date": "2025-09-29T16:16:13Z",
+    "tree_entry_count": 33,
+    "license": {
+      "code": "MIT",
+      "data": "CC-BY-4.0"
+    }
+  },
+  "official_remote_observation": {
+    "observed_date": "2026-10-14",
+    "head": "1139e7aff1ca7806b6b542268e829f9759dd8808",
+    "main": "1139e7aff1ca7806b6b542268e829f9759dd8808",
+    "tags": [],
+    "releases": [],
+    "pushed_at": "2025-09-29T16:16:33Z",
+    "evidence_endpoints": [
+      "https://github.com/USEPA/globalAQ_rft",
+      "https://api.github.com/repos/USEPA/globalAQ_rft",
+      "https://api.github.com/repos/USEPA/globalAQ_rft/tags",
+      "https://api.github.com/repos/USEPA/globalAQ_rft/releases"
+    ]
+  },
+  "article": {
+    "doi": "10.1021/acs.est.5c14713",
+    "url": "https://pubs.acs.org/doi/full/10.1021/acs.est.5c14713",
+    "reported_2pct_ramsey_usd_per_tco2": {
+      "ozone": 23.0,
+      "pm25_meteorological_excluding_open_burning": -38.0,
+      "net": -15.0
+    },
+    "boundary_statement": "open-burning emissions, including wildfires, are excluded from PM2.5 and ozone concentrations",
+    "boundary_is_article_text_not_repository_metadata": true
+  },
+  "bound_files": {
+    "component_summary": {
+      "path": "vendor/globalAQ_rft/output/npd/npd_global_rff_means.csv",
+      "bytes": 3760,
+      "sha256": "90026ff52cd8c7c58e85294b6b99649e400a016dcc39697548db00593e4f8626"
+    },
+    "net_summary": {
+      "path": "vendor/globalAQ_rft/output/npd/npd_global_rff_net_means.csv",
+      "bytes": 1870,
+      "sha256": "053145edd8cd9bc3b75a2fa9639d584c042c63087ff3242772fe5188314725bd"
+    },
+    "input_builder": {
+      "path": "vendor/globalAQ_rft/code/2_build_inputs_for_rft.R",
+      "sha256": "3a807430d48557af2de2068cabd2f84d2e1f45c5b4fd0d95821dc4ced8d3eebe"
+    },
+    "reduced_form_tool": {
+      "path": "vendor/globalAQ_rft/code/3_global_reduced_form_tool.R",
+      "sha256": "7e192102249dd5644cdcf5d60acfcb75f8e37515df1f4826341c95c8523c0795"
+    },
+    "npv_code": {
+      "path": "vendor/globalAQ_rft/code/4_npv_calculation.R",
+      "sha256": "25cad230c7ad43d5568968fdf446d7520cfd31e53bd5b845f71c84ed3cd29157"
+    },
+    "repository_readme": {
+      "path": "vendor/globalAQ_rft/README.md",
+      "sha256": "66587dd48a628149d406954ccea988527796553d682657922d1c53d07dcfcc0b"
+    },
+    "repository_gitignore": {
+      "path": "vendor/globalAQ_rft/.gitignore",
+      "sha256": "b93af29f6576a89668486bfc015145ab68a3198e0fceba4a06ba9c3cfbb82d88"
+    }
+  },
+  "summary_contract": {
+    "discount_rate": "2.0% Ramsey",
+    "models": [
+      "CESM2",
+      "GISS"
+    ],
+    "component_pollutants": [
+      "Ozone",
+      "PM"
+    ],
+    "component_columns": [
+      "discount.rate",
+      "Pollutant",
+      "Model",
+      "mean_npd",
+      "mean.npd.cert.eq",
+      "npd_2.5",
+      "npd_97.5",
+      "median"
+    ],
+    "net_columns": [
+      "discount.rate",
+      "Model",
+      "mean_npd",
+      "mean.npd.cert.eq",
+      "npd_2.5",
+      "npd_97.5",
+      "median"
+    ],
+    "component_output_role": {
+      "Ozone": "meteorological_ozone",
+      "PM": "meteorological_pm25_candidate_article_says_open_burning_excluded"
+    },
+    "net_output_role": "separately_released_ozone_plus_pm_summary_not_same_stream_verified"
+  },
+  "required_source_tokens": {
+    "input_builder": [
+      "gdp_2011_to_2024 = 125.230/91.481",
+      "mutate(dollar.year = 2024)"
+    ],
+    "reduced_form_tool": [
+      "base_vsl            = 13.90e6 # $2024 VSL",
+      "Code adjusts all $ values for $2020"
+    ],
+    "npv_code": [
+      "Units: All $ values for $2020",
+      "group_by(discount.rate,trial,Pollutant,Model)",
+      "group_by(discount.rate,trial,Model)",
+      "npd_global_rff_means_",
+      "npd_global_rff_net_means_"
+    ]
+  },
+  "boundary_metadata_search": {
+    "files": [
+      "repository_readme",
+      "input_builder",
+      "reduced_form_tool",
+      "npv_code"
+    ],
+    "case_insensitive_phrases": [
+      "open burning",
+      "open-burning",
+      "wildfire",
+      "wild fire"
+    ],
+    "expected_hits": 0
+  },
+  "expected_checked_in_2pct_means": {
+    "ozone": 16.671648911048777,
+    "pm": -24.529048760713994,
+    "component_sum": -7.857399849665217,
+    "net": -34.66761788076073,
+    "net_minus_component_sum": -26.810218031095513,
+    "absolute_tolerance": 1e-12
+  },
+  "hard_gates": {
+    "article_generating_release_identified": false,
+    "same_run_component_net_additivity_verified": false,
+    "price_year_resolved": false,
+    "repository_machine_verifies_open_burning_exclusion": false,
+    "article_values_locally_reproduced": false,
+    "give_transfer_authorized": false,
+    "replacement_scc_authorized": false
+  }
+}
