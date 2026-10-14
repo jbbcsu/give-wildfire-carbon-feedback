@@ -55,13 +55,27 @@ violations under the registered tolerance. The build peaked at 175,996,928
 bytes RSS. Independent validation passed 1,206 checks; its maximum SPEI
 difference was 7.363518683689563e-09, and its peak RSS was 119,980,032 bytes.
 After validation and a final raw-hash check, the two reacquirable extrema files
-(4,133,292,828 bytes) were deleted. Thirteen future cases remain; the next
-frozen case is GFDL-ESM4 SSP5-8.5, which was not started in this run.
+(4,133,292,828 bytes) were deleted.
+
+The third case, GFDL-ESM4 SSP5-8.5, passed the same frozen workflow. Its
+2,069,891,439-byte `tasmin` object matched the registry on its first bounded
+acquisition. The 2,062,774,786-byte `tasmax` transfer recovered from two
+connection resets within the registered retry/backoff window and then matched
+the frozen SHA-512 identity. Acquisition peaks were 31,178,752 and 30,687,232
+bytes RSS, respectively.
+
+The SSP5-8.5 output again contains 120 months for all 11 cells, with no missing
+triplets, incomplete cell-months, or registered temperature-order violations.
+The build peaked at 165,167,104 bytes RSS. Independent validation passed 1,206
+checks with a maximum SPEI difference of 7.363518683689563e-09 and peaked at
+128,106,496 bytes RSS. A final hash check preceded deletion of the two
+reacquirable extrema files (4,132,666,225 bytes). Twelve future cases remain;
+the next frozen case is IPSL-CM6A-LR SSP1-2.6, which was not started.
 
 ## Interpretation and gates
 
 This closes the historical raw-cell construction step but not the full bridge.
-Exact future support still requires the remaining 13 cases, followed by a
+Exact future support still requires the remaining 12 cases, followed by a
 fresh county-coverage audit, common county weights, NASS-calendar aggregation,
 and independent panel validation. No yield value was read and no response was
 fit. County-panel, projection, causal, damage, and SCC gates remain closed.
@@ -86,9 +100,10 @@ stacked or added.
 - consolidated provenance:
   `data/provenance/us_spei_bridge_extension_20261013.json`;
 - completed-case eviction receipts:
-  `data/provenance/gfdl-esm4_ssp126_us_spei_bridge_extrema_eviction_20261013.json`
+  `data/provenance/gfdl-esm4_ssp126_us_spei_bridge_extrema_eviction_20261013.json`,
+  `data/provenance/gfdl-esm4_ssp370_us_spei_bridge_extrema_eviction_20261014.json`,
   and
-  `data/provenance/gfdl-esm4_ssp370_us_spei_bridge_extrema_eviction_20261014.json`.
+  `data/provenance/gfdl-esm4_ssp585_us_spei_bridge_extrema_eviction_20261014.json`.
 
 Detailed climate outputs and resource receipts remain under ignored
 `data/interim/us_county/us_spei_bridge_*` paths.
