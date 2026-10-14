@@ -1,0 +1,47 @@
+{
+  "audit": "blue_scc_public_fisheries_summary_admission_v1",
+  "audit_date": "2026-10-14",
+  "source": {
+    "repository_url": "https://github.com/berbastien/blue-scc",
+    "repository_commit": "dbc0d8cb21c81f1508abfaf9e5c0f5671ccdd83f"
+  },
+  "country_export": {
+    "repository_path": "Data/SCC/out/country_level_scc.csv",
+    "byte_size": 75384,
+    "sha256": "bbe8f4ac053174fae41874ede12548cc4f9dc37b81e4e8f026b8854a510a96d9",
+    "columns": [
+      "iso3",
+      "scc",
+      "oc_capital",
+      "valuation"
+    ],
+    "fisheries_rows": 310
+  },
+  "global_export": {
+    "repository_path": "Data/SCC/out/scc.csv",
+    "byte_size": 313,
+    "sha256": "16bc4d007610c4581a28216a7c185f02425a6a5f67dcf101daf0872734e380fa",
+    "columns": [
+      "Asset type",
+      "Valuation type",
+      "SCC"
+    ],
+    "fisheries_rows": 2
+  },
+  "comparable_fisheries_summary_rows": 2,
+  "additive_fisheries_summary_rows": 0,
+  "status": "rejected_not_matched_annual_artifact_package",
+  "reasons": [
+    "summary_not_matched_annual_baseline_pulse_paths",
+    "pulse_metadata_absent",
+    "complete_country_mapping_absent",
+    "country_and_global_summaries_not_additive",
+    "consumer_plus_producer_surplus_semantics_absent",
+    "market_nutrition_mortality_boundary_not_machine_readable",
+    "artifact_license_manifest_absent"
+  ],
+  "interpretation": "The released files are terminal SCC summaries, not the requested annual artifact package. Values are intentionally omitted from this admission receipt. Rejection does not estimate, revise, or validate an SCC.",
+  "damage_function_calculated": false,
+  "discounting_calculated": false,
+  "scc_calculated": false
+}

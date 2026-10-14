@@ -529,6 +529,16 @@ machine-readable annual outputs is in
 It also supplies manuscript-safe wording for the published Figure 4 fisheries
 benchmark as external context only; the benchmark is not added to GIVE.
 
+That request now has an executable admission gate. The versioned manifest and
+four-CSV contract checks license, pulse/run pairing, complete country support,
+direct consumer-plus-producer-surplus semantics, an explicit exclusion of
+nutrition/mortality and other overlaps, and annual country-to-global
+additivity. A synthetic complete pair passes; targeted incomplete packages
+fail. The pinned public country/global SCC exports also fail because they are
+nonadditive terminal summaries and lack the required paths and metadata. See
+[`BLUE_SCC_FISHERIES_ANNUAL_PAIR_ADMISSION_GATE_20261014.md`](BLUE_SCC_FISHERIES_ANNUAL_PAIR_ADMISSION_GATE_20261014.md).
+No damage function, discounting, or SCC is calculated by the gate.
+
 ## Alternative global welfare-model feasibility
 
 A primary-source screen of five plausible climate-fisheries systems found no
