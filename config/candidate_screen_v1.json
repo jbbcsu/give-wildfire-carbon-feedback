@@ -1,0 +1,162 @@
+{
+  "schema_version": "1.0.0",
+  "audit_date": "2026-10-14",
+  "purpose": "Fail-closed feasibility screen for global road/rail heat and electricity supply/grid climate damages; no SCC authorization.",
+  "required_gates": [
+    "peer_reviewed_primary",
+    "global_coverage",
+    "climate_response",
+    "annual_monetized_path",
+    "uncertainty",
+    "open_pinned_implementation",
+    "marginal_pulse_compatible",
+    "overlap_boundary_resolved"
+  ],
+  "ready_candidates": [],
+  "candidates": [
+    {
+      "id": "koks_2019_gmtra",
+      "sector": "road_rail",
+      "source": "https://doi.org/10.1038/s41467-019-10442-3",
+      "repository": "https://github.com/ElcoK/gmtra/tree/1ffe03798ab4b8d6bc6bd09c2d876a6f7994b891",
+      "license": "AGPL-3.0 for code; Fathom flood data used by permission",
+      "gates": {
+        "peer_reviewed_primary": "pass",
+        "global_coverage": "pass",
+        "climate_response": "fail",
+        "annual_monetized_path": "partial",
+        "uncertainty": "pass",
+        "open_pinned_implementation": "partial",
+        "marginal_pulse_compatible": "fail",
+        "overlap_boundary_resolved": "fail"
+      },
+      "blocker": "Current-hazard EAD only; no heat or future climate response, restricted flood layer, and flood overlap unresolved."
+    },
+    {
+      "id": "wang_2024_global_transport_exposure",
+      "sector": "road_rail",
+      "source": "https://doi.org/10.1029/2023EF003632",
+      "repository": null,
+      "license": "Article open; CMIP6 and OSM sources identified; no code archive located in the reviewed source",
+      "gates": {
+        "peer_reviewed_primary": "pass",
+        "global_coverage": "pass",
+        "climate_response": "pass",
+        "annual_monetized_path": "fail",
+        "uncertainty": "pass",
+        "open_pinned_implementation": "fail",
+        "marginal_pulse_compatible": "fail",
+        "overlap_boundary_resolved": "partial"
+      },
+      "blocker": "Annual heat exposure is not monetized; hazard magnitude and vulnerability are intentionally absent."
+    },
+    {
+      "id": "liu_2023_precipitation_exposure",
+      "sector": "road_rail",
+      "source": "https://doi.org/10.1038/s41467-023-38203-3",
+      "repository": "https://github.com/Vapson/InfExposure",
+      "license": "GPL-3.0 code; Zenodo 1.0.0 record shows no license value in the reviewed metadata",
+      "gates": {
+        "peer_reviewed_primary": "pass",
+        "global_coverage": "pass",
+        "climate_response": "pass",
+        "annual_monetized_path": "fail",
+        "uncertainty": "pass",
+        "open_pinned_implementation": "partial",
+        "marginal_pulse_compatible": "fail",
+        "overlap_boundary_resolved": "fail"
+      },
+      "blocker": "Exposure/design-safety-factor endpoint, not monetary damage; precipitation rather than heat; flood overlap unresolved."
+    },
+    {
+      "id": "mulholland_feyen_2021_heat",
+      "sector": "road_rail",
+      "source": "https://doi.org/10.1016/j.crm.2021.100365",
+      "repository": null,
+      "license": "Open-access article under a Creative Commons license; complete executable package not located",
+      "gates": {
+        "peer_reviewed_primary": "pass",
+        "global_coverage": "fail",
+        "climate_response": "pass",
+        "annual_monetized_path": "partial",
+        "uncertainty": "pass",
+        "open_pinned_implementation": "fail",
+        "marginal_pulse_compatible": "fail",
+        "overlap_boundary_resolved": "partial"
+      },
+      "blocker": "EU27+UK only and warming-level annual O&M results; no defensible global coefficient transfer or paired marginal-pulse package."
+    },
+    {
+      "id": "schweikert_2014_ipss",
+      "sector": "road",
+      "source": "https://doi.org/10.1016/j.proeng.2014.07.072",
+      "repository": null,
+      "license": "Open-access article; reusable IPSS software and complete inputs not located",
+      "gates": {
+        "peer_reviewed_primary": "pass",
+        "global_coverage": "fail",
+        "climate_response": "pass",
+        "annual_monetized_path": "pass",
+        "uncertainty": "pass",
+        "open_pinned_implementation": "fail",
+        "marginal_pulse_compatible": "fail",
+        "overlap_boundary_resolved": "partial"
+      },
+      "blocker": "Only ten countries demonstrated; no pinned reusable implementation or pulse pairing."
+    },
+    {
+      "id": "turner_2017_hydropower_gcam",
+      "sector": "electricity_supply",
+      "source": "https://doi.org/10.1016/j.energy.2017.11.089",
+      "repository": "https://github.com/JGCRI/gcam-core",
+      "license": "GCAM core ECL-2.0; paper-specific hydrology/dam inputs and output licenses unresolved",
+      "gates": {
+        "peer_reviewed_primary": "pass",
+        "global_coverage": "pass",
+        "climate_response": "pass",
+        "annual_monetized_path": "fail",
+        "uncertainty": "pass",
+        "open_pinned_implementation": "partial",
+        "marginal_pulse_compatible": "fail",
+        "overlap_boundary_resolved": "partial"
+      },
+      "blocker": "Cumulative discounted investment endpoint; study-specific hydropower fixedOutput inputs/config absent; no marginal-pulse pair."
+    },
+    {
+      "id": "van_vliet_2016_power_capacity",
+      "sector": "electricity_supply",
+      "source": "https://doi.org/10.1038/nclimate2903",
+      "repository": null,
+      "license": "Article access restricted; plant inventory includes proprietary Platts data",
+      "gates": {
+        "peer_reviewed_primary": "pass",
+        "global_coverage": "pass",
+        "climate_response": "pass",
+        "annual_monetized_path": "fail",
+        "uncertainty": "pass",
+        "open_pinned_implementation": "fail",
+        "marginal_pulse_compatible": "fail",
+        "overlap_boundary_resolved": "partial"
+      },
+      "blocker": "Physical usable-capacity response without monetized welfare; proprietary plant input and no open replication package."
+    },
+    {
+      "id": "gernaat_2021_renewable_supply",
+      "sector": "electricity_supply",
+      "source": "https://doi.org/10.1038/s41558-020-00949-9",
+      "repository": "https://www.navigate-h2020.eu/navigator/apply/",
+      "license": "Official catalog states Creative Commons/open reuse for data",
+      "gates": {
+        "peer_reviewed_primary": "pass",
+        "global_coverage": "pass",
+        "climate_response": "pass",
+        "annual_monetized_path": "fail",
+        "uncertainty": "partial",
+        "open_pinned_implementation": "partial",
+        "marginal_pulse_compatible": "fail",
+        "overlap_boundary_resolved": "partial"
+      },
+      "blocker": "Historical and 2071-2100 potential/cost-supply slices are not annual realized welfare paths or marginal-pulse pairs."
+    }
+  ]
+}
