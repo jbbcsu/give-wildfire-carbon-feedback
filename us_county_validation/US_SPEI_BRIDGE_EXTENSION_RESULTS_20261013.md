@@ -69,13 +69,27 @@ triplets, incomplete cell-months, or registered temperature-order violations.
 The build peaked at 165,167,104 bytes RSS. Independent validation passed 1,206
 checks with a maximum SPEI difference of 7.363518683689563e-09 and peaked at
 128,106,496 bytes RSS. A final hash check preceded deletion of the two
-reacquirable extrema files (4,132,666,225 bytes). Twelve future cases remain;
-the next frozen case is IPSL-CM6A-LR SSP1-2.6, which was not started.
+reacquirable extrema files (4,132,666,225 bytes).
+
+The fourth case, IPSL-CM6A-LR SSP1-2.6, passed. The 2,085,040,495-byte
+`tasmin` object matched its frozen SHA-512 identity without a retry. The
+2,075,329,773-byte `tasmax` acquisition encountered connection resets, DNS
+failures, and a slow-transfer timeout, but recovered within the registered
+retry/backoff policy and then matched the frozen identity. Acquisition peaks
+were 31,096,832 and 30,867,456 bytes RSS.
+
+The IPSL SSP1-2.6 output contains 120 months for all 11 cells with no missing
+triplets, incomplete cell-months, or temperature-order violations. The build
+peaked at 167,657,472 bytes RSS. Independent validation passed 1,206 checks,
+had a maximum SPEI difference of 7.363518683689563e-09, and peaked at
+125,632,512 bytes RSS. The final hash-rechecking eviction deleted both
+reacquirable extrema files (4,160,370,268 bytes). Eleven future cases remain;
+the next frozen case is IPSL-CM6A-LR SSP3-7.0, which was not started.
 
 ## Interpretation and gates
 
 This closes the historical raw-cell construction step but not the full bridge.
-Exact future support still requires the remaining 12 cases, followed by a
+Exact future support still requires the remaining 11 cases, followed by a
 fresh county-coverage audit, common county weights, NASS-calendar aggregation,
 and independent panel validation. No yield value was read and no response was
 fit. County-panel, projection, causal, damage, and SCC gates remain closed.
@@ -102,8 +116,9 @@ stacked or added.
 - completed-case eviction receipts:
   `data/provenance/gfdl-esm4_ssp126_us_spei_bridge_extrema_eviction_20261013.json`,
   `data/provenance/gfdl-esm4_ssp370_us_spei_bridge_extrema_eviction_20261014.json`,
+  `data/provenance/gfdl-esm4_ssp585_us_spei_bridge_extrema_eviction_20261014.json`,
   and
-  `data/provenance/gfdl-esm4_ssp585_us_spei_bridge_extrema_eviction_20261014.json`.
+  `data/provenance/ipsl-cm6a-lr_ssp126_us_spei_bridge_extrema_eviction_20261014.json`.
 
 Detailed climate outputs and resource receipts remain under ignored
 `data/interim/us_county/us_spei_bridge_*` paths.
