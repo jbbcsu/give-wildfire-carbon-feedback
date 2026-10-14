@@ -121,6 +121,11 @@ task is therefore bounded: construct the 11 historical cells and reacquire
 matching future temperature extrema for five ESMs and three SSPs before
 estimating the same-source SPEI response.
 
+That reconstruction has begun. All 11 historical cells now pass independent
+validation for 468 months and SPEI-1/3/6, with all 396 calibration fits valid.
+The first future case, GFDL-ESM4 SSP1-2.6, passes 1,206 checks. Fourteen cases
+remain, so no county response, future yield effect, damage, or SCC is claimed.
+
 ### 4.2 Labor productivity and updated agriculture
 
 Moore et al. (2026) report 2025 partial SCCs of $41/tCO2 for labor productivity
@@ -166,6 +171,15 @@ profit/GDP rather than consumer plus producer surplus. It is therefore shown
 as an external benchmark, not treated as an additive country decomposition.
 
 ### 4.4 Air pollution and wildfire feedbacks
+
+The final-article air-pollution benchmarks also remain external. At the 2%
+Ramsey setting, the official repository's checked-in RFF component summaries
+average +$16.67/tCO2 for ozone and -$24.53/tCO2 for PM2.5, whereas its separate
+net summary is -$34.67/tCO2; the component sum is only -$7.86/tCO2. Mean-path
+summaries (+$20.66 and -$21.91) also do not reproduce the article's +$23 and
+-$38 values. The source additionally mixes 2024-dollar GDP/VSL inputs with an
+NPV header stating 2020 dollars. We therefore request a versioned final release
+and do not adjust the public summaries to match the published values.
 
 An investigator-supplied draft estimates a provisional global wildfire-smoke
 PM2.5 mortality partial SCC of $50/tCO2 for a 2025 pulse at a 2% discount rate
