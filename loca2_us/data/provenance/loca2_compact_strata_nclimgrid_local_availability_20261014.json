@@ -1,0 +1,1601 @@
+{
+  "claim_gates": {
+    "SCC": false,
+    "causal_damage": false,
+    "historical_climate_sentinels": false,
+    "local_input_availability_audited": true,
+    "model_skill": false,
+    "observed_climate_features": false,
+    "outcome_response": false,
+    "representative_multi_county_validation": false
+  },
+  "config": {
+    "bytes": 3299,
+    "path": "loca2_us/config/loca2_us_compact_strata_expansion_v1.toml",
+    "sha256": "712e458eb2e5af13fbec89d57f4a248085b8b6a05e08ecbbd99ce0012142ff02"
+  },
+  "created_at_utc": "2026-10-14T13:39:49.578724+00:00",
+  "feature_build_gate": {
+    "existing_all_practice_builder_authorized_for_this_task": false,
+    "existing_builder_reason": "The existing national builder reads and emits outcome magnitudes; this task requires a dedicated outcome-free support adapter before construction.",
+    "next_when_transfer_complete": "Reacquire only the exact 84 manifest-bound objects, validate them against reviewed SHA-512 identities, then run a dedicated outcome-free three-county adapter sequentially by harvest year under 512 MiB.",
+    "open": false,
+    "require_all_84_objects_validated_before_any_year": true
+  },
+  "implementation": {
+    "path": "loca2_us/scripts/preflight_compact_strata_nclimgrid_features.py",
+    "sha256": "d63b0bd6ee06b043f364b620732f0d450c5af9779764cde9d895473ab4cf748e"
+  },
+  "local_availability": {
+    "invalid": [],
+    "invalid_object_count": 0,
+    "missing": [
+      {
+        "content_length": 59401310,
+        "name": "ncdd-200104-grd-scaled.nc",
+        "period": "2001-04"
+      },
+      {
+        "content_length": 58994376,
+        "name": "ncdd-200105-grd-scaled.nc",
+        "period": "2001-05"
+      },
+      {
+        "content_length": 56932504,
+        "name": "ncdd-200106-grd-scaled.nc",
+        "period": "2001-06"
+      },
+      {
+        "content_length": 58692862,
+        "name": "ncdd-200107-grd-scaled.nc",
+        "period": "2001-07"
+      },
+      {
+        "content_length": 57382287,
+        "name": "ncdd-200108-grd-scaled.nc",
+        "period": "2001-08"
+      },
+      {
+        "content_length": 55152654,
+        "name": "ncdd-200109-grd-scaled.nc",
+        "period": "2001-09"
+      },
+      {
+        "content_length": 58542423,
+        "name": "ncdd-200110-grd-scaled.nc",
+        "period": "2001-10"
+      },
+      {
+        "content_length": 58781614,
+        "name": "ncdd-200204-grd-scaled.nc",
+        "period": "2002-04"
+      },
+      {
+        "content_length": 59272605,
+        "name": "ncdd-200205-grd-scaled.nc",
+        "period": "2002-05"
+      },
+      {
+        "content_length": 56372353,
+        "name": "ncdd-200206-grd-scaled.nc",
+        "period": "2002-06"
+      },
+      {
+        "content_length": 57945564,
+        "name": "ncdd-200207-grd-scaled.nc",
+        "period": "2002-07"
+      },
+      {
+        "content_length": 57470455,
+        "name": "ncdd-200208-grd-scaled.nc",
+        "period": "2002-08"
+      },
+      {
+        "content_length": 56152213,
+        "name": "ncdd-200209-grd-scaled.nc",
+        "period": "2002-09"
+      },
+      {
+        "content_length": 60968202,
+        "name": "ncdd-200210-grd-scaled.nc",
+        "period": "2002-10"
+      },
+      {
+        "content_length": 59966251,
+        "name": "ncdd-200304-grd-scaled.nc",
+        "period": "2003-04"
+      },
+      {
+        "content_length": 60357860,
+        "name": "ncdd-200305-grd-scaled.nc",
+        "period": "2003-05"
+      },
+      {
+        "content_length": 57384630,
+        "name": "ncdd-200306-grd-scaled.nc",
+        "period": "2003-06"
+      },
+      {
+        "content_length": 57138700,
+        "name": "ncdd-200307-grd-scaled.nc",
+        "period": "2003-07"
+      },
+      {
+        "content_length": 58195686,
+        "name": "ncdd-200308-grd-scaled.nc",
+        "period": "2003-08"
+      },
+      {
+        "content_length": 56003664,
+        "name": "ncdd-200309-grd-scaled.nc",
+        "period": "2003-09"
+      },
+      {
+        "content_length": 58131232,
+        "name": "ncdd-200310-grd-scaled.nc",
+        "period": "2003-10"
+      },
+      {
+        "content_length": 59004211,
+        "name": "ncdd-200404-grd-scaled.nc",
+        "period": "2004-04"
+      },
+      {
+        "content_length": 60447488,
+        "name": "ncdd-200405-grd-scaled.nc",
+        "period": "2004-05"
+      },
+      {
+        "content_length": 57867102,
+        "name": "ncdd-200406-grd-scaled.nc",
+        "period": "2004-06"
+      },
+      {
+        "content_length": 58667202,
+        "name": "ncdd-200407-grd-scaled.nc",
+        "period": "2004-07"
+      },
+      {
+        "content_length": 58768998,
+        "name": "ncdd-200408-grd-scaled.nc",
+        "period": "2004-08"
+      },
+      {
+        "content_length": 56027170,
+        "name": "ncdd-200409-grd-scaled.nc",
+        "period": "2004-09"
+      },
+      {
+        "content_length": 61369416,
+        "name": "ncdd-200410-grd-scaled.nc",
+        "period": "2004-10"
+      },
+      {
+        "content_length": 59419332,
+        "name": "ncdd-200504-grd-scaled.nc",
+        "period": "2005-04"
+      },
+      {
+        "content_length": 60683068,
+        "name": "ncdd-200505-grd-scaled.nc",
+        "period": "2005-05"
+      },
+      {
+        "content_length": 58152015,
+        "name": "ncdd-200506-grd-scaled.nc",
+        "period": "2005-06"
+      },
+      {
+        "content_length": 57611994,
+        "name": "ncdd-200507-grd-scaled.nc",
+        "period": "2005-07"
+      },
+      {
+        "content_length": 58395357,
+        "name": "ncdd-200508-grd-scaled.nc",
+        "period": "2005-08"
+      },
+      {
+        "content_length": 55255144,
+        "name": "ncdd-200509-grd-scaled.nc",
+        "period": "2005-09"
+      },
+      {
+        "content_length": 59293052,
+        "name": "ncdd-200510-grd-scaled.nc",
+        "period": "2005-10"
+      },
+      {
+        "content_length": 58982091,
+        "name": "ncdd-200604-grd-scaled.nc",
+        "period": "2006-04"
+      },
+      {
+        "content_length": 59354970,
+        "name": "ncdd-200605-grd-scaled.nc",
+        "period": "2006-05"
+      },
+      {
+        "content_length": 56646630,
+        "name": "ncdd-200606-grd-scaled.nc",
+        "period": "2006-06"
+      },
+      {
+        "content_length": 57892479,
+        "name": "ncdd-200607-grd-scaled.nc",
+        "period": "2006-07"
+      },
+      {
+        "content_length": 58416911,
+        "name": "ncdd-200608-grd-scaled.nc",
+        "period": "2006-08"
+      },
+      {
+        "content_length": 56989032,
+        "name": "ncdd-200609-grd-scaled.nc",
+        "period": "2006-09"
+      },
+      {
+        "content_length": 60405736,
+        "name": "ncdd-200610-grd-scaled.nc",
+        "period": "2006-10"
+      },
+      {
+        "content_length": 59399159,
+        "name": "ncdd-200704-grd-scaled.nc",
+        "period": "2007-04"
+      },
+      {
+        "content_length": 59441210,
+        "name": "ncdd-200705-grd-scaled.nc",
+        "period": "2007-05"
+      },
+      {
+        "content_length": 56940442,
+        "name": "ncdd-200706-grd-scaled.nc",
+        "period": "2007-06"
+      },
+      {
+        "content_length": 58134351,
+        "name": "ncdd-200707-grd-scaled.nc",
+        "period": "2007-07"
+      },
+      {
+        "content_length": 57723312,
+        "name": "ncdd-200708-grd-scaled.nc",
+        "period": "2007-08"
+      },
+      {
+        "content_length": 56341689,
+        "name": "ncdd-200709-grd-scaled.nc",
+        "period": "2007-09"
+      },
+      {
+        "content_length": 59881800,
+        "name": "ncdd-200710-grd-scaled.nc",
+        "period": "2007-10"
+      },
+      {
+        "content_length": 59230807,
+        "name": "ncdd-200804-grd-scaled.nc",
+        "period": "2008-04"
+      },
+      {
+        "content_length": 60554853,
+        "name": "ncdd-200805-grd-scaled.nc",
+        "period": "2008-05"
+      },
+      {
+        "content_length": 57412064,
+        "name": "ncdd-200806-grd-scaled.nc",
+        "period": "2008-06"
+      },
+      {
+        "content_length": 57988308,
+        "name": "ncdd-200807-grd-scaled.nc",
+        "period": "2008-07"
+      },
+      {
+        "content_length": 57961349,
+        "name": "ncdd-200808-grd-scaled.nc",
+        "period": "2008-08"
+      },
+      {
+        "content_length": 55739163,
+        "name": "ncdd-200809-grd-scaled.nc",
+        "period": "2008-09"
+      },
+      {
+        "content_length": 59116405,
+        "name": "ncdd-200810-grd-scaled.nc",
+        "period": "2008-10"
+      },
+      {
+        "content_length": 59803676,
+        "name": "ncdd-200904-grd-scaled.nc",
+        "period": "2009-04"
+      },
+      {
+        "content_length": 60190554,
+        "name": "ncdd-200905-grd-scaled.nc",
+        "period": "2009-05"
+      },
+      {
+        "content_length": 58441317,
+        "name": "ncdd-200906-grd-scaled.nc",
+        "period": "2009-06"
+      },
+      {
+        "content_length": 58708865,
+        "name": "ncdd-200907-grd-scaled.nc",
+        "period": "2009-07"
+      },
+      {
+        "content_length": 58199435,
+        "name": "ncdd-200908-grd-scaled.nc",
+        "period": "2009-08"
+      },
+      {
+        "content_length": 55920661,
+        "name": "ncdd-200909-grd-scaled.nc",
+        "period": "2009-09"
+      },
+      {
+        "content_length": 62975646,
+        "name": "ncdd-200910-grd-scaled.nc",
+        "period": "2009-10"
+      },
+      {
+        "content_length": 59315784,
+        "name": "ncdd-201004-grd-scaled.nc",
+        "period": "2010-04"
+      },
+      {
+        "content_length": 61387037,
+        "name": "ncdd-201005-grd-scaled.nc",
+        "period": "2010-05"
+      },
+      {
+        "content_length": 58069845,
+        "name": "ncdd-201006-grd-scaled.nc",
+        "period": "2010-06"
+      },
+      {
+        "content_length": 58596200,
+        "name": "ncdd-201007-grd-scaled.nc",
+        "period": "2010-07"
+      },
+      {
+        "content_length": 58242157,
+        "name": "ncdd-201008-grd-scaled.nc",
+        "period": "2010-08"
+      },
+      {
+        "content_length": 56100902,
+        "name": "ncdd-201009-grd-scaled.nc",
+        "period": "2010-09"
+      },
+      {
+        "content_length": 59070958,
+        "name": "ncdd-201010-grd-scaled.nc",
+        "period": "2010-10"
+      },
+      {
+        "content_length": 61559146,
+        "name": "ncdd-201104-grd-scaled.nc",
+        "period": "2011-04"
+      },
+      {
+        "content_length": 62063696,
+        "name": "ncdd-201105-grd-scaled.nc",
+        "period": "2011-05"
+      },
+      {
+        "content_length": 57462865,
+        "name": "ncdd-201106-grd-scaled.nc",
+        "period": "2011-06"
+      },
+      {
+        "content_length": 58556165,
+        "name": "ncdd-201107-grd-scaled.nc",
+        "period": "2011-07"
+      },
+      {
+        "content_length": 57772282,
+        "name": "ncdd-201108-grd-scaled.nc",
+        "period": "2011-08"
+      },
+      {
+        "content_length": 56239577,
+        "name": "ncdd-201109-grd-scaled.nc",
+        "period": "2011-09"
+      },
+      {
+        "content_length": 59490494,
+        "name": "ncdd-201110-grd-scaled.nc",
+        "period": "2011-10"
+      },
+      {
+        "content_length": 58904142,
+        "name": "ncdd-201204-grd-scaled.nc",
+        "period": "2012-04"
+      },
+      {
+        "content_length": 59465814,
+        "name": "ncdd-201205-grd-scaled.nc",
+        "period": "2012-05"
+      },
+      {
+        "content_length": 56341025,
+        "name": "ncdd-201206-grd-scaled.nc",
+        "period": "2012-06"
+      },
+      {
+        "content_length": 58880654,
+        "name": "ncdd-201207-grd-scaled.nc",
+        "period": "2012-07"
+      },
+      {
+        "content_length": 57764764,
+        "name": "ncdd-201208-grd-scaled.nc",
+        "period": "2012-08"
+      },
+      {
+        "content_length": 55300045,
+        "name": "ncdd-201209-grd-scaled.nc",
+        "period": "2012-09"
+      },
+      {
+        "content_length": 60169955,
+        "name": "ncdd-201210-grd-scaled.nc",
+        "period": "2012-10"
+      }
+    ],
+    "missing_object_count": 84,
+    "partial": [],
+    "partial_object_count": 0,
+    "raw_weather_dir": "data/raw/us_county/nclimgrid_daily",
+    "valid": [],
+    "valid_object_count": 0
+  },
+  "network_operations_performed": false,
+  "preregistration": {
+    "path": "loca2_us/data/provenance/loca2_compact_strata_expansion_preregistration_20261013.json",
+    "sha256": "3602891822959fe09cb2d0a8e3927096ca3291cc29297409d4154b495424f953"
+  },
+  "raw_data_written_or_modified": false,
+  "reacquisition_authorized": false,
+  "reacquisition_deferred_until_spei_transfer_complete": true,
+  "required_bytes": 4909747416,
+  "required_gib": 4.572558604180813,
+  "required_object_count": 84,
+  "required_object_manifest_sha256": "78a070ea622bb22e1f0aa65d0c681abfc2fdc97a0088c59fba81152634490bce",
+  "required_objects": [
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2001/ncdd-200104-grd-scaled.nc",
+      "content_length": 59401310,
+      "content_type": "application/x-netcdf",
+      "etag": "\"38a645e-5e7fa54da82c0\"",
+      "expected_local_sha512": "cbc95076009b7e04d30649b7dcaa4729f8f0a5df7892078e48a0cfba9698dfa1f6d6bc19badf7b7a6a8e55fd4fb1a58828b077dadf271e13ae2a4e16818b2ea8",
+      "last_modified": "Tue, 06 Sep 2022 04:07:15 GMT",
+      "name": "ncdd-200104-grd-scaled.nc",
+      "period": "2001-04"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2001/ncdd-200105-grd-scaled.nc",
+      "content_length": 58994376,
+      "content_type": "application/x-netcdf",
+      "etag": "\"3842ec8-5e7fa668e5f00\"",
+      "expected_local_sha512": "2b6831c752ebbf605161caa73eddc02eedd798aa4c0958de02687150e6f1ec051eaf29044daec3ed9f9af7f991d21e698ace5cece5497b74757326797a9ae5fc",
+      "last_modified": "Tue, 06 Sep 2022 04:12:12 GMT",
+      "name": "ncdd-200105-grd-scaled.nc",
+      "period": "2001-05"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2001/ncdd-200106-grd-scaled.nc",
+      "content_length": 56932504,
+      "content_type": "application/x-netcdf",
+      "etag": "\"364b898-5e7fa79271d00\"",
+      "expected_local_sha512": "ad68700c22c05f183c0ea71a45835fb5a9f24990a036b70f576163e05d6a2424c53b653a74efefa9f2a049883fb9f6759d1fa48b93ab0bd25393ac36e772bdc3",
+      "last_modified": "Tue, 06 Sep 2022 04:17:24 GMT",
+      "name": "ncdd-200106-grd-scaled.nc",
+      "period": "2001-06"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2001/ncdd-200107-grd-scaled.nc",
+      "content_length": 58692862,
+      "content_type": "application/x-netcdf",
+      "etag": "\"37f94fe-5e7fa8bbfdb00\"",
+      "expected_local_sha512": "1e96503b152fe34db3ba9b82741f94ddb3b70e280d42e344bfe90f91f0330750b50169bf750651db8707faf965e21745dd303d857cd4385b83a5df0aa9aa36f9",
+      "last_modified": "Tue, 06 Sep 2022 04:22:36 GMT",
+      "name": "ncdd-200107-grd-scaled.nc",
+      "period": "2001-07"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2001/ncdd-200108-grd-scaled.nc",
+      "content_length": 57382287,
+      "content_type": "application/x-netcdf",
+      "etag": "\"36b958f-5e7fa9ed2ab00\"",
+      "expected_local_sha512": "1f6a91b6aab67ca5b0a35ba8161cf176e83ddbd53e0e7cb3f00c2c6894555dd21c65cb1eb7f1a565feba0bd1dd2af15920cd503a74d92186c75509cbb4c648d0",
+      "last_modified": "Tue, 06 Sep 2022 04:27:56 GMT",
+      "name": "ncdd-200108-grd-scaled.nc",
+      "period": "2001-08"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2001/ncdd-200109-grd-scaled.nc",
+      "content_length": 55152654,
+      "content_type": "application/x-netcdf",
+      "etag": "\"349900e-5e7fab0868740\"",
+      "expected_local_sha512": "eb419e0504f41725291a67826c1ddee55a94d252724bcf57c2a877d2170ad4cb0671dd483235512478fbfaa7717db2f04b4a398df46af1b979f813edff98a295",
+      "last_modified": "Tue, 06 Sep 2022 04:32:53 GMT",
+      "name": "ncdd-200109-grd-scaled.nc",
+      "period": "2001-09"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2001/ncdd-200110-grd-scaled.nc",
+      "content_length": 58542423,
+      "content_type": "application/x-netcdf",
+      "etag": "\"37d4957-5e7fac1ee1840\"",
+      "expected_local_sha512": "b8a66af452204f7303c0780387d99b6ab9ac796f763db13b047881b87d22d70337ad10740f76fe45147fdd329a9c85a5a7a3175ecce14a1980f6002e0e01e20d",
+      "last_modified": "Tue, 06 Sep 2022 04:37:45 GMT",
+      "name": "ncdd-200110-grd-scaled.nc",
+      "period": "2001-10"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2002/ncdd-200204-grd-scaled.nc",
+      "content_length": 58781614,
+      "content_type": "application/x-netcdf",
+      "etag": "\"380efae-5e80207cce380\"",
+      "expected_local_sha512": "9652aab4243cd480d27262b4fcef7d314ff627695ef890f3b2aa77afa93adb5c8ceca939c22d96aea4b3a67581b6bf762690ff3d76a0dde3e93ce8e65867abbb",
+      "last_modified": "Tue, 06 Sep 2022 13:18:22 GMT",
+      "name": "ncdd-200204-grd-scaled.nc",
+      "period": "2002-04"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2002/ncdd-200205-grd-scaled.nc",
+      "content_length": 59272605,
+      "content_type": "application/x-netcdf",
+      "etag": "\"3886d9d-5e80219dc4d40\"",
+      "expected_local_sha512": "04d6bb1a8ae2592dd30ca3c2f1fabb018189582b5251195a292f0b69f67c73cf495e0677d4f2c771c57ff9a86b134e89d49ef8e2871179c2ad7e96ea7b89e37b",
+      "last_modified": "Tue, 06 Sep 2022 13:23:25 GMT",
+      "name": "ncdd-200205-grd-scaled.nc",
+      "period": "2002-05"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2002/ncdd-200206-grd-scaled.nc",
+      "content_length": 56372353,
+      "content_type": "application/x-netcdf",
+      "etag": "\"35c2c81-5e8022d59ed00\"",
+      "expected_local_sha512": "e9da1f61079c0179ab7c01afc69034a14d4359cffb9c0f88112121f0e17ddc7bfb6268d4d5d8c8898902c51740609a01c2732741b683b3df36aedebf5008d5df",
+      "last_modified": "Tue, 06 Sep 2022 13:28:52 GMT",
+      "name": "ncdd-200206-grd-scaled.nc",
+      "period": "2002-06"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2002/ncdd-200207-grd-scaled.nc",
+      "content_length": 57945564,
+      "content_type": "application/x-netcdf",
+      "etag": "\"3742ddc-5e8024001ed40\"",
+      "expected_local_sha512": "c28722839e54ddd0245f796f6eb9c65e4e65e60611496cf946bbd1ea15ed4bad7be8e8a586ee2b536ac2346edc71967eb0600591536337b4d2b5553b861c4204",
+      "last_modified": "Tue, 06 Sep 2022 13:34:05 GMT",
+      "name": "ncdd-200207-grd-scaled.nc",
+      "period": "2002-07"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2002/ncdd-200208-grd-scaled.nc",
+      "content_length": 57470455,
+      "content_type": "application/x-netcdf",
+      "etag": "\"36cedf7-5e8025408e140\"",
+      "expected_local_sha512": "80dae428e25b7094dbee19db501159a2f888f71cae26a3c2794d875ee475f1a16e3de563a736cfc0f26e47ca272875e389aff891c0734700527ddd2cf0350c85",
+      "last_modified": "Tue, 06 Sep 2022 13:39:41 GMT",
+      "name": "ncdd-200208-grd-scaled.nc",
+      "period": "2002-08"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2002/ncdd-200209-grd-scaled.nc",
+      "content_length": 56152213,
+      "content_type": "application/x-netcdf",
+      "etag": "\"358d095-5e80266edea80\"",
+      "expected_local_sha512": "e0bc43e04274200a9ec5aa1ad4ee5298e02ecb67d4902fcc38277322f134ebbc139da3a8ddaa8d490e8fb9f3bc7f5a0e9e4d4f6295f542d2de2937e3a8a89735",
+      "last_modified": "Tue, 06 Sep 2022 13:44:58 GMT",
+      "name": "ncdd-200209-grd-scaled.nc",
+      "period": "2002-09"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2002/ncdd-200210-grd-scaled.nc",
+      "content_length": 60968202,
+      "content_type": "application/x-netcdf",
+      "etag": "\"3a24d0a-5e80278557b80\"",
+      "expected_local_sha512": "5799aee169c5bba5877fbaa4e9137a421ef0252a5f99187f6a48722c7fdf28d49b33022cc242ab87412216b2402f3ea9e49f729571e5da86db8d94fc33c8c09b",
+      "last_modified": "Tue, 06 Sep 2022 13:49:50 GMT",
+      "name": "ncdd-200210-grd-scaled.nc",
+      "period": "2002-10"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2003/ncdd-200304-grd-scaled.nc",
+      "content_length": 59966251,
+      "content_type": "application/x-netcdf",
+      "etag": "\"393032b-5e803529b2b00\"",
+      "expected_local_sha512": "00c80a07fe574de05af59043a0214536fa577ee01c8315283336360f472b25ddd974dd1ac6b58826f822cacddd44eccbc9f67666ff45b4946ab91f14635a5833",
+      "last_modified": "Tue, 06 Sep 2022 14:50:52 GMT",
+      "name": "ncdd-200304-grd-scaled.nc",
+      "period": "2003-04"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2003/ncdd-200305-grd-scaled.nc",
+      "content_length": 60357860,
+      "content_type": "application/x-netcdf",
+      "etag": "\"398fce4-5e80365526d80\"",
+      "expected_local_sha512": "253dc1c5cfa664a38f69c16f3eb326d95c850aa731fb543badcc3852cd8213066d9b668d999aa15edc4a294e7ad982b02dd7b932fe42f02e7f64a39a62097eb1",
+      "last_modified": "Tue, 06 Sep 2022 14:56:06 GMT",
+      "name": "ncdd-200305-grd-scaled.nc",
+      "period": "2003-05"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2003/ncdd-200306-grd-scaled.nc",
+      "content_length": 57384630,
+      "content_type": "application/x-netcdf",
+      "etag": "\"36b9eb6-5e80377805bc0\"",
+      "expected_local_sha512": "7fe64c71c757772c9d170be200998b4173473b10d083ca32d4fb351a46e220d48d7ac75501fdcd1de5fd743e8f200f779828763b5060d824fabe33fbef48b9d0",
+      "last_modified": "Tue, 06 Sep 2022 15:01:11 GMT",
+      "name": "ncdd-200306-grd-scaled.nc",
+      "period": "2003-06"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2003/ncdd-200307-grd-scaled.nc",
+      "content_length": 57138700,
+      "content_type": "application/x-netcdf",
+      "etag": "\"367de0c-5e80389437a40\"",
+      "expected_local_sha512": "51a0d246230f4cbcf4d10004da5b933c0715f7cf8b2f0f1a8ab369e1c96ce9a9a4b2cc194ffd3e3183ce330cdf53fed59bdb3db87aebe154e53628b8c8e6843b",
+      "last_modified": "Tue, 06 Sep 2022 15:06:09 GMT",
+      "name": "ncdd-200307-grd-scaled.nc",
+      "period": "2003-07"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2003/ncdd-200308-grd-scaled.nc",
+      "content_length": 58195686,
+      "content_type": "application/x-netcdf",
+      "etag": "\"377fee6-5e8039c658c80\"",
+      "expected_local_sha512": "a3ad6970dda636619ec48442eb88738c699fc5dd79baaa60f9a9ab65487ac2e44464195c53fdee2762bc137a592a6adb3c8b5cbcf629a2f90da4334f20b10804",
+      "last_modified": "Tue, 06 Sep 2022 15:11:30 GMT",
+      "name": "ncdd-200308-grd-scaled.nc",
+      "period": "2003-08"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2003/ncdd-200309-grd-scaled.nc",
+      "content_length": 56003664,
+      "content_type": "application/x-netcdf",
+      "etag": "\"3568c50-5e803ae28ab00\"",
+      "expected_local_sha512": "fb9751eb28b2a22aff40e7221f38e6e96de33d1011bce7347bab6721c6296ab7c8cee8addaceabe5f0db89756de796cc8eeb2e367fd0b94c916282e5bce6650e",
+      "last_modified": "Tue, 06 Sep 2022 15:16:28 GMT",
+      "name": "ncdd-200309-grd-scaled.nc",
+      "period": "2003-09"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2003/ncdd-200310-grd-scaled.nc",
+      "content_length": 58131232,
+      "content_type": "application/x-netcdf",
+      "etag": "\"3770320-5e803c03814c0\"",
+      "expected_local_sha512": "4b53164d48f58173eebfe26a317960c25df60a670b07038f3dd0cf9cffac430d4c676d9bb770e4213fced248c24e3f8fc43c05a5bf46e3555c67c26378e2b3a1",
+      "last_modified": "Tue, 06 Sep 2022 15:21:31 GMT",
+      "name": "ncdd-200310-grd-scaled.nc",
+      "period": "2003-10"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2004/ncdd-200404-grd-scaled.nc",
+      "content_length": 59004211,
+      "content_type": "application/x-netcdf",
+      "etag": "\"3845533-5e8049bfb3c80\"",
+      "expected_local_sha512": "2e3266341611fdc21f6d507f6bc8aa8e14cf1133680f3664e4fb902d66107c2f6fa6181a81ac1a2a84aa6099d47853688b3f2aabce5b1690c168ea5edd312554",
+      "last_modified": "Tue, 06 Sep 2022 16:22:58 GMT",
+      "name": "ncdd-200404-grd-scaled.nc",
+      "period": "2004-04"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2004/ncdd-200405-grd-scaled.nc",
+      "content_length": 60447488,
+      "content_type": "application/x-netcdf",
+      "etag": "\"39a5b00-5e804af5a57c0\"",
+      "expected_local_sha512": "6e6efc0d5eb7bd943536134a7e33c80784763b6eed0f7426b089f340da102cd101d8377d80db2d928cb63a6e6a38d69ebaf4e803eceb140f402997805a7d5671",
+      "last_modified": "Tue, 06 Sep 2022 16:28:23 GMT",
+      "name": "ncdd-200405-grd-scaled.nc",
+      "period": "2004-05"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2004/ncdd-200406-grd-scaled.nc",
+      "content_length": 57867102,
+      "content_type": "application/x-netcdf",
+      "etag": "\"372fb5e-5e804c28bac40\"",
+      "expected_local_sha512": "b714d2579a6beca0bac2a9c9bd7a53525f4dc6ea4864621b1a3c928b81bd8e7998fcfcfb2ad2c376bf1c616e1dc567bed4f797162b140fe981616cf4859fbcd6",
+      "last_modified": "Tue, 06 Sep 2022 16:33:45 GMT",
+      "name": "ncdd-200406-grd-scaled.nc",
+      "period": "2004-06"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2004/ncdd-200407-grd-scaled.nc",
+      "content_length": 58667202,
+      "content_type": "application/x-netcdf",
+      "etag": "\"37f30c2-5e804d6741bc0\"",
+      "expected_local_sha512": "d9add993f49d2f00366580c79487f4c5f2b23cfc5fc1402ba55114be36fd5bdb38926ed369edd29e2412db7ad80042d9df87ea2c1df34af33746e794014b1816",
+      "last_modified": "Tue, 06 Sep 2022 16:39:19 GMT",
+      "name": "ncdd-200407-grd-scaled.nc",
+      "period": "2004-07"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2004/ncdd-200408-grd-scaled.nc",
+      "content_length": 58768998,
+      "content_type": "application/x-netcdf",
+      "etag": "\"380be66-5e804ea6bcd80\"",
+      "expected_local_sha512": "49f39e11ae48203d2c80fb4b109dfea5f072ce92930c874000ff49b52f7f78541bcd648985d2c4800f5dd940f2333aad3cfa6efe718f61ccd20df9e119488fa1",
+      "last_modified": "Tue, 06 Sep 2022 16:44:54 GMT",
+      "name": "ncdd-200408-grd-scaled.nc",
+      "period": "2004-08"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2004/ncdd-200409-grd-scaled.nc",
+      "content_length": 56027170,
+      "content_type": "application/x-netcdf",
+      "etag": "\"356e822-5e804fe637f40\"",
+      "expected_local_sha512": "562a36da00d90cf46d7678084943d34f54f003996301b8b250008c4da768ae50255b73fe53b1401174ee2b2c67421aa812f984b6f7e87ae7aaec6a9e1df5ec6b",
+      "last_modified": "Tue, 06 Sep 2022 16:50:29 GMT",
+      "name": "ncdd-200409-grd-scaled.nc",
+      "period": "2004-09"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2004/ncdd-200410-grd-scaled.nc",
+      "content_length": 61369416,
+      "content_type": "application/x-netcdf",
+      "etag": "\"3a86c48-5e80511c29a80\"",
+      "expected_local_sha512": "a750392e45a7b94cf8bd83f96d04a7331ddc238cc6eb596f08c5cc8cef0f37aaf4a4ad905bbb0fdd760e96ebc3fa75068f2ccba4b126ec44c4a9a3f03c007acf",
+      "last_modified": "Tue, 06 Sep 2022 16:55:54 GMT",
+      "name": "ncdd-200410-grd-scaled.nc",
+      "period": "2004-10"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2005/ncdd-200504-grd-scaled.nc",
+      "content_length": 59419332,
+      "content_type": "application/x-netcdf",
+      "etag": "\"38aaac4-5e805f1eee8c0\"",
+      "expected_local_sha512": "954531ba4bcf25f7b32ebcaff8c2c4ce2ef4de25880447c14da7fdd34e16442ddb714059243818e03023869d175e65b12553f3e09666d455c79e1759c55206f7",
+      "last_modified": "Tue, 06 Sep 2022 17:58:35 GMT",
+      "name": "ncdd-200504-grd-scaled.nc",
+      "period": "2005-04"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2005/ncdd-200505-grd-scaled.nc",
+      "content_length": 60683068,
+      "content_type": "application/x-netcdf",
+      "etag": "\"39df33c-5e8060459e000\"",
+      "expected_local_sha512": "92d27262d2c82fb71a24ad29d0b7fa848494537f8af90cbcc6754eab0f2d6fc037fe43277d869a3c2412e19bbf3b197a85325cfc67891d3da960388a0718b3ac",
+      "last_modified": "Tue, 06 Sep 2022 18:03:44 GMT",
+      "name": "ncdd-200505-grd-scaled.nc",
+      "period": "2005-05"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2005/ncdd-200506-grd-scaled.nc",
+      "content_length": 58152015,
+      "content_type": "application/x-netcdf",
+      "etag": "\"377544f-5e806181488c0\"",
+      "expected_local_sha512": "2c846c024a586262e2a7200328166e4edfd550580eea63d2cc73b2f60fa0218e83e4ad83ff18688afbdb8478c9b307135d2903e9d59d97442069f81af51cfe32",
+      "last_modified": "Tue, 06 Sep 2022 18:09:15 GMT",
+      "name": "ncdd-200506-grd-scaled.nc",
+      "period": "2005-06"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2005/ncdd-200507-grd-scaled.nc",
+      "content_length": 57611994,
+      "content_type": "application/x-netcdf",
+      "etag": "\"36f16da-5e8062a9e0480\"",
+      "expected_local_sha512": "02d21e5497530cb8f302f0b065c065736e975336841bea391ded103e961da702c6f3b3289da8bc21a22ab03d3580a8b667bc9f68d814b1070846d97b9ad3b988",
+      "last_modified": "Tue, 06 Sep 2022 18:14:26 GMT",
+      "name": "ncdd-200507-grd-scaled.nc",
+      "period": "2005-07"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2005/ncdd-200508-grd-scaled.nc",
+      "content_length": 58395357,
+      "content_type": "application/x-netcdf",
+      "etag": "\"37b0add-5e8063f7a9800\"",
+      "expected_local_sha512": "0a83792c9037e274ce04d1c5e25217a11b898240d56a03040b0edf45c56a1a05387241cdb1c951e1eeaa85ba95b80f2ea03d194905962919242b76f57f38a37b",
+      "last_modified": "Tue, 06 Sep 2022 18:20:16 GMT",
+      "name": "ncdd-200508-grd-scaled.nc",
+      "period": "2005-08"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2005/ncdd-200509-grd-scaled.nc",
+      "content_length": 55255144,
+      "content_type": "application/x-netcdf",
+      "etag": "\"34b2068-5e80653be9500\"",
+      "expected_local_sha512": "9acb9b0021aa71992b58160b4f7a658e94aaf79336ad0ad0f5dabb04070d49129292ddd71e94989fa02d27dea5ab830602a724baaa21d1018f73d963e253f6fa",
+      "last_modified": "Tue, 06 Sep 2022 18:25:56 GMT",
+      "name": "ncdd-200509-grd-scaled.nc",
+      "period": "2005-09"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2005/ncdd-200510-grd-scaled.nc",
+      "content_length": 59293052,
+      "content_type": "application/x-netcdf",
+      "etag": "\"388bd7c-5e80665727140\"",
+      "expected_local_sha512": "958f340186a43d024bb7ba66cabb6b7c877af8196fe17aa62d5093937bb62655d392c2d7e4cfff33ccaaf132118a048f99b8edc0dc3bee31cb333ebff9cbccfb",
+      "last_modified": "Tue, 06 Sep 2022 18:30:53 GMT",
+      "name": "ncdd-200510-grd-scaled.nc",
+      "period": "2005-10"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2006/ncdd-200604-grd-scaled.nc",
+      "content_length": 58982091,
+      "content_type": "application/x-netcdf",
+      "etag": "\"383fecb-5e80d34e205c0\"",
+      "expected_local_sha512": "594d64d80cc74eb08302499677f8fd91cbfe3f953613a61a8c816400d985c83e53a6fe0c6ad7e3ce26d168bf941592fd1eb14ed657f63f54ecec3f3702b249d8",
+      "last_modified": "Wed, 07 Sep 2022 02:38:23 GMT",
+      "name": "ncdd-200604-grd-scaled.nc",
+      "period": "2006-04"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2006/ncdd-200605-grd-scaled.nc",
+      "content_length": 59354970,
+      "content_type": "application/x-netcdf",
+      "etag": "\"389af5a-5e80d47c70f00\"",
+      "expected_local_sha512": "0d045f3944cc50c03cd8fc1d39c0bbf646121de17d317c36f6b64b3921db209621b8e9b85bf524a5d6c10306d6add27bbb5db8e75f25b5a2c761e05c0e23c67b",
+      "last_modified": "Wed, 07 Sep 2022 02:43:40 GMT",
+      "name": "ncdd-200605-grd-scaled.nc",
+      "period": "2006-05"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2006/ncdd-200606-grd-scaled.nc",
+      "content_length": 56646630,
+      "content_type": "application/x-netcdf",
+      "etag": "\"3605be6-5e80d5a320640\"",
+      "expected_local_sha512": "38bf180bd30c0d031aef13b41a7c786b67d90e91e6ffc48878ca7cadc21e47e822cf32e2644d19ac9797e34caf7139068130fdb82bad1ff9def549247de09d06",
+      "last_modified": "Wed, 07 Sep 2022 02:48:49 GMT",
+      "name": "ncdd-200606-grd-scaled.nc",
+      "period": "2006-06"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2006/ncdd-200607-grd-scaled.nc",
+      "content_length": 57892479,
+      "content_type": "application/x-netcdf",
+      "etag": "\"3735e7f-5e80d6b999740\"",
+      "expected_local_sha512": "2c232dc883abb35c7915d56076cd4a758e6cf4b564feffe5b07b581f4868d4818157e6d9ed1560ca6402d92dd2190c238043ec17231f77d11b039866be0785a7",
+      "last_modified": "Wed, 07 Sep 2022 02:53:41 GMT",
+      "name": "ncdd-200607-grd-scaled.nc",
+      "period": "2006-07"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2006/ncdd-200608-grd-scaled.nc",
+      "content_length": 58416911,
+      "content_type": "application/x-netcdf",
+      "etag": "\"37b5f0f-5e80d7e13d0c0\"",
+      "expected_local_sha512": "14f9fab4222fe43a84a9ba6b6ddce4454493486219133d7eb074ddb0a7a3dac5013ffd2bc99f37e94c649fe24cfd28a726de5f88f1fb3c901ec87cdb6162294e",
+      "last_modified": "Wed, 07 Sep 2022 02:58:51 GMT",
+      "name": "ncdd-200608-grd-scaled.nc",
+      "period": "2006-08"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2006/ncdd-200609-grd-scaled.nc",
+      "content_length": 56989032,
+      "content_type": "application/x-netcdf",
+      "etag": "\"3659568-5e80d908e0a40\"",
+      "expected_local_sha512": "6c070295ecb363f948ded1798006c03e4eb5c9ba31cc0c6b1cf55f3f5166f74aa48c9f68c1b85a7f7bfe19f5dd23be444b038930f1d0046183932a18077f6ab8",
+      "last_modified": "Wed, 07 Sep 2022 03:04:01 GMT",
+      "name": "ncdd-200609-grd-scaled.nc",
+      "period": "2006-09"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2006/ncdd-200610-grd-scaled.nc",
+      "content_length": 60405736,
+      "content_type": "application/x-netcdf",
+      "etag": "\"399b7e8-5e80da3454cc0\"",
+      "expected_local_sha512": "8f020289a3e8526b4b9b36c2506853c1108a6840c1ab265f00bdda8c4da2637265847ecd055afc3c6d2e0fc15c520b94b8ad08dc4ad7b14a3f212e12adb6a028",
+      "last_modified": "Wed, 07 Sep 2022 03:09:15 GMT",
+      "name": "ncdd-200610-grd-scaled.nc",
+      "period": "2006-10"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2007/ncdd-200704-grd-scaled.nc",
+      "content_length": 59399159,
+      "content_type": "application/x-netcdf",
+      "etag": "\"38a5bf7-5e80e8b5f0640\"",
+      "expected_local_sha512": "5826734155c48623c5d062e91ae312dfb53bf23eef69b08e455865e77b85f8d2d43f84752434b1f0f854d8f8caedabf0620c490996b61f507775011ef70e2c97",
+      "last_modified": "Wed, 07 Sep 2022 04:14:09 GMT",
+      "name": "ncdd-200704-grd-scaled.nc",
+      "period": "2007-04"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2007/ncdd-200705-grd-scaled.nc",
+      "content_length": 59441210,
+      "content_type": "application/x-netcdf",
+      "etag": "\"38b003a-5e80e9cb75500\"",
+      "expected_local_sha512": "192453771fe86823fd242fb8dcd12a6cf282636d406196cc93001b0a9ea0f416eeecc2e1a06b3365eadf73193e89a10370313edd2ffe4560d44f56922c9497e2",
+      "last_modified": "Wed, 07 Sep 2022 04:19:00 GMT",
+      "name": "ncdd-200705-grd-scaled.nc",
+      "period": "2007-05"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2007/ncdd-200706-grd-scaled.nc",
+      "content_length": 56940442,
+      "content_type": "application/x-netcdf",
+      "etag": "\"364d79a-5e80eaf7dd9c0\"",
+      "expected_local_sha512": "bc98f87121be20267b681544edd01ad87350b9bff03ba9acad614e5c6e4dda5c0ba3dafce91e7c2fd34bffe58c79c63031d9eef9d9f0229f41846cade633aba4",
+      "last_modified": "Wed, 07 Sep 2022 04:24:15 GMT",
+      "name": "ncdd-200706-grd-scaled.nc",
+      "period": "2007-06"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2007/ncdd-200707-grd-scaled.nc",
+      "content_length": 58134351,
+      "content_type": "application/x-netcdf",
+      "etag": "\"3770f4f-5e80ec1133180\"",
+      "expected_local_sha512": "a74836ad42f2d318df502297958f9ee07383408d8ff49d3577eb6a727a690d474ef713b6e40347054e28f1a633eb4eba80375069908c5e8e45e9c2cef4720304",
+      "last_modified": "Wed, 07 Sep 2022 04:29:10 GMT",
+      "name": "ncdd-200707-grd-scaled.nc",
+      "period": "2007-07"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2007/ncdd-200708-grd-scaled.nc",
+      "content_length": 57723312,
+      "content_type": "application/x-netcdf",
+      "etag": "\"370c9b0-5e80ed36ee680\"",
+      "expected_local_sha512": "702e51f7b69624df59ecb02e2e34058d2596b29c1784a1752cc7cd8f8d5281c67377d4dd04e857c9a03ce6fdcbf8fb5bbbce38eea868fbcd0c69c8cab5792eba",
+      "last_modified": "Wed, 07 Sep 2022 04:34:18 GMT",
+      "name": "ncdd-200708-grd-scaled.nc",
+      "period": "2007-08"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2007/ncdd-200709-grd-scaled.nc",
+      "content_length": 56341689,
+      "content_type": "application/x-netcdf",
+      "etag": "\"35bb4b9-5e80ee5320500\"",
+      "expected_local_sha512": "4df2e9fc066751b4205f4890b46d1ffd56b454ebac3a07175fa5724379e7eec6d2f9e41e0da7860d9af8d102d06a6f844ac1a9026ca29ec51bccb7fb56a4a8d0",
+      "last_modified": "Wed, 07 Sep 2022 04:39:16 GMT",
+      "name": "ncdd-200709-grd-scaled.nc",
+      "period": "2007-09"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2007/ncdd-200710-grd-scaled.nc",
+      "content_length": 59881800,
+      "content_type": "application/x-netcdf",
+      "etag": "\"391b948-5e80ef7416ec0\"",
+      "expected_local_sha512": "7c8dbf31a3de05fd53bb3fc99808d1200e4f02e5d7e8c2f133a923b00004166b626412dc81f03708e9b72529e1b1e301732b18f2017493ad74e56f0f60aad270",
+      "last_modified": "Wed, 07 Sep 2022 04:44:19 GMT",
+      "name": "ncdd-200710-grd-scaled.nc",
+      "period": "2007-10"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2008/ncdd-200804-grd-scaled.nc",
+      "content_length": 59230807,
+      "content_type": "application/x-netcdf",
+      "etag": "\"387ca57-5e8af1d6a9b80\"",
+      "expected_local_sha512": "d57b886008d932a6ce8b56884f2fbae8471db0b299dcbe1305c4da39f25b6c500b74bedc99ba379fc8ecc56d82717d99d5ab46984258649a72d54f28b99c8dc0",
+      "last_modified": "Thu, 15 Sep 2022 03:48:14 GMT",
+      "name": "ncdd-200804-grd-scaled.nc",
+      "period": "2008-04"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2008/ncdd-200805-grd-scaled.nc",
+      "content_length": 60554853,
+      "content_type": "application/x-netcdf",
+      "etag": "\"39bfe65-5e8af2bc7f9c0\"",
+      "expected_local_sha512": "07ad7474372a787d308d4261aa7818d2abfb25cc0102a3c68ab5f3bc989bec03c6a854bedf391a2b4fbd245925c38e759989374c0e85eb87e30920c82e0874ff",
+      "last_modified": "Thu, 15 Sep 2022 03:52:15 GMT",
+      "name": "ncdd-200805-grd-scaled.nc",
+      "period": "2008-05"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2008/ncdd-200806-grd-scaled.nc",
+      "content_length": 57412064,
+      "content_type": "application/x-netcdf",
+      "etag": "\"36c09e0-5e8af3a255800\"",
+      "expected_local_sha512": "621936c9441fd0efc7a2e8547d2df9ccf07a5102146c6bc260947febd602b753d659eed904e0d2c8b990aea2a7ffd54afea05784dcedfe059385238111bf4cc8",
+      "last_modified": "Thu, 15 Sep 2022 03:56:16 GMT",
+      "name": "ncdd-200806-grd-scaled.nc",
+      "period": "2008-06"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2008/ncdd-200807-grd-scaled.nc",
+      "content_length": 57988308,
+      "content_type": "application/x-netcdf",
+      "etag": "\"374d4d4-5e8af4845ad40\"",
+      "expected_local_sha512": "b89df05dbf2c42e7a2f1b38d8e68900da392af1bf23678ceed5ff9907de41f515235aeb65aff8fffae58c6e2ef9607aef83fac6f92f60dbdad677b883dbd1628",
+      "last_modified": "Thu, 15 Sep 2022 04:00:13 GMT",
+      "name": "ncdd-200807-grd-scaled.nc",
+      "period": "2008-07"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2008/ncdd-200808-grd-scaled.nc",
+      "content_length": 57961349,
+      "content_type": "application/x-netcdf",
+      "etag": "\"3746b85-5e8af576968c0\"",
+      "expected_local_sha512": "c2d8b6fbcadf330a1fc4265a683a643f3907a46f68fcb130890954104dffca8f151026158dfbb671aef7ff0fe4698213292f5a2fc463698b4aea28af4b2ac2bb",
+      "last_modified": "Thu, 15 Sep 2022 04:04:27 GMT",
+      "name": "ncdd-200808-grd-scaled.nc",
+      "period": "2008-08"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2008/ncdd-200809-grd-scaled.nc",
+      "content_length": 55739163,
+      "content_type": "application/x-netcdf",
+      "etag": "\"352831b-5e8af67538180\"",
+      "expected_local_sha512": "25951381da7680b631d694ae429144e385c9faacc10a2fb787616cadb80a263c6596ea726a4bb3560a2f3d6b73bce45a0f584dfbec9c1e050b08aa72ea23dd3f",
+      "last_modified": "Thu, 15 Sep 2022 04:08:54 GMT",
+      "name": "ncdd-200809-grd-scaled.nc",
+      "period": "2008-09"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2008/ncdd-200810-grd-scaled.nc",
+      "content_length": 59116405,
+      "content_type": "application/x-netcdf",
+      "etag": "\"3860b75-5e8af75cf6440\"",
+      "expected_local_sha512": "e9f07710fac51685163f42cb058ad17430e1b1dd6c0cf2b96853f092793db06415d37ef36b5bd707c33676853c949b26e0394c85c2f580562bc63667cdf512ed",
+      "last_modified": "Thu, 15 Sep 2022 04:12:57 GMT",
+      "name": "ncdd-200810-grd-scaled.nc",
+      "period": "2008-10"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2009/ncdd-200904-grd-scaled.nc",
+      "content_length": 59803676,
+      "content_type": "application/x-netcdf",
+      "etag": "\"390881c-5e8114fc5bb80\"",
+      "expected_local_sha512": "9d4ef7b166f7fc925a173292dbef8126720a8e0ce6cd6e4035c245ded8c445aa5fdae32b5272bb2776bc04f865c6534d0beae97a5b22fcbdd1d95d55ffe4854b",
+      "last_modified": "Wed, 07 Sep 2022 07:32:14 GMT",
+      "name": "ncdd-200904-grd-scaled.nc",
+      "period": "2009-04"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2009/ncdd-200905-grd-scaled.nc",
+      "content_length": 60190554,
+      "content_type": "application/x-netcdf",
+      "etag": "\"3966f5a-5e81164d015c0\"",
+      "expected_local_sha512": "ab50ac19842165fad969de13cde8fc76bc273665463fe2a5a49cb8aef58bca401637454dd253bff3d0f3a652e72c5413d2c72df91e70be373cc2fb26f364bae4",
+      "last_modified": "Wed, 07 Sep 2022 07:38:07 GMT",
+      "name": "ncdd-200905-grd-scaled.nc",
+      "period": "2009-05"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2009/ncdd-200906-grd-scaled.nc",
+      "content_length": 58441317,
+      "content_type": "application/x-netcdf",
+      "etag": "\"37bbe65-5e8117aed1880\"",
+      "expected_local_sha512": "e5a1a8ade19de2982a228f407aaba9e81a2725f8f20ecd6432b7ca3118d16d51b1efda82ab208d15856f770eb6758ae201dfaf01df7498291435938c6202c721",
+      "last_modified": "Wed, 07 Sep 2022 07:44:18 GMT",
+      "name": "ncdd-200906-grd-scaled.nc",
+      "period": "2009-06"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2009/ncdd-200907-grd-scaled.nc",
+      "content_length": 58708865,
+      "content_type": "application/x-netcdf",
+      "etag": "\"37fd381-5e8118db39d40\"",
+      "expected_local_sha512": "6b9acaa905a3c9a6b136a1185844f7128d185f9cdd0ae3eb75fe70aa0e6e278d778612c167daa77a136a8ca0c9ff92da374837b56569678c5bfe2ed927cea044",
+      "last_modified": "Wed, 07 Sep 2022 07:49:33 GMT",
+      "name": "ncdd-200907-grd-scaled.nc",
+      "period": "2009-07"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2009/ncdd-200908-grd-scaled.nc",
+      "content_length": 58199435,
+      "content_type": "application/x-netcdf",
+      "etag": "\"3780d8b-5e811a0f43400\"",
+      "expected_local_sha512": "be7579f0e09eec210e40014e79c2d22a47122d7f09ac3b4324a769e689cb31b3d14290a5f05fbe0a47f295ea4409893aa20f3f5b3db81236de533787ed1b9a33",
+      "last_modified": "Wed, 07 Sep 2022 07:54:56 GMT",
+      "name": "ncdd-200908-grd-scaled.nc",
+      "period": "2009-08"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2009/ncdd-200909-grd-scaled.nc",
+      "content_length": 55920661,
+      "content_type": "application/x-netcdf",
+      "etag": "\"3554815-5e811b5b24300\"",
+      "expected_local_sha512": "7d37136ac3bea8223b7fce60d5f26b28c638eb6b64caee33e4515e8af4027d3b9ea3a5ada3d618e85a9f9154c09ace4aac6fa30ef0f1718d285b19f5b8116f5a",
+      "last_modified": "Wed, 07 Sep 2022 08:00:44 GMT",
+      "name": "ncdd-200909-grd-scaled.nc",
+      "period": "2009-09"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2009/ncdd-200910-grd-scaled.nc",
+      "content_length": 62975646,
+      "content_type": "application/x-netcdf",
+      "etag": "\"3c0ee9e-5e811c878c7c0\"",
+      "expected_local_sha512": "c7b89546e3d3c5a1078eda7d831af38bf79f7f59203cc67a6d147987f6e6445dff4737e672378b7ecd339d5a80247916b323bf6442dce2bd4ee59b3c8e170b55",
+      "last_modified": "Wed, 07 Sep 2022 08:05:59 GMT",
+      "name": "ncdd-200910-grd-scaled.nc",
+      "period": "2009-10"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2010/ncdd-201004-grd-scaled.nc",
+      "content_length": 59315784,
+      "content_type": "application/x-netcdf",
+      "etag": "\"3891648-5e81de65b6c00\"",
+      "expected_local_sha512": "73b3cdeabb7b161e34c3e33b8edf3a996c1cd1a106993d67d0438522e378d9759ae32a98642442421c331874bb0ef60ed4bb3f8296c4e6b5c26e81ff4392079c",
+      "last_modified": "Wed, 07 Sep 2022 22:33:20 GMT",
+      "name": "ncdd-201004-grd-scaled.nc",
+      "period": "2010-04"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2010/ncdd-201005-grd-scaled.nc",
+      "content_length": 61387037,
+      "content_type": "application/x-netcdf",
+      "etag": "\"3a8b11d-5e81df8f42a00\"",
+      "expected_local_sha512": "f0debb9718b5624b1b820832b5da3542c569af160fc9643647ad071b94c7749b815abc7293753cdc771b685a276f62dcf6ed73ca63d2250fac281b6f38558a03",
+      "last_modified": "Wed, 07 Sep 2022 22:38:32 GMT",
+      "name": "ncdd-201005-grd-scaled.nc",
+      "period": "2010-05"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2010/ncdd-201006-grd-scaled.nc",
+      "content_length": 58069845,
+      "content_type": "application/x-netcdf",
+      "etag": "\"3761355-5e81e0b8ce800\"",
+      "expected_local_sha512": "8bce1e1218bf965d9ebb5e7327bd7698e4c01322ab0b71b14b8893e10312c6c987cf4b8ccd52c412f9b74f5e63300a65347f87034e52feed9a04ef5edbe7ec97",
+      "last_modified": "Wed, 07 Sep 2022 22:43:44 GMT",
+      "name": "ncdd-201006-grd-scaled.nc",
+      "period": "2010-06"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2010/ncdd-201007-grd-scaled.nc",
+      "content_length": 58596200,
+      "content_type": "application/x-netcdf",
+      "etag": "\"37e1b68-5e81e1d8d0f80\"",
+      "expected_local_sha512": "8bfbcca5e265f818a5b0f47e15f75966bec6ccc276ae5b3f5163f6e57958fbb0a20931cfb293eaae2429dc0ac0ea05d13d51ccebc61c9ecf71390240a37e22a7",
+      "last_modified": "Wed, 07 Sep 2022 22:48:46 GMT",
+      "name": "ncdd-201007-grd-scaled.nc",
+      "period": "2010-07"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2010/ncdd-201008-grd-scaled.nc",
+      "content_length": 58242157,
+      "content_type": "application/x-netcdf",
+      "etag": "\"378b46d-5e81e30445200\"",
+      "expected_local_sha512": "cd7ee5b5c4bfe3a12411565019d6c1ffedeab9135838f5939742304ac97a80e0b93493ba0099747a33b8acd5ff3e023a91e80ba5b0c5265fd52416a3308134f5",
+      "last_modified": "Wed, 07 Sep 2022 22:54:00 GMT",
+      "name": "ncdd-201008-grd-scaled.nc",
+      "period": "2010-08"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2010/ncdd-201009-grd-scaled.nc",
+      "content_length": 56100902,
+      "content_type": "application/x-netcdf",
+      "etag": "\"3580826-5e81e431a1900\"",
+      "expected_local_sha512": "0358c92d782cbf14c8b99ce812b34551abcd33fe8c70e1c0d9296d22e473c9135ec7710780c0dade97aab603540cdb300d7116cfdcada4976110b9e889ade2d6",
+      "last_modified": "Wed, 07 Sep 2022 22:59:16 GMT",
+      "name": "ncdd-201009-grd-scaled.nc",
+      "period": "2010-09"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2010/ncdd-201010-grd-scaled.nc",
+      "content_length": 59070958,
+      "content_type": "application/x-netcdf",
+      "etag": "\"38559ee-5e81e54cdf540\"",
+      "expected_local_sha512": "0957acb0a45280e94647919425c360566e2891f082b26171225813a1037ff171c7b5c780a86e080819b6881e6f3cecbd2201a6e9b290f91c57c9da82f3469f82",
+      "last_modified": "Wed, 07 Sep 2022 23:04:13 GMT",
+      "name": "ncdd-201010-grd-scaled.nc",
+      "period": "2010-10"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2011/ncdd-201104-grd-scaled.nc",
+      "content_length": 61559146,
+      "content_type": "application/x-netcdf",
+      "etag": "\"3ab516a-5e81f3e281e00\"",
+      "expected_local_sha512": "8fff85fbdb41561b61f693ccded0cb0140b6c68ad5a66190f64810449eba318149aaa31f528bfd5bb4189b1372926eaf3782c99f66ec078ed2366d2b160a72de",
+      "last_modified": "Thu, 08 Sep 2022 00:09:28 GMT",
+      "name": "ncdd-201104-grd-scaled.nc",
+      "period": "2011-04"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2011/ncdd-201105-grd-scaled.nc",
+      "content_length": 62063696,
+      "content_type": "application/x-netcdf",
+      "etag": "\"3b30450-5e81f4fbd75c0\"",
+      "expected_local_sha512": "120133ebb4055dd9506af0a54119170bb9769a404bc45127341420bf9927da814d0474925b22ca080d38ec1cf2e790fc5dcd0baef6b9bcbc6f7b319a2c3baa37",
+      "last_modified": "Thu, 08 Sep 2022 00:14:23 GMT",
+      "name": "ncdd-201105-grd-scaled.nc",
+      "period": "2011-05"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2011/ncdd-201106-grd-scaled.nc",
+      "content_length": 57462865,
+      "content_type": "application/x-netcdf",
+      "etag": "\"36cd051-5e81f62a27f00\"",
+      "expected_local_sha512": "4bf0b6c91104c27ded59850d40175ab2a57c244d073ceba4aeb95e2babb8a85a9dcb02b07c214b19c6b2e57c94800435e96764de91a4ce0bdcd53073336249f6",
+      "last_modified": "Thu, 08 Sep 2022 00:19:40 GMT",
+      "name": "ncdd-201106-grd-scaled.nc",
+      "period": "2011-06"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2011/ncdd-201107-grd-scaled.nc",
+      "content_length": 58556165,
+      "content_type": "application/x-netcdf",
+      "etag": "\"37d7f05-5e81f76a97300\"",
+      "expected_local_sha512": "5fda93cc13ad550f05ea2592a14a57bcb164ef92d73c7c026829648cfb20d1496e75e3c93e400296d2bc641e0d044d6b494e64f253dfca5c6adaabd40da076ae",
+      "last_modified": "Thu, 08 Sep 2022 00:25:16 GMT",
+      "name": "ncdd-201107-grd-scaled.nc",
+      "period": "2011-07"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2011/ncdd-201108-grd-scaled.nc",
+      "content_length": 57772282,
+      "content_type": "application/x-netcdf",
+      "etag": "\"37188fa-5e81f899dbe80\"",
+      "expected_local_sha512": "2fb2d56f69c827b2f8b721ee7e87a144a9147a485988daf076618e0382fa00a4e8ea47c4869b77e06f3511c66082b4c5031d2b6ec08e6721ef10ad4bb01974ca",
+      "last_modified": "Thu, 08 Sep 2022 00:30:34 GMT",
+      "name": "ncdd-201108-grd-scaled.nc",
+      "period": "2011-08"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2011/ncdd-201109-grd-scaled.nc",
+      "content_length": 56239577,
+      "content_type": "application/x-netcdf",
+      "etag": "\"35a25d9-5e81f9cfcd9c0\"",
+      "expected_local_sha512": "6b0926a4ec0cd7d52f0a962c7ad96ce64d8fb4449fe86731679b3c965342835d72f4db0a6486afe0fa08e1d58c76bb9bd954f17745bef4e8d5513cc6fa108c35",
+      "last_modified": "Thu, 08 Sep 2022 00:35:59 GMT",
+      "name": "ncdd-201109-grd-scaled.nc",
+      "period": "2011-09"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2011/ncdd-201110-grd-scaled.nc",
+      "content_length": 59490494,
+      "content_type": "application/x-netcdf",
+      "etag": "\"38bc0be-5e81faf865580\"",
+      "expected_local_sha512": "44516fd868121421a2be10120b778e7718c1d88d7b2e38916c89efc2b4ce67ae886141ab1935065333bb8053986c67d4c7db4ac32465a43391175b5d1dc1f833",
+      "last_modified": "Thu, 08 Sep 2022 00:41:10 GMT",
+      "name": "ncdd-201110-grd-scaled.nc",
+      "period": "2011-10"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2012/ncdd-201204-grd-scaled.nc",
+      "content_length": 58904142,
+      "content_type": "application/x-netcdf",
+      "etag": "\"382ce4e-5e820ac6d6040\"",
+      "expected_local_sha512": "6ce494d4af5aa700fc6a4d0ecd7375adb3155d6525ab975cd458fd9255e1fffa208a94a6eaa5de088ca541b9eda3021e4743d24df54dd8a8ea05f68492c387e8",
+      "last_modified": "Thu, 08 Sep 2022 01:51:53 GMT",
+      "name": "ncdd-201204-grd-scaled.nc",
+      "period": "2012-04"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2012/ncdd-201205-grd-scaled.nc",
+      "content_length": 59465814,
+      "content_type": "application/x-netcdf",
+      "etag": "\"38b6056-5e820ba13a380\"",
+      "expected_local_sha512": "06b86730f4d26bcdcb24fa9589fb315d199736ccca7b3f7ba6314a94c6409ae6b9b99b6de2dacd68d8dd9801bbae57364ffef7da4441aaec03108ecd1fb8b998",
+      "last_modified": "Thu, 08 Sep 2022 01:55:42 GMT",
+      "name": "ncdd-201205-grd-scaled.nc",
+      "period": "2012-05"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2012/ncdd-201206-grd-scaled.nc",
+      "content_length": 56341025,
+      "content_type": "application/x-netcdf",
+      "etag": "\"35bb221-5e820c6e44740\"",
+      "expected_local_sha512": "011b5dbb6bfb4165118316c21214a2b84a29b951836a1737dd97dd1a042980f8a8d204c11f7a2efedd69ca9ec78a3e177e17c430c204cd61cc4337358872ba1d",
+      "last_modified": "Thu, 08 Sep 2022 01:59:17 GMT",
+      "name": "ncdd-201206-grd-scaled.nc",
+      "period": "2012-06"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2012/ncdd-201207-grd-scaled.nc",
+      "content_length": 58880654,
+      "content_type": "application/x-netcdf",
+      "etag": "\"382728e-5e820d45cc3c0\"",
+      "expected_local_sha512": "16c82353a54ab6e511e2134e1c44f4f9be5496457deb4ab5332fd2d3a2691b471b37c624cf985e11287628544adec392f682a92ba7d3d864692feca9660c05cd",
+      "last_modified": "Thu, 08 Sep 2022 02:03:03 GMT",
+      "name": "ncdd-201207-grd-scaled.nc",
+      "period": "2012-07"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2012/ncdd-201208-grd-scaled.nc",
+      "content_length": 57764764,
+      "content_type": "application/x-netcdf",
+      "etag": "\"3716b9c-5e820e4d030c0\"",
+      "expected_local_sha512": "9f732f916c1d2f943be0470be11a83df492d3f4b0104002a425b24aa144a465c97a7bc3090b4e511120422c536c4bf27ffb686ba3a7f911f89a575004033bc51",
+      "last_modified": "Thu, 08 Sep 2022 02:07:39 GMT",
+      "name": "ncdd-201208-grd-scaled.nc",
+      "period": "2012-08"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2012/ncdd-201209-grd-scaled.nc",
+      "content_length": 55300045,
+      "content_type": "application/x-netcdf",
+      "etag": "\"34bcfcd-5e820f59f2b40\"",
+      "expected_local_sha512": "d97e64470be2a6bf9654d4e9b509ea896144aea92f81dff502b319609a43ef5e05e4857cd9713ec13e1ebf9d05d7b528f2041f6bf7f8a24273805393abb17175",
+      "last_modified": "Thu, 08 Sep 2022 02:12:21 GMT",
+      "name": "ncdd-201209-grd-scaled.nc",
+      "period": "2012-09"
+    },
+    {
+      "canonical_url": "https://www.ncei.noaa.gov/data/nclimgrid-daily/access/grids/2012/ncdd-201210-grd-scaled.nc",
+      "content_length": 60169955,
+      "content_type": "application/x-netcdf",
+      "etag": "\"3961ee3-5e82106129840\"",
+      "expected_local_sha512": "637bb6983414a43c85b6c2a809d4b9c091545bacf7a266d958db39ad834139f8d95da532ec3dc56524938f8807a4a5d8044a09088b56bca2e8167a054541ab4a",
+      "last_modified": "Thu, 08 Sep 2022 02:16:57 GMT",
+      "name": "ncdd-201210-grd-scaled.nc",
+      "period": "2012-10"
+    }
+  ],
+  "resources": {
+    "memory_cap_bytes": 536870912,
+    "memory_gate_passed": true,
+    "peak_rss_bytes": 24723456
+  },
+  "schema": "loca2_us_compact_strata_nclimgrid_local_availability/v1",
+  "season_months_by_county": {
+    "06095": [
+      "2001-05",
+      "2001-06",
+      "2001-07",
+      "2001-08",
+      "2001-09",
+      "2001-10",
+      "2002-05",
+      "2002-06",
+      "2002-07",
+      "2002-08",
+      "2002-09",
+      "2002-10",
+      "2003-05",
+      "2003-06",
+      "2003-07",
+      "2003-08",
+      "2003-09",
+      "2003-10",
+      "2004-05",
+      "2004-06",
+      "2004-07",
+      "2004-08",
+      "2004-09",
+      "2004-10",
+      "2005-05",
+      "2005-06",
+      "2005-07",
+      "2005-08",
+      "2005-09",
+      "2005-10",
+      "2006-05",
+      "2006-06",
+      "2006-07",
+      "2006-08",
+      "2006-09",
+      "2006-10",
+      "2007-05",
+      "2007-06",
+      "2007-07",
+      "2007-08",
+      "2007-09",
+      "2007-10",
+      "2008-05",
+      "2008-06",
+      "2008-07",
+      "2008-08",
+      "2008-09",
+      "2008-10",
+      "2009-05",
+      "2009-06",
+      "2009-07",
+      "2009-08",
+      "2009-09",
+      "2009-10",
+      "2010-05",
+      "2010-06",
+      "2010-07",
+      "2010-08",
+      "2010-09",
+      "2010-10",
+      "2011-05",
+      "2011-06",
+      "2011-07",
+      "2011-08",
+      "2011-09",
+      "2011-10",
+      "2012-05",
+      "2012-06",
+      "2012-07",
+      "2012-08",
+      "2012-09",
+      "2012-10"
+    ],
+    "13131": [
+      "2001-04",
+      "2001-05",
+      "2001-06",
+      "2001-07",
+      "2001-08",
+      "2001-09",
+      "2002-04",
+      "2002-05",
+      "2002-06",
+      "2002-07",
+      "2002-08",
+      "2002-09",
+      "2003-04",
+      "2003-05",
+      "2003-06",
+      "2003-07",
+      "2003-08",
+      "2003-09",
+      "2004-04",
+      "2004-05",
+      "2004-06",
+      "2004-07",
+      "2004-08",
+      "2004-09",
+      "2005-04",
+      "2005-05",
+      "2005-06",
+      "2005-07",
+      "2005-08",
+      "2005-09",
+      "2006-04",
+      "2006-05",
+      "2006-06",
+      "2006-07",
+      "2006-08",
+      "2006-09",
+      "2007-04",
+      "2007-05",
+      "2007-06",
+      "2007-07",
+      "2007-08",
+      "2007-09",
+      "2008-04",
+      "2008-05",
+      "2008-06",
+      "2008-07",
+      "2008-08",
+      "2008-09",
+      "2009-04",
+      "2009-05",
+      "2009-06",
+      "2009-07",
+      "2009-08",
+      "2009-09",
+      "2010-04",
+      "2010-05",
+      "2010-06",
+      "2010-07",
+      "2010-08",
+      "2010-09",
+      "2011-04",
+      "2011-05",
+      "2011-06",
+      "2011-07",
+      "2011-08",
+      "2011-09",
+      "2012-04",
+      "2012-05",
+      "2012-06",
+      "2012-07",
+      "2012-08",
+      "2012-09"
+    ],
+    "18145": [
+      "2001-05",
+      "2001-06",
+      "2001-07",
+      "2001-08",
+      "2001-09",
+      "2001-10",
+      "2002-05",
+      "2002-06",
+      "2002-07",
+      "2002-08",
+      "2002-09",
+      "2002-10",
+      "2003-05",
+      "2003-06",
+      "2003-07",
+      "2003-08",
+      "2003-09",
+      "2003-10",
+      "2004-05",
+      "2004-06",
+      "2004-07",
+      "2004-08",
+      "2004-09",
+      "2004-10",
+      "2005-05",
+      "2005-06",
+      "2005-07",
+      "2005-08",
+      "2005-09",
+      "2005-10",
+      "2006-05",
+      "2006-06",
+      "2006-07",
+      "2006-08",
+      "2006-09",
+      "2006-10",
+      "2007-05",
+      "2007-06",
+      "2007-07",
+      "2007-08",
+      "2007-09",
+      "2007-10",
+      "2008-05",
+      "2008-06",
+      "2008-07",
+      "2008-08",
+      "2008-09",
+      "2008-10",
+      "2009-05",
+      "2009-06",
+      "2009-07",
+      "2009-08",
+      "2009-09",
+      "2009-10",
+      "2010-05",
+      "2010-06",
+      "2010-07",
+      "2010-08",
+      "2010-09",
+      "2010-10",
+      "2011-05",
+      "2011-06",
+      "2011-07",
+      "2011-08",
+      "2011-09",
+      "2011-10",
+      "2012-05",
+      "2012-06",
+      "2012-07",
+      "2012-08",
+      "2012-09",
+      "2012-10"
+    ]
+  },
+  "selected_counties": [
+    "06095",
+    "13131",
+    "18145"
+  ],
+  "selected_weight_bindings": {
+    "06095": {
+      "coverage_fraction": 1.0000000000000004,
+      "output_path": "data/interim/us_county/nclimgrid_polygon_weights_national_all_practice_v1/county_geoid=06095/weights.parquet",
+      "output_sha256": "bb3de54e183303c507afeacdbe829fb1d429ec7581eff6e8e22a27f31fa9f762",
+      "positive_weather_cells": 168,
+      "receipt_path": "data/interim/us_county/nclimgrid_polygon_weights_national_all_practice_v1/county_geoid=06095/receipt.json",
+      "receipt_sha256": "34fce268bab1b3902f7a8ae60b5f867a8239bed0fc3b2896ed22d9765245b687",
+      "weather_valid_area_relative_to_declared_land": 1.0793805977220272
+    },
+    "13131": {
+      "coverage_fraction": 1.0,
+      "output_path": "data/interim/us_county/nclimgrid_polygon_weights_national_all_practice_v1/county_geoid=13131/weights.parquet",
+      "output_sha256": "4c4cf0fc940c26fb10c6eb41a6ce5ff72b12601eafea43fd83fcaaaf46dcc483",
+      "positive_weather_cells": 87,
+      "receipt_path": "data/interim/us_county/nclimgrid_polygon_weights_national_all_practice_v1/county_geoid=13131/receipt.json",
+      "receipt_sha256": "f36a3d58138b58b37998f95ea42165582fd8cc86d2262bb27c8e1dbbe155a8ea",
+      "weather_valid_area_relative_to_declared_land": 1.0126788493751502
+    },
+    "18145": {
+      "coverage_fraction": 1.0000000000000007,
+      "output_path": "data/interim/us_county/nclimgrid_polygon_weights_national_all_practice_v1/county_geoid=18145/weights.parquet",
+      "output_sha256": "d367e69086112ed0a1b53e3245d59fcffd1ff6bb84863bd16a37fb2015aba449",
+      "positive_weather_cells": 72,
+      "receipt_path": "data/interim/us_county/nclimgrid_polygon_weights_national_all_practice_v1/county_geoid=18145/receipt.json",
+      "receipt_sha256": "34ff8ad0698e86fdc5fe6ee86256e7d7cc11dbbec7b41651fd0db522c589e689",
+      "weather_valid_area_relative_to_declared_land": 1.0039352225661031
+    }
+  },
+  "source_bindings": {
+    "content_receipt": {
+      "bytes": 333635,
+      "path": "data/provenance/nclimgrid_daily_1981_2019_content_receipt.json",
+      "sha256": "a45a78d23f1553c80eb6c50bdae9c1ef28e2fec3aa5b55fe114e213b20cf02e9"
+    },
+    "eviction_receipt": {
+      "bytes": 2007,
+      "path": "data/provenance/nclimgrid_gridded_raw_eviction_20260921.json",
+      "sha256": "2c280c98ac48e56627f1de1ecffe71ada05db2c43c5569ef8ef940a84f44c290"
+    },
+    "inventory": {
+      "bytes": 100346,
+      "path": "data/provenance/nclimgrid_daily_1981_2019_http_inventory.csv",
+      "sha256": "c0873d80656788abe9beeab42be633436b31f8e2f3eb0629a19ca0a7ce71098a"
+    }
+  },
+  "status": "blocked_missing_resident_gridded_weather",
+  "substitution_gate": {
+    "reason": "County-average daily series bypass the selected hash-bound grid-cell weights and change the order of nonlinear CDD/Rx1day/Rx5day construction relative to the registered cell-first basis.",
+    "resident_noaa_county_average_csvs_authorized": false
+  }
+}
