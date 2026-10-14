@@ -21,6 +21,9 @@ are not mutually additive unless explicitly stated.
 | Wildfire CO2 feedback | Separate wildfire-carbon project | Separate paper and codebase | External until final interface is reviewed | Import only its reviewed marginal-damage output; never modify its files here |
 | Coral reef residual services | Bastien-Olvera et al. (2026) Blue-SCC public-release audit | Published external coral non-market-use benchmark: $2.46/tCO2; bundles eight services | External, non-additive; recreation/tourism is not released separately, CES share-scaling is unsupported, country rows do not reconcile to the global result, and fisheries/nonuse/coastal overlaps remain | Obtain service-disaggregated recreation/tourism welfare paths and additive country-year baseline/pulse artifacts; exclude provisioning, nonuse, and coastal protection |
 | Municipal water systems | Dolan et al. (2021) GCAM, MimiFUND v3.13.0, and CLIMADA/GloFAS fast-route audit | No promoted SCC; 0 of 3 candidates pass all seven transfer gates | Documented external gap: GCAM combines six water-demand sectors and lacks a marginal-pulse path; FUND water is aggregate rather than municipal; GloFAS is a fluvial physical comparator without annual welfare | Request licensed GCAM curves, municipal-only CS+PS decomposition, annual matched pulse paths, and a conserving basin-to-GIVE map; do not allocate mixed water surplus by shares |
+| Heat-driven road and rail infrastructure | EPA FrEDI v4.1.1; Kopits et al. (2025) Tables A.1-A.3 | No promoted SCC | Newly named authoritative-scope gap; pinned public CONUS response functions are marginal-path compatible, but no local reproduction or global transfer is validated | Reproduce annual road-repair, road-user, rail-replacement, and rail-delay endpoints separately; exclude flood/coastal endpoints and audit time-delay overlap with labor |
+| Electricity supply and grid infrastructure | EPA FrEDI v4.1.1 | No promoted SCC | Newly named authoritative-scope gap; generation/capacity and transmission/distribution are distinct from GIVE building demand, but component additivity and global transfer are unvalidated | Reproduce supply and grid endpoints only; exclude building heating/cooling expenditure and reconcile repair, capacity, efficiency, and interruption costs |
+| Climate-sensitive infectious disease and selected morbidity | EPA FrEDI v4.1.1; Kopits et al. (2025) Tables A.1-A.3 | No promoted SCC | Newly named authoritative-scope gap; selected CONUS endpoints are public, but the global category is incomplete and mortality overlap is unresolved | Reproduce Valley fever and vibriosis mortality/morbidity separately; keep suicide closed under FrEDI's explicit double-count warning and do not extrapolate outside CONUS |
 
 ## Authorized integration order
 
@@ -49,6 +52,21 @@ are not mutually additive unless explicitly stated.
 7. Screen the remaining RFF-identified omissions, prioritizing biodiversity,
    inland extreme-weather/flood damages, coral reefs, and other ocean services.
    Only reproducible, overlap-cleared pathways enter a combined SCC.
+
+## Authoritative missing-scope reconciliation
+
+The bounded 14 October 2026 reconciliation against the RFF-led GIVE paper,
+EPA's 2023 scope table, and the EPA NCEE GIVE/DSCIM/FrEDI crosswalk found real
+registry gaps. The three fastest screenable sector candidates are now named
+above. Other still-untracked or only partially tracked categories are
+displacement and migration outside coastal CIAM, human capital, livestock,
+forestry and timber, broader tourism/recreation/aesthetics, other provisioning,
+regulating and cultural ecosystem services, crime, conflict/national security,
+and trade/logistics/supply-chain spillovers. Large-scale Earth-system feedbacks
+beyond the separate wildfire-carbon project are a cross-module gap rather than
+a damage sector. See
+[the source-specific audit](RFF_GIVE_MISSING_SCOPE_AUDIT_20261014.md) and its
+[machine-readable crosswalk](data/provenance/rff_give_missing_scope_audit_20261014.json).
 
 ## Non-negotiable combination rule
 

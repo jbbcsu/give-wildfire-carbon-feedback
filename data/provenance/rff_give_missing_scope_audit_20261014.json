@@ -1,0 +1,102 @@
+{
+  "schema_version": "1.0.0",
+  "status_date": "2026-10-14",
+  "audit_type": "authoritative_scope_crosswalk_and_fast_route_ranking",
+  "claim_limits": {
+    "scc_estimate_created": false,
+    "component_promoted": false,
+    "coefficients_transferred": false,
+    "global_extrapolation_performed": false,
+    "ranking_is_qualitative": true
+  },
+  "authoritative_sources": [
+    {
+      "id": "rennert_et_al_2022_give",
+      "title": "Comprehensive evidence implies a higher social cost of CO2",
+      "url": "https://doi.org/10.1038/s41586-022-05224-9",
+      "scope_role": "RFF-led GIVE source; identifies biodiversity, labour productivity, conflict, and migration as examples of omitted categories"
+    },
+    {
+      "id": "epa_scghg_2023",
+      "title": "Report on the Social Cost of Greenhouse Gases: Estimates Incorporating Recent Scientific Advances",
+      "url": "https://www.epa.gov/system/files/documents/2023-12/epa_scghg_2023_report_final.pdf",
+      "scope_role": "Official comprehensive scope taxonomy in Table 3.2.1"
+    },
+    {
+      "id": "kopits_et_al_2025_ncee",
+      "title": "Economic Damages from Climate Change to U.S. Populations: Integrating Evidence from Recent Studies",
+      "url": "https://media.rff.org/documents/NCEE-economic-damages-climate-change-jan2025.pdf",
+      "scope_role": "EPA NCEE working paper hosted by RFF; Tables A.1-A.3 crosswalk GIVE/DSCIM and FrEDI v4.1"
+    },
+    {
+      "id": "usepa_fredi_v4_1_1",
+      "title": "Framework for Evaluating Damages and Impacts v4.1.1",
+      "url": "https://github.com/USEPA/FrEDI/releases/tag/v4.1.1",
+      "repository": "https://github.com/USEPA/FrEDI",
+      "tag_commit": "08ead1b64821acd0ff0ee95fdf662a1a73f242e1",
+      "license": "MIT-style license plus EPA disclaimer in FrEDI/LICENSE",
+      "geographic_scope": "CONUS",
+      "scope_role": "Pinned public implementation for the three ranked screen candidates"
+    }
+  ],
+  "crosswalk": [
+    {"authoritative_category": "heat_and_cold_mortality", "umbrella_status": "tracked", "registry_pathways": ["Temperature mortality"]},
+    {"authoritative_category": "extreme_event_mortality_and_morbidity", "umbrella_status": "partial", "registry_pathways": ["Wildfire smoke PM2.5 mortality", "Inland riverine/pluvial flooding", "Coastal flooding"]},
+    {"authoritative_category": "air_pollutant_mortality_and_morbidity", "umbrella_status": "tracked_partial", "registry_pathways": ["Surface ozone health", "Non-wildfire meteorological PM2.5 health", "Wildfire smoke PM2.5 mortality"]},
+    {"authoritative_category": "infectious_disease_and_other_morbidity", "umbrella_status": "newly_named_gap", "registry_pathways": ["Climate-sensitive infectious disease and selected morbidity"]},
+    {"authoritative_category": "displacement_and_migration", "umbrella_status": "untracked_outside_coastal_ciam", "registry_pathways": ["Coastal flooding"]},
+    {"authoritative_category": "labor_supply_and_productivity", "umbrella_status": "tracked_partial", "registry_pathways": ["Labor productivity"]},
+    {"authoritative_category": "human_capital", "umbrella_status": "untracked", "registry_pathways": []},
+    {"authoritative_category": "energy_consumption", "umbrella_status": "tracked", "registry_pathways": ["Building energy"]},
+    {"authoritative_category": "energy_production_and_provision", "umbrella_status": "newly_named_gap", "registry_pathways": ["Electricity supply and grid infrastructure"]},
+    {"authoritative_category": "municipal_water_consumption_safe_supply_storage_distribution", "umbrella_status": "tracked_gap", "registry_pathways": ["Municipal water systems"]},
+    {"authoritative_category": "coastal_land_and_sea_level_rise_infrastructure", "umbrella_status": "tracked_partial", "registry_pathways": ["Coastal flooding", "Coral reef residual services"]},
+    {"authoritative_category": "inland_extreme_weather_infrastructure", "umbrella_status": "tracked_partial", "registry_pathways": ["Inland riverine/pluvial flooding", "Heat-driven road and rail infrastructure"]},
+    {"authoritative_category": "large_scale_earth_system_feedbacks", "umbrella_status": "untracked_beyond_wildfire_carbon", "registry_pathways": ["Wildfire CO2 feedback"]},
+    {"authoritative_category": "crop_agriculture", "umbrella_status": "tracked", "registry_pathways": ["Agriculture, total", "Agriculture, precipitation quantity/timing", "Agriculture, drought/timing/extremes"]},
+    {"authoritative_category": "animal_and_livestock_health_and_productivity", "umbrella_status": "untracked", "registry_pathways": []},
+    {"authoritative_category": "fisheries_and_aquaculture", "umbrella_status": "tracked_gap", "registry_pathways": ["Fisheries market + nutrition"]},
+    {"authoritative_category": "forestry_timber_pulp_paper", "umbrella_status": "untracked", "registry_pathways": []},
+    {"authoritative_category": "tourism_recreation_aesthetics", "umbrella_status": "partial_coral_only", "registry_pathways": ["Coral reef residual services"]},
+    {"authoritative_category": "ecosystem_services", "umbrella_status": "tracked_partial", "registry_pathways": ["Biodiversity nonuse", "Coral reef residual services"]},
+    {"authoritative_category": "crime", "umbrella_status": "untracked", "registry_pathways": []},
+    {"authoritative_category": "national_security_and_conflict", "umbrella_status": "untracked", "registry_pathways": []},
+    {"authoritative_category": "trade_logistics_and_supply_chains", "umbrella_status": "untracked", "registry_pathways": []}
+  ],
+  "ranked_fast_routes": [
+    {
+      "rank": 1,
+      "candidate": "heat_driven_road_and_rail_infrastructure",
+      "expected_materiality": "high_relative_to_screened_conus_omissions",
+      "public_reproducibility": "high_conus_fredi_v4_1_1",
+      "marginal_pulse_compatibility": "high_matched_temperature_paths",
+      "overlap_risk": "medium",
+      "promotion_status": "closed"
+    },
+    {
+      "rank": 2,
+      "candidate": "electricity_production_provision_and_grid",
+      "expected_materiality": "medium",
+      "public_reproducibility": "high_conus_fredi_v4_1_1",
+      "marginal_pulse_compatibility": "high_temperature_mediated_endpoints",
+      "overlap_risk": "medium_high_building_energy_boundary",
+      "promotion_status": "closed"
+    },
+    {
+      "rank": 3,
+      "candidate": "climate_sensitive_infectious_disease_and_selected_morbidity",
+      "expected_materiality": "unresolved_globally",
+      "public_reproducibility": "high_for_selected_conus_fredi_endpoints",
+      "marginal_pulse_compatibility": "high_for_fredi_temperature_response_endpoints",
+      "overlap_risk": "medium_high_mortality_and_morbidity_boundaries",
+      "promotion_status": "closed"
+    }
+  ],
+  "nonranked_high_materiality_pathway": {
+    "name": "permafrost_and_amazon_carbon_feedbacks",
+    "reason_not_ranked_as_sector": "climate_module_feedback_not_damage_sector",
+    "public_implementation_status": "paper_describes_rff_code_but_no_pinned_licensed_public_implementation_located_in_this_audit",
+    "next_gate": "request_exact_code_data_license_and_joint_uncertainty_artifacts",
+    "overlap_boundaries": ["exclude_direct_biodiversity_and_ecosystem_service_loss", "exclude_permafrost_infrastructure_damage", "keep_separate_from_wildfire_carbon"]
+  }
+}
