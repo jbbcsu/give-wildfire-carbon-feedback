@@ -1,7 +1,7 @@
 {
   "schema": "us_spei_bridge_extension_provenance_v1",
-  "reference_date": "2026-10-13",
-  "status": "historical_11_cells_validated_first_of_15_future_cases_validated",
+  "reference_date": "2026-10-14",
+  "status": "historical_11_cells_validated_two_of_15_future_cases_validated",
   "role": "climate_only_support_extension_no_county_panel_or_outcome_fit",
   "cell_inventory": {
     "path": "config/us_spei_bridge_missing_cells_v1.csv",
@@ -52,8 +52,8 @@
     "execution_rule": "one case at a time; validate before evicting its two extrema objects"
   },
   "future_progress": {
-    "validated_cases": 1,
-    "remaining_cases": 14,
+    "validated_cases": 2,
+    "remaining_cases": 13,
     "first_case": {
       "esm": "gfdl-esm4",
       "scenario": "ssp126",
@@ -89,6 +89,72 @@
         "deleted_bytes": 4140781657,
         "reacquirable": true
       }
+    },
+    "second_case": {
+      "esm": "gfdl-esm4",
+      "scenario": "ssp370",
+      "months": 120,
+      "cells": 11,
+      "support_missing_triplets": 0,
+      "incomplete_cell_months": 0,
+      "global_temperature_order_violations": 0,
+      "acquisition": {
+        "tasmin_interrupted_attempt": {
+          "resource_path": "data/interim/us_county/gfdl-esm4_ssp370_tasmin_bridge_acquire.resource.json",
+          "resource_sha256": "64ec1920f7b125e5bb9373e96e409430f76a88e03f35d300d6c8e683f410d4ab",
+          "log_path": "data/interim/us_county/gfdl-esm4_ssp370_tasmin_bridge_acquire.log",
+          "log_sha256": "7b2189d56b3291de81f4fbfc2770ff3f2c7b3d824437f9e50bcfc72277b7c24e",
+          "status": "monitor_interrupted_or_failed",
+          "sampled_peak_group_rss_bytes": 30654464
+        },
+        "tasmin_resumed": {
+          "resource_path": "data/interim/us_county/gfdl-esm4_ssp370_tasmin_bridge_acquire_retry2.resource.json",
+          "resource_sha256": "5748857a5bc9805959bc75b3456b3c81a75345230ba27f524ab01c436dc1405c",
+          "log_path": "data/interim/us_county/gfdl-esm4_ssp370_tasmin_bridge_acquire_retry2.log",
+          "log_sha256": "5ac9b9adde18a7961a1a5cccf7dfa11862e6934e7cab1db734211b3d607faed7",
+          "status": "completed",
+          "bytes": 2070538843,
+          "sha512": "fadc8998feff7b64d7fe90dd04790245f2189db60c03861c40a18157fc0063c230c98b7549b4c4b62d2f1d8178cc73cfdfa7aaa06d9ebb4c9bff5e785d124a3e",
+          "sampled_peak_group_rss_bytes": 30654464
+        },
+        "tasmax": {
+          "resource_path": "data/interim/us_county/gfdl-esm4_ssp370_tasmax_bridge_acquire.resource.json",
+          "resource_sha256": "ea26c33e2d8c81e6d17ca12000efb68cecf0894316253119b4b42999cc82ab80",
+          "log_path": "data/interim/us_county/gfdl-esm4_ssp370_tasmax_bridge_acquire.log",
+          "log_sha256": "796034fe229d3223761436015e47483f0c1c501adc292fef9acae1c01c5c5ded",
+          "status": "completed",
+          "bytes": 2062753985,
+          "sha512": "db7e0732b8279585d7a58d1414d16e231bfcd78d4a92314f6a334390afd152db344239b6164c8b9cd848a7eb816e3aa09a1c1c7b59f4f9c54778ca77844aa25b",
+          "sampled_peak_group_rss_bytes": 30654464
+        }
+      },
+      "result": {
+        "path": "data/interim/us_county/us_spei_bridge_future_11_cells_20261013/gfdl-esm4_ssp370/result.json",
+        "sha256": "e2ff4bc817fc8e455c79845b212706cf5164da4917af28c9e94f41a6a7a8c304"
+      },
+      "validation": {
+        "path": "data/interim/us_county/us_spei_bridge_future_11_cells_20261013/gfdl-esm4_ssp370/validation.json",
+        "sha256": "c70fb7ebadec605d190852cdeba33cbba9d23035543f1646a0c97539809ef20c",
+        "status": "passed",
+        "checks": 1206,
+        "maximum_spei_absolute_difference": 7.363518683689563e-09
+      },
+      "build_resource": {
+        "path": "data/interim/us_county/us_spei_bridge_future_11_cells_20261013/gfdl-esm4_ssp370.resource.json",
+        "sha256": "292d6984e24d11059338f87e72057a6ae33d4742423d4d7a7c97fc95135c867f",
+        "sampled_peak_group_rss_bytes": 175996928
+      },
+      "validation_resource": {
+        "path": "data/interim/us_county/us_spei_bridge_future_11_cells_20261013/gfdl-esm4_ssp370.validation.resource.json",
+        "sha256": "74a1ad738469e22474b386fe4f57124a707106d743aa107e40df9f1ec9d25094",
+        "sampled_peak_group_rss_bytes": 119980032
+      },
+      "extrema_eviction": {
+        "path": "data/provenance/gfdl-esm4_ssp370_us_spei_bridge_extrema_eviction_20261014.json",
+        "sha256": "219f7a8819a14296dbbba8116899ea29469a305bd9e5041080884e39ce260c54",
+        "deleted_bytes": 4133292828,
+        "reacquirable": true
+      }
     }
   },
   "implementation": {
@@ -115,6 +181,6 @@
     "damage": false,
     "scc": false
   },
-  "next_case": "gfdl-esm4_ssp370",
+  "next_case": "gfdl-esm4_ssp585",
   "moisture_family_rule": "SPEI and direct rainfall remain competing families and must not be stacked or added."
 }
