@@ -1,0 +1,167 @@
+{
+  "schema": "coral_residual_candidate_audit_v1",
+  "audit_date": "2026-10-14",
+  "rff_scope_source": {
+    "citation": "Prest, Wingenroth, Errickson, and Anthoff (2024), Challenges and Opportunities for Incorporating Climate Change's Impacts on Ocean Systems into the Social Cost of Greenhouse Gases, RFF Report 24-17",
+    "url": "https://www.rff.org/documents/4601/Report_24-17_IX6Vq3m.pdf",
+    "pdf_sha256_retrieved_2026_10_14": "192acd7c9e58643d1e4446997713ecb46a3feb2cc1c6f81adc1633c05166f4be",
+    "role": "sector_scope_and_research_priorities_not_a_damage_function"
+  },
+  "target_component": {
+    "included_welfare_endpoint": "consumer_welfare_from_opportunities_for_coral_reef_recreation_and_tourism_only",
+    "authorized_for_give": false,
+    "published_scc_may_be_used_as_calibration": false,
+    "allocation_or_renormalization_allowed": false
+  },
+  "mandatory_exclusions": [
+    "reef_fisheries_and_aquaculture",
+    "food_raw_materials_and_ornamental_resources",
+    "coral_nonuse_existence_and_bequest_value",
+    "maintenance_of_life_cycles_and_genetic_diversity",
+    "coral_coastal_protection_and_moderation_of_extreme_events",
+    "erosion_prevention",
+    "ciam_coastal_impacts",
+    "generic_biodiversity_nonuse",
+    "climate_regulation_and_carbon_cycle_feedbacks",
+    "waste_treatment_and_soil_fertility",
+    "aesthetic_and_inspiration_values_without_separate_incidence_evidence"
+  ],
+  "primary_sources": [
+    {
+      "id": "blue_scc_2026",
+      "citation": "Bastien-Olvera et al. (2026), Accounting for ocean impacts nearly doubles the social cost of carbon, Nature Climate Change 16:297-304",
+      "doi": "https://doi.org/10.1038/s41558-025-02533-5",
+      "geography": "global_country_inputs_rice50plus_welfare",
+      "climate_response": "country coral-cover area change linear in global mean surface temperature using Sully et al. projections",
+      "welfare_semantics": "nonseparable CES utility with coral market, bundled nonmarket-use, and nonuse categories",
+      "pulse_compatible": true,
+      "public_package": true,
+      "residual_transfer_status": "blocked_bundled_services_and_nonadditive_welfare"
+    },
+    {
+      "id": "lane_et_al_2013",
+      "citation": "Lane et al. (2013), Quantifying and Valuing Potential Climate Change Impacts on Coral Reefs in the United States, PLOS ONE 8:e82579",
+      "doi": "https://doi.org/10.1371/journal.pone.0082579",
+      "geography": "hawaii_south_florida_puerto_rico_only",
+      "climate_response": "COMBO thermal and ocean-chemistry scenarios through 2100",
+      "welfare_semantics": "recreation consumer surplus and existence-value benefit transfer",
+      "pulse_compatible": false,
+      "public_package": true,
+      "residual_transfer_status": "blocked_not_global_not_marginal_pulse"
+    },
+    {
+      "id": "spalding_et_al_2017",
+      "citation": "Spalding et al. (2017), Mapping the global value and distribution of coral reef tourism, Marine Policy 82:104-113",
+      "doi": "https://doi.org/10.1016/j.marpol.2017.05.014",
+      "geography": "global_spatial_reef_tourism",
+      "climate_response": "none",
+      "welfare_semantics": "tourism expenditure and economic contribution rather than a complete consumer-surplus measure",
+      "pulse_compatible": false,
+      "public_package": false,
+      "residual_transfer_status": "blocked_no_climate_response_or_welfare_bridge"
+    },
+    {
+      "id": "brander_et_al_2024",
+      "citation": "Brander et al. (2024), Economic values for ecosystem services: a global synthesis and way forward, Ecosystem Services 66:101606",
+      "doi": "https://doi.org/10.1016/j.ecoser.2024.101606",
+      "geography": "global_meta_analysis_local_study_observations",
+      "climate_response": "none",
+      "welfare_semantics": "mixed valuation concepts summarized as international dollars per hectare per year",
+      "pulse_compatible": false,
+      "public_package": false,
+      "residual_transfer_status": "blocked_summary_value_not_damage_function"
+    },
+    {
+      "id": "beck_et_al_2018",
+      "citation": "Beck et al. (2018), The global flood protection savings provided by coral reefs, Nature Communications 9:2186",
+      "doi": "https://doi.org/10.1038/s41467-018-04568-z",
+      "geography": "global_reef_coast_profiles",
+      "climate_response": "reef-loss and sea-level-rise scenarios rather than marginal temperature pulse",
+      "welfare_semantics": "avoided asset flood damages",
+      "pulse_compatible": false,
+      "public_package": false,
+      "residual_transfer_status": "excluded_ciam_coastal_overlap"
+    }
+  ],
+  "blue_repository": {
+    "url": "https://github.com/berbastien/blue-scc",
+    "commit": "dbc0d8cb21c81f1508abfaf9e5c0f5671ccdd83f",
+    "commit_date": "2026-03-06T13:55:08+01:00",
+    "tracked_file_count": 80,
+    "repository_license_file_expected": false,
+    "pinned_files": {
+      "Code/Corals/003_CountryAggregation_Values.r": "e30e900d2d629e259c2ef3181b9023c8ef81303b150f2bc5d4b8fcbcfb42e242",
+      "Code/SCC/make_input_data.py": "b0ca675eba3cb2a3018ebef3f508dfcfd92c5abac3b43fda553b67f39ed2d6a2",
+      "Code/SCC/mc_analysis.py": "a3939c5517a658a8b5693c345bfaa5338328dac214af2fd6742fc09aa3ed692b",
+      "Code/SCC/utils.py": "82995129d0a95113903bf16d4f40a3bc062579856c256107b9b010f52f3929f1",
+      "Data/SCC/out/country_level_scc.csv": "bbe8f4ac053174fae41874ede12548cc4f9dc37b81e4e8f026b8854a510a96d9",
+      "Data/SCC/out/scc.csv": "16bc4d007610c4581a28216a7c185f02425a6a5f67dcf101daf0872734e380fa",
+      "Data/SuppTables/TableS7_Corals.csv": "bd54f4b1741556dba3bdcfed5a1a0b4935271a80a35e87213ad03d1f7781bf27",
+      "Data/output_modules_input_rice50x/input_rice50x/corals_areaDam_Value.csv": "dd96ff95ae541cae607b93a1621d43e7ae71802894fcef3758ce2e47f88e3825",
+      "README.md": "d44d9709f42164515d2bc820ed2c4dba8495835f9893c51035fe99140484b31b"
+    },
+    "missing_end_to_end_paths": ["External_Data", "setup.r"],
+    "published_coral_scc_rows_external_only": {
+      "Market value": 0.08,
+      "Non-market use value": 2.46,
+      "Nonuse value": 10.06
+    },
+    "nonmarket_bundle_int2020_per_ha_year": {
+      "climate_regulation": 2,
+      "moderation_of_extreme_events": 14369,
+      "waste_treatment": 4078,
+      "erosion_prevention": 3418,
+      "maintenance_of_soil_fertility": 1551,
+      "aesthetic_information": 5580,
+      "opportunities_for_recreation_and_tourism": 6271,
+      "inspiration_for_culture_art_and_design": 917,
+      "bundle_total": 36186,
+      "bundle_standard_error": 51218,
+      "bundle_income_elasticity": 0.222,
+      "bundle_income_elasticity_standard_error": 0.058
+    },
+    "service_specific_recreation_scc_row_expected": false
+  },
+  "rice_repository": {
+    "url": "https://github.com/witch-team/RICE50xmodel",
+    "release": "v2.6.0",
+    "commit": "4003120a9e82ef2aebde57ac4fc84e8d034c9be3",
+    "tracked_file_count": 47,
+    "license": "GPL-3.0",
+    "pinned_files": {
+      "LICENSE": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+      "README.md": "54a84d445180b49ff5312e1b1ffbf5f716b65807f848d9f43030bc5f55badd4f",
+      "modules/mod_ocean.gms": "b47fb78a5ceb396b40fb9dd5c073095cc09131f0b6ee0ea56b266736f76138f5"
+    }
+  },
+  "required_author_artifacts": [
+    "service_disaggregated_recreation_tourism_value_table_with_study_ids_units_price_year_and_license",
+    "recreation_specific_income_elasticity_and_uncertainty_or_documented_joint_draws",
+    "country_year_recreation_incidence_and_beneficiary_mapping_separate_from_coastal_protection_fisheries_and_nonuse",
+    "matched_baseline_and_marginal_pulse_annual_country_coral_area_and_recreation_welfare_paths",
+    "pulse_year_magnitude_units_normalization_and_joint_draw_manifest",
+    "additive_regional_welfare_contributions_reconciling_exactly_to_the_global_total",
+    "blue_scc_code_and_derived_data_reuse_license_plus_all_missing_end_to_end_inputs"
+  ],
+  "give_interface_if_artifacts_pass": {
+    "grain": "draw_path_country_year",
+    "required_fields": [
+      "draw_id", "path_role", "country_iso3", "year", "pulse_tco2", "coral_area_km2",
+      "recreation_visits_or_participation", "recreation_consumer_surplus_2020usd_per_year",
+      "beneficiary_population", "income_per_capita_2020usd", "discount_factor",
+      "source_version", "license_id", "overlap_boundary_id"
+    ],
+    "required_identities": [
+      "matched_baseline_pulse_keys_and_fixed_inputs",
+      "zero_pulse_and_pre_divergence_identity",
+      "country_sum_equals_global_annual_welfare",
+      "component_added_once_and_discounted_once",
+      "only_recreation_tourism_consumer_welfare_present"
+    ]
+  },
+  "current_gate": {
+    "status": "blocked_no_overlap_cleared_service_specific_welfare_path",
+    "published_result_reproduced_here": false,
+    "damage_or_scc_authorized": false
+  }
+}
