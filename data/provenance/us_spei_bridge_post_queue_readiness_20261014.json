@@ -1,0 +1,68 @@
+{
+  "schema": "us_spei_bridge_post_queue_readiness_v1",
+  "reference_date": "2026-10-14",
+  "status": "synthetic_validation_passed_production_execution_deferred_until_all_15_extensions_validate",
+  "role": "climate_only_post_queue_implementation_no_real_panel_no_outcomes_no_fit",
+  "production_execution": {
+    "attempted": false,
+    "real_climate_panel_opened": false,
+    "outcome_magnitudes_read": false,
+    "reason": "The queue remains active. The production builder is required to refuse before every exact model-scenario extension independently validates."
+  },
+  "frozen_dimensions": {
+    "base_cells": 31208,
+    "extension_cells": 11,
+    "merged_cells": 31219,
+    "counties": 361,
+    "historical_county_years": 7013,
+    "future_cases": 15,
+    "future_harvest_years": 8,
+    "expected_future_county_year_rows": 43320,
+    "scales_months": [1, 3, 6]
+  },
+  "implementation": {
+    "contract": {
+      "path": "config/us_spei_bridge_post_queue_v1.toml",
+      "sha256": "fe13148611c999594fef0955cae3711e91568740d2b01ab651eccf2e6b2f917d"
+    },
+    "builder": {
+      "path": "us_county_validation/scripts/build_us_spei_bridge_post_queue.py",
+      "sha256": "d0c7e0a3675b456f39af5bb75a56f4a924593024bc1e09d1b4c5899da9f3e631"
+    },
+    "independent_validator": {
+      "path": "us_county_validation/scripts/validate_us_spei_bridge_post_queue.py",
+      "sha256": "2d30e8d1b13cf18cfc49057a03a50c2de11b61c8210259e82f51d3a8996b7834"
+    },
+    "synthetic_tests": {
+      "path": "us_county_validation/scripts/test_us_spei_bridge_post_queue.py",
+      "sha256": "20eb20f363c521e70495db1ed868026ef485ec1b50c1cf00426815fadd743e21",
+      "tests": 11,
+      "status": "passed"
+    },
+    "protocol": {
+      "path": "us_county_validation/US_SPEI_BRIDGE_POST_QUEUE_PROTOCOL_20261014.md",
+      "sha256": "d00f637d88201c880fcb6bd62ed3d51fb6543b3b342651f05c7a35ce115088fb"
+    }
+  },
+  "test_resource": {
+    "path": "data/provenance/us_spei_bridge_post_queue_synthetic_tests_v4_20261014.json",
+    "sha256": "68b24877eccd5669b9d63671f48ebdbcfa152c18c4b70613bde39727654b5679",
+    "sampled_peak_group_rss_bytes": 127664128,
+    "memory_cap_bytes": 536870912,
+    "limit_kind": "sampled_process_group_not_kernel_limit"
+  },
+  "gates": {
+    "implementation_synthetically_validated": true,
+    "all_15_future_extensions_validated_in_this_run": false,
+    "exact_361_county_support_revalidated_in_this_run": false,
+    "historical_climate_panel": false,
+    "future_climate_panel": false,
+    "bridge_to_nass_response": false,
+    "fit_outcomes": false,
+    "future_yield_projection": false,
+    "causal_claim": false,
+    "damage": false,
+    "scc": false
+  },
+  "moisture_family_rule": "SPEI and direct rainfall remain competing families and must not be stacked or added."
+}
