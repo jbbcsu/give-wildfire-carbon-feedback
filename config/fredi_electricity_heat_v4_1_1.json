@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0.0",
+  "source_manifest": "provenance/fredi_source_manifest_v4_1_1.json",
+  "alignment_audit": "provenance/fredi_v4_1_1_electricity_alignment_audit.json",
+  "scope": {
+    "geography": "CONUS: 48 contiguous states plus District of Columbia",
+    "expected_postal_count": 49,
+    "driver": "CONUS annual temperature anomaly",
+    "driver_unit": "degrees Celsius relative to 1995 (central year of 1986-2005 baseline)",
+    "model_type": "GCM",
+    "authorized_released_sector": "ElecTD",
+    "audited_but_excluded_sector": "ElecSD",
+    "forbidden_drivers": ["SLR"],
+    "forbidden_sectors": ["CoastalProperties", "HTF", "InlandFlooding", "UrbanDrainage", "Wildfire"]
+  },
+  "endpoint_gates": [
+    {
+      "endpoint": "generation_and_capacity",
+      "available_separately": false,
+      "authorized_for_output": false,
+      "reason": "The public ElecSD surface combines required capacity expansion with power-sector heating/cooling demand effects."
+    },
+    {
+      "endpoint": "building_heating_and_cooling_demand",
+      "available_separately": false,
+      "authorized_for_output": false,
+      "reason": "Explicitly excluded; the public ElecSD surface does not separate this demand channel from generation/capacity costs."
+    },
+    {
+      "endpoint": "transmission_and_distribution",
+      "available_separately": true,
+      "authorized_for_output": true,
+      "reason": "The public ElecTD sector is distinct from ElecSD and covers combined T&D repair/replacement costs."
+    },
+    {
+      "endpoint": "transmission_only",
+      "available_separately": false,
+      "authorized_for_output": false,
+      "reason": "The public ElecTD surface has impactType=NA and does not split transmission from distribution."
+    },
+    {
+      "endpoint": "distribution_only",
+      "available_separately": false,
+      "authorized_for_output": false,
+      "reason": "The public ElecTD surface has impactType=NA and does not split transmission from distribution."
+    }
+  ],
+  "sentinel": {
+    "driver_conus_degC_rel1995": 1.5,
+    "economic_year": 2020,
+    "variants": ["NoAdapt", "Proactive", "Reactive"],
+    "models": ["CCSM4", "CanESM2", "GFDL-CM3", "GISS-E2-R", "HadGEM2-ES", "MIROC5"],
+    "temperature_bins_used": [1, 2],
+    "interpolation": "piecewise linear; no extrapolation",
+    "annual_impact_unit": "2015 USD per year",
+    "output": "data/derived/fredi_electricity_td_heat_sentinel_v4_1_1.csv",
+    "receipt": "provenance/fredi_electricity_td_heat_sentinel_v4_1_1_receipt.json"
+  },
+  "expected_source_support": {
+    "ElecSD": {
+      "rows": 1519,
+      "variants": ["NA"],
+      "rows_by_bin": {"1": 294, "2": 294, "3": 294, "4": 245, "5": 245, "6": 147}
+    },
+    "ElecTD": {
+      "rows": 4557,
+      "variants": ["NoAdapt", "Proactive", "Reactive"],
+      "rows_by_bin": {"1": 882, "2": 882, "3": 882, "4": 735, "5": 735, "6": 441}
+    },
+    "impact_year_literal": "NA",
+    "impact_type_literal": "NA",
+    "scalar_rows": 4312,
+    "scalar_years": "2006-2090 annual, then 2100, 2200, 2300",
+    "scalar_year_count": 88,
+    "scalar_names": ["elecSD_refCosts", "elecTD_growthFactor"]
+  },
+  "claim_status": {
+    "td_deterministic_interface_sentinel": "open",
+    "generation_capacity": "closed_bundled_with_excluded_demand",
+    "building_heating_cooling_demand": "prohibited",
+    "transmission_distribution_split": "closed",
+    "matched_GIVE_pulse": "closed",
+    "global_extrapolation": "prohibited",
+    "SCC": "closed"
+  }
+}

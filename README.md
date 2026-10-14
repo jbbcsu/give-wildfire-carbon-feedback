@@ -1,10 +1,12 @@
 # FrEDI transport-heat interface audit
 
-This isolated project pins the smallest public EPA FrEDI v4.1.1 surface needed to audit temperature-driven road and rail responses. It does **not** calculate an SCC, extrapolate outside CONUS, use flood/coastal sectors, or infer unavailable transport components.
+This isolated project pins small public EPA FrEDI v4.1.1 surfaces needed to audit temperature-driven transport and electricity-infrastructure responses. It does **not** calculate an SCC, extrapolate outside CONUS, use flood/coastal/wildfire sectors, or infer unavailable components.
 
 ## Current result
 
 The deterministic aggregate-interface smoke test passes for 49 geographic units (48 contiguous states plus DC), six GCM response surfaces, three adaptation variants, and the two public aggregate sectors `Roads` and `Rail`. The public v4.1.1 runtime and input tables do not expose separate response rows for road repair, road user costs, rail replacement, or rail delay. Those four component gates remain closed.
+
+The electricity audit separately admits only `ElecTD`, the released combined transmission/distribution infrastructure sector. It excludes `ElecSD`: EPA documents that surface as combining heating/cooling-driven power demand with required generation-capacity expansion, while the runtime exposes no component split. The electricity sentinel passes for 49 state/DC units, six GCMs, and three adaptation variants (18 rows). Generation/capacity, building demand, transmission-only, and distribution-only gates remain closed.
 
 The audit uses:
 
@@ -23,9 +25,11 @@ From this directory:
 python3 scripts/acquire_pinned_fredi_sources.py
 python3 scripts/run_fredi_transport_heat_smoke.py
 python3 scripts/validate_fredi_transport_heat_smoke.py
+python3 scripts/run_fredi_electricity_td_heat_sentinel.py
+python3 scripts/validate_fredi_electricity_td_heat_sentinel.py
 python3 -m unittest discover -s tests -v
 ```
 
 The acquisition command verifies local files by default and performs no network access. Reacquisition requires the explicit `--download-missing` flag and uses commit-pinned official EPA GitHub URLs.
 
-See `docs/FREDI_TRANSPORT_HEAT_GATE.md` for the source audit, units, endpoint blocker, and the fail-closed route to matched GIVE pulse runs. The 36-row output is `data/derived/fredi_transport_heat_smoke_v4_1_1.csv`; it is an interface sentinel, not a policy scenario or SCC estimate.
+See `docs/FREDI_TRANSPORT_HEAT_GATE.md` and `docs/FREDI_ELECTRICITY_HEAT_GATE.md` for source audits, units, endpoint blockers, and fail-closed routes to matched GIVE pulse runs. Both outputs are implementation sentinels, not policy scenarios or SCC estimates.

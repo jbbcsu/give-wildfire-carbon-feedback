@@ -51,7 +51,7 @@ The audit does not divide either aggregate using assumed shares. A component-res
 
 The runner evaluates a uniform 1.5°C CONUS anomaly at economic year 2020, independently for each of six GCM response surfaces and three adaptation variants. It linearly interpolates only between the 1°C and 2°C source points, applies the exact 2020 scalars, and sums the 49 state/DC values. It does not average GCMs.
 
-The result has 36 rows: 2 released aggregates × 3 variants × 6 GCMs. Independent Decimal arithmetic reproduced every reported value to the output precision (maximum absolute difference 0.000000 2015 USD/year). The recorded runner peak RSS was 29.328 MiB and the final standalone validator peak RSS was 23.812 MiB, both far below 512 MiB.
+The result has 36 rows: 2 released aggregates × 3 variants × 6 GCMs. Independent Decimal arithmetic reproduced every reported value to the output precision (maximum absolute difference 0.000000 2015 USD/year). After the shared source manifest was extended for the separate electricity audit, the refreshed transport runner peak RSS was 27.562 MiB and validator peak RSS was 23.734 MiB, both far below 512 MiB.
 
 These figures are implementation sentinels. The 1.5°C/2020 combination is not a GIVE scenario, a marginal emissions experiment, a probability-weighted estimate, or an SCC.
 

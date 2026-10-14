@@ -28,5 +28,5 @@ Units are 2015 USD/year. These are neither uncertainty intervals nor policy resu
 Artifacts:
 
 - output SHA-256: `410dca12b52ae61ba9d6a881bcfc7d67207ba9a439f84bf7ebbd12fde4f69094`
-- runner peak RSS: 29.328 MiB
-- final standalone validator peak RSS: 23.812 MiB
+- refreshed runner peak RSS: 27.562 MiB
+- refreshed validator peak RSS: 23.734 MiB

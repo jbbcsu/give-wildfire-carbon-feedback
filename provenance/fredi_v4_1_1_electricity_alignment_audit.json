@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0.0",
+  "audit_date": "2026-10-14",
+  "status": "PASS",
+  "purpose": "Verify that the selected FrEDI_Data electricity slices at the pinned 2026 commit equal the electricity inputs embedded in FrEDI v4.1.1.",
+  "embedded_source": {
+    "repository": "https://github.com/USEPA/FrEDI",
+    "tag": "v4.1.1",
+    "commit": "08ead1b64821acd0ff0ee95fdf662a1a73f242e1",
+    "path": "FrEDI/R/sysdata.rda",
+    "bytes": 13550619,
+    "sha256": "827a728615fcf9418fd101cf9eba007c15157520ade9763a4ef1ae9b55fbbce9"
+  },
+  "candidate_source": {
+    "repository": "https://github.com/USEPA/FrEDI_Data",
+    "commit": "b506a3e0085bb446f56acc8c7076a1aea599fbb6"
+  },
+  "method": "Loaded the pinned v4.1.1 sysdata.rda in R 4.4.2; joined response rows on sector/state/postal/model/variant/modelUnitValue and scalar rows on state/postal/year/scalarName; compared parsed numeric values.",
+  "comparisons": [
+    {"name": "ElecSD_scaledimpacts", "candidate_rows": 1519, "embedded_rows": 1519, "unmatched_rows": 0, "max_abs_difference": 5.960464e-08},
+    {"name": "ElecTD_scaledimpacts", "candidate_rows": 4557, "embedded_rows": 4557, "unmatched_rows": 0, "max_abs_difference": 7.450581e-09},
+    {"name": "elecSD_refCosts", "candidate_rows": 4312, "embedded_rows": 4312, "unmatched_rows": 0, "max_abs_difference": 4.440892e-16},
+    {"name": "elecTD_growthFactor", "candidate_rows": 4312, "embedded_rows": 4312, "unmatched_rows": 0, "max_abs_difference": 0.0}
+  ],
+  "absolute_tolerance": 1e-6,
+  "conclusion": "All selected current FrEDI_Data electricity rows align with the v4.1.1 embedded inputs. Nonzero differences are floating-point CSV serialization/parsing differences below the frozen absolute tolerance."
+}
