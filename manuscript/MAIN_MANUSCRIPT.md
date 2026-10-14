@@ -123,8 +123,9 @@ estimating the same-source SPEI response.
 
 That reconstruction has begun. All 11 historical cells now pass independent
 validation for 468 months and SPEI-1/3/6, with all 396 calibration fits valid.
-The first future case, GFDL-ESM4 SSP1-2.6, passes 1,206 checks. Fourteen cases
-remain, so no county response, future yield effect, damage, or SCC is claimed.
+The first two future cases, GFDL-ESM4 SSP1-2.6 and SSP3-7.0, each pass 1,206
+checks. Thirteen cases remain, so no county response, future yield effect,
+damage, or SCC is claimed.
 
 ### 4.2 Labor productivity and updated agriculture
 
@@ -150,6 +151,14 @@ and macroeconomic overlaps remain unresolved. A published biodiversity nonuse
 benchmark of approximately $8/tCO2 is similarly retained outside the combined
 SCC pending regional coefficients, joint uncertainty, and ecosystem-service
 allocation.
+
+A source-pinned public-release audit confirms that the current official
+MimiGIVE repository contains no configured biodiversity/nonuse term and the
+paper landing page exposes no replication package. We therefore prepared an
+artifact request for regional valuation coefficients, temperature-response
+calibration, country mapping, joint uncertainty draws, matched annual pulse
+outputs, licenses, and an explicit nonuse-only boundary. The approximate
+$8/tCO2 result remains a context-only literature benchmark.
 
 The shortest published nutrition transfer now also fails reproducibility and
 coverage gates. Requiring all published nutrition and mortality fields to be
