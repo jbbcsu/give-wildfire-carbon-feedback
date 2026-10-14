@@ -35,6 +35,16 @@ archived code does not document a cross-function draw-pooling rule, separate
 quantiles are retained and pooled quantiles or standard errors are not
 constructed.
 
+The paired-module execution preflight is source-graph validation, not a target
+GIVE run. It removes nine legacy agriculture components/support nodes, replaces
+the damage aggregator, adds `AgricultureShare`, `Labor`, and updated
+`Agriculture` once and in order, and retains Lancet and ISO as separate
+structural cases. A two-draw legacy-agriculture guard probe reached
+2,531,426,304 bytes (2.36 GiB), above the 512 MiB worker ceiling. Therefore a
+target run requires an authorized worker above the observed peak or a validated
+memory-equivalent refactor; no replacement delta or pooled uncertainty is
+promoted from the preflight.
+
 ## S4. Original estimation
 
 Original modules preregister the estimand, units, sample, fixed effects,
@@ -42,6 +52,12 @@ clustering, train/test partition, feature hierarchy, adaptation scenarios, and
 promotion tests. Complex features advance only if they improve held-out
 performance and retain stable direction and magnitude. Null results are
 reported without replacement by an unregistered specification.
+
+For the U.S. county SPEI bridge, all 11 missing historical half-degree cells
+have validated 468-month SPEI-1/3/6 series. Five of fifteen preregistered future
+model-scenario extensions are independently validated and ten remain. The
+bridge is incomplete, and it is not used to estimate a response, yield effect,
+damage, or SCC.
 
 ## S5. Overlap matrix
 
@@ -74,6 +90,16 @@ discounting, certainty-equivalent adjustment, and the identity between ozone,
 PM2.5, and net summaries. Any mismatch between article and repository output
 fails promotion rather than being reconciled through undocumented arithmetic.
 
+The current official-repository audit reports checked-in RFF ozone and PM2.5
+components of +$16.671649/tCO2 and -$24.529049/tCO2. Their sum is
+-$7.857400/tCO2, whereas the separately released net is -$34.667618/tCO2, a
+net-minus-components gap of -$26.810218/tCO2 that is nonzero for both GCMs.
+The article states that open burning, including wildfire, is excluded, but the
+repository does not provide a machine-readable exclusion field; price-year
+headers and inputs also conflict. Final-release, same-stream additivity,
+price-year, exclusion-boundary, local-reproduction, GIVE-transfer, and
+replacement-SCC gates therefore remain closed.
+
 ## S5.3 Fisheries transfer evidence gate
 
 The Blue-SCC fisheries benchmark is not transferred as a scalar. Promotion
@@ -85,12 +111,31 @@ existing GIVE mortality. Missing countries and unavailable nutrition fields
 are never treated as observed zeros; incomplete FUND regions are not
 renormalized.
 
+The public fisheries terminal-summary files also fail the frozen annual-pair
+admission contract: zero of two comparable country/global summary pairs are
+additively reconcilable, and matched annual baseline/pulse paths, pulse
+metadata, direct consumer-plus-producer-surplus semantics, complete mapping,
+machine-readable endpoint boundaries, and artifact-license records are absent.
+This is a rejection of the transfer artifact, not a revision of the published
+benchmark.
+
+## S5.3a Biodiversity nonuse evidence gate
+
+The executable biodiversity admission contract requires seven artifact groups
+covering source implementation, calibration, country/region mapping, joint
+uncertainty, matched pulse output, provenance/licensing, and the nonuse welfare
+boundary. The pinned public release supplies 0 of 7 complete groups and is
+rejected as incomplete. Missing artifacts are not treated as zeros, and the
+approximately $8/tCO2 literature value remains external and non-additive.
+
 ## S5.4 Coral residual-services evidence gate
 
 The Blue-SCC coral non-market-use result is retained only as an external
 benchmark because it combines eight ecosystem services and publishes neither
 a recreation-specific SCC nor matched annual marginal-welfare paths. Simple
 share-scaling is prohibited under its nonseparable CES welfare function.
+The audited $2.46/tCO2 global value is the bundled eight-service external
+benchmark; it is neither promoted nor added to another sector value.
 Promotion requires licensed, service-disaggregated recreation/tourism inputs;
 matched baseline and pulse country-year welfare paths; exact annual regional-
 to-global reconciliation; recreation-specific uncertainty; and an explicit
@@ -114,6 +159,10 @@ Validation includes source checksums, schema and balance checks, unit and sign
 tests, deterministic sector isolation, small Monte Carlo staging, published
 result reproduction, memory monitoring, cross-model comparisons, held-out
 prediction for empirical modules, and machine-checked manuscript claims.
+The umbrella claim-consistency test also checks the registry, manuscript,
+Methods SI, and dated machine-readable sector status for reviewed milestone
+counts, the observed Moore memory bound, exact EPA reconciliation gap, external
+benchmark labels, and closed additivity/promotion gates.
 
 ## S8. Role of AI and human review
 

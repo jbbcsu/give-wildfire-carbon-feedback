@@ -1,0 +1,231 @@
+{
+  "schema": "give_damage_sector_status/v3",
+  "as_of": "2026-10-14",
+  "combination_rule": "Only locally reproduced and overlap-cleared modules enter the integrated SCC; original bounded estimates and published external benchmarks are reported separately.",
+  "external_benchmarks_summed": false,
+  "integrated_increment_calculated": false,
+  "promotion_gates_closed": true,
+  "evidence_receipts": [
+    {
+      "project": "precipitation_scc",
+      "source_commit": "82aaf3271fee974d4f55be41c844a7a785876199",
+      "path": "data/provenance/us_spei_bridge_extension_20261013.json",
+      "sha256": "de1092ecd58d414899b3d67e0f0b036c7cc8cb8e23ff5974bf27c03a2b831897",
+      "bytes": 19033
+    },
+    {
+      "project": "labor_productivity_scc",
+      "source_commit": "7b4b2842b1c1dfa1acc20e3d26c85f8f61ac0e99",
+      "path": "data/provenance/moore_paired_module_preflight_20261014.json",
+      "sha256": "14344b271b88214dd3e9aefd868947b38d183c020ebd41b1f0b3ec5ecd38f287",
+      "bytes": 2759
+    },
+    {
+      "project": "labor_productivity_scc",
+      "source_commit": "6c8c244e0772ef2b1cd8145ea3b59aa48c1d2989",
+      "path": "AGRICULTURE_REPLACEMENT_STAGE.md",
+      "sha256": "b0c1270debe032a81918b1c987038a762782fc6f5c9f67c103b4ceda2f3ea2b8",
+      "bytes": 4121
+    },
+    {
+      "project": "ocean_fisheries_scc",
+      "source_commit": "1f6a2c1893e56c86ec3c7b6577f681ff555d55cc",
+      "path": "data/provenance/blue_scc_public_fisheries_summary_admission_20261014.json",
+      "sha256": "d27e13bc399958d870b33c23c61621c059ffc21851e73d5f3f400bb753e6b794",
+      "bytes": 1660
+    },
+    {
+      "project": "biodiversity_scc",
+      "source_commit": "cc1059b2d13915485b14c4103f44833bea9d51df",
+      "path": "data/provenance/biodiversity_public_evidence_artifact_admission_20261014.json",
+      "sha256": "7fdb70402d21e5854801f5876a7236afeb91a57322f3a76971f991fb40e8b019",
+      "bytes": 1305
+    },
+    {
+      "project": "coral_reef_scc",
+      "source_commit": "de000042a1a6ba746782b735a85a6c7180aea2f0",
+      "path": "data/provenance/coral_residual_public_source_audit_20261014.json",
+      "sha256": "f6591b1a9f5e829f89f6412e84386d14069518efabbffa8c0c9842e2c044a687",
+      "bytes": 2215
+    },
+    {
+      "project": "air_pollution_scc",
+      "source_commit": "3c9fb66eb540b4444abb193aeac0ec56e1de41a9",
+      "path": "data/provenance/epa_globalaq_component_net_gate_20261014.json",
+      "sha256": "a494938847cdf38577433792bb5af4cc579a51abcbee572f0aaa0714f0b8f43d",
+      "bytes": 3981
+    }
+  ],
+  "sectors": [
+    {
+      "name": "precipitation_agriculture_monthly_maize_diagnostic",
+      "class": "original_bounded_diagnostic",
+      "value_2020usd_per_tco2": 0.00426855,
+      "gross_positive_2020usd_per_tco2": 0.01157205,
+      "gross_negative_2020usd_per_tco2": -0.00730350,
+      "country_cancellation_share": 0.7739,
+      "additive": false,
+      "reason_not_additive": "One ESM/scenario, maize only, and not a paired replacement for total agriculture."
+    },
+    {
+      "name": "us_nonirrigated_corn_pdsi_historical_association",
+      "class": "stable_historical_association_unlinked_to_future_climate",
+      "yield_percent_per_one_unit_pdsi_decline": -4.30,
+      "spatial_500km_interval_percent": [-5.02, -3.57],
+      "additive": false,
+      "reason_not_additive": "No validated climate-change-to-future-PDSI stage and no causal damage or welfare bridge."
+    },
+    {
+      "name": "us_rainfed_maize_future_spei_exposure",
+      "class": "validated_future_exposure_unlinked_to_historical_response",
+      "ssp370_minus_ssp126_equal_model_mean_spei3": -0.4413,
+      "ssp370_minus_ssp126_model_range": [-0.7000, -0.2224],
+      "ssp585_minus_ssp126_equal_model_mean_spei3": -0.8662,
+      "ssp585_minus_ssp126_model_range": [-1.4927, -0.1872],
+      "negative_named_models_each_contrast": 5,
+      "named_models_each_contrast": 5,
+      "exact_support_counties_total": 361,
+      "exact_support_counties_passing": 351,
+      "missing_half_degree_cells": 11,
+      "historical_missing_cells_constructed": 11,
+      "future_extension_cases_total": 15,
+      "future_extension_cases_validated": 5,
+      "future_extension_cases_remaining": 10,
+      "bridge_complete": false,
+      "response_estimated": false,
+      "damage_calculated": false,
+      "scc_calculated": false,
+      "additive": false,
+      "reason_not_additive": "Future half-degree SPEI and historical county NOAA PDSI differ in index, weather source, spatial support, and crop calendar."
+    },
+    {
+      "name": "labor_productivity",
+      "class": "two_structural_specifications_locally_reproduced_pending_target_execution",
+      "lancet_mean_2020usd_per_tco2": 29.2638359627,
+      "lancet_q05": 0.1874894942,
+      "lancet_q95": 70.7841946956,
+      "iso_mean_2020usd_per_tco2": 51.86467799826219,
+      "iso_q05": 1.042064811275526,
+      "iso_q95": 133.88272968223436,
+      "equal_function_mean_2020usd_per_tco2": 40.56425698048089,
+      "published_rounded_value_usd_per_tco2": 41.0,
+      "paired_module_source_graph_verified": true,
+      "structural_cases_separate": true,
+      "target_give_run_completed": false,
+      "legacy_branch_peak_rss_bytes": 2531426304,
+      "worker_memory_limit_bytes": 536870912,
+      "replacement_delta_promoted": false,
+      "pooled_uncertainty_constructed": false,
+      "additive": false,
+      "reason_not_additive": "The source graph is preflighted, but target GIVE execution is unrun and the observed legacy branch exceeds the 512 MiB worker ceiling."
+    },
+    {
+      "name": "updated_total_agriculture",
+      "class": "two_structural_specifications_locally_reproduced_pending_replacement_execution",
+      "lancet_mean_2020usd_per_tco2": 29.047988785807586,
+      "iso_mean_2020usd_per_tco2": 29.10096418611888,
+      "equal_function_mean_2020usd_per_tco2": 29.07447648596323,
+      "published_rounded_value_usd_per_tco2": 29.0,
+      "replacement_only": true,
+      "target_give_run_completed": false,
+      "replacement_delta_promoted": false,
+      "additive": false,
+      "reason_not_additive": "It must replace legacy GIVE agriculture and cannot be stacked with a total precipitation-agriculture estimate."
+    },
+    {
+      "name": "fisheries_market_and_nutrition",
+      "class": "published_external_benchmark_rejected_by_annual_pair_gate",
+      "published_value_usd_per_tco2": 22.09755,
+      "published_market_component_usd_per_tco2": 0.05704,
+      "published_nutrition_use_component_usd_per_tco2": 22.04051,
+      "annual_pair_public_summary_status": "rejected_not_matched_annual_artifact_package",
+      "comparable_fisheries_summary_rows": 2,
+      "additive_fisheries_summary_rows": 0,
+      "matched_annual_baseline_pulse_paths_available": false,
+      "pulse_metadata_available": false,
+      "direct_cs_ps_semantics_available": false,
+      "complete_mapping_available": false,
+      "machine_readable_endpoint_boundary_available": false,
+      "artifact_license_manifest_available": false,
+      "transfer_authorized": false,
+      "additive": false,
+      "reason_not_additive": "The released files are terminal summaries rather than matched annual baseline/pulse paths and fail the frozen additive admission contract."
+    },
+    {
+      "name": "biodiversity_nonuse",
+      "class": "published_external_benchmark_rejected_by_artifact_gate",
+      "published_value_usd_per_tco2_approx": 8.0,
+      "required_artifact_groups": 7,
+      "received_complete_artifact_groups": 0,
+      "artifact_admission_status": "rejected_incomplete_public_evidence",
+      "public_mimigive_biodiversity_terms_found": false,
+      "public_replication_package_found": false,
+      "additive": false,
+      "reason_not_additive": "The pinned public evidence supplies none of the seven required executable artifact groups."
+    },
+    {
+      "name": "surface_ozone_health",
+      "class": "published_external_benchmark_failed_component_net_gate",
+      "published_value_usd_per_tco2": 23.0,
+      "checked_in_rff_component_value_usd_per_tco2": 16.671648911048777,
+      "released_component_sum_usd_per_tco2": -7.857399849665217,
+      "released_separate_net_usd_per_tco2": -34.66761788076073,
+      "released_net_minus_component_sum_usd_per_tco2": -26.810218031095513,
+      "model_specific_gap_nonzero": true,
+      "promotion_gates": {
+        "article_generating_release_identified": false,
+        "article_values_locally_reproduced": false,
+        "give_transfer_authorized": false,
+        "price_year_resolved": false,
+        "replacement_scc_authorized": false,
+        "repository_machine_verifies_open_burning_exclusion": false,
+        "same_run_component_net_additivity_verified": false
+      },
+      "additive": false
+    },
+    {
+      "name": "nonwildfire_meteorological_pm25_health",
+      "class": "published_external_benchmark_failed_component_net_gate",
+      "published_value_usd_per_tco2": -38.0,
+      "checked_in_rff_component_value_usd_per_tco2": -24.529048760713994,
+      "released_component_sum_usd_per_tco2": -7.857399849665217,
+      "released_separate_net_usd_per_tco2": -34.66761788076073,
+      "released_net_minus_component_sum_usd_per_tco2": -26.810218031095513,
+      "article_open_burning_wildfire_exclusion_stated": true,
+      "repository_boundary_machine_readable": false,
+      "price_year_resolved": false,
+      "promotion_gates": {
+        "article_generating_release_identified": false,
+        "article_values_locally_reproduced": false,
+        "give_transfer_authorized": false,
+        "price_year_resolved": false,
+        "replacement_scc_authorized": false,
+        "repository_machine_verifies_open_burning_exclusion": false,
+        "same_run_component_net_additivity_verified": false
+      },
+      "additive": false
+    },
+    {
+      "name": "wildfire_smoke_pm25_mortality",
+      "class": "unpublished_external_module_pending_local_reproduction",
+      "provisional_value_usd_per_tco2": 50.0,
+      "additive": false
+    },
+    {
+      "name": "inland_flooding",
+      "class": "open_research_gap",
+      "additive": false
+    },
+    {
+      "name": "coral_reef_residual_services",
+      "class": "published_external_benchmark_unallocated_service_bundle",
+      "published_blue_scc_corals_nonmarket_use_usd_per_tco2": 2.46,
+      "service_bundle_count": 8,
+      "recreation_tourism_scc_released": false,
+      "country_rows_additive_to_global": false,
+      "transfer_promoted": false,
+      "additive": false,
+      "reason_not_additive": "The published result bundles eight services under nonseparable CES welfare; recreation/tourism is not separately released and fisheries, biodiversity nonuse, and coastal-protection overlaps remain."
+    }
+  ]
+}

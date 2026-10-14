@@ -123,9 +123,10 @@ estimating the same-source SPEI response.
 
 That reconstruction has begun. All 11 historical cells now pass independent
 validation for 468 months and SPEI-1/3/6, with all 396 calibration fits valid.
-All three GFDL-ESM4 future cases (SSP1-2.6, SSP3-7.0, and SSP5-8.5) each pass
-1,206 checks. Twelve cases remain, so no county response, future yield effect,
-damage, or SCC is claimed.
+All three GFDL-ESM4 future cases (SSP1-2.6, SSP3-7.0, and SSP5-8.5) and the
+IPSL-CM6A-LR SSP1-2.6 and SSP3-7.0 cases pass independent validation. Five of
+fifteen future cases are complete and ten remain, so no county response, future yield
+effect, damage, or SCC is claimed.
 
 ### 4.2 Labor productivity and updated agriculture
 
@@ -141,6 +142,16 @@ reproducing the article's rounded $29, $41, and $179 headlines. The source code
 does not specify a pooled cross-function quantile rule, so the two full
 distributions remain structural sensitivities and no pooled uncertainty
 interval is invented.
+
+A hash-bound paired-module preflight now verifies the source installation
+graph without executing the target model. It removes nine legacy agriculture
+components/support nodes, replaces the damage aggregator, adds
+`AgricultureShare`, `Labor`, and updated `Agriculture` once and in order, and
+retains separate Lancet and ISO cases. This is not a completed GIVE
+installation. A two-draw legacy-agriculture guard probe reached 2,531,426,304
+bytes (2.36 GiB), exceeding the 512 MiB worker cap; target execution and the
+replacement-delta gate remain closed pending a larger authorized worker or a
+numerically equivalent memory refactor.
 
 ### 4.3 Fisheries and biodiversity
 
@@ -160,6 +171,11 @@ calibration, country mapping, joint uncertainty draws, matched annual pulse
 outputs, licenses, and an explicit nonuse-only boundary. The approximate
 $8/tCO2 result remains a context-only literature benchmark.
 
+The executable biodiversity package gate requires seven complete artifact
+groups. The pinned public evidence supplies zero of seven, so the package is
+rejected as incomplete without treating missing artifacts as zeros or using
+the published benchmark as calibration.
+
 The shortest published nutrition transfer now also fails reproducibility and
 coverage gates. Requiring all published nutrition and mortality fields to be
 numeric leaves 116 of 184 GIVE countries and only 4 of 16 complete FUND
@@ -169,6 +185,14 @@ lacks the RICE50x baseline and one-million-ton-pulse result files needed to
 reconstruct annual damages. No missing coefficient is zero-filled or
 renormalized; the benchmark remains external pending a licensed complete
 release and explicit mortality-overlap allocation.
+
+A subsequent annual-pair admission test rejects the released fisheries files
+more directly. They are terminal SCC summaries rather than matched annual
+baseline/pulse paths, and zero of two comparable fisheries country/global
+summary pairs reconcile additively. Pulse metadata, complete mapping, direct
+consumer-plus-producer-surplus semantics, a machine-readable market-versus-
+nutrition boundary, and an artifact license manifest are also absent. This
+rejection neither revises nor validates the published benchmark.
 
 The smaller market component also fails the country-transfer gate despite an
 exact aggregate reproduction. The Figure 4 workbook gives
@@ -200,6 +224,15 @@ summaries (+$20.66 and -$21.91) also do not reproduce the article's +$23 and
 -$38 values. The source additionally mixes 2024-dollar GDP/VSL inputs with an
 NPV header stating 2020 dollars. We therefore request a versioned final release
 and do not adjust the public summaries to match the published values.
+
+The exact released component sum is -$7.857400/tCO2 and the separately
+released net is -$34.667618/tCO2, a net-minus-components gap of
+-$26.810218/tCO2. The discrepancy is nonzero for both CESM2 and GISS, so it is
+not created by model averaging. The article states that open burning,
+including wildfire, is excluded, but the repository does not encode that
+boundary in machine-readable metadata. Final-release, same-stream additivity,
+price-year, exclusion-boundary, local-reproduction, GIVE-transfer, and
+replacement-SCC gates all remain closed.
 
 An investigator-supplied draft estimates a provisional global wildfire-smoke
 PM2.5 mortality partial SCC of $50/tCO2 for a 2025 pulse at a 2% discount rate
