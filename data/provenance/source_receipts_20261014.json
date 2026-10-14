@@ -1,0 +1,161 @@
+{
+  "schema": "municipal_water_source_receipts_v1",
+  "audit_date": "2026-10-14",
+  "receipts": [
+    {
+      "evidence_id": "DOLAN2021",
+      "source_type": "peer_reviewed_primary",
+      "title": "Evaluating the economic impact of water scarcity in a changing world",
+      "locator": "https://doi.org/10.1038/s41467-021-22194-0",
+      "revision": "Nature Communications 12, 1915 (2021)",
+      "license": "CC-BY-4.0 article",
+      "verified_facts": [
+        "235 water basins and 32 geopolitical regions",
+        "six demand sectors include municipal, irrigation, livestock, manufacturing, primary energy, and electricity",
+        "endpoint is total consumer plus producer surplus difference between constrained and unlimited water scenarios",
+        "3000 factorial scenarios with 2876 completed",
+        "RCP4.5 hydrology forcing can be inconsistent with scenario emissions",
+        "raw data are available by request; processed data and calculation code are on Zenodo"
+      ]
+    },
+    {
+      "evidence_id": "GCAMSURPLUS_REPO",
+      "source_type": "official_author_repository",
+      "title": "GCAM.surplus v1.0.0 source repository",
+      "locator": "https://github.com/flannerydolan/GCAM.surplus",
+      "revision": "8b820c154fa62f5dad2022892de511e1ee8ebf65",
+      "license": "MIT",
+      "verified_facts": [
+        "calc_net_surplus integrates paired constrained and unlimited supply-demand curves",
+        "repository requests GCAM v5.1.1",
+        "configurations, query files, and processed surplus output are present",
+        "raw supply and demand curve files are available only on request",
+        "published surplus units are billions of 1975 USD before figure conversion"
+      ]
+    },
+    {
+      "evidence_id": "GCAMSURPLUS_ZENODO",
+      "source_type": "official_repository_archive",
+      "title": "flannerydolan/GCAM.surplus: v1.0.0",
+      "locator": "https://doi.org/10.5281/zenodo.4470017",
+      "revision": "record 4470017; archive md5:d0fb9b7525d2932d756a69ab385bfad3",
+      "license": "Zenodo metadata: other-open; archive contains repository MIT license",
+      "verified_facts": [
+        "open-access software record",
+        "single archive size 318093905 bytes",
+        "archive was not downloaded in this audit"
+      ]
+    },
+    {
+      "evidence_id": "GCAM_CORE_5_1_1",
+      "source_type": "official_model_release",
+      "title": "Global Change Analysis Model v5.1.1",
+      "locator": "https://github.com/JGCRI/gcam-core/tree/gcam-v5.1.1",
+      "revision": "3f4f2d019a9c7a6f5da6a562ead99e99ed23ddd0",
+      "license": "ECL-2.0",
+      "verified_facts": [
+        "published water-surplus workflow specifies this model version",
+        "model is global and multisectoral"
+      ]
+    },
+    {
+      "evidence_id": "MIMIFUND_3_13_0",
+      "source_type": "official_model_release",
+      "title": "MimiFUND v3.13.0",
+      "locator": "https://github.com/fund-model/MimiFUND.jl/releases/tag/v3.13.0",
+      "revision": "3f5fe29ffb753a49ff070d04b74ae42abd23576b",
+      "license": "MIT",
+      "verified_facts": [
+        "annual water-resources output for 16 FUND regions",
+        "released wrbm.csv has one uncertain regional benchmark coefficient for every FUND region",
+        "Monte Carlo distributions cover water benchmark and response parameters",
+        "get_marginal_model constructs base and modified runs and accepts a tCO2 pulse",
+        "release spreads the emissions pulse over ten years and normalizes the reported social cost by pulse size",
+        "water component source indexes temperature by time and region"
+      ]
+    },
+    {
+      "evidence_id": "FUND_TECHNICAL_3_9",
+      "source_type": "official_model_documentation",
+      "title": "FUND 3.9 Scientific Documentation",
+      "locator": "https://www.fund-model.org/files/documentation/Fund-3-9-Scientific-Documentation.pdf",
+      "revision": "section 5.3 Water resources",
+      "license": "not stated on source document",
+      "verified_facts": [
+        "water impact is a monetized reduced-form response in 1995 USD",
+        "documentation describes global mean temperature, income, population, technology, and regional benchmark terms",
+        "documentation does not provide a municipal-only welfare decomposition"
+      ]
+    },
+    {
+      "evidence_id": "DOWNING1996",
+      "source_type": "official_source_report",
+      "title": "Full Fuel Cycle Study: Evaluation of the Global Warming Externality for Fossil Fuel Cycles with and without CO2 Abatement and for Two Reference Scenarios",
+      "locator": "https://www.fund-model.org/files/DowningEtAl1996a.pdf",
+      "revision": "Downing et al. 1996 report hosted by FUND",
+      "license": "not stated on source document",
+      "verified_facts": [
+        "source discussion spans irrigation, urban water supply, amenity, ecosystem, and other water-resource impacts",
+        "no machine-readable municipal share of FUND regional water coefficients is released"
+      ]
+    },
+    {
+      "evidence_id": "RIEDEL2024",
+      "source_type": "peer_reviewed_primary",
+      "title": "Fluvial flood inundation and socio-economic impact model based on open data",
+      "locator": "https://doi.org/10.5194/gmd-17-5291-2024",
+      "revision": "Geoscientific Model Development 17, 5291-5313 (2024)",
+      "license": "CC-BY-4.0 article",
+      "verified_facts": [
+        "globally applicable GloFAS-to-inundation implementation",
+        "hazard maps cover river catchments above 5000 km2",
+        "the demonstrated impact endpoint is population displacement",
+        "uncertainty analysis includes forecast ensemble, bootstrap return periods, and vulnerability functions",
+        "authors explicitly state the module is not a pluvial-flood model",
+        "software, data, and scripts are archived at Zenodo 10518953"
+      ]
+    },
+    {
+      "evidence_id": "RIEDEL_ZENODO",
+      "source_type": "official_repository_archive",
+      "title": "Software, Data, and Scripts for Fluvial Flood Inundation and Humanitarian Impact Model Based On Open Data",
+      "locator": "https://doi.org/10.5281/zenodo.10518953",
+      "revision": "record 10518953 version 0.1",
+      "license": "GPL-3.0-or-later",
+      "verified_facts": [
+        "open-access record",
+        "four data/code archives total 482239982 bytes plus a 1962-byte README",
+        "archives were not downloaded in this audit"
+      ]
+    },
+    {
+      "evidence_id": "CLIMADA_CORE_6_1_0",
+      "source_type": "official_model_release",
+      "title": "CLIMADA core v6.1.0",
+      "locator": "https://github.com/CLIMADA-project/climada_python/releases/tag/v6.1.0",
+      "revision": "bb9595944fcf673152ea53e61efbafeb0b1e4406",
+      "license": "GPL-3.0",
+      "verified_facts": [
+        "probabilistic impact, adaptation, and uncertainty framework",
+        "global hazard data are available through the CLIMADA data API for selected hazards"
+      ]
+    },
+    {
+      "evidence_id": "CLIMADA_PETALS_6_2_0",
+      "source_type": "official_model_release",
+      "title": "CLIMADA Petals v6.2.0",
+      "locator": "https://github.com/CLIMADA-project/climada_petals/releases/tag/v6.2.0",
+      "revision": "6ecd7af096f126df2da1023fbc5013765566d5e9",
+      "license": "GPL-3.0",
+      "verified_facts": [
+        "contains the GloFAS river-flood hazard implementation",
+        "requires CLIMADA core and external static hazard/protection/Gumbel-fit inputs"
+      ]
+    }
+  ],
+  "network_scope": {
+    "metadata_and_small_text_only": true,
+    "large_artifacts_downloaded": false,
+    "model_runs_performed": false
+  }
+}

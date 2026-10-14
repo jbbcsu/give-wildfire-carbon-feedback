@@ -1,0 +1,210 @@
+{
+  "schema": "municipal_water_fast_route_screen_v1",
+  "audit_date": "2026-10-14",
+  "authorization": {
+    "purpose": "source_and_transfer_feasibility_only",
+    "download_large_artifacts": false,
+    "estimate_coefficients": false,
+    "impute_or_allocate": false,
+    "calculate_damage_function": false,
+    "calculate_or_promote_scc": false
+  },
+  "required_gates": [
+    "climate_response",
+    "annual_welfare_paths",
+    "geographic_coverage",
+    "uncertainty",
+    "marginal_pulse_compatibility",
+    "license",
+    "overlap_boundary"
+  ],
+  "municipal_overlap_boundary": {
+    "included": [
+      "municipal_and_household_water_supply_reliability",
+      "municipal_water_supply_treatment_pumping_storage_and_conveyance_cost"
+    ],
+    "excluded": [
+      "give_agriculture_crop_yield_and_market_damages",
+      "give_energy_demand_and_supply_damages",
+      "ciam_coastal_flooding_and_protection",
+      "irrigation_and_livestock_water_impacts",
+      "manufacturing_water_impacts",
+      "primary_energy_and_electricity_water_impacts",
+      "hydropower_impacts",
+      "inland_flood_capital_and_displacement_impacts",
+      "water_recreation_ecosystem_and_nonuse_values"
+    ],
+    "allocation_or_renormalization_allowed": false,
+    "cross_sector_surplus_attribution_allowed": false
+  },
+  "candidate_order": [
+    "dolan_gcam_water_surplus_2021",
+    "mimifund_water_resources_v3_13_0",
+    "climada_glofas_river_flood_2024"
+  ],
+  "candidates": [
+    {
+      "candidate_id": "dolan_gcam_water_surplus_2021",
+      "sector": "municipal_water_supply",
+      "role": "lead_welfare_candidate",
+      "release": {
+        "version": "GCAM.surplus v1.0.0 with GCAM v5.1.1",
+        "revision": "GCAM.surplus 8b820c154fa62f5dad2022892de511e1ee8ebf65; GCAM 3f4f2d019a9c7a6f5da6a562ead99e99ed23ddd0",
+        "license_summary": "GCAM.surplus MIT; GCAM ECL-2.0; Zenodo record reports other-open; unreleased raw-curve terms unresolved"
+      },
+      "published_endpoint": "Change in total consumer plus producer surplus between paired constrained-water and unlimited-water scenarios, across simplified water markets",
+      "spatial_temporal_support": "Global model with 235 water basins and 32 geopolitical regions; model time steps rather than annual output",
+      "gates": {
+        "climate_response": {
+          "state": "partial",
+          "evidence_ids": ["DOLAN2021", "GCAMSURPLUS_REPO"],
+          "reason": "Xanthos runoff is forced by five downscaled ESM realizations of RCP4.5, but the paper reports that those forcing trajectories can be inconsistent with scenario emissions."
+        },
+        "annual_welfare_paths": {
+          "state": "fail",
+          "evidence_ids": ["DOLAN2021", "GCAMSURPLUS_REPO"],
+          "reason": "The welfare concept is explicit, but public results are at GCAM model time steps and the request-only raw supply/demand curves prevent reconstruction of annual matched paths."
+        },
+        "geographic_coverage": {
+          "state": "pass",
+          "evidence_ids": ["DOLAN2021", "GCAM_CORE_5_1_1"],
+          "reason": "The implementation covers 235 global water basins nested in a global multisector model."
+        },
+        "uncertainty": {
+          "state": "pass",
+          "evidence_ids": ["DOLAN2021"],
+          "reason": "The study evaluates a 3,000-member factorial ensemble across socioeconomic, agricultural, groundwater, reservoir, climate-model, and land-policy dimensions; 2,876 runs completed."
+        },
+        "marginal_pulse_compatibility": {
+          "state": "fail",
+          "evidence_ids": ["DOLAN2021", "GCAMSURPLUS_REPO"],
+          "reason": "The published contrast is constrained versus unlimited water under scenario forcing, not matched baseline versus marginal CO2-pulse runs."
+        },
+        "license": {
+          "state": "fail",
+          "evidence_ids": ["DOLAN2021", "GCAMSURPLUS_REPO", "GCAMSURPLUS_ZENODO", "GCAM_CORE_5_1_1"],
+          "reason": "Code licenses are identified, but the complete raw supply/demand curve package is request-only and no machine-readable license for those inputs is public."
+        },
+        "overlap_boundary": {
+          "state": "fail",
+          "evidence_ids": ["DOLAN2021"],
+          "reason": "Published surplus combines irrigation, livestock, municipal, manufacturing, primary-energy, and electricity water markets; a municipal-only additive decomposition is not released."
+        }
+      },
+      "ready_for_give": false,
+      "exact_blocker": "Obtain licensed raw curves and an author-supported municipal-only CS+PS decomposition, then generate annual matched baseline/pulse paths with consistent climate forcing and a conserving basin-to-GIVE mapping.",
+      "forbidden_shortcut": "Do not allocate total water-market surplus to municipal demand shares or subtract GIVE agriculture/energy damages ex post."
+    },
+    {
+      "candidate_id": "mimifund_water_resources_v3_13_0",
+      "sector": "municipal_water_supply",
+      "role": "pulse_ready_integrated_water_alternative",
+      "release": {
+        "version": "MimiFUND v3.13.0",
+        "revision": "3f5fe29ffb753a49ff070d04b74ae42abd23576b",
+        "license_summary": "MIT"
+      },
+      "published_endpoint": "Annual regional monetized water-resources impact as a reduced-form function of temperature, income, population, technology trend, and regional benchmark coefficient",
+      "spatial_temporal_support": "Annual 1950-2300 model with 16 global FUND regions",
+      "gates": {
+        "climate_response": {
+          "state": "partial",
+          "evidence_ids": ["MIMIFUND_3_13_0", "FUND_TECHNICAL_3_9"],
+          "reason": "A coded temperature response exists, but it is not a drought, runoff, or municipal supply-reliability response; source code uses regional temperature while the scientific documentation describes global mean temperature."
+        },
+        "annual_welfare_paths": {
+          "state": "partial",
+          "evidence_ids": ["MIMIFUND_3_13_0", "FUND_TECHNICAL_3_9", "DOWNING1996"],
+          "reason": "Annual monetary paths are exposed, but the calibration is an aggregate water-resources impact and does not document a municipal consumer/producer-surplus or resource-cost decomposition."
+        },
+        "geographic_coverage": {
+          "state": "pass",
+          "evidence_ids": ["MIMIFUND_3_13_0"],
+          "reason": "All 16 FUND regions have released regional benchmark coefficients."
+        },
+        "uncertainty": {
+          "state": "pass",
+          "evidence_ids": ["MIMIFUND_3_13_0"],
+          "reason": "The release includes Monte Carlo distributions for the regional benchmark coefficients and water response parameters."
+        },
+        "marginal_pulse_compatibility": {
+          "state": "pass",
+          "evidence_ids": ["MIMIFUND_3_13_0"],
+          "reason": "The official marginal model creates paired base and modified runs, accepts a tCO2 pulse, exposes the marginal model, and normalizes by pulse size; the release spreads the pulse over ten years."
+        },
+        "license": {
+          "state": "pass",
+          "evidence_ids": ["MIMIFUND_3_13_0"],
+          "reason": "The pinned code and bundled calibration table are released under MIT terms."
+        },
+        "overlap_boundary": {
+          "state": "fail",
+          "evidence_ids": ["FUND_TECHNICAL_3_9", "DOWNING1996"],
+          "reason": "The water-resources calibration is not separated into municipal, irrigation/agriculture, industry, hydropower/energy, recreation, or ecosystem values."
+        }
+      },
+      "ready_for_give": false,
+      "exact_blocker": "Recover a source-supported sector decomposition of each regional benchmark coefficient and its welfare basis; absent that, the released annual pulse machinery cannot be relabeled municipal.",
+      "forbidden_shortcut": "Do not treat the aggregate FUND water-resources impact as municipal or infer municipal shares from water withdrawals."
+    },
+    {
+      "candidate_id": "climada_glofas_river_flood_2024",
+      "sector": "inland_riverine_flooding",
+      "role": "physical_risk_comparator",
+      "release": {
+        "version": "Riedel replication v0.1; CLIMADA core v6.1.0; petals v6.2.0",
+        "revision": "Zenodo 10.5281/zenodo.10518953; core bb9595944fcf673152ea53e61efbafeb0b1e4406; petals 6ecd7af096f126df2da1023fbc5013765566d5e9",
+        "license_summary": "GPL-3.0-or-later replication record; CLIMADA GPL-3.0"
+      },
+      "published_endpoint": "Event flood footprints and humanitarian displacement impacts from GloFAS discharge, global flood maps, protection assumptions, exposure, and vulnerability",
+      "spatial_temporal_support": "Globally applicable river-flood model; hazard maps cover river systems with catchments above 5,000 km2; explicitly not a pluvial-flood model",
+      "gates": {
+        "climate_response": {
+          "state": "partial",
+          "evidence_ids": ["RIEDEL2024", "CLIMADA_PETALS_6_2_0"],
+          "reason": "The implementation converts GloFAS discharge to inundation footprints and can use ensembles, but the published package is a reanalysis/forecast application rather than matched climate-damage paths."
+        },
+        "annual_welfare_paths": {
+          "state": "fail",
+          "evidence_ids": ["RIEDEL2024"],
+          "reason": "The demonstrated endpoint is event displacement, not annual consumer/producer surplus, equivalent variation, or consumption-equivalent welfare."
+        },
+        "geographic_coverage": {
+          "state": "partial",
+          "evidence_ids": ["RIEDEL2024"],
+          "reason": "The method is globally applicable, but the underlying hazard maps omit smaller catchments and the authors explicitly state it is not a pluvial-flood model."
+        },
+        "uncertainty": {
+          "state": "pass",
+          "evidence_ids": ["RIEDEL2024", "CLIMADA_CORE_6_1_0"],
+          "reason": "The paper propagates forecast-ensemble, return-period bootstrap, and vulnerability-function uncertainty; CLIMADA provides uncertainty machinery."
+        },
+        "marginal_pulse_compatibility": {
+          "state": "fail",
+          "evidence_ids": ["RIEDEL2024", "CLIMADA_PETALS_6_2_0"],
+          "reason": "No matched CO2-pulse-to-discharge-to-impact workflow or pulse metadata is released."
+        },
+        "license": {
+          "state": "pass",
+          "evidence_ids": ["RIEDEL_ZENODO", "CLIMADA_CORE_6_1_0", "CLIMADA_PETALS_6_2_0"],
+          "reason": "The replication record is GPL-3.0-or-later and the CLIMADA repositories are GPL-3.0."
+        },
+        "overlap_boundary": {
+          "state": "fail",
+          "evidence_ids": ["RIEDEL2024"],
+          "reason": "The event exposure endpoint does not provide a municipal-only or asset-class accounting boundary and is not reconciled against agriculture, energy infrastructure, or CIAM coastal protection."
+        }
+      },
+      "ready_for_give": false,
+      "exact_blocker": "Add a licensed future-climate hazard ensemble, annual welfare valuation, matched marginal pulse, complete riverine-plus-pluvial coverage, exposure-class boundaries, and a country/GIVE mapping.",
+      "forbidden_shortcut": "Do not equate displacement or direct asset damage with welfare, or treat the fluvial module as pluvial coverage."
+    }
+  ],
+  "decision": {
+    "qualifying_candidate_count": 0,
+    "lead_candidate": "dolan_gcam_water_surplus_2021",
+    "result": "no_transferable_municipal_water_or_inland_flood_module",
+    "fastest_defensible_next_step": "Request the GCAM water-surplus artifacts and municipal-only decomposition listed in FAST_ROUTE_AUDIT_20261014.md; if unavailable, retain the sector as deferred rather than estimate or allocate.",
+    "external_benchmark_only": "Dolan et al. 2021 can be cited as scenario-based global water-scarcity welfare evidence, but not as a GIVE SCC or municipal-only estimate."
+  }
+}
