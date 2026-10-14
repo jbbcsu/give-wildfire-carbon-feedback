@@ -1639,9 +1639,13 @@ are needed; minimum county coverage is 0.412. We do not renormalize those
 counties onto partial support or fit outcomes on the remaining 351. Historical
 weather for the missing cells remains local, whereas the matching future
 temperature-extreme inputs must be reacquired for five ESMs and three SSPs.
-This precise, small support gap is now the binding computational step before a
-same-source county SPEI response can be estimated. See
-`us_county_validation/US_DIRECT_PRACTICE_SPEI_BRIDGE_READINESS_20261013.md`.
+We have now constructed and independently validated all 11 historical cells:
+468 months, SPEI-1/3/6, all 396 calibration fits valid, and no missing monthly
+precipitation or evapotranspiration. The first future case, GFDL-ESM4 under
+SSP1-2.6, also passes 1,206 independent checks. Fourteen model-scenario cases
+remain, so no county panel or response is fitted yet. See
+`us_county_validation/US_DIRECT_PRACTICE_SPEI_BRIDGE_READINESS_20261013.md`
+and `us_county_validation/US_SPEI_BRIDGE_EXTENSION_RESULTS_20261013.md`.
 
 The separate LOCA2 historical diagnostic reinforces the need to preserve
 climate-pattern heterogeneity. A third county, Furnas County, Nebraska, was

@@ -640,6 +640,24 @@ cases before a common-source SPEI panel is admissible. Exact inputs and native
 indices are recorded in
 `data/provenance/us_direct_practice_spei_bridge_readiness_20261013.json`.
 
+The historical reconstruction is now complete. A bounded worker reads the
+resident, SHA-512-verified GSWP3-W5E5 daily precipitation and temperature
+files only at the eleven native cells, applies the frozen Hargreaves--Samani
+and 1982--2011 GLO/UBPWM procedure, and writes 468 monthly records for
+SPEI-1/3/6. All 396 cell--scale--calendar-month fits are valid; precipitation,
+ET0, and water balance have zero missing values and no tail clipping. The
+builder peaks at 157,843,456 bytes; an independent reconstruction passes 42
+checks with zero array discrepancy and four exact raw-month sentinels.
+
+Future acquisition is a deterministic 15-case queue containing 30 exact CC0
+ISIMIP3b extrema objects. Only one case may be resident at a time. The first
+case, GFDL-ESM4 SSP1-2.6, contains 120 months by 11 cells with no missing
+triplets, incomplete months, or temperature-order violations. Its independent
+validator passes 1,206 checks; maximum SPEI disagreement is
+`7.36e-09`. The two 4.14 GB raw extrema files were hash-verified and then
+deleted with a recovery receipt. Fourteen cases remain. All county-panel,
+response, projection, causal, damage, and SCC gates stay closed.
+
 ### October 13 LOCA2 three-county historical sentinel
 
 To expand the direct-rainfall validation without selecting on results, Furnas

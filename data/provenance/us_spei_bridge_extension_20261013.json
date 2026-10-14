@@ -1,0 +1,120 @@
+{
+  "schema": "us_spei_bridge_extension_provenance_v1",
+  "reference_date": "2026-10-13",
+  "status": "historical_11_cells_validated_first_of_15_future_cases_validated",
+  "role": "climate_only_support_extension_no_county_panel_or_outcome_fit",
+  "cell_inventory": {
+    "path": "config/us_spei_bridge_missing_cells_v1.csv",
+    "sha256": "2eda25a0328314001a7109f9f6aeb49fab1ffd5485f186c2f76327d0c84f33c8",
+    "cells": 11
+  },
+  "historical": {
+    "source": "ISIMIP3a GSWP3-W5E5 v1.3 obsclim",
+    "period": "1981-2019",
+    "months": 468,
+    "scales": [1, 3, 6],
+    "calibration": "1982-2011 calendar-month GLO/UBPWM frozen",
+    "valid_fits": 396,
+    "invalid_fits": 0,
+    "monthly_precipitation_missing": 0,
+    "monthly_et0_missing": 0,
+    "tail_clips": 0,
+    "result": {
+      "path": "data/interim/us_county/us_spei_bridge_historical_cells_v2_20261013/result.json",
+      "sha256": "078b14f0ec3bfea7630448e2787458f9459cce82629d60d450797932a98560fd"
+    },
+    "validation": {
+      "path": "data/interim/us_county/us_spei_bridge_historical_cells_v2_20261013/validation.json",
+      "sha256": "e66777bf775d272696ea5749691d88847318b4741977eed5f61a22a6b66d318d",
+      "status": "passed",
+      "checks": 42,
+      "maximum_reconstruction_absolute_difference": 0.0,
+      "raw_month_sentinels": 4
+    },
+    "resource": {
+      "path": "data/interim/us_county/us_spei_bridge_historical_cells_v2_20261013.resource.json",
+      "sha256": "2a95c070aab03ad4b2be9271727024f62d00abeb2f60a6b47a51c9109075cfcb",
+      "sampled_peak_group_rss_bytes": 157843456,
+      "memory_limit_bytes": 536870912
+    },
+    "validation_resource": {
+      "path": "data/interim/us_county/us_spei_bridge_historical_cells_v2_20261013.validation_v2.resource.json",
+      "sha256": "99bfdf84afd06a1cea0046f0c7b92c388b24703c79d03064ccf088c9dfbdb50b",
+      "sampled_peak_group_rss_bytes": 149012480
+    }
+  },
+  "future_queue": {
+    "path": "data/provenance/us_spei_bridge_future_11_cell_queue_20261013.json",
+    "sha256": "30aa7a586dd466ed7095118a7cd6bcca7fae325257a9347896797af97ba793c7",
+    "cases": 15,
+    "extrema_objects": 30,
+    "total_sequential_transfer_bytes": 62129453968,
+    "execution_rule": "one case at a time; validate before evicting its two extrema objects"
+  },
+  "future_progress": {
+    "validated_cases": 1,
+    "remaining_cases": 14,
+    "first_case": {
+      "esm": "gfdl-esm4",
+      "scenario": "ssp126",
+      "months": 120,
+      "cells": 11,
+      "support_missing_triplets": 0,
+      "incomplete_cell_months": 0,
+      "global_temperature_order_violations": 0,
+      "result": {
+        "path": "data/interim/us_county/us_spei_bridge_future_11_cells_20261013/gfdl-esm4_ssp126/result.json",
+        "sha256": "c6f26afe4a6ad3318f1fb8422196d50c52523d1c81303d43267881f183ed9b4c"
+      },
+      "validation": {
+        "path": "data/interim/us_county/us_spei_bridge_future_11_cells_20261013/gfdl-esm4_ssp126/validation.json",
+        "sha256": "e63d578e94818cf40662eb91141ac631ba03ab2c360e564708aca3a4b73bed52",
+        "status": "passed",
+        "checks": 1206,
+        "maximum_spei_absolute_difference": 7.363518683689563e-09
+      },
+      "build_resource": {
+        "path": "data/interim/us_county/us_spei_bridge_future_11_cells_20261013/gfdl-esm4_ssp126.resource.json",
+        "sha256": "b5878f2ee91f4a53d40c4d9c0911eeb5c77cc39e2f4857f21a867be496370b1c",
+        "sampled_peak_group_rss_bytes": 184451072
+      },
+      "validation_resource": {
+        "path": "data/interim/us_county/us_spei_bridge_future_11_cells_20261013/gfdl-esm4_ssp126.validation_v2.resource.json",
+        "sha256": "90fb042ec5a5d876b9180760fa34056555144764f45b1afbacdc72f6386db611",
+        "sampled_peak_group_rss_bytes": 132775936
+      },
+      "extrema_eviction": {
+        "path": "data/provenance/gfdl-esm4_ssp126_us_spei_bridge_extrema_eviction_20261013.json",
+        "sha256": "ad6b1071cadfcf011d97cdfcb4f81a4ed1a295d48e6c62fd1d60e93ff5525843",
+        "deleted_bytes": 4140781657,
+        "reacquirable": true
+      }
+    }
+  },
+  "implementation": {
+    "historical_builder": {"path": "scripts/build_us_spei_bridge_historical_cells.py", "sha256": "780391fb273614dffdf32536c094376bf6154583d0f0b68dd4b47f81e2ab2c84"},
+    "historical_validator": {"path": "scripts/validate_us_spei_bridge_historical_cells.py", "sha256": "c55280ec71ccf39f929dfa9000c4c6ee45ea383655a5f64d2bdf9767916926b8"},
+    "historical_tests": {"path": "scripts/test_build_us_spei_bridge_historical_cells.py", "sha256": "05d982cb41178e25ebd8d60fb945c074ec71b0fc1d7d903a81ad685eaac79357", "checks": 9, "status": "passed"},
+    "queue_builder": {"path": "scripts/plan_us_spei_bridge_future_queue.py", "sha256": "c20d99b63f9d20829d3905fe7c7476c4a3288bdb9158a10f540532dfbac00470"},
+    "acquirer": {"path": "scripts/acquire_us_spei_bridge_future_extrema.py", "sha256": "25febbc46ead33bf34e845201c738886fb8229243d3579bbe9f7901663e6d7d2"},
+    "future_builder": {"path": "scripts/build_us_spei_bridge_future_case.py", "sha256": "92e34a73583bac938550bc1b4298ebbbaa4e1fd2a59fbe1b9998d1ca29cc320e"},
+    "future_validator": {"path": "scripts/validate_us_spei_bridge_future_case.py", "sha256": "b8786fbb7f0c192dbcddc15ea66822bacace44c74d4dbffc150f997b79699d87"},
+    "queue_tests": {"path": "scripts/test_us_spei_bridge_future_queue.py", "sha256": "1534f4551e6178391411fec02615ada9f787268f291465698b51c52ad0be8e36", "checks": 12, "status": "passed"}
+  },
+  "gates": {
+    "historical_11_cell_extension": true,
+    "all_15_future_11_cell_extensions": false,
+    "historical_exact_361_county_support": false,
+    "future_exact_361_county_support": false,
+    "historical_county_spei_panel": false,
+    "future_county_spei_panel": false,
+    "bridge_to_nass_response": false,
+    "fit_outcomes": false,
+    "future_yield_projection": false,
+    "causal_claim": false,
+    "damage": false,
+    "scc": false
+  },
+  "next_case": "gfdl-esm4_ssp370",
+  "moisture_family_rule": "SPEI and direct rainfall remain competing families and must not be stacked or added."
+}
