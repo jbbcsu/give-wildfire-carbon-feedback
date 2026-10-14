@@ -1,0 +1,80 @@
+{
+  "claim_status": "source-verified paired-module execution preflight only; no new run, replacement delta, pooled uncertainty, precipitation stacking, or combined GIVE SCC",
+  "contract": {
+    "path": "config/moore_paired_module_preflight_v1.json",
+    "sha256": "5edffd512b95be83c78920f690b7017e2ba227ba6ae3d9b2f589b0e602dd68ea"
+  },
+  "created_at_utc": "2026-10-14T21:11:32.414987+00:00",
+  "gates": {
+    "agriculture_addition_allowed": false,
+    "case_outputs_remain_separate": true,
+    "case_specific_inputs_and_receipts_verified": true,
+    "combined_give_scc_authorized": false,
+    "cross_case_quantile_pooling_allowed": false,
+    "paired_replacement_addition_source_graph_verified": true,
+    "precipitation_stacking_allowed": false,
+    "replacement_delta_promoted": false,
+    "target_give_run_completed": false
+  },
+  "ignored_runtime_inputs": {
+    "bytes": 19751701,
+    "count": 7,
+    "hashes_valid": true,
+    "vendor_ignore_present": true
+  },
+  "schema": "moore_paired_module_preflight_receipt/v1",
+  "source_graph": {
+    "legacy_agriculture_random_variables_removed": 48,
+    "legacy_components_removed": 9,
+    "replacement_components_added": 3,
+    "separate_damage_connections": [
+      "agriculture",
+      "labor"
+    ],
+    "updated_agriculture_coefficients_per_country": 7
+  },
+  "structural_cases": {
+    "ISO": {
+      "constructor_value": "ISO",
+      "partial_sector_summary": {
+        "agriculture": {
+          "expected_scc_2020usd_per_tco2": 29.10096418611888,
+          "median": 23.699094750388774,
+          "q05": -2.896157100857303,
+          "q95": 80.46783271247885
+        },
+        "labor": {
+          "expected_scc_2020usd_per_tco2": 51.86467799826219,
+          "median": 42.151437624233225,
+          "q05": 1.042064811275526,
+          "q95": 133.88272968223436
+        }
+      },
+      "receipt": {
+        "path": "data/provenance/labor_ag_sectoral_scc_n10000_iso_20261011.json",
+        "sha256": "6641a397ff9f18231a720c8f5a2a0f39ca6aa49198db94053acdb2b1a4539fe9"
+      }
+    },
+    "LANCET": {
+      "constructor_value": "Lancet",
+      "partial_sector_summary": {
+        "agriculture": {
+          "expected_scc_2020usd_per_tco2": 29.047988785807586,
+          "median": 23.636459236790174,
+          "q05": -2.9027712345941614,
+          "q95": 80.40836657795371
+        },
+        "labor": {
+          "expected_scc_2020usd_per_tco2": 29.2638359626996,
+          "median": 25.005602136853895,
+          "q05": 0.18748949418147723,
+          "q95": 70.78419469556248
+        }
+      },
+      "receipt": {
+        "path": "data/provenance/labor_ag_sectoral_scc_n10000_lancet_20261010.json",
+        "sha256": "cd6b8f958a702805a8db12f941579f313045e573efd3924568390dc94c4542fd"
+      }
+    }
+  }
+}

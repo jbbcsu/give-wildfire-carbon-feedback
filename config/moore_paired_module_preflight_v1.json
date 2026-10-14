@@ -1,0 +1,147 @@
+{
+  "schema": "moore_paired_module_preflight_contract/v1",
+  "source_archive_doi": "10.5281/zenodo.21483095",
+  "source_license": "MIT",
+  "source_root": "vendor/moore_2026/lrennels-paper-2026-give-labor-ag-5d034e7",
+  "execution_invariants": {
+    "currency": "2020 USD per metric ton CO2",
+    "discount_rate_label": "2.0%",
+    "draws": 10000,
+    "julia_threads": 1,
+    "julia_version": "1.12.5",
+    "pulse_size": 0.0001,
+    "pulse_year": 2025,
+    "seed": 24523438,
+    "socioeconomics": "RFF-SP"
+  },
+  "source_files": {
+    "runner": {
+      "path": "scripts/replicate_sectoral_scc.jl",
+      "sha256": "f7550fa7a3066eee3d7a08ab327cae4a9c3c990436e9a3399be8f4a74510b248"
+    },
+    "project": {
+      "path": "vendor/moore_2026/lrennels-paper-2026-give-labor-ag-5d034e7/Project.toml",
+      "sha256": "26b8685651e28f19f2d2878fdc457d330fb55f108b237e94cb9a6028bb13f9b0"
+    },
+    "manifest": {
+      "path": "vendor/moore_2026/lrennels-paper-2026-give-labor-ag-5d034e7/Manifest.toml",
+      "sha256": "08890942824db91a81b45fcb60b35e820d3d12aaa5c6a044d0ba0ec93dcca448"
+    },
+    "get_model": {
+      "path": "vendor/moore_2026/lrennels-paper-2026-give-labor-ag-5d034e7/src/get_model.jl",
+      "sha256": "7e5f7f210618b72790c25a0c23cdb85e927700c5bbec4f1b6cd7bf3f0e234b4d"
+    },
+    "mcs": {
+      "path": "vendor/moore_2026/lrennels-paper-2026-give-labor-ag-5d034e7/src/mcs.jl",
+      "sha256": "637bca9ad9be99531dad1b5a1f7ccaf9da23036feaa8841dcd0b9ee1bfe7b8e8"
+    },
+    "damage_aggregator": {
+      "path": "vendor/moore_2026/lrennels-paper-2026-give-labor-ag-5d034e7/src/components/DamageAggregator.jl",
+      "sha256": "46bcd8cc8aa12540e62bcc5e2e7737de5f8de6893960caf91c4906f467a04ff7"
+    },
+    "scc": {
+      "path": "vendor/moore_2026/lrennels-paper-2026-give-labor-ag-5d034e7/src/scc.jl",
+      "sha256": "dc7f2d56248082562f170353aea130c2bd73e33cc61280d8ac81d4260654e92f"
+    }
+  },
+  "ignored_runtime_inputs": {
+    "region_crosswalk": {
+      "path": "vendor/moore_2026/lrennels-paper-2026-give-labor-ag-5d034e7/data/region_crosswalk.csv",
+      "bytes": 4321,
+      "sha256": "7b3a5b89540ef7d648fb0b04d00ae5c45dda46895177acf212eea33b3fb1e253"
+    },
+    "gcm_dimension": {
+      "path": "vendor/moore_2026/lrennels-paper-2026-give-labor-ag-5d034e7/data/dimension_gcm.csv",
+      "bytes": 228,
+      "sha256": "493af36cd53d5b90de1e861871bcf46adfc34ff30f74a433af679fad15392e96"
+    },
+    "sector_share": {
+      "path": "vendor/moore_2026/lrennels-paper-2026-give-labor-ag-5d034e7/data/202505_SectorShare_v2.csv",
+      "bytes": 2720,
+      "sha256": "e5a84f76d5f10751374b8dcb33d580cce0d26632eecf27214771b813e375daad"
+    },
+    "rff_ypc2017": {
+      "path": "vendor/moore_2026/lrennels-paper-2026-give-labor-ag-5d034e7/data/ypc2017/rffsp_ypc2017.parquet",
+      "bytes": 14278001,
+      "sha256": "40bbee7a59529cd564e00d5f5dcf1f6590fc884251a41531d64fc55de30b9280"
+    },
+    "updated_agriculture": {
+      "path": "vendor/moore_2026/lrennels-paper-2026-give-labor-ag-5d034e7/data/gtap_output/202505_Plants_People_Agriculture.csv",
+      "bytes": 292243,
+      "sha256": "484b153ec80947962b78db33ff0d676447dea15759d1368fb7c4ba23bc41666d"
+    },
+    "labor_lancet": {
+      "path": "vendor/moore_2026/lrennels-paper-2026-give-labor-ag-5d034e7/data/gtap_output/20260428_Plants_People_results_v4_Lancet_Revision.csv",
+      "bytes": 2615298,
+      "sha256": "978c5e5af3a06f413f47449dbb16e34ebf1d267caa9ffbb242a4b91737af28d9"
+    },
+    "labor_iso": {
+      "path": "vendor/moore_2026/lrennels-paper-2026-give-labor-ag-5d034e7/data/gtap_output/20260428_Plants_People_results_v4_ISO_Revision.csv",
+      "bytes": 2558890,
+      "sha256": "0e6c9b5c09af29037242c15857e13be9a6dd2e3f2e4cd650ffc3a957fa214aeb"
+    }
+  },
+  "module_installation": {
+    "baseline_constructor": "MimiGIVE.get_model",
+    "replacement_constructor": "get_model",
+    "legacy_agriculture_components_removed": [
+      "Agriculture",
+      "Agriculture_aggregator_pop90",
+      "Agriculture_aggregator_gdp90",
+      "Agriculture_aggregator_population",
+      "Agriculture_aggregator_gdp",
+      "AgricultureDamagesDisaggregator",
+      "Damages_RegionAggregatorSum",
+      "regional_netconsumption",
+      "RegionalPerCapitaGDP"
+    ],
+    "replacement_components_added_in_order": [
+      "AgricultureShare",
+      "Labor",
+      "Agriculture"
+    ],
+    "aggregator_component_replaced": "DamageAggregator",
+    "required_damage_connections": {
+      "agriculture": "DamageAggregator.damage_ag<-Agriculture.agcost",
+      "labor": "DamageAggregator.damage_labor<-Labor.laborcost"
+    },
+    "required_active_flags": [
+      "include_ag",
+      "include_labor"
+    ],
+    "legacy_agriculture_random_variables_removed": 48,
+    "updated_agriculture_coefficients_per_country": 7,
+    "labor_gcm_uncertainty_added": true
+  },
+  "structural_cases": {
+    "LANCET": {
+      "constructor_value": "Lancet",
+      "labor_input": "labor_lancet",
+      "receipt": {
+        "path": "data/provenance/labor_ag_sectoral_scc_n10000_lancet_20261010.json",
+        "sha256": "cd6b8f958a702805a8db12f941579f313045e573efd3924568390dc94c4542fd"
+      }
+    },
+    "ISO": {
+      "constructor_value": "ISO",
+      "labor_input": "labor_iso",
+      "receipt": {
+        "path": "data/provenance/labor_ag_sectoral_scc_n10000_iso_20261011.json",
+        "sha256": "6641a397ff9f18231a720c8f5a2a0f39ca6aa49198db94053acdb2b1a4539fe9"
+      }
+    }
+  },
+  "output_contract": {
+    "allowed_partial_sectors": [
+      "agriculture",
+      "labor"
+    ],
+    "case_outputs_must_remain_separate": true,
+    "allow_cross_case_quantile_pooling": false,
+    "allow_equal_weight_quantile_averaging": false,
+    "allow_agriculture_addition": false,
+    "allow_precipitation_stacking": false,
+    "allow_replacement_delta_claim": false,
+    "allow_combined_give_scc_claim": false
+  }
+}
