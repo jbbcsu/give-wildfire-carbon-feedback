@@ -1,0 +1,157 @@
+{
+  "schema": "williams_wildfire_smoke_admission_contract/v1",
+  "scope": "wildfire_smoke_pm25_mortality_only",
+  "prohibited_scope": [
+    "wildfire_co2_feedback",
+    "surface_ozone",
+    "nonwildfire_pm25"
+  ],
+  "source_evidence": {
+    "draft_receipt": {
+      "kind": "git_blob",
+      "repository": "give_ai_damage_expansion",
+      "commit": "76635cb2839dd24e9f381fc903eb493eeed9f311",
+      "path": "data/provenance/williams_wildfire_smoke_draft_20261009.json",
+      "bytes": 1127,
+      "sha256": "27163e5ea3bc56d393aa0402ea68931f352cc614e6c67ed643549a15518cb545"
+    },
+    "draft_text": {
+      "kind": "workspace_file",
+      "path": "tmp/pdfs/fire_smoke_audit/draft.txt",
+      "bytes": 62140,
+      "sha256": "045fd4f79ffdcc115c70d8e19defa4d26721c5b0243d9fb1f1bd9dcd77f61f02",
+      "required_tokens": [
+        "Draft – Do Not Distribute",
+        "43 observations",
+        "174 countries",
+        "100 Monte Carlo simulations",
+        "baseline and an identical baseline plus a pulse of",
+        "emitted in 2025",
+        "leave-one-model-out sensitivity specifications"
+      ]
+    },
+    "draft_pdf": {
+      "locally_available": false,
+      "reported_filename": "Fire_SC_CO2_draft (1).pdf",
+      "reported_bytes": 1753453,
+      "reported_sha256": "e0528e96b0c7c22d657b1556af8efd031722ec672fd60896e0026a01674a68ce"
+    }
+  },
+  "reported_draft_values_external_only": {
+    "global_partial_scc_2025_usd_per_tco2": 50.0,
+    "conditional_95pct_interval": [18.5, 102.6],
+    "discount_rate_percent": 2,
+    "leave_cesm_out_global_mean": 25.91
+  },
+  "calibration_to_reported_values_allowed": false,
+  "unresolved_source_conflicts": {
+    "monte_carlo_trials": {
+      "draft_figure_count": 100,
+      "requested_reproduction_count": 10000,
+      "resolved": false
+    },
+    "projection_horizon": {
+      "draft_prose_year_count": 275,
+      "draft_start_year": 2025,
+      "draft_end_year": 2300,
+      "inclusive_year_count": 276,
+      "resolved": false
+    }
+  },
+  "candidate_manifest_path": "data/raw/williams_wildfire_smoke/artifact_manifest.json",
+  "required_artifact_groups": {
+    "simulation_inventory": {
+      "simulation_count": 43,
+      "study_counts": {
+        "Park_2024": 36,
+        "Pierce_2017": 5,
+        "Zhao_2025": 2
+      },
+      "model_labels": [
+        "CESM",
+        "CLASSIC",
+        "JULES",
+        "SSiB4",
+        "Zhao"
+      ],
+      "unique_simulation_ids": true,
+      "source_hashes_bound": true,
+      "fixed_population_2000_2010": true,
+      "source_specific_regridding_declared": true
+    },
+    "country_coefficients": {
+      "estimated_country_count": 174,
+      "give_country_count": 184,
+      "global_fallback_explicit": true,
+      "country_model_fixed_effects": true,
+      "common_within_model_slope": true,
+      "beta_and_standard_error_finite": true,
+      "country_mapping_complete": true
+    },
+    "mortality_vsl_inputs": {
+      "concentration_response_mean": 0.008,
+      "concentration_response_standard_error": 0.00128,
+      "baseline_deaths_hash_bound": true,
+      "vsl_hash_bound": true,
+      "vsl_price_year": 2020,
+      "country_year_coverage_complete": true,
+      "projection_horizon_authoritatively_resolved": true
+    },
+    "paired_2025_pulse": {
+      "pulse_year": 2025,
+      "baseline_pulse_pair_ids_unique": true,
+      "draw_ids_matched": true,
+      "annual_damage_paths_present": true,
+      "pulse_magnitude_and_gas_units_declared": true,
+      "wildfire_co2_feedback_excluded": true
+    },
+    "monte_carlo_outputs": {
+      "trial_count": 10000,
+      "trial_ids_unique": true,
+      "trial_outputs_finite": true,
+      "summary_recomputed_from_trials": true,
+      "interval_labeled_conditional": true,
+      "calibration_to_reported_values_performed": false,
+      "trial_count_authoritatively_resolved": true
+    },
+    "leave_one_model_out": {
+      "specifications": [
+        "all_models",
+        "exclude_CESM",
+        "exclude_CLASSIC",
+        "exclude_JULES",
+        "exclude_SSiB4",
+        "exclude_Zhao"
+      ],
+      "coefficient_outputs_present": true,
+      "scc_trial_outputs_present": true,
+      "paired_draw_ids_preserved": true,
+      "independent_reaggregation_passed": true
+    },
+    "licenses_and_provenance": {
+      "all_inputs_hash_bound": true,
+      "code_and_environment_hash_bound": true,
+      "license_or_permission_per_input": true,
+      "redistribution_status_per_artifact": true,
+      "draft_distribution_restriction_respected": true
+    },
+    "mortality_overlap_boundary": {
+      "wildfire_smoke_pm25_mortality_only": true,
+      "wildfire_co2_feedback_excluded": true,
+      "nonwildfire_pm25_excluded": true,
+      "surface_ozone_excluded": true,
+      "existing_temperature_mortality_overlap_resolved": true,
+      "fisheries_nutrition_mortality_overlap_resolved": true,
+      "each_death_and_vsl_counted_once": true
+    }
+  },
+  "hard_gates": {
+    "complete_artifact_package_admitted": false,
+    "draft_trial_count_conflict_resolved": false,
+    "projection_horizon_conflict_resolved": false,
+    "reported_partial_scc_locally_reproduced": false,
+    "mortality_overlap_cleared": false,
+    "give_transfer_authorized": false,
+    "replacement_or_addition_scc_authorized": false
+  }
+}

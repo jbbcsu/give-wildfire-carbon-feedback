@@ -9,7 +9,11 @@ precipitation-agriculture, labor, or fisheries projects.
 1. **Wildfire smoke PM2.5 mortality.** Reproduce the investigator-supplied
    Williams et al. draft before integration. The draft's provisional global
    partial SCC is $50/tCO2 (conditional 95% interval $18.5-$102.6), but it is
-   not yet a locally reproduced result.
+   not yet a locally reproduced result. The fail-closed admission audit in
+   [`WILLIAMS_WILDFIRE_SMOKE_ADMISSION_GATE.md`](WILLIAMS_WILDFIRE_SMOKE_ADMISSION_GATE.md)
+   currently admits 0 of 8 required operational artifact groups. It also
+   preserves unresolved 100-versus-10,000-trial and 275-versus-276-year source
+   conflicts rather than choosing values silently.
 2. **Meteorologically driven surface ozone.** Replicate McDuffie et al. (2026),
    DOI `10.1021/acs.est.5c14713`, using the official EPA reduced-form code.
 3. **Non-wildfire meteorological PM2.5.** Retain as a separate pathway because
@@ -55,6 +59,8 @@ Run the fail-closed summary audit with:
 python3 scripts/validate_upstream_summaries.py
 python3 scripts/audit_release_reconciliation.py
 python3 test/test_release_reconciliation.py
+PYTHONDONTWRITEBYTECODE=1 python3 scripts/validate_williams_wildfire_smoke_admission.py
+PYTHONDONTWRITEBYTECODE=1 python3 test/test_williams_wildfire_smoke_admission.py
 ```
 
 ## Combination rules

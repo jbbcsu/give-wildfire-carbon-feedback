@@ -1,0 +1,83 @@
+{
+  "claim_status": "investigator draft metadata is authenticated, but zero of eight operational artifact groups are admitted; reproduction, mortality-overlap clearance, GIVE transfer, and SCC addition remain closed",
+  "contract": {
+    "path": "config/williams_wildfire_smoke_admission_v1.json",
+    "sha256": "92e0c93a3ae0827a5d4a1c9ec1aed71b900067ae1a811f7600d3961ad19f309e"
+  },
+  "created_at_utc": "2026-10-14T21:46:04.508551+00:00",
+  "hard_gates": {
+    "complete_artifact_package_admitted": false,
+    "draft_trial_count_conflict_resolved": false,
+    "give_transfer_authorized": false,
+    "mortality_overlap_cleared": false,
+    "projection_horizon_conflict_resolved": false,
+    "replacement_or_addition_scc_authorized": false,
+    "reported_partial_scc_locally_reproduced": false
+  },
+  "implementation": {
+    "synthetic_tests": {
+      "path": "test/test_williams_wildfire_smoke_admission.py",
+      "sha256": "cf1691284972dd1a0b0e2426fd99b6709d55cf4a6a3e1f6b8c15f5eb9f49b20d"
+    },
+    "validator": {
+      "path": "scripts/validate_williams_wildfire_smoke_admission.py",
+      "sha256": "38bfdcb83b1560f99c17c584258a389191d90d301dca2be123d1e7226349e007"
+    }
+  },
+  "operational_artifact_admission": {
+    "artifact_package_admitted_for_reproduction": false,
+    "conflict_resolutions": {
+      "monte_carlo_trials": false,
+      "projection_horizon": false
+    },
+    "give_transfer_authorized": false,
+    "group_results": {
+      "country_coefficients": false,
+      "leave_one_model_out": false,
+      "licenses_and_provenance": false,
+      "monte_carlo_outputs": false,
+      "mortality_overlap_boundary": false,
+      "mortality_vsl_inputs": false,
+      "paired_2025_pulse": false,
+      "simulation_inventory": false
+    },
+    "groups_passed": 0,
+    "groups_required": 8,
+    "replacement_or_addition_scc_authorized": false,
+    "reported_partial_scc_reproduced": false
+  },
+  "reported_draft_values": {
+    "conditional_95pct_interval": [
+      18.5,
+      102.6
+    ],
+    "discount_rate_percent": 2,
+    "global_partial_scc_2025_usd_per_tco2": 50.0,
+    "leave_cesm_out_global_mean": 25.91
+  },
+  "reported_values_used_as_calibration_targets": false,
+  "schema": "williams_wildfire_smoke_admission_receipt/v1",
+  "source_evidence": {
+    "calibration_target": false,
+    "draft_pdf_locally_available": false,
+    "draft_receipt_valid": true,
+    "draft_text_valid": true,
+    "reported_values_role": "unpublished_external_claims_only"
+  },
+  "status": "rejected_incomplete_local_artifacts",
+  "unresolved_source_conflicts": {
+    "monte_carlo_trials": {
+      "draft_figure_count": 100,
+      "requested_reproduction_count": 10000,
+      "resolved": false
+    },
+    "projection_horizon": {
+      "draft_end_year": 2300,
+      "draft_prose_year_count": 275,
+      "draft_start_year": 2025,
+      "inclusive_year_count": 276,
+      "resolved": false
+    }
+  },
+  "wildfire_co2_project_files_used": false
+}
