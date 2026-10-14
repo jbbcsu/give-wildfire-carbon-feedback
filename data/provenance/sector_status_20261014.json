@@ -54,6 +54,13 @@
       "path": "data/provenance/epa_globalaq_component_net_gate_20261014.json",
       "sha256": "a494938847cdf38577433792bb5af4cc579a51abcbee572f0aaa0714f0b8f43d",
       "bytes": 3981
+    },
+    {
+      "project": "municipal_water_scc",
+      "source_commit": "f96ba2bea642b446a2ca181ba8de47c3def705b3",
+      "path": "data/provenance/source_receipts_20261014.json",
+      "sha256": "3cc06aeb9e329b629a613f261e03fb78a055e2862bcc53b156d6f7c1a1a666a0",
+      "bytes": 7590
     }
   ],
   "sectors": [
@@ -215,6 +222,17 @@
       "name": "inland_flooding",
       "class": "open_research_gap",
       "additive": false
+    },
+    {
+      "name": "municipal_water_supply",
+      "class": "audited_gap_no_transferable_candidate",
+      "candidates_screened": 3,
+      "candidates_passing_all_seven_gates": 0,
+      "lead_candidate": "dolan_gcam_water_surplus_2021",
+      "lead_candidate_marginal_pulse_compatible": false,
+      "lead_candidate_municipal_only_welfare_released": false,
+      "additive": false,
+      "reason_not_additive": "No candidate supplies a licensed municipal-only welfare endpoint with annual matched marginal-pulse paths and an overlap-cleared boundary."
     },
     {
       "name": "coral_reef_residual_services",

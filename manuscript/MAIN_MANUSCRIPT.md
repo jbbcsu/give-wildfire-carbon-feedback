@@ -214,6 +214,19 @@ reconcile to the corresponding global rows. We therefore retain $2.46/tCO2 as
 external context only and request recreation-specific, additive annual
 baseline/pulse welfare paths before considering a coral residual component.
 
+A bounded municipal-water and inland-flood fast-route audit finds no
+transfer-ready module among three leading candidates. The Dolan et al. GCAM
+implementation is the closest welfare route, with 235 water basins and an
+explicit consumer-plus-producer-surplus measure, but its released surplus
+combines six water-demand sectors, its raw curves are request-only, and its
+contrast is constrained versus unlimited water rather than a marginal CO2
+pulse. MimiFUND has annual pulse machinery but an aggregate water-resources
+endpoint that cannot be relabeled municipal. CLIMADA/GloFAS is an open
+fluvial-risk comparator, not a pluvial or annual-welfare route. Zero of three
+candidates passes all seven climate-response, welfare, coverage, uncertainty,
+pulse, license, and overlap gates, so no municipal or inland-flood SCC is
+claimed.
+
 ### 4.4 Air pollution and wildfire feedbacks
 
 The final-article air-pollution benchmarks also remain external. At the 2%

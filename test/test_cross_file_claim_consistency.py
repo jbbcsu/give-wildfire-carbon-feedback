@@ -26,7 +26,7 @@ class CrossFileClaimConsistencyTest(unittest.TestCase):
         ).read_text(encoding="utf-8")
 
     def test_all_sector_values_remain_nonadditive(self):
-        self.assertEqual(len(self.status["evidence_receipts"]), 7)
+        self.assertEqual(len(self.status["evidence_receipts"]), 8)
         for receipt in self.status["evidence_receipts"]:
             self.assertEqual(len(receipt["sha256"]), 64)
             self.assertGreater(receipt["bytes"], 0)
@@ -109,6 +109,16 @@ class CrossFileClaimConsistencyTest(unittest.TestCase):
         self.assertFalse(coral["transfer_promoted"])
         for document in (self.registry, self.main, self.methods):
             self.assertIn("$2.46", document)
+
+    def test_municipal_water_remains_audited_gap(self):
+        water = self.sectors["municipal_water_supply"]
+        self.assertEqual(water["candidates_screened"], 3)
+        self.assertEqual(water["candidates_passing_all_seven_gates"], 0)
+        self.assertFalse(water["lead_candidate_marginal_pulse_compatible"])
+        self.assertFalse(water["lead_candidate_municipal_only_welfare_released"])
+        self.assertIn("0 of 3", self.registry)
+        self.assertIn("Zero of three", self.main)
+        self.assertIn("zero of three", self.methods)
 
     def test_epa_component_net_gap_and_closed_gates_match_claim_surfaces(self):
         ozone = self.sectors["surface_ozone_health"]

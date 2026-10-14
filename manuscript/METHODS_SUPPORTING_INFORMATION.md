@@ -144,6 +144,18 @@ coastal protection already assigned to other sectors. The published country
 SCC rows are not treated as additive because they do not sum to the global
 rows under the source model's country-specific consumption and discounting.
 
+## S5.5 Municipal water and inland-flood evidence gate
+
+Candidate models must separately identify municipal/household water-supply
+reliability or municipal treatment, pumping, storage, and conveyance costs;
+provide annual matched marginal-pulse welfare paths; preserve uncertainty and
+geographic mappings; and exclude GIVE agriculture, energy, CIAM coastal,
+industrial, hydropower, recreation, ecosystem, and inland-flood endpoints.
+Mixed water-market surplus may not be allocated by withdrawal, GDP, or
+population shares. The current GCAM, MimiFUND, and CLIMADA/GloFAS candidates
+pass zero of three complete seven-gate evaluations, so the sector remains an
+audited gap rather than a zero or transferred SCC.
+
 ## S6. SCC calculation
 
 Eligible damage modules are evaluated in paired baseline and marginal-emission
