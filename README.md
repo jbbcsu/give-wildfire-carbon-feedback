@@ -28,6 +28,24 @@ recomputes every deficit and country damage, and enforces pre-divergence and
 zero-pulse identity. Its output explicitly does not validate empirical
 parameters, overlap, discounting, damages, or an SCC.
 
+`config/biodiversity_replication_request_v1.json` is the versioned, seven-part
+external-artifact request that now defines the empirical gate. Validate its
+fail-closed semantics and, optionally, the pinned official MimiGIVE checkout:
+
+```sh
+python3 python/validate_replication_request.py \
+  --request config/biodiversity_replication_request_v1.json \
+  --source-root /path/to/MimiGIVE.jl \
+  --out data/provenance/biodiversity_public_release_audit_20261014.json
+```
+
+The current validated conclusion is only that the pinned public repository
+does not expose a biodiversity/nonuse component under the configured search
+scope and that exact author artifacts are required. See
+`BIODIVERSITY_ARTIFACT_REQUEST_20261014.md`. This is not evidence that the
+approximately USD 8/tCO2 publication benchmark has been reproduced or is
+eligible for inclusion in GIVE.
+
 ## Boundaries
 
 - Include existence/nonuse value only.
