@@ -26,7 +26,7 @@ class CrossFileClaimConsistencyTest(unittest.TestCase):
         ).read_text(encoding="utf-8")
 
     def test_all_sector_values_remain_nonadditive(self):
-        self.assertEqual(len(self.status["evidence_receipts"]), 8)
+        self.assertEqual(len(self.status["evidence_receipts"]), 13)
         for receipt in self.status["evidence_receipts"]:
             self.assertEqual(len(receipt["sha256"]), 64)
             self.assertGreater(receipt["bytes"], 0)
@@ -58,13 +58,62 @@ class CrossFileClaimConsistencyTest(unittest.TestCase):
 
     def test_spei_progress_matches_claim_surfaces(self):
         spei = self.sectors["us_rainfed_maize_future_spei_exposure"]
-        self.assertEqual(spei["future_extension_cases_validated"], 5)
+        self.assertEqual(spei["future_extension_cases_validated"], 6)
         self.assertEqual(spei["future_extension_cases_total"], 15)
-        self.assertEqual(spei["future_extension_cases_remaining"], 10)
+        self.assertEqual(spei["future_extension_cases_remaining"], 9)
         self.assertFalse(spei["bridge_complete"])
-        self.assertIn("5 of 15", self.registry)
-        self.assertIn("Five of", self.main)
-        self.assertIn("Five of", self.methods)
+        self.assertIn("6 of 15", self.registry)
+        self.assertIn("Six of", self.main)
+        self.assertIn("Six of", self.methods)
+
+    def test_wildfire_smoke_admission_rejection_matches_claim_surfaces(self):
+        smoke = self.sectors["wildfire_smoke_pm25_mortality"]
+        self.assertEqual(smoke["admitted_artifact_groups"], 0)
+        self.assertEqual(smoke["required_artifact_groups"], 8)
+        self.assertEqual(smoke["unresolved_monte_carlo_trial_counts"], [100, 10000])
+        self.assertEqual(smoke["unresolved_horizon_year_counts"], [275, 276])
+        self.assertTrue(all(value is False for value in smoke["promotion_gates"].values()))
+        for document in (self.registry, self.main, self.methods):
+            self.assertIn("0 of 8", document)
+            self.assertIn("100", document)
+            self.assertIn("10,000", document)
+            self.assertIn("275", document)
+            self.assertIn("276", document)
+
+    def test_fredi_sentinels_preserve_conus_scope_and_closed_gates(self):
+        transport = self.sectors["fredi_conus_transport_heat_aggregates"]
+        electricity = self.sectors["fredi_conus_electricity_td_heat"]
+        self.assertEqual(transport["sentinel_output_rows"], 36)
+        self.assertEqual(electricity["sentinel_output_rows"], 18)
+        self.assertEqual(transport["peak_rss_mib_internal"], 27.609)
+        self.assertEqual(electricity["peak_rss_mib_internal"], 23.188)
+        self.assertEqual(len(transport["sentinel_output_sha256"]), 64)
+        self.assertEqual(len(electricity["sentinel_output_sha256"]), 64)
+        self.assertEqual(transport["geography_scope"], "CONUS_48_states_plus_DC")
+        self.assertEqual(electricity["geography_scope"], "CONUS_48_states_plus_DC")
+        self.assertTrue(all(value is False for value in transport["component_gates"].values()))
+        for sector in (transport, electricity):
+            self.assertFalse(sector["matched_give_pulse_completed"])
+            self.assertFalse(sector["global_transfer_authorized"])
+            self.assertFalse(sector["scc_calculated"])
+        for document in (self.registry, self.main, self.methods):
+            self.assertIn("36", document)
+            self.assertIn("18", document)
+            self.assertIn("CONUS", document)
+            self.assertIn("ElecTD", document)
+            self.assertIn("ElecSD", document)
+
+    def test_global_infrastructure_screen_remains_untransferable(self):
+        screen = self.sectors["global_infrastructure_transfer_screen"]
+        self.assertEqual(screen["candidates_screened"], 8)
+        self.assertEqual(screen["candidates_passing_all_eight_gates"], 0)
+        self.assertEqual(screen["ready_candidates"], [])
+        self.assertFalse(screen["fredi_global_extrapolation_authorized"])
+        self.assertFalse(screen["regional_coefficient_transfer_authorized"])
+        for document in (self.registry, self.main, self.methods):
+            self.assertTrue(
+                "zero of eight" in document.lower() or "0 of 8" in document.lower()
+            )
 
     def test_moore_preflight_and_memory_bound_match_claim_surfaces(self):
         labor = self.sectors["labor_productivity"]

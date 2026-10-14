@@ -19,7 +19,10 @@ must remain external benchmarks until their endpoints are allocated once. The
 analysis therefore reports an integrated SCC only for locally reproduced,
 overlap-cleared components and a separate evidence envelope for other omitted
 damages. A newly supplied global wildfire-smoke draft provides a concrete air-
-pollution application but remains validation-pending. This architecture
+pollution application, but its artifact gate admits zero of eight required
+groups. Deterministic EPA FrEDI sentinels establish only CONUS aggregate
+interfaces, while a separate global infrastructure screen passes zero of eight
+candidates. This architecture
 illustrates how AI can increase the scale and pace
 of economic research without relaxing standards for identification,
 provenance, uncertainty, or reproducibility.
@@ -124,8 +127,8 @@ estimating the same-source SPEI response.
 That reconstruction has begun. All 11 historical cells now pass independent
 validation for 468 months and SPEI-1/3/6, with all 396 calibration fits valid.
 All three GFDL-ESM4 future cases (SSP1-2.6, SSP3-7.0, and SSP5-8.5) and the
-IPSL-CM6A-LR SSP1-2.6 and SSP3-7.0 cases pass independent validation. Five of
-fifteen future cases are complete and ten remain, so no county response, future yield
+IPSL-CM6A-LR SSP1-2.6, SSP3-7.0, and SSP5-8.5 cases pass independent validation. Six of
+fifteen future cases are complete and nine remain, so no county response, future yield
 effect, damage, or SCC is claimed.
 
 ### 4.2 Labor productivity and updated agriculture
@@ -227,7 +230,25 @@ candidates passes all seven climate-response, welfare, coverage, uncertainty,
 pulse, license, and overlap gates, so no municipal or inland-flood SCC is
 claimed.
 
-### 4.4 Air pollution and wildfire feedbacks
+### 4.4 Heat-driven infrastructure
+
+EPA FrEDI v4.1.1 now passes deterministic interface tests only within its
+released CONUS scope. The transport sentinel aggregates 49 state/DC units into
+36 output rows for Roads and Rail across six GCMs and three variants at 1.5 C
+and economic year 2020 (annual 2015 USD). The release does not identify road
+repair, road user, rail replacement, and rail delay separately. The electricity
+sentinel produces 18 analogous rows for combined transmission/distribution
+(ElecTD). Generation/capacity is not inferred from ElecSD because that surface
+also bundles building heating/cooling demand. Neither sentinel is a matched
+GIVE pulse, a global transfer, or an SCC.
+
+A distinct global primary-source screen finds that zero of eight candidates
+(five road/rail and three electricity-supply studies) passes all eight coverage,
+response, monetization, uncertainty, implementation, pulse, and overlap gates.
+This global gap cannot be filled by extrapolating the CONUS FrEDI sentinels or
+transferring regional coefficients.
+
+### 4.5 Air pollution and wildfire feedbacks
 
 The final-article air-pollution benchmarks also remain external. At the 2%
 Ramsey setting, the official repository's checked-in RFF component summaries
@@ -260,6 +281,13 @@ regional susceptibility. Leave-one-model-out estimates range materially; the
 global mean falls from $50.04 to $25.91 when CESM is excluded. We therefore
 classify $50 as an unpublished external module until its data, coefficients,
 code, and Monte Carlo results reproduce locally.
+
+The executable admission audit currently accepts 0 of 8 required operational
+artifact groups. It also finds unresolved source conflicts: the draft uses 100
+Monte Carlo trials whereas the requested reproduction specifies 10,000, and
+the 2025-2300 horizon is described as both 275 and 276 years. Simulation,
+coefficient, mortality/VSL, paired-pulse, Monte Carlo, leave-one-model-out,
+license/provenance, and mortality-overlap gates therefore all remain closed.
 
 Wildfire smoke mortality is distinct from the separate wildfire-CO2 feedback:
 the former values PM2.5 exposure and deaths, whereas the latter values

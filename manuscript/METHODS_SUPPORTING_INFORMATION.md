@@ -54,8 +54,8 @@ performance and retain stable direction and magnitude. Null results are
 reported without replacement by an unregistered specification.
 
 For the U.S. county SPEI bridge, all 11 missing historical half-degree cells
-have validated 468-month SPEI-1/3/6 series. Five of fifteen preregistered future
-model-scenario extensions are independently validated and ten remain. The
+have validated 468-month SPEI-1/3/6 series. Six of fifteen preregistered future
+model-scenario extensions are independently validated and nine remain. The
 bridge is incomplete, and it is not used to estimate a response, yield effect,
 damage, or SCC.
 
@@ -79,6 +79,12 @@ fixed-effects coefficients, PM2.5 concentration-response transformation,
 country-year mortality and VSL scaling, paired GIVE pulse calculation, and
 leave-one-model-out sensitivity. Its reported interval is labeled conditional
 unless structural fire-model and functional-form uncertainty are propagated.
+
+The dated admission audit admits 0 of 8 operational artifact groups and rejects
+the currently incomplete local package. It also records unresolved source
+conflicts between 100 and 10,000 Monte Carlo trials and between 275 and 276
+years for 2025-2300. No missing group is inferred from draft prose; all
+reproduction, transfer, overlap, and SCC gates remain closed.
 
 ## S5.2 Meteorological ozone and non-wildfire PM2.5 evidence gate
 
@@ -156,6 +162,22 @@ population shares. The current GCAM, MimiFUND, and CLIMADA/GloFAS candidates
 pass zero of three complete seven-gate evaluations, so the sector remains an
 audited gap rather than a zero or transferred SCC.
 
+## S5.6 Heat-driven infrastructure evidence gate
+
+FrEDI v4.1.1 is evaluated only as a deterministic CONUS interface sentinel.
+The transport test uses 49 state/DC units, six GCMs, three variants, and the
+released Roads and Rail aggregates, producing 36 rows at 1.5 C and economic
+year 2020 in annual 2015 USD. It does not authorize component claims for road
+repair, road user, rail replacement, or rail delay. The electricity test
+produces 18 rows only for combined ElecTD transmission/distribution. ElecSD is
+excluded because it bundles generation/capacity with building heating/cooling
+demand. Both matched GIVE pulse and global transfer gates remain closed.
+
+The independent global infrastructure screen applies eight frozen evidence
+gates to eight candidates: five road/rail and three electricity-supply studies.
+Zero of eight passes all gates. FrEDI is not extrapolated outside CONUS and
+regional coefficients are not transferred without source-authorized artifacts.
+
 ## S6. SCC calculation
 
 Eligible damage modules are evaluated in paired baseline and marginal-emission
@@ -175,6 +197,9 @@ The umbrella claim-consistency test also checks the registry, manuscript,
 Methods SI, and dated machine-readable sector status for reviewed milestone
 counts, the observed Moore memory bound, exact EPA reconciliation gap, external
 benchmark labels, and closed additivity/promotion gates.
+It additionally locks the wildfire-smoke 0-of-8 rejection and source conflicts,
+the 36-row and 18-row FrEDI CONUS sentinels, and the global infrastructure
+0-of-8 screen without treating any as a promoted SCC.
 
 ## S8. Role of AI and human review
 

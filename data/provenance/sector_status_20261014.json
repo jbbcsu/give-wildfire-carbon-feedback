@@ -61,6 +61,41 @@
       "path": "data/provenance/source_receipts_20261014.json",
       "sha256": "3cc06aeb9e329b629a613f261e03fb78a055e2862bcc53b156d6f7c1a1a666a0",
       "bytes": 7590
+    },
+    {
+      "project": "precipitation_scc",
+      "source_commit": "f0ab48d64f246b68b284450d54823ed28d9a1823",
+      "path": "data/provenance/us_spei_bridge_extension_20261013.json",
+      "sha256": "704dce08f34e42c4bf6af140ad9a1158eac44400f4f3fa665a7f189f6a74f2ea",
+      "bytes": 22145
+    },
+    {
+      "project": "air_pollution_scc",
+      "source_commit": "557eb75446fbbad2a7cf3ea4be6651b3f619ab47",
+      "path": "data/provenance/williams_wildfire_smoke_admission_20261014.json",
+      "sha256": "831191388a43eafc492095d1a0817476e686604e234f05796e14846faa500ca2",
+      "bytes": 2938
+    },
+    {
+      "project": "fredi_scc",
+      "source_commit": "be1f2278a8d6397c6e51fc7b35a92facec6a3424",
+      "path": "provenance/fredi_transport_heat_smoke_v4_1_1_receipt.json",
+      "sha256": "6b8fd2299d336203b56bcdef8555592374bce2f32880ad824d0bcdf0f5e3cb6a",
+      "bytes": 2564
+    },
+    {
+      "project": "fredi_scc",
+      "source_commit": "2eadd133c8b3cfdaa4940509f10a2986e8497664",
+      "path": "provenance/fredi_electricity_td_heat_sentinel_v4_1_1_receipt.json",
+      "sha256": "b0f697eb41a921b6e658662c66abee2eee356136b6236413cdba47c5d2a6ff58",
+      "bytes": 2585
+    },
+    {
+      "project": "global_infrastructure_scc",
+      "source_commit": "5ef806dc7d41d20206c65e9e072c926ba99bbd85",
+      "path": "config/candidate_screen_v1.json",
+      "sha256": "a372b358029230cb1ab55138aa5171a0ec22ddb2059e492eb1e8131a62bc3704",
+      "bytes": 6723
     }
   ],
   "sectors": [
@@ -96,8 +131,8 @@
       "missing_half_degree_cells": 11,
       "historical_missing_cells_constructed": 11,
       "future_extension_cases_total": 15,
-      "future_extension_cases_validated": 5,
-      "future_extension_cases_remaining": 10,
+      "future_extension_cases_validated": 6,
+      "future_extension_cases_remaining": 9,
       "bridge_complete": false,
       "response_estimated": false,
       "damage_calculated": false,
@@ -214,9 +249,90 @@
     },
     {
       "name": "wildfire_smoke_pm25_mortality",
-      "class": "unpublished_external_module_pending_local_reproduction",
+      "class": "unpublished_external_claim_rejected_by_artifact_admission_gate",
       "provisional_value_usd_per_tco2": 50.0,
-      "additive": false
+      "required_artifact_groups": 8,
+      "admitted_artifact_groups": 0,
+      "artifact_admission_status": "rejected_incomplete_local_artifacts",
+      "unresolved_monte_carlo_trial_counts": [100, 10000],
+      "unresolved_horizon_year_counts": [275, 276],
+      "promotion_gates": {
+        "simulation_inventory_admitted": false,
+        "country_coefficients_admitted": false,
+        "mortality_vsl_inputs_admitted": false,
+        "paired_2025_pulse_admitted": false,
+        "monte_carlo_outputs_admitted": false,
+        "leave_one_model_out_admitted": false,
+        "licenses_provenance_admitted": false,
+        "mortality_overlap_boundary_admitted": false
+      },
+      "additive": false,
+      "reason_not_additive": "Zero of eight operational artifact groups pass admission, and trial-count and horizon-length conflicts remain unresolved."
+    },
+    {
+      "name": "fredi_conus_transport_heat_aggregates",
+      "class": "deterministic_conus_aggregate_sentinel_not_scc",
+      "geography_scope": "CONUS_48_states_plus_DC",
+      "temperature_anomaly_c": 1.5,
+      "economic_year": 2020,
+      "currency_units": "annual_2015_USD_per_year",
+      "state_dc_units": 49,
+      "gcms": 6,
+      "variants": 3,
+      "released_aggregate_endpoints": ["Roads", "Rail"],
+      "sentinel_output_rows": 36,
+      "sentinel_output_sha256": "410dca12b52ae61ba9d6a881bcfc7d67207ba9a439f84bf7ebbd12fde4f69094",
+      "peak_rss_mib_internal": 27.609,
+      "component_gates": {
+        "road_repair": false,
+        "road_user": false,
+        "rail_replacement": false,
+        "rail_delay": false
+      },
+      "matched_give_pulse_completed": false,
+      "global_transfer_authorized": false,
+      "scc_calculated": false,
+      "additive": false,
+      "reason_not_additive": "Only aggregate CONUS Roads and Rail sentinels are reproduced; component, matched-pulse, global-transfer, and SCC gates remain closed."
+    },
+    {
+      "name": "fredi_conus_electricity_td_heat",
+      "class": "deterministic_conus_electd_sentinel_not_scc",
+      "geography_scope": "CONUS_48_states_plus_DC",
+      "temperature_anomaly_c": 1.5,
+      "economic_year": 2020,
+      "currency_units": "annual_2015_USD_per_year",
+      "state_dc_units": 49,
+      "gcms": 6,
+      "variants": 3,
+      "sentinel_output_rows": 18,
+      "sentinel_output_sha256": "b9fc0aa94c81f318be513125bab3d9cf611e889f2b2832e348763981a2920c02",
+      "peak_rss_mib_internal": 23.188,
+      "computed_endpoint": "ElecTD_combined_transmission_and_distribution",
+      "excluded_endpoint": "ElecSD_generation_capacity_plus_building_energy_demand",
+      "generation_capacity_authorized": false,
+      "building_energy_demand_authorized": false,
+      "transmission_distribution_split_available": false,
+      "matched_give_pulse_completed": false,
+      "global_transfer_authorized": false,
+      "scc_calculated": false,
+      "additive": false,
+      "reason_not_additive": "Only combined CONUS ElecTD is reproduced; ElecSD is excluded and split, matched-pulse, global-transfer, and SCC gates remain closed."
+    },
+    {
+      "name": "global_infrastructure_transfer_screen",
+      "class": "candidate_screen_no_transferable_global_module",
+      "candidates_screened": 8,
+      "candidates_passing_all_eight_gates": 0,
+      "road_rail_candidates": 5,
+      "electricity_supply_candidates": 3,
+      "ready_candidates": [],
+      "fredi_global_extrapolation_authorized": false,
+      "regional_coefficient_transfer_authorized": false,
+      "damage_calculated": false,
+      "scc_calculated": false,
+      "additive": false,
+      "reason_not_additive": "Zero of eight global infrastructure candidates pass all eight reproducibility, pulse, monetization, uncertainty, and overlap gates."
     },
     {
       "name": "inland_flooding",
