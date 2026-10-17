@@ -1,0 +1,122 @@
+{
+  "schema": "tropical_cyclone_give_readiness_v1",
+  "audit_date": "2026-10-17",
+  "selection": {
+    "sector": "tropical_cyclone_persistent_macroeconomic_growth_losses",
+    "reason": "largest_readily_executable_global_omission_with_peer_reviewed_scc_replication_artifacts",
+    "give_status": "not_explicitly_represented",
+    "ciam_boundary": "ciam_covers_sea_level_rise_and_storm_surge_but_not_tropical_cyclone_wind_driven_persistent_growth_losses"
+  },
+  "article": {
+    "citation": "Krichene et al. (2023), The social costs of tropical cyclones, Nature Communications 14:7294",
+    "doi": "https://doi.org/10.1038/s41467-023-43114-4",
+    "article_license": "CC-BY-4.0",
+    "article_pdf_sha256_retrieved_2026_10_17": "303bec3ac8b01242b041a96e195940cf18645eb4291bd9f7498f2fe45f04ab63"
+  },
+  "code_release": {
+    "record": "https://doi.org/10.5281/zenodo.8056520",
+    "version": "1.0",
+    "license": "CC-BY-4.0",
+    "tc_cost_zip_size_bytes": 98397530,
+    "tc_cost_zip_md5": "ef70529728e0c8daef265836d71f6f7a",
+    "pinned_files": {
+      "README.md": "016da4742a45c92dda9e0150aefe221e428648a50c53c09f8974149682693782",
+      "requirements.yml": "97f01b9d44573bcb16adc46146d45474fdfa68d769f56a0ca9e843e0cf2964c4",
+      "sbatch_pipeline.sh": "ccdd2528f661bfc0a516191065ca6dc6c53ad8e9d4ab21b24250ef42b8ffc2f8",
+      "tc_cost/bootstrap/df.py": "47aaea05e01f1f35f98462e1f4731e1149f9a851febcc08b9b42d59498ab2e91",
+      "tc_cost/bootstrap/scc.py": "d2da4128a2af7fd6eed64e320491294efb9e7d7a1b05f5842d5392fe72d7a2c7",
+      "tc_cost/aggregate/df.py": "96a9ce18d346ae698d53523d890c59708927ae885f6504f55da1986472ccecc9",
+      "tc_cost/aggregate/scc.py": "551adea5d22af589b9151f8d304907fbc8e5feace7b154d15a1855937ac2be27",
+      "tc_cost/util/constants.py": "475281b81997f6c362353509a69d34f35e31337df6278d9a25de0d8c57bf4097",
+      "tc_cost/util/data.py": "6a3a56d666450ac031fc8de6487bb8cf3e53f45d244287289d64ca1fe180c1fa"
+    }
+  },
+  "source_data_release": {
+    "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41467-023-43114-4/MediaObjects/41467_2023_43114_MOESM4_ESM.zip",
+    "zip_sha256": "8445b6a7a69611c57b5b03e317d1d033b12e15a12061dffc6fe9af4124c145e1",
+    "pinned_files": {
+      "fig4a.csv": "608cf871a7bbd7f3db9e69cda842ceb74a36a01b71000ddaf40ae7923e17f19c",
+      "fig4b.csv": "d09d15bf2e7f77104be835ee7f22375b41c585a1e33e11946f2c1318da45ab8b",
+      "fig4c.csv": "6bf9bcecc0cc60996acbd2af2663bc36b155f9784b9f3763f6da7d0e4bd376e4",
+      "tabs3.csv": "4268f03d5f6eba265d1fb2a4dde3131742b9b3191571ce8754120f02bfb96889",
+      "tabs4.csv": "c9469d50631db149936093bfb1fbf8d94057e946dda97734b9d43063ced433c5",
+      "tabs5.csv": "b4a5176118e9463923a333323c605777c213bb0b56c06d4e3531f0e75e48754f"
+    }
+  },
+  "published_benchmark": {
+    "configuration": {
+      "ssp": "SSP2",
+      "rcp": "rcp60",
+      "pure_rate_time_preference": 0.02,
+      "elasticity_marginal_utility": 1.5,
+      "pulse_year": 2025,
+      "pulse_size_gtc": 1.0,
+      "scc_horizon": 2200,
+      "currency": "USD",
+      "price_year": 2005,
+      "unit": "USD_per_tCO2"
+    },
+    "median_scc_with_temperature_and_tc": 211.72930532533226,
+    "median_scc_temperature_only": 173.08444920409903,
+    "difference_of_published_medians": 38.64485612123323,
+    "relative_increase_from_published_medians": 0.22327168211202908,
+    "interpretation": "external_benchmark_only_difference_of_marginal_medians_is_not_the_median_of_paired_tc_scc_draws",
+    "paired_tc_global_uncertainty_released_in_source_csv": false
+  },
+  "damage_function": {
+    "country_count": 41,
+    "coefficient_rows": 82,
+    "coefficients_per_country": ["const", "gmt"],
+    "gmt_mean_negative_country_count": 38,
+    "gmt_upper_66_bound_negative_country_count": 36,
+    "endpoint": "persistent_changes_in_per_capita_gdp_growth",
+    "climate_driver": "global_mean_temperature_change",
+    "hazard_driver": "population_exposed_to_tropical_cyclone_winds_at_least_34_knots",
+    "included_hazards": ["tropical_cyclone_wind_exposure"],
+    "excluded_hazards": ["tropical_cyclone_rainfall", "storm_surge"]
+  },
+  "overlap_boundary": {
+    "direct_ciam_storm_surge_overlap": false,
+    "reason_direct_ciam_overlap_false": "published_tc_model_uses_wind_exposure_and_explicitly_excludes_storm_surge_and_rainfall",
+    "broad_sectoral_overlap_risk": "high",
+    "potentially_implicit_channels": [
+      "agriculture",
+      "labor_and_health",
+      "infrastructure_and_reconstruction",
+      "business_interruption",
+      "migration_and_other_growth_transmission_channels"
+    ],
+    "additive_to_explicit_give_sector_modules": false,
+    "additive_to_aggregate_macro_damage_function": false,
+    "allowed_uses": [
+      "external_nonadditive_benchmark",
+      "mutually_exclusive_macro_growth_sensitivity_case",
+      "target_for_future_channel_decomposition"
+    ]
+  },
+  "give_target_interface": {
+    "preferred_grain": "draw_country_year_path",
+    "required_fields": [
+      "draw_id", "country_iso3", "year", "path_role", "pulse_tco2",
+      "gmt_anomaly_c", "tc_growth_effect", "population", "gdp_per_capita",
+      "annual_gdp_loss_2020usd", "source_version", "overlap_boundary_id"
+    ],
+    "required_validation": [
+      "matched_baseline_pulse_keys",
+      "zero_pulse_identity",
+      "pre_pulse_identity",
+      "country_sum_equals_global_annual_loss",
+      "paired_draw_difference_before_quantiles",
+      "currency_pulse_and_discount_harmonization",
+      "one_time_insertion_and_discounting",
+      "no_simultaneous_addition_of_overlapping_sectoral_or_macro_tc_damages"
+    ]
+  },
+  "current_gate": {
+    "status": "external_benchmark_reproduced_target_coefficients_verified_additive_give_gate_blocked",
+    "published_benchmark_reproduced": true,
+    "target_coefficients_verified": true,
+    "numeric_give_addition_authorized": false,
+    "reason": "persistent_gdp_growth_endpoint_has_unresolved_overlap_with_explicit_sectoral_damages_and_released_source_csv_lacks_paired_global_tc_only_draws"
+  }
+}
