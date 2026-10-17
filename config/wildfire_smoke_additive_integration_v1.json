@@ -1,0 +1,87 @@
+{
+  "schema": "wildfire_smoke_additive_integration_config/v1",
+  "purpose": "source-pinned normalization plus fail-closed additive-integration contract for wildfire-smoke PM2.5 mortality",
+  "component": {
+    "component_id": "wildfire_smoke_pm25_mortality",
+    "source_detailed_mean_usd_per_tco2": 50.04,
+    "source_rounded_headline_usd_per_tco2": 50.0,
+    "source_interval_low_usd_per_tco2": 18.5,
+    "source_interval_high_usd_per_tco2": 102.6,
+    "interval_level_percent": 95,
+    "interval_type": "conditional_parameter_sensitivity",
+    "source_monte_carlo_trials": 100
+  },
+  "target_normalization": {
+    "pulse_year": 2025,
+    "currency_price_year": 2020,
+    "units": "2020 USD per metric ton CO2",
+    "modeled_year_start": 2025,
+    "modeled_year_end": 2300,
+    "discounting": {
+      "label": "2.0%",
+      "method": "Ramsey discount factors based on baseline global per-capita consumption",
+      "prtp": 0.0019745879362491614,
+      "eta": 1.244458999,
+      "parameter_expression": "prtp=exp(0.001972641)-1"
+    },
+    "price_conversion_factor": 1.0,
+    "pulse_year_conversion": "none"
+  },
+  "bound_evidence": {
+    "source_normalization_receipt": {
+      "path": "data/provenance/williams_smoke_source_normalization_20261017.json",
+      "sha256": "322e781e36f578e66fe69c976c98d359db58fb782723ffaaf358ddbf224a14d7"
+    },
+    "overlap_audit": {
+      "path": "data/provenance/air_pollution_overlap_audit_20261017.json",
+      "sha256": "9fd322d434ab25e550d3fb73433e7a7943e5102df43467245ecf5a73e09c65ce"
+    },
+    "mcduffie_primary_source": {
+      "path": "data/provenance/mcduffie_primary_source_20261017.json",
+      "sha256": "2f1b7950761ecaf5c22d789788d7cdf3092f89885e15b4a40c7a16ac9dd7c2fb"
+    },
+    "give_discount_parameters": {
+      "path": "../paper-2022-scc-give-zenodo/src/discount_rates.jl",
+      "sha256": "90a5e00f3a7fda73a73029becf06d8d6cdce22eaa79c13469c984a7e2f6cda90"
+    },
+    "give_scc_engine": {
+      "path": "../paper-2022-scc-give-zenodo/packages/MimiGIVE/src/scc.jl",
+      "sha256": "c08634dd29f579f318ccd8f5fa5ac572aaa485fd84b7741d87ab30486651daf8"
+    }
+  },
+  "boundary_assessment": {
+    "wildfire_smoke_vs_wildfire_co2_endpoint_duplicate": false,
+    "wildfire_smoke_vs_nonwildfire_pm_physical_emissions_overlap": false,
+    "nonwildfire_pm_excludes_open_burning_including_wildfire": true,
+    "wildfire_smoke_vs_nonwildfire_pm_joint_health_function_consistency_cleared": false,
+    "wildfire_smoke_vs_give_temperature_mortality_overlap_cleared": false,
+    "reason": "The physical source boundary is separable, but the scalar studies use different mortality-risk functions and GIVE temperature mortality is net all-cause mortality whose evidence base may include air pollution as mediator or modifier."
+  },
+  "admission_gates": {
+    "source_scalar_pinned": true,
+    "source_price_year_matches_target": true,
+    "source_pulse_year_matches_target": true,
+    "target_discount_parameters_pinned": true,
+    "source_discount_implementation_verified": false,
+    "numerical_pulse_definition_available": false,
+    "annual_country_draw_paths_available": false,
+    "local_numerical_reproduction_passed": false,
+    "nonwildfire_pm_joint_health_function_consistency_cleared": false,
+    "give_temperature_mortality_overlap_cleared": false,
+    "additive_to_nonwildfire_air_pollution": false,
+    "additive_to_baseline_give": false
+  },
+  "required_for_addition": [
+    "Obtain or regenerate annual country-by-draw marginal smoke mortality damages for the 2025 CO2 pulse and matched baseline.",
+    "Pin the numerical pulse magnitude, gas mass convention, horizon indexing, source code, model version, seeds, and scenario inputs.",
+    "Recompute smoke and baseline sectors jointly using matched draws and the same net-consumption Ramsey discount factors.",
+    "Use a coherent joint PM2.5 health function or demonstrate that the wildfire and nonwildfire mortality burdens are mutually exclusive under one attribution design.",
+    "Replace or adjust GIVE temperature mortality with a mutually exclusive mortality module, or quantify and remove its air-pollution-mediated share.",
+    "Pass independent numerical reproduction and overlap tests before opening either additivity gate."
+  ],
+  "outputs": {
+    "table": "data/derived/wildfire_smoke_normalized_scalar_v1.csv",
+    "receipt": "data/provenance/wildfire_smoke_integration_contract_v1.json",
+    "validation": "data/provenance/wildfire_smoke_integration_contract_validation_v1.json"
+  }
+}

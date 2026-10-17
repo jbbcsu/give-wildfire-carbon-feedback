@@ -1,0 +1,61 @@
+{
+  "schema": "williams_smoke_source_normalization/v1",
+  "observed_date": "2026-10-17",
+  "source": {
+    "citation": "Williams, Fremstad, Burkhardt, and Lou (2026 draft), Valuing global wildfire smoke mortality caused by climate change",
+    "local_path_observed": "/Users/jbb/Downloads/Fire_SC_CO2_draft (1).pdf",
+    "sha256": "e0528e96b0c7c22d657b1556af8efd031722ec672fd60896e0026a01674a68ce",
+    "bytes": 1753453,
+    "pages": 24,
+    "draft_date": "2026-10-09",
+    "redistribution_authorized": false,
+    "source_file_committed": false
+  },
+  "source_supported_result": {
+    "component_id": "wildfire_smoke_pm25_mortality",
+    "detailed_mean_usd_per_tco2": 50.04,
+    "rounded_headline_mean_usd_per_tco2": 50.0,
+    "interval_low_usd_per_tco2": 18.5,
+    "interval_high_usd_per_tco2": 102.6,
+    "interval_level_percent": 95,
+    "interval_type": "conditional_parameter_sensitivity",
+    "currency_price_year": 2020,
+    "pulse_year": 2025,
+    "discount_rate_label": "2%",
+    "modeled_year_start": 2025,
+    "modeled_year_end": 2300,
+    "source_monte_carlo_trials": 100,
+    "country_count": 184,
+    "sector_count_after_addition": 5
+  },
+  "method_facts": {
+    "health_endpoint": "wildfire-smoke PM2.5-associated all-cause mortality",
+    "concentration_response": "linearized all-source long-term PM2.5 hazard ratio from Pope et al. (2020)",
+    "mortality_slope_per_ug_m3": 0.008,
+    "climate_smoke_response": "country-specific change in wildfire PM2.5 exposure per degree of global mean warming from a 43-simulation literature ensemble",
+    "uncertainty_sampled": [
+      "mortality concentration-response slope",
+      "country climate-to-smoke coefficients"
+    ],
+    "uncertainty_not_claimed_complete": true,
+    "implemented_within_give_in_source_study": true
+  },
+  "normalization_audit": {
+    "target_units": "2020 USD per metric ton CO2",
+    "target_pulse_year": 2025,
+    "price_conversion_required": false,
+    "pulse_year_conversion_required": false,
+    "discount_recalculation_required_for_exact_joint_total": true,
+    "numerical_pulse_magnitude_reported_in_source": false,
+    "annual_country_draw_marginal_damage_paths_available_locally": false,
+    "exact_source_code_available_locally": false,
+    "local_numerical_reproduction_passed": false
+  },
+  "known_source_ambiguities": [
+    "The text describes 2025 through 2300 as 275 years, while the inclusive calendar-year count is 276.",
+    "The numerical CO2 pulse magnitude and gas mass convention are not stated in the draft.",
+    "The source says 2% discounting but the exact source code and parameter realization are unavailable locally."
+  ],
+  "permitted_use": "source-pinned external scalar benchmark and target for reproduction; not by itself authorization to add to baseline GIVE",
+  "prohibited_use": "redistribution of the draft or representation of the scalar as a locally reproduced additive SCC component"
+}

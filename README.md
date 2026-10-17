@@ -8,20 +8,23 @@ precipitation-agriculture, labor, or fisheries projects.
 
 1. **Wildfire smoke PM2.5 mortality.** Reproduce the investigator-supplied
    Williams et al. draft before integration. The draft's provisional global
-   partial SCC is $50/tCO2 (conditional 95% interval $18.5-$102.6), but it is
-   not yet a locally reproduced result. The fail-closed admission audit in
+   partial SCC is $50.04/tCO2 (rounded headline $50; conditional 95% interval
+   $18.5-$102.6), but it is not yet a locally reproduced result. The source
+   uses 100 Monte Carlo simulations; 10,000 is a future production-reproduction
+   target, not a replacement for the source-reported trial count. The
+   fail-closed admission audit in
    [`WILLIAMS_WILDFIRE_SMOKE_ADMISSION_GATE.md`](WILLIAMS_WILDFIRE_SMOKE_ADMISSION_GATE.md)
    currently admits 0 of 8 required operational artifact groups. It also
-   preserves unresolved 100-versus-10,000-trial and 275-versus-276-year source
-   conflicts rather than choosing values silently.
+   preserves the unresolved 275-versus-276-year horizon ambiguity rather than
+   choosing a value silently.
 2. **Meteorologically driven surface ozone.** Replicate McDuffie et al. (2026),
    DOI `10.1021/acs.est.5c14713`, using the official EPA reduced-form code.
 3. **Non-wildfire meteorological PM2.5.** Retain as a separate pathway because
    the published result is a benefit on average and explicitly excludes open
    burning. It must not be conflated with wildfire smoke PM2.5.
-4. **Wildfire CO2 feedback.** Import only the reviewed marginal-damage output
-   from the separate project. This is a carbon-cycle pathway, not direct
-   air-pollution mortality.
+4. **Wildfire CO2 feedback.** This is a carbon-cycle pathway, not direct
+   air-pollution mortality. The present module records the endpoint distinction
+   but does not read from or depend on that separate project's working files.
 
 ## Current EPA fast-route audit
 
@@ -90,6 +93,34 @@ The price-harmonized target table is
 `data/derived/air_pollution_target_interface_v1.csv`; its exact gates and
 interpretation are documented in
 [`AIR_POLLUTION_TARGET_INTEGRATION_GATE.md`](AIR_POLLUTION_TARGET_INTEGRATION_GATE.md).
+
+## Wildfire-smoke normalization and additivity decision
+
+The confidential draft has now been directly hash-verified and its detailed
+mean normalized without arithmetic conversion: $50.04/tCO2, 2025 pulse, 2020
+USD, and a source-reported 2% discount rate. The target GIVE discount contract
+pins the 2.0% near-term Ramsey parameters (`prtp = exp(0.001972641) - 1`,
+`eta = 1.244458999`). Exact joint addition still requires annual country-draw
+damage paths because GIVE's net-consumption discount factors change when a
+damage sector is added.
+
+The physical wildfire/nonwildfire emissions boundary is separable, because the
+EPA benchmark excludes open burning. The mortality accounting boundary is not
+yet cleared: the two PM2.5 studies use different health-risk functions, and
+baseline GIVE temperature mortality is net all-cause mortality whose evidence
+base may include air pollution as a mediator or modifier. Both additivity flags
+therefore remain closed. The full assessment is in
+[`WILDFIRE_SMOKE_ADDITIVE_INTEGRATION_ASSESSMENT.md`](WILDFIRE_SMOKE_ADDITIVE_INTEGRATION_ASSESSMENT.md).
+
+Build and independently validate the pinned smoke contract with:
+
+```bash
+python3 scripts/build_wildfire_smoke_integration_contract.py \
+  --source-pdf "/Users/jbb/Downloads/Fire_SC_CO2_draft (1).pdf"
+python3 scripts/validate_wildfire_smoke_integration_contract.py \
+  --source-pdf "/Users/jbb/Downloads/Fire_SC_CO2_draft (1).pdf"
+PYTHONDONTWRITEBYTECODE=1 python3 test/test_wildfire_smoke_integration_contract.py
+```
 
 Run the fail-closed summary audit with:
 
