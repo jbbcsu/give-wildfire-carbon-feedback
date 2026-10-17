@@ -25,8 +25,8 @@ class MasterLedgerTests(unittest.TestCase):
         config = builder.load_config(CONFIG)
         payloads, bound = builder.load_evidence(ROOT, config)
         rows = builder.build_rows(config, payloads)
-        self.assertEqual(len(bound), 38)
-        self.assertEqual(len(rows), 26)
+        self.assertEqual(len(bound), 42)
+        self.assertEqual(len(rows), 27)
         self.assertFalse(any(row["master_total_eligible"] for row in rows))
 
     def test_independent_validation_passes(self):
@@ -167,6 +167,19 @@ class MasterLedgerTests(unittest.TestCase):
         self.assertAlmostEqual(row["interval_high"], -0.037064745818, places=14)
         self.assertIn("not_probability_interval", row["statistic"])
         self.assertFalse(payloads["forestry_market_contract"]["additive_to_GIVE"])
+
+    def test_wetland_methane_is_candidate_feedback_not_scc(self):
+        config = builder.load_config(CONFIG)
+        payloads, _ = builder.load_evidence(ROOT, config)
+        row = builder.extract("wetland_methane_feedback", payloads)
+        self.assertEqual(row["central_value"], "")
+        contract = payloads["wetland_methane_contract"]
+        receipt = payloads["wetland_methane_readiness"]
+        self.assertEqual(receipt["natural_ch4_2015_2300_Mt_per_year"], 168.83862060475192)
+        self.assertTrue(receipt["natural_ch4_2015_2300_constant"])
+        self.assertEqual(contract["magicc_2026_benchmark"]["mean_slope_MtCH4_per_year_per_K"], 30.0)
+        self.assertEqual(contract["magicc_2026_benchmark"]["slope_sd_MtCH4_per_year_per_K"], 13.0)
+        self.assertFalse(contract["claim_gates"]["negative_slope_draw_treatment_prespecified"])
 
 
 if __name__ == "__main__":

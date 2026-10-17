@@ -46,8 +46,8 @@ def load_config(path: Path) -> dict[str, Any]:
     policy = config["aggregation_policy"]
     require(policy["headline_master_total_authorized"] is False, "headline total gate opened")
     require(policy["currently_compatible_component_sets"] == [], "unverified compatible set added")
-    require(len(config["rows"]) == 26, "expected 26 audited ledger rows")
-    require(len({row["component_id"] for row in config["rows"]}) == 26, "duplicate component ID")
+    require(len(config["rows"]) == 27, "expected 27 audited ledger rows")
+    require(len({row["component_id"] for row in config["rows"]}) == 27, "duplicate component ID")
     for row in config["rows"]:
         require(row["category"] in allowed, f"bad category: {row['component_id']}")
         require(row["master_total_eligible"] is False, f"master-total gate opened: {row['component_id']}")
@@ -383,6 +383,50 @@ def extract(component_id: str, p: dict[str, Any]) -> dict[str, Any]:
                 "units": "2020 USD per metric ton CO2", "pulse_year": 2025,
                 "discounting": "fixed 2% through 2300 under MimiFUND paths",
                 "source_status": contract["status"]}
+    if component_id == "wetland_methane_feedback":
+        contract = p["wetland_methane_contract"]
+        receipt = p["wetland_methane_readiness"]
+        validation = p["wetland_methane_validation"]
+        sources = p["wetland_methane_sources"]
+        gates = contract["claim_gates"]
+        require(contract["scope"]["give_integration_authorized"] is False and
+                contract["scope"]["scc_adjustment_authorized"] is False and
+                receipt["climate_damage_or_scc_result_created"] is False,
+                "wetland integration or SCC gate opened")
+        require(receipt["natural_ch4_2015_2300_constant"] is True and
+                receipt["natural_ch4_2015_2300_years"] == 286 and
+                receipt["natural_ch4_2015_2300_Mt_per_year"] == 168.83862060475192 and
+                contract["give_audit"]["post_2015_natural_ch4_Mt_per_year"] == 168.83862060475192,
+                "GIVE natural-methane baseline changed")
+        benchmark = contract["magicc_2026_benchmark"]
+        require(benchmark["mean_slope_MtCH4_per_year_per_K"] == 30.0 and
+                benchmark["slope_sd_MtCH4_per_year_per_K"] == 13.0 and
+                receipt["mechanical_mean_delta_for_one_K_Mt_per_year"] == 30.0,
+                "wetland MAGICC slope benchmark changed")
+        require(gates["wetland_share_of_give_natural_baseline_identified"] is False and
+                gates["absolute_intercept_and_temperature_baseline_harmonized"] is False,
+                "wetland baseline partition or anomaly gate opened")
+        require(gates["biogenic_methane_oxidation_routing_validated"] is False and
+                receipt["biogenic_oxidation_gate_passed"] is False,
+                "wetland biogenic oxidation gate opened")
+        require(gates["one_year_recursive_ordering_validated_in_give"] is False and
+                gates["common_parameter_draws_for_baseline_and_pulse_validated"] is False,
+                "wetland timing or recursive-pulse gate opened")
+        require(gates["precipitation_inundation_and_hysteresis_sensitivity_defined"] is False and
+                gates["negative_slope_draw_treatment_prespecified"] is False and
+                receipt["untruncated_normal_probability_negative_slope"] > 0,
+                "wetland proxy/reversibility or negative-tail gate opened")
+        source_record = next(item for item in sources["sources"] if item["name"] == "MAGICC source repository")
+        archive_record = next(item for item in sources["sources"] if item["name"] == "MAGICC v7.6 archived software")
+        require("postdates archived MAGICC v7.6.0a3" in source_record["note"] and
+                "MAGICC8+ license" in source_record["note"] and
+                archive_record["version"] == "v7.6.0a3",
+                "wetland MAGICC version boundary changed")
+        require(validation["valid"] is True and validation["checks"]["baseline_partition_gate_closed"] is True and
+                validation["checks"]["biogenic_gate_closed"] is True and
+                validation["checks"]["scc_not_authorized"] is True,
+                "wetland independent validation failed")
+        return empty_result(receipt["status"])
     raise ValueError(f"no extractor for {component_id}")
 
 

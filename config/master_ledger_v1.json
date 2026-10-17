@@ -177,6 +177,26 @@
       "sha256": "c73bc8532c03f5b65450c69c1c334d15a2cbb7c10187d7467643f50cc3ad5869",
       "source_commit": "3ec906f"
     },
+    "wetland_methane_contract": {
+      "path": "../wetland_methane_feedback_scc/config/wetland_methane_feedback_contract_v1.json",
+      "sha256": "e997bb6f992ba04f4191a3d9950d6332f4d90ef0a873232937d555342c309988",
+      "source_commit": "d295743"
+    },
+    "wetland_methane_readiness": {
+      "path": "../wetland_methane_feedback_scc/provenance/wetland_methane_readiness_receipt_v1.json",
+      "sha256": "6b0e60ab5390c93c62bea000c08440116baf3fef6a32c10424f6ecdd447d3e45",
+      "source_commit": "d295743"
+    },
+    "wetland_methane_validation": {
+      "path": "../wetland_methane_feedback_scc/provenance/wetland_methane_validation_v1.json",
+      "sha256": "bd0fecfe5a8c962d9a1739bc8cb0519c53bdb45abd7052ce99f2cef932cb2358",
+      "source_commit": "d295743"
+    },
+    "wetland_methane_sources": {
+      "path": "../wetland_methane_feedback_scc/provenance/source_manifest_v1.json",
+      "sha256": "1c7c97c6d50598c90ec27cc06d513b5aa90c2650f328f05f1bf521cb847c18cf",
+      "source_commit": "d295743"
+    },
     "migration_readiness": {
       "path": "../migration_scc/results/migration_readiness_result_v1.json",
       "sha256": "2918190684fee8cfb8ac6267bf8f0737bbbcc278ec54a4f7c024741a76dc5410"
@@ -446,6 +466,17 @@
       "master_total_eligible": false,
       "incompatibility_codes": ["SOURCE_COEFFICIENT_CONFLICT", "LEGACY_CALIBRATION", "FUND_GIVE_SCENARIO_MISMATCH", "FOREST_DISTURBANCE_OVERLAP"],
       "blocker": "MimiFUND documentation and executable forestry coefficients conflict; ecological and market calibration is legacy; FUND socioeconomic and climate paths are not rebased to GIVE; and fire, pest, storm, carbon, or other disturbance modules may duplicate forest-stock and productivity changes. The OAT range is diagnostic, not a probability interval."
+    },
+    {
+      "component_id": "wetland_methane_feedback",
+      "sector": "carbon-cycle feedback",
+      "category": "blocked_nonadditive",
+      "evidence_ids": ["wetland_methane_contract", "wetland_methane_readiness", "wetland_methane_validation", "wetland_methane_sources"],
+      "scope": "global climate-sensitive natural-wetland CH4 emissions recursively coupled to FaIR",
+      "value_role": "source-verified feedback-readiness benchmark; no SCC and no scalar uplift",
+      "master_total_eligible": false,
+      "incompatibility_codes": ["NATURAL_CH4_BASELINE_PARTITION", "BIOGENIC_OXIDATION_ROUTING", "METHANE_TIMING", "GMST_PROXY_REVERSIBILITY", "NEGATIVE_SLOPE_TAIL", "MAGICC_VERSION_ALIGNMENT", "RECURSIVE_BASELINE_PULSE"],
+      "blocker": "GIVE holds natural CH4 at 168.83862060475192 MtCH4/yr from 2015 through 2300, but its wetland share and any replacement-versus-anomaly anchor are unresolved. Biogenic methane cannot inherit fossil oxidation bookkeeping; natural-emissions timing, lagged common-draw recursion, the GMST proxy and reversibility, the 1.05% negative-slope tail, and MAGICC v7.6 versus later-source version alignment remain unvalidated. The Sloughter/MAGICC 30 +/- 13 MtCH4/yr/K slope is a candidate, not an SCC."
     }
   ],
   "outputs": {
