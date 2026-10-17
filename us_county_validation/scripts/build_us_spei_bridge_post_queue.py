@@ -68,12 +68,26 @@ def peak_rss_bytes() -> int:
 
 def resolve(path: str | Path) -> Path:
     value = Path(path)
-    return value if value.is_absolute() else ROOT / value
+    if not value.is_absolute():
+        return ROOT / value
+    if value.exists():
+        return value
+    # Some frozen manifests retain the absolute path of the machine that
+    # produced them.  Preserve the manifest hash, but relocate its `data/...`
+    # suffix to the current verified project root when the original path is
+    # unavailable (for example, on the compute server).
+    if "data" in value.parts:
+        data_index = value.parts.index("data")
+        relocated = ROOT.joinpath(*value.parts[data_index:])
+        if relocated.exists():
+            return relocated
+    return value
 
 
 def load_contract(path: Path) -> dict:
     contract = tomllib.loads(path.read_text())
-    require(contract["contract_id"] == "us_spei_bridge_post_queue_v1", "contract identity changed")
+    require(contract["contract_id"] in {"us_spei_bridge_post_queue_v1", "us_spei_bridge_post_queue_v2"},
+            "contract identity changed")
     require(not any(contract["authorization"].values()), "every outcome/downstream authorization must remain false")
     require(contract["future"]["expected_cases"] == 15, "future case count changed")
     require(contract["future"]["models"] == [

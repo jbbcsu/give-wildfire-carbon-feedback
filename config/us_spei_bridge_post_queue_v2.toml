@@ -1,0 +1,94 @@
+schema_version = 2
+contract_id = "us_spei_bridge_post_queue_v2"
+reference_date = "2026-10-17"
+analysis_role = "climate_only_exact_support_county_panel_no_outcomes_no_fit"
+
+[sample]
+panel = "data/interim/us_county/nass_direct_practice_nclimgrid_1981_2019.parquet"
+panel_sha256 = "205a94ae92c12810026c9c5d0ac0fa3760e46ebc39669e528ba20a125a0c46d7"
+crop = "corn_grain"
+practice = "non_irrigated"
+year_min = 1982
+year_max = 2018
+expected_rows = 6854
+expected_counties = 360
+expected_states = 10
+outcome_columns_forbidden = ["yield_bu_acre", "source_value_raw"]
+
+[historical]
+base_manifest = "data/interim/spei_sparse_candidate_indices_20260908/all_blocks.json"
+base_manifest_sha256 = "459f6968685b1ec828a68b7dc0a4fb54a3c32096ccad5a2f8ef460d19f866b3e"
+base_validation = "data/interim/spei_sparse_candidate_manifest_validation_20260908/result.json"
+base_validation_sha256 = "78fc1411d5e900b9c78af0fbdf096f66d9706216263e062eaa3e4eb9f140c97f"
+extension_result = "data/interim/us_county/us_spei_bridge_historical_cells_v2_20261013/result.json"
+extension_result_sha256 = "078b14f0ec3bfea7630448e2787458f9459cce82629d60d450797932a98560fd"
+extension_validation = "data/interim/us_county/us_spei_bridge_historical_cells_v2_20261013/validation.json"
+extension_validation_sha256 = "e66777bf775d272696ea5749691d88847318b4741977eed5f61a22a6b66d318d"
+base_cells = 31208
+extension_cells = 11
+merged_cells = 31219
+months = 468
+year_min = 1981
+year_max = 2019
+
+[future]
+queue_manifest = "data/provenance/us_spei_bridge_future_11_cell_queue_20261013.json"
+queue_manifest_sha256 = "30aa7a586dd466ed7095118a7cd6bcca7fae325257a9347896797af97ba793c7"
+base_root = "data/interim/five_esm_late_drought_20260921"
+extension_root = "data/interim/us_county/us_spei_bridge_future_11_cells_20261013"
+models = ["gfdl-esm4", "ipsl-cm6a-lr", "mpi-esm1-2-hr", "mri-esm2-0", "ukesm1-0-ll"]
+scenarios = ["ssp126", "ssp370", "ssp585"]
+expected_cases = 15
+base_cells = 31208
+extension_cells = 11
+merged_cells = 31219
+months = 120
+source_year_min = 2091
+source_year_max = 2100
+harvest_years = [2092, 2093, 2094, 2095, 2096, 2097, 2098, 2099]
+
+[index]
+scales_months = [1, 3, 6]
+distribution = "generalized_log_logistic_unbiased_pwm"
+calibration_start_year = 1982
+calibration_end_year = 2011
+pet = "Hargreaves_Samani"
+seasonal_temporal_rule = "calendar_day_weighted_mean_of_county_monthly_SPEI"
+seasonal_minimum_rule = "minimum_county_monthly_SPEI_over_intersecting_calendar_months"
+spatial_rule = "equal_area_county_polygon_intersection_then_normalize_within_available_cells"
+
+[geography]
+tiger_shapefile = "data/raw/us_county/tigerline/tl_2019_us_county/tl_2019_us_county.shp"
+tiger_shp_sha256 = "0b102f2e292be5a81f46ecb2956136e93da03de692980714fabc16e1925e0b51"
+tiger_shx_sha256 = "fb4263d31f02ccc9d7c1b0affd030cd528b6a2d13f3c1611e41e7dbc5fb57c9d"
+tiger_dbf_sha256 = "7250428e9b6b0fa9e3c16d16f7d5bbeb2c0ab3b1f16395a954fcbad4624bf5e6"
+tiger_prj_sha256 = "0b9041e921d9ebb43247d314608fe9e38a0b008ee793067fc1806199ea1fb9dd"
+area_crs = "EPSG:5070"
+grid_resolution_degrees = 0.5
+minimum_geometric_coverage = 0.999
+expected_counties_passing = 360
+
+[outputs]
+expected_historical_season_rows = 6854
+expected_future_season_rows = 43200
+expected_historical_monthly_rows = 168480
+expected_future_monthly_rows = 648000
+parquet_compression = "zstd"
+
+[authorization]
+read_outcome_values = false
+fit_outcomes = false
+construct_partial_scientific_panel = false
+run_before_all_15_extensions_validate = false
+bridge_to_nass_response = false
+future_yield_projection = false
+causal_claim = false
+damage = false
+scc = false
+
+[decision]
+all_15_rule = "every_exact_model_scenario_extension_result_and_independent_validation_must_exist_match_hashes_and_pass_before_bulk_cube_or_sample_access"
+coverage_rule = "all_360_retained_counties_must_meet_0_999_geometric_coverage_after_base_plus_extension_merge"
+missing_rule = "no_partial_case_no_partial_county_no_renormalization_after_a_failed_coverage_or_missing_climate_gate"
+leading_window_rule = "exclude_1981_from_common_SPEI_panel_because_SPEI_6_requires_pre_1981_months_not_present_in_the_frozen_source;_no_imputation"
+moisture_family_rule = "SPEI_and_direct_rainfall_are_competing_families_and_must_not_be_stacked_or_added"

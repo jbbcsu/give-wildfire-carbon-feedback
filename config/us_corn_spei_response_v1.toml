@@ -1,0 +1,56 @@
+schema_version = 1
+analysis_id = "us_corn_spei_response_v1"
+analysis_role = "historical_association_and_future_climate_transport_no_damage_no_scc"
+explicit_user_authorization_date = "2026-10-17"
+response_fit_authorized = true
+future_climate_transport_authorized = true
+causal_claim_authorized = false
+damage_claim_authorized = false
+scc_claim_authorized = false
+
+[sample]
+crop = "corn_grain"
+practice = "non_irrigated"
+year_min = 1982
+year_max = 2018
+development_year_max = 2011
+terminal_year_min = 2012
+terminal_year_max = 2018
+expected_rows = 6854
+expected_counties = 360
+
+[inputs]
+direct_panel = "data/interim/us_county/nass_direct_practice_nclimgrid_1981_2019.parquet"
+direct_panel_sha256 = "205a94ae92c12810026c9c5d0ac0fa3760e46ebc39669e528ba20a125a0c46d7"
+historical_spei = "data/interim/us_county/us_spei_bridge_post_queue_v2_20261017/historical_county_season_spei.parquet"
+historical_spei_sha256 = "a62b2c4bc76b77c8b7c735929643e02c6e5b7c30d9a2f75051dfbaaf6a97fabf"
+future_spei = "data/interim/us_county/us_spei_bridge_post_queue_v2_20261017/future_county_season_spei.parquet"
+future_spei_sha256 = "28e3b652bc201e3aafe6469d994dd4ea831aa77573fe920a56505fb6492dafc4"
+climate_result = "data/interim/us_county/us_spei_bridge_post_queue_v2_20261017/result.json"
+climate_result_sha256 = "764964be7ebb447f954de937ca3231cf28cbb3888e63373a84217d4ede67664e"
+climate_validation = "data/interim/us_county/us_spei_bridge_post_queue_v2_20261017/validation.json"
+climate_validation_sha256 = "ecd0d78d7786bc7c251a1c2fdd472a9ad1e6a115888b026c1d6e573533fbc231"
+
+[coordinates]
+dbf = "data/raw/us_county/tigerline/tl_2019_us_county/tl_2019_us_county.dbf"
+dbf_sha256 = "7250428e9b6b0fa9e3c16d16f7d5bbeb2c0ab3b1f16395a954fcbad4624bf5e6"
+spatial_cutoffs_km = [250.0, 500.0]
+
+[models]
+fixed_effects = ["county_geoid", "state_by_harvest_year"]
+cluster = "county_geoid"
+heat_controls = ["stage1_tmean_c", "stage2_tmean_c", "stage3_tmean_c"]
+spei_features = ["spei_1_day_weighted_mean", "spei_1_monthly_minimum", "spei_3_day_weighted_mean", "spei_3_monthly_minimum", "spei_6_day_weighted_mean", "spei_6_monthly_minimum"]
+primary_feature = "spei_6_day_weighted_mean"
+functional_form = "quadratic"
+contrast_change = -1.0
+contrast_reference_quantiles = [0.25, 0.50, 0.75]
+demeaning_tolerance = 1e-10
+demeaning_max_iterations = 10000
+
+[rules]
+moisture_families = "SPEI and direct rainfall are competing and never stacked"
+temperature_role = "temperature terms are common heat controls; SPEI transport holds them fixed to isolate the moisture-index pathway"
+selection = "primary SPEI-6 mean is fixed ex ante; other scales and minima are labeled sensitivity estimates"
+future_transport = "apply the historical quadratic SPEI contrast to county-specific future-minus-1982-2018 historical SPEI; do not call this causal damage or SCC"
+leading_window = "1981 excluded because source lacks pre-1981 months required for finite SPEI-6; no imputation"

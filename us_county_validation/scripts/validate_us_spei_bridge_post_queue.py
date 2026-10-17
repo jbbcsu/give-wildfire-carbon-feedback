@@ -44,6 +44,12 @@ def digest(path: Path) -> str:
 
 def resolve(path: str | Path) -> Path:
     value = Path(path)
+    if value.is_absolute() and value.exists():
+        return value
+    if value.is_absolute() and "data" in value.parts:
+        relocated = ROOT / Path(*value.parts[value.parts.index("data"):])
+        if relocated.exists():
+            return relocated
     return value if value.is_absolute() else ROOT / value
 
 
@@ -215,6 +221,8 @@ def validate(result_path: Path, resource_path: Path) -> dict:
     contract = tomllib.loads(contract_path.read_text())
     check(not any(contract["authorization"].values()), "contract authorizations closed", checks)
     sample_contract = contract["sample"]
+    expected_counties = int(sample_contract["expected_counties"])
+    expected_rows = int(sample_contract["expected_rows"])
     sample_path = resolve(sample_contract["panel"])
     check(digest(sample_path) == sample_contract["panel_sha256"], "metadata-only sample identity", checks)
     sample = pd.read_parquet(sample_path, columns=SAMPLE_COLUMNS)
@@ -225,7 +233,8 @@ def validate(result_path: Path, resource_path: Path) -> dict:
     ].copy()
     sample["county_geoid"] = sample.county_geoid.astype(str).str.zfill(5)
     sample["season_start"] = pd.to_datetime(sample.season_start); sample["season_end"] = pd.to_datetime(sample.season_end)
-    check(len(sample) == 7013 and sample.county_geoid.nunique() == 361, "exact metadata-only NASS sample", checks)
+    check(len(sample) == expected_rows and sample.county_geoid.nunique() == expected_counties,
+          "exact metadata-only NASS sample", checks)
     implementation = resolve(result["implementation"]["path"])
     check(digest(implementation) == result["implementation"]["sha256"], "builder identity", checks)
     for record in [result["upstream"][name] for name in (
@@ -252,8 +261,8 @@ def validate(result_path: Path, resource_path: Path) -> dict:
         paths[name] = path
     coverage = pd.read_csv(paths["county_coverage"], dtype={"county_geoid": str})
     weights = pd.read_parquet(paths["county_cell_weights"]); weights["county_geoid"] = weights.county_geoid.astype(str).str.zfill(5)
-    check(len(coverage) == coverage.county_geoid.nunique() == 361 and coverage.passes_0_999_gate.all(),
-          "361 counties pass 0.999 coverage", checks)
+    check(len(coverage) == coverage.county_geoid.nunique() == expected_counties and coverage.passes_0_999_gate.all(),
+          f"{expected_counties} counties pass 0.999 coverage", checks)
     recomputed = coverage.available_intersection_area_m2 / coverage.county_area_m2
     check(float((recomputed - coverage.coverage_fraction).abs().max()) < 2e-15, "coverage arithmetic", checks)
     check(float((weights.groupby("county_geoid").spatial_weight_within_available.sum() - 1).abs().max()) < 2e-15,
@@ -269,8 +278,12 @@ def validate(result_path: Path, resource_path: Path) -> dict:
     for frame in (historical_season, future_season):
         frame["county_geoid"] = frame.county_geoid.astype(str).str.zfill(5)
         frame["season_start"] = pd.to_datetime(frame.season_start); frame["season_end"] = pd.to_datetime(frame.season_end)
-    validate_panel_pair(historical_monthly, historical_season, 168948, 7013, [], checks)
-    validate_panel_pair(future_monthly, future_season, 649800, 43320, ["model", "scenario"], checks)
+    validate_panel_pair(historical_monthly, historical_season,
+                        int(contract["outputs"]["expected_historical_monthly_rows"]),
+                        int(contract["outputs"]["expected_historical_season_rows"]), [], checks)
+    validate_panel_pair(future_monthly, future_season,
+                        int(contract["outputs"]["expected_future_monthly_rows"]),
+                        int(contract["outputs"]["expected_future_season_rows"]), ["model", "scenario"], checks)
     historical_axis = pd.date_range("1981-01-01", "2019-12-01", freq="MS")
     future_axis = pd.date_range("2091-01-01", "2100-12-01", freq="MS")
     check(pd.DatetimeIndex(sorted(historical_monthly.date.unique())).equals(historical_axis)
@@ -293,13 +306,17 @@ def validate(result_path: Path, resource_path: Path) -> dict:
     check(frozen_windows.sort_values("state").reset_index(drop=True).equals(
               future_windows.sort_values("state").reset_index(drop=True)),
           "future calendars transport frozen state month-days exactly", checks)
-    check(set(historical_season.harvest_year) == set(range(1981, 2019)), "historical harvest-year support", checks)
+    check(set(historical_season.harvest_year) == set(range(int(sample_contract["year_min"]),
+                                                           int(sample_contract["year_max"]) + 1)),
+          "historical harvest-year support", checks)
     check(set(future_season.harvest_year) == set(range(2092, 2100)), "future harvest-year support", checks)
     check(len(future_season.groupby(["model", "scenario"])) == 15, "future panel case count", checks)
-    check(historical_monthly.spei_1.notna().all() and historical_monthly.spei_3.isna().sum() == 2 * 361
-          and historical_monthly.spei_6.isna().sum() == 5 * 361, "historical structural leading missingness", checks)
-    check(future_monthly.spei_1.notna().all() and future_monthly.spei_3.isna().sum() == 2 * 361 * 15
-          and future_monthly.spei_6.isna().sum() == 5 * 361 * 15, "future structural leading missingness", checks)
+    check(historical_monthly.spei_1.notna().all() and historical_monthly.spei_3.isna().sum() == 2 * expected_counties
+          and historical_monthly.spei_6.isna().sum() == 5 * expected_counties,
+          "historical structural leading missingness", checks)
+    check(future_monthly.spei_1.notna().all() and future_monthly.spei_3.isna().sum() == 2 * expected_counties * 15
+          and future_monthly.spei_6.isna().sum() == 5 * expected_counties * 15,
+          "future structural leading missingness", checks)
     validate_source_sentinels(result, weights, historical_monthly, future_monthly, checks)
     return {
         "schema": "us_spei_bridge_post_queue_validation_v1", "status": "passed", "checks": len(checks),
@@ -307,7 +324,7 @@ def validate(result_path: Path, resource_path: Path) -> dict:
         "resource": {"path": str(resource_path.relative_to(ROOT)), "sha256": digest(resource_path),
                      "sampled_peak_group_rss_bytes": resource["sampled_peak_group_rss_bytes"]},
         "validated": {"historical_season_rows": len(historical_season), "future_season_rows": len(future_season),
-                      "counties": 361, "future_cases": 15},
+                      "counties": expected_counties, "future_cases": 15},
         "gates": {"historical_climate_panel_independently_validated": True,
                   "future_climate_panel_independently_validated": True,
                   **{name: False for name in FALSE_GATES}},
