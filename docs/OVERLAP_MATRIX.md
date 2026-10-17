@@ -13,6 +13,7 @@ The highest-risk overlaps are:
 - **Heat morbidity:** a future module can be conditionally disjoint only if it remains nonfatal, values direct medical resources, and excludes lost wages already represented in labor productivity.
 - **Grid infrastructure:** the matched-pulse T&D result values direct repair and replacement but bundles wildfire, coastal flooding, rain, lightning, vegetation, and temperature stressors. It is not outage reliability welfare and cannot be added until infrastructure overlaps are decomposed.
 - **Top-down macro comparator:** Bilal and Känzig's aggregate GDP/productivity response can contain every market channel in the bottom-up ledger plus interactions. Its 2024 international-dollar unit, discounting, pulse/climate module, socioeconomic baseline, and damage object all differ from GIVE. It is neither additive nor an omitted-sector residual.
+- **Education and human capital:** causal learning effects do not yet provide a matched-pulse welfare endpoint. Lifetime-earnings conversion would overlap labor and macro damages, while school air-conditioning costs can overlap GIVE energy expenditures.
 
 Resolved or conditionally separable boundaries include wildfire versus nonwildfire emissions, riverine flooding versus CIAM coastal flooding, and heat-only transport infrastructure versus riverine property damage. These physical boundaries still require compatible valuation and joint-run contracts before aggregation.
 

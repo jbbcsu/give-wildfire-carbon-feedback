@@ -18,4 +18,6 @@ Substantive work should then focus on:
 
 The Bilal–Känzig top-down macro result should be maintained as a separate comparison protocol, not “harmonized” through a scalar currency conversion or used to back out missing damages. A valid comparison must preserve and display the five model-object incompatibilities.
 
+Education heat should remain a readiness track until a direct resource or consumer-welfare endpoint and matched school-day marginal climate path are available. Lifetime-earnings conversion is not a shortcut because it duplicates labor and macro channels; air-conditioning adaptation costs must also be separated from existing energy damages.
+
 Priority reflects expected scientific value times readiness, with overlap risk and required computation treated as costs. It is not a ranking of true damage magnitudes.

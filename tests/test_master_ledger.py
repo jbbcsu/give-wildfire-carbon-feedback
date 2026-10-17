@@ -25,8 +25,8 @@ class MasterLedgerTests(unittest.TestCase):
         config = builder.load_config(CONFIG)
         payloads, bound = builder.load_evidence(ROOT, config)
         rows = builder.build_rows(config, payloads)
-        self.assertEqual(len(bound), 28)
-        self.assertEqual(len(rows), 21)
+        self.assertEqual(len(bound), 29)
+        self.assertEqual(len(rows), 22)
         self.assertFalse(any(row["master_total_eligible"] for row in rows))
 
     def test_independent_validation_passes(self):
@@ -112,6 +112,15 @@ class MasterLedgerTests(unittest.TestCase):
         self.assertIn("not an omitted-sector residual", row["value_role"])
         self.assertEqual(row["master_total_eligible"], "false")
         self.assertEqual(len(row["incompatibility_codes"].split("|")), 5)
+
+    def test_education_heat_has_no_scc_or_income_conversion(self):
+        config = builder.load_config(CONFIG)
+        payloads, _ = builder.load_evidence(ROOT, config)
+        row = builder.extract("education_heat_learning", payloads)
+        self.assertEqual(row["central_value"], "")
+        source = payloads["education_heat_readiness"]
+        self.assertFalse(source["scc_output_created"])
+        self.assertFalse(source["lifetime_income_conversion_authorized"])
 
 
 if __name__ == "__main__":

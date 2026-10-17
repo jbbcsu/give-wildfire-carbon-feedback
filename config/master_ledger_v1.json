@@ -129,6 +129,10 @@
       "path": "../macro_damage_comparator/results/macro_comparator_summary_v1.csv",
       "sha256": "336b581b577756e263dd8684bc828b2261a93b86f7281c9f1d46a7460839d4dd"
     },
+    "education_heat_readiness": {
+      "path": "../education_heat_scc/provenance/education_heat_readiness_receipt_v1.json",
+      "sha256": "8718bba2a8dfe687020854fa0f78f906341831be271278ed681fd98fac1803b2"
+    },
     "migration_readiness": {
       "path": "../migration_scc/results/migration_readiness_result_v1.json",
       "sha256": "2918190684fee8cfb8ac6267bf8f0737bbbcc278ec54a4f7c024741a76dc5410"
@@ -345,6 +349,16 @@
       "master_total_eligible": false,
       "incompatibility_codes": ["DAMAGE_OBJECT", "PRICE_UNIT", "DISCOUNTING", "PULSE_AND_CLIMATE_MODULE", "SOCIOECONOMIC_BASELINE"],
       "blocker": "Aggregate GDP/productivity effects can embody many bottom-up sectors and interactions. Units are 2024 international dollars, discounting differs from GIVE, the pulse and climate module differ, the socioeconomic baseline differs, and the damage object is not a sectoral welfare endpoint."
+    },
+    {
+      "component_id": "education_heat_learning",
+      "sector": "education and human capital",
+      "category": "blocked_nonadditive",
+      "evidence_ids": ["education_heat_readiness"],
+      "scope": "heat-related learning and attendance effects on school days",
+      "value_role": "source-verified readiness scaffold; no SCC",
+      "master_total_eligible": false,
+      "blocker": "No separable welfare or direct-resource valuation, matched marginal school-day climate response, or validated global transfer exists. Lifetime-income conversion is unauthorized and would overlap labor and macro damages; air-conditioning costs can overlap GIVE energy damages."
     }
   ],
   "outputs": {

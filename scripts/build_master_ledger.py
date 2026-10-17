@@ -46,8 +46,8 @@ def load_config(path: Path) -> dict[str, Any]:
     policy = config["aggregation_policy"]
     require(policy["headline_master_total_authorized"] is False, "headline total gate opened")
     require(policy["currently_compatible_component_sets"] == [], "unverified compatible set added")
-    require(len(config["rows"]) == 21, "expected 21 audited ledger rows")
-    require(len({row["component_id"] for row in config["rows"]}) == 21, "duplicate component ID")
+    require(len(config["rows"]) == 22, "expected 22 audited ledger rows")
+    require(len({row["component_id"] for row in config["rows"]}) == 22, "duplicate component ID")
     for row in config["rows"]:
         require(row["category"] in allowed, f"bad category: {row['component_id']}")
         require(row["master_total_eligible"] is False, f"master-total gate opened: {row['component_id']}")
@@ -259,6 +259,21 @@ def extract(component_id: str, p: dict[str, Any]) -> dict[str, Any]:
                 "units": row["currency_unit"], "pulse_year": "",
                 "discounting": "source pure rate of time preference 2%; not GIVE matched",
                 "source_status": receipt["status"]}
+    if component_id == "education_heat_learning":
+        source = p["education_heat_readiness"]
+        required_failures = {
+            "adaptation_costs_separable_from_give_energy", "consumer_welfare_measure_available",
+            "direct_resource_cost_separable", "global_transfer_validated",
+            "labor_productivity_overlap_resolved", "macroeconomic_growth_overlap_resolved",
+            "matched_marginal_school_day_climate_response", "open_turnkey_global_response",
+            "sampling_uncertainty_propagatable",
+        }
+        require(set(source["failed_gates"]) == required_failures, "education failed-gate inventory changed")
+        require(source["give_addition_authorized"] is False, "education additivity gate opened")
+        require(source["lifetime_income_conversion_authorized"] is False,
+                "education lifetime-income conversion gate opened")
+        require(source["scc_output_created"] is False, "education SCC unexpectedly produced")
+        return empty_result(source["status"])
     raise ValueError(f"no extractor for {component_id}")
 
 

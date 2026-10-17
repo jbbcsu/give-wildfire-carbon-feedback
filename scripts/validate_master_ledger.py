@@ -36,6 +36,7 @@ EXPECTED = {
     "dengue_nonfatal_morbidity": ("blocked_nonadditive", None),
     "noncoastal_climate_migration": ("blocked_nonadditive", None),
     "bilal_kaenzig_global_macro": ("mutually_exclusive_comparator", 1206.96927919086),
+    "education_heat_learning": ("blocked_nonadditive", None),
 }
 
 
@@ -67,7 +68,7 @@ def validate_rows(rows: list[dict[str, str]]) -> None:
                     f"numeric value drift: {row['component_id']}")
     require(Counter(row["category"] for row in rows) == Counter({
         "integrated_pair_tested": 2, "external_sensitivity": 4,
-        "bounded_regional_benchmark": 4, "blocked_nonadditive": 10,
+        "bounded_regional_benchmark": 4, "blocked_nonadditive": 11,
         "mutually_exclusive_comparator": 1,
     }), "category counts changed")
     macro = next(row for row in rows if row["component_id"] == "bilal_kaenzig_global_macro")
@@ -103,7 +104,7 @@ def validate(root: Path, config_path: Path, receipt_path: Path) -> dict[str, Any
     require(receipt["config"]["sha256"] == sha256(config_path), "config hash mismatch")
     require(receipt["headline_master_total"] is None, "headline total invented")
     require(receipt["headline_master_total_authorized"] is False, "headline total authorized")
-    require(receipt["numeric_row_count"] == 15 and receipt["row_count"] == 21, "receipt counts changed")
+    require(receipt["numeric_row_count"] == 15 and receipt["row_count"] == 22, "receipt counts changed")
 
     ledger = root / receipt["output"]["path"]
     require(sha256(ledger) == receipt["output"]["sha256"], "ledger hash mismatch")
@@ -114,7 +115,7 @@ def validate(root: Path, config_path: Path, receipt_path: Path) -> dict[str, Any
     overlap_path = root / config["outputs"]["overlap_matrix"]
     with overlap_path.open(newline="", encoding="utf-8") as handle:
         overlap = list(csv.DictReader(handle))
-    require(len(overlap) == 29, "overlap matrix row count changed")
+    require(len(overlap) == 32, "overlap matrix row count changed")
     require(all(row["status"] and row["decision_rule"] for row in overlap), "incomplete overlap row")
     require(any(row["status"] == "umbrella_macro_overlap" for row in overlap), "macro-overlap gate missing")
     require(any(row["status"] == "mutually_exclusive_target_contracts" for row in overlap),
@@ -123,7 +124,7 @@ def validate(root: Path, config_path: Path, receipt_path: Path) -> dict[str, Any
     priority_path = root / config["outputs"]["priorities"]
     with priority_path.open(newline="", encoding="utf-8") as handle:
         priorities = list(csv.DictReader(handle))
-    require([int(row["priority"]) for row in priorities] == list(range(1, 14)), "priority order changed")
+    require([int(row["priority"]) for row in priorities] == list(range(1, 15)), "priority order changed")
     require(priorities[0]["workstream"] == "Joint target model and endpoint registry",
             "joint target no longer first priority")
 
@@ -138,10 +139,10 @@ def validate(root: Path, config_path: Path, receipt_path: Path) -> dict[str, Any
         "schema": "give_damage_expansion_master_ledger_validation/v1",
         "created_at_utc": datetime.now(timezone.utc).isoformat(),
         "status": "passed_hash_bound_tiered_ledger_and_no_sum_gate",
-        "checks_passed": 158,
-        "rows_validated": 21,
-        "overlap_rows_validated": 29,
-        "priority_rows_validated": 13,
+        "checks_passed": 169,
+        "rows_validated": 22,
+        "overlap_rows_validated": 32,
+        "priority_rows_validated": 14,
         "headline_master_total_authorized": False,
         "inputs": {
             "config_sha256": sha256(config_path), "receipt_sha256": sha256(receipt_path),
