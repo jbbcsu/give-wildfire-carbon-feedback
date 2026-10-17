@@ -1,0 +1,73 @@
+{
+  "schema": "mimifund_aggregate_water_benchmark_config/v1",
+  "source": {
+    "release": "MimiFUND v3.13.0",
+    "commit": "3f5fe29ffb753a49ff070d04b74ae42abd23576b",
+    "license": "MIT",
+    "project_toml_sha256": "252a5619039aed37bab81de3c34df3165ca56dbac982ef2c9ea36b6a00577320",
+    "water_component_sha256": "9d84b7af3b1dc28fa1ffec011e225bdff14c4474f1ee8776163841b2e9736972",
+    "marginal_damage_code_sha256": "188298dbca67130e84d8b6f09de180dda27b9ebbbb93671b83f1bf26651f22a2"
+  },
+  "execution": {
+    "julia_version": "1.10.3",
+    "manifest_path": "environment/MimiFUND-v3.13.0-Manifest.toml",
+    "manifest_sha256": "319cc02d2d5b1c0b4b0d0bad50cac613ae3c9a4d18043d690538743c76a1afa3",
+    "script_path": "scripts/compute_mimifund_aggregate_water_benchmark.jl",
+    "script_sha256": "52b0deb62819f86dc23c0ae903ef4a8870f7a34414e1574d7a0efabb0b5bca50",
+    "server": "darecompute-02",
+    "nice": 10
+  },
+  "central_specification": {
+    "pulse_year": 2025,
+    "pulse_shape": "one_year",
+    "pulse_size_tco2": 10000000,
+    "last_year": 2300,
+    "prtp": 0.02,
+    "eta": 0.0,
+    "source_price_year": 1995,
+    "target_price_year": 2020,
+    "source_units": "1995 USD per metric ton CO2",
+    "target_units": "2020 USD per metric ton CO2"
+  },
+  "price_conversion": {
+    "source_path": "data/reference/bea/A191RD3A086NBEA.csv",
+    "source_sha256": "32380c55db729bf4fd6c09ec924a048d89bb0eee43785e3a9b6daf3238cdc5e7",
+    "series_id": "A191RD3A086NBEA",
+    "provider": "FRED; underlying agency BEA",
+    "deflator_1995": "66.939",
+    "deflator_2020": "105.377",
+    "multiply_by": "1.574224293759990439056454384"
+  },
+  "outputs": {
+    "cases": {
+      "path": "data/derived/mimifund_aggregate_water_cases.csv",
+      "sha256": "5be0ce670630c037d750a898660b546bccda5670b04c0c0878533a8b24f2774b"
+    },
+    "annual_central": {
+      "path": "data/derived/mimifund_aggregate_water_annual_central.csv",
+      "sha256": "9d8a533b54cece3c0061c01ca0132ebce8ee0c974036ab93ddc6b562e89b2613"
+    },
+    "region_central": {
+      "path": "data/derived/mimifund_aggregate_water_region_central.csv",
+      "sha256": "17e8d83b0c0d23cb01b0999d2356d9893241f0d3a605dd3938b1bbaabf6d6345"
+    },
+    "validation": "data/provenance/mimifund_aggregate_water_validation_20261017.json"
+  },
+  "claim": {
+    "central_aggregate_water_scc_1995usd_per_tco2": 1.450727134868,
+    "central_aggregate_water_scc_2020usd_per_tco2": 2.283769899326,
+    "one_year_pulse_size_relative_difference": 0.00000979881646267,
+    "regional_positive_sum_2020usd_per_tco2": 3.28182941418,
+    "regional_negative_sum_2020usd_per_tco2": -0.998059514852,
+    "regional_gross_sum_2020usd_per_tco2": 4.279888929032,
+    "regional_cancellation_fraction": 0.4663950543584482
+  },
+  "hard_gates": {
+    "municipal_endpoint_isolated": false,
+    "drought_or_hydrology_response_explicit": false,
+    "documentation_code_temperature_driver_reconciled": false,
+    "uncertainty_run_completed": false,
+    "overlap_with_give_agriculture_energy_and_ecosystems_cleared": false,
+    "additive_to_baseline_give": false
+  }
+}
