@@ -1,0 +1,90 @@
+{
+  "schema": "amazon_dieback_feedback_integration_contract/v1",
+  "status": "BLOCKED_LAND_CARBON_OVERLAP_HAZARD_AND_RECURSION_GATES",
+  "scope": {
+    "candidate_feedback": "GMST-triggered Amazon forest dieback CO2 emissions recursively passed into FaIR",
+    "give_integration_authorized": false,
+    "scc_adjustment_authorized": false,
+    "excluded": [
+      "market forestry",
+      "wildfire carbon emissions",
+      "biodiversity and ecosystem-service valuation",
+      "Amazon rainfall recycling and regional hydrology damages",
+      "agricultural damages",
+      "a scalar uplift applied to an existing SCC"
+    ]
+  },
+  "give_audit": {
+    "fair_version": "MimiFAIRv1_6_2",
+    "co2_cycle_path": "../paper-2022-scc-give-zenodo/packages/MimiFAIRv1_6_2/src/components/co2_cycle.jl",
+    "co2_cycle_sha256": "896ebce46ff47514bed2a9881e87912f6fbd16be81b504cc0df714617eebbfc5",
+    "main_model_path": "../paper-2022-scc-give-zenodo/packages/MimiGIVE/src/main_model.jl",
+    "main_model_sha256": "5dcd02dbb8fc03246ff673e219308ac1f81c1ee3111b5198023ba8c28691f520",
+    "finding": "FaIR has a temperature-dependent land-uptake term but no explicit Amazon carbon stock, dieback state, or Amazon emissions input"
+  },
+  "meta_2021": {
+    "article_doi": "10.1073/pnas.2103081118",
+    "repository": "https://github.com/openmodels/META-2021",
+    "commit": "b9bacaf30403f9086ccea5632d7b96ad00d89de1",
+    "license": "GPL-3.0",
+    "source_path": "vendor/meta_2021/src/AmazonDieback.jl",
+    "source_sha256": "f8f29851d612624a92aa62e28c19a7c039051d4f6969a6d704baa791a882112e",
+    "co2_connection_path": "vendor/meta_2021/src/CO2Model.jl",
+    "co2_connection_sha256": "b9746ff5fb1b4e574967659f3cdef621181150057ef524d68b689849ff01f9b6",
+    "parameter_path": "vendor/meta_2021/data/AMAZparams.csv",
+    "parameter_sha256": "6875db81fb5c4dfe331285330fbeb5b1bb1ce8efb9e0107e300daf48ab99a469",
+    "benchmark_path": "vendor/meta_2021/data/AmazonDieback_benchmark.csv",
+    "benchmark_sha256": "2b672fa1ceb462d785481cc59f41b35bcd7e7621d08a7c02968d60b7e6a7f732",
+    "license_path": "vendor/meta_2021/LICENSE",
+    "license_sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+    "central_parameters": {
+      "annual_hazard_coefficient_per_degC": 0.00163443,
+      "hazard_activation_temperature_degC": 1.0,
+      "maximum_release_GtCO2": 183.3333333,
+      "equivalent_maximum_release_GtC": 50.0,
+      "central_release_duration_years": 50.0,
+      "release_duration_distribution_years": "Triangular(min=10, mode=50, max=250)"
+    }
+  },
+  "claim_gates": {
+    "explicit_amazon_dieback_absent_from_give_fair": true,
+    "published_open_gmt_to_emissions_model": true,
+    "exact_source_artifact_pinned": true,
+    "give_baseline_land_use_emissions_exclude_dieback_verified": false,
+    "generic_fair_land_sink_overlap_reconciled": false,
+    "gmt_only_hazard_validated_against_current_precipitation_and_drought_science": false,
+    "historical_trigger_conditioning_defined": false,
+    "stock_conserving_release_for_continuous_duration_draws": false,
+    "one_year_recursive_ordering_validated_in_give": false,
+    "common_random_numbers_for_baseline_and_pulse_validated": false,
+    "interaction_with_wildfire_and_deforestation_excluded": false,
+    "joint_fair_amazon_uncertainty_defined": false
+  },
+  "unit_contract": {
+    "temperature_input": "annual global-mean temperature anomaly in degC on the calibration baseline",
+    "hazard": "annual conditional trigger probability",
+    "co2_output": "GtCO2 per year",
+    "fair_conversion": "divide GtCO2 by 3.6666666667 for GtC per year if target FaIR E_co2 uses GtC per year",
+    "causal_lag": "temperature through year t generates Amazon emissions entering the CO2 cycle in year t+1",
+    "finite_stock": "50 GtC (183.3333333 GtCO2) in META 2021"
+  },
+  "forbidden_claims": [
+    "Amazon dieback SCC in GIVE",
+    "Amazon dieback adds a fixed percentage to the GIVE SCC",
+    "the combined EPA permafrost and Amazon uplift identifies either component",
+    "META's 0.1 percent SCC increment transfers to GIVE",
+    "FaIR temperature-dependent uptake either fully includes or fully excludes all Amazon climate-carbon feedback",
+    "the GMST-only hazard captures precipitation, drought, fire, and deforestation interactions"
+  ],
+  "unlock_requirements": [
+    "Verify scenario-by-scenario whether GIVE baseline fossil and land-use emissions contain Amazon dieback responses",
+    "Quantify and remove overlap between the added stock-release process and FaIR's temperature-dependent land uptake",
+    "Update or bound the hazard using current evidence that Amazon response depends on precipitation, drought, CO2 fertilization, land use, and fire as well as GMST",
+    "Condition the stochastic state on observations through the pulse year and document the temperature baseline",
+    "Replace the release rule with an exactly stock-conserving final installment for noninteger duration draws",
+    "Implement the one-year-lagged recursion in baseline and pulse models with identical hazard uniforms and parameter draws",
+    "Run zero-feedback, zero-pulse, pre-pulse identity, pulse-size convergence, mass-balance, and time-step tests",
+    "Validate temperature and emissions paths against META and at least one independent process-based or Earth-system benchmark"
+  ]
+}
+
