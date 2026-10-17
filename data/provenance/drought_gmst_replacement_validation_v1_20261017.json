@@ -1,0 +1,37 @@
+{
+  "central_response_2pct_usd2020_per_tco2": {
+    "fixed": 0.0068975259388421,
+    "trend": 0.0058293586416039,
+    "upper": 0.0045632589245158
+  },
+  "checks": {
+    "baseline_agriculture_exact": true,
+    "baseline_cpc_exact": true,
+    "maximum_currency_conversion_error": 1.0538445116559103e-16,
+    "ordering_groups": 33,
+    "rows": 36
+  },
+  "created_at_utc": "2026-10-17T14:45:11.430753+00:00",
+  "gates": {
+    "causal_drought_attribution": false,
+    "central_precipitation_scc": false,
+    "paired_give_engineering": true,
+    "structural_sensitivity": true
+  },
+  "schema": "drought_gmst_replacement_sensitivity_validation_v1",
+  "sources": {
+    "paired_output": {
+      "path": "data/interim/drought_gmst_replacement_v3_20261017.csv",
+      "sha256": "b361efd4f6f7f4dec31a2a04a50b8ccb3710636db63731bfc2e4356a04ec0e4d"
+    },
+    "paths_receipt": {
+      "path": "data/provenance/drought_gmst_fund_paths_v3_20261017.json",
+      "sha256": "7b935fab84defce00489b226976fc61e8317d2755ac9e3b839ba0ab9da21bfed"
+    },
+    "resource_receipt": {
+      "path": "data/interim/drought_gmst_replacement_v3_20261017.resource.json",
+      "sha256": "eeeb5bddd83c759624d56fa8bf138f29452758b333bc60ff43c1981343725c27"
+    }
+  },
+  "status": "passed_structural_sensitivity_not_causal_or_central_precipitation_scc"
+}

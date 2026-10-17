@@ -1,0 +1,141 @@
+{
+  "created_at_utc": "2026-10-17T14:15:50.499229+00:00",
+  "currency": {
+    "input": "constant_2014_2016_USD",
+    "output": "billion_USD2005",
+    "report_2005_to_2020_scalar": 1.2987749131468274,
+    "source_to_2005_scalar": 0.8357992263240843
+  },
+  "definition": "global maize SPEI-3 historical association times five-ESM endpoint SPEI/GMST slope and paired FAIR marginal temperature, valued in separate national maize markets",
+  "gates": {
+    "causal_drought_attribution": false,
+    "central_precipitation_scc": false,
+    "paired_give_engineering": false,
+    "structural_sensitivity": true
+  },
+  "implementation": {
+    "path": "scripts/build_drought_gmst_fund_paths.py",
+    "sha256": "715d6c8aea14a28e34776ef7866cfc4b82836caa68b8a4c3123a07a1de6e4f7a"
+  },
+  "limitations": [
+    "The global SPEI response is a historical association whose country-holdout predictive gain over rainfall was not robust.",
+    "The SPEI/GMST slope is a late-century multi-forcing endpoint relationship, not a transient CO2-only attribution estimate.",
+    "The drought response is applied uniformly to represented maize production; other crops, irrigation adaptation, trade and storage are omitted.",
+    "Response intervals condition on the fitted historical model and do not include climate-link or structural uncertainty.",
+    "Antigua and Barbuda is excluded because ATG is absent from the archived GIVE/FUND crosswalk; no region is guessed."
+  ],
+  "output": {
+    "bytes": 1860533,
+    "path": "data/interim/drought_gmst_fund_paths_v3_20261017.csv",
+    "sha256": "3b4d0cc5be979de2e093d725495e7af6d429cd8508f910b57d478da5216ecfce"
+  },
+  "response": {
+    "cases_log_yield_per_spei": {
+      "central": 0.021050463085422667,
+      "lower_95": 0.006460713448226962,
+      "upper_95": 0.03564021272261837
+    },
+    "log_yield_per_k": {
+      "central": -0.003948746487097812,
+      "lower_95": -0.0012119315109271177,
+      "upper_95": -0.006685561463268507
+    },
+    "spei_per_k": -0.18758478001523388
+  },
+  "schema": "drought_gmst_fund_paths_v1",
+  "sources": {
+    "association": {
+      "path": "data/interim/spei_historical_associations_maize_20260908/result.json",
+      "sha256": "4f2362812556cb8d27294b243096230502bbb77d5edf6e65a37fd7bfa58b65de"
+    },
+    "association_validation": {
+      "path": "data/interim/spei_association_validation_20260908/result.json",
+      "sha256": "f740226246c22ccb23c88c4b98e65c088aa75d54ea85f6fdd3240b522c8de9bd"
+    },
+    "climate_link": {
+      "path": "data/interim/five_esm_drought_gmst_link_20260922/result.json",
+      "sha256": "bc1c9877bd7a07da394365125bc5da4d642ebc891f001035c15ad6e7c87f0d78"
+    },
+    "climate_validation": {
+      "path": "data/interim/five_esm_drought_gmst_link_20260922/validation.json",
+      "sha256": "e3adeea7d5b4a3c763fb32743d4bdd0956555d7269e0eeb9d80dca678fc7f5fd"
+    },
+    "fair": {
+      "path": "data/interim/give_fair_temperature_path_smoke/temperature_paths.csv",
+      "sha256": "aedf6b66dd296337e1cb6105d2aa56ec94f3e15e5ac92c2abcdf74b6a42b6067"
+    },
+    "fair_receipt": {
+      "path": "data/provenance/give_fair_temperature_path_smoke_20260827.json",
+      "sha256": "a406ac1978b13df17fc519923ec4f38e5d4cb1ac3ac4ab67b8e395a25fc2fd33"
+    },
+    "fund_mapping": {
+      "path": "config/fund_country_mapping.csv",
+      "sha256": "47f2002ac520b9ed3428078e6c57987711638e10d0c5a305ce0a5936bdf9d306"
+    },
+    "fund_order": {
+      "path": "config/fund_region_order.csv",
+      "sha256": "550f74d9d715b2df096500b6cd2c9675dcb18a39a7ca5eae33aaf5566af4b95d"
+    },
+    "panel": {
+      "path": "data/interim/hultgren_quantity_response_panel_20260924.parquet",
+      "sha256": "af389bc3050cf7074f0a3869ae03cdcd959b3ba8a8017910ff5bc6f5507ffcdc"
+    },
+    "panel_receipt": {
+      "path": "data/provenance/hultgren_quantity_response_panel_20260924.json",
+      "sha256": "6f3487624e4deb319d6e6ec004c532a95000d0c6b457ec6e14a0403250d9e1f9"
+    },
+    "price_registry": {
+      "path": "config/price_basis_registry.toml",
+      "sha256": "128c2fbdc8481a588aa07bbce23520f3cd6df48ea1132edc33c9ee4c756b3e72"
+    }
+  },
+  "status": "structural_sensitivity_paths_ready_for_paired_give_not_causal_drought_scc",
+  "support": {
+    "adaptation": [
+      "fixed",
+      "trend",
+      "upper"
+    ],
+    "countries": 106,
+    "fund_regions": [
+      "USA",
+      "CAN",
+      "WEU",
+      "JPK",
+      "ANZ",
+      "EEU",
+      "FSU",
+      "MDE",
+      "CAM",
+      "LAM",
+      "SAS",
+      "SEA",
+      "CHI",
+      "MAF",
+      "SSA",
+      "SIS"
+    ],
+    "mapping_exclusion": {
+      "iso3": [
+        "ATG"
+      ],
+      "represented_value_constant_2014_2016_usd": 7314.953634764328,
+      "share_of_represented_value": 7.643120640768245e-08
+    },
+    "response_cases": [
+      "lower_95",
+      "central",
+      "upper_95"
+    ],
+    "rows": 40464,
+    "years": [
+      2020,
+      2300
+    ]
+  },
+  "validation": {
+    "maximum_25k_vs_50k_normalized_convergence_relative_error": 0.00013289701186736263,
+    "regional_reconciliation": true,
+    "zero_and_pre_pulse_identity": true
+  }
+}

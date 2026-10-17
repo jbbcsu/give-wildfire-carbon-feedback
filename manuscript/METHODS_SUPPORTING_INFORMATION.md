@@ -5231,3 +5231,44 @@ check recovers six cells, 132,259.60 proxy hectares and a 0.55072% irrigated
 share, agreeing with the earlier U.S.-Albers calculation within `2.52e-5`
 relative area and `1.25e-6` share. These geometry checks authorize neither a
 future response nor damages/SCC.
+
+### Paired drought/GMST structural sensitivity
+
+The drought sensitivity binds three separately validated objects: the current-
+rebased global maize-value panel, the historical crop-season SPEI-3 association,
+and the five-ESM late-century SPEI-3/GMST endpoint fit. The historical response
+cases are the fitted log-yield contrast for a one-unit SPEI increase and its
+reported lower and upper interval endpoints. The climate multiplier is the
+rainfed-maize, crop-season, three-month SPEI full-fit slope. The implementation
+requires the climate record's whole-ESM and scenario endpoint predictive gate,
+but that gate does not make the coefficient causal or transient.
+
+For each FAIR pulse size and year, the response is
+`log(A) = beta_SPEI * beta_SPEI_per_K * DeltaT`. Negative productivity changes
+are attenuated by the registered fixed, trend, or upper adaptation factors;
+positive changes are not attenuated. National markets are valued with the same
+fully anticipated central market function and then mapped to the 16 ordered
+FUND regions. ATG is the only represented code absent from the archived map and
+is excluded explicitly; it accounts for `7.64e-8` of represented baseline
+value. No region is guessed. The source farm-value price basis is converted to
+2005 USD with the registered GDP-deflator approximation, retaining the stated
+price-concept limitation.
+
+The Julia runner installs each of the nine response/adaptation paths into the
+anchored agriculture replacement for RFF socioeconomic sample 6546 and a
+2025 `0.000025 GtC` pulse. It uses the four registered GIVE Ramsey schedules
+and reports both 2005 and 2020 USD per tonne CO2. The run uses the replication
+archive's documented Julia 1.6.4 environment. Exact baseline agriculture and
+consumption identity, regional installation, global aggregation, shrinking-
+pulse convergence, currency conversion and monotonic ordering gates all pass.
+At 2%, central-response results are `$0.0068975`, `$0.0058294`, and
+`$0.0045633/tCO2` for fixed, trend, and upper adaptation. The fixed-practice
+lower and upper response cases are `$0.0021171` and `$0.0116779/tCO2`.
+
+The machine-readable sources are
+`data/provenance/drought_gmst_fund_paths_v3_20261017.json` and
+`data/provenance/drought_gmst_replacement_validation_v1_20261017.json`.
+Because the historical response fails the robust incremental country-holdout
+criterion and the climate fit is a multi-forcing late-century endpoint, the
+result is labeled a structural sensitivity. Causal drought attribution and the
+central precipitation-SCC gates remain false.

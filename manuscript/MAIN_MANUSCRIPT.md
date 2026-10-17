@@ -2659,6 +2659,33 @@ response while retaining its baseline levels, not as an additive precipitation
 sector. A complete agriculture replacement still requires the omitted
 mechanisms and crops described above.
 
+**Drought/GMST structural sensitivity.** We also completed a mutually exclusive
+SPEI representation rather than adding drought to the rainfall-quantity
+response. The historical global maize panel associates a one-unit increase in
+crop-season SPEI-3 with a 0.02105 log-yield increase (95% interval
+0.00646--0.03564). A separate five-ESM endpoint fit associates one kelvin of
+warming with a 0.18758-unit decrease in rainfed-maize crop-season SPEI-3. We
+multiply these two links by the paired FAIR marginal temperature path, value
+the resulting national maize-market changes, and replace MooreAg's marginal
+agriculture response while preserving its exact baseline.
+
+At the 2% schedule, the central response gives $0.00690/tCO2 under fixed
+practice, $0.00583 under trend adaptation, and $0.00456 under the upper-
+adaptation rule (2020 USD). Under fixed practice, the historical-response
+interval maps to $0.00212--$0.01168/tCO2. All 36 response-by-adaptation-by-
+discount cells pass the paired replacement and accounting checks. These small
+positive values do not overturn the narrow annual-quantity result, but they
+show that the drought representation has the expected damage sign.
+
+We classify this exercise as a structural sensitivity rather than a central
+drought SCC. The historical SPEI response did not deliver stable incremental
+country-holdout prediction over rainfall, and the climate link is a late-
+century multi-forcing endpoint association rather than an identified transient
+CO2-to-drought response. Its uncertainty interval also omits climate-link and
+structural uncertainty. A central estimate still requires a causal or otherwise
+transportable crop response and a transient attributed drought emulator on
+matched support.
+
 ### 6.4 Sensitivity and accounting checks
 
 Every paired run preserves MooreAg baseline agriculture damages and global
