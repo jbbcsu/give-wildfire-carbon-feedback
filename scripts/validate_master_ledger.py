@@ -39,6 +39,7 @@ EXPECTED = {
     "education_heat_learning": ("blocked_nonadditive", None),
     "freshwater_recreational_angling": ("blocked_nonadditive", None),
     "permafrost_carbon_feedback": ("blocked_nonadditive", None),
+    "amazon_dieback_carbon_feedback": ("blocked_nonadditive", None),
 }
 
 
@@ -70,7 +71,7 @@ def validate_rows(rows: list[dict[str, str]]) -> None:
                     f"numeric value drift: {row['component_id']}")
     require(Counter(row["category"] for row in rows) == Counter({
         "integrated_pair_tested": 2, "external_sensitivity": 4,
-        "bounded_regional_benchmark": 4, "blocked_nonadditive": 13,
+        "bounded_regional_benchmark": 4, "blocked_nonadditive": 14,
         "mutually_exclusive_comparator": 1,
     }), "category counts changed")
     macro = next(row for row in rows if row["component_id"] == "bilal_kaenzig_global_macro")
@@ -89,6 +90,15 @@ def validate_rows(rows: list[dict[str, str]]) -> None:
     }, "permafrost incompatibility inventory changed")
     require("9-50%" in permafrost["blocker"] and "prohibited" in permafrost["blocker"],
             "combined EPA uplift prohibition missing")
+    amazon = next(row for row in rows if row["component_id"] == "amazon_dieback_carbon_feedback")
+    require(amazon["central_value"] == "" and amazon["statistic"] == "none",
+            "Amazon feedback value invented")
+    require(set(amazon["incompatibility_codes"].split("|")) == {
+        "FAIR_LAND_SINK_BOUNDARY", "BASELINE_LAND_USE_EMISSIONS", "HAZARD_DRIVER_INCOMPLETENESS",
+        "RECURSIVE_BASELINE_PULSE", "SOURCE_STOCK_OVERSHOOT",
+    }, "Amazon feedback incompatibility inventory changed")
+    require("0.1%" in amazon["blocker"] and "prohibited" in amazon["blocker"],
+            "META scalar prohibition missing")
 
 
 def validate(root: Path, config_path: Path, receipt_path: Path) -> dict[str, Any]:
@@ -117,7 +127,7 @@ def validate(root: Path, config_path: Path, receipt_path: Path) -> dict[str, Any
     require(receipt["config"]["sha256"] == sha256(config_path), "config hash mismatch")
     require(receipt["headline_master_total"] is None, "headline total invented")
     require(receipt["headline_master_total_authorized"] is False, "headline total authorized")
-    require(receipt["numeric_row_count"] == 15 and receipt["row_count"] == 24, "receipt counts changed")
+    require(receipt["numeric_row_count"] == 15 and receipt["row_count"] == 25, "receipt counts changed")
 
     ledger = root / receipt["output"]["path"]
     require(sha256(ledger) == receipt["output"]["sha256"], "ledger hash mismatch")
@@ -151,7 +161,7 @@ def validate(root: Path, config_path: Path, receipt_path: Path) -> dict[str, Any
     overlap_path = root / config["outputs"]["overlap_matrix"]
     with overlap_path.open(newline="", encoding="utf-8") as handle:
         overlap = list(csv.DictReader(handle))
-    require(len(overlap) == 36, "overlap matrix row count changed")
+    require(len(overlap) == 39, "overlap matrix row count changed")
     require(all(row["status"] and row["decision_rule"] for row in overlap), "incomplete overlap row")
     require(any(row["status"] == "umbrella_macro_overlap" for row in overlap), "macro-overlap gate missing")
     require(any(row["status"] == "mutually_exclusive_target_contracts" for row in overlap),
@@ -162,11 +172,17 @@ def validate(root: Path, config_path: Path, receipt_path: Path) -> dict[str, Any
         "unresolved_feedback_boundary", "unresolved_baseline_emissions_boundary",
         "conditionally_distinct_recursive_feedbacks",
     }, "permafrost overlap rule changed")
+    amazon_overlap = [row for row in overlap if row["component_a"] == "amazon_dieback_carbon_feedback"]
+    require(len(amazon_overlap) == 3, "Amazon overlap inventory changed")
+    require({row["status"] for row in amazon_overlap} == {
+        "unresolved_feedback_boundary", "unresolved_baseline_land_use_boundary",
+        "unresolved_interacting_hazard_boundary",
+    }, "Amazon overlap rule changed")
 
     priority_path = root / config["outputs"]["priorities"]
     with priority_path.open(newline="", encoding="utf-8") as handle:
         priorities = list(csv.DictReader(handle))
-    require([int(row["priority"]) for row in priorities] == list(range(1, 17)), "priority order changed")
+    require([int(row["priority"]) for row in priorities] == list(range(1, 18)), "priority order changed")
     require(priorities[0]["workstream"] == "Joint target model and endpoint registry",
             "joint target no longer first priority")
 
@@ -181,11 +197,11 @@ def validate(root: Path, config_path: Path, receipt_path: Path) -> dict[str, Any
         "schema": "give_damage_expansion_master_ledger_validation/v1",
         "created_at_utc": datetime.now(timezone.utc).isoformat(),
         "status": "passed_hash_bound_tiered_ledger_and_no_sum_gate",
-        "checks_passed": 199,
-        "rows_validated": 24,
+        "checks_passed": 221,
+        "rows_validated": 25,
         "scenario_benchmark_rows_validated": 4,
-        "overlap_rows_validated": 36,
-        "priority_rows_validated": 16,
+        "overlap_rows_validated": 39,
+        "priority_rows_validated": 17,
         "headline_master_total_authorized": False,
         "inputs": {
             "config_sha256": sha256(config_path), "receipt_sha256": sha256(receipt_path),

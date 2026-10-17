@@ -73,9 +73,10 @@ Explain human decisions that remain essential: endpoint ownership, acceptable we
 
 ### 5.4 Blocked and negative results
 
-- Air pollution, grid transmission/distribution direct costs, winter-recreation revenue, heat morbidity, education and human capital, freshwater angling, permafrost carbon feedback, global ecosystem services, armed conflict, dengue, and noncoastal migration.
+- Air pollution, grid transmission/distribution direct costs, winter-recreation revenue, heat morbidity, education and human capital, freshwater angling, permafrost and Amazon carbon feedbacks, global ecosystem services, armed conflict, dengue, and noncoastal migration.
 - Show that “blocked” means insufficient separability or transfer evidence, not zero damage.
 - For permafrost, distinguish explicit frozen-carbon emissions from FaIR's generic temperature-dependent uptake. Record that a valid contribution needs verified no-feedback baselines, a biogenic-CH4 port, and recursive common-draw baseline/pulse runs. The PerCX 765-versus-775 parameter discrepancy and unused decay argument must be reconciled; the EPA 9–50% combined permafrost-plus-Amazon uplift is not a permafrost estimate and must never be applied as a scalar.
+- For Amazon dieback, distinguish explicit forest-stock loss from FaIR's generic land sink and baseline land-use emissions. The META GMST-only hazard omits important interacting drivers, and the released noninteger-duration rule can overshoot its stock even though the audited correction conserves it. Historical conditioning and common-random baseline/pulse recursion remain gates. Neither META's 0.1% result nor a combined EPA uplift transfers as a GIVE scalar.
 
 ### 5.5 Mutually exclusive top-down comparator
 

@@ -147,6 +147,21 @@
       "sha256": "e2452b98b915175f9087e26c2d88a3d2071e5f4f67ab2690d2faad2bfbfc1284",
       "source_commit": "6d8e052"
     },
+    "amazon_feedback_contract": {
+      "path": "../amazon_dieback_feedback_scc/config/amazon_dieback_feedback_contract_v1.json",
+      "sha256": "347a97a62c1a3e5407fd1b8e92c172a08e938b1352e4a1730de699e5b0d8ed5e",
+      "source_commit": "f7c85bc"
+    },
+    "amazon_feedback_readiness": {
+      "path": "../amazon_dieback_feedback_scc/provenance/amazon_feedback_readiness_receipt_v1.json",
+      "sha256": "31f9991e4b54bcf7e2b5ff43897e6aeca4925962bd7095ef7ec8ba7c6c642800",
+      "source_commit": "f7c85bc"
+    },
+    "amazon_feedback_validation": {
+      "path": "../amazon_dieback_feedback_scc/provenance/amazon_feedback_validation_v1.json",
+      "sha256": "a1058519e4bdf9d4b748c16d5e6e9f85a438a5300b89aa81cbada22dc13d4b50",
+      "source_commit": "f7c85bc"
+    },
     "migration_readiness": {
       "path": "../migration_scc/results/migration_readiness_result_v1.json",
       "sha256": "2918190684fee8cfb8ac6267bf8f0737bbbcc278ec54a4f7c024741a76dc5410"
@@ -394,6 +409,17 @@
       "master_total_eligible": false,
       "incompatibility_codes": ["FAIR_FEEDBACK_BOUNDARY", "BIOGENIC_CH4_PORT", "RECURSIVE_BASELINE_PULSE", "SOURCE_ARTIFACT"],
       "blocker": "GIVE emissions baselines have not been verified to exclude permafrost; biogenic CH4 cannot use GIVE's fossil-methane port; matched baseline/pulse recursion and initialization are unvalidated; the PerCX archive has 765 parameter rows versus 775 reported and passes an unused decay argument. The combined EPA 9-50% permafrost-plus-Amazon uplift is prohibited as a permafrost scalar."
+    },
+    {
+      "component_id": "amazon_dieback_carbon_feedback",
+      "sector": "carbon-cycle feedback",
+      "category": "blocked_nonadditive",
+      "evidence_ids": ["amazon_feedback_contract", "amazon_feedback_readiness", "amazon_feedback_validation"],
+      "scope": "global GMST-triggered Amazon forest CO2 release recursively coupled to FaIR",
+      "value_role": "source-verified feedback-readiness benchmark; no SCC and no scalar uplift",
+      "master_total_eligible": false,
+      "incompatibility_codes": ["FAIR_LAND_SINK_BOUNDARY", "BASELINE_LAND_USE_EMISSIONS", "HAZARD_DRIVER_INCOMPLETENESS", "RECURSIVE_BASELINE_PULSE", "SOURCE_STOCK_OVERSHOOT"],
+      "blocker": "FaIR's generic temperature-dependent land sink and GIVE baseline land-use emissions have unresolved overlap with explicit Amazon stock loss. META's GMST-only hazard omits precipitation, drought, fire, deforestation, and other interacting drivers; historical conditioning and common-random recursive baseline/pulse behavior are unvalidated. The released noninteger-duration rule overshoots its finite stock, although a tested final-installment correction conserves it. META's 0.1% result and the combined EPA uplift are prohibited as GIVE scalars."
     }
   ],
   "outputs": {

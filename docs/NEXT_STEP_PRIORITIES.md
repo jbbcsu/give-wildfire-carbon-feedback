@@ -24,4 +24,6 @@ Freshwater angling should retain the four published CIRA II consumer-surplus NPV
 
 Permafrost remains a feedback-integration problem rather than a damage-sector scalar. Its next defensible milestone is to reconcile the PerCX parameter artifact and unused decay argument, verify emissions baselines, add a biogenic-CH4 port, and validate one-year-lagged baseline/pulse recursion with common draws. The EPA 9–50% result combines permafrost and Amazon feedbacks and is prohibited as a permafrost-only or GIVE-wide uplift.
 
+Amazon dieback likewise remains a recursive feedback-readiness track. The next milestone must resolve generic FaIR land-sink and baseline land-use overlap, update or bound the GMST-only hazard using precipitation, drought, fire, deforestation, and other drivers, apply the tested stock-conserving final installment, and validate historical conditioning and common-random baseline/pulse behavior. META's 0.1% result and combined EPA feedback uplifts are not transferable scalars.
+
 Priority reflects expected scientific value times readiness, with overlap risk and required computation treated as costs. It is not a ranking of true damage magnitudes.

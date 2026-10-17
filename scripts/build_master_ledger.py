@@ -46,8 +46,8 @@ def load_config(path: Path) -> dict[str, Any]:
     policy = config["aggregation_policy"]
     require(policy["headline_master_total_authorized"] is False, "headline total gate opened")
     require(policy["currently_compatible_component_sets"] == [], "unverified compatible set added")
-    require(len(config["rows"]) == 24, "expected 24 audited ledger rows")
-    require(len({row["component_id"] for row in config["rows"]}) == 24, "duplicate component ID")
+    require(len(config["rows"]) == 25, "expected 25 audited ledger rows")
+    require(len({row["component_id"] for row in config["rows"]}) == 25, "duplicate component ID")
     for row in config["rows"]:
         require(row["category"] in allowed, f"bad category: {row['component_id']}")
         require(row["master_total_eligible"] is False, f"master-total gate opened: {row['component_id']}")
@@ -314,6 +314,41 @@ def extract(component_id: str, p: dict[str, Any]) -> dict[str, Any]:
                 "permafrost scalar-uplift prohibition missing")
         require("combined permafrost and Amazon results identify the permafrost contribution" in
                 contract["forbidden_claims"], "combined-feedback attribution prohibition missing")
+        return empty_result(receipt["status"])
+    if component_id == "amazon_dieback_carbon_feedback":
+        contract = p["amazon_feedback_contract"]
+        receipt = p["amazon_feedback_readiness"]
+        validation = p["amazon_feedback_validation"]
+        gates = contract["claim_gates"]
+        require(contract["scope"]["give_integration_authorized"] is False and
+                contract["scope"]["scc_adjustment_authorized"] is False,
+                "Amazon integration or SCC-adjustment gate opened")
+        require(receipt["climate_or_scc_result_created"] is False and
+                receipt["combined_epa_uplift_used"] is False,
+                "Amazon SCC or combined EPA uplift appeared")
+        require(gates["generic_fair_land_sink_overlap_reconciled"] is False and
+                gates["give_baseline_land_use_emissions_exclude_dieback_verified"] is False,
+                "Amazon land-carbon overlap gate opened")
+        require(gates["gmt_only_hazard_validated_against_current_precipitation_and_drought_science"] is False and
+                gates["interaction_with_wildfire_and_deforestation_excluded"] is False,
+                "Amazon hazard-driver gate opened")
+        require(gates["historical_trigger_conditioning_defined"] is False and
+                gates["one_year_recursive_ordering_validated_in_give"] is False and
+                gates["common_random_numbers_for_baseline_and_pulse_validated"] is False,
+                "Amazon historical-conditioning or recursive-pulse gate opened")
+        issue = receipt["continuous_duration_source_issue"]
+        require(issue["legacy_overshoot_GtCO2"] > 0 and
+                abs(issue["corrected_total_GtCO2"] - contract["meta_2021"]["central_parameters"]["maximum_release_GtCO2"]) < 1e-9 and
+                issue["stock_conserving_gate_passed"] is False and
+                gates["stock_conserving_release_for_continuous_duration_draws"] is False,
+                "Amazon stock-overshoot boundary changed")
+        require("META's 0.1 percent SCC increment transfers to GIVE" in contract["forbidden_claims"] and
+                "the combined EPA permafrost and Amazon uplift identifies either component" in contract["forbidden_claims"],
+                "Amazon scalar-uplift prohibition missing")
+        require(validation["valid"] is True and
+                validation["checks"]["combined_epa_scalar_forbidden"] is True and
+                validation["checks"]["scc_not_authorized"] is True,
+                "Amazon independent validation failed")
         return empty_result(receipt["status"])
     raise ValueError(f"no extractor for {component_id}")
 
