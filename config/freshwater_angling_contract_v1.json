@@ -1,0 +1,59 @@
+{
+  "schema": "freshwater_angling_integration_contract/v1",
+  "status": "BLOCKED_NO_MATCHED_MARGINAL_PATH_AND_RECREATION_OVERLAP_UNRESOLVED",
+  "scope": {
+    "candidate_endpoint": "Consumer surplus from climate-driven changes in freshwater recreational angling in rivers and streams",
+    "give_addition_authorized": false,
+    "global_transfer_authorized": false,
+    "excluded": [
+      "ocean fisheries",
+      "commercial inland harvest",
+      "aquaculture",
+      "subsistence and nutrition",
+      "fish existence and biodiversity nonuse values",
+      "FrEDI water-quality willingness-to-pay benchmark",
+      "lakes and reservoirs",
+      "trip expenditure and regional revenue"
+    ]
+  },
+  "claim_gates": {
+    "distinct_endpoint_absent_from_published_give": true,
+    "climate_to_habitat_link_published": true,
+    "recreation_consumer_surplus_endpoint_published": true,
+    "open_turnkey_integrated_model": false,
+    "annual_damage_path_available": false,
+    "matched_marginal_pulse_available": false,
+    "water_quality_recreation_overlap_resolved": false,
+    "stocking_management_and_access_resolved": false,
+    "global_transfer_validated": false,
+    "sampling_and_structural_uncertainty_propagatable": false
+  },
+  "reported_benchmark": {
+    "path": "data/reference/cira2_freshwater_fish_reported_npv_v1.csv",
+    "sha256": "d934c14028f82b39aa21cbd5f0c54278ce6da9062d5b050da74c97fc4e6e2548",
+    "label": "CIRA II scenario NPV benchmark; not SCC and not additive",
+    "currency": "million 2015 USD",
+    "period": "2011-2100",
+    "discount_rate": 0.03
+  },
+  "evidence_registry": {
+    "path": "data/reference/freshwater_fisheries_evidence_registry_v1.csv",
+    "sha256": "efc80194b063a2314e85c71d3aa03b27c20a3769bbc671b6c5a74f69aebd08aa"
+  },
+  "forbidden_claims": [
+    "freshwater fisheries SCC",
+    "global angling SCC",
+    "CIRA scenario damages divided by emissions are a marginal SCC",
+    "recreation expenditures equal consumer welfare",
+    "freshwater fish and FrEDI water-quality recreation values are additive"
+  ],
+  "unlock_requirements": [
+    "Obtain annual HUC8 baseline damage and physical habitat paths plus the executable climate-hydrology-habitat-economics model",
+    "Run identical annual temperature precipitation and flow forcing under matched GIVE baseline and one-ton pulse climates",
+    "Update angling participation site substitution guild choice and per-trip consumer surplus with current data",
+    "Create a service-level crosswalk that subtracts freshwater angling from the FrEDI water-quality recreation bundle or choose one endpoint exclusively",
+    "Represent stocking access fish movement adaptation and water-management scenarios",
+    "Propagate response climate-pattern hydrology valuation participation and adaptation uncertainty",
+    "Keep any U.S. result regional; require separate local biological and revealed-preference evidence before expansion"
+  ]
+}
