@@ -5254,6 +5254,13 @@ value. No region is guessed. The source farm-value price basis is converted to
 2005 USD with the registered GDP-deflator approximation, retaining the stated
 price-concept limitation.
 
+The trend and upper rules have no associated implementation-cost path:
+`adaptation_cost_share` is zero. They therefore measure gross response under
+free attenuation and are reported only as structural sensitivities. The fixed-
+practice case is primary; trend and upper cannot be labeled net damages or net
+SCCs until named cost and adoption schedules are evaluated on matched baseline
+and pulse paths.
+
 The Julia runner installs each of the nine response/adaptation paths into the
 anchored agriculture replacement for RFF socioeconomic sample 6546 and a
 2025 `0.000025 GtC` pulse. It uses the four registered GIVE Ramsey schedules

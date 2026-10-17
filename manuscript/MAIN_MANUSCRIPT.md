@@ -2677,6 +2677,10 @@ discount cells pass the paired replacement and accounting checks. These small
 positive values do not overturn the narrow annual-quantity result, but they
 show that the drought representation has the expected damage sign.
 
+Only the fixed-practice case is treated as the primary sensitivity. The trend
+and upper rules attenuate losses without a matched implementation-cost path;
+they are gross-response sensitivities, not net-damage or net-SCC estimates.
+
 We classify this exercise as a structural sensitivity rather than a central
 drought SCC. The historical SPEI response did not deliver stable incremental
 country-holdout prediction over rainfall, and the climate link is a late-

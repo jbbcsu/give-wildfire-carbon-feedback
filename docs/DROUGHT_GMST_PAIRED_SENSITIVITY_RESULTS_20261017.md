@@ -9,6 +9,11 @@ adaptation, and `$0.0045633/tCO2` under the upper-adaptation rule, all in 2020
 USD.  Holding practice fixed, the historical-response interval gives
 `$0.0021171--$0.0116779/tCO2`.  Positive values are damages.
 
+The fixed-practice result is the primary sensitivity. Trend and upper cases
+attenuate losses without charging implementation costs, so they are gross-
+damage response sensitivities and must not be described as net damages or net
+SCCs.
+
 These values are a **structural sensitivity**, not the paper's central
 precipitation SCC.  The historical global association is 0.0210505 log yield
 per one-unit SPEI-3 increase (interval 0.0064607--0.0356402).  The separate
