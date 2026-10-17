@@ -1,6 +1,6 @@
 # FrEDI transport-heat interface audit
 
-This isolated project pins small public EPA FrEDI v4.1.1 surfaces needed to audit temperature-driven transport and electricity-infrastructure responses. It does **not** calculate an SCC, extrapolate outside CONUS, use flood/coastal/wildfire sectors, or infer unavailable components.
+This isolated project pins public EPA FrEDI v4.1.1 surfaces for temperature-driven transport and electricity-infrastructure responses. It now reports a validated, truncated **CONUS partial SCC** for the released Roads and Rail aggregates. It does not extrapolate outside CONUS, use flood/coastal/wildfire sectors, infer unavailable components, or authorize addition to other GIVE sectors before overlap reconciliation.
 
 ## Current result
 
@@ -41,6 +41,24 @@ sector. The exact public runtime target, primary Reactive variant, official
 1.421 global-to-CONUS temperature conversion, six GCM surfaces, 49 state/DC
 units, and annual scalar support through 2300 are validated and hash-bound.
 See `TRANSPORT_SECTOR_SELECTION_AND_TARGET_20261017.md`. The matched GIVE
-temperature pair now passes; price conversion, annual damage pairing, pulse
-normalization, and the partial-SCC gate remain closed until their executable
-validations pass.
+temperature pair now passes.
+
+## Validated Roads + Rail partial SCC
+
+The matched-pulse pipeline now passes all within-sector gates. The primary
+`Reactive` mean is **$0.21448/tCO2 in 2020 USD**, with a six-surface range of
+$0.10021–$0.41146/tCO2. This is a CONUS-only result truncated at 2092, the last
+year in which the baseline and pulse temperatures stay inside the 0–3°C common
+support of all six released GCM-pattern surfaces. See
+`results/FREDI_TRANSPORT_CONUS_PARTIAL_SCC_V1.md` for interpretation and claim
+limits.
+
+Reproduce after acquiring the pinned raw inputs:
+
+```bash
+python3 scripts/acquire_pinned_fredi_sources.py --download-missing
+python3 scripts/acquire_fred_gdpdef_price_source.py --download-missing
+python3 scripts/run_fredi_transport_conus_partial_scc.py
+python3 scripts/validate_fredi_transport_conus_partial_scc.py
+python3 -m unittest tests/test_fredi_transport_conus_partial_scc.py -v
+```

@@ -42,18 +42,19 @@ heat productivity, mortality, agriculture, wildfire, and air pollution are
 excluded. Transport delay/user costs remain inside the two published bundles;
 they are not relabeled as labor-productivity damages.
 
-## Gates and next executable step
+## Gates and completed partial-SCC calculation
 
-The response target is ready, but no SCC is reported yet. A deterministic
+The response target is ready. A deterministic
 matched GIVE baseline/pulse temperature and consumption path for a 2025 CO2
 pulse has now been built and independently validated for 1750–2300. It has
 exact pre-pulse identity, a positive post-pulse temperature response, an exact
 1995 reference zero, the official 1.421 conversion, and a pulse-year Ramsey
-discount factor of one. The remaining prespecified steps are to evaluate annual
-Reactive road and rail damages only on common supported GCM temperatures, pin
-the 2015-to-2020 USD conversion, and independently validate damage pairing and
-pulse normalization. Until those checks pass, the CONUS partial-SCC gate
-remains closed.
+discount factor of one. Annual Reactive road and rail damages have now been
+evaluated only through 2092, the last year within the 3°C common support of all
+six surfaces. The BEA/FRED 2015-to-2020 USD conversion and exact pulse
+normalization are pinned and independently validated. The resulting truncated
+CONUS partial SCC is $0.21448/tCO2 (six-surface range $0.10021–$0.41146).
+Global extrapolation and cross-sector addition remain closed.
 
 Reproduce the current target audit:
 

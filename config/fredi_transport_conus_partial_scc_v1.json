@@ -1,0 +1,67 @@
+{
+  "schema": "fredi_transport_conus_partial_scc_contract/v1",
+  "scope": {
+    "geography": "CONUS: 48 contiguous states plus District of Columbia",
+    "claim": "partial SCC contribution from heat-driven Roads and Rail only",
+    "global_extrapolation_authorized": false,
+    "additivity_to_other_give_sectors_authorized": false
+  },
+  "sources": {
+    "fredi_manifest": "provenance/fredi_source_manifest_v4_1_1.json",
+    "fredi_runtime": "data/raw/fredi_code/FrEDI/R/sysdata.rda",
+    "give_pair": "data/interim/fredi_transport_give_temperature_pair_20261017.csv",
+    "fred_price_source": {
+      "path": "data/raw/fred_GDPDEF_annual_average_2015_2020.csv",
+      "sha256": "239ce3cb035cf17bdd05aa17f6cbd8c02dc82a3163f5d8a78be4972b7e165047",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=GDPDEF&cosd=2015-01-01&coed=2020-12-31&fq=Annual&fam=Average",
+      "series": "GDPDEF",
+      "source_agency": "U.S. Bureau of Economic Analysis",
+      "provider": "Federal Reserve Bank of St. Louis FRED",
+      "retrieved": "2026-10-17",
+      "values": {"2015": 97.315, "2020": 105.362},
+      "conversion_2015usd_to_2020usd": 1.0826902327493192
+    }
+  },
+  "give_target": {
+    "pulse_year": 2025,
+    "pulse_size_gtc": 0.0001,
+    "carbon_to_co2_mass_ratio": 3.6666666666666665,
+    "pulse_size_metric_tonnes_co2": 366666.6666666666,
+    "discount_rate_label": "2.0% Ramsey",
+    "price_year": 2020
+  },
+  "response": {
+    "released_aggregates": ["Roads", "Rail"],
+    "primary_variant": "Reactive",
+    "sensitivity_variants": ["NoAdapt", "Proactive"],
+    "gcm_surfaces": ["CCSM4", "CanESM2", "GFDL-CM3", "GISS-E2-R", "HadGEM2-ES", "MIROC5"],
+    "minimum_common_max_conus_anomaly_c": 3.0,
+    "common_support_first_year": 2025,
+    "common_support_last_year": 2092,
+    "first_excluded_year": 2093,
+    "interpolation": "official FrEDI piecewise-linear functions; evaluated only on [0, 3] C shared support",
+    "gcm_summary": "unweighted arithmetic mean across six released surfaces; range reported"
+  },
+  "outputs": {
+    "annual_pair": "data/derived/fredi_transport_conus_annual_pair_v1.csv",
+    "by_gcm": "results/fredi_transport_conus_partial_scc_by_gcm_v1.csv",
+    "summary": "results/fredi_transport_conus_partial_scc_summary_v1.csv",
+    "receipt": "provenance/fredi_transport_conus_partial_scc_receipt_v1.json",
+    "validation": "provenance/fredi_transport_conus_partial_scc_validation_v1.json"
+  },
+  "overlap_exclusions": [
+    "coastal_properties", "high_tide_flooding", "inland_flooding", "urban_drainage",
+    "building_energy", "labor_heat_productivity", "mortality", "agriculture",
+    "wildfire", "air_pollution"
+  ],
+  "claim_gates": {
+    "official_response_provenance_verified": true,
+    "price_year_conversion_pinned": true,
+    "common_gcm_temperature_support_verified": true,
+    "matched_annual_damage_pair_validated": true,
+    "discount_and_pulse_normalization_validated": true,
+    "conus_partial_scc_authorized": true,
+    "global_extrapolation_authorized": false,
+    "cross_sector_additivity_authorized": false
+  }
+}

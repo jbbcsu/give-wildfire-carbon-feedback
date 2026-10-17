@@ -1,0 +1,75 @@
+{
+  "claim_gates": {
+    "common_gcm_temperature_support_verified": true,
+    "conus_partial_scc_authorized": true,
+    "cross_sector_additivity_authorized": false,
+    "discount_and_pulse_normalization_validated": true,
+    "global_extrapolation_authorized": false,
+    "matched_annual_damage_pair_validated": true,
+    "official_response_provenance_verified": true,
+    "price_year_conversion_pinned": true
+  },
+  "config": {
+    "path": "config/fredi_transport_conus_partial_scc_v1.json",
+    "sha256": "244ca37c3296a710868cb99f3438a16faffd7aa61db4db9497743b931edebdd9"
+  },
+  "created_at_utc": "2026-10-17T14:26:30.924420+00:00",
+  "execution_code": {
+    "scripts/run_fredi_transport_annual_pair.R": "20b3e81aa33a930079d9ec07b9071260cd8abccc1ea30b219ec8cacee17adf36",
+    "scripts/run_fredi_transport_conus_partial_scc.py": "54b3e6c8bff7009918487d47a2d148808b660ccbd8d56da02dbcb218b1e75da1"
+  },
+  "inputs": {
+    "fred_price_source": {
+      "path": "data/raw/fred_GDPDEF_annual_average_2015_2020.csv",
+      "sha256": "239ce3cb035cf17bdd05aa17f6cbd8c02dc82a3163f5d8a78be4972b7e165047"
+    },
+    "fredi_manifest": {
+      "path": "provenance/fredi_source_manifest_v4_1_1.json",
+      "sha256": "af76d1caa96c7842c2dc5ed64775b9abb04d80a965f9e115261852f487add420"
+    },
+    "fredi_runtime": {
+      "path": "data/raw/fredi_code/FrEDI/R/sysdata.rda",
+      "sha256": "827a728615fcf9418fd101cf9eba007c15157520ade9763a4ef1ae9b55fbbce9"
+    },
+    "give_pair": {
+      "path": "data/interim/fredi_transport_give_temperature_pair_20261017.csv",
+      "sha256": "0e0a7a4e430b5dc7675d8d211f57abbddd0c8012e0535a595b86a3482f7f9e4e"
+    }
+  },
+  "normalization": {
+    "discount_factor_source": "matched GIVE base consumption path",
+    "pulse_metric_tonnes_co2": "366666.6666666666666666666666666666666667"
+  },
+  "outputs": {
+    "annual_pair": {
+      "path": "data/derived/fredi_transport_conus_annual_pair_v1.csv",
+      "rows": 2448,
+      "sha256": "7fa77e1c2511d7b92a8abc3bf0f6fb1ce5244fc44b05804cf2de6a8a4264c76b"
+    },
+    "by_gcm": {
+      "path": "results/fredi_transport_conus_partial_scc_by_gcm_v1.csv",
+      "rows": 18,
+      "sha256": "a9a8106738f87967e122d094b69150ffcfdf723cc9bb9a1efe9ecd25a4f0e3ac"
+    },
+    "summary": {
+      "path": "results/fredi_transport_conus_partial_scc_summary_v1.csv",
+      "rows": 9,
+      "sha256": "76636839032caaee64550b8212de4418b95bcac8602f7df3e2107a7848fc550f"
+    }
+  },
+  "peak_rss_mib_python": 30.703,
+  "price_conversion": {
+    "2015_to_2020": "1.082690232749319221086163489698402096285",
+    "source_series": "GDPDEF"
+  },
+  "schema": "fredi_transport_conus_partial_scc_receipt/v1",
+  "status": "CONUS_partial_SCC_only",
+  "support": {
+    "first_excluded_year": 2093,
+    "max_common_conus_anomaly_c": 3.0,
+    "years": [
+      2025,
+      2092
+    ]
+  }
+}
