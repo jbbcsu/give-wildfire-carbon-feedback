@@ -1,0 +1,39 @@
+{
+  "schema": "winter_recreation_source_manifest/v1",
+  "sources": [
+    {
+      "id": "epa_fredi_winterrec_response",
+      "url": "https://raw.githubusercontent.com/USEPA/FrEDI_Data/b506a3e0085bb446f56acc8c7076a1aea599fbb6/inst/extdata/fredi/gcm/WinterRec_scaledimpacts.csv",
+      "sha256": "e220c29c901e9b35b756c6af9cafec0159f89a5f71a517e51b6f97c2c3b3478b",
+      "license": "MIT",
+      "role": "Published temperature-response surfaces"
+    },
+    {
+      "id": "epa_fredi_population_scalar",
+      "upstream_repository": "https://github.com/USEPA/FrEDI",
+      "upstream_release": "v4.1.1",
+      "extraction": "df_mainScalars rows where scalarName == reg_pop and byState == 1 from R/sysdata.rda",
+      "sha256": "278cd0a0a85b5c39083ffb77a0989d7acd80834920e3f8ad9e66f3e9c7bbb627",
+      "license": "MIT",
+      "role": "Annual state population scalar, 2010-2300"
+    },
+    {
+      "id": "give_matched_temperature_pair",
+      "path": "data/interim/give_temperature_pair_20261017.csv",
+      "sha256": "0e0a7a4e430b5dc7675d8d211f57abbddd0c8012e0535a595b86a3482f7f9e4e",
+      "role": "Validated GIVE baseline/pulse CONUS temperature and Ramsey discount pair"
+    },
+    {
+      "id": "fred_gdpdef",
+      "series": "GDPDEF",
+      "url": "https://fred.stlouisfed.org/series/GDPDEF",
+      "sha256": "239ce3cb035cf17bdd05aa17f6cbd8c02dc82a3163f5d8a78be4972b7e165047",
+      "role": "2015-to-2020 USD conversion"
+    }
+  ],
+  "literature": [
+    {"doi": "10.1016/j.gloenvcha.2017.04.006", "role": "Primary winter-recreation model"},
+    {"doi": "10.1038/s41586-022-05224-9", "role": "GIVE coverage and SCC target"},
+    {"url": "https://www.epa.gov/system/files/documents/2024-08/technical-documentation-for-fredi_aug2024.pdf", "role": "FrEDI methods and endpoint classification"}
+  ]
+}

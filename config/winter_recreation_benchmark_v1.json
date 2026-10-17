@@ -1,0 +1,55 @@
+{
+  "schema": "winter_recreation_benchmark_contract/v1",
+  "scope": {
+    "numeric_benchmark": "CONUS climate-sensitive alpine skiing, cross-country skiing, and snowmobiling ticket/entry revenue",
+    "broader_tourism": "BLOCKED_NO_EXECUTABLE_WELFARE_FUNCTION",
+    "consumer_surplus": "NOT_ESTIMATED",
+    "global_extrapolation_authorized": false,
+    "additivity_to_give_authorized": false,
+    "reason_additivity_closed": "The published endpoint is lost ticket/entry revenue rather than compensating variation or consumer surplus. Expenditure substitution, producer costs/profits, and local-versus-national incidence are not identified, so the benchmark is not an additive social-welfare SCC."
+  },
+  "sources": {
+    "fredi_data_repository": "https://github.com/USEPA/FrEDI_Data",
+    "fredi_data_commit": "b506a3e0085bb446f56acc8c7076a1aea599fbb6",
+    "fredi_code_repository": "https://github.com/USEPA/FrEDI",
+    "fredi_code_release": "v4.1.1",
+    "license": "MIT",
+    "response": {"path": "data/reference/WinterRec_scaledimpacts.csv", "sha256": "e220c29c901e9b35b756c6af9cafec0159f89a5f71a517e51b6f97c2c3b3478b"},
+    "population": {"path": "data/reference/fredi_reg_pop_v4_1_1.csv", "sha256": "278cd0a0a85b5c39083ffb77a0989d7acd80834920e3f8ad9e66f3e9c7bbb627", "extraction": "df_mainScalars rows scalarName=reg_pop and byState=1 from FrEDI v4.1.1 sysdata.rda"},
+    "give_pair": {"path": "data/interim/give_temperature_pair_20261017.csv", "sha256": "0e0a7a4e430b5dc7675d8d211f57abbddd0c8012e0535a595b86a3482f7f9e4e"},
+    "price": {"path": "data/reference/fred_GDPDEF_annual_average_2015_2020.csv", "sha256": "239ce3cb035cf17bdd05aa17f6cbd8c02dc82a3163f5d8a78be4972b7e165047", "values": {"2015": 97.315, "2020": 105.362}},
+    "primary_study": {"citation": "Wobus et al. (2017), Global Environmental Change 45:1-14", "doi": "10.1016/j.gloenvcha.2017.04.006"},
+    "technical_documentation": "https://www.epa.gov/system/files/documents/2024-08/technical-documentation-for-fredi_aug2024.pdf"
+  },
+  "model": {
+    "gcms": ["CCSM4", "CanESM2", "GFDL-CM3", "GISS-E2-R", "HadGEM2-ES", "MIROC5"],
+    "impact_types": ["Alpine", "XC", "Snowmobiling"],
+    "zero_anchor": true,
+    "response_interpolation": "piecewise linear",
+    "response_extrapolation": "FrEDI data-build rule: extend the last two nonmissing response points linearly to 30 C",
+    "socioeconomic_snapshots": [2010, 2090],
+    "snapshot_interpolation": "linear through 2090; hold 2090 response thereafter",
+    "population": "annual state-level FrEDI reg_pop scalar, 2010-2300",
+    "adaptation": "alpine snowmaking conditions represented in source study; no snowmaking for XC or snowmobiling"
+  },
+  "give_target": {
+    "pulse_year": 2025,
+    "pulse_size_metric_tonnes_co2": 366666.6666666667,
+    "discount_rate_label": "2.0% Ramsey",
+    "price_year": 2020,
+    "bounded_horizon": 2092,
+    "full_horizon": 2300
+  },
+  "outputs": {
+    "annual": "data/derived/winter_recreation_annual_pair_v1.csv",
+    "by_gcm": "results/winter_recreation_partial_scc_by_gcm_v1.csv",
+    "summary": "results/winter_recreation_partial_scc_summary_v1.csv",
+    "receipt": "provenance/winter_recreation_partial_scc_receipt_v1.json",
+    "validation": "provenance/winter_recreation_partial_scc_validation_v1.json"
+  },
+  "forbidden_claims": [
+    "consumer-surplus SCC", "global tourism SCC", "total recreation SCC",
+    "additive GIVE welfare damage", "coral or freshwater recreation damages",
+    "local revenue loss equals national social cost"
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "broader_tourism_status": "BLOCKED_NO_EXECUTABLE_WELFARE_FUNCTION",
+  "claim_scope": {
+    "additivity_to_give_authorized": false,
+    "broader_tourism": "BLOCKED_NO_EXECUTABLE_WELFARE_FUNCTION",
+    "consumer_surplus": "NOT_ESTIMATED",
+    "global_extrapolation_authorized": false,
+    "numeric_benchmark": "CONUS climate-sensitive alpine skiing, cross-country skiing, and snowmobiling ticket/entry revenue",
+    "reason_additivity_closed": "The published endpoint is lost ticket/entry revenue rather than compensating variation or consumer surplus. Expenditure substitution, producer costs/profits, and local-versus-national incidence are not identified, so the benchmark is not an additive social-welfare SCC."
+  },
+  "created_at_utc": "2026-10-17T14:47:38.998477+00:00",
+  "inputs": {
+    "give_pair": {
+      "path": "data/interim/give_temperature_pair_20261017.csv",
+      "sha256": "0e0a7a4e430b5dc7675d8d211f57abbddd0c8012e0535a595b86a3482f7f9e4e"
+    },
+    "population": {
+      "path": "data/reference/fredi_reg_pop_v4_1_1.csv",
+      "sha256": "278cd0a0a85b5c39083ffb77a0989d7acd80834920e3f8ad9e66f3e9c7bbb627"
+    },
+    "price": {
+      "path": "data/reference/fred_GDPDEF_annual_average_2015_2020.csv",
+      "sha256": "239ce3cb035cf17bdd05aa17f6cbd8c02dc82a3163f5d8a78be4972b7e165047"
+    },
+    "response": {
+      "path": "data/reference/WinterRec_scaledimpacts.csv",
+      "sha256": "e220c29c901e9b35b756c6af9cafec0159f89a5f71a517e51b6f97c2c3b3478b"
+    }
+  },
+  "outputs": {
+    "annual": {
+      "path": "data/derived/winter_recreation_annual_pair_v1.csv",
+      "rows": 4968,
+      "sha256": "1ae8b6412c0516d84a40c51e98cf0229cec33f35d91e577b2e2f264945040e76"
+    },
+    "by_gcm": {
+      "path": "results/winter_recreation_partial_scc_by_gcm_v1.csv",
+      "rows": 12,
+      "sha256": "3f6ee4adafa675d98e3515d1d17ad63a934ada7565d4725013dd0dcd264bb2a2"
+    },
+    "summary": {
+      "path": "results/winter_recreation_partial_scc_summary_v1.csv",
+      "rows": 8,
+      "sha256": "ebc36327cd2540268a373f6571eb80cb06d63b71cc3ea016bde4f523414edfed"
+    }
+  },
+  "peak_rss_mib": 48.469,
+  "price_conversion_2015_to_2020": "1.082690232749319221086163489698402096285",
+  "schema": "winter_recreation_partial_scc_receipt/v1",
+  "status": "PUBLISHED_CONUS_REVENUE_BENCHMARK_NOT_ADDITIVE"
+}
