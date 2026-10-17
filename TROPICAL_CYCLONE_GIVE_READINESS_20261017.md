@@ -37,9 +37,12 @@ Subtracting the published uncertainty bounds would also be invalid.
 
 The released coefficient table contains exactly two coefficients for each of
 41 countries: an intercept and a linear response of persistent per-capita GDP
-growth effects to GMT. Thirty-eight country mean GMT slopes are negative; 36
-remain negative at their published upper 66% bound. These coefficients are a
-concrete target for a matched GIVE baseline/pulse evaluation.
+growth effects to GMT. The source-table routine multiplies the internal
+fractional-growth coefficients by 100, so the published GMT slopes are
+percentage points of annual per-capita GDP growth per degree Celsius, not
+fractions. Thirty-eight country mean GMT slopes are negative; 36 remain
+negative at their published upper 66% bound. These coefficients are a concrete
+target for a matched GIVE baseline/pulse evaluation.
 
 ## Why it cannot yet be added
 

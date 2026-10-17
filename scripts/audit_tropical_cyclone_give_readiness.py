@@ -58,6 +58,7 @@ def audit_code(root: Path, contract: dict[str, object]) -> dict[str, object]:
     verify_files(root, release["pinned_files"])
     aggregate = (root / "tc_cost/aggregate/scc.py").read_text(encoding="utf-8")
     bootstrap = (root / "tc_cost/bootstrap/scc.py").read_text(encoding="utf-8")
+    table_source = (root / "tc_cost/sourcedata/tabs3.py").read_text(encoding="utf-8")
     readme = (root / "README.md").read_text(encoding="utf-8")
     for token in (
         'ds_scc[f"scc{s}_tc"] = ds_scc[f"scc{s}"] - ds_scc[f"scc{s}_temp"]',
@@ -68,11 +69,13 @@ def audit_code(root: Path, contract: dict[str, object]) -> dict[str, object]:
     for token in ("load_gmt_pulse", "per gigaton of carbon", "compute_scc"):
         require(token in bootstrap, f"pulse implementation token missing: {token}")
     require("100 TC realizations and 1200 bootstraps" in readme, "documented ensemble size changed")
+    require('df *= 100' in table_source, "published coefficient-table scaling changed")
     return {
         "pinned_hashes_valid": True,
         "paired_tc_difference_is_computed_before_quantiles_in_code": True,
         "documented_tc_realizations": 100,
         "documented_bootstraps": 1200,
+        "published_coefficient_table_scale_relative_to_internal_fraction": 100.0,
     }
 
 
