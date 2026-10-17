@@ -46,8 +46,8 @@ def load_config(path: Path) -> dict[str, Any]:
     policy = config["aggregation_policy"]
     require(policy["headline_master_total_authorized"] is False, "headline total gate opened")
     require(policy["currently_compatible_component_sets"] == [], "unverified compatible set added")
-    require(len(config["rows"]) == 23, "expected 23 audited ledger rows")
-    require(len({row["component_id"] for row in config["rows"]}) == 23, "duplicate component ID")
+    require(len(config["rows"]) == 24, "expected 24 audited ledger rows")
+    require(len({row["component_id"] for row in config["rows"]}) == 24, "duplicate component ID")
     for row in config["rows"]:
         require(row["category"] in allowed, f"bad category: {row['component_id']}")
         require(row["master_total_eligible"] is False, f"master-total gate opened: {row['component_id']}")
@@ -64,6 +64,8 @@ def load_evidence(root: Path, config: dict[str, Any]) -> tuple[dict[str, Any], d
         require(root.parent.resolve() in path.parents, f"evidence escapes GIVE workspace: {evidence_id}")
         require(sha256(path) == spec["sha256"], f"evidence hash mismatch: {evidence_id}")
         bound[evidence_id] = {"path": spec["path"], "sha256": spec["sha256"], "bytes": path.stat().st_size}
+        if "source_commit" in spec:
+            bound[evidence_id]["source_commit"] = spec["source_commit"]
         if path.suffix == ".json":
             payloads[evidence_id] = json.loads(path.read_text(encoding="utf-8"))
         elif path.suffix == ".csv":
@@ -285,6 +287,34 @@ def extract(component_id: str, p: dict[str, Any]) -> dict[str, Any]:
         require(source["give_addition_authorized"] is False, "freshwater angling additivity gate opened")
         require(source["scc_output_created"] is False, "freshwater angling SCC unexpectedly produced")
         return empty_result(source["status"])
+    if component_id == "permafrost_carbon_feedback":
+        contract = p["permafrost_feedback_contract"]
+        receipt = p["permafrost_feedback_readiness"]
+        gates = contract["claim_gates"]
+        require(contract["scope"]["give_integration_authorized"] is False,
+                "permafrost GIVE-integration gate opened")
+        require(contract["scope"]["scc_adjustment_authorized"] is False,
+                "permafrost SCC-adjustment gate opened")
+        require(receipt["climate_or_scc_result_created"] is False,
+                "permafrost SCC unexpectedly produced")
+        require(receipt["parameter_rows_in_archive"] == 765 and
+                receipt["article_reported_retained_parameter_rows"] == 775 and
+                receipt["parameter_count_reconciled"] is False,
+                "permafrost parameter-artifact discrepancy changed")
+        require(receipt["decay_argument_used_in_released_species_function"] is False and
+                gates["percx_decay_parameter_semantics_reconciled"] is False,
+                "permafrost decay-parameter gate changed")
+        require(gates["give_baseline_emissions_exclude_permafrost_verified"] is False and
+                gates["biogenic_ch4_routing_validated"] is False and
+                gates["one_year_recursive_ordering_validated"] is False and
+                gates["historical_baseline_initialization_validated"] is False and
+                gates["common_random_number_pulse_convergence_validated"] is False,
+                "permafrost emissions-boundary or recursive-pulse gate opened")
+        require("permafrost adds a fixed percentage to the GIVE SCC" in contract["forbidden_claims"],
+                "permafrost scalar-uplift prohibition missing")
+        require("combined permafrost and Amazon results identify the permafrost contribution" in
+                contract["forbidden_claims"], "combined-feedback attribution prohibition missing")
+        return empty_result(receipt["status"])
     raise ValueError(f"no extractor for {component_id}")
 
 

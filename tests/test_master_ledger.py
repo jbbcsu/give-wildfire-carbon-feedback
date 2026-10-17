@@ -25,8 +25,8 @@ class MasterLedgerTests(unittest.TestCase):
         config = builder.load_config(CONFIG)
         payloads, bound = builder.load_evidence(ROOT, config)
         rows = builder.build_rows(config, payloads)
-        self.assertEqual(len(bound), 30)
-        self.assertEqual(len(rows), 23)
+        self.assertEqual(len(bound), 32)
+        self.assertEqual(len(rows), 24)
         self.assertFalse(any(row["master_total_eligible"] for row in rows))
 
     def test_independent_validation_passes(self):
@@ -131,6 +131,19 @@ class MasterLedgerTests(unittest.TestCase):
         self.assertFalse(source["scc_output_created"])
         self.assertFalse(source["give_addition_authorized"])
         self.assertEqual(source["reported_five_gcm_average_million_2015usd"]["coldwater_fishing|RCP8.5"], -100000.0)
+
+    def test_permafrost_feedback_has_no_scc_or_scalar_uplift(self):
+        config = builder.load_config(CONFIG)
+        payloads, _ = builder.load_evidence(ROOT, config)
+        row = builder.extract("permafrost_carbon_feedback", payloads)
+        self.assertEqual(row["central_value"], "")
+        contract = payloads["permafrost_feedback_contract"]
+        receipt = payloads["permafrost_feedback_readiness"]
+        self.assertFalse(contract["scope"]["give_integration_authorized"])
+        self.assertFalse(contract["scope"]["scc_adjustment_authorized"])
+        self.assertEqual(receipt["parameter_rows_in_archive"], 765)
+        self.assertEqual(receipt["article_reported_retained_parameter_rows"], 775)
+        self.assertFalse(receipt["decay_argument_used_in_released_species_function"])
 
 
 if __name__ == "__main__":

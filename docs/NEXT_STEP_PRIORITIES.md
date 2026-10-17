@@ -22,4 +22,6 @@ Education heat should remain a readiness track until a direct resource or consum
 
 Freshwater angling should retain the four published CIRA II consumer-surplus NPVs only as original-unit scenario benchmarks. A future marginal module needs annual matched-pulse paths and must remove or jointly model the angling service already present in FrEDI freshwater recreation.
 
+Permafrost remains a feedback-integration problem rather than a damage-sector scalar. Its next defensible milestone is to reconcile the PerCX parameter artifact and unused decay argument, verify emissions baselines, add a biogenic-CH4 port, and validate one-year-lagged baseline/pulse recursion with common draws. The EPA 9–50% result combines permafrost and Amazon feedbacks and is prohibited as a permafrost-only or GIVE-wide uplift.
+
 Priority reflects expected scientific value times readiness, with overlap risk and required computation treated as costs. It is not a ranking of true damage magnitudes.
