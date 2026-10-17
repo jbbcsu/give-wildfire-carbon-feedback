@@ -1,0 +1,46 @@
+{
+  "schema": "conflict_crime_source_manifest/v1",
+  "created": "2026-10-17",
+  "give_coverage": {
+    "source": "Rennert et al. (2022), Nature, DOI 10.1038/s41586-022-05224-9",
+    "finding": "GIVE has no explicit conflict or crime damage component"
+  },
+  "fredi": {
+    "repository": "https://github.com/USEPA/FrEDI",
+    "release": "v4.1.1",
+    "commit": "08ead1b64821acd0ff0ee95fdf662a1a73f242e1",
+    "license": "MIT with EPA disclaimer",
+    "documentation": "https://www.epa.gov/system/files/documents/2024-08/technical-documentation-for-fredi_appendices_aug2024.pdf"
+  },
+  "fredi_data": {
+    "repository": "https://github.com/USEPA/FrEDI_Data",
+    "commit": "b506a3e0085bb446f56acc8c7076a1aea599fbb6",
+    "license": "MIT",
+    "files": [
+      {"path": "inst/extdata/fredi/gcm/CILCrime_scaledimpacts.csv", "sha256": "41c6d30ac69d6df589ab5c57696ae6eff50e1a94977e134c8102638859d04e7f", "rows": 3038},
+      {"path": "inst/extdata/fredi/scalars/Scalar_econScalar_property_crime_costs_usd.csv", "sha256": "1af8277c0e7f87774d33f86b0c56ab67e032d2373c2eacb888bf430d6d0976fe", "rows": 49},
+      {"path": "inst/extdata/fredi/scalars/Scalar_econScalar_violent_crime_costs_usd.csv", "sha256": "2ceec30aa15d9a61132a7562bc11d91ede942e822d7b435192f5b27351e0a694", "rows": 49}
+    ],
+    "runtime_alignment": {
+      "runtime_sha256": "827a728615fcf9418fd101cf9eba007c15157520ade9763a4ef1ae9b55fbbce9",
+      "response_rows_matched": 3038,
+      "response_max_abs_difference_after_csv_parsing": 5.684342e-14,
+      "property_scalar_rows_matched": 49,
+      "violent_scalar_rows_matched": 49,
+      "scalar_max_abs_difference": 0.0
+    }
+  },
+  "underlying_sources": [
+    {"citation": "Hsiang et al. (2017), Estimating economic damage from climate change in the United States, Science 356:1362-1369", "doi": "10.1126/science.aal4369"},
+    {"citation": "Ranson (2014), Crime, weather, and climate change, Journal of Environmental Economics and Management 67:274-302", "doi": "10.1016/j.jeem.2013.11.008"},
+    {"citation": "Jacob, Lefgren, and Moretti (2007), The dynamics of criminal behavior, Journal of Human Resources 42:489-527", "doi": "10.3368/jhr.XLII.3.489"},
+    {"citation": "Heaton (2010), Hidden in Plain Sight: What Cost-of-Crime Research Can Tell Us About Investing in Police", "publisher": "RAND Corporation"}
+  ],
+  "armed_conflict_sources": [
+    {"citation": "Hsiang, Burke, and Miguel (2013), Quantifying the influence of climate on human conflict, Science 341", "doi": "10.1126/science.1235367", "replication": "https://doi.org/10.5281/zenodo.19616032"},
+    {"citation": "Mach et al. (2019), Climate as a risk factor for armed conflict, Nature 571:193-197", "doi": "10.1038/s41586-019-1300-6"},
+    {"citation": "Koubi (2019), Climate Change and Conflict, Annual Review of Political Science 22:343-360", "doi": "10.1146/annurev-polisci-050317-070830"},
+    {"citation": "Buhaug et al. (2014), One effect to rule them all? A comment on climate and conflict, Climatic Change", "doi": "10.1007/s10584-014-1266-1"}
+  ]
+}
+

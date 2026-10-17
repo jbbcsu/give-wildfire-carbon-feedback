@@ -1,0 +1,54 @@
+{
+  "claim_scope": {
+    "additivity_to_give_authorized": false,
+    "global_extrapolation_authorized": false,
+    "numeric_benchmark": "CONUS temperature-related property and violent crime",
+    "organized_armed_conflict": "BLOCKED_NO_SCC",
+    "reason_additivity_closed": "Violent-crime valuation includes injury/loss-of-life and indirect costs that may overlap GIVE mortality and labor; property valuation includes enforcement and indirect costs and may contain transfers. Released aggregates cannot be decomposed."
+  },
+  "created_at_utc": "2026-10-17T14:43:12.973109+00:00",
+  "inputs": {
+    "give_pair": {
+      "path": "data/interim/give_temperature_pair_20261017.csv",
+      "sha256": "0e0a7a4e430b5dc7675d8d211f57abbddd0c8012e0535a595b86a3482f7f9e4e"
+    },
+    "price": {
+      "path": "data/reference/fred_GDPDEF_annual_average_2015_2020.csv",
+      "sha256": "239ce3cb035cf17bdd05aa17f6cbd8c02dc82a3163f5d8a78be4972b7e165047"
+    },
+    "property_cost": {
+      "path": "data/reference/Scalar_econScalar_property_crime_costs_usd.csv",
+      "sha256": "1af8277c0e7f87774d33f86b0c56ab67e032d2373c2eacb888bf430d6d0976fe"
+    },
+    "response": {
+      "path": "data/reference/CILCrime_scaledimpacts.csv",
+      "sha256": "41c6d30ac69d6df589ab5c57696ae6eff50e1a94977e134c8102638859d04e7f"
+    },
+    "violent_cost": {
+      "path": "data/reference/Scalar_econScalar_violent_crime_costs_usd.csv",
+      "sha256": "2ceec30aa15d9a61132a7562bc11d91ede942e822d7b435192f5b27351e0a694"
+    }
+  },
+  "organized_armed_conflict_status": "BLOCKED_NO_SCC",
+  "outputs": {
+    "annual": {
+      "path": "data/derived/crime_annual_pair_v1.csv",
+      "rows": 3312,
+      "sha256": "90ab90378b66ff046b3aa818d7f33380c65109a5098bb86674a3473ae963aecf"
+    },
+    "by_gcm": {
+      "path": "results/crime_partial_scc_by_gcm_v1.csv",
+      "rows": 12,
+      "sha256": "a5d620d0d957a18fe88410ce3a4aeee66a755952b02402e6f8fdfadd6e4f53bc"
+    },
+    "summary": {
+      "path": "results/crime_partial_scc_summary_v1.csv",
+      "rows": 6,
+      "sha256": "757db9b381305be3e0db578b6f10dd0dd14af47ee7f162496cba57d2d0efc575"
+    }
+  },
+  "peak_rss_mib": 28.641,
+  "price_conversion_2015_to_2020": "1.082690232749319221086163489698402096285",
+  "schema": "crime_partial_scc_receipt/v1",
+  "status": "PUBLISHED_CONUS_BENCHMARK_NOT_ADDITIVE"
+}
