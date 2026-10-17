@@ -1,0 +1,72 @@
+{
+  "additive_scc_allowed": false,
+  "audit_pass": true,
+  "estimator_checks": {
+    "population_weights": true,
+    "ppml_fixed_effect_estimator": true,
+    "precipitation_controls": true,
+    "temperature_cubic_lags": true,
+    "unit_year_month_fixed_effects": true
+  },
+  "file_checks": [
+    {
+      "exists": true,
+      "path": "data/source/LICENSE",
+      "sha256_ok": true,
+      "size_ok": true
+    },
+    {
+      "exists": true,
+      "path": "data/source/UPSTREAM_README.md",
+      "sha256_ok": true,
+      "size_ok": true
+    },
+    {
+      "exists": true,
+      "path": "data/source/ref_tables/GCM_variant_scenarios_to_include.csv",
+      "sha256_ok": true,
+      "size_ok": true
+    },
+    {
+      "exists": true,
+      "path": "data/source/scripts/00_utilities/functions.R",
+      "sha256_ok": true,
+      "size_ok": true
+    },
+    {
+      "exists": true,
+      "path": "data/source/scripts/10_fit_main.R",
+      "sha256_ok": true,
+      "size_ok": true
+    },
+    {
+      "exists": true,
+      "path": "data/source/scripts/11_block_bootstrap_main.R",
+      "sha256_ok": true,
+      "size_ok": true
+    },
+    {
+      "exists": true,
+      "path": "data/source/scripts/11_block_bootstrap_main.sbatch",
+      "sha256_ok": true,
+      "size_ok": true
+    },
+    {
+      "exists": true,
+      "path": "data/source/scripts/14_dengue_projections.R",
+      "sha256_ok": true,
+      "size_ok": true
+    }
+  ],
+  "interpretation": "Published climate-incidence bridge is source-verified; SCC release remains closed.",
+  "projection_checks": {
+    "projects_cases": true,
+    "scenario_contrast_not_marginal_pulse": true,
+    "uses_bootstrap_coefficients": true,
+    "uses_population": true,
+    "uses_unit_covariates": true
+  },
+  "release_invariant_ok": true,
+  "schema_version": "1.0",
+  "source_files_verified": true
+}

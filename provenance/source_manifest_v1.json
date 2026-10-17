@@ -1,0 +1,34 @@
+{
+  "manifest_version": "1.0",
+  "retrieved_utc": "2026-10-17",
+  "upstream_repository": "https://github.com/marissachilds/global-dengue-temperature",
+  "upstream_commit": "cd8e354df0291a930d489ef1171b448112476c7b",
+  "upstream_license": "MIT",
+  "article_doi": "10.1073/pnas.2512350122",
+  "data_doi": "10.5281/zenodo.16883976",
+  "give_target_audit": {
+    "repository_directory": "paper-2022-scc-give-zenodo/packages/MimiGIVE",
+    "files": [
+      {
+        "path": "src/components/cromar_mortality_damages.jl",
+        "sha256": "381d220e9b77c78f8186dafccf35dd7558c90dd6596689c759fb1eccf5557d76",
+        "finding": "Country-level all-cause combined heat/cold excess mortality driven by global temperature and monetized with VSL."
+      },
+      {
+        "path": "src/components/DamageAggregator.jl",
+        "sha256": "9fdd944faf6aa67bfd36063078974b3e7164bd6806528acecc7ea04331ab7cc4",
+        "finding": "Aggregates Cromar mortality, agriculture, and energy; no infectious-disease morbidity input."
+      }
+    ]
+  },
+  "files": [
+    {"path": "data/source/LICENSE", "upstream_path": "LICENSE", "bytes": 1071, "sha256": "96347e7c27c20aceb0e79b619e76a0a4e44c9dd4225f7367dfc2f6bd109f156b"},
+    {"path": "data/source/UPSTREAM_README.md", "upstream_path": "README.md", "bytes": 4783, "sha256": "3ab4f97617446f81ffb956650108d4ad8bf99f343b30a57651fb936121231122"},
+    {"path": "data/source/ref_tables/GCM_variant_scenarios_to_include.csv", "upstream_path": "ref_tables/GCM_variant_scenarios_to_include.csv", "bytes": 18665, "sha256": "5556365a4fe11bb49c714186e11da0e1bd3b4d8b4c899114a49d6960c80e1961"},
+    {"path": "data/source/scripts/00_utilities/functions.R", "upstream_path": "scripts/00_utilities/functions.R", "bytes": 6254, "sha256": "b916ccd602ab8296cb46faa63c247ec92b8390dc895bf0791ad3b4210976bc68"},
+    {"path": "data/source/scripts/10_fit_main.R", "upstream_path": "scripts/10_fit_main.R", "bytes": 16695, "sha256": "80cb11bfedde980573ce071dc1cf35b59e7498590305c0c68b26d1a4f49aff86"},
+    {"path": "data/source/scripts/11_block_bootstrap_main.R", "upstream_path": "scripts/11_block_bootstrap_main.R", "bytes": 3001, "sha256": "fc9aefb6e47a5384c520e5d8db3160ebc500016c704f50fc8c84dfa7b29d3360"},
+    {"path": "data/source/scripts/11_block_bootstrap_main.sbatch", "upstream_path": "scripts/11_block_bootstrap_main.sbatch", "bytes": 217, "sha256": "b7daaa17761f66cf81941135281501ca7748fb35a35c1aa110c6a5d5e4b81ff2"},
+    {"path": "data/source/scripts/14_dengue_projections.R", "upstream_path": "scripts/14_dengue_projections.R", "bytes": 20035, "sha256": "f9ad2bcb3f07f4d135dd3403b4601d9c7676fa32555e9efd1f8d46ddb463fc0d"}
+  ]
+}

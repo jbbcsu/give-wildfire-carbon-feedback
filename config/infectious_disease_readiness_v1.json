@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "project": "infectious_disease_scc",
+  "primary_disease": "dengue",
+  "primary_endpoint": "nonfatal_symptomatic_cases",
+  "geography": "21 study countries in the Americas and Asia; no extrapolation outside evidence domain",
+  "response_source": {
+    "citation": "Childs et al. (2025), Climate warming is expanding dengue burden in the Americas and Asia, PNAS",
+    "doi": "10.1073/pnas.2512350122",
+    "repository": "https://github.com/marissachilds/global-dengue-temperature",
+    "commit": "cd8e354df0291a930d489ef1171b448112476c7b"
+  },
+  "allowed_damage_channels": [
+    "direct_medical_costs_for_nonfatal_symptomatic_cases",
+    "nonfatal_health_burden_if_valued_with_a_primary_source"
+  ],
+  "closed_damage_channels": {
+    "dengue_mortality": "Potential overlap with GIVE Cromar all-cause temperature mortality; requires an explicit cause-deleted or combined mortality target.",
+    "lost_wages": "Potential overlap with the GIVE labor-productivity extension; count either disease-attributable lost work or the overlapping labor loss, not both.",
+    "air_pollution_health": "Belongs to the separate air-pollution module.",
+    "coastal_storm_mortality": "Already represented in CIAM."
+  },
+  "claim_gates": {
+    "peer_reviewed_response": true,
+    "source_code_pinned_and_hash_verified": true,
+    "study_domain_respected": true,
+    "matched_give_baseline_and_one_ton_pulse": false,
+    "morbidity_valuation_primary_source_pinned": false,
+    "mortality_overlap_resolved": false,
+    "labor_overlap_resolved": false,
+    "independent_replication_or_validation": false,
+    "discounting_and_currency_normalization_validated": false,
+    "additive_scc_allowed": false
+  },
+  "scc_release_rule": "additive_scc_allowed may be true only if every preceding required pulse, valuation, overlap, validation, and normalization gate is true",
+  "large_data": {
+    "zenodo_doi": "10.5281/zenodo.16883976",
+    "archive_size_gb": 5.5,
+    "download_by_default": false
+  }
+}
+
