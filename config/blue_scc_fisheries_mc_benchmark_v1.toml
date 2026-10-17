@@ -1,0 +1,31 @@
+schema_version = 1
+contract_id = "blue_scc_fisheries_mc_benchmark_v1"
+analysis_role = "published_external_scc_uncertainty_benchmark_only"
+
+[source]
+repository_url = "https://github.com/berbastien/blue-scc"
+repository_commit = "dbc0d8cb21c81f1508abfaf9e5c0f5671ccdd83f"
+article_doi = "10.1038/s41558-025-02533-5"
+relative_path = "Data/SCC/out/MC.parquet"
+sha256 = "91ab7431159868af623c15b28ad4a59b387d3040d5ed76c9ec39cdd5f14115ec"
+repository_license_status = "no_explicit_root_license_file_found_at_audited_commit"
+
+[expected]
+year = 2020
+row_count = 4010
+id_count = 401
+monte_carlo_draw_count = 400
+baseline_id = "9999"
+component_count = 10
+fisheries_market_valuation = "consumption"
+fisheries_nutrition_valuation = "usenm"
+
+[scientific_gates]
+give_compatible = false
+annual_damage_path_available = false
+matched_give_pulse_available = false
+direct_consumer_surplus_estimated = false
+direct_producer_surplus_estimated = false
+nutrition_mortality_overlap_cleared = false
+additive_to_give_authorized = false
+

@@ -11,6 +11,15 @@ retained only as an external scale reference: $22.09755/tCO2 under its own
 baseline settings, consisting of $0.05704 market value and $22.04051
 nutrition/non-market value. Those numbers are not GIVE results.
 
+An additional checksum-pinned audit of the released Blue-SCC Monte Carlo
+artifact now provides its full published uncertainty benchmark. Excluding the
+deterministic row, the 400-draw fisheries total has median $31.4138/tCO2 and a
+5--95% range of $16.6959--$58.2809/tCO2; the market-only median is
+$0.0617/tCO2. The artifact's deterministic values differ from the Figure 4
+workbook, so neither release is silently preferred. See
+[`BLUE_SCC_FISHERIES_MC_BENCHMARK_20261017.md`](BLUE_SCC_FISHERIES_MC_BENCHMARK_20261017.md).
+These remain external published-model benchmarks, not additive GIVE results.
+
 The validated 1990--1999 calibration / 2000--2014 prediction comparison does
 not support empirical probability weights for the four available FishMIP
 paths. No path beats the constant benchmark under the contract quality-status

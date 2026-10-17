@@ -1,0 +1,64 @@
+{
+  "contract_id": "blue_scc_fisheries_mc_benchmark_v1",
+  "give_scc_calculated": false,
+  "interpretation": "Published Blue-SCC uncertainty benchmark under its own model settings; not an annual GIVE damage path and not additive to GIVE until the failed gates pass.",
+  "result": {
+    "published_deterministic_baseline_usd_per_tco2": {
+      "combined": 28.730837390276342,
+      "market": 0.0548234824372163,
+      "nutrition_nonmarket": 28.676013907839124
+    },
+    "published_monte_carlo_usd_per_tco2": {
+      "combined": {
+        "maximum": 68.32604329764841,
+        "mean": 33.814859578185334,
+        "median": 31.41378387292127,
+        "minimum": 2.603856974218291,
+        "n": 400,
+        "p05": 16.695928370582433,
+        "p95": 58.2809350583954,
+        "sample_sd": 12.507116232914711
+      },
+      "market": {
+        "maximum": 0.12362632075023842,
+        "mean": 0.06453582262455661,
+        "median": 0.06170727860796835,
+        "minimum": 0.02700873251655842,
+        "n": 400,
+        "p05": 0.03760719661870232,
+        "p95": 0.09625195303210159,
+        "sample_sd": 0.018793174029810608
+      },
+      "nutrition_nonmarket": {
+        "maximum": 68.22901475106616,
+        "mean": 33.75032375556078,
+        "median": 31.360959633531174,
+        "minimum": 2.5128297678853855,
+        "n": 400,
+        "p05": 16.641809508438023,
+        "p95": 58.18914587720989,
+        "sample_sd": 12.4977895955896
+      }
+    }
+  },
+  "schema": "blue_scc_fisheries_mc_benchmark_audit_v1",
+  "scientific_gates": {
+    "additive_to_give_authorized": false,
+    "annual_damage_path_available": false,
+    "direct_consumer_surplus_estimated": false,
+    "direct_producer_surplus_estimated": false,
+    "give_compatible": false,
+    "matched_give_pulse_available": false,
+    "nutrition_mortality_overlap_cleared": false
+  },
+  "source": {
+    "article_doi": "10.1038/s41558-025-02533-5",
+    "relative_path": "Data/SCC/out/MC.parquet",
+    "repository_commit": "dbc0d8cb21c81f1508abfaf9e5c0f5671ccdd83f",
+    "repository_license_status": "no_explicit_root_license_file_found_at_audited_commit",
+    "repository_url": "https://github.com/berbastien/blue-scc",
+    "sha256": "91ab7431159868af623c15b28ad4a59b387d3040d5ed76c9ec39cdd5f14115ec"
+  },
+  "source_rows_copied": false,
+  "status": "passed_published_external_benchmark_only"
+}
