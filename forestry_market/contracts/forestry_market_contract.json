@@ -1,0 +1,26 @@
+{
+  "sector": "forestry_timber_market_welfare",
+  "endpoint": "change_in_consumer_and_producer_surplus",
+  "geography": "global_16_FUND_regions",
+  "pulse_gas": "CO2",
+  "pulse_year": 2025,
+  "output_unit": "2020_USD_per_metric_tonne_CO2",
+  "positive_sign": "damage",
+  "excluded_endpoints": [
+    "wildfire_CO2_feedback",
+    "wildfire_smoke_health",
+    "nonmarket_ecosystem_services",
+    "agriculture",
+    "built_property",
+    "forest_carbon_externality"
+  ],
+  "benchmark_source": "MimiFUND_v3.13.0_impactforests",
+  "status": "external_legacy_benchmark_only",
+  "additive_to_GIVE": false,
+  "blocking_gates": [
+    "documentation_code_coefficient_discrepancy",
+    "legacy_ecological_and_market_calibration",
+    "unresolved_overlap_with_future_forest_disturbance_modules",
+    "not_rebased_to_GIVE_socioeconomic_and_climate_paths"
+  ]
+}

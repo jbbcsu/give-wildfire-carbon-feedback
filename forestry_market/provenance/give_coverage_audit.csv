@@ -1,0 +1,5 @@
+evidence_source,location,finding,decision
+GIVE_RFF_scope_audit,give_ai_damage_expansion/RFF_GIVE_MISSING_SCOPE_AUDIT_20261014.md:25-46,"GIVE includes mean-temperature mortality, crop agriculture, building energy, and sea-level rise; forestry/timber/pulp/paper is not named","treat market forestry as missing"
+GIVE_sector_registry,give_ai_damage_expansion/SECTOR_REGISTRY.md:8-22,"Active registry contains mortality, agriculture, labor, fisheries, coastal, energy, air pollution, wildfire, and coral entries but no forestry market entry","new endpoint requires separate contract"
+GIVE_model_source,paper-2022-scc-give-zenodo/src,"Direct source inspection found no forestry/timber market component in the existing damage graph","no pre-existing forestry sector to replace"
+Boundary_decision,forestry_market/contracts/forestry_market_contract.json,"Target is consumer plus producer surplus in timber/forest-product markets; wildfire, smoke, carbon, property, agriculture, and nonmarket services excluded","benchmark may proceed but additivity remains false"
