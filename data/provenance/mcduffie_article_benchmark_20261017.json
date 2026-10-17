@@ -1,0 +1,46 @@
+{
+  "schema": "primary_article_benchmark_receipt/v1",
+  "observed_date": "2026-10-17",
+  "article": {
+    "title": "Meteorologically Driven Changes in Future Global Air Quality: Physical and Monetized Impacts",
+    "authors_first_last": "Erin E. McDuffie et al.",
+    "journal": "Environmental Science & Technology",
+    "publication_year": 2026,
+    "doi": "10.1021/acs.est.5c14713",
+    "primary_source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13374105/",
+    "license": "CC-BY-4.0"
+  },
+  "scope": {
+    "pulse_year": 2030,
+    "discounting": "2pct_ramsey",
+    "gcm_count": 2,
+    "probabilistic_scenario_count": 10000,
+    "open_burning_including_wildfire_emissions_included": false
+  },
+  "reported_global_npv_usd_per_metric_ton_co2": {
+    "surface_ozone": {
+      "mean": 23.0,
+      "median": 20.0,
+      "interval_level_percent": 90,
+      "interval_low": 7.0,
+      "interval_high": 45.0
+    },
+    "pm25": {
+      "mean": -38.0,
+      "median": -24.0,
+      "interval_level_percent": 90,
+      "interval_low": -118.0,
+      "interval_high": -3.0
+    },
+    "net": {
+      "mean": -15.0,
+      "median": -2.0,
+      "interval_level_percent": 90,
+      "interval_low": -103.0,
+      "interval_high": 30.0
+    }
+  },
+  "evidence_role": "primary_article_reported_values_only",
+  "local_reproduction_claimed": false,
+  "give_transfer_authorized": false
+}

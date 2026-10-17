@@ -1,0 +1,106 @@
+{
+  "schema": "air_pollution_literature_bridge_config/v1",
+  "purpose": "machine-readable GIVE-compatible literature benchmarks; not a reproduced or additive SCC module",
+  "bound_evidence": {
+    "mcduffie_primary_article_benchmark": {
+      "path": "data/provenance/mcduffie_article_benchmark_20261017.json",
+      "sha256": "f88737d8cdf2135355e9f1e0a6e166d291012e1c1cc0d5521d17b9bb53a021c2"
+    },
+    "wildfire_smoke_draft_receipt": {
+      "path": "../give_ai_damage_expansion/data/provenance/williams_wildfire_smoke_draft_20261009.json",
+      "sha256": "27163e5ea3bc56d393aa0402ea68931f352cc614e6c67ed643549a15518cb545"
+    },
+    "wildfire_smoke_admission": {
+      "path": "data/provenance/williams_wildfire_smoke_admission_20261014.json",
+      "sha256": "831191388a43eafc492095d1a0817476e686604e234f05796e14846faa500ca2"
+    },
+    "epa_article_source": {
+      "path": "data/provenance/epa_globalaq_source_20261009.json",
+      "sha256": "4a7b52b32bd189d2300c181afac67a0580dd0d6ca94702d521aaf09c1150ccd0"
+    },
+    "epa_component_net_gate": {
+      "path": "data/provenance/epa_globalaq_component_net_gate_20261014.json",
+      "sha256": "a494938847cdf38577433792bb5af4cc579a51abcbee572f0aaa0714f0b8f43d"
+    }
+  },
+  "benchmarks": [
+    {
+      "component_id": "wildfire_smoke_pm25_mortality",
+      "physical_boundary": "warming-induced wildfire PM2.5 exposure and mortality",
+      "source_type": "investigator_supplied_unpublished_draft",
+      "source_id": "Williams_Fremstad_Burkhardt_Lou_2026_draft",
+      "pulse_year": 2025,
+      "discounting": "2pct",
+      "currency_price_year": 2020,
+      "mean_usd_per_tco2": 50.0,
+      "interval_low_usd_per_tco2": 18.5,
+      "interval_high_usd_per_tco2": 102.6,
+      "interval_level_percent": 95,
+      "interval_type": "conditional_parameter_sensitivity",
+      "locally_reproduced": false,
+      "additive_to_give": false
+    },
+    {
+      "component_id": "surface_ozone_health",
+      "physical_boundary": "meteorologically driven surface ozone health damages",
+      "source_type": "peer_reviewed_article_external_benchmark",
+      "source_id": "McDuffie_et_al_2026_10.1021_acs.est.5c14713",
+      "pulse_year": 2030,
+      "discounting": "2pct_ramsey",
+      "currency_price_year": null,
+      "mean_usd_per_tco2": 23.0,
+      "interval_low_usd_per_tco2": 7.0,
+      "interval_high_usd_per_tco2": 45.0,
+      "interval_level_percent": 90,
+      "interval_type": "published_uncertainty_interval",
+      "locally_reproduced": false,
+      "additive_to_give": false
+    },
+    {
+      "component_id": "nonwildfire_meteorological_pm25_health",
+      "physical_boundary": "meteorologically driven PM2.5 health damages excluding open burning according to article text",
+      "source_type": "peer_reviewed_article_external_benchmark",
+      "source_id": "McDuffie_et_al_2026_10.1021_acs.est.5c14713",
+      "pulse_year": 2030,
+      "discounting": "2pct_ramsey",
+      "currency_price_year": null,
+      "mean_usd_per_tco2": -38.0,
+      "interval_low_usd_per_tco2": -118.0,
+      "interval_high_usd_per_tco2": -3.0,
+      "interval_level_percent": 90,
+      "interval_type": "published_uncertainty_interval",
+      "locally_reproduced": false,
+      "additive_to_give": false
+    },
+    {
+      "component_id": "meteorological_ozone_pm25_net",
+      "physical_boundary": "published ozone plus nonwildfire meteorological PM2.5 net",
+      "source_type": "peer_reviewed_article_external_benchmark",
+      "source_id": "McDuffie_et_al_2026_10.1021_acs.est.5c14713",
+      "pulse_year": 2030,
+      "discounting": "2pct_ramsey",
+      "currency_price_year": null,
+      "mean_usd_per_tco2": -15.0,
+      "interval_low_usd_per_tco2": -103.0,
+      "interval_high_usd_per_tco2": 30.0,
+      "interval_level_percent": 90,
+      "interval_type": "published_uncertainty_interval",
+      "locally_reproduced": false,
+      "additive_to_give": false
+    }
+  ],
+  "hard_gates": {
+    "annual_country_damage_paths_available": false,
+    "same_pulse_year_harmonized": false,
+    "currency_price_year_harmonized": false,
+    "mortality_overlap_cleared": false,
+    "all_components_locally_reproduced": false,
+    "give_transfer_authorized": false,
+    "headline_addition_authorized": false
+  },
+  "outputs": {
+    "table": "data/derived/air_pollution_literature_bridge_v1.csv",
+    "receipt": "data/provenance/air_pollution_literature_bridge_v1.json",
+    "validation": "data/provenance/air_pollution_literature_bridge_validation_v1.json"
+  }
+}

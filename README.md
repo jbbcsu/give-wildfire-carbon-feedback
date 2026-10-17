@@ -53,6 +53,34 @@ exact versioned author-artifact request is documented in
 All article-reproduction, non-wildfire-boundary, and GIVE-transfer gates remain
 closed.
 
+## Executable literature bridge
+
+The project now exports a small, independently validated table that gives the
+GIVE integration layer a common schema for four source-reported scalar partial
+SCC benchmarks: wildfire-smoke PM2.5 mortality, surface ozone health,
+non-wildfire meteorological PM2.5 health, and the published ozone-plus-PM2.5
+net. This is the shortest defensible executable route while the annual
+country-level damage streams are unavailable. It deliberately does not turn a
+published or draft scalar into a local reproduction or an additive SCC result.
+
+The table preserves the different pulse years (2025 for the smoke draft and
+2030 for the EPA article), leaves the unresolved EPA price year blank, labels
+the smoke interval as conditional, and forces every reproduction, overlap,
+transfer, and headline-addition gate closed. Wildfire smoke and non-wildfire
+PM2.5 remain separate rows.
+
+Build and independently validate it with:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 python3 scripts/build_air_pollution_literature_bridge.py
+PYTHONDONTWRITEBYTECODE=1 python3 scripts/validate_air_pollution_literature_bridge.py
+PYTHONDONTWRITEBYTECODE=1 python3 test/test_air_pollution_literature_bridge.py
+```
+
+The generated interface is
+`data/derived/air_pollution_literature_bridge_v1.csv`. It is suitable for
+evidence registries and benchmark comparison, not for a headline GIVE total.
+
 Run the fail-closed summary audit with:
 
 ```bash

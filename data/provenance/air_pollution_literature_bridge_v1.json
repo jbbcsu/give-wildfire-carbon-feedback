@@ -1,0 +1,70 @@
+{
+  "bound_evidence": {
+    "epa_article_source": {
+      "bytes": 743,
+      "path": "data/provenance/epa_globalaq_source_20261009.json",
+      "sha256": "4a7b52b32bd189d2300c181afac67a0580dd0d6ca94702d521aaf09c1150ccd0"
+    },
+    "epa_component_net_gate": {
+      "bytes": 3981,
+      "path": "data/provenance/epa_globalaq_component_net_gate_20261014.json",
+      "sha256": "a494938847cdf38577433792bb5af4cc579a51abcbee572f0aaa0714f0b8f43d"
+    },
+    "mcduffie_primary_article_benchmark": {
+      "bytes": 1369,
+      "path": "data/provenance/mcduffie_article_benchmark_20261017.json",
+      "sha256": "f88737d8cdf2135355e9f1e0a6e166d291012e1c1cc0d5521d17b9bb53a021c2"
+    },
+    "wildfire_smoke_admission": {
+      "bytes": 2938,
+      "path": "data/provenance/williams_wildfire_smoke_admission_20261014.json",
+      "sha256": "831191388a43eafc492095d1a0817476e686604e234f05796e14846faa500ca2"
+    },
+    "wildfire_smoke_draft_receipt": {
+      "bytes": 1127,
+      "path": "../give_ai_damage_expansion/data/provenance/williams_wildfire_smoke_draft_20261009.json",
+      "sha256": "27163e5ea3bc56d393aa0402ea68931f352cc614e6c67ed643549a15518cb545"
+    }
+  },
+  "claim_limits": [
+    "Values are source-reported benchmarks, not new estimates.",
+    "No benchmark is added to baseline GIVE or to another component.",
+    "Wildfire smoke and nonwildfire meteorological PM2.5 remain separate.",
+    "The wildfire-smoke interval is conditional, not full structural uncertainty.",
+    "EPA currency year, final-release reproduction, and same-stream additivity remain unresolved."
+  ],
+  "component_ids": [
+    "wildfire_smoke_pm25_mortality",
+    "surface_ozone_health",
+    "nonwildfire_meteorological_pm25_health",
+    "meteorological_ozone_pm25_net"
+  ],
+  "config": {
+    "path": "config/air_pollution_literature_bridge_v1.json",
+    "sha256": "aae7afe5ad2945903dd39c204a1c7fd6498218d4307b6407a926dfbfa2bb5fbc"
+  },
+  "created_at_utc": "2026-10-17T13:51:51.756195+00:00",
+  "give_interface": {
+    "annual_country_damage_paths_available": false,
+    "eligible_for_headline_scc": false,
+    "kind": "scalar_partial_scc_benchmark_table",
+    "row_count": 4,
+    "units": "USD per metric ton CO2"
+  },
+  "hard_gates": {
+    "all_components_locally_reproduced": false,
+    "annual_country_damage_paths_available": false,
+    "currency_price_year_harmonized": false,
+    "give_transfer_authorized": false,
+    "headline_addition_authorized": false,
+    "mortality_overlap_cleared": false,
+    "same_pulse_year_harmonized": false
+  },
+  "output": {
+    "bytes": 1279,
+    "path": "data/derived/air_pollution_literature_bridge_v1.csv",
+    "sha256": "3cddeba5ed0aacb769ae70faa0f3efdbc9141a0d3d92ad4a46fe203f0b53e7b0"
+  },
+  "schema": "air_pollution_literature_bridge_receipt/v1",
+  "status": "external_benchmarks_exported_not_additive"
+}
