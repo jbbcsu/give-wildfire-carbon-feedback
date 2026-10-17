@@ -25,8 +25,8 @@ class MasterLedgerTests(unittest.TestCase):
         config = builder.load_config(CONFIG)
         payloads, bound = builder.load_evidence(ROOT, config)
         rows = builder.build_rows(config, payloads)
-        self.assertEqual(len(bound), 25)
-        self.assertEqual(len(rows), 20)
+        self.assertEqual(len(bound), 28)
+        self.assertEqual(len(rows), 21)
         self.assertFalse(any(row["master_total_eligible"] for row in rows))
 
     def test_independent_validation_passes(self):
@@ -103,6 +103,15 @@ class MasterLedgerTests(unittest.TestCase):
         self.assertEqual(row["category"], "blocked_nonadditive")
         self.assertIn("direct_cost_not_outage_welfare", row["statistic"])
         self.assertEqual(row["master_total_eligible"], "false")
+
+    def test_macro_comparator_is_neither_additive_nor_residual(self):
+        with LEDGER.open(newline="", encoding="utf-8") as handle:
+            rows = list(csv.DictReader(handle))
+        row = next(item for item in rows if item["component_id"] == "bilal_kaenzig_global_macro")
+        self.assertEqual(row["category"], "mutually_exclusive_comparator")
+        self.assertIn("not an omitted-sector residual", row["value_role"])
+        self.assertEqual(row["master_total_eligible"], "false")
+        self.assertEqual(len(row["incompatibility_codes"].split("|")), 5)
 
 
 if __name__ == "__main__":

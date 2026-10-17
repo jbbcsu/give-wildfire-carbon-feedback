@@ -18,7 +18,7 @@ FIELDS = [
     "component_id", "sector", "category", "scope", "value_role",
     "central_value", "interval_low", "interval_high", "statistic",
     "units", "pulse_year", "discounting", "source_status",
-    "master_total_eligible", "blocker", "evidence_ids",
+    "master_total_eligible", "incompatibility_codes", "blocker", "evidence_ids",
 ]
 
 
@@ -40,13 +40,14 @@ def load_config(path: Path) -> dict[str, Any]:
     require(config.get("schema") == SCHEMA, "unexpected config schema")
     allowed = set(config["allowed_categories"])
     require(allowed == {"integrated_pair_tested", "external_sensitivity",
-                        "bounded_regional_benchmark", "blocked_nonadditive"},
+                        "bounded_regional_benchmark", "blocked_nonadditive",
+                        "mutually_exclusive_comparator"},
             "category vocabulary changed")
     policy = config["aggregation_policy"]
     require(policy["headline_master_total_authorized"] is False, "headline total gate opened")
     require(policy["currently_compatible_component_sets"] == [], "unverified compatible set added")
-    require(len(config["rows"]) == 20, "expected 20 audited ledger rows")
-    require(len({row["component_id"] for row in config["rows"]}) == 20, "duplicate component ID")
+    require(len(config["rows"]) == 21, "expected 21 audited ledger rows")
+    require(len({row["component_id"] for row in config["rows"]}) == 21, "duplicate component ID")
     for row in config["rows"]:
         require(row["category"] in allowed, f"bad category: {row['component_id']}")
         require(row["master_total_eligible"] is False, f"master-total gate opened: {row['component_id']}")
@@ -238,6 +239,26 @@ def extract(component_id: str, p: dict[str, Any]) -> dict[str, Any]:
         source = p["migration_readiness"]
         require(source["numeric_scc_produced"] is False, "migration numeric SCC appeared")
         return empty_result(source["status"])
+    if component_id == "bilal_kaenzig_global_macro":
+        contract = p["macro_comparator_contract"]
+        receipt = p["macro_comparator_receipt"]
+        row = next(item for item in p["macro_comparator_summary"] if item["comparison"] == "PWT global temperature")
+        require(receipt["additive_to_give"] is False, "macro comparator additivity gate opened")
+        require(receipt["omitted_sector_residual"] is False, "macro comparator promoted to residual")
+        require(contract["scope"]["additive_to_give"] is False and contract["scope"]["omitted_sector_residual"] is False,
+                "macro comparator scope changed")
+        expected_gates = {"same_damage_concept_as_give", "same_price_unit_as_give", "same_discounting_as_give",
+                          "same_pulse_and_climate_module_as_give", "same_socioeconomic_baseline_as_give",
+                          "can_be_added_to_sector_totals"}
+        require(set(contract["comparability_gates"]) == expected_gates,
+                "macro comparator gate inventory changed")
+        require(all(contract["comparability_gates"][name] is False for name in expected_gates),
+                "macro comparator incompatibility gate opened")
+        return {"central_value": row["scc"], "interval_low": row["lower_95"],
+                "interval_high": row["upper_95"], "statistic": "published_central_and_paper_95_confidence_interval",
+                "units": row["currency_unit"], "pulse_year": "",
+                "discounting": "source pure rate of time preference 2%; not GIVE matched",
+                "source_status": receipt["status"]}
     raise ValueError(f"no extractor for {component_id}")
 
 
@@ -249,7 +270,9 @@ def build_rows(config: dict[str, Any], payloads: dict[str, Any]) -> list[dict[st
         result = extract(spec["component_id"], payloads)
         row = {key: spec[key] for key in ("component_id", "sector", "category", "scope", "value_role")}
         row.update(result)
-        row.update({"master_total_eligible": False, "blocker": spec["blocker"],
+        row.update({"master_total_eligible": False,
+                    "incompatibility_codes": "|".join(spec.get("incompatibility_codes", [])),
+                    "blocker": spec["blocker"],
                     "evidence_ids": "|".join(spec["evidence_ids"])})
         rows.append(row)
     require(not any(row["master_total_eligible"] for row in rows), "master total contains an eligible row")

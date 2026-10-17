@@ -76,6 +76,13 @@ Explain human decisions that remain essential: endpoint ownership, acceptable we
 - Air pollution, grid transmission/distribution direct costs, winter-recreation revenue, heat morbidity, global ecosystem services, armed conflict, dengue, and noncoastal migration.
 - Show that “blocked” means insufficient separability or transfer evidence, not zero damage.
 
+### 5.5 Mutually exclusive top-down comparator
+
+- Report the Bilal and Känzig global-temperature macroeconomic SCC of 1,206.969 in 2024 international dollars per tonne CO2, with its paper-reported 95% confidence interval of 399–2,015.
+- Present it beside—not inside—the bottom-up ledger total.
+- State every incompatibility: aggregate GDP/productivity versus sectoral welfare object, international-dollar versus 2020-USD unit, different discounting, different pulse and climate module, and different socioeconomic baseline.
+- Prohibit interpreting the level or its difference from GIVE as an omitted-sector residual.
+
 ## 6. Overlap and welfare accounting
 
 Use the overlap matrix to discuss agriculture replacement, mortality mediation, nested fisheries estimates, water-resource services, infrastructure boundaries, crime valuation, macro-growth umbrellas, and CIAM relocation. Make the no-double-counting rules a primary result.
@@ -114,6 +121,7 @@ The project demonstrates a scalable way to turn heterogeneous evidence into audi
 1. Figure: evidence-to-integration workflow.
 2. Table: master sector ledger with evidence tier and claim boundary.
 3. Figure: numerical benchmarks grouped by tier, with no summed bar.
+   Show the top-down macro comparator in a visually separate panel and original units.
 4. Table: overlap matrix and disposition.
 5. Table: next-step priority ranking.
 6. Supplement: source hashes, licenses, test receipts, and per-sector reproduction commands.

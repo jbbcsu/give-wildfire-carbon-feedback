@@ -16,4 +16,6 @@ Substantive work should then focus on:
 8. decomposing grid T&D hazards and separately valuing outage reliability; and
 9. completing municipal water, nonfatal dengue, and incremental noncoastal migration interfaces.
 
+The Bilal–Känzig top-down macro result should be maintained as a separate comparison protocol, not “harmonized” through a scalar currency conversion or used to back out missing damages. A valid comparison must preserve and display the five model-object incompatibilities.
+
 Priority reflects expected scientific value times readiness, with overlap risk and required computation treated as costs. It is not a ranking of true damage magnitudes.

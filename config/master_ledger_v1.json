@@ -5,18 +5,20 @@
     "integrated_pair_tested",
     "external_sensitivity",
     "bounded_regional_benchmark",
-    "blocked_nonadditive"
+    "blocked_nonadditive",
+    "mutually_exclusive_comparator"
   ],
   "aggregation_policy": {
     "headline_master_total_authorized": false,
     "nonadditive_categories": [
       "external_sensitivity",
       "bounded_regional_benchmark",
-      "blocked_nonadditive"
+      "blocked_nonadditive",
+      "mutually_exclusive_comparator"
     ],
     "integrated_rows_require_pairwise_compatibility_before_sum": true,
     "currently_compatible_component_sets": [],
-    "reason": "The two pair-tested rows use incompatible agriculture target contracts, while every other numeric result is external, regional, or explicitly nonadditive."
+    "reason": "The two pair-tested rows use incompatible agriculture target contracts; other values are external, regional, explicitly nonadditive, or a mutually exclusive top-down comparator."
   },
   "evidence": {
     "precip_coefficient_grid": {
@@ -114,6 +116,18 @@
     "heat_morbidity_readiness": {
       "path": "../heat_morbidity_scc/provenance/heat_morbidity_readiness_receipt_v1.json",
       "sha256": "3a0c02a571be573f839806dfb72e0a51750696d013a80db73ad7df83213fa953"
+    },
+    "macro_comparator_contract": {
+      "path": "../macro_damage_comparator/config/macro_comparator_v1.json",
+      "sha256": "7c91f591ab829ca71f90cda96a9980ad3c655601c3497a3344c1cb5959644a28"
+    },
+    "macro_comparator_receipt": {
+      "path": "../macro_damage_comparator/provenance/macro_comparator_receipt_v1.json",
+      "sha256": "d531aa6639b283deeb560cc863fc45c1fb07c6f6e1d1c20072e569191d36bd1c"
+    },
+    "macro_comparator_summary": {
+      "path": "../macro_damage_comparator/results/macro_comparator_summary_v1.csv",
+      "sha256": "336b581b577756e263dd8684bc828b2261a93b86f7281c9f1d46a7460839d4dd"
     },
     "migration_readiness": {
       "path": "../migration_scc/results/migration_readiness_result_v1.json",
@@ -320,6 +334,17 @@
       "value_role": "screened readiness gap",
       "master_total_eligible": false,
       "blocker": "No screened source passes welfare, marginal-pulse, separability, overlap, and reproducibility gates; coastal relocation is already in CIAM."
+    },
+    {
+      "component_id": "bilal_kaenzig_global_macro",
+      "sector": "top-down macroeconomic comparator",
+      "category": "mutually_exclusive_comparator",
+      "evidence_ids": ["macro_comparator_contract", "macro_comparator_receipt", "macro_comparator_summary"],
+      "scope": "global-temperature aggregate GDP/productivity response under Bilal and Känzig source settings",
+      "value_role": "mutually exclusive top-down comparator only; not an omitted-sector residual",
+      "master_total_eligible": false,
+      "incompatibility_codes": ["DAMAGE_OBJECT", "PRICE_UNIT", "DISCOUNTING", "PULSE_AND_CLIMATE_MODULE", "SOCIOECONOMIC_BASELINE"],
+      "blocker": "Aggregate GDP/productivity effects can embody many bottom-up sectors and interactions. Units are 2024 international dollars, discounting differs from GIVE, the pulse and climate module differ, the socioeconomic baseline differs, and the damage object is not a sectoral welfare endpoint."
     }
   ],
   "outputs": {

@@ -70,6 +70,21 @@
       "path": "../labor_productivity_scc/data/provenance/labor_give_integration_20261017.json",
       "sha256": "e8d4f9a09d8f4973482c59157f29181dbdf8a078d509a670f93758a01067e6a0"
     },
+    "macro_comparator_contract": {
+      "bytes": 2222,
+      "path": "../macro_damage_comparator/config/macro_comparator_v1.json",
+      "sha256": "7c91f591ab829ca71f90cda96a9980ad3c655601c3497a3344c1cb5959644a28"
+    },
+    "macro_comparator_receipt": {
+      "bytes": 620,
+      "path": "../macro_damage_comparator/provenance/macro_comparator_receipt_v1.json",
+      "sha256": "d531aa6639b283deeb560cc863fc45c1fb07c6f6e1d1c20072e569191d36bd1c"
+    },
+    "macro_comparator_summary": {
+      "bytes": 644,
+      "path": "../macro_damage_comparator/results/macro_comparator_summary_v1.csv",
+      "sha256": "336b581b577756e263dd8684bc828b2261a93b86f7281c9f1d46a7460839d4dd"
+    },
     "migration_readiness": {
       "bytes": 1465,
       "path": "../migration_scc/results/migration_readiness_result_v1.json",
@@ -130,22 +145,23 @@
     "blocked_nonadditive": 10,
     "bounded_regional_benchmark": 4,
     "external_sensitivity": 4,
-    "integrated_pair_tested": 2
+    "integrated_pair_tested": 2,
+    "mutually_exclusive_comparator": 1
   },
   "config": {
     "path": "config/master_ledger_v1.json",
-    "sha256": "a910d944f5ff12347a581e633f5aa7a2d2a2476e474c5c63e58bf00c92f847b9"
+    "sha256": "e19ec08508a686b8af1485fc283055b72d125b1af59d3d6a103c269c16fb9eec"
   },
-  "created_at_utc": "2026-10-17T14:53:35.994790+00:00",
+  "created_at_utc": "2026-10-17T14:55:43.281124+00:00",
   "headline_master_total": null,
   "headline_master_total_authorized": false,
-  "numeric_row_count": 14,
+  "numeric_row_count": 15,
   "output": {
-    "bytes": 9438,
+    "bytes": 10412,
     "path": "data/derived/master_damage_sector_ledger_v1.csv",
-    "sha256": "89ab7202f63ba81632e7d0913a49cb5980a513fb7b1bd5394d102146e1ce8fc3"
+    "sha256": "b5bb066a55971acbbdaa4dc07674c81b46dd7b39bb0a2cedd5f49afd4625f576"
   },
-  "row_count": 20,
+  "row_count": 21,
   "schema": "give_damage_expansion_master_ledger_receipt/v1",
   "status": "master_ledger_built_no_cross_sector_total_authorized"
 }

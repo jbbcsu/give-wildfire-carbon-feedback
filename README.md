@@ -7,7 +7,7 @@ This isolated project synthesizes the completed sector audits and implementation
 
 The current answer to the second question is intentionally conservative: **no cross-sector headline total is authorized yet**. Two rows are integrated or pair-tested, but their agriculture target contracts are incompatible. The remaining numerical results are external sensitivities, bounded regional benchmarks, or explicitly nonadditive.
 
-The current ledger contains 20 component rows tied to 25 exact evidence files. Recent additions retain their source claim boundaries: winter recreation is a CONUS lost-revenue benchmark rather than social welfare; heat morbidity remains blocked with no marginal SCC; and grid T&D is a CONUS direct repair/replacement-cost benchmark that excludes outage welfare and remains nonadditive because its released response bundles several climate stressors.
+The current ledger contains 21 component rows tied to 28 exact evidence files. Recent additions retain their source claim boundaries: winter recreation is a CONUS lost-revenue benchmark rather than social welfare; heat morbidity remains blocked with no marginal SCC; and grid T&D is a CONUS direct repair/replacement-cost benchmark that excludes outage welfare and remains nonadditive because its released response bundles several climate stressors. Bilal and Känzig's $1,206.969/tCO2 estimate appears only as a mutually exclusive top-down comparator in its original 2024 international-dollar unit. It is not added, converted, or treated as the residual of sectors absent from GIVE.
 
 ## Four evidence tiers
 
@@ -15,6 +15,7 @@ The current ledger contains 20 component rows tied to 25 exact evidence files. R
 - `external_sensitivity`: a reproduced or source-pinned result under another model's settings.
 - `bounded_regional_benchmark`: a matched-pulse partial SCC whose geography or support is narrower than global GIVE.
 - `blocked_nonadditive`: a readiness result, source scalar, or endpoint with an open overlap or implementation gate.
+- `mutually_exclusive_comparator`: a broad top-down result shown only beside the bottom-up program, never inside a sector sum or residual calculation.
 
 The master ledger is [data/derived/master_damage_sector_ledger_v1.csv](data/derived/master_damage_sector_ledger_v1.csv). Every row is tied to exact machine-readable evidence by SHA-256. Restricted raw data and confidential PDFs are not copied here.
 
