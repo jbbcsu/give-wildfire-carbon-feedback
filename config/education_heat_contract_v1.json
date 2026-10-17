@@ -1,0 +1,62 @@
+{
+  "schema": "education_heat_integration_contract/v1",
+  "status": "BLOCKED_NO_DEFENSIBLE_VALUATION_OR_MATCHED_CLIMATE_LINK",
+  "scope": {
+    "candidate_endpoint": "Heat-attributable learning or attendance losses during school days",
+    "give_addition_authorized": false,
+    "global_extrapolation_authorized": false,
+    "lifetime_income_conversion_authorized": false,
+    "excluded": [
+      "lifetime earnings derived from test-score changes",
+      "aggregate GDP or growth losses",
+      "current-worker labor productivity",
+      "mortality and nonfatal health effects",
+      "household and economy-wide cooling-energy demand",
+      "agricultural-income mechanisms",
+      "educational inequality without a separable welfare measure"
+    ]
+  },
+  "claim_gates": {
+    "distinct_endpoint_absent_from_published_give": true,
+    "causal_learning_response_evidence": true,
+    "open_turnkey_global_response": false,
+    "direct_resource_cost_separable": false,
+    "consumer_welfare_measure_available": false,
+    "matched_marginal_school_day_climate_response": false,
+    "adaptation_costs_separable_from_give_energy": false,
+    "labor_productivity_overlap_resolved": false,
+    "macroeconomic_growth_overlap_resolved": false,
+    "global_transfer_validated": false,
+    "sampling_uncertainty_propagatable": false
+  },
+  "sources": {
+    "give": {"doi": "10.1038/s41586-022-05224-9"},
+    "park_2020": {
+      "doi": "10.1257/pol.20180612",
+      "replication_page": "https://www.aeaweb.org/journals/dataset?id=10.1257/pol.20180612"
+    },
+    "park_2021": {"doi": "10.1038/s41562-020-00959-9"},
+    "graff_zivin_2018": {"doi": "10.1086/694177"},
+    "garg_2020": {"doi": "10.1086/710066"},
+    "evidence_registry": {
+      "path": "data/reference/education_heat_evidence_registry_v1.csv",
+      "sha256": "73d084fcd0a6f7301ac0fdedd14ce692646a5577c35959c327dec8b943cca9f6"
+    }
+  },
+  "forbidden_claims": [
+    "education SCC",
+    "global learning-loss SCC",
+    "test-score loss equals lifetime earnings loss",
+    "school air-conditioning cost equals welfare damage",
+    "scenario-average learning damages are a marginal pulse SCC"
+  ],
+  "unlock_requirements": [
+    "Reconstruct a published causal school-day temperature response from an auditable artifact",
+    "Run identical school-calendar daily temperature bins for matched GIVE baseline and one-ton pulse climates",
+    "Validate transfer across climates educational systems income groups and baseline cooling access",
+    "Specify fixed trend and upper adaptation scenarios with school cooling capital and electricity separated from GIVE energy damages",
+    "Use a published direct resource-cost or willingness-to-pay measure rather than an assumed test-score-to-earnings conversion",
+    "Demonstrate non-overlap with labor productivity agriculture health energy and top-down macro damages",
+    "Propagate response climate-pattern population enrollment valuation and adaptation uncertainty"
+  ]
+}
