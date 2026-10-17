@@ -25,8 +25,8 @@ class MasterLedgerTests(unittest.TestCase):
         config = builder.load_config(CONFIG)
         payloads, bound = builder.load_evidence(ROOT, config)
         rows = builder.build_rows(config, payloads)
-        self.assertEqual(len(bound), 46)
-        self.assertEqual(len(rows), 28)
+        self.assertEqual(len(bound), 51)
+        self.assertEqual(len(rows), 29)
         self.assertFalse(any(row["master_total_eligible"] for row in rows))
 
     def test_independent_validation_passes(self):
@@ -191,6 +191,20 @@ class MasterLedgerTests(unittest.TestCase):
         self.assertEqual(benchmark["pgw_3c_annual_average_loss_chf"], 90000000)
         self.assertEqual(benchmark["published_rounded_relative_change"], 0.22)
         self.assertIsNone(benchmark["currency_price_year"])
+
+    def test_adaptation_accounting_blocks_free_and_double_charged_costs(self):
+        config = builder.load_config(CONFIG)
+        payloads, _ = builder.load_evidence(ROOT, config)
+        row = builder.extract("cross_sector_adaptation_cost_accounting", payloads)
+        self.assertEqual(row["central_value"], "")
+        ledger = {(item["model"], item["scenario"]): item for item in payloads["adaptation_accounting_ledger"]}
+        self.assertEqual(ledger[("precipitation replacement", "trend")]["cost_treatment"],
+                         "explicitly_zero_unpriced")
+        self.assertEqual(ledger[("FrEDI Roads", "Reactive")]["cost_treatment"], "embedded_in_total")
+        self.assertEqual(ledger[("FrEDI ElecTD", "Reactive")]["cost_treatment"], "embedded_in_total")
+        self.assertEqual(ledger[("GIVE CIAM", "Optimized protection-retreat-no-adapt")]["cost_treatment"],
+                         "explicit_modeled")
+        self.assertFalse(payloads["adaptation_oecd_contract"]["give_mapping_available"])
 
 
 if __name__ == "__main__":

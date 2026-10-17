@@ -43,6 +43,7 @@ EXPECTED = {
     "global_forestry_market_welfare": ("external_sensitivity", -0.0769529710606),
     "wetland_methane_feedback": ("blocked_nonadditive", None),
     "swiss_building_hail_scenario": ("bounded_regional_benchmark", None),
+    "cross_sector_adaptation_cost_accounting": ("blocked_nonadditive", None),
 }
 
 
@@ -74,7 +75,7 @@ def validate_rows(rows: list[dict[str, str]]) -> None:
                     f"numeric value drift: {row['component_id']}")
     require(Counter(row["category"] for row in rows) == Counter({
         "integrated_pair_tested": 2, "external_sensitivity": 5,
-        "bounded_regional_benchmark": 5, "blocked_nonadditive": 15,
+        "bounded_regional_benchmark": 5, "blocked_nonadditive": 16,
         "mutually_exclusive_comparator": 1,
     }), "category counts changed")
     macro = next(row for row in rows if row["component_id"] == "bilal_kaenzig_global_macro")
@@ -131,6 +132,16 @@ def validate_rows(rows: list[dict[str, str]]) -> None:
         "NO_ANNUAL_MARGINAL_PULSE", "SINGLE_CLIMATE_EXPERIMENT", "FIXED_EXPOSURE",
         "CURRENCY_PRICE_YEAR", "PROPERTY_OVERLAP", "NO_GLOBAL_SCALING_OR_LINEARIZATION",
     }, "Swiss hail incompatibility inventory changed")
+    adaptation = next(row for row in rows if row["component_id"] == "cross_sector_adaptation_cost_accounting")
+    require(adaptation["central_value"] == "" and adaptation["statistic"] == "none",
+            "adaptation accounting promoted to SCC")
+    require(set(adaptation["incompatibility_codes"].split("|")) == {
+        "FREE_ATTENUATION_NOT_NET", "EMBEDDED_COST_DOUBLE_COUNT", "NO_ADDITIONAL_FLOOD_ADAPTATION",
+        "CIAM_OPTIMAL_COST_ALREADY_INCLUDED", "OECD_COST_NONALLOCATABLE",
+    }, "adaptation accounting incompatibility inventory changed")
+    precip = next(row for row in rows if row["component_id"] == "precip_maize_quantity")
+    require("fixed-practice" in precip["value_role"] and "gross residual-damage sensitivities" in precip["blocker"],
+            "precipitation adaptation hierarchy changed")
 
 
 def validate(root: Path, config_path: Path, receipt_path: Path) -> dict[str, Any]:
@@ -159,7 +170,7 @@ def validate(root: Path, config_path: Path, receipt_path: Path) -> dict[str, Any
     require(receipt["config"]["sha256"] == sha256(config_path), "config hash mismatch")
     require(receipt["headline_master_total"] is None, "headline total invented")
     require(receipt["headline_master_total_authorized"] is False, "headline total authorized")
-    require(receipt["numeric_row_count"] == 16 and receipt["row_count"] == 28, "receipt counts changed")
+    require(receipt["numeric_row_count"] == 16 and receipt["row_count"] == 29, "receipt counts changed")
 
     ledger = root / receipt["output"]["path"]
     require(sha256(ledger) == receipt["output"]["sha256"], "ledger hash mismatch")
@@ -181,7 +192,7 @@ def validate(root: Path, config_path: Path, receipt_path: Path) -> dict[str, Any
         ("coldwater_fishing", "RCP4.5"): -93000.0,
         ("coldwater_fishing", "RCP8.5"): -100000.0,
     }
-    require(len(scenario_rows) == 7, "scenario benchmark row count changed")
+    require(len(scenario_rows) == 9, "scenario benchmark row count changed")
     freshwater_rows = [row for row in scenario_rows if row["component_id"] == "freshwater_recreational_angling"]
     require(len(freshwater_rows) == 4, "freshwater scenario benchmark row count changed")
     for row in freshwater_rows:
@@ -202,11 +213,21 @@ def validate(root: Path, config_path: Path, receipt_path: Path) -> dict[str, Any
                 row["units"] == expected_hail[row["scenario"]][1], "Swiss hail scenario changed")
         require(row["is_scc"] == "false" and row["additive_to_give"] == "false",
                 "Swiss hail scenario promoted")
+    adaptation_rows = [row for row in scenario_rows if row["component_id"] == "cross_sector_adaptation_cost_accounting"]
+    require(len(adaptation_rows) == 2, "OECD adaptation-cost benchmark row count changed")
+    expected_adaptation = {"oecd_agriculture_adaptation_cost_low": 15.7,
+                           "oecd_agriculture_adaptation_cost_high": 20.2}
+    for row in adaptation_rows:
+        require(row["scenario"] in expected_adaptation and
+                float(row["value"]) == expected_adaptation[row["scenario"]] and
+                row["units"] == "billion 2005 USD per year" and
+                row["is_scc"] == "false" and row["additive_to_give"] == "false",
+                "OECD adaptation-cost benchmark promoted or changed")
 
     overlap_path = root / config["outputs"]["overlap_matrix"]
     with overlap_path.open(newline="", encoding="utf-8") as handle:
         overlap = list(csv.DictReader(handle))
-    require(len(overlap) == 49, "overlap matrix row count changed")
+    require(len(overlap) == 54, "overlap matrix row count changed")
     require(all(row["status"] and row["decision_rule"] for row in overlap), "incomplete overlap row")
     require(any(row["status"] == "umbrella_macro_overlap" for row in overlap), "macro-overlap gate missing")
     require(any(row["status"] == "mutually_exclusive_target_contracts" for row in overlap),
@@ -236,11 +257,13 @@ def validate(root: Path, config_path: Path, receipt_path: Path) -> dict[str, Any
     }, "wetland methane overlap rule changed")
     hail_overlap = [row for row in overlap if row["component_a"] == "swiss_building_hail_scenario"]
     require(len(hail_overlap) == 4, "Swiss hail overlap inventory changed")
+    adaptation_overlap = [row for row in overlap if row["component_a"] == "cross_sector_adaptation_cost_accounting"]
+    require(len(adaptation_overlap) == 5, "adaptation accounting overlap inventory changed")
 
     priority_path = root / config["outputs"]["priorities"]
     with priority_path.open(newline="", encoding="utf-8") as handle:
         priorities = list(csv.DictReader(handle))
-    require([int(row["priority"]) for row in priorities] == list(range(1, 21)), "priority order changed")
+    require([int(row["priority"]) for row in priorities] == list(range(1, 22)), "priority order changed")
     require(priorities[0]["workstream"] == "Joint target model and endpoint registry",
             "joint target no longer first priority")
 
@@ -255,11 +278,11 @@ def validate(root: Path, config_path: Path, receipt_path: Path) -> dict[str, Any
         "schema": "give_damage_expansion_master_ledger_validation/v1",
         "created_at_utc": datetime.now(timezone.utc).isoformat(),
         "status": "passed_hash_bound_tiered_ledger_and_no_sum_gate",
-        "checks_passed": 297,
-        "rows_validated": 28,
-        "scenario_benchmark_rows_validated": 7,
-        "overlap_rows_validated": 49,
-        "priority_rows_validated": 20,
+        "checks_passed": 329,
+        "rows_validated": 29,
+        "scenario_benchmark_rows_validated": 9,
+        "overlap_rows_validated": 54,
+        "priority_rows_validated": 21,
         "headline_master_total_authorized": False,
         "inputs": {
             "config_sha256": sha256(config_path), "receipt_sha256": sha256(receipt_path),

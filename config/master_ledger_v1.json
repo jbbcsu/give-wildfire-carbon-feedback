@@ -217,6 +217,31 @@
       "sha256": "97bc403c87f183e2030f2015ad9adc6a7be4ead1514cb623abb2ab0213a0b4e2",
       "source_commit": "ada8356"
     },
+    "adaptation_accounting_contract": {
+      "path": "../adaptation_cost_accounting/adaptation_costs/contracts/accounting_contract.json",
+      "sha256": "f58c779e6868255aaa640e4b205f9f5f4b80be27d73acd328ecfdcd04237343c",
+      "source_commit": "bd75549"
+    },
+    "adaptation_accounting_ledger": {
+      "path": "../adaptation_cost_accounting/adaptation_costs/ledger/adaptation_ledger.csv",
+      "sha256": "9d4a1546661543c82dc0fdefa3c102619da3c58f46822f31bd818c377ed563c3",
+      "source_commit": "bd75549"
+    },
+    "adaptation_accounting_readiness": {
+      "path": "../adaptation_cost_accounting/adaptation_costs/results/readiness.json",
+      "sha256": "7a66d9a6758ca38a55b00548773d5c7d247e4f07c2a89f4f48c3053f48dd6ba2",
+      "source_commit": "bd75549"
+    },
+    "adaptation_oecd_contract": {
+      "path": "../adaptation_cost_accounting/adaptation_costs/config/bounded_agriculture_cost_benchmark.json",
+      "sha256": "e8c7eef4fe4e015bcb4e6e44f5001e123d56b97c3cfbc2cc0e4bd2b75ef2be39",
+      "source_commit": "bd75549"
+    },
+    "adaptation_oecd_results": {
+      "path": "../adaptation_cost_accounting/adaptation_costs/results/bounded_agriculture_cost_benchmark.csv",
+      "sha256": "e3cf82e1102c9ae701080898cc899e21edd8b3898f2b1d2c31443e1eed90a061",
+      "source_commit": "bd75549"
+    },
     "migration_readiness": {
       "path": "../migration_scc/results/migration_readiness_result_v1.json",
       "sha256": "2918190684fee8cfb8ac6267bf8f0737bbbcc278ec54a4f7c024741a76dc5410"
@@ -228,10 +253,10 @@
       "sector": "agriculture precipitation",
       "category": "integrated_pair_tested",
       "evidence_ids": ["precip_coefficient_grid", "precip_release_validation"],
-      "scope": "global annual-maize rainfall quantity only",
-      "value_role": "paired narrow mechanism",
+      "scope": "global annual-maize rainfall quantity only under fixed/current-practice management",
+      "value_role": "paired narrow fixed-practice mechanism; primary agriculture adaptation case",
       "master_total_eligible": false,
-      "blocker": "Not a total precipitation-agriculture sector; timing, drought, extremes, other crops, irrigation, and compatibility with the updated agriculture target remain unresolved."
+      "blocker": "Not a total precipitation-agriculture sector; timing, drought, extremes, other crops, irrigation, and compatibility with the updated agriculture target remain unresolved. Trend and upper attenuation cases set implementation costs to zero and are gross residual-damage sensitivities, not net damages or SCCs."
     },
     {
       "component_id": "precip_full_replacement",
@@ -241,7 +266,7 @@
       "scope": "global multi-crop drought, timing, extremes, and irrigation",
       "value_role": "unfinished replacement target",
       "master_total_eligible": false,
-      "blocker": "The source release explicitly keeps the full precipitation-agriculture SCC gate closed."
+      "blocker": "The source release explicitly keeps the full precipitation-agriculture SCC gate closed. Fixed/current-practice must remain primary; trend and upper attenuation cases are unpriced gross residual-damage sensitivities rather than net damages or SCCs."
     },
     {
       "component_id": "labor_heat_productivity",
@@ -508,6 +533,17 @@
       "master_total_eligible": false,
       "incompatibility_codes": ["NO_ANNUAL_MARGINAL_PULSE", "SINGLE_CLIMATE_EXPERIMENT", "FIXED_EXPOSURE", "CURRENCY_PRICE_YEAR", "PROPERTY_OVERLAP", "NO_GLOBAL_SCALING_OR_LINEARIZATION"],
       "blocker": "The published CHF74 million present and CHF90 million +3C building-hail AAL values imply the reported rounded +22% change under fixed exposure, not annual marginal CO2-pulse damages. Multi-GCM hazard uncertainty, evolving exposure and vulnerability, currency price year, overlap with property/flood/agriculture/transport/grid/adaptation damages, and any global scaling or per-degree linearization remain unresolved."
+    },
+    {
+      "component_id": "cross_sector_adaptation_cost_accounting",
+      "sector": "cross-sector adaptation accounting",
+      "category": "blocked_nonadditive",
+      "evidence_ids": ["adaptation_accounting_contract", "adaptation_accounting_ledger", "adaptation_accounting_readiness", "adaptation_oecd_contract", "adaptation_oecd_results"],
+      "scope": "agriculture, CONUS roads/rail/grid/inland flooding, and global CIAM coastal adaptation-cost treatment",
+      "value_role": "cross-cutting cost and double-counting contract; not a damage value or SCC",
+      "master_total_eligible": false,
+      "incompatibility_codes": ["FREE_ATTENUATION_NOT_NET", "EMBEDDED_COST_DOUBLE_COUNT", "NO_ADDITIONAL_FLOOD_ADAPTATION", "CIAM_OPTIMAL_COST_ALREADY_INCLUDED", "OECD_COST_NONALLOCATABLE"],
+      "blocker": "Agriculture trend and upper cases attenuate impacts with zero implementation cost and cannot be called net; FrEDI Roads/Rail/ElecTD totals and CIAM OptimalCost already include specified adaptation costs and cannot receive a second charge; inland flooding assumes no additional adaptation; and the OECD USD15.7-20.2 billion/year scale cannot be allocated to GIVE crops, regions, years, or scenarios."
     }
   ],
   "outputs": {

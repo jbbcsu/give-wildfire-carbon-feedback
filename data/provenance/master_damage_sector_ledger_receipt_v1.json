@@ -1,5 +1,35 @@
 {
   "bound_evidence": {
+    "adaptation_accounting_contract": {
+      "bytes": 1826,
+      "path": "../adaptation_cost_accounting/adaptation_costs/contracts/accounting_contract.json",
+      "sha256": "f58c779e6868255aaa640e4b205f9f5f4b80be27d73acd328ecfdcd04237343c",
+      "source_commit": "bd75549"
+    },
+    "adaptation_accounting_ledger": {
+      "bytes": 4748,
+      "path": "../adaptation_cost_accounting/adaptation_costs/ledger/adaptation_ledger.csv",
+      "sha256": "9d4a1546661543c82dc0fdefa3c102619da3c58f46822f31bd818c377ed563c3",
+      "source_commit": "bd75549"
+    },
+    "adaptation_accounting_readiness": {
+      "bytes": 1701,
+      "path": "../adaptation_cost_accounting/adaptation_costs/results/readiness.json",
+      "sha256": "7a66d9a6758ca38a55b00548773d5c7d247e4f07c2a89f4f48c3053f48dd6ba2",
+      "source_commit": "bd75549"
+    },
+    "adaptation_oecd_contract": {
+      "bytes": 767,
+      "path": "../adaptation_cost_accounting/adaptation_costs/config/bounded_agriculture_cost_benchmark.json",
+      "sha256": "e8c7eef4fe4e015bcb4e6e44f5001e123d56b97c3cfbc2cc0e4bd2b75ef2be39",
+      "source_commit": "bd75549"
+    },
+    "adaptation_oecd_results": {
+      "bytes": 236,
+      "path": "../adaptation_cost_accounting/adaptation_costs/results/bounded_agriculture_cost_benchmark.csv",
+      "sha256": "e3cf82e1102c9ae701080898cc899e21edd8b3898f2b1d2c31443e1eed90a061",
+      "source_commit": "bd75549"
+    },
     "air_target_receipt": {
       "bytes": 2331,
       "path": "../air_pollution_scc/data/provenance/air_pollution_target_interface_v1.json",
@@ -248,7 +278,7 @@
     }
   },
   "category_counts": {
-    "blocked_nonadditive": 15,
+    "blocked_nonadditive": 16,
     "bounded_regional_benchmark": 5,
     "external_sensitivity": 5,
     "integrated_pair_tested": 2,
@@ -256,24 +286,24 @@
   },
   "config": {
     "path": "config/master_ledger_v1.json",
-    "sha256": "0aae528a14a42184b799e7555edd7b32438e750b18f71727ddf52e49a34f47e4"
+    "sha256": "5f8266ca1482bbbfacd0f7014eab217f22c44f55591bc33414baca808905cd2c"
   },
-  "created_at_utc": "2026-10-17T15:15:39.686211+00:00",
+  "created_at_utc": "2026-10-17T15:22:39.557987+00:00",
   "headline_master_total": null,
   "headline_master_total_authorized": false,
   "numeric_row_count": 16,
   "output": {
-    "bytes": 16352,
+    "bytes": 17765,
     "path": "data/derived/master_damage_sector_ledger_v1.csv",
-    "sha256": "126fa2d06c51a743691bc952a66e112caf531f0ff6ad1bc48e8c61728bcf8557"
+    "sha256": "fbca34ee1f309a01d69997ff8b5f36482377f7cdd597bad32b116b575032f7a9"
   },
-  "row_count": 28,
+  "row_count": 29,
   "scenario_benchmark_output": {
     "additive_to_give": false,
-    "bytes": 1286,
+    "bytes": 1697,
     "is_scc": false,
     "path": "data/derived/non_scc_scenario_benchmarks_v1.csv",
-    "sha256": "aebe7dc5e731593844232ab8b2bbaf6df04ad09d75ba652cc84b94af00bca58d"
+    "sha256": "cfaf26b72ef20e847c5a443c040d7f7ac21234253f5a3a879d0001d48bb5d1d2"
   },
   "schema": "give_damage_expansion_master_ledger_receipt/v1",
   "status": "master_ledger_built_no_cross_sector_total_authorized"

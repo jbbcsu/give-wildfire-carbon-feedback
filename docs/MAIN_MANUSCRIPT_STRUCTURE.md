@@ -82,6 +82,7 @@ Explain human decisions that remain essential: endpoint ownership, acceptable we
 - For forestry markets, report the negative sign as a legacy market benefit, not a negative physical damage claim. Keep the coefficient documentation/code conflict, old ecological and market calibration, FUND/GIVE scenario mismatch, and fire/pest/storm/carbon overlap visible; the result is not additive.
 - For wetland methane, report GIVE's constant natural baseline and the published 30 +/- 13 MtCH4/yr/K MAGICC slope only as interface evidence. A valid feedback must partition or anomaly-anchor the baseline, route biogenic oxidation without fossil CO2, resolve natural-emissions timing, bound the GMST proxy and reversibility, prespecify the negative tail, align MAGICC versions, and use common-draw recursive baseline/pulse runs.
 - For Swiss hail, report CHF74 million present and CHF90 million at +3C with the source's rounded +22% change and fixed exposure. Do not linearize per degree, scale geographically, convert currency without a price year, or call the scenario contrast an SCC.
+- For adaptation, keep fixed/current-practice agriculture primary. Trend and upper attenuation cases set implementation costs to zero and are gross residual-damage sensitivities, not net SCCs. FrEDI roads, rail, and grid totals already contain specified adaptation costs; inland flooding is a no-additional-adaptation case; CIAM OptimalCost already contains optimized protection, retreat, and residual costs. Retain the OECD agriculture cost range only as a nonallocatable 2005-USD scale.
 
 ### 5.5 Mutually exclusive top-down comparator
 
@@ -92,7 +93,7 @@ Explain human decisions that remain essential: endpoint ownership, acceptable we
 
 ## 6. Overlap and welfare accounting
 
-Use the overlap matrix to discuss agriculture replacement, mortality mediation, nested fisheries estimates, water-resource services, infrastructure boundaries, crime valuation, macro-growth umbrellas, and CIAM relocation. Make the no-double-counting rules a primary result.
+Use the overlap matrix to discuss agriculture replacement, mortality mediation, nested fisheries estimates, water-resource services, infrastructure boundaries, crime valuation, macro-growth umbrellas, CIAM relocation, and adaptation-cost ownership. Make the no-double-counting rules a primary result.
 
 ## 7. Validation and reproducibility
 

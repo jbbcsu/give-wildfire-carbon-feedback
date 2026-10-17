@@ -46,8 +46,8 @@ def load_config(path: Path) -> dict[str, Any]:
     policy = config["aggregation_policy"]
     require(policy["headline_master_total_authorized"] is False, "headline total gate opened")
     require(policy["currently_compatible_component_sets"] == [], "unverified compatible set added")
-    require(len(config["rows"]) == 28, "expected 28 audited ledger rows")
-    require(len({row["component_id"] for row in config["rows"]}) == 28, "duplicate component ID")
+    require(len(config["rows"]) == 29, "expected 29 audited ledger rows")
+    require(len({row["component_id"] for row in config["rows"]}) == 29, "duplicate component ID")
     for row in config["rows"]:
         require(row["category"] in allowed, f"bad category: {row['component_id']}")
         require(row["master_total_eligible"] is False, f"master-total gate opened: {row['component_id']}")
@@ -86,6 +86,7 @@ def extract(component_id: str, p: dict[str, Any]) -> dict[str, Any]:
     if component_id == "precip_maize_quantity":
         source = p["precip_coefficient_grid"]
         result = next(item for item in source["results"] if item["discount_rate_label"] == "2.0%")
+        require("fixed-adaptation" in source["estimand"], "precipitation primary case is no longer fixed practice")
         require(p["precip_release_validation"]["claim_gates"]["paired_quantity_channel_scc"] is True,
                 "precip paired gate closed")
         return {"central_value": result["central_mean_usd2020_per_tco2"],
@@ -463,6 +464,55 @@ def extract(component_id: str, p: dict[str, Any]) -> dict[str, Any]:
                 row["scc_ready"] == "false" and row["additive_to_give"] == "false",
                 "Swiss hail result table changed")
         return empty_result(readiness["status"])
+    if component_id == "cross_sector_adaptation_cost_accounting":
+        contract = p["adaptation_accounting_contract"]
+        ledger = p["adaptation_accounting_ledger"]
+        readiness = p["adaptation_accounting_readiness"]
+        benchmark = p["adaptation_oecd_contract"]
+        benchmark_row = p["adaptation_oecd_results"][0]
+        by_key = {(row["model"], row["scenario"]): row for row in ledger}
+        require(len(ledger) == 14 and readiness["ledger_rows"] == 14,
+                "adaptation ledger row count changed")
+        fixed = by_key[("precipitation replacement", "fixed")]
+        trend = by_key[("precipitation replacement", "trend")]
+        upper = by_key[("precipitation replacement", "upper")]
+        require(fixed["cost_treatment"] == "not_applicable_baseline" and fixed["net_scc_ready"] == "true",
+                "fixed-practice agriculture accounting changed")
+        require(all(row["cost_treatment"] == "explicitly_zero_unpriced" and
+                    row["net_damage_ready"] == "false" and row["net_scc_ready"] == "false"
+                    for row in (trend, upper)), "free agriculture attenuation promoted to net")
+        for model in ("FrEDI Roads", "FrEDI Rail", "FrEDI ElecTD"):
+            for scenario in ("Reactive", "Proactive"):
+                require(by_key[(model, scenario)]["cost_treatment"] == "embedded_in_total",
+                        f"embedded adaptation-cost treatment changed: {model} {scenario}")
+        flood = by_key[("FrEDI Inland Flooding", "NoAdapt")]
+        ciam = by_key[("GIVE CIAM", "Optimized protection-retreat-no-adapt")]
+        require(flood["cost_treatment"] == "not_applicable_baseline" and
+                "No additional adaptation" in flood["adaptation_action"],
+                "inland-flood adaptation boundary changed")
+        require(ciam["cost_treatment"] == "explicit_modeled" and ciam["net_scc_ready"] == "true" and
+                "Protection, maintenance, retreat, relocation" in ciam["reported_endpoint"],
+                "CIAM optimized adaptation-cost treatment changed")
+        require(readiness["agriculture_net_adaptation_scc_status"] == "BLOCKED" and
+                readiness["bounded_benchmark_is_not_allocated"] is True and
+                readiness["frEDI_adjustment"].startswith("ZERO_ADDITIONAL_CHARGE") and
+                readiness["coastal_adjustment"].startswith("ZERO_ADDITIONAL_CHARGE"),
+                "adaptation readiness boundary changed")
+        require(benchmark["low_billion_usd_per_year"] == 15.7 and
+                benchmark["high_billion_usd_per_year"] == 20.2 and
+                benchmark["price_year"] == 2005 and benchmark["give_mapping_available"] is False and
+                benchmark["scc_ready"] is False,
+                "OECD adaptation-cost benchmark changed")
+        require(benchmark_row["low_billion_usd_per_year"] == "15.7" and
+                benchmark_row["high_billion_usd_per_year"] == "20.2" and
+                benchmark_row["give_mapping_available"] == "false" and
+                benchmark_row["scc_ready"] == "false",
+                "OECD adaptation-cost result changed")
+        require("Never add an adaptation cost to a source total marked embedded_in_total or explicit_modeled." in
+                contract["accounting_rules"] and
+                "Never label explicitly_zero_unpriced or unresolved scenarios as net damages or net SCC." in
+                contract["accounting_rules"], "adaptation double-count rule missing")
+        return empty_result("BLOCKED_CROSS_SECTOR_ADAPTATION_ACCOUNTING_ONLY")
     raise ValueError(f"no extractor for {component_id}")
 
 
@@ -522,7 +572,20 @@ def write_scenario_benchmarks(path: Path, payloads: dict[str, Any]) -> None:
          "units": "fraction", "metric": "published rounded relative AAL change under fixed exposure",
          "is_scc": False, "additive_to_give": False},
     ])
-    require(len(rows) == 7, "expected seven non-SCC scenario benchmarks")
+    adaptation = payloads["adaptation_oecd_contract"]
+    rows.extend([
+        {"component_id": "cross_sector_adaptation_cost_accounting", "scope": adaptation["geography"],
+         "fishing_scope": "", "scenario": "oecd_agriculture_adaptation_cost_low",
+         "value": adaptation["low_billion_usd_per_year"], "units": "billion 2005 USD per year",
+         "metric": "bounded external average annual 2010-2050 cost scale; nonallocatable",
+         "is_scc": False, "additive_to_give": False},
+        {"component_id": "cross_sector_adaptation_cost_accounting", "scope": adaptation["geography"],
+         "fishing_scope": "", "scenario": "oecd_agriculture_adaptation_cost_high",
+         "value": adaptation["high_billion_usd_per_year"], "units": "billion 2005 USD per year",
+         "metric": "bounded external average annual 2010-2050 cost scale; nonallocatable",
+         "is_scc": False, "additive_to_give": False},
+    ])
+    require(len(rows) == 9, "expected nine non-SCC scenario benchmarks")
     path.parent.mkdir(parents=True, exist_ok=True)
     temp = path.with_suffix(path.suffix + ".partial")
     with temp.open("w", newline="", encoding="utf-8") as handle:

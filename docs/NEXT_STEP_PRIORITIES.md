@@ -32,4 +32,6 @@ Wetland methane has a short reduced-form path but a hard accounting boundary. GI
 
 Severe convective storm and hail damage has a separable Swiss building benchmark but no marginal pulse. The CHF74 million present and CHF90 million +3C annual-average-loss values use fixed exposure, one climate experiment, and an unspecified currency price year. A production path needs annual multi-GCM hazard, evolving exposure and vulnerability, currency harmonization, and a property/peril registry; global scaling and per-degree linearization are prohibited shortcuts.
 
+Adaptation accounting now supplies a mechanical cross-sector rule: fixed/current-practice agriculture is primary; free attenuation remains a gross sensitivity; embedded FrEDI and CIAM costs are charged once; and no-adaptation flooding is not silently assigned protection spending. The next research step is to replace generic agriculture attenuation with named packages whose implementation and residual costs run under identical baseline and pulse decision rules. The OECD USD15.7-20.2 billion/year scale cannot be allocated to those packages without new evidence.
+
 Priority reflects expected scientific value times readiness, with overlap risk and required computation treated as costs. It is not a ranking of true damage magnitudes.
