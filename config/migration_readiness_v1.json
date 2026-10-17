@@ -1,0 +1,121 @@
+{
+  "schema": "give_migration_readiness/v1",
+  "target": {
+    "sector": "climate-driven migration and displacement outside coastal CIAM",
+    "required_output": "annual country-level consumption-equivalent welfare difference under matched GIVE baseline and marginal CO2-pulse paths",
+    "primary_claim": "No additive migration SCC is presently authorized",
+    "numeric_scc_authorized": false
+  },
+  "existing_give_coverage": {
+    "coastal_relocation": {
+      "status": "included inside CIAM OptimalCost",
+      "covered_costs": [
+        "people relocation as a multiple of annual income",
+        "mobile-capital relocation",
+        "demolition of immobile capital"
+      ],
+      "trigger": "coastal dry-land loss under no-adaptation or retreat choices",
+      "do_not_add_again": true
+    },
+    "inland_and_international_migration": {
+      "status": "not represented as an explicit GIVE sector",
+      "monetized_welfare_endpoint_available": false
+    }
+  },
+  "admission_gates": [
+    "matched_baseline_and_marginal_pulse_climate_paths",
+    "annual_origin_destination_flows_or_population_reallocation",
+    "consumption_equivalent_or_equivalent_variation_welfare",
+    "real_resource_costs_separated_from_transfers",
+    "coastal_ciam_relocation_excluded",
+    "trigger_sector_income_and_property_losses_excluded",
+    "destination_and_origin_general_equilibrium_effects_included",
+    "voluntary_adaptation_distinguished_from_forced_displacement",
+    "climate_attribution_not_weather_correlation_only",
+    "uncertainty_and_support_reported",
+    "open_reproducible_implementation"
+  ],
+  "candidates": [
+    {
+      "id": "cruz_rossi_hansberg_2024",
+      "title": "The Economic Geography of Global Warming",
+      "doi": "10.1093/restud/rdad042",
+      "coverage": "global 1-degree grid; dynamic spatial equilibrium",
+      "artifact": "https://doi.org/10.5281/zenodo.7681424",
+      "artifact_size_bytes": 2303161642,
+      "artifact_md5": "343ad34579940a46c4b71b5eda3bb422",
+      "license": "CC-BY-4.0",
+      "endpoint": "total welfare and spatial economic reallocation with migration as adaptation",
+      "passed_gates": ["open_reproducible_implementation", "destination_and_origin_general_equilibrium_effects_included"],
+      "failed_gates": [
+        "sector-separable additive welfare",
+        "non-overlap with GIVE productivity, mortality, energy, agriculture, and amenity pathways",
+        "ready matched GIVE marginal pulse"
+      ],
+      "disposition": "external non-additive structural benchmark"
+    },
+    {
+      "id": "burzynski_et_al_2022",
+      "title": "Climate Change, Inequality, and Human Migration",
+      "doi": "10.1093/jeea/jvab054",
+      "coverage": "global, internal and international migration with skill heterogeneity",
+      "artifact": "https://doi.org/10.7910/DVN/WOC3AD",
+      "artifact_file_count": 80,
+      "artifact_total_bytes": 116615273052,
+      "license": "CC0-1.0",
+      "endpoint": "migration, inequality, and aggregate climate impacts combining temperature, sea-level rise, disasters, conflict, and productivity",
+      "passed_gates": ["open_reproducible_implementation", "destination_and_origin_general_equilibrium_effects_included"],
+      "failed_gates": [
+        "sector-separable additive welfare",
+        "coastal CIAM non-overlap",
+        "non-overlap with agriculture, conflict, disasters, and productivity",
+        "ready matched GIVE marginal pulse"
+      ],
+      "disposition": "external non-additive structural benchmark"
+    },
+    {
+      "id": "world_bank_groundswell",
+      "title": "Groundswell climate migration projections",
+      "coverage": "scenario-based internal migration to 2050 in covered world regions",
+      "artifact": "https://openknowledge.worldbank.org/handle/10986/36248",
+      "endpoint": "population redistribution / migrant counts",
+      "passed_gates": ["annual_origin_destination_flows_or_population_reallocation"],
+      "failed_gates": [
+        "monetized welfare endpoint",
+        "marginal carbon pulse",
+        "full global coverage",
+        "separation from water, crop, ecosystem, flood, and sea-level triggers"
+      ],
+      "disposition": "quantity validation only; never multiply by an assumed cost per migrant"
+    },
+    {
+      "id": "empirical_weather_migration_literature",
+      "title": "Peer-reviewed reduced-form climate/weather and migration studies",
+      "coverage": "heterogeneous regional samples and migration definitions",
+      "endpoint": "migration probability, net flows, displacement, asylum claims, or post-disaster earnings",
+      "passed_gates": ["historical climate_or_weather response evidence"],
+      "failed_gates": [
+        "globally transferable structural welfare",
+        "matched marginal pulse",
+        "common migration definition",
+        "complete origin and destination incidence"
+      ],
+      "disposition": "validation/calibration evidence, not an SCC coefficient"
+    }
+  ],
+  "forbidden_shortcuts": [
+    "cost_per_migrant times projected migrants",
+    "GDP loss relabeled as migration welfare",
+    "adding total spatial-model climate welfare to existing GIVE damages",
+    "counting CIAM coastal relocation twice",
+    "treating movement itself as a damage rather than a possible adaptation response",
+    "global scaling of a local disaster displacement estimate"
+  ],
+  "next_model_contract": {
+    "preferred_design": "structural spatial-equilibrium sensitivity or replacement, not a default additive sector",
+    "additive_exception": "empirically identified real relocation resource costs or nonpecuniary losses incremental to every existing trigger-sector damage",
+    "required_dimensions": ["year", "origin_country", "destination_country", "baseline_or_pulse", "hazard", "migration_type", "welfare_component", "uncertainty_draw"],
+    "minimum_horizon": 2300,
+    "claim_status": "BLOCKED_NO_ADDITIVE_SCC"
+  }
+}

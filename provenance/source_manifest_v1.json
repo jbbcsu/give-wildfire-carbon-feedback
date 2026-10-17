@@ -1,0 +1,42 @@
+{
+  "schema": "migration_source_manifest/v1",
+  "created": "2026-10-17",
+  "give_coverage_evidence": {
+    "source": "Rennert et al. (2022), Nature, DOI 10.1038/s41586-022-05224-9, archived GIVE reproduction package",
+    "mimiciam_slrcost_path": "packages/MimiCIAM/src/slrcost.jl",
+    "mimiciam_slrcost_sha256": "24d7a77344b17b19cb7ae4b1c7acaa42efd71e953b721749e0d1952d76d7da75",
+    "mimigive_scc_path": "packages/MimiGIVE/src/scc.jl",
+    "mimigive_scc_sha256": "c08634dd29f579f318ccd8f5fa5ac572aaa485fd84b7741d87ab30486651daf8",
+    "verified_logic": [
+      "CIAM defines RelocateNoAdapt, RelocateRetreat, and OptimalRelocate",
+      "RelocateNoAdapt includes costs for people, mobile capital, and demolition after coastal dry-land loss",
+      "OptimalCost selects protection, retreat, or no-adaptation subcosts and includes OptimalRelocate where applicable",
+      "MimiGIVE computes marginal sea-level damages from CIAM OptimalCost"
+    ]
+  },
+  "replication_metadata": [
+    {
+      "source": "Zenodo record 7681424",
+      "path": "data/reference/zenodo_7681424_record.json",
+      "sha256": "37182c3447e3e1546afb9656501ab05bbca6f04484ebcb77239d0a9a2a18521f",
+      "retrieved": "2026-10-17",
+      "license": "CC-BY-4.0"
+    },
+    {
+      "source": "Harvard Dataverse DOI 10.7910/DVN/WOC3AD",
+      "path": "data/reference/harvard_dataverse_WOC3AD_metadata.json",
+      "sha256": "cb48c13af049d5016cfcff65fca1aa7fc761efd49508b198fccc66451fbb6878",
+      "retrieved": "2026-10-17",
+      "license": "CC0-1.0"
+    }
+  ],
+  "primary_literature": [
+    {"citation": "Cruz and Rossi-Hansberg (2024), The Economic Geography of Global Warming, Review of Economic Studies 91:899-939", "doi": "10.1093/restud/rdad042"},
+    {"citation": "Burzynski et al. (2022), Climate Change, Inequality, and Human Migration, Journal of the European Economic Association 20:1145-1197", "doi": "10.1093/jeea/jvab054"},
+    {"citation": "Hoffmann et al. (2020), A meta-analysis of country-level studies on environmental change and migration, Nature Climate Change 10:904-912", "doi": "10.1038/s41558-020-0898-6"},
+    {"citation": "Missirian and Schlenker (2017), Asylum applications respond to temperature fluctuations, Science 358:1610-1614", "doi": "10.1126/science.aao0432"},
+    {"citation": "Deryugina et al. (2018), The Economic Impact of Hurricane Katrina on Its Victims, American Economic Review 108:202-232", "doi": "10.1257/aer.20151164"},
+    {"citation": "World Bank (2021), Groundswell Part 2: Acting on Internal Climate Migration", "handle": "10986/36248"}
+  ]
+}
+
