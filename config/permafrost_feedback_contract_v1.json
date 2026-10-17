@@ -1,0 +1,77 @@
+{
+  "schema": "permafrost_feedback_integration_contract/v1",
+  "status": "BLOCKED_RECURSION_EMISSIONS_BOUNDARY_AND_ARTIFACT_GATES",
+  "scope": {
+    "candidate_feedback": "GMST-driven permafrost thaw emissions of CO2 and CH4 recursively passed into FaIR",
+    "give_integration_authorized": false,
+    "scc_adjustment_authorized": false,
+    "excluded": [
+      "permafrost infrastructure damage",
+      "soil erosion and local ecosystem loss",
+      "wildfire carbon emissions",
+      "Amazon dieback",
+      "surface albedo",
+      "ocean methane hydrates",
+      "a scalar uplift applied to an existing SCC"
+    ]
+  },
+  "give_audit": {
+    "fair_version": "MimiFAIRv1_6_2",
+    "co2_cycle_path": "../paper-2022-scc-give-zenodo/packages/MimiFAIRv1_6_2/src/components/co2_cycle.jl",
+    "co2_cycle_sha256": "896ebce46ff47514bed2a9881e87912f6fbd16be81b504cc0df714617eebbfc5",
+    "ch4_cycle_path": "../paper-2022-scc-give-zenodo/packages/MimiFAIRv1_6_2/src/components/ch4_cycle.jl",
+    "ch4_cycle_sha256": "f991e15f1d80c0e799de0580c2c45fb1c454702d0e248c3893b99c8693090fb9",
+    "main_model_path": "../paper-2022-scc-give-zenodo/packages/MimiGIVE/src/main_model.jl",
+    "main_model_sha256": "5dcd02dbb8fc03246ff673e219308ac1f81c1ee3111b5198023ba8c28691f520"
+  },
+  "percx": {
+    "article_doi": "10.5194/esd-16-1711-2025",
+    "archive_doi": "10.5281/zenodo.17279654",
+    "version": "v1.0.1",
+    "archive_sha256": "5f4af0ff82ea8d0e6fa283919e6ff5313b1a7ffcb7bc93f43ed81e4dfb63074b",
+    "license": "Apache-2.0",
+    "source_path": "vendor/percx_v1_0_1/percx.py",
+    "source_sha256": "b26b6899ecb3fd042b62d410e3b1137b04914331da966d5ee63bb52ddf577c35",
+    "parameter_path": "vendor/percx_v1_0_1/PerCX_valid_params_CMIP6_ssp245.txt",
+    "parameter_sha256": "ee3e4d7b5fe1de1ee38feedb551da788ada49e7fa9461e838dada4af86140bc7",
+    "license_path": "vendor/percx_v1_0_1/LICENSE",
+    "license_sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+  },
+  "claim_gates": {
+    "explicit_permafrost_absent_from_give_fair": true,
+    "published_open_gmt_to_emissions_model": true,
+    "faIR_coupling_demonstrated_by_source_authors": true,
+    "give_baseline_emissions_exclude_permafrost_verified": false,
+    "percx_release_parameter_count_reconciled": false,
+    "percx_decay_parameter_semantics_reconciled": false,
+    "biogenic_ch4_routing_validated": false,
+    "one_year_recursive_ordering_validated": false,
+    "historical_baseline_initialization_validated": false,
+    "common_random_number_pulse_convergence_validated": false,
+    "joint_fair_permafrost_uncertainty_defined": false
+  },
+  "unit_contract": {
+    "co2_output": "PgC per year, numerically equal to GtC per year for FaIR E_co2",
+    "ch4_output": "PgC as CH4 per year",
+    "ch4_to_fair": "multiply PgC by 1000*16/12 to obtain MtCH4 per year",
+    "temperature": "K anomaly relative to the initialization baseline used in calibration",
+    "causal_lag": "temperature through year t generates emissions passed to FaIR in year t+1"
+  },
+  "forbidden_claims": [
+    "permafrost SCC",
+    "permafrost adds a fixed percentage to the GIVE SCC",
+    "combined permafrost and Amazon results identify the permafrost contribution",
+    "PerCX is production-coupled to GIVE",
+    "FaIR temperature-dependent uptake already represents permafrost thaw emissions"
+  ],
+  "unlock_requirements": [
+    "Reconcile the 765 parameter rows in the v1.0.1 archive with the article statement that 775 of 1000 combinations were retained",
+    "Clarify why the released decay parameter is passed to PerCX but unused in the source function",
+    "Verify that every RFF-SP and SSP emissions path used by GIVE excludes explicit permafrost CO2 and CH4",
+    "Add a dedicated biogenic methane input so permafrost CH4 is not classified as fossil methane",
+    "Implement one-year-lagged recursion in both baseline and pulse models with identical parameter draws",
+    "Validate historical initialization and scenario paths against the published PerCX FaIR examples and an independent permafrost model",
+    "Run zero-feedback zero-pulse pre-pulse identity decreasing-pulse convergence mass-balance and finite-pool tests",
+    "Propagate joint FaIR and permafrost uncertainty without assuming independence unless justified"
+  ]
+}
