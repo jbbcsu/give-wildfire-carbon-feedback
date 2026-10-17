@@ -1,0 +1,62 @@
+{
+  "claim_gates": {
+    "adaptation_scenario_available": false,
+    "consumer_welfare_separable": false,
+    "daily_temperature_distribution_required": true,
+    "direct_medical_cost_separable": true,
+    "marginal_climate_response_available": false,
+    "national_incidence_resolved": false,
+    "sampling_uncertainty_propagatable": false
+  },
+  "forbidden_claims": [
+    "heat morbidity SCC",
+    "global morbidity SCC",
+    "medical spending equals total welfare loss",
+    "scenario-average damages are a marginal pulse SCC"
+  ],
+  "schema": "heat_morbidity_integration_contract/v1",
+  "scope": {
+    "excluded": [
+      "mortality",
+      "lost wages",
+      "labor productivity",
+      "air pollution",
+      "infectious disease",
+      "wildfire smoke",
+      "pain-and-suffering valuation without published WTP",
+      "cardiovascular projections unsupported by significant response"
+    ],
+    "give_addition_authorized": false,
+    "global_extrapolation_authorized": false,
+    "included_candidate": "Temperature-related nonfatal emergency-department visits and hospital admissions, with direct medical expenditures only"
+  },
+  "sources": {
+    "give_coverage": {
+      "doi": "10.1038/s41586-022-05224-9"
+    },
+    "gould_2025": {
+      "doi": "10.1126/sciadv.adr3070",
+      "endpoint": "California ED visits and hospital admissions",
+      "pmcid": "PMC12309665",
+      "restricted_input": "California HCAI individual encounter records",
+      "zenodo_doi": "10.5281/zenodo.15691835",
+      "zenodo_record_version": "16619660"
+    },
+    "lay_2018": {
+      "doi": "10.1002/2018GH000129",
+      "endpoint": "hyperthermia ED visits and direct treatment expenditure",
+      "pmcid": "PMC7007124",
+      "reported_evidence": "data/reference/lay_2018_reported_hyperthermia_evidence.csv",
+      "sha256": "ad492b845d3ee112da8fde3b3c28dee1e64097d22972504e621a2e9d08d04ea1"
+    }
+  },
+  "status": "BLOCKED_NO_MARGINAL_SCC",
+  "unlock_requirements": [
+    "Obtain released MSA/zip response coefficients or re-estimate from authorized encounter data",
+    "Run the same daily-temperature-bin exposure definition for matched GIVE baseline and pulse climates",
+    "Monetize only incremental insurer plus out-of-pocket medical resource costs net of transfers",
+    "Exclude lost wages and mortality; report pain/suffering only if a separate published morbidity WTP exists",
+    "Propagate response, climate-pattern, baseline-use, population, medical-cost, and adaptation uncertainty",
+    "Validate out of sample and under deletion of the hottest regions"
+  ]
+}
