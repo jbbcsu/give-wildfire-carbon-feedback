@@ -1,0 +1,93 @@
+{
+  "schema": "wetland_methane_feedback_integration_contract/v1",
+  "status": "BLOCKED_BIOGENIC_ATTRIBUTION_BASELINE_AND_RECURSION_GATES",
+  "scope": {
+    "candidate_feedback": "climate-driven changes in global natural wetland methane emissions recursively passed into FaIR",
+    "give_integration_authorized": false,
+    "scc_adjustment_authorized": false,
+    "excluded": [
+      "anthropogenic fossil methane",
+      "rice agriculture and livestock",
+      "landfills and wastewater",
+      "permafrost methane",
+      "freshwater and marine methane",
+      "wildfire methane",
+      "a scalar uplift applied to an existing SCC"
+    ]
+  },
+  "give_audit": {
+    "fair_version": "MimiFAIRv1_6_2",
+    "ch4_cycle_path": "../paper-2022-scc-give-zenodo/packages/MimiFAIRv1_6_2/src/components/ch4_cycle.jl",
+    "ch4_cycle_sha256": "f991e15f1d80c0e799de0580c2c45fb1c454702d0e248c3893b99c8693090fb9",
+    "main_model_path": "../paper-2022-scc-give-zenodo/packages/MimiGIVE/src/main_model.jl",
+    "main_model_sha256": "5dcd02dbb8fc03246ff673e219308ac1f81c1ee3111b5198023ba8c28691f520",
+    "natural_emissions_path": "../paper-2022-scc-give-zenodo/packages/MimiFAIRv1_6_2/data/model_data/fair_wg3_natural_ch4_n2o.csv",
+    "natural_emissions_sha256": "163523dd53ddcf96c3826fe06eadecb13bf3dd32f1e0228714050dfc44eec39b",
+    "post_2015_natural_ch4_Mt_per_year": 168.83862060475192,
+    "post_2015_series_constant_through": 2300,
+    "fixed_methane_lifetime_years": 9.3,
+    "default_fossil_fraction": 1.0,
+    "finding": "A separate natural CH4 input exists, but its future path is constant and the oxidation bookkeeping does not preserve source attribution for an added biogenic feedback"
+  },
+  "magicc_2026_benchmark": {
+    "article_doi": "10.5194/gmd-19-9063-2026",
+    "model_archive_doi": "10.5281/zenodo.17054564",
+    "probabilistic_distribution_doi": "10.5281/zenodo.14678474",
+    "equation": "E_natural_wetland = slope * GMST_anomaly + intercept",
+    "slope_distribution": "Normal(mean=30, sd=13) MtCH4/year/K",
+    "mean_slope_MtCH4_per_year_per_K": 30.0,
+    "slope_sd_MtCH4_per_year_per_K": 13.0,
+    "published_calibration_slopes": {
+      "Zhang_2017_to_2100": 35.5,
+      "Kleinen_2021_to_3000": 37.5,
+      "Kleinen_2021_to_2500": 45.8,
+      "Kleinen_2021_to_2300": 52.6
+    },
+    "historical_switch_year": 2015,
+    "source_repository": "https://gitlab.com/magicc/magicc",
+    "source_commit_audited": "9874b667a346bdca39e2080ddd61095ee6415f8d",
+    "source_path": "vendor/magicc_repo_9874b/methane.f90",
+    "source_sha256": "9dfb5d0ca83481cf43c2ea3c42fe60e9cd954989165636dbc8365e3657f10ac2",
+    "license_path": "vendor/magicc_repo_9874b/LICENCE",
+    "license_sha256": "3125090653eb5058c6116d2d932f2fb5ad8a3f34f0c67abf6839913df10da383"
+  },
+  "claim_gates": {
+    "explicit_wetland_temperature_feedback_absent_from_give": true,
+    "published_open_reduced_form_feedback_exists": true,
+    "give_natural_methane_baseline_identified": true,
+    "wetland_share_of_give_natural_baseline_identified": false,
+    "absolute_intercept_and_temperature_baseline_harmonized": false,
+    "biogenic_methane_oxidation_routing_validated": false,
+    "methane_lifetime_and_feedback_calibration_reconciled": false,
+    "precipitation_inundation_and_hysteresis_sensitivity_defined": false,
+    "negative_slope_draw_treatment_prespecified": false,
+    "one_year_recursive_ordering_validated_in_give": false,
+    "common_parameter_draws_for_baseline_and_pulse_validated": false,
+    "joint_fair_wetland_uncertainty_defined": false
+  },
+  "unit_contract": {
+    "feedback_output": "Mt CH4 per year",
+    "target_input": "ch4_cycle.natural_emiss_CH4, never fossil_emiss_CH4",
+    "temperature": "annual GMST anomaly in K on the calibration baseline",
+    "recommended_delta_form_for_testing": "delta_E[t] = slope * (T[t-1] - T_anchor), added to a reconciled natural baseline",
+    "causal_lag": "temperature through year t-1 determines wetland emissions in year t to avoid a same-timestep algebraic loop"
+  },
+  "forbidden_claims": [
+    "wetland methane SCC in GIVE",
+    "wetlands add a fixed percentage to the GIVE SCC",
+    "all natural methane in GIVE is wetland methane",
+    "wetland methane may be injected through fossil_emiss_CH4",
+    "the MAGICC GMST proxy separately identifies precipitation or inundation effects",
+    "a published scenario temperature increment is a marginal SCC"
+  ],
+  "unlock_requirements": [
+    "Partition the GIVE natural methane baseline into wetlands and other natural sources without changing its historical concentration calibration",
+    "Harmonize the 2015 temperature baseline and absolute intercept or use a validated anomaly-preserving replacement",
+    "Add source-resolved methane oxidation so biogenic wetland methane does not create fossil CO2",
+    "Reconcile the wetland source feedback with FaIR methane lifetime and concentration calibration",
+    "Prespecify whether negative normal slope draws are retained, truncated, or replaced with a bounded distribution",
+    "Bound the GMST-only approximation against precipitation/inundation/hysteresis and process-model alternatives",
+    "Implement lagged recursion in baseline and pulse models with identical wetland and FaIR parameter draws",
+    "Run zero-feedback, zero-pulse, pre-pulse identity, unit, mass-balance, pulse-size convergence, horizon, and timestep tests"
+  ]
+}
