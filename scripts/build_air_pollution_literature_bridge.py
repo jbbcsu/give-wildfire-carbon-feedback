@@ -69,6 +69,7 @@ def validate_evidence(root: Path, config: dict[str, Any]) -> dict[str, dict[str,
     admission = payloads["wildfire_smoke_admission"]
     epa = payloads["epa_article_source"]
     primary = payloads["mcduffie_primary_article_benchmark"]
+    primary_source = payloads["mcduffie_primary_source"]
     gate = payloads["epa_component_net_gate"]
     require(smoke["reported_global_partial_scc_2025_usd_per_tco2"] == 50.0,
             "smoke central benchmark changed")
@@ -97,6 +98,10 @@ def validate_evidence(root: Path, config: dict[str, Any]) -> dict[str, dict[str,
     require(primary["local_reproduction_claimed"] is False and
             primary["give_transfer_authorized"] is False,
             "primary-article receipt promoted beyond evidence")
+    require(primary_source["source_supported_facts"]["currency_price_year"] == 2024,
+            "primary-source price year changed")
+    require(primary_source["source_supported_facts"]["pulse_year"] == 2030,
+            "primary-source pulse year changed")
     require(gate["status"] == "blocked_final_article_artifacts_and_metadata_unavailable",
             "EPA reproduction gate changed")
     require(set(gate["hard_gates"].values()) == {False}, "EPA hard gate unexpectedly opened")
@@ -115,6 +120,10 @@ def validate_rows(config: dict[str, Any]) -> list[dict[str, Any]]:
             "PM2.5 benchmark differs from evidence")
     require(by_id["meteorological_ozone_pm25_net"]["mean_usd_per_tco2"] == -15.0,
             "net benchmark differs from evidence")
+    for component_id in ("surface_ozone_health", "nonwildfire_meteorological_pm25_health",
+                         "meteorological_ozone_pm25_net"):
+        require(by_id[component_id]["currency_price_year"] == 2024,
+                "EPA article price year differs from primary source")
     require(23.0 + -38.0 == -15.0, "published component arithmetic changed")
     for row in rows:
         require(set(row) == set(FIELDS), f"unexpected benchmark fields: {row.get('component_id')}")
@@ -173,7 +182,7 @@ def build(root: Path, config_path: Path) -> dict[str, Any]:
             "No benchmark is added to baseline GIVE or to another component.",
             "Wildfire smoke and nonwildfire meteorological PM2.5 remain separate.",
             "The wildfire-smoke interval is conditional, not full structural uncertainty.",
-            "EPA currency year, final-release reproduction, and same-stream additivity remain unresolved.",
+            "EPA price year is identified as 2024 USD, but conversion, final-release reproduction, and same-stream additivity are outside this source-value table.",
         ],
         "config": {"path": str(config_path.relative_to(root)), "sha256": sha256(config_path)},
     }

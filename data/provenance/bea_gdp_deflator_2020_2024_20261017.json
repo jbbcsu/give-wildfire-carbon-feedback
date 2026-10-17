@@ -1,0 +1,30 @@
+{
+  "schema": "price_year_conversion_receipt/v1",
+  "observed_date": "2026-10-17",
+  "source": {
+    "provider": "Federal Reserve Bank of St. Louis FRED",
+    "underlying_agency": "U.S. Bureau of Economic Analysis",
+    "series_id": "A191RD3A086NBEA",
+    "series_title": "Gross domestic product: Implicit price deflator",
+    "frequency": "annual",
+    "units": "index 2017=100",
+    "url": "https://fred.stlouisfed.org/series/A191RD3A086NBEA",
+    "csv_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=A191RD3A086NBEA",
+    "last_updated_as_observed": "2026-09-30"
+  },
+  "local_source": {
+    "path": "data/reference/bea/A191RD3A086NBEA.csv",
+    "sha256": "32380c55db729bf4fd6c09ec924a048d89bb0eee43785e3a9b6daf3238cdc5e7"
+  },
+  "values": {
+    "2020": "105.377",
+    "2024": "125.587"
+  },
+  "conversion": {
+    "from_price_year": 2024,
+    "to_price_year": 2020,
+    "multiply_by": "0.8390757005104031468225214393",
+    "formula": "value_2024usd * deflator_2020 / deflator_2024"
+  },
+  "vintage_warning": "The conversion is reproducible using the cited 2026 data vintage; historical deflator values may be revised."
+}

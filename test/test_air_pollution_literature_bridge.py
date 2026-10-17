@@ -25,7 +25,7 @@ class AirPollutionLiteratureBridgeTests(unittest.TestCase):
         config = builder.load_config(CONFIG)
         bound = builder.validate_evidence(ROOT, config)
         rows = builder.validate_rows(config)
-        self.assertEqual(len(bound), 5)
+        self.assertEqual(len(bound), 6)
         self.assertEqual(len(rows), 4)
         self.assertTrue(all(not row["additive_to_give"] for row in rows))
 

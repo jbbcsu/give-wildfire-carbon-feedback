@@ -15,6 +15,11 @@
       "path": "data/provenance/mcduffie_article_benchmark_20261017.json",
       "sha256": "f88737d8cdf2135355e9f1e0a6e166d291012e1c1cc0d5521d17b9bb53a021c2"
     },
+    "mcduffie_primary_source": {
+      "bytes": 1665,
+      "path": "data/provenance/mcduffie_primary_source_20261017.json",
+      "sha256": "2f1b7950761ecaf5c22d789788d7cdf3092f89885e15b4a40c7a16ac9dd7c2fb"
+    },
     "wildfire_smoke_admission": {
       "bytes": 2938,
       "path": "data/provenance/williams_wildfire_smoke_admission_20261014.json",
@@ -31,7 +36,7 @@
     "No benchmark is added to baseline GIVE or to another component.",
     "Wildfire smoke and nonwildfire meteorological PM2.5 remain separate.",
     "The wildfire-smoke interval is conditional, not full structural uncertainty.",
-    "EPA currency year, final-release reproduction, and same-stream additivity remain unresolved."
+    "EPA price year is identified as 2024 USD, but conversion, final-release reproduction, and same-stream additivity are outside this source-value table."
   ],
   "component_ids": [
     "wildfire_smoke_pm25_mortality",
@@ -41,9 +46,9 @@
   ],
   "config": {
     "path": "config/air_pollution_literature_bridge_v1.json",
-    "sha256": "aae7afe5ad2945903dd39c204a1c7fd6498218d4307b6407a926dfbfa2bb5fbc"
+    "sha256": "a84209065e36b7d37f8ae50b4c16993423873abafe074dbe3b3af00dece8ce9f"
   },
-  "created_at_utc": "2026-10-17T13:51:51.756195+00:00",
+  "created_at_utc": "2026-10-17T13:59:15.731620+00:00",
   "give_interface": {
     "annual_country_damage_paths_available": false,
     "eligible_for_headline_scc": false,
@@ -61,9 +66,9 @@
     "same_pulse_year_harmonized": false
   },
   "output": {
-    "bytes": 1279,
+    "bytes": 1291,
     "path": "data/derived/air_pollution_literature_bridge_v1.csv",
-    "sha256": "3cddeba5ed0aacb769ae70faa0f3efdbc9141a0d3d92ad4a46fe203f0b53e7b0"
+    "sha256": "1d42d1c91b2f4ab02c7f0433afb3eb1c922bfc8bfe40c71d93ac275fd2b0c5fb"
   },
   "schema": "air_pollution_literature_bridge_receipt/v1",
   "status": "external_benchmarks_exported_not_additive"

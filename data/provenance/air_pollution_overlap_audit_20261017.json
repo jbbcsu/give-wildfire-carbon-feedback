@@ -1,0 +1,33 @@
+{
+  "schema": "air_pollution_overlap_audit/v1",
+  "observed_date": "2026-10-17",
+  "give_baseline": {
+    "component": "CromarMortality",
+    "source_path": "../paper-2022-scc-give-zenodo/packages/MimiGIVE/src/components/cromar_mortality_damages.jl",
+    "sha256": "381d220e9b77c78f8186dafccf35dd7558c90dd6596689c759fb1eccf5557d76",
+    "modeled_endpoint": "temperature-associated net all-cause mortality monetized with VSL"
+  },
+  "primary_method_source": {
+    "citation": "Cromar et al. (2022), Global Health Impacts for Economic Models of Climate Change: A Systematic Review and Meta-Analysis",
+    "doi": "10.1513/AnnalsATS.202110-1193OC",
+    "pmcid": "PMC9278641",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9278641/",
+    "findings": [
+      "The pooled outcome is temperature-associated net all-cause mortality risk.",
+      "The review reports that air pollution was often treated as a potential mediator in studies assessing temperature-health risk.",
+      "The expert panel identifies a separate air-pollution module as useful while emphasizing interaction and baseline-emissions complexity."
+    ]
+  },
+  "overlap_assessment": {
+    "direct_wildfire_smoke_vs_wildfire_co2_endpoint_duplicate": false,
+    "wildfire_smoke_vs_wildfire_co2_reason": "Direct smoke mortality and downstream warming damages from wildfire CO2 are different endpoints, but the smoke estimate remains operationally unreproduced.",
+    "mcduffie_vs_wildfire_smoke_physical_boundary_resolved": true,
+    "mcduffie_boundary_reason": "McDuffie explicitly excludes open-burning emissions including wildfires.",
+    "air_pollution_mortality_vs_give_temperature_mortality_cleared": false,
+    "uncleared_reason": "GIVE's source outcome is net all-cause mortality and its evidence base may include air pollution as mediator or effect modifier; no source-study decomposition or replacement adjustment is available."
+  },
+  "decision": {
+    "any_air_pollution_component_additive_to_baseline_give": false,
+    "required_resolution": "Estimate or obtain a mutually exclusive temperature-mortality baseline, or implement and validate a replacement joint mortality module that allocates temperature and air-pollution pathways once."
+  }
+}

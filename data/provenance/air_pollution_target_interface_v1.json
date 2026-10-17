@@ -1,0 +1,58 @@
+{
+  "bound_evidence": {
+    "mcduffie_primary_source": {
+      "bytes": 1665,
+      "path": "data/provenance/mcduffie_primary_source_20261017.json",
+      "sha256": "2f1b7950761ecaf5c22d789788d7cdf3092f89885e15b4a40c7a16ac9dd7c2fb"
+    },
+    "overlap_audit": {
+      "bytes": 2223,
+      "path": "data/provenance/air_pollution_overlap_audit_20261017.json",
+      "sha256": "9fd322d434ab25e550d3fb73433e7a7943e5102df43467245ecf5a73e09c65ce"
+    },
+    "price_conversion": {
+      "bytes": 1134,
+      "path": "data/provenance/bea_gdp_deflator_2020_2024_20261017.json",
+      "sha256": "ad24b065cb0eb7786a9e8f234851ecdb5319a51816f7105b49b84fced5e72c45"
+    },
+    "wildfire_smoke_admission": {
+      "bytes": 2938,
+      "path": "data/provenance/williams_wildfire_smoke_admission_20261014.json",
+      "sha256": "831191388a43eafc492095d1a0817476e686604e234f05796e14846faa500ca2"
+    },
+    "wildfire_smoke_draft_receipt": {
+      "bytes": 1127,
+      "path": "../give_ai_damage_expansion/data/provenance/williams_wildfire_smoke_draft_20261009.json",
+      "sha256": "27163e5ea3bc56d393aa0402ea68931f352cc614e6c67ed643549a15518cb545"
+    }
+  },
+  "config": {
+    "path": "config/air_pollution_target_interface_v1.json",
+    "sha256": "1fc06448f10e3223f0e841292927d7708ce0b74acd206cfc21863f6e23420121"
+  },
+  "created_at_utc": "2026-10-17T13:59:15.849623+00:00",
+  "output": {
+    "bytes": 1831,
+    "path": "data/derived/air_pollution_target_interface_v1.csv",
+    "sha256": "8743c6de4ecc0811da961ac5b99c6f288b826e9263d53b5dc618f0d1beec707c"
+  },
+  "permitted_use": "comparison and sensitivity benchmark only; not additive to baseline GIVE",
+  "portfolio_gates": {
+    "all_components_locally_reproduced": false,
+    "annual_marginal_paths_available": false,
+    "any_component_additive_to_baseline_give": false,
+    "mortality_overlap_cleared": false,
+    "published_price_year_resolved": true,
+    "target_price_year_harmonized": true,
+    "target_pulse_year_harmonized": false
+  },
+  "price_conversion_factor_2024usd_to_2020usd": "0.8390757005104031468225214393",
+  "rows": 4,
+  "schema": "air_pollution_target_interface_receipt/v1",
+  "status": "price_harmonized_target_interface_blocked_from_give_addition",
+  "target": {
+    "currency_price_year": 2020,
+    "pulse_year": 2025,
+    "units": "2020 USD per metric ton CO2"
+  }
+}
