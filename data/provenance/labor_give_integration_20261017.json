@@ -1,0 +1,80 @@
+{
+  "cases": {
+    "ISO": {
+      "additive_labor_mean_2020usd_per_tco2": 51.86467799826219,
+      "full_target_uncertainty_within_case": {
+        "median": 172.42179038655837,
+        "monte_carlo_se_of_mean": 0.9494090069561859,
+        "q05": 76.34763963908713,
+        "q95": 364.9383136120538
+      },
+      "labor_uncertainty_within_case": {
+        "median": 42.151437624233225,
+        "monte_carlo_se_of_mean": 0.44415976390848527,
+        "q05": 1.042064811275526,
+        "q95": 133.88272968223436
+      },
+      "mean_additivity_residual_2020usd_per_tco2": 6.033928912074771e-11,
+      "nonlabor_component_sum_residual_2020usd_per_tco2": 6.033928912074771e-11,
+      "target_with_labor_mean_2020usd_per_tco2": 190.64032483602557,
+      "target_without_labor_mean_2020usd_per_tco2": 138.7756468377634,
+      "weight": 0.5
+    },
+    "LANCET": {
+      "additive_labor_mean_2020usd_per_tco2": 29.2638359626996,
+      "full_target_uncertainty_within_case": {
+        "median": 152.526664381792,
+        "monte_carlo_se_of_mean": 0.7832641996033418,
+        "q05": 70.1464474338295,
+        "q95": 310.7450886048792
+      },
+      "labor_uncertainty_within_case": {
+        "median": 25.005602136853895,
+        "monte_carlo_se_of_mean": 0.22662953121030072,
+        "q05": 0.18748949418147723,
+        "q95": 70.78419469556248
+      },
+      "mean_additivity_residual_2020usd_per_tco2": -2.913509433710715e-10,
+      "nonlabor_component_sum_residual_2020usd_per_tco2": -2.913509433710715e-10,
+      "target_with_labor_mean_2020usd_per_tco2": 167.67590380917432,
+      "target_without_labor_mean_2020usd_per_tco2": 138.4120678464747,
+      "weight": 0.5
+    }
+  },
+  "claim_boundary": "Finished expected-value integration in the published updated-agriculture GIVE target. Within-case labor and full-target uncertainty are reported from each same-run receipt; no cross-function distribution or no-labor interval is inferred.",
+  "config": {
+    "path": "config/labor_give_integration_v1.json",
+    "sha256": "cd677910f52b968cdaa5c681ab27994903e9524286466f562974d3518ec8ee62"
+  },
+  "created_at_utc": "2026-10-17T13:54:50.386100+00:00",
+  "equal_weight_structural_result": {
+    "additive_labor_mean_2020usd_per_tco2": 40.56425698048089,
+    "mean_additivity_residual_2020usd_per_tco2": 0.0,
+    "pooled_standard_error": null,
+    "pooled_uncertainty_interval": null,
+    "target_with_labor_mean_2020usd_per_tco2": 179.15811432259994,
+    "target_without_labor_mean_2020usd_per_tco2": 138.59385734211907
+  },
+  "invariants": {
+    "currency": "2020 USD per metric ton CO2",
+    "discount_rate_label": "2.0%",
+    "draws": 10000,
+    "julia_threads": 1,
+    "julia_version": "1.12.5",
+    "pulse_year": 2025,
+    "seed": 24523438,
+    "socioeconomics": "RFF-SP"
+  },
+  "schema": "labor_give_integration_receipt/v1",
+  "status": "complete_mean_integration_with_case_specific_uncertainty",
+  "target_model": "moore_2026_updated_agriculture_give",
+  "validation": {
+    "case_specific_uncertainty_retained": true,
+    "component_mean_additivity_tolerance": 1e-09,
+    "cross_function_uncertainty_pooled": false,
+    "original_give_labor_overlap_absent": true,
+    "precipitation_agriculture_stacking_allowed": false,
+    "same_run_component_and_total_means_used": true,
+    "source_graph_verified": true
+  }
+}

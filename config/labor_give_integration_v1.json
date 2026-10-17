@@ -1,0 +1,37 @@
+{
+  "schema": "labor_give_integration_contract/v1",
+  "target_model": {
+    "id": "moore_2026_updated_agriculture_give",
+    "description": "Published GIVE extension with legacy agriculture replaced and labor added as a separately reported damage component",
+    "preflight_contract": {
+      "path": "config/moore_paired_module_preflight_v1.json",
+      "sha256": "5edffd512b95be83c78920f690b7017e2ba227ba6ae3d9b2f589b0e602dd68ea"
+    },
+    "active_partial_sectors": ["agriculture", "cromar_mortality", "energy", "labor", "slr"],
+    "preexisting_labor_in_original_give": false
+  },
+  "invariants": {
+    "currency": "2020 USD per metric ton CO2",
+    "discount_rate_label": "2.0%",
+    "draws": 10000,
+    "julia_threads": 1,
+    "julia_version": "1.12.5",
+    "pulse_year": 2025,
+    "seed": 24523438,
+    "socioeconomics": "RFF-SP"
+  },
+  "structural_weights": {"ISO": 0.5, "LANCET": 0.5},
+  "receipts": {
+    "ISO": {"path": "data/provenance/labor_ag_sectoral_scc_n10000_iso_20261011.json", "sha256": "6641a397ff9f18231a720c8f5a2a0f39ca6aa49198db94053acdb2b1a4539fe9"},
+    "LANCET": {"path": "data/provenance/labor_ag_sectoral_scc_n10000_lancet_20261010.json", "sha256": "cd6b8f958a702805a8db12f941579f313045e573efd3924568390dc94c4542fd"}
+  },
+  "validation": {
+    "component_mean_additivity_absolute_tolerance": 1e-9,
+    "require_full_target_total_from_same_receipt": true,
+    "allow_mean_decomposition": true,
+    "allow_cross_function_quantile_pooling": false,
+    "allow_no_labor_quantiles_from_summary_subtraction": false,
+    "allow_drawwise_addition_without_joint_draws": false,
+    "allow_precipitation_agriculture_stacking": false
+  }
+}

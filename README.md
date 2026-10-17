@@ -27,6 +27,12 @@ is eligible for matched-contract mean transfer after confirming that the target
 GIVE run has no active labor-productivity sector. Cross-function quantiles and
 standard errors are intentionally not pooled.
 
+The exact-target integration is now complete at the expected-value level; see
+`GIVE_INTEGRATION_COMPLETE.md`. In the published updated-agriculture GIVE
+target, the equal-weight expected SCC is $138.5939/tCO2 without labor and
+$179.1581/tCO2 with labor. The validated additive labor contribution is
+$40.5643/tCO2. Same-run uncertainty remains case-specific.
+
 ## Reproduction environment
 
 - Julia 1.12.5 (the version named by the authors)
