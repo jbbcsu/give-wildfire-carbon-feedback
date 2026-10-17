@@ -7,6 +7,8 @@ This isolated project synthesizes the completed sector audits and implementation
 
 The current answer to the second question is intentionally conservative: **no cross-sector headline total is authorized yet**. Two rows are integrated or pair-tested, but their agriculture target contracts are incompatible. The remaining numerical results are external sensitivities, bounded regional benchmarks, or explicitly nonadditive.
 
+The current ledger contains 20 component rows tied to 25 exact evidence files. Recent additions retain their source claim boundaries: winter recreation is a CONUS lost-revenue benchmark rather than social welfare; heat morbidity remains blocked with no marginal SCC; and grid T&D is a CONUS direct repair/replacement-cost benchmark that excludes outage welfare and remains nonadditive because its released response bundles several climate stressors.
+
 ## Four evidence tiers
 
 - `integrated_pair_tested`: executed against matched baseline/pulse paths or a same-run GIVE target. This label does not by itself authorize stacking with another target.

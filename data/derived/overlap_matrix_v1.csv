@@ -19,3 +19,10 @@ dengue_nonfatal_morbidity,labor_heat_productivity,unresolved_productivity_overla
 noncoastal_climate_migration,CIAM_coastal,partially_covered,Exclude coastal relocation already valued by CIAM and isolate incremental noncoastal welfare costs.
 noncoastal_climate_migration,tropical_cyclone_macro,unresolved_macro_overlap,Do not add migration costs if they are embedded in persistent GDP-growth estimates.
 global_ecosystem_services,conus_freshwater_quality,nested_scope,Do not add a future global ecosystem total unless the CONUS freshwater endpoint is removed or explicitly nested once.
+conus_winter_recreation_revenue,broader_tourism_welfare,nested_incomplete_endpoint,Do not add lost revenue to a future tourism welfare estimate; replace it with consumer and producer surplus net of substitution and transfers.
+conus_winter_recreation_revenue,tropical_cyclone_macro,unresolved_macro_overlap,Do not combine activity revenue with broad persistent-growth sensitivities that may already include tourism and local business effects.
+heat_morbidity_direct_medical_costs,GIVE_temperature_mortality,conditionally_disjoint,Restrict the morbidity module to nonfatal cases and direct medical resource costs; exclude mortality.
+heat_morbidity_direct_medical_costs,labor_heat_productivity,conditionally_disjoint,Exclude lost wages and productivity losses from morbidity valuation before addition.
+conus_grid_td_direct_cost,CIAM_coastal,unresolved_infrastructure_overlap,Remove coastal-flooding damage to substations and T&D assets already represented in coastal property or infrastructure accounts.
+conus_grid_td_direct_cost,conus_inland_riverine_flood,unresolved_infrastructure_overlap,Confirm that flood-property aggregates exclude grid assets or decompose the T&D flood contribution.
+conus_grid_td_direct_cost,future_wildfire_infrastructure,unresolved_hazard_overlap,Do not add a wildfire infrastructure module unless the wildfire-stressor share is removed from the released ElecTD aggregate.

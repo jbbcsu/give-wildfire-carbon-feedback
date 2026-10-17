@@ -24,12 +24,14 @@ EXPECTED = {
     "nonwildfire_air_pollution_net": ("blocked_nonadditive", -12.586136),
     "aggregate_water_resources": ("external_sensitivity", 2.283769899326),
     "conus_heat_roads_rail": ("bounded_regional_benchmark", 0.214477593749),
-    "conus_electricity_td": ("blocked_nonadditive", None),
+    "conus_grid_td_direct_cost": ("blocked_nonadditive", 0.066819238708),
     "conus_inland_riverine_flood": ("bounded_regional_benchmark", 0.014246408098),
     "conus_freshwater_quality": ("bounded_regional_benchmark", 0.016683906231),
     "global_ecosystem_services": ("blocked_nonadditive", None),
     "conus_temperature_crime": ("bounded_regional_benchmark", 0.019265274491),
     "organized_armed_conflict": ("blocked_nonadditive", None),
+    "conus_winter_recreation_revenue": ("blocked_nonadditive", 0.023860501026),
+    "heat_morbidity_direct_medical_costs": ("blocked_nonadditive", None),
     "tropical_cyclone_macro": ("external_sensitivity", 38.64485612123323),
     "dengue_nonfatal_morbidity": ("blocked_nonadditive", None),
     "noncoastal_climate_migration": ("blocked_nonadditive", None),
@@ -64,7 +66,7 @@ def validate_rows(rows: list[dict[str, str]]) -> None:
                     f"numeric value drift: {row['component_id']}")
     require(Counter(row["category"] for row in rows) == Counter({
         "integrated_pair_tested": 2, "external_sensitivity": 4,
-        "bounded_regional_benchmark": 4, "blocked_nonadditive": 8,
+        "bounded_regional_benchmark": 4, "blocked_nonadditive": 10,
     }), "category counts changed")
 
 
@@ -91,7 +93,7 @@ def validate(root: Path, config_path: Path, receipt_path: Path) -> dict[str, Any
     require(receipt["config"]["sha256"] == sha256(config_path), "config hash mismatch")
     require(receipt["headline_master_total"] is None, "headline total invented")
     require(receipt["headline_master_total_authorized"] is False, "headline total authorized")
-    require(receipt["numeric_row_count"] == 12 and receipt["row_count"] == 18, "receipt counts changed")
+    require(receipt["numeric_row_count"] == 14 and receipt["row_count"] == 20, "receipt counts changed")
 
     ledger = root / receipt["output"]["path"]
     require(sha256(ledger) == receipt["output"]["sha256"], "ledger hash mismatch")
@@ -102,7 +104,7 @@ def validate(root: Path, config_path: Path, receipt_path: Path) -> dict[str, Any
     overlap_path = root / config["outputs"]["overlap_matrix"]
     with overlap_path.open(newline="", encoding="utf-8") as handle:
         overlap = list(csv.DictReader(handle))
-    require(len(overlap) == 20, "overlap matrix row count changed")
+    require(len(overlap) == 27, "overlap matrix row count changed")
     require(all(row["status"] and row["decision_rule"] for row in overlap), "incomplete overlap row")
     require(any(row["status"] == "umbrella_macro_overlap" for row in overlap), "macro-overlap gate missing")
     require(any(row["status"] == "mutually_exclusive_target_contracts" for row in overlap),
@@ -111,7 +113,7 @@ def validate(root: Path, config_path: Path, receipt_path: Path) -> dict[str, Any
     priority_path = root / config["outputs"]["priorities"]
     with priority_path.open(newline="", encoding="utf-8") as handle:
         priorities = list(csv.DictReader(handle))
-    require([int(row["priority"]) for row in priorities] == list(range(1, 11)), "priority order changed")
+    require([int(row["priority"]) for row in priorities] == list(range(1, 13)), "priority order changed")
     require(priorities[0]["workstream"] == "Joint target model and endpoint registry",
             "joint target no longer first priority")
 
@@ -126,10 +128,10 @@ def validate(root: Path, config_path: Path, receipt_path: Path) -> dict[str, Any
         "schema": "give_damage_expansion_master_ledger_validation/v1",
         "created_at_utc": datetime.now(timezone.utc).isoformat(),
         "status": "passed_hash_bound_tiered_ledger_and_no_sum_gate",
-        "checks_passed": 112,
-        "rows_validated": 18,
-        "overlap_rows_validated": 20,
-        "priority_rows_validated": 10,
+        "checks_passed": 141,
+        "rows_validated": 20,
+        "overlap_rows_validated": 27,
+        "priority_rows_validated": 12,
         "headline_master_total_authorized": False,
         "inputs": {
             "config_sha256": sha256(config_path), "receipt_sha256": sha256(receipt_path),

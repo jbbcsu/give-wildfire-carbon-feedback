@@ -11,6 +11,9 @@ Substantive work should then focus on:
 3. reconciling wildfire and nonwildfire PM mortality with baseline GIVE mortality;
 4. treating tropical-cyclone macro damages as mutually exclusive until direct channels are decomposed;
 5. globalizing bounded regional infrastructure and ecosystem benchmarks only when published response surfaces support it; and
-6. completing municipal water, electricity transmission/distribution, nonfatal dengue, and incremental noncoastal migration interfaces.
+6. converting the winter-recreation revenue benchmark into a welfare measure;
+7. completing a nonfatal heat-morbidity direct-medical-cost module; and
+8. decomposing grid T&D hazards and separately valuing outage reliability; and
+9. completing municipal water, nonfatal dengue, and incremental noncoastal migration interfaces.
 
 Priority reflects expected scientific value times readiness, with overlap risk and required computation treated as costs. It is not a ranking of true damage magnitudes.

@@ -45,8 +45,8 @@ def load_config(path: Path) -> dict[str, Any]:
     policy = config["aggregation_policy"]
     require(policy["headline_master_total_authorized"] is False, "headline total gate opened")
     require(policy["currently_compatible_component_sets"] == [], "unverified compatible set added")
-    require(len(config["rows"]) == 18, "expected 18 audited ledger rows")
-    require(len({row["component_id"] for row in config["rows"]}) == 18, "duplicate component ID")
+    require(len(config["rows"]) == 20, "expected 20 audited ledger rows")
+    require(len({row["component_id"] for row in config["rows"]}) == 20, "duplicate component ID")
     for row in config["rows"]:
         require(row["category"] in allowed, f"bad category: {row['component_id']}")
         require(row["master_total_eligible"] is False, f"master-total gate opened: {row['component_id']}")
@@ -159,10 +159,19 @@ def extract(component_id: str, p: dict[str, Any]) -> dict[str, Any]:
                 "interval_low": row["min_partial_scc_2020usd_per_tco2"], "interval_high": row["max_partial_scc_2020usd_per_tco2"],
                 "statistic": "six_surface_mean_and_range", "units": "2020 USD per metric ton CO2",
                 "pulse_year": 2025, "discounting": "GIVE 2.0% Ramsey", "source_status": receipt["status"]}
-    if component_id == "conus_electricity_td":
-        source = p["electricity_receipt"]
-        require(source["claim_status"]["SCC"] == "closed", "electricity SCC gate opened")
-        return empty_result("matched_GIVE_pulse_and_SCC_closed")
+    if component_id == "conus_grid_td_direct_cost":
+        receipt = p["grid_td_receipt"]
+        row = next(item for item in p["grid_td_summary"] if item["horizon"] == "2300" and item["adaptation_variant"] == "Reactive")
+        require(receipt["claim_scope"]["additivity_to_give_authorized"] is False,
+                "grid T&D additivity gate opened")
+        require(receipt["claim_scope"]["outage_reliability_welfare"] == "NOT_INCLUDED",
+                "grid benchmark misrepresented as outage welfare")
+        require(row["additive_to_give"] == "false", "grid summary additivity gate opened")
+        return {"central_value": row["mean_2020usd_per_tco2"],
+                "interval_low": row["min_2020usd_per_tco2"], "interval_high": row["max_2020usd_per_tco2"],
+                "statistic": "six_GCM_mean_and_range_direct_cost_not_outage_welfare",
+                "units": "2020 USD direct cost per metric ton CO2", "pulse_year": 2025,
+                "discounting": "GIVE 2.0% Ramsey", "source_status": receipt["status"]}
     if component_id == "conus_inland_riverine_flood":
         receipt = p["flood_receipt"]
         row = next(item for item in p["flood_summary"] if item["horizon"] == "2300")
@@ -196,6 +205,22 @@ def extract(component_id: str, p: dict[str, Any]) -> dict[str, Any]:
         source = p["crime_receipt"]
         require(source["organized_armed_conflict_status"] == "BLOCKED_NO_SCC", "conflict status changed")
         return empty_result(source["organized_armed_conflict_status"])
+    if component_id == "conus_winter_recreation_revenue":
+        receipt = p["winter_recreation_receipt"]
+        row = next(item for item in p["winter_recreation_summary"] if item["horizon"] == "2300" and item["component"] == "Total")
+        require(receipt["claim_scope"]["additivity_to_give_authorized"] is False,
+                "winter recreation additivity gate opened")
+        require(row["additive_to_give"] == "false", "winter recreation table additivity gate opened")
+        return {"central_value": row["mean_2020usd_per_tco2"],
+                "interval_low": row["min_2020usd_per_tco2"], "interval_high": row["max_2020usd_per_tco2"],
+                "statistic": "six_GCM_mean_and_range_lost_revenue_not_welfare",
+                "units": "2020 USD lost revenue per metric ton CO2", "pulse_year": 2025,
+                "discounting": "GIVE 2.0% Ramsey", "source_status": receipt["status"]}
+    if component_id == "heat_morbidity_direct_medical_costs":
+        source = p["heat_morbidity_readiness"]
+        require(source["give_addition_authorized"] is False, "heat morbidity additivity gate opened")
+        require(source["numeric_scc_produced"] is False, "heat morbidity SCC unexpectedly produced")
+        return empty_result(source["status"])
     if component_id == "tropical_cyclone_macro":
         source = p["cyclone_readiness"]
         audit = source["source_data_audit"]

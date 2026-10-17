@@ -25,8 +25,8 @@ class MasterLedgerTests(unittest.TestCase):
         config = builder.load_config(CONFIG)
         payloads, bound = builder.load_evidence(ROOT, config)
         rows = builder.build_rows(config, payloads)
-        self.assertEqual(len(bound), 21)
-        self.assertEqual(len(rows), 18)
+        self.assertEqual(len(bound), 25)
+        self.assertEqual(len(rows), 20)
         self.assertFalse(any(row["master_total_eligible"] for row in rows))
 
     def test_independent_validation_passes(self):
@@ -81,6 +81,28 @@ class MasterLedgerTests(unittest.TestCase):
         row = next(item for item in rows if item["component_id"] == "tropical_cyclone_macro")
         self.assertEqual(row["statistic"], "difference_of_published_medians_not_paired_component_quantile")
         self.assertFalse(row["master_total_eligible"] == "true")
+
+    def test_winter_recreation_remains_nonadditive_revenue(self):
+        with LEDGER.open(newline="", encoding="utf-8") as handle:
+            rows = list(csv.DictReader(handle))
+        row = next(item for item in rows if item["component_id"] == "conus_winter_recreation_revenue")
+        self.assertEqual(row["category"], "blocked_nonadditive")
+        self.assertIn("lost_revenue_not_welfare", row["statistic"])
+
+    def test_heat_morbidity_has_no_invented_scc(self):
+        with LEDGER.open(newline="", encoding="utf-8") as handle:
+            rows = list(csv.DictReader(handle))
+        row = next(item for item in rows if item["component_id"] == "heat_morbidity_direct_medical_costs")
+        self.assertEqual(row["central_value"], "")
+        self.assertEqual(row["source_status"], "BLOCKED_NO_MARGINAL_SCC")
+
+    def test_grid_direct_cost_is_not_outage_welfare_or_additive(self):
+        with LEDGER.open(newline="", encoding="utf-8") as handle:
+            rows = list(csv.DictReader(handle))
+        row = next(item for item in rows if item["component_id"] == "conus_grid_td_direct_cost")
+        self.assertEqual(row["category"], "blocked_nonadditive")
+        self.assertIn("direct_cost_not_outage_welfare", row["statistic"])
+        self.assertEqual(row["master_total_eligible"], "false")
 
 
 if __name__ == "__main__":

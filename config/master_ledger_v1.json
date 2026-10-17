@@ -63,9 +63,13 @@
       "path": "../fredi_scc/results/fredi_transport_conus_partial_scc_summary_v1.csv",
       "sha256": "76636839032caaee64550b8212de4418b95bcac8602f7df3e2107a7848fc550f"
     },
-    "electricity_receipt": {
-      "path": "../fredi_scc/provenance/fredi_electricity_td_heat_sentinel_v4_1_1_receipt.json",
-      "sha256": "9c1af8b8a52ff013402cea09fe20f35febe1f90b20ca33efa2bc71dcbade9df3"
+    "grid_td_receipt": {
+      "path": "../grid_reliability_scc/provenance/grid_td_partial_scc_receipt_v1.json",
+      "sha256": "bd7fdcae56585e24a96162295f0fd019b6f571f892952a5a67f7d78addbd96ae"
+    },
+    "grid_td_summary": {
+      "path": "../grid_reliability_scc/results/grid_td_partial_scc_summary_v1.csv",
+      "sha256": "66128e8aa86621c5022ddbec9a91f34a4505311409705389d81fc285c7ad61a0"
     },
     "flood_receipt": {
       "path": "../inland_flood_scc/provenance/inland_flood_partial_scc_receipt_v1.json",
@@ -98,6 +102,18 @@
     "disease_readiness": {
       "path": "../infectious_disease_scc/results/readiness_receipt_v1.json",
       "sha256": "5b1f98d6bbe31e546029d3be927f1489ebc3c2ff10d5eb68f7d77b2854cbcc68"
+    },
+    "winter_recreation_receipt": {
+      "path": "../winter_recreation_scc/provenance/winter_recreation_partial_scc_receipt_v1.json",
+      "sha256": "7bdb3773488f239f2d500da5d14c46370fa994de5b30ecb1e9b2ae52fdd0a2a4"
+    },
+    "winter_recreation_summary": {
+      "path": "../winter_recreation_scc/results/winter_recreation_partial_scc_summary_v1.csv",
+      "sha256": "ebc36327cd2540268a373f6571eb80cb06d63b71cc3ea016bde4f523414edfed"
+    },
+    "heat_morbidity_readiness": {
+      "path": "../heat_morbidity_scc/provenance/heat_morbidity_readiness_receipt_v1.json",
+      "sha256": "3a0c02a571be573f839806dfb72e0a51750696d013a80db73ad7df83213fa953"
     },
     "migration_readiness": {
       "path": "../migration_scc/results/migration_readiness_result_v1.json",
@@ -196,14 +212,14 @@
       "blocker": "CONUS-only, truncated support, and cross-sector additivity is not authorized."
     },
     {
-      "component_id": "conus_electricity_td",
-      "sector": "electricity infrastructure",
+      "component_id": "conus_grid_td_direct_cost",
+      "sector": "grid infrastructure",
       "category": "blocked_nonadditive",
-      "evidence_ids": ["electricity_receipt"],
-      "scope": "CONUS transmission and distribution interface",
-      "value_role": "deterministic implementation sentinel",
+      "evidence_ids": ["grid_td_receipt", "grid_td_summary"],
+      "scope": "CONUS transmission and distribution repair/replacement, Reactive adaptation, 2025-2300; outages excluded",
+      "value_role": "matched-pulse direct-cost benchmark, not outage reliability welfare",
       "master_total_eligible": false,
-      "blocker": "No matched GIVE pulse or SCC; generation/capacity is bundled with excluded demand and cannot be separated."
+      "blocker": "The released aggregate bundles temperature, rain, lightning, vegetation, wildfire, and coastal-flooding stressors; hazard and infrastructure overlap must be reconciled before addition."
     },
     {
       "component_id": "conus_inland_riverine_flood",
@@ -254,6 +270,26 @@
       "value_role": "readiness gap",
       "master_total_eligible": false,
       "blocker": "The audited project reports BLOCKED_NO_SCC for organized armed conflict."
+    },
+    {
+      "component_id": "conus_winter_recreation_revenue",
+      "sector": "winter recreation",
+      "category": "blocked_nonadditive",
+      "evidence_ids": ["winter_recreation_receipt", "winter_recreation_summary"],
+      "scope": "CONUS alpine skiing, cross-country skiing, and snowmobiling ticket/entry revenue, 2025-2300",
+      "value_role": "matched-pulse lost-revenue benchmark, not social welfare",
+      "master_total_eligible": false,
+      "blocker": "The endpoint is lost ticket/entry revenue rather than consumer surplus or compensating variation; substitution, producer profit, and national incidence are unidentified."
+    },
+    {
+      "component_id": "heat_morbidity_direct_medical_costs",
+      "sector": "heat morbidity",
+      "category": "blocked_nonadditive",
+      "evidence_ids": ["heat_morbidity_readiness"],
+      "scope": "nonfatal temperature-sensitive emergency-department and hospital morbidity",
+      "value_role": "source-verified readiness scaffold",
+      "master_total_eligible": false,
+      "blocker": "No executable fitted response object supports a matched marginal pulse; restricted encounter data and incomplete medical-cost valuation prevent an SCC."
     },
     {
       "component_id": "tropical_cyclone_macro",

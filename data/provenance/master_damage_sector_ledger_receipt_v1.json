@@ -30,11 +30,6 @@
       "path": "../infectious_disease_scc/results/readiness_receipt_v1.json",
       "sha256": "5b1f98d6bbe31e546029d3be927f1489ebc3c2ff10d5eb68f7d77b2854cbcc68"
     },
-    "electricity_receipt": {
-      "bytes": 2585,
-      "path": "../fredi_scc/provenance/fredi_electricity_td_heat_sentinel_v4_1_1_receipt.json",
-      "sha256": "9c1af8b8a52ff013402cea09fe20f35febe1f90b20ca33efa2bc71dcbade9df3"
-    },
     "fisheries_combined_benchmark": {
       "bytes": 2350,
       "path": "../ocean_fisheries_scc/data/provenance/blue_scc_fisheries_mc_benchmark_20261017.json",
@@ -54,6 +49,21 @@
       "bytes": 501,
       "path": "../inland_flood_scc/results/inland_flood_partial_scc_summary_v1.csv",
       "sha256": "cbbee59781c56a022aa6dbaabd5664cad8c33d5597bef435cdc699f5116326dd"
+    },
+    "grid_td_receipt": {
+      "bytes": 2174,
+      "path": "../grid_reliability_scc/provenance/grid_td_partial_scc_receipt_v1.json",
+      "sha256": "bd7fdcae56585e24a96162295f0fd019b6f571f892952a5a67f7d78addbd96ae"
+    },
+    "grid_td_summary": {
+      "bytes": 1149,
+      "path": "../grid_reliability_scc/results/grid_td_partial_scc_summary_v1.csv",
+      "sha256": "66128e8aa86621c5022ddbec9a91f34a4505311409705389d81fc285c7ad61a0"
+    },
+    "heat_morbidity_readiness": {
+      "bytes": 483,
+      "path": "../heat_morbidity_scc/provenance/heat_morbidity_readiness_receipt_v1.json",
+      "sha256": "3a0c02a571be573f839806dfb72e0a51750696d013a80db73ad7df83213fa953"
     },
     "labor_integration": {
       "bytes": 3312,
@@ -104,28 +114,38 @@
       "bytes": 575,
       "path": "../municipal_water_scc/data/provenance/mimifund_aggregate_water_validation_20261017.json",
       "sha256": "cc4a800643b33e596d3c4827ecde0227eed0a98a8eea0a73e4b5007e37847e9e"
+    },
+    "winter_recreation_receipt": {
+      "bytes": 2308,
+      "path": "../winter_recreation_scc/provenance/winter_recreation_partial_scc_receipt_v1.json",
+      "sha256": "7bdb3773488f239f2d500da5d14c46370fa994de5b30ecb1e9b2ae52fdd0a2a4"
+    },
+    "winter_recreation_summary": {
+      "bytes": 1370,
+      "path": "../winter_recreation_scc/results/winter_recreation_partial_scc_summary_v1.csv",
+      "sha256": "ebc36327cd2540268a373f6571eb80cb06d63b71cc3ea016bde4f523414edfed"
     }
   },
   "category_counts": {
-    "blocked_nonadditive": 8,
+    "blocked_nonadditive": 10,
     "bounded_regional_benchmark": 4,
     "external_sensitivity": 4,
     "integrated_pair_tested": 2
   },
   "config": {
     "path": "config/master_ledger_v1.json",
-    "sha256": "1b274346a245c3e17f9dae80a1626fb61d0b34eebabe3e0b8cdb88574d25a23d"
+    "sha256": "a910d944f5ff12347a581e633f5aa7a2d2a2476e474c5c63e58bf00c92f847b9"
   },
-  "created_at_utc": "2026-10-17T14:51:24.183182+00:00",
+  "created_at_utc": "2026-10-17T14:53:35.994790+00:00",
   "headline_master_total": null,
   "headline_master_total_authorized": false,
-  "numeric_row_count": 12,
+  "numeric_row_count": 14,
   "output": {
-    "bytes": 8033,
+    "bytes": 9438,
     "path": "data/derived/master_damage_sector_ledger_v1.csv",
-    "sha256": "629aadd9e7c532f5a064a110414bf9776d74cb4ca431ff7611bac15299553d23"
+    "sha256": "89ab7202f63ba81632e7d0913a49cb5980a513fb7b1bd5394d102146e1ce8fc3"
   },
-  "row_count": 18,
+  "row_count": 20,
   "schema": "give_damage_expansion_master_ledger_receipt/v1",
   "status": "master_ledger_built_no_cross_sector_total_authorized"
 }

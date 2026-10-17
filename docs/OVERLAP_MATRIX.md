@@ -9,6 +9,9 @@ The highest-risk overlaps are:
 - **Broad macro responses:** tropical-cyclone persistent-growth effects can embed direct agriculture, labor, health, infrastructure, migration, and recovery channels. They are a mutually exclusive sensitivity unless decomposed.
 - **Water and ecosystems:** aggregate water resources can include agricultural, municipal, and ecosystem services. Freshwater-quality willingness to pay may include recreational fishing.
 - **Migration:** CIAM already includes coastal relocation costs. Only incremental noncoastal real-resource and nonpecuniary costs are missing.
+- **Winter recreation:** the numeric result is lost ticket and entry revenue, not welfare. It must be replaced—not added—when consumer surplus, producer profit, substitution, and incidence are estimated.
+- **Heat morbidity:** a future module can be conditionally disjoint only if it remains nonfatal, values direct medical resources, and excludes lost wages already represented in labor productivity.
+- **Grid infrastructure:** the matched-pulse T&D result values direct repair and replacement but bundles wildfire, coastal flooding, rain, lightning, vegetation, and temperature stressors. It is not outage reliability welfare and cannot be added until infrastructure overlaps are decomposed.
 
 Resolved or conditionally separable boundaries include wildfire versus nonwildfire emissions, riverine flooding versus CIAM coastal flooding, and heat-only transport infrastructure versus riverine property damage. These physical boundaries still require compatible valuation and joint-run contracts before aggregation.
 
