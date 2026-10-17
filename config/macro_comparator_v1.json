@@ -1,0 +1,40 @@
+{
+  "schema": "macro_damage_comparator_contract/v1",
+  "status": "MUTUALLY_EXCLUSIVE_COMPARATOR",
+  "scope": {
+    "selected_primary": "Bilal and Kaenzig (2026) global-temperature macroeconomic SCC",
+    "additive_to_give": false,
+    "omitted_sector_residual": false,
+    "reason": "Aggregate GDP and productivity responses can embody multiple bottom-up market channels, cross-sector interactions, trade, and correlated extremes. The macro estimate is neither a sum-compatible sector nor the complement of measured GIVE sectors."
+  },
+  "source": {
+    "paper_doi": "10.1093/qje/qjag011",
+    "working_paper_doi": "10.3386/w32450",
+    "repository": "https://github.com/dkaenzig/micc_replication",
+    "commit": "2425cebfa85772441d3f0672b9bdb301c42131a2",
+    "license": "BSD-3-Clause",
+    "result_file_upstream": "2_model/tables/011326/BaselineResults011326.csv",
+    "result_file": "data/reference/Bilal_Kanzig_BaselineResults011326.csv",
+    "sha256": "6420a0653a6a90c4b64135e109b25e5c43c86cd0a0b2be21173f2d38f85e27fd"
+  },
+  "published_result": {
+    "primary_row": {"Year": 2024, "Data": "PWT", "Temperature": "global", "SCC_2024_international_dollars_per_tco2": 1206.96927919086},
+    "paper_95pct_confidence_interval": [399, 2015],
+    "pure_rate_time_preference": 0.02,
+    "comparison_rows": [
+      {"label": "PWT global temperature", "scc": 1206.96927919086},
+      {"label": "BU global temperature robustness", "scc": 1519.6266973214},
+      {"label": "PWT local temperature comparator", "scc": 148.939191370722}
+    ]
+  },
+  "comparability_gates": {
+    "same_damage_concept_as_give": false,
+    "same_price_unit_as_give": false,
+    "same_discounting_as_give": false,
+    "same_pulse_and_climate_module_as_give": false,
+    "same_socioeconomic_baseline_as_give": false,
+    "can_be_added_to_sector_totals": false
+  },
+  "outputs": {"summary": "results/macro_comparator_summary_v1.csv", "receipt": "provenance/macro_comparator_receipt_v1.json", "validation": "provenance/macro_comparator_validation_v1.json"},
+  "forbidden_claims": ["expanded GIVE total", "omitted-sector residual", "sectoral SCC", "directly harmonized 2020 USD GIVE comparison", "causal decomposition of macro damage into GIVE sectors"]
+}
