@@ -1,0 +1,50 @@
+{
+  "claim_scope": {
+    "additivity_to_give_authorized": false,
+    "building_energy_demand": "EXCLUDED",
+    "generation_capacity": "EXCLUDED_BUNDLED_WITH_DEMAND_IN_ELECSD",
+    "global_extrapolation_authorized": false,
+    "numeric_benchmark": "CONUS climate-driven transmission and distribution infrastructure repair/replacement costs",
+    "outage_reliability_welfare": "NOT_INCLUDED",
+    "reason_additivity_closed": "ElecTD is separable from GIVE energy expenditures, but its released aggregate bundles temperature, extreme rain, lightning, vegetation, wildfire, and coastal-flooding stressors. Coastal substation and other infrastructure overlap must be reconciled before addition."
+  },
+  "created_at_utc": "2026-10-17T14:52:03.567390+00:00",
+  "inputs": {
+    "give_pair": {
+      "path": "data/interim/give_temperature_pair_20261017.csv",
+      "sha256": "0e0a7a4e430b5dc7675d8d211f57abbddd0c8012e0535a595b86a3482f7f9e4e"
+    },
+    "growth": {
+      "path": "data/reference/Scalar_damageAdj_elecTD_growthFactor.csv",
+      "sha256": "a27c1d6828e081db6fa221dceb2863d0caec64b67da00c8c61ac3db916748353"
+    },
+    "price": {
+      "path": "data/reference/fred_GDPDEF_annual_average_2015_2020.csv",
+      "sha256": "239ce3cb035cf17bdd05aa17f6cbd8c02dc82a3163f5d8a78be4972b7e165047"
+    },
+    "response": {
+      "path": "data/reference/ElecTD_scaledimpacts.csv",
+      "sha256": "c21409dc5e70a878f890bba8514742ab84054a0cb3bf3ece5763f433a05da3b4"
+    }
+  },
+  "outputs": {
+    "annual": {
+      "path": "data/derived/grid_td_annual_pair_v1.csv",
+      "rows": 4968,
+      "sha256": "fe1fc4db1616002c362e5540c61018abdc5e2eafd2fb17b9cac85d0721329a71"
+    },
+    "by_gcm": {
+      "path": "results/grid_td_partial_scc_by_gcm_v1.csv",
+      "rows": 36,
+      "sha256": "cfeb96201da38eec2eba324fa1d99ecea74948ac776e1759a56e82daa5275693"
+    },
+    "summary": {
+      "path": "results/grid_td_partial_scc_summary_v1.csv",
+      "rows": 6,
+      "sha256": "66128e8aa86621c5022ddbec9a91f34a4505311409705389d81fc285c7ad61a0"
+    }
+  },
+  "peak_rss_mib": 35.406,
+  "schema": "grid_td_partial_scc_receipt/v1",
+  "status": "PUBLISHED_CONUS_DIRECT_COST_BENCHMARK_NOT_ADDITIVE"
+}

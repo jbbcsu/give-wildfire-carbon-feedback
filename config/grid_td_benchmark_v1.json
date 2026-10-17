@@ -1,0 +1,42 @@
+{
+  "schema": "grid_td_benchmark_contract/v1",
+  "scope": {
+    "numeric_benchmark": "CONUS climate-driven transmission and distribution infrastructure repair/replacement costs",
+    "outage_reliability_welfare": "NOT_INCLUDED",
+    "building_energy_demand": "EXCLUDED",
+    "generation_capacity": "EXCLUDED_BUNDLED_WITH_DEMAND_IN_ELECSD",
+    "global_extrapolation_authorized": false,
+    "additivity_to_give_authorized": false,
+    "reason_additivity_closed": "ElecTD is separable from GIVE energy expenditures, but its released aggregate bundles temperature, extreme rain, lightning, vegetation, wildfire, and coastal-flooding stressors. Coastal substation and other infrastructure overlap must be reconciled before addition."
+  },
+  "sources": {
+    "repository": "https://github.com/USEPA/FrEDI_Data",
+    "commit": "b506a3e0085bb446f56acc8c7076a1aea599fbb6",
+    "fredi_release": "v4.1.1",
+    "license": "MIT",
+    "response": {"path": "data/reference/ElecTD_scaledimpacts.csv", "sha256": "c21409dc5e70a878f890bba8514742ab84054a0cb3bf3ece5763f433a05da3b4"},
+    "growth": {"path": "data/reference/Scalar_damageAdj_elecTD_growthFactor.csv", "sha256": "a27c1d6828e081db6fa221dceb2863d0caec64b67da00c8c61ac3db916748353"},
+    "give_pair": {"path": "data/interim/give_temperature_pair_20261017.csv", "sha256": "0e0a7a4e430b5dc7675d8d211f57abbddd0c8012e0535a595b86a3482f7f9e4e"},
+    "price": {"path": "data/reference/fred_GDPDEF_annual_average_2015_2020.csv", "sha256": "239ce3cb035cf17bdd05aa17f6cbd8c02dc82a3163f5d8a78be4972b7e165047", "values": {"2015": 97.315, "2020": 105.362}},
+    "primary_study": {"citation": "Fant et al. (2020), Energy 195:116899", "doi": "10.1016/j.energy.2020.116899"}
+  },
+  "model": {
+    "gcms": ["CCSM4", "CanESM2", "GFDL-CM3", "GISS-E2-R", "HadGEM2-ES", "MIROC5"],
+    "variants": ["NoAdapt", "Proactive", "Reactive"],
+    "primary_variant": "Reactive",
+    "zero_anchor": true,
+    "response_interpolation": "piecewise linear",
+    "response_extrapolation": "FrEDI data-build rule: last two nonmissing points extended linearly to 30 C",
+    "growth_scalar": "state annual through 2090; linear interpolation between 2090/2100/2200/2300 knots",
+    "economic_endpoint": "direct repair and replacement cost; outages and indirect welfare losses excluded"
+  },
+  "give_target": {"pulse_year": 2025, "pulse_size_metric_tonnes_co2": 366666.6666666667, "discount_rate_label": "2.0% Ramsey", "price_year": 2020, "bounded_horizon": 2092, "full_horizon": 2300},
+  "outputs": {
+    "annual": "data/derived/grid_td_annual_pair_v1.csv",
+    "by_gcm": "results/grid_td_partial_scc_by_gcm_v1.csv",
+    "summary": "results/grid_td_partial_scc_summary_v1.csv",
+    "receipt": "provenance/grid_td_partial_scc_receipt_v1.json",
+    "validation": "provenance/grid_td_validation_v1.json"
+  },
+  "forbidden_claims": ["outage SCC", "reliability welfare SCC", "global grid SCC", "generation/capacity SCC", "additive GIVE sector before hazard/asset overlap reconciliation"]
+}

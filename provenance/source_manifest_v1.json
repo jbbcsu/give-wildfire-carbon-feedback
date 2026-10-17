@@ -1,0 +1,32 @@
+{
+  "schema": "grid_td_source_manifest/v1",
+  "sources": [
+    {
+      "id": "fredi_electd_response",
+      "url": "https://raw.githubusercontent.com/USEPA/FrEDI_Data/b506a3e0085bb446f56acc8c7076a1aea599fbb6/inst/extdata/fredi/gcm/ElecTD_scaledimpacts.csv",
+      "sha256": "c21409dc5e70a878f890bba8514742ab84054a0cb3bf3ece5763f433a05da3b4",
+      "license": "MIT"
+    },
+    {
+      "id": "fredi_electd_growth",
+      "url": "https://raw.githubusercontent.com/USEPA/FrEDI_Data/b506a3e0085bb446f56acc8c7076a1aea599fbb6/inst/extdata/fredi/scalars/Scalar_damageAdj_elecTD_growthFactor.csv",
+      "sha256": "a27c1d6828e081db6fa221dceb2863d0caec64b67da00c8c61ac3db916748353",
+      "license": "MIT"
+    },
+    {
+      "id": "give_matched_temperature_pair",
+      "path": "data/interim/give_temperature_pair_20261017.csv",
+      "sha256": "0e0a7a4e430b5dc7675d8d211f57abbddd0c8012e0535a595b86a3482f7f9e4e"
+    },
+    {
+      "id": "fred_gdpdef",
+      "url": "https://fred.stlouisfed.org/series/GDPDEF",
+      "sha256": "239ce3cb035cf17bdd05aa17f6cbd8c02dc82a3163f5d8a78be4972b7e165047"
+    }
+  ],
+  "literature": [
+    {"doi": "10.1016/j.energy.2020.116899", "role": "T&D infrastructure model"},
+    {"doi": "10.1038/s41586-021-03883-8", "role": "GIVE energy endpoint boundary"},
+    {"url": "https://www.epa.gov/system/files/documents/2024-08/technical-documentation-for-fredi_aug2024.pdf", "role": "FrEDI methods and limitations"}
+  ]
+}
