@@ -27,3 +27,18 @@ python3 scripts/validate_coral_residual_audit.py \
 This command checks source revisions, file hashes, license presence, published
 output structure, and overlap boundaries. It does not calculate damages or an
 SCC.
+
+The exact-target coverage audit additionally establishes that GIVE already
+includes sea-level-rise damages through CIAM, while its ocean-pH output is not
+connected to damages. Run it with pinned GIVE and Blue-SCC source trees:
+
+```sh
+python3 scripts/audit_give_ocean_coastal_coverage.py \
+  --contract config/give_ocean_coastal_coverage_v1.json \
+  --give-root /path/to/paper-2022-scc-give-zenodo/packages \
+  --blue-root /path/to/blue-scc \
+  --out data/provenance/give_ocean_coastal_coverage_20261017.json
+```
+
+See `GIVE_OCEAN_COASTAL_COVERAGE_AND_SELECTION_20261017.md` for the coverage
+boundary and candidate decision.

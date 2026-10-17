@@ -1,0 +1,89 @@
+{
+  "schema": "give_ocean_coastal_coverage_v1",
+  "audit_date": "2026-10-17",
+  "give_snapshot": {
+    "description": "local archived GIVE source snapshot used for the exact target audit",
+    "root_hint": "paper-2022-scc-give-zenodo/packages",
+    "files": {
+      "MimiGIVE/src/components/DamageAggregator.jl": "9fdd944faf6aa67bfd36063078974b3e7164bd6806528acecc7ea04331ab7cc4",
+      "MimiGIVE/src/main_model.jl": "5dcd02dbb8fc03246ff673e219308ac1f81c1ee3111b5198023ba8c28691f520",
+      "MimiGIVE/src/scc.jl": "c08634dd29f579f318ccd8f5fa5ac572aaa485fd84b7741d87ab30486651daf8",
+      "MimiCIAM/src/slrcost.jl": "24d7a77344b17b19cb7ae4b1c7acaa42efd71e953b721749e0d1952d76d7da75",
+      "Mimi_NAS_pH/src/components/ocean_ph_component.jl": "4be078ab40a4dd3aefdba94dd697045b972b0ba1e48c4030e9a5ab20335ec6a7"
+    }
+  },
+  "blue_scc_snapshot": {
+    "url": "https://github.com/berbastien/blue-scc",
+    "commit": "dbc0d8cb21c81f1508abfaf9e5c0f5671ccdd83f",
+    "files": {
+      "Code/Corals/003_CountryAggregation_Values.r": "e30e900d2d629e259c2ef3181b9023c8ef81303b150f2bc5d4b8fcbcfb42e242",
+      "Code/Ports/001_ReadPortsDisruptions.r": "0d9eb9863735b11af6efd5a062cb207e3d548c7983de231baeeb34721e070df9",
+      "Code/Ports/002_Ports_TempCoeff.r": "cd9d044043fc6fabeb28301302f3f2ee8840f3c2a43f9489fcc57564020ed614"
+    }
+  },
+  "coverage": {
+    "coastal_sea_level_rise": {
+      "status": "represented_in_ciam_and_added_to_scc",
+      "covered_endpoints": [
+        "dry_land_inundation_and_land_or_capital_loss",
+        "relocation_cost",
+        "storm_surge_capital_loss",
+        "storm_surge_mortality_valued_with_vsl",
+        "wetland_service_loss",
+        "protection_cost",
+        "retreat_cost",
+        "no_adaptation_cost",
+        "endogenous_least_cost_adaptation_choice"
+      ],
+      "generic_additional_coastal_flood_module_authorized": false
+    },
+    "ocean_acidification": {
+      "status": "physical_ph_driver_present_but_no_damage_connection",
+      "damage_aggregator_connection_present": false
+    },
+    "ocean_ecosystem_nonmarket_welfare": {
+      "status": "missing_except_ciam_wetland_services",
+      "selected_residual": "consumer_welfare_from_coral_reef_recreation_and_tourism_only"
+    }
+  },
+  "candidate_decisions": [
+    {
+      "id": "coral_recreation_consumer_welfare",
+      "decision": "selected_research_target_but_not_yet_additive",
+      "reason": "true_ocean_ecosystem_welfare_gap_with_a_clear_exclusion_boundary"
+    },
+    {
+      "id": "blue_coral_nonmarket_bundle",
+      "decision": "blocked_nonseparable_bundle",
+      "reason": "mixes_recreation_with_coastal_protection_erosion_and_other_services"
+    },
+    {
+      "id": "blue_coral_market_provisioning",
+      "decision": "excluded_overlap",
+      "reason": "food_raw_materials_and_ornamental_bundle_overlaps_fisheries_and_is_not_clean_consumer_welfare"
+    },
+    {
+      "id": "blue_coral_nonuse",
+      "decision": "excluded_overlap",
+      "reason": "overlaps_generic_biodiversity_existence_and_bequest_value"
+    },
+    {
+      "id": "blue_ports",
+      "decision": "excluded_as_additive_component",
+      "reason": "physical_asset_channel_overlaps_ciam_and_revenue_or_trade_at_risk_is_not_a_clean_incremental_welfare_loss"
+    }
+  ],
+  "claim_gates": {
+    "numeric_give_addition_authorized": false,
+    "published_headline_scc_may_be_added": false,
+    "service_bundle_allocation_allowed": false,
+    "gross_revenue_or_trade_at_risk_may_be_called_welfare_loss": false,
+    "required_before_addition": [
+      "service_specific_incremental_consumer_welfare_path",
+      "matched_baseline_and_pulse_draws",
+      "country_year_additivity",
+      "pulse_currency_and_discount_harmonization",
+      "explicit_exclusion_of_fisheries_coastal_protection_wetlands_and_biodiversity_nonuse"
+    ]
+  }
+}
