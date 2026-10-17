@@ -1,0 +1,33 @@
+{
+  "sector": "non_agricultural_hail_property",
+  "included_endpoint": "direct physical repair damage to buildings caused by hail",
+  "excluded_endpoints": [
+    "agricultural crop and livestock losses",
+    "vehicle losses",
+    "tornado and straight-line wind losses",
+    "lightning losses",
+    "heavy-precipitation and inland flood losses",
+    "coastal flood and tropical cyclone losses",
+    "wildfire losses",
+    "roads and rail losses",
+    "electric grid losses",
+    "business interruption and other indirect losses"
+  ],
+  "forbidden_transformations": [
+    "linearize the endpoint difference per degree C",
+    "scale Swiss losses to Europe or the world",
+    "convert insured or modeled loss to total property loss using insurance penetration",
+    "convert CHF to USD without a pinned currency price year and exchange-rate convention",
+    "report dollars per tonne CO2 without a marginal pulse-damage calculation"
+  ],
+  "required_scc_gates": [
+    "annual baseline and marginal CO2-pulse hail damage paths",
+    "validated climate-to-hail response over GIVE-relevant warming trajectories",
+    "country or grid exposure and vulnerability paths consistent with GIVE socioeconomic scenarios",
+    "pinned currency price year and conversion to GIVE consumption units",
+    "climate-model, hazard, vulnerability, and adaptation uncertainty",
+    "overlap audit against property, flooding, agriculture, transport, grid, and adaptation damages"
+  ],
+  "scc_ready": false,
+  "additive_to_give": false
+}
