@@ -197,6 +197,26 @@
       "sha256": "1c7c97c6d50598c90ec27cc06d513b5aa90c2650f328f05f1bf521cb847c18cf",
       "source_commit": "d295743"
     },
+    "swiss_hail_contract": {
+      "path": "../severe_convective_storm_scc/severe_convective_storm/contracts/hail_property_contract.json",
+      "sha256": "55ad4034eef391333b55674cae8d50e62384332bf9b0e0fa6d1a52cfc20fd206",
+      "source_commit": "ada8356"
+    },
+    "swiss_hail_published_benchmark": {
+      "path": "../severe_convective_storm_scc/severe_convective_storm/config/published_benchmark.json",
+      "sha256": "fdc52ff605b058a6dc1c7a9689ac25b3ad2739e350bf1c27098a9fae96680fdc",
+      "source_commit": "ada8356"
+    },
+    "swiss_hail_readiness": {
+      "path": "../severe_convective_storm_scc/severe_convective_storm/results/readiness.json",
+      "sha256": "28123645988eb66081aded79c6926668761b2bb48466ec9413543ab62abb6bee",
+      "source_commit": "ada8356"
+    },
+    "swiss_hail_results": {
+      "path": "../severe_convective_storm_scc/severe_convective_storm/results/swiss_hail_benchmark.csv",
+      "sha256": "97bc403c87f183e2030f2015ad9adc6a7be4ead1514cb623abb2ab0213a0b4e2",
+      "source_commit": "ada8356"
+    },
     "migration_readiness": {
       "path": "../migration_scc/results/migration_readiness_result_v1.json",
       "sha256": "2918190684fee8cfb8ac6267bf8f0737bbbcc278ec54a4f7c024741a76dc5410"
@@ -477,6 +497,17 @@
       "master_total_eligible": false,
       "incompatibility_codes": ["NATURAL_CH4_BASELINE_PARTITION", "BIOGENIC_OXIDATION_ROUTING", "METHANE_TIMING", "GMST_PROXY_REVERSIBILITY", "NEGATIVE_SLOPE_TAIL", "MAGICC_VERSION_ALIGNMENT", "RECURSIVE_BASELINE_PULSE"],
       "blocker": "GIVE holds natural CH4 at 168.83862060475192 MtCH4/yr from 2015 through 2300, but its wetland share and any replacement-versus-anomaly anchor are unresolved. Biogenic methane cannot inherit fossil oxidation bookkeeping; natural-emissions timing, lagged common-draw recursion, the GMST proxy and reversibility, the 1.05% negative-slope tail, and MAGICC v7.6 versus later-source version alignment remain unvalidated. The Sloughter/MAGICC 30 +/- 13 MtCH4/yr/K slope is a candidate, not an SCC."
+    },
+    {
+      "component_id": "swiss_building_hail_scenario",
+      "sector": "severe convective storms and hail",
+      "category": "bounded_regional_benchmark",
+      "evidence_ids": ["swiss_hail_contract", "swiss_hail_published_benchmark", "swiss_hail_readiness", "swiss_hail_results"],
+      "scope": "Swiss building hail annual average loss under present 2011-2021 weather and a +3C pseudo-global-warming experiment",
+      "value_role": "original-unit fixed-exposure regional scenario benchmark; no SCC",
+      "master_total_eligible": false,
+      "incompatibility_codes": ["NO_ANNUAL_MARGINAL_PULSE", "SINGLE_CLIMATE_EXPERIMENT", "FIXED_EXPOSURE", "CURRENCY_PRICE_YEAR", "PROPERTY_OVERLAP", "NO_GLOBAL_SCALING_OR_LINEARIZATION"],
+      "blocker": "The published CHF74 million present and CHF90 million +3C building-hail AAL values imply the reported rounded +22% change under fixed exposure, not annual marginal CO2-pulse damages. Multi-GCM hazard uncertainty, evolving exposure and vulnerability, currency price year, overlap with property/flood/agriculture/transport/grid/adaptation damages, and any global scaling or per-degree linearization remain unresolved."
     }
   ],
   "outputs": {

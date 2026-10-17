@@ -46,8 +46,8 @@ def load_config(path: Path) -> dict[str, Any]:
     policy = config["aggregation_policy"]
     require(policy["headline_master_total_authorized"] is False, "headline total gate opened")
     require(policy["currently_compatible_component_sets"] == [], "unverified compatible set added")
-    require(len(config["rows"]) == 27, "expected 27 audited ledger rows")
-    require(len({row["component_id"] for row in config["rows"]}) == 27, "duplicate component ID")
+    require(len(config["rows"]) == 28, "expected 28 audited ledger rows")
+    require(len({row["component_id"] for row in config["rows"]}) == 28, "duplicate component ID")
     for row in config["rows"]:
         require(row["category"] in allowed, f"bad category: {row['component_id']}")
         require(row["master_total_eligible"] is False, f"master-total gate opened: {row['component_id']}")
@@ -427,6 +427,42 @@ def extract(component_id: str, p: dict[str, Any]) -> dict[str, Any]:
                 validation["checks"]["scc_not_authorized"] is True,
                 "wetland independent validation failed")
         return empty_result(receipt["status"])
+    if component_id == "swiss_building_hail_scenario":
+        contract = p["swiss_hail_contract"]
+        benchmark = p["swiss_hail_published_benchmark"]
+        readiness = p["swiss_hail_readiness"]
+        require(contract["scc_ready"] is False and contract["additive_to_give"] is False and
+                benchmark["scc_ready"] is False and benchmark["additive_to_give"] is False,
+                "Swiss hail SCC or additivity gate opened")
+        required_gates = {
+            "annual baseline and marginal CO2-pulse hail damage paths",
+            "validated climate-to-hail response over GIVE-relevant warming trajectories",
+            "country or grid exposure and vulnerability paths consistent with GIVE socioeconomic scenarios",
+            "pinned currency price year and conversion to GIVE consumption units",
+            "climate-model, hazard, vulnerability, and adaptation uncertainty",
+            "overlap audit against property, flooding, agriculture, transport, grid, and adaptation damages",
+        }
+        require(set(contract["required_scc_gates"]) == required_gates and
+                set(readiness["missing"]) == required_gates,
+                "Swiss hail SCC-gate inventory changed")
+        forbidden = set(contract["forbidden_transformations"])
+        require("linearize the endpoint difference per degree C" in forbidden and
+                "scale Swiss losses to Europe or the world" in forbidden and
+                "convert CHF to USD without a pinned currency price year and exchange-rate convention" in forbidden and
+                "report dollars per tonne CO2 without a marginal pulse-damage calculation" in forbidden,
+                "Swiss hail transformation prohibition missing")
+        require(benchmark["present_annual_average_loss_chf"] == 74000000 and
+                benchmark["pgw_3c_annual_average_loss_chf"] == 90000000 and
+                benchmark["published_rounded_relative_change"] == 0.22 and
+                benchmark["exposure_assumption"] == "constant building exposure between experiments" and
+                benchmark["currency_price_year"] is None,
+                "Swiss hail benchmark changed")
+        row = p["swiss_hail_results"][0]
+        require(row["present_aal_chf"] == "74000000" and row["pgw_3c_aal_chf"] == "90000000" and
+                row["published_rounded_relative_change"] == "0.22" and
+                row["scc_ready"] == "false" and row["additive_to_give"] == "false",
+                "Swiss hail result table changed")
+        return empty_result(readiness["status"])
     raise ValueError(f"no extractor for {component_id}")
 
 
@@ -460,17 +496,33 @@ def write_csv(path: Path, rows: list[dict[str, Any]]) -> None:
 
 def write_scenario_benchmarks(path: Path, payloads: dict[str, Any]) -> None:
     source = payloads["freshwater_angling_readiness"]
-    fields = ["component_id", "fishing_scope", "scenario", "value", "units", "metric", "is_scc", "additive_to_give"]
+    fields = ["component_id", "scope", "fishing_scope", "scenario", "value", "units", "metric", "is_scc", "additive_to_give"]
     rows = []
     for key, value in sorted(source["reported_five_gcm_average_million_2015usd"].items()):
         fishing_scope, scenario = key.split("|")
         rows.append({
-            "component_id": "freshwater_recreational_angling", "fishing_scope": fishing_scope,
+            "component_id": "freshwater_recreational_angling", "scope": fishing_scope,
+            "fishing_scope": fishing_scope,
             "scenario": scenario, "value": value, "units": "million 2015 USD",
             "metric": "published five-GCM average consumer-surplus scenario NPV",
             "is_scc": False, "additive_to_give": False,
         })
-    require(len(rows) == 4, "expected four freshwater angling scenario benchmarks")
+    hail = payloads["swiss_hail_published_benchmark"]
+    rows.extend([
+        {"component_id": "swiss_building_hail_scenario", "scope": hail["geography"], "fishing_scope": "",
+         "scenario": "present_weather_2011_2021", "value": hail["present_annual_average_loss_chf"],
+         "units": "CHF per year; price year unspecified", "metric": "published building hail annual average loss",
+         "is_scc": False, "additive_to_give": False},
+        {"component_id": "swiss_building_hail_scenario", "scope": hail["geography"], "fishing_scope": "",
+         "scenario": "pseudo_global_warming_plus_3C", "value": hail["pgw_3c_annual_average_loss_chf"],
+         "units": "CHF per year; price year unspecified", "metric": "published building hail annual average loss",
+         "is_scc": False, "additive_to_give": False},
+        {"component_id": "swiss_building_hail_scenario", "scope": hail["geography"], "fishing_scope": "",
+         "scenario": "published_rounded_relative_change", "value": hail["published_rounded_relative_change"],
+         "units": "fraction", "metric": "published rounded relative AAL change under fixed exposure",
+         "is_scc": False, "additive_to_give": False},
+    ])
+    require(len(rows) == 7, "expected seven non-SCC scenario benchmarks")
     path.parent.mkdir(parents=True, exist_ok=True)
     temp = path.with_suffix(path.suffix + ".partial")
     with temp.open("w", newline="", encoding="utf-8") as handle:

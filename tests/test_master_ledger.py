@@ -25,8 +25,8 @@ class MasterLedgerTests(unittest.TestCase):
         config = builder.load_config(CONFIG)
         payloads, bound = builder.load_evidence(ROOT, config)
         rows = builder.build_rows(config, payloads)
-        self.assertEqual(len(bound), 42)
-        self.assertEqual(len(rows), 27)
+        self.assertEqual(len(bound), 46)
+        self.assertEqual(len(rows), 28)
         self.assertFalse(any(row["master_total_eligible"] for row in rows))
 
     def test_independent_validation_passes(self):
@@ -180,6 +180,17 @@ class MasterLedgerTests(unittest.TestCase):
         self.assertEqual(contract["magicc_2026_benchmark"]["mean_slope_MtCH4_per_year_per_K"], 30.0)
         self.assertEqual(contract["magicc_2026_benchmark"]["slope_sd_MtCH4_per_year_per_K"], 13.0)
         self.assertFalse(contract["claim_gates"]["negative_slope_draw_treatment_prespecified"])
+
+    def test_swiss_hail_remains_original_unit_scenario_not_scc(self):
+        config = builder.load_config(CONFIG)
+        payloads, _ = builder.load_evidence(ROOT, config)
+        row = builder.extract("swiss_building_hail_scenario", payloads)
+        self.assertEqual(row["central_value"], "")
+        benchmark = payloads["swiss_hail_published_benchmark"]
+        self.assertEqual(benchmark["present_annual_average_loss_chf"], 74000000)
+        self.assertEqual(benchmark["pgw_3c_annual_average_loss_chf"], 90000000)
+        self.assertEqual(benchmark["published_rounded_relative_change"], 0.22)
+        self.assertIsNone(benchmark["currency_price_year"])
 
 
 if __name__ == "__main__":

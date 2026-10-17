@@ -42,6 +42,7 @@ EXPECTED = {
     "amazon_dieback_carbon_feedback": ("blocked_nonadditive", None),
     "global_forestry_market_welfare": ("external_sensitivity", -0.0769529710606),
     "wetland_methane_feedback": ("blocked_nonadditive", None),
+    "swiss_building_hail_scenario": ("bounded_regional_benchmark", None),
 }
 
 
@@ -73,7 +74,7 @@ def validate_rows(rows: list[dict[str, str]]) -> None:
                     f"numeric value drift: {row['component_id']}")
     require(Counter(row["category"] for row in rows) == Counter({
         "integrated_pair_tested": 2, "external_sensitivity": 5,
-        "bounded_regional_benchmark": 4, "blocked_nonadditive": 15,
+        "bounded_regional_benchmark": 5, "blocked_nonadditive": 15,
         "mutually_exclusive_comparator": 1,
     }), "category counts changed")
     macro = next(row for row in rows if row["component_id"] == "bilal_kaenzig_global_macro")
@@ -123,6 +124,13 @@ def validate_rows(rows: list[dict[str, str]]) -> None:
     }, "wetland methane incompatibility inventory changed")
     require("168.83862060475192" in wetland["blocker"] and "30 +/- 13" in wetland["blocker"],
             "wetland baseline or slope benchmark missing")
+    hail = next(row for row in rows if row["component_id"] == "swiss_building_hail_scenario")
+    require(hail["central_value"] == "" and hail["units"] == "" and hail["statistic"] == "none",
+            "Swiss scenario benchmark promoted to SCC")
+    require(set(hail["incompatibility_codes"].split("|")) == {
+        "NO_ANNUAL_MARGINAL_PULSE", "SINGLE_CLIMATE_EXPERIMENT", "FIXED_EXPOSURE",
+        "CURRENCY_PRICE_YEAR", "PROPERTY_OVERLAP", "NO_GLOBAL_SCALING_OR_LINEARIZATION",
+    }, "Swiss hail incompatibility inventory changed")
 
 
 def validate(root: Path, config_path: Path, receipt_path: Path) -> dict[str, Any]:
@@ -151,7 +159,7 @@ def validate(root: Path, config_path: Path, receipt_path: Path) -> dict[str, Any
     require(receipt["config"]["sha256"] == sha256(config_path), "config hash mismatch")
     require(receipt["headline_master_total"] is None, "headline total invented")
     require(receipt["headline_master_total_authorized"] is False, "headline total authorized")
-    require(receipt["numeric_row_count"] == 16 and receipt["row_count"] == 27, "receipt counts changed")
+    require(receipt["numeric_row_count"] == 16 and receipt["row_count"] == 28, "receipt counts changed")
 
     ledger = root / receipt["output"]["path"]
     require(sha256(ledger) == receipt["output"]["sha256"], "ledger hash mismatch")
@@ -167,25 +175,38 @@ def validate(root: Path, config_path: Path, receipt_path: Path) -> dict[str, Any
             "scenario benchmark promoted to additive")
     with scenario_path.open(newline="", encoding="utf-8") as handle:
         scenario_rows = list(csv.DictReader(handle))
-    expected_scenarios = {
+    expected_freshwater_scenarios = {
         ("all_fishing", "RCP4.5"): -38000.0,
         ("all_fishing", "RCP8.5"): -45000.0,
         ("coldwater_fishing", "RCP4.5"): -93000.0,
         ("coldwater_fishing", "RCP8.5"): -100000.0,
     }
-    require(len(scenario_rows) == 4, "scenario benchmark row count changed")
-    for row in scenario_rows:
+    require(len(scenario_rows) == 7, "scenario benchmark row count changed")
+    freshwater_rows = [row for row in scenario_rows if row["component_id"] == "freshwater_recreational_angling"]
+    require(len(freshwater_rows) == 4, "freshwater scenario benchmark row count changed")
+    for row in freshwater_rows:
         key = (row["fishing_scope"], row["scenario"])
-        require(key in expected_scenarios and float(row["value"]) == expected_scenarios[key],
+        require(key in expected_freshwater_scenarios and float(row["value"]) == expected_freshwater_scenarios[key],
                 "freshwater scenario value changed")
         require(row["units"] == "million 2015 USD", "freshwater scenario units changed")
         require(row["is_scc"] == "false" and row["additive_to_give"] == "false",
                 "freshwater scenario promoted")
+    hail_rows = [row for row in scenario_rows if row["component_id"] == "swiss_building_hail_scenario"]
+    require(len(hail_rows) == 3, "Swiss hail scenario row count changed")
+    expected_hail = {"present_weather_2011_2021": (74000000.0, "CHF per year; price year unspecified"),
+                     "pseudo_global_warming_plus_3C": (90000000.0, "CHF per year; price year unspecified"),
+                     "published_rounded_relative_change": (0.22, "fraction")}
+    for row in hail_rows:
+        require(row["scenario"] in expected_hail and
+                float(row["value"]) == expected_hail[row["scenario"]][0] and
+                row["units"] == expected_hail[row["scenario"]][1], "Swiss hail scenario changed")
+        require(row["is_scc"] == "false" and row["additive_to_give"] == "false",
+                "Swiss hail scenario promoted")
 
     overlap_path = root / config["outputs"]["overlap_matrix"]
     with overlap_path.open(newline="", encoding="utf-8") as handle:
         overlap = list(csv.DictReader(handle))
-    require(len(overlap) == 45, "overlap matrix row count changed")
+    require(len(overlap) == 49, "overlap matrix row count changed")
     require(all(row["status"] and row["decision_rule"] for row in overlap), "incomplete overlap row")
     require(any(row["status"] == "umbrella_macro_overlap" for row in overlap), "macro-overlap gate missing")
     require(any(row["status"] == "mutually_exclusive_target_contracts" for row in overlap),
@@ -213,11 +234,13 @@ def validate(root: Path, config_path: Path, receipt_path: Path) -> dict[str, Any
         "unresolved_baseline_partition", "shared_biogenic_methane_interface",
         "unresolved_oxidation_and_timing_boundary",
     }, "wetland methane overlap rule changed")
+    hail_overlap = [row for row in overlap if row["component_a"] == "swiss_building_hail_scenario"]
+    require(len(hail_overlap) == 4, "Swiss hail overlap inventory changed")
 
     priority_path = root / config["outputs"]["priorities"]
     with priority_path.open(newline="", encoding="utf-8") as handle:
         priorities = list(csv.DictReader(handle))
-    require([int(row["priority"]) for row in priorities] == list(range(1, 20)), "priority order changed")
+    require([int(row["priority"]) for row in priorities] == list(range(1, 21)), "priority order changed")
     require(priorities[0]["workstream"] == "Joint target model and endpoint registry",
             "joint target no longer first priority")
 
@@ -232,11 +255,11 @@ def validate(root: Path, config_path: Path, receipt_path: Path) -> dict[str, Any
         "schema": "give_damage_expansion_master_ledger_validation/v1",
         "created_at_utc": datetime.now(timezone.utc).isoformat(),
         "status": "passed_hash_bound_tiered_ledger_and_no_sum_gate",
-        "checks_passed": 269,
-        "rows_validated": 27,
-        "scenario_benchmark_rows_validated": 4,
-        "overlap_rows_validated": 45,
-        "priority_rows_validated": 19,
+        "checks_passed": 297,
+        "rows_validated": 28,
+        "scenario_benchmark_rows_validated": 7,
+        "overlap_rows_validated": 49,
+        "priority_rows_validated": 20,
         "headline_master_total_authorized": False,
         "inputs": {
             "config_sha256": sha256(config_path), "receipt_sha256": sha256(receipt_path),

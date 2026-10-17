@@ -163,6 +163,30 @@
       "path": "../air_pollution_scc/data/provenance/wildfire_smoke_integration_contract_v1.json",
       "sha256": "9027d17499e0fcb7bfb6d9cdfa5476568f7d40d809c2e4b43b71c193c964c624"
     },
+    "swiss_hail_contract": {
+      "bytes": 1514,
+      "path": "../severe_convective_storm_scc/severe_convective_storm/contracts/hail_property_contract.json",
+      "sha256": "55ad4034eef391333b55674cae8d50e62384332bf9b0e0fa6d1a52cfc20fd206",
+      "source_commit": "ada8356"
+    },
+    "swiss_hail_published_benchmark": {
+      "bytes": 1054,
+      "path": "../severe_convective_storm_scc/severe_convective_storm/config/published_benchmark.json",
+      "sha256": "fdc52ff605b058a6dc1c7a9689ac25b3ad2739e350bf1c27098a9fae96680fdc",
+      "source_commit": "ada8356"
+    },
+    "swiss_hail_readiness": {
+      "bytes": 803,
+      "path": "../severe_convective_storm_scc/severe_convective_storm/results/readiness.json",
+      "sha256": "28123645988eb66081aded79c6926668761b2bb48466ec9413543ab62abb6bee",
+      "source_commit": "ada8356"
+    },
+    "swiss_hail_results": {
+      "bytes": 347,
+      "path": "../severe_convective_storm_scc/severe_convective_storm/results/swiss_hail_benchmark.csv",
+      "sha256": "97bc403c87f183e2030f2015ad9adc6a7be4ead1514cb623abb2ab0213a0b4e2",
+      "source_commit": "ada8356"
+    },
     "transport_receipt": {
       "bytes": 2816,
       "path": "../fredi_scc/provenance/fredi_transport_conus_partial_scc_receipt_v1.json",
@@ -225,31 +249,31 @@
   },
   "category_counts": {
     "blocked_nonadditive": 15,
-    "bounded_regional_benchmark": 4,
+    "bounded_regional_benchmark": 5,
     "external_sensitivity": 5,
     "integrated_pair_tested": 2,
     "mutually_exclusive_comparator": 1
   },
   "config": {
     "path": "config/master_ledger_v1.json",
-    "sha256": "37054673e7b47fb79fc0ac60b3d7782d4f52dfe4cd6407410394176c1b097722"
+    "sha256": "0aae528a14a42184b799e7555edd7b32438e750b18f71727ddf52e49a34f47e4"
   },
-  "created_at_utc": "2026-10-17T15:12:57.289373+00:00",
+  "created_at_utc": "2026-10-17T15:15:39.686211+00:00",
   "headline_master_total": null,
   "headline_master_total_authorized": false,
   "numeric_row_count": 16,
   "output": {
-    "bytes": 15391,
+    "bytes": 16352,
     "path": "data/derived/master_damage_sector_ledger_v1.csv",
-    "sha256": "305164387efbb6b0bc3e9bd29546b911d3b239d00d71f9e810edd11e52770601"
+    "sha256": "126fa2d06c51a743691bc952a66e112caf531f0ff6ad1bc48e8c61728bcf8557"
   },
-  "row_count": 27,
+  "row_count": 28,
   "scenario_benchmark_output": {
     "additive_to_give": false,
-    "bytes": 676,
+    "bytes": 1286,
     "is_scc": false,
     "path": "data/derived/non_scc_scenario_benchmarks_v1.csv",
-    "sha256": "98fa2cd68c5664beecf4f5acfc9e7257075013a3fdbbc1664350b7bca3b94d7b"
+    "sha256": "aebe7dc5e731593844232ab8b2bbaf6df04ad09d75ba652cc84b94af00bca58d"
   },
   "schema": "give_damage_expansion_master_ledger_receipt/v1",
   "status": "master_ledger_built_no_cross_sector_total_authorized"

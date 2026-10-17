@@ -30,4 +30,6 @@ Forestry's reproduced -$0.076953/tCO2 legacy benefit is useful for scale and sig
 
 Wetland methane has a short reduced-form path but a hard accounting boundary. GIVE's fixed natural baseline must be partitioned or anomaly-anchored, oxidation must retain biogenic source identity, and the dynamic natural-emissions timestep must be validated. The GMST proxy, post-2100 reversibility, 1.05% negative slope tail, MAGICC v7.6/current-source mismatch, and common-draw recursive pulse experiment all remain explicit gates.
 
+Severe convective storm and hail damage has a separable Swiss building benchmark but no marginal pulse. The CHF74 million present and CHF90 million +3C annual-average-loss values use fixed exposure, one climate experiment, and an unspecified currency price year. A production path needs annual multi-GCM hazard, evolving exposure and vulnerability, currency harmonization, and a property/peril registry; global scaling and per-degree linearization are prohibited shortcuts.
+
 Priority reflects expected scientific value times readiness, with overlap risk and required computation treated as costs. It is not a ranking of true damage magnitudes.

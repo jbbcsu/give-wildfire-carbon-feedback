@@ -70,6 +70,7 @@ Explain human decisions that remain essential: endpoint ownership, acceptable we
 - CONUS riverine-flood property damage.
 - CONUS freshwater recreation willingness to pay.
 - CONUS temperature-related crime.
+- Swiss building hail annual-average-loss scenarios under present weather and one +3C pseudo-global-warming experiment, retained in CHF with no SCC conversion.
 - Treat model-surface ranges as structural variation, not sampling confidence intervals.
 
 ### 5.4 Blocked and negative results
@@ -80,6 +81,7 @@ Explain human decisions that remain essential: endpoint ownership, acceptable we
 - For Amazon dieback, distinguish explicit forest-stock loss from FaIR's generic land sink and baseline land-use emissions. The META GMST-only hazard omits important interacting drivers, and the released noninteger-duration rule can overshoot its stock even though the audited correction conserves it. Historical conditioning and common-random baseline/pulse recursion remain gates. Neither META's 0.1% result nor a combined EPA uplift transfers as a GIVE scalar.
 - For forestry markets, report the negative sign as a legacy market benefit, not a negative physical damage claim. Keep the coefficient documentation/code conflict, old ecological and market calibration, FUND/GIVE scenario mismatch, and fire/pest/storm/carbon overlap visible; the result is not additive.
 - For wetland methane, report GIVE's constant natural baseline and the published 30 +/- 13 MtCH4/yr/K MAGICC slope only as interface evidence. A valid feedback must partition or anomaly-anchor the baseline, route biogenic oxidation without fossil CO2, resolve natural-emissions timing, bound the GMST proxy and reversibility, prespecify the negative tail, align MAGICC versions, and use common-draw recursive baseline/pulse runs.
+- For Swiss hail, report CHF74 million present and CHF90 million at +3C with the source's rounded +22% change and fixed exposure. Do not linearize per degree, scale geographically, convert currency without a price year, or call the scenario contrast an SCC.
 
 ### 5.5 Mutually exclusive top-down comparator
 
