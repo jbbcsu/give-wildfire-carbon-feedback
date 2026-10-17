@@ -1,0 +1,33 @@
+{
+  "schema": "labor_fasttrack_release_contract/v1",
+  "article_doi": "10.1038/s41558-026-02749-z",
+  "source_archive_doi": "10.5281/zenodo.21483095",
+  "currency": "2020 USD per metric ton CO2",
+  "pulse_year": 2025,
+  "discount_rate_label": "2.0%",
+  "socioeconomics": "RFF-SP",
+  "draws_per_structural_case": 10000,
+  "structural_weights": {
+    "ISO": 0.5,
+    "LANCET": 0.5
+  },
+  "receipts": {
+    "ISO": {
+      "path": "data/provenance/labor_ag_sectoral_scc_n10000_iso_20261011.json",
+      "sha256": "6641a397ff9f18231a720c8f5a2a0f39ca6aa49198db94053acdb2b1a4539fe9"
+    },
+    "LANCET": {
+      "path": "data/provenance/labor_ag_sectoral_scc_n10000_lancet_20261010.json",
+      "sha256": "cd6b8f958a702805a8db12f941579f313045e573efd3924568390dc94c4542fd"
+    }
+  },
+  "accounting_rules": {
+    "labor_disposition": "candidate_addition",
+    "require_target_has_no_active_labor_sector": true,
+    "allow_mean_addition_under_matched_scc_contract": true,
+    "allow_cross_function_quantile_pooling": false,
+    "allow_cross_function_standard_error_pooling": false,
+    "include_updated_agriculture": false,
+    "include_source_total": false
+  }
+}

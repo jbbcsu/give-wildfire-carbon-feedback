@@ -1,0 +1,55 @@
+{
+  "claim_boundary": "Published-function replication and matched-contract partial-SCC transfer; not a new causal estimate and not a pooled uncertainty distribution.",
+  "created_at_utc": "2026-10-17T13:49:20.520683+00:00",
+  "estimate": {
+    "cases": {
+      "ISO": {
+        "expected_scc_2020usd_per_tco2": 51.86467799826219,
+        "median_within_case": 42.151437624233225,
+        "monte_carlo_se_of_mean": 0.44415976390848527,
+        "q05_within_case": 1.042064811275526,
+        "q95_within_case": 133.88272968223436,
+        "weight": 0.5
+      },
+      "LANCET": {
+        "expected_scc_2020usd_per_tco2": 29.2638359626996,
+        "median_within_case": 25.005602136853895,
+        "monte_carlo_se_of_mean": 0.22662953121030072,
+        "q05_within_case": 0.18748949418147723,
+        "q95_within_case": 70.78419469556248,
+        "weight": 0.5
+      }
+    },
+    "central_equal_weight_mean_2020usd_per_tco2": 40.56425698048089,
+    "pooled_quantiles": null,
+    "pooled_standard_error": null,
+    "structural_case_mean_range_2020usd_per_tco2": [
+      29.2638359626996,
+      51.86467799826219
+    ]
+  },
+  "integration": {
+    "forbidden": [
+      "adding the source total SCC",
+      "adding the source updated-agriculture result as part of this labor release",
+      "averaging ISO and Lancet quantiles or standard errors",
+      "claiming a joint combined uncertainty distribution from summary statistics"
+    ],
+    "operation": "add labor partial SCC mean to a target GIVE expected SCC only when pulse year, discounting, currency, and RFF-SP setup match",
+    "precondition": "target model has no active labor-productivity damage sector"
+  },
+  "provenance": {
+    "article_doi": "10.1038/s41558-026-02749-z",
+    "config_path": "config/labor_fasttrack_release_v1.json",
+    "config_sha256": "0582b62ad29278a6413cc5f4355144c346f28e3046a5d2e72aaf09ae3d31094d",
+    "draws_per_case": 10000,
+    "receipt_sha256": {
+      "ISO": "6641a397ff9f18231a720c8f5a2a0f39ca6aa49198db94053acdb2b1a4539fe9",
+      "LANCET": "cd6b8f958a702805a8db12f941579f313045e573efd3924568390dc94c4542fd"
+    },
+    "source_archive_doi": "10.5281/zenodo.21483095"
+  },
+  "schema": "labor_fasttrack_release/v1",
+  "sector": "heat-related labor productivity",
+  "status": "labor_partial_scc_ready_for_matched-contract_mean transfer"
+}

@@ -17,6 +17,16 @@ The exact archived source is retained under `vendor/moore_2026/`; new work must
 not edit files there. Reproduction wrappers and receipts belong in `scripts/`,
 `data/provenance/`, and `output/`.
 
+## Current labor result
+
+Both 10,000-draw structural cases have been reproduced. The labor-only
+fast-track release is documented in `LABOR_FASTTRACK_RELEASE.md`: the
+equal-weight mean of the Lancet and ISO case means is **$40.5643/tCO2** in 2020
+USD, with structural case means of $29.2638 and $51.8647/tCO2. This partial SCC
+is eligible for matched-contract mean transfer after confirming that the target
+GIVE run has no active labor-productivity sector. Cross-function quantiles and
+standard errors are intentionally not pooled.
+
 ## Reproduction environment
 
 - Julia 1.12.5 (the version named by the authors)
