@@ -1,0 +1,29 @@
+{
+  "schema": "terrestrial_ecosystem_source_manifest/v1",
+  "fredi": {
+    "repository": "https://github.com/USEPA/FrEDI",
+    "tag": "v4.1.1",
+    "commit": "08ead1b64821acd0ff0ee95fdf662a1a73f242e1",
+    "license": "CC0-1.0",
+    "runtime_path": "data/raw/fredi_sysdata_v4_1_1.rda",
+    "runtime_sha256": "827a728615fcf9418fd101cf9eba007c15157520ade9763a4ef1ae9b55fbbce9",
+    "license_path": "data/source/FREDI_LICENSE",
+    "license_sha256": "0d315a8ca105162bc23dfbb632304d7e7bf44e8de836834e9fa3749f5cb0f3a9"
+  },
+  "technical_documentation": {
+    "citation": "U.S. EPA (2024), Technical Documentation for the Framework for Evaluating Damages and Impacts, EPA 430-R-24-001",
+    "url": "https://19january2025snapshot.epa.gov/system/files/documents/2024-08/technical-documentation-for-fredi_aug2024.pdf",
+    "sha256": "00a6c731c42a573019e2fbd9ed4c0bb61743deb48dce8125cccdbd852dd6c4a9"
+  },
+  "primary_study": {
+    "citation": "Fant et al. (2017), Climate Change Impacts on US Water Quality Using Two Models: HAWQS and US Basins, Water 9(2):118",
+    "doi": "10.3390/w9020118",
+    "url": "https://www.mdpi.com/2073-4441/9/2/118"
+  },
+  "give_pair": {
+    "path": "data/interim/give_matched_temperature_pair_20261017.csv",
+    "sha256": "0e0a7a4e430b5dc7675d8d211f57abbddd0c8012e0535a595b86a3482f7f9e4e",
+    "description": "Matched GIVE baseline and 2025 0.0001 GtC pulse temperature and Ramsey discount paths; copied as an immutable input, not referenced across projects."
+  }
+}
+
