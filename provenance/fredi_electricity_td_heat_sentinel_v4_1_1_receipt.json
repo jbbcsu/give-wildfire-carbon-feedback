@@ -14,7 +14,7 @@
   },
   "config": {
     "path": "config/fredi_electricity_heat_v4_1_1.json",
-    "sha256": "363a63b635a82600043ddaafc0c105df0e9fc11e32538aec35a815fbd1bc545e"
+    "sha256": "761340d2ff3ce60997ca1e042ed2cf3e566b52db2f57bdc2636ddb844a57674b"
   },
   "diagnostics": {
     "audited_excluded_sectors": [
@@ -49,9 +49,9 @@
     ]
   },
   "execution_code": {
-    "scripts/fredi_electricity_heat_common.py": "206527f1b57fd6a69eab7cb411ca07c5e5d69fea30b3d0f6a566c4386d8a0c1e",
-    "scripts/run_fredi_electricity_td_heat_sentinel.py": "0368e656e9c3d423a2a2caafafd4fc6c6af8546fc826da39958e750713a79de8",
-    "scripts/validate_fredi_electricity_td_heat_sentinel.py": "7f8c2efc72f941614c9f09a9d3ca2e3da32b03152b50d49ec8c9015742df5d4e"
+    "scripts/fredi_electricity_heat_common.py": "41f6453d80e92fddd11f0e52d0572fe3c8ab6fdc188711a29363222c44d01b3f",
+    "scripts/run_fredi_electricity_td_heat_sentinel.py": "a54f956a6713ee4f4b9cdce0577ef3f8f5666f2a9e982201a0dcd6d7fa9c0f46",
+    "scripts/validate_fredi_electricity_td_heat_sentinel.py": "ad32f0d45ecf9918185b175b45df69d50e0c513e09ab7436fd0c0b83f85dc304"
   },
   "formula": "state ElecTD response linearly interpolated at 1.5 C, multiplied by exact 2020 state elecTD_growthFactor, then summed across 48 contiguous states plus DC; no GCM averaging",
   "output": {
@@ -59,12 +59,12 @@
     "rows": 18,
     "sha256": "b9fc0aa94c81f318be513125bab3d9cf611e889f2b2832e348763981a2920c02"
   },
-  "peak_rss_mib_internal": 23.188,
-  "run_date": "2026-10-14",
+  "peak_rss_mib_internal": 24.734,
+  "run_date": "2026-10-17",
   "schema_version": "1.0.0",
   "source_manifest": {
     "path": "provenance/fredi_source_manifest_v4_1_1.json",
-    "sha256": "e86bc9c9998f8e91cf5a4ad5cd63a79d8d20420aaff770b0c11f34e484d27623"
+    "sha256": "af76d1caa96c7842c2dc5ed64775b9abb04d80a965f9e115261852f487add420"
   },
   "units": {
     "annual_impact": "2015 USD per year",

@@ -33,3 +33,14 @@ python3 -m unittest discover -s tests -v
 The acquisition command verifies local files by default and performs no network access. Reacquisition requires the explicit `--download-missing` flag and uses commit-pinned official EPA GitHub URLs.
 
 See `docs/FREDI_TRANSPORT_HEAT_GATE.md` and `docs/FREDI_ELECTRICITY_HEAT_GATE.md` for source audits, units, endpoint blockers, and fail-closed routes to matched GIVE pulse runs. Both outputs are implementation sentinels, not policy scenarios or SCC estimates.
+
+## Matched-pulse transport track
+
+Heat-driven road and rail infrastructure is now the selected next uncovered
+sector. The exact public runtime target, primary Reactive variant, official
+1.421 global-to-CONUS temperature conversion, six GCM surfaces, 49 state/DC
+units, and annual scalar support through 2300 are validated and hash-bound.
+See `TRANSPORT_SECTOR_SELECTION_AND_TARGET_20261017.md`. The matched GIVE
+temperature pair now passes; price conversion, annual damage pairing, pulse
+normalization, and the partial-SCC gate remain closed until their executable
+validations pass.

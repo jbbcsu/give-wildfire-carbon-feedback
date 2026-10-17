@@ -1,0 +1,150 @@
+{
+  "claim_gates": {
+    "common_gcm_temperature_support_verified": false,
+    "conus_partial_scc_authorized": false,
+    "discount_and_pulse_normalization_validated": false,
+    "global_extrapolation_authorized": false,
+    "matched_annual_damage_pair_validated": false,
+    "matched_give_temperature_pair_built": true,
+    "official_response_and_runtime_provenance_verified": true,
+    "price_year_conversion_pinned": false
+  },
+  "created_at_utc": "2026-10-17T14:19:50.166451+00:00",
+  "next_actions": [
+    "build matched GIVE baseline/pulse GMST and consumption path",
+    "apply the official 1.421 CONUS conversion relative to 1995",
+    "evaluate paired annual Reactive Roads and Rail damages on common model support",
+    "pin 2015-to-2020 USD conversion",
+    "validate Ramsey discounting and pulse normalization"
+  ],
+  "runtime": {
+    "impact_types": "NA",
+    "models": [
+      "CanESM2",
+      "CCSM4",
+      "GFDL-CM3",
+      "GISS-E2-R",
+      "HadGEM2-ES",
+      "MIROC5"
+    ],
+    "primary_rows": [
+      {
+        "byState": 1,
+        "impactType": "NA",
+        "includeaggregate": 0,
+        "modelType": "gcm",
+        "sector": "Rail",
+        "sectorprimary": 0,
+        "variant": "NoAdapt"
+      },
+      {
+        "byState": 1,
+        "impactType": "NA",
+        "includeaggregate": 0,
+        "modelType": "gcm",
+        "sector": "Rail",
+        "sectorprimary": 0,
+        "variant": "Proactive"
+      },
+      {
+        "byState": 1,
+        "impactType": "NA",
+        "includeaggregate": 1,
+        "modelType": "gcm",
+        "sector": "Rail",
+        "sectorprimary": 1,
+        "variant": "Reactive"
+      },
+      {
+        "byState": 1,
+        "impactType": "NA",
+        "includeaggregate": 0,
+        "modelType": "gcm",
+        "sector": "Roads",
+        "sectorprimary": 0,
+        "variant": "NoAdapt"
+      },
+      {
+        "byState": 1,
+        "impactType": "NA",
+        "includeaggregate": 0,
+        "modelType": "gcm",
+        "sector": "Roads",
+        "sectorprimary": 0,
+        "variant": "Proactive"
+      },
+      {
+        "byState": 1,
+        "impactType": "NA",
+        "includeaggregate": 1,
+        "modelType": "gcm",
+        "sector": "Roads",
+        "sectorprimary": 1,
+        "variant": "Reactive"
+      }
+    ],
+    "scalar_support": [
+      {
+        "scalarName": "rail_growth_factor",
+        "year": [
+          2010,
+          2300
+        ]
+      },
+      {
+        "scalarName": "rail_miles",
+        "year": [
+          2010,
+          2300
+        ]
+      },
+      {
+        "scalarName": "road_miles",
+        "year": [
+          2010,
+          2300
+        ]
+      },
+      {
+        "scalarName": "road_miles_and_pop_Reactive",
+        "year": [
+          2010,
+          2300
+        ]
+      }
+    ],
+    "sectors": [
+      "Rail",
+      "Roads"
+    ],
+    "states": 49,
+    "transport_scaled_rows": 9114,
+    "variants": [
+      "NoAdapt",
+      "Proactive",
+      "Reactive"
+    ]
+  },
+  "schema": "fredi_transport_matched_pulse_target_audit/v1",
+  "selected_sector": {
+    "geography": "CONUS: 48 contiguous states plus District of Columbia",
+    "global_scc_claim_allowed": false,
+    "reason": "highest-ranked uncovered executable sector in the RFF/GIVE inventory after agriculture, labor, fisheries, wildfire-carbon, and air pollution",
+    "sector": "heat-driven road and rail infrastructure"
+  },
+  "source_manifest": {
+    "path": "provenance/fredi_source_manifest_v4_1_1.json",
+    "sha256": "af76d1caa96c7842c2dc5ed64775b9abb04d80a965f9e115261852f487add420"
+  },
+  "status": "target_ready_climate_pair_and_scc_gates_closed",
+  "verified": {
+    "gcm_count": 6,
+    "official_temperature_conversion": true,
+    "primary_reactive_aggregates": [
+      "Roads",
+      "Rail"
+    ],
+    "runtime_through_2300": true,
+    "state_dc_count": 49
+  }
+}

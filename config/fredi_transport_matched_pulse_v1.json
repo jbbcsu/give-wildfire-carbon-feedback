@@ -1,0 +1,71 @@
+{
+  "schema": "fredi_transport_matched_pulse_contract/v1",
+  "selection": {
+    "sector": "heat-driven road and rail infrastructure",
+    "reason": "highest-ranked uncovered executable sector in the RFF/GIVE inventory after agriculture, labor, fisheries, wildfire-carbon, and air pollution",
+    "geography": "CONUS: 48 contiguous states plus District of Columbia",
+    "global_scc_claim_allowed": false
+  },
+  "sources": {
+    "manifest": {"path": "provenance/fredi_source_manifest_v4_1_1.json", "sha256": "af76d1caa96c7842c2dc5ed64775b9abb04d80a965f9e115261852f487add420"},
+    "fredi_commit": "08ead1b64821acd0ff0ee95fdf662a1a73f242e1",
+    "fredi_data_commit": "b506a3e0085bb446f56acc8c7076a1aea599fbb6",
+    "runtime_sysdata": "data/raw/fredi_code/FrEDI/R/sysdata.rda",
+    "temperature_conversion_source": "data/raw/fredi_code/FrEDI/R/convertTemps.R"
+  },
+  "give_target": {
+    "pulse_year": 2025,
+    "gas": "CO2",
+    "pulse_size_gtc": 0.0001,
+    "socioeconomics": "RFF-SP",
+    "last_year": 2300,
+    "price_year": 2020,
+    "discount_rate_label": "2.0%",
+    "prtp": 0.0019745879362491614,
+    "eta": 1.244458999,
+    "require_matched_base_pulse_temperature_and_consumption": true,
+    "temperature_pair": {
+      "path": "data/interim/fredi_transport_give_temperature_pair_20261017.csv",
+      "sha256": "0e0a7a4e430b5dc7675d8d211f57abbddd0c8012e0535a595b86a3482f7f9e4e",
+      "rows": 551,
+      "exporter_sha256": "9078621463f792bb8273abd703e177c90574b46476b8df0b4fb1e035ce40adb3",
+      "give_manifest_sha256": "e357bbe963593d50a70d326f55736366551a50fff5d6edb12868e730fc37dc9d"
+    }
+  },
+  "response": {
+    "primary_variant": "Reactive",
+    "sensitivity_variants": ["NoAdapt", "Proactive"],
+    "gcm_surfaces": ["CCSM4", "CanESM2", "GFDL-CM3", "GISS-E2-R", "HadGEM2-ES", "MIROC5"],
+    "global_to_conus_multiplier": 1.421,
+    "reference_year": 1995,
+    "interpolation": "piecewise linear with an explicit zero-damage point at zero warming; no extrapolation",
+    "released_aggregates": ["Roads", "Rail"],
+    "component_semantics": {
+      "Roads": "road repair plus road-user costs, inseparable in public v4.1.1",
+      "Rail": "rail replacement plus rail-delay costs, inseparable in public v4.1.1"
+    },
+    "include_each_released_aggregate_once": true
+  },
+  "overlap_exclusions": [
+    "coastal_properties",
+    "high_tide_flooding",
+    "inland_flooding",
+    "urban_drainage",
+    "building_energy",
+    "labor_heat_productivity",
+    "mortality",
+    "agriculture",
+    "wildfire",
+    "air_pollution"
+  ],
+  "claim_gates": {
+    "official_response_and_runtime_provenance_verified": true,
+    "matched_give_temperature_pair_built": true,
+    "price_year_conversion_pinned": false,
+    "common_gcm_temperature_support_verified": false,
+    "matched_annual_damage_pair_validated": false,
+    "discount_and_pulse_normalization_validated": false,
+    "conus_partial_scc_authorized": false,
+    "global_extrapolation_authorized": false
+  }
+}
