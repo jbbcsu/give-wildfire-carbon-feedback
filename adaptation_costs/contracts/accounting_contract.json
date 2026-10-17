@@ -1,0 +1,27 @@
+{
+  "schema": "give_adaptation_cost_contract/v1",
+  "cost_treatments": {
+    "not_applicable_baseline": "No new adaptation action is represented; output is an unadapted or current-practice damage estimate.",
+    "explicitly_zero_unpriced": "Adaptation changes damages but its implementation cost is set to zero; net welfare and net SCC claims are blocked.",
+    "embedded_in_total": "The source total already includes relevant adaptation expenditures and residual impacts; adding a separate cost is prohibited.",
+    "explicit_modeled": "Adaptation and residual-damage components are explicitly modeled inside a total-cost decision rule.",
+    "unresolved": "Documentation does not establish cost inclusion; net claims are blocked."
+  },
+  "accounting_rules": [
+    "Never add an adaptation cost to a source total marked embedded_in_total or explicit_modeled.",
+    "Never label explicitly_zero_unpriced or unresolved scenarios as net damages or net SCC.",
+    "A cost level is not an SCC: run the same adaptation decision rule on matched baseline and marginal-emissions-pulse paths and difference annual total costs.",
+    "Do not allocate aggregate literature costs to crops, regions, years, or adaptation scenarios without a source-supported mapping.",
+    "Keep transfers, indirect user costs, physical repair costs, and welfare losses tagged separately when the source permits.",
+    "Use a common price year, currency, socioeconomic path, and discounting convention only after source-specific normalization."
+  ],
+  "required_net_scc_fields": [
+    "base_annual_total_cost_path",
+    "pulse_annual_total_cost_path",
+    "adaptation_decision_rule_held_consistent",
+    "implementation_cost_coverage_verified",
+    "currency_and_price_year",
+    "geography_and_socioeconomic_path",
+    "cross_sector_overlap_passed"
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "schema": "give_adaptation_cost_readiness/v1",
+  "ledger_rows": 14,
+  "cost_treatment_counts": {
+    "embedded_in_total": 6,
+    "explicit_modeled": 1,
+    "explicitly_zero_unpriced": 2,
+    "not_applicable_baseline": 5
+  },
+  "free_adaptation_rows": [
+    {
+      "sector": "agriculture",
+      "model": "precipitation replacement",
+      "scenario": "trend"
+    },
+    {
+      "sector": "agriculture",
+      "model": "precipitation replacement",
+      "scenario": "upper"
+    }
+  ],
+  "cost_inclusive_rows": [
+    {
+      "sector": "transport",
+      "model": "FrEDI Roads",
+      "scenario": "Reactive"
+    },
+    {
+      "sector": "transport",
+      "model": "FrEDI Roads",
+      "scenario": "Proactive"
+    },
+    {
+      "sector": "transport",
+      "model": "FrEDI Rail",
+      "scenario": "Reactive"
+    },
+    {
+      "sector": "transport",
+      "model": "FrEDI Rail",
+      "scenario": "Proactive"
+    },
+    {
+      "sector": "electricity",
+      "model": "FrEDI ElecTD",
+      "scenario": "Reactive"
+    },
+    {
+      "sector": "electricity",
+      "model": "FrEDI ElecTD",
+      "scenario": "Proactive"
+    },
+    {
+      "sector": "coastal",
+      "model": "GIVE CIAM",
+      "scenario": "Optimized protection-retreat-no-adapt"
+    }
+  ],
+  "agriculture_net_adaptation_scc_status": "BLOCKED",
+  "reason": "Trend and upper agriculture scenarios attenuate impacts while setting adaptation costs to zero.",
+  "frEDI_adjustment": "ZERO_ADDITIONAL_CHARGE: source totals already include specified adaptation expenditures.",
+  "coastal_adjustment": "ZERO_ADDITIONAL_CHARGE: CIAM OptimalCost already contains adaptation and residual costs.",
+  "bounded_benchmark_is_not_allocated": true
+}
