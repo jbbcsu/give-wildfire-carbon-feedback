@@ -1,0 +1,297 @@
+{
+  "schema": "give_damage_expansion_master_ledger_config/v1",
+  "purpose": "Hash-bound synthesis of isolated GIVE damage-sector outputs without treating unlike or overlapping estimates as an additive total",
+  "allowed_categories": [
+    "integrated_pair_tested",
+    "external_sensitivity",
+    "bounded_regional_benchmark",
+    "blocked_nonadditive"
+  ],
+  "aggregation_policy": {
+    "headline_master_total_authorized": false,
+    "nonadditive_categories": [
+      "external_sensitivity",
+      "bounded_regional_benchmark",
+      "blocked_nonadditive"
+    ],
+    "integrated_rows_require_pairwise_compatibility_before_sum": true,
+    "currently_compatible_component_sets": [],
+    "reason": "The two pair-tested rows use incompatible agriculture target contracts, while every other numeric result is external, regional, or explicitly nonadditive."
+  },
+  "evidence": {
+    "precip_coefficient_grid": {
+      "path": "../precipitation_scc/data/provenance/quantity_coefficient_delta_uncertainty_grid_20260925.json",
+      "sha256": "797ad9fd227d396a50157fbae39613d4aab48eae94fe4a4d6150532aaa3dc7b1"
+    },
+    "precip_release_validation": {
+      "path": "../precipitation_scc/data/provenance/preliminary_scc_release_validation_20261009.json",
+      "sha256": "652b5697490cbe1745223943318ae1a40f35ff8008da5636b0921c6bbdd2a4f9"
+    },
+    "labor_integration": {
+      "path": "../labor_productivity_scc/data/provenance/labor_give_integration_20261017.json",
+      "sha256": "e8d4f9a09d8f4973482c59157f29181dbdf8a078d509a670f93758a01067e6a0"
+    },
+    "fisheries_market_target": {
+      "path": "../ocean_fisheries_scc/data/provenance/fisheries_market_give_target_20261017.json",
+      "sha256": "9455fd12e3ce6999ec9203689c186e4e389e6efb26874efa1fdd282935af87f2"
+    },
+    "fisheries_combined_benchmark": {
+      "path": "../ocean_fisheries_scc/data/provenance/blue_scc_fisheries_mc_benchmark_20261017.json",
+      "sha256": "dd0d8255eea7a164b753d8b043cae100d6be2450a3693e0da6393f0da62b5ff3"
+    },
+    "smoke_contract": {
+      "path": "../air_pollution_scc/data/provenance/wildfire_smoke_integration_contract_v1.json",
+      "sha256": "9027d17499e0fcb7bfb6d9cdfa5476568f7d40d809c2e4b43b71c193c964c624"
+    },
+    "air_target_receipt": {
+      "path": "../air_pollution_scc/data/provenance/air_pollution_target_interface_v1.json",
+      "sha256": "fd86b4cf7a1bd72a73c5fbf5d428d6fe84a0b15eed2d870cd578b2fa2fba60fd"
+    },
+    "air_target_table": {
+      "path": "../air_pollution_scc/data/derived/air_pollution_target_interface_v1.csv",
+      "sha256": "8743c6de4ecc0811da961ac5b99c6f288b826e9263d53b5dc618f0d1beec707c"
+    },
+    "water_validation": {
+      "path": "../municipal_water_scc/data/provenance/mimifund_aggregate_water_validation_20261017.json",
+      "sha256": "cc4a800643b33e596d3c4827ecde0227eed0a98a8eea0a73e4b5007e37847e9e"
+    },
+    "transport_receipt": {
+      "path": "../fredi_scc/provenance/fredi_transport_conus_partial_scc_receipt_v1.json",
+      "sha256": "9351390b44383fbc6df0296a6c51144a96e0c85a93b4a4a532d3dcad4d63e54f"
+    },
+    "transport_summary": {
+      "path": "../fredi_scc/results/fredi_transport_conus_partial_scc_summary_v1.csv",
+      "sha256": "76636839032caaee64550b8212de4418b95bcac8602f7df3e2107a7848fc550f"
+    },
+    "electricity_receipt": {
+      "path": "../fredi_scc/provenance/fredi_electricity_td_heat_sentinel_v4_1_1_receipt.json",
+      "sha256": "9c1af8b8a52ff013402cea09fe20f35febe1f90b20ca33efa2bc71dcbade9df3"
+    },
+    "flood_receipt": {
+      "path": "../inland_flood_scc/provenance/inland_flood_partial_scc_receipt_v1.json",
+      "sha256": "f2f66932a7fb7c4b87c6bb400428668bbea3544d4c2fb022462a60e8ae80c16b"
+    },
+    "flood_summary": {
+      "path": "../inland_flood_scc/results/inland_flood_partial_scc_summary_v1.csv",
+      "sha256": "cbbee59781c56a022aa6dbaabd5664cad8c33d5597bef435cdc699f5116326dd"
+    },
+    "water_quality_receipt": {
+      "path": "../terrestrial_ecosystem_scc/provenance/water_quality_conus_partial_scc_receipt_v1.json",
+      "sha256": "d0cce11a94091a74facff75c640c9a2fa5fec74409453cee7013689da8405322"
+    },
+    "water_quality_summary": {
+      "path": "../terrestrial_ecosystem_scc/results/water_quality_conus_partial_scc_summary_v1.csv",
+      "sha256": "e5c4a80cd8f904e9279b7f7362d5cbde80e142131423d4da9fa372b81ed0ae57"
+    },
+    "crime_receipt": {
+      "path": "../conflict_crime_scc/provenance/crime_partial_scc_receipt_v1.json",
+      "sha256": "bb26743bf1b27b4b32f7c3b24f8129df27cd06acd5040bbd64b6f8ef5fdcb661"
+    },
+    "crime_summary": {
+      "path": "../conflict_crime_scc/results/crime_partial_scc_summary_v1.csv",
+      "sha256": "757db9b381305be3e0db578b6f10dd0dd14af47ee7f162496cba57d2d0efc575"
+    },
+    "cyclone_readiness": {
+      "path": "../tropical_cyclone_scc/data/provenance/tropical_cyclone_give_readiness_20261017.json",
+      "sha256": "9b0da37b909f1fc28a1d3689373f8b9d559b4026b79525f95ed22dda17877e08"
+    },
+    "disease_readiness": {
+      "path": "../infectious_disease_scc/results/readiness_receipt_v1.json",
+      "sha256": "5b1f98d6bbe31e546029d3be927f1489ebc3c2ff10d5eb68f7d77b2854cbcc68"
+    },
+    "migration_readiness": {
+      "path": "../migration_scc/results/migration_readiness_result_v1.json",
+      "sha256": "2918190684fee8cfb8ac6267bf8f0737bbbcc278ec54a4f7c024741a76dc5410"
+    }
+  },
+  "rows": [
+    {
+      "component_id": "precip_maize_quantity",
+      "sector": "agriculture precipitation",
+      "category": "integrated_pair_tested",
+      "evidence_ids": ["precip_coefficient_grid", "precip_release_validation"],
+      "scope": "global annual-maize rainfall quantity only",
+      "value_role": "paired narrow mechanism",
+      "master_total_eligible": false,
+      "blocker": "Not a total precipitation-agriculture sector; timing, drought, extremes, other crops, irrigation, and compatibility with the updated agriculture target remain unresolved."
+    },
+    {
+      "component_id": "precip_full_replacement",
+      "sector": "agriculture precipitation",
+      "category": "blocked_nonadditive",
+      "evidence_ids": ["precip_release_validation"],
+      "scope": "global multi-crop drought, timing, extremes, and irrigation",
+      "value_role": "unfinished replacement target",
+      "master_total_eligible": false,
+      "blocker": "The source release explicitly keeps the full precipitation-agriculture SCC gate closed."
+    },
+    {
+      "component_id": "labor_heat_productivity",
+      "sector": "labor productivity",
+      "category": "integrated_pair_tested",
+      "evidence_ids": ["labor_integration"],
+      "scope": "global published updated-agriculture GIVE target",
+      "value_role": "validated same-run additive contribution within its target",
+      "master_total_eligible": false,
+      "blocker": "Cross-function uncertainty is case-specific, and the receipt prohibits stacking the precipitation-agriculture result onto this target."
+    },
+    {
+      "component_id": "fisheries_market",
+      "sector": "ocean fisheries",
+      "category": "external_sensitivity",
+      "evidence_ids": ["fisheries_market_target"],
+      "scope": "global market component under Blue-SCC settings",
+      "value_role": "harmonized terminal SCC sensitivity",
+      "master_total_eligible": false,
+      "blocker": "No annual path, matched discounting, direct consumer-plus-producer surplus, or coupled GIVE draws."
+    },
+    {
+      "component_id": "fisheries_combined_market_nutrition",
+      "sector": "ocean fisheries",
+      "category": "external_sensitivity",
+      "evidence_ids": ["fisheries_combined_benchmark"],
+      "scope": "global market plus nutrition/nonmarket under Blue-SCC settings",
+      "value_role": "published-model uncertainty benchmark",
+      "master_total_eligible": false,
+      "blocker": "Nutrition mortality overlap with GIVE is unresolved and the result is not a matched GIVE pulse."
+    },
+    {
+      "component_id": "wildfire_smoke_pm25",
+      "sector": "air pollution",
+      "category": "blocked_nonadditive",
+      "evidence_ids": ["smoke_contract"],
+      "scope": "global wildfire-smoke mortality",
+      "value_role": "source-pinned scalar target",
+      "master_total_eligible": false,
+      "blocker": "No annual draw paths or local reproduction; joint PM health-function and GIVE temperature-mortality overlap gates remain closed."
+    },
+    {
+      "component_id": "nonwildfire_air_pollution_net",
+      "sector": "air pollution",
+      "category": "blocked_nonadditive",
+      "evidence_ids": ["air_target_receipt", "air_target_table"],
+      "scope": "global meteorological ozone plus nonwildfire PM2.5",
+      "value_role": "price-harmonized external net benchmark",
+      "master_total_eligible": false,
+      "blocker": "The 2030 source pulse is not harmonized to 2025; mortality overlap, annual paths, and local reproduction are unresolved."
+    },
+    {
+      "component_id": "aggregate_water_resources",
+      "sector": "municipal water and drought",
+      "category": "external_sensitivity",
+      "evidence_ids": ["water_validation"],
+      "scope": "global MimiFUND aggregate water resources",
+      "value_role": "reproduced external sensitivity",
+      "master_total_eligible": false,
+      "blocker": "Not municipal-only; hydrology, uncertainty, and overlap with agriculture and ecosystems remain unresolved."
+    },
+    {
+      "component_id": "conus_heat_roads_rail",
+      "sector": "transport infrastructure",
+      "category": "bounded_regional_benchmark",
+      "evidence_ids": ["transport_receipt", "transport_summary"],
+      "scope": "CONUS Roads plus Rail, Reactive adaptation, 2025-2092",
+      "value_role": "matched-pulse regional partial SCC",
+      "master_total_eligible": false,
+      "blocker": "CONUS-only, truncated support, and cross-sector additivity is not authorized."
+    },
+    {
+      "component_id": "conus_electricity_td",
+      "sector": "electricity infrastructure",
+      "category": "blocked_nonadditive",
+      "evidence_ids": ["electricity_receipt"],
+      "scope": "CONUS transmission and distribution interface",
+      "value_role": "deterministic implementation sentinel",
+      "master_total_eligible": false,
+      "blocker": "No matched GIVE pulse or SCC; generation/capacity is bundled with excluded demand and cannot be separated."
+    },
+    {
+      "component_id": "conus_inland_riverine_flood",
+      "sector": "inland flooding",
+      "category": "bounded_regional_benchmark",
+      "evidence_ids": ["flood_receipt", "flood_summary"],
+      "scope": "CONUS riverine flood property damage, 2025-2300",
+      "value_role": "matched-pulse regional partial SCC",
+      "master_total_eligible": false,
+      "blocker": "No global coverage; post-2246 values use official endpoint extrapolation and additivity is conditional on exclusion of coastal, transport, and drainage duplicates."
+    },
+    {
+      "component_id": "conus_freshwater_quality",
+      "sector": "terrestrial and freshwater ecosystems",
+      "category": "bounded_regional_benchmark",
+      "evidence_ids": ["water_quality_receipt", "water_quality_summary"],
+      "scope": "CONUS freshwater recreation willingness to pay, 2025-2092",
+      "value_role": "matched-pulse regional partial SCC",
+      "master_total_eligible": false,
+      "blocker": "No global coverage; freshwater fishing, biodiversity nonuse, and municipal-water overlap remain unresolved."
+    },
+    {
+      "component_id": "global_ecosystem_services",
+      "sector": "terrestrial and freshwater ecosystems",
+      "category": "blocked_nonadditive",
+      "evidence_ids": ["water_quality_receipt"],
+      "scope": "global biodiversity and ecosystem services",
+      "value_role": "unimplemented broader target",
+      "master_total_eligible": false,
+      "blocker": "The implemented evidence supports only a bounded CONUS freshwater-quality endpoint."
+    },
+    {
+      "component_id": "conus_temperature_crime",
+      "sector": "crime",
+      "category": "bounded_regional_benchmark",
+      "evidence_ids": ["crime_receipt", "crime_summary"],
+      "scope": "CONUS temperature-related property and violent crime, 2025-2300",
+      "value_role": "matched-pulse regional benchmark",
+      "master_total_eligible": false,
+      "blocker": "Released aggregate valuations cannot remove mortality, injury, labor, enforcement, indirect-cost, and transfer overlap."
+    },
+    {
+      "component_id": "organized_armed_conflict",
+      "sector": "conflict",
+      "category": "blocked_nonadditive",
+      "evidence_ids": ["crime_receipt"],
+      "scope": "global organized armed conflict",
+      "value_role": "readiness gap",
+      "master_total_eligible": false,
+      "blocker": "The audited project reports BLOCKED_NO_SCC for organized armed conflict."
+    },
+    {
+      "component_id": "tropical_cyclone_macro",
+      "sector": "tropical cyclones",
+      "category": "external_sensitivity",
+      "evidence_ids": ["cyclone_readiness"],
+      "scope": "global persistent GDP-growth response in 41 cyclone-affected countries",
+      "value_role": "difference of published medians, not paired component quantile",
+      "master_total_eligible": false,
+      "blocker": "The macro-growth endpoint can embed agriculture, labor, health, infrastructure, migration, and recovery channels already represented elsewhere."
+    },
+    {
+      "component_id": "dengue_nonfatal_morbidity",
+      "sector": "infectious disease",
+      "category": "blocked_nonadditive",
+      "evidence_ids": ["disease_readiness"],
+      "scope": "21-country dengue incidence bridge",
+      "value_role": "source-verified readiness scaffold",
+      "master_total_eligible": false,
+      "blocker": "No marginal pulse, monetization layer, global coverage, or independently validated damage path."
+    },
+    {
+      "component_id": "noncoastal_climate_migration",
+      "sector": "migration and displacement",
+      "category": "blocked_nonadditive",
+      "evidence_ids": ["migration_readiness"],
+      "scope": "global noncoastal migration",
+      "value_role": "screened readiness gap",
+      "master_total_eligible": false,
+      "blocker": "No screened source passes welfare, marginal-pulse, separability, overlap, and reproducibility gates; coastal relocation is already in CIAM."
+    }
+  ],
+  "outputs": {
+    "ledger": "data/derived/master_damage_sector_ledger_v1.csv",
+    "overlap_matrix": "data/derived/overlap_matrix_v1.csv",
+    "priorities": "data/derived/next_step_priorities_v1.csv",
+    "manuscript_structure": "docs/MAIN_MANUSCRIPT_STRUCTURE.md",
+    "receipt": "data/provenance/master_damage_sector_ledger_receipt_v1.json",
+    "validation": "data/provenance/master_damage_sector_ledger_validation_v1.json"
+  }
+}

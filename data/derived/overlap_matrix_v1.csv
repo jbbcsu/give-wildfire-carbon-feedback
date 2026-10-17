@@ -1,0 +1,21 @@
+component_a,component_b,status,decision_rule
+precip_maize_quantity,labor_heat_productivity,mutually_exclusive_target_contracts,Do not stack until both are rerun in one agriculture-target model with the precipitation term treated as addition or replacement explicitly.
+fisheries_market,fisheries_combined_market_nutrition,alternative_nested_estimates,Never add; the combined estimate already contains the market component.
+fisheries_combined_market_nutrition,wildfire_smoke_pm25,unresolved_mortality_overlap,Nutrition mortality and smoke mortality require one joint cause-specific mortality attribution system.
+fisheries_combined_market_nutrition,conus_freshwater_quality,unresolved_service_overlap,Separate marine nutrition and market welfare from freshwater recreational fishing and nonuse values.
+wildfire_smoke_pm25,nonwildfire_air_pollution_net,physical_sources_disjoint_health_accounting_unresolved,Wildfire and nonwildfire emissions are disjoint but require one coherent PM mortality-risk function and joint draws.
+wildfire_smoke_pm25,GIVE_temperature_mortality,unresolved_mediator_overlap,Replace or decompose net all-cause temperature mortality before addition.
+nonwildfire_air_pollution_net,GIVE_temperature_mortality,unresolved_mediator_overlap,Replace or decompose net all-cause temperature mortality before addition.
+aggregate_water_resources,precip_full_replacement,unresolved_resource_overlap,Do not add aggregate water-resource damages to agriculture drought or irrigation costs without endpoint decomposition.
+aggregate_water_resources,conus_freshwater_quality,unresolved_service_overlap,Separate municipal supply costs from recreation and ecosystem willingness to pay.
+conus_heat_roads_rail,conus_inland_riverine_flood,conditionally_disjoint,Add only if Roads and Rail contain heat effects exclusively and flood property excludes transport infrastructure.
+conus_inland_riverine_flood,CIAM_coastal,physically_disjoint_with_boundary,Retain riverine property only; exclude coastal surge and high-tide flooding already in CIAM.
+conus_inland_riverine_flood,urban_pluvial_flooding,missing_complement,Current benchmark excludes pluvial and drainage damages; absence is not zero.
+conus_temperature_crime,GIVE_temperature_mortality,unresolved_valuation_overlap,Decompose violent-crime loss-of-life and injury values before addition.
+conus_temperature_crime,labor_heat_productivity,unresolved_indirect_cost_overlap,Remove lost work and indirect productivity costs from one endpoint.
+tropical_cyclone_macro,all_direct_damage_sectors,umbrella_macro_overlap,Use only as a mutually exclusive macro sensitivity until direct channels are decomposed.
+dengue_nonfatal_morbidity,GIVE_temperature_mortality,conditionally_disjoint,Restrict to nonfatal morbidity and exclude mortality before addition.
+dengue_nonfatal_morbidity,labor_heat_productivity,unresolved_productivity_overlap,Exclude lost wages and work capacity already captured in labor damages.
+noncoastal_climate_migration,CIAM_coastal,partially_covered,Exclude coastal relocation already valued by CIAM and isolate incremental noncoastal welfare costs.
+noncoastal_climate_migration,tropical_cyclone_macro,unresolved_macro_overlap,Do not add migration costs if they are embedded in persistent GDP-growth estimates.
+global_ecosystem_services,conus_freshwater_quality,nested_scope,Do not add a future global ecosystem total unless the CONUS freshwater endpoint is removed or explicitly nested once.

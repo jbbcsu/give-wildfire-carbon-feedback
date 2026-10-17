@@ -1,0 +1,15 @@
+# Cross-sector overlap matrix
+
+The machine-readable matrix is in `data/derived/overlap_matrix_v1.csv`. Its purpose is to decide whether endpoints may coexist in one SCC—not to judge whether each underlying study is credible.
+
+The highest-risk overlaps are:
+
+- **Agriculture:** the narrow precipitation quantity result and labor integration use different agriculture target contracts. The labor receipt expressly prohibits precipitation-agriculture stacking.
+- **Mortality:** wildfire smoke, nonwildfire air pollution, fisheries nutrition, dengue mortality, crime loss-of-life, and GIVE temperature mortality cannot be combined without cause-specific attribution and consistent risk functions.
+- **Broad macro responses:** tropical-cyclone persistent-growth effects can embed direct agriculture, labor, health, infrastructure, migration, and recovery channels. They are a mutually exclusive sensitivity unless decomposed.
+- **Water and ecosystems:** aggregate water resources can include agricultural, municipal, and ecosystem services. Freshwater-quality willingness to pay may include recreational fishing.
+- **Migration:** CIAM already includes coastal relocation costs. Only incremental noncoastal real-resource and nonpecuniary costs are missing.
+
+Resolved or conditionally separable boundaries include wildfire versus nonwildfire emissions, riverine flooding versus CIAM coastal flooding, and heat-only transport infrastructure versus riverine property damage. These physical boundaries still require compatible valuation and joint-run contracts before aggregation.
+
+No pair in the current release is authorized as a new cross-sector headline sum.

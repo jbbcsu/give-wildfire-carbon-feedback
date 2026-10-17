@@ -1,0 +1,87 @@
+#!/usr/bin/env python3
+
+from __future__ import annotations
+
+import copy
+import csv
+import json
+import sys
+import tempfile
+import unittest
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "scripts"))
+import build_master_ledger as builder
+import validate_master_ledger as validator
+
+CONFIG = ROOT / "config/master_ledger_v1.json"
+RECEIPT = ROOT / "data/provenance/master_damage_sector_ledger_receipt_v1.json"
+LEDGER = ROOT / "data/derived/master_damage_sector_ledger_v1.csv"
+
+
+class MasterLedgerTests(unittest.TestCase):
+    def test_build_inputs_and_rows(self):
+        config = builder.load_config(CONFIG)
+        payloads, bound = builder.load_evidence(ROOT, config)
+        rows = builder.build_rows(config, payloads)
+        self.assertEqual(len(bound), 21)
+        self.assertEqual(len(rows), 18)
+        self.assertFalse(any(row["master_total_eligible"] for row in rows))
+
+    def test_independent_validation_passes(self):
+        result = validator.validate(ROOT, CONFIG, RECEIPT)
+        self.assertEqual(result["status"], "passed_hash_bound_tiered_ledger_and_no_sum_gate")
+        self.assertFalse(result["headline_master_total_authorized"])
+
+    def test_headline_total_gate_cannot_open(self):
+        config = json.loads(CONFIG.read_text(encoding="utf-8"))
+        config["aggregation_policy"]["headline_master_total_authorized"] = True
+        with tempfile.TemporaryDirectory(dir=ROOT) as directory:
+            path = Path(directory) / "config.json"
+            path.write_text(json.dumps(config), encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "headline total gate opened"):
+                builder.load_config(path)
+
+    def test_component_total_gate_cannot_open(self):
+        config = json.loads(CONFIG.read_text(encoding="utf-8"))
+        config["rows"][0]["master_total_eligible"] = True
+        with tempfile.TemporaryDirectory(dir=ROOT) as directory:
+            path = Path(directory) / "config.json"
+            path.write_text(json.dumps(config), encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "master-total gate opened"):
+                builder.load_config(path)
+
+    def test_source_hash_tampering_fails(self):
+        config = builder.load_config(CONFIG)
+        changed = copy.deepcopy(config)
+        changed["evidence"]["labor_integration"]["sha256"] = "0" * 64
+        with self.assertRaisesRegex(ValueError, "evidence hash mismatch"):
+            builder.load_evidence(ROOT, changed)
+
+    def test_invented_blocked_value_fails(self):
+        with LEDGER.open(newline="", encoding="utf-8") as handle:
+            rows = list(csv.DictReader(handle))
+        changed = copy.deepcopy(rows)
+        next(row for row in changed if row["component_id"] == "dengue_nonfatal_morbidity")["central_value"] = "1.0"
+        with self.assertRaisesRegex(ValueError, "invented value"):
+            validator.validate_rows(changed)
+
+    def test_category_promotion_fails(self):
+        with LEDGER.open(newline="", encoding="utf-8") as handle:
+            rows = list(csv.DictReader(handle))
+        changed = copy.deepcopy(rows)
+        next(row for row in changed if row["component_id"] == "wildfire_smoke_pm25")["category"] = "integrated_pair_tested"
+        with self.assertRaisesRegex(ValueError, "category drift"):
+            validator.validate_rows(changed)
+
+    def test_tropical_cyclone_is_not_labeled_paired_quantile(self):
+        with LEDGER.open(newline="", encoding="utf-8") as handle:
+            rows = list(csv.DictReader(handle))
+        row = next(item for item in rows if item["component_id"] == "tropical_cyclone_macro")
+        self.assertEqual(row["statistic"], "difference_of_published_medians_not_paired_component_quantile")
+        self.assertFalse(row["master_total_eligible"] == "true")
+
+
+if __name__ == "__main__":
+    unittest.main()
