@@ -20,6 +20,16 @@ workbook, so neither release is silently preferred. See
 [`BLUE_SCC_FISHERIES_MC_BENCHMARK_20261017.md`](BLUE_SCC_FISHERIES_MC_BENCHMARK_20261017.md).
 These remain external published-model benchmarks, not additive GIVE results.
 
+The market-only route has now been traced through both source models and
+mechanically harmonized to GIVE's pulse year, per-tCO2 denominator, and exact
+2020 price basis. Its adjusted external sensitivity is $0.03761--$0.09625/tCO2
+(published Monte Carlo 5th--95th percentiles; median $0.06171). The executable
+target remains non-additive because the published terminal SCC cannot be
+rediscounted to GIVE, its PRTP support excludes the GIVE target, its draws are
+not coupled to GIVE, and multiplier-expanded profit is not direct consumer plus
+producer surplus. See
+[`FISHERIES_MARKET_GIVE_TARGET_20261017.md`](FISHERIES_MARKET_GIVE_TARGET_20261017.md).
+
 The validated 1990--1999 calibration / 2000--2014 prediction comparison does
 not support empirical probability weights for the four available FishMIP
 paths. No path beats the constant benchmark under the contract quality-status

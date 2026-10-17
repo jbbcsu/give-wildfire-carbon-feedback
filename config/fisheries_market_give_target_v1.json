@@ -1,0 +1,57 @@
+{
+  "contract_id": "fisheries_market_give_target_v1",
+  "source_benchmark_receipt": {
+    "relative_path": "data/provenance/blue_scc_fisheries_mc_benchmark_20261017.json",
+    "sha256": "dd0d8255eea7a164b753d8b043cae100d6be2450a3693e0da6393f0da62b5ff3"
+  },
+  "source_code": {
+    "blue_scc_commit": "dbc0d8cb21c81f1508abfaf9e5c0f5671ccdd83f",
+    "blue_scc_files": {
+      "Code/SCC/utils.py": "82995129d0a95113903bf16d4f40a3bc062579856c256107b9b010f52f3929f1",
+      "Code/SCC/make_mc_bat_files.py": "832201374785b3c24c8019db2a965c3f77598dd59e238392102c2a403ad12ec1"
+    },
+    "rice50x_commit": "f8e882b0ae237a2b93f3c1f50c669c3899b19a30",
+    "rice50x_files": {
+      "modules/mod_emission_pulse.gms": "187945e7cfa67fea5fa73d11c7320a87d71392a7b1e30d5210bc8045df929029",
+      "modules/core_welfare.gms": "a904ea240b80e454e1aaba57c473cba46841d73c022aa151db4a4a1538e9e3c1"
+    },
+    "give_files": {
+      "src/price_level_inflator.jl": "a00dbe1ca310b4f9e378e9ec7ae60bc1cbe6c99523d9eb6331bf6b8352fe96e9",
+      "src/discount_rates.jl": "90a5e00f3a7fda73a73029becf06d8d6cdce22eaa79c13469c984a7e2f6cda90",
+      "src/compute_scc.jl": "b76e4d696057a38677d68e406b81c9e2281593fa2da19f0349901dccba112bcf",
+      "packages/MimiGIVE/src/scc.jl": "c08634dd29f579f318ccd8f5fa5ac572aaa485fd84b7741d87ab30486651daf8"
+    }
+  },
+  "source_conventions": {
+    "pulse_year": 2020,
+    "pulse_size_tco2": 1000000.0,
+    "output_unit": "2020_USD_per_tCO2",
+    "deflator_2005_numerator": 113.647,
+    "deflator_2005_denominator": 87.504,
+    "deterministic_prtp": 0.015,
+    "deterministic_eta": 1.45,
+    "mc_prtp_min": 0.01,
+    "mc_prtp_max": 0.02,
+    "mc_eta_min": 1.1,
+    "mc_eta_max": 1.6
+  },
+  "give_target_conventions": {
+    "pulse_year": 2020,
+    "pulse_size_gtc": 0.0001,
+    "carbon_to_co2_ratio": 3.6666666666666665,
+    "output_unit": "2020_USD_per_tCO2",
+    "deflator_2005_numerator": 113.648,
+    "deflator_2005_denominator": 87.504,
+    "discount_label": "2.0%",
+    "prtp": 0.0019745879362491614,
+    "eta": 1.244458999
+  },
+  "accounting_boundary": {
+    "component": "fisheries_market_only",
+    "source_measure": "multiplier_expanded_projected_profit_gdp_fraction",
+    "required_give_measure": "direct_consumer_plus_producer_surplus",
+    "nutrition_mortality_included": false,
+    "aquaculture_included": false,
+    "gross_revenue_used": false
+  }
+}

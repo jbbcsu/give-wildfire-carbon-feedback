@@ -1,0 +1,50 @@
+{
+  "contract_id": "fisheries_market_give_target_v1",
+  "give_model_modified": false,
+  "give_scc_calculated": false,
+  "result": {
+    "harmonization": {
+      "discount_parameters_match": false,
+      "give_discount_target_inside_source_mc_support": false,
+      "give_pulse_tco2": 366666.6666666666,
+      "give_pulse_year": 2020,
+      "per_tco2_unit_factor": 1.0,
+      "per_tco2_unit_match": true,
+      "pulse_year_match": true,
+      "source_pulse_tco2": 1000000.0,
+      "source_pulse_year": 2020,
+      "source_to_give_price_basis_factor": 1.000008799176397,
+      "welfare_measure_match": false
+    },
+    "market_external_sensitivity_2020_usd_per_tco2": {
+      "published_deterministic": 0.054823964838708966,
+      "published_mc_median": 0.0617078215811978,
+      "published_mc_p05": 0.03760752753105917,
+      "published_mc_p95": 0.09625279997001487
+    },
+    "nutrition_nonmarket": {
+      "included_in_market_sensitivity": false,
+      "overlap_status": "unresolved_with_give_mortality",
+      "role": "nonadditive_literature_bound"
+    },
+    "target_interface": {
+      "additive_eligible": false,
+      "annual_damage_path_available": false,
+      "component": "fisheries_market_only",
+      "draw_coupling_available": false,
+      "reason_codes": [
+        "discount_parameters_not_matched",
+        "give_discount_target_outside_joint_mc_support",
+        "profit_output_multiplier_is_not_direct_consumer_plus_producer_surplus",
+        "terminal_scc_has_no_annual_damage_path",
+        "source_pulse_linearity_not_tested",
+        "source_draws_not_coupled_to_give_climate_or_socioeconomic_draws",
+        "source_repository_has_no_explicit_root_license"
+      ],
+      "value_role": "external_terminal_scc_sensitivity"
+    }
+  },
+  "schema": "fisheries_market_give_target_audit_v1",
+  "source_rows_copied": false,
+  "status": "passed_mechanical_harmonization_nonadditive"
+}
