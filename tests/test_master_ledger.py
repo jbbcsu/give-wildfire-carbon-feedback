@@ -25,8 +25,8 @@ class MasterLedgerTests(unittest.TestCase):
         config = builder.load_config(CONFIG)
         payloads, bound = builder.load_evidence(ROOT, config)
         rows = builder.build_rows(config, payloads)
-        self.assertEqual(len(bound), 35)
-        self.assertEqual(len(rows), 25)
+        self.assertEqual(len(bound), 38)
+        self.assertEqual(len(rows), 26)
         self.assertFalse(any(row["master_total_eligible"] for row in rows))
 
     def test_independent_validation_passes(self):
@@ -157,6 +157,16 @@ class MasterLedgerTests(unittest.TestCase):
         self.assertGreater(receipt["continuous_duration_source_issue"]["legacy_overshoot_GtCO2"], 0)
         self.assertFalse(receipt["continuous_duration_source_issue"]["stock_conserving_gate_passed"])
         self.assertFalse(receipt["combined_epa_uplift_used"])
+
+    def test_forestry_is_legacy_external_benefit_not_additive(self):
+        config = builder.load_config(CONFIG)
+        payloads, _ = builder.load_evidence(ROOT, config)
+        row = builder.extract("global_forestry_market_welfare", payloads)
+        self.assertAlmostEqual(row["central_value"], -0.0769529710606, places=14)
+        self.assertAlmostEqual(row["interval_low"], -0.154557057073, places=14)
+        self.assertAlmostEqual(row["interval_high"], -0.037064745818, places=14)
+        self.assertIn("not_probability_interval", row["statistic"])
+        self.assertFalse(payloads["forestry_market_contract"]["additive_to_GIVE"])
 
 
 if __name__ == "__main__":

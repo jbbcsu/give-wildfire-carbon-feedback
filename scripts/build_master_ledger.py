@@ -46,8 +46,8 @@ def load_config(path: Path) -> dict[str, Any]:
     policy = config["aggregation_policy"]
     require(policy["headline_master_total_authorized"] is False, "headline total gate opened")
     require(policy["currently_compatible_component_sets"] == [], "unverified compatible set added")
-    require(len(config["rows"]) == 25, "expected 25 audited ledger rows")
-    require(len({row["component_id"] for row in config["rows"]}) == 25, "duplicate component ID")
+    require(len(config["rows"]) == 26, "expected 26 audited ledger rows")
+    require(len({row["component_id"] for row in config["rows"]}) == 26, "duplicate component ID")
     for row in config["rows"]:
         require(row["category"] in allowed, f"bad category: {row['component_id']}")
         require(row["master_total_eligible"] is False, f"master-total gate opened: {row['component_id']}")
@@ -350,6 +350,39 @@ def extract(component_id: str, p: dict[str, Any]) -> dict[str, Any]:
                 validation["checks"]["scc_not_authorized"] is True,
                 "Amazon independent validation failed")
         return empty_result(receipt["status"])
+    if component_id == "global_forestry_market_welfare":
+        contract = p["forestry_market_contract"]
+        summary = {row["metric"]: row for row in p["forestry_market_summary"]}
+        sensitivity = {row["scenario"]: row for row in p["forestry_market_sensitivity"]}
+        required_gates = {
+            "documentation_code_coefficient_discrepancy",
+            "legacy_ecological_and_market_calibration",
+            "unresolved_overlap_with_future_forest_disturbance_modules",
+            "not_rebased_to_GIVE_socioeconomic_and_climate_paths",
+        }
+        require(contract["status"] == "external_legacy_benchmark_only",
+                "forestry benchmark status changed")
+        require(contract["additive_to_GIVE"] is False, "forestry additivity gate opened")
+        require(set(contract["blocking_gates"]) == required_gates,
+                "forestry blocking-gate inventory changed")
+        require(contract["endpoint"] == "change_in_consumer_and_producer_surplus" and
+                contract["geography"] == "global_16_FUND_regions" and
+                contract["pulse_year"] == 2025,
+                "forestry target contract changed")
+        central = float(summary["central_fixed_0p020_2020usd"]["value"])
+        oat_values = [float(row["scc_2020_usd_per_tco2"]) for name, row in sensitivity.items()
+                      if name != "central"]
+        require(abs(central - float(sensitivity["central"]["scc_2020_usd_per_tco2"])) < 1e-15,
+                "forestry central result mismatch")
+        require(abs(min(oat_values) - (-0.154557057073)) < 1e-15 and
+                abs(max(oat_values) - (-0.037064745818)) < 1e-15,
+                "forestry OAT diagnostic range changed")
+        return {"central_value": central, "interval_low": min(oat_values),
+                "interval_high": max(oat_values),
+                "statistic": "central_with_OAT_source_parameter_range_not_probability_interval",
+                "units": "2020 USD per metric ton CO2", "pulse_year": 2025,
+                "discounting": "fixed 2% through 2300 under MimiFUND paths",
+                "source_status": contract["status"]}
     raise ValueError(f"no extractor for {component_id}")
 
 

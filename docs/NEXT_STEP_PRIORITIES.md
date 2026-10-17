@@ -26,4 +26,6 @@ Permafrost remains a feedback-integration problem rather than a damage-sector sc
 
 Amazon dieback likewise remains a recursive feedback-readiness track. The next milestone must resolve generic FaIR land-sink and baseline land-use overlap, update or bound the GMST-only hazard using precipitation, drought, fire, deforestation, and other drivers, apply the tested stock-conserving final installment, and validate historical conditioning and common-random baseline/pulse behavior. META's 0.1% result and combined EPA feedback uplifts are not transferable scalars.
 
+Forestry's reproduced -$0.076953/tCO2 legacy benefit is useful for scale and sign checking only. The one-at-a-time range is not an uncertainty interval. A production module needs current multi-model forest-supply shocks, an open market model, matched GIVE paths, resolution of the MimiFUND coefficient conflict, and explicit separation from fire, pests, storms, forest carbon, and nonmarket services.
+
 Priority reflects expected scientific value times readiness, with overlap risk and required computation treated as costs. It is not a ranking of true damage magnitudes.

@@ -40,6 +40,7 @@ EXPECTED = {
     "freshwater_recreational_angling": ("blocked_nonadditive", None),
     "permafrost_carbon_feedback": ("blocked_nonadditive", None),
     "amazon_dieback_carbon_feedback": ("blocked_nonadditive", None),
+    "global_forestry_market_welfare": ("external_sensitivity", -0.0769529710606),
 }
 
 
@@ -70,7 +71,7 @@ def validate_rows(rows: list[dict[str, str]]) -> None:
             require(math.isclose(float(row["central_value"]), expected_value, rel_tol=0, abs_tol=1e-12),
                     f"numeric value drift: {row['component_id']}")
     require(Counter(row["category"] for row in rows) == Counter({
-        "integrated_pair_tested": 2, "external_sensitivity": 4,
+        "integrated_pair_tested": 2, "external_sensitivity": 5,
         "bounded_regional_benchmark": 4, "blocked_nonadditive": 14,
         "mutually_exclusive_comparator": 1,
     }), "category counts changed")
@@ -99,6 +100,18 @@ def validate_rows(rows: list[dict[str, str]]) -> None:
     }, "Amazon feedback incompatibility inventory changed")
     require("0.1%" in amazon["blocker"] and "prohibited" in amazon["blocker"],
             "META scalar prohibition missing")
+    forestry = next(row for row in rows if row["component_id"] == "global_forestry_market_welfare")
+    require(forestry["source_status"] == "external_legacy_benchmark_only",
+            "forestry source status changed")
+    require(forestry["statistic"] == "central_with_OAT_source_parameter_range_not_probability_interval",
+            "forestry OAT range misclassified")
+    require(math.isclose(float(forestry["interval_low"]), -0.154557057073, rel_tol=0, abs_tol=1e-15) and
+            math.isclose(float(forestry["interval_high"]), -0.037064745818, rel_tol=0, abs_tol=1e-15),
+            "forestry OAT diagnostic range changed")
+    require(set(forestry["incompatibility_codes"].split("|")) == {
+        "SOURCE_COEFFICIENT_CONFLICT", "LEGACY_CALIBRATION", "FUND_GIVE_SCENARIO_MISMATCH",
+        "FOREST_DISTURBANCE_OVERLAP",
+    }, "forestry incompatibility inventory changed")
 
 
 def validate(root: Path, config_path: Path, receipt_path: Path) -> dict[str, Any]:
@@ -127,7 +140,7 @@ def validate(root: Path, config_path: Path, receipt_path: Path) -> dict[str, Any
     require(receipt["config"]["sha256"] == sha256(config_path), "config hash mismatch")
     require(receipt["headline_master_total"] is None, "headline total invented")
     require(receipt["headline_master_total_authorized"] is False, "headline total authorized")
-    require(receipt["numeric_row_count"] == 15 and receipt["row_count"] == 25, "receipt counts changed")
+    require(receipt["numeric_row_count"] == 16 and receipt["row_count"] == 26, "receipt counts changed")
 
     ledger = root / receipt["output"]["path"]
     require(sha256(ledger) == receipt["output"]["sha256"], "ledger hash mismatch")
@@ -161,7 +174,7 @@ def validate(root: Path, config_path: Path, receipt_path: Path) -> dict[str, Any
     overlap_path = root / config["outputs"]["overlap_matrix"]
     with overlap_path.open(newline="", encoding="utf-8") as handle:
         overlap = list(csv.DictReader(handle))
-    require(len(overlap) == 39, "overlap matrix row count changed")
+    require(len(overlap) == 42, "overlap matrix row count changed")
     require(all(row["status"] and row["decision_rule"] for row in overlap), "incomplete overlap row")
     require(any(row["status"] == "umbrella_macro_overlap" for row in overlap), "macro-overlap gate missing")
     require(any(row["status"] == "mutually_exclusive_target_contracts" for row in overlap),
@@ -178,11 +191,16 @@ def validate(root: Path, config_path: Path, receipt_path: Path) -> dict[str, Any
         "unresolved_feedback_boundary", "unresolved_baseline_land_use_boundary",
         "unresolved_interacting_hazard_boundary",
     }, "Amazon overlap rule changed")
+    forestry_overlap = [row for row in overlap if row["component_a"] == "global_forestry_market_welfare"]
+    require(len(forestry_overlap) == 3, "forestry overlap inventory changed")
+    require({row["status"] for row in forestry_overlap} == {
+        "unresolved_disturbance_overlap", "shared_physical_state_boundary", "conditionally_disjoint_valuation",
+    }, "forestry overlap rule changed")
 
     priority_path = root / config["outputs"]["priorities"]
     with priority_path.open(newline="", encoding="utf-8") as handle:
         priorities = list(csv.DictReader(handle))
-    require([int(row["priority"]) for row in priorities] == list(range(1, 18)), "priority order changed")
+    require([int(row["priority"]) for row in priorities] == list(range(1, 19)), "priority order changed")
     require(priorities[0]["workstream"] == "Joint target model and endpoint registry",
             "joint target no longer first priority")
 
@@ -197,11 +215,11 @@ def validate(root: Path, config_path: Path, receipt_path: Path) -> dict[str, Any
         "schema": "give_damage_expansion_master_ledger_validation/v1",
         "created_at_utc": datetime.now(timezone.utc).isoformat(),
         "status": "passed_hash_bound_tiered_ledger_and_no_sum_gate",
-        "checks_passed": 221,
-        "rows_validated": 25,
+        "checks_passed": 244,
+        "rows_validated": 26,
         "scenario_benchmark_rows_validated": 4,
-        "overlap_rows_validated": 39,
-        "priority_rows_validated": 17,
+        "overlap_rows_validated": 42,
+        "priority_rows_validated": 18,
         "headline_master_total_authorized": False,
         "inputs": {
             "config_sha256": sha256(config_path), "receipt_sha256": sha256(receipt_path),
