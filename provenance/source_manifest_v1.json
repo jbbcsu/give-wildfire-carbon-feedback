@@ -1,0 +1,34 @@
+{
+  "schema": "inland_flood_source_manifest/v1",
+  "created": "2026-10-17",
+  "fredi": {
+    "repository": "https://github.com/USEPA/FrEDI",
+    "tag": "v4.1.1",
+    "commit": "08ead1b64821acd0ff0ee95fdf662a1a73f242e1",
+    "license": "MIT with EPA disclaimer",
+    "release": "https://github.com/USEPA/FrEDI/releases/tag/v4.1.1"
+  },
+  "fredi_data": {
+    "repository": "https://github.com/USEPA/FrEDI_Data",
+    "commit": "b506a3e0085bb446f56acc8c7076a1aea599fbb6",
+    "license": "MIT",
+    "file": "inst/extdata/fredi/gcm/InlandFlooding_scaledimpacts.csv",
+    "sha256": "fd5d48db14eca08ab2246dfa5dbb37f38c01b6f88fb8ebb791e0aeecb0c3426a"
+  },
+  "official_documentation": [
+    "https://www.epa.gov/system/files/documents/2024-08/technical-documentation-for-fredi_aug2024.pdf",
+    "https://www.epa.gov/system/files/documents/2024-08/technical-documentation-for-fredi_appendices_aug2024.pdf"
+  ],
+  "underlying_peer_reviewed_studies": [
+    {"citation": "Wobus et al. (2019), Earth's Future 7:516-527", "doi": "10.1029/2018EF001119"},
+    {"citation": "Wobus et al. (2021), Environmental Research Letters 16:084034", "doi": "10.1088/1748-9326/ac1bd7"}
+  ],
+  "runtime_alignment_check": {
+    "method": "Compared the pinned CSV to FrEDI v4.1.1 sysdata.rda on sector, postal, model, and modelUnitValue using R 4.4.2.",
+    "rows": 245,
+    "jurisdictions": 49,
+    "unmatched_rows": 0,
+    "max_abs_value_difference": 0.0
+  }
+}
+

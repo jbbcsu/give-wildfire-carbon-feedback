@@ -1,0 +1,74 @@
+{
+  "schema": "inland_flood_scc_contract/v1",
+  "scope": {
+    "geography": "CONUS: 48 contiguous states plus District of Columbia",
+    "endpoint": "climate-attributable expected annual riverine-flood property damage",
+    "included": ["riverine flooding", "property damage"],
+    "excluded": [
+      "coastal surge and sea-level rise",
+      "pluvial flooding and urban drainage",
+      "roads and rail",
+      "mortality and morbidity",
+      "business interruption",
+      "agriculture",
+      "global extrapolation"
+    ]
+  },
+  "sources": {
+    "fredi_table": {
+      "path": "data/reference/InlandFlooding_scaledimpacts.csv",
+      "sha256": "fd5d48db14eca08ab2246dfa5dbb37f38c01b6f88fb8ebb791e0aeecb0c3426a",
+      "repository": "https://github.com/USEPA/FrEDI_Data",
+      "commit": "b506a3e0085bb446f56acc8c7076a1aea599fbb6",
+      "upstream_path": "inst/extdata/fredi/gcm/InlandFlooding_scaledimpacts.csv",
+      "license": "MIT"
+    },
+    "give_pair": {
+      "path": "data/interim/give_temperature_pair_20261017.csv",
+      "sha256": "0e0a7a4e430b5dc7675d8d211f57abbddd0c8012e0535a595b86a3482f7f9e4e",
+      "pulse_year": 2025,
+      "pulse_size_gtc": 0.0001,
+      "conus_multiplier": 1.421,
+      "temperature_reference_year": 1995,
+      "discount_rate_label": "2.0% Ramsey"
+    },
+    "price_source": {
+      "path": "data/reference/fred_GDPDEF_annual_average_2015_2020.csv",
+      "sha256": "239ce3cb035cf17bdd05aa17f6cbd8c02dc82a3163f5d8a78be4972b7e165047",
+      "series": "GDPDEF",
+      "source_agency": "U.S. Bureau of Economic Analysis",
+      "provider": "Federal Reserve Bank of St. Louis FRED",
+      "values": {"2015": 97.315, "2020": 105.362}
+    }
+  },
+  "response": {
+    "model": "GCM Ensemble",
+    "warming_knots_c": [0, 1, 2, 3, 4, 5],
+    "zero_damage_anchor": [0, 0],
+    "interpolation": "piecewise linear",
+    "extrapolation": "linear continuation of last segment, matching FrEDI v4.1.1 runtime",
+    "released_parametric_or_gcm_uncertainty": false,
+    "property_values": "held constant by the underlying study",
+    "adaptation": "no additional adaptation beyond currently implemented protection"
+  },
+  "give_target": {
+    "price_year": 2020,
+    "pulse_size_metric_tonnes_co2": 366666.6666666667,
+    "primary_horizon": 2300,
+    "bounded_horizons": [2092, 2246]
+  },
+  "outputs": {
+    "annual_national": "data/derived/inland_flood_annual_pair_v1.csv",
+    "summary": "results/inland_flood_partial_scc_summary_v1.csv",
+    "by_state": "results/inland_flood_partial_scc_by_state_v1.csv",
+    "receipt": "provenance/inland_flood_partial_scc_receipt_v1.json",
+    "validation": "provenance/inland_flood_partial_scc_validation_v1.json"
+  },
+  "claim_gates": {
+    "conus_partial_scc_authorized": true,
+    "global_scc_authorized": false,
+    "pluvial_flooding_included": false,
+    "cross_sector_additivity_authorized": true,
+    "condition_for_additivity": "Only when CIAM coastal damages, FrEDI Roads/Rail, urban drainage, and other listed exclusions are not duplicated."
+  }
+}

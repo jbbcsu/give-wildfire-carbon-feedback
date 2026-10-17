@@ -1,0 +1,57 @@
+{
+  "claim_gates": {
+    "condition_for_additivity": "Only when CIAM coastal damages, FrEDI Roads/Rail, urban drainage, and other listed exclusions are not duplicated.",
+    "conus_partial_scc_authorized": true,
+    "cross_sector_additivity_authorized": true,
+    "global_scc_authorized": false,
+    "pluvial_flooding_included": false
+  },
+  "config": {
+    "path": "config/inland_flood_scc_v1.json",
+    "sha256": "b21c1cdb6caa7bfe88388a4167ca7cbb37641aebdf0b1b0b59ff3355f660d649"
+  },
+  "created_at_utc": "2026-10-17T14:36:28.133715+00:00",
+  "inputs": {
+    "fredi_table": {
+      "path": "data/reference/InlandFlooding_scaledimpacts.csv",
+      "sha256": "fd5d48db14eca08ab2246dfa5dbb37f38c01b6f88fb8ebb791e0aeecb0c3426a"
+    },
+    "give_pair": {
+      "path": "data/interim/give_temperature_pair_20261017.csv",
+      "sha256": "0e0a7a4e430b5dc7675d8d211f57abbddd0c8012e0535a595b86a3482f7f9e4e"
+    },
+    "price_source": {
+      "path": "data/reference/fred_GDPDEF_annual_average_2015_2020.csv",
+      "sha256": "239ce3cb035cf17bdd05aa17f6cbd8c02dc82a3163f5d8a78be4972b7e165047"
+    }
+  },
+  "last_year_within_released_0_5c_response": 2246,
+  "outputs": {
+    "annual_national": {
+      "path": "data/derived/inland_flood_annual_pair_v1.csv",
+      "rows": 276,
+      "sha256": "b655a4c0fb0829d40fb975ffe8e85b47dc7591b0ef67f92865d8fbf4d7936c8a"
+    },
+    "by_state": {
+      "path": "results/inland_flood_partial_scc_by_state_v1.csv",
+      "rows": 49,
+      "sha256": "c8ae673f882f2c156879bcce5328705d50d9747ebd7e262f529a01029db5bc69"
+    },
+    "summary": {
+      "path": "results/inland_flood_partial_scc_summary_v1.csv",
+      "rows": 3,
+      "sha256": "cbbee59781c56a022aa6dbaabd5664cad8c33d5597bef435cdc699f5116326dd"
+    }
+  },
+  "peak_rss_mib": 25.875,
+  "price_conversion_2015_to_2020": "1.082690232749319221086163489698402096285",
+  "released_uncertainty": "none: EPA table contains one GCM Ensemble surface and no parametric draws",
+  "schema": "inland_flood_partial_scc_receipt/v1",
+  "spatial_heterogeneity_not_uncertainty": {
+    "median": "0.000125630133",
+    "negative_state_count": 4,
+    "p05": "-0.000008321580",
+    "p95": "0.001216888123"
+  },
+  "status": "CONUS_partial_SCC_benchmark"
+}
