@@ -133,6 +133,10 @@
       "path": "../education_heat_scc/provenance/education_heat_readiness_receipt_v1.json",
       "sha256": "8718bba2a8dfe687020854fa0f78f906341831be271278ed681fd98fac1803b2"
     },
+    "freshwater_angling_readiness": {
+      "path": "../freshwater_angling_scc/provenance/freshwater_angling_readiness_receipt_v1.json",
+      "sha256": "b533b2e75d8de3b1b8d810286d2be960da2de8e90cc7f112fee4e984db3cb1b5"
+    },
     "migration_readiness": {
       "path": "../migration_scc/results/migration_readiness_result_v1.json",
       "sha256": "2918190684fee8cfb8ac6267bf8f0737bbbcc278ec54a4f7c024741a76dc5410"
@@ -359,12 +363,23 @@
       "value_role": "source-verified readiness scaffold; no SCC",
       "master_total_eligible": false,
       "blocker": "No separable welfare or direct-resource valuation, matched marginal school-day climate response, or validated global transfer exists. Lifetime-income conversion is unauthorized and would overlap labor and macro damages; air-conditioning costs can overlap GIVE energy damages."
+    },
+    {
+      "component_id": "freshwater_recreational_angling",
+      "sector": "freshwater fisheries and recreation",
+      "category": "blocked_nonadditive",
+      "evidence_ids": ["freshwater_angling_readiness"],
+      "scope": "CONUS CIRA II freshwater angling consumer-surplus scenario NPVs",
+      "value_role": "original-unit scenario benchmark only; no SCC",
+      "master_total_eligible": false,
+      "blocker": "Published outputs are RCP/era scenario NPVs rather than annual matched marginal-pulse paths, and the angling service overlaps FrEDI water-quality recreation willingness to pay."
     }
   ],
   "outputs": {
     "ledger": "data/derived/master_damage_sector_ledger_v1.csv",
     "overlap_matrix": "data/derived/overlap_matrix_v1.csv",
     "priorities": "data/derived/next_step_priorities_v1.csv",
+    "scenario_benchmarks": "data/derived/non_scc_scenario_benchmarks_v1.csv",
     "manuscript_structure": "docs/MAIN_MANUSCRIPT_STRUCTURE.md",
     "receipt": "data/provenance/master_damage_sector_ledger_receipt_v1.json",
     "validation": "data/provenance/master_damage_sector_ledger_validation_v1.json"

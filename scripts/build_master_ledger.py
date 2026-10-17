@@ -46,8 +46,8 @@ def load_config(path: Path) -> dict[str, Any]:
     policy = config["aggregation_policy"]
     require(policy["headline_master_total_authorized"] is False, "headline total gate opened")
     require(policy["currently_compatible_component_sets"] == [], "unverified compatible set added")
-    require(len(config["rows"]) == 22, "expected 22 audited ledger rows")
-    require(len({row["component_id"] for row in config["rows"]}) == 22, "duplicate component ID")
+    require(len(config["rows"]) == 23, "expected 23 audited ledger rows")
+    require(len({row["component_id"] for row in config["rows"]}) == 23, "duplicate component ID")
     for row in config["rows"]:
         require(row["category"] in allowed, f"bad category: {row['component_id']}")
         require(row["master_total_eligible"] is False, f"master-total gate opened: {row['component_id']}")
@@ -274,6 +274,17 @@ def extract(component_id: str, p: dict[str, Any]) -> dict[str, Any]:
                 "education lifetime-income conversion gate opened")
         require(source["scc_output_created"] is False, "education SCC unexpectedly produced")
         return empty_result(source["status"])
+    if component_id == "freshwater_recreational_angling":
+        source = p["freshwater_angling_readiness"]
+        required_failures = {
+            "annual_damage_path_available", "global_transfer_validated", "matched_marginal_pulse_available",
+            "open_turnkey_integrated_model", "sampling_and_structural_uncertainty_propagatable",
+            "stocking_management_and_access_resolved", "water_quality_recreation_overlap_resolved",
+        }
+        require(set(source["failed_gates"]) == required_failures, "freshwater angling gate inventory changed")
+        require(source["give_addition_authorized"] is False, "freshwater angling additivity gate opened")
+        require(source["scc_output_created"] is False, "freshwater angling SCC unexpectedly produced")
+        return empty_result(source["status"])
     raise ValueError(f"no extractor for {component_id}")
 
 
@@ -305,12 +316,37 @@ def write_csv(path: Path, rows: list[dict[str, Any]]) -> None:
     temp.replace(path)
 
 
+def write_scenario_benchmarks(path: Path, payloads: dict[str, Any]) -> None:
+    source = payloads["freshwater_angling_readiness"]
+    fields = ["component_id", "fishing_scope", "scenario", "value", "units", "metric", "is_scc", "additive_to_give"]
+    rows = []
+    for key, value in sorted(source["reported_five_gcm_average_million_2015usd"].items()):
+        fishing_scope, scenario = key.split("|")
+        rows.append({
+            "component_id": "freshwater_recreational_angling", "fishing_scope": fishing_scope,
+            "scenario": scenario, "value": value, "units": "million 2015 USD",
+            "metric": "published five-GCM average consumer-surplus scenario NPV",
+            "is_scc": False, "additive_to_give": False,
+        })
+    require(len(rows) == 4, "expected four freshwater angling scenario benchmarks")
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temp = path.with_suffix(path.suffix + ".partial")
+    with temp.open("w", newline="", encoding="utf-8") as handle:
+        writer = csv.DictWriter(handle, fieldnames=fields, lineterminator="\n")
+        writer.writeheader()
+        for row in rows:
+            writer.writerow({key: str(value).lower() if isinstance(value, bool) else value for key, value in row.items()})
+    temp.replace(path)
+
+
 def build(root: Path, config_path: Path) -> dict[str, Any]:
     config = load_config(config_path)
     payloads, bound = load_evidence(root, config)
     rows = build_rows(config, payloads)
     ledger = root / config["outputs"]["ledger"]
     write_csv(ledger, rows)
+    scenario_benchmarks = root / config["outputs"]["scenario_benchmarks"]
+    write_scenario_benchmarks(scenario_benchmarks, payloads)
     counts = Counter(row["category"] for row in rows)
     return {
         "schema": "give_damage_expansion_master_ledger_receipt/v1",
@@ -323,6 +359,10 @@ def build(root: Path, config_path: Path) -> dict[str, Any]:
         "headline_master_total_authorized": False,
         "bound_evidence": bound,
         "output": {"path": config["outputs"]["ledger"], "sha256": sha256(ledger), "bytes": ledger.stat().st_size},
+        "scenario_benchmark_output": {"path": config["outputs"]["scenario_benchmarks"],
+                                      "sha256": sha256(scenario_benchmarks),
+                                      "bytes": scenario_benchmarks.stat().st_size,
+                                      "is_scc": False, "additive_to_give": False},
         "config": {"path": str(config_path.relative_to(root)), "sha256": sha256(config_path)},
     }
 

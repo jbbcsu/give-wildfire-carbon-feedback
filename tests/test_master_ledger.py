@@ -25,8 +25,8 @@ class MasterLedgerTests(unittest.TestCase):
         config = builder.load_config(CONFIG)
         payloads, bound = builder.load_evidence(ROOT, config)
         rows = builder.build_rows(config, payloads)
-        self.assertEqual(len(bound), 29)
-        self.assertEqual(len(rows), 22)
+        self.assertEqual(len(bound), 30)
+        self.assertEqual(len(rows), 23)
         self.assertFalse(any(row["master_total_eligible"] for row in rows))
 
     def test_independent_validation_passes(self):
@@ -121,6 +121,16 @@ class MasterLedgerTests(unittest.TestCase):
         source = payloads["education_heat_readiness"]
         self.assertFalse(source["scc_output_created"])
         self.assertFalse(source["lifetime_income_conversion_authorized"])
+
+    def test_freshwater_angling_scenarios_are_not_scc(self):
+        config = builder.load_config(CONFIG)
+        payloads, _ = builder.load_evidence(ROOT, config)
+        row = builder.extract("freshwater_recreational_angling", payloads)
+        self.assertEqual(row["central_value"], "")
+        source = payloads["freshwater_angling_readiness"]
+        self.assertFalse(source["scc_output_created"])
+        self.assertFalse(source["give_addition_authorized"])
+        self.assertEqual(source["reported_five_gcm_average_million_2015usd"]["coldwater_fishing|RCP8.5"], -100000.0)
 
 
 if __name__ == "__main__":

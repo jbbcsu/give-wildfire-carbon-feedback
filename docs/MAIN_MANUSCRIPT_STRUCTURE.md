@@ -73,7 +73,7 @@ Explain human decisions that remain essential: endpoint ownership, acceptable we
 
 ### 5.4 Blocked and negative results
 
-- Air pollution, grid transmission/distribution direct costs, winter-recreation revenue, heat morbidity, education and human capital, global ecosystem services, armed conflict, dengue, and noncoastal migration.
+- Air pollution, grid transmission/distribution direct costs, winter-recreation revenue, heat morbidity, education and human capital, freshwater angling, global ecosystem services, armed conflict, dengue, and noncoastal migration.
 - Show that “blocked” means insufficient separability or transfer evidence, not zero damage.
 
 ### 5.5 Mutually exclusive top-down comparator

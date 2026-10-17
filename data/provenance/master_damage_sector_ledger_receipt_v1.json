@@ -55,6 +55,11 @@
       "path": "../inland_flood_scc/results/inland_flood_partial_scc_summary_v1.csv",
       "sha256": "cbbee59781c56a022aa6dbaabd5664cad8c33d5597bef435cdc699f5116326dd"
     },
+    "freshwater_angling_readiness": {
+      "bytes": 925,
+      "path": "../freshwater_angling_scc/provenance/freshwater_angling_readiness_receipt_v1.json",
+      "sha256": "b533b2e75d8de3b1b8d810286d2be960da2de8e90cc7f112fee4e984db3cb1b5"
+    },
     "grid_td_receipt": {
       "bytes": 2174,
       "path": "../grid_reliability_scc/provenance/grid_td_partial_scc_receipt_v1.json",
@@ -147,7 +152,7 @@
     }
   },
   "category_counts": {
-    "blocked_nonadditive": 11,
+    "blocked_nonadditive": 12,
     "bounded_regional_benchmark": 4,
     "external_sensitivity": 4,
     "integrated_pair_tested": 2,
@@ -155,18 +160,25 @@
   },
   "config": {
     "path": "config/master_ledger_v1.json",
-    "sha256": "87af9f6f2799502fff3753500c38b2db171f4b12ac3504443761cb217d1584b1"
+    "sha256": "1a8e54a2cca988104ae4ba3f78767e2fd8fb68bddfaf57a1bb50d18b5b195f45"
   },
-  "created_at_utc": "2026-10-17T14:57:57.321215+00:00",
+  "created_at_utc": "2026-10-17T15:00:18.181662+00:00",
   "headline_master_total": null,
   "headline_master_total_authorized": false,
   "numeric_row_count": 15,
   "output": {
-    "bytes": 10964,
+    "bytes": 11455,
     "path": "data/derived/master_damage_sector_ledger_v1.csv",
-    "sha256": "857595d7ddbfb5afab88aec96acfa824ecbe55e528c3dd05db53be38fa0408bb"
+    "sha256": "0593035c21267eda44501895d95adaedae4d914754a9825de79ba1f4f983e04e"
   },
-  "row_count": 22,
+  "row_count": 23,
+  "scenario_benchmark_output": {
+    "additive_to_give": false,
+    "bytes": 676,
+    "is_scc": false,
+    "path": "data/derived/non_scc_scenario_benchmarks_v1.csv",
+    "sha256": "98fa2cd68c5664beecf4f5acfc9e7257075013a3fdbbc1664350b7bca3b94d7b"
+  },
   "schema": "give_damage_expansion_master_ledger_receipt/v1",
   "status": "master_ledger_built_no_cross_sector_total_authorized"
 }

@@ -20,4 +20,6 @@ The Bilal–Känzig top-down macro result should be maintained as a separate com
 
 Education heat should remain a readiness track until a direct resource or consumer-welfare endpoint and matched school-day marginal climate path are available. Lifetime-earnings conversion is not a shortcut because it duplicates labor and macro channels; air-conditioning adaptation costs must also be separated from existing energy damages.
 
+Freshwater angling should retain the four published CIRA II consumer-surplus NPVs only as original-unit scenario benchmarks. A future marginal module needs annual matched-pulse paths and must remove or jointly model the angling service already present in FrEDI freshwater recreation.
+
 Priority reflects expected scientific value times readiness, with overlap risk and required computation treated as costs. It is not a ranking of true damage magnitudes.
